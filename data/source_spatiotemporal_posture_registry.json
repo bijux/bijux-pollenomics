@@ -30,7 +30,10 @@
       },
       "caveats": [
         "REVEALS windows are modeled vegetation estimates, not sample-owned chronologies."
-      ]
+      ],
+      "capability_contract_path": "data/source_family_contracts.json",
+      "capability_materialization_audit_path": "data/source_family_evidence_stage_matrix.json",
+      "capability_and_materialization_are_independent": true
     },
     {
       "source_key": "neotoma",
@@ -57,7 +60,10 @@
       "caveats": [
         "Numeric BP site spans are available, but the checked-in raw capture does not currently include chronology rows for the same Sweden-facing site family.",
         "Some checked-in Neotoma sites remain spatial context only because they do not carry publishable BP age ranges."
-      ]
+      ],
+      "capability_contract_path": "data/source_family_contracts.json",
+      "capability_materialization_audit_path": "data/source_family_evidence_stage_matrix.json",
+      "capability_and_materialization_are_independent": true
     },
     {
       "source_key": "sead",
@@ -76,15 +82,18 @@
       "distance_scoring_note": "Use SEAD to measure archaeology context around lakes; do not treat it as same-period support unless numeric intervals are explicitly present.",
       "availability_status": "available_with_limitations",
       "refusal_reasons": [],
-      "record_count": 2172,
-      "numeric_interval_record_count": 9380,
+      "record_count": 2069,
+      "numeric_interval_record_count": 8184,
       "detail_metrics": {
-        "unresolved_site_count": 1268,
-        "captured_chronology_record_count": 27002,
-        "mapped_temporal_feature_count": 9380,
-        "mapped_chronology_record_count": 26556
+        "unresolved_site_count": 1216,
+        "captured_chronology_record_count": 25109,
+        "mapped_temporal_feature_count": 8184,
+        "mapped_chronology_record_count": 14324
       },
-      "caveats": []
+      "caveats": [],
+      "capability_contract_path": "data/source_family_contracts.json",
+      "capability_materialization_audit_path": "data/source_family_evidence_stage_matrix.json",
+      "capability_and_materialization_are_independent": true
     },
     {
       "source_key": "raa",
@@ -113,7 +122,10 @@
       },
       "caveats": [
         "The normalized density surface is excluded until its source inventory, counts, and qualified review reconcile."
-      ]
+      ],
+      "capability_contract_path": "data/source_family_contracts.json",
+      "capability_materialization_audit_path": "data/source_family_evidence_stage_matrix.json",
+      "capability_and_materialization_are_independent": true
     },
     {
       "source_key": "svar",
@@ -140,7 +152,10 @@
       },
       "caveats": [
         "SVAR governs lake identity and location, not chronology or surrounding evidence completeness. Derived review subsets are excluded when the governing registry is absent."
-      ]
+      ],
+      "capability_contract_path": "data/source_family_contracts.json",
+      "capability_materialization_audit_path": "data/source_family_evidence_stage_matrix.json",
+      "capability_and_materialization_are_independent": true
     },
     {
       "source_key": "boundaries",
@@ -166,7 +181,10 @@
       },
       "caveats": [
         "Boundary framing should never be misread as biological, archaeological, or chronological evidence."
-      ]
+      ],
+      "capability_contract_path": "data/source_family_contracts.json",
+      "capability_materialization_audit_path": "data/source_family_evidence_stage_matrix.json",
+      "capability_and_materialization_are_independent": true
     }
   ]
 }

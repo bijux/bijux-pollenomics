@@ -24,7 +24,8 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 | Fieldwork documentation | `scope_specific_overlay` | Bijux fieldwork | Observed sampling location documented on 2026-02-26 at Lyngsjön Lake. | `1` |
 | LandClim pollen sites | `scope_specific_overlay` | LandClim | Pollen sequences staged from the LandClim normalization bundle. | `490` |
 | Neotoma pollen sites | `scope_specific_overlay` | Neotoma | Pollen and paleoecology sites staged from the Neotoma normalization bundle. | `200` |
-| Sweden archaeology site discovery | `scope_specific_overlay` | SEAD with RAÄ density context | Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record. | `10379` |
+| SEAD sites | `scope_specific_overlay` | SEAD | Environmental archaeology sites staged from the SEAD normalization bundle. | `2069` |
+| Sweden archaeology site discovery | `scope_specific_overlay` | SEAD with RAÄ density context | Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record. | `9738` |
 | Horse aDNA site evidence | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
 | Country boundaries | `region_filtered_layer` | Natural Earth country boundaries | Published country outlines used for framing and scope-aware map filtering. | `4` |
 | LandClim REVEALS time-window grids | `scope_specific_overlay` | LandClim | Time-window-specific REVEALS grid estimates from published LandClim PANGAEA datasets. | `2515` |

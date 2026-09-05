@@ -1,6 +1,6 @@
 {
   "schema_version": "source-fact-ownership-registry.v1",
-  "row_count": 16,
+  "row_count": 19,
   "rows": [
     {
       "fact_key": "human_archive_program_identity",
@@ -151,13 +151,53 @@
       "fact_key": "sead_archaeology_context",
       "display_name": "SEAD archaeology context",
       "evidence_scope": "source_family",
-      "governing_surface_path": "data/sead/normalized/nordic_environmental_sites.geojson",
+      "governing_surface_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
       "supporting_surface_paths": [
-        "data/sead/raw/nordic_sites.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events.json",
+        "data/sead/normalized/nordic_environmental_sites.geojson",
+        "data/sead/normalized/chronology_claims.json",
+        "data/sead/normalized/nordic_temporal_evidence.geojson",
         "data/sead/review/evidence_legibility_review.json",
         "data/sead/review/access_model.json"
       ],
-      "reason": "The normalized SEAD site layer governs contextual archaeology that the repository is willing to map."
+      "reason": "The exact full-evidence manifest governs the admitted 61-table observation graph; legacy site and chronology layers are downstream summaries rather than source-native fact owners."
+    },
+    {
+      "fact_key": "sead_source_native_observations",
+      "display_name": "SEAD source-native observations",
+      "evidence_scope": "observation",
+      "governing_surface_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+      "supporting_surface_paths": [
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+      ],
+      "reason": "The source-native observation index and its manifest govern the 177,763 admitted quantitative observation rows."
+    },
+    {
+      "fact_key": "sead_observation_relations",
+      "display_name": "SEAD observation relations",
+      "evidence_scope": "relation",
+      "governing_surface_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+      "supporting_surface_paths": [
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
+      ],
+      "reason": "The relation index governs entity, dataset, taxon, value, and dimension links without inferring unavailable links."
+    },
+    {
+      "fact_key": "sead_evidence_event_disposition",
+      "display_name": "SEAD evidence-event refusals",
+      "evidence_scope": "event",
+      "governing_surface_path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events.json",
+      "supporting_surface_paths": [
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+      ],
+      "reason": "The event disposition surface governs the explicit refusal of all observations until qualified ecological classification is accepted."
     },
     {
       "fact_key": "raa_archaeology_context",

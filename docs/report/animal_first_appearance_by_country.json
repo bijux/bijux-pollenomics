@@ -1,5 +1,13 @@
 {
   "schema_version": "animal-first-appearance-by-country.v1",
+  "reconciliation": {
+    "input_locality_count": 2,
+    "dated_locality_count": 2,
+    "undated_locality_count": 0,
+    "refusal_reason_counts": {
+      "chronology_unavailable": 0
+    }
+  },
   "rows": [
     {
       "country": "Denmark",

@@ -131,10 +131,70 @@
         "record_count": 3,
         "reason_code": "record_level_provenance_model_not_available"
       },
+      "details": {
+        "status": "unavailable",
+        "record_count": 0,
+        "reason_code": "record_level_evidence_not_available"
+      },
+      "classifications": {
+        "status": "unavailable",
+        "record_count": 0,
+        "reason_code": "accepted_scientific_classifications_not_available"
+      },
       "indexes": {
         "status": "available",
         "record_count": 1233
       }
     }
+  },
+  "detail_projection": {
+    "schema_version": "atlas-evidence-projection.v2",
+    "status": "reconciled",
+    "source_layer_count": 0,
+    "source_feature_count": 0,
+    "matched_feature_count": 0,
+    "detail_record_count": 0,
+    "unique_feature_record_id_count": 0,
+    "repeated_feature_reference_count": 0,
+    "unmatched_feature_count": 0,
+    "unreferenced_detail_count": 0,
+    "tab_availability": {
+      "overview": {
+        "available": 0,
+        "unavailable": 0,
+        "denominator": 0
+      },
+      "samples": {
+        "available": 0,
+        "unavailable": 0,
+        "denominator": 0
+      },
+      "chronology": {
+        "available": 0,
+        "unavailable": 0,
+        "denominator": 0
+      },
+      "pollen_composition": {
+        "available": 0,
+        "unavailable": 0,
+        "denominator": 0
+      },
+      "relation": {
+        "available": 0,
+        "unavailable": 0,
+        "denominator": 0
+      },
+      "classification": {
+        "available": 0,
+        "unavailable": 0,
+        "denominator": 0
+      },
+      "provenance": {
+        "available": 0,
+        "unavailable": 0,
+        "denominator": 0
+      }
+    },
+    "sources": {}
   }
 }

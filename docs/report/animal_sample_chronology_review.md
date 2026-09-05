@@ -1,20 +1,141 @@
 # Animal sample chronology review
 
-- Sample chronology rows: `868`
-- Normalized intervals: `303`
-- Normalized points: `478`
-- Text-only rows: `87`
-- Unresolved rows: `0`
+- Sample chronology rows: `1451`
+- Normalized intervals: `753`
+- Normalized points: `480`
+- Text-only rows: `92`
+- Unresolved rows: `126`
 - Direct radiocarbon rows: `732`
 - Modeled rows: `0`
-- Contextual rows: `30`
+- Contextual rows: `378`
 - Broad period rows: `0`
-- Numeric interval rows: `731`
-- Numeric rows with caveat: `137`
+- Numeric interval rows: `748`
+- Numeric rows with caveat: `577`
 - Context-only rows: `0`
 
 | Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577008 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577009 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577010 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577011 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577012 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577149 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577150 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577151 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577153 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577154 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577344 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577345 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577346 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577347 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577348 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577349 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577350 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577351 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577352 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577353 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577354 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577355 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577356 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577357 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577358 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577359 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577360 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577361 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577362 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577363 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577364 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577365 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577366 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577367 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577368 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577369 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577370 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577371 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577372 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577373 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577374 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577375 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577376 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577377 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577378 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577379 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577380 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577381 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577382 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577383 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577384 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577385 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577386 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577387 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577388 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577389 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577390 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577391 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577392 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577393 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577394 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577395 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577396 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577397 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577398 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577399 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577400 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577401 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577402 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577403 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577404 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577405 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577406 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577407 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577408 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577409 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5605818 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574404 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574405 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574406 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574407 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574408 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574409 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574411 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574412 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574415 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574416 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574417 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574418 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574419 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574420 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574421 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574422 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574423 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574424 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574426 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574428 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574429 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574430 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574432 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574433 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574434 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574435 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574436 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574437 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574440 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574441 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574442 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574443 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574444 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574445 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574446 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574447 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574448 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574449 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574450 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574452 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574454 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574455 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574456 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574457 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJNA705960 | prjna705960:samn18106827 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
 | Bos taurus | PRJNA705960 | prjna705960:samn18106828 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
 | Bos taurus | PRJNA705960 | prjna705960:samn18106829 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
@@ -673,6 +794,115 @@
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533435 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 7494 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533436 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 7499 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533438 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4509 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246515 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246516 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246517 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246518 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246519 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246520 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246521 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246522 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246523 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246524 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246525 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246526 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246527 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246528 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246529 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246530 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246531 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246532 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246533 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246534 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246535 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246536 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246537 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246538 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246539 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246540 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246541 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246542 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246543 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246544 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246545 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246546 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246547 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246548 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246549 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246550 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246551 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246552 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246553 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246554 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246555 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246556 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246557 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246558 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246559 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246560 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246561 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246562 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246563 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246564 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246565 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246566 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246567 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246568 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246569 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246570 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246571 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246572 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246573 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246574 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246575 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246576 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246577 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246578 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246579 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246580 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246581 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246582 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246583 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246584 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246585 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246586 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246587 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246588 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246589 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246590 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246591 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246592 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246593 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246594 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246595 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246596 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246597 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246598 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246599 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246600 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246601 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJNA1178732 | prjna1178732:fs1 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 1115 - 1234 CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs10 | sample_owned_interval | historical_or_recent_date | sample_precise_point | normalized_point | 1200 BCE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs12 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 706 - 883 cal. CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs13 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 168 - 48 cal. BCE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs14 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | ~3500 - 1800 BCE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs15 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 4000 - 2700 BCE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs16 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 1413 - 1480 cal. CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs17 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 1797 - 1944 cal. CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs18 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 618 - 970 CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs19 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 25 - 220 CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs2 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 1115 - 1234 CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs20 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 960 - 1368 CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs21 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 960 - 1368 CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs22 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 960 - 1368 CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs23 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 960 - 1368 CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs24 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 44 cal. BCE - 76 cal. CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs3 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 1115 - 1234 CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs4 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 1115 - 1234 CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs5 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 1115 - 1234 CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs6 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 960 - 1127 CE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs7 | sample_owned_interval | historical_or_recent_date | sample_precise_point | normalized_point | 1800 BCE |
+| Felis catus | PRJNA1178732 | prjna1178732:fs8 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 3000 - 221 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:bh 28 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6300-6200 cal  BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:bh 29 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6300-6200 cal BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:bh 33 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6400-6300 cal BCE |
@@ -863,6 +1093,16 @@
 | Ovis aries | PRJEB36540 | prjeb36540:ulu4 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7000-6500 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:ulu6 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7000-6500 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:ulu9 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7000-6500 BCE |
+| Ovis aries | PRJEB41594 | prjeb41594:samea8022720 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB41594 | prjeb41594:samea8022721 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB41594 | prjeb41594:samea8022722 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB41594 | prjeb41594:samea8022723 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB41594 | prjeb41594:samea8022724 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960291 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Four millennia of Baltic sheep history |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960292 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Four millennia of Baltic sheep history |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960293 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Four millennia of Baltic sheep history |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960294 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Four millennia of Baltic sheep history |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960295 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Four millennia of Baltic sheep history |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757323 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757324 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757325 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
@@ -883,6 +1123,349 @@
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757340 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea114857470 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea114857471 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160866 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160867 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160868 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160869 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160870 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160871 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160872 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160873 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160874 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160875 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160876 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160877 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160878 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160879 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160880 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160881 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160882 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160883 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160884 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160885 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160886 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160887 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160888 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160889 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160890 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160891 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160892 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160893 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160894 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160895 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160896 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160897 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160898 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160899 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160900 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160901 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160902 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160903 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160904 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160905 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160906 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160907 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160908 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160909 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160910 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160911 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160912 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160913 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160914 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160915 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160916 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160917 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160918 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160919 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160920 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160921 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160922 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160923 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160924 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160925 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160926 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160927 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160928 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160929 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160930 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160931 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160932 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160933 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160934 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160935 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160936 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160937 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160938 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160939 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160940 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160941 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160942 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160943 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160944 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160945 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160946 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160947 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160948 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160949 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160950 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160951 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160952 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160953 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160954 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160955 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160956 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160957 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160958 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160959 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160960 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160961 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160962 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160963 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160964 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160965 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160966 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160967 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160968 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160969 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160970 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160971 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160972 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160973 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160974 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160975 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160976 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160977 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160978 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160979 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160980 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160981 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160982 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160983 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160984 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160985 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160986 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160987 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160988 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160989 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160990 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160991 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160992 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160993 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160994 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160995 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160996 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160997 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160998 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160999 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161000 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161001 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161002 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161003 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161004 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161005 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161006 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161007 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161008 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161009 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161010 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161011 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161012 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161013 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161014 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161015 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161016 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161017 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161018 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161019 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161020 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161021 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161022 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161023 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161024 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161025 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161026 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161027 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161028 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161029 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161030 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161031 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161032 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161033 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161034 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161035 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161036 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161037 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161038 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161039 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161040 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161041 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161042 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161043 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161044 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161045 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161046 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161047 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161048 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161049 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161050 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161051 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161052 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161053 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161054 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161055 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161056 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161057 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161058 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161059 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161060 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161061 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161062 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161063 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161064 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161065 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161066 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161067 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161068 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161069 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161070 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161071 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161072 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161073 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161074 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161075 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161076 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161077 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161078 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161079 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161080 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161081 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161082 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161083 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161084 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161085 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161086 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161087 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161088 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161089 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161090 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161091 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161092 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161093 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161094 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161095 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161096 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161097 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161098 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161099 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161100 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161101 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161102 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161103 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161104 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161105 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161106 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161107 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161108 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161109 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161110 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161111 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161112 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161113 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161114 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161115 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161116 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161117 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161118 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161119 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161120 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161121 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161122 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161123 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161124 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161125 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161126 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161127 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161128 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161129 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161130 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161131 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161132 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161133 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161134 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161135 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161136 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161137 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161138 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161139 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161140 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161141 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161142 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161143 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161144 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161145 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161146 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161147 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161148 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161149 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161150 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161151 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161152 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161153 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161154 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161155 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161156 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161157 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161158 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161159 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161160 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161161 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161162 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161163 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161164 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161165 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161166 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161167 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161169 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161170 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161171 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161172 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161173 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161174 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161175 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161176 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161177 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161178 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161179 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161187 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161188 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161189 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161191 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161192 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161194 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5161197 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772905 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772906 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772907 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772908 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772909 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772910 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772911 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772912 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772913 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772914 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772915 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772916 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772917 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772918 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772919 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772920 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772921 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772922 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772923 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772924 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772925 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772926 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
+| Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5772927 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | ~10500-6000 BP pig turnover transect |
 
 ## Direct Links
 

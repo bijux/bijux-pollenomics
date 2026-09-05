@@ -1063,14 +1063,16 @@
         "support": "supported",
         "materialization": "complete",
         "evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json"
         ],
         "present_evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json"
         ],
         "missing_evidence_paths": [],
-        "evidence_file_count": 1,
-        "required_evidence_count": 1,
+        "evidence_file_count": 2,
+        "required_evidence_count": 2,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
@@ -1078,7 +1080,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
+          "qualified_sead_ecological_classification_review_missing"
         ]
       },
       {
@@ -1087,14 +1089,16 @@
         "support": "supported",
         "materialization": "complete",
         "evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json"
         ],
         "present_evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json"
         ],
         "missing_evidence_paths": [],
-        "evidence_file_count": 1,
-        "required_evidence_count": 1,
+        "evidence_file_count": 2,
+        "required_evidence_count": 2,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
@@ -1102,7 +1106,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
+          "qualified_sead_ecological_classification_review_missing"
         ]
       },
       {
@@ -1111,14 +1115,20 @@
         "support": "partial",
         "materialization": "complete",
         "evidence_paths": [
-          "data/country_dimension_coverage.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/country_dimension_coverage.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
         ],
         "present_evidence_paths": [
-          "data/country_dimension_coverage.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/country_dimension_coverage.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
         ],
         "missing_evidence_paths": [],
-        "evidence_file_count": 1,
-        "required_evidence_count": 1,
+        "evidence_file_count": 4,
+        "required_evidence_count": 4,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
@@ -1126,7 +1136,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
+          "qualified_sead_ecological_classification_review_missing"
         ]
       },
       {
@@ -1135,16 +1145,22 @@
         "support": "supported",
         "materialization": "complete",
         "evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sample_groups.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_physical_samples.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_groups.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_physical_samples.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
         ],
         "present_evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sample_groups.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_physical_samples.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_groups.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_physical_samples.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
         ],
         "missing_evidence_paths": [],
-        "evidence_file_count": 2,
-        "required_evidence_count": 2,
+        "evidence_file_count": 5,
+        "required_evidence_count": 5,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
@@ -1152,7 +1168,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
+          "qualified_sead_ecological_classification_review_missing"
         ]
       },
       {
@@ -1161,16 +1177,22 @@
         "support": "supported",
         "materialization": "complete",
         "evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_geochronology.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_entity_ages.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entity_ages.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
         ],
         "present_evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_geochronology.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_entity_ages.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entity_ages.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
         ],
         "missing_evidence_paths": [],
-        "evidence_file_count": 2,
-        "required_evidence_count": 2,
+        "evidence_file_count": 5,
+        "required_evidence_count": 5,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
@@ -1178,7 +1200,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
+          "qualified_sead_ecological_classification_review_missing"
         ]
       },
       {
@@ -1187,14 +1209,20 @@
         "support": "partial",
         "materialization": "complete",
         "evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_dating_uncertainty.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dating_uncertainty.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
         ],
         "present_evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_dating_uncertainty.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dating_uncertainty.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
         ],
         "missing_evidence_paths": [],
-        "evidence_file_count": 1,
-        "required_evidence_count": 1,
+        "evidence_file_count": 4,
+        "required_evidence_count": 4,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
@@ -1202,7 +1230,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
+          "qualified_sead_ecological_classification_review_missing"
         ]
       },
       {
@@ -1211,12 +1239,281 @@
         "support": "supported",
         "materialization": "complete",
         "evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_relative_ages.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_relative_dates.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_ages.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_dates.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
         ],
         "present_evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_relative_ages.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_relative_dates.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_ages.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_dates.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
+        ],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 5,
+        "required_evidence_count": 5,
+        "coverage_metrics": {
+          "sead_point_count": 2069
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_complete",
+          "missing_published_surface",
+          "qualified_sead_ecological_classification_review_missing"
+        ]
+      },
+      {
+        "source_key": "sead",
+        "dimension": "taxon_identity",
+        "support": "supported",
+        "materialization": "complete",
+        "evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_master.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+        ],
+        "present_evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_master.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+        ],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 5,
+        "required_evidence_count": 5,
+        "coverage_metrics": {
+          "sead_point_count": 2069
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_complete",
+          "missing_published_surface",
+          "qualified_sead_ecological_classification_review_missing"
+        ]
+      },
+      {
+        "source_key": "sead",
+        "dimension": "native_ecological_class",
+        "support": "supported",
+        "materialization": "complete",
+        "evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocodes.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_definitions.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_groups.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_systems.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+        ],
+        "present_evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocodes.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_definitions.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_groups.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_systems.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+        ],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 7,
+        "required_evidence_count": 7,
+        "coverage_metrics": {
+          "sead_point_count": 2069
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_complete",
+          "missing_published_surface",
+          "qualified_sead_ecological_classification_review_missing"
+        ]
+      },
+      {
+        "source_key": "sead",
+        "dimension": "derived_pollen_group",
+        "support": "partial",
+        "materialization": "partial",
+        "evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+          "data/sead/derived/pollen_groups.json"
+        ],
+        "present_evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+        ],
+        "missing_evidence_paths": [
+          "data/sead/derived/pollen_groups.json"
+        ],
+        "evidence_file_count": 3,
+        "required_evidence_count": 4,
+        "coverage_metrics": {
+          "sead_point_count": 2069
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_incomplete",
+          "missing_published_surface",
+          "qualified_sead_ecological_classification_review_missing"
+        ]
+      },
+      {
+        "source_key": "sead",
+        "dimension": "derived_ecological_role",
+        "support": "partial",
+        "materialization": "partial",
+        "evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+          "data/sead/derived/ecological_roles.json"
+        ],
+        "present_evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+        ],
+        "missing_evidence_paths": [
+          "data/sead/derived/ecological_roles.json"
+        ],
+        "evidence_file_count": 3,
+        "required_evidence_count": 4,
+        "coverage_metrics": {
+          "sead_point_count": 2069
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_incomplete",
+          "missing_published_surface",
+          "qualified_sead_ecological_classification_review_missing"
+        ]
+      },
+      {
+        "source_key": "sead",
+        "dimension": "crop_cereal_resolution",
+        "support": "partial",
+        "materialization": "partial",
+        "evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+          "data/sead/derived/crop_cereal_resolution.json"
+        ],
+        "present_evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+        ],
+        "missing_evidence_paths": [
+          "data/sead/derived/crop_cereal_resolution.json"
+        ],
+        "evidence_file_count": 3,
+        "required_evidence_count": 4,
+        "coverage_metrics": {
+          "sead_point_count": 2069
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_incomplete",
+          "missing_published_surface",
+          "qualified_sead_ecological_classification_review_missing"
+        ]
+      },
+      {
+        "source_key": "sead",
+        "dimension": "quantitative_observation",
+        "support": "supported",
+        "materialization": "complete",
+        "evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_numerical_values.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_integer_values.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_categorical_values.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_boolean_values.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_measured_values.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
+        ],
+        "present_evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_numerical_values.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_integer_values.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_categorical_values.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_boolean_values.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_measured_values.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
+        ],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 9,
+        "required_evidence_count": 9,
+        "coverage_metrics": {
+          "sead_point_count": 2069
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_complete",
+          "missing_published_surface",
+          "qualified_sead_ecological_classification_review_missing"
+        ]
+      },
+      {
+        "source_key": "sead",
+        "dimension": "observation_unit",
+        "support": "supported",
+        "materialization": "complete",
+        "evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_types.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dimensions.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_units.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+        ],
+        "present_evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_types.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dimensions.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_units.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+        ],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 7,
+        "required_evidence_count": 7,
+        "coverage_metrics": {
+          "sead_point_count": 2069
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_complete",
+          "missing_published_surface",
+          "qualified_sead_ecological_classification_review_missing"
+        ]
+      },
+      {
+        "source_key": "sead",
+        "dimension": "dataset_provenance",
+        "support": "supported",
+        "materialization": "complete",
+        "evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
+        ],
+        "present_evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
         ],
         "missing_evidence_paths": [],
         "evidence_file_count": 2,
@@ -1228,245 +1525,38 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
-        ]
-      },
-      {
-        "source_key": "sead",
-        "dimension": "taxon_identity",
-        "support": "supported",
-        "materialization": "missing",
-        "evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_abundances.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_taxa_tree_master.json"
-        ],
-        "present_evidence_paths": [],
-        "missing_evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_abundances.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_taxa_tree_master.json"
-        ],
-        "evidence_file_count": 0,
-        "required_evidence_count": 2,
-        "coverage_metrics": {
-          "sead_point_count": 2069
-        },
-        "human_review_required": true,
-        "reason_codes": [
-          "governed_dimension_evidence_missing",
-          "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
-        ]
-      },
-      {
-        "source_key": "sead",
-        "dimension": "native_ecological_class",
-        "support": "supported",
-        "materialization": "missing",
-        "evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_ecocodes.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_ecocode_definitions.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_ecocode_groups.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_ecocode_systems.json"
-        ],
-        "present_evidence_paths": [],
-        "missing_evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_ecocodes.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_ecocode_definitions.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_ecocode_groups.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_ecocode_systems.json"
-        ],
-        "evidence_file_count": 0,
-        "required_evidence_count": 4,
-        "coverage_metrics": {
-          "sead_point_count": 2069
-        },
-        "human_review_required": true,
-        "reason_codes": [
-          "governed_dimension_evidence_missing",
-          "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
-        ]
-      },
-      {
-        "source_key": "sead",
-        "dimension": "derived_pollen_group",
-        "support": "partial",
-        "materialization": "missing",
-        "evidence_paths": [
-          "data/sead/derived/pollen_groups.json"
-        ],
-        "present_evidence_paths": [],
-        "missing_evidence_paths": [
-          "data/sead/derived/pollen_groups.json"
-        ],
-        "evidence_file_count": 0,
-        "required_evidence_count": 1,
-        "coverage_metrics": {
-          "sead_point_count": 2069
-        },
-        "human_review_required": true,
-        "reason_codes": [
-          "governed_dimension_evidence_missing",
-          "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
-        ]
-      },
-      {
-        "source_key": "sead",
-        "dimension": "derived_ecological_role",
-        "support": "partial",
-        "materialization": "missing",
-        "evidence_paths": [
-          "data/sead/derived/ecological_roles.json"
-        ],
-        "present_evidence_paths": [],
-        "missing_evidence_paths": [
-          "data/sead/derived/ecological_roles.json"
-        ],
-        "evidence_file_count": 0,
-        "required_evidence_count": 1,
-        "coverage_metrics": {
-          "sead_point_count": 2069
-        },
-        "human_review_required": true,
-        "reason_codes": [
-          "governed_dimension_evidence_missing",
-          "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
-        ]
-      },
-      {
-        "source_key": "sead",
-        "dimension": "crop_cereal_resolution",
-        "support": "partial",
-        "materialization": "missing",
-        "evidence_paths": [
-          "data/sead/derived/crop_cereal_resolution.json"
-        ],
-        "present_evidence_paths": [],
-        "missing_evidence_paths": [
-          "data/sead/derived/crop_cereal_resolution.json"
-        ],
-        "evidence_file_count": 0,
-        "required_evidence_count": 1,
-        "coverage_metrics": {
-          "sead_point_count": 2069
-        },
-        "human_review_required": true,
-        "reason_codes": [
-          "governed_dimension_evidence_missing",
-          "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
-        ]
-      },
-      {
-        "source_key": "sead",
-        "dimension": "quantitative_observation",
-        "support": "supported",
-        "materialization": "missing",
-        "evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_abundances.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_numerical_values.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_integer_values.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_categorical_values.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_boolean_values.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_measured_values.json"
-        ],
-        "present_evidence_paths": [],
-        "missing_evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_abundances.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_numerical_values.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_integer_values.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_categorical_values.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_boolean_values.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_measured_values.json"
-        ],
-        "evidence_file_count": 0,
-        "required_evidence_count": 6,
-        "coverage_metrics": {
-          "sead_point_count": 2069
-        },
-        "human_review_required": true,
-        "reason_codes": [
-          "governed_dimension_evidence_missing",
-          "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
-        ]
-      },
-      {
-        "source_key": "sead",
-        "dimension": "observation_unit",
-        "support": "supported",
-        "materialization": "missing",
-        "evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_value_types.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_dimensions.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_units.json"
-        ],
-        "present_evidence_paths": [],
-        "missing_evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_value_types.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_dimensions.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_units.json"
-        ],
-        "evidence_file_count": 0,
-        "required_evidence_count": 3,
-        "coverage_metrics": {
-          "sead_point_count": 2069
-        },
-        "human_review_required": true,
-        "reason_codes": [
-          "governed_dimension_evidence_missing",
-          "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
-        ]
-      },
-      {
-        "source_key": "sead",
-        "dimension": "dataset_provenance",
-        "support": "supported",
-        "materialization": "complete",
-        "evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/admission.json"
-        ],
-        "present_evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/admission.json"
-        ],
-        "missing_evidence_paths": [],
-        "evidence_file_count": 1,
-        "required_evidence_count": 1,
-        "coverage_metrics": {
-          "sead_point_count": 2069
-        },
-        "human_review_required": true,
-        "reason_codes": [
-          "governed_dimension_evidence_complete",
-          "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
+          "qualified_sead_ecological_classification_review_missing"
         ]
       },
       {
         "source_key": "sead",
         "dimension": "pollen_propagation_event",
         "support": "partial",
-        "materialization": "missing",
+        "materialization": "partial",
         "evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events.json",
           "data/sead/derived/pollen_propagation_events.json"
         ],
-        "present_evidence_paths": [],
+        "present_evidence_paths": [
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events.json"
+        ],
         "missing_evidence_paths": [
           "data/sead/derived/pollen_propagation_events.json"
         ],
-        "evidence_file_count": 0,
-        "required_evidence_count": 1,
+        "evidence_file_count": 3,
+        "required_evidence_count": 4,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
         "human_review_required": true,
         "reason_codes": [
-          "governed_dimension_evidence_missing",
+          "governed_dimension_evidence_incomplete",
           "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
+          "qualified_sead_ecological_classification_review_missing"
         ]
       },
       {
@@ -1475,14 +1565,20 @@
         "support": "supported",
         "materialization": "complete",
         "evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
         ],
         "present_evidence_paths": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
         ],
         "missing_evidence_paths": [],
-        "evidence_file_count": 1,
-        "required_evidence_count": 1,
+        "evidence_file_count": 4,
+        "required_evidence_count": 4,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
@@ -1490,7 +1586,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_published_surface",
-          "full_sead_observation_taxon_graph_not_materialized"
+          "qualified_sead_ecological_classification_review_missing"
         ]
       },
       {

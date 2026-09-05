@@ -1,20 +1,20 @@
 {
   "schema_version": "animal-output-honesty.v1",
   "totals": {
-    "tracked_sample_count": 868,
+    "tracked_sample_count": 1451,
     "mapped_sample_count": 554,
-    "blocked_sample_count": 314,
+    "blocked_sample_count": 897,
     "unresolved_sample_count": 0,
     "country_published_sample_count": 3,
-    "region_refused_count": 4
+    "region_refused_count": 6
   },
   "rows": [
     {
       "species_latin_name": "Bos taurus",
       "species_common_name": "cattle",
-      "tracked_sample_count": 11,
+      "tracked_sample_count": 132,
       "mapped_sample_count": 0,
-      "blocked_sample_count": 11,
+      "blocked_sample_count": 132,
       "unresolved_sample_count": 0,
       "country_published_sample_count": 0,
       "region_refused_count": 1
@@ -60,11 +60,21 @@
       "region_refused_count": 0
     },
     {
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "tracked_sample_count": 109,
+      "mapped_sample_count": 0,
+      "blocked_sample_count": 109,
+      "unresolved_sample_count": 0,
+      "country_published_sample_count": 0,
+      "region_refused_count": 1
+    },
+    {
       "species_latin_name": "Ovis aries",
       "species_common_name": "sheep",
-      "tracked_sample_count": 190,
+      "tracked_sample_count": 200,
       "mapped_sample_count": 0,
-      "blocked_sample_count": 190,
+      "blocked_sample_count": 200,
       "unresolved_sample_count": 0,
       "country_published_sample_count": 0,
       "region_refused_count": 1
@@ -75,6 +85,16 @@
       "tracked_sample_count": 20,
       "mapped_sample_count": 0,
       "blocked_sample_count": 20,
+      "unresolved_sample_count": 0,
+      "country_published_sample_count": 0,
+      "region_refused_count": 1
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "tracked_sample_count": 343,
+      "mapped_sample_count": 0,
+      "blocked_sample_count": 343,
       "unresolved_sample_count": 0,
       "country_published_sample_count": 0,
       "region_refused_count": 1

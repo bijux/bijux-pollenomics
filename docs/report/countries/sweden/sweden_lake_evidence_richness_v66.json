@@ -79,11 +79,11 @@
         "capture_posture": "numeric_site_sequence_intervals"
       },
       "sead_archaeology": {
-        "record_count": 2007,
-        "numeric_interval_record_count": 776,
-        "numeric_interval_share": 0.3866,
+        "record_count": 1925,
+        "numeric_interval_record_count": 740,
+        "numeric_interval_share": 0.3844,
         "capture_posture": "linked_chronology_captured",
-        "site_inventory_only_record_count": 872,
+        "site_inventory_only_record_count": 838,
         "spatial_representation": "site inventory plus record-level chronology points",
         "temporal_support_posture": "linked_chronology_captured",
         "temporal_support_note": "SEAD chronology is published as interval-preserving temporal features; upstream-undated sites remain available only in the separate spatial inventory.",
@@ -91,10 +91,10 @@
         "distance_scoring_posture": "contextual_archaeology_only",
         "distance_scoring_note": "Use SEAD to measure archaeology context around lakes; do not treat it as same-period support unless numeric intervals are explicitly present.",
         "detail_metrics": {
-          "unresolved_site_count": 1268,
-          "captured_chronology_record_count": 27002,
-          "mapped_temporal_feature_count": 9380,
-          "mapped_chronology_record_count": 26556
+          "unresolved_site_count": 1216,
+          "captured_chronology_record_count": 25109,
+          "mapped_temporal_feature_count": 8184,
+          "mapped_chronology_record_count": 14324
         }
       }
     },

@@ -4,24 +4,24 @@ This report-root packet explains what the repository can currently claim about S
 
 - Source family: `SEAD archaeology context`
 - Current posture: `contextual_archaeology_layer_with_explicit_temporal_and_access_limits`
-- Reviewed rows: `2195`
+- Reviewed rows: `2069`
 
 ## Normalization Risk
 
-- medium access constrained: `1447`
-- medium contextual numeric mix: `748`
+- medium access constrained: `1360`
+- medium contextual numeric mix: `709`
 
 ## Access Visibility
 
-- site page only: `2192`
+- site page only: `2066`
 - site page with reference links: `3`
 
 ## Temporal Postures
 
-- mixed interval and context: `509`
-- numeric interval: `157`
-- numeric interval with caveat: `239`
-- unresolved: `1290`
+- mixed interval and context: `478`
+- numeric interval: `144`
+- numeric interval with caveat: `231`
+- unresolved: `1216`
 
 ## Direct Links
 

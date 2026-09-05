@@ -10,9 +10,9 @@
       "findings": []
     },
     {
-      "check_id": "project_recovery_guard_still_blocks_overclaim",
+      "check_id": "project_recovery_guard_passes",
       "passed": true,
-      "description": "The intake recovery guard still blocks stronger publication claims until project-level under-recovery is brought under control.",
+      "description": "The intake recovery guard confirms that no tracked project remains implausibly under-recovered; separate scientific-review and completeness blockers remain independently enforced.",
       "finding_count": 0,
       "findings": []
     },

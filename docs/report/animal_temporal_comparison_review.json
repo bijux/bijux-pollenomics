@@ -5,22 +5,23 @@
     {
       "family_key": "animal_adna",
       "display_name": "Animal aDNA chronology",
-      "row_count": 868,
+      "row_count": 1451,
       "comparability_counts": {
-        "numeric_interval": 731,
-        "numeric_interval_with_caveat": 137
+        "numeric_interval": 748,
+        "numeric_interval_with_caveat": 577,
+        "unresolved": 126
       },
       "comparison_policy": "Animal rows only support interval comparison when sample-owned chronology survives publication without false precision."
     },
     {
       "family_key": "sead_context",
       "display_name": "SEAD archaeology context",
-      "row_count": 2195,
+      "row_count": 2069,
       "comparability_counts": {
-        "unresolved": 1290,
-        "mixed_interval_and_context": 509,
-        "numeric_interval": 157,
-        "numeric_interval_with_caveat": 239
+        "unresolved": 1216,
+        "mixed_interval_and_context": 478,
+        "numeric_interval": 144,
+        "numeric_interval_with_caveat": 231
       },
       "comparison_policy": "SEAD rows remain site-level archaeology context even when numeric spans are available."
     }

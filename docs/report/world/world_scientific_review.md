@@ -30,13 +30,13 @@
 | Sweden | Capra hircus | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Equus asinus | contextual | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Equus caballus | mapped_direct | 1 | 4 | country_resolved_from_mapped_locality_rows | Mapped animal locality rows remain cautionary leads and can still be approximate, regional, or comparator-only. |
-| Sweden | Felis catus | contextual | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Sweden | Felis catus | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Gallus gallus domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Meleagris gallopavo | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Oryctolagus cuniculus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Ovis aries | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Sweden | Rangifer tarandus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Sweden | Sus scrofa domesticus | contextual | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Sweden | Sus scrofa domesticus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Homo sapiens | mapped_direct | 69 | 0 | country_filter_from_aadr_metadata | Human country assignment is metadata-derived and remains separate from non-human context. |
 | Norway | Anas platyrhynchos domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Bos indicus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
@@ -46,13 +46,13 @@
 | Norway | Capra hircus | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Equus asinus | contextual | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Equus caballus | direct | 0 | 4 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Norway | Felis catus | contextual | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Norway | Felis catus | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Gallus gallus domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Meleagris gallopavo | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Oryctolagus cuniculus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Ovis aries | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Norway | Rangifer tarandus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Norway | Sus scrofa domesticus | contextual | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Norway | Sus scrofa domesticus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Homo sapiens | mapped_direct | 6 | 0 | country_filter_from_aadr_metadata | Human country assignment is metadata-derived and remains separate from non-human context. |
 | Finland | Anas platyrhynchos domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Bos indicus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
@@ -62,13 +62,13 @@
 | Finland | Capra hircus | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Equus asinus | contextual | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Equus caballus | direct | 0 | 4 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Finland | Felis catus | contextual | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Finland | Felis catus | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Gallus gallus domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Meleagris gallopavo | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Oryctolagus cuniculus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Ovis aries | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Finland | Rangifer tarandus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Finland | Sus scrofa domesticus | contextual | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Finland | Sus scrofa domesticus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Homo sapiens | mapped_direct | 295 | 0 | country_filter_from_aadr_metadata | Human country assignment is metadata-derived and remains separate from non-human context. |
 | Denmark | Anas platyrhynchos domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Bos indicus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
@@ -78,13 +78,13 @@
 | Denmark | Capra hircus | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Equus asinus | contextual | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Equus caballus | mapped_direct | 1 | 4 | country_resolved_from_mapped_locality_rows | Mapped animal locality rows remain cautionary leads and can still be approximate, regional, or comparator-only. |
-| Denmark | Felis catus | contextual | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Felis catus | direct | 0 | 2 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Gallus gallus domesticus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Meleagris gallopavo | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Oryctolagus cuniculus | too_weak | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Ovis aries | direct | 0 | 3 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 | Denmark | Rangifer tarandus | direct | 0 | 0 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
-| Denmark | Sus scrofa domesticus | contextual | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
+| Denmark | Sus scrofa domesticus | direct | 0 | 1 | not_country_assignable_from_current_runtime | Current non-human support is species-level review context, not country-resolved locality evidence. |
 
 ## Period Coverage
 
@@ -108,13 +108,13 @@
 | Equus caballus | 3001-6000 BP | mapped_direct | 73 | 4 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
 | Equus caballus | 6001+ BP | mapped_direct | 31 | 4 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
 | Equus caballus | project_level_or_unresolved | mapped_direct | 4 | 4 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
-| Felis catus | project_level_or_unresolved | contextual | 0 | 2 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
+| Felis catus | project_level_or_unresolved | direct | 0 | 2 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
 | Gallus gallus domesticus | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
 | Meleagris gallopavo | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
 | Oryctolagus cuniculus | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
 | Ovis aries | project_level_or_unresolved | direct | 0 | 3 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
 | Rangifer tarandus | project_level_or_unresolved | direct | 0 | 0 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
-| Sus scrofa domesticus | project_level_or_unresolved | contextual | 0 | 1 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
+| Sus scrofa domesticus | project_level_or_unresolved | direct | 0 | 1 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
 
 ## Chronology Overlap
 

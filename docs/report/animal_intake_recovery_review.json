@@ -3,25 +3,25 @@
   "public_posture": "sample_recovery_still_partial_and_project_gaps_explicit",
   "stage_review": {
     "tracked_project_count": 40,
-    "ready_for_publication_review": 11,
-    "blocked_projects": 23,
+    "ready_for_publication_review": 12,
+    "blocked_projects": 22,
     "in_progress_projects": 0
   },
   "yield_review": {
     "tracked_project_count": 40,
     "projects_with_exact_expected_count": 4,
     "projects_with_minimum_expected_floor": 22,
-    "projects_with_implausibly_low_recovery": 8,
+    "projects_with_implausibly_low_recovery": 0,
     "exact_expected_sample_total": 17,
-    "recovered_final_sample_total": 868,
-    "minimum_gap_total": 8
+    "recovered_final_sample_total": 1451,
+    "minimum_gap_total": 1
   },
   "species_deficit_counts": {
     "Bos taurus": {
       "project_count": 3,
-      "projects_with_sample_gap": 2,
-      "projects_with_site_gap": 1,
-      "projects_with_chronology_gap": 0,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 3,
+      "projects_with_chronology_gap": 2,
       "projects_blocked_before_publication": 3
     },
     "Camelus dromedarius": {
@@ -61,16 +61,16 @@
     },
     "Felis catus": {
       "project_count": 2,
-      "projects_with_sample_gap": 2,
-      "projects_with_site_gap": 0,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 1,
       "projects_with_chronology_gap": 0,
-      "projects_blocked_before_publication": 2
+      "projects_blocked_before_publication": 1
     },
     "Ovis aries": {
       "project_count": 6,
-      "projects_with_sample_gap": 2,
-      "projects_with_site_gap": 0,
-      "projects_with_chronology_gap": 0,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 2,
+      "projects_with_chronology_gap": 1,
       "projects_blocked_before_publication": 5
     },
     "Rangifer tarandus": {
@@ -82,50 +82,49 @@
     },
     "Sus scrofa domesticus": {
       "project_count": 4,
-      "projects_with_sample_gap": 1,
-      "projects_with_site_gap": 0,
+      "projects_with_sample_gap": 0,
+      "projects_with_site_gap": 1,
       "projects_with_chronology_gap": 0,
       "projects_blocked_before_publication": 4
     }
   },
   "manual_curation_counts": {
-    "chronology_recovery": 5,
-    "locality_string_resolution": 3,
-    "site_resolution": 3
+    "chronology_recovery": 11,
+    "locality_string_resolution": 9,
+    "site_resolution": 9
   },
   "missing_source_queue_counts": {
-    "sample_recovery_still_thin": 8,
     "missing_primary_paper_linkage": 13
   },
   "release_guard": {
-    "passing": false,
-    "implausibly_low_recovery_project_count": 8
+    "passing": true,
+    "implausibly_low_recovery_project_count": 0
   },
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
-    "sample_with_site": 87,
-    "sample_with_site_and_chronology": 280,
+    "sample_with_site": 218,
+    "sample_with_site_and_chronology": 732,
     "sample_with_site_chronology_and_coordinates": 501
   },
   "top_gap_projects": [
     {
       "project_accession": "PRJEB31621",
       "species_latin_name": "Bos taurus",
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "minimum_gap_count": 1,
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "minimum_gap_count": 0,
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
-        "sample_recovery_gap"
+        "site_assignment_gap",
+        "chronology_gap"
       ]
     },
     {
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "minimum_gap_count": 1,
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "minimum_gap_count": 0,
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
-        "sample_recovery_gap"
+        "site_assignment_gap",
+        "chronology_gap"
       ]
     },
     {
@@ -142,10 +141,9 @@
     {
       "project_accession": "SRP073444",
       "species_latin_name": "Camelus dromedarius",
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
+      "recovery_gap_status": "paper_or_capture_gap_blocks_estimate",
       "minimum_gap_count": 1,
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
         "sample_recovery_gap"
       ]
     },
@@ -226,42 +224,30 @@
     {
       "project_accession": "PRJEB81815",
       "species_latin_name": "Felis catus",
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "minimum_gap_count": 1,
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "minimum_gap_count": 0,
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
-        "sample_recovery_gap",
+        "site_assignment_gap",
         "coordinate_precision_gap"
-      ]
-    },
-    {
-      "project_accession": "PRJNA1178732",
-      "species_latin_name": "Felis catus",
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "minimum_gap_count": 1,
-      "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
-        "sample_recovery_gap"
       ]
     },
     {
       "project_accession": "PRJEB41594",
       "species_latin_name": "Ovis aries",
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "minimum_gap_count": 1,
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "minimum_gap_count": 0,
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
-        "sample_recovery_gap"
+        "site_assignment_gap",
+        "chronology_gap"
       ]
     },
     {
       "project_accession": "PRJEB59481",
       "species_latin_name": "Ovis aries",
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "minimum_gap_count": 1,
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "minimum_gap_count": 0,
       "major_deficit_reasons": [
-        "implausibly_low_sample_recovery",
-        "sample_recovery_gap",
+        "site_assignment_gap",
         "coordinate_precision_gap"
       ]
     },
@@ -295,6 +281,16 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "minimum_gap_count": 0,
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "coordinate_precision_gap"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
       "recovery_gap_status": "minimum_expected_floor_met",
       "minimum_gap_count": 0,
       "major_deficit_reasons": [

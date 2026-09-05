@@ -61,7 +61,7 @@
   "role_counts": {
     "shared_world_scale_layer": 2,
     "region_filtered_layer": 1,
-    "scope_specific_overlay": 5
+    "scope_specific_overlay": 6
   },
   "layer_rows": [
     {
@@ -117,11 +117,24 @@
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
+      "key": "sead-sites",
+      "label": "SEAD sites",
+      "source_name": "SEAD",
+      "coverage_label": "Environmental archaeology sites staged from the SEAD normalization bundle.",
+      "count": 2069,
+      "publication_role": "scope_specific_overlay",
+      "scope_visibility": "scope_owned",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
+    },
+    {
       "key": "sweden-archaeology-site-discovery",
       "label": "Sweden archaeology site discovery",
       "source_name": "SEAD with RA\u00c4 density context",
       "coverage_label": "Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record.",
-      "count": 10379,
+      "count": 9738,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
       "default_enabled": true,
@@ -187,7 +200,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 14822
+        "record_count": 16250
       },
       "edges": {
         "status": "unavailable",
@@ -200,13 +213,177 @@
         "reason_code": "governed_sequence_detail_model_not_available"
       },
       "provenance": {
-        "status": "layer_metadata_only",
-        "record_count": 8,
-        "reason_code": "record_level_provenance_model_not_available"
+        "status": "record_level_available",
+        "record_count": 2269,
+        "reason_code": null
+      },
+      "details": {
+        "status": "available",
+        "record_count": 2269,
+        "reason_code": null
+      },
+      "classifications": {
+        "status": "unavailable",
+        "record_count": 0,
+        "reason_code": "accepted_scientific_classifications_not_available"
       },
       "indexes": {
         "status": "available",
-        "record_count": 12303
+        "record_count": 16000
+      }
+    }
+  },
+  "detail_projection": {
+    "schema_version": "atlas-evidence-projection.v2",
+    "status": "reconciled",
+    "source_layer_count": 3,
+    "source_feature_count": 12007,
+    "matched_feature_count": 12007,
+    "detail_record_count": 2269,
+    "unique_feature_record_id_count": 2269,
+    "repeated_feature_reference_count": 9738,
+    "unmatched_feature_count": 0,
+    "unreferenced_detail_count": 0,
+    "tab_availability": {
+      "overview": {
+        "available": 2269,
+        "unavailable": 0,
+        "denominator": 2269
+      },
+      "samples": {
+        "available": 1436,
+        "unavailable": 833,
+        "denominator": 2269
+      },
+      "chronology": {
+        "available": 1053,
+        "unavailable": 1216,
+        "denominator": 2269
+      },
+      "pollen_composition": {
+        "available": 1287,
+        "unavailable": 982,
+        "denominator": 2269
+      },
+      "relation": {
+        "available": 2069,
+        "unavailable": 200,
+        "denominator": 2269
+      },
+      "classification": {
+        "available": 0,
+        "unavailable": 2269,
+        "denominator": 2269
+      },
+      "provenance": {
+        "available": 2269,
+        "unavailable": 0,
+        "denominator": 2269
+      }
+    },
+    "sources": {
+      "neotoma": {
+        "source_feature_count": 200,
+        "source_site_denominator": 200,
+        "projected_site_count": 200,
+        "unprojected_source_site_count": 0,
+        "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+        "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+        "materialization_sha256": "2b65a0bd692a7228324902616824af0dcb0d66be80289dc3b4ab31278470624f",
+        "detail_row_counts": {
+          "collection_units": 206,
+          "datasets": 209,
+          "samples": 12388,
+          "age_claims": 23281,
+          "observations": 370936,
+          "variables": 1262
+        },
+        "detail_row_denominators": {
+          "collection_units": 206,
+          "datasets": 209,
+          "samples": 12388,
+          "age_claims": 23281,
+          "observations": 370936,
+          "variables": 1262
+        }
+      },
+      "sead": {
+        "source_feature_count": 11807,
+        "source_site_denominator": 2069,
+        "bbox_site_denominator": 2195,
+        "assigned_site_count": 2069,
+        "excluded_site_count": 126,
+        "decision_status_counts": {
+          "assigned": 2069,
+          "review": 103,
+          "unassigned": 23
+        },
+        "projected_site_count": 2069,
+        "unprojected_source_site_count": 0,
+        "source_claim_denominator": 25109,
+        "source_observation_denominator": 177763,
+        "source_taxon_relation_denominator": 1974,
+        "source_dimension_relation_denominator": 2639,
+        "source_event_refusal_denominator": 177763,
+        "projected_site_claim_count": 25109,
+        "projected_site_observation_count": 177763,
+        "projected_unique_taxon_relation_count": 1974,
+        "projected_dimension_relation_count": 2639,
+        "unprojected_dimension_relation_count": 0,
+        "projected_unique_dataset_semantic_count": 31901,
+        "projected_unique_value_semantic_count": 52,
+        "eligible_event_count": 0,
+        "claim_country_counts": {
+          "DK": 1939,
+          "FI": 59,
+          "NO": 468,
+          "SE": 22643
+        },
+        "observation_country_counts": {
+          "DK": 5264,
+          "FI": 442,
+          "NO": 8950,
+          "SE": 163107
+        },
+        "eligible_event_country_counts": {
+          "DK": 0,
+          "FI": 0,
+          "NO": 0,
+          "SE": 0
+        },
+        "propagation_status": "refused",
+        "propagation_reason_code": "source_classification_not_accepted",
+        "detail_row_counts": {
+          "chronology_claims": 25109,
+          "observations": 177763,
+          "dimension_relations": 2639,
+          "taxon_relations_unique": 1974,
+          "event_refusals": 177763
+        },
+        "detail_row_denominators": {
+          "chronology_claims": 25109,
+          "observations": 177763,
+          "dimension_relations": 2639,
+          "taxon_relations_unique": 1974,
+          "event_refusals": 177763
+        },
+        "source_run_id": "sead-full-evidence-39bfff6a-ce80714e",
+        "build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
+        "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+        "acquisition_release_status": "refused",
+        "evidence_file_set_sha256": "b83f418e560502e1ccfc186a790ca9ceee98d02bd8b164c14bcdb2ca66981454",
+        "country_site_counts": {
+          "Denmark": 59,
+          "Finland": 40,
+          "Norway": 45,
+          "Sweden": 1925
+        },
+        "map_feature_country_counts": {
+          "Denmark": 59,
+          "Finland": 40,
+          "Norway": 45,
+          "Sweden": 11663
+        }
       }
     }
   }

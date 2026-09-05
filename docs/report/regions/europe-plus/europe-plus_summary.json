@@ -72,59 +72,59 @@
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-provenance.0000.3b8af256939fe027.js"
+        "filename": "europe-plus.atlas-provenance.0000.8efd074eb2e48603.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0001.912887f012b0d190.js"
+        "filename": "europe-plus.atlas-nodes.0001.06214db0e8df1533.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0002.08289269e1cc4476.js"
+        "filename": "europe-plus.atlas-nodes.0002.4f59ad540632ed53.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0003.6b3dd169d3171032.js"
+        "filename": "europe-plus.atlas-nodes.0003.5e6f8aaeb283de91.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0004.ab560e9d8fff6c5c.js"
+        "filename": "europe-plus.atlas-nodes.0004.c4a520e87962bbee.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0005.f9d5f140e48791df.js"
+        "filename": "europe-plus.atlas-nodes.0005.0b2308c2a95bc004.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0006.b70440ff5c061699.js"
+        "filename": "europe-plus.atlas-nodes.0006.312eccf9ffb7b0bd.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0007.da93dbeb1bc16291.js"
+        "filename": "europe-plus.atlas-nodes.0007.dfa521bd20bc8b26.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0008.1b3dfeed8238630d.js"
+        "filename": "europe-plus.atlas-nodes.0008.ebe0d900b5b70555.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0009.1225ba5af271391f.js"
+        "filename": "europe-plus.atlas-nodes.0009.b18b4be59d2c035d.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0010.c0d8ce794f452aef.js"
+        "filename": "europe-plus.atlas-nodes.0010.bf8daa8180debd32.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-edges.0011.4a045d7238d88532.js"
+        "filename": "europe-plus.atlas-edges.0011.b33f098c2658a940.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-sequences.0012.d41103405968948e.js"
+        "filename": "europe-plus.atlas-sequences.0012.47104628407dd47d.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-indexes.0013.fa3d5f9ba39227d1.js"
+        "filename": "europe-plus.atlas-indexes.0013.e7b09809e78619c6.js"
       },
       {
         "label": "Candidate site ranking CSV",
@@ -307,11 +307,71 @@
           "record_count": 3,
           "reason_code": "record_level_provenance_model_not_available"
         },
+        "details": {
+          "status": "unavailable",
+          "record_count": 0,
+          "reason_code": "record_level_evidence_not_available"
+        },
+        "classifications": {
+          "status": "unavailable",
+          "record_count": 0,
+          "reason_code": "accepted_scientific_classifications_not_available"
+        },
         "indexes": {
           "status": "available",
           "record_count": 1233
         }
       }
+    },
+    "detail_projection": {
+      "schema_version": "atlas-evidence-projection.v2",
+      "status": "reconciled",
+      "source_layer_count": 0,
+      "source_feature_count": 0,
+      "matched_feature_count": 0,
+      "detail_record_count": 0,
+      "unique_feature_record_id_count": 0,
+      "repeated_feature_reference_count": 0,
+      "unmatched_feature_count": 0,
+      "unreferenced_detail_count": 0,
+      "tab_availability": {
+        "overview": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        },
+        "samples": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        },
+        "chronology": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        },
+        "pollen_composition": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        },
+        "relation": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        },
+        "classification": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        },
+        "provenance": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        }
+      },
+      "sources": {}
     }
   },
   "animal_atlas": {

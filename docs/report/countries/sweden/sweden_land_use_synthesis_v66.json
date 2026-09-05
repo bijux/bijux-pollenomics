@@ -73,13 +73,13 @@
       "cereal_type_pollen_cover": 4.641181,
       "rye_pollen_cover": 0.458324,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 7,
-      "sead_site_count_20km": 4,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -102,8 +102,8 @@
       "cereal_type_pollen_cover": 6.582581,
       "rye_pollen_cover": 0.386522,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 139,
-      "sead_site_count_20km": 12,
+      "sead_temporal_record_count_20km": 130,
+      "sead_site_count_20km": 8,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
@@ -131,8 +131,8 @@
       "cereal_type_pollen_cover": 5.462224,
       "rye_pollen_cover": 0.133554,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 308,
-      "sead_site_count_20km": 26,
+      "sead_temporal_record_count_20km": 292,
+      "sead_site_count_20km": 13,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
@@ -160,8 +160,8 @@
       "cereal_type_pollen_cover": 2.530118,
       "rye_pollen_cover": 0.071505,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 113,
-      "sead_site_count_20km": 21,
+      "sead_temporal_record_count_20km": 88,
+      "sead_site_count_20km": 3,
       "human_adna_locality_count_20km": 1,
       "human_adna_sample_count_20km": 2,
       "animal_adna_locality_count_20km": 0,
@@ -189,13 +189,13 @@
       "cereal_type_pollen_cover": 1.114663,
       "rye_pollen_cover": 0.00128,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 14,
-      "sead_site_count_20km": 9,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 2,
       "human_adna_sample_count_20km": 2,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -218,13 +218,13 @@
       "cereal_type_pollen_cover": 1.170706,
       "rye_pollen_cover": 0.039253,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 12,
-      "sead_site_count_20km": 9,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 1,
       "human_adna_sample_count_20km": 1,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -247,13 +247,13 @@
       "cereal_type_pollen_cover": 0.639072,
       "rye_pollen_cover": 0.000403,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 17,
-      "sead_site_count_20km": 12,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 1,
       "human_adna_sample_count_20km": 1,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -276,13 +276,13 @@
       "cereal_type_pollen_cover": 0.080601,
       "rye_pollen_cover": 0.000595,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 13,
-      "sead_site_count_20km": 9,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -305,13 +305,13 @@
       "cereal_type_pollen_cover": 0.011437,
       "rye_pollen_cover": 0.000184,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -334,13 +334,13 @@
       "cereal_type_pollen_cover": 0.309214,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 8,
-      "sead_site_count_20km": 4,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 1,
       "human_adna_sample_count_20km": 1,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -363,13 +363,13 @@
       "cereal_type_pollen_cover": 0.010865,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 15,
-      "sead_site_count_20km": 11,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 2,
       "human_adna_sample_count_20km": 2,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -392,13 +392,13 @@
       "cereal_type_pollen_cover": 0.003307,
       "rye_pollen_cover": 0.000224,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 14,
-      "sead_site_count_20km": 11,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 1,
       "human_adna_sample_count_20km": 3,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -421,13 +421,13 @@
       "cereal_type_pollen_cover": 0.01705,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 19,
-      "sead_site_count_20km": 15,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 2,
       "human_adna_sample_count_20km": 4,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -450,13 +450,13 @@
       "cereal_type_pollen_cover": 0.347683,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 12,
-      "sead_site_count_20km": 8,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -479,13 +479,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 8,
-      "sead_site_count_20km": 5,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -508,13 +508,13 @@
       "cereal_type_pollen_cover": 0.022816,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -537,13 +537,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -566,13 +566,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -595,13 +595,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -624,13 +624,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -653,13 +653,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -682,13 +682,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 17,
-      "sead_site_count_20km": 8,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -711,13 +711,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -740,13 +740,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Gull\u00e5kra",
@@ -769,13 +769,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -798,13 +798,13 @@
       "cereal_type_pollen_cover": 4.641181,
       "rye_pollen_cover": 0.458324,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 7,
-      "sead_site_count_20km": 4,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -827,8 +827,8 @@
       "cereal_type_pollen_cover": 6.582581,
       "rye_pollen_cover": 0.386522,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 139,
-      "sead_site_count_20km": 12,
+      "sead_temporal_record_count_20km": 130,
+      "sead_site_count_20km": 8,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
@@ -856,8 +856,8 @@
       "cereal_type_pollen_cover": 5.462224,
       "rye_pollen_cover": 0.133554,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 272,
-      "sead_site_count_20km": 25,
+      "sead_temporal_record_count_20km": 256,
+      "sead_site_count_20km": 12,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
@@ -885,8 +885,8 @@
       "cereal_type_pollen_cover": 2.530118,
       "rye_pollen_cover": 0.071505,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 113,
-      "sead_site_count_20km": 21,
+      "sead_temporal_record_count_20km": 88,
+      "sead_site_count_20km": 3,
       "human_adna_locality_count_20km": 1,
       "human_adna_sample_count_20km": 2,
       "animal_adna_locality_count_20km": 0,
@@ -914,13 +914,13 @@
       "cereal_type_pollen_cover": 1.114663,
       "rye_pollen_cover": 0.00128,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 13,
-      "sead_site_count_20km": 8,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 2,
       "human_adna_sample_count_20km": 2,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Vesums mossar",
@@ -943,13 +943,13 @@
       "cereal_type_pollen_cover": 1.170706,
       "rye_pollen_cover": 0.039253,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 11,
-      "sead_site_count_20km": 8,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 1,
       "human_adna_sample_count_20km": 1,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Vesums mossar",
@@ -972,13 +972,13 @@
       "cereal_type_pollen_cover": 0.639072,
       "rye_pollen_cover": 0.000403,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 17,
-      "sead_site_count_20km": 12,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 1,
       "human_adna_sample_count_20km": 1,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Vesums mossar",
@@ -1001,13 +1001,13 @@
       "cereal_type_pollen_cover": 0.080601,
       "rye_pollen_cover": 0.000595,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 14,
-      "sead_site_count_20km": 10,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -1030,13 +1030,13 @@
       "cereal_type_pollen_cover": 0.011437,
       "rye_pollen_cover": 0.000184,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 11,
-      "sead_site_count_20km": 7,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -1059,13 +1059,13 @@
       "cereal_type_pollen_cover": 0.309214,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 8,
-      "sead_site_count_20km": 4,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 1,
       "human_adna_sample_count_20km": 1,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Vesums mossar",
@@ -1088,13 +1088,13 @@
       "cereal_type_pollen_cover": 0.010865,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 15,
-      "sead_site_count_20km": 11,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 2,
       "human_adna_sample_count_20km": 2,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Vesums mossar",
@@ -1117,13 +1117,13 @@
       "cereal_type_pollen_cover": 0.003307,
       "rye_pollen_cover": 0.000224,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 14,
-      "sead_site_count_20km": 11,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 1,
       "human_adna_sample_count_20km": 3,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Vesums mossar",
@@ -1146,13 +1146,13 @@
       "cereal_type_pollen_cover": 0.01705,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 18,
-      "sead_site_count_20km": 14,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 2,
       "human_adna_sample_count_20km": 4,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_human_context"
+      "cross_proxy_posture": "pollen_adna_context"
     },
     {
       "target_name": "Vesums mossar",
@@ -1175,13 +1175,13 @@
       "cereal_type_pollen_cover": 0.347683,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 11,
-      "sead_site_count_20km": 7,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -1204,13 +1204,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 8,
-      "sead_site_count_20km": 5,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -1233,13 +1233,13 @@
       "cereal_type_pollen_cover": 0.022816,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -1262,13 +1262,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -1291,13 +1291,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -1320,13 +1320,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -1349,13 +1349,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -1378,13 +1378,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -1407,13 +1407,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 17,
-      "sead_site_count_20km": 8,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -1436,13 +1436,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -1465,13 +1465,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     },
     {
       "target_name": "Vesums mossar",
@@ -1494,13 +1494,13 @@
       "cereal_type_pollen_cover": 0.0,
       "rye_pollen_cover": 0.0,
       "cereal_interpretation_posture": "Cerealia.t and Secale are modeled pollen-cover estimates; they are not observed crop acreage or proof of cultivation at the target",
-      "sead_temporal_record_count_20km": 10,
-      "sead_site_count_20km": 6,
+      "sead_temporal_record_count_20km": 0,
+      "sead_site_count_20km": 0,
       "human_adna_locality_count_20km": 0,
       "human_adna_sample_count_20km": 0,
       "animal_adna_locality_count_20km": 0,
       "animal_adna_sample_count_20km": 0,
-      "cross_proxy_posture": "pollen_archaeology_context"
+      "cross_proxy_posture": "pollen_model_only"
     }
   ]
 }

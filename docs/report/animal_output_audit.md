@@ -5,9 +5,9 @@
 - Country bundle count: `4`
 - Point candidate count: `233`
 - Candidate rows with full traceability: `233`
-- Tracked sample rows: `868`
+- Tracked sample rows: `1451`
 - Mapped sample rows: `554`
-- Blocked sample rows: `314`
+- Blocked sample rows: `897`
 - Unresolved sample rows: `0`
 - Country-published sample rows: `3`
 

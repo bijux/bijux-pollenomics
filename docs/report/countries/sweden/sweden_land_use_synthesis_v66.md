@@ -33,8 +33,8 @@ context. They are excluded only from the lake-sampling ranking.
 
 | Target | Window | Forest | Open land | Agricultural land | Cerealia-type pollen | Rye pollen | SEAD sites | Human aDNA localities | Animal aDNA localities | Posture |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| Gullåkra | 0-100 BP | 56.245 | 43.755 | 5.100 | 4.641 | 0.458 | 4 | 0 | 0 | pollen_archaeology_context |
-| Vesums mossar | 0-100 BP | 56.245 | 43.755 | 5.100 | 4.641 | 0.458 | 4 | 0 | 0 | pollen_archaeology_context |
+| Gullåkra | 0-100 BP | 56.245 | 43.755 | 5.100 | 4.641 | 0.458 | 0 | 0 | 0 | pollen_model_only |
+| Vesums mossar | 0-100 BP | 56.245 | 43.755 | 5.100 | 4.641 | 0.458 | 0 | 0 | 0 | pollen_model_only |
 
 This compact table shows one recent modeled window per covered target. The
 machine-readable JSON and CSV retain all **50** published

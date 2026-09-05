@@ -42,7 +42,9 @@
         "Canis lupus familiaris",
         "Capra hircus",
         "Equus caballus",
-        "Ovis aries"
+        "Felis catus",
+        "Ovis aries",
+        "Sus scrofa domesticus"
       ],
       "layer_role": "mapped_direct",
       "mapped": true,
@@ -96,9 +98,7 @@
       "layer_key": "animal_adna_species_context",
       "label": "Animal aDNA species context",
       "species_scope": [
-        "Equus asinus",
-        "Felis catus",
-        "Sus scrofa domesticus"
+        "Equus asinus"
       ],
       "layer_role": "unmapped_contextual_review",
       "mapped": false,
@@ -136,7 +136,7 @@
       "species_scope": [],
       "layer_role": "mapped_context",
       "mapped": true,
-      "feature_count": 11072,
+      "feature_count": 12500,
       "evidence_posture": "non_adna_context",
       "provenance_posture": "normalized_context_layers",
       "popup_contract": [
@@ -166,6 +166,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [],
@@ -192,6 +193,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [],
@@ -217,6 +219,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [
@@ -246,6 +249,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [
@@ -278,6 +282,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [],
@@ -303,6 +308,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [],
@@ -328,6 +334,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [],
@@ -353,6 +360,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [],
@@ -380,6 +388,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [
@@ -397,8 +406,8 @@
       "support_status": "provisional",
       "product_role": "domesticated_core",
       "dataset_bucket": "paper_pinned_core",
-      "contribution_role": "contextual",
-      "interaction_posture": "suggestive_only",
+      "contribution_role": "direct",
+      "interaction_posture": "increases_confidence",
       "mapped_direct_record_count": 0,
       "curated_project_count": 2,
       "study_summary_count": 2,
@@ -409,12 +418,12 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [],
       "rationale": [
-        "This species contributes as contextual review evidence because the runtime owns curated projects and studies, not mapped sample rows.",
-        "Atlas proximity must not be read as co-localized animal evidence until species-owned locality rows exist."
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
       ]
     },
     {
@@ -435,6 +444,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [],
@@ -460,6 +470,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [],
@@ -485,6 +496,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [],
@@ -510,6 +522,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [
@@ -539,6 +552,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [],
@@ -552,8 +566,8 @@
       "support_status": "provisional",
       "product_role": "domesticated_core",
       "dataset_bucket": "archive_verified_needs_paper_pinning",
-      "contribution_role": "contextual",
-      "interaction_posture": "suggestive_only",
+      "contribution_role": "direct",
+      "interaction_posture": "increases_confidence",
       "mapped_direct_record_count": 0,
       "curated_project_count": 1,
       "study_summary_count": 4,
@@ -564,6 +578,7 @@
         "fieldwork-documentation",
         "landclim-sites",
         "neotoma-pollen",
+        "sead-sites",
         "sweden-archaeology-site-discovery"
       ],
       "blocking_reasons": [
@@ -571,9 +586,7 @@
         "missing_archive_paper_pinning_rationale"
       ],
       "rationale": [
-        "This species contributes as contextual review evidence because the runtime owns curated projects and studies, not mapped sample rows.",
-        "Atlas proximity must not be read as co-localized animal evidence until species-owned locality rows exist.",
-        "Non-human geography is still project-level or withheld, so map-level locality claims would overstate the data."
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
       ]
     }
   ],
@@ -588,9 +601,7 @@
         "Equus caballus"
       ],
       "unmapped_animal_context_species": [
-        "Equus asinus",
-        "Felis catus",
-        "Sus scrofa domesticus"
+        "Equus asinus"
       ],
       "too_weak_animal_species": [
         "Anas platyrhynchos domesticus",
@@ -612,9 +623,7 @@
       ],
       "mapped_animal_direct_species": [],
       "unmapped_animal_context_species": [
-        "Equus asinus",
-        "Felis catus",
-        "Sus scrofa domesticus"
+        "Equus asinus"
       ],
       "too_weak_animal_species": [
         "Anas platyrhynchos domesticus",
@@ -636,9 +645,7 @@
       ],
       "mapped_animal_direct_species": [],
       "unmapped_animal_context_species": [
-        "Equus asinus",
-        "Felis catus",
-        "Sus scrofa domesticus"
+        "Equus asinus"
       ],
       "too_weak_animal_species": [
         "Anas platyrhynchos domesticus",
@@ -663,9 +670,7 @@
         "Equus caballus"
       ],
       "unmapped_animal_context_species": [
-        "Equus asinus",
-        "Felis catus",
-        "Sus scrofa domesticus"
+        "Equus asinus"
       ],
       "too_weak_animal_species": [
         "Anas platyrhynchos domesticus",
@@ -739,8 +744,13 @@
     },
     {
       "subject": "Felis catus",
-      "reason": "atlas_proximity_is_not_locality_evidence",
-      "detail": "Curated animal project support cannot be promoted to mapped locality evidence without species-owned sample or locality records."
+      "reason": "mapped_animal_chronology_requires_caution",
+      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
+    },
+    {
+      "subject": "Felis catus",
+      "reason": "mapped_animal_geography_requires_caution",
+      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
     },
     {
       "subject": "Gallus gallus domesticus",
@@ -779,8 +789,13 @@
     },
     {
       "subject": "Sus scrofa domesticus",
-      "reason": "atlas_proximity_is_not_locality_evidence",
-      "detail": "Curated animal project support cannot be promoted to mapped locality evidence without species-owned sample or locality records."
+      "reason": "mapped_animal_chronology_requires_caution",
+      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
+    },
+    {
+      "subject": "Sus scrofa domesticus",
+      "reason": "mapped_animal_geography_requires_caution",
+      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
     }
   ],
   "north_star_boundary": "Mapped Homo sapiens localities are direct atlas evidence. Non-human ancient-DNA support becomes direct atlas evidence only where tracked species-owned locality rows exist. Approximate coordinates, regional leads, comparator species, and mixed-species claims still require explicit caution."

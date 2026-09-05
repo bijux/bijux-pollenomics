@@ -1,8 +1,8 @@
 # Animal foundation validation
 
 - Overall ok: `false`
-- Sample rows: `868`
-- Site evidence rows: `293`
+- Sample rows: `1451`
+- Site evidence rows: `307`
 - Coordinate rows: `243`
 - Atlas rows: `233`
 

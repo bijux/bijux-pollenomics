@@ -192,8 +192,8 @@
         "required": true,
         "purpose": "admitted SEAD acquisition and exact site payload capture",
         "example_artifacts": [
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/admission.json",
-          "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json"
         ]
       },
       "normalized_layer": {
@@ -236,8 +236,8 @@
           "required": true,
           "purpose": "admitted SEAD acquisition and exact site payload capture",
           "example_artifacts": [
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/admission.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json"
           ]
         },
         "normalized": {
@@ -959,73 +959,119 @@
         },
         "evidence_paths_by_dimension": {
           "site_identity": [
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json"
           ],
           "coordinates": [
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json"
           ],
           "four_country_coverage": [
-            "data/country_dimension_coverage.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/country_dimension_coverage.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
           ],
           "within_site_hierarchy": [
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sample_groups.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_physical_samples.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_groups.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_physical_samples.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
           ],
           "numeric_chronology": [
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_geochronology.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_entity_ages.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entity_ages.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
           ],
           "chronology_uncertainty": [
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_dating_uncertainty.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dating_uncertainty.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
           ],
           "relative_chronology": [
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_relative_ages.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_relative_dates.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_ages.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_dates.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
           ],
           "taxon_identity": [
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_abundances.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_taxa_tree_master.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_master.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
           ],
           "native_ecological_class": [
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_ecocodes.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_ecocode_definitions.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_ecocode_groups.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_ecocode_systems.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocodes.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_definitions.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_groups.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_systems.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
           ],
           "derived_pollen_group": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
             "data/sead/derived/pollen_groups.json"
           ],
           "derived_ecological_role": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
             "data/sead/derived/ecological_roles.json"
           ],
           "crop_cereal_resolution": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
             "data/sead/derived/crop_cereal_resolution.json"
           ],
           "quantitative_observation": [
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_abundances.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_numerical_values.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_integer_values.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_categorical_values.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_analysis_boolean_values.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_measured_values.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_numerical_values.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_integer_values.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_categorical_values.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_boolean_values.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_measured_values.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
           ],
           "observation_unit": [
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_value_types.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_dimensions.json",
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_units.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_types.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dimensions.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_units.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
           ],
           "dataset_provenance": [
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/admission.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
           ],
           "pollen_propagation_event": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events.json",
             "data/sead/derived/pollen_propagation_events.json"
           ],
           "non_pollen_context": [
-            "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
           ]
         },
         "human_review_required": true,
-        "human_review_reason": "full_sead_observation_taxon_graph_not_materialized"
+        "human_review_reason": "qualified_sead_ecological_classification_review_missing"
       },
       {
         "source_key": "raa",

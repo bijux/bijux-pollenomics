@@ -99,7 +99,7 @@
     {
       "country": "Sweden",
       "species_latin_name": "Felis catus",
-      "evidence_scope": "contextual",
+      "evidence_scope": "direct",
       "mapped_locality_count": 0,
       "contextual_project_count": 2,
       "assignment_confidence": "not_country_assignable_from_current_runtime",
@@ -153,7 +153,7 @@
     {
       "country": "Sweden",
       "species_latin_name": "Sus scrofa domesticus",
-      "evidence_scope": "contextual",
+      "evidence_scope": "direct",
       "mapped_locality_count": 0,
       "contextual_project_count": 1,
       "assignment_confidence": "not_country_assignable_from_current_runtime",
@@ -243,7 +243,7 @@
     {
       "country": "Norway",
       "species_latin_name": "Felis catus",
-      "evidence_scope": "contextual",
+      "evidence_scope": "direct",
       "mapped_locality_count": 0,
       "contextual_project_count": 2,
       "assignment_confidence": "not_country_assignable_from_current_runtime",
@@ -297,7 +297,7 @@
     {
       "country": "Norway",
       "species_latin_name": "Sus scrofa domesticus",
-      "evidence_scope": "contextual",
+      "evidence_scope": "direct",
       "mapped_locality_count": 0,
       "contextual_project_count": 1,
       "assignment_confidence": "not_country_assignable_from_current_runtime",
@@ -387,7 +387,7 @@
     {
       "country": "Finland",
       "species_latin_name": "Felis catus",
-      "evidence_scope": "contextual",
+      "evidence_scope": "direct",
       "mapped_locality_count": 0,
       "contextual_project_count": 2,
       "assignment_confidence": "not_country_assignable_from_current_runtime",
@@ -441,7 +441,7 @@
     {
       "country": "Finland",
       "species_latin_name": "Sus scrofa domesticus",
-      "evidence_scope": "contextual",
+      "evidence_scope": "direct",
       "mapped_locality_count": 0,
       "contextual_project_count": 1,
       "assignment_confidence": "not_country_assignable_from_current_runtime",
@@ -531,7 +531,7 @@
     {
       "country": "Denmark",
       "species_latin_name": "Felis catus",
-      "evidence_scope": "contextual",
+      "evidence_scope": "direct",
       "mapped_locality_count": 0,
       "contextual_project_count": 2,
       "assignment_confidence": "not_country_assignable_from_current_runtime",
@@ -585,7 +585,7 @@
     {
       "country": "Denmark",
       "species_latin_name": "Sus scrofa domesticus",
-      "evidence_scope": "contextual",
+      "evidence_scope": "direct",
       "mapped_locality_count": 0,
       "contextual_project_count": 1,
       "assignment_confidence": "not_country_assignable_from_current_runtime",
@@ -758,7 +758,7 @@
     {
       "species_latin_name": "Felis catus",
       "period_label": "project_level_or_unresolved",
-      "evidence_scope": "contextual",
+      "evidence_scope": "direct",
       "mapped_locality_count": 0,
       "contextual_project_count": 2,
       "chronology_confidence": "project_level_chronology_without_locality_alignment",
@@ -812,7 +812,7 @@
     {
       "species_latin_name": "Sus scrofa domesticus",
       "period_label": "project_level_or_unresolved",
-      "evidence_scope": "contextual",
+      "evidence_scope": "direct",
       "mapped_locality_count": 0,
       "contextual_project_count": 1,
       "chronology_confidence": "project_level_chronology_without_locality_alignment",
