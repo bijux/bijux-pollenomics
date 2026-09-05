@@ -7,11 +7,73 @@ from pathlib import Path
 import pytest
 
 from bijux_pollenomics.adna.governance.audit_catalogs.map_readiness import (
+    _map_publication_accounting,
     _map_publication_key,
     build_cross_species_map_readiness,
 )
+from bijux_pollenomics.adna.governance.audit_catalogs import map_readiness
+from bijux_pollenomics.reporting import adna as reporting_adna
 
 pytestmark = pytest.mark.generated_artifacts
+
+
+class _PublicationRow:
+    def __init__(self, payload: dict[str, object]) -> None:
+        self._payload = payload
+
+    def as_dict(self) -> dict[str, object]:
+        return dict(self._payload)
+
+
+def _publication_payload() -> dict[str, object]:
+    return {
+        "species_latin_name": "Equus caballus",
+        "primary_project_accession": "PRJEB1",
+        "coordinate_source_locator": "table 1",
+        "coordinate_basis": "archive_coordinates",
+        "locality": "Site A",
+        "latitude_text": "55.0",
+        "longitude_text": "12.0",
+        "original_place_text": "Site A",
+        "resolved_place_text": "Site A",
+    }
+
+
+def _coordinate_payload(**overrides: object) -> dict[str, object]:
+    return {
+        "species_latin_name": "Equus caballus",
+        "species_common_name": "horse",
+        "project_accession": "PRJEB1",
+        "source_locator": "table 1",
+        "coordinate_basis": "archive_coordinates",
+        "site_label": "Site A",
+        "latitude_text": "55.0",
+        "longitude_text": "12.0",
+        "original_place_text": "Site A",
+        "resolved_place_text": "Site A",
+        "mapping_posture": "mappable_point",
+        **overrides,
+    }
+
+
+def _install_accounting_scenario(
+    monkeypatch: pytest.MonkeyPatch,
+    *,
+    publication_rows: tuple[_PublicationRow, ...],
+    coordinate_rows: list[dict[str, object]],
+) -> None:
+    monkeypatch.setattr(
+        reporting_adna,
+        "build_tracked_animal_atlas_evidence_rows",
+        lambda _root: publication_rows,
+    )
+    monkeypatch.setattr(map_readiness, "TRACKED_ADNA_SPECIES", ("Equus caballus",))
+    monkeypatch.setattr(map_readiness, "_species_root", lambda *_args: Path("species"))
+    monkeypatch.setattr(
+        map_readiness,
+        "_load_coordinate_provenance_rows",
+        lambda _root: coordinate_rows,
+    )
 
 
 def test_map_publication_identity_separates_sibling_sites() -> None:
@@ -76,3 +138,57 @@ def test_map_readiness_reconciles_point_ready_and_unpublished_counts(
     assert horse_row["direct_coordinate_backed"] == 207
     assert horse_row["indirectly_geocoded"] == 1
     assert sheep_row["refused_from_mapping"] == 1
+
+
+def test_map_accounting_refuses_duplicate_publication_identity(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    row = _PublicationRow(_publication_payload())
+    _install_accounting_scenario(
+        monkeypatch,
+        publication_rows=(row, row),
+        coordinate_rows=[],
+    )
+
+    with pytest.raises(ValueError, match="publication identity is not unique"):
+        _map_publication_accounting(Path("data"))
+
+
+def test_map_accounting_refuses_duplicate_coordinate_identity(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    coordinate = _coordinate_payload()
+    _install_accounting_scenario(
+        monkeypatch,
+        publication_rows=(),
+        coordinate_rows=[coordinate, coordinate],
+    )
+
+    with pytest.raises(ValueError, match="coordinate provenance is not unique"):
+        _map_publication_accounting(Path("data"))
+
+
+def test_map_accounting_refuses_unsupported_coordinate_basis(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    _install_accounting_scenario(
+        monkeypatch,
+        publication_rows=(),
+        coordinate_rows=[_coordinate_payload(coordinate_basis="invented_basis")],
+    )
+
+    with pytest.raises(ValueError, match="unsupported basis: invented_basis"):
+        _map_publication_accounting(Path("data"))
+
+
+def test_map_accounting_refuses_publication_without_coordinate_provenance(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    _install_accounting_scenario(
+        monkeypatch,
+        publication_rows=(_PublicationRow(_publication_payload()),),
+        coordinate_rows=[],
+    )
+
+    with pytest.raises(ValueError, match="do not reconcile"):
+        _map_publication_accounting(Path("data"))

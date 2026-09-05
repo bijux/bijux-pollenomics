@@ -8,9 +8,11 @@ import pytest
 
 from bijux_pollenomics.adna.governance.audit_catalogs.public_outputs import (
     build_public_animal_output_audit,
+    build_public_animal_output_honesty,
 )
 from bijux_pollenomics.adna.governance.audit_catalogs.rendering import (
     render_public_animal_output_audit_markdown,
+    render_public_animal_output_honesty_markdown,
 )
 
 from .fixtures import write_country_summary, write_world_summary
@@ -63,3 +65,19 @@ def test_public_audit_counts_country_outputs_from_country_summary(
     )
     assert sheep_row["country_output_count"] == 1
     assert "country-resolved animal output hits" in markdown
+
+
+def test_output_honesty_reconciles_tracked_mapped_and_blocked_samples(
+    catalog_data_root: Path,
+    report_root: Path,
+) -> None:
+    honesty = build_public_animal_output_honesty(catalog_data_root, report_root)
+    totals = honesty["totals"]
+    markdown = render_public_animal_output_honesty_markdown(honesty)
+
+    assert totals["tracked_sample_count"] == 1451
+    assert totals["mapped_sample_count"] + totals["blocked_sample_count"] == 1451
+    assert totals["unresolved_sample_count"] == 0
+    assert totals["country_published_sample_count"] == 0
+    assert sum(row["tracked_sample_count"] for row in honesty["rows"]) == 1451
+    assert "Tracked sample rows: `1451`" in markdown
