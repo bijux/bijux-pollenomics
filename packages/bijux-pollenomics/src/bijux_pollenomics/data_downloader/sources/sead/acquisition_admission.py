@@ -21,20 +21,30 @@ from .acquisition import (
     reconcile_sead_join,
 )
 from .api_client import SEAD_LIMIT, SEAD_POSTGREST_ROOT, build_sead_in_filter
-from .archive import SEAD_LINKED_SOURCE_TABLES
+from .archive import SEAD_FULL_EVIDENCE_SOURCE_TABLES, SEAD_LINKED_SOURCE_TABLES
 from .scoped_acquisition import (
+    FULL_EVIDENCE_ORCHESTRATOR_VERSION,
     SCOPED_RECEIPT_SCHEMA_VERSION,
+    SCOPED_ORCHESTRATOR_VERSION,
+    SEAD_FULL_EVIDENCE_JOIN_PLANS,
+    SEAD_FULL_EVIDENCE_TABLE_PLANS,
     SEAD_SCOPED_TABLE_PLANS,
+    SeadJoinPlan,
+    SeadScopedTablePlan,
 )
 
 ADMISSION_SCHEMA_VERSION = "sead-acquisition-admission.v1"
 ADMISSION_SCOPE = "declared_chronology_relations"
+FULL_EVIDENCE_ADMISSION_SCOPE = "full_evidence_relations"
 
 __all__ = [
     "ADMISSION_SCHEMA_VERSION",
     "SeadAcquisitionAdmission",
     "SeadAdmissionExpectedIdentity",
+    "materialize_sead_full_evidence_admission",
     "materialize_sead_acquisition_admission",
+    "validate_materialized_sead_full_evidence_admission",
+    "validate_sead_full_evidence_admission",
     "validate_sead_acquisition_admission",
 ]
 
@@ -49,7 +59,6 @@ _SITE_PROJECTION = (
     "altitude,site_description,site_uuid"
 )
 _AGGREGATE_ROUTE = "postgrest_dependency_scoped"
-_AGGREGATE_TOOL_VERSION = "sead-scoped-relation-acquisition.v1"
 _QUERY_ROUTE = "postgrest"
 _QUERY_TOOL_VERSION = "sead-postgrest-acquisition.v1"
 _QUERY_MAX_PAGES = 10_000
@@ -273,6 +282,39 @@ _DOWNSTREAM_REFUSALS = {
 
 
 @dataclass(frozen=True)
+class _AdmissionProfile:
+    scope_key: str
+    relation_scope: str
+    tables: tuple[str, ...]
+    table_plans: tuple[SeadScopedTablePlan, ...]
+    join_plans: tuple[SeadJoinPlan, ...]
+    orchestrator_version: str
+    wp01_complete: bool
+
+
+_SCOPED_PROFILE = _AdmissionProfile(
+    scope_key=ADMISSION_SCOPE,
+    relation_scope="chronology_relations",
+    tables=SEAD_LINKED_SOURCE_TABLES,
+    table_plans=SEAD_SCOPED_TABLE_PLANS,
+    join_plans=tuple(
+        SeadJoinPlan(edge, *spec) for edge, spec in _EXPECTED_JOIN_SPECS.items()
+    ),
+    orchestrator_version=SCOPED_ORCHESTRATOR_VERSION,
+    wp01_complete=False,
+)
+_FULL_EVIDENCE_PROFILE = _AdmissionProfile(
+    scope_key=FULL_EVIDENCE_ADMISSION_SCOPE,
+    relation_scope="full_evidence_relations",
+    tables=SEAD_FULL_EVIDENCE_SOURCE_TABLES,
+    table_plans=SEAD_FULL_EVIDENCE_TABLE_PLANS,
+    join_plans=SEAD_FULL_EVIDENCE_JOIN_PLANS,
+    orchestrator_version=FULL_EVIDENCE_ORCHESTRATOR_VERSION,
+    wp01_complete=False,
+)
+
+
+@dataclass(frozen=True)
 class SeadAcquisitionAdmission:
     """One validated immutable acquisition admission."""
 
@@ -296,6 +338,7 @@ class SeadAdmissionExpectedIdentity:
     bbox_payload_sha256: str
     acquisition_manifest_sha256: str
     country_decisions_sha256: str
+    parent_admission_sha256: str | None = None
 
 
 @dataclass(frozen=True)
@@ -329,7 +372,55 @@ def validate_sead_acquisition_admission(
         snapshot_root,
         country_decisions_path=country_decisions_path,
         expected_identity=expected_identity,
+        profile=_SCOPED_PROFILE,
+        parent_admission_path=None,
     ).admission
+
+
+def validate_sead_full_evidence_admission(
+    snapshot_root: Path,
+    *,
+    country_decisions_path: Path,
+    parent_admission_path: Path,
+    expected_identity: SeadAdmissionExpectedIdentity,
+) -> dict[str, object]:
+    """Validate the complete immutable SEAD evidence relation capture."""
+    return _validate_cached_admission(
+        snapshot_root,
+        country_decisions_path=country_decisions_path,
+        expected_identity=expected_identity,
+        profile=_FULL_EVIDENCE_PROFILE,
+        parent_admission_path=parent_admission_path,
+        admitted_root=False,
+    ).admission
+
+
+def validate_materialized_sead_full_evidence_admission(
+    acquisition_root: Path,
+    *,
+    expected_identity: SeadAdmissionExpectedIdentity,
+) -> dict[str, object]:
+    """Recompute and validate an already materialized full-evidence admission."""
+    root = _validated_source_directory(acquisition_root)
+    observed_bytes = _read_regular_file(root / "admission.json")
+    observed = _json_object(observed_bytes, "admission.json")
+    _expect_equal(
+        observed_bytes, _canonical_bytes(observed), "canonical admission bytes"
+    )
+    validated = _validate_cached_admission(
+        root,
+        country_decisions_path=root / "country-decisions.json",
+        expected_identity=expected_identity,
+        profile=_FULL_EVIDENCE_PROFILE,
+        parent_admission_path=root / "parent-admission.json",
+        admitted_root=True,
+    )
+    _expect_equal(
+        observed_bytes,
+        _canonical_bytes(validated.admission),
+        "independently recomputed full-evidence admission",
+    )
+    return validated.admission
 
 
 def _validate_cached_admission(
@@ -337,6 +428,9 @@ def _validate_cached_admission(
     *,
     country_decisions_path: Path,
     expected_identity: SeadAdmissionExpectedIdentity,
+    profile: _AdmissionProfile,
+    parent_admission_path: Path | None,
+    admitted_root: bool = False,
 ) -> _ValidatedAdmission:
     root = _validated_source_directory(snapshot_root)
     decisions_path = _validated_source_file(country_decisions_path)
@@ -378,12 +472,23 @@ def _validate_cached_admission(
     required_tables = _string_list(
         manifest.get("required_tables"), "manifest required_tables"
     )
-    if set(required_tables) != set(SEAD_LINKED_SOURCE_TABLES) or len(
-        required_tables
-    ) != len(SEAD_LINKED_SOURCE_TABLES):
-        raise ValueError("SEAD admission requires the exact declared 19-table scope")
+    if required_tables != sorted(profile.tables):
+        raise ValueError(
+            "SEAD admission requires the exact declared "
+            f"{len(profile.tables)}-table scope"
+        )
 
-    source_files = _validate_manifest_files(root, manifest, manifest_bytes)
+    source_files = _validate_manifest_files(
+        root,
+        manifest,
+        manifest_bytes,
+        tables=profile.tables,
+        allowed_extra_paths=(
+            {"admission.json", "country-decisions.json", "parent-admission.json"}
+            if admitted_root
+            else set()
+        ),
+    )
     receipts: dict[str, Mapping[str, object]] = {}
     rows_by_table: dict[str, list[Mapping[str, object]]] = {}
     table_counts: dict[str, int] = {}
@@ -394,7 +499,9 @@ def _validate_cached_admission(
         receipt_bytes = source_files[receipt_path.relative_to(root).as_posix()]
         payload = _json_object(payload_bytes, f"payloads/{table}.json")
         receipt = _json_object(receipt_bytes, f"receipts/{table}.json")
-        rows = _validate_table_payload(table, payload, payload_bytes, receipt)
+        rows = _validate_table_payload(
+            table, payload, payload_bytes, receipt, profile=profile
+        )
         receipts[table] = receipt
         rows_by_table[table] = rows
         table_counts[table] = len(rows)
@@ -410,6 +517,7 @@ def _validate_cached_admission(
         receipts,
         rows_by_table=rows_by_table,
         identities=identities,
+        profile=profile,
     )
 
     country_reconciliation = _json_object(
@@ -428,17 +536,31 @@ def _validate_cached_admission(
         identities=identities,
         expected_identity=expected_identity,
         boundary_authority=boundary_authority,
+        profile=profile,
     )
     _validate_joins(
         joins,
         rows_by_table=rows_by_table,
         identities=identities,
+        join_plans=profile.join_plans,
     )
 
     copied_files = {
         **source_files,
         "country-decisions.json": decisions_bytes,
     }
+    parent_admission_sha256 = None
+    if profile is _FULL_EVIDENCE_PROFILE:
+        if parent_admission_path is None:
+            raise ValueError("Full-evidence admission requires its parent admission")
+        parent_bytes = _read_regular_file(_validated_source_file(parent_admission_path))
+        parent_admission_sha256 = _validate_parent_admission(
+            parent_bytes,
+            expected_identity=expected_identity,
+            parent_run_id=identities["parent_run_id"],
+            country_decisions_sha256=hashlib.sha256(decisions_bytes).hexdigest(),
+        )
+        copied_files["parent-admission.json"] = parent_bytes
     copied_file_records = [
         {
             "path": relative_path,
@@ -458,12 +580,12 @@ def _validate_cached_admission(
         "acquisition_manifest_sha256": manifest_sha256,
         "acquisition_bundle_sha256": _file_set_digest(copied_file_records),
         "declared_scope": {
-            "scope_key": ADMISSION_SCOPE,
+            "scope_key": profile.scope_key,
             "table_count": len(required_tables),
             "tables": sorted(required_tables),
-            "join_count": len(_EXPECTED_JOIN_SPECS),
+            "join_count": len(profile.join_plans),
             "status": "complete_for_declared_relations",
-            "wp01_complete": False,
+            "wp01_complete": profile.wp01_complete,
         },
         "table_counts": dict(sorted(table_counts.items())),
         "country_accounting": country_summary,
@@ -474,20 +596,13 @@ def _validate_cached_admission(
                 "subject": "scope_excluded_country_decisions",
             }
         ],
-        "downstream_statuses": {
-            name: {"status": "refused", "reason_code": reason}
-            for name, reason in _DOWNSTREAM_REFUSALS.items()
-        },
+        "downstream_statuses": _downstream_statuses(profile),
         "release_status": "refused",
-        "release_reason_codes": sorted(
-            {
-                *_DOWNSTREAM_REFUSALS.values(),
-                "declared_relation_scope_is_not_full_wp01_scope",
-                "excluded_country_coordinates_lack_preserved_preflight_payload",
-            }
-        ),
+        "release_reason_codes": sorted(_release_reason_codes(profile)),
         "copied_files": copied_file_records,
     }
+    if parent_admission_sha256 is not None:
+        admission["parent_admission_sha256"] = parent_admission_sha256
     return _ValidatedAdmission(
         source_root=root,
         decisions_path=decisions_path,
@@ -508,7 +623,36 @@ def materialize_sead_acquisition_admission(
         snapshot_root,
         country_decisions_path=country_decisions_path,
         expected_identity=expected_identity,
+        profile=_SCOPED_PROFILE,
+        parent_admission_path=None,
+        admitted_root=False,
     )
+    return _materialize_validated_admission(validated, output_root=output_root)
+
+
+def materialize_sead_full_evidence_admission(
+    snapshot_root: Path,
+    *,
+    country_decisions_path: Path,
+    parent_admission_path: Path,
+    output_root: Path,
+    expected_identity: SeadAdmissionExpectedIdentity,
+) -> SeadAcquisitionAdmission:
+    """Atomically admit the exact 61-table, 86-join SEAD evidence graph."""
+    validated = _validate_cached_admission(
+        snapshot_root,
+        country_decisions_path=country_decisions_path,
+        expected_identity=expected_identity,
+        profile=_FULL_EVIDENCE_PROFILE,
+        parent_admission_path=parent_admission_path,
+        admitted_root=False,
+    )
+    return _materialize_validated_admission(validated, output_root=output_root)
+
+
+def _materialize_validated_admission(
+    validated: _ValidatedAdmission, *, output_root: Path
+) -> SeadAcquisitionAdmission:
     admission = validated.admission
     run_id = _required_text(admission.get("run_id"), "admission run_id")
     _reject_output_overlap(
@@ -564,13 +708,16 @@ def _validate_manifest_files(
     root: Path,
     manifest: Mapping[str, object],
     manifest_bytes: bytes,
+    *,
+    tables: Sequence[str],
+    allowed_extra_paths: set[str],
 ) -> dict[str, bytes]:
     records = manifest.get("files")
     if not isinstance(records, list):
         raise TypeError("SEAD manifest files must be a list")
     expected_paths = {
-        *(f"payloads/{table}.json" for table in SEAD_LINKED_SOURCE_TABLES),
-        *(f"receipts/{table}.json" for table in SEAD_LINKED_SOURCE_TABLES),
+        *(f"payloads/{table}.json" for table in tables),
+        *(f"receipts/{table}.json" for table in tables),
         "reconciliation/countries.json",
         "reconciliation/joins.json",
     }
@@ -601,7 +748,7 @@ def _validate_manifest_files(
             raise ValueError(f"Symlinks are forbidden in SEAD acquisition: {path}")
         if path.is_file():
             actual_paths.add(path.relative_to(root).as_posix())
-    if actual_paths != set(files):
+    if actual_paths != set(files) | allowed_extra_paths:
         raise ValueError("SEAD acquisition contains missing or unmanifested files")
     return files
 
@@ -611,6 +758,8 @@ def _validate_table_payload(
     payload: Mapping[str, object],
     payload_bytes: bytes,
     receipt: Mapping[str, object],
+    *,
+    profile: _AdmissionProfile,
 ) -> list[Mapping[str, object]]:
     _expect_equal(
         payload.get("schema_version"),
@@ -660,7 +809,9 @@ def _validate_table_payload(
         + hashlib.sha256(_canonical_bytes(receipt_without_id)).hexdigest(),
         f"{table} receipt_id",
     )
-    expected_primary_key, expected_projection, _ = _declared_table_contract(table)
+    expected_primary_key, expected_projection, _ = _declared_table_contract(
+        table, plans=profile.table_plans
+    )
     primary_key = _required_text(receipt.get("primary_key"), f"{table} primary_key")
     projection = _required_text(receipt.get("projection"), f"{table} projection")
     _expect_equal(primary_key, expected_primary_key, f"{table} declared primary_key")
@@ -671,6 +822,9 @@ def _validate_table_payload(
         missing = sorted(projected_fields - set(row))
         if missing:
             raise ValueError(f"SEAD {table} row {index} misses fields: {missing}")
+        extra = sorted(set(row) - projected_fields)
+        if extra:
+            raise ValueError(f"SEAD {table} row {index} has undeclared fields: {extra}")
         identifiers.append(
             _positive_int(row.get(primary_key), f"{table}.{primary_key}")
         )
@@ -686,8 +840,9 @@ def _validate_scoped_receipts(
     *,
     rows_by_table: Mapping[str, Sequence[Mapping[str, object]]],
     identities: Mapping[str, str],
+    profile: _AdmissionProfile,
 ) -> None:
-    plans = {plan.table: plan for plan in SEAD_SCOPED_TABLE_PLANS}
+    plans = {plan.table: plan for plan in profile.table_plans}
     site_scope = _mapping(
         receipts["tbl_sites"].get("spatial_scope"), "tbl_sites spatial_scope"
     )
@@ -700,11 +855,13 @@ def _validate_scoped_receipts(
         "tbl_sites country_assignment_sha256",
     )
     for table, receipt in receipts.items():
-        primary_key, projection, filter_field = _declared_table_contract(table)
+        primary_key, projection, filter_field = _declared_table_contract(
+            table, plans=profile.table_plans
+        )
         _expect_equal(receipt.get("route"), _AGGREGATE_ROUTE, f"{table} route")
         _expect_equal(
             receipt.get("tool_version"),
-            _AGGREGATE_TOOL_VERSION,
+            profile.orchestrator_version,
             f"{table} tool_version",
         )
         _expect_equal(
@@ -727,7 +884,7 @@ def _validate_scoped_receipts(
         )
         _expect_equal(
             spatial_scope.get("relation_scope"),
-            "chronology_relations",
+            profile.relation_scope,
             f"{table} relation_scope",
         )
         _expect_equal(
@@ -809,6 +966,7 @@ def _validate_scoped_receipts(
             table_rows=rows_by_table[table],
             country_assignment_id=canonical_assignment_id,
             country_assignment_sha256=canonical_assignment_sha256,
+            relation_scope=profile.relation_scope,
         )
 
 
@@ -826,6 +984,7 @@ def _validate_query_receipts(
     table_rows: Sequence[Mapping[str, object]],
     country_assignment_id: str,
     country_assignment_sha256: str,
+    relation_scope: str,
 ) -> None:
     query_receipts = receipt.get("query_receipts")
     if not isinstance(query_receipts, list) or any(
@@ -853,7 +1012,7 @@ def _validate_query_receipts(
         )
         _expect_equal(
             spatial_scope.get("relation_scope"),
-            "chronology_relations",
+            relation_scope,
             f"{table} query relation_scope",
         )
         _expect_equal(
@@ -1093,6 +1252,7 @@ def _validate_country_accounting(
     identities: Mapping[str, str],
     expected_identity: SeadAdmissionExpectedIdentity,
     boundary_authority: _BoundaryAuthority,
+    profile: _AdmissionProfile,
 ) -> dict[str, object]:
     from ...spatial import decide_country_attribution
 
@@ -1122,16 +1282,38 @@ def _validate_country_accounting(
         _COUNTRY_DECISIONS_SCHEMA_VERSION,
         "country decisions schema_version",
     )
-    _expect_equal(decisions.get("run_id"), identities["run_id"], "decisions run_id")
-    _expect_equal(
-        decisions.get("input_id"), identities["scope_id"], "decisions scope_id"
+    decision_identities = (
+        {
+            "scope_id": _required_text(decisions.get("input_id"), "decisions input_id"),
+            "run_id": _required_text(decisions.get("run_id"), "decisions run_id"),
+            "parent_run_id": _required_text(
+                decisions.get("job_id"), "decisions job_id"
+            ),
+            "build_id": _required_text(decisions.get("build_id"), "decisions build_id"),
+        }
+        if profile is _FULL_EVIDENCE_PROFILE
+        else identities
     )
     _expect_equal(
-        decisions.get("job_id"), identities["parent_run_id"], "decisions parent_run_id"
+        decisions.get("run_id"), decision_identities["run_id"], "decisions run_id"
     )
     _expect_equal(
-        decisions.get("build_id"), identities["build_id"], "decisions build_id"
+        decisions.get("input_id"), decision_identities["scope_id"], "decisions scope_id"
     )
+    _expect_equal(
+        decisions.get("job_id"),
+        decision_identities["parent_run_id"],
+        "decisions parent_run_id",
+    )
+    _expect_equal(
+        decisions.get("build_id"), decision_identities["build_id"], "decisions build_id"
+    )
+    if profile is _FULL_EVIDENCE_PROFILE:
+        _expect_equal(
+            decisions.get("run_id"),
+            identities["parent_run_id"],
+            "full-evidence parent country-decision run",
+        )
     bbox = _bbox(decisions.get("bbox"), "country decisions bbox")
     boundary_record = _mapping(
         decisions.get("boundary_authority"), "country boundary authority"
@@ -1173,7 +1355,7 @@ def _validate_country_accounting(
     preflight_count = _validate_acquisition_receipt(
         preflight,
         table="tbl_sites",
-        identities=identities,
+        identities=decision_identities,
         label="country preflight receipt",
         require_orchestration_identity=False,
         expected_parameters=_bbox_query_parameters(bbox, _SITE_PROJECTION),
@@ -1434,6 +1616,7 @@ def _validate_joins(
     *,
     rows_by_table: Mapping[str, Sequence[Mapping[str, object]]],
     identities: Mapping[str, str],
+    join_plans: Sequence[SeadJoinPlan],
 ) -> None:
     _expect_equal(
         payload.get("schema_version"),
@@ -1453,9 +1636,22 @@ def _validate_joins(
         if name in by_name:
             raise ValueError(f"Duplicate SEAD join reconciliation: {name}")
         by_name[name] = edge
-    if set(by_name) != set(_EXPECTED_JOIN_SPECS) or len(by_name) != 25:
-        raise ValueError("SEAD admission requires exactly the 25 declared joins")
-    for name, spec in _EXPECTED_JOIN_SPECS.items():
+    expected_specs = {
+        plan.edge: (
+            plan.parent_table,
+            plan.child_table,
+            plan.parent_key,
+            plan.child_key,
+            plan.child_foreign_key,
+            plan.reference_required,
+        )
+        for plan in join_plans
+    }
+    if set(by_name) != set(expected_specs) or len(by_name) != len(expected_specs):
+        raise ValueError(
+            f"SEAD admission requires exactly the {len(expected_specs)} declared joins"
+        )
+    for name, spec in expected_specs.items():
         edge = by_name[name]
         expected = _recompute_join(
             name,
@@ -1541,10 +1737,12 @@ def _validate_identities(
         _expect_equal(payload.get(field), expected, f"{label} {field}")
 
 
-def _declared_table_contract(table: str) -> tuple[str, str, str]:
+def _declared_table_contract(
+    table: str, *, plans: Sequence[SeadScopedTablePlan]
+) -> tuple[str, str, str]:
     if table == "tbl_sites":
         return _SITE_PRIMARY_KEY, _SITE_PROJECTION, _SITE_PRIMARY_KEY
-    for plan in SEAD_SCOPED_TABLE_PLANS:
+    for plan in plans:
         if plan.table == table:
             return plan.primary_key, plan.projection, plan.filter_field
     raise ValueError(f"Missing declared SEAD table plan: {table}")
@@ -1577,12 +1775,85 @@ def _validate_expected_identity(expected: SeadAdmissionExpectedIdentity) -> None
     )
     _sha256(expected.bbox_payload_sha256, "expected bbox_payload_sha256")
     _sha256(expected.country_decisions_sha256, "expected country_decisions_sha256")
+    if expected.parent_admission_sha256 is not None:
+        _sha256(
+            expected.parent_admission_sha256,
+            "expected parent_admission_sha256",
+        )
     for value, label in (
         (expected.run_id, "expected run_id"),
         (expected.parent_run_id, "expected parent_run_id"),
     ):
         if not _SAFE_RUN_ID.fullmatch(value):
             raise ValueError(f"SEAD {label} is not a safe path identity")
+
+
+def _validate_parent_admission(
+    payload: bytes,
+    *,
+    expected_identity: SeadAdmissionExpectedIdentity,
+    parent_run_id: str,
+    country_decisions_sha256: str,
+) -> str:
+    expected_sha256 = expected_identity.parent_admission_sha256
+    if expected_sha256 is None:
+        raise ValueError(
+            "Full-evidence expected identity lacks parent admission SHA-256"
+        )
+    observed_sha256 = hashlib.sha256(payload).hexdigest()
+    _expect_equal(
+        observed_sha256,
+        expected_sha256,
+        "caller-pinned parent admission SHA-256",
+    )
+    parent = _json_object(payload, "parent-admission.json")
+    _expect_equal(
+        parent.get("schema_version"),
+        ADMISSION_SCHEMA_VERSION,
+        "parent admission schema_version",
+    )
+    _expect_equal(parent.get("source_family"), "sead", "parent admission source")
+    _expect_equal(parent.get("run_id"), parent_run_id, "parent admission run_id")
+    copied_files = parent.get("copied_files")
+    if not isinstance(copied_files, list):
+        raise TypeError("Parent SEAD admission copied_files must be a list")
+    country_records = [
+        item
+        for item in copied_files
+        if isinstance(item, Mapping) and item.get("path") == "country-decisions.json"
+    ]
+    if len(country_records) != 1:
+        raise ValueError("Parent SEAD admission must bind one country-decisions file")
+    _expect_equal(
+        country_records[0].get("sha256"),
+        country_decisions_sha256,
+        "parent admission country decisions SHA-256",
+    )
+    return observed_sha256
+
+
+def _downstream_statuses(profile: _AdmissionProfile) -> dict[str, dict[str, str]]:
+    reasons = (
+        {
+            "chronology_claims": "typed_chronology_claims_not_materialized",
+            "evidence_events": "source_native_evidence_events_not_materialized",
+            "propagation_events": "propagation_events_not_materialized",
+        }
+        if profile is _FULL_EVIDENCE_PROFILE
+        else _DOWNSTREAM_REFUSALS
+    )
+    return {
+        name: {"status": "refused", "reason_code": reason}
+        for name, reason in reasons.items()
+    }
+
+
+def _release_reason_codes(profile: _AdmissionProfile) -> set[str]:
+    reasons = {item["reason_code"] for item in _downstream_statuses(profile).values()}
+    reasons.add("excluded_country_coordinates_lack_preserved_preflight_payload")
+    if profile is _SCOPED_PROFILE:
+        reasons.add("declared_relation_scope_is_not_full_wp01_scope")
+    return reasons
 
 
 def _load_validated_boundary_authority(
@@ -1699,7 +1970,8 @@ def _load_validated_boundary_authority(
 
 
 def _validate_embedded_identities(
-    identities: Mapping[str, str], expected: SeadAdmissionExpectedIdentity
+    identities: Mapping[str, str],
+    expected: SeadAdmissionExpectedIdentity,
 ) -> None:
     for field in ("scope_id", "run_id", "parent_run_id", "build_id"):
         _expect_equal(
@@ -1784,7 +2056,9 @@ def _validated_source_directory(path: Path) -> Path:
     root = Path(path)
     if not root.is_absolute() or root == Path(root.anchor):
         raise ValueError("SEAD acquisition source must be a safe absolute path")
-    if root.is_symlink() or not root.is_dir():
+    if root.is_symlink():
+        raise ValueError(f"SEAD acquisition source cannot be a symlink: {root}")
+    if not root.is_dir():
         raise ValueError(f"SEAD acquisition source is not a directory: {root}")
     _reject_symlink_ancestors(root)
     return root

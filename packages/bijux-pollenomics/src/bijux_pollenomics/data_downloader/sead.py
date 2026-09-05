@@ -453,6 +453,7 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
     data_root = Path(data_root)
     output_root = data_root / "sead"
     raw_path = output_root / "raw" / "nordic_sites.json"
+    _validate_repository_site_archive(raw_path)
     acquisition_root = (
         output_root / "raw" / "acquisitions" / SEAD_GOVERNED_ACQUISITION_ID
     )
@@ -499,6 +500,19 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
     )
 
 
+def _validate_repository_site_archive(raw_path: Path) -> None:
+    """Fail on malformed legacy site input before consulting derived acquisitions."""
+    if not raw_path.exists():
+        return
+    payload = json.loads(raw_path.read_text(encoding="utf-8"))
+    rows = payload.get("rows") if isinstance(payload, Mapping) else None
+    if not isinstance(rows, list):
+        raise ValueError(f"SEAD archive rows are invalid: {raw_path}")
+    if any(not isinstance(row, Mapping) for row in rows):
+        raise ValueError(f"SEAD archive contains a non-object row: {raw_path}")
+    _validate_sead_rows("tbl_sites", [row for row in rows if isinstance(row, Mapping)])
+
+
 def _load_sead_acquisition_rows(
     acquisition_root: Path, table: str
 ) -> list[dict[str, object]]:
@@ -522,9 +536,7 @@ def _attach_sead_country_decisions(
         not isinstance(decision, dict) for decision in decisions
     ):
         raise ValueError(f"SEAD country decisions are invalid: {decision_path}")
-    decisions_by_site_id = {
-        decision.get("site_id"): decision for decision in decisions
-    }
+    decisions_by_site_id = {decision.get("site_id"): decision for decision in decisions}
     for row in rows:
         site_id = row.get("site_id")
         decision = decisions_by_site_id.get(site_id)
