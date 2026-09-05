@@ -6,9 +6,16 @@ import tempfile
 import unittest
 
 from bijux_pollenomics.reporting.presentation import publish_report_portal
+from bijux_pollenomics.reporting.presentation import report_portal
 
 
 class ReportPortalUnitTests(unittest.TestCase):
+    def test_report_portal_facade_exposes_only_the_publication_entry_point(
+        self,
+    ) -> None:
+        self.assertEqual(report_portal.__all__, ["publish_report_portal"])
+        self.assertIs(report_portal.publish_report_portal, publish_report_portal)
+
     def test_publish_report_portal_classifies_report_surfaces(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             report_root = Path(tmp) / "report"
