@@ -54,7 +54,7 @@ def _contract() -> ChangeImpactContract:
         ),
         (
             "taxon-group-role-classification",
-            "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma.py",
+            "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma/accounting.py",
         ),
         (
             "scientific-scenarios-and-configuration",

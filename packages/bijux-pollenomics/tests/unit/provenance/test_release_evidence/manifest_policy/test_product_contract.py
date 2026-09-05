@@ -55,7 +55,7 @@ def test_product_policy_binds_exact_release_inventory_and_producer_authority() -
     )
     assert artifacts["classification"]["path"] == (
         "artifacts/execution-control/classification/"
-        "neotoma-audit-dde3936c/manifest.json"
+        "neotoma-audit-256efdaa/manifest.json"
     )
     assert artifacts["country-coverage"]["schema_version"] == (
         "country-dimension-coverage-ledger.v1"
@@ -80,7 +80,12 @@ def test_product_policy_binds_exact_release_inventory_and_producer_authority() -
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification"
     )
     assert embedded_producers["classification"]["source_paths"] == [
-        f"{classification_root}/neotoma.py",
+        f"{classification_root}/neotoma/__init__.py",
+        f"{classification_root}/neotoma/accounting.py",
+        f"{classification_root}/neotoma/concepts.py",
+        f"{classification_root}/neotoma/countries.py",
+        f"{classification_root}/neotoma/partitions.py",
+        f"{classification_root}/neotoma/rows.py",
         f"{classification_root}/audit_outputs/__init__.py",
         f"{classification_root}/audit_outputs/accounting.py",
         f"{classification_root}/audit_outputs/constants.py",

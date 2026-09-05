@@ -15,7 +15,7 @@ def classification_country_values(
     root: Path, metric: str
 ) -> dict[str, DerivedCount] | None:
     """Derive distinct classification-concept posture for each country."""
-    bundle = "artifacts/execution-control/classification/neotoma-audit-dde3936c"
+    bundle = "artifacts/execution-control/classification/neotoma-audit-256efdaa"
     document = optional_json_object(root, f"{bundle}/observation_memberships.json")
     records = document.get("records") if document else None
     if not isinstance(records, list):
