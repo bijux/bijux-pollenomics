@@ -16,6 +16,13 @@ from bijux_pollenomics.data_downloader.data_contracts import (
     build_evidence_artifact_contract_payload,
     build_source_fact_ownership_payload,
 )
+from bijux_pollenomics.data_downloader.source_capabilities import (
+    SEAD_ADMITTED_ACQUISITION_ADMISSION,
+    SEAD_NORMALIZED_EVIDENCE_EVENTS,
+    SEAD_NORMALIZED_EVIDENCE_MANIFEST,
+    SEAD_NORMALIZED_OBSERVATIONS,
+    SEAD_NORMALIZED_RELATIONS,
+)
 from bijux_pollenomics.data_downloader.source_family_contracts import (
     build_source_family_contract_payload,
     build_source_family_contracts,
@@ -304,6 +311,28 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
         artifact_keys = {row["artifact_key"] for row in artifact_payload["rows"]}
         self.assertIn("animal_sample_identity", fact_keys)
         self.assertIn("country_publication_bundle", artifact_keys)
+
+        facts = {row["fact_key"]: row for row in fact_payload["rows"]}
+        self.assertEqual(
+            facts["sead_archaeology_context"]["governing_surface_path"],
+            SEAD_NORMALIZED_EVIDENCE_MANIFEST,
+        )
+        self.assertEqual(
+            facts["sead_source_native_observations"]["governing_surface_path"],
+            SEAD_NORMALIZED_OBSERVATIONS,
+        )
+        self.assertEqual(
+            facts["sead_observation_relations"]["governing_surface_path"],
+            SEAD_NORMALIZED_RELATIONS,
+        )
+        self.assertEqual(
+            facts["sead_evidence_event_disposition"]["governing_surface_path"],
+            SEAD_NORMALIZED_EVIDENCE_EVENTS,
+        )
+        self.assertIn(
+            SEAD_ADMITTED_ACQUISITION_ADMISSION,
+            facts["sead_archaeology_context"]["supporting_surface_paths"],
+        )
 
     def test_materialize_adna_governance_contracts_writes_role_and_project_contracts(
         self,

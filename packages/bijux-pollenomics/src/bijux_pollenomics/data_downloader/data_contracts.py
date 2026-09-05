@@ -3,6 +3,14 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
+from .source_capabilities import (
+    SEAD_ADMITTED_ACQUISITION_ADMISSION,
+    SEAD_NORMALIZED_EVIDENCE_EVENTS,
+    SEAD_NORMALIZED_EVIDENCE_MANIFEST,
+    SEAD_NORMALIZED_OBSERVATIONS,
+    SEAD_NORMALIZED_RELATIONS,
+)
+
 __all__ = [
     "DataFactOwnershipRecord",
     "EvidenceArtifactContractRecord",
@@ -215,13 +223,66 @@ def build_source_fact_ownership_payload() -> dict[str, object]:
             fact_key="sead_archaeology_context",
             display_name="SEAD archaeology context",
             evidence_scope="source_family",
-            governing_surface_path="data/sead/normalized/nordic_environmental_sites.geojson",
+            governing_surface_path=SEAD_NORMALIZED_EVIDENCE_MANIFEST,
             supporting_surface_paths=(
-                "data/sead/raw/nordic_sites.json",
+                SEAD_ADMITTED_ACQUISITION_ADMISSION,
+                SEAD_NORMALIZED_OBSERVATIONS,
+                SEAD_NORMALIZED_RELATIONS,
+                SEAD_NORMALIZED_EVIDENCE_EVENTS,
+                "data/sead/normalized/nordic_environmental_sites.geojson",
+                "data/sead/normalized/chronology_claims.json",
+                "data/sead/normalized/nordic_temporal_evidence.geojson",
                 "data/sead/review/evidence_legibility_review.json",
                 "data/sead/review/access_model.json",
             ),
-            reason="The normalized SEAD site layer governs contextual archaeology that the repository is willing to map.",
+            reason=(
+                "The exact full-evidence manifest governs the admitted 61-table "
+                "observation graph; legacy site and chronology layers are downstream "
+                "summaries rather than source-native fact owners."
+            ),
+        ),
+        DataFactOwnershipRecord(
+            fact_key="sead_source_native_observations",
+            display_name="SEAD source-native observations",
+            evidence_scope="observation",
+            governing_surface_path=SEAD_NORMALIZED_OBSERVATIONS,
+            supporting_surface_paths=(
+                SEAD_NORMALIZED_EVIDENCE_MANIFEST,
+                SEAD_NORMALIZED_RELATIONS,
+            ),
+            reason=(
+                "The source-native observation index and its manifest govern the "
+                "177,763 admitted quantitative observation rows."
+            ),
+        ),
+        DataFactOwnershipRecord(
+            fact_key="sead_observation_relations",
+            display_name="SEAD observation relations",
+            evidence_scope="relation",
+            governing_surface_path=SEAD_NORMALIZED_RELATIONS,
+            supporting_surface_paths=(
+                SEAD_NORMALIZED_EVIDENCE_MANIFEST,
+                SEAD_NORMALIZED_OBSERVATIONS,
+            ),
+            reason=(
+                "The relation index governs entity, dataset, taxon, value, and "
+                "dimension links without inferring unavailable links."
+            ),
+        ),
+        DataFactOwnershipRecord(
+            fact_key="sead_evidence_event_disposition",
+            display_name="SEAD evidence-event refusals",
+            evidence_scope="event",
+            governing_surface_path=SEAD_NORMALIZED_EVIDENCE_EVENTS,
+            supporting_surface_paths=(
+                SEAD_NORMALIZED_EVIDENCE_MANIFEST,
+                SEAD_NORMALIZED_OBSERVATIONS,
+                SEAD_NORMALIZED_RELATIONS,
+            ),
+            reason=(
+                "The event disposition surface governs the explicit refusal of all "
+                "observations until qualified ecological classification is accepted."
+            ),
         ),
         DataFactOwnershipRecord(
             fact_key="raa_archaeology_context",

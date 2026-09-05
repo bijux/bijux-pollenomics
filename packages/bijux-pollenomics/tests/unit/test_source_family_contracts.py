@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from pathlib import Path
+import shutil
 import tempfile
 
 from bijux_pollenomics.data_downloader import source_capabilities as capabilities_module
@@ -11,6 +13,10 @@ from bijux_pollenomics.data_downloader.source_capabilities import (
     NEOTOMA_CLASSIFICATION_EVIDENCE,
     NEOTOMA_PROPAGATION_EVIDENCE,
     SEAD_ADMITTED_ACQUISITION_ADMISSION,
+    SEAD_NORMALIZED_EVIDENCE_EVENTS,
+    SEAD_NORMALIZED_EVIDENCE_MANIFEST,
+    SEAD_NORMALIZED_OBSERVATIONS,
+    SEAD_NORMALIZED_RELATIONS,
     build_source_capability_audit_payload,
     build_source_capability_contract_payload,
 )
@@ -19,8 +25,69 @@ from bijux_pollenomics.data_downloader.source_family_contracts import (
     build_source_family_contracts,
     build_source_family_state_matrix_payload,
 )
+from bijux_pollenomics.data_downloader.sources.sead.archive import (
+    SEAD_FULL_EVIDENCE_SOURCE_TABLES,
+)
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
+
+
+def _write_full_sead_admission_fixture(
+    output_root: Path, payload_bytes: bytes
+) -> tuple[Path, Path]:
+    admission_path = output_root / SEAD_ADMITTED_ACQUISITION_ADMISSION.removeprefix(
+        "data/"
+    )
+    acquisition_root = admission_path.parent
+    payload_path = acquisition_root / "payloads/tbl_sites.json"
+    payload_path.parent.mkdir(parents=True)
+    payload_path.write_bytes(payload_bytes)
+    manifest_path = acquisition_root / "manifest.json"
+    manifest_path.write_bytes(b'#{"acquisition":"fixture"}')
+    expected_paths = {
+        "country-decisions.json",
+        "manifest.json",
+        "parent-admission.json",
+        "reconciliation/countries.json",
+        "reconciliation/joins.json",
+        *(f"payloads/{table}.json" for table in SEAD_FULL_EVIDENCE_SOURCE_TABLES),
+        *(f"receipts/{table}.json" for table in SEAD_FULL_EVIDENCE_SOURCE_TABLES),
+    }
+    copied_files = [
+        {"path": path, "byte_count": 0, "sha256": "0" * 64}
+        for path in sorted(expected_paths)
+    ]
+    for record in copied_files:
+        if record["path"] == "manifest.json":
+            record["byte_count"] = manifest_path.stat().st_size
+            record["sha256"] = hashlib.sha256(manifest_path.read_bytes()).hexdigest()
+        elif record["path"] == "payloads/tbl_sites.json":
+            record["byte_count"] = len(payload_bytes)
+            record["sha256"] = hashlib.sha256(payload_bytes).hexdigest()
+    admission_path.write_text(
+        json.dumps(
+            {
+                "schema_version": "sead-acquisition-admission.v1",
+                "source_family": "sead",
+                "run_id": acquisition_root.name,
+                "acquisition_manifest_sha256": hashlib.sha256(
+                    manifest_path.read_bytes()
+                ).hexdigest(),
+                "declared_scope": {
+                    "scope_key": "full_evidence_relations",
+                    "status": "complete_for_declared_relations",
+                    "table_count": 61,
+                    "join_count": 86,
+                    "tables": list(SEAD_FULL_EVIDENCE_SOURCE_TABLES),
+                    "wp01_complete": False,
+                },
+                "release_status": "refused",
+                "copied_files": copied_files,
+            }
+        ),
+        encoding="utf-8",
+    )
+    return admission_path, payload_path
 
 
 def test_capability_contract_covers_every_source_and_dimension_exactly() -> None:
@@ -178,7 +245,7 @@ def test_contract_registry_keeps_capability_separate_from_materialization() -> N
     capability = payload["capability_contract"]
 
     assert capability["schema_version"] == "source-capability-contract.v1"
-    assert "materialization" not in str(capability)
+    assert all("materialization" not in source for source in capability["sources"])
     assert payload["schema_version"] == "source-family-contracts.v1"
 
 
@@ -189,7 +256,10 @@ def test_sead_provenance_binds_admitted_acquisition_not_legacy_inventory() -> No
         "dataset_provenance"
     ]
 
-    assert provenance_paths == (SEAD_ADMITTED_ACQUISITION_ADMISSION,)
+    assert provenance_paths == (
+        SEAD_ADMITTED_ACQUISITION_ADMISSION,
+        SEAD_NORMALIZED_EVIDENCE_MANIFEST,
+    )
     assert "data/sead/raw/nordic_sites.json" not in provenance_paths
     assert (REPO_ROOT / SEAD_ADMITTED_ACQUISITION_ADMISSION).is_file()
 
@@ -203,7 +273,7 @@ def test_sead_provenance_binds_admitted_acquisition_not_legacy_inventory() -> No
         for row in audit["rows"]
         if row["source_key"] == "sead" and row["dimension"] == "dataset_provenance"
     )
-    assert row["present_evidence_paths"] == (SEAD_ADMITTED_ACQUISITION_ADMISSION,)
+    assert row["present_evidence_paths"] == provenance_paths
     assert row["materialization"] == "complete"
 
 
@@ -260,7 +330,7 @@ def test_sead_provenance_refuses_unbound_admission_bytes() -> None:
     assert row["materialization"] == "missing"
 
 
-def test_sead_observation_dimensions_require_the_uncaptured_full_graph() -> None:
+def test_sead_observation_dimensions_bind_the_full_graph_and_review_refusals() -> None:
     contract = build_source_capability_contract_payload()
     sources = {source["source_key"]: source for source in contract["sources"]}
     evidence = sources["sead"]["evidence_paths_by_dimension"]
@@ -290,6 +360,11 @@ def test_sead_observation_dimensions_require_the_uncaptured_full_graph() -> None
         "tbl_analysis_values.json" not in path
         for path in evidence["quantitative_observation"]
     )
+    assert SEAD_NORMALIZED_EVIDENCE_MANIFEST in evidence["quantitative_observation"]
+    assert SEAD_NORMALIZED_OBSERVATIONS in evidence["quantitative_observation"]
+    assert SEAD_NORMALIZED_RELATIONS in evidence["taxon_identity"]
+    assert SEAD_NORMALIZED_RELATIONS in evidence["observation_unit"]
+    assert SEAD_NORMALIZED_EVIDENCE_EVENTS in evidence["pollen_propagation_event"]
 
     audit = build_source_capability_audit_payload(
         REPO_ROOT / "data",
@@ -303,7 +378,18 @@ def test_sead_observation_dimensions_require_the_uncaptured_full_graph() -> None
         "quantitative_observation",
         "observation_unit",
     ):
-        assert rows[("sead", dimension)]["materialization"] == "missing"
+        assert rows[("sead", dimension)]["materialization"] == "complete"
+        assert (
+            "qualified_sead_ecological_classification_review_missing"
+            in rows[("sead", dimension)]["reason_codes"]
+        )
+    for dimension in (
+        "derived_pollen_group",
+        "derived_ecological_role",
+        "crop_cereal_resolution",
+        "pollen_propagation_event",
+    ):
+        assert rows[("sead", dimension)]["materialization"] == "partial"
 
 
 def test_relative_chronology_and_taxon_evidence_require_explicit_surfaces() -> None:
@@ -547,15 +633,9 @@ def test_aadr_receipt_rejects_same_size_artifact_substitution() -> None:
     assert after_rows[("aadr", "dataset_provenance")]["materialization"] == ("missing")
 
 
-def test_sead_admission_rejects_same_size_payload_substitution() -> None:
+def test_sead_admission_rejects_same_size_payload_substitution(monkeypatch) -> None:
     with tempfile.TemporaryDirectory() as temporary_directory:
         output_root = Path(temporary_directory) / "data"
-        admission_path = output_root / SEAD_ADMITTED_ACQUISITION_ADMISSION.removeprefix(
-            "data/"
-        )
-        acquisition_root = admission_path.parent
-        payload_path = acquisition_root / "payloads/tbl_sites.json"
-        payload_path.parent.mkdir(parents=True)
         payload_bytes = json.dumps(
             {
                 "schema_version": "sead-table-payload.v1",
@@ -564,43 +644,9 @@ def test_sead_admission_rejects_same_size_payload_substitution() -> None:
             },
             separators=(",", ":"),
         ).encode()
-        payload_path.write_bytes(payload_bytes)
-        manifest_path = acquisition_root / "manifest.json"
-        manifest_path.write_bytes(b'#{"acquisition":"fixture"}')
-        admission_path.write_text(
-            json.dumps(
-                {
-                    "schema_version": "sead-acquisition-admission.v1",
-                    "source_family": "sead",
-                    "run_id": acquisition_root.name,
-                    "acquisition_manifest_sha256": hashlib.sha256(
-                        manifest_path.read_bytes()
-                    ).hexdigest(),
-                    "declared_scope": {
-                        "scope_key": "declared_chronology_relations",
-                        "status": "complete_for_declared_relations",
-                        "table_count": 19,
-                        "join_count": 25,
-                        "wp01_complete": False,
-                    },
-                    "release_status": "refused",
-                    "copied_files": [
-                        {
-                            "path": "manifest.json",
-                            "byte_count": manifest_path.stat().st_size,
-                            "sha256": hashlib.sha256(
-                                manifest_path.read_bytes()
-                            ).hexdigest(),
-                        },
-                        {
-                            "path": "payloads/tbl_sites.json",
-                            "byte_count": len(payload_bytes),
-                            "sha256": hashlib.sha256(payload_bytes).hexdigest(),
-                        },
-                    ],
-                }
-            ),
-            encoding="utf-8",
+        _, payload_path = _write_full_sead_admission_fixture(output_root, payload_bytes)
+        monkeypatch.setattr(
+            capabilities_module, "_valid_sead_admission", lambda _path: True
         )
 
         before = build_source_capability_audit_payload(
@@ -618,7 +664,136 @@ def test_sead_admission_rejects_same_size_payload_substitution() -> None:
     before_rows = {(row["source_key"], row["dimension"]): row for row in before["rows"]}
     after_rows = {(row["source_key"], row["dimension"]): row for row in after["rows"]}
     assert before_rows[("sead", "site_identity")]["materialization"] == "complete"
-    assert after_rows[("sead", "site_identity")]["materialization"] == "missing"
+    assert after_rows[("sead", "site_identity")]["materialization"] == "partial"
+    assert any(
+        path.endswith("/payloads/tbl_sites.json")
+        for path in after_rows[("sead", "site_identity")]["missing_evidence_paths"]
+    )
+
+
+def test_sead_admission_rejects_incomplete_declared_file_set() -> None:
+    with tempfile.TemporaryDirectory() as temporary_directory:
+        output_root = Path(temporary_directory) / "data"
+        payload_bytes = json.dumps(
+            {
+                "schema_version": "sead-table-payload.v1",
+                "table": "tbl_sites",
+                "rows": [{"site_id": 1}],
+            },
+            separators=(",", ":"),
+        ).encode()
+        admission_path, _ = _write_full_sead_admission_fixture(
+            output_root, payload_bytes
+        )
+
+        audit = build_source_capability_audit_payload(
+            output_root,
+            coverage_metrics_by_source={},
+            source_blockers={},
+        )
+
+        row = next(
+            row
+            for row in audit["rows"]
+            if row["source_key"] == "sead" and row["dimension"] == "site_identity"
+        )
+        assert not capabilities_module._valid_sead_admission(admission_path)
+        assert row["materialization"] != "complete"
+        assert SEAD_ADMITTED_ACQUISITION_ADMISSION in row["missing_evidence_paths"]
+
+
+def test_sead_admission_rejects_payload_and_admission_rewrite() -> None:
+    source_root = (REPO_ROOT / SEAD_ADMITTED_ACQUISITION_ADMISSION).parent
+    with tempfile.TemporaryDirectory(dir=REPO_ROOT / "artifacts") as temporary:
+        destination = Path(temporary) / source_root.name
+        shutil.copytree(source_root, destination, copy_function=os.link)
+        admission_path = destination / "admission.json"
+        payload_path = destination / "payloads/tbl_sites.json"
+        assert capabilities_module._valid_sead_admission(admission_path)
+
+        payload_bytes = payload_path.read_bytes()
+        changed_bytes = payload_bytes.replace(b'"site_id":1,', b'"site_id":2,', 1)
+        assert changed_bytes != payload_bytes
+        payload_path.unlink()
+        payload_path.write_bytes(changed_bytes)
+        admission = json.loads(admission_path.read_text(encoding="utf-8"))
+        record = next(
+            item
+            for item in admission["copied_files"]
+            if item["path"] == "payloads/tbl_sites.json"
+        )
+        record["byte_count"] = len(changed_bytes)
+        record["sha256"] = hashlib.sha256(changed_bytes).hexdigest()
+        admission_path.unlink()
+        admission_path.write_text(
+            json.dumps(admission, sort_keys=True, separators=(",", ":")) + "\n",
+            encoding="utf-8",
+        )
+
+        assert not capabilities_module._valid_sead_admission(admission_path)
+
+
+def test_sead_normalized_evidence_rejects_raw_digest_divergence() -> None:
+    normalized_source = REPO_ROOT / SEAD_NORMALIZED_EVIDENCE_MANIFEST
+    raw_source = REPO_ROOT / SEAD_ADMITTED_ACQUISITION_ADMISSION
+    with tempfile.TemporaryDirectory(dir=REPO_ROOT / "artifacts") as temporary:
+        data_root = Path(temporary) / "data"
+        normalized_root = (
+            data_root / SEAD_NORMALIZED_EVIDENCE_MANIFEST.removeprefix("data/")
+        ).parent
+        raw_root = (
+            data_root / SEAD_ADMITTED_ACQUISITION_ADMISSION.removeprefix("data/")
+        ).parent
+        shutil.copytree(
+            normalized_source.parent, normalized_root, copy_function=os.link
+        )
+        shutil.copytree(raw_source.parent, raw_root, copy_function=os.link)
+        manifest_path = normalized_root / "evidence_materialization_manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        assert capabilities_module._valid_sead_normalized_admission_link(
+            manifest_path, manifest
+        )
+
+        relation_path = normalized_root / "observation_relation_index.json"
+        relations = json.loads(relation_path.read_text(encoding="utf-8"))
+        relations["source_table_sha256"]["tbl_sites"] = "0" * 64
+        relation_path.unlink()
+        relation_path.write_text(
+            json.dumps(relations, sort_keys=True, separators=(",", ":")) + "\n",
+            encoding="utf-8",
+        )
+
+        assert not capabilities_module._valid_sead_normalized_admission_link(
+            manifest_path, manifest
+        )
+
+
+def test_sead_admission_rejects_the_obsolete_19_table_25_join_scope() -> None:
+    with tempfile.TemporaryDirectory() as temporary_directory:
+        output_root = Path(temporary_directory) / "data"
+        payload_bytes = json.dumps(
+            {
+                "schema_version": "sead-table-payload.v1",
+                "table": "tbl_sites",
+                "rows": [{"site_id": 1}],
+            },
+            separators=(",", ":"),
+        ).encode()
+        admission_path, _ = _write_full_sead_admission_fixture(
+            output_root, payload_bytes
+        )
+        admission = json.loads(admission_path.read_text(encoding="utf-8"))
+        admission["declared_scope"].update(
+            {
+                "scope_key": "declared_chronology_relations",
+                "table_count": 19,
+                "join_count": 25,
+                "tables": list(SEAD_FULL_EVIDENCE_SOURCE_TABLES[:19]),
+            }
+        )
+        admission_path.write_text(json.dumps(admission), encoding="utf-8")
+
+        assert not capabilities_module._valid_sead_admission(admission_path)
 
 
 def test_receipt_validators_reject_traversal_and_symlink_artifacts() -> None:
