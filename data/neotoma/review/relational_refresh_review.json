@@ -1,0 +1,20 @@
+{
+  "baseline_update_permitted": true,
+  "candidate_baseline_id": "sha256:83f2e9cf0a45917416d3777e094604439be4bf5612a08228079377f8921e72bc",
+  "change_count": 0,
+  "changes": [],
+  "fixed_point": true,
+  "prior_baseline_id": "sha256:83f2e9cf0a45917416d3777e094604439be4bf5612a08228079377f8921e72bc",
+  "refusal_reasons": [],
+  "review_posture": "no_refresh_drift",
+  "schema_version": "neotoma-refresh-review.v1",
+  "source_family": "neotoma",
+  "status": "fixed_point",
+  "unexplained_change_count": 0,
+  "zero_diff_proof": {
+    "counts_equal": true,
+    "identity_equal": true,
+    "input_artifacts_equal": true,
+    "schemas_equal": true
+  }
+}
