@@ -1,12 +1,11 @@
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
-from typing import TypedDict
+from math import isfinite
+from typing import Literal, TypedDict
 
 from bijux_pollenomics.core.bp_time import (
     build_bp_interval_label,
-    clamp_bp_year,
-    normalize_bp_interval,
 )
 from bijux_pollenomics.core.text import clean_optional_text
 
@@ -15,6 +14,32 @@ class AgeRangeAggregate(TypedDict):
     units: str
     ageold: float | None
     ageyoung: float | None
+
+
+NeotomaAgeSystem = Literal[
+    "calibrated_radiocarbon_bp",
+    "calendar_bp",
+    "uncalibrated_radiocarbon_bp",
+    "varve_bp",
+]
+
+_AGE_SYSTEM_BY_NORMALIZED_UNITS: dict[str, NeotomaAgeSystem] = {
+    "cal bp": "calendar_bp",
+    "calendar years before present": "calendar_bp",
+    "calendar years bp": "calendar_bp",
+    "calibrated radiocarbon years bp": "calibrated_radiocarbon_bp",
+    "calibrated years bp": "calibrated_radiocarbon_bp",
+    "radiocarbon years bp": "uncalibrated_radiocarbon_bp",
+    "uncalibrated radiocarbon years bp": "uncalibrated_radiocarbon_bp",
+    "varve years bp": "varve_bp",
+}
+_COMPARABLE_AGE_SYSTEMS = frozenset({"calibrated_radiocarbon_bp", "calendar_bp"})
+_AGE_SYSTEM_PRIORITY: dict[NeotomaAgeSystem, int] = {
+    "calibrated_radiocarbon_bp": 0,
+    "calendar_bp": 1,
+    "uncalibrated_radiocarbon_bp": 2,
+    "varve_bp": 3,
+}
 
 
 def merge_age_ranges(
@@ -35,10 +60,10 @@ def merge_age_ranges(
             {"units": units, "ageold": None, "ageyoung": None},
         )
         age_old = numeric_age_value(
-            item.get("ageold") or item.get("ageolder") or item.get("older")
+            _first_populated_value(item, ("ageold", "ageolder", "older"))
         )
         age_young = numeric_age_value(
-            item.get("ageyoung") or item.get("ageyounger") or item.get("younger")
+            _first_populated_value(item, ("ageyoung", "ageyounger", "younger"))
         )
         if age_old is not None and (
             target["ageold"] is None or age_old > target["ageold"]
@@ -51,16 +76,20 @@ def merge_age_ranges(
 
 
 def numeric_age_value(value: object) -> float | None:
-    """Return a numeric age value when a payload field is populated."""
+    """Return a finite, non-negative age while preserving zero as evidence."""
+    if isinstance(value, bool):
+        return None
     if isinstance(value, (int, float)):
-        return float(value)
+        numeric = float(value)
+        return numeric if isfinite(numeric) and numeric >= 0 else None
     text = clean_optional_text(value)
     if not text:
         return None
     try:
-        return float(text)
+        numeric = float(text)
     except ValueError:
         return None
+    return numeric if isfinite(numeric) and numeric >= 0 else None
 
 
 def format_neotoma_age_range(age_range: Mapping[str, object]) -> str:
@@ -89,24 +118,17 @@ def format_neotoma_age_value(value: float | None) -> str:
 def neotoma_time_interval(
     age_ranges: Sequence[Mapping[str, object]],
 ) -> tuple[int, int] | None:
-    """Choose a filterable BP interval from Neotoma site age coverage."""
-    preferred_ranges = sorted(
-        [
-            age_range
-            for age_range in age_ranges
-            if neotoma_age_range_units_supported(
-                clean_optional_text(age_range.get("units"))
-            )
-        ],
-        key=neotoma_age_range_priority,
-    )
-    intervals: list[tuple[int, int]] = []
-    for age_range in preferred_ranges:
-        older = clamp_bp_year(round_age_value(age_range.get("ageold")))
-        younger = clamp_bp_year(round_age_value(age_range.get("ageyoung")))
-        interval = normalize_bp_interval(younger, older)
-        if interval is not None:
-            intervals.append(interval)
+    """Choose one age system for a display-only site coverage interval."""
+    selected_system = neotoma_selected_age_system(age_ranges)
+    if selected_system is None:
+        return None
+    intervals = [
+        interval
+        for age_range in age_ranges
+        if neotoma_age_range_system(clean_optional_text(age_range.get("units")))
+        == selected_system
+        if (interval := _age_range_interval(age_range)) is not None
+    ]
     if not intervals:
         return None
     return (
@@ -120,28 +142,20 @@ def neotoma_time_label(
     interval: tuple[int, int] | None,
 ) -> str:
     """Render a human-readable Neotoma age-coverage label."""
-    preferred_ranges = sorted(
+    selected_system = neotoma_selected_age_system(age_ranges)
+    selected_ranges = sorted(
         [
             age_range
             for age_range in age_ranges
-            if neotoma_age_range_units_supported(
-                clean_optional_text(age_range.get("units"))
-            )
+            if neotoma_age_range_system(clean_optional_text(age_range.get("units")))
+            == selected_system
+            and _age_range_interval(age_range) is not None
         ],
-        key=neotoma_age_range_priority,
+        key=lambda age_range: clean_optional_text(age_range.get("units")).casefold(),
     )
-    if preferred_ranges:
-        units = clean_optional_text(preferred_ranges[0].get("units"))
-        older = clamp_bp_year(round_age_value(preferred_ranges[0].get("ageold")))
-        younger = clamp_bp_year(round_age_value(preferred_ranges[0].get("ageyoung")))
-        preferred_interval = normalize_bp_interval(younger, older)
-        value = (
-            build_bp_interval_label(
-                preferred_interval[0], preferred_interval[1]
-            ).replace(" BP", "")
-            if preferred_interval is not None
-            else format_neotoma_age_range(preferred_ranges[0])
-        )
+    if selected_ranges and interval is not None:
+        units = clean_optional_text(selected_ranges[0].get("units"))
+        value = build_bp_interval_label(interval[0], interval[1]).replace(" BP", "")
         if units and value:
             return f"{value} {units}"
     if interval is None:
@@ -150,19 +164,45 @@ def neotoma_time_label(
 
 
 def neotoma_age_range_units_supported(units: str) -> bool:
-    """Return whether a Neotoma age range is expressed in BP units."""
-    return "bp" in units.casefold()
+    """Return whether units can represent canonical calendar-BP site context."""
+    return neotoma_age_range_system(units) in _COMPARABLE_AGE_SYSTEMS
+
+
+def neotoma_age_range_system(units: str) -> NeotomaAgeSystem | None:
+    """Classify an exact governed Neotoma age-unit label without inference."""
+    normalized = " ".join(units.casefold().split())
+    return _AGE_SYSTEM_BY_NORMALIZED_UNITS.get(normalized)
+
+
+def neotoma_selected_age_system(
+    age_ranges: Sequence[Mapping[str, object]],
+) -> NeotomaAgeSystem | None:
+    """Select one comparable system with a complete valid site interval."""
+    candidates = {
+        system
+        for age_range in age_ranges
+        if (
+            system := neotoma_age_range_system(
+                clean_optional_text(age_range.get("units"))
+            )
+        )
+        in _COMPARABLE_AGE_SYSTEMS
+        and _age_range_interval(age_range) is not None
+    }
+    if not candidates:
+        return None
+    return min(candidates, key=_AGE_SYSTEM_PRIORITY.__getitem__)
 
 
 def neotoma_age_range_priority(age_range: Mapping[str, object]) -> tuple[int, str]:
-    """Prefer calibrated BP ranges over uncalibrated BP ranges."""
+    """Order governed age systems without treating them as interchangeable."""
     units = clean_optional_text(age_range.get("units"))
     normalized = units.casefold()
-    if "cal" in normalized and "bp" in normalized:
-        return (0, normalized)
-    if "bp" in normalized:
-        return (1, normalized)
-    return (2, normalized)
+    system = neotoma_age_range_system(units)
+    priority = (
+        len(_AGE_SYSTEM_PRIORITY) if system is None else _AGE_SYSTEM_PRIORITY[system]
+    )
+    return (priority, normalized)
 
 
 def round_age_value(value: object) -> int | None:
@@ -171,3 +211,25 @@ def round_age_value(value: object) -> int | None:
     if numeric is None:
         return None
     return int(round(numeric))
+
+
+def _age_range_interval(
+    age_range: Mapping[str, object],
+) -> tuple[int, int] | None:
+    younger = round_age_value(age_range.get("ageyoung"))
+    older = round_age_value(age_range.get("ageold"))
+    if younger is None or older is None or younger > older:
+        return None
+    return (younger, older)
+
+
+def _first_populated_value(
+    item: Mapping[str, object], keys: Sequence[str]
+) -> object | None:
+    for key in keys:
+        if key not in item:
+            continue
+        value = item[key]
+        if value is not None and clean_optional_text(value):
+            return value
+    return None

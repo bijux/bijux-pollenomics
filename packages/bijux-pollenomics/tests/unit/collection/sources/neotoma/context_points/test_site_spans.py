@@ -51,7 +51,7 @@ class NeotomaDataTests(unittest.TestCase):
                                     {
                                         "units": "Calibrated radiocarbon years BP",
                                         "ageold": 3600,
-                                        "ageyoung": -20,
+                                        "ageyoung": 20,
                                     },
                                 ],
                             }
@@ -66,18 +66,31 @@ class NeotomaDataTests(unittest.TestCase):
         )
 
         self.assertEqual(len(records), 1)
-        self.assertEqual(records[0].time_start_bp, 0)
+        self.assertEqual(records[0].time_start_bp, 20)
         self.assertEqual(records[0].time_end_bp, 3600)
-        self.assertEqual(records[0].time_mean_bp, 1800)
+        self.assertEqual(records[0].time_mean_bp, 1810)
         self.assertEqual(
-            records[0].time_label, "0-3600 Calibrated radiocarbon years BP"
+            records[0].time_label, "20-3600 Calibrated radiocarbon years BP"
         )
-        self.assertIsNotNone(records[0].temporal_semantics)
+        temporal_semantics = records[0].temporal_semantics
+        self.assertIsInstance(temporal_semantics, dict)
+        assert temporal_semantics is not None
         self.assertEqual(
-            records[0].temporal_semantics["comparability_posture"],
-            "numeric_interval_with_caveat",
+            temporal_semantics["comparability_posture"],
+            "mixed_interval_and_context",
         )
         self.assertEqual(
-            records[0].temporal_semantics["temporal_window_label"],
+            temporal_semantics["normalized_labels"],
+            ["calibrated_radiocarbon_bp", "uncalibrated_radiocarbon_bp"],
+        )
+        uncertainty_notes = temporal_semantics["uncertainty_notes"]
+        self.assertIsInstance(uncertainty_notes, list)
+        assert isinstance(uncertainty_notes, list)
+        self.assertIn(
+            "incompatible source age systems were excluded",
+            uncertainty_notes[0],
+        )
+        self.assertEqual(
+            temporal_semantics["temporal_window_label"],
             "Late Holocene (1001-3000 BP)",
         )

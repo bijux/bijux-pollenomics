@@ -38,7 +38,7 @@ class NeotomaDataTests(unittest.TestCase):
                                     {
                                         "units": "Calibrated radiocarbon years BP",
                                         "ageold": 3600,
-                                        "ageyoung": -20,
+                                        "ageyoung": 20,
                                     }
                                 ],
                                 "collectionunits": [{"datasets": []}],

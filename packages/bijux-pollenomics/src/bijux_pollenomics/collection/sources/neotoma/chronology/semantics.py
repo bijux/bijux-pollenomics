@@ -9,7 +9,10 @@ from bijux_pollenomics.core.bp_time import (
 from bijux_pollenomics.core.temporal_semantics import build_temporal_semantics
 from bijux_pollenomics.core.text import clean_optional_text
 
-from .site_spans import neotoma_age_range_units_supported
+from .site_spans import (
+    neotoma_age_range_system,
+    neotoma_selected_age_system,
+)
 
 
 def _build_neotoma_temporal_semantics(
@@ -18,36 +21,44 @@ def _build_neotoma_temporal_semantics(
     time_interval: tuple[int, int] | None,
     time_label: str,
 ) -> dict[str, object]:
-    supported_ranges = [
-        age_range
-        for age_range in age_ranges
-        if neotoma_age_range_units_supported(
-            clean_optional_text(age_range.get("units"))
+    selected_system = neotoma_selected_age_system(age_ranges)
+    recognized_systems = tuple(
+        sorted(
+            {
+                system
+                for age_range in age_ranges
+                if (
+                    system := neotoma_age_range_system(
+                        clean_optional_text(age_range.get("units"))
+                    )
+                )
+                is not None
+            }
         )
-    ]
-    supported_units = tuple(
-        clean_optional_text(age_range.get("units"))
-        for age_range in supported_ranges
-        if clean_optional_text(age_range.get("units"))
     )
     all_units = tuple(
         clean_optional_text(age_range.get("units"))
         for age_range in age_ranges
         if clean_optional_text(age_range.get("units"))
     )
+    excluded_systems = tuple(
+        system for system in recognized_systems if system != selected_system
+    )
     uncertainty_notes: tuple[str, ...] = ()
-    if len(supported_units) > 1:
+    if selected_system is not None and excluded_systems:
         uncertainty_notes = (
-            "Multiple BP age-range conventions contribute to this site span.",
+            "The display interval uses only "
+            f"{selected_system}; incompatible source age systems were excluded: "
+            f"{', '.join(excluded_systems)}.",
         )
-    if time_interval is not None and len(supported_ranges) > 1:
-        comparability_posture = "numeric_interval_with_caveat"
-        evidence_class = "neotoma_aggregated_bp_ranges"
+    if time_interval is not None and excluded_systems:
+        comparability_posture = "mixed_interval_and_context"
+        evidence_class = "neotoma_selected_bp_range"
         precision_posture = "site_interval_with_uncertainty"
         comparison_note = (
-            "Neotoma coverage merges more than one BP age-range convention for this "
-            "site, so the interval remains comparable but should be treated as a "
-            "site-level summary span."
+            f"Neotoma site coverage uses only {selected_system} for this display "
+            "interval. Other source age systems remain contextual and are not "
+            "combined or compared."
         )
     elif time_interval is not None:
         comparability_posture = "numeric_interval"
@@ -59,11 +70,11 @@ def _build_neotoma_temporal_semantics(
         )
     elif all_units:
         comparability_posture = "contextual_label_only"
-        evidence_class = "neotoma_non_bp_age_range"
-        precision_posture = "non_bp_age_units_only"
+        evidence_class = "neotoma_noncanonical_age_range"
+        precision_posture = "source_age_units_only"
         comparison_note = (
-            "Neotoma age coverage is present, but not in a BP form that this "
-            "repository compares numerically."
+            "Neotoma age coverage is present, but no complete, finite, non-negative "
+            "calendar-BP site interval can be admitted for numeric comparison."
         )
     else:
         comparability_posture = "unresolved"
@@ -93,6 +104,6 @@ def _build_neotoma_temporal_semantics(
         comparison_note=comparison_note,
         provenance_locator="site_age_ranges",
         original_labels=all_units,
-        normalized_labels=supported_units,
+        normalized_labels=recognized_systems,
         uncertainty_notes=uncertainty_notes,
     ).as_dict()
