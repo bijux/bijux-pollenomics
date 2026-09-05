@@ -179,7 +179,7 @@ The main documentation contracts live in:
 
 - `packages/bijux-pollenomics/tests/regression/test_docs_breadth.py` for
   repository narrative and route breadth;
-- `packages/bijux-pollenomics/tests/regression/test_repository_contracts.py`
+- `packages/bijux-pollenomics/tests/regression/repository_contracts/`
   for navigation, redirects, Mermaid, local assets, and language constraints;
 - `packages/bijux-pollenomics/tests/unit/governance/test_data_reference_docs.py` for data
   reference boundaries;
