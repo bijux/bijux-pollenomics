@@ -4215,12 +4215,13 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             { label: 'Coordinate confidence', value: formatCoordinateConfidence(feature.coordinate_confidence || '') },
             { label: 'Source locator', value: feature.source_locator || '' },
           ].filter((row) => valueIsAvailable(row.value));
+          const detailValue = (label) => detailRows.find((row) => row.label === label)?.value;
           const secondaryRows = [
             { label: 'Chronology', value: feature.time_label || '' },
-            { label: 'Chronology evidence class', value: feature.temporal_semantics?.evidence_class || '' },
-            { label: 'Chronology precision posture', value: feature.temporal_semantics?.precision_posture || '' },
-            { label: 'Temporal comparison posture', value: feature.temporal_comparability_posture || feature.temporal_semantics?.comparability_posture || '' },
-            { label: 'Temporal comparison note', value: feature.temporal_comparison_note || feature.temporal_semantics?.comparison_note || '' },
+            { label: 'Chronology evidence class', value: detailValue('Chronology evidence class') ?? feature.temporal_semantics?.evidence_class ?? '' },
+            { label: 'Chronology precision posture', value: detailValue('Chronology precision posture') ?? feature.temporal_semantics?.precision_posture ?? '' },
+            { label: 'Temporal comparison posture', value: detailValue('Temporal comparison posture') ?? feature.temporal_comparability_posture ?? feature.temporal_semantics?.comparability_posture ?? '' },
+            { label: 'Temporal comparison note', value: detailValue('Temporal comparison note') ?? feature.temporal_comparison_note ?? feature.temporal_semantics?.comparison_note ?? '' },
             { label: 'Source-native taxa', value: Array.isArray(feature.source_native_taxon_labels) ? feature.source_native_taxon_labels.join(', ') : '' },
             { label: 'Taxon alignment', value: Array.isArray(feature.taxon_alignment_statuses) ? feature.taxon_alignment_statuses.join(', ').replaceAll('_', ' ') : '' },
             { label: 'Mapped sample identifiers', value: Array.isArray(feature.sample_record_ids) ? feature.sample_record_ids.join(', ') : '' },
@@ -4937,8 +4938,20 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       mobilePanelCloseButton.addEventListener('click', () => setPanelCollapsed(true));
       mobileScrim.addEventListener('click', () => setPanelCollapsed(true));
       slider.addEventListener('input', renderMapState);
-      timeStartSlider.addEventListener('input', () => { stopTimePlayback(); deactivateModeledContext(); timeStartBp = clampTimeStart(timeStartSlider.value, timeIntervalYears); renderMapState(); });
-      timeIntervalSlider.addEventListener('input', () => { stopTimePlayback(); deactivateModeledContext(); timeIntervalYears = clampTimeInterval(timeIntervalSlider.value); renderMapState(); });
+      function applyGlobalTimeStartInput() {
+        stopTimePlayback();
+        deactivateModeledContext();
+        timeStartBp = clampTimeStart(timeStartSlider.value, timeIntervalYears);
+        renderMapState();
+      }
+      function applyGlobalTimeIntervalInput() {
+        stopTimePlayback();
+        deactivateModeledContext();
+        timeIntervalYears = clampTimeInterval(timeIntervalSlider.value);
+        renderMapState();
+      }
+      timeStartSlider.addEventListener('input', applyGlobalTimeStartInput);
+      timeIntervalSlider.addEventListener('input', applyGlobalTimeIntervalInput);
       timePlaybackToggle.addEventListener('click', () => {
         if (timePlaybackTimer === null) startTimePlayback(); else stopTimePlayback();
       });

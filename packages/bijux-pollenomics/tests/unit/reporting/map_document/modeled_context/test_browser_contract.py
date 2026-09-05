@@ -168,14 +168,13 @@ function escapeHtml(value) { return String(value); }
 
 
 def test_generic_time_actions_deactivate_mode_and_normal_style_is_restored() -> None:
+    assert "timeStartSlider.addEventListener('input', applyGlobalTimeStartInput)" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
     assert (
-        "timeStartSlider.addEventListener('input', () => { stopTimePlayback(); "
-        "deactivateModeledContext();"
-    ) in MAP_DOCUMENT_TEMPLATE
-    assert (
-        "timeIntervalSlider.addEventListener('input', () => { stopTimePlayback(); "
-        "deactivateModeledContext();"
-    ) in MAP_DOCUMENT_TEMPLATE
+        "timeIntervalSlider.addEventListener('input', applyGlobalTimeIntervalInput)"
+        in MAP_DOCUMENT_TEMPLATE
+    )
     assert (
         "stopTimePlayback();\n          deactivateModeledContext();\n          const preset"
         in MAP_DOCUMENT_TEMPLATE
@@ -191,6 +190,62 @@ def test_generic_time_actions_deactivate_mode_and_normal_style_is_restored() -> 
     assert (
         "fillOpacity: modeledContextActive ? 0.72 : 0.42" not in MAP_DOCUMENT_TEMPLATE
     )
+
+
+def test_global_time_inputs_apply_user_value_after_mode_deactivation() -> None:
+    handlers = template_block(
+        "function applyGlobalTimeStartInput", "timePlaybackToggle.addEventListener"
+    )
+    observed = run_node_json(
+        """
+const calls=[];
+const timeStartSlider={value:'400',addEventListener(){}};
+const timeIntervalSlider={value:'250',addEventListener(){}};
+let timeStartBp=700;
+let timeIntervalYears=100;
+function stopTimePlayback(){calls.push('stop')}
+function deactivateModeledContext(){
+  calls.push('deactivate');
+  timeStartBp=700;
+  timeIntervalYears=100;
+}
+function clampTimeStart(value, interval){
+  calls.push(`start:${value}:${interval}`);
+  return Number(value);
+}
+function clampTimeInterval(value){
+  calls.push(`interval:${value}`);
+  return Number(value);
+}
+function renderMapState(){calls.push('render')}
+"""
+        + handlers
+        + """
+applyGlobalTimeStartInput();
+const startResult={timeStartBp,timeIntervalYears,calls:[...calls]};
+calls.length=0;
+timeStartBp=700;
+timeIntervalYears=100;
+applyGlobalTimeIntervalInput();
+console.log(JSON.stringify({
+  startResult,
+  intervalResult:{timeStartBp,timeIntervalYears,calls},
+}));
+"""
+    )
+
+    assert observed == {
+        "startResult": {
+            "timeStartBp": 400,
+            "timeIntervalYears": 100,
+            "calls": ["stop", "deactivate", "start:400:100", "render"],
+        },
+        "intervalResult": {
+            "timeStartBp": 700,
+            "timeIntervalYears": 250,
+            "calls": ["stop", "deactivate", "interval:250", "render"],
+        },
+    }
 
 
 def test_hash_uses_one_unambiguous_modeled_or_generic_time_state() -> None:
