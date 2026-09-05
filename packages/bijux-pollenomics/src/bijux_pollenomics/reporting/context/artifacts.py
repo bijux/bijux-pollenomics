@@ -38,7 +38,6 @@ def stage_context_point_layers(
         context_root
     ).exists()
     superseded_sead_filenames = {
-        "nordic_environmental_sites.geojson",
         "nordic_temporal_evidence.geojson",
     }
     for contract in ATLAS_POINT_ARTIFACTS:

@@ -1821,15 +1821,16 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const STATIC_ATLAS_INLINE = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-inline-bootstrap.v1';
       globalThis.__BIJUX_ATLAS_RAW_CHUNKS__ = globalThis.__BIJUX_ATLAS_RAW_CHUNKS__ || [];
       const STATIC_ATLAS_RAW_CHUNKS = globalThis.__BIJUX_ATLAS_RAW_CHUNKS__;
-      const STATIC_ATLAS_CHUNKS = { nodes: [] };
+      const STATIC_ATLAS_CHUNKS = { nodes: [], details: [] };
       const staticAtlasLoadedAssets = new Set();
       const staticAtlasInFlightAssets = new Map();
       const STATIC_ATLAS_SCHEMAS = {
-        provenance: 'atlas-provenance-chunk.v2',
-        nodes: 'atlas-node-chunk.v1',
-        edges: 'atlas-edges-chunk.v1',
-        sequences: 'atlas-sequences-chunk.v1',
-        indexes: 'atlas-static-indexes.v1',
+        provenance: ['atlas-provenance-chunk.v2', 'atlas-provenance-chunk.v3'],
+        nodes: ['atlas-node-chunk.v1'],
+        details: ['atlas-details-chunk.v1'],
+        edges: ['atlas-edges-chunk.v1'],
+        sequences: ['atlas-sequences-chunk.v1'],
+        indexes: ['atlas-static-indexes.v1', 'atlas-static-indexes.v2'],
       };
       function staticAtlasFailure(message) {
         throw new Error(`Static atlas data cannot be loaded: ${message}. Reload the page; if the problem persists, redeploy the HTML and hashed assets from the same build.`);
@@ -1840,9 +1841,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (!/^atlas-[a-f0-9]{64}$/.test(String(STATIC_ATLAS_BOOTSTRAP.build_id || ''))) staticAtlasFailure('bootstrap build identity is invalid');
         if (!Array.isArray(STATIC_ATLAS_BOOTSTRAP.assets)) staticAtlasFailure('bootstrap asset inventory is missing');
         if (STATIC_ATLAS_BOOTSTRAP.transport_integrity?.http_https !== 'subresource_integrity_plus_payload_sha256' || STATIC_ATLAS_BOOTSTRAP.transport_integrity?.file !== 'payload_sha256_after_script_registration' || STATIC_ATLAS_BOOTSTRAP.transport_integrity?.file_pre_execution_sri !== false) staticAtlasFailure('transport-integrity posture mismatch');
-        const compatibilityKeys = { provenance: 'provenance_schema', nodes: 'node_schema', edges: 'edge_schema', sequences: 'sequence_schema', indexes: 'index_schema' };
-        Object.entries(STATIC_ATLAS_SCHEMAS).forEach(([domain, schema]) => {
-          if (STATIC_ATLAS_BOOTSTRAP.compatibility?.[compatibilityKeys[domain]] !== schema) staticAtlasFailure(`${domain} compatibility declaration mismatch`);
+        const compatibilityKeys = { provenance: 'provenance_schema', nodes: 'node_schema', details: 'detail_schema', edges: 'edge_schema', sequences: 'sequence_schema', indexes: 'index_schema' };
+        Object.entries(STATIC_ATLAS_SCHEMAS).forEach(([domain, schemas]) => {
+          const declared = STATIC_ATLAS_BOOTSTRAP.compatibility?.[compatibilityKeys[domain]];
+          const legacyWithoutDetails = domain === 'details' && STATIC_ATLAS_BOOTSTRAP.compatibility?.provenance_schema === 'atlas-provenance-chunk.v2' && declared === undefined;
+          if (!legacyWithoutDetails && !schemas.includes(declared)) staticAtlasFailure(`${domain} compatibility declaration mismatch`);
         });
         STATIC_ATLAS_BOOTSTRAP.assets.forEach((row) => {
           if (!/^[a-z0-9][a-z0-9.-]*[.]js$/.test(String(row.path || ''))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} path is invalid`);
@@ -1867,13 +1870,14 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (payload.build_id !== STATIC_ATLAS_BOOTSTRAP.build_id) staticAtlasFailure(`${row.asset_key} build mismatch`);
         if (payload.scope_slug !== STATIC_ATLAS_BOOTSTRAP.scope_slug) staticAtlasFailure(`${row.asset_key} scope mismatch`);
         if (payload.version !== STATIC_ATLAS_BOOTSTRAP.version) staticAtlasFailure(`${row.asset_key} version mismatch`);
-        if (payload.schema_version !== STATIC_ATLAS_SCHEMAS[row.domain]) staticAtlasFailure(`${row.asset_key} schema mismatch`);
+        if (!STATIC_ATLAS_SCHEMAS[row.domain]?.includes(payload.schema_version)) staticAtlasFailure(`${row.asset_key} schema mismatch`);
         if (row.domain === 'nodes') {
           if (!Array.isArray(payload.features) || !Array.isArray(payload.feature_indexes) || payload.features.length !== payload.feature_indexes.length) staticAtlasFailure(`${row.asset_key} feature accounting is invalid`);
           if (payload.features.length !== row.record_count || payload.layer_key !== row.layer_key || payload.layer_index !== row.layer_index || payload.layer_kind !== row.layer_kind) staticAtlasFailure(`${row.asset_key} layer accounting mismatch`);
         }
         if ((row.domain === 'edges' || row.domain === 'sequences') && (!Array.isArray(payload.records) || payload.records.length !== row.record_count)) staticAtlasFailure(`${row.asset_key} record accounting mismatch`);
-        if (row.domain === 'provenance' && (!Array.isArray(payload.layers) || !Array.isArray(payload.detail_records) || !Array.isArray(payload.scientific_signals))) staticAtlasFailure(`${row.asset_key} evidence accounting mismatch`);
+        if (row.domain === 'details' && (!Array.isArray(payload.records) || payload.records.length !== row.record_count || payload.records.some((record) => !record || typeof record.record_id !== 'string'))) staticAtlasFailure(`${row.asset_key} detail accounting mismatch`);
+        if (row.domain === 'provenance' && (!Array.isArray(payload.layers) || !Array.isArray(payload.scientific_signals) || (payload.schema_version === 'atlas-provenance-chunk.v2' && !Array.isArray(payload.detail_records)))) staticAtlasFailure(`${row.asset_key} evidence accounting mismatch`);
       }
       async function consumeStaticAtlasAsset(row) {
         if (staticAtlasLoadedAssets.has(row.asset_key)) return;
@@ -1890,6 +1894,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         }
         validateStaticAtlasPayload(row, payload);
         if (row.domain === 'nodes') STATIC_ATLAS_CHUNKS.nodes.push(payload);
+        else if (row.domain === 'details') STATIC_ATLAS_CHUNKS.details.push(payload);
         else STATIC_ATLAS_CHUNKS[row.domain] = payload;
         staticAtlasLoadedAssets.add(row.asset_key);
       }
@@ -1924,7 +1929,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (payload.status === 'unavailable' && payload.records.length) staticAtlasFailure(`${domain} unavailable payload is not empty`);
           if (payload.status === 'available' && !payload.records.length) staticAtlasFailure(`${domain} available payload is empty`);
         }
-        if (!Array.isArray(STATIC_ATLAS_CHUNKS.provenance.detail_records) || !Array.isArray(STATIC_ATLAS_CHUNKS.provenance.scientific_signals)) staticAtlasFailure('evidence metadata domains are incomplete');
+        if (!Array.isArray(STATIC_ATLAS_CHUNKS.provenance.scientific_signals)) staticAtlasFailure('evidence metadata domains are incomplete');
+        if (STATIC_ATLAS_CHUNKS.provenance.schema_version === 'atlas-provenance-chunk.v2' && !Array.isArray(STATIC_ATLAS_CHUNKS.provenance.detail_records)) staticAtlasFailure('legacy detail metadata is incomplete');
+        if (STATIC_ATLAS_CHUNKS.provenance.schema_version === 'atlas-provenance-chunk.v3' && (!STATIC_ATLAS_CHUNKS.indexes.detail_record_asset_keys || typeof STATIC_ATLAS_CHUNKS.indexes.detail_record_asset_keys !== 'object')) staticAtlasFailure('lazy detail index is incomplete');
       }
       function hydrateStaticAtlasLayers(layerKind) {
         const partsByLayer = new Map();
@@ -2581,12 +2588,33 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function unavailableDetailTabs(reasonCode) {
         return Object.fromEntries(DETAIL_TAB_DEFINITIONS.map(([key]) => [key, { status: 'unavailable', reason_code: reasonCode }]));
       }
-      function detailTabsForFeature(feature) {
+      async function detailTabsForRecordId(recordId) {
+        if (!recordId) return unavailableDetailTabs('feature_record_id_not_available');
+        const stored = DETAIL_RECORDS.get(recordId);
+        if (stored && stored.tabs) return stored.tabs;
+        if (STATIC_ATLAS_INLINE || ATLAS_EVIDENCE.details_status !== 'available') {
+          return unavailableDetailTabs(ATLAS_EVIDENCE.details_reason_code || 'record_level_evidence_not_available');
+        }
+        const assetKey = STATIC_ATLAS_CHUNKS.indexes.detail_record_asset_keys?.[recordId];
+        if (!assetKey) return unavailableDetailTabs('detail_record_not_indexed');
+        const candidates = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.asset_key === assetKey && row.domain === 'details');
+        if (candidates.length !== 1) return unavailableDetailTabs('detail_chunk_index_invalid');
+        const row = candidates[0];
+        if (Number(row.byte_count || 0) > Number(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes)) return unavailableDetailTabs('detail_chunk_interaction_budget_exceeded');
+        try {
+          await loadStaticAtlasAsset(row);
+        } catch (error) {
+          return unavailableDetailTabs('detail_chunk_load_failed');
+        }
+        const payload = STATIC_ATLAS_CHUNKS.details.find((candidate) => candidate.asset_key === assetKey);
+        if (!payload) return unavailableDetailTabs('detail_chunk_not_registered');
+        payload.records.forEach((record) => DETAIL_RECORDS.set(record.record_id, record));
+        const loaded = DETAIL_RECORDS.get(recordId);
+        return loaded && loaded.tabs ? loaded.tabs : unavailableDetailTabs('detail_record_missing_from_chunk');
+      }
+      async function detailTabsForFeature(feature) {
         const recordId = String(feature.record_id || '');
-        const record = DETAIL_RECORDS.get(recordId);
-        return record && record.tabs
-          ? record.tabs
-          : unavailableDetailTabs(ATLAS_EVIDENCE.details_reason_code || 'record_level_evidence_not_available');
+        return detailTabsForRecordId(recordId);
       }
       function renderDetailValue(value) {
         if (value === null || value === undefined || value === '') return '<span>Unavailable</span>';
@@ -2644,7 +2672,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         focusPreviousButton.disabled = !canStep;
         focusNextButton.disabled = !canStep;
       }
-      function focusPointAtVisibleIndex(index) {
+      async function focusPointAtVisibleIndex(index) {
         const entry = visiblePointEntries[index];
         if (!entry) return;
         const mediaLinks = normalizedMediaLinks(entry.feature.media_links);
@@ -2660,7 +2688,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (timeLabel) {
           meta.splice(2, 0, { label: 'Date', value: timeLabel });
         }
-        setFocusState({
+        const nextFocus = {
           kind: 'point',
           layerKey: entry.layer.key,
           visiblePointIndex: index,
@@ -2671,8 +2699,15 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           sourceLabel: primaryAction ? primaryAction.label : 'Open source',
           latitude: Number(entry.feature.latitude),
           longitude: Number(entry.feature.longitude),
-          detailTabs: detailTabsForFeature(entry.feature),
-        });
+          recordId: String(entry.feature.record_id || ''),
+          detailTabs: unavailableDetailTabs('detail_record_loading'),
+        };
+        setFocusState(nextFocus);
+        const detailTabs = await detailTabsForFeature(entry.feature);
+        if (focusState && focusState.kind === 'point' && focusState.visiblePointIndex === index && focusState.recordId === nextFocus.recordId) {
+          focusState = { ...focusState, detailTabs };
+          renderFocusDetail();
+        }
       }
       function countActiveOverrides() {
         let count = 0;
@@ -3130,9 +3165,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             }
           );
           line.bindPopup(`<div class="popup-grid"><div><strong>Candidate relation</strong> ${escapeHtml(edge.edge_id)}</div><div><strong>Signal</strong> ${escapeHtml(signal ? signal.label : edge.signal_id)}</div><div><strong>Countries</strong> ${escapeHtml(edge.source_country)} → ${escapeHtml(edge.target_country)}</div><div><strong>Interpretation</strong> Candidate succession under the governed rule; not proof of migration or causation.</div></div>`);
-          line.on('click', () => {
-            const stored = DETAIL_RECORDS.get(String(edge.edge_id));
-            const tabs = stored && stored.tabs ? { ...stored.tabs } : unavailableDetailTabs('edge_detail_evidence_not_available');
+          line.on('click', async () => {
+            const loadedTabs = await detailTabsForRecordId(String(edge.edge_id));
+            const tabs = loadedTabs.overview?.reason_code === 'detail_record_not_indexed'
+              ? unavailableDetailTabs('edge_detail_evidence_not_available')
+              : { ...loadedTabs };
             tabs.overview = {
               edge_id: edge.edge_id,
               signal: signal ? signal.label : edge.signal_id,

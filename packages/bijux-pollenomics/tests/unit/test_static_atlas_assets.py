@@ -367,10 +367,11 @@ def test_accepted_scientific_fixture_populates_truthful_atlas_domains(
     payloads = {
         _payload(path)["schema_version"]: _payload(path) for path in first.asset_paths
     }
-    provenance = payloads["atlas-provenance-chunk.v2"]
+    provenance = payloads["atlas-provenance-chunk.v3"]
     assert provenance["details_status"] == "available"
     assert provenance["classifications_status"] == "available"
-    detail_tabs = provenance["detail_records"][0]["tabs"]
+    details_payload = payloads["atlas-details-chunk.v1"]
+    detail_tabs = details_payload["records"][0]["tabs"]
     assert set(detail_tabs) == set(DETAIL_TAB_KEYS)
     observed_signals = provenance["scientific_signals"]
     assert [row["signal_id"] for row in observed_signals] == sorted(

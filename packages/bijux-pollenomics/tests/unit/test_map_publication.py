@@ -399,13 +399,14 @@ class MapPublicationUnitTests(unittest.TestCase):
             self.assertEqual(
                 features[0]["evidence_row_id"], "10:dating_range:7:discovery"
             )
-            self.assertNotIn("sead-sites", {layer["key"] for layer in point_layers})
+            self.assertIn("sead-sites", {layer["key"] for layer in point_layers})
             self.assertNotIn(
                 "sead-temporal-evidence", {layer["key"] for layer in point_layers}
             )
             self.assertEqual(
                 staged_names,
                 {
+                    "nordic_environmental_sites.geojson",
                     "sweden_archaeology_site_discovery.geojson",
                     "sweden_archaeology_site_discovery.json",
                     "sweden_archaeology_site_discovery.csv",

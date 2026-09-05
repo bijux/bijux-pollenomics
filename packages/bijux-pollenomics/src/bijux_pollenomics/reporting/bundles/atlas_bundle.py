@@ -29,6 +29,7 @@ from ...evidence import (
 from ..aadr import summarize_localities
 from ..adna import build_tracked_animal_atlas_bundle
 from ..geography import GeographicScope
+from ..map_document.evidence_projection import build_map_evidence_projection
 from ..map_document.static_assets import write_static_atlas_assets
 from ..map_publication import (
     build_map_point_traceability,
@@ -119,6 +120,11 @@ def publish_multi_country_map_bundle(
         )
     )
     _attach_traceability_surfaces(point_layers, bundle_paths)
+    detail_projection_reconciliation: JsonObject | None = None
+    if context_root is not None and atlas_detail_records is None:
+        detail_projection = build_map_evidence_projection(context_root, point_layers)
+        atlas_detail_records = detail_projection.detail_records
+        detail_projection_reconciliation = detail_projection.reconciliation
     static_assets = write_static_atlas_assets(
         staging_output_dir,
         slug=report.slug,
@@ -172,6 +178,10 @@ def publish_multi_country_map_bundle(
         "budgets": static_assets.manifest["budgets"],
         "domains": static_assets.manifest["domains"],
     }
+    if detail_projection_reconciliation is not None:
+        map_publication_contract["detail_projection"] = dict(
+            detail_projection_reconciliation
+        )
     write_summary_json_fn(
         bundle_paths.map_publication_contract_json_path,
         map_publication_contract,

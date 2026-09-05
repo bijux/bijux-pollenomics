@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import base64
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 import hashlib
 import json
@@ -79,7 +79,24 @@ def write_static_atlas_assets(
         point_layers=point_layers,
         polygon_layers=polygon_layers,
     )
-    indexes = _build_indexes(point_layers)
+    detail_partitions = _partition_features(
+        [dict(record) for record in evidence.detail_records]
+    )
+    first_detail_sequence = 1 + len(node_payloads)
+    detail_asset_keys = [
+        f"details:{first_detail_sequence + index}"
+        for index in range(len(detail_partitions))
+    ]
+    indexes = {
+        **_build_indexes(point_layers),
+        "detail_record_asset_keys": {
+            str(record["record_id"]): asset_key
+            for asset_key, partition in zip(
+                detail_asset_keys, detail_partitions, strict=True
+            )
+            for record in partition
+        },
+    }
     build_id = (
         "atlas-"
         + hashlib.sha256(
@@ -104,7 +121,7 @@ def write_static_atlas_assets(
             "provenance",
             len(layer_metadata),
             {
-                "schema_version": "atlas-provenance-chunk.v2",
+                "schema_version": "atlas-provenance-chunk.v3",
                 "scope_slug": slug,
                 "version": version,
                 "build_id": build_id,
@@ -119,7 +136,6 @@ def write_static_atlas_assets(
                     else "record_level_provenance_model_not_available"
                 ),
                 "layers": layer_metadata,
-                "detail_records": list(evidence.detail_records),
                 "scientific_signals": list(evidence.scientific_signals),
                 "details_status": (
                     "available" if evidence.detail_records else "unavailable"
@@ -143,6 +159,20 @@ def write_static_atlas_assets(
     payloads.extend(
         ("nodes", _node_payload_record_count(payload), payload)
         for payload in node_payloads
+    )
+    payloads.extend(
+        (
+            "details",
+            len(partition),
+            {
+                "schema_version": "atlas-details-chunk.v1",
+                "scope_slug": slug,
+                "version": version,
+                "build_id": build_id,
+                "records": partition,
+            },
+        )
+        for partition in detail_partitions
     )
     for domain, records, reason_code in (
         (
@@ -201,7 +231,7 @@ def write_static_atlas_assets(
             "payload_sha256": payload_sha256,
             "byte_count": len(script_bytes),
             "record_count": record_count,
-            "initial_load": domain != "nodes",
+            "initial_load": domain not in {"nodes", "details"},
         }
         if domain == "nodes":
             row.update(_node_asset_selection(payload))
@@ -221,11 +251,12 @@ def write_static_atlas_assets(
             "file_pre_execution_sri": False,
         },
         "compatibility": {
-            "provenance_schema": "atlas-provenance-chunk.v2",
+            "provenance_schema": "atlas-provenance-chunk.v3",
             "node_schema": "atlas-node-chunk.v1",
+            "detail_schema": "atlas-details-chunk.v1",
             "edge_schema": "atlas-edges-chunk.v1",
             "sequence_schema": "atlas-sequences-chunk.v1",
-            "index_schema": "atlas-static-indexes.v1",
+            "index_schema": "atlas-static-indexes.v2",
         },
         "budgets": {
             "bootstrap_max_bytes": ATLAS_BOOTSTRAP_MAX_BYTES,
@@ -351,6 +382,7 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
     initial_bytes = 0
     initial_requests = 0
     asset_keys: set[str] = set()
+    decoded_payloads: dict[str, dict[str, object]] = {}
     for row, path in zip(rows, assets.asset_paths, strict=True):
         if not isinstance(row, dict) or path.name != row.get("path"):
             raise ValueError("static atlas asset order or path changed")
@@ -359,9 +391,16 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
             raise ValueError("static atlas asset identity is missing or duplicated")
         asset_keys.add(asset_key)
         domain = row.get("domain")
-        if domain not in {"nodes", "edges", "sequences", "provenance", "indexes"}:
+        if domain not in {
+            "nodes",
+            "details",
+            "edges",
+            "sequences",
+            "provenance",
+            "indexes",
+        }:
             raise ValueError("static atlas asset domain is invalid")
-        if row.get("initial_load") is not (domain != "nodes"):
+        if row.get("initial_load") is not (domain not in {"nodes", "details"}):
             raise ValueError("static atlas initial-load declaration is invalid")
         payload = path.read_bytes()
         byte_count = len(payload)
@@ -383,12 +422,18 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
         if row.get("initial_load") is True:
             initial_requests += 1
             initial_bytes += byte_count
+        decoded_payloads[asset_key] = _decode_chunk_script(
+            payload,
+            expected_asset_key=asset_key,
+            expected_payload_sha256=payload_sha256,
+        )
     if total_bytes > ATLAS_STATIC_ASSETS_MAX_BYTES:
         raise ValueError("static atlas assets exceed their total byte budget")
     if initial_requests > ATLAS_INITIAL_MAX_REQUESTS:
         raise ValueError("static atlas initial request count exceeds its budget")
     if initial_bytes > ATLAS_INITIAL_MAX_BYTES:
         raise ValueError("static atlas initial bytes exceed their budget")
+    _validate_static_payloads(assets.manifest, rows, decoded_payloads)
 
 
 def validate_static_atlas_document(document: str) -> None:
@@ -570,7 +615,7 @@ def _build_indexes(point_layers: Sequence[JsonObject]) -> dict[str, object]:
                     [interval[0], interval[1], layer_key, feature_index]
                 )
     return {
-        "schema_version": "atlas-static-indexes.v1",
+        "schema_version": "atlas-static-indexes.v2",
         "country_feature_indexes": _sorted_nested_indexes(countries),
         "spatial_degree_feature_indexes": _sorted_nested_indexes(spatial_cells),
         "time_interval_feature_indexes": sorted(
@@ -620,13 +665,16 @@ def _index_reference_count(payload: dict[str, object]) -> int:
     country_rows = payload.get("country_feature_indexes")
     if not isinstance(country_rows, dict):
         return 0
-    return sum(
+    feature_reference_count = sum(
         len(indexes)
         for layers in country_rows.values()
         if isinstance(layers, dict)
         for indexes in layers.values()
         if isinstance(indexes, list)
     )
+    detail_rows = payload.get("detail_record_asset_keys")
+    detail_reference_count = len(detail_rows) if isinstance(detail_rows, dict) else 0
+    return feature_reference_count + detail_reference_count
 
 
 def _node_payload_record_count(payload: dict[str, object]) -> int:
@@ -738,6 +786,128 @@ def _chunk_script_bytes(
         f"globalThis.__BIJUX_ATLAS_RAW_CHUNKS__.push({envelope});\n"
     )
     return statement.encode("utf-8")
+
+
+def _decode_chunk_script(
+    payload: bytes,
+    *,
+    expected_asset_key: str,
+    expected_payload_sha256: str,
+) -> dict[str, object]:
+    prefix = (
+        "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__="
+        "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__||[];"
+        "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__.push("
+    )
+    try:
+        text = payload.decode("utf-8")
+    except UnicodeDecodeError as exc:
+        raise ValueError("static atlas chunk is not UTF-8") from exc
+    if not text.startswith(prefix) or not text.endswith(");\n"):
+        raise ValueError("static atlas chunk wrapper changed")
+    try:
+        envelope = json.loads(text[len(prefix) : -3])
+    except json.JSONDecodeError as exc:
+        raise ValueError("static atlas chunk envelope is invalid") from exc
+    if not isinstance(envelope, Mapping):
+        raise ValueError("static atlas chunk envelope must be an object")
+    if envelope.get("asset_key") != expected_asset_key:
+        raise ValueError("static atlas chunk envelope identity changed")
+    if envelope.get("payload_sha256") != expected_payload_sha256:
+        raise ValueError("static atlas chunk envelope digest changed")
+    payload_json = envelope.get("payload_json")
+    if not isinstance(payload_json, str):
+        raise ValueError("static atlas chunk payload is missing")
+    if (
+        hashlib.sha256(payload_json.encode("utf-8")).hexdigest()
+        != expected_payload_sha256
+    ):
+        raise ValueError("static atlas chunk payload digest changed")
+    try:
+        decoded = json.loads(payload_json)
+    except json.JSONDecodeError as exc:
+        raise ValueError("static atlas chunk payload JSON is invalid") from exc
+    if not isinstance(decoded, dict):
+        raise ValueError("static atlas chunk payload must be an object")
+    return decoded
+
+
+def _validate_static_payloads(
+    manifest: Mapping[str, object],
+    asset_rows: Sequence[Mapping[str, object]],
+    payloads: Mapping[str, Mapping[str, object]],
+) -> None:
+    compatibility = manifest.get("compatibility")
+    if not isinstance(compatibility, Mapping):
+        raise ValueError("static atlas compatibility declaration is missing")
+    expected_schemas = {
+        "provenance": compatibility.get("provenance_schema"),
+        "nodes": compatibility.get("node_schema"),
+        "details": compatibility.get("detail_schema"),
+        "edges": compatibility.get("edge_schema"),
+        "sequences": compatibility.get("sequence_schema"),
+        "indexes": compatibility.get("index_schema"),
+    }
+    detail_record_assets: dict[str, str] = {}
+    detail_record_order: list[str] = []
+    index_payload: Mapping[str, object] | None = None
+    for row in asset_rows:
+        asset_key = row.get("asset_key")
+        domain = row.get("domain")
+        if not isinstance(asset_key, str) or not isinstance(domain, str):
+            raise ValueError("static atlas asset domain identity is invalid")
+        payload = payloads.get(asset_key)
+        if payload is None:
+            raise ValueError("static atlas decoded payload inventory is incomplete")
+        for field in ("build_id", "scope_slug", "version"):
+            if payload.get(field) != manifest.get(field):
+                raise ValueError(f"static atlas {asset_key} {field} changed")
+        if payload.get("asset_key") != asset_key:
+            raise ValueError(f"static atlas {asset_key} payload identity changed")
+        if payload.get("schema_version") != expected_schemas.get(domain):
+            raise ValueError(f"static atlas {asset_key} schema changed")
+        if domain == "details":
+            records = payload.get("records")
+            if not isinstance(records, list) or any(
+                not isinstance(record, Mapping) for record in records
+            ):
+                raise ValueError(f"static atlas {asset_key} detail rows are invalid")
+            if row.get("record_count") != len(records):
+                raise ValueError(f"static atlas {asset_key} detail count changed")
+            for record in records:
+                record_id = record.get("record_id")
+                if not isinstance(record_id, str) or not record_id:
+                    raise ValueError("static atlas detail record identity is invalid")
+                if record_id in detail_record_assets:
+                    raise ValueError(
+                        "static atlas detail record identity is duplicated"
+                    )
+                detail_record_assets[record_id] = asset_key
+                detail_record_order.append(record_id)
+        elif domain == "indexes":
+            if index_payload is not None:
+                raise ValueError("static atlas index payload is duplicated")
+            index_payload = payload
+    if detail_record_order != sorted(detail_record_order):
+        raise ValueError("static atlas detail records are not stably ordered")
+    if index_payload is None:
+        raise ValueError("static atlas index payload is missing")
+    detail_index = index_payload.get("detail_record_asset_keys")
+    if not isinstance(detail_index, Mapping) or any(
+        not isinstance(key, str) or not isinstance(value, str)
+        for key, value in detail_index.items()
+    ):
+        raise ValueError("static atlas detail index is invalid")
+    if dict(detail_index) != detail_record_assets:
+        raise ValueError("static atlas detail index does not reconcile")
+    domains = manifest.get("domains")
+    if not isinstance(domains, Mapping):
+        raise ValueError("static atlas domain accounting is missing")
+    details_domain = domains.get("details")
+    if not isinstance(details_domain, Mapping) or details_domain.get(
+        "record_count"
+    ) != len(detail_record_assets):
+        raise ValueError("static atlas detail domain count does not reconcile")
 
 
 def _canonical_json(value: Any) -> str:
