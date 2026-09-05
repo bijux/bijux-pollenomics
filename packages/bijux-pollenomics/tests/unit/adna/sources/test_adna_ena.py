@@ -6,6 +6,8 @@ import json
 import unittest
 
 from bijux_pollenomics.adna.sources import ena
+from bijux_pollenomics.adna.sources import archive
+from bijux_pollenomics.adna.sources.archive import ena as archive_ena
 from bijux_pollenomics.adna import (
     AdnaEnaQuery,
     build_archive_project_catalog,
@@ -18,6 +20,17 @@ from bijux_pollenomics.adna import (
 
 
 class AdnaEnaUnitTests(unittest.TestCase):
+    def test_legacy_surface_reexports_canonical_archive_objects(self) -> None:
+        self.assertIs(ena.AdnaArchiveProject, archive.AdnaArchiveProject)
+        self.assertIs(ena.AdnaPaperLinkage, archive.AdnaPaperLinkage)
+        self.assertIs(ena.AdnaEnaQuery, archive_ena.AdnaEnaQuery)
+        self.assertIs(ena.AdnaEnaRecord, archive_ena.AdnaEnaRecord)
+        self.assertIs(
+            ena.build_archive_project_catalog,
+            archive.build_archive_project_catalog,
+        )
+        self.assertIs(ena.build_ena_filereport_url, archive_ena.build_ena_filereport_url)
+
     def test_legacy_archive_surface_and_catalog_bytes_are_pinned(self) -> None:
         self.assertEqual(
             ena.__all__,
