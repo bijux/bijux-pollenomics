@@ -115,7 +115,7 @@ try {
       'default_sample_window', 'default_denominators', 'trsh_exact_state',
       'uphe_exact_state', 'aqvp_exact_state', 'secale_exact_state',
       'cereal_finder_exact_state', 'chronology_buttons_navigate', 'chronology_controls_persistent',
-      'chronology_status_action', 'basemap_discoverability',
+      'chronology_status_action', 'basemap_discoverability', 'help_dialog_accessible',
       'comparison_refusal', 'capture_null_inputs_refused', 'responsive_1440',
       'responsive_1024', 'responsive_768', 'responsive_390',
       'reduced_motion_manual_navigation', 'no_basemap_zero_tile_requests',
@@ -125,7 +125,7 @@ try {
     'generic-time-aware-atlas-v1': [
       'capture_api_ready', 'candidate_identity', 'keyless_provider_policy',
       'default_time_domain_matches_manifest', 'time_controls_persistent', 'time_status_action',
-      'time_slider_changes_visibility', 'time_buttons_navigate', 'basemap_discoverability',
+      'time_slider_changes_visibility', 'time_buttons_navigate', 'basemap_discoverability', 'help_dialog_accessible',
       'scientific_posture_matches_manifest', 'capture_invalid_inputs_refused',
       'responsive_1440', 'responsive_1024', 'responsive_768', 'responsive_390',
       'reduced_motion_manual_navigation', 'no_basemap_zero_tile_requests',
@@ -180,6 +180,7 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
     });
     responsive[width] = await responsiveFacts(normal.cdp, width);
     responsive[width].discoverability = await discoverabilityFacts(normal.cdp, width);
+    responsive[width].help_dialog = await helpDialogFacts(normal.cdp, width);
     const path = `${scope.name}/responsive-${width}.png`;
     await screenshot(normal.cdp, path);
     scopeReceipts.push(path);
@@ -243,14 +244,16 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
         && layout.discoverability.chronology_status_visible_values_valid
         && layout.discoverability.chronology_controls_opened
         && layout.discoverability.chronology_controls_focused
-        && layout.discoverability.chronology_close_restored_focus),
+        && (layout.viewport.width > 900 || layout.discoverability.chronology_close_restored_focus)),
       basemap_discoverability: [responsive[1440], responsive[390]].every((layout) => layout.discoverability.basemap_status_visible
         && layout.discoverability.basemap_status_bounded
         && layout.discoverability.basemap_status_uncovered
         && layout.discoverability.basemap_controls_opened
         && layout.discoverability.active_basemap_focused
-        && layout.discoverability.basemap_close_restored_focus
+        && (layout.viewport.width > 900 || layout.discoverability.basemap_close_restored_focus)
         && layout.discoverability.visible_provider_disclosure),
+      help_dialog_accessible: [responsive[1440], responsive[390]].every((layout) =>
+        helpDialogPasses(layout.help_dialog)),
       source_slider_changes_visibility: Object.values(chronologyJourneys).every((journey) => journey.slider_values_applied
         && journey.visible_counts_within_denominator && journey.distinct_positive_visible_counts >= 2
         && journey.time_readouts_match),
@@ -386,6 +389,7 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
     responsive[width] = await responsiveFacts(normal.cdp, width);
     responsive[width].time_discoverability = await genericTimeDiscoverabilityFacts(normal.cdp, width);
     responsive[width].basemap_discoverability = await basemapDiscoverabilityFacts(normal.cdp, width);
+    responsive[width].help_dialog = await helpDialogFacts(normal.cdp, width);
     const path = `${scope.name}/responsive-${width}.png`;
     await screenshot(normal.cdp, path);
     scopeReceipts.push(path);
@@ -414,8 +418,10 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
         && layout.chronology_controls_non_overlapping && layout.body_scroll_width <= layout.viewport.width + 1),
       time_status_action: [responsive[1440], responsive[390]].every((layout) => layout.time_discoverability.status_visible
         && layout.time_discoverability.status_bounded && layout.time_discoverability.status_uncovered
+        && layout.time_discoverability.status_enabled && layout.time_discoverability.status_controls_time_panel
+        && layout.time_discoverability.status_describes_current_bp_window
         && layout.time_discoverability.controls_opened && layout.time_discoverability.interval_preset_focused
-        && layout.time_discoverability.close_restored_focus),
+        && (layout.viewport.width > 900 || layout.time_discoverability.close_restored_focus)),
       time_slider_changes_visibility: timeJourney.interval_is_1000_years
         && timeJourney.slider_values_applied && timeJourney.visible_counts_within_denominator
         && timeJourney.distinct_visible_counts >= 2 && timeJourney.time_readouts_match,
@@ -425,7 +431,10 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
       basemap_discoverability: [responsive[1440], responsive[390]].every((layout) => layout.basemap_discoverability.status_visible
         && layout.basemap_discoverability.status_bounded && layout.basemap_discoverability.status_uncovered
         && layout.basemap_discoverability.controls_opened && layout.basemap_discoverability.active_provider_focused
-        && layout.basemap_discoverability.close_restored_focus && layout.basemap_discoverability.visible_provider_disclosure),
+        && (layout.viewport.width > 900 || layout.basemap_discoverability.close_restored_focus)
+        && layout.basemap_discoverability.visible_provider_disclosure),
+      help_dialog_accessible: [responsive[1440], responsive[390]].every((layout) =>
+        helpDialogPasses(layout.help_dialog)),
       scientific_posture_matches_manifest: defaultSnapshot.scientific_posture?.classifications_status === manifestFacts.classifications_status
         && defaultSnapshot.scientific_posture?.classifications_reason_code === manifestFacts.classifications_reason_code
         && defaultSnapshot.scientific_posture?.observation_chronology_is_propagation === false
@@ -533,22 +542,38 @@ function genericManifestFacts(manifest) {
   const rows = manifest.assets?.records || [];
   const index = Object.fromEntries(fields.map((field, position) => [field, position]));
   const pointRows = rows.filter((row) => row[index.domain] === 'nodes' && row[index.layer_kind] === 'point');
-  const finiteMinimums = pointRows.map((row) => row[index.time_min_bp]).filter(Number.isFinite);
-  const finiteMaximums = pointRows.map((row) => row[index.time_max_bp]).filter(Number.isFinite);
-  if (!pointRows.length || !finiteMinimums.length || !finiteMaximums.length) {
-    throw new Error('generic time-aware manifest has no timed point domain');
-  }
   const requireCount = (value, label) => {
     if (!Number.isSafeInteger(value) || value < 0) {
       throw new Error(`${label} must be a non-negative safe integer`);
     }
     return value;
   };
+  let pointRecordCount = 0;
+  const finiteMinimums = [];
+  const finiteMaximums = [];
+  pointRows.forEach((row, position) => {
+    const recordCount = requireCount(row[index.record_count], `point row ${position} record_count`);
+    pointRecordCount = requireCount(pointRecordCount + recordCount, 'aggregate point record_count');
+    const minimum = row[index.time_min_bp];
+    const maximum = row[index.time_max_bp];
+    if ((minimum === null) !== (maximum === null)) {
+      throw new Error(`point row ${position} has asymmetric BP bounds`);
+    }
+    if (minimum === null) return;
+    if (!Number.isFinite(minimum) || !Number.isFinite(maximum)) {
+      throw new Error(`point row ${position} BP bounds must be finite numbers`);
+    }
+    if (minimum > maximum) {
+      throw new Error(`point row ${position} BP bounds are reversed`);
+    }
+    finiteMinimums.push(minimum);
+    finiteMaximums.push(maximum);
+  });
+  if (!pointRows.length || !finiteMinimums.length) {
+    throw new Error('generic time-aware manifest has no timed point domain');
+  }
   return {
-    point_record_count: pointRows.reduce(
-      (sum, row, position) => sum + requireCount(row[index.record_count], `point row ${position} record_count`),
-      0,
-    ),
+    point_record_count: pointRecordCount,
     time_min_bp: Math.min(...finiteMinimums),
     time_max_bp: Math.max(...finiteMaximums),
     classifications_status: manifest.domains?.classifications?.status,
@@ -670,6 +695,8 @@ async function genericTimeDiscoverabilityFacts(cdp, width) {
     const status = document.getElementById('time-stepper-status');
     const controls = document.getElementById('time-controls');
     const preset = controls.querySelector('[data-time-interval="1000"]');
+    const snapshot = globalThis.BijuxPollenomicsAtlasCapture.snapshot();
+    const statusText = status.textContent || '';
     const statusVisible = visible(status);
     const statusBounded = bounded(status);
     const statusUncovered = uncovered(status);
@@ -680,9 +707,13 @@ async function genericTimeDiscoverabilityFacts(cdp, width) {
       status_visible: statusVisible,
       status_bounded: statusBounded,
       status_uncovered: statusUncovered,
+      status_enabled: !status.disabled,
+      status_controls_time_panel: status.getAttribute('aria-controls') === 'time-controls',
+      status_describes_current_bp_window: statusText.startsWith('Complete atlas chronology · ')
+        && statusText.includes('[' + snapshot.time_window_bp.younger_bp + ', ' + snapshot.time_window_bp.older_bp + '] BP'),
       controls_opened: controls.open && !sidebar.classList.contains('is-collapsed'),
       interval_preset_focused: document.activeElement === preset,
-      close_restored_focus: ${width} > 900,
+      close_restored_focus: null,
     };
     if (${width} <= 900) {
       close.click();
@@ -781,12 +812,11 @@ async function basemapDiscoverabilityFacts(cdp, width) {
       && providerDisclosure.some((text) => text.includes('OpenStreetMap · no key'))
       && providerDisclosure.some((text) => text.includes('OpenTopoMap · no key'))
       && providerDisclosure.some((text) => text.includes('Offline · no tiles'));
-    controls.open = false;
-    status.focus();
-    await settle();
+    let closeRestoredFocus = null;
     if (${width} <= 900 && !sidebar.classList.contains('is-collapsed')) {
       document.getElementById('mobile-panel-close').click();
       await settle();
+      closeRestoredFocus = document.activeElement === status;
     }
     return {
       status_visible: visible(status),
@@ -794,7 +824,7 @@ async function basemapDiscoverabilityFacts(cdp, width) {
       status_uncovered: uncovered(status),
       controls_opened: controlsOpened,
       active_provider_focused: activeProviderFocused,
-      close_restored_focus: document.activeElement === status,
+      close_restored_focus: closeRestoredFocus,
       visible_provider_disclosure: visibleProviderDisclosure,
       provider_visibility: providerVisibility,
     };
@@ -1065,6 +1095,11 @@ async function responsiveFacts(cdp, width) {
       return style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity) > 0 && box.width > 0 && box.height > 0
         && box.right > 0 && box.left < innerWidth && box.bottom > 0 && box.top < innerHeight;
     };
+    const uncovered = (element) => {
+      const value = element.getBoundingClientRect();
+      const hit = document.elementFromPoint(value.left + (value.width / 2), value.top + (value.height / 2));
+      return hit === element || element.contains(hit);
+    };
     const box = (element) => {
       const value = element.getBoundingClientRect();
       return { left: value.left, right: value.right, top: value.top, bottom: value.bottom, width: value.width, height: value.height };
@@ -1089,11 +1124,15 @@ async function responsiveFacts(cdp, width) {
       };
       toggle.click();
       await settle();
+      const sidebarBox = sidebar.getBoundingClientRect();
+      const outsidePanelHit = document.elementFromPoint(innerWidth / 2, Math.max(1, sidebarBox.top - 8));
       const expanded = {
         sidebar_expanded: !sidebar.classList.contains('is-collapsed') && visible(sidebar),
         body_open: document.body.classList.contains('has-mobile-panel-open'),
         scrim_visible: scrim.classList.contains('is-visible') && scrim.getAttribute('aria-hidden') === 'false' && visible(scrim),
         close_visible: visible(close),
+        close_uncovered: uncovered(close),
+        scrim_catches_outside_panel: outsidePanelHit === scrim,
       };
       close.click();
       await settle();
@@ -1139,6 +1178,74 @@ async function responsiveFacts(cdp, width) {
         && document.body.scrollWidth <= innerWidth + 1,
       desktop_non_overlap: ${width} >= 901 ? elements.topbar.right <= elements.sidebar.left - 1 : null,
     };
+  })()`);
+}
+
+async function helpDialogFacts(cdp, width) {
+  return evaluate(cdp, `(async () => {
+    const settle = () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    const visible = (element) => {
+      const style = getComputedStyle(element);
+      const box = element.getBoundingClientRect();
+      return style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity) > 0
+        && box.width > 0 && box.height > 0 && box.right > 0 && box.left < innerWidth
+        && box.bottom > 0 && box.top < innerHeight;
+    };
+    const bounded = (element) => {
+      const box = element.getBoundingClientRect();
+      return box.left >= -1 && box.right <= innerWidth + 1 && box.top >= -1 && box.bottom <= innerHeight + 1;
+    };
+    const uncovered = (element) => {
+      const box = element.getBoundingClientRect();
+      const hit = document.elementFromPoint(box.left + (box.width / 2), box.top + (box.height / 2));
+      return hit === element || element.contains(hit);
+    };
+    const sidebar = document.getElementById('sidebar');
+    const panelToggle = document.getElementById('panel-toggle');
+    const panelClose = document.getElementById('mobile-panel-close');
+    const viewControls = document.getElementById('view-controls');
+    const opener = document.getElementById('help-toggle');
+    const dialog = document.getElementById('help-dialog');
+    const card = dialog.querySelector('[role="dialog"]');
+    const close = document.getElementById('help-close');
+    const appShell = document.querySelector('.app-shell');
+    if (${width} <= 900 && sidebar.classList.contains('is-collapsed')) {
+      panelToggle.click();
+      await settle();
+    }
+    viewControls.open = true;
+    opener.scrollIntoView({ block: 'nearest', behavior: 'auto' });
+    opener.focus();
+    await settle();
+    const openerVisible = visible(opener);
+    const openerUncovered = uncovered(opener);
+    opener.click();
+    await settle();
+    const opened = {
+      visible: visible(dialog),
+      card_bounded: bounded(card),
+      close_uncovered: uncovered(close),
+      close_focused: document.activeElement === close,
+      background_inert: appShell.inert === true,
+      modal_semantics: card.getAttribute('aria-modal') === 'true' && card.getAttribute('aria-labelledby') === 'help-title',
+      opener_semantics: opener.getAttribute('aria-controls') === 'help-dialog' && opener.getAttribute('aria-expanded') === 'true',
+    };
+    close.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', bubbles: true }));
+    await settle();
+    const focusTrapContained = dialog.contains(document.activeElement);
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    await settle();
+    const closed = {
+      hidden: dialog.hidden,
+      background_interactive: appShell.inert === false,
+      opener_collapsed: opener.getAttribute('aria-expanded') === 'false',
+      focus_restored: document.activeElement === opener,
+    };
+    if (${width} <= 900 && !sidebar.classList.contains('is-collapsed')) {
+      panelClose.click();
+      await settle();
+    }
+    return { opener_visible: openerVisible, opener_uncovered: openerUncovered, opened, focus_trap_contained: focusTrapContained, closed };
   })()`);
 }
 
@@ -1219,13 +1326,13 @@ async function discoverabilityFacts(cdp, width) {
         && visibleObservationValueValid,
       chronology_controls_opened: false,
       chronology_controls_focused: false,
-      chronology_close_restored_focus: ${width} > 900,
+      chronology_close_restored_focus: null,
       basemap_status_visible: false,
       basemap_status_bounded: false,
       basemap_status_uncovered: false,
       basemap_controls_opened: false,
       active_basemap_focused: false,
-      basemap_close_restored_focus: ${width} > 900,
+      basemap_close_restored_focus: null,
       visible_provider_disclosure: false,
     };
     chronologyStatus.focus();
@@ -1344,6 +1451,23 @@ function desktopLayoutPasses(layout) {
     && layout.elements.sidebar.width > 0;
 }
 
+function helpDialogPasses(facts) {
+  return facts.opener_visible
+    && facts.opener_uncovered
+    && facts.opened.visible
+    && facts.opened.card_bounded
+    && facts.opened.close_uncovered
+    && facts.opened.close_focused
+    && facts.opened.background_inert
+    && facts.opened.modal_semantics
+    && facts.opened.opener_semantics
+    && facts.focus_trap_contained
+    && facts.closed.hidden
+    && facts.closed.background_interactive
+    && facts.closed.opener_collapsed
+    && facts.closed.focus_restored;
+}
+
 function mobileLayoutPasses(layout) {
   return layout.viewport.width <= 900
     && layout.horizontally_bounded
@@ -1354,6 +1478,8 @@ function mobileLayoutPasses(layout) {
     && layout.mobile.expanded.body_open
     && layout.mobile.expanded.scrim_visible
     && layout.mobile.expanded.close_visible
+    && layout.mobile.expanded.close_uncovered
+    && layout.mobile.expanded.scrim_catches_outside_panel
     && layout.mobile.closed.sidebar_collapsed
     && layout.mobile.closed.body_closed
     && layout.mobile.closed.scrim_hidden;

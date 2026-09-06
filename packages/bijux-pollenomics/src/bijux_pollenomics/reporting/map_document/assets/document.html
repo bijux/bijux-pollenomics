@@ -1708,7 +1708,7 @@
                   <div class="map-actions">
                     <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
                     <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
-                    <button id="help-toggle" class="toolbar-button" type="button">Help</button>
+                    <button id="help-toggle" class="toolbar-button" type="button" aria-controls="help-dialog" aria-expanded="false">Help</button>
                     <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
                   </div>
                 </div>
@@ -2638,9 +2638,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const viewControls = document.getElementById('view-controls');
       const timeControls = document.getElementById('time-controls');
       const basemapSwitch = document.getElementById('basemap-switch');
+      const appShell = document.querySelector('.app-shell');
       const helpToggleButton = document.getElementById('help-toggle');
       const helpDialog = document.getElementById('help-dialog');
       const helpCloseButton = document.getElementById('help-close');
+      let helpDialogReturnFocus = null;
       const legendBody = document.getElementById('legend-body');
       const legendToggleButton = document.getElementById('legend-toggle');
       const countryFilters = document.getElementById('country-filters');
@@ -3930,12 +3932,28 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (persist) syncHashState();
       }
       function openHelpDialog() {
+        if (!helpDialog.hidden) return;
+        helpDialogReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
         helpDialog.hidden = false;
+        appShell.inert = true;
+        helpToggleButton.setAttribute('aria-expanded', 'true');
         document.body.classList.add('has-mobile-panel-open');
+        helpCloseButton.focus({ preventScroll: true });
       }
       function closeHelpDialog() {
+        if (helpDialog.hidden) return;
         helpDialog.hidden = true;
+        appShell.inert = false;
+        helpToggleButton.setAttribute('aria-expanded', 'false');
         syncMobilePanelState();
+        if (helpDialogReturnFocus && helpDialogReturnFocus.isConnected) {
+          helpDialogReturnFocus.focus({ preventScroll: true });
+        }
+        helpDialogReturnFocus = null;
+      }
+      function helpDialogFocusableElements() {
+        return [...helpDialog.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+          .filter((element) => !element.hidden && getComputedStyle(element).display !== 'none' && getComputedStyle(element).visibility !== 'hidden');
       }
       function syncHashState() {
         const params = new URLSearchParams();
@@ -5952,6 +5970,23 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       map.on('mousemove', (event) => { cursorReadout.textContent = `${event.latlng.lat.toFixed(3)}, ${event.latlng.lng.toFixed(3)}`; });
       document.addEventListener('fullscreenchange', () => window.setTimeout(() => map.invalidateSize(), 160));
       document.addEventListener('keydown', (event) => {
+        if (event.key === 'Tab' && !helpDialog.hidden) {
+          const focusable = helpDialogFocusableElements();
+          if (!focusable.length) {
+            event.preventDefault();
+            return;
+          }
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (event.shiftKey && (document.activeElement === first || !helpDialog.contains(document.activeElement))) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && (document.activeElement === last || !helpDialog.contains(document.activeElement))) {
+            event.preventDefault();
+            first.focus();
+          }
+          return;
+        }
         if (event.key === '?') {
           event.preventDefault();
           openHelpDialog();

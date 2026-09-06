@@ -48,11 +48,14 @@ def test_static_atlas_rejects_hidden_provider_credentials(tmp_path: Path) -> Non
         audit_static_atlas(tmp_path, scope, candidate())
 
 
-def test_static_atlas_rejects_manifest_count_ambiguity(tmp_path: Path) -> None:
+@pytest.mark.parametrize("invalid_count", [2, True, 1.0])
+def test_static_atlas_rejects_manifest_count_ambiguity(
+    tmp_path: Path, invalid_count: object
+) -> None:
     scope = write_static_atlas(tmp_path)
     manifest_path = tmp_path / scope.manifest
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    manifest["assets"]["record_count"] = 2
+    manifest["assets"]["record_count"] = invalid_count
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
 
     with pytest.raises(AtlasBrowserContractError, match="record_count"):
@@ -78,10 +81,79 @@ def test_static_atlas_rejects_untimed_count_above_total(tmp_path: Path) -> None:
     manifest_path = tmp_path / scope.manifest
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     row = manifest["assets"]["records"][0]
+    row[0] = "nodes"
+    row[8] = "point"
     row[13] = row[5] + 1
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
 
     with pytest.raises(AtlasBrowserContractError, match="exceeds record_count"):
+        audit_static_atlas(tmp_path, scope, candidate())
+
+
+@pytest.mark.parametrize(
+    ("untimed", "minimum", "maximum"),
+    [
+        (None, 0.0, 100.0),
+        (1, 0.0, 100.0),
+        (0, None, None),
+    ],
+)
+def test_static_atlas_rejects_node_time_accounting_contradictions(
+    tmp_path: Path, untimed: object, minimum: object, maximum: object
+) -> None:
+    scope = write_static_atlas(tmp_path)
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    row = manifest["assets"]["records"][0]
+    row[0] = "nodes"
+    row[8] = "point"
+    row[11] = minimum
+    row[12] = maximum
+    row[13] = untimed
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(AtlasBrowserContractError):
+        audit_static_atlas(tmp_path, scope, candidate())
+
+
+@pytest.mark.parametrize("field", ["untimed_record_count", "time_bounds"])
+def test_static_atlas_rejects_non_node_time_selection_metadata(
+    tmp_path: Path, field: str
+) -> None:
+    scope = write_static_atlas(tmp_path)
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    row = manifest["assets"]["records"][0]
+    if field == "untimed_record_count":
+        row[13] = 0
+    else:
+        row[11] = 0.0
+        row[12] = 100.0
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(AtlasBrowserContractError, match="non-node"):
+        audit_static_atlas(tmp_path, scope, candidate())
+
+
+@pytest.mark.parametrize(
+    ("budget", "invalid_value"),
+    [
+        ("static_assets_max_files", True),
+        ("static_assets_max_files", 1.0),
+        ("static_assets_max_bytes", True),
+        ("static_assets_max_bytes", 4096.0),
+    ],
+)
+def test_static_atlas_rejects_ambiguous_budgets(
+    tmp_path: Path, budget: str, invalid_value: object
+) -> None:
+    scope = write_static_atlas(tmp_path)
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["budgets"][budget] = invalid_value
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(AtlasBrowserContractError, match="non-negative integer"):
         audit_static_atlas(tmp_path, scope, candidate())
 
 

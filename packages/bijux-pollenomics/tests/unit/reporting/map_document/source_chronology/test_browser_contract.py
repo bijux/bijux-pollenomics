@@ -41,6 +41,25 @@ def test_mobile_scrim_stays_below_interactive_controls() -> None:
     )
 
 
+def test_help_dialog_traps_focus_and_restores_its_opener() -> None:
+    assert (
+        'id="help-toggle" class="toolbar-button" type="button" '
+        'aria-controls="help-dialog" aria-expanded="false"' in MAP_DOCUMENT_TEMPLATE
+    )
+    assert "helpDialogReturnFocus = document.activeElement" in MAP_DOCUMENT_TEMPLATE
+    assert "appShell.inert = true" in MAP_DOCUMENT_TEMPLATE
+    assert "helpCloseButton.focus({ preventScroll: true })" in MAP_DOCUMENT_TEMPLATE
+    assert "event.key === 'Tab' && !helpDialog.hidden" in MAP_DOCUMENT_TEMPLATE
+    assert "helpDialog.contains(document.activeElement)" in MAP_DOCUMENT_TEMPLATE
+    assert "appShell.inert = false" in MAP_DOCUMENT_TEMPLATE
+    assert (
+        "helpDialogReturnFocus.focus({ preventScroll: true })" in MAP_DOCUMENT_TEMPLATE
+    )
+    assert "helpToggleButton.setAttribute('aria-expanded', 'false')" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+
+
 def test_controls_are_accessible_source_native_and_separate_from_modeled_context() -> (
     None
 ):

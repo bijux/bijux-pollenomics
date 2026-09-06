@@ -1,11 +1,62 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 import re
 import subprocess
 
+import pytest
+
 from bijux_pollenomics_dev.ci import atlas_browser
 from bijux_pollenomics_dev.ci.atlas_browser.verdict import PROFILE_REQUIRED_ASSERTIONS
+
+
+def _run_generic_manifest_facts(
+    manifest_expression: str,
+) -> subprocess.CompletedProcess[str]:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    match = re.search(
+        r"function genericManifestFacts.*?\n}\n\nasync function genericTimeJourney",
+        probe,
+        re.DOTALL,
+    )
+    assert match is not None
+    function_source = match.group(0).removesuffix(
+        "\n\nasync function genericTimeJourney"
+    )
+    script = (
+        f"{function_source}\n"
+        f"const manifest = {manifest_expression};\n"
+        "try { console.log(JSON.stringify(genericManifestFacts(manifest))); } "
+        "catch (error) { console.error(error.message); process.exitCode = 2; }\n"
+    )
+    return subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+
+def _generic_manifest(*rows: list[object]) -> dict[str, object]:
+    return {
+        "assets": {
+            "fields": [
+                "domain",
+                "layer_kind",
+                "record_count",
+                "time_min_bp",
+                "time_max_bp",
+            ],
+            "records": list(rows),
+        },
+        "domains": {
+            "classifications": {"status": "unavailable", "reason_code": "test"},
+            "edges": {"record_count": 0},
+        },
+    }
 
 
 def test_dependency_free_probe_is_valid_node_module() -> None:
@@ -129,6 +180,68 @@ def test_generic_manifest_counts_fail_closed_instead_of_coercing_null() -> None:
     assert "manifest.domains?.edges?.record_count || 0" not in probe
 
 
+def test_generic_manifest_facts_accepts_paired_ordered_intervals() -> None:
+    manifest = _generic_manifest(
+        ["nodes", "point", 2, 0, 100],
+        ["nodes", "point", 3, None, None],
+    )
+
+    completed = _run_generic_manifest_facts(json.dumps(manifest))
+
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        "point_record_count": 5,
+        "time_min_bp": 0,
+        "time_max_bp": 100,
+        "classifications_status": "unavailable",
+        "classifications_reason_code": "test",
+        "edge_record_count": 0,
+    }
+
+
+@pytest.mark.parametrize(
+    "rows",
+    [
+        [["nodes", "point", 1, 0, None], ["nodes", "point", 1, 10, 20]],
+        [["nodes", "point", 1, 20, 10], ["nodes", "point", 1, 10, 20]],
+        [["nodes", "point", 1, True, 10], ["nodes", "point", 1, 10, 20]],
+    ],
+)
+def test_generic_manifest_facts_rejects_invalid_row_intervals(
+    rows: list[list[object]],
+) -> None:
+    completed = _run_generic_manifest_facts(json.dumps(_generic_manifest(*rows)))
+
+    assert completed.returncode == 2
+    assert "BP bounds" in completed.stderr
+
+
+def test_generic_manifest_facts_rejects_non_finite_row_interval() -> None:
+    manifest = json.dumps(
+        _generic_manifest(
+            ["nodes", "point", 1, "__INFINITY__", 100],
+            ["nodes", "point", 1, 10, 20],
+        )
+    ).replace('"__INFINITY__"', "Infinity")
+
+    completed = _run_generic_manifest_facts(manifest)
+
+    assert completed.returncode == 2
+    assert "finite numbers" in completed.stderr
+
+
+def test_generic_manifest_facts_rejects_unsafe_aggregate_count() -> None:
+    manifest = _generic_manifest(
+        ["nodes", "point", 9_007_199_254_740_991, 0, 100],
+        ["nodes", "point", 9_007_199_254_740_991, 0, 100],
+    )
+
+    completed = _run_generic_manifest_facts(json.dumps(manifest))
+
+    assert completed.returncode == 2
+    assert "aggregate point record_count" in completed.stderr
+
+
 def test_cereal_finder_can_navigate_beyond_the_preferred_shortcut_result() -> None:
     probe = (
         Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
@@ -186,6 +299,8 @@ def test_responsive_contract_proves_desktop_and_bottom_sheet_states() -> None:
     assert "elements.topbar.right <= elements.sidebar.left - 1" in probe
     assert "layout.mobile.expanded.scrim_visible" in probe
     assert "layout.mobile.expanded.close_visible" in probe
+    assert "layout.mobile.expanded.close_uncovered" in probe
+    assert "layout.mobile.expanded.scrim_catches_outside_panel" in probe
     assert "layout.mobile.closed.scrim_hidden" in probe
 
 
@@ -247,3 +362,40 @@ def test_status_actions_prove_chronology_and_basemap_discoverability() -> None:
     assert "document.activeElement === button" in probe
     assert "provider_visibility: providerVisibility" in probe
     assert "row.focused && row.visible && row.bounded && row.uncovered" in probe
+
+
+def test_help_dialog_runtime_contract_proves_modal_focus_and_stacking() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    for literal in (
+        "helpDialogFacts(normal.cdp, width)",
+        "document.getElementById('help-toggle')",
+        "document.getElementById('help-dialog')",
+        "dialog.querySelector('[role=\"dialog\"]')",
+        "document.getElementById('help-close')",
+        "appShell.inert === true",
+        "document.activeElement === close",
+        "new KeyboardEvent('keydown', { key: 'Tab', bubbles: true })",
+        "new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })",
+        "document.activeElement === opener",
+        "help_dialog_accessible:",
+    ):
+        assert literal in probe
+
+
+def test_status_actions_do_not_manufacture_desktop_focus_restoration() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    assert "close_restored_focus: ${width} > 900" not in probe
+    assert "chronology_close_restored_focus: ${width} > 900" not in probe
+    assert "basemap_close_restored_focus: ${width} > 900" not in probe
+    assert "status_enabled: !status.disabled" in probe
+    assert (
+        "status_controls_time_panel: status.getAttribute('aria-controls') === 'time-controls'"
+        in probe
+    )
+    assert "status_describes_current_bp_window" in probe

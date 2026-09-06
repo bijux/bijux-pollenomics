@@ -76,8 +76,9 @@ def _validate_asset_counts_and_time(asset: JsonObject, *, sequence: int) -> None
     _nonnegative_integer(
         asset["byte_count"], label=f"manifest asset row {sequence} byte_count"
     )
+    is_node_asset = asset["domain"] == "nodes"
     untimed = asset["untimed_record_count"]
-    if untimed is not None:
+    if is_node_asset:
         untimed_count = _nonnegative_integer(
             untimed,
             label=f"manifest asset row {sequence} untimed_record_count",
@@ -86,6 +87,10 @@ def _validate_asset_counts_and_time(asset: JsonObject, *, sequence: int) -> None
             raise AtlasBrowserContractError(
                 f"manifest asset row {sequence} untimed_record_count exceeds record_count"
             )
+    elif untimed is not None:
+        raise AtlasBrowserContractError(
+            f"manifest asset row {sequence} non-node untimed_record_count must be null"
+        )
     minimum = asset["time_min_bp"]
     maximum = asset["time_max_bp"]
     if (minimum is None) != (maximum is None):
@@ -103,6 +108,16 @@ def _validate_asset_counts_and_time(asset: JsonObject, *, sequence: int) -> None
             raise AtlasBrowserContractError(
                 f"manifest asset row {sequence} BP bounds are reversed"
             )
+    if is_node_asset:
+        all_records_are_untimed = untimed_count == record_count
+        if (minimum is None) != all_records_are_untimed:
+            raise AtlasBrowserContractError(
+                f"manifest asset row {sequence} BP bounds contradict untimed_record_count"
+            )
+    elif minimum is not None:
+        raise AtlasBrowserContractError(
+            f"manifest asset row {sequence} non-node BP bounds must be null"
+        )
 
 
 def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
@@ -110,9 +125,12 @@ def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
     if table.get("fields") != list(_ASSET_FIELDS):
         raise AtlasBrowserContractError("manifest asset fields are not canonical")
     raw_records = table.get("records")
-    if not isinstance(raw_records, list) or table.get("record_count") != len(
-        raw_records
-    ):
+    if not isinstance(raw_records, list):
+        raise AtlasBrowserContractError("manifest asset records must be an array")
+    table_record_count = _nonnegative_integer(
+        table.get("record_count"), label="manifest asset record_count"
+    )
+    if table_record_count != len(raw_records):
         raise AtlasBrowserContractError("manifest asset record_count is inconsistent")
     assets: list[JsonObject] = []
     for sequence, raw_record in enumerate(raw_records):
@@ -212,16 +230,16 @@ def audit_static_atlas(
             }
         )
     budgets = _mapping(manifest.get("budgets"), label="manifest.budgets")
-    max_files = budgets.get("static_assets_max_files")
-    max_bytes = budgets.get("static_assets_max_bytes")
-    if not isinstance(max_files, int) or len(assets) > max_files:
-        raise AtlasBrowserContractError(
-            "static asset file budget is exceeded or invalid"
-        )
-    if not isinstance(max_bytes, int) or total_bytes > max_bytes:
-        raise AtlasBrowserContractError(
-            "static asset byte budget is exceeded or invalid"
-        )
+    max_files = _nonnegative_integer(
+        budgets.get("static_assets_max_files"), label="static asset file budget"
+    )
+    max_bytes = _nonnegative_integer(
+        budgets.get("static_assets_max_bytes"), label="static asset byte budget"
+    )
+    if len(assets) > max_files:
+        raise AtlasBrowserContractError("static asset file budget is exceeded")
+    if total_bytes > max_bytes:
+        raise AtlasBrowserContractError("static asset byte budget is exceeded")
     script_paths = {
         Path(match.decode("utf-8")).name
         for match in re.findall(rb'<script[^>]+src="([^"]+\.js)"', document)
