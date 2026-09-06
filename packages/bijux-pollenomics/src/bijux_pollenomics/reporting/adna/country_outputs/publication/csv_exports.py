@@ -14,6 +14,7 @@ def write_country_animal_samples_csv(
         "country",
         "species_latin_name",
         "species_common_name",
+        "animal_scope",
         "source_native_tax_id",
         "source_native_scientific_name",
         "taxon_alignment_status",
