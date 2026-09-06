@@ -6,6 +6,9 @@ import json
 from typing import cast
 
 from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
+from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
+    ASSET_TABLE_STORED_FIELDS,
+)
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 from bijux_pollenomics.reporting.map_publication import MapScopePolicy
 
@@ -658,6 +661,56 @@ console.log(JSON.stringify({{
     assert observed["indexes"]["asset_key"] == "indexes:1"
     assert "layer_key" not in observed["indexes"]
     assert observed["legacyIdentity"] is True
+
+
+def test_derived_bootstrap_reconstructs_transport_metadata() -> None:
+    integrity_helper = template_block(
+        "function staticAtlasIntegrityFromHex",
+        "function normalizeStaticAtlasBootstrap",
+    )
+    normalizer = template_block(
+        "function normalizeStaticAtlasBootstrap",
+        "function validateStaticAtlasBootstrap",
+    )
+    legacy_table = cast(dict[str, object], compact_bootstrap()["assets"])
+    legacy_records = cast(list[list[object]], legacy_table["records"])
+    field_indexes = {field: index for index, field in enumerate(ASSET_TABLE_FIELDS)}
+    compact = {
+        "schema_version": "atlas-static-bootstrap.v2",
+        "assets": {
+            "schema_version": "atlas-static-asset-table.v2",
+            "scope_slug": "nordic",
+            "fields": list(ASSET_TABLE_STORED_FIELDS),
+            "record_count": len(legacy_records),
+            "records": [
+                [record[field_indexes[field]] for field in ASSET_TABLE_STORED_FIELDS]
+                for record in legacy_records
+            ],
+        },
+    }
+    observed = run_node_json(
+        f"""
+const STATIC_ATLAS_ASSET_TABLE_FIELDS=Object.freeze({json.dumps(ASSET_TABLE_FIELDS)});
+const STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS=Object.freeze({json.dumps(ASSET_TABLE_STORED_FIELDS)});
+const STATIC_ATLAS_ASSET_CORE_FIELD_COUNT=12;
+function staticAtlasFailure(message){{throw new Error(message)}}
+{integrity_helper}
+{normalizer}
+const normalized=normalizeStaticAtlasBootstrap({json.dumps(compact, separators=(",", ":"))});
+console.log(JSON.stringify({{node:normalized.assets[0],indexes:normalized.assets[1]}}));
+"""
+    )
+
+    assert observed["node"]["asset_key"] == "nodes:0"
+    assert observed["node"]["path"] == "nordic.atlas-nodes.0000.aaaaaaaaaaaaaaaa.js"
+    assert observed["node"]["payload_encoding"] == "gzip_base64"
+    assert observed["node"]["initial_load"] is False
+    assert observed["indexes"]["asset_key"] == "indexes:1"
+    assert observed["indexes"]["path"] == (
+        "nordic.atlas-indexes.0001.cccccccccccccccc.js"
+    )
+    assert observed["indexes"]["payload_encoding"] == "json"
+    assert observed["indexes"]["initial_load"] is False
 
 
 def test_compact_bootstrap_rejects_schema_width_count_identity_and_type_tamper() -> (

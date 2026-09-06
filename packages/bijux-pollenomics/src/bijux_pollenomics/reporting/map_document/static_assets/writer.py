@@ -347,7 +347,7 @@ def write_static_atlas_assets(
                 "record_count": index_reference_count(logical_indexes),
             },
         },
-        "assets": encode_asset_inventory(assets),
+        "assets": encode_asset_inventory(assets, scope_slug=slug),
     }
     manifest_bytes = (canonical_json(manifest) + "\n").encode("utf-8")
     if len(manifest_bytes) > ATLAS_BOOTSTRAP_MAX_BYTES:

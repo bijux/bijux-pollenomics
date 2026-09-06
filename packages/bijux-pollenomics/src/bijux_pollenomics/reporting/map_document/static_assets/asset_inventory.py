@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+import base64
 from collections.abc import Mapping, Sequence
 import math
 
-ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v1"
+ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v2"
+LEGACY_ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v1"
 ASSET_TABLE_FIELDS = (
     "asset_key",
     "domain",
@@ -31,18 +33,50 @@ ASSET_TABLE_FIELDS = (
 )
 _CORE_FIELDS = ASSET_TABLE_FIELDS[:12]
 _NODE_FIELDS = ASSET_TABLE_FIELDS[12:]
-_TABLE_KEYS = {"schema_version", "fields", "record_count", "records"}
+ASSET_TABLE_STORED_FIELDS = (
+    "domain",
+    "sha256",
+    "payload_sha256",
+    "decoded_byte_count",
+    "byte_count",
+    "record_count",
+    *_NODE_FIELDS,
+)
+_LEGACY_TABLE_KEYS = {"schema_version", "fields", "record_count", "records"}
+_TABLE_KEYS = {
+    "schema_version",
+    "scope_slug",
+    "fields",
+    "record_count",
+    "records",
+}
+_ASSET_DOMAINS = {
+    "provenance",
+    "nodes",
+    "details",
+    "edges",
+    "sequences",
+    "indexes",
+}
 
 
 def encode_asset_inventory(
     rows: Sequence[Mapping[str, object]],
+    *,
+    scope_slug: str,
 ) -> dict[str, object]:
-    """Encode exact asset rows with field names stored once."""
+    """Encode exact rows while deriving redundant identity and transport fields."""
+    _validate_scope_slug(scope_slug)
     normalized = _validate_rows(rows, require_decoded_counts=True)
-    records = [[row.get(field) for field in ASSET_TABLE_FIELDS] for row in normalized]
+    for sequence, row in enumerate(normalized):
+        _validate_derived_fields(row, scope_slug=scope_slug, sequence=sequence)
+    records = [
+        [row.get(field) for field in ASSET_TABLE_STORED_FIELDS] for row in normalized
+    ]
     return {
         "schema_version": ASSET_TABLE_SCHEMA,
-        "fields": list(ASSET_TABLE_FIELDS),
+        "scope_slug": scope_slug,
+        "fields": list(ASSET_TABLE_STORED_FIELDS),
         "record_count": len(records),
         "records": records,
     }
@@ -52,22 +86,61 @@ def normalize_asset_inventory(value: object) -> list[dict[str, object]]:
     """Expand a legacy list or authenticated columnar inventory into row objects."""
     if isinstance(value, list):
         return _validate_rows(value, require_decoded_counts=False)
-    if not isinstance(value, Mapping) or set(value) != _TABLE_KEYS:
+    if not isinstance(value, Mapping):
         raise ValueError("static atlas asset table shape is invalid")
-    if value.get("schema_version") != ASSET_TABLE_SCHEMA:
+    schema = value.get("schema_version")
+    if schema == LEGACY_ASSET_TABLE_SCHEMA:
+        return _normalize_legacy_table(value)
+    if schema != ASSET_TABLE_SCHEMA or set(value) != _TABLE_KEYS:
+        raise ValueError("static atlas asset table shape is invalid")
+    scope_slug = value.get("scope_slug")
+    if not isinstance(scope_slug, str):
+        raise ValueError("static atlas asset table scope is invalid")
+    _validate_scope_slug(scope_slug)
+    fields = value.get("fields")
+    if fields != list(ASSET_TABLE_STORED_FIELDS):
+        raise ValueError("static atlas asset table fields are invalid")
+    records = _validated_records(value, width=len(ASSET_TABLE_STORED_FIELDS))
+    rows: list[dict[str, object]] = []
+    for sequence, record in enumerate(records):
+        stored = dict(zip(ASSET_TABLE_STORED_FIELDS, record, strict=True))
+        domain = stored.get("domain")
+        digest = stored.get("sha256")
+        if not isinstance(domain, str) or domain not in _ASSET_DOMAINS:
+            raise ValueError("static atlas asset domain is invalid")
+        if not isinstance(digest, str):
+            raise ValueError("static atlas asset sha256 is invalid")
+        row = {
+            "asset_key": f"{domain}:{sequence}",
+            "domain": domain,
+            "sequence": sequence,
+            "path": _asset_path(scope_slug, domain, sequence, digest),
+            "sha256": digest,
+            "integrity": _integrity_from_digest(digest),
+            "payload_sha256": stored["payload_sha256"],
+            "payload_encoding": _payload_encoding(domain),
+            "decoded_byte_count": stored["decoded_byte_count"],
+            "byte_count": stored["byte_count"],
+            "record_count": stored["record_count"],
+            "initial_load": _initial_load(domain),
+        }
+        if domain == "nodes":
+            row.update({field: stored[field] for field in _NODE_FIELDS})
+        elif any(stored[field] is not None for field in _NODE_FIELDS):
+            raise ValueError("static atlas non-node selection metadata is invalid")
+        rows.append(row)
+    return _validate_rows(rows, require_decoded_counts=True)
+
+
+def _normalize_legacy_table(value: Mapping[str, object]) -> list[dict[str, object]]:
+    if set(value) != _LEGACY_TABLE_KEYS:
+        raise ValueError("static atlas asset table shape is invalid")
+    if value.get("schema_version") != LEGACY_ASSET_TABLE_SCHEMA:
         raise ValueError("static atlas asset table schema is invalid")
     fields = value.get("fields")
     if fields != list(ASSET_TABLE_FIELDS):
         raise ValueError("static atlas asset table fields are invalid")
-    records = value.get("records")
-    record_count = value.get("record_count")
-    if (
-        not isinstance(records, list)
-        or isinstance(record_count, bool)
-        or not isinstance(record_count, int)
-        or record_count != len(records)
-    ):
-        raise ValueError("static atlas asset table count is invalid")
+    records = _validated_records(value, width=len(ASSET_TABLE_FIELDS))
     rows: list[dict[str, object]] = []
     for record in records:
         if not isinstance(record, list) or len(record) != len(ASSET_TABLE_FIELDS):
@@ -82,6 +155,77 @@ def normalize_asset_inventory(value: object) -> list[dict[str, object]]:
                 del row[field]
         rows.append(row)
     return _validate_rows(rows, require_decoded_counts=True)
+
+
+def _validated_records(
+    value: Mapping[str, object], *, width: int
+) -> list[list[object]]:
+    records = value.get("records")
+    record_count = value.get("record_count")
+    if (
+        not isinstance(records, list)
+        or isinstance(record_count, bool)
+        or not isinstance(record_count, int)
+        or record_count != len(records)
+    ):
+        raise ValueError("static atlas asset table count is invalid")
+    if any(not isinstance(record, list) or len(record) != width for record in records):
+        raise ValueError("static atlas asset table row width is invalid")
+    return records
+
+
+def _validate_derived_fields(
+    row: Mapping[str, object], *, scope_slug: str, sequence: int
+) -> None:
+    domain = str(row["domain"])
+    digest = str(row["sha256"])
+    expected = {
+        "asset_key": f"{domain}:{sequence}",
+        "sequence": sequence,
+        "path": _asset_path(scope_slug, domain, sequence, digest),
+        "integrity": _integrity_from_digest(digest),
+        "payload_encoding": _payload_encoding(domain),
+        "initial_load": _initial_load(domain),
+    }
+    if any(
+        row.get(field) != expected_value for field, expected_value in expected.items()
+    ):
+        raise ValueError("static atlas derived asset metadata is inconsistent")
+
+
+def _validate_scope_slug(scope_slug: str) -> None:
+    if (
+        not scope_slug
+        or scope_slug != scope_slug.lower()
+        or not scope_slug.replace("-", "").isalnum()
+    ):
+        raise ValueError("static atlas asset table scope is invalid")
+
+
+def _asset_path(scope_slug: str, domain: str, sequence: int, digest: str) -> str:
+    return f"{scope_slug}.atlas-{domain}.{sequence:04d}.{digest[:16]}.js"
+
+
+def _integrity_from_digest(digest: str) -> str:
+    try:
+        raw_digest = bytes.fromhex(digest)
+    except ValueError as exc:
+        raise ValueError("static atlas asset sha256 is invalid") from exc
+    if len(raw_digest) != 32 or digest != digest.lower():
+        raise ValueError("static atlas asset sha256 is invalid")
+    return "sha256-" + base64.b64encode(raw_digest).decode("ascii")
+
+
+def _payload_encoding(domain: str) -> str:
+    if domain not in _ASSET_DOMAINS:
+        raise ValueError("static atlas asset domain is invalid")
+    return "gzip_base64" if domain in {"nodes", "details", "provenance"} else "json"
+
+
+def _initial_load(domain: str) -> bool:
+    if domain not in _ASSET_DOMAINS:
+        raise ValueError("static atlas asset domain is invalid")
+    return domain not in {"nodes", "details", "indexes"}
 
 
 def _validate_rows(
@@ -204,6 +348,7 @@ def _validate_node_fields(row: Mapping[str, object]) -> None:
 __all__ = [
     "ASSET_TABLE_FIELDS",
     "ASSET_TABLE_SCHEMA",
+    "ASSET_TABLE_STORED_FIELDS",
     "encode_asset_inventory",
     "normalize_asset_inventory",
 ]

@@ -1928,6 +1928,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         'country_keys', 'bounds', 'time_min_bp', 'time_max_bp',
         'untimed_record_count', 'scientific_signal_ids',
       ]);
+      const STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS = Object.freeze([
+        'domain', 'sha256', 'payload_sha256', 'decoded_byte_count', 'byte_count',
+        'record_count', 'layer_index', 'layer_key', 'layer_kind', 'country_keys',
+        'bounds', 'time_min_bp', 'time_max_bp', 'untimed_record_count',
+        'scientific_signal_ids',
+      ]);
       const STATIC_ATLAS_ASSET_CORE_FIELD_COUNT = 12;
       const STATIC_ATLAS_BOOTSTRAP = normalizeStaticAtlasBootstrap(JSON.parse(document.getElementById('atlas-static-bootstrap').textContent || '{}'));
       const STATIC_ATLAS_INLINE = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-inline-bootstrap.v1';
@@ -1960,20 +1966,48 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (!Number.isFinite(numeric) || numeric < minimum || numeric > maximum) staticAtlasFailure(`${label} is invalid`);
         return numeric;
       }
+      function staticAtlasIntegrityFromHex(digest) {
+        if (!/^[a-f0-9]{64}$/.test(String(digest || '')) || typeof btoa !== 'function') staticAtlasFailure('asset table digest is invalid');
+        const bytes = String(digest).match(/.{2}/g).map((pair) => String.fromCharCode(Number.parseInt(pair, 16))).join('');
+        return `sha256-${btoa(bytes)}`;
+      }
       function normalizeStaticAtlasBootstrap(bootstrap) {
         if (!bootstrap || typeof bootstrap !== 'object' || bootstrap.schema_version !== 'atlas-static-bootstrap.v2') return bootstrap;
         const table = bootstrap.assets;
-        const expectedTableKeys = ['fields', 'record_count', 'records', 'schema_version'];
+        const compact = table?.schema_version === 'atlas-static-asset-table.v2';
+        const expectedTableKeys = compact
+          ? ['fields', 'record_count', 'records', 'schema_version', 'scope_slug']
+          : ['fields', 'record_count', 'records', 'schema_version'];
         if (!table || typeof table !== 'object' || Object.keys(table).sort().join('|') !== expectedTableKeys.join('|')) staticAtlasFailure('asset table shape is invalid');
-        if (table.schema_version !== 'atlas-static-asset-table.v1' || !Array.isArray(table.fields) || table.fields.length !== STATIC_ATLAS_ASSET_TABLE_FIELDS.length) staticAtlasFailure('asset table schema is invalid');
-        if (table.fields.some((field, index) => field !== STATIC_ATLAS_ASSET_TABLE_FIELDS[index]) || new Set(table.fields).size !== table.fields.length) staticAtlasFailure('asset table fields are invalid');
+        if (!['atlas-static-asset-table.v1', 'atlas-static-asset-table.v2'].includes(table.schema_version)) staticAtlasFailure('asset table schema is invalid');
+        const storedFields = compact ? STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS : STATIC_ATLAS_ASSET_TABLE_FIELDS;
+        if (!Array.isArray(table.fields) || table.fields.length !== storedFields.length || table.fields.some((field, index) => field !== storedFields[index]) || new Set(table.fields).size !== table.fields.length) staticAtlasFailure('asset table fields are invalid');
+        if (compact && (typeof table.scope_slug !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(table.scope_slug))) staticAtlasFailure('asset table scope is invalid');
         if (!Number.isSafeInteger(table.record_count) || table.record_count < 0 || !Array.isArray(table.records) || table.records.length !== table.record_count) staticAtlasFailure('asset table record count is invalid');
         const assetKeys = new Set();
         const paths = new Set();
         const sequences = new Set();
         const assets = table.records.map((record, recordIndex) => {
-          if (!Array.isArray(record) || record.length !== STATIC_ATLAS_ASSET_TABLE_FIELDS.length) staticAtlasFailure(`asset table row ${recordIndex} width is invalid`);
-          const row = Object.fromEntries(STATIC_ATLAS_ASSET_TABLE_FIELDS.map((field, index) => [field, record[index]]));
+          if (!Array.isArray(record) || record.length !== storedFields.length) staticAtlasFailure(`asset table row ${recordIndex} width is invalid`);
+          const stored = Object.fromEntries(storedFields.map((field, index) => [field, record[index]]));
+          const domain = stored.domain;
+          const row = compact
+            ? {
+                asset_key: `${domain}:${recordIndex}`,
+                domain,
+                sequence: recordIndex,
+                path: `${table.scope_slug}.atlas-${domain}.${String(recordIndex).padStart(4, '0')}.${String(stored.sha256 || '').slice(0, 16)}.js`,
+                sha256: stored.sha256,
+                integrity: staticAtlasIntegrityFromHex(stored.sha256),
+                payload_sha256: stored.payload_sha256,
+                payload_encoding: ['provenance', 'nodes', 'details'].includes(domain) ? 'gzip_base64' : 'json',
+                decoded_byte_count: stored.decoded_byte_count,
+                byte_count: stored.byte_count,
+                record_count: stored.record_count,
+                initial_load: !['nodes', 'details', 'indexes'].includes(domain),
+                ...Object.fromEntries(STATIC_ATLAS_ASSET_TABLE_FIELDS.slice(STATIC_ATLAS_ASSET_CORE_FIELD_COUNT).map((field) => [field, stored[field]])),
+              }
+            : stored;
           if (STATIC_ATLAS_ASSET_TABLE_FIELDS.slice(0, STATIC_ATLAS_ASSET_CORE_FIELD_COUNT).some((field) => row[field] === null || row[field] === undefined)) staticAtlasFailure(`asset table row ${recordIndex} core field is missing`);
           if (typeof row.asset_key !== 'string' || !row.asset_key || typeof row.domain !== 'string' || !row.domain || typeof row.path !== 'string' || !row.path) staticAtlasFailure(`asset table row ${recordIndex} identity is invalid`);
           if (!['provenance', 'nodes', 'details', 'edges', 'sequences', 'indexes'].includes(row.domain)) staticAtlasFailure(`asset table row ${recordIndex} domain is invalid`);

@@ -11,6 +11,7 @@ import pytest
 
 from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
     ASSET_TABLE_FIELDS,
+    ASSET_TABLE_STORED_FIELDS,
     encode_asset_inventory,
     normalize_asset_inventory,
 )
@@ -37,15 +38,19 @@ def _inventory(tmp_path: Path) -> dict[str, object]:
 def test_columnar_inventory_reconstructs_exact_ordered_rows(tmp_path: Path) -> None:
     inventory = _inventory(tmp_path)
     assert inventory == {
-        "schema_version": "atlas-static-asset-table.v1",
-        "fields": list(ASSET_TABLE_FIELDS),
+        "schema_version": "atlas-static-asset-table.v2",
+        "scope_slug": "nordic",
+        "fields": list(ASSET_TABLE_STORED_FIELDS),
         "record_count": len(cast(list[object], inventory["records"])),
         "records": inventory["records"],
     }
 
     rows = normalize_asset_inventory(inventory)
 
-    assert normalize_asset_inventory(encode_asset_inventory(rows)) == rows
+    assert (
+        normalize_asset_inventory(encode_asset_inventory(rows, scope_slug="nordic"))
+        == rows
+    )
     assert [row["sequence"] for row in rows] == list(range(len(rows)))
     assert len({row["asset_key"] for row in rows}) == len(rows)
     assert len({row["path"] for row in rows}) == len(rows)
@@ -99,10 +104,10 @@ def test_checked_in_inventory_reconciles_to_manifest_contract() -> None:
         ("duplicate_field", "table fields"),
         ("count_drift", "table count"),
         ("row_width", "row width"),
-        ("duplicate_asset_key", "duplicated"),
-        ("duplicate_path", "duplicated"),
-        ("duplicate_sequence", "duplicated"),
-        ("invalid_sequence_type", "sequence is invalid"),
+        ("invalid_scope", "table scope"),
+        ("invalid_digest", "sha256"),
+        ("invalid_domain", "domain"),
+        ("non_node_selection", "non-node selection"),
     ],
 )
 def test_columnar_inventory_refuses_structural_drift(
@@ -122,14 +127,17 @@ def test_columnar_inventory_refuses_structural_drift(
         inventory["record_count"] = len(records) + 1
     elif mutation == "row_width":
         records[0].pop()
-    elif mutation == "duplicate_asset_key":
-        records[1][indexes["asset_key"]] = records[0][indexes["asset_key"]]
-    elif mutation == "duplicate_path":
-        records[1][indexes["path"]] = records[0][indexes["path"]]
-    elif mutation == "duplicate_sequence":
-        records[1][indexes["sequence"]] = records[0][indexes["sequence"]]
+    elif mutation == "invalid_scope":
+        inventory["scope_slug"] = "../nordic"
+    elif mutation == "invalid_digest":
+        records[0][indexes["sha256"]] = "not-a-digest"
+    elif mutation == "invalid_domain":
+        records[0][indexes["domain"]] = "unknown"
     else:
-        records[0][indexes["sequence"]] = "zero"
+        non_node = next(
+            record for record in records if record[indexes["domain"]] != "nodes"
+        )
+        non_node[indexes["layer_index"]] = 0
 
     with pytest.raises(ValueError, match=message):
         normalize_asset_inventory(inventory)
