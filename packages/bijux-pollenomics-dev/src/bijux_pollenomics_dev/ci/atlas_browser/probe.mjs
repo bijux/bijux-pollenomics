@@ -337,11 +337,23 @@ async function closeAtlas(atlas, debuggerOrigin) {
 }
 
 async function captureReady(cdp) {
-  return evaluate(cdp, `(() => {
-    const api = globalThis.BijuxPollenomicsAtlasCapture;
-    if (!api || api.version !== 'atlas-capture.v1') throw new Error('atlas capture API unavailable');
-    return api.awaitReady();
-  })()`);
+  return evaluate(cdp, `(() => new Promise((resolve, reject) => {
+    const finish = () => {
+      const api = globalThis.BijuxPollenomicsAtlasCapture;
+      if (!api || api.version !== 'atlas-capture.v1') return false;
+      observer.disconnect();
+      clearTimeout(timeout);
+      resolve(api.awaitReady());
+      return true;
+    };
+    const observer = new MutationObserver(finish);
+    const timeout = setTimeout(() => {
+      observer.disconnect();
+      reject(new Error('atlas capture API readiness timed out'));
+    }, ${timeoutMs});
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+    finish();
+  }))()`);
 }
 
 async function shortcutFrame(cdp, shortcut) {

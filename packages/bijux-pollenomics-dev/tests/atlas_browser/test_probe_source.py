@@ -27,6 +27,8 @@ def test_page_readiness_uses_capture_api_and_mutation_observer() -> None:
     assert "BijuxPollenomicsAtlasCapture" in probe
     assert "api.awaitReady()" in probe
     assert "new MutationObserver" in probe
+    assert "atlas capture API readiness timed out" in probe
+    assert "observer.observe(document.documentElement" in probe
     assert "setInterval(" not in probe
 
 
