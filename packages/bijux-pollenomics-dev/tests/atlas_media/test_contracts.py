@@ -94,9 +94,7 @@ def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
             "source_land_cover_types",
         ),
     )
-    assert LEGACY_PUBLICATION_STORY_TUPLES_V2[4][0] == (
-        "neotoma-source-taxon-967"
-    )
+    assert LEGACY_PUBLICATION_STORY_TUPLES_V2[4][0] == ("neotoma-source-taxon-967")
     assert len(LEGACY_PUBLICATION_STORY_TUPLES_V2) == 8
     assert len({story.story_id for story in PUBLICATION_STORIES}) == 15
     assert (
