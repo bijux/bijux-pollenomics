@@ -242,3 +242,6 @@ def test_status_actions_prove_chronology_and_basemap_discoverability() -> None:
     assert "chronology_status_action:" in probe
     assert "time_status_action:" in probe
     assert "basemap_discoverability:" in probe
+    assert "const statusUncovered = uncovered(status);" in probe
+    assert "button.scrollIntoView({ block: 'nearest', behavior: 'auto' });" in probe
+    assert "providerVisibility.every(Boolean)" in probe

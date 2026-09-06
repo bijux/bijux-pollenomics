@@ -670,13 +670,16 @@ async function genericTimeDiscoverabilityFacts(cdp, width) {
     const status = document.getElementById('time-stepper-status');
     const controls = document.getElementById('time-controls');
     const preset = controls.querySelector('[data-time-interval="1000"]');
+    const statusVisible = visible(status);
+    const statusBounded = bounded(status);
+    const statusUncovered = uncovered(status);
     status.focus();
     status.click();
     await settle();
     const result = {
-      status_visible: visible(status),
-      status_bounded: bounded(status),
-      status_uncovered: uncovered(status),
+      status_visible: statusVisible,
+      status_bounded: statusBounded,
+      status_uncovered: statusUncovered,
       controls_opened: controls.open && !sidebar.classList.contains('is-collapsed'),
       interval_preset_focused: document.activeElement === preset,
       close_restored_focus: ${width} > 900,
@@ -758,7 +761,13 @@ async function basemapDiscoverabilityFacts(cdp, width) {
     const controlsOpened = controls.open && visible(controls);
     const activeProviderFocused = document.activeElement === activeProvider;
     const providerDisclosure = providerButtons.map((button) => button.textContent.trim());
-    const visibleProviderDisclosure = providerButtons.every((button) => visible(button) && bounded(button) && uncovered(button))
+    const providerVisibility = [];
+    for (const button of providerButtons) {
+      button.scrollIntoView({ block: 'nearest', behavior: 'auto' });
+      await settle();
+      providerVisibility.push(visible(button) && bounded(button) && uncovered(button));
+    }
+    const visibleProviderDisclosure = providerVisibility.every(Boolean)
       && providerDisclosure.some((text) => text.includes('OpenStreetMap · no key'))
       && providerDisclosure.some((text) => text.includes('OpenTopoMap · no key'))
       && providerDisclosure.some((text) => text.includes('Offline · no tiles'));
