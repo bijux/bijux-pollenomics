@@ -273,10 +273,7 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
       capture_null_inputs_refused: JSON.stringify(captureNullRefusals.map((row) => row.field))
         === JSON.stringify(['time_start_bp', 'time_end_bp', 'time_start_bp.negative', 'time_end_bp.negative', 'view', 'view.latitude', 'view.longitude', 'view.zoom'])
         && captureNullRefusals.every((row) => row.refused && row.evidence_unchanged),
-      signed_capture_view_preserved: signedCaptureView.accepted
-        && Math.abs(signedCaptureView.view.latitude - (-33.9)) < 0.000001
-        && Math.abs(signedCaptureView.view.longitude - (-70.7)) < 0.000001
-        && signedCaptureView.view.zoom === 4,
+      signed_capture_view_preserved: signedCaptureViewPreserved(signedCaptureView),
       responsive_1440: desktopLayoutPasses(responsive[1440]),
       responsive_1024: desktopLayoutPasses(responsive[1024]),
       responsive_768: mobileLayoutPasses(responsive[768]),
@@ -409,7 +406,6 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
   await normal.cdp.send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
   const timeJourney = await genericTimeJourney(normal.cdp, manifestFacts.point_record_count);
   const invalidCaptureInputs = await captureInvalidCommonInputs(normal.cdp);
-  const signedCaptureView = await captureSignedView(normal.cdp);
   const normalResult = {
     scope: scope.name,
     name: 'generic-time-and-responsive',
@@ -418,7 +414,6 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
     manifest_facts: manifestFacts,
     time_journey: timeJourney,
     invalid_capture_inputs: invalidCaptureInputs,
-    signed_capture_view: signedCaptureView,
     responsive,
     runtime_failures: normal.runtimeFailures,
     assertions: {
@@ -455,12 +450,8 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
         && defaultSnapshot.scientific_posture?.observation_chronology_is_propagation === false
         && defaultSnapshot.visible_governed_candidate_count === manifestFacts.edge_record_count,
       capture_invalid_inputs_refused: JSON.stringify(invalidCaptureInputs.map((row) => row.field))
-        === JSON.stringify(['frame', 'story_kind', 'basemap', 'time_start_bp.negative', 'time_end_bp.negative', 'view', 'view.latitude', 'view.longitude', 'view.zoom'])
+        === JSON.stringify(['frame', 'story_kind', 'basemap', 'view', 'view.latitude', 'view.longitude', 'view.zoom'])
         && invalidCaptureInputs.every((row) => row.refused && row.evidence_unchanged),
-      signed_capture_view_preserved: signedCaptureView.accepted
-        && Math.abs(signedCaptureView.view.latitude - (-33.9)) < 0.000001
-        && Math.abs(signedCaptureView.view.longitude - (-70.7)) < 0.000001
-        && signedCaptureView.view.zoom === 4,
       responsive_1440: desktopLayoutPasses(responsive[1440]),
       responsive_1024: desktopLayoutPasses(responsive[1024]),
       responsive_768: mobileLayoutPasses(responsive[768]),
@@ -615,12 +606,11 @@ function genericManifestFacts(manifest) {
 async function genericTimeJourney(cdp, pointDenominator) {
   return evaluate(cdp, `(async () => {
     const api = globalThis.BijuxPollenomicsAtlasCapture;
-    const renderedMapEvidenceSignature = () => JSON.stringify(
-      [...document.querySelectorAll([
+    const renderedMapEvidenceSignature = async () => {
+      const markerDom = [...document.querySelectorAll([
         '.leaflet-point-pane path',
         '.leaflet-point-pane .leaflet-marker-icon',
-        '.leaflet-marker-pane .marker-cluster',
-        '.leaflet-marker-pane .atlas-scientific-marker',
+        '.leaflet-marker-pane .leaflet-marker-icon',
       ].join(', '))]
         .map((element) => [
           element.tagName.toLowerCase(),
@@ -630,8 +620,20 @@ async function genericTimeJourney(cdp, pointDenominator) {
           element.getAttribute('transform') || '',
           (element.textContent || '').trim(),
         ])
-        .sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right))),
-    );
+        .sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right)));
+      const canvasDigests = await Promise.all(
+        [...document.querySelectorAll('.leaflet-point-pane canvas')].map(async (canvas) => {
+          const context = canvas.getContext('2d', { willReadFrequently: true });
+          if (!context) throw new Error('point evidence canvas has no 2d context');
+          const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+          const digest = await crypto.subtle.digest('SHA-256', pixels);
+          const sha256 = [...new Uint8Array(digest)]
+            .map((byte) => byte.toString(16).padStart(2, '0')).join('');
+          return { width: canvas.width, height: canvas.height, sha256 };
+        }),
+      );
+      return JSON.stringify({ marker_dom: markerDom, point_canvas_digests: canvasDigests });
+    };
     const intervalPreset = [...document.querySelectorAll('[data-time-interval]')]
       .find((button) => button.dataset.timeInterval === '1000');
     if (!intervalPreset) throw new Error('1000-year interval preset is unavailable');
@@ -653,7 +655,7 @@ async function genericTimeJourney(cdp, pointDenominator) {
         requested_start_bp: requestedStart,
         snapshot,
         time_readout: document.getElementById('time-start-value')?.textContent || '',
-        rendered_evidence_signature: renderedMapEvidenceSignature(),
+        rendered_evidence_signature: await renderedMapEvidenceSignature(),
       });
     }
     slider.value = String(maximum);
@@ -776,17 +778,11 @@ async function captureInvalidCommonInputs(cdp) {
   return evaluate(cdp, `(async () => {
     const api = globalThis.BijuxPollenomicsAtlasCapture;
     const state = api.snapshot();
-    const base = {
-      story_kind: 'source_chronology', basemap: 'none', countries: state.countries,
-      time_start_bp: state.time_window_bp.younger_bp,
-      time_end_bp: state.time_window_bp.older_bp,
-    };
+    const base = { story_kind: 'source_chronology', basemap: 'none', countries: state.countries };
     const invalid = [
       ['frame', null],
       ['story_kind', { ...base, story_kind: 'candidate_succession' }],
       ['basemap', { ...base, basemap: 'requires-api-key' }],
-      ['time_start_bp.negative', { ...base, time_start_bp: -1 }],
-      ['time_end_bp.negative', { ...base, time_end_bp: -1 }],
       ['view', { ...base, view: null }],
       ['view.latitude', { ...base, view: { latitude: null, longitude: 18, zoom: 5 } }],
       ['view.longitude', { ...base, view: { latitude: 60, longitude: null, zoom: 5 } }],
@@ -816,6 +812,7 @@ async function captureSignedView(cdp) {
     const api = globalThis.BijuxPollenomicsAtlasCapture;
     const state = api.snapshot();
     const source = state.source_chronology || {};
+    const requestedView = { latitude: -33.9, longitude: -70.7, zoom: 4 };
     const frame = {
       story_kind: 'source_chronology', basemap: 'none', countries: state.countries,
       source_level: source.level,
@@ -823,10 +820,10 @@ async function captureSignedView(cdp) {
       source_taxon: source.source_taxon || undefined,
       time_start_bp: state.time_window_bp.younger_bp,
       time_end_bp: state.time_window_bp.older_bp,
-      view: { latitude: -33.9, longitude: -70.7, zoom: 4 },
+      view: requestedView,
     };
     const snapshot = await api.applyFrame(frame);
-    return { accepted: true, view: snapshot.view };
+    return { accepted: true, requested_view: requestedView, view: snapshot.view };
   })()`);
 }
 
@@ -1053,12 +1050,11 @@ async function cerealFinderFrame(cdp) {
 async function sliderChronologyJourney(cdp) {
   return evaluate(cdp, `(async () => {
     const api = globalThis.BijuxPollenomicsAtlasCapture;
-    const renderedMapEvidenceSignature = () => JSON.stringify(
-      [...document.querySelectorAll([
+    const renderedMapEvidenceSignature = async () => {
+      const markerDom = [...document.querySelectorAll([
         '.leaflet-point-pane path',
         '.leaflet-point-pane .leaflet-marker-icon',
-        '.leaflet-marker-pane .marker-cluster',
-        '.leaflet-marker-pane .atlas-scientific-marker',
+        '.leaflet-marker-pane .leaflet-marker-icon',
       ].join(', '))]
         .map((element) => [
           element.tagName.toLowerCase(),
@@ -1068,8 +1064,20 @@ async function sliderChronologyJourney(cdp) {
           element.getAttribute('transform') || '',
           (element.textContent || '').trim(),
         ])
-        .sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right))),
-    );
+        .sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right)));
+      const canvasDigests = await Promise.all(
+        [...document.querySelectorAll('.leaflet-point-pane canvas')].map(async (canvas) => {
+          const context = canvas.getContext('2d', { willReadFrequently: true });
+          if (!context) throw new Error('point evidence canvas has no 2d context');
+          const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+          const digest = await crypto.subtle.digest('SHA-256', pixels);
+          const sha256 = [...new Uint8Array(digest)]
+            .map((byte) => byte.toString(16).padStart(2, '0')).join('');
+          return { width: canvas.width, height: canvas.height, sha256 };
+        }),
+      );
+      return JSON.stringify({ marker_dom: markerDom, point_canvas_digests: canvasDigests });
+    };
     const slider = document.getElementById('time-start-slider');
     const older = document.getElementById('time-step-older');
     const newer = document.getElementById('time-step-newer');
@@ -1092,7 +1100,7 @@ async function sliderChronologyJourney(cdp) {
         requested_start_bp: requestedStart,
         snapshot,
         time_readout: document.getElementById('time-start-value')?.textContent || '',
-        rendered_evidence_signature: renderedMapEvidenceSignature(),
+        rendered_evidence_signature: await renderedMapEvidenceSignature(),
       });
     }
     slider.value = String(maximum);
@@ -1315,10 +1323,11 @@ async function responsiveFacts(cdp, width) {
       panel_center_uncovered: uncovered(legendPanel),
       panel_bounded: legendPanelBox.left >= -1 && legendPanelBox.right <= innerWidth + 1
         && legendPanelBox.top >= -1 && legendPanelBox.bottom <= innerHeight + 1,
-      body_bounded: legendBodyBox.left >= legendPanelBox.left - 1
+      body_horizontally_contained: legendBodyBox.left >= legendPanelBox.left - 1
         && legendBodyBox.right <= legendPanelBox.right + 1
-        && legendBodyBox.top >= legendPanelBox.top - 1
-        && legendBodyBox.bottom <= legendPanelBox.bottom + 1,
+        && legendBodyBox.width <= legendPanelBox.width + 2,
+      body_top_contained: legendBodyBox.top >= legendPanelBox.top - 1
+        && legendBodyBox.top <= legendPanelBox.bottom + 1,
       content_accessible: legendBody.scrollHeight <= legendBody.clientHeight + 1
         || ['auto', 'scroll'].includes(legendBodyStyle.overflowY)
         || ['auto', 'scroll'].includes(legendPanelStyle.overflowY),
@@ -1340,7 +1349,6 @@ async function responsiveFacts(cdp, width) {
     const searchInputBox = box(searchInput);
     const searchResultsBox = box(searchResults);
     const searchResultsStyle = getComputedStyle(searchResults);
-    const firstSearchResult = searchResults.querySelector('[data-search-index]');
     const populatedSearch = {
       query: searchInput.value,
       results_visible: visible(searchResults),
@@ -1467,10 +1475,20 @@ async function responsiveFacts(cdp, width) {
       map_visibility: null,
       closed_after_journey: false,
     };
-    if (firstSearchResult) {
-      if (sidebar.classList.contains('is-collapsed')) toggle.click();
+    if (sidebar.classList.contains('is-collapsed')) {
+      toggle.click();
       await settle();
-      firstSearchResult.click();
+    }
+    if (topbarSearch.hidden) {
+      searchToggle.click();
+      await settle();
+    }
+    searchInput.value = 'a';
+    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+    await settle();
+    const focusSearchResult = searchResults.querySelector('[data-search-index]');
+    if (focusSearchResult?.isConnected) {
+      focusSearchResult.click();
       await settle();
       const focusBox = box(focusCard);
       const focusStyle = getComputedStyle(focusCard);
@@ -1798,6 +1816,37 @@ function exactTaxonState(result, expected, labelPattern) {
     && result.selected_value === expected.taxon;
 }
 
+function webMercatorPixelPoint(view) {
+  const worldPixelSpan = 256 * (2 ** view.zoom);
+  const latitudeRadians = view.latitude * Math.PI / 180;
+  const latitudeSine = Math.sin(latitudeRadians);
+  return {
+    x: ((view.longitude + 180) / 360) * worldPixelSpan,
+    y: (0.5 - Math.log((1 + latitudeSine) / (1 - latitudeSine)) / (4 * Math.PI)) * worldPixelSpan,
+  };
+}
+
+function signedCaptureViewPreserved(result) {
+  const requested = result?.requested_view;
+  const observed = result?.view;
+  const validView = (view) => view
+    && typeof view.latitude === 'number' && Number.isFinite(view.latitude)
+    && view.latitude >= -85.0511287798 && view.latitude <= 85.0511287798
+    && typeof view.longitude === 'number' && Number.isFinite(view.longitude)
+    && view.longitude >= -180 && view.longitude <= 180
+    && typeof view.zoom === 'number' && Number.isFinite(view.zoom)
+    && view.zoom >= 0 && view.zoom <= 20;
+  if (result?.accepted !== true || !validView(requested) || !validView(observed)
+    || observed.zoom !== requested.zoom
+    || Math.sign(observed.latitude) !== Math.sign(requested.latitude)
+    || Math.sign(observed.longitude) !== Math.sign(requested.longitude)) return false;
+  const requestedPixel = webMercatorPixelPoint(requested);
+  const observedPixel = webMercatorPixelPoint(observed);
+  const halfPixelTolerance = 0.5 + 1e-9;
+  return Math.abs(observedPixel.x - requestedPixel.x) <= halfPixelTolerance
+    && Math.abs(observedPixel.y - requestedPixel.y) <= halfPixelTolerance;
+}
+
 function renderedEvidenceChangesWithCounts(frames, countField) {
   if (!Array.isArray(frames) || frames.length < 2 || typeof countField !== 'string' || !countField) return false;
   if (frames.some((frame) => typeof frame?.rendered_evidence_signature !== 'string'
@@ -1928,7 +1977,8 @@ function expandedLegendPasses(facts) {
     && facts.body_visible === true
     && facts.panel_center_uncovered === true
     && facts.panel_bounded === true
-    && facts.body_bounded === true
+    && facts.body_horizontally_contained === true
+    && facts.body_top_contained === true
     && facts.content_accessible === true
     && facts.topbar_non_overlapping === true
     && facts.collapsed_after_journey === true

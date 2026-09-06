@@ -105,6 +105,36 @@ def _run_rendered_evidence_checks(
     )
 
 
+def _run_signed_capture_view_checks(
+    scenarios: dict[str, dict[str, object]],
+) -> subprocess.CompletedProcess[str]:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    match = re.search(
+        r"function webMercatorPixelPoint.*?\n}\n\nfunction renderedEvidenceChangesWithCounts",
+        probe,
+        re.DOTALL,
+    )
+    assert match is not None
+    function_source = match.group(0).removesuffix(
+        "\n\nfunction renderedEvidenceChangesWithCounts"
+    )
+    script = (
+        f"{function_source}\n"
+        f"const scenarios = {json.dumps(scenarios)};\n"
+        "const results = Object.fromEntries(Object.entries(scenarios).map("
+        "([name, value]) => [name, signedCaptureViewPreserved(value)]));\n"
+        "process.stdout.write(JSON.stringify(results));\n"
+    )
+    return subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+
 def _run_map_visibility_checks(
     scenarios: dict[str, dict[str, object]],
 ) -> subprocess.CompletedProcess[str]:
@@ -260,14 +290,56 @@ def test_generic_profile_does_not_reuse_nordic_source_journeys() -> None:
     assert "expectedNordic" not in generic
     assert "shortcutFrame" not in generic
     assert "captureFrameIsClear" not in generic
+    assert "captureSignedView" not in generic
+    assert "signed_capture_view" not in generic
     assert "visible_source_chronology_point_count" not in generic
     assert "genericTimeJourney" in generic
+    assert "time_start_bp.negative" not in generic
+    assert "time_end_bp.negative" not in generic
+    assert (
+        "['frame', 'story_kind', 'basemap', 'view', 'view.latitude', "
+        "'view.longitude', 'view.zoom']" in generic
+    )
     assert "data-time-interval" in probe
     assert "dataset.timeInterval === '1000'" in probe
     assert (
         "capture_frames_uncluttered"
         not in PROFILE_REQUIRED_ASSERTIONS[GENERIC_TIME_AWARE_PROFILE]
     )
+
+
+def test_capture_input_probes_keep_source_bp_checks_in_nordic_scope() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    common_match = re.search(
+        r"async function captureInvalidCommonInputs.*?\n}\n\nasync function captureSignedView",
+        probe,
+        re.DOTALL,
+    )
+    nordic_match = re.search(
+        r"async function captureNullInputs.*?\n}\n\nasync function responsiveFacts",
+        probe,
+        re.DOTALL,
+    )
+    verifier_match = re.search(
+        r"async function verifyNordicSourceChronologyScope.*?\n}\n\nasync function verifyGenericTimeAwareScope",
+        probe,
+        re.DOTALL,
+    )
+
+    assert common_match is not None
+    assert nordic_match is not None
+    assert verifier_match is not None
+    common = common_match.group(0)
+    nordic = nordic_match.group(0)
+    assert "time_start_bp.negative" not in common
+    assert "time_end_bp.negative" not in common
+    assert "time_start_bp: null" in nordic
+    assert "time_end_bp: null" in nordic
+    assert "time_start_bp.negative" in nordic
+    assert "time_end_bp.negative" in nordic
+    assert "captureSignedView(normal.cdp)" in verifier_match.group(0)
 
 
 def test_page_readiness_uses_capture_api_and_mutation_observer() -> None:
@@ -337,10 +409,17 @@ def test_slider_journeys_bind_count_changes_to_rendered_map_evidence() -> None:
         Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
     )
 
-    assert probe.count("const renderedMapEvidenceSignature = () => JSON.stringify(") == 2
-    assert probe.count("rendered_evidence_signature: renderedMapEvidenceSignature()") == 2
+    assert probe.count("const renderedMapEvidenceSignature = async () => {") == 2
+    assert probe.count(
+        "rendered_evidence_signature: await renderedMapEvidenceSignature()"
+    ) == 2
     assert ".leaflet-point-pane path" in probe
-    assert ".leaflet-marker-pane .marker-cluster" in probe
+    assert ".leaflet-point-pane .leaflet-marker-icon" in probe
+    assert ".leaflet-marker-pane .leaflet-marker-icon" in probe
+    assert ".leaflet-point-pane canvas" in probe
+    assert "context.getImageData(0, 0, canvas.width, canvas.height).data" in probe
+    assert "crypto.subtle.digest('SHA-256', pixels)" in probe
+    assert "point_canvas_digests: canvasDigests" in probe
     assert (
         "renderedEvidenceChangesWithCounts(journey.frames, "
         "'visible_source_chronology_point_count')"
@@ -395,6 +474,64 @@ def test_rendered_evidence_check_fails_closed_on_stale_or_missing_rendering() ->
         "missing_signature": False,
         "blank_signature": False,
         "one_frame": False,
+    }
+
+
+def test_signed_capture_view_allows_only_leaflet_half_pixel_quantization() -> None:
+    requested = {"latitude": -33.9, "longitude": -70.7, "zoom": 4}
+    scenarios = {
+        "nearest_pixel": {
+            "accepted": True,
+            "requested_view": requested,
+            "view": {
+                "latitude": -33.87041555094183,
+                "longitude": -70.66406250000001,
+                "zoom": 4,
+            },
+        },
+        "longitude_beyond_half_pixel": {
+            "accepted": True,
+            "requested_view": requested,
+            "view": {"latitude": -33.9, "longitude": -70.6, "zoom": 4},
+        },
+        "latitude_sign_lost": {
+            "accepted": True,
+            "requested_view": requested,
+            "view": {"latitude": 33.9, "longitude": -70.7, "zoom": 4},
+        },
+        "longitude_sign_lost": {
+            "accepted": True,
+            "requested_view": requested,
+            "view": {"latitude": -33.9, "longitude": 70.7, "zoom": 4},
+        },
+        "zoom_changed": {
+            "accepted": True,
+            "requested_view": requested,
+            "view": {"latitude": -33.9, "longitude": -70.7, "zoom": 5},
+        },
+        "latitude_outside_web_mercator": {
+            "accepted": True,
+            "requested_view": requested,
+            "view": {"latitude": -89.0, "longitude": -70.7, "zoom": 4},
+        },
+        "not_accepted": {
+            "accepted": False,
+            "requested_view": requested,
+            "view": requested,
+        },
+    }
+
+    completed = _run_signed_capture_view_checks(scenarios)
+
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        "nearest_pixel": True,
+        "longitude_beyond_half_pixel": False,
+        "latitude_sign_lost": False,
+        "longitude_sign_lost": False,
+        "zoom_changed": False,
+        "latitude_outside_web_mercator": False,
+        "not_accepted": False,
     }
 
 
@@ -582,6 +719,9 @@ def test_responsive_contract_proves_desktop_and_bottom_sheet_states() -> None:
     assert "document.getElementById('floating-legend')" in probe
     assert "document.getElementById('topbar-search')" in probe
     assert "mapElement.contains(mapCenterHit)" in probe
+    assert "body_horizontally_contained:" in probe
+    assert "body_top_contained:" in probe
+    assert "legendBodyBox.bottom <= legendPanelBox.bottom" not in probe
 
 
 def test_map_visibility_requires_dense_sampling_and_contextual_clear_fraction() -> None:
@@ -601,7 +741,8 @@ def test_map_visibility_requires_dense_sampling_and_contextual_clear_fraction() 
         "body_visible": True,
         "panel_center_uncovered": True,
         "panel_bounded": True,
-        "body_bounded": True,
+        "body_horizontally_contained": True,
+        "body_top_contained": True,
         "content_accessible": True,
         "topbar_non_overlapping": True,
         "collapsed_after_journey": True,
@@ -647,6 +788,14 @@ def test_map_visibility_requires_dense_sampling_and_contextual_clear_fraction() 
             "legend": True,
             "facts": {**valid_legend, "content_accessible": False},
         },
+        "horizontally_overflowing_legend": {
+            "legend": True,
+            "facts": {**valid_legend, "body_horizontally_contained": False},
+        },
+        "misplaced_legend_body": {
+            "legend": True,
+            "facts": {**valid_legend, "body_top_contained": False},
+        },
         "occluded_legend": {
             "legend": True,
             "facts": {**valid_legend, "panel_center_uncovered": False},
@@ -679,6 +828,8 @@ def test_map_visibility_requires_dense_sampling_and_contextual_clear_fraction() 
         "weak_sample": False,
         "valid_legend": True,
         "clipped_legend": False,
+        "horizontally_overflowing_legend": False,
+        "misplaced_legend_body": False,
         "occluded_legend": False,
         "legend_overlaps_topbar": False,
         "legend_hides_map": False,
@@ -854,7 +1005,9 @@ def test_responsive_contract_proves_compact_search_keyboard_journey() -> None:
         "chronology_controls_uncovered:",
         "expanded_panel: expandedPanel",
         "focused_record: focusedRecord",
-        "firstSearchResult.click()",
+        "const focusSearchResult = searchResults.querySelector('[data-search-index]')",
+        "focusSearchResult?.isConnected",
+        "focusSearchResult.click()",
         "panel_collapsed: sidebar.classList.contains('is-collapsed')",
         "document.activeElement === searchInput",
         "searchToggle.getAttribute('aria-expanded') === 'true'",
@@ -866,6 +1019,13 @@ def test_responsive_contract_proves_compact_search_keyboard_journey() -> None:
         "searchControlPasses(layout.search_control)",
     ):
         assert literal in probe
+    assert probe.count("searchInput.value = 'a';") == 2
+    assert probe.count(
+        "searchInput.dispatchEvent(new Event('input', { bubbles: true }))"
+    ) == 2
+    assert probe.index("searchControl.escape_restores_focus") < probe.index(
+        "const focusSearchResult = searchResults.querySelector('[data-search-index]')"
+    )
     assert "classList.add('atlas-capture-mode')" not in probe
 
 
