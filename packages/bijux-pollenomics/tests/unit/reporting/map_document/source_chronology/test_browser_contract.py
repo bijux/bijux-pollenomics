@@ -58,6 +58,25 @@ def test_help_dialog_traps_focus_and_restores_its_opener() -> None:
     assert "helpToggleButton.setAttribute('aria-expanded', 'false')" in (
         MAP_DOCUMENT_TEMPLATE
     )
+    assert 'id="help-return"' in MAP_DOCUMENT_TEMPLATE
+    assert "helpReturnButton.addEventListener('click', closeHelpDialog)" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+
+
+def test_help_dialog_describes_the_available_basemap_choices() -> None:
+    help_markup = template_block(
+        '<div id="help-dialog"', '<script id="atlas-static-bootstrap"'
+    )
+
+    assert "Street" in help_markup
+    assert "OpenStreetMap" in help_markup
+    assert "Terrain" in help_markup
+    assert "OpenTopoMap" in help_markup
+    assert "No basemap" in help_markup
+    assert "Offline mode" in help_markup
+    assert "Voyager" not in help_markup
+    assert "Light" not in help_markup
 
 
 def test_controls_are_accessible_source_native_and_separate_from_modeled_context() -> (
@@ -969,6 +988,7 @@ def test_bootstrap_allows_governed_compressed_domains_without_weakening_legacy_j
         "payloadEncoding === 'gzip_base64'" in bootstrap
     )
     assert "row.decoded_byte_count" in bootstrap
+    assert "BP interval contradicts its untimed record count" in bootstrap
     consume = template_block(
         "async function consumeStaticAtlasAsset", "function loadStaticAtlasAsset"
     )

@@ -29,6 +29,10 @@ _ASSET_FIELDS = (
     "untimed_record_count",
     "scientific_signal_ids",
 )
+_ASSET_DOMAINS = frozenset(
+    {"provenance", "nodes", "details", "edges", "sequences", "indexes"}
+)
+_MAX_SAFE_INTEGER = 9_007_199_254_740_991
 _FORBIDDEN_PROVIDER_MARKERS = (
     "cartocdn.com",
     "api_key_required",
@@ -50,9 +54,21 @@ def _mapping(value: object, *, label: str) -> JsonObject:
 
 
 def _nonnegative_integer(value: object, *, label: str) -> int:
-    if not isinstance(value, int) or isinstance(value, bool) or value < 0:
-        raise AtlasBrowserContractError(f"{label} must be a non-negative integer")
+    if (
+        not isinstance(value, int)
+        or isinstance(value, bool)
+        or value < 0
+        or value > _MAX_SAFE_INTEGER
+    ):
+        raise AtlasBrowserContractError(f"{label} must be a non-negative safe integer")
     return value
+
+
+def _positive_integer(value: object, *, label: str) -> int:
+    numeric = _nonnegative_integer(value, label=label)
+    if numeric == 0:
+        raise AtlasBrowserContractError(f"{label} must be a positive safe integer")
+    return numeric
 
 
 def _finite_number(value: object, *, label: str) -> float:
@@ -60,8 +76,10 @@ def _finite_number(value: object, *, label: str) -> float:
         not isinstance(value, (int, float))
         or isinstance(value, bool)
         or not math.isfinite(value)
+        or value < -_MAX_SAFE_INTEGER
+        or value > _MAX_SAFE_INTEGER
     ):
-        raise AtlasBrowserContractError(f"{label} must be a finite number")
+        raise AtlasBrowserContractError(f"{label} must be a finite safe number")
     return float(value)
 
 
@@ -69,7 +87,7 @@ def _validate_asset_counts_and_time(asset: JsonObject, *, sequence: int) -> None
     record_count = _nonnegative_integer(
         asset["record_count"], label=f"manifest asset row {sequence} record_count"
     )
-    _nonnegative_integer(
+    _positive_integer(
         asset["decoded_byte_count"],
         label=f"manifest asset row {sequence} decoded_byte_count",
     )
@@ -141,7 +159,7 @@ def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
         asset = dict(zip(_ASSET_FIELDS, raw_record, strict=True))
         domain = asset["domain"]
         digest = asset["sha256"]
-        if not isinstance(domain, str) or not isinstance(digest, str):
+        if domain not in _ASSET_DOMAINS or not isinstance(digest, str):
             raise AtlasBrowserContractError(
                 f"manifest asset row {sequence} identity is malformed"
             )

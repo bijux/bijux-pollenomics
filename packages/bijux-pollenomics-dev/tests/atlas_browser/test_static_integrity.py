@@ -62,7 +62,9 @@ def test_static_atlas_rejects_manifest_count_ambiguity(
         audit_static_atlas(tmp_path, scope, candidate())
 
 
-@pytest.mark.parametrize("invalid_count", [None, -1, 1.5, "1", True])
+@pytest.mark.parametrize(
+    "invalid_count", [None, -1, 1.5, "1", True, 9_007_199_254_740_992]
+)
 def test_static_atlas_rejects_invalid_asset_counts(
     tmp_path: Path, invalid_count: object
 ) -> None:
@@ -72,7 +74,32 @@ def test_static_atlas_rejects_invalid_asset_counts(
     manifest["assets"]["records"][0][5] = invalid_count
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
 
-    with pytest.raises(AtlasBrowserContractError, match="non-negative integer"):
+    with pytest.raises(AtlasBrowserContractError, match="safe integer"):
+        audit_static_atlas(tmp_path, scope, candidate())
+
+
+@pytest.mark.parametrize("invalid_count", [0, 9_007_199_254_740_992])
+def test_static_atlas_rejects_invalid_decoded_byte_count(
+    tmp_path: Path, invalid_count: object
+) -> None:
+    scope = write_static_atlas(tmp_path)
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["assets"]["records"][0][3] = invalid_count
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(AtlasBrowserContractError, match="safe integer"):
+        audit_static_atlas(tmp_path, scope, candidate())
+
+
+def test_static_atlas_rejects_unknown_asset_domain(tmp_path: Path) -> None:
+    scope = write_static_atlas(tmp_path)
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["assets"]["records"][0][0] = "unknown"
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(AtlasBrowserContractError, match="identity is malformed"):
         audit_static_atlas(tmp_path, scope, candidate())
 
 
@@ -140,8 +167,10 @@ def test_static_atlas_rejects_non_node_time_selection_metadata(
     [
         ("static_assets_max_files", True),
         ("static_assets_max_files", 1.0),
+        ("static_assets_max_files", 9_007_199_254_740_992),
         ("static_assets_max_bytes", True),
         ("static_assets_max_bytes", 4096.0),
+        ("static_assets_max_bytes", 9_007_199_254_740_992),
     ],
 )
 def test_static_atlas_rejects_ambiguous_budgets(
@@ -153,7 +182,7 @@ def test_static_atlas_rejects_ambiguous_budgets(
     manifest["budgets"][budget] = invalid_value
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
 
-    with pytest.raises(AtlasBrowserContractError, match="non-negative integer"):
+    with pytest.raises(AtlasBrowserContractError, match="safe integer"):
         audit_static_atlas(tmp_path, scope, candidate())
 
 
@@ -162,7 +191,8 @@ def test_static_atlas_rejects_ambiguous_budgets(
     [
         (0.0, None, "asymmetric BP bounds"),
         (None, 100.0, "asymmetric BP bounds"),
-        (float("nan"), 100.0, "finite number"),
+        (float("nan"), 100.0, "finite safe number"),
+        (0.0, 1e300, "finite safe number"),
         (200.0, 100.0, "BP bounds are reversed"),
     ],
 )

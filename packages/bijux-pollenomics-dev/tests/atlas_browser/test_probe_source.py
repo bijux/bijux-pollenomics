@@ -49,6 +49,7 @@ def _generic_manifest(*rows: list[object]) -> dict[str, object]:
                 "record_count",
                 "time_min_bp",
                 "time_max_bp",
+                "untimed_record_count",
             ],
             "records": list(rows),
         },
@@ -182,8 +183,8 @@ def test_generic_manifest_counts_fail_closed_instead_of_coercing_null() -> None:
 
 def test_generic_manifest_facts_accepts_paired_ordered_intervals() -> None:
     manifest = _generic_manifest(
-        ["nodes", "point", 2, 0, 100],
-        ["nodes", "point", 3, None, None],
+        ["nodes", "point", 2, 0, 100, 0],
+        ["nodes", "point", 3, None, None, 3],
     )
 
     completed = _run_generic_manifest_facts(json.dumps(manifest))
@@ -202,9 +203,9 @@ def test_generic_manifest_facts_accepts_paired_ordered_intervals() -> None:
 @pytest.mark.parametrize(
     "rows",
     [
-        [["nodes", "point", 1, 0, None], ["nodes", "point", 1, 10, 20]],
-        [["nodes", "point", 1, 20, 10], ["nodes", "point", 1, 10, 20]],
-        [["nodes", "point", 1, True, 10], ["nodes", "point", 1, 10, 20]],
+        [["nodes", "point", 1, 0, None, 0], ["nodes", "point", 1, 10, 20, 0]],
+        [["nodes", "point", 1, 20, 10, 0], ["nodes", "point", 1, 10, 20, 0]],
+        [["nodes", "point", 1, True, 10, 0], ["nodes", "point", 1, 10, 20, 0]],
     ],
 )
 def test_generic_manifest_facts_rejects_invalid_row_intervals(
@@ -219,21 +220,51 @@ def test_generic_manifest_facts_rejects_invalid_row_intervals(
 def test_generic_manifest_facts_rejects_non_finite_row_interval() -> None:
     manifest = json.dumps(
         _generic_manifest(
-            ["nodes", "point", 1, "__INFINITY__", 100],
-            ["nodes", "point", 1, 10, 20],
+            ["nodes", "point", 1, "__INFINITY__", 100, 0],
+            ["nodes", "point", 1, 10, 20, 0],
         )
     ).replace('"__INFINITY__"', "Infinity")
 
     completed = _run_generic_manifest_facts(manifest)
 
     assert completed.returncode == 2
-    assert "finite numbers" in completed.stderr
+    assert "finite safe numbers" in completed.stderr
+
+
+@pytest.mark.parametrize(
+    "row",
+    [
+        ["nodes", "point", 1, 0, 100, 1],
+        ["nodes", "point", 1, None, None, 0],
+        ["nodes", "point", 0, 0, 100, 0],
+        ["nodes", "point", 1, 0, 100, 2],
+    ],
+)
+def test_generic_manifest_facts_rejects_untimed_time_contradictions(
+    row: list[object],
+) -> None:
+    completed = _run_generic_manifest_facts(json.dumps(_generic_manifest(row)))
+
+    assert completed.returncode == 2
+    assert "untimed_record_count" in completed.stderr
+
+
+def test_generic_manifest_facts_rejects_unsafe_time_magnitude() -> None:
+    manifest = _generic_manifest(["nodes", "point", 1, 0, "__UNSAFE_TIME__", 0])
+    expression = json.dumps(manifest).replace(
+        '"__UNSAFE_TIME__"', "Number.MAX_SAFE_INTEGER + 1"
+    )
+
+    completed = _run_generic_manifest_facts(expression)
+
+    assert completed.returncode == 2
+    assert "finite safe numbers" in completed.stderr
 
 
 def test_generic_manifest_facts_rejects_unsafe_aggregate_count() -> None:
     manifest = _generic_manifest(
-        ["nodes", "point", 9_007_199_254_740_991, 0, 100],
-        ["nodes", "point", 9_007_199_254_740_991, 0, 100],
+        ["nodes", "point", 9_007_199_254_740_991, 0, 100, 0],
+        ["nodes", "point", 9_007_199_254_740_991, 0, 100, 0],
     )
 
     completed = _run_generic_manifest_facts(json.dumps(manifest))
@@ -377,8 +408,9 @@ def test_help_dialog_runtime_contract_proves_modal_focus_and_stacking() -> None:
         "document.getElementById('help-close')",
         "appShell.inert === true",
         "document.activeElement === close",
-        "new KeyboardEvent('keydown', { key: 'Tab', bubbles: true })",
-        "new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })",
+        "Input.dispatchKeyEvent",
+        "document.activeElement?.id === 'help-return'",
+        "document.activeElement?.id === 'help-close'",
         "document.activeElement === opener",
         "help_dialog_accessible:",
     ):
@@ -399,3 +431,4 @@ def test_status_actions_do_not_manufacture_desktop_focus_restoration() -> None:
         in probe
     )
     assert "status_describes_current_bp_window" in probe
+    assert "close.dispatchEvent(new KeyboardEvent" not in probe

@@ -2034,9 +2034,9 @@ __CHRONOLOGY_PLAYBACK_ACTION__
           <section class="help-card">
             <h3>Basemaps</h3>
             <div class="help-list">
-              <div class="help-row"><span class="help-key">Voyager</span><span>Balanced roads, labels, and water detail.</span></div>
-              <div class="help-row"><span class="help-key">Light</span><span>Minimal contrast for evidence-first inspection.</span></div>
-              <div class="help-row"><span class="help-key">Terrain</span><span>Relief-focused context for landform reading.</span></div>
+              <div class="help-row"><span class="help-key">Street</span><span>Keyless OpenStreetMap roads, labels, and place context.</span></div>
+              <div class="help-row"><span class="help-key">Terrain</span><span>Keyless OpenTopoMap relief context for landform reading.</span></div>
+              <div class="help-row"><span class="help-key">No basemap</span><span>Offline mode keeps evidence and orientation controls usable without network tiles.</span></div>
             </div>
           </section>
           <section class="help-card">
@@ -2055,6 +2055,9 @@ __CHRONOLOGY_PLAYBACK_ACTION__
               <div class="help-row"><span class="help-key">Selection</span><span>The visible point and overlay count under the current workspace filters.</span></div>
             </div>
           </section>
+        </div>
+        <div class="map-actions">
+          <button id="help-return" class="toolbar-button" type="button">Return to map</button>
         </div>
       </div>
     </div>
@@ -2203,6 +2206,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             const timeMinimum = staticAtlasNullableFiniteNumber(row.time_min_bp, `${row.asset_key || 'unknown asset'} minimum BP`, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
             const timeMaximum = staticAtlasNullableFiniteNumber(row.time_max_bp, `${row.asset_key || 'unknown asset'} maximum BP`, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
             if ((timeMinimum === null) !== (timeMaximum === null) || (timeMinimum !== null && timeMinimum > timeMaximum)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} BP interval is invalid`);
+            if ((timeMinimum === null) !== (untimedCount === recordCount)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} BP interval contradicts its untimed record count`);
             if (row.bounds !== null) {
               if (!Array.isArray(row.bounds) || row.bounds.length !== 4) staticAtlasFailure(`${row.asset_key || 'unknown asset'} bounds are invalid`);
               const [south, west, north, east] = row.bounds;
@@ -2642,6 +2646,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const helpToggleButton = document.getElementById('help-toggle');
       const helpDialog = document.getElementById('help-dialog');
       const helpCloseButton = document.getElementById('help-close');
+      const helpReturnButton = document.getElementById('help-return');
       let helpDialogReturnFocus = null;
       const legendBody = document.getElementById('legend-body');
       const legendToggleButton = document.getElementById('legend-toggle');
@@ -5786,6 +5791,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       });
       helpToggleButton.addEventListener('click', openHelpDialog);
       helpCloseButton.addEventListener('click', closeHelpDialog);
+      helpReturnButton.addEventListener('click', closeHelpDialog);
       helpDialog.addEventListener('click', (event) => {
         if (event.target === helpDialog) closeHelpDialog();
       });

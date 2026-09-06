@@ -553,15 +553,24 @@ function genericManifestFacts(manifest) {
   const finiteMaximums = [];
   pointRows.forEach((row, position) => {
     const recordCount = requireCount(row[index.record_count], `point row ${position} record_count`);
+    const untimedCount = requireCount(row[index.untimed_record_count], `point row ${position} untimed_record_count`);
+    if (untimedCount > recordCount) {
+      throw new Error(`point row ${position} untimed_record_count exceeds record_count`);
+    }
     pointRecordCount = requireCount(pointRecordCount + recordCount, 'aggregate point record_count');
     const minimum = row[index.time_min_bp];
     const maximum = row[index.time_max_bp];
     if ((minimum === null) !== (maximum === null)) {
       throw new Error(`point row ${position} has asymmetric BP bounds`);
     }
+    if ((minimum === null) !== (untimedCount === recordCount)) {
+      throw new Error(`point row ${position} BP bounds contradict untimed_record_count`);
+    }
     if (minimum === null) return;
-    if (!Number.isFinite(minimum) || !Number.isFinite(maximum)) {
-      throw new Error(`point row ${position} BP bounds must be finite numbers`);
+    if (!Number.isFinite(minimum) || !Number.isFinite(maximum)
+      || minimum < Number.MIN_SAFE_INTEGER || minimum > Number.MAX_SAFE_INTEGER
+      || maximum < Number.MIN_SAFE_INTEGER || maximum > Number.MAX_SAFE_INTEGER) {
+      throw new Error(`point row ${position} BP bounds must be finite safe numbers`);
     }
     if (minimum > maximum) {
       throw new Error(`point row ${position} BP bounds are reversed`);
@@ -1182,7 +1191,7 @@ async function responsiveFacts(cdp, width) {
 }
 
 async function helpDialogFacts(cdp, width) {
-  return evaluate(cdp, `(async () => {
+  const opened = await evaluate(cdp, `(async () => {
     const settle = () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     const visible = (element) => {
       const style = getComputedStyle(element);
@@ -1202,7 +1211,6 @@ async function helpDialogFacts(cdp, width) {
     };
     const sidebar = document.getElementById('sidebar');
     const panelToggle = document.getElementById('panel-toggle');
-    const panelClose = document.getElementById('mobile-panel-close');
     const viewControls = document.getElementById('view-controls');
     const opener = document.getElementById('help-toggle');
     const dialog = document.getElementById('help-dialog');
@@ -1221,7 +1229,9 @@ async function helpDialogFacts(cdp, width) {
     const openerUncovered = uncovered(opener);
     opener.click();
     await settle();
-    const opened = {
+    return {
+      opener_visible: openerVisible,
+      opener_uncovered: openerUncovered,
       visible: visible(dialog),
       card_bounded: bounded(card),
       close_uncovered: uncovered(close),
@@ -1230,12 +1240,24 @@ async function helpDialogFacts(cdp, width) {
       modal_semantics: card.getAttribute('aria-modal') === 'true' && card.getAttribute('aria-labelledby') === 'help-title',
       opener_semantics: opener.getAttribute('aria-controls') === 'help-dialog' && opener.getAttribute('aria-expanded') === 'true',
     };
-    close.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', bubbles: true }));
+  })()`);
+  await cdp.send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Tab', code: 'Tab', modifiers: 8 });
+  await cdp.send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Tab', code: 'Tab', modifiers: 8 });
+  const reverseWrapsToLast = await evaluate(cdp, `document.activeElement?.id === 'help-return'`);
+  await cdp.send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Tab', code: 'Tab' });
+  await cdp.send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Tab', code: 'Tab' });
+  const forwardWrapsToFirst = await evaluate(cdp, `document.activeElement?.id === 'help-close'`);
+  await cdp.send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape' });
+  await cdp.send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape' });
+  const closed = await evaluate(cdp, `(async () => {
+    const settle = () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    const sidebar = document.getElementById('sidebar');
+    const panelClose = document.getElementById('mobile-panel-close');
+    const opener = document.getElementById('help-toggle');
+    const dialog = document.getElementById('help-dialog');
+    const appShell = document.querySelector('.app-shell');
     await settle();
-    const focusTrapContained = dialog.contains(document.activeElement);
-    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
-    await settle();
-    const closed = {
+    const result = {
       hidden: dialog.hidden,
       background_interactive: appShell.inert === false,
       opener_collapsed: opener.getAttribute('aria-expanded') === 'false',
@@ -1245,8 +1267,9 @@ async function helpDialogFacts(cdp, width) {
       panelClose.click();
       await settle();
     }
-    return { opener_visible: openerVisible, opener_uncovered: openerUncovered, opened, focus_trap_contained: focusTrapContained, closed };
+    return result;
   })()`);
+  return { ...opened, reverse_wraps_to_last: reverseWrapsToLast, forward_wraps_to_first: forwardWrapsToFirst, closed };
 }
 
 async function discoverabilityFacts(cdp, width) {
@@ -1454,14 +1477,15 @@ function desktopLayoutPasses(layout) {
 function helpDialogPasses(facts) {
   return facts.opener_visible
     && facts.opener_uncovered
-    && facts.opened.visible
-    && facts.opened.card_bounded
-    && facts.opened.close_uncovered
-    && facts.opened.close_focused
-    && facts.opened.background_inert
-    && facts.opened.modal_semantics
-    && facts.opened.opener_semantics
-    && facts.focus_trap_contained
+    && facts.visible
+    && facts.card_bounded
+    && facts.close_uncovered
+    && facts.close_focused
+    && facts.background_inert
+    && facts.modal_semantics
+    && facts.opener_semantics
+    && facts.reverse_wraps_to_last
+    && facts.forward_wraps_to_first
     && facts.closed.hidden
     && facts.closed.background_interactive
     && facts.closed.opener_collapsed
