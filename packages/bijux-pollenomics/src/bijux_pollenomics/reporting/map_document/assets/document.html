@@ -42,6 +42,14 @@
         font-family: var(--font-body);
       }
       body { min-height: 100vh; }
+      html.atlas-capture-mode *,
+      html.atlas-capture-mode *::before,
+      html.atlas-capture-mode *::after {
+        animation: none !important;
+        caret-color: transparent !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
       body.has-mobile-panel-open {
         overflow: hidden;
       }
@@ -581,7 +589,7 @@
         max-height: calc(100vh - 208px);
         transition: transform 180ms ease, opacity 180ms ease;
       }
-      @media (min-width: 1081px) {
+      @media (min-width: 901px) {
         .map-topbar {
           right: auto;
           width: min(880px, calc(100vw - 352px));
@@ -5136,6 +5144,181 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         emptyState.hidden = visiblePointEntries.length > 0 || renderedPolygonLayers.length > 0;
         syncHashState();
       }
+      const ATLAS_CAPTURE_API_VERSION = 'atlas-capture.v1';
+      function captureFrameNumber(value, label) {
+        const number = Number(value);
+        if (!Number.isFinite(number) || number < 0) throw new Error(`${label} must be a finite non-negative number`);
+        return number;
+      }
+      function captureFrameCountries(value) {
+        if (value === undefined) return [...activeCountries].sort();
+        if (!Array.isArray(value) || value.length === 0) throw new Error('capture countries must be a non-empty array');
+        const countries = [...new Set(value.map((country) => String(country)))].sort();
+        if (countries.some((country) => !COUNTRIES.includes(country))) throw new Error('capture countries contain an unsupported country');
+        return countries;
+      }
+      function captureFrameWindow(frameSpec) {
+        const youngerBp = captureFrameNumber(frameSpec.time_start_bp, 'capture time_start_bp');
+        const olderBp = captureFrameNumber(frameSpec.time_end_bp, 'capture time_end_bp');
+        if (youngerBp >= olderBp) throw new Error('capture BP interval must satisfy time_start_bp < time_end_bp');
+        return { youngerBp, olderBp };
+      }
+      function captureFrameView(value) {
+        if (value === undefined) return null;
+        const latitude = Number(value && value.latitude);
+        const longitude = Number(value && value.longitude);
+        const zoom = Number(value && value.zoom);
+        if (!Number.isFinite(latitude) || latitude < -90 || latitude > 90 || !Number.isFinite(longitude) || longitude < -180 || longitude > 180 || !Number.isFinite(zoom) || zoom < 0 || zoom > 20) {
+          throw new Error('capture view is invalid');
+        }
+        return { latitude, longitude, zoom };
+      }
+      function normalizeAtlasCaptureFrame(frameSpec) {
+        if (!frameSpec || typeof frameSpec !== 'object' || Array.isArray(frameSpec)) throw new Error('capture frame must be an object');
+        const storyKind = String(frameSpec.story_kind || '');
+        if (storyKind === 'candidate_succession') throw new Error('candidate_succession_capture_not_releasable');
+        if (!['source_chronology', 'modeled_context'].includes(storyKind)) throw new Error('capture story_kind is unsupported');
+        const basemap = frameSpec.basemap === undefined ? 'none' : String(frameSpec.basemap);
+        if (!BASEMAP_NAMES.includes(basemap)) throw new Error('capture basemap is unsupported');
+        const common = {
+          storyKind,
+          basemap,
+          countries: captureFrameCountries(frameSpec.countries),
+          view: captureFrameView(frameSpec.view),
+        };
+        if (storyKind === 'source_chronology') {
+          const sourceLevel = String(frameSpec.source_level || '');
+          const sourceLayer = sourceChronologyLayerForLevel(sourceLevel);
+          if (!sourceLayer) throw new Error('capture source_level is unavailable');
+          let sourceCode = 'all';
+          let sourceTaxon = 'all';
+          if (sourceLevel === 'source_ecological_code') {
+            const validCodes = ['all', ...sourceLayer.facet_metadata.source_ecological_codes.map((row) => row.value)];
+            sourceCode = String(frameSpec.source_code || 'all');
+            if (!validCodes.includes(sourceCode)) throw new Error('capture source_code is unavailable');
+          } else if (sourceLevel === 'source_taxon') {
+            const validTaxa = ['all', ...sourceLayer.facet_metadata.source_taxa.map((row) => row.value)];
+            sourceTaxon = String(frameSpec.source_taxon || 'all');
+            if (!validTaxa.includes(sourceTaxon)) throw new Error('capture source_taxon is unavailable');
+          }
+          const frameWindow = captureFrameWindow(frameSpec);
+          const facet = sourceChronologyFacetForSelection(sourceLayer, sourceCode, sourceTaxon);
+          if (!facet || !sourceChronologyExtentIsValid(facet) || facet.node_count === 0) throw new Error('capture source facet has no chronological evidence');
+          const minimum = Math.floor(sourceChronologyTimeValue(facet.time_min_bp));
+          const maximum = Math.ceil(sourceChronologyTimeValue(facet.time_max_bp));
+          if (frameWindow.youngerBp < minimum || frameWindow.olderBp > maximum) throw new Error('capture BP interval exceeds the selected source extent');
+          return { ...common, sourceLevel, sourceCode, sourceTaxon, frameWindow };
+        }
+        if (!modeledContextAvailable()) throw new Error('modeled_context_capture_not_available');
+        const sourceWindowLabel = String(frameSpec.source_window_label || '');
+        const sourceWindowIndex = MODELED_CONTEXT_WINDOWS.findIndex((sourceWindow) => sourceWindow.label === sourceWindowLabel);
+        if (sourceWindowIndex < 0) throw new Error('capture modeled-context source window is unavailable');
+        const family = modeledContextFamilyByKey(String(frameSpec.metric_family_key || modeledContextFamilyKey));
+        if (!family) throw new Error('capture modeled-context metric family is unavailable');
+        const metricKey = String(frameSpec.metric_key || family.default_metric_key);
+        if (!family.metrics.some((metric) => metric.key === metricKey)) throw new Error('capture modeled-context metric is unavailable');
+        return { ...common, sourceWindowIndex, familyKey: family.key, metricKey };
+      }
+      async function awaitAtlasCaptureReady() {
+        const mapElement = document.getElementById('map');
+        if (mapElement.getAttribute('aria-busy') === 'true') {
+          await new Promise((resolve, reject) => {
+            const timeout = window.setTimeout(() => {
+              observer.disconnect();
+              reject(new Error('atlas capture readiness timed out'));
+            }, 30000);
+            const observer = new MutationObserver(() => {
+              if (mapElement.getAttribute('aria-busy') === 'true') return;
+              window.clearTimeout(timeout);
+              observer.disconnect();
+              resolve();
+            });
+            observer.observe(mapElement, { attributes: true, attributeFilter: ['aria-busy'] });
+          });
+        }
+        if (document.fonts && document.fonts.ready) await document.fonts.ready;
+        map.invalidateSize({ animate: false });
+        await new Promise((resolve) => window.requestAnimationFrame(() => window.requestAnimationFrame(resolve)));
+        return atlasCaptureSnapshot();
+      }
+      function atlasCaptureSnapshot() {
+        const sourceLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
+        const sourceFacet = sourceLayer
+          ? sourceChronologyFacetForSelection(sourceLayer, activeSourceChronologyCode, activeSourceChronologyTaxon)
+          : null;
+        const sourceWindow = modeledContextActive ? currentModeledContextWindow() : null;
+        return {
+          capture_api_version: ATLAS_CAPTURE_API_VERSION,
+          build_id: STATIC_ATLAS_BOOTSTRAP.build_id,
+          scope_slug: STATIC_ATLAS_BOOTSTRAP.scope_slug,
+          version: STATIC_ATLAS_BOOTSTRAP.version,
+          ready: document.getElementById('map').getAttribute('aria-busy') !== 'true',
+          basemap: currentBasemap,
+          countries: [...activeCountries].sort(),
+          time_window_bp: { younger_bp: timeStartBp, older_bp: timeWindowEndBp() },
+          source_chronology: modeledContextActive ? null : {
+            level: activeSourceChronologyLevel,
+            source_code: activeSourceChronologyLevel === 'source_ecological_code' ? activeSourceChronologyCode : null,
+            source_taxon: activeSourceChronologyLevel === 'source_taxon' ? activeSourceChronologyTaxon : null,
+            facet_node_count: sourceFacet ? sourceFacet.node_count : null,
+            facet_observation_denominator: sourceFacet ? sourceFacet.observation_denominator : null,
+          },
+          modeled_context: sourceWindow ? {
+            window_index: modeledContextWindowIndex,
+            window_label: sourceWindow.label,
+            metric_family_key: modeledContextFamilyKey,
+            metric_key: modeledContextMetricKey,
+            evidence_role: 'context_only',
+            interpolation_allowed: false,
+            propagation_use_allowed: false,
+          } : null,
+          visible_point_count: visiblePointEntries.length,
+          visible_polygon_layer_count: renderedPolygonLayers.length,
+          visible_governed_candidate_count: renderedEdgeLayers.length,
+          scientific_posture: {
+            classifications_status: ATLAS_EVIDENCE.classifications_status,
+            classifications_reason_code: ATLAS_EVIDENCE.classifications_reason_code,
+            observation_chronology_is_propagation: false,
+          },
+        };
+      }
+      async function applyAtlasCaptureFrame(frameSpec) {
+        const captureFrame = normalizeAtlasCaptureFrame(frameSpec);
+        stopTimePlayback();
+        stopModeledContextPlayback();
+        document.documentElement.classList.add('atlas-capture-mode');
+        activeCountries = new Set(captureFrame.countries);
+        setBasemap(captureFrame.basemap, { sync: false });
+        if (captureFrame.storyKind === 'source_chronology') {
+          deactivateModeledContext();
+          selectSourceChronologyLevel(captureFrame.sourceLevel);
+          if (captureFrame.sourceLevel === 'source_ecological_code') {
+            activeSourceChronologyCode = captureFrame.sourceCode;
+          } else if (captureFrame.sourceLevel === 'source_taxon') {
+            activeSourceChronologyTaxon = captureFrame.sourceTaxon;
+            sourceChronologyTaxonSearch = '';
+          }
+          timeStartBp = captureFrame.frameWindow.youngerBp;
+          timeIntervalYears = captureFrame.frameWindow.olderBp - captureFrame.frameWindow.youngerBp;
+        } else {
+          modeledContextFamilyKey = captureFrame.familyKey;
+          modeledContextMetricKey = captureFrame.metricKey;
+          await selectModeledContextWindow(captureFrame.sourceWindowIndex);
+        }
+        if (captureFrame.view) {
+          map.setView([captureFrame.view.latitude, captureFrame.view.longitude], captureFrame.view.zoom, { animate: false });
+        }
+        setPanelCollapsed(true, false);
+        setLegendCollapsed(true, false);
+        await renderMapState();
+        return awaitAtlasCaptureReady();
+      }
+      globalThis.BijuxPollenomicsAtlasCapture = Object.freeze({
+        version: ATLAS_CAPTURE_API_VERSION,
+        applyFrame: applyAtlasCaptureFrame,
+        awaitReady: awaitAtlasCaptureReady,
+        snapshot: atlasCaptureSnapshot,
+      });
       function updateBasemapReadout(message) {
         basemapReadout.textContent = message;
       }
@@ -5222,6 +5405,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         slider.value = __INITIAL_DIAMETER__;
         timeStartBp = DEFAULT_TIME_START_BP;
         timeIntervalYears = DEFAULT_TIME_INTERVAL_YEARS;
+        focusSourceChronologyNavigation();
         densityOpacity = 0.6;
         densityOpacitySlider.value = '60';
         setPanelCollapsed(defaultPanelCollapsed(), false);
@@ -5256,6 +5440,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             : (shortcut === 'taxa' || shortcut === 'cereals' ? 'source_taxon' : 'source_ecological_code');
           if (!selectSourceChronologyLevel(targetLevel)) return;
           sourceChronologyTaxonSearch = shortcut === 'cereals' ? 'cereal|secale' : '';
+          sourceChronologyTaxonQuery.value = sourceChronologyTaxonSearch;
           if (targetLevel === 'source_ecological_code') {
             const layer = sourceChronologyLayerForLevel(targetLevel);
             activeSourceChronologyCode = normalizedSingleValue(

@@ -152,6 +152,7 @@ def test_time_controls_expose_canonical_interval_and_playback_direction() -> Non
 
 
 def test_desktop_header_is_compact_and_control_toggle_shows_direction() -> None:
+    assert "@media (min-width: 901px)" in MAP_DOCUMENT_TEMPLATE
     assert "width: min(880px, calc(100vw - 352px))" in MAP_DOCUMENT_TEMPLATE
     assert "width: min(460px, 100%)" in MAP_DOCUMENT_TEMPLATE
     assert "← Show controls" in MAP_DOCUMENT_TEMPLATE
