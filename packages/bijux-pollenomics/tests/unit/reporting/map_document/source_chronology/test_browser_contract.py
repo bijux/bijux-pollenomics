@@ -46,6 +46,21 @@ def test_controls_are_accessible_source_native_and_separate_from_modeled_context
     )
     assert "bins are not additive" in MAP_DOCUMENT_TEMPLATE
     assert "refreshTimeStepperStatus();" in MAP_DOCUMENT_TEMPLATE
+    assert "mobilePanelReturnFocus = timeStepperStatus" in MAP_DOCUMENT_TEMPLATE
+    assert (
+        "sourceChronologyLevel.focus({ preventScroll: true })" in MAP_DOCUMENT_TEMPLATE
+    )
+    assert (
+        "mobilePanelCloseButton.addEventListener('click', closeMobilePanel)"
+        in MAP_DOCUMENT_TEMPLATE
+    )
+    assert (
+        "mobilePanelReturnFocus.focus({ preventScroll: true })" in MAP_DOCUMENT_TEMPLATE
+    )
+    assert (
+        "classList.contains('atlas-capture-mode') ? 'auto' : 'smooth'"
+        in MAP_DOCUMENT_TEMPLATE
+    )
     assert "source-reported taxon and pollen-type labels" in MAP_DOCUMENT_TEMPLATE
     assert "not a species assertion" in MAP_DOCUMENT_TEMPLATE
     assert "chronology context only" in MAP_DOCUMENT_TEMPLATE

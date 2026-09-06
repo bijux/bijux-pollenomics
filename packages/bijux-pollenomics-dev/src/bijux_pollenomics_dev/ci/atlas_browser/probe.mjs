@@ -108,6 +108,7 @@ try {
     'default_sample_window', 'default_denominators', 'trsh_exact_state',
     'uphe_exact_state', 'aqvp_exact_state', 'secale_exact_state',
     'cereal_finder_exact_state', 'chronology_buttons_navigate', 'chronology_controls_persistent',
+    'chronology_status_action', 'basemap_discoverability',
     'comparison_refusal', 'capture_null_inputs_refused', 'responsive_1440',
     'responsive_1024', 'responsive_768', 'responsive_390',
     'reduced_motion_manual_navigation', 'no_basemap_zero_tile_requests',
@@ -217,12 +218,17 @@ async function verifyScope(scope, debuggerOrigin) {
         && layout.discoverability.chronology_status_uncovered
         && layout.discoverability.chronology_status_has_denominators
         && layout.discoverability.chronology_status_has_bp_interval
-        && layout.discoverability.chronology_controls_opened),
+        && layout.discoverability.chronology_status_has_active_facet
+        && layout.discoverability.chronology_status_visible_values_valid
+        && layout.discoverability.chronology_controls_opened
+        && layout.discoverability.chronology_controls_focused
+        && layout.discoverability.chronology_close_restored_focus),
       basemap_discoverability: [responsive[1440], responsive[390]].every((layout) => layout.discoverability.basemap_status_visible
         && layout.discoverability.basemap_status_bounded
         && layout.discoverability.basemap_status_uncovered
         && layout.discoverability.basemap_controls_opened
         && layout.discoverability.active_basemap_focused
+        && layout.discoverability.basemap_close_restored_focus
         && layout.discoverability.visible_provider_disclosure),
       source_slider_changes_visibility: Object.values(chronologyJourneys).every((journey) => journey.slider_values_applied
         && journey.visible_counts_within_denominator && journey.distinct_positive_visible_counts >= 2
@@ -700,43 +706,91 @@ async function discoverabilityFacts(cdp, width) {
     const basemapStatus = document.getElementById('basemap-readout');
     const viewControls = document.getElementById('view-controls');
     const basemapSwitch = document.getElementById('basemap-switch');
+    const sourceChronologyLevel = document.getElementById('source-chronology-level');
+    const sourceChronologyTaxon = document.getElementById('source-chronology-taxon');
+    const api = globalThis.BijuxPollenomicsAtlasCapture;
+    const snapshot = api.snapshot();
+    const sourceState = snapshot.source_chronology;
+    const escapePattern = (value) => String(value).replace(/[.*+?^\${}()|[\]\\]/g, '\\$&');
+    const selectedTaxonLabel = (sourceChronologyTaxon.selectedOptions[0]?.textContent || '').split(' · source taxon ')[0];
+    const facetLabel = sourceState.level === 'source_ecological_code'
+      ? 'literal source code ' + sourceState.source_code
+      : sourceState.level === 'source_taxon'
+        ? 'exact source label ' + selectedTaxonLabel + ' (' + String(sourceState.source_taxon).split(':').at(-1) + ')'
+        : 'source sample pollen presence';
     const chronologyStatusText = chronologyStatus.textContent || '';
+    const chronologyPattern = new RegExp(
+      '^' + escapePattern(facetLabel) + ' · (\\d+)/' + sourceState.facet_node_count
+        + ' nodes · (unavailable|\\d+)/' + sourceState.facet_observation_denominator
+        + ' observations · \\[' + snapshot.time_window_bp.younger_bp + ', '
+        + snapshot.time_window_bp.older_bp + '\\] BP$'
+    );
+    const chronologyMatch = chronologyStatusText.match(chronologyPattern);
+    const visibleNodeCount = chronologyMatch ? Number(chronologyMatch[1]) : null;
+    const visibleObservationCount = chronologyMatch && chronologyMatch[2] !== 'unavailable'
+      ? Number(chronologyMatch[2])
+      : null;
+    sourceControls.open = false;
+    viewControls.open = false;
+    if (${width} <= 900 && !sidebar.classList.contains('is-collapsed')) {
+      close.click();
+      await settle();
+    }
     const result = {
       chronology_status_visible: visible(chronologyStatus),
       chronology_status_bounded: bounded(chronologyStatus),
       chronology_status_uncovered: uncovered(chronologyStatus),
-      chronology_status_has_denominators: /\\d+\\/\\d+ nodes/.test(chronologyStatusText)
-        && /\\d+\\/\\d+ observations/.test(chronologyStatusText),
-      chronology_status_has_bp_interval: /\\[[0-9.]+, [0-9.]+\\] BP/.test(chronologyStatusText),
+      chronology_status_has_denominators: chronologyMatch !== null,
+      chronology_status_has_bp_interval: chronologyStatusText.includes(
+        '[' + snapshot.time_window_bp.younger_bp + ', ' + snapshot.time_window_bp.older_bp + '] BP'
+      ),
+      chronology_status_has_active_facet: chronologyStatusText.startsWith(facetLabel + ' · '),
+      chronology_status_visible_values_valid: Number.isInteger(visibleNodeCount)
+        && visibleNodeCount >= 0 && visibleNodeCount <= sourceState.facet_node_count
+        && Number.isInteger(visibleObservationCount)
+        && visibleObservationCount >= 0 && visibleObservationCount <= sourceState.facet_observation_denominator,
       chronology_controls_opened: false,
+      chronology_controls_focused: false,
+      chronology_close_restored_focus: ${width} > 900,
       basemap_status_visible: false,
       basemap_status_bounded: false,
       basemap_status_uncovered: false,
       basemap_controls_opened: false,
       active_basemap_focused: false,
+      basemap_close_restored_focus: ${width} > 900,
       visible_provider_disclosure: false,
     };
+    chronologyStatus.focus();
     chronologyStatus.click();
     await settle();
     result.chronology_controls_opened = sourceControls.open && !sidebar.classList.contains('is-collapsed');
+    result.chronology_controls_focused = document.activeElement === sourceChronologyLevel;
     if (${width} <= 900) {
       close.click();
       await settle();
+      result.chronology_close_restored_focus = document.activeElement === chronologyStatus;
     }
     result.basemap_status_visible = visible(basemapStatus);
     result.basemap_status_bounded = bounded(basemapStatus);
     result.basemap_status_uncovered = uncovered(basemapStatus);
+    viewControls.open = false;
+    basemapStatus.focus();
     basemapStatus.click();
     await settle();
     const activeBasemap = basemapSwitch.querySelector('.basemap-button.is-active');
+    const providerButtons = [...basemapSwitch.querySelectorAll('.basemap-button')];
     result.basemap_controls_opened = viewControls.open && !sidebar.classList.contains('is-collapsed');
     result.active_basemap_focused = document.activeElement === activeBasemap;
     const providerText = basemapSwitch.innerText;
-    result.visible_provider_disclosure = providerText.includes('OpenStreetMap · no key')
+    result.visible_provider_disclosure = visible(basemapSwitch) && bounded(basemapSwitch) && uncovered(basemapSwitch)
+      && providerButtons.length === 3
+      && providerButtons.every((button) => visible(button) && bounded(button) && uncovered(button))
+      && providerText.includes('OpenStreetMap · no key')
       && providerText.includes('OpenTopoMap · no key') && providerText.includes('Offline · no tiles');
     if (${width} <= 900) {
       close.click();
       await settle();
+      result.basemap_close_restored_focus = document.activeElement === basemapStatus;
     }
     return result;
   })()`);

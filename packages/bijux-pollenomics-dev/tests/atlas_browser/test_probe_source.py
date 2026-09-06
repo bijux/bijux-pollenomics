@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 import subprocess
 
 import bijux_pollenomics_dev.ci.atlas_browser as atlas_browser
+from bijux_pollenomics_dev.ci.atlas_browser.verdict import REQUIRED_ASSERTIONS
 
 
 def test_dependency_free_probe_is_valid_node_module() -> None:
@@ -17,6 +19,19 @@ def test_dependency_free_probe_is_valid_node_module() -> None:
     )
 
     assert completed.returncode == 0, completed.stderr
+
+
+def test_probe_emits_the_exact_independent_verdict_assertion_inventory() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    match = re.search(r"const required = \[(?P<body>.*?)\n  \];", probe, re.DOTALL)
+
+    assert match is not None
+    assert (
+        frozenset(re.findall(r"'([^']+)'", match.group("body"))) == REQUIRED_ASSERTIONS
+    )
 
 
 def test_page_readiness_uses_capture_api_and_mutation_observer() -> None:
@@ -126,6 +141,18 @@ def test_status_actions_prove_chronology_and_basemap_discoverability() -> None:
         "OpenTopoMap · no key",
         "Offline · no tiles",
         "document.activeElement === activeBasemap",
+        "sourceControls.open = false",
+        "viewControls.open = false",
+        "chronologyStatus.focus()",
+        "document.activeElement === sourceChronologyLevel",
+        "chronology_close_restored_focus",
+        "basemapStatus.focus()",
+        "basemap_close_restored_focus",
+        "providerButtons.every((button) => visible(button) && bounded(button) && uncovered(button))",
+        "sourceState.facet_node_count",
+        "sourceState.facet_observation_denominator",
+        "chronology_status_has_active_facet",
+        "chronology_status_visible_values_valid",
     ):
         assert literal in probe
     assert "chronology_status_action:" in probe
