@@ -26,14 +26,28 @@ def test_published_nordic_source_totals_are_derived_from_static_assets() -> None
             ("source_ecological_code", "TRSH"),
             ("source_ecological_code", "UPHE"),
             ("source_ecological_code", "AQVP"),
+            ("source_taxon", "source:neotoma:taxon:416"),
+            ("source_taxon", "source:neotoma:taxon:427"),
+            ("source_taxon", "source:neotoma:taxon:1947"),
+            ("source_taxon", "source:neotoma:taxon:3924"),
             ("source_taxon", "source:neotoma:taxon:967"),
+            ("source_taxon", "source:neotoma:taxon:3926"),
+            ("source_taxon", "source:neotoma:taxon:488"),
+            ("source_taxon", "source:neotoma:taxon:969"),
         )
     } == {
         "all": (9988, 215903),
         "TRSH": (9978, 114225),
         "UPHE": (9928, 91739),
         "AQVP": (4991, 9666),
+        "source:neotoma:taxon:416": (28, 28),
+        "source:neotoma:taxon:427": (257, 257),
+        "source:neotoma:taxon:1947": (375, 375),
+        "source:neotoma:taxon:3924": (2, 2),
         "source:neotoma:taxon:967": (469, 469),
+        "source:neotoma:taxon:3926": (191, 191),
+        "source:neotoma:taxon:488": (45, 45),
+        "source:neotoma:taxon:969": (153, 153),
     }
     assert len(authority.asset_sha256) == 124
     assert len(authority.digest) == 64

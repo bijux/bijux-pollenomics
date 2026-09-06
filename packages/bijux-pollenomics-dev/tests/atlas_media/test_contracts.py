@@ -16,6 +16,7 @@ from bijux_pollenomics_dev.ci.atlas_media.catalog import (
     DEFAULT_EXACT_TAXA,
     DEFAULT_MODELED_METRICS,
     LEGACY_PUBLICATION_STORY_TUPLES_V1,
+    LEGACY_PUBLICATION_STORY_TUPLES_V2,
     PUBLICATION_ASSET_COUNT,
     PUBLICATION_STORIES,
 )
@@ -26,7 +27,9 @@ def test_plan_requires_dedicated_repository_artifact_output(tmp_path: Path) -> N
     media_plan = plan(tmp_path)
 
     assert media_plan.artifact_root == tmp_path / "artifacts/media"
-    assert media_plan.selection == StorySelection()
+    assert media_plan.selection == StorySelection(
+        exact_taxa=("source:neotoma:taxon:967",)
+    )
     with pytest.raises(FrozenInstanceError):
         media_plan.width = 10  # type: ignore[misc]
     with pytest.raises(AtlasMediaError, match="even"):
@@ -34,10 +37,19 @@ def test_plan_requires_dedicated_repository_artifact_output(tmp_path: Path) -> N
 
 
 def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
-    assert DEFAULT_EXACT_TAXA == ("source:neotoma:taxon:967",)
+    assert DEFAULT_EXACT_TAXA == (
+        "source:neotoma:taxon:416",
+        "source:neotoma:taxon:427",
+        "source:neotoma:taxon:1947",
+        "source:neotoma:taxon:3924",
+        "source:neotoma:taxon:967",
+        "source:neotoma:taxon:3926",
+        "source:neotoma:taxon:488",
+        "source:neotoma:taxon:969",
+    )
     assert DEFAULT_MODELED_METRICS == ("Cerealia.t", "Secale", "OL")
-    assert len(PUBLICATION_STORIES) == 8
-    assert PUBLICATION_ASSET_COUNT == 16
+    assert len(PUBLICATION_STORIES) == 15
+    assert PUBLICATION_ASSET_COUNT == 30
     assert LEGACY_PUBLICATION_STORY_TUPLES_V1 == (
         (
             "neotoma-source-sample-presence",
@@ -82,7 +94,11 @@ def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
             "source_land_cover_types",
         ),
     )
-    assert len({story.story_id for story in PUBLICATION_STORIES}) == 8
+    assert LEGACY_PUBLICATION_STORY_TUPLES_V2[4][0] == (
+        "neotoma-source-taxon-967"
+    )
+    assert len(LEGACY_PUBLICATION_STORY_TUPLES_V2) == 8
+    assert len({story.story_id for story in PUBLICATION_STORIES}) == 15
     assert (
         len(
             {
@@ -90,7 +106,7 @@ def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
                 for story in PUBLICATION_STORIES
             }
         )
-        == 8
+        == 15
     )
 
 

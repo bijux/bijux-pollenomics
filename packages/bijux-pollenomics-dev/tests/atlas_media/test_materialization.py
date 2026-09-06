@@ -13,7 +13,6 @@ from bijux_pollenomics_dev.ci.atlas_media import (
     capture,
     runner,
 )
-from bijux_pollenomics_dev.ci.atlas_media.catalog import PUBLICATION_STORIES
 from bijux_pollenomics_dev.ci.atlas_media.contracts import SelectedStory
 from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     canonical_json_bytes,
@@ -249,7 +248,11 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
 
     gallery: Any = runner.materialize_atlas_media(media_plan)
 
-    assert gallery["story_count"] == len(PUBLICATION_STORIES)
+    assert gallery["story_count"] == (
+        4
+        + len(media_plan.selection.exact_taxa)
+        + len(media_plan.selection.modeled_metrics)
+    )
     modeled_gallery = gallery["stories"][-1]
     assert modeled_gallery["selector"]["value"] == "OL"
     assert modeled_gallery["frame_feature_denominators"] == [75] * 25

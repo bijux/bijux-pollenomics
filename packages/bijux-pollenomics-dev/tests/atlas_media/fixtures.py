@@ -19,7 +19,7 @@ from bijux_pollenomics.reporting.modeled_context.contracts import (
 )
 from bijux_pollenomics.reporting.modeled_context.metric_families import METRIC_FAMILIES
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasCandidate
-from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaPlan
+from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaPlan, StorySelection
 from bijux_pollenomics_dev.ci.atlas_media.source_authority import (
     SourceChronologyAuthority,
     SourceFacetAuthority,
@@ -317,6 +317,7 @@ def plan(root: Path) -> AtlasMediaPlan:
         atlas_manifest=atlas_manifest.relative_to(root).as_posix(),
         storyboard_manifest=storyboard.relative_to(root).as_posix(),
         candidate=AtlasCandidate(head, tree, head, BUILD_ID),
+        selection=StorySelection(exact_taxa=("source:neotoma:taxon:967",)),
     )
 
 

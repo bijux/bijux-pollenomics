@@ -735,10 +735,15 @@ def test_publication_refuses_uncontrolled_existing_destination(
     assert unexpected.read_text(encoding="utf-8") == "preserve me too\n"
 
 
+@pytest.mark.parametrize(
+    "legacy_contract", SUPPORTED_EXISTING_PUBLICATION_CONTRACTS[:-1]
+)
 def test_publication_replaces_recognized_existing_inventory(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    legacy_contract: tuple[str, tuple[StorySpec, ...]],
 ) -> None:
-    legacy_schema, legacy_inventory = SUPPORTED_EXISTING_PUBLICATION_CONTRACTS[0]
+    legacy_schema, legacy_inventory = legacy_contract
     destination = tmp_path / "published"
     legacy_source = _gallery(tmp_path / "legacy", stories=legacy_inventory)
 
