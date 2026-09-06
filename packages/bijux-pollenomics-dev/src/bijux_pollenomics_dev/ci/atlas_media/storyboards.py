@@ -216,7 +216,7 @@ def _selected_story(
         not isinstance(selector_family_value, str) or not selector_family_value.strip()
     ):
         raise AtlasMediaError("story selector family must be null or non-empty")
-    selector_family = cast("str | None", selector_family_value)
+    selector_family = selector_family_value
     if (
         story.get("temporal_direction") != "oldest_to_present"
         or story.get("interval_semantics") != "[younger_bp, older_bp]"

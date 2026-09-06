@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import cast
+
 import pytest
 
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
@@ -115,7 +117,8 @@ def test_generic_profile_has_an_exact_independent_verdict() -> None:
     )
 
     assert summary["status"] == "PASS"
-    assert set(summary["assertions"]) == GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS
+    assertions = cast(list[str], summary["assertions"])
+    assert set(assertions) == GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS
     with pytest.raises(AtlasBrowserContractError, match="profile differs"):
         evaluate_browser_report(
             report,

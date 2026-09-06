@@ -64,35 +64,35 @@ def test_plan_profiles_cannot_weaken_exact_nordic_verification(tmp_path: Path) -
     world = AtlasScope("world", nordic.document, nordic.manifest)
     browser = tmp_path / "brave"
     browser.write_text("binary", encoding="utf-8")
-    common = {
-        "repository_root": tmp_path,
-        "artifact_root": tmp_path / "artifacts/browser",
-        "browser_binary": browser,
-        "candidate": candidate(),
-    }
 
-    generic = BrowserVerificationPlan(
-        **common,
-        scopes=(world,),
-        verification_profile=GENERIC_TIME_AWARE_PROFILE,
+    def plan(*, scope: AtlasScope, profile: str) -> BrowserVerificationPlan:
+        return BrowserVerificationPlan(
+            repository_root=tmp_path,
+            artifact_root=tmp_path / "artifacts/browser",
+            browser_binary=browser,
+            candidate=candidate(),
+            scopes=(scope,),
+            verification_profile=profile,
+        )
+
+    generic = plan(
+        scope=world,
+        profile=GENERIC_TIME_AWARE_PROFILE,
     )
 
     assert BrowserVerificationPlan.from_json(generic.as_json()) == generic
     with pytest.raises(AtlasBrowserContractError, match="cannot replace exact nordic"):
-        BrowserVerificationPlan(
-            **common,
-            scopes=(nordic,),
-            verification_profile=GENERIC_TIME_AWARE_PROFILE,
+        plan(
+            scope=nordic,
+            profile=GENERIC_TIME_AWARE_PROFILE,
         )
     with pytest.raises(AtlasBrowserContractError, match="requires only the nordic"):
-        BrowserVerificationPlan(
-            **common,
-            scopes=(world,),
-            verification_profile=NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+        plan(
+            scope=world,
+            profile=NORDIC_SOURCE_CHRONOLOGY_PROFILE,
         )
     with pytest.raises(AtlasBrowserContractError, match="unsupported"):
-        BrowserVerificationPlan(
-            **common,
-            scopes=(world,),
-            verification_profile="looks-generic",
+        plan(
+            scope=world,
+            profile="looks-generic",
         )

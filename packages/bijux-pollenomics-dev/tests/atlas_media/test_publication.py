@@ -332,7 +332,7 @@ def test_publication_is_deterministic_bounded_and_excludes_run_artifacts(
     first = tmp_path / "published-first"
     second = tmp_path / "published-second"
 
-    manifest = _publish(source, first)
+    manifest: Any = _publish(source, first)
     _publish(source, second)
 
     expected_media = {
@@ -755,7 +755,7 @@ def test_publication_replaces_recognized_existing_inventory(
         publication, "PUBLICATION_SCHEMA_VERSION", PUBLICATION_SCHEMA_VERSION
     )
     current_source = _gallery(tmp_path / "current")
-    manifest = _publish(current_source, destination)
+    manifest: Any = _publish(current_source, destination)
 
     assert manifest["story_count"] == len(STORIES)
     assert {story["story_id"] for story in manifest["stories"]} == {

@@ -5,8 +5,8 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
-import shutil
-import subprocess  # nosec B404
+import shutil as shutil
+import subprocess as subprocess  # nosec B404
 from typing import cast
 
 from .contracts import AtlasMediaError, AtlasMediaPlan
