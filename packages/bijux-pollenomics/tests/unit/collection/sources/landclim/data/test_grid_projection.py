@@ -10,12 +10,30 @@ from bijux_pollenomics.collection.sources.landclim.collection import (
     build_landclim_grid_geojson,
     build_landclim_temporal_grid_geojson,
 )
+from bijux_pollenomics.collection.sources.landclim.time_windows import (
+    time_window_from_tw_filename,
+)
 from tests.support.geography import NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
 from tests.support.workbooks import write_landclim_ii_zip, write_xlsx
 
 GeoJsonFeature = dict[str, object]
 GeoJsonCollection = dict[str, list[GeoJsonFeature] | str]
 CountryBoundaries = Mapping[str, Mapping[str, object]]
+
+
+def _quality_workbook_rows() -> list[list[object]]:
+    canonical_windows = tuple(
+        time_window_from_tw_filename(f"TW{index}.csv") for index in range(1, 26)
+    )
+    return [
+        [
+            "LCGRID_ID",
+            "lonDD",
+            "latDD",
+            *(window.removesuffix(" BP") for window in canonical_windows),
+        ],
+        ["GC001", "17.5", "59.5", *(["1"] * 25)],
+    ]
 
 
 class LandClimGridProjectionTests(unittest.TestCase):
@@ -88,10 +106,7 @@ class LandClimGridProjectionTests(unittest.TestCase):
             write_xlsx(
                 raw_paths["landclim_ii_grid_cell_quality.xlsx"],
                 {
-                    "GC_quality_by_TW": [
-                        ["LCGRID_ID", "", "", "0-100 BP"],
-                        ["GC001", "", "", "1"],
-                    ]
+                    "GC_quality_by_TW": _quality_workbook_rows(),
                 },
             )
             write_landclim_ii_zip(
@@ -168,6 +183,7 @@ class LandClimGridProjectionTests(unittest.TestCase):
                 cast(dict[str, float], landclim_ii["standard_errors"])["PICEA"],
                 0.01,
             )
+            self.assertEqual(landclim_ii["quality_class"], "high")
             self.assertEqual(
                 cast(dict[str, object], landclim_ii["temporal_semantics"])[
                     "comparability_posture"

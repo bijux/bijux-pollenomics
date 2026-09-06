@@ -82,6 +82,59 @@ def test_spatial_indexes_and_chunk_bounds_exclude_impossible_coordinates() -> No
     assert selection["bounds"] == [0.0, 0.0, 0.0, 0.0]
 
 
+def test_null_interval_uses_valid_mean_age_across_state_and_static_metadata() -> None:
+    feature = {
+        "latitude": 59,
+        "longitude": 18,
+        "country": "Sweden",
+        "time_start_bp": None,
+        "time_end_bp": None,
+        "time_mean_bp": 123.25,
+    }
+    state = build_map_document_state(
+        policy=_policy(),
+        point_layers=[{"key": "sites", "features": [feature]}],
+        polygon_layers=[],
+    )
+    indexes = build_indexes([{"key": "sites", "features": [feature]}])
+    selection = node_asset_selection(
+        {
+            "layer_kind": "point",
+            "layer_index": 0,
+            "layer_key": "sites",
+            "country_keys": ["Sweden"],
+            "features": [feature],
+        }
+    )
+
+    assert (state.time_min_bp, state.time_max_bp) == (123, 124)
+    assert indexes["time_interval_feature_indexes"] == [[123.25, 123.25, "sites", 0]]
+    assert selection["time_min_bp"] == 123.25
+    assert selection["time_max_bp"] == 123.25
+    assert selection["untimed_record_count"] == 0
+
+
+def test_invalid_declared_mean_does_not_fall_through_to_year_age() -> None:
+    feature = {
+        "latitude": 59,
+        "longitude": 18,
+        "country": "Sweden",
+        "time_start_bp": None,
+        "time_end_bp": None,
+        "time_mean_bp": "bad",
+        "time_year_bp": 123,
+    }
+    state = build_map_document_state(
+        policy=_policy(),
+        point_layers=[{"key": "sites", "features": [feature]}],
+        polygon_layers=[],
+    )
+    indexes = build_indexes([{"key": "sites", "features": [feature]}])
+
+    assert not state.has_time_data
+    assert indexes["time_interval_feature_indexes"] == []
+
+
 def test_subgroup_is_a_first_class_scientific_resolution() -> None:
     evidence = normalize_atlas_evidence(
         detail_records=[],

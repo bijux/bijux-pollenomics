@@ -1789,6 +1789,7 @@
                     <button class="preset-button is-active" type="button" data-time-interval="full">Full span</button>
                   </div>
                   <button id="time-playback-toggle" class="inline-button" type="button" aria-pressed="false">Play oldest → present</button>
+                  <div class="search-meta">With one Neotoma source level active, automatic playback uses the exact selected sample, ecological-code, or taxon BP extent. Manual sliders retain the global atlas range.</div>
                   <div id="time-record-count" class="search-meta">Calculating time-aware records in the active BP window.</div>
                 </div>
               </details>
@@ -2644,6 +2645,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const numeric = Number(value);
         return Number.isFinite(numeric) ? numeric : null;
       }
+      function clampDiameter(value) {
+        const numeric = finiteControlNumber(value);
+        const selected = numeric === null ? __INITIAL_DIAMETER__ : numeric;
+        return Math.max(0, Math.min(100, Math.round(selected / 5) * 5));
+      }
       function clampTimeInterval(value) {
         const numeric = finiteControlNumber(value);
         const selected = numeric === null ? DEFAULT_TIME_INTERVAL_YEARS : numeric;
@@ -2671,23 +2677,48 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function timeFilterUsesFullExtent() {
         return timeStartBp <= TIME_MIN_BP && timeWindowEndBp() >= TIME_MAX_BP;
       }
-      function oldestPlaybackStart(intervalYears) {
-        return Math.max(TIME_MIN_BP, TIME_MAX_BP - clampTimeInterval(intervalYears));
+      function globalTimePlaybackExtent() {
+        return { time_min_bp: TIME_MIN_BP, time_max_bp: TIME_MAX_BP, selection_key: 'global' };
       }
-      function nextPlaybackTimeStart(currentStart, intervalYears) {
-        const start = clampTimeStart(currentStart, intervalYears);
-        return Math.max(TIME_MIN_BP, start - clampTimeInterval(intervalYears));
+      function selectedTimePlaybackExtent() {
+        const selection = sourceChronologyPlaybackSelection();
+        return selection || globalTimePlaybackExtent();
+      }
+      function clampPlaybackTimeStart(value, intervalYears, extent = selectedTimePlaybackExtent()) {
+        const interval = clampTimeInterval(intervalYears);
+        const maximumStart = Math.max(extent.time_min_bp, extent.time_max_bp - interval);
+        const numeric = finiteControlNumber(value);
+        const selected = numeric === null ? maximumStart : numeric;
+        return Math.max(extent.time_min_bp, Math.min(maximumStart, Math.round(selected)));
+      }
+      function oldestPlaybackStart(intervalYears, extent = selectedTimePlaybackExtent()) {
+        return Math.max(extent.time_min_bp, extent.time_max_bp - clampTimeInterval(intervalYears));
+      }
+      function nextPlaybackTimeStart(currentStart, intervalYears, extent = selectedTimePlaybackExtent()) {
+        const start = clampPlaybackTimeStart(currentStart, intervalYears, extent);
+        return Math.max(extent.time_min_bp, start - clampTimeInterval(intervalYears));
       }
       const MAX_AUTOMATIC_PLAYBACK_FRAMES = 1000;
-      function automaticPlaybackFrameCount(intervalYears) {
+      function automaticPlaybackFrameCount(intervalYears, extent = selectedTimePlaybackExtent()) {
         if (!TIME_HAS_DATA) return 0;
         const interval = clampTimeInterval(intervalYears);
-        if (interval >= TIME_INTERVAL_MAX) return 1;
-        return Math.ceil((TIME_MAX_BP - TIME_MIN_BP) / interval);
+        const span = Math.max(0, extent.time_max_bp - extent.time_min_bp);
+        if (interval >= span) return 1;
+        return Math.ceil(span / interval);
+      }
+      function automaticTimePlaybackInterval() {
+        if (
+          typeof modeledContextActive !== 'undefined'
+          && modeledContextActive
+          && typeof modeledContextPreviousTime !== 'undefined'
+          && modeledContextPreviousTime
+        ) return modeledContextPreviousTime.timeIntervalYears;
+        return timeIntervalYears;
       }
       function automaticTimePlaybackBlockReason() {
         if (reducedMotionQuery.matches) return 'Reduced motion is active; use the BP controls for manual navigation.';
-        const frameCount = automaticPlaybackFrameCount(timeIntervalYears);
+        const frameCount = automaticPlaybackFrameCount(automaticTimePlaybackInterval());
+        if (frameCount <= 1) return 'The selected chronology extent fits within one frame; use the BP controls for manual navigation.';
         if (frameCount > MAX_AUTOMATIC_PLAYBACK_FRAMES) {
           return `${frameCount} exact frames exceed the ${MAX_AUTOMATIC_PLAYBACK_FRAMES}-frame automatic limit; use manual BP navigation.`;
         }
@@ -2695,7 +2726,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function refreshTimePlaybackControl() {
         const blockReason = automaticTimePlaybackBlockReason();
-        const automaticAvailable = TIME_HAS_DATA && timeIntervalYears < TIME_INTERVAL_MAX && !blockReason;
+        const automaticAvailable = TIME_HAS_DATA && !blockReason;
         timePlaybackToggle.disabled = !automaticAvailable;
         timePlaybackToggle.title = blockReason;
         if (timePlaybackTimer === null) {
@@ -2704,33 +2735,45 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         }
       }
       let timePlaybackTimer = null;
+      let timePlaybackExtent = null;
       function stopTimePlayback() {
         if (timePlaybackTimer !== null) window.clearTimeout(timePlaybackTimer);
         timePlaybackTimer = null;
+        timePlaybackExtent = null;
         refreshTimePlaybackControl();
       }
       async function advanceTimePlayback() {
         if (timePlaybackTimer === null) return;
-        const nextStart = nextPlaybackTimeStart(timeStartBp, timeIntervalYears);
+        const currentSelection = selectedTimePlaybackExtent();
+        if (!timePlaybackExtent || currentSelection.selection_key !== timePlaybackExtent.selection_key) {
+          stopTimePlayback();
+          return;
+        }
+        const nextStart = nextPlaybackTimeStart(timeStartBp, timeIntervalYears, timePlaybackExtent);
         if (nextStart === timeStartBp) {
           stopTimePlayback();
           return;
         }
         timeStartBp = nextStart;
         await renderMapState();
-        if (timePlaybackTimer !== null && timeStartBp <= TIME_MIN_BP) {
+        if (timePlaybackTimer !== null && timeStartBp <= timePlaybackExtent.time_min_bp) {
           stopTimePlayback();
         } else if (timePlaybackTimer !== null) {
           timePlaybackTimer = window.setTimeout(advanceTimePlayback, 900);
         }
       }
       async function startTimePlayback() {
-        if (!TIME_HAS_DATA || timeIntervalYears >= TIME_INTERVAL_MAX || automaticTimePlaybackBlockReason()) {
+        if (!TIME_HAS_DATA) {
           stopTimePlayback();
           return;
         }
         deactivateModeledContext();
-        timeStartBp = oldestPlaybackStart(timeIntervalYears);
+        if (automaticTimePlaybackBlockReason()) {
+          stopTimePlayback();
+          return;
+        }
+        timePlaybackExtent = selectedTimePlaybackExtent();
+        timeStartBp = oldestPlaybackStart(timeIntervalYears, timePlaybackExtent);
         timePlaybackToggle.setAttribute('aria-pressed', 'true');
         timePlaybackToggle.textContent = 'Pause playback';
         timePlaybackTimer = -1;
@@ -2779,8 +2822,22 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       let modeledContextWindowIndex = 0;
       let modeledContextPlaybackTimer = null;
       let modeledContextPreviousTime = null;
+      function modeledContextQualityContractIsValid() {
+        const classes = MODELED_CONTEXT.quality_classes;
+        const counts = MODELED_CONTEXT.quality_class_counts;
+        if (MODELED_CONTEXT.schema_version !== 'modeled-context-manifest.v3') return false;
+        if (MODELED_CONTEXT.no_pollen_data_display_posture !== 'null_not_zero') return false;
+        if (!Array.isArray(classes) || classes.join('|') !== 'high|low|no_pollen_data') return false;
+        if (!counts || typeof counts !== 'object') return false;
+        const total = classes.reduce((sum, qualityClass) => {
+          const count = counts[qualityClass];
+          return Number.isSafeInteger(count) && count >= 0 ? sum + count : Number.NaN;
+        }, 0);
+        return total === MODELED_CONTEXT.feature_count;
+      }
       function modeledContextAvailable() {
         return MODELED_CONTEXT.status === 'available'
+          && modeledContextQualityContractIsValid()
           && MODELED_CONTEXT_WINDOWS.length === 25
           && MODELED_CONTEXT_FAMILIES.length === 3
           && currentModeledContextMetric() !== null;
@@ -2807,17 +2864,17 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return Boolean(window && isModeledContextFeature(layer, properties) && properties.time_label === window.label);
       }
       function modeledContextNumber(value) {
-        if (value === null || value === undefined || typeof value === 'boolean') return null;
-        const number = Number(value);
-        return Number.isFinite(number) ? number : null;
+        return typeof value === 'number' && Number.isFinite(value) ? value : null;
       }
       function modeledContextEstimate(properties) {
+        if (!properties || properties.quality_class === 'no_pollen_data') return null;
         const values = properties && properties.reconstruction_values;
         return values && typeof values === 'object'
           ? modeledContextNumber(values[modeledContextMetricKey])
           : null;
       }
       function modeledContextStandardError(properties) {
+        if (!properties || properties.quality_class === 'no_pollen_data') return null;
         const values = properties && properties.standard_errors;
         return values && typeof values === 'object'
           ? modeledContextNumber(values[modeledContextMetricKey])
@@ -2894,7 +2951,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             return polygonGeometryIsAdmitted(feature)
               && isModeledContextFeature(layer, properties)
               && properties.time_label === sourceWindow.label
-              && (!properties.country || activeCountries.has(properties.country));
+              && activeCountries.has(properties.country);
           })
           .sort((left, right) => String(left.properties.record_id || '').localeCompare(String(right.properties.record_id || '')));
       }
@@ -2902,11 +2959,23 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const sourceWindow = currentModeledContextWindow();
         const metricFamily = currentModeledContextFamily();
         const metric = currentModeledContextMetric();
-        const features = modeledContextFrameFeatures();
+        const sourceFeatures = modeledContextFrameFeatures();
+        const features = sourceFeatures.map((feature) => {
+          if (!feature.properties || feature.properties.quality_class !== 'no_pollen_data') return feature;
+          const properties = {
+            ...feature.properties,
+            reconstruction_values: Object.fromEntries(Object.keys(feature.properties.reconstruction_values || {}).map((key) => [key, null])),
+            standard_errors: Object.fromEntries(Object.keys(feature.properties.standard_errors || {}).map((key) => [key, null])),
+          };
+          return { ...feature, properties };
+        });
         const countryCounts = {};
+        const qualityClassCounts = {};
         features.forEach((feature) => {
           const country = String(feature.properties.country || 'UNASSIGNED');
           countryCounts[country] = (countryCounts[country] || 0) + 1;
+          const qualityClass = String(feature.properties.quality_class || 'UNAVAILABLE');
+          qualityClassCounts[qualityClass] = (qualityClassCounts[qualityClass] || 0) + 1;
         });
         return {
           type: 'FeatureCollection',
@@ -2928,12 +2997,25 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             land_cover_pft_reconciliation_count_denominator: MODELED_CONTEXT.land_cover_pft_reconciliation_count,
             source_window: sourceWindow,
             country_counts: Object.fromEntries(Object.entries(countryCounts).sort()),
+            quality_class_counts: Object.fromEntries(Object.entries(qualityClassCounts).sort()),
+            quality_class_count_denominator: features.length,
             evidence_role: 'context_only',
             propagation_use_allowed: false,
             interpolation_allowed: false,
+            quality_classes: MODELED_CONTEXT.quality_classes,
+            source_quality_class_counts: MODELED_CONTEXT.quality_class_counts,
+            no_pollen_data_display_posture: 'null_not_zero',
           },
           features,
         };
+      }
+      function modeledContextFrameQualitySummary() {
+        const counts = { high: 0, low: 0, no_pollen_data: 0 };
+        modeledContextFrameFeatures().forEach((feature) => {
+          const qualityClass = String(feature.properties?.quality_class || '');
+          if (Object.hasOwn(counts, qualityClass)) counts[qualityClass] += 1;
+        });
+        return counts;
       }
       function downloadModeledContextFrame() {
         if (!modeledContextActive) return;
@@ -2968,16 +3050,18 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           : '';
         modeledContextDownload.disabled = !modeledContextActive || modeledContextFrameFeatures().length === 0;
         const sourceWindow = currentModeledContextWindow();
+        const frameQuality = modeledContextFrameQualitySummary();
+        const visibleCellCount = modeledContextFrameFeatures().length;
         modeledContextSummary.textContent = modeledContextActive && sourceWindow ? `${metric.key} · ${sourceWindow.label}` : `PANGAEA 937075 · ${metric.key}`;
         const modeledContextStateText = modeledContextActive && sourceWindow
-          ? `${modeledContextFrameFeatures().length} visible cells · ${metric.source_label} (${metric.key}) percentage cover with source standard error · ${MODELED_CONTEXT.metric_count} source metrics reconciled · context only · no interpolation or propagation`
+          ? `${visibleCellCount} visible cells · ${frameQuality.no_pollen_data}/${visibleCellCount} explicitly have no pollen data and render as unavailable, never zero · ${metric.source_label} (${metric.key}) percentage cover with source standard error · ${MODELED_CONTEXT.metric_count} source metrics reconciled · context only · no interpolation or propagation`
           : 'Context mode is off. Select Show modeled metric to inspect exact published windows.';
         modeledContextState.textContent = reducedMotionQuery.matches
           ? `${modeledContextStateText} Automatic source-window playback is disabled by the reduced-motion preference; manual window selection and frame download remain available.`
           : modeledContextStateText;
         modeledContextLegend.hidden = !modeledContextActive;
         modeledContextLegend.innerHTML = modeledContextActive && sourceWindow
-          ? `<div class="legend-group-label">${escapeHtml(sourceWindow.label)} · ${escapeHtml(metric.source_label)} (${escapeHtml(metric.key)}) · ${escapeHtml(MODELED_CONTEXT.value_unit)}</div>${(MODELED_CONTEXT.palette || []).map((entry) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(entry.color)};border-color:#334155;"></span><span>${escapeHtml(entry.label)}</span></div>`).join('')}`
+          ? `<div class="legend-group-label">${escapeHtml(sourceWindow.label)} · ${escapeHtml(metric.source_label)} (${escapeHtml(metric.key)}) · ${escapeHtml(MODELED_CONTEXT.value_unit)}</div>${(MODELED_CONTEXT.palette || []).map((entry) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(entry.color)};border-color:#334155;"></span><span>${escapeHtml(entry.label)}</span></div>`).join('')}<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:#cbd5e1;border-color:#334155;"></span><span>No pollen data · N/A, not 0</span></div>`
           : '';
       }
       const SOURCE_CHRONOLOGY_LEVEL_ORDER = Object.freeze([
@@ -2993,13 +3077,25 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function sourceChronologyCount(value) {
         return Number.isSafeInteger(value) && value >= 0 ? value : null;
       }
-      function sourceChronologyFacetRowsAreValid(rows, { featureKey = false, taxon = false } = {}) {
+      function sourceChronologyTimeValue(value) {
+        return typeof value === 'number' && Number.isFinite(value) && value >= 0 ? value : null;
+      }
+      function sourceChronologyExtentIsValid(row) {
+        const nodeCount = sourceChronologyCount(row?.node_count);
+        if (nodeCount === null) return false;
+        const minimum = sourceChronologyTimeValue(row.time_min_bp);
+        const maximum = sourceChronologyTimeValue(row.time_max_bp);
+        if (nodeCount === 0) return row.time_min_bp === null && row.time_max_bp === null;
+        return minimum !== null && maximum !== null && minimum <= maximum;
+      }
+      function sourceChronologyFacetRowsAreValid(rows, { featureKey = false, taxon = false, timeExtent = false } = {}) {
         if (!Array.isArray(rows)) return false;
         const values = new Set();
         return rows.every((row) => {
           if (!row || typeof row !== 'object' || typeof row.value !== 'string' || !row.value.trim() || values.has(row.value)) return false;
           values.add(row.value);
           if (sourceChronologyCount(row.node_count) === null || sourceChronologyCount(row.observation_denominator) === null) return false;
+          if (timeExtent && !sourceChronologyExtentIsValid(row)) return false;
           if (featureKey && (typeof row.feature_key !== 'string' || !row.feature_key.trim())) return false;
           if (taxon && (typeof row.source_taxon_id !== 'string' || !row.source_taxon_id.trim() || typeof row.label !== 'string' || !row.label.trim())) return false;
           return true;
@@ -3011,17 +3107,18 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (layer.propagation_status !== 'refused' || layer.edge_count !== 0) return false;
         if (layer.temporal_direction !== 'oldest_to_present' || layer.interval_semantics !== '[younger_bp, older_bp]') return false;
         const facets = layer.facet_metadata;
-        if (!facets || facets.schema_version !== 'neotoma-source-chronology-facets.v1' || facets.node_level !== layer.node_level) return false;
+        if (!facets || facets.schema_version !== 'neotoma-source-chronology-facets.v2' || facets.node_level !== layer.node_level) return false;
         if (sourceChronologyCount(facets.node_count) === null || sourceChronologyCount(facets.observation_denominator) === null) return false;
+        if (!sourceChronologyExtentIsValid(facets)) return false;
         if (sourceChronologyCount(layer.count) !== facets.node_count) return false;
         if (!sourceChronologyFacetRowsAreValid(facets.country_counts) || !sourceChronologyFacetRowsAreValid(facets.source_unit_counts)) return false;
         if (facets.country_counts.map((row) => row.value).join('|') !== 'Sweden|Denmark|Norway|Finland') return false;
         if (layer.node_level === 'source_sample_presence' && layer.default_enabled !== true) return false;
         if (layer.node_level === 'source_ecological_code') {
-          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_ecological_codes, { featureKey: true })) return false;
+          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_ecological_codes, { featureKey: true, timeExtent: true })) return false;
         } else if (!Array.isArray(facets.source_ecological_codes) || facets.source_ecological_codes.length !== 0) return false;
         if (layer.node_level === 'source_taxon') {
-          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_taxa, { taxon: true })) return false;
+          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_taxa, { taxon: true, timeExtent: true })) return false;
         } else if (!Array.isArray(facets.source_taxa) || facets.source_taxa.length !== 0) return false;
         return true;
       }
@@ -3045,7 +3142,99 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (layer.node_level === 'source_taxon' && taxon !== 'all') {
           return facets.source_taxa.find((row) => row.value === taxon) || null;
         }
-        return { node_count: facets.node_count, observation_denominator: facets.observation_denominator };
+        return {
+          node_count: facets.node_count,
+          observation_denominator: facets.observation_denominator,
+          time_min_bp: facets.time_min_bp,
+          time_max_bp: facets.time_max_bp,
+        };
+      }
+      function sourceChronologyPlaybackSelection() {
+        if (typeof activeLayerKeys === 'undefined' || typeof activeSourceChronologyLevel === 'undefined') return null;
+        const layer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
+        if (!layer || !activeLayerKeys.has(layer.key)) return null;
+        const facet = sourceChronologyFacetForSelection(layer, activeSourceChronologyCode, activeSourceChronologyTaxon);
+        if (!facet || !sourceChronologyExtentIsValid(facet) || facet.node_count === 0) return null;
+        const minimum = Math.floor(sourceChronologyTimeValue(facet.time_min_bp));
+        const maximum = Math.ceil(sourceChronologyTimeValue(facet.time_max_bp));
+        return {
+          time_min_bp: minimum,
+          time_max_bp: maximum,
+          selection_key: [layer.key, activeSourceChronologyCode, activeSourceChronologyTaxon, minimum, maximum].join('|'),
+        };
+      }
+      function genericUntimedExclusion() {
+        const layers = ALL_LAYERS.filter((layer) => (
+          activeLayerKeys.has(layer.key)
+          && layer.applies_time_filter
+          && layer.semantic_role !== 'source_chronology_context'
+        ));
+        if (STATIC_ATLAS_INLINE) {
+          const count = layers.reduce((total, layer) => {
+            const pointFeatures = Array.isArray(layer.features) ? layer.features : [];
+            const polygonFeatures = Array.isArray(layer.geojson?.features)
+              ? layer.geojson.features.map((feature) => feature?.properties || {})
+              : [];
+            return total + pointFeatures.concat(polygonFeatures).filter((feature) => (
+              (!layer.applies_country_filter || activeCountries.has(feature.country))
+              && featureTimeAdmission(feature).status === 'untimed'
+            )).length;
+          }, 0);
+          return { status: 'available', count };
+        }
+        let count = 0;
+        let ambiguous = false;
+        const layersByKey = new Map(layers.map((layer) => [layer.key, layer]));
+        STATIC_ATLAS_BOOTSTRAP.assets
+          .filter((row) => row.domain === 'nodes' && layersByKey.has(row.layer_key))
+          .forEach((row) => {
+            const layer = layersByKey.get(row.layer_key);
+            const untimed = staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key} untimed record count`);
+            if (!layer.applies_country_filter) {
+              count += untimed;
+              return;
+            }
+            const countries = Array.isArray(row.country_keys)
+              ? row.country_keys.filter((country) => COUNTRIES.includes(country))
+              : [];
+            if (countries.length && countries.every((country) => activeCountries.has(country))) {
+              count += untimed;
+              return;
+            }
+            if (countries.some((country) => activeCountries.has(country)) && untimed > 0) ambiguous = true;
+          });
+        return ambiguous ? { status: 'unavailable', count: null } : { status: 'available', count };
+      }
+      function sourceChronologyUntimedExclusion(layer) {
+        if (!layer || !sourceChronologyLayerIsValid(layer)) return { status: 'unavailable', count: null };
+        if (STATIC_ATLAS_INLINE) {
+          const candidates = (layer.features || []).filter((feature) => (
+            sourceChronologyFeatureMatches(layer, feature)
+            && (!layer.applies_country_filter || activeCountries.has(feature.country))
+          ));
+          return {
+            status: 'available',
+            count: candidates.filter((feature) => featureTimeAdmission(feature).status === 'untimed').length,
+          };
+        }
+        const rows = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.domain === 'nodes' && row.layer_key === layer.key);
+        let count = 0;
+        let ambiguous = false;
+        rows.forEach((row) => {
+          const untimed = staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key} untimed record count`);
+          const countries = Array.isArray(row.country_keys) ? row.country_keys.filter((country) => country !== 'UNASSIGNED') : [];
+          if (!layer.applies_country_filter || (countries.length && countries.every((country) => activeCountries.has(country)))) {
+            count += untimed;
+            return;
+          }
+          if (countries.some((country) => activeCountries.has(country)) && untimed > 0) ambiguous = true;
+        });
+        const exactFacetSelected = (
+          (layer.node_level === 'source_ecological_code' && activeSourceChronologyCode !== 'all')
+          || (layer.node_level === 'source_taxon' && activeSourceChronologyTaxon !== 'all')
+        );
+        if (ambiguous || (exactFacetSelected && count > 0)) return { status: 'unavailable', count: null };
+        return { status: 'available', count };
       }
       function sourceChronologyFeatureMatches(layer, feature, code = activeSourceChronologyCode, taxon = activeSourceChronologyTaxon) {
         if (layer.semantic_role !== 'source_chronology_context') return true;
@@ -3295,12 +3484,15 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (!layer.applies_country_filter) return true;
         if (!activeCountries.size) return false;
         const countryKeys = Array.isArray(row.country_keys) ? row.country_keys : [];
-        if (countryKeys.includes('UNASSIGNED')) return true;
         return countryKeys.some((country) => activeCountries.has(country));
       }
       function staticAtlasTimeNeeded(row, layer) {
-        if (!layer.applies_time_filter || !TIME_HAS_DATA || timeFilterUsesFullExtent()) return true;
-        if (staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key} untimed record count`) === staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key} record count`)) return false;
+        if (!layer.applies_time_filter || !TIME_HAS_DATA) return true;
+        const allRecordsAreUntimed = staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key} untimed record count`) === staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key} record count`);
+        if (timeFilterUsesFullExtent()) {
+          return layer.semantic_role !== 'source_chronology_context' || !allRecordsAreUntimed;
+        }
+        if (allRecordsAreUntimed) return false;
         if (row.time_min_bp === null || row.time_max_bp === null) return true;
         return Number(row.time_max_bp) >= timeStartBp && Number(row.time_min_bp) <= timeWindowEndBp();
       }
@@ -3428,7 +3620,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         POINT_LAYERS.forEach((layer) => {
           if (!isAnimalLayer(layer) || !activeLayerKeys.has(layer.key)) return;
           (layer.features || []).forEach((feature) => {
-            if (layer.applies_country_filter && feature.country && !activeCountries.has(feature.country)) return;
+            if (layer.applies_country_filter && !activeCountries.has(feature.country)) return;
             if (!pointFeatureInTimeWindow(layer, feature)) return;
             entries.push({ layer, feature });
           });
@@ -3857,10 +4049,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           { label: 'Country', value: entry.feature.country || 'Unassigned' },
           { label: 'Coordinates', value: coordinateLabel(entry.feature, 4) },
         ];
-        const timeLabel = featureTimeLabel(entry.feature);
-        if (timeLabel) {
-          meta.splice(2, 0, { label: 'Date', value: timeLabel });
-        }
+        const timeDescriptor = featureTimeDescriptor(entry.feature);
+        if (timeDescriptor) meta.splice(2, 0, timeDescriptor);
         const nextFocus = {
           kind: 'point',
           layerKey: entry.layer.key,
@@ -3972,6 +4162,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function selectSourceChronologyLevel(level) {
         const layer = sourceChronologyLayerForLevel(level);
         if (!layer) return false;
+        stopTimePlayback();
         if (activeSourceChronologyLevel !== layer.node_level) sourceRecordConcentrationActive = false;
         activeSourceChronologyLevel = layer.node_level;
         sourceChronologyLayers().forEach((candidate) => activeLayerKeys.delete(candidate.key));
@@ -3985,7 +4176,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           return selectSourceChronologyLevel(layer.node_level);
         }
         if (enabled) activeLayerKeys.add(layer.key); else activeLayerKeys.delete(layer.key);
-        if (!enabled && layer.semantic_role === 'source_chronology_context') sourceRecordConcentrationActive = false;
+        if (!enabled && layer.semantic_role === 'source_chronology_context') {
+          stopTimePlayback();
+          sourceRecordConcentrationActive = false;
+        }
         return true;
       }
       function renderSourceChronologyControls() {
@@ -4025,7 +4219,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           return;
         }
         const unitCount = selectedLayer.facet_metadata.source_unit_counts.length;
-        sourceChronologySummary.textContent = `${selectedFacet.node_count} nodes · ${selectedFacet.observation_denominator} observations`;
+        const untimedExclusion = sourceChronologyUntimedExclusion(selectedLayer);
+        const extentLabel = `[${selectedFacet.time_min_bp}, ${selectedFacet.time_max_bp}] BP`;
+        const untimedLabel = untimedExclusion.status === 'available'
+          ? `${untimedExclusion.count} untimed source nodes excluded before viewport filtering`
+          : 'untimed source-node count unavailable for this exact filtered selection';
+        sourceChronologySummary.textContent = `${selectedFacet.node_count} nodes · ${selectedFacet.observation_denominator} observations · ${extentLabel}`;
         const concentrationEligible = sourceRecordConcentrationSelection(selectedLayer) !== null;
         sourceRecordConcentrationToggle.disabled = !concentrationEligible;
         sourceRecordConcentrationToggle.setAttribute('aria-pressed', String(sourceRecordConcentrationActive));
@@ -4035,7 +4234,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         sourceRecordConcentrationToggle.title = concentrationEligible
           ? 'Group admitted records at identical source sites without interpolation or value weighting.'
           : 'Choose exactly one active source level and, for code or taxon views, one exact source facet.';
-        sourceChronologyGlobalDenominator.textContent = `Global pre-filter denominator: ${selectedFacet.node_count} source nodes and ${selectedFacet.observation_denominator} contributing observations for ${sourceRecordConcentrationFacetLabel(selectedLayer)}.`;
+        sourceChronologyGlobalDenominator.textContent = `Global pre-filter denominator: ${selectedFacet.node_count} source nodes and ${selectedFacet.observation_denominator} contributing observations for ${sourceRecordConcentrationFacetLabel(selectedLayer)} · ${untimedLabel}.`;
         if (sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'available') {
           const snapshot = sourceRecordConcentrationSnapshot;
           const countryLabel = activeCountries.size ? [...activeCountries].sort().join(', ') : 'no active countries';
@@ -4043,7 +4242,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         } else if (sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'refused') {
           sourceChronologyState.textContent = `${sourceRecordConcentrationSnapshot.reason} No concentration symbols were rendered.`;
         } else {
-          sourceChronologyState.textContent = `${selectedFacet.node_count} source nodes · ${selectedFacet.observation_denominator} contributing observations · ${unitCount} literal source units · denominator before country and BP-window filters · chronology context only`;
+          sourceChronologyState.textContent = `${selectedFacet.node_count} source nodes · ${selectedFacet.observation_denominator} contributing observations · ${unitCount} literal source units · source playback extent ${extentLabel} · ${untimedLabel} · denominator before country and BP-window filters · chronology context only`;
         }
       }
       function renderLayerControls() {
@@ -4293,7 +4492,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const estimate = modeledContextEstimate(properties);
         const standardError = modeledContextStandardError(properties);
         const modeledRows = isPublishedModel && metric
-          ? `<div><strong>Selected source metric</strong> ${escapeHtml(metric.source_label)} (${escapeHtml(metric.key)})</div><div><strong>Estimate</strong> ${estimate === null ? 'Unavailable' : `${escapeHtml(estimate.toFixed(2))}%`}</div><div><strong>Source standard error</strong> ${standardError === null ? 'Unavailable' : `${escapeHtml(standardError.toFixed(2))} percentage points`}</div><div><strong>Metric definition</strong> ${escapeHtml(metric.definition || 'Unavailable in the companion source mapping table')}</div><div><strong>Evidence role</strong> Context only; not a pollen observation or propagation input</div><div><strong>Interpolation</strong> Not allowed between published windows</div><div><strong>Method</strong> <a href="${escapeHtml(MODELED_CONTEXT.method_doi)}" target="_blank" rel="noreferrer">${escapeHtml(MODELED_CONTEXT.method_citation)}</a></div><div><strong>Quality class</strong> ${escapeHtml(properties.quality_class || 'Unavailable in normalized row')}</div>`
+          ? `<div><strong>Selected source metric</strong> ${escapeHtml(metric.source_label)} (${escapeHtml(metric.key)})</div><div><strong>Estimate</strong> ${estimate === null ? 'Unavailable' : `${escapeHtml(estimate.toFixed(2))}%`}</div><div><strong>Source standard error</strong> ${standardError === null ? 'Unavailable' : `${escapeHtml(standardError.toFixed(2))} percentage points`}</div><div><strong>Metric definition</strong> ${escapeHtml(metric.definition || 'Unavailable in the companion source mapping table')}</div><div><strong>Evidence role</strong> Context only; not a pollen observation or propagation input</div><div><strong>Interpolation</strong> Not allowed between published windows</div><div><strong>Method</strong> <a href="${escapeHtml(MODELED_CONTEXT.method_doi)}" target="_blank" rel="noreferrer">${escapeHtml(MODELED_CONTEXT.method_citation)}</a></div><div><strong>Quality class</strong> ${escapeHtml(properties.quality_class === 'no_pollen_data' ? 'No pollen data — modeled values are N/A, not zero' : properties.quality_class || 'Unavailable in normalized row')}</div>`
           : '';
         return `<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Name</strong> ${escapeHtml(properties.name || '')}</div><div><strong>Type</strong> ${escapeHtml(properties.category || properties.geometry_type || '')}</div>${rowHtml}${modeledRows}${properties.source_url ? `<div><strong>Source</strong> <a href="${escapeHtml(properties.source_url)}" target="_blank" rel="noreferrer">Open</a></div>` : ''}</div>`;
       }
@@ -4350,41 +4549,56 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const count = finiteCountValue(value);
         return count === null ? 'mapped count unavailable' : `${count} mapped point${count === 1 ? '' : 's'}`;
       }
-      function featureTimeWindow(feature) {
-        const start = finiteTimeValue(feature.time_start_bp);
-        const end = finiteTimeValue(feature.time_end_bp);
-        const intervalDeclared = (
-          Object.prototype.hasOwnProperty.call(feature, 'time_start_bp')
-          || Object.prototype.hasOwnProperty.call(feature, 'time_end_bp')
-        );
-        if (intervalDeclared) {
-          if (start !== null && end !== null && start <= end) {
-            return { start, end };
+      function featureTimeAdmission(feature) {
+        const startDeclared = Object.prototype.hasOwnProperty.call(feature, 'time_start_bp');
+        const endDeclared = Object.prototype.hasOwnProperty.call(feature, 'time_end_bp');
+        if (startDeclared || endDeclared) {
+          const rawStart = feature.time_start_bp;
+          const rawEnd = feature.time_end_bp;
+          const startAbsent = rawStart === null || rawStart === undefined;
+          const endAbsent = rawEnd === null || rawEnd === undefined;
+          if (!startAbsent || !endAbsent) {
+            const start = finiteTimeValue(rawStart);
+            const end = finiteTimeValue(rawEnd);
+            if (start === null || end === null || start > end) return { status: 'invalid', window: null };
+            return { status: 'valid', window: { start, end } };
           }
-          return null;
         }
-        const mean = finiteTimeValue(feature.time_mean_bp);
-        if (mean !== null) {
-          return { start: mean, end: mean };
+        for (const field of ['time_mean_bp', 'time_year_bp']) {
+          if (!Object.prototype.hasOwnProperty.call(feature, field)) continue;
+          const rawValue = feature[field];
+          if (rawValue === null || rawValue === undefined) continue;
+          const value = finiteTimeValue(rawValue);
+          if (value === null) return { status: 'invalid', window: null };
+          return { status: 'valid', window: { start: value, end: value } };
         }
-        const year = finiteTimeValue(feature.time_year_bp);
-        if (year !== null) {
-          return { start: year, end: year };
-        }
-        return null;
+        return { status: 'untimed', window: null };
+      }
+      function featureTimeWindow(feature) {
+        return featureTimeAdmission(feature).window;
       }
       function featureInTimeWindow(layer, feature) {
+        const admission = featureTimeAdmission(feature);
+        if (admission.status === 'invalid') return false;
+        if (admission.status === 'untimed' && layer.semantic_role === 'source_chronology_context') return false;
         if (!layer.applies_time_filter || !TIME_HAS_DATA) return true;
-        const featureWindow = featureTimeWindow(feature);
-        if (!featureWindow) return timeFilterUsesFullExtent();
+        if (admission.status === 'untimed') {
+          return timeFilterUsesFullExtent();
+        }
+        const featureWindow = admission.window;
         const activeWindow = { start: timeStartBp, end: timeWindowEndBp() };
         return featureWindow.end >= activeWindow.start && featureWindow.start <= activeWindow.end;
       }
       function featureTimeLabel(feature) {
         const window = featureTimeWindow(feature);
-        if (!window) return '';
         if (feature.time_label) return String(feature.time_label);
+        if (!window) return '';
         return window.start === window.end ? `${window.start} BP` : `${window.start}-${window.end} BP`;
+      }
+      function featureTimeDescriptor(feature) {
+        const value = featureTimeLabel(feature);
+        if (!value) return null;
+        return { label: featureTimeWindow(feature) ? 'Date' : 'Chronology context', value };
       }
       function pointFeatureInTimeWindow(layer, feature) {
         return featureInTimeWindow(layer, feature);
@@ -4402,7 +4616,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return (
           activeLayerKeys.has(layer.key)
           && featureCoordinatePair(feature) !== null
-          && (!layer.applies_country_filter || !feature.country || activeCountries.has(feature.country))
+          && (!layer.applies_country_filter || activeCountries.has(feature.country))
           && pointFeatureInTimeWindow(layer, feature)
           && sourceChronologyFeatureMatches(layer, feature)
           && featureMatchesAnimalFilters(layer, feature)
@@ -4413,7 +4627,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const country = properties.country || '';
         return (
           activeLayerKeys.has(layer.key)
-          && (!layer.applies_country_filter || !country || activeCountries.has(country))
+          && (!layer.applies_country_filter || activeCountries.has(country))
           && modeledContextFeatureVisible(layer, properties)
           && featureInTimeWindow(layer, properties)
         );
@@ -4700,7 +4914,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
                       { label: 'Layer', value: layer.label },
                       { label: 'Country', value: properties.country || 'Unassigned' },
                       { label: 'Type', value: properties.category || properties.geometry_type || 'Polygon record' },
-                    ].concat(featureTimeLabel(properties) ? [{ label: 'Date', value: featureTimeLabel(properties) }] : []),
+                    ].concat(featureTimeDescriptor(properties) ? [featureTimeDescriptor(properties)] : []),
                     sourceUrl: properties.source_url || '',
                     bounds: bounds.isValid() ? [[bounds.getSouth(), bounds.getWest()], [bounds.getNorth(), bounds.getEast()]] : null,
                   });
@@ -4739,9 +4953,15 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           }).length;
         }, 0);
         const timedVisibleCount = timedVisiblePoints + timedVisiblePolygons;
-        const timeRecordSummary = TIME_HAS_DATA
+        let timeRecordSummary = TIME_HAS_DATA
           ? `${timedVisibleCount} time-aware records are visible in the active BP window.`
           : 'No time-aware records are available for BP filtering.';
+        if (TIME_HAS_DATA && !timeFilterUsesFullExtent()) {
+          const untimedExclusion = genericUntimedExclusion();
+          timeRecordSummary += untimedExclusion.status === 'available'
+            ? ` ${untimedExclusion.count} records without comparable BP chronology are excluded by this narrowed window.`
+            : ' The exact number of records excluded for missing comparable BP chronology is unavailable for this country selection.';
+        }
         const playbackBlockReason = automaticTimePlaybackBlockReason();
         timeRecordCount.textContent = playbackBlockReason
           ? `${timeRecordSummary} Automatic playback is disabled. ${playbackBlockReason}`
@@ -4765,7 +4985,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const matches = visiblePointEntries.filter(({ layer, feature }) => `${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''} ${featureTimeLabel(feature)}`.toLowerCase().includes(query)).slice(0, 12);
         searchCount.textContent = `${matches.length} matches · ${visiblePointEntries.length} visible`;
         searchResults.hidden = false;
-        searchResults.innerHTML = matches.map(({ layer, feature }, index) => `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(feature.subtitle || 'Unspecified type')}</span><div class="search-result-meta"><span class="search-badge">${escapeHtml(layer.label)}</span><span class="search-badge">${escapeHtml(feature.country || 'Unassigned')}</span>${featureTimeLabel(feature) ? `<span class="search-badge">${escapeHtml(featureTimeLabel(feature))}</span>` : ''}</div></button>`).join('') || '<div class="summary-item"><span>No visible records match the current query.</span></div>';
+        searchResults.innerHTML = matches.map(({ layer, feature }, index) => {
+          const timeDescriptor = featureTimeDescriptor(feature);
+          const timeBadge = timeDescriptor ? `<span class="search-badge">${escapeHtml(timeDescriptor.label)}: ${escapeHtml(timeDescriptor.value)}</span>` : '';
+          return `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(feature.subtitle || 'Unspecified type')}</span><div class="search-result-meta"><span class="search-badge">${escapeHtml(layer.label)}</span><span class="search-badge">${escapeHtml(feature.country || 'Unassigned')}</span>${timeBadge}</div></button>`;
+        }).join('') || '<div class="summary-item"><span>No visible records match the current query.</span></div>';
         searchResults.querySelectorAll('[data-search-index]').forEach((button, index) => {
           button.addEventListener('click', () => {
             const match = matches[index];
@@ -5041,6 +5265,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       sourceChronologyCode.addEventListener('change', () => {
         const layer = sourceChronologyLayerForLevel('source_ecological_code');
         if (!layer) return;
+        stopTimePlayback();
         activeSourceChronologyCode = normalizedSingleValue(
           sourceChronologyCode.value,
           ['all', ...layer.facet_metadata.source_ecological_codes.map((row) => row.value)],
@@ -5056,6 +5281,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       sourceChronologyTaxon.addEventListener('change', () => {
         const layer = sourceChronologyLayerForLevel('source_taxon');
         if (!layer) return;
+        stopTimePlayback();
         activeSourceChronologyTaxon = normalizedSingleValue(
           sourceChronologyTaxon.value,
           ['all', ...layer.facet_metadata.source_taxa.map((row) => row.value)],
@@ -5178,7 +5404,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       legendToggleButton.addEventListener('click', () => setLegendCollapsed(!legendCollapsed));
       window.addEventListener('resize', () => window.setTimeout(() => map.invalidateSize(), 120));
       densityOpacitySlider.value = String(Math.round(densityOpacity * 100));
-      slider.value = String(Number(initialState.diameter || __INITIAL_DIAMETER__));
+      slider.value = String(clampDiameter(initialState.diameter));
       setPanelCollapsed(panelPreferenceFromHash() ?? defaultPanelCollapsed(), false);
       renderCountryControls();
       renderLayerControls();

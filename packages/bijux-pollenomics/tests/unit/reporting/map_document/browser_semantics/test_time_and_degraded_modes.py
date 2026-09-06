@@ -25,6 +25,8 @@ const timeStartSlider={}, timeIntervalSlider={}, dockTimeSummary={};
 const timeStartValue={}, timeIntervalValue={};
 const window={clearTimeout(){},setTimeout(){return 1},location:{hash:''}};
 const mobileLayoutQuery={matches:false};
+const reducedMotionQuery={matches:false};
+function sourceChronologyPlaybackSelection(){return null}
 async function renderMapState(){}
 """
         + controls
@@ -40,13 +42,28 @@ while (true) {
 }
 timeStartBp=200; timeIntervalYears=100;
 const layer={applies_time_filter:true};
+const sourceLayer={applies_time_filter:true,semantic_role:'source_chronology_context'};
+const narrowUntimed=featureInTimeWindow(layer,{time_mean_bp:null});
+const touching=featureInTimeWindow(layer,{time_start_bp:100,time_end_bp:200});
+const outside=featureInTimeWindow(layer,{time_start_bp:0,time_end_bp:99});
+const reversed=featureInTimeWindow(layer,{time_start_bp:300,time_end_bp:200});
+timeStartBp=0; timeIntervalYears=1000;
 console.log(JSON.stringify({
   zeroStart:clampTimeStart(0,100),
   playback,
-  touching:featureInTimeWindow(layer,{time_start_bp:100,time_end_bp:200}),
-  outside:featureInTimeWindow(layer,{time_start_bp:0,time_end_bp:99}),
-  reversed:featureInTimeWindow(layer,{time_start_bp:300,time_end_bp:200}),
-  untimedNarrow:featureInTimeWindow(layer,{time_mean_bp:null}),
+  touching,
+  outside,
+  reversed,
+  untimedNarrow:narrowUntimed,
+  genericUntimedFullExtent:featureInTimeWindow(layer,{time_mean_bp:null}),
+  sourceUntimedFullExtent:featureInTimeWindow(sourceLayer,{time_mean_bp:null}),
+  negativeDeclaredFullExtent:featureInTimeWindow(layer,{time_start_bp:-1,time_end_bp:100}),
+  reversedDeclaredFullExtent:featureInTimeWindow(layer,{time_start_bp:300,time_end_bp:200}),
+  blankDeclaredFullExtent:featureInTimeWindow(layer,{time_start_bp:'',time_end_bp:''}),
+  partialDeclaredFullExtent:featureInTimeWindow(layer,{time_start_bp:100,time_end_bp:null}),
+  genuinelyUntimedFullExtent:featureInTimeWindow(layer,{}),
+  nullIntervalMeanFallback:featureInTimeWindow(layer,{time_start_bp:null,time_end_bp:null,time_mean_bp:123}),
+  invalidWithoutLayerFilter:featureInTimeWindow({applies_time_filter:false},{time_start_bp:'bad',time_end_bp:'bad'}),
 }));
 """
     )
@@ -58,7 +75,65 @@ console.log(JSON.stringify({
         "outside": False,
         "reversed": False,
         "untimedNarrow": False,
+        "genericUntimedFullExtent": True,
+        "sourceUntimedFullExtent": False,
+        "negativeDeclaredFullExtent": False,
+        "reversedDeclaredFullExtent": False,
+        "blankDeclaredFullExtent": False,
+        "partialDeclaredFullExtent": False,
+        "genuinelyUntimedFullExtent": True,
+        "nullIntervalMeanFallback": True,
+        "invalidWithoutLayerFilter": False,
     }
+
+    no_global_time = run_node_json(
+        """
+const TIME_HAS_DATA=false;
+let timeStartBp=0,timeIntervalYears=1000;
+function timeWindowEndBp(){return 1000}
+function timeFilterUsesFullExtent(){return true}
+const layer={applies_time_filter:true};
+const sourceLayer={applies_time_filter:false,semantic_role:'source_chronology_context'};
+"""
+        + intervals
+        + """
+console.log(JSON.stringify({
+  invalid:featureInTimeWindow(layer,{time_start_bp:'bad',time_end_bp:'bad'}),
+  untimedSource:featureInTimeWindow(sourceLayer,{time_start_bp:null,time_end_bp:null}),
+}));
+"""
+    )
+    assert no_global_time == {"invalid": False, "untimedSource": False}
+
+
+def test_contextual_source_label_is_displayed_but_not_time_admitted() -> None:
+    helpers = template_block(
+        "function finiteTimeValue", "function pointFeatureInTimeWindow"
+    )
+    observed = run_node_json(
+        """
+const TIME_HAS_DATA=true;
+let timeStartBp=0,timeIntervalYears=1000;
+function timeWindowEndBp(){return 1000}
+function timeFilterUsesFullExtent(){return true}
+const feature={time_start_bp:null,time_end_bp:null,time_label:'4700 BP'};
+const layer={applies_time_filter:true,semantic_role:'source_chronology_context'};
+"""
+        + helpers
+        + """
+console.log(JSON.stringify({label:featureTimeLabel(feature),descriptor:featureTimeDescriptor(feature),admitted:featureInTimeWindow(layer,feature)}));
+"""
+    )
+
+    assert observed == {
+        "label": "4700 BP",
+        "descriptor": {"label": "Chronology context", "value": "4700 BP"},
+        "admitted": False,
+    }
+    assert "].concat(featureTimeDescriptor(properties)" in MAP_DOCUMENT_TEMPLATE
+    assert "${escapeHtml(timeDescriptor.label)}: ${escapeHtml(timeDescriptor.value)}" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
 
 
 def test_time_controls_expose_canonical_interval_and_playback_direction() -> None:
@@ -68,6 +143,196 @@ def test_time_controls_expose_canonical_interval_and_playback_direction() -> Non
     assert "dockTimeSummary.textContent = `[${timeStartBp}, ${endBp}] BP`" in (
         MAP_DOCUMENT_TEMPLATE
     )
+
+
+def test_diameter_hash_value_is_finite_bounded_and_step_normalized() -> None:
+    helper = template_block(
+        "function finiteControlNumber", "function clampTimeInterval"
+    )
+    helper = helper.replace("__INITIAL_DIAMETER__", "40")
+    observed = run_node_json(
+        helper
+        + """
+console.log(JSON.stringify({
+  invalid:clampDiameter('abc'),
+  blank:clampDiameter(''),
+  low:clampDiameter(-20),
+  high:clampDiameter(140),
+  stepped:clampDiameter(42),
+  zero:clampDiameter(0),
+}));
+"""
+    )
+
+    assert observed == {
+        "invalid": 40,
+        "blank": 40,
+        "low": 0,
+        "high": 100,
+        "stepped": 40,
+        "zero": 0,
+    }
+
+
+def test_static_assets_keep_generic_untimed_context_at_full_extent() -> None:
+    helper = template_block(
+        "function staticAtlasTimeNeeded", "function staticAtlasSignalNeeded"
+    )
+    observed = run_node_json(
+        """
+const TIME_HAS_DATA=true;
+let timeStartBp=0,timeIntervalYears=1000;
+function timeWindowEndBp(){return timeStartBp+timeIntervalYears}
+function timeFilterUsesFullExtent(){return timeStartBp===0&&timeWindowEndBp()>=1000}
+function staticAtlasNonnegativeInteger(value){return Number(value)}
+const row={asset_key:'untimed',record_count:359,untimed_record_count:359,time_min_bp:null,time_max_bp:null};
+const generic={applies_time_filter:true,semantic_role:'archaeological_context'};
+const source={applies_time_filter:true,semantic_role:'source_chronology_context'};
+"""
+        + helper
+        + """
+const genericFull=staticAtlasTimeNeeded(row,generic);
+const sourceFull=staticAtlasTimeNeeded(row,source);
+timeStartBp=100;timeIntervalYears=100;
+console.log(JSON.stringify({genericFull,sourceFull,genericNarrow:staticAtlasTimeNeeded(row,generic)}));
+"""
+    )
+
+    assert observed == {
+        "genericFull": True,
+        "sourceFull": False,
+        "genericNarrow": False,
+    }
+
+
+def test_country_filtered_assets_require_a_governed_active_country() -> None:
+    helper = template_block(
+        "function staticAtlasCountryNeeded", "function staticAtlasTimeNeeded"
+    )
+    observed = run_node_json(
+        """
+const activeCountries=new Set(['Sweden']);
+const layer={applies_country_filter:true};
+"""
+        + helper
+        + """
+console.log(JSON.stringify({
+  sweden:staticAtlasCountryNeeded({country_keys:['Sweden']},layer),
+  norway:staticAtlasCountryNeeded({country_keys:['Norway']},layer),
+  unassigned:staticAtlasCountryNeeded({country_keys:['UNASSIGNED']},layer),
+  blank:staticAtlasCountryNeeded({country_keys:[]},layer),
+}));
+"""
+    )
+
+    assert observed == {
+        "sweden": True,
+        "norway": False,
+        "unassigned": False,
+        "blank": False,
+    }
+
+
+def test_country_filtered_features_refuse_blank_country_values() -> None:
+    visibility = template_block(
+        "function pointFeatureVisible", "function geoJsonPositionIsAdmitted"
+    )
+    observed = run_node_json(
+        """
+const activeLayerKeys=new Set(['points','polygons']);
+const activeCountries=new Set(['Sweden']);
+function featureCoordinatePair(){return {latitude:59,longitude:18}}
+function pointFeatureInTimeWindow(){return true}
+function sourceChronologyFeatureMatches(){return true}
+function featureMatchesAnimalFilters(){return true}
+function featureMatchesScientificSelection(){return true}
+function modeledContextFeatureVisible(){return true}
+function featureInTimeWindow(){return true}
+const points={key:'points',applies_country_filter:true};
+const polygons={key:'polygons',applies_country_filter:true};
+"""
+        + visibility
+        + """
+console.log(JSON.stringify({
+  pointSweden:pointFeatureVisible(points,{country:'Sweden'}),
+  pointBlank:pointFeatureVisible(points,{country:''}),
+  polygonSweden:polygonFeatureVisible(polygons,{country:'Sweden'}),
+  polygonBlank:polygonFeatureVisible(polygons,{country:''}),
+}));
+"""
+    )
+
+    assert observed == {
+        "pointSweden": True,
+        "pointBlank": False,
+        "polygonSweden": True,
+        "polygonBlank": False,
+    }
+
+
+def test_animal_candidates_refuse_blank_country_values() -> None:
+    helper = template_block("function animalCandidateEntries", "function animalEntryMatchesFilters")
+    observed = run_node_json(
+        """
+const layer={key:'animals',applies_country_filter:true,features:[
+  {record_id:'sweden',country:'Sweden'},
+  {record_id:'blank',country:''},
+]};
+const POINT_LAYERS=[layer];
+const activeLayerKeys=new Set(['animals']);
+const activeCountries=new Set(['Sweden']);
+function isAnimalLayer(){return true}
+function pointFeatureInTimeWindow(){return true}
+"""
+        + helper
+        + """
+console.log(JSON.stringify(animalCandidateEntries().map(({feature})=>feature.record_id)));
+"""
+    )
+
+    assert observed == ["sweden"]
+
+
+def test_generic_untimed_exclusion_reports_exact_or_ambiguous_denominator() -> None:
+    helper = template_block(
+        "function genericUntimedExclusion", "function sourceChronologyUntimedExclusion"
+    )
+    observed = run_node_json(
+        """
+let STATIC_ATLAS_INLINE=false;
+const COUNTRIES=['Denmark','Finland','Norway','Sweden'];
+const activeLayerKeys=new Set(['context']);
+const ALL_LAYERS=[{key:'context',applies_time_filter:true,applies_country_filter:true,semantic_role:'context'}];
+const STATIC_ATLAS_BOOTSTRAP={assets:[
+  {asset_key:'sweden',domain:'nodes',layer_key:'context',country_keys:['Sweden'],untimed_record_count:4},
+  {asset_key:'mixed',domain:'nodes',layer_key:'context',country_keys:['Sweden','Norway'],untimed_record_count:3},
+]};
+function staticAtlasNonnegativeInteger(value){return Number(value)}
+function featureTimeAdmission(feature){return {status:feature.status}}
+let activeCountries=new Set(COUNTRIES);
+"""
+        + helper
+        + """
+const all=genericUntimedExclusion();
+activeCountries=new Set(['Sweden']);
+const sweden=genericUntimedExclusion();
+STATIC_ATLAS_INLINE=true;
+ALL_LAYERS[0].features=[
+  {country:'Sweden',status:'untimed'},
+  {country:'Sweden',status:'valid'},
+  {country:'Sweden',status:'invalid'},
+  {country:'Norway',status:'untimed'},
+];
+const inline=genericUntimedExclusion();
+console.log(JSON.stringify({all,sweden,inline}));
+"""
+    )
+
+    assert observed == {
+        "all": {"status": "available", "count": 7},
+        "sweden": {"status": "unavailable", "count": None},
+        "inline": {"status": "available", "count": 1},
+    }
 
 
 def test_provider_failure_reaches_no_basemap_without_mutating_evidence() -> None:

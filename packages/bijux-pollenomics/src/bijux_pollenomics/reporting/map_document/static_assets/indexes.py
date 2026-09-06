@@ -57,18 +57,23 @@ def build_indexes(point_layers: Sequence[JsonObject]) -> dict[str, object]:
 
 def feature_interval(feature: dict[str, object]) -> tuple[float, float] | None:
     """Return a valid nonnegative point or interval age for a feature."""
-    start = finite_number(feature.get("time_start_bp"))
-    end = finite_number(feature.get("time_end_bp"))
     if "time_start_bp" in feature or "time_end_bp" in feature:
-        return (
-            (start, end)
-            if start is not None and end is not None and start <= end
-            else None
-        )
-    point = finite_number(feature.get("time_mean_bp"))
-    if point is None:
-        point = finite_number(feature.get("time_year_bp"))
-    return (point, point) if point is not None else None
+        raw_start = feature.get("time_start_bp")
+        raw_end = feature.get("time_end_bp")
+        if raw_start is not None or raw_end is not None:
+            start = finite_number(raw_start)
+            end = finite_number(raw_end)
+            return (
+                (start, end)
+                if start is not None and end is not None and start <= end
+                else None
+            )
+    for key in ("time_mean_bp", "time_year_bp"):
+        if key not in feature or feature.get(key) is None:
+            continue
+        point = finite_number(feature.get(key))
+        return (point, point) if point is not None else None
+    return None
 
 
 def finite_number(value: object) -> float | None:

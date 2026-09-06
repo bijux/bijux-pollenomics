@@ -28,15 +28,22 @@ def test_serialized_output_bytes_match_the_monolith_contract(tmp_path: Path) -> 
         render_sweden_land_use_synthesis_markdown(payload), encoding="utf-8"
     )
 
+    markdown = markdown_path.read_text(encoding="utf-8")
+    assert (
+        "| Finjasjön | 0-1000 BP | no_pollen_data | N/A | N/A | N/A | N/A | N/A |"
+        in markdown
+    )
+    assert "None" not in markdown
+
     assert (_digest(json_path), len(json_path.read_bytes())) == (
-        "098e02c38c20a5f015a7f1ef52288c5062c9c10e879355fceeb467bb4b835201",
-        2039,
+        "44650463a8811a4915dd57de70f0af21d61f8dd7de9383907bad8cd66004200c",
+        2106,
     )
     assert (_digest(csv_path), len(csv_path.read_bytes())) == (
-        "997f3b27b042ff37eb91209ada9d2631efc8f88f27ad1e8c1f113fc0a01413ff",
-        419,
+        "22313c20ac2263820e71fe4bd54e791f2f58ff23371623dde418fc6832282e59",
+        428,
     )
     assert (_digest(markdown_path), len(markdown_path.read_bytes())) == (
-        "dc79c828c65286ad3f91c4df2992c66372220b1b6336c23fd962e45e969ee8cd",
-        1908,
+        "5b7fa53969478ba2523090962343f027a999274513b8f94fc318426ff5674b3a",
+        1919,
     )

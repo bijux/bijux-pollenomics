@@ -6,6 +6,8 @@ from collections.abc import Mapping
 from pathlib import Path
 from zipfile import ZipFile
 
+from ..grid import _required_landclim_ii_quality_class
+
 
 def _merge_landclim_ii_time_windows(
     features: dict[tuple[str, str, str], dict[str, object]],
@@ -84,11 +86,13 @@ def _merge_landclim_ii_time_windows(
                         record_id=f"{cell_id}:{time_window}",
                     )
                     properties["standard_errors"] = error_values
-                    quality_label = quality_by_grid.get(cell_id, {}).get(
-                        time_window, ""
+                    quality_class = _required_landclim_ii_quality_class(
+                        quality_by_grid,
+                        grid_id=cell_id,
+                        time_window=time_window,
                     )
                     properties["quality_class"] = summarize_quality_labels(
-                        {quality_label} if quality_label else set()
+                        {quality_class}
                     )
                     features[("937075", cell_id, time_window)] = feature
 

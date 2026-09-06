@@ -15,6 +15,12 @@ GITHUMBI_CITATION: Final = (
 OPEN_LAND_METRIC_KEY: Final = "OL"
 OPEN_LAND_METRIC_LABEL: Final = "Open land"
 OPEN_LAND_VALUE_UNIT: Final = "percentage_cover"
+PANGAEA_QUALITY_CLASSES: Final = ("high", "low", "no_pollen_data")
+PANGAEA_QUALITY_CLASS_COUNTS: Final = {
+    "high": 628,
+    "low": 940,
+    "no_pollen_data": 307,
+}
 
 # The source publishes these discrete estimates. Their adjacency does not authorize
 # interpolation or conversion into a continuous chronology.
@@ -74,5 +80,7 @@ __all__ = [
     "PANGAEA_COUNTRY_CELL_COUNTS",
     "PANGAEA_DATASET_DOI",
     "PANGAEA_DATASET_ID",
+    "PANGAEA_QUALITY_CLASSES",
+    "PANGAEA_QUALITY_CLASS_COUNTS",
     "PANGAEA_WINDOWS_PRESENT_TO_OLDEST",
 ]

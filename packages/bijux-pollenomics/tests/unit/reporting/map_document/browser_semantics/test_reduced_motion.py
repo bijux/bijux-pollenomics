@@ -20,6 +20,7 @@ const mobileLayoutQuery={matches:false};
 const window={clearTimeout(){},setTimeout(){return 1},location:{hash:''}};
 async function renderMapState(){}
 function deactivateModeledContext(){}
+function sourceChronologyPlaybackSelection(){return null}
 """
         + controls
         + """
@@ -94,6 +95,7 @@ const mobileLayoutQuery={matches:false};
 const window={clearTimeout(){},setTimeout(){throw new Error('timer must not be scheduled')},location:{hash:''}};
 async function renderMapState(){}
 function deactivateModeledContext(){}
+function sourceChronologyPlaybackSelection(){return null}
 """
         + controls
         + """

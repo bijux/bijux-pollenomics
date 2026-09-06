@@ -21,7 +21,7 @@ class MapDocumentState:
     time_min_bp: int
 
 
-def _finite_bp_value(value: object) -> int | None:
+def _finite_bp_value(value: object) -> float | None:
     if value is None or isinstance(value, bool):
         return None
     if not isinstance(value, (int, float, str)):
@@ -32,23 +32,34 @@ def _finite_bp_value(value: object) -> int | None:
         return None
     if not math.isfinite(numeric) or numeric < 0:
         return None
-    return int(round(numeric))
+    return numeric
 
 
 def collect_feature_time_candidates(
-    time_candidates: set[int], feature: JsonObject
+    time_candidates: set[float], feature: JsonObject
 ) -> None:
     """Collect only complete canonical intervals or standalone point ages."""
-    start = _finite_bp_value(feature.get("time_start_bp"))
-    end = _finite_bp_value(feature.get("time_end_bp"))
     interval_declared = "time_start_bp" in feature or "time_end_bp" in feature
     if interval_declared:
-        if start is not None and end is not None and start <= end:
-            time_candidates.update((start, end))
-        return
-    for key in ("time_mean_bp", "time_year_bp"):
-        if (point_age := _finite_bp_value(feature.get(key))) is not None:
+        raw_start = feature.get("time_start_bp")
+        raw_end = feature.get("time_end_bp")
+        if raw_start is None and raw_end is None:
+            interval_declared = False
+        else:
+            start = _finite_bp_value(raw_start)
+            end = _finite_bp_value(raw_end)
+            if start is not None and end is not None and start <= end:
+                time_candidates.update((start, end))
+            return
+    if not interval_declared:
+        for key in ("time_mean_bp", "time_year_bp"):
+            if key not in feature or feature.get(key) is None:
+                continue
+            point_age = _finite_bp_value(feature.get(key))
+            if point_age is None:
+                return
             time_candidates.add(point_age)
+            return
 
 
 def build_map_document_state(
@@ -59,7 +70,7 @@ def build_map_document_state(
 ) -> MapDocumentState:
     """Build the shared derived state needed by the standalone map document."""
     initial_diameter_km = policy.initial_diameter_km
-    time_candidates: set[int] = set()
+    time_candidates: set[float] = set()
     map_points = [feature for layer in point_layers for feature in feature_list(layer)]
     for layer in point_layers:
         for feature in feature_list(layer):
@@ -76,8 +87,8 @@ def build_map_document_state(
     time_values = sorted(time_candidates)
     has_time_data = bool(time_values)
     if time_values:
-        time_min_bp = min(time_values)
-        time_max_bp = max(time_values)
+        time_min_bp = math.floor(min(time_values))
+        time_max_bp = math.ceil(max(time_values))
         max_time_span = max(1, time_max_bp - time_min_bp)
         initial_time_interval_years = max_time_span
         initial_time_start_bp = time_min_bp

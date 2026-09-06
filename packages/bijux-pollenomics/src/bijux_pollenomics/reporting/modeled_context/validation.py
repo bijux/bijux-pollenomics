@@ -12,6 +12,7 @@ from .contracts import (
     PANGAEA_COUNTRY_CELL_COUNTS,
     PANGAEA_DATASET_DOI,
     PANGAEA_DATASET_ID,
+    PANGAEA_QUALITY_CLASSES,
 )
 from .metric_families import LAND_COVER_COMPONENT_KEYS, PANGAEA_METRIC_KEYS
 
@@ -95,7 +96,7 @@ def validate_model_row(
     row: Mapping[str, object],
     *,
     expected_windows: Mapping[str, tuple[int, int]],
-) -> tuple[str, str]:
+) -> tuple[str, str, str]:
     """Validate identity, chronology, provenance, and all metric/error pairs."""
     record_id = str(row.get("record_id", "")).strip()
     if not record_id:
@@ -116,13 +117,18 @@ def validate_model_row(
         raise ModeledContextContractError(f"{record_id} has the wrong PANGAEA DOI")
     if row.get("value_unit") != OPEN_LAND_VALUE_UNIT:
         raise ModeledContextContractError(f"{record_id} has the wrong value unit")
+    quality_class = str(row.get("quality_class", "")).strip()
+    if quality_class not in PANGAEA_QUALITY_CLASSES:
+        raise ModeledContextContractError(
+            f"{record_id} has an unsupported or missing quality class"
+        )
     if row.get("temporal_comparability_posture") != "numeric_interval_with_caveat":
         raise ModeledContextContractError(f"{record_id} lacks modeled-time caveats")
     bibliography = row.get("bibliography_reference_keys")
     if not isinstance(bibliography, list) or "githumbi-et-al-2022" not in bibliography:
         raise ModeledContextContractError(f"{record_id} lacks Githumbi provenance")
     _validate_metric_pairs(row, record_id=record_id)
-    return label, country
+    return label, country, quality_class
 
 
 __all__ = [

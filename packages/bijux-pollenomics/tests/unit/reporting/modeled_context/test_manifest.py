@@ -36,6 +36,13 @@ def _complete_layer() -> dict[str, object]:
         for country, count in PANGAEA_COUNTRY_CELL_COUNTS.items():
             for _ in range(count):
                 record_number += 1
+                quality_class = (
+                    "high"
+                    if record_number <= 628
+                    else "low"
+                    if record_number <= 1_568
+                    else "no_pollen_data"
+                )
                 features.append(
                     {
                         "type": "Feature",
@@ -48,6 +55,7 @@ def _complete_layer() -> dict[str, object]:
                             "time_end_bp": end,
                             "source_url": PANGAEA_DATASET_DOI,
                             "value_unit": "percentage_cover",
+                            "quality_class": quality_class,
                             "temporal_comparability_posture": (
                                 "numeric_interval_with_caveat"
                             ),
@@ -70,6 +78,15 @@ def test_complete_inventory_builds_exact_oldest_to_present_contract() -> None:
 
     assert manifest["status"] == "available"
     assert manifest["feature_count"] == 1875
+    assert manifest["schema_version"] == "modeled-context-manifest.v3"
+    assert manifest["quality_classes"] == ["high", "low", "no_pollen_data"]
+    assert manifest["quality_class_counts"] == {
+        "high": 628,
+        "low": 940,
+        "no_pollen_data": 307,
+    }
+    assert manifest["no_pollen_data_display_posture"] == "null_not_zero"
+    assert manifest["download_schema_version"] == "modeled-context-visible-frame.v3"
     assert manifest["cell_count"] == 75
     assert manifest["country_cell_counts"] == {
         "Denmark": 6,
@@ -120,7 +137,7 @@ def test_missing_dataset_is_explicitly_unavailable() -> None:
     manifest = build_modeled_context_manifest([])
 
     assert manifest == {
-        "schema_version": "modeled-context-manifest.v2",
+        "schema_version": "modeled-context-manifest.v3",
         "status": "unavailable",
         "reason_code": "pangaea_937075_temporal_grid_not_available",
         "evidence_role": "context_only",
@@ -170,6 +187,7 @@ def _first_properties(layer: dict[str, object]) -> dict[str, object]:
         ("estimate", "OL estimate must be a finite number"),
         ("comparability", "lacks modeled-time caveats"),
         ("doi", "has the wrong PANGAEA DOI"),
+        ("quality", "has an unsupported or missing quality class"),
     ],
 )
 def test_scientifically_unsupported_rows_fail_closed(
@@ -181,8 +199,10 @@ def test_scientifically_unsupported_rows_fail_closed(
         cast(dict[str, object], row["reconstruction_values"])["OL"] = None
     elif mutation == "comparability":
         row["temporal_comparability_posture"] = "comparable"
-    else:
+    elif mutation == "doi":
         row["source_url"] = ""
+    else:
+        row["quality_class"] = ""
 
     with pytest.raises(ModeledContextContractError, match=message):
         build_modeled_context_manifest([layer])
@@ -196,6 +216,21 @@ def test_incomplete_country_window_inventory_fails_closed() -> None:
     with pytest.raises(
         ModeledContextContractError,
         match="Nordic country/window inventory is incomplete",
+    ):
+        build_modeled_context_manifest([layer])
+
+
+def test_quality_class_distribution_drift_fails_closed() -> None:
+    layer = _complete_layer()
+    geojson = cast(dict[str, object], layer["geojson"])
+    features = cast(list[dict[str, object]], geojson["features"])
+    row = cast(dict[str, object], features[-1]["properties"])
+    assert row["quality_class"] == "no_pollen_data"
+    row["quality_class"] = "high"
+
+    with pytest.raises(
+        ModeledContextContractError,
+        match="quality-class inventory differs from the source workbook",
     ):
         build_modeled_context_manifest([layer])
 
@@ -242,4 +277,9 @@ def test_repository_pangaea_surface_matches_presentation_contract() -> None:
     assert manifest["metric_count"] == 47
     assert manifest["estimate_standard_error_pair_count"] == 88_125
     assert manifest["land_cover_pft_reconciliation_count"] == 5_625
+    assert manifest["quality_class_counts"] == {
+        "high": 628,
+        "low": 940,
+        "no_pollen_data": 307,
+    }
     assert len(manifest["windows_oldest_to_present"]) == 25

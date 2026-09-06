@@ -78,6 +78,11 @@ def test_activation_selects_exact_source_window_and_hide_restores_generic_time()
         """
 const MODELED_CONTEXT = {
   status: 'available',
+  schema_version: 'modeled-context-manifest.v3',
+  feature_count: 1875,
+  quality_classes: ['high', 'low', 'no_pollen_data'],
+  quality_class_counts: {high:628, low:940, no_pollen_data:307},
+  no_pollen_data_display_posture: 'null_not_zero',
   layer_key: 'landclim-reveals-temporal-grid',
   dataset_id: '937075',
   default_metric_family_key: 'source_land_cover_types',
@@ -262,7 +267,7 @@ def test_hash_uses_one_unambiguous_modeled_or_generic_time_state() -> None:
 
 def test_metric_selection_is_source_scoped_and_null_safe() -> None:
     helper_block = template_block(
-        "function modeledContextFamilyByKey", "function modeledContextFillColor"
+        "function modeledContextFamilyByKey", "function stopModeledContextPlayback"
     )
     observed = run_node_json(
         """
@@ -280,7 +285,8 @@ const initialState = {modeledFamily:'exact_taxa',modeledMetric:'Picea'};
         + """
 const targetLayer={key:'landclim-reveals-temporal-grid'};
 const otherDataset={dataset_id:'897303'};
-const target={dataset_id:'937075',reconstruction_values:{OL:0,Picea:12.5},standard_errors:{OL:0,Picea:1.25}};
+const target={dataset_id:'937075',quality_class:'high',reconstruction_values:{OL:0,Picea:12.5},standard_errors:{OL:0,Picea:1.25}};
+const noPollen={dataset_id:'937075',quality_class:'no_pollen_data',reconstruction_values:{OL:27,Picea:12.5},standard_errors:{OL:3,Picea:1.25}};
 const hashRestored=[modeledContextFamilyKey,modeledContextMetricKey];
 modeledContextFamilyKey='source_land_cover_types'; modeledContextMetricKey='OL';
 const defaultValue=modeledContextEstimate(target);
@@ -291,6 +297,11 @@ console.log(JSON.stringify({
   selectedValue:modeledContextEstimate(target),
   selectedError:modeledContextStandardError(target),
   missingValue:modeledContextEstimate({dataset_id:'937075',reconstruction_values:{Picea:null}}),
+  blankValue:modeledContextEstimate({dataset_id:'937075',quality_class:'high',reconstruction_values:{Picea:''}}),
+  numericStringValue:modeledContextEstimate({dataset_id:'937075',quality_class:'high',reconstruction_values:{Picea:'0'}}),
+  noPollenValue:modeledContextEstimate(noPollen),
+  noPollenError:modeledContextStandardError(noPollen),
+  noPollenFill:modeledContextFillColor(modeledContextEstimate(noPollen)),
   target:isModeledContextFeature(targetLayer,target),
   other:isModeledContextFeature(targetLayer,otherDataset),
 }));
@@ -303,6 +314,83 @@ console.log(JSON.stringify({
         "selectedValue": 12.5,
         "selectedError": 1.25,
         "missingValue": None,
+        "blankValue": None,
+        "numericStringValue": None,
+        "noPollenValue": None,
+        "noPollenError": None,
+        "noPollenFill": "#cbd5e1",
         "target": True,
         "other": False,
+    }
+
+
+def test_quality_contract_and_legend_are_fail_closed_and_explicit() -> None:
+    assert "modeledContextQualityContractIsValid()" in MAP_DOCUMENT_TEMPLATE
+    assert "No pollen data · N/A, not 0" in MAP_DOCUMENT_TEMPLATE
+    assert "explicitly have no pollen data and render as unavailable, never zero" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "No pollen data — modeled values are N/A, not zero" in MAP_DOCUMENT_TEMPLATE
+
+
+def test_visible_frame_masks_no_pollen_values_without_mutating_source() -> None:
+    frame_block = template_block(
+        "function modeledContextFrameFeatures", "function downloadModeledContextFrame"
+    )
+    observed = run_node_json(
+        """
+const MODELED_CONTEXT = {
+  layer_key:'landclim-reveals-temporal-grid', dataset_id:'937075',
+  dataset_doi:'doi', method_citation:'citation', method_doi:'method',
+  value_unit:'percentage_cover', metric_count:47,
+  estimate_standard_error_pair_count:88125,
+  land_cover_pft_reconciliation_count:5625,
+  download_schema_version:'modeled-context-visible-frame.v3',
+  quality_classes:['high','low','no_pollen_data'],
+  quality_class_counts:{high:628,low:940,no_pollen_data:307},
+};
+const sourceWindow={label:'0-100 BP'};
+const family={key:'source_land_cover_types',label:'Land cover'};
+const metric={key:'OL',label:'Open land',source_label:'Open land (OL)',definition:'Open land'};
+const sourceFeatures=[
+  {type:'Feature',geometry:{type:'Polygon',coordinates:[]},properties:{record_id:'high-zero',dataset_id:'937075',country:'Sweden',time_label:'0-100 BP',quality_class:'high',reconstruction_values:{OL:0,Picea:2},standard_errors:{OL:0,Picea:1}}},
+  {type:'Feature',geometry:{type:'Polygon',coordinates:[]},properties:{record_id:'no-pollen',dataset_id:'937075',country:'Sweden',time_label:'0-100 BP',quality_class:'no_pollen_data',reconstruction_values:{OL:27,Picea:2},standard_errors:{OL:3,Picea:1}}},
+  {type:'Feature',geometry:{type:'Polygon',coordinates:[]},properties:{record_id:'norway',dataset_id:'937075',country:'Norway',time_label:'0-100 BP',quality_class:'high',reconstruction_values:{OL:8},standard_errors:{OL:1}}},
+  {type:'Feature',geometry:{type:'Polygon',coordinates:[]},properties:{record_id:'missing-country',dataset_id:'937075',time_label:'0-100 BP',quality_class:'high',reconstruction_values:{OL:9},standard_errors:{OL:1}}},
+];
+const POLYGON_LAYERS=[{key:'landclim-reveals-temporal-grid',geojson:{features:sourceFeatures}}];
+const activeCountries=new Set(['Sweden']);
+const modeledContextActive=true;
+function currentModeledContextWindow(){return sourceWindow}
+function currentModeledContextFamily(){return family}
+function currentModeledContextMetric(){return metric}
+function polygonGeometryIsAdmitted(){return true}
+function isModeledContextFeature(layer,properties){return layer.key===MODELED_CONTEXT.layer_key && properties.dataset_id===MODELED_CONTEXT.dataset_id}
+"""
+        + frame_block
+        + """
+const frame=modeledContextFrameGeoJson();
+console.log(JSON.stringify({
+  schema:frame.schema_version,
+  values:frame.features.map((feature)=>feature.properties.reconstruction_values),
+  errors:frame.features.map((feature)=>feature.properties.standard_errors),
+  qualityCounts:frame.modeled_context.quality_class_counts,
+  denominator:frame.modeled_context.quality_class_count_denominator,
+  sourceValues:sourceFeatures.map((feature)=>feature.properties.reconstruction_values),
+}));
+"""
+    )
+
+    assert observed == {
+        "schema": "modeled-context-visible-frame.v3",
+        "values": [{"OL": 0, "Picea": 2}, {"OL": None, "Picea": None}],
+        "errors": [{"OL": 0, "Picea": 1}, {"OL": None, "Picea": None}],
+        "qualityCounts": {"high": 1, "no_pollen_data": 1},
+        "denominator": 2,
+        "sourceValues": [
+            {"OL": 0, "Picea": 2},
+            {"OL": 27, "Picea": 2},
+            {"OL": 8},
+            {"OL": 9},
+        ],
     }

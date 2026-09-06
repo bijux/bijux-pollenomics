@@ -16,6 +16,8 @@ from .contracts import (
     PANGAEA_COUNTRY_CELL_COUNTS,
     PANGAEA_DATASET_DOI,
     PANGAEA_DATASET_ID,
+    PANGAEA_QUALITY_CLASSES,
+    PANGAEA_QUALITY_CLASS_COUNTS,
     PANGAEA_WINDOWS_PRESENT_TO_OLDEST,
 )
 from .metric_families import METRIC_FAMILIES, PANGAEA_METRIC_KEYS
@@ -28,7 +30,7 @@ from .validation import (
 
 def _unavailable(reason_code: str) -> dict[str, object]:
     return {
-        "schema_version": "modeled-context-manifest.v2",
+        "schema_version": "modeled-context-manifest.v3",
         "status": "unavailable",
         "reason_code": reason_code,
         "evidence_role": "context_only",
@@ -67,19 +69,28 @@ def build_modeled_context_manifest(
     record_ids = [str(row.get("record_id", "")).strip() for row in rows]
     if len(record_ids) != len(set(record_ids)):
         raise ModeledContextContractError("PANGAEA modeled record_ids are not unique")
-    counts = Counter(
+    admitted_rows = [
         validate_model_row(row, expected_windows=expected_windows) for row in rows
-    )
+    ]
+    inventory_counts = Counter((label, country) for label, country, _ in admitted_rows)
+    quality_counts = Counter(quality for _, _, quality in admitted_rows)
     expected_feature_count = len(expected_windows) * sum(
         PANGAEA_COUNTRY_CELL_COUNTS.values()
     )
     if len(rows) != expected_feature_count or any(
-        counts[(label, country)] != expected_country_count
+        inventory_counts[(label, country)] != expected_country_count
         for label in expected_windows
         for country, expected_country_count in PANGAEA_COUNTRY_CELL_COUNTS.items()
     ):
         raise ModeledContextContractError(
             "PANGAEA 937075 Nordic country/window inventory is incomplete"
+        )
+    if any(
+        quality_counts[quality_class] != expected_count
+        for quality_class, expected_count in PANGAEA_QUALITY_CLASS_COUNTS.items()
+    ):
+        raise ModeledContextContractError(
+            "PANGAEA 937075 quality-class inventory differs from the source workbook"
         )
     windows = [
         {
@@ -92,7 +103,7 @@ def build_modeled_context_manifest(
         for label, start, end in reversed(PANGAEA_WINDOWS_PRESENT_TO_OLDEST)
     ]
     return {
-        "schema_version": "modeled-context-manifest.v2",
+        "schema_version": "modeled-context-manifest.v3",
         "status": "available",
         "reason_code": None,
         "layer_key": LANDCLIM_TEMPORAL_LAYER_KEY,
@@ -115,9 +126,15 @@ def build_modeled_context_manifest(
         "interpolation_allowed": False,
         "cell_count": sum(PANGAEA_COUNTRY_CELL_COUNTS.values()),
         "feature_count": len(rows),
+        "quality_classes": list(PANGAEA_QUALITY_CLASSES),
+        "quality_class_counts": {
+            quality_class: quality_counts[quality_class]
+            for quality_class in PANGAEA_QUALITY_CLASSES
+        },
+        "no_pollen_data_display_posture": "null_not_zero",
         "country_cell_counts": dict(PANGAEA_COUNTRY_CELL_COUNTS),
         "windows_oldest_to_present": windows,
-        "download_schema_version": "modeled-context-visible-frame.v2",
+        "download_schema_version": "modeled-context-visible-frame.v3",
     }
 
 

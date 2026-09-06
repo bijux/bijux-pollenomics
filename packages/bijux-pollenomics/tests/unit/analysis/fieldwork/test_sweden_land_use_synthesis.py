@@ -46,6 +46,7 @@ def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
                             "time_end_bp": 2000,
                             "time_mean_bp": 1500,
                             "time_label": "1000-2000 BP",
+                            "quality_class": "high",
                             "reconstruction_values": {
                                 "ET": 20.0,
                                 "ST": 30.0,
@@ -128,11 +129,13 @@ def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
     )
 
     assert payload["target_count"] == 8
+    assert payload["schema_version"] == "sweden-land-use-synthesis.v2"
     assert payload["time_row_count"] == 7
     assert payload["landclim_covered_target_count"] == 7
     assert payload["landclim_uncovered_target_count"] == 1
     finja = next(row for row in payload["rows"] if row["target_name"] == "Finjasjön")
     assert finja["forest_cover"] == 50.0
+    assert finja["quality_class"] == "high"
     assert finja["open_land_cover"] == 50.0
     assert finja["agricultural_land_cover"] == 10.0
     assert finja["cereal_type_pollen_cover"] == 3.0

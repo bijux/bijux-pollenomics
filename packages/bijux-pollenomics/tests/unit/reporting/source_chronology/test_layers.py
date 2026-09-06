@@ -2,7 +2,10 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from typing import cast
+
+from bijux_pollenomics.reporting.source_chronology.facets import build_facet_metadata
 
 from .support import DETAIL_ID, projection
 
@@ -66,6 +69,8 @@ def test_selector_facets_carry_exact_node_and_observation_denominators() -> None
     code_facets = cast(
         dict[str, object], layers["source_ecological_code"]["facet_metadata"]
     )
+    assert code_facets["schema_version"] == "neotoma-source-chronology-facets.v2"
+    assert (code_facets["time_min_bp"], code_facets["time_max_bp"]) == (100, 125)
     assert code_facets["country_counts"] == [
         {"value": "Sweden", "node_count": 1, "observation_denominator": 1},
         {"value": "Denmark", "node_count": 0, "observation_denominator": 0},
@@ -80,6 +85,8 @@ def test_selector_facets_carry_exact_node_and_observation_denominators() -> None
             "feature_key": "source:neotoma:ecological-code:TRSH",
             "node_count": 1,
             "observation_denominator": 1,
+            "time_min_bp": 100,
+            "time_max_bp": 125,
         }
     ]
     taxon_facets = cast(dict[str, object], layers["source_taxon"]["facet_metadata"])
@@ -90,5 +97,90 @@ def test_selector_facets_carry_exact_node_and_observation_denominators() -> None
             "label": "Abies",
             "node_count": 1,
             "observation_denominator": 1,
+            "time_min_bp": 100,
+            "time_max_bp": 125,
         }
     ]
+
+
+def test_empty_facet_metadata_has_no_invented_time_extent() -> None:
+    metadata = build_facet_metadata([], node_level="source_taxon")
+
+    assert metadata["schema_version"] == "neotoma-source-chronology-facets.v2"
+    assert metadata["node_count"] == 0
+    assert metadata["observation_denominator"] == 0
+    assert metadata["time_min_bp"] is None
+    assert metadata["time_max_bp"] is None
+    assert metadata["source_taxa"] == []
+
+
+def test_selectable_facets_preserve_exact_independent_time_extents() -> None:
+    result, _atlas = projection()
+    by_level = {node.node_level: node for node in result.nodes}
+    trsh = by_level["source_ecological_code"]
+    acer = by_level["source_taxon"]
+    code_metadata = build_facet_metadata(
+        [
+            replace(trsh, node_id="code-trsh", younger_bp=0.75, older_bp=878.26),
+            replace(
+                trsh,
+                node_id="code-uphe",
+                feature_key="source:neotoma:ecological-code:UPHE",
+                source_ecological_group="UPHE",
+                younger_bp=20.5,
+                older_bp=30.25,
+            ),
+        ],
+        node_level="source_ecological_code",
+    )
+    taxon_metadata = build_facet_metadata(
+        [
+            replace(acer, node_id="taxon-acer", younger_bp=1.25, older_bp=500.75),
+            replace(
+                acer,
+                node_id="taxon-abies",
+                feature_key="source:neotoma:taxon:2",
+                source_taxon_id=2,
+                source_reported_name="Abies",
+                younger_bp=100.5,
+                older_bp=125.125,
+            ),
+        ],
+        node_level="source_taxon",
+    )
+
+    assert code_metadata["schema_version"] == ("neotoma-source-chronology-facets.v2")
+    assert (code_metadata["time_min_bp"], code_metadata["time_max_bp"]) == (
+        0.75,
+        878.26,
+    )
+    code_rows = {
+        str(row["value"]): row
+        for row in cast(
+            list[dict[str, object]], code_metadata["source_ecological_codes"]
+        )
+    }
+    assert (code_rows["TRSH"]["time_min_bp"], code_rows["TRSH"]["time_max_bp"]) == (
+        0.75,
+        878.26,
+    )
+    assert (code_rows["UPHE"]["time_min_bp"], code_rows["UPHE"]["time_max_bp"]) == (
+        20.5,
+        30.25,
+    )
+    taxon_rows = {
+        str(row["value"]): row
+        for row in cast(list[dict[str, object]], taxon_metadata["source_taxa"])
+    }
+    assert (
+        taxon_metadata["time_min_bp"],
+        taxon_metadata["time_max_bp"],
+    ) == (1.25, 500.75)
+    assert (
+        taxon_rows["source:neotoma:taxon:1"]["time_min_bp"],
+        taxon_rows["source:neotoma:taxon:1"]["time_max_bp"],
+    ) == (1.25, 500.75)
+    assert (
+        taxon_rows["source:neotoma:taxon:2"]["time_min_bp"],
+        taxon_rows["source:neotoma:taxon:2"]["time_max_bp"],
+    ) == (100.5, 125.125)

@@ -61,6 +61,7 @@ def test_land_use_package_has_small_intent_owned_modules() -> None:
         "interpretation.py",
         "models.py",
         "outputs.py",
+        "quality.py",
         "spatial.py",
         "synthesis.py",
         "targets.py",

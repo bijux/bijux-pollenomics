@@ -59,20 +59,23 @@ def test_metadata_contract_fails_closed_and_dense_layers_are_opt_in() -> None:
     observed = run_node_json(
         """
 function facets(level, rows={}) {
+  const withExtent=(row)=>({...row,time_min_bp:row.node_count ? 100 : null,time_max_bp:row.node_count ? 900 : null});
   return {
-    schema_version:'neotoma-source-chronology-facets.v1',
+    schema_version:'neotoma-source-chronology-facets.v2',
     node_level:level,
     node_count:2,
     observation_denominator:7,
+    time_min_bp:100,
+    time_max_bp:900,
     country_counts:[
       {value:'Sweden',node_count:2,observation_denominator:7},
       {value:'Denmark',node_count:0,observation_denominator:0},
       {value:'Norway',node_count:0,observation_denominator:0},
       {value:'Finland',node_count:0,observation_denominator:0},
-    ],
-    source_unit_counts:[{value:'percent',node_count:2,observation_denominator:7}],
-    source_ecological_codes:rows.codes || [],
-    source_taxa:rows.taxa || [],
+    ].map(withExtent),
+    source_unit_counts:[{value:'percent',node_count:2,observation_denominator:7}].map(withExtent),
+    source_ecological_codes:(rows.codes || []).map(withExtent),
+    source_taxa:(rows.taxa || []).map(withExtent),
   };
 }
 function layer(level, key, defaultEnabled, rows={}) {
@@ -111,6 +114,7 @@ console.log(JSON.stringify({
   directionRejected:sourceChronologyLayerIsValid(invalidDirection),
   countryOrderRejected:sourceChronologyLayerIsValid({...sample,facet_metadata:{...sample.facet_metadata,country_counts:[...sample.facet_metadata.country_counts].reverse()}}),
   malformedRejected:sourceChronologyLayerIsValid({...code,facet_metadata:null}),
+  stringExtentRejected:sourceChronologyLayerIsValid({...code,facet_metadata:{...code.facet_metadata,time_min_bp:'100'}}),
   codeSelected:sourceChronologyFeatureMatches(code,codeFeature,'TRSH','all'),
   codeExcluded:sourceChronologyFeatureMatches(code,codeFeature,'AQVP','all'),
   codeNullRejected:sourceChronologyFeatureMatches(code,{...codeFeature,source_ecological_code:null},'all','all'),
@@ -135,6 +139,7 @@ console.log(JSON.stringify({
         "directionRejected": False,
         "countryOrderRejected": False,
         "malformedRejected": False,
+        "stringExtentRejected": False,
         "codeSelected": True,
         "codeExcluded": False,
         "codeNullRejected": False,
@@ -161,7 +166,7 @@ def test_denominators_and_exact_source_identity_drive_selector_state() -> None:
     assert "denominator before country and BP-window filters" in renderer
 
 
-def test_hash_filters_are_distinct_and_main_time_playback_is_unchanged() -> None:
+def test_hash_filters_are_distinct_and_source_selection_drives_playback() -> None:
     assert "sourceChronologyLevel: params.get('source_chronology_level')" in (
         MAP_DOCUMENT_TEMPLATE
     )
@@ -196,6 +201,153 @@ def test_hash_filters_are_distinct_and_main_time_playback_is_unchanged() -> None
     assert "modeledContext" not in handlers
     assert "Play oldest → present" in MAP_DOCUMENT_TEMPLATE
     assert "direction: rtl" in MAP_DOCUMENT_TEMPLATE
+    assert "sourceChronologyPlaybackSelection()" in MAP_DOCUMENT_TEMPLATE
+    assert "source playback extent ${extentLabel}" in MAP_DOCUMENT_TEMPLATE
+    assert "automatic playback uses the exact selected sample" in MAP_DOCUMENT_TEMPLATE
+    assert "Manual sliders retain the global atlas range" in MAP_DOCUMENT_TEMPLATE
+    assert "untimed source nodes excluded before viewport filtering" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "stopTimePlayback();\n        activeSourceChronologyCode" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "stopTimePlayback();\n        activeSourceChronologyTaxon" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+
+
+def test_source_facet_extent_bounds_automatic_playback_without_global_empty_frames() -> (
+    None
+):
+    controls = template_block("function finiteControlNumber", "const initialState")
+    observed = run_node_json(
+        """
+const TIME_MIN_BP=0, TIME_MAX_BP=2700000, TIME_HAS_DATA=true;
+const DEFAULT_TIME_START_BP=2699900, DEFAULT_TIME_INTERVAL_YEARS=100;
+const TIME_INTERVAL_MAX=2700000;
+const reducedMotionQuery={matches:false};
+const timePlaybackToggle={setAttribute(){},textContent:'',disabled:false,title:''};
+const timeStartSlider={},timeIntervalSlider={},dockTimeSummary={};
+const timeStartValue={},timeIntervalValue={};
+const window={clearTimeout(){},setTimeout(){return 1},location:{hash:''}};
+const mobileLayoutQuery={matches:false};
+let timeStartBp=200,timeIntervalYears=100;
+let selection={time_min_bp:100,time_max_bp:900,selection_key:'taxon|41|100|900'};
+function sourceChronologyPlaybackSelection(){return selection}
+async function renderMapState(){}
+function deactivateModeledContext(){}
+"""
+        + controls
+        + """
+const extent=selectedTimePlaybackExtent();
+const starts=[];
+let cursor=oldestPlaybackStart(100,extent);
+while(true){starts.push(cursor);const next=nextPlaybackTimeStart(cursor,100,extent);if(next===cursor)break;cursor=next;}
+console.log(JSON.stringify({extent,frames:automaticPlaybackFrameCount(100),starts}));
+"""
+    )
+
+    assert observed == {
+        "extent": {
+            "time_min_bp": 100,
+            "time_max_bp": 900,
+            "selection_key": "taxon|41|100|900",
+        },
+        "frames": 8,
+        "starts": [800, 700, 600, 500, 400, 300, 200, 100],
+    }
+
+
+def test_playback_rechecks_restored_interval_after_leaving_modeled_context() -> None:
+    controls = template_block("function finiteControlNumber", "const initialState")
+    observed = run_node_json(
+        """
+const TIME_MIN_BP=0, TIME_MAX_BP=2700000, TIME_HAS_DATA=true;
+const DEFAULT_TIME_START_BP=2699900, DEFAULT_TIME_INTERVAL_YEARS=100;
+const TIME_INTERVAL_MAX=2700000;
+const reducedMotionQuery={matches:false};
+const timePlaybackToggle={setAttribute(){},textContent:'',disabled:false,title:''};
+const timeStartSlider={},timeIntervalSlider={},dockTimeSummary={};
+const timeStartValue={},timeIntervalValue={};
+const window={clearTimeout(){},setTimeout(){throw new Error('timer must not run')},location:{hash:''}};
+const mobileLayoutQuery={matches:false};
+let timeStartBp=200,timeIntervalYears=100;
+function sourceChronologyPlaybackSelection(){return {time_min_bp:100,time_max_bp:900,selection_key:'taxon'}}
+function deactivateModeledContext(){timeIntervalYears=1000}
+async function renderMapState(){throw new Error('blocked playback must not render')}
+"""
+        + controls
+        + """
+startTimePlayback().then(() => console.log(JSON.stringify({timer:timePlaybackTimer,interval:timeIntervalYears,disabled:timePlaybackToggle.disabled})));
+"""
+    )
+
+    assert observed == {"timer": None, "interval": 1000, "disabled": True}
+
+
+def test_untimed_exclusion_uses_previewport_asset_counts_and_refuses_ambiguity() -> (
+    None
+):
+    helpers = template_block(
+        "const SOURCE_CHRONOLOGY_LEVEL_ORDER",
+        "let activeCountries",
+    )
+    observed = run_node_json(
+        """
+const sourceLayer={
+  key:'source-code',node_level:'source_ecological_code',default_enabled:false,count:2,
+  semantic_role:'source_chronology_context',propagation_status:'refused',edge_count:0,
+  temporal_direction:'oldest_to_present',interval_semantics:'[younger_bp, older_bp]',
+  applies_country_filter:true,
+  facet_metadata:{
+    schema_version:'neotoma-source-chronology-facets.v2',node_level:'source_ecological_code',
+    node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900,
+    country_counts:[
+      {value:'Sweden',node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900},
+      {value:'Denmark',node_count:0,observation_denominator:0,time_min_bp:null,time_max_bp:null},
+      {value:'Norway',node_count:0,observation_denominator:0,time_min_bp:null,time_max_bp:null},
+      {value:'Finland',node_count:0,observation_denominator:0,time_min_bp:null,time_max_bp:null},
+    ],
+    source_unit_counts:[{value:'percent',node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900}],
+    source_ecological_codes:[{value:'TRSH',label:'TRSH',feature_key:'source:code:TRSH',node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900}],
+    source_taxa:[],
+  },
+};
+const POINT_LAYERS=[sourceLayer];
+const STATIC_ATLAS_INLINE=false;
+let STATIC_ATLAS_BOOTSTRAP={assets:[
+  {asset_key:'sweden',domain:'nodes',layer_key:'source-code',country_keys:['Sweden'],record_count:2,untimed_record_count:1},
+  {asset_key:'norway',domain:'nodes',layer_key:'source-code',country_keys:['Norway'],record_count:2,untimed_record_count:2},
+]};
+const activeLayerKeys=new Set(['source-code']);
+let activeCountries=new Set(['Sweden']);
+let activeSourceChronologyLevel='source_ecological_code';
+let activeSourceChronologyCode='all';
+let activeSourceChronologyTaxon='all';
+function staticAtlasNonnegativeInteger(value){return Number(value)}
+function featureTimeWindow(){return null}
+"""
+        + helpers
+        + """
+const exact=sourceChronologyUntimedExclusion(sourceLayer);
+STATIC_ATLAS_BOOTSTRAP={assets:[
+  {asset_key:'mixed',domain:'nodes',layer_key:'source-code',country_keys:['Sweden','Norway'],record_count:4,untimed_record_count:1},
+]};
+const mixed=sourceChronologyUntimedExclusion(sourceLayer);
+STATIC_ATLAS_BOOTSTRAP={assets:[
+  {asset_key:'sweden',domain:'nodes',layer_key:'source-code',country_keys:['Sweden'],record_count:2,untimed_record_count:1},
+]};
+activeSourceChronologyCode='TRSH';
+const facet=sourceChronologyUntimedExclusion(sourceLayer);
+console.log(JSON.stringify({exact,mixed,facet}));
+"""
+    )
+
+    assert observed == {
+        "exact": {"status": "available", "count": 1},
+        "mixed": {"status": "unavailable", "count": None},
+        "facet": {"status": "unavailable", "count": None},
+    }
 
 
 def test_point_visibility_applies_source_filter_without_touching_other_layers() -> None:
@@ -248,6 +400,8 @@ const activeLayerKeys=new Set(['sample','code','taxon']);
 let activeSourceChronologyLevel='source_sample_presence';
 function sourceChronologyLayers(){return sourceLayers}
 function sourceChronologyLayerForLevel(level){return sourceLayers.find((layer)=>layer.node_level===level)||null}
+function stopTimePlayback(){}
+let sourceRecordConcentrationActive=false;
 """
         + helpers
         + """

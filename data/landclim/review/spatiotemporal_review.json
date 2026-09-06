@@ -1,6 +1,6 @@
 {
   "schema_version": "landclim-spatiotemporal-review.v1",
-  "generated_on": "2026-09-04",
+  "generated_on": "2026-09-06",
   "source": "LandClim",
   "site_sequence_count": 490,
   "numeric_site_interval_count": 480,
