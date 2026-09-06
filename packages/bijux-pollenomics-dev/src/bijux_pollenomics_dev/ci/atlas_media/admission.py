@@ -51,13 +51,9 @@ def _require_candidate(plan: AtlasMediaPlan) -> None:
     for field, value in observed.items():
         if expected[field] != value:
             raise AtlasMediaError(f"candidate identity mismatch: {field}")
-    if _git(
-        plan.repository_root,
-        "status",
-        "--porcelain=v1",
-        "--untracked-files=no",
-    ):
-        raise AtlasMediaError("tracked worktree changes make the candidate mutable")
+    # The renderer consumes immutable candidate blobs, so unrelated tracked edits
+    # may proceed concurrently. Every governed input is still required to match
+    # HEAD exactly before and after rendering.
     _require_governed_inputs_at_head(plan)
 
 

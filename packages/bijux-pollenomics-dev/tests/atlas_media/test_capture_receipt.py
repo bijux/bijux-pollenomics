@@ -39,39 +39,7 @@ def test_capture_receipt_must_reconcile_every_frame(tmp_path: Path) -> None:
         capture._validate_capture_receipt(receipt, plan=media_plan, stories=(story,))
 
 
-@pytest.mark.parametrize(
-    "tracked_status",
-    (
-        " M docs/report/regions/nordic/nordic_map.html",
-        "M  docs/report/regions/nordic/nordic_map.html",
-    ),
-    ids=("unstaged", "staged"),
-)
-def test_candidate_refuses_tracked_worktree_changes(
-    tmp_path: Path,
-    monkeypatch: pytest.MonkeyPatch,
-    tracked_status: str,
-) -> None:
-    media_plan = plan(tmp_path)
-
-    def fake_git(_root: Path, *arguments: str) -> str:
-        if arguments == ("rev-parse", "HEAD"):
-            return media_plan.candidate.repository_head
-        if arguments == ("rev-parse", "HEAD^{tree}"):
-            return media_plan.candidate.repository_tree
-        if arguments[:3] == ("log", "-1", "--format=%H"):
-            return media_plan.candidate.atlas_output_commit
-        if arguments == ("status", "--porcelain=v1", "--untracked-files=no"):
-            return tracked_status
-        return ""
-
-    monkeypatch.setattr(admission, "_git", fake_git)
-
-    with pytest.raises(AtlasMediaError, match="tracked worktree"):
-        admission._require_candidate(media_plan)
-
-
-def test_candidate_check_excludes_untracked_and_ignored_artifacts(
+def test_candidate_check_targets_governed_inputs_instead_of_unrelated_work(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     media_plan = plan(tmp_path)
@@ -90,8 +58,6 @@ def test_candidate_check_excludes_untracked_and_ignored_artifacts(
             return media_plan.candidate.repository_tree
         if arguments[:3] == ("log", "-1", "--format=%H"):
             return media_plan.candidate.atlas_output_commit
-        if arguments == ("status", "--porcelain=v1", "--untracked-files=no"):
-            return ""
         if arguments[:3] == ("ls-files", "--error-unmatch", "--"):
             return "\n".join(arguments[3:])
         if arguments[:3] == ("ls-files", "-s", "--"):
@@ -107,8 +73,8 @@ def test_candidate_check_excludes_untracked_and_ignored_artifacts(
 
     admission._require_candidate(media_plan)
 
-    assert ("status", "--porcelain=v1", "--untracked-files=no") in calls
-    assert not any("--untracked-files=all" in arguments for arguments in calls)
+    assert not any(arguments[0] == "status" for arguments in calls)
+    assert ("ls-files", "--error-unmatch", "--", *governed_paths) in calls
 
 
 def test_candidate_refuses_untracked_governed_input(
@@ -128,8 +94,6 @@ def test_candidate_refuses_untracked_governed_input(
             return media_plan.candidate.repository_tree
         if arguments[:3] == ("log", "-1", "--format=%H"):
             return media_plan.candidate.atlas_output_commit
-        if arguments == ("status", "--porcelain=v1", "--untracked-files=no"):
-            return ""
         if arguments[:3] == ("ls-files", "--error-unmatch", "--"):
             return "\n".join(arguments[3:-1])
         raise AssertionError(f"unexpected git arguments: {arguments}")
