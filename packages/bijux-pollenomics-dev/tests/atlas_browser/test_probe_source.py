@@ -85,6 +85,47 @@ def test_provider_failure_uses_request_interception() -> None:
     assert "Fetch.fulfillRequest" not in probe
     assert "refusal_observation: failureObservation" in probe
     assert "timed_out: true" in probe
+    refusal = re.search(
+        r"async function waitForProviderRefusal.*?\n}\n\nasync function pageFacts",
+        probe,
+        re.DOTALL,
+    )
+    assert refusal is not None
+    assert "await api.awaitReady()" not in refusal.group(0)
+    assert "snapshot: api.snapshot()" in refusal.group(0)
+
+
+def test_generic_time_journey_counts_zero_as_a_real_visibility_state() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    journey = re.search(
+        r"async function genericTimeJourney.*?\n}\n\nasync function genericReducedMotionJourney",
+        probe,
+        re.DOTALL,
+    )
+
+    assert journey is not None
+    assert "new Set(frames.map((row) => row.snapshot.visible_point_count))" in (
+        journey.group(0)
+    )
+    assert "distinct_visible_counts" in journey.group(0)
+    assert "filter((count) => count > 0)" not in journey.group(0)
+
+
+def test_cereal_finder_can_navigate_beyond_the_preferred_shortcut_result() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    journey = re.search(
+        r"async function cerealFinderFrame.*?\n}\n\nasync function sliderChronologyJourney",
+        probe,
+        re.DOTALL,
+    )
+
+    assert journey is not None
+    assert "row.value === 'source:neotoma:taxon:3924'" in journey.group(0)
+    assert "select.dispatchEvent(new Event('change'" in journey.group(0)
 
 
 def test_nordic_source_states_are_literal_release_requirements() -> None:

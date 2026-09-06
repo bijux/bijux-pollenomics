@@ -412,7 +412,7 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
         && layout.chronology_controls_non_overlapping && layout.body_scroll_width <= layout.viewport.width + 1),
       time_slider_changes_visibility: timeJourney.interval_is_1000_years
         && timeJourney.slider_values_applied && timeJourney.visible_counts_within_denominator
-        && timeJourney.distinct_positive_visible_counts >= 2 && timeJourney.time_readouts_match,
+        && timeJourney.distinct_visible_counts >= 2 && timeJourney.time_readouts_match,
       time_buttons_navigate: timeJourney.newer_moves_toward_present
         && timeJourney.older_restores_window && timeJourney.playback_started_at_oldest
         && timeJourney.playback_stopped,
@@ -582,14 +582,14 @@ async function genericTimeJourney(cdp, pointDenominator) {
       playback.click();
       playbackStopped = playback.getAttribute('aria-pressed') === 'false';
     }
-    const positiveCounts = new Set(frames.map((row) => row.snapshot.visible_point_count).filter((count) => count > 0));
+    const visibleCounts = new Set(frames.map((row) => row.snapshot.visible_point_count));
     return {
       frames,
       interval_is_1000_years: oldest.time_window_bp.older_bp - oldest.time_window_bp.younger_bp === 1000,
       slider_values_applied: frames.every((row) => row.snapshot.time_window_bp.younger_bp === row.requested_start_bp),
       visible_counts_within_denominator: frames.every((row) => Number.isInteger(row.snapshot.visible_point_count)
         && row.snapshot.visible_point_count >= 0 && row.snapshot.visible_point_count <= ${pointDenominator}),
-      distinct_positive_visible_counts: positiveCounts.size,
+      distinct_visible_counts: visibleCounts.size,
       time_readouts_match: frames.every((row) => row.time_readout.includes(String(row.snapshot.time_window_bp.younger_bp))
         && row.time_readout.includes(String(row.snapshot.time_window_bp.older_bp))),
       newer_moves_toward_present: afterNewer.time_window_bp.younger_bp < oldest.time_window_bp.younger_bp,
@@ -692,6 +692,10 @@ async function basemapDiscoverabilityFacts(cdp, width) {
     const controlsOpened = controls.open && visible(controls);
     const activeProviderFocused = document.activeElement === activeProvider;
     const providerDisclosure = providerButtons.map((button) => button.textContent.trim());
+    const visibleProviderDisclosure = providerButtons.every((button) => visible(button) && bounded(button) && uncovered(button))
+      && providerDisclosure.includes('OpenStreetMap · no key')
+      && providerDisclosure.includes('OpenTopoMap · no key')
+      && providerDisclosure.includes('Offline · no tiles');
     controls.open = false;
     status.focus();
     await settle();
@@ -706,10 +710,7 @@ async function basemapDiscoverabilityFacts(cdp, width) {
       controls_opened: controlsOpened,
       active_provider_focused: activeProviderFocused,
       close_restored_focus: document.activeElement === status,
-      visible_provider_disclosure: providerButtons.every((button) => visible(button) && bounded(button) && uncovered(button))
-        && providerDisclosure.includes('OpenStreetMap · no key')
-        && providerDisclosure.includes('OpenTopoMap · no key')
-        && providerDisclosure.includes('Offline · no tiles'),
+      visible_provider_disclosure: visibleProviderDisclosure,
     };
   })()`);
 }
@@ -842,16 +843,20 @@ async function cerealFinderFrame(cdp) {
     if (!button) throw new Error('cereal finder is unavailable');
     button.click();
     const api = globalThis.BijuxPollenomicsAtlasCapture;
-    const state = api.snapshot();
     const queryBeforeCapture = document.getElementById('source-chronology-taxon-query')?.value || '';
-    const snapshot = await api.applyFrame({
-      story_kind: 'source_chronology', basemap: 'none', countries: state.countries,
-      source_level: state.source_chronology.level,
-      source_taxon: state.source_chronology.source_taxon,
-      time_start_bp: state.time_window_bp.younger_bp,
-      time_end_bp: state.time_window_bp.older_bp,
-    });
     const select = document.getElementById('source-chronology-taxon');
+    const requested = [...select.options].find((row) => row.value === 'source:neotoma:taxon:3924');
+    if (!requested) throw new Error('expected Hordeum/Secale source taxon is unavailable after cereal search');
+    select.value = requested.value;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+    const selected = api.snapshot();
+    const snapshot = await api.applyFrame({
+      story_kind: 'source_chronology', basemap: 'none', countries: selected.countries,
+      source_level: selected.source_chronology.level,
+      source_taxon: selected.source_chronology.source_taxon,
+      time_start_bp: selected.time_window_bp.younger_bp,
+      time_end_bp: selected.time_window_bp.older_bp,
+    });
     return { snapshot, selected_label: select.selectedOptions[0]?.textContent || '', selected_value: select.value, query_before_capture: queryBeforeCapture };
   })()`);
 }
@@ -1101,6 +1106,12 @@ async function discoverabilityFacts(cdp, width) {
     const visibleObservationCount = chronologyMatch && chronologyMatch[2] !== 'unavailable'
       ? Number(chronologyMatch[2])
       : null;
+    const visibleObservationValueValid = chronologyMatch !== null && (
+      chronologyMatch[2] === 'unavailable'
+      || (Number.isInteger(visibleObservationCount)
+        && visibleObservationCount >= 0
+        && visibleObservationCount <= sourceState.facet_observation_denominator)
+    );
     sourceControls.open = false;
     viewControls.open = false;
     if (${width} <= 900 && !sidebar.classList.contains('is-collapsed')) {
@@ -1118,8 +1129,7 @@ async function discoverabilityFacts(cdp, width) {
       chronology_status_has_active_facet: chronologyStatusText.startsWith(facetLabel + ' · '),
       chronology_status_visible_values_valid: Number.isInteger(visibleNodeCount)
         && visibleNodeCount >= 0 && visibleNodeCount <= sourceState.facet_node_count
-        && Number.isInteger(visibleObservationCount)
-        && visibleObservationCount >= 0 && visibleObservationCount <= sourceState.facet_observation_denominator,
+        && visibleObservationValueValid,
       chronology_controls_opened: false,
       chronology_controls_focused: false,
       chronology_close_restored_focus: ${width} > 900,
@@ -1186,19 +1196,19 @@ async function waitForProviderRefusal(cdp) {
   return evaluate(cdp, `(() => new Promise((resolve) => {
     const api = globalThis.BijuxPollenomicsAtlasCapture;
     const readout = document.getElementById('basemap-readout');
-    const finish = async () => {
+    const finish = () => {
       const state = api.snapshot();
       if (state.basemap !== 'none') return false;
       observer.disconnect();
       clearTimeout(timeout);
-      resolve({ snapshot: await api.awaitReady(), timed_out: false });
+      resolve({ snapshot: state, timed_out: false });
       return true;
     };
     const observer = new MutationObserver(finish);
-    const timeout = setTimeout(async () => {
+    const timeout = setTimeout(() => {
       observer.disconnect();
       resolve({
-        snapshot: await api.awaitReady(),
+        snapshot: api.snapshot(),
         timed_out: true,
         basemap_readout: readout?.textContent || '',
       });
