@@ -3,15 +3,19 @@
 from __future__ import annotations
 
 import argparse
-from collections.abc import Iterable, Mapping, Sequence
+from collections.abc import Callable, Iterable, Mapping, Sequence
+from dataclasses import dataclass
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
 import re
 import shutil
+import subprocess
 import tempfile
 from typing import NoReturn, cast
+import zlib
 
 from .contracts import AtlasMediaError
 from .gallery import canonical_json_bytes, sha256_file
@@ -149,8 +153,30 @@ _PUBLIC_STORY_FIELDS = {
 }
 
 
-def publish_atlas_media(gallery_root: Path, destination: Path) -> dict[str, object]:
+@dataclass(frozen=True, slots=True)
+class ProbedMp4:
+    """Independently observed properties of one MP4 video stream."""
+
+    width: int
+    height: int
+    frame_count: int
+    duration_seconds: float
+    codec_name: str
+    pixel_format: str
+
+
+Mp4Probe = Callable[[Path], ProbedMp4]
+
+
+def publish_atlas_media(
+    gallery_root: Path,
+    destination: Path,
+    *,
+    ffprobe_binary: Path | None = None,
+    mp4_probe: Mp4Probe | None = None,
+) -> dict[str, object]:
     """Validate and atomically publish one exact six-story website bundle."""
+    probe = _resolve_mp4_probe(ffprobe_binary=ffprobe_binary, mp4_probe=mp4_probe)
     source_root = _existing_directory(gallery_root, label="gallery_root")
     target = _publication_destination(destination)
     if (
@@ -161,9 +187,11 @@ def publish_atlas_media(gallery_root: Path, destination: Path) -> dict[str, obje
         raise AtlasMediaError("gallery and publication directories must be disjoint")
 
     gallery, gallery_bytes, gallery_digest = _load_gallery(source_root)
-    manifest, transfers = _build_publication(gallery, gallery_digest, source_root)
+    manifest, transfers = _build_publication(
+        gallery, gallery_digest, source_root, mp4_probe=probe
+    )
     _require_media_inventory(source_root, transfers)
-    _require_existing_destination_is_governed(target)
+    _require_existing_destination_is_governed(target, mp4_probe=probe)
 
     stage = Path(
         tempfile.mkdtemp(prefix=".atlas-media-publication-pending-", dir=target.parent)
@@ -171,7 +199,9 @@ def publish_atlas_media(gallery_root: Path, destination: Path) -> dict[str, obje
     try:
         _materialize_stage(stage, transfers, manifest)
         _require_sources_unchanged(transfers)
-        _validate_publication_tree(stage, manifest)
+        observed_manifest = validate_atlas_media_publication(stage, mp4_probe=probe)
+        if observed_manifest != manifest:
+            raise AtlasMediaError("publication manifest differs after materialization")
         final_gallery, final_bytes, final_digest = _load_gallery(source_root)
         if (
             gallery_bytes != final_bytes
@@ -211,7 +241,11 @@ def _load_gallery(root: Path) -> tuple[dict[str, object], bytes, str]:
 
 
 def _build_publication(
-    gallery: Mapping[str, object], gallery_digest: str, source_root: Path
+    gallery: Mapping[str, object],
+    gallery_digest: str,
+    source_root: Path,
+    *,
+    mp4_probe: Mp4Probe,
 ) -> tuple[dict[str, object], tuple[dict[str, object], ...]]:
     atlas_identity = _atlas_identity(gallery.get("atlas_identity"))
     candidate_identity = _candidate_identity(gallery.get("candidate_identity"))
@@ -237,7 +271,11 @@ def _build_publication(
     source_authorities: set[str] = set()
     for story, expected in zip(stories, _EXPECTED_STORIES, strict=True):
         public_story, story_transfers = _publication_story(
-            story, expected=expected, source_root=source_root, encoding=encoding
+            story,
+            expected=expected,
+            source_root=source_root,
+            encoding=encoding,
+            mp4_probe=mp4_probe,
         )
         authority = public_story["source_authority_sha256"]
         if isinstance(authority, str):
@@ -295,6 +333,7 @@ def _publication_story(
     expected: tuple[str, str, str, str, str | None],
     source_root: Path,
     encoding: Mapping[str, object],
+    mp4_probe: Mp4Probe,
 ) -> tuple[dict[str, object], list[dict[str, object]]]:
     if set(story) != _STORY_FIELDS:
         raise AtlasMediaError("gallery story fields differ")
@@ -447,6 +486,7 @@ def _publication_story(
             frame_count=frame_count,
             encoding=encoding,
             first_capture=published_captures[0],
+            mp4_probe=mp4_probe,
         )
         for media_type in ("poster", "mp4")
     ]
@@ -484,6 +524,7 @@ def _publication_asset(
     frame_count: int,
     encoding: Mapping[str, object],
     first_capture: Mapping[str, object],
+    mp4_probe: Mp4Probe,
 ) -> dict[str, object]:
     expected_fields = {
         "media_type",
@@ -530,6 +571,15 @@ def _publication_asset(
     path = _regular_child(source_root, source_path)
     if path.stat().st_size != byte_count or sha256_file(path) != digest:
         raise AtlasMediaError(f"{media_type} source bytes differ: {story_id}")
+    _validate_media_properties(
+        path,
+        media_type=media_type,
+        width=width,
+        height=height,
+        frame_count=expected_frames,
+        duration_seconds=duration,
+        mp4_probe=mp4_probe,
+    )
     return {
         "story_id": story_id,
         "media_type": media_type,
@@ -623,9 +673,15 @@ def _require_media_inventory(
         )
 
 
-def _validate_publication_tree(
-    root: Path, expected_manifest: Mapping[str, object] | None = None
+def validate_atlas_media_publication(
+    publication_root: Path,
+    *,
+    ffprobe_binary: Path | None = None,
+    mp4_probe: Mp4Probe | None = None,
 ) -> dict[str, object]:
+    """Validate every contract and media byte in one published website bundle."""
+    probe = _resolve_mp4_probe(ffprobe_binary=ffprobe_binary, mp4_probe=mp4_probe)
+    root = _existing_directory(publication_root, label="publication_root")
     manifest_path = _direct_regular_file(root, "publication-manifest.json")
     checksum_path = _direct_regular_file(root, "publication-manifest.sha256")
     payload = manifest_path.read_bytes()
@@ -633,8 +689,6 @@ def _validate_publication_tree(
     if checksum_path.read_bytes() != f"{digest}  publication-manifest.json\n".encode():
         raise AtlasMediaError("publication manifest checksum differs")
     manifest = _load_json_object(payload, label="publication manifest")
-    if expected_manifest is not None and manifest != expected_manifest:
-        raise AtlasMediaError("publication manifest differs after materialization")
     content_digest = manifest.get("content_sha256")
     content = {key: value for key, value in manifest.items() if key != "content_sha256"}
     if (
@@ -644,19 +698,62 @@ def _validate_publication_tree(
         or content_digest != hashlib.sha256(canonical_json_bytes(content)).hexdigest()
     ):
         raise AtlasMediaError("publication content identity differs")
+
+    source_gallery = _object(manifest.get("source_gallery"), "source gallery")
+    if set(source_gallery) != {"manifest_sha256", "content_sha256"}:
+        raise AtlasMediaError("source gallery identity fields differ")
+    _digest(source_gallery.get("manifest_sha256"), "source gallery manifest")
+    _digest(source_gallery.get("content_sha256"), "source gallery content")
+    atlas_identity = _atlas_identity(manifest.get("atlas_identity"))
+    candidate_identity = _candidate_identity(manifest.get("candidate_identity"))
+    if atlas_identity["build_id"] != candidate_identity["build_id"]:
+        raise AtlasMediaError("published atlas and candidate build identities differ")
+    _digest(manifest.get("storyboard_sha256"), "published storyboard")
+    source_authority = _digest(
+        manifest.get("source_authority_sha256"), "published source authority"
+    )
+    if manifest.get("scientific_posture") != {
+        "temporal_direction": "oldest_to_present",
+        "interval_semantics": "[younger_bp, older_bp]",
+        "null_not_zero": True,
+        "interpolation_allowed": False,
+        "observation_is_propagation": False,
+        "modeled_context_is_observation": False,
+    }:
+        raise AtlasMediaError("publication scientific posture differs")
+    _candidate_succession(manifest.get("candidate_succession"))
+    _tool_identity(manifest.get("tool_identity"))
+    encoding = _published_encoding(manifest.get("encoding_profile"))
+    budget = _object(manifest.get("publication_budget"), "publication budget")
+    if (
+        set(budget)
+        != {
+            "maximum_mp4_bytes",
+            "maximum_poster_bytes",
+            "maximum_total_bytes",
+            "published_asset_count",
+            "published_byte_count",
+        }
+        or budget.get("maximum_mp4_bytes") != MAX_MP4_BYTES
+        or budget.get("maximum_poster_bytes") != MAX_POSTER_BYTES
+        or budget.get("maximum_total_bytes") != MAX_PUBLICATION_BYTES
+        or budget.get("published_asset_count") != 12
+    ):
+        raise AtlasMediaError("publication budget contract differs")
     stories = _object_list(manifest.get("stories"), "publication stories")
     if manifest.get("story_count") != 6 or len(stories) != 6:
         raise AtlasMediaError("publication story inventory differs")
     expected_files = {"publication-manifest.json", "publication-manifest.sha256"}
+    published_bytes = 0
+    published_assets = 0
     for story, expected in zip(stories, _EXPECTED_STORIES, strict=True):
-        if (
-            set(story) != _PUBLIC_STORY_FIELDS
-            or story.get("story_id") != expected[0]
-            or story.get("evidence_role") != expected[1]
-            or story.get("selector")
-            != {"kind": expected[2], "value": expected[3], "family": expected[4]}
-        ):
-            raise AtlasMediaError("publication story identity differs")
+        _validate_published_story(
+            story,
+            expected=expected,
+            source_authority_sha256=source_authority,
+        )
+        story_id = expected[0]
+        frame_count = cast(int, story["frame_count"])
         assets = _object_list(story.get("assets"), "publication assets")
         if len(assets) != 2 or [asset.get("media_type") for asset in assets] != [
             "poster",
@@ -664,19 +761,75 @@ def _validate_publication_tree(
         ]:
             raise AtlasMediaError("publication asset inventory differs")
         for asset in assets:
+            if set(asset) != {"media_type", "source", "published"}:
+                raise AtlasMediaError("publication asset fields differ")
+            media_type = asset.get("media_type")
             published = _object(asset.get("published"), "published asset identity")
             source = _object(asset.get("source"), "source asset identity")
-            if source != published:
+            if source != published or set(published) != {
+                "path",
+                "byte_count",
+                "sha256",
+                "width",
+                "height",
+                "frame_count",
+                "duration_seconds",
+            }:
                 raise AtlasMediaError("source and published asset identities differ")
+            suffix = ".poster.png" if media_type == "poster" else ".mp4"
+            expected_path = f"media/{story_id}{suffix}"
             path_text = published.get("path")
-            if not isinstance(path_text, str):
-                raise AtlasMediaError("published asset path is invalid")
+            if path_text != expected_path:
+                raise AtlasMediaError("published asset path differs")
+            byte_count = _positive_integer(
+                published.get("byte_count"), "published byte_count"
+            )
+            maximum = MAX_POSTER_BYTES if media_type == "poster" else MAX_MP4_BYTES
+            if byte_count > maximum:
+                raise AtlasMediaError("published asset exceeds its budget")
+            asset_digest = _digest(published.get("sha256"), "published asset")
+            width = _positive_integer(published.get("width"), "published width")
+            height = _positive_integer(published.get("height"), "published height")
+            expected_frames = 1 if media_type == "poster" else frame_count
+            if (
+                width != encoding["width"]
+                or height != encoding["height"]
+                or published.get("frame_count") != expected_frames
+            ):
+                raise AtlasMediaError("published media dimensions or frames differ")
+            duration: float | int | None = None
+            if media_type == "poster":
+                if published.get("duration_seconds") is not None:
+                    raise AtlasMediaError("published poster duration must be null")
+            else:
+                duration = _positive_number(
+                    published.get("duration_seconds"), "published MP4 duration"
+                )
+                expected_duration = frame_count / cast(
+                    int, encoding["frames_per_second"]
+                )
+                if not math.isclose(
+                    float(duration),
+                    expected_duration,
+                    rel_tol=0,
+                    abs_tol=(1 / cast(int, encoding["frames_per_second"])) + 0.01,
+                ):
+                    raise AtlasMediaError("published MP4 duration differs")
             path = _regular_child(root, path_text)
-            if path.stat().st_size != published.get("byte_count") or sha256_file(
-                path
-            ) != published.get("sha256"):
+            if path.stat().st_size != byte_count or sha256_file(path) != asset_digest:
                 raise AtlasMediaError("published asset bytes differ")
+            _validate_media_properties(
+                path,
+                media_type=cast(str, media_type),
+                width=width,
+                height=height,
+                frame_count=expected_frames,
+                duration_seconds=duration,
+                mp4_probe=probe,
+            )
             expected_files.add(path_text)
+            published_bytes += byte_count
+            published_assets += 1
     observed = {
         path.relative_to(root).as_posix()
         for path in root.rglob("*")
@@ -684,17 +837,136 @@ def _validate_publication_tree(
     }
     if observed != expected_files:
         raise AtlasMediaError("publication contains missing or extra files")
+    if (
+        published_assets != 12
+        or published_bytes > MAX_PUBLICATION_BYTES
+        or budget.get("published_asset_count") != published_assets
+        or budget.get("published_byte_count") != published_bytes
+    ):
+        raise AtlasMediaError("publication observed budget totals differ")
     return manifest
 
 
-def _require_existing_destination_is_governed(destination: Path) -> None:
+def _validate_published_story(
+    story: Mapping[str, object],
+    *,
+    expected: tuple[str, str, str, str, str | None],
+    source_authority_sha256: str,
+) -> None:
+    story_id, role, selector_kind, selector_value, selector_family = expected
+    if (
+        set(story) != _PUBLIC_STORY_FIELDS
+        or story.get("story_id") != story_id
+        or story.get("evidence_role") != role
+        or story.get("selector")
+        != {"kind": selector_kind, "value": selector_value, "family": selector_family}
+        or story.get("temporal_direction") != "oldest_to_present"
+        or story.get("interval_semantics") != "[younger_bp, older_bp]"
+        or story.get("interpretation")
+        != (
+            _SOURCE_INTERPRETATION
+            if role == "observation_chronology"
+            else _MODELED_INTERPRETATION
+        )
+    ):
+        raise AtlasMediaError("publication story identity or semantics differ")
+    title = story.get("title")
+    if not isinstance(title, str) or not title.strip():
+        raise AtlasMediaError("publication story title is absent")
+    frame_count = _positive_integer(
+        story.get("frame_count"), "publication story frame_count"
+    )
+    first_frame = _frame_boundary(story.get("first_frame"), "published first_frame")
+    last_frame = _frame_boundary(story.get("last_frame"), "published last_frame")
+    _validate_boundary_selector(first_frame, ordinal=0, expected=expected)
+    _validate_boundary_selector(last_frame, ordinal=frame_count - 1, expected=expected)
+    if cast(float | int, first_frame["time_start_bp"]) < cast(
+        float | int, last_frame["time_start_bp"]
+    ) or cast(float | int, first_frame["time_end_bp"]) < cast(
+        float | int, last_frame["time_end_bp"]
+    ):
+        raise AtlasMediaError("publication story boundary direction differs")
+    _digest(story.get("frame_set_sha256"), "published frame set")
+    _digest(story.get("capture_frame_set_sha256"), "published capture frame set")
+    if role == "observation_chronology":
+        node_count = _positive_integer(story.get("node_count"), "published node_count")
+        _positive_integer(
+            story.get("observation_denominator"),
+            "published observation_denominator",
+        )
+        visible = _nonnegative_integer_list(
+            story.get("expected_visible_feature_counts"),
+            length=frame_count,
+            label="published visibility denominators",
+        )
+        if (
+            story.get("frame_feature_denominators") is not None
+            or story.get("source_authority_sha256") != source_authority_sha256
+            or sum(cast(list[int], visible)) <= 0
+            or any(cast(int, count) > node_count for count in visible)
+        ):
+            raise AtlasMediaError("published source-story evidence differs")
+    elif (
+        story.get("node_count") is not None
+        or story.get("observation_denominator") is not None
+        or story.get("expected_visible_feature_counts") is not None
+        or story.get("source_authority_sha256") is not None
+    ):
+        raise AtlasMediaError("published modeled story carries source evidence")
+    else:
+        _positive_integer_list(
+            story.get("frame_feature_denominators"),
+            length=frame_count,
+            label="published modeled denominators",
+        )
+
+
+def _published_encoding(value: object) -> dict[str, object]:
+    row = _object(value, "published encoding profile")
+    _positive_integer(row.get("width"), "published encoding width")
+    _positive_integer(row.get("height"), "published encoding height")
+    frames_per_second = _positive_integer(
+        row.get("frames_per_second"), "published encoding frame rate"
+    )
+    if (
+        set(row)
+        != {
+            "schema_version",
+            "width",
+            "height",
+            "frames_per_second",
+            "poster",
+            "mp4",
+        }
+        or row.get("schema_version") != "atlas-media-publication-encoding.v1"
+        or row.get("poster") != {"format": "png", "source_frame_ordinal": 0}
+        or row.get("mp4")
+        != {
+            "codec": "libx264",
+            "preset": "slow",
+            "crf": 20,
+            "pixel_format": "yuv420p",
+            "threads": 1,
+            "metadata_removed": True,
+            "bitexact": True,
+            "faststart": True,
+        }
+        or frames_per_second > 60
+    ):
+        raise AtlasMediaError("published encoding profile differs")
+    return dict(row)
+
+
+def _require_existing_destination_is_governed(
+    destination: Path, *, mp4_probe: Mp4Probe
+) -> None:
     if destination.is_symlink():
         raise AtlasMediaError("publication destination must not be a symlink")
     if not destination.exists():
         return
     if not destination.is_dir():
         raise AtlasMediaError("publication destination must be a directory")
-    _validate_publication_tree(destination)
+    validate_atlas_media_publication(destination, mp4_probe=mp4_probe)
 
 
 def _install_stage(stage: Path, destination: Path) -> None:
@@ -711,6 +983,243 @@ def _install_stage(stage: Path, destination: Path) -> None:
         backup.replace(destination)
         raise
     shutil.rmtree(backup)
+
+
+def _resolve_mp4_probe(
+    *, ffprobe_binary: Path | None, mp4_probe: Mp4Probe | None
+) -> Mp4Probe:
+    if ffprobe_binary is not None and mp4_probe is not None:
+        raise AtlasMediaError("provide ffprobe_binary or mp4_probe, not both")
+    if mp4_probe is not None:
+        return mp4_probe
+    candidate = ffprobe_binary
+    if candidate is None:
+        discovered = shutil.which("ffprobe")
+        if discovered is None:
+            raise AtlasMediaError(
+                "ffprobe is required unless an explicit MP4 probe is supplied"
+            )
+        candidate = Path(discovered)
+    try:
+        binary = candidate.resolve(strict=True)
+    except OSError as error:
+        raise AtlasMediaError("ffprobe binary is unavailable") from error
+    if not binary.is_file() or not os.access(binary, os.X_OK):
+        raise AtlasMediaError("ffprobe binary must be an executable file")
+
+    def probe(path: Path) -> ProbedMp4:
+        return _ffprobe_mp4(binary, path)
+
+    return probe
+
+
+def _ffprobe_mp4(binary: Path, path: Path) -> ProbedMp4:
+    try:
+        completed = subprocess.run(  # nosec B603
+            (
+                str(binary),
+                "-v",
+                "error",
+                "-select_streams",
+                "v:0",
+                "-count_frames",
+                "-show_entries",
+                "stream=codec_name,pix_fmt,width,height,nb_read_frames,duration",
+                "-of",
+                "json",
+                str(path),
+            ),
+            check=False,
+            capture_output=True,
+            timeout=30,
+        )
+    except (OSError, subprocess.TimeoutExpired) as error:
+        raise AtlasMediaError("ffprobe could not inspect published MP4") from error
+    if completed.returncode != 0 or len(completed.stdout) > 1024 * 1024:
+        raise AtlasMediaError("ffprobe rejected published MP4")
+    try:
+        value = json.loads(completed.stdout.decode("utf-8"))
+        streams = value["streams"]
+        stream = streams[0]
+        if len(streams) != 1:
+            raise ValueError("expected exactly one selected video stream")
+        result = ProbedMp4(
+            width=int(stream["width"]),
+            height=int(stream["height"]),
+            frame_count=int(stream["nb_read_frames"]),
+            duration_seconds=float(stream["duration"]),
+            codec_name=str(stream["codec_name"]),
+            pixel_format=str(stream["pix_fmt"]),
+        )
+    except (
+        KeyError,
+        IndexError,
+        TypeError,
+        ValueError,
+        UnicodeError,
+        json.JSONDecodeError,
+    ) as error:
+        raise AtlasMediaError("ffprobe MP4 evidence is incomplete") from error
+    return result
+
+
+def _validate_media_properties(
+    path: Path,
+    *,
+    media_type: str,
+    width: int,
+    height: int,
+    frame_count: int,
+    duration_seconds: float | int | None,
+    mp4_probe: Mp4Probe,
+) -> None:
+    if media_type == "poster":
+        observed_width, observed_height = _inspect_png(path)
+        if (observed_width, observed_height) != (width, height):
+            raise AtlasMediaError("PNG dimensions differ from publication evidence")
+        return
+    if media_type != "mp4":
+        raise AtlasMediaError("published media type is unsupported")
+    _inspect_mp4_boxes(path)
+    try:
+        observed = mp4_probe(path)
+    except AtlasMediaError:
+        raise
+    except Exception as error:
+        raise AtlasMediaError("MP4 probe failed") from error
+    if (
+        isinstance(observed.width, bool)
+        or observed.width != width
+        or isinstance(observed.height, bool)
+        or observed.height != height
+        or isinstance(observed.frame_count, bool)
+        or observed.frame_count != frame_count
+        or not math.isfinite(observed.duration_seconds)
+        or duration_seconds is None
+        or not math.isclose(
+            observed.duration_seconds,
+            float(duration_seconds),
+            rel_tol=0,
+            abs_tol=0.01,
+        )
+        or observed.codec_name != "h264"
+        or observed.pixel_format != "yuv420p"
+    ):
+        raise AtlasMediaError("MP4 properties differ from publication evidence")
+
+
+def _inspect_png(path: Path) -> tuple[int, int]:
+    if path.stat().st_size > MAX_POSTER_BYTES:
+        raise AtlasMediaError("poster exceeds the PNG inspection bound")
+    payload = path.read_bytes()
+    if not payload.startswith(b"\x89PNG\r\n\x1a\n"):
+        raise AtlasMediaError("poster is not a bounded PNG")
+    offset = 8
+    chunks: list[bytes] = []
+    ihdr: bytes | None = None
+    saw_iend = False
+    while offset < len(payload):
+        if offset + 12 > len(payload):
+            raise AtlasMediaError("PNG chunk header is truncated")
+        length = int.from_bytes(payload[offset : offset + 4], "big")
+        chunk_type = payload[offset + 4 : offset + 8]
+        end = offset + 12 + length
+        if length > MAX_POSTER_BYTES or end > len(payload):
+            raise AtlasMediaError("PNG chunk is out of bounds")
+        data = payload[offset + 8 : offset + 8 + length]
+        expected_crc = int.from_bytes(payload[offset + 8 + length : end], "big")
+        if zlib.crc32(chunk_type + data) & 0xFFFFFFFF != expected_crc:
+            raise AtlasMediaError("PNG chunk checksum differs")
+        if offset == 8 and chunk_type != b"IHDR":
+            raise AtlasMediaError("PNG IHDR must be the first chunk")
+        if chunk_type == b"IHDR":
+            if ihdr is not None or length != 13:
+                raise AtlasMediaError("PNG IHDR is invalid")
+            ihdr = data
+        elif chunk_type == b"IDAT":
+            chunks.append(data)
+        elif chunk_type == b"IEND":
+            if length != 0 or end != len(payload):
+                raise AtlasMediaError("PNG IEND or trailing bytes are invalid")
+            saw_iend = True
+        offset = end
+    if ihdr is None or not chunks or not saw_iend:
+        raise AtlasMediaError("PNG structural chunks are incomplete")
+    width = int.from_bytes(ihdr[0:4], "big")
+    height = int.from_bytes(ihdr[4:8], "big")
+    bit_depth, color_type, compression, filtering, interlace = ihdr[8:13]
+    valid_depths = {
+        0: {1, 2, 4, 8, 16},
+        2: {8, 16},
+        3: {1, 2, 4, 8},
+        4: {8, 16},
+        6: {8, 16},
+    }
+    if (
+        not 1 <= width <= 3840
+        or not 1 <= height <= 2160
+        or bit_depth not in valid_depths.get(color_type, set())
+        or compression != 0
+        or filtering != 0
+        or interlace not in {0, 1}
+    ):
+        raise AtlasMediaError("PNG IHDR properties are invalid")
+    maximum_image_bytes = (3840 * 2160 * 8) + 2160
+    try:
+        decompressor = zlib.decompressobj()
+        image_bytes = decompressor.decompress(b"".join(chunks), maximum_image_bytes + 1)
+    except zlib.error as error:
+        raise AtlasMediaError("PNG image data is not decompressible") from error
+    if (
+        len(image_bytes) > maximum_image_bytes
+        or decompressor.unconsumed_tail
+        or decompressor.unused_data
+        or not decompressor.eof
+    ):
+        raise AtlasMediaError("PNG decompressed data exceeds its structural bound")
+    if interlace == 0:
+        channels = {0: 1, 2: 3, 3: 1, 4: 2, 6: 4}[color_type]
+        row_bytes = (width * channels * bit_depth + 7) // 8
+        if len(image_bytes) != height * (row_bytes + 1):
+            raise AtlasMediaError("PNG image data length differs")
+    return width, height
+
+
+def _inspect_mp4_boxes(path: Path) -> None:
+    if path.stat().st_size > MAX_MP4_BYTES:
+        raise AtlasMediaError("MP4 exceeds the structural inspection bound")
+    payload = path.read_bytes()
+    if len(payload) < 24:
+        raise AtlasMediaError("MP4 is outside structural size bounds")
+    offset = 0
+    boxes: list[bytes] = []
+    while offset < len(payload):
+        if offset + 8 > len(payload):
+            raise AtlasMediaError("MP4 box header is truncated")
+        size = int.from_bytes(payload[offset : offset + 4], "big")
+        box_type = payload[offset + 4 : offset + 8]
+        header_size = 8
+        if size == 1:
+            if offset + 16 > len(payload):
+                raise AtlasMediaError("MP4 extended box header is truncated")
+            size = int.from_bytes(payload[offset + 8 : offset + 16], "big")
+            header_size = 16
+        elif size == 0:
+            size = len(payload) - offset
+        if size < header_size or offset + size > len(payload):
+            raise AtlasMediaError("MP4 box is out of bounds")
+        if any(character < 0x20 or character > 0x7E for character in box_type):
+            raise AtlasMediaError("MP4 box type is invalid")
+        boxes.append(box_type)
+        offset += size
+    if (
+        not boxes
+        or boxes[0] != b"ftyp"
+        or b"moov" not in boxes
+        or b"mdat" not in boxes
+        or boxes.index(b"moov") > boxes.index(b"mdat")
+    ):
+        raise AtlasMediaError("MP4 required boxes or fast-start order differ")
 
 
 def _atlas_identity(value: object) -> dict[str, object]:
@@ -1064,8 +1573,18 @@ def main(argv: Sequence[str] | None = None) -> int:
     )
     parser.add_argument("gallery_root", type=Path)
     parser.add_argument("destination", type=Path)
+    parser.add_argument(
+        "--ffprobe",
+        dest="ffprobe_binary",
+        type=Path,
+        help="Explicit ffprobe binary used for bounded MP4 verification.",
+    )
     arguments = parser.parse_args(argv)
-    publish_atlas_media(arguments.gallery_root, arguments.destination)
+    publish_atlas_media(
+        arguments.gallery_root,
+        arguments.destination,
+        ffprobe_binary=arguments.ffprobe_binary,
+    )
     return 0
 
 
@@ -1077,6 +1596,9 @@ __all__ = [
     "MAX_MP4_BYTES",
     "MAX_POSTER_BYTES",
     "MAX_PUBLICATION_BYTES",
+    "Mp4Probe",
+    "ProbedMp4",
     "main",
     "publish_atlas_media",
+    "validate_atlas_media_publication",
 ]

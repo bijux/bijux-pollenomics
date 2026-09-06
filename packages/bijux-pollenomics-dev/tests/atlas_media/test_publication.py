@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
+import base64
 from collections.abc import Callable
 import hashlib
 import json
 from pathlib import Path
 import shutil
 from typing import Any
+import zlib
 
 import pytest
 
@@ -69,12 +71,85 @@ STORIES: tuple[StorySpec, ...] = (
     ),
 )
 
+_MINIMAL_MP4 = base64.b64decode(
+    "AAAAJGZ0eXBpc29tAAACAGlzb21pc282aXNvMmF2YzFtcDQxAAAC7W1vb3YAAABs"
+    "bXZoZAAAAAAAAAAAAAAAAAAAA+gAAAAAAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAA"
+    "AAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    "AAIAAAHvdHJhawAAAFx0a2hkAAAAAwAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA"
+    "AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAQAAAAEAAA"
+    "AAABi21kaWEAAAAgbWRoZAAAAAAAAAAAAAAAAAAAQAAAAAAAVcQAAAAAAC1oZGxyAAAA"
+    "AAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAAATZtaW5mAAAAFHZtaGQA"
+    "AAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAD2"
+    "c3RibAAAAKpzdHNkAAAAAAAAAAEAAACaYXZjMQAAAAAAAAABAAAAAAAAAAAAAAAAAAAA"
+    "AAAQABAASAAAAEgAAAAAAAAAARVMYXZjNjIuMjguMTAyIGxpYngyNjQAAAAAAAAAAAAA"
+    "ABj//wAAADRhdmNDAWQACv/hABdnZAAKrNlewEQAAAMABAAAAwAIPEiWWAEABmjr48si"
+    "wP34+AAAAAAQcGFzcAAAAAEAAAABAAAAEHN0dHMAAAAAAAAAAAAAABBzdHNjAAAAAAAA"
+    "AAAAAAAUc3RzegAAAAAAAAAAAAAAAAAAABBzdGNvAAAAAAAAAAAAAAAobXZleAAAACB0"
+    "cmV4AAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAYnVkdGEAAABabWV0YQAAAAAAAAAh"
+    "aGRscgAAAAAAAAAAbWRpcmFwcGwAAAAAAAAAAAAAAAAtaWxzdAAAACWpdG9vAAAAHWRh"
+    "dGEAAAABAAAAAExhdmY2Mi4xMi4xMDIAAABwbW9vZgAAABBtZmhkAAAAAAAAAAEAAABY"
+    "dHJhZgAAACR0ZmhkAAAAOQAAAAEAAAAAAAADEQAAQAAAAALFAQEAAAAAABR0ZmR0AQAA"
+    "AAAAAAAAAAAAAAAAGHRydW4AAAAFAAAAAQAAAHgCAAAAAAACzW1kYXQAAAKtBgX//6nc"
+    "Rem95tlIt5Ys2CDZI+7veDI2NCAtIGNvcmUgMTY1IHIzMjIyIGIzNTYwNWEgLSBILjI2"
+    "NC9NUEVHLTQgQVZDIGNvZGVjIC0gQ29weWxlZnQgMjAwMy0yMDI1IC0gaHR0cDovL3d3"
+    "dy52aWRlb2xhbi5vcmcveDI2NC5odG1sIC0gb3B0aW9uczogY2FiYWM9MSByZWY9MyBk"
+    "ZWJsb2NrPTE6MDowIGFuYWx5c2U9MHgzOjB4MTEzIG1lPWhleCBzdWJtZT03IHBzeT0x"
+    "IHBzeV9yZD0xLjAwOjAuMDAgbWl4ZWRfcmVmPTEgbWVfcmFuZ2U9MTYgY2hyb21hX21l"
+    "PTEgdHJlbGxpcz0xIDh4OGRjdD0xIGNxbT0wIGRlYWR6b25lPTIxLDExIGZhc3RfcHNr"
+    "aXA9MSBjaHJvbWFfcXBfb2Zmc2V0PS0yIHRocmVhZHM9MSBsb29rYWhlYWRfdGhyZWFk"
+    "cz0xIHNsaWNlZF90aHJlYWRzPTAgbnI9MCBkZWNpbWF0ZT0xIGludGVybGFjZWQ9MCBi"
+    "bHVyYXlfY29tcGF0PTAgY29uc3RyYWluZWRfaW50cmE9MCBiZnJhbWVzPTMgYl9weXJh"
+    "bWlkPTIgYl9hZGFwdD0xIGJfYmlhcz0wIGRpcmVjdD0xIHdlaWdodGI9MSBvcGVuX2dv"
+    "cD0wIHdlaWdodHA9MiBrZXlpbnQ9MjUwIGtleWludF9taW49MSBzY2VuZWN1dD00MCBp"
+    "bnRyYV9yZWZyZXNoPTAgcmNfbG9va2FoZWFkPTQwIHJjPWNyZiBtYnRyZWU9MSBjcmY9"
+    "MjMuMCBxY29tcD0wLjYwIHFwbWluPTAgcXBtYXg9NjkgcXBzdGVwPTQgaXBfcmF0aW89"
+    "MS40MCBhcT0xOjEuMDAAgAAAABBliIQAFf/+98nvwKbr29+BAAAAQ21mcmEAAAArdGZy"
+    "YQEAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAMRAQEBAAAAEG1mcm8AAAAAAAAA"
+    "Qw=="
+)
+
+
+def _png(width: int = 16, height: int = 16) -> bytes:
+    def chunk(kind: bytes, data: bytes) -> bytes:
+        return (
+            len(data).to_bytes(4, "big")
+            + kind
+            + data
+            + (zlib.crc32(kind + data) & 0xFFFFFFFF).to_bytes(4, "big")
+        )
+
+    header = (
+        width.to_bytes(4, "big") + height.to_bytes(4, "big") + bytes((8, 2, 0, 0, 0))
+    )
+    pixels = b"".join(b"\x00" + b"\x00\x00\x00" * width for _ in range(height))
+    return (
+        b"\x89PNG\r\n\x1a\n"
+        + chunk(b"IHDR", header)
+        + chunk(b"IDAT", zlib.compress(pixels))
+        + chunk(b"IEND", b"")
+    )
+
+
+def _probe(_: Path) -> publication.ProbedMp4:
+    return publication.ProbedMp4(
+        width=16,
+        height=16,
+        frame_count=1,
+        duration_seconds=1.0,
+        codec_name="h264",
+        pixel_format="yuv420p",
+    )
+
+
+def _publish(source: Path, destination: Path) -> dict[str, object]:
+    return publication.publish_atlas_media(source, destination, mp4_probe=_probe)
+
 
 def _encoding_profile() -> dict[str, object]:
     return {
         "schema_version": "atlas-media-encoding-profile.v1",
-        "width": 640,
-        "height": 480,
+        "width": 16,
+        "height": 16,
         "frames_per_second": 1,
         "poster": {"format": "png", "source_frame_ordinal": 0},
         "mp4": {
@@ -166,12 +241,20 @@ def _gallery(tmp_path: Path) -> Path:
             ("gif", ".gif"),
         ):
             path = media / f"{story.story_id}{suffix}"
-            path.write_bytes(f"{story.story_id}-{media_type}".encode())
+            path.write_bytes(
+                _png()
+                if media_type == "poster"
+                else (
+                    _MINIMAL_MP4
+                    if media_type == "mp4"
+                    else f"{story.story_id}-gif".encode()
+                )
+            )
             row = media_asset_row(root, path, media_type=media_type)
             row.update(
                 {
-                    "width": 640,
-                    "height": 480,
+                    "width": 16,
+                    "height": 16,
                     "frame_count": 1,
                     **(
                         {"duration_seconds": 1.0}
@@ -251,6 +334,22 @@ def _rewrite_gallery(
     )
 
 
+def _rewrite_publication(
+    root: Path, mutation: Callable[[dict[str, Any]], None]
+) -> None:
+    path = root / "publication-manifest.json"
+    value: dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
+    mutation(value)
+    content = {key: item for key, item in value.items() if key != "content_sha256"}
+    value["content_sha256"] = hashlib.sha256(canonical_json_bytes(content)).hexdigest()
+    payload = canonical_json_bytes(value)
+    path.write_bytes(payload)
+    (root / "publication-manifest.sha256").write_text(
+        f"{hashlib.sha256(payload).hexdigest()}  publication-manifest.json\n",
+        encoding="utf-8",
+    )
+
+
 def _files(root: Path) -> set[str]:
     return {
         path.relative_to(root).as_posix() for path in root.rglob("*") if path.is_file()
@@ -264,8 +363,8 @@ def test_publication_is_deterministic_bounded_and_excludes_run_artifacts(
     first = tmp_path / "published-first"
     second = tmp_path / "published-second"
 
-    manifest = publication.publish_atlas_media(source, first)
-    publication.publish_atlas_media(source, second)
+    manifest = _publish(source, first)
+    _publish(source, second)
 
     expected_media = {
         f"media/{story_id}{suffix}"
@@ -322,8 +421,158 @@ def test_publication_is_deterministic_bounded_and_excludes_run_artifacts(
     )
 
     # Replacing the same governed destination remains deterministic.
-    publication.publish_atlas_media(source, first)
+    _publish(source, first)
     assert (first / "publication-manifest.json").read_bytes() == payload
+
+
+def test_public_validator_reconciles_complete_existing_bundle_and_real_ffprobe(
+    tmp_path: Path,
+) -> None:
+    source = _gallery(tmp_path)
+    destination = tmp_path / "published"
+    expected = _publish(source, destination)
+
+    assert (
+        publication.validate_atlas_media_publication(destination, mp4_probe=_probe)
+        == expected
+    )
+    ffprobe = shutil.which("ffprobe")
+    if ffprobe is None:
+        pytest.skip("ffprobe is unavailable for the real-media portability check")
+    assert (
+        publication.validate_atlas_media_publication(
+            destination, ffprobe_binary=Path(ffprobe)
+        )
+        == expected
+    )
+
+
+@pytest.mark.parametrize(
+    "mutation,error",
+    (
+        (
+            lambda value: value["scientific_posture"].update(
+                {"observation_is_propagation": True}
+            ),
+            "scientific posture differs",
+        ),
+        (
+            lambda value: value["candidate_succession"].update(
+                {"reason_code": "classification_available"}
+            ),
+            "not explicitly refused",
+        ),
+        (
+            lambda value: value["stories"][0].update(
+                {"source_authority_sha256": "9" * 64}
+            ),
+            "source-story evidence differs",
+        ),
+        (
+            lambda value: value["stories"][0]["first_frame"].update(
+                {"time_start_bp": 0}
+            ),
+            "boundary direction differs",
+        ),
+        (
+            lambda value: value["publication_budget"].update(
+                {"published_asset_count": 11}
+            ),
+            "budget contract differs",
+        ),
+    ),
+)
+def test_public_validator_refuses_rehashed_semantic_and_contract_forgery(
+    tmp_path: Path,
+    mutation: Callable[[dict[str, Any]], None],
+    error: str,
+) -> None:
+    source = _gallery(tmp_path)
+    destination = tmp_path / "published"
+    _publish(source, destination)
+    _rewrite_publication(destination, mutation)
+
+    with pytest.raises(AtlasMediaError, match=error):
+        publication.validate_atlas_media_publication(destination, mp4_probe=_probe)
+
+
+def test_publication_and_validator_reject_real_media_corruption_and_probe_forgery(
+    tmp_path: Path,
+) -> None:
+    corrupt_mp4 = _gallery(tmp_path / "source-mp4")
+    mp4_path = corrupt_mp4 / "media/neotoma-source-sample-presence.mp4"
+    mp4_path.write_bytes(b"not an MP4 despite its extension")
+
+    def bind_corrupt_mp4(value: dict[str, Any]) -> None:
+        asset = value["stories"][0]["assets"][1]
+        asset["byte_count"] = mp4_path.stat().st_size
+        asset["sha256"] = sha256_file(mp4_path)
+
+    _rewrite_gallery(corrupt_mp4, bind_corrupt_mp4)
+    with pytest.raises(AtlasMediaError, match="MP4"):
+        _publish(corrupt_mp4, tmp_path / "source-mp4-output")
+
+    corrupt_png = _gallery(tmp_path / "source-png")
+    png_path = corrupt_png / "media/neotoma-source-sample-presence.poster.png"
+    png_path.write_bytes(b"not a PNG despite its extension")
+
+    def bind_corrupt_png(value: dict[str, Any]) -> None:
+        story = value["stories"][0]
+        asset = story["assets"][2]
+        capture = story["capture_frames"][0]
+        asset["byte_count"] = png_path.stat().st_size
+        asset["sha256"] = sha256_file(png_path)
+        capture["byte_count"] = png_path.stat().st_size
+        capture["png_sha256"] = sha256_file(png_path)
+        story["capture_frame_set_sha256"] = hashlib.sha256(
+            canonical_json_bytes(story["capture_frames"])
+        ).hexdigest()
+
+    _rewrite_gallery(corrupt_png, bind_corrupt_png)
+    with pytest.raises(AtlasMediaError, match="PNG"):
+        _publish(corrupt_png, tmp_path / "source-png-output")
+
+    source = _gallery(tmp_path / "probe")
+
+    def forged_probe(_: Path) -> publication.ProbedMp4:
+        return publication.ProbedMp4(
+            width=32,
+            height=16,
+            frame_count=1,
+            duration_seconds=1.0,
+            codec_name="h264",
+            pixel_format="yuv420p",
+        )
+
+    with pytest.raises(AtlasMediaError, match="MP4 properties differ"):
+        publication.publish_atlas_media(
+            source, tmp_path / "probe-output", mp4_probe=forged_probe
+        )
+
+
+def test_public_validator_rejects_rehashed_corrupt_published_media(
+    tmp_path: Path,
+) -> None:
+    source = _gallery(tmp_path)
+    destination = tmp_path / "published"
+    _publish(source, destination)
+    mp4_path = destination / "media/neotoma-source-code-trsh.mp4"
+    mp4_path.write_bytes(b"forged MP4 payload")
+
+    def bind_corrupt_media(value: dict[str, Any]) -> None:
+        asset = value["stories"][1]["assets"][1]
+        for identity in (asset["source"], asset["published"]):
+            identity["byte_count"] = mp4_path.stat().st_size
+            identity["sha256"] = sha256_file(mp4_path)
+        value["publication_budget"]["published_byte_count"] = sum(
+            item["published"]["byte_count"]
+            for story in value["stories"]
+            for item in story["assets"]
+        )
+
+    _rewrite_publication(destination, bind_corrupt_media)
+    with pytest.raises(AtlasMediaError, match="MP4"):
+        publication.validate_atlas_media_publication(destination, mp4_probe=_probe)
 
 
 @pytest.mark.parametrize(
@@ -359,7 +608,7 @@ def test_publication_refuses_stale_selection_identity_and_scientific_semantics(
     _rewrite_gallery(source, mutation)
 
     with pytest.raises(AtlasMediaError, match=error):
-        publication.publish_atlas_media(source, tmp_path / "published")
+        _publish(source, tmp_path / "published")
 
 
 def test_publication_refuses_gallery_checksum_and_self_identity_mutations(
@@ -369,7 +618,7 @@ def test_publication_refuses_gallery_checksum_and_self_identity_mutations(
     checksum = source / "gallery-manifest.sha256"
     checksum.write_text(f"{'0' * 64}  gallery-manifest.json\n", encoding="utf-8")
     with pytest.raises(AtlasMediaError, match="checksum differs"):
-        publication.publish_atlas_media(source, tmp_path / "published")
+        _publish(source, tmp_path / "published")
 
     source = _gallery(tmp_path / "second")
     _rewrite_gallery(
@@ -378,7 +627,7 @@ def test_publication_refuses_gallery_checksum_and_self_identity_mutations(
         repair_content_hash=False,
     )
     with pytest.raises(AtlasMediaError, match="content identity differs"):
-        publication.publish_atlas_media(source, tmp_path / "published-second")
+        _publish(source, tmp_path / "published-second")
 
 
 def test_publication_reconciles_capture_identity_and_oldest_poster(
@@ -392,7 +641,7 @@ def test_publication_reconciles_capture_identity_and_oldest_poster(
         ),
     )
     with pytest.raises(AtlasMediaError, match="capture frame set identity differs"):
-        publication.publish_atlas_media(source, tmp_path / "capture-set-output")
+        _publish(source, tmp_path / "capture-set-output")
 
     source = _gallery(tmp_path / "poster")
     _rewrite_gallery(
@@ -415,7 +664,7 @@ def test_publication_reconciles_capture_identity_and_oldest_poster(
         encoding="utf-8",
     )
     with pytest.raises(AtlasMediaError, match="poster differs from the oldest capture"):
-        publication.publish_atlas_media(source, tmp_path / "poster-output")
+        _publish(source, tmp_path / "poster-output")
 
 
 def test_publication_refuses_traversal_symlink_mutation_and_extra_media(
@@ -429,7 +678,7 @@ def test_publication_refuses_traversal_symlink_mutation_and_extra_media(
         ),
     )
     with pytest.raises(AtlasMediaError, match="asset identity differs"):
-        publication.publish_atlas_media(traversal, tmp_path / "traversal-output")
+        _publish(traversal, tmp_path / "traversal-output")
 
     linked = _gallery(tmp_path / "linked")
     poster = linked / "media/neotoma-source-sample-presence.poster.png"
@@ -438,17 +687,17 @@ def test_publication_refuses_traversal_symlink_mutation_and_extra_media(
     poster.unlink()
     poster.symlink_to(target)
     with pytest.raises(AtlasMediaError, match="symlink"):
-        publication.publish_atlas_media(linked, tmp_path / "linked-output")
+        _publish(linked, tmp_path / "linked-output")
 
     mutated = _gallery(tmp_path / "mutated")
     (mutated / "media/neotoma-source-code-trsh.mp4").write_bytes(b"changed")
     with pytest.raises(AtlasMediaError, match="source bytes differ"):
-        publication.publish_atlas_media(mutated, tmp_path / "mutated-output")
+        _publish(mutated, tmp_path / "mutated-output")
 
     extra = _gallery(tmp_path / "extra")
     (extra / "media/unlisted.mp4").write_bytes(b"extra")
     with pytest.raises(AtlasMediaError, match="missing or extra assets"):
-        publication.publish_atlas_media(extra, tmp_path / "extra-output")
+        _publish(extra, tmp_path / "extra-output")
 
 
 def test_publication_refuses_individual_and_aggregate_budget_overruns(
@@ -457,13 +706,13 @@ def test_publication_refuses_individual_and_aggregate_budget_overruns(
     source = _gallery(tmp_path / "individual")
     monkeypatch.setattr(publication, "MAX_MP4_BYTES", 1)
     with pytest.raises(AtlasMediaError, match="mp4 exceeds"):
-        publication.publish_atlas_media(source, tmp_path / "individual-output")
+        _publish(source, tmp_path / "individual-output")
 
     monkeypatch.setattr(publication, "MAX_MP4_BYTES", 16 * 1024 * 1024)
     source = _gallery(tmp_path / "aggregate")
     monkeypatch.setattr(publication, "MAX_PUBLICATION_BYTES", 1)
     with pytest.raises(AtlasMediaError, match="total budget"):
-        publication.publish_atlas_media(source, tmp_path / "aggregate-output")
+        _publish(source, tmp_path / "aggregate-output")
 
 
 def test_publication_detects_source_mutation_during_copy(
@@ -486,7 +735,7 @@ def test_publication_detects_source_mutation_during_copy(
         mutating_copy,
     )
     with pytest.raises(AtlasMediaError, match="source media changed"):
-        publication.publish_atlas_media(source, tmp_path / "published")
+        _publish(source, tmp_path / "published")
     assert not (tmp_path / "published").exists()
     assert not list(tmp_path.glob(".atlas-media-publication-pending-*"))
 
@@ -500,17 +749,17 @@ def test_publication_refuses_uncontrolled_existing_destination(
     (destination / "manual-file.txt").write_text("preserve me\n", encoding="utf-8")
 
     with pytest.raises(AtlasMediaError, match="publication-manifest.json"):
-        publication.publish_atlas_media(source, destination)
+        _publish(source, destination)
     assert (destination / "manual-file.txt").read_text(
         encoding="utf-8"
     ) == "preserve me\n"
 
     governed_destination = tmp_path / "governed-publication"
-    publication.publish_atlas_media(source, governed_destination)
+    _publish(source, governed_destination)
     unexpected = governed_destination / "manual-file.txt"
     unexpected.write_text("preserve me too\n", encoding="utf-8")
     with pytest.raises(AtlasMediaError, match="missing or extra files"):
-        publication.publish_atlas_media(source, governed_destination)
+        _publish(source, governed_destination)
     assert unexpected.read_text(encoding="utf-8") == "preserve me too\n"
 
 
@@ -526,4 +775,4 @@ def test_publication_rejects_duplicate_json_fields(tmp_path: Path) -> None:
     )
 
     with pytest.raises(AtlasMediaError, match="duplicate fields"):
-        publication.publish_atlas_media(source, tmp_path / "published")
+        _publish(source, tmp_path / "published")
