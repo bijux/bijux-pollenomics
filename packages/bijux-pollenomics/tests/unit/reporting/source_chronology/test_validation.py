@@ -51,3 +51,19 @@ def test_projection_rejects_missing_canonical_site_detail() -> None:
             atlas,
             detail_record_ids=set(),
         )
+
+
+def test_projection_rejects_chronology_selection_accounting_tampering() -> None:
+    result, atlas = projection()
+    reconciliation = dict(atlas.reconciliation)
+    reconciliation["chronology_selection_posture_counts"] = {}
+
+    with pytest.raises(ValueError, match="selection accounting changed"):
+        validate_source_chronology_atlas_projection(
+            result,
+            SourceChronologyAtlasProjection(
+                point_layers=atlas.point_layers,
+                reconciliation=reconciliation,
+            ),
+            detail_record_ids={DETAIL_ID},
+        )

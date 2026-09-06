@@ -29,6 +29,10 @@ class SourceChronologyNode:
     longitude: float
     coordinate_quality: str
     chronology_claim_id: str
+    chronology_id: str | None
+    chronology_name: str | None
+    is_default_chronology: bool
+    chronology_selection_posture: str
     younger_bp: float | int
     older_bp: float | int
     provenance_record_id: str
@@ -41,7 +45,7 @@ class SourceChronologyNode:
     candidate_generation_status: str = "refused"
     source_element_type: str = "pollen"
     comparability_status: str = "comparable"
-    schema_version: str = "neotoma-source-chronology-node.v1"
+    schema_version: str = "neotoma-source-chronology-node.v2"
 
     def __post_init__(self) -> None:
         if self.node_level not in NODE_LEVELS:
@@ -52,6 +56,16 @@ class SourceChronologyNode:
             raise ValueError("source chronology node requires pollen evidence")
         if self.comparability_status != "comparable":
             raise ValueError("source chronology node requires comparable chronology")
+        expected_default = (
+            self.chronology_selection_posture == "selected_source_default"
+        )
+        if self.chronology_selection_posture not in {
+            "selected_source_default",
+            "selected_unique_nondefault",
+        }:
+            raise ValueError("source chronology node requires a selection posture")
+        if self.is_default_chronology is not expected_default:
+            raise ValueError("chronology default status contradicts selection posture")
         observation_ids = tuple(sorted(set(self.observation_ids)))
         if not observation_ids:
             raise ValueError("source chronology node requires observation identity")

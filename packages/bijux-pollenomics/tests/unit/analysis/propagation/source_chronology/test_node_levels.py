@@ -26,6 +26,12 @@ def test_source_levels_preserve_literal_identity_without_propagation() -> None:
     assert all(node.source_family == "neotoma" for node in result.nodes)
     assert all(node.source_element_type == "pollen" for node in result.nodes)
     assert all(node.comparability_status == "comparable" for node in result.nodes)
+    assert {node.chronology_id for node in result.nodes} == {"chronology-1"}
+    assert {node.chronology_name for node in result.nodes} == {"Source chronology"}
+    assert all(node.is_default_chronology is True for node in result.nodes)
+    assert {node.chronology_selection_posture for node in result.nodes} == {
+        "selected_source_default"
+    }
     assert all(node.propagation_eligible is False for node in result.nodes)
     assert by_level["source_sample_presence"].candidate_refusal_reason == (
         "reviewed_pollen_sum_not_available"

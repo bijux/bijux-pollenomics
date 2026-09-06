@@ -75,7 +75,7 @@ def build_source_chronology_atlas_projection(
     level_counts = Counter(node.node_level for node in result.nodes)
     country_counts = Counter(COUNTRY_NAMES[node.country_code] for node in result.nodes)
     reconciliation: JsonObject = {
-        "schema_version": "neotoma-source-chronology-atlas-reconciliation.v1",
+        "schema_version": "neotoma-source-chronology-atlas-reconciliation.v2",
         "status": "reconciled",
         "source_snapshot_id": result.context.source_snapshot_id,
         "build_id": result.context.build_id,
@@ -85,6 +85,19 @@ def build_source_chronology_atlas_projection(
         ),
         "eligible_observation_denominator": (
             result.reconciliation.eligible_observation_count
+        ),
+        "selected_sample_count": result.reconciliation.selected_sample_count,
+        "selected_default_chronology_count": (
+            result.reconciliation.selected_default_chronology_count
+        ),
+        "selected_nondefault_chronology_count": (
+            result.reconciliation.selected_nondefault_chronology_count
+        ),
+        "selected_named_chronology_count": (
+            result.reconciliation.selected_named_chronology_count
+        ),
+        "chronology_selection_posture_counts": dict(
+            result.reconciliation.chronology_selection_posture_counts
         ),
         "refused_observation_count": result.reconciliation.refused_observation_count,
         "facet_refusal_count": len(result.facet_refusals),

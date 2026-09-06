@@ -7,7 +7,7 @@ from bijux_pollenomics.analysis.propagation.source_chronology import (
 )
 from bijux_pollenomics.core.geospatial.geojson import JsonObject
 
-from .facets import COUNTRY_NAMES
+from .facets import COUNTRY_NAMES, source_ecological_code_label
 
 
 def build_atlas_feature(node: SourceChronologyNode) -> JsonObject:
@@ -42,9 +42,14 @@ def build_atlas_feature(node: SourceChronologyNode) -> JsonObject:
         "source_taxon_id": node.source_taxon_id,
         "source_reported_name": name,
         "source_ecological_code": code,
+        "source_ecological_code_label": source_ecological_code_label(code),
         "source_unit": node.source_unit,
         "observation_denominator": len(node.observation_ids),
         "chronology_claim_id": node.chronology_claim_id,
+        "chronology_id": node.chronology_id,
+        "chronology_name": node.chronology_name,
+        "is_default_chronology": node.is_default_chronology,
+        "chronology_selection_posture": node.chronology_selection_posture,
         "time_start_bp": node.younger_bp,
         "time_end_bp": node.older_bp,
         "time_label": _time_label(node.younger_bp, node.older_bp),

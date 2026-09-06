@@ -15,6 +15,7 @@ from .models import (
     SourceNodeFacetRefusal,
     SourceNodeReconciliation,
 )
+from .selection_accounting import selected_samples
 
 
 def build_reconciliation(
@@ -44,6 +45,7 @@ def build_reconciliation(
             if (interval := canonical_claim_interval(row)) is not None
         ]
         country_nodes = [node for node in nodes if node.country_code == country]
+        sample_nodes = selected_samples(country_nodes)
         country_refusals = [
             row for row in admission_refusals if row.country_code == country
         ]
@@ -88,6 +90,23 @@ def build_reconciliation(
                 ),
                 eligible_observation_count=len(eligible_ids),
                 refused_observation_count=len(country_refusals),
+                selected_sample_count=len(sample_nodes),
+                selected_default_chronology_count=sum(
+                    node.is_default_chronology for node in sample_nodes
+                ),
+                selected_nondefault_chronology_count=sum(
+                    not node.is_default_chronology for node in sample_nodes
+                ),
+                selected_named_chronology_count=sum(
+                    node.chronology_name is not None for node in sample_nodes
+                ),
+                chronology_selection_posture_counts=tuple(
+                    sorted(
+                        Counter(
+                            node.chronology_selection_posture for node in sample_nodes
+                        ).items()
+                    )
+                ),
                 chronology_node_count=len(country_nodes),
                 propagation_eligible_event_count=0,
                 node_counts_by_level=tuple(sorted(node_counts.items())),
@@ -132,6 +151,7 @@ def build_reconciliation(
     if input_observation_row_count != unique_count + duplicate_observation_row_count:
         raise AssertionError("source-node duplicate accounting is incomplete")
     node_counts = Counter(node.node_level for node in nodes)
+    sample_nodes = selected_samples(nodes)
     if any(node.propagation_eligible for node in nodes):
         raise AssertionError(
             "source chronology nodes must not become propagation events"
@@ -144,6 +164,23 @@ def build_reconciliation(
         ungoverned_observation_count=unique_count - governed_count,
         eligible_observation_count=len(eligible_ids),
         refused_observation_count=len(admission_refusals),
+        selected_sample_count=len(sample_nodes),
+        selected_default_chronology_count=sum(
+            node.is_default_chronology for node in sample_nodes
+        ),
+        selected_nondefault_chronology_count=sum(
+            not node.is_default_chronology for node in sample_nodes
+        ),
+        selected_named_chronology_count=sum(
+            node.chronology_name is not None for node in sample_nodes
+        ),
+        chronology_selection_posture_counts=tuple(
+            sorted(
+                Counter(
+                    node.chronology_selection_posture for node in sample_nodes
+                ).items()
+            )
+        ),
         chronology_node_count=len(nodes),
         propagation_eligible_event_count=0,
         node_counts_by_level=tuple(sorted(node_counts.items())),

@@ -78,19 +78,31 @@ def source_refusal_reason(
     claim: Mapping[str, object] | None,
 ) -> tuple[str | None, str | None]:
     """Return node-admission refusal and chronology detail for one observation."""
+    reason = source_observation_refusal_reason(observation, sample, site)
+    if reason is not None:
+        return reason, None
+    return source_chronology_refusal_reason(observation, sample, site, claim)
+
+
+def source_observation_refusal_reason(
+    observation: Mapping[str, object],
+    sample: Mapping[str, object] | None,
+    site: Mapping[str, object] | None,
+) -> str | None:
+    """Refuse ineligible source observations before chronology selection."""
     if optional_text(observation.get("country_code")) not in COUNTRY_CODES:
-        return "ungoverned_country", None
+        return "ungoverned_country"
     if optional_text(observation.get("source_element_type")) != "pollen":
-        return "non_pollen_observation", None
+        return "non_pollen_observation"
     if optional_text(observation.get("detection_status")) != "reported_value":
-        return "non_positive_observation", None
+        return "non_positive_observation"
     value = observation.get("source_value")
     if not finite_number(value) or float(value) <= 0:
-        return "non_positive_observation", None
+        return "non_positive_observation"
     if sample is None:
-        return "missing_sample", None
+        return "missing_sample"
     if site is None:
-        return "missing_site", None
+        return "missing_site"
     sample_id = optional_text(observation.get("sample_id"))
     site_id = optional_text(observation.get("site_id"))
     if (
@@ -98,22 +110,46 @@ def source_refusal_reason(
         or site_id != optional_text(sample.get("site_id"))
         or site_id != optional_text(site.get("site_id"))
     ):
-        return "source_relation_mismatch", None
+        return "source_relation_mismatch"
     country = optional_text(observation.get("country_code"))
     if any(optional_text(row.get("country_code")) != country for row in (sample, site)):
-        return "source_lineage_mismatch", None
+        return "source_lineage_mismatch"
+    for field_name in ("source_snapshot_id", "build_id"):
+        values = {
+            optional_text(row.get(field_name)) for row in (observation, sample, site)
+        }
+        if len(values) != 1 or None in values:
+            return "source_lineage_mismatch"
+    if optional_text(observation.get("source_unit")) is None:
+        return "measurement_semantics_missing"
+    if source_coordinate(site) is None:
+        return "missing_or_invalid_coordinates"
+    return None
+
+
+def source_chronology_refusal_reason(
+    observation: Mapping[str, object],
+    sample: Mapping[str, object] | None,
+    site: Mapping[str, object] | None,
+    claim: Mapping[str, object] | None,
+) -> tuple[str | None, str | None]:
+    """Validate the selected chronology after observation eligibility is proven."""
     if claim is None:
         return "missing_source_default_chronology", None
+    if sample is None or site is None:
+        raise AssertionError("chronology validation requires source relations")
+    sample_id = optional_text(observation.get("sample_id"))
+    site_id = optional_text(observation.get("site_id"))
+    country = optional_text(observation.get("country_code"))
     if (
         sample_id != optional_text(claim.get("source_record_id"))
         or site_id != optional_text(claim.get("site_id"))
         or optional_text(claim.get("country_code")) != country
     ):
         return "source_relation_mismatch", None
-    identities = (observation, sample, site, claim)
     for field_name in ("source_snapshot_id", "build_id"):
-        values = {optional_text(row.get(field_name)) for row in identities}
-        if len(values) != 1 or None in values:
+        expected = optional_text(observation.get(field_name))
+        if optional_text(claim.get(field_name)) != expected:
             return "source_lineage_mismatch", None
     if claim.get("comparability_status") != "comparable":
         return "non_comparable_source_default_chronology", chronology_reason(claim)
@@ -121,10 +157,6 @@ def source_refusal_reason(
         return "invalid_source_default_chronology_interval", None
     if optional_text(claim.get("provenance_record_id")) is None:
         return "source_lineage_mismatch", None
-    if optional_text(observation.get("source_unit")) is None:
-        return "measurement_semantics_missing", None
-    if source_coordinate(site) is None:
-        return "missing_or_invalid_coordinates", None
     return None, None
 
 
@@ -132,5 +164,7 @@ __all__ = [
     "canonical_claim_interval",
     "chronology_reason",
     "source_coordinate",
+    "source_chronology_refusal_reason",
+    "source_observation_refusal_reason",
     "source_refusal_reason",
 ]

@@ -29,6 +29,8 @@ def source_rows(
     younger_bp: object = 100,
     older_bp: object = 125,
     admission_reason: str | None = None,
+    chronology_id: str | None = "chronology-1",
+    chronology_name: str | None = "Source chronology",
 ) -> dict[str, list[dict[str, object]]]:
     site_id = f"site-{country}"
     sample_id = f"sample-{country}"
@@ -87,6 +89,8 @@ def source_rows(
         "source_snapshot_id": SNAPSHOT,
         "build_id": BUILD,
         "is_default_chronology": default,
+        "chronology_id": chronology_id,
+        "chronology_name": chronology_name,
         "comparability_status": status,
         "younger_bp": younger_bp,
         "older_bp": older_bp,

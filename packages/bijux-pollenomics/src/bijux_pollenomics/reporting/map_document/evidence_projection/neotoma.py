@@ -36,6 +36,8 @@ from .records import (
     _unique_rows,
 )
 
+_GOVERNED_NEOTOMA_COUNTRY_CODES = frozenset({"DK", "FI", "NO", "SE"})
+
 
 def _project_neotoma(
     context_root: Path,
@@ -65,6 +67,7 @@ def _project_neotoma(
         "site_id",
         "Neotoma sites",
     )
+    governed_sites = _governed_neotoma_sites(sites)
     collection_rows = _compact_rows_by_site(
         surfaces["collection_units"],
         fields=("collection_unit_id", "source_collection_unit_id", "source_payload"),
@@ -211,9 +214,12 @@ def _project_neotoma(
             feature.get("evidence_row_id"), "Neotoma feature evidence_row_id"
         )
         site_id = f"neotoma:site:{source_site_id}"
-        site = sites.get(site_id)
+        site = governed_sites.get(site_id)
         if site is None:
-            raise ValueError(f"Neotoma map feature has no relational site: {site_id}")
+            raise ValueError(
+                "Neotoma map feature has no governed-country relational site: "
+                f"{site_id}"
+            )
         _set_feature_record_id(feature, site_id)
         if site_id in observed_sites:
             raise ValueError(f"Neotoma map features duplicate site identity: {site_id}")
@@ -345,8 +351,11 @@ def _project_neotoma(
                 },
             }
         )
-    if observed_sites != set(sites):
-        raise ValueError("Neotoma map and relational site identities do not reconcile")
+    if observed_sites != set(governed_sites):
+        raise ValueError(
+            "Neotoma map and governed-country relational site identities do not "
+            "reconcile"
+        )
     detail_row_counts = {
         "collection_units": sum(len(rows) for rows in collection_rows.values()),
         "datasets": sum(len(rows) for rows in dataset_rows.values()),
@@ -369,13 +378,26 @@ def _project_neotoma(
     )
     source_projection = build_source_chronology_atlas_projection(
         source_node_result,
-        detail_record_ids=sites.keys(),
+        detail_record_ids=governed_sites.keys(),
     )
+    country_site_counts = {
+        country_code: sum(
+            1
+            for site in governed_sites.values()
+            if site.get("country_code") == country_code
+        )
+        for country_code in sorted(_GOVERNED_NEOTOMA_COUNTRY_CODES)
+    }
+    excluded_site_ids = sorted(set(sites) - set(governed_sites))
     accounting = {
         "source_feature_count": len(features),
         "source_site_denominator": len(sites),
+        "governed_country_site_denominator": len(governed_sites),
+        "governed_country_code_counts": country_site_counts,
         "projected_site_count": len(records),
         "unprojected_source_site_count": len(sites) - len(records),
+        "excluded_unassigned_site_count": len(excluded_site_ids),
+        "excluded_unassigned_site_ids": excluded_site_ids,
         "source_snapshot_id": source_snapshot_id,
         "build_id": build_id,
         "materialization_sha256": materialization_sha256,
@@ -388,6 +410,18 @@ def _project_neotoma(
         accounting,
         [dict(layer) for layer in source_projection.point_layers],
     )
+
+
+def _governed_neotoma_sites(
+    sites: Mapping[str, Mapping[str, object]],
+) -> dict[str, Mapping[str, object]]:
+    """Return only sites accepted into one of the four governed countries."""
+    return {
+        site_id: site
+        for site_id, site in sites.items()
+        if site.get("country_decision_status") == "assigned"
+        and site.get("country_code") in _GOVERNED_NEOTOMA_COUNTRY_CODES
+    }
 
 
 def _load_neotoma_surface(

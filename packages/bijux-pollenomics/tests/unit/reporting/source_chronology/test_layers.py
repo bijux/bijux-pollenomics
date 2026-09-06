@@ -37,11 +37,26 @@ def test_three_intent_owned_layers_preserve_source_semantics() -> None:
         assert feature["time_end_bp"] == 125
         assert feature["candidate_generation_status"] == "refused"
         assert feature["propagation_eligible"] is False
+        assert feature["chronology_id"] == "chronology-SE"
+        assert feature["chronology_name"] == "Source chronology"
+        assert feature["is_default_chronology"] is True
+        assert feature["chronology_selection_posture"] == "selected_source_default"
         assert not {"edge_id", "target_record_id", "direction"} & feature.keys()
     assert features["source_ecological_code"]["source_ecological_code"] == "TRSH"
+    assert features["source_ecological_code"]["source_ecological_code_label"] == (
+        "Trees and Shrubs"
+    )
     assert features["source_taxon"]["source_taxon_id"] == 1
     assert features["source_taxon"]["source_reported_name"] == "Abies"
     assert features["source_taxon"]["source_ecological_code"] is None
+    assert features["source_taxon"]["source_ecological_code_label"] is None
+    assert atlas.reconciliation["selected_sample_count"] == 1
+    assert atlas.reconciliation["selected_default_chronology_count"] == 1
+    assert atlas.reconciliation["selected_nondefault_chronology_count"] == 0
+    assert atlas.reconciliation["selected_named_chronology_count"] == 1
+    assert atlas.reconciliation["chronology_selection_posture_counts"] == {
+        "selected_source_default": 1
+    }
 
 
 def test_selector_facets_carry_exact_node_and_observation_denominators() -> None:
@@ -60,7 +75,8 @@ def test_selector_facets_carry_exact_node_and_observation_denominators() -> None
     assert code_facets["source_ecological_codes"] == [
         {
             "value": "TRSH",
-            "label": "TRSH",
+            "label": "Trees and Shrubs",
+            "source_code": "TRSH",
             "feature_key": "source:neotoma:ecological-code:TRSH",
             "node_count": 1,
             "observation_denominator": 1,

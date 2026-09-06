@@ -5,9 +5,32 @@ import unittest
 from bijux_pollenomics.collection.sources.neotoma.collection import (
     normalize_neotoma_rows,
 )
+from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma import (
+    _governed_neotoma_sites,
+)
 
 
 class NeotomaCountryProjectionTests(unittest.TestCase):
+    def test_governed_map_projection_excludes_unassigned_relational_sites(self) -> None:
+        sites = {
+            "neotoma:site:assigned": {
+                "country_code": "SE",
+                "country_decision_status": "assigned",
+            },
+            "neotoma:site:review": {
+                "country_code": "UNASSIGNED",
+                "country_decision_status": "review",
+            },
+            "neotoma:site:conflict": {
+                "country_code": "NO",
+                "country_decision_status": "review",
+            },
+        }
+
+        governed = _governed_neotoma_sites(sites)
+
+        self.assertEqual(list(governed), ["neotoma:site:assigned"])
+
     def test_normalize_neotoma_rows_refuses_coastal_proximity_without_snapping(
         self,
     ) -> None:

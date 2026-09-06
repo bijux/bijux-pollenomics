@@ -41,4 +41,11 @@ def test_materialization_is_atomic_idempotent_and_propagation_refused(
     assert nodes["result_digest"] == result.result_digest
     assert reconciliation["candidate_generation_status"] == "refused"
     assert reconciliation["propagation_eligible_event_count"] == 0
+    assert reconciliation["reconciliation"]["selected_sample_count"] == 1
+    assert reconciliation["reconciliation"]["chronology_selection_posture_counts"] == {
+        "selected_source_default": 1
+    }
+    assert nodes["records"][0]["chronology_id"] == "chronology-1"
+    assert nodes["records"][0]["chronology_name"] == "Source chronology"
+    assert nodes["records"][0]["is_default_chronology"] is True
     assert not (output_root / "primary_scenario_candidates.json").exists()

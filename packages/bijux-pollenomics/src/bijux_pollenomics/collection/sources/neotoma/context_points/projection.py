@@ -1,23 +1,23 @@
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping
+from collections.abc import Iterable, Mapping, Sequence
 
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.collection.spatial import (
     CountryAttributionDecision,
     point_in_bbox,
 )
-from bijux_pollenomics.core.bp_time import midpoint_bp_year
+from bijux_pollenomics.core.temporal_semantics import build_temporal_semantics
 from bijux_pollenomics.core.text import clean_optional_text
 
 from ..chronology import (
     AgeRangeAggregate,
     format_neotoma_age_range,
     merge_age_ranges,
+    neotoma_age_range_system,
     neotoma_time_interval,
     neotoma_time_label,
 )
-from ..chronology.semantics import _build_neotoma_temporal_semantics
 from ..country import (
     build_neotoma_context_country_decisions,
     neotoma_site_representative_point,
@@ -119,10 +119,8 @@ def normalize_neotoma_rows(
         ]
         time_interval = neotoma_time_interval(age_ranges)
         time_label = neotoma_time_label(age_ranges, time_interval)
-        temporal_semantics = _build_neotoma_temporal_semantics(
-            age_ranges,
-            time_interval=time_interval,
-            time_label=time_label,
+        temporal_semantics = _build_site_context_temporal_semantics(
+            age_ranges, time_label=time_label
         )
         site_name = str(row.get("sitename", "")).strip() or f"Neotoma site {site_id}"
         source_url = f"https://apps.neotomadb.org/explorer/#/record/site/{site_id}"
@@ -169,6 +167,9 @@ def normalize_neotoma_rows(
                     comparability_posture.replace("_", " "),
                 )
             )
+        comparison_note = str(temporal_semantics.get("comparison_note", "")).strip()
+        if comparison_note:
+            popup_rows.append(("Temporal comparison note", comparison_note))
         window_label = str(temporal_semantics.get("temporal_window_label", "")).strip()
         if window_label:
             popup_rows.append(("Temporal window", window_label))
@@ -194,14 +195,77 @@ def normalize_neotoma_rows(
                 source_url=source_url,
                 record_count=dataset_count,
                 popup_rows=tuple(popup_rows),
-                time_start_bp=time_interval[0] if time_interval is not None else None,
-                time_end_bp=time_interval[1] if time_interval is not None else None,
-                time_mean_bp=midpoint_bp_year(time_interval[0], time_interval[1])
-                if time_interval is not None
-                else None,
+                time_start_bp=None,
+                time_end_bp=None,
+                time_mean_bp=None,
                 time_label=time_label,
                 temporal_semantics=temporal_semantics,
             )
         )
 
     return sorted(records, key=lambda item: (item.name.casefold(), item.record_id))
+
+
+def _build_site_context_temporal_semantics(
+    age_ranges: Sequence[Mapping[str, object]],
+    *,
+    time_label: str,
+) -> dict[str, object]:
+    uncertainty_notes: tuple[str, ...]
+    original_labels = tuple(
+        clean_optional_text(age_range.get("units"))
+        for age_range in age_ranges
+        if clean_optional_text(age_range.get("units"))
+    )
+    normalized_labels = tuple(
+        sorted(
+            {
+                system
+                for age_range in age_ranges
+                if (
+                    system := neotoma_age_range_system(
+                        clean_optional_text(age_range.get("units"))
+                    )
+                )
+                is not None
+            }
+        )
+    )
+    if age_ranges:
+        evidence_class = "neotoma_site_age_range_context"
+        precision_posture = "site_extrema_without_continuity"
+        comparability_posture = "contextual_label_only"
+        comparison_note = (
+            "Site-level age ranges aggregate extrema across datasets and samples; "
+            "they do not prove continuous evidence between endpoints. Use the "
+            "sample-owned Neotoma chronology layers for numeric time filtering."
+        )
+        uncertainty_notes = (
+            "Compact site chronology is withheld because one interval would fill "
+            "unobserved gaps between source records.",
+        )
+    else:
+        evidence_class = "unresolved"
+        precision_posture = "unresolved"
+        comparability_posture = "unresolved"
+        comparison_note = (
+            "Neotoma did not publish site age-range context for this compact point; "
+            "sample-owned chronology remains available only where relational claims "
+            "support it."
+        )
+        uncertainty_notes = ()
+    return build_temporal_semantics(
+        source_family="neotoma",
+        evidence_class=evidence_class,
+        precision_posture=precision_posture,
+        comparability_posture=comparability_posture,
+        time_start_bp=None,
+        time_end_bp=None,
+        time_mean_bp=None,
+        summary_label=time_label,
+        comparison_note=comparison_note,
+        provenance_locator="site_age_ranges",
+        original_labels=original_labels,
+        normalized_labels=normalized_labels,
+        uncertainty_notes=uncertainty_notes,
+    ).as_dict()

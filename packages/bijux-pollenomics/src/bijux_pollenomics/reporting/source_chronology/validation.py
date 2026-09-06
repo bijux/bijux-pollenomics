@@ -73,6 +73,25 @@ def validate_source_chronology_atlas_projection(
         raise ValueError("source chronology reconciliation node count changed")
     if reconciliation.get("layer_feature_count") != len(result.nodes):
         raise ValueError("source chronology layer feature count does not reconcile")
+    expected_selection = {
+        "selected_sample_count": result.reconciliation.selected_sample_count,
+        "selected_default_chronology_count": (
+            result.reconciliation.selected_default_chronology_count
+        ),
+        "selected_nondefault_chronology_count": (
+            result.reconciliation.selected_nondefault_chronology_count
+        ),
+        "selected_named_chronology_count": (
+            result.reconciliation.selected_named_chronology_count
+        ),
+        "chronology_selection_posture_counts": dict(
+            result.reconciliation.chronology_selection_posture_counts
+        ),
+    }
+    if any(
+        reconciliation.get(key) != value for key, value in expected_selection.items()
+    ):
+        raise ValueError("source chronology selection accounting changed")
     if reconciliation.get("propagation_eligible_event_count") != 0:
         raise ValueError("source chronology reconciliation claims propagation events")
 

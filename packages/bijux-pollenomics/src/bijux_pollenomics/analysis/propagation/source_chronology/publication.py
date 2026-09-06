@@ -28,7 +28,7 @@ def _payloads(result: SourceNodeDerivationResult) -> dict[str, bytes]:
     }
     payloads: dict[str, dict[str, object]] = {
         "chronology_nodes.json": {
-            "schema_version": "neotoma-source-chronology-nodes-artifact.v1",
+            "schema_version": "neotoma-source-chronology-nodes-artifact.v2",
             **identity,
             "record_count": len(result.nodes),
             "records": [node.as_dict() for node in result.nodes],
@@ -46,7 +46,7 @@ def _payloads(result: SourceNodeDerivationResult) -> dict[str, bytes]:
             "records": [row.as_dict() for row in result.facet_refusals],
         },
         "reconciliation.json": {
-            "schema_version": "neotoma-source-node-reconciliation.v1",
+            "schema_version": "neotoma-source-node-reconciliation.v2",
             **identity,
             "record_count": 1,
             "context": result.context.as_dict(),
@@ -72,7 +72,7 @@ def materialize_source_chronology_nodes(
     _validate_output_location(output_root, allowed_output_parent)
     payloads = _payloads(result)
     manifest = {
-        "schema_version": "neotoma-source-chronology-node-manifest.v1",
+        "schema_version": "neotoma-source-chronology-node-manifest.v2",
         "source_snapshot_id": result.context.source_snapshot_id,
         "build_id": result.context.build_id,
         "config_digest": result.context.config_digest,

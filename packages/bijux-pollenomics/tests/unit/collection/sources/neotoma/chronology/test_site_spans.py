@@ -4,6 +4,7 @@ import unittest
 
 from bijux_pollenomics.collection.sources.neotoma.chronology import (
     AgeRangeAggregate,
+    format_neotoma_age_range,
     merge_age_ranges,
     neotoma_age_range_system,
     neotoma_age_range_units_supported,
@@ -31,12 +32,41 @@ class NeotomaSiteSpanTests(unittest.TestCase):
 
         self.assertEqual(aggregates["Calendar years BP"]["ageyoung"], 0)
 
-    def test_numeric_age_admission_rejects_invalid_scientific_values(self) -> None:
-        for invalid in (True, False, -1, "-0.1", float("nan"), float("inf")):
+    def test_merge_keeps_missing_endpoint_null_instead_of_zero(self) -> None:
+        aggregates: dict[str, AgeRangeAggregate] = {}
+
+        merge_age_ranges(
+            aggregates,
+            [
+                {
+                    "units": "Calendar years BP",
+                    "ageold": 800,
+                    "ageyoung": None,
+                }
+            ],
+        )
+
+        self.assertIsNone(aggregates["Calendar years BP"]["ageyoung"])
+        self.assertEqual(aggregates["Calendar years BP"]["ageold"], 800)
+
+    def test_numeric_age_admission_rejects_only_non_finite_or_non_numeric_values(
+        self,
+    ) -> None:
+        for invalid in (
+            None,
+            "",
+            True,
+            False,
+            "not-an-age",
+            float("nan"),
+            float("inf"),
+        ):
             with self.subTest(invalid=invalid):
                 self.assertIsNone(numeric_age_value(invalid))
         self.assertEqual(numeric_age_value(0), 0)
         self.assertEqual(numeric_age_value("0"), 0)
+        self.assertEqual(numeric_age_value(-26), -26)
+        self.assertEqual(numeric_age_value("-0.1"), -0.1)
 
     def test_age_systems_require_exact_governed_labels(self) -> None:
         self.assertEqual(
@@ -74,13 +104,13 @@ class NeotomaSiteSpanTests(unittest.TestCase):
 
         interval = neotoma_time_interval(ranges)
 
-        self.assertEqual(interval, (20, 3600))
+        self.assertIsNone(interval)
         self.assertEqual(
             neotoma_time_label(ranges, interval),
-            "20-3600 Calibrated radiocarbon years BP",
+            "Source site age ranges (non-continuous context only)",
         )
 
-    def test_invalid_ranges_are_not_clamped_or_reordered(self) -> None:
+    def test_site_extrema_are_not_clamped_or_promoted_to_one_interval(self) -> None:
         ranges = [
             {
                 "units": "Calibrated radiocarbon years BP",
@@ -95,7 +125,11 @@ class NeotomaSiteSpanTests(unittest.TestCase):
         ]
 
         self.assertIsNone(neotoma_time_interval(ranges))
-        self.assertEqual(neotoma_time_label(ranges, None), "")
+        self.assertEqual(
+            neotoma_time_label(ranges, None),
+            "Source site age ranges (non-continuous context only)",
+        )
+        self.assertEqual(format_neotoma_age_range(ranges[0]), "-20 to 100")
 
 
 if __name__ == "__main__":

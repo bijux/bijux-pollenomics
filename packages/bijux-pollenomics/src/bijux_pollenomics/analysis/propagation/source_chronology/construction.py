@@ -16,6 +16,7 @@ _Admitted = tuple[
     Mapping[str, object],
     Mapping[str, object],
     Mapping[str, object],
+    str,
 ]
 
 
@@ -79,7 +80,7 @@ def build_source_chronology_nodes(
     groups: dict[tuple[object, ...], list[Mapping[str, object]]] = defaultdict(list)
     relations: dict[tuple[object, ...], tuple[Mapping[str, object], ...]] = {}
     facet_refusals: list[SourceNodeFacetRefusal] = []
-    for observation, sample, site, claim in admitted:
+    for observation, sample, site, claim, selection_posture in admitted:
         point = source_coordinate(site)
         interval = canonical_claim_interval(claim)
         source_unit = optional_text(observation.get("source_unit"))
@@ -95,6 +96,10 @@ def build_source_chronology_nodes(
             longitude,
             coordinate_quality,
             claim["chronology_claim_id"],
+            optional_text(claim.get("chronology_id")),
+            optional_text(claim.get("chronology_name")),
+            claim.get("is_default_chronology") is True,
+            selection_posture,
             younger_bp,
             older_bp,
             observation["source_snapshot_id"],
@@ -145,21 +150,21 @@ def _build_node(
 ) -> SourceChronologyNode:
     sample, site, claim = relations
     observation_ids = tuple(sorted(str(row["observation_id"]) for row in observations))
-    node_level = str(key[13])
-    feature_key = str(key[14])
+    node_level = str(key[17])
+    feature_key = str(key[18])
     refusal_reason = {
         "source_sample_presence": "reviewed_pollen_sum_not_available",
         "source_ecological_code": "source_ecological_equivalence_not_reviewed",
         "source_taxon": "source_taxon_equivalence_not_reviewed",
     }[node_level]
-    node_id = f"source-chronology-node:{digest(('neotoma', key[0], key[1], key[6], key[7], key[8], node_level, feature_key, key[15], key[16], key[17], key[11], context.producer_version))[:24]}"
-    taxon_id = key[15]
+    node_id = f"source-chronology-node:{digest(('neotoma', key[0], key[1], key[6], key[11], key[12], node_level, feature_key, key[19], key[20], key[21], key[15], context.producer_version))[:24]}"
+    taxon_id = key[19]
     if taxon_id is not None and not isinstance(taxon_id, (int, str)):
         raise AssertionError("source taxon identity lost validated type")
     return SourceChronologyNode(
         node_id=node_id,
         source_family="neotoma",
-        source_snapshot_id=str(key[9]),
+        source_snapshot_id=str(key[13]),
         source_record_id=str(key[0]),
         site_id=str(key[1]),
         observation_ids=observation_ids,
@@ -179,17 +184,21 @@ def _build_node(
             else ()
         ),
         source_taxon_id=taxon_id,
-        source_reported_name=None if key[16] is None else str(key[16]),
-        source_ecological_group=None if key[17] is None else str(key[17]),
-        source_unit=str(key[11]),
+        source_reported_name=None if key[20] is None else str(key[20]),
+        source_ecological_group=None if key[21] is None else str(key[21]),
+        source_unit=str(key[15]),
         country_code=str(key[2]),
         latitude=float(cast(float | int, key[3])),
         longitude=float(cast(float | int, key[4])),
         coordinate_quality=str(key[5]),
         chronology_claim_id=str(key[6]),
-        younger_bp=cast(float | int, key[7]),
-        older_bp=cast(float | int, key[8]),
-        provenance_record_id=str(key[12]),
+        chronology_id=None if key[7] is None else str(key[7]),
+        chronology_name=None if key[8] is None else str(key[8]),
+        is_default_chronology=bool(key[9]),
+        chronology_selection_posture=str(key[10]),
+        younger_bp=cast(float | int, key[11]),
+        older_bp=cast(float | int, key[12]),
+        provenance_record_id=str(key[16]),
         input_digest=digest(
             {
                 "observations": observations,
@@ -200,7 +209,7 @@ def _build_node(
         ),
         config_digest=context.config_digest,
         producer_version=context.producer_version,
-        build_id=str(key[10]),
+        build_id=str(key[14]),
         candidate_refusal_reason=refusal_reason,
     )
 

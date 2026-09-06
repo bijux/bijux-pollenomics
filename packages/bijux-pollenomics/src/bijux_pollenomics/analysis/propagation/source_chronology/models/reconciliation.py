@@ -14,6 +14,11 @@ class CountrySourceNodeReconciliation:
     pollen_observation_count: int
     eligible_observation_count: int
     refused_observation_count: int
+    selected_sample_count: int
+    selected_default_chronology_count: int
+    selected_nondefault_chronology_count: int
+    selected_named_chronology_count: int
+    chronology_selection_posture_counts: tuple[tuple[str, int], ...]
     chronology_node_count: int
     propagation_eligible_event_count: int
     node_counts_by_level: tuple[tuple[str, int], ...]
@@ -32,6 +37,9 @@ class CountrySourceNodeReconciliation:
             **dict(self.__dict__),
             "age_claim_status_counts": dict(self.age_claim_status_counts),
             "age_claim_reason_counts": dict(self.age_claim_reason_counts),
+            "chronology_selection_posture_counts": dict(
+                self.chronology_selection_posture_counts
+            ),
             "refusal_reason_counts": dict(self.refusal_reason_counts),
             "node_counts_by_level": dict(self.node_counts_by_level),
             "node_observation_counts_by_level": dict(
@@ -52,6 +60,11 @@ class SourceNodeReconciliation:
     ungoverned_observation_count: int
     eligible_observation_count: int
     refused_observation_count: int
+    selected_sample_count: int
+    selected_default_chronology_count: int
+    selected_nondefault_chronology_count: int
+    selected_named_chronology_count: int
+    chronology_selection_posture_counts: tuple[tuple[str, int], ...]
     chronology_node_count: int
     propagation_eligible_event_count: int
     node_counts_by_level: tuple[tuple[str, int], ...]
@@ -65,6 +78,9 @@ class SourceNodeReconciliation:
             "country_reconciliations": {
                 row.country_code: row.as_dict() for row in self.country_reconciliations
             },
+            "chronology_selection_posture_counts": dict(
+                self.chronology_selection_posture_counts
+            ),
             "refusal_reason_counts": dict(self.refusal_reason_counts),
             "facet_refusal_reason_counts": dict(self.facet_refusal_reason_counts),
             "node_counts_by_level": dict(self.node_counts_by_level),

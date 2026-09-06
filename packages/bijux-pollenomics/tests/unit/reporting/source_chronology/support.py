@@ -91,6 +91,8 @@ def source_result() -> SourceNodeDerivationResult:
                 "source_snapshot_id": SNAPSHOT,
                 "build_id": BUILD,
                 "is_default_chronology": True,
+                "chronology_id": "chronology-SE",
+                "chronology_name": "Source chronology",
                 "comparability_status": "comparable",
                 "younger_bp": 100,
                 "older_bp": 125,

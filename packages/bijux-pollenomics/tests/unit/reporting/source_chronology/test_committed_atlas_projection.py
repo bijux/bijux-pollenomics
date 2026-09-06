@@ -41,32 +41,40 @@ def test_committed_source_nodes_reconcile_and_fit_static_budgets(
 
     details, accounting, source_layers = _project_neotoma(ROOT / "data", base_layer)
 
-    assert len(details) == 200
+    assert len(details) == 193
     source_accounting = cast(dict[str, object], accounting["source_chronology"])
-    assert source_accounting["source_node_count"] == 86_927
+    assert source_accounting["source_node_count"] == 250_904
     assert source_accounting["layer_counts"] == {
-        "source_ecological_code": 8_778,
-        "source_sample_presence": 3_569,
-        "source_taxon": 74_580,
+        "source_ecological_code": 25_165,
+        "source_sample_presence": 9_988,
+        "source_taxon": 215_751,
     }
     assert source_accounting["country_counts"] == {
-        "Sweden": 58_055,
-        "Denmark": 0,
-        "Norway": 26_703,
-        "Finland": 2_169,
+        "Sweden": 118_704,
+        "Denmark": 3_769,
+        "Norway": 93_727,
+        "Finland": 34_704,
     }
     layers = {str(layer["node_level"]): layer for layer in source_layers}
     code_facets = cast(
         Mapping[str, object], layers["source_ecological_code"]["facet_metadata"]
     )
-    code_counts = {
-        str(row["value"]): row["node_count"]
+    code_rows = {
+        str(row["value"]): row
         for row in cast(list[dict[str, object]], code_facets["source_ecological_codes"])
     }
-    assert {code: code_counts[code] for code in ("TRSH", "UPHE", "AQVP")} == {
-        "TRSH": 3_559,
-        "UPHE": 3_511,
-        "AQVP": 1_467,
+    assert {
+        code: (
+            code_rows[code]["label"],
+            code_rows[code]["source_code"],
+            code_rows[code]["node_count"],
+            code_rows[code]["observation_denominator"],
+        )
+        for code in ("TRSH", "UPHE", "AQVP")
+    } == {
+        "TRSH": ("Trees and Shrubs", "TRSH", 9_978, 114_225),
+        "UPHE": ("Upland Herbs", "UPHE", 9_928, 91_739),
+        "AQVP": ("Aquatic Vascular Plants", "AQVP", 4_991, 9_666),
     }
     taxon_features = cast(list[dict[str, object]], layers["source_taxon"]["features"])
     assert all(feature["source_ecological_code"] is None for feature in taxon_features)
@@ -90,7 +98,7 @@ def test_committed_source_nodes_reconcile_and_fit_static_budgets(
     )
     assert cast(dict[str, object], assets.manifest["domains"])["nodes"] == {
         "status": "available",
-        "record_count": 86_927,
+        "record_count": 250_904,
     }
     assert len(assets.asset_paths) <= ATLAS_STATIC_ASSETS_MAX_FILES
     assert sum(path.stat().st_size for path in assets.asset_paths) <= (

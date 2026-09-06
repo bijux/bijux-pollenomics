@@ -6,7 +6,7 @@ import hashlib
 import json
 
 COUNTRY_CODES = ("SE", "DK", "NO", "FI")
-NODE_PRODUCER_VERSION = "neotoma-source-chronology-nodes.v1"
+NODE_PRODUCER_VERSION = "neotoma-source-chronology-nodes.v2"
 NODE_LEVELS = (
     "source_sample_presence",
     "source_ecological_code",
@@ -17,11 +17,15 @@ NODE_LEVELS = (
 def source_node_config_payload() -> dict[str, object]:
     """Return a fresh canonical payload for the fixed derivation policy."""
     return {
-        "schema_version": "neotoma-source-chronology-config.v1",
+        "schema_version": "neotoma-source-chronology-config.v2",
         "source_family": "neotoma",
         "source_element_type": "pollen",
         "countries": list(COUNTRY_CODES),
-        "chronology_admission": "source-default-comparable-canonical-bp-only",
+        "chronology_admission": {
+            "preferred": "exactly-one-source-default-comparable-canonical-bp",
+            "fallback": "exactly-one-nondefault-comparable-canonical-bp",
+            "ambiguous_fallback": "refused",
+        },
         "observation_admission": "reported-finite-positive-value-only",
         "node_levels": list(NODE_LEVELS),
         "node_order": "older-bp-desc-younger-bp-desc-node-id",

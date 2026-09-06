@@ -4,9 +4,6 @@ from collections.abc import Mapping, Sequence
 from math import isfinite
 from typing import Literal, TypedDict
 
-from bijux_pollenomics.core.bp_time import (
-    build_bp_interval_label,
-)
 from bijux_pollenomics.core.text import clean_optional_text
 
 
@@ -76,12 +73,12 @@ def merge_age_ranges(
 
 
 def numeric_age_value(value: object) -> float | None:
-    """Return a finite, non-negative age while preserving zero as evidence."""
+    """Return a finite source age while preserving zero and negative BP values."""
     if isinstance(value, bool):
         return None
     if isinstance(value, (int, float)):
         numeric = float(value)
-        return numeric if isfinite(numeric) and numeric >= 0 else None
+        return numeric if isfinite(numeric) else None
     text = clean_optional_text(value)
     if not text:
         return None
@@ -89,7 +86,7 @@ def numeric_age_value(value: object) -> float | None:
         numeric = float(text)
     except ValueError:
         return None
-    return numeric if isfinite(numeric) and numeric >= 0 else None
+    return numeric if isfinite(numeric) else None
 
 
 def format_neotoma_age_range(age_range: Mapping[str, object]) -> str:
@@ -118,49 +115,24 @@ def format_neotoma_age_value(value: float | None) -> str:
 def neotoma_time_interval(
     age_ranges: Sequence[Mapping[str, object]],
 ) -> tuple[int, int] | None:
-    """Choose one age system for a display-only site coverage interval."""
-    selected_system = neotoma_selected_age_system(age_ranges)
-    if selected_system is None:
-        return None
-    intervals = [
-        interval
-        for age_range in age_ranges
-        if neotoma_age_range_system(clean_optional_text(age_range.get("units")))
-        == selected_system
-        if (interval := _age_range_interval(age_range)) is not None
-    ]
-    if not intervals:
-        return None
-    return (
-        min(start for start, _ in intervals),
-        max(end for _, end in intervals),
-    )
+    """Refuse a compact interval for site-level age-range aggregates.
+
+    Neotoma site ranges summarize extrema across datasets and samples. A single
+    closed interval would fill every gap between those extrema and therefore
+    claim continuous evidence that the source rows do not establish. Numeric
+    chronology is published from sample-owned relational claims instead.
+    """
+    _ = age_ranges
+    return None
 
 
 def neotoma_time_label(
     age_ranges: Sequence[Mapping[str, object]],
     interval: tuple[int, int] | None,
 ) -> str:
-    """Render a human-readable Neotoma age-coverage label."""
-    selected_system = neotoma_selected_age_system(age_ranges)
-    selected_ranges = sorted(
-        [
-            age_range
-            for age_range in age_ranges
-            if neotoma_age_range_system(clean_optional_text(age_range.get("units")))
-            == selected_system
-            and _age_range_interval(age_range) is not None
-        ],
-        key=lambda age_range: clean_optional_text(age_range.get("units")).casefold(),
-    )
-    if selected_ranges and interval is not None:
-        units = clean_optional_text(selected_ranges[0].get("units"))
-        value = build_bp_interval_label(interval[0], interval[1]).replace(" BP", "")
-        if units and value:
-            return f"{value} {units}"
-    if interval is None:
-        return ""
-    return build_bp_interval_label(interval[0], interval[1])
+    """Label site ranges as non-continuous context rather than one BP span."""
+    _ = interval
+    return "Source site age ranges (non-continuous context only)" if age_ranges else ""
 
 
 def neotoma_age_range_units_supported(units: str) -> bool:

@@ -4,10 +4,13 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 
-from .admission import source_refusal_reason
+from .admission import (
+    source_chronology_refusal_reason,
+    source_observation_refusal_reason,
+)
 from .construction import build_source_chronology_nodes
 from .identity import digest, observation_index, optional_text, unique_index
-from .indexing import source_default_chronologies
+from .indexing import select_source_chronology, source_chronologies
 from .models import (
     SourceNodeAdmissionRefusal,
     SourceNodeContext,
@@ -38,7 +41,7 @@ def derive_neotoma_source_chronology_nodes(
     sample_index, sample_conflicts = unique_index(samples, "sample_id")
     site_index, site_conflicts = unique_index(sites, "site_id")
     variable_index, variable_conflicts = unique_index(variables, "variable_id")
-    default_chronologies = source_default_chronologies(chronologies)
+    chronologies_by_sample = source_chronologies(chronologies)
     refusals: list[SourceNodeAdmissionRefusal] = []
     admitted: list[
         tuple[
@@ -46,6 +49,7 @@ def derive_neotoma_source_chronology_nodes(
             Mapping[str, object],
             Mapping[str, object],
             Mapping[str, object],
+            str,
         ]
     ] = []
 
@@ -68,14 +72,8 @@ def derive_neotoma_source_chronology_nodes(
             reason = "conflicting_site"
         if reason is None and variable_id in variable_conflicts:
             reason = "conflicting_variable"
-        defaults = default_chronologies.get(sample_id or "", ())
-        claim = defaults[0] if len(defaults) == 1 else None
-        if reason is None and len(defaults) > 1:
-            reason = "ambiguous_source_default_chronology"
         if reason is None:
-            reason, chronology_detail = source_refusal_reason(
-                observation, sample, site, claim
-            )
+            reason = source_observation_refusal_reason(observation, sample, site)
         enriched_observation = dict(observation)
         if reason is None and variable is None:
             reason = "missing_variable"
@@ -87,6 +85,17 @@ def derive_neotoma_source_chronology_nodes(
             or optional_text(observation.get("build_id")) != context.build_id
         ):
             reason = "source_context_lineage_mismatch"
+        selection = select_source_chronology(
+            chronologies_by_sample.get(sample_id or "", ())
+        )
+        claim = selection.claim
+        if reason is None and selection.refusal_reason is not None:
+            reason = selection.refusal_reason
+            chronology_detail = selection.chronology_reason_code
+        if reason is None:
+            reason, chronology_detail = source_chronology_refusal_reason(
+                observation, sample, site, claim
+            )
         if reason is not None:
             refusals.append(
                 SourceNodeAdmissionRefusal(
@@ -99,7 +108,15 @@ def derive_neotoma_source_chronology_nodes(
             continue
         if sample is None or site is None or claim is None:
             raise AssertionError("admission accepted incomplete source relations")
-        admitted.append((enriched_observation, sample, site, claim))
+        admitted.append(
+            (
+                enriched_observation,
+                sample,
+                site,
+                claim,
+                selection.selection_posture,
+            )
+        )
 
     nodes, facet_refusals = build_source_chronology_nodes(admitted, context)
     refusals_tuple = tuple(

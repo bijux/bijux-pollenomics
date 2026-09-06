@@ -16,6 +16,19 @@ COUNTRY_NAMES = {
     "FI": "Finland",
 }
 
+SOURCE_ECOLOGICAL_CODE_LABELS = {
+    "AQVP": "Aquatic Vascular Plants",
+    "TRSH": "Trees and Shrubs",
+    "UPHE": "Upland Herbs",
+}
+
+
+def source_ecological_code_label(code: str | None) -> str | None:
+    """Return a source meaning label without claiming reviewed equivalence."""
+    if code is None:
+        return None
+    return SOURCE_ECOLOGICAL_CODE_LABELS.get(code, code)
+
 
 def build_facet_metadata(
     nodes: Sequence[SourceChronologyNode], *, node_level: str
@@ -80,7 +93,8 @@ def _code_facets(nodes: Sequence[SourceChronologyNode]) -> list[dict[str, object
     return [
         {
             "value": code,
-            "label": code,
+            "label": source_ecological_code_label(code),
+            "source_code": code,
             "feature_key": f"source:neotoma:ecological-code:{code}",
             "node_count": counts[code][0],
             "observation_denominator": counts[code][1],
@@ -115,4 +129,9 @@ def _taxon_facets(nodes: Sequence[SourceChronologyNode]) -> list[dict[str, objec
     ]
 
 
-__all__ = ["COUNTRY_NAMES", "build_facet_metadata"]
+__all__ = [
+    "COUNTRY_NAMES",
+    "SOURCE_ECOLOGICAL_CODE_LABELS",
+    "build_facet_metadata",
+    "source_ecological_code_label",
+]

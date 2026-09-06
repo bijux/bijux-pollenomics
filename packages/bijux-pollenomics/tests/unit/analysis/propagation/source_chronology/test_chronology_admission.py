@@ -55,7 +55,7 @@ def test_interval_keeps_younger_older_bp_order() -> None:
     assert {(node.younger_bp, node.older_bp) for node in result.nodes} == {(115, 230)}
 
 
-def test_nondefault_comparable_claim_does_not_replace_source_default() -> None:
+def test_unique_comparable_nondefault_replaces_an_unusable_source_default() -> None:
     rows = source_rows(
         status="context_only",
         younger_bp=None,
@@ -77,15 +77,91 @@ def test_nondefault_comparable_claim_does_not_replace_source_default() -> None:
 
     result = derive(rows)
 
-    assert not result.nodes
-    assert result.admission_refusals[0].reason_code == (
-        "non_comparable_source_default_chronology"
-    )
-    assert result.admission_refusals[0].chronology_reason_code == (
-        "uncalibrated_radiocarbon"
-    )
+    assert {node.chronology_claim_id for node in result.nodes} == {
+        "calibrated-alternative"
+    }
+    assert {node.chronology_selection_posture for node in result.nodes} == {
+        "selected_unique_nondefault"
+    }
+    assert all(node.is_default_chronology is False for node in result.nodes)
+    assert not result.admission_refusals
     country = result.reconciliation.country_reconciliations[0]
     assert country.usable_canonical_age_claim_count == 1
+    assert country.selected_nondefault_chronology_count == 1
+
+
+def test_usable_source_default_takes_precedence_over_comparable_alternatives() -> None:
+    rows = source_rows(chronology_id="default-id", chronology_name="Preferred")
+    for suffix, age in (("first", 200), ("second", 300)):
+        alternative = deepcopy(rows["chronologies"][0])
+        alternative.update(
+            {
+                "chronology_claim_id": f"alternative-{suffix}",
+                "chronology_id": f"alternative-id-{suffix}",
+                "chronology_name": f"Alternative {suffix}",
+                "is_default_chronology": False,
+                "younger_bp": age,
+                "older_bp": age + 10,
+            }
+        )
+        rows["chronologies"].append(alternative)
+
+    result = derive(rows)
+
+    assert {node.chronology_claim_id for node in result.nodes} == {
+        "claim-SE-observation-1"
+    }
+    assert {node.chronology_id for node in result.nodes} == {"default-id"}
+    assert {node.chronology_name for node in result.nodes} == {"Preferred"}
+    assert {node.chronology_selection_posture for node in result.nodes} == {
+        "selected_source_default"
+    }
+    assert result.reconciliation.selected_default_chronology_count == 1
+
+
+def test_multiple_comparable_nondefault_alternatives_fail_closed() -> None:
+    rows = source_rows(
+        status="context_only",
+        younger_bp=None,
+        older_bp=None,
+        admission_reason="uncalibrated_radiocarbon",
+    )
+    for suffix in ("first", "second"):
+        alternative = deepcopy(rows["chronologies"][0])
+        alternative.update(
+            {
+                "chronology_claim_id": f"alternative-{suffix}",
+                "is_default_chronology": False,
+                "comparability_status": "comparable",
+                "younger_bp": 100,
+                "older_bp": 110,
+            }
+        )
+        rows["chronologies"].append(alternative)
+
+    result = derive(rows)
+
+    assert not result.nodes
+    assert result.admission_refusals[0].reason_code == (
+        "ambiguous_comparable_alternative_chronology"
+    )
+
+
+def test_zero_comparable_nondefault_alternatives_fail_closed() -> None:
+    result = derive(
+        source_rows(
+            default=False,
+            status="context_only",
+            younger_bp=None,
+            older_bp=None,
+            admission_reason="uncalibrated_radiocarbon",
+        )
+    )
+
+    assert not result.nodes
+    assert result.admission_refusals[0].reason_code == (
+        "missing_comparable_source_chronology"
+    )
 
 
 def test_nodes_are_published_from_oldest_bp_toward_present() -> None:
@@ -113,4 +189,25 @@ def test_ambiguous_source_defaults_fail_closed() -> None:
     assert not result.nodes
     assert result.admission_refusals[0].reason_code == (
         "ambiguous_source_default_chronology"
+    )
+
+
+def test_conflicting_representations_of_one_claim_fail_closed() -> None:
+    rows = source_rows()
+    conflicting = deepcopy(rows["chronologies"][0])
+    conflicting.update(
+        {
+            "comparability_status": "context_only",
+            "younger_bp": None,
+            "older_bp": None,
+            "admission_reason": "uncalibrated_radiocarbon",
+        }
+    )
+    rows["chronologies"].append(conflicting)
+
+    result = derive(rows)
+
+    assert not result.nodes
+    assert result.admission_refusals[0].reason_code == (
+        "conflicting_source_chronology_claim"
     )
