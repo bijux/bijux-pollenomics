@@ -3,21 +3,23 @@
 from __future__ import annotations
 
 import base64
-from collections.abc import Callable
 import hashlib
 import json
-from pathlib import Path
 import shutil
-from typing import Any, cast
 import zlib
+from collections.abc import Callable
+from pathlib import Path
+from typing import Any, cast
 
 import pytest
-
 from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError, publication
 from bijux_pollenomics_dev.ci.atlas_media.catalog import (
+    LEGACY_PUBLICATION_SCHEMA_VERSION_V3,
+    LEGACY_PUBLICATION_STORY_TITLES_V3,
     PUBLICATION_ASSET_COUNT,
     PUBLICATION_SCHEMA_VERSION,
     PUBLICATION_STORIES,
+    PUBLICATION_STORY_TITLES,
     PUBLICATION_STORY_TUPLES,
     SUPPORTED_EXISTING_PUBLICATION_CONTRACTS,
 )
@@ -29,6 +31,7 @@ from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     sha256_file,
     write_gallery_manifest,
 )
+
 from tests.atlas_media.fixtures import BUILD_ID, COUNTRIES, SUCCESSION, candidate
 from tests.atlas_media.receipt_fixtures import (
     capture_evidence_layer_key,
@@ -174,7 +177,7 @@ def _story(spec: StorySpec) -> SelectedStory:
             frame["source_taxon"] = value
         return SelectedStory(
             story_id=story_id,
-            title=story_id,
+            title=PUBLICATION_STORY_TITLES[story_id],
             evidence_role=role,
             selector_kind=kind,
             selector_value=value,
@@ -195,7 +198,7 @@ def _story(spec: StorySpec) -> SelectedStory:
     )
     return SelectedStory(
         story_id=story_id,
-        title=story_id,
+        title=PUBLICATION_STORY_TITLES[story_id],
         evidence_role=role,
         selector_kind=kind,
         selector_value=value,
@@ -359,7 +362,7 @@ def _rewrite_gallery(
 
 
 def _rewrite_publication(
-    root: Path, mutation: Callable[[dict[str, Any]], None]
+    root: Path, mutation: Callable[[dict[str, Any]], object]
 ) -> None:
     path = root / "publication-manifest.json"
     value: dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
@@ -372,6 +375,32 @@ def _rewrite_publication(
         f"{hashlib.sha256(payload).hexdigest()}  publication-manifest.json\n",
         encoding="utf-8",
     )
+
+
+def _rewrite_as_legacy_v3(root: Path) -> None:
+    def downgrade(value: dict[str, Any]) -> None:
+        value["schema_version"] = LEGACY_PUBLICATION_SCHEMA_VERSION_V3
+        value["encoding_profile"]["poster"] = {
+            "format": "png",
+            "source_frame_ordinal": 0,
+        }
+        for story in value["stories"]:
+            story["title"] = LEGACY_PUBLICATION_STORY_TITLES_V3[story["story_id"]]
+            story.pop("poster_frame_ordinal")
+            story.pop("frame_no_pollen_data_counts")
+            if story["evidence_role"] == "modeled_context":
+                story["first_frame"].pop("no_pollen_data_count")
+                story["last_frame"].pop("no_pollen_data_count")
+
+    _rewrite_publication(root, downgrade)
+
+
+def _file_bytes(root: Path) -> dict[str, bytes]:
+    return {
+        path.relative_to(root).as_posix(): path.read_bytes()
+        for path in root.rglob("*")
+        if path.is_file()
+    }
 
 
 def _files(root: Path) -> set[str]:
@@ -797,7 +826,7 @@ def test_publication_refuses_uncontrolled_existing_destination(
 
 
 @pytest.mark.parametrize(
-    "legacy_contract", SUPPORTED_EXISTING_PUBLICATION_CONTRACTS[:-1]
+    "legacy_contract", SUPPORTED_EXISTING_PUBLICATION_CONTRACTS[:2]
 )
 def test_publication_replaces_recognized_existing_inventory(
     tmp_path: Path,
@@ -827,6 +856,117 @@ def test_publication_replaces_recognized_existing_inventory(
     assert {story["story_id"] for story in manifest["stories"]} == {
         story_id for story_id, *_ in STORIES
     }
+
+
+def test_publication_replaces_exact_legacy_v3_destination_with_v4(
+    tmp_path: Path,
+) -> None:
+    source = _gallery(tmp_path / "source")
+    destination = tmp_path / "published"
+    _publish(source, destination)
+    _rewrite_as_legacy_v3(destination)
+
+    legacy = json.loads(
+        (destination / "publication-manifest.json").read_text(encoding="utf-8")
+    )
+    assert legacy["schema_version"] == LEGACY_PUBLICATION_SCHEMA_VERSION_V3
+    assert legacy["encoding_profile"]["poster"] == {
+        "format": "png",
+        "source_frame_ordinal": 0,
+    }
+    assert all("poster_frame_ordinal" not in story for story in legacy["stories"])
+    assert all(
+        "frame_no_pollen_data_counts" not in story for story in legacy["stories"]
+    )
+    with pytest.raises(AtlasMediaError, match="content identity differs"):
+        publication.validate_atlas_media_publication(destination, mp4_probe=_probe)
+
+    manifest = _publish(source, destination)
+
+    assert manifest["schema_version"] == PUBLICATION_SCHEMA_VERSION
+    assert json.loads(
+        (destination / "publication-manifest.json").read_text(encoding="utf-8")
+    ) == manifest
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    (
+        lambda root: _rewrite_publication(
+            root,
+            lambda value: value["stories"][1]["selector"].update(
+                {"value": "AQVP"}
+            ),
+        ),
+        lambda root: _rewrite_publication(
+            root,
+            lambda value: value["encoding_profile"].update(
+                {
+                    "poster": {
+                        "format": "png",
+                        "source_frame_selection": (
+                            "maximum_selected_evidence_earliest_ordinal_on_tie"
+                        ),
+                    }
+                }
+            ),
+        ),
+        lambda root: _rewrite_publication(
+            root,
+            lambda value: value["stories"][-1]["first_frame"].update(
+                {"no_pollen_data_count": 4}
+            ),
+        ),
+        lambda root: _rewrite_publication(
+            root,
+            lambda value: value["stories"][0].update({"title": "Forged title"}),
+        ),
+        lambda root: (root / "media/neotoma-source-code-trsh.mp4").write_bytes(
+            b"changed legacy media"
+        ),
+        lambda root: (root / "unexpected.txt").write_text(
+            "uncontrolled\n", encoding="utf-8"
+        ),
+        lambda root: (root / "publication-manifest.sha256").write_text(
+            f"{'0' * 64}  publication-manifest.json\n", encoding="utf-8"
+        ),
+    ),
+)
+def test_publication_refuses_mutated_legacy_v3_and_preserves_destination(
+    tmp_path: Path,
+    mutation: Callable[[Path], object],
+) -> None:
+    source = _gallery(tmp_path / "source")
+    destination = tmp_path / "published"
+    _publish(source, destination)
+    _rewrite_as_legacy_v3(destination)
+    mutation(destination)
+    before = _file_bytes(destination)
+
+    with pytest.raises(AtlasMediaError):
+        _publish(source, destination)
+
+    assert _file_bytes(destination) == before
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    (
+        lambda value: value["stories"][0].pop("poster_frame_ordinal"),
+        lambda value: value["stories"][-1].pop("frame_no_pollen_data_counts"),
+    ),
+)
+def test_v4_validator_requires_poster_selection_and_modeled_quality_counts(
+    tmp_path: Path,
+    mutation: Callable[[dict[str, Any]], object],
+) -> None:
+    source = _gallery(tmp_path)
+    destination = tmp_path / "published"
+    _publish(source, destination)
+    _rewrite_publication(destination, mutation)
+
+    with pytest.raises(AtlasMediaError, match="identity or semantics differ"):
+        publication.validate_atlas_media_publication(destination, mp4_probe=_probe)
 
 
 def test_publication_rejects_duplicate_json_fields(tmp_path: Path) -> None:

@@ -10,6 +10,7 @@ class PublicationStorySpec:
     """One exact public story identity and its source selector."""
 
     story_id: str
+    title: str
     evidence_role: str
     selector_kind: str
     selector_value: str
@@ -29,78 +30,91 @@ class PublicationStorySpec:
 PUBLICATION_STORIES = (
     PublicationStorySpec(
         "neotoma-source-sample-presence",
+        "Neotoma source sample presence",
         "observation_chronology",
         "source_sample_presence",
         "all",
     ),
     PublicationStorySpec(
         "neotoma-source-code-trsh",
+        "Neotoma TRSH — Trees and Shrubs",
         "observation_chronology",
         "source_ecological_code",
         "TRSH",
     ),
     PublicationStorySpec(
         "neotoma-source-code-uphe",
+        "Neotoma UPHE — Upland Herbs",
         "observation_chronology",
         "source_ecological_code",
         "UPHE",
     ),
     PublicationStorySpec(
         "neotoma-source-code-aqvp",
+        "Neotoma AQVP — Aquatic Vascular Plants",
         "observation_chronology",
         "source_ecological_code",
         "AQVP",
     ),
     PublicationStorySpec(
         "neotoma-source-taxon-416",
+        "Neotoma exact source-reported taxon — Poaceae (Cerealia)",
         "observation_chronology",
         "source_taxon",
         "source:neotoma:taxon:416",
     ),
     PublicationStorySpec(
         "neotoma-source-taxon-427",
+        "Neotoma exact source-reported taxon — Poaceae (Cerealia) undiff.",
         "observation_chronology",
         "source_taxon",
         "source:neotoma:taxon:427",
     ),
     PublicationStorySpec(
         "neotoma-source-taxon-1947",
+        "Neotoma exact source-reported taxon — Poaceae (Cerealia-type)",
         "observation_chronology",
         "source_taxon",
         "source:neotoma:taxon:1947",
     ),
     PublicationStorySpec(
         "neotoma-source-taxon-3924",
+        "Neotoma exact source-reported taxon — Hordeum/Secale",
         "observation_chronology",
         "source_taxon",
         "source:neotoma:taxon:3924",
     ),
     PublicationStorySpec(
         "neotoma-source-taxon-967",
+        "Neotoma exact source-reported taxon — Secale",
         "observation_chronology",
         "source_taxon",
         "source:neotoma:taxon:967",
     ),
     PublicationStorySpec(
         "neotoma-source-taxon-3926",
+        "Neotoma exact source-reported taxon — Secale cereale",
         "observation_chronology",
         "source_taxon",
         "source:neotoma:taxon:3926",
     ),
     PublicationStorySpec(
         "neotoma-source-taxon-488",
+        "Neotoma exact source-reported taxon — Secale-type",
         "observation_chronology",
         "source_taxon",
         "source:neotoma:taxon:488",
     ),
     PublicationStorySpec(
         "neotoma-source-taxon-969",
+        "Neotoma exact source-reported taxon — Triticum",
         "observation_chronology",
         "source_taxon",
         "source:neotoma:taxon:969",
     ),
     PublicationStorySpec(
         "pangaea-937075-metric-cerealia-t",
+        "PANGAEA 937075 modeled context — Cerealia-t",
         "modeled_context",
         "modeled_metric",
         "Cerealia.t",
@@ -108,6 +122,7 @@ PUBLICATION_STORIES = (
     ),
     PublicationStorySpec(
         "pangaea-937075-metric-secale",
+        "PANGAEA 937075 modeled context — Secale cereale",
         "modeled_context",
         "modeled_metric",
         "Secale",
@@ -115,6 +130,7 @@ PUBLICATION_STORIES = (
     ),
     PublicationStorySpec(
         "pangaea-937075-metric-ol",
+        "PANGAEA 937075 modeled context — Open land (OL)",
         "modeled_context",
         "modeled_metric",
         "OL",
@@ -139,8 +155,16 @@ DEFAULT_MODELED_METRICS = tuple(
     if story.selector_kind == "modeled_metric"
 )
 PUBLICATION_STORY_TUPLES = tuple(story.as_tuple() for story in PUBLICATION_STORIES)
+PUBLICATION_STORY_TITLES = {
+    story.story_id: story.title for story in PUBLICATION_STORIES
+}
+LEGACY_PUBLICATION_STORY_TITLES_V3 = {
+    story_id: title.replace("exact source-reported taxon", "exact source taxon")
+    for story_id, title in PUBLICATION_STORY_TITLES.items()
+}
 PUBLICATION_ASSET_COUNT = len(PUBLICATION_STORIES) * 2
-PUBLICATION_SCHEMA_VERSION = "atlas-media-publication.v3"
+PUBLICATION_SCHEMA_VERSION = "atlas-media-publication.v4"
+LEGACY_PUBLICATION_SCHEMA_VERSION_V3 = "atlas-media-publication.v3"
 LEGACY_PUBLICATION_STORY_TUPLES_V1 = (
     (
         "neotoma-source-sample-presence",
@@ -253,6 +277,10 @@ SUPPORTED_EXISTING_PUBLICATION_CONTRACTS = (
         LEGACY_PUBLICATION_STORY_TUPLES_V2,
     ),
     (
+        LEGACY_PUBLICATION_SCHEMA_VERSION_V3,
+        PUBLICATION_STORY_TUPLES,
+    ),
+    (
         PUBLICATION_SCHEMA_VERSION,
         PUBLICATION_STORY_TUPLES,
     ),
@@ -263,11 +291,14 @@ __all__ = [
     "CORE_SOURCE_STORIES",
     "DEFAULT_EXACT_TAXA",
     "DEFAULT_MODELED_METRICS",
+    "LEGACY_PUBLICATION_SCHEMA_VERSION_V3",
+    "LEGACY_PUBLICATION_STORY_TITLES_V3",
     "LEGACY_PUBLICATION_STORY_TUPLES_V1",
     "LEGACY_PUBLICATION_STORY_TUPLES_V2",
     "PUBLICATION_ASSET_COUNT",
     "PUBLICATION_SCHEMA_VERSION",
     "PUBLICATION_STORIES",
+    "PUBLICATION_STORY_TITLES",
     "PUBLICATION_STORY_TUPLES",
     "SUPPORTED_EXISTING_PUBLICATION_CONTRACTS",
     "PublicationStorySpec",

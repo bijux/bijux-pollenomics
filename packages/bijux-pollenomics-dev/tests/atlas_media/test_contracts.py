@@ -6,20 +6,25 @@ from dataclasses import FrozenInstanceError, replace
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics_dev.ci.atlas_media import (
     AtlasMediaError,
     SelectedStory,
     StorySelection,
 )
+from bijux_pollenomics_dev.ci.atlas_media.__main__ import _parser
 from bijux_pollenomics_dev.ci.atlas_media.catalog import (
     DEFAULT_EXACT_TAXA,
     DEFAULT_MODELED_METRICS,
+    LEGACY_PUBLICATION_SCHEMA_VERSION_V3,
+    LEGACY_PUBLICATION_STORY_TITLES_V3,
     LEGACY_PUBLICATION_STORY_TUPLES_V1,
     LEGACY_PUBLICATION_STORY_TUPLES_V2,
     PUBLICATION_ASSET_COUNT,
+    PUBLICATION_SCHEMA_VERSION,
     PUBLICATION_STORIES,
+    PUBLICATION_STORY_TITLES,
 )
+
 from tests.atlas_media.fixtures import COUNTRIES, plan
 
 
@@ -40,6 +45,15 @@ def test_plan_requires_dedicated_repository_artifact_output(tmp_path: Path) -> N
 
 
 def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
+    assert PUBLICATION_SCHEMA_VERSION == "atlas-media-publication.v4"
+    assert LEGACY_PUBLICATION_SCHEMA_VERSION_V3 == "atlas-media-publication.v3"
+    assert len(PUBLICATION_STORY_TITLES) == 15
+    assert PUBLICATION_STORY_TITLES["neotoma-source-taxon-967"] == (
+        "Neotoma exact source-reported taxon — Secale"
+    )
+    assert LEGACY_PUBLICATION_STORY_TITLES_V3["neotoma-source-taxon-967"] == (
+        "Neotoma exact source taxon — Secale"
+    )
     assert DEFAULT_EXACT_TAXA == (
         "source:neotoma:taxon:416",
         "source:neotoma:taxon:427",
@@ -109,6 +123,13 @@ def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
         )
         == 15
     )
+
+
+def test_media_cli_defaults_to_canonical_viewport() -> None:
+    parser = _parser()
+
+    assert parser.get_default("width") == 1440
+    assert parser.get_default("height") == 900
 
 
 def test_story_selection_refuses_empty_or_duplicate_requests() -> None:

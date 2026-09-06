@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
 import shutil
 import sys
+from pathlib import Path
 
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasCandidate
 
@@ -51,7 +51,7 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--exact-taxon", action="append")
     parser.add_argument("--modeled-metric", action="append")
     parser.add_argument("--width", type=int, default=1440)
-    parser.add_argument("--height", type=int, default=1000)
+    parser.add_argument("--height", type=int, default=900)
     parser.add_argument("--frames-per-second", type=int, default=12)
     parser.add_argument("--timeout-seconds", type=int, default=60)
     return parser

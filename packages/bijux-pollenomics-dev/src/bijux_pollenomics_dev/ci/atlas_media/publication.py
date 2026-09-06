@@ -3,23 +3,26 @@
 from __future__ import annotations
 
 import argparse
-from collections.abc import Callable, Iterable, Mapping, Sequence
-from dataclasses import dataclass
 import hashlib
 import json
 import math
 import os
-from pathlib import Path
 import re
 import shutil
 import subprocess
 import tempfile
-from typing import NoReturn, cast
 import zlib
+from collections.abc import Callable, Iterable, Mapping, Sequence
+from dataclasses import dataclass
+from pathlib import Path
+from typing import NoReturn, cast
 
 from .capture_evidence import capture_frame_evidence_valid, expected_capture_layer_key
 from .catalog import (
+    LEGACY_PUBLICATION_SCHEMA_VERSION_V3,
+    LEGACY_PUBLICATION_STORY_TITLES_V3,
     PUBLICATION_SCHEMA_VERSION,
+    PUBLICATION_STORY_TITLES,
     PUBLICATION_STORY_TUPLES,
     SUPPORTED_EXISTING_PUBLICATION_CONTRACTS,
 )
@@ -118,6 +121,10 @@ _PUBLIC_STORY_FIELDS = {
     "frame_set_sha256",
     "capture_frame_set_sha256",
     "assets",
+}
+_LEGACY_V3_PUBLIC_STORY_FIELDS = _PUBLIC_STORY_FIELDS - {
+    "frame_no_pollen_data_counts",
+    "poster_frame_ordinal",
 }
 
 
@@ -309,6 +316,7 @@ def _publication_story(
     selector = _object(story.get("selector"), "story selector")
     if (
         story.get("story_id") != story_id
+        or story.get("title") != PUBLICATION_STORY_TITLES[story_id]
         or story.get("evidence_role") != role
         or selector
         != {"kind": selector_kind, "value": selector_value, "family": selector_family}
@@ -760,8 +768,13 @@ def _validate_atlas_media_publication_inventory(
     expected_schema_version: str,
     expected_stories: tuple[tuple[str, str, str, str, str | None], ...],
     mp4_probe: Mp4Probe,
+    legacy_v3: bool = False,
 ) -> dict[str, object]:
     """Validate one publication against an explicitly recognized inventory."""
+    if legacy_v3 != (
+        expected_schema_version == LEGACY_PUBLICATION_SCHEMA_VERSION_V3
+    ):
+        raise AtlasMediaError("publication validator contract is inconsistent")
     expected_asset_count = len(expected_stories) * 2
     root = _existing_directory(publication_root, label="publication_root")
     manifest_path = _direct_regular_file(root, "publication-manifest.json")
@@ -805,7 +818,9 @@ def _validate_atlas_media_publication_inventory(
         raise AtlasMediaError("publication scientific posture differs")
     _candidate_succession(manifest.get("candidate_succession"))
     _tool_identity(manifest.get("tool_identity"))
-    encoding = _published_encoding(manifest.get("encoding_profile"))
+    encoding = _published_encoding(
+        manifest.get("encoding_profile"), legacy_v3=legacy_v3
+    )
     budget = _object(manifest.get("publication_budget"), "publication budget")
     if (
         set(budget)
@@ -835,6 +850,7 @@ def _validate_atlas_media_publication_inventory(
             story,
             expected=expected,
             source_authority_sha256=source_authority,
+            legacy_v3=legacy_v3,
         )
         story_id = expected[0]
         frame_count = cast(int, story["frame_count"])
@@ -936,11 +952,21 @@ def _validate_published_story(
     *,
     expected: tuple[str, str, str, str, str | None],
     source_authority_sha256: str,
+    legacy_v3: bool = False,
 ) -> None:
     story_id, role, selector_kind, selector_value, selector_family = expected
+    expected_title = (
+        LEGACY_PUBLICATION_STORY_TITLES_V3[story_id]
+        if legacy_v3
+        else PUBLICATION_STORY_TITLES[story_id]
+    )
+    expected_fields = (
+        _LEGACY_V3_PUBLIC_STORY_FIELDS if legacy_v3 else _PUBLIC_STORY_FIELDS
+    )
     if (
-        set(story) != _PUBLIC_STORY_FIELDS
+        set(story) != expected_fields
         or story.get("story_id") != story_id
+        or story.get("title") != expected_title
         or story.get("evidence_role") != role
         or story.get("selector")
         != {"kind": selector_kind, "value": selector_value, "family": selector_family}
@@ -960,17 +986,28 @@ def _validate_published_story(
     frame_count = _positive_integer(
         story.get("frame_count"), "publication story frame_count"
     )
-    poster_ordinal = story.get("poster_frame_ordinal")
-    if (
-        isinstance(poster_ordinal, bool)
-        or not isinstance(poster_ordinal, int)
-        or not 0 <= poster_ordinal < frame_count
-    ):
-        raise AtlasMediaError("publication poster frame ordinal differs")
+    if not legacy_v3:
+        poster_ordinal = story.get("poster_frame_ordinal")
+        if (
+            isinstance(poster_ordinal, bool)
+            or not isinstance(poster_ordinal, int)
+            or not 0 <= poster_ordinal < frame_count
+        ):
+            raise AtlasMediaError("publication poster frame ordinal differs")
     first_frame = _frame_boundary(story.get("first_frame"), "published first_frame")
     last_frame = _frame_boundary(story.get("last_frame"), "published last_frame")
-    _validate_boundary_selector(first_frame, ordinal=0, expected=expected)
-    _validate_boundary_selector(last_frame, ordinal=frame_count - 1, expected=expected)
+    _validate_boundary_selector(
+        first_frame,
+        ordinal=0,
+        expected=expected,
+        legacy_v3=legacy_v3,
+    )
+    _validate_boundary_selector(
+        last_frame,
+        ordinal=frame_count - 1,
+        expected=expected,
+        legacy_v3=legacy_v3,
+    )
     if cast(float | int, first_frame["time_start_bp"]) < cast(
         float | int, last_frame["time_start_bp"]
     ) or cast(float | int, first_frame["time_end_bp"]) < cast(
@@ -992,7 +1029,10 @@ def _validate_published_story(
         )
         if (
             story.get("frame_feature_denominators") is not None
-            or story.get("frame_no_pollen_data_counts") is not None
+            or (
+                not legacy_v3
+                and story.get("frame_no_pollen_data_counts") is not None
+            )
             or story.get("source_authority_sha256") != source_authority_sha256
             or sum(cast(list[int], visible)) <= 0
             or any(cast(int, count) > node_count for count in visible)
@@ -1011,23 +1051,26 @@ def _validate_published_story(
             length=frame_count,
             label="published modeled denominators",
         )
-        no_pollen_counts = _nonnegative_integer_list(
-            story.get("frame_no_pollen_data_counts"),
-            length=frame_count,
-            label="published modeled no-pollen-data counts",
-        )
-        if any(
-            cast(int, count) > cast(int, denominator)
-            for count, denominator in zip(
-                no_pollen_counts, modeled_denominators, strict=True
+        if not legacy_v3:
+            no_pollen_counts = _nonnegative_integer_list(
+                story.get("frame_no_pollen_data_counts"),
+                length=frame_count,
+                label="published modeled no-pollen-data counts",
             )
-        ):
-            raise AtlasMediaError(
-                "published modeled no-pollen-data count exceeds denominator"
-            )
+            if any(
+                cast(int, count) > cast(int, denominator)
+                for count, denominator in zip(
+                    no_pollen_counts, modeled_denominators, strict=True
+                )
+            ):
+                raise AtlasMediaError(
+                    "published modeled no-pollen-data count exceeds denominator"
+                )
 
 
-def _published_encoding(value: object) -> dict[str, object]:
+def _published_encoding(
+    value: object, *, legacy_v3: bool = False
+) -> dict[str, object]:
     row = _object(value, "published encoding profile")
     _positive_integer(row.get("width"), "published encoding width")
     _positive_integer(row.get("height"), "published encoding height")
@@ -1046,10 +1089,16 @@ def _published_encoding(value: object) -> dict[str, object]:
         }
         or row.get("schema_version") != "atlas-media-publication-encoding.v1"
         or row.get("poster")
-        != {
-            "format": "png",
-            "source_frame_selection": "maximum_selected_evidence_earliest_ordinal_on_tie",
-        }
+        != (
+            {"format": "png", "source_frame_ordinal": 0}
+            if legacy_v3
+            else {
+                "format": "png",
+                "source_frame_selection": (
+                    "maximum_selected_evidence_earliest_ordinal_on_tie"
+                ),
+            }
+        )
         or row.get("mp4")
         != {
             "codec": "libx264",
@@ -1098,6 +1147,7 @@ def _require_existing_destination_is_governed(
         expected_schema_version=supported_schema,
         expected_stories=inventory,
         mp4_probe=mp4_probe,
+        legacy_v3=(supported_schema == LEGACY_PUBLICATION_SCHEMA_VERSION_V3),
     )
 
 
@@ -1499,6 +1549,7 @@ def _validate_boundary_selector(
     *,
     ordinal: int,
     expected: tuple[str, str, str, str, str | None],
+    legacy_v3: bool = False,
 ) -> None:
     _, role, selector_kind, selector_value, selector_family = expected
     expected_fields = {
@@ -1521,9 +1572,10 @@ def _validate_boundary_selector(
                 "metric_family_key",
                 "metric_key",
                 "feature_count",
-                "no_pollen_data_count",
             }
         )
+        if not legacy_v3:
+            expected_fields.add("no_pollen_data_count")
     if (
         set(frame) != expected_fields
         or frame.get("ordinal") != ordinal
@@ -1551,10 +1603,16 @@ def _validate_boundary_selector(
         or frame.get("metric_key") != selector_value
         or frame.get("metric_family_key") != selector_family
         or _positive_integer(frame.get("feature_count"), "boundary feature_count") <= 0
-        or isinstance(frame.get("no_pollen_data_count"), bool)
-        or not isinstance(frame.get("no_pollen_data_count"), int)
-        or cast(int, frame["no_pollen_data_count"]) < 0
-        or cast(int, frame["no_pollen_data_count"]) > cast(int, frame["feature_count"])
+        or (
+            not legacy_v3
+            and (
+                isinstance(frame.get("no_pollen_data_count"), bool)
+                or not isinstance(frame.get("no_pollen_data_count"), int)
+                or cast(int, frame["no_pollen_data_count"]) < 0
+                or cast(int, frame["no_pollen_data_count"])
+                > cast(int, frame["feature_count"])
+            )
+        )
     ):
         raise AtlasMediaError("modeled story boundary selector differs")
 
