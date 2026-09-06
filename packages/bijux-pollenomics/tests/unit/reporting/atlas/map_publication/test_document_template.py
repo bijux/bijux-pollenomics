@@ -103,6 +103,14 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
             "activeButton.focus({ preventScroll: true })", MAP_DOCUMENT_TEMPLATE
         )
         self.assertIn(
+            "grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));",
+            MAP_DOCUMENT_TEMPLATE,
+        )
+        self.assertIn(
+            "basemapSwitch.scrollIntoView({\n          block: 'nearest',\n          behavior: 'auto',",
+            MAP_DOCUMENT_TEMPLATE,
+        )
+        self.assertIn(
             "https://tile.openstreetmap.org/{z}/{x}/{y}.png", MAP_DOCUMENT_TEMPLATE
         )
         self.assertNotIn("basemaps.cartocdn.com", MAP_DOCUMENT_TEMPLATE)

@@ -412,8 +412,8 @@
         gap: 10px;
       }
       .basemap-switch {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
         gap: 8px;
       }
       .inline-actions { margin-top: 12px; }
@@ -458,6 +458,8 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
+        min-width: 0;
+        width: 100%;
         padding: 8px 10px;
         border-radius: 999px;
         text-align: left;
@@ -6114,7 +6116,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         viewControls.open = true;
         basemapSwitch.scrollIntoView({
           block: 'nearest',
-          behavior: reducedMotionQuery.matches || document.documentElement.classList.contains('atlas-capture-mode') ? 'auto' : 'smooth',
+          behavior: 'auto',
         });
         const activeButton = basemapSwitch.querySelector('.basemap-button.is-active');
         if (activeButton) activeButton.focus({ preventScroll: true });
