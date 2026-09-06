@@ -115,6 +115,8 @@ def test_generic_time_journey_counts_zero_as_a_real_visibility_state() -> None:
     )
     assert "distinct_visible_counts" in journey.group(0)
     assert "filter((count) => count > 0)" not in journey.group(0)
+    assert "slider.value = slider.max" in probe
+    assert "after.time_window_bp.younger_bp > before.time_window_bp.younger_bp" in probe
 
 
 def test_cereal_finder_can_navigate_beyond_the_preferred_shortcut_result() -> None:
@@ -205,6 +207,7 @@ def test_status_actions_prove_chronology_and_basemap_discoverability() -> None:
         "discoverabilityFacts(normal.cdp, width)",
         "document.getElementById('time-stepper-status')",
         "document.getElementById('source-chronology-controls')",
+        "document.getElementById('time-controls')",
         "document.getElementById('basemap-readout')",
         "document.getElementById('view-controls')",
         "document.getElementById('basemap-switch')",
@@ -227,4 +230,5 @@ def test_status_actions_prove_chronology_and_basemap_discoverability() -> None:
     ):
         assert literal in probe
     assert "chronology_status_action:" in probe
+    assert "time_status_action:" in probe
     assert "basemap_discoverability:" in probe

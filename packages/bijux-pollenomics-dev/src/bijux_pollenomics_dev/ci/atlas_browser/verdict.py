@@ -50,6 +50,7 @@ GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS = frozenset(
         "keyless_provider_policy",
         "default_time_domain_matches_manifest",
         "time_controls_persistent",
+        "time_status_action",
         "time_slider_changes_visibility",
         "time_buttons_navigate",
         "basemap_discoverability",

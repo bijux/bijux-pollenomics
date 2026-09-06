@@ -124,7 +124,7 @@ try {
     ],
     'generic-time-aware-atlas-v1': [
       'capture_api_ready', 'candidate_identity', 'keyless_provider_policy',
-      'default_time_domain_matches_manifest', 'time_controls_persistent',
+      'default_time_domain_matches_manifest', 'time_controls_persistent', 'time_status_action',
       'time_slider_changes_visibility', 'time_buttons_navigate', 'basemap_discoverability',
       'scientific_posture_matches_manifest', 'capture_invalid_inputs_refused',
       'responsive_1440', 'responsive_1024', 'responsive_768', 'responsive_390',
@@ -384,6 +384,7 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
       width, height, deviceScaleFactor: 1, mobile: width === 390,
     });
     responsive[width] = await responsiveFacts(normal.cdp, width);
+    responsive[width].time_discoverability = await genericTimeDiscoverabilityFacts(normal.cdp, width);
     responsive[width].basemap_discoverability = await basemapDiscoverabilityFacts(normal.cdp, width);
     const path = `${scope.name}/responsive-${width}.png`;
     await screenshot(normal.cdp, path);
@@ -411,6 +412,10 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
       time_controls_persistent: [responsive[1440], responsive[390]].every((layout) => layout.chronology_controls_visible
         && layout.chronology_controls_bounded && layout.chronology_controls_uncovered
         && layout.chronology_controls_non_overlapping && layout.body_scroll_width <= layout.viewport.width + 1),
+      time_status_action: [responsive[1440], responsive[390]].every((layout) => layout.time_discoverability.status_visible
+        && layout.time_discoverability.status_bounded && layout.time_discoverability.status_uncovered
+        && layout.time_discoverability.controls_opened && layout.time_discoverability.interval_preset_focused
+        && layout.time_discoverability.close_restored_focus),
       time_slider_changes_visibility: timeJourney.interval_is_1000_years
         && timeJourney.slider_values_applied && timeJourney.visible_counts_within_denominator
         && timeJourney.distinct_visible_counts >= 2 && timeJourney.time_readouts_match,
@@ -495,6 +500,8 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
         && failureSnapshot?.basemap === 'none'
         && failure.providerRequests.some((row) => row.url.includes('tile.openstreetmap.org'))
         && failure.providerRequests.some((row) => row.url.includes('tile.opentopomap.org'))
+        && failure.providerRequests.findIndex((row) => row.url.includes('tile.openstreetmap.org'))
+          < failure.providerRequests.findIndex((row) => row.url.includes('tile.opentopomap.org'))
         && /unavailable|no basemap/i.test(failureDom.basemap_readout),
       provider_failure_evidence_unchanged: failureSnapshot !== null
         && JSON.stringify(evidenceIdentity(failureSnapshot)) === JSON.stringify(defaultEvidence),
@@ -612,17 +619,65 @@ async function genericReducedMotionJourney(cdp) {
     const slider = document.getElementById('time-start-slider');
     const playback = document.getElementById('time-playback-toggle');
     const before = api.snapshot();
-    slider.value = slider.min;
+    slider.value = slider.max;
     slider.dispatchEvent(new Event('input', { bubbles: true }));
     const after = await api.awaitReady();
     return {
       preference_matches: matchMedia('(prefers-reduced-motion: reduce)').matches,
       automatic_playback_disabled: playback.disabled
-        && document.body.innerText.includes('disabled by the reduced-motion preference'),
-      manual_window_changed: JSON.stringify(before.time_window_bp) !== JSON.stringify(after.time_window_bp),
+        && playback.textContent.includes('Reduced motion · manual only'),
+      manual_window_changed: after.time_window_bp.younger_bp > before.time_window_bp.younger_bp,
       before: before.time_window_bp,
       after: after.time_window_bp,
     };
+  })()`);
+}
+
+async function genericTimeDiscoverabilityFacts(cdp, width) {
+  return evaluate(cdp, `(async () => {
+    const settle = () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    const visible = (element) => {
+      const style = getComputedStyle(element);
+      const box = element.getBoundingClientRect();
+      return style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity) > 0
+        && box.width > 0 && box.height > 0 && box.right > 0 && box.left < innerWidth
+        && box.bottom > 0 && box.top < innerHeight;
+    };
+    const bounded = (element) => {
+      const box = element.getBoundingClientRect();
+      return box.left >= -1 && box.right <= innerWidth + 1 && box.top >= -1 && box.bottom <= innerHeight + 1;
+    };
+    const uncovered = (element) => {
+      const box = element.getBoundingClientRect();
+      const hit = document.elementFromPoint(box.left + (box.width / 2), box.top + (box.height / 2));
+      return hit === element || element.contains(hit);
+    };
+    const sidebar = document.getElementById('sidebar');
+    const close = document.getElementById('mobile-panel-close');
+    if (${width} <= 900 && !sidebar.classList.contains('is-collapsed')) {
+      close.click();
+      await settle();
+    }
+    const status = document.getElementById('time-stepper-status');
+    const controls = document.getElementById('time-controls');
+    const preset = controls.querySelector('[data-time-interval="1000"]');
+    status.focus();
+    status.click();
+    await settle();
+    const result = {
+      status_visible: visible(status),
+      status_bounded: bounded(status),
+      status_uncovered: uncovered(status),
+      controls_opened: controls.open && !sidebar.classList.contains('is-collapsed'),
+      interval_preset_focused: document.activeElement === preset,
+      close_restored_focus: ${width} > 900,
+    };
+    if (${width} <= 900) {
+      close.click();
+      await settle();
+      result.close_restored_focus = document.activeElement === status;
+    }
+    return result;
   })()`);
 }
 
@@ -695,9 +750,9 @@ async function basemapDiscoverabilityFacts(cdp, width) {
     const activeProviderFocused = document.activeElement === activeProvider;
     const providerDisclosure = providerButtons.map((button) => button.textContent.trim());
     const visibleProviderDisclosure = providerButtons.every((button) => visible(button) && bounded(button) && uncovered(button))
-      && providerDisclosure.includes('OpenStreetMap · no key')
-      && providerDisclosure.includes('OpenTopoMap · no key')
-      && providerDisclosure.includes('Offline · no tiles');
+      && providerDisclosure.some((text) => text.includes('OpenStreetMap · no key'))
+      && providerDisclosure.some((text) => text.includes('OpenTopoMap · no key'))
+      && providerDisclosure.some((text) => text.includes('Offline · no tiles'));
     controls.open = false;
     status.focus();
     await settle();
@@ -1089,7 +1144,6 @@ async function discoverabilityFacts(cdp, width) {
     const api = globalThis.BijuxPollenomicsAtlasCapture;
     const snapshot = api.snapshot();
     const sourceState = snapshot.source_chronology;
-    const escapePattern = (value) => String(value).replace(/[.*+?^\${}()|[\]\\]/g, '\\$&');
     const selectedTaxonLabel = (sourceChronologyTaxon.selectedOptions[0]?.textContent || '').split(' · source taxon ')[0];
     const facetLabel = sourceState.level === 'source_ecological_code'
       ? 'literal source code ' + sourceState.source_code
@@ -1097,19 +1151,21 @@ async function discoverabilityFacts(cdp, width) {
         ? 'exact source label ' + selectedTaxonLabel + ' (' + String(sourceState.source_taxon).split(':').at(-1) + ')'
         : 'source sample pollen presence';
     const chronologyStatusText = chronologyStatus.textContent || '';
-    const chronologyPattern = new RegExp(
-      '^' + escapePattern(facetLabel) + ' · (\\d+)/' + sourceState.facet_node_count
-        + ' nodes · (unavailable|\\d+)/' + sourceState.facet_observation_denominator
-        + ' observations · \\[' + snapshot.time_window_bp.younger_bp + ', '
-        + snapshot.time_window_bp.older_bp + '\\] BP$'
-    );
-    const chronologyMatch = chronologyStatusText.match(chronologyPattern);
-    const visibleNodeCount = chronologyMatch ? Number(chronologyMatch[1]) : null;
-    const visibleObservationCount = chronologyMatch && chronologyMatch[2] !== 'unavailable'
-      ? Number(chronologyMatch[2])
+    const chronologySegments = chronologyStatusText.split(' · ');
+    const nodeParts = (chronologySegments[1] || '').replace(' nodes', '').split('/');
+    const observationParts = (chronologySegments[2] || '').replace(' observations', '').split('/');
+    const visibleNodeCount = nodeParts.length === 2 ? Number(nodeParts[0]) : null;
+    const visibleObservationValue = observationParts.length === 2 ? observationParts[0] : null;
+    const visibleObservationCount = visibleObservationValue !== null && visibleObservationValue !== 'unavailable'
+      ? Number(visibleObservationValue)
       : null;
-    const visibleObservationValueValid = chronologyMatch !== null && (
-      chronologyMatch[2] === 'unavailable'
+    const chronologyMatch = chronologySegments.length === 4
+      && chronologySegments[0] === facetLabel
+      && nodeParts[1] === String(sourceState.facet_node_count)
+      && observationParts[1] === String(sourceState.facet_observation_denominator)
+      && chronologySegments[3] === '[' + snapshot.time_window_bp.younger_bp + ', ' + snapshot.time_window_bp.older_bp + '] BP';
+    const visibleObservationValueValid = chronologyMatch && (
+      visibleObservationValue === 'unavailable'
       || (Number.isInteger(visibleObservationCount)
         && visibleObservationCount >= 0
         && visibleObservationCount <= sourceState.facet_observation_denominator)
@@ -1124,7 +1180,7 @@ async function discoverabilityFacts(cdp, width) {
       chronology_status_visible: visible(chronologyStatus),
       chronology_status_bounded: bounded(chronologyStatus),
       chronology_status_uncovered: uncovered(chronologyStatus),
-      chronology_status_has_denominators: chronologyMatch !== null,
+      chronology_status_has_denominators: chronologyMatch,
       chronology_status_has_bp_interval: chronologyStatusText.includes(
         '[' + snapshot.time_window_bp.younger_bp + ', ' + snapshot.time_window_bp.older_bp + '] BP'
       ),
