@@ -141,23 +141,28 @@ def _country_output_count(
 
 
 def _atlas_locality_count(
-    atlas_root: Path,
+    data_root: Path,
     latin_name: str,
-    common_name: str,
 ) -> int:
-    summary_path = atlas_root / "world_summary.json"
-    if summary_path.is_file():
-        payload = json.loads(summary_path.read_text(encoding="utf-8"))
-        animal_atlas = payload.get("animal_atlas", {})
-        if isinstance(animal_atlas, dict):
-            species_layers = animal_atlas.get("species_layers", [])
-            if isinstance(species_layers, list):
-                for row in species_layers:
-                    if not isinstance(row, dict):
-                        continue
-                    if str(row.get("latin_name", "")).strip() == latin_name:
-                        return int(row.get("locality_count", 0) or 0)
-    return _species_output_count(atlas_root, latin_name, common_name)
+    candidate_path = (
+        Path(data_root)
+        / "adna"
+        / "final"
+        / "atlas"
+        / "animal_atlas_point_candidates.json"
+    )
+    if not candidate_path.is_file():
+        return 0
+    payload = json.loads(candidate_path.read_text(encoding="utf-8"))
+    rows = payload.get("rows", [])
+    if not isinstance(rows, list):
+        return 0
+    return sum(
+        1
+        for row in rows
+        if isinstance(row, dict)
+        and str(row.get("species_latin_name", "")).strip() == latin_name
+    )
 
 
 def _nested_string(row: dict[str, object], parent: str, key: str) -> str:

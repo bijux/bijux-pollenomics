@@ -53,11 +53,11 @@ def build_animal_sample_product_contract() -> dict[str, object]:
             },
             {
                 "field": "chronology.time_start_bp",
-                "meaning": "older bound of the normalized BP interval when defensible",
+                "meaning": "younger bound of the normalized BP interval when defensible",
             },
             {
                 "field": "chronology.time_end_bp",
-                "meaning": "younger bound of the normalized BP interval when defensible",
+                "meaning": "older bound of the normalized BP interval when defensible",
             },
             {
                 "field": "coordinates.latitude_text",

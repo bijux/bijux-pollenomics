@@ -40,6 +40,11 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertIn("chronology.original_text", required_fields)
         self.assertIn("coordinates.confidence", required_fields)
         self.assertIn("inclusion_status", required_fields)
+        meanings = {
+            row["field"]: row["meaning"] for row in payload["required_fields"]
+        }
+        self.assertIn("younger bound", meanings["chronology.time_start_bp"])
+        self.assertIn("older bound", meanings["chronology.time_end_bp"])
 
     def test_animal_sample_foundation_truth_counts_current_species_and_projects(
         self,

@@ -90,9 +90,8 @@ def _build_species_coverage_row(
         species.common_name,
     )
     atlas_locality_count = _atlas_locality_count(
-        report_root / "world",
+        data_root,
         species.latin_name,
-        species.common_name,
     )
     return {
         "species_latin_name": species.latin_name,

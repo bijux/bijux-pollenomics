@@ -35,6 +35,28 @@ def write_world_summary(report_root: Path, *, sheep_locality_count: int = 1) -> 
     )
 
 
+def write_atlas_candidates(data_root: Path, *, sheep_locality_count: int) -> None:
+    atlas_root = data_root / "adna" / "final" / "atlas"
+    atlas_root.mkdir(parents=True, exist_ok=True)
+    rows = [
+        {
+            "feature_id": f"animal-atlas-feature:sheep-{index}",
+            "species_latin_name": "Ovis aries",
+        }
+        for index in range(sheep_locality_count)
+    ]
+    (atlas_root / "animal_atlas_point_candidates.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "animal-atlas-point-candidates.v1",
+                "row_count": len(rows),
+                "rows": rows,
+            }
+        ),
+        encoding="utf-8",
+    )
+
+
 def write_country_summary(report_root: Path) -> None:
     sweden_root = report_root / "countries" / "sweden"
     sweden_root.mkdir(parents=True, exist_ok=True)

@@ -16,7 +16,7 @@ from bijux_pollenomics.adna.governance.audit_catalogs.rendering import (
     render_public_animal_output_honesty_markdown,
 )
 
-from .fixtures import write_country_summary, write_world_summary
+from .fixtures import write_atlas_candidates, write_country_summary, write_world_summary
 
 pytestmark = pytest.mark.generated_artifacts
 
@@ -32,11 +32,12 @@ def test_public_audit_reports_absent_public_outputs_honestly(
     assert "Tracked sample rows" in markdown
 
 
-def test_public_audit_counts_species_layers_from_shipped_atlas_summary(
+def test_public_audit_counts_species_layers_from_governed_atlas_candidates(
     catalog_data_root: Path,
     report_root: Path,
 ) -> None:
     write_world_summary(report_root, sheep_locality_count=3)
+    write_atlas_candidates(catalog_data_root, sheep_locality_count=3)
 
     public_audit = build_public_animal_output_audit(catalog_data_root, report_root)
     markdown = render_public_animal_output_audit_markdown(public_audit)
@@ -47,7 +48,7 @@ def test_public_audit_counts_species_layers_from_shipped_atlas_summary(
         if row["species_latin_name"] == "Ovis aries"
     )
     assert sheep_row["atlas_locality_count"] == 3
-    assert "ships `4` mapped non-human animal atlas localities" in markdown
+    assert "ships `3` mapped non-human animal atlas localities" in markdown
 
 
 def test_public_audit_counts_country_outputs_from_country_summary(

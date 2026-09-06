@@ -73,7 +73,7 @@ publication:
 | admitted | the governed evidence satisfies one named product contract |
 | excluded or deferred | a known sample fails the product or awaits recoverable evidence |
 
-The checked-in program contains 868 recovered animal sample rows across 40
+The checked-in program contains 1,450 recovered animal sample rows across 40
 archive projects. That denominator establishes recovered rows, not complete
 project recovery: only four projects currently have a trustworthy expected
 sample count. Atlas publication remains a smaller, claim-specific population.
