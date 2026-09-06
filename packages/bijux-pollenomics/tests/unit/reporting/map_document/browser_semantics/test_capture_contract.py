@@ -31,6 +31,7 @@ def test_capture_contract_preserves_scientific_refusals_and_bp_semantics() -> No
     assert "candidate_succession_capture_not_releasable" in block
     assert "observation_chronology_is_propagation: false" in block
     assert "evidence_role: 'context_only'" in block
+    assert "feature_count: sourceWindow.feature_count" in block
     assert "interpolation_allowed: false" in block
     assert "propagation_use_allowed: false" in block
     assert "capture BP interval exceeds the selected source extent" in block
