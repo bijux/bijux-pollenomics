@@ -1725,6 +1725,7 @@
                     <input id="source-chronology-taxon-query" class="search-input" type="search" autocomplete="off" placeholder="Search source labels; use | for alternatives" aria-controls="source-chronology-taxon">
                     <label class="field-label" for="source-chronology-taxon"><span>Exact source label</span><span>all by default</span></label>
                     <select id="source-chronology-taxon" class="search-input" aria-label="Filter by exact source-reported Neotoma label"></select>
+                    <div id="source-chronology-taxon-shortcuts" class="source-shortcuts" aria-label="Matching exact source labels"></div>
                   </div>
                   <div class="inline-actions">
                     <button id="source-record-concentration-toggle" class="inline-button" type="button" aria-pressed="false" disabled>Show captured source-record concentration</button>
@@ -2626,6 +2627,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const sourceChronologyTaxonFields = document.getElementById('source-chronology-taxon-fields');
       const sourceChronologyTaxonQuery = document.getElementById('source-chronology-taxon-query');
       const sourceChronologyTaxon = document.getElementById('source-chronology-taxon');
+      const sourceChronologyTaxonShortcuts = document.getElementById('source-chronology-taxon-shortcuts');
       const sourceRecordConcentrationToggle = document.getElementById('source-record-concentration-toggle');
       const sourceChronologyState = document.getElementById('source-chronology-state');
       const sourceChronologyGlobalDenominator = document.getElementById('source-chronology-global-denominator');
@@ -4231,7 +4233,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         scientificActions.hidden = !available;
         scientificStatus.textContent = available
           ? 'Only accepted, versioned classifications are selectable. Color is always paired with a shape cue.'
-          : 'Harmonized scientific classifications are awaiting qualified review. Source-native whole-pollen, ecological-code, and exact-label chronology remains available below without asserting equivalence.';
+          : 'Harmonized scientific classifications are awaiting qualified review. Source-native pollen-bearing sample presence, ecological-code, and exact-label chronology remains available below without asserting equivalence.';
         scientificFilters.innerHTML = available
           ? SCIENTIFIC_RESOLUTION_ORDER.map((resolution) => {
               const signals = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === resolution);
@@ -4332,6 +4334,22 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         ));
         sourceChronologyTaxonFields.hidden = selectedLayer.node_level !== 'source_taxon';
         sourceChronologyTaxon.innerHTML = `<option value="all">All source-reported labels · ${taxonRows.length} facets</option>` + visibleTaxa.map((row) => `<option value="${escapeHtml(row.value)}" ${row.value === activeSourceChronologyTaxon ? 'selected' : ''}>${escapeHtml(row.label)} · source taxon ${escapeHtml(row.source_taxon_id)} · ${row.node_count} nodes · ${row.observation_denominator} observations</option>`).join('');
+        sourceChronologyTaxonShortcuts.innerHTML = queryAlternatives.length
+          ? visibleTaxa.map((row) => `<button class="inline-button ${row.value === activeSourceChronologyTaxon ? 'is-primary' : ''}" type="button" data-source-taxon-facet="${escapeHtml(row.value)}">${escapeHtml(row.label)} · ${escapeHtml(row.source_taxon_id)}</button>`).join('')
+          : '';
+        sourceChronologyTaxonShortcuts.querySelectorAll('[data-source-taxon-facet]').forEach((button) => {
+          button.addEventListener('click', () => {
+            stopTimePlayback();
+            activeSourceChronologyTaxon = normalizedSingleValue(
+              button.dataset.sourceTaxonFacet,
+              validTaxa,
+              'all'
+            );
+            sourceRecordConcentrationActive = false;
+            focusSourceChronologyNavigation();
+            renderMapState();
+          });
+        });
         const selectedFacet = sourceChronologyFacetForSelection(selectedLayer, activeSourceChronologyCode, activeSourceChronologyTaxon);
         if (!selectedFacet) {
           sourceRecordConcentrationToggle.disabled = true;
@@ -5502,7 +5520,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           } else if (shortcut === 'cereals') {
             const layer = sourceChronologyLayerForLevel(targetLevel);
             const cerealFacets = layer.facet_metadata.source_taxa.filter((row) => /cereal|secale/i.test(row.label));
-            activeSourceChronologyTaxon = cerealFacets[0]?.value || 'all';
+            const preferredCerealFacet = cerealFacets.find((row) => row.label.trim().toLowerCase() === 'secale')
+              || cerealFacets.find((row) => row.source_taxon_id === '967')
+              || cerealFacets[0];
+            activeSourceChronologyTaxon = preferredCerealFacet?.value || 'all';
           }
           focusSourceChronologyNavigation();
           renderLayerControls();

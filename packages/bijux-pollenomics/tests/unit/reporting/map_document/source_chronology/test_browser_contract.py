@@ -36,6 +36,7 @@ def test_controls_are_accessible_source_native_and_separate_from_modeled_context
     assert 'type="search"' in MAP_DOCUMENT_TEMPLATE
     assert 'aria-controls="source-chronology-taxon"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="source-chronology-taxon"' in MAP_DOCUMENT_TEMPLATE
+    assert 'id="source-chronology-taxon-shortcuts"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="source-chronology-state"' in MAP_DOCUMENT_TEMPLATE
     assert "source-reported taxon and pollen-type labels" in MAP_DOCUMENT_TEMPLATE
     assert "not a species assertion" in MAP_DOCUMENT_TEMPLATE
@@ -243,7 +244,21 @@ def test_source_shortcuts_preserve_literal_semantics_and_reset_exact_taxa() -> N
     assert "sourceChronologyTaxonQuery.value = sourceChronologyTaxonSearch" in handlers
     assert "shortcut === 'taxa'" in handlers
     assert "activeSourceChronologyTaxon = 'all'" in handlers
-    assert "cerealFacets[0]?.value" in handlers
+    assert "row.label.trim().toLowerCase() === 'secale'" in handlers
+    assert "row.source_taxon_id === '967'" in handlers
+    assert "preferredCerealFacet?.value" in handlers
+
+
+def test_taxon_search_exposes_distinct_exact_source_identity_shortcuts() -> None:
+    renderer = template_block(
+        "function renderSourceChronologyControls",
+        "function renderLayerControls",
+    )
+    assert "data-source-taxon-facet" in renderer
+    assert "${escapeHtml(row.label)} · ${escapeHtml(row.source_taxon_id)}" in renderer
+    assert "button.dataset.sourceTaxonFacet" in renderer
+    assert "activeSourceChronologyTaxon = normalizedSingleValue" in renderer
+    assert "queryAlternatives.length" in renderer
 
 
 def test_restore_defaults_returns_to_the_source_chronology_landing_window() -> None:
