@@ -5311,46 +5311,6 @@
       ]
     },
     {
-      "locality": "Assistens Kirkeg\u00e5rd (Zealand/ Sokkelund)",
-      "locality_token": "homo_sapiens:aadr:denmark:assistens-kirkeg-rd-zealand-sokkelund:55-6912016-12-5501305",
-      "ranking_status": "downgraded",
-      "total_score": 0.0889,
-      "score_families": {
-        "evidence_density": 0.5692,
-        "chronology_alignment": 1.0,
-        "species_diversity": 0.3467,
-        "contextual_support": 0.0
-      },
-      "missingness_penalty": 0.345,
-      "direct_sample_count": 2,
-      "distinct_species_count": 1,
-      "nearby_context_points": 0,
-      "nearby_context_layer_count": 0,
-      "time_aware_context_points": 0,
-      "temporal_overlap_points": 0,
-      "sampling_recommendation_ready": false,
-      "recommendation_posture": "exploratory_only",
-      "ranking_blockers": [],
-      "recommendation_blockers": [
-        "profile_is_not_fieldwork_triage"
-      ],
-      "warning_flags": [
-        "no_time_aware_context",
-        "no_temporal_context_overlap",
-        "no_nearby_context",
-        "single_species_direct_evidence",
-        "metadata_only_direct_evidence"
-      ],
-      "rationale": [
-        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
-        "2 direct ancient-DNA samples support 1 species at this locality anchor",
-        "0 nearby context points across 0 context layers shape the support surface",
-        "score families: evidence=0.5692; chronology=1.0000; species=0.3467; context=0.0000",
-        "missingness penalty=0.3450; ranking status=downgraded",
-        "recommendation posture=exploratory_only"
-      ]
-    },
-    {
       "locality": "Bergsgraven (\u00d6sterg\u00f6tlands l\u00e4n, Link\u00f6ping)",
       "locality_token": "homo_sapiens:aadr:sweden:bergsgraven-sterg-tlands-l-n-link-ping:58-415833-15-625278",
       "ranking_status": "downgraded",
@@ -11513,46 +11473,6 @@
     {
       "locality": "Kongemose (Zealand Region)",
       "locality_token": "homo_sapiens:aadr:denmark:kongemose-zealand-region:55-583-11-551",
-      "ranking_status": "downgraded",
-      "total_score": 0.0547,
-      "score_families": {
-        "evidence_density": 0.4858,
-        "chronology_alignment": 1.0,
-        "species_diversity": 0.3467,
-        "contextual_support": 0.0
-      },
-      "missingness_penalty": 0.35,
-      "direct_sample_count": 1,
-      "distinct_species_count": 1,
-      "nearby_context_points": 0,
-      "nearby_context_layer_count": 0,
-      "time_aware_context_points": 0,
-      "temporal_overlap_points": 0,
-      "sampling_recommendation_ready": false,
-      "recommendation_posture": "exploratory_only",
-      "ranking_blockers": [],
-      "recommendation_blockers": [
-        "profile_is_not_fieldwork_triage"
-      ],
-      "warning_flags": [
-        "no_time_aware_context",
-        "no_temporal_context_overlap",
-        "no_nearby_context",
-        "single_species_direct_evidence",
-        "metadata_only_direct_evidence"
-      ],
-      "rationale": [
-        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
-        "1 direct ancient-DNA samples support 1 species at this locality anchor",
-        "0 nearby context points across 0 context layers shape the support surface",
-        "score families: evidence=0.4858; chronology=1.0000; species=0.3467; context=0.0000",
-        "missingness penalty=0.3500; ranking status=downgraded",
-        "recommendation posture=exploratory_only"
-      ]
-    },
-    {
-      "locality": "Kongens Nytorv (Zealand)",
-      "locality_token": "homo_sapiens:aadr:denmark:kongens-nytorv-zealand:55-6804521-12-5858289",
       "ranking_status": "downgraded",
       "total_score": 0.0547,
       "score_families": {
@@ -17786,6 +17706,88 @@
         "1 direct ancient-DNA samples support 1 species at this locality anchor",
         "0 nearby context points across 0 context layers shape the support surface",
         "score families: evidence=0.4858; chronology=1.0000; species=0.3467; context=0.0000",
+        "missingness penalty=0.3500; ranking status=downgraded",
+        "recommendation posture=exploratory_only"
+      ]
+    },
+    {
+      "locality": "Assistens Kirkeg\u00e5rd (Zealand/ Sokkelund)",
+      "locality_token": "homo_sapiens:aadr:denmark:assistens-kirkeg-rd-zealand-sokkelund:55-6912016-12-5501305",
+      "ranking_status": "downgraded",
+      "total_score": 0.0,
+      "score_families": {
+        "evidence_density": 0.5692,
+        "chronology_alignment": 0.0,
+        "species_diversity": 0.3467,
+        "contextual_support": 0.0
+      },
+      "missingness_penalty": 0.35,
+      "direct_sample_count": 2,
+      "distinct_species_count": 1,
+      "nearby_context_points": 0,
+      "nearby_context_layer_count": 0,
+      "time_aware_context_points": 0,
+      "temporal_overlap_points": 0,
+      "sampling_recommendation_ready": false,
+      "recommendation_posture": "exploratory_only",
+      "ranking_blockers": [],
+      "recommendation_blockers": [
+        "profile_is_not_fieldwork_triage"
+      ],
+      "warning_flags": [
+        "missing_direct_chronology",
+        "no_time_aware_context",
+        "no_temporal_context_overlap",
+        "no_nearby_context",
+        "single_species_direct_evidence",
+        "metadata_only_direct_evidence"
+      ],
+      "rationale": [
+        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
+        "2 direct ancient-DNA samples support 1 species at this locality anchor",
+        "0 nearby context points across 0 context layers shape the support surface",
+        "score families: evidence=0.5692; chronology=0.0000; species=0.3467; context=0.0000",
+        "missingness penalty=0.3500; ranking status=downgraded",
+        "recommendation posture=exploratory_only"
+      ]
+    },
+    {
+      "locality": "Kongens Nytorv (Zealand)",
+      "locality_token": "homo_sapiens:aadr:denmark:kongens-nytorv-zealand:55-6804521-12-5858289",
+      "ranking_status": "downgraded",
+      "total_score": 0.0,
+      "score_families": {
+        "evidence_density": 0.4858,
+        "chronology_alignment": 0.0,
+        "species_diversity": 0.3467,
+        "contextual_support": 0.0
+      },
+      "missingness_penalty": 0.35,
+      "direct_sample_count": 1,
+      "distinct_species_count": 1,
+      "nearby_context_points": 0,
+      "nearby_context_layer_count": 0,
+      "time_aware_context_points": 0,
+      "temporal_overlap_points": 0,
+      "sampling_recommendation_ready": false,
+      "recommendation_posture": "exploratory_only",
+      "ranking_blockers": [],
+      "recommendation_blockers": [
+        "profile_is_not_fieldwork_triage"
+      ],
+      "warning_flags": [
+        "missing_direct_chronology",
+        "no_time_aware_context",
+        "no_temporal_context_overlap",
+        "no_nearby_context",
+        "single_species_direct_evidence",
+        "metadata_only_direct_evidence"
+      ],
+      "rationale": [
+        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
+        "1 direct ancient-DNA samples support 1 species at this locality anchor",
+        "0 nearby context points across 0 context layers shape the support surface",
+        "score families: evidence=0.4858; chronology=0.0000; species=0.3467; context=0.0000",
         "missingness penalty=0.3500; ranking status=downgraded",
         "recommendation posture=exploratory_only"
       ]

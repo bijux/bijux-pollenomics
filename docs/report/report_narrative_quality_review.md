@@ -96,7 +96,7 @@ link farms or coded operator notes.
 | `docs/report/repository_product_model.md` | `reader_ready` | 3 | 0 | 10 | 6 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/repository_recovery_review.md` | `structured_reference` | 0 | 0 | 1 | 9 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/repository_scientific_progress_audit.md` | `reader_ready` | 3 | 0 | 11 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/repository_sead_legibility_review.md` | `reader_ready` | 4 | 0 | 11 | 6 | 6 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/repository_sead_legibility_review.md` | `reader_ready` | 5 | 0 | 12 | 6 | 6 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/repository_source_acquisition_queue.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/repository_source_ecosystem_review.md` | `reader_ready` | 3 | 0 | 6 | 4 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/repository_source_explainer_audit.md` | `thin_structure` | 1 | 0 | 1 | 18 | 1 | Page explains itself but still needs stronger internal wayfinding. |

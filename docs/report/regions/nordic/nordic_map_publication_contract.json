@@ -139,7 +139,7 @@
       "label": "Sweden archaeology site discovery",
       "source_name": "SEAD with RA\u00c4 density context",
       "coverage_label": "Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record.",
-      "count": 9738,
+      "count": 9727,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
       "default_enabled": true,
@@ -270,7 +270,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 267153
+        "record_count": 267142
       },
       "edges": {
         "status": "unavailable",
@@ -299,7 +299,7 @@
       },
       "indexes": {
         "status": "available",
-        "record_count": 266896
+        "record_count": 266885
       }
     }
   },
@@ -307,11 +307,11 @@
     "schema_version": "atlas-evidence-projection.v2",
     "status": "reconciled",
     "source_layer_count": 6,
-    "source_feature_count": 262904,
-    "matched_feature_count": 262904,
+    "source_feature_count": 262893,
+    "matched_feature_count": 262893,
     "detail_record_count": 2262,
     "unique_feature_record_id_count": 2262,
-    "repeated_feature_reference_count": 260642,
+    "repeated_feature_reference_count": 260631,
     "unmatched_feature_count": 0,
     "unreferenced_detail_count": 0,
     "tab_availability": {
@@ -431,8 +431,9 @@
         }
       },
       "sead": {
-        "source_feature_count": 11807,
+        "source_feature_count": 11796,
         "source_site_denominator": 2069,
+        "source_site_uuid_denominator": 2069,
         "bbox_site_denominator": 2195,
         "assigned_site_count": 2069,
         "excluded_site_count": 126,
@@ -493,8 +494,9 @@
         "source_run_id": "sead-full-evidence-39bfff6a-ce80714e",
         "build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
         "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+        "parent_admission_sha256": "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1",
         "acquisition_release_status": "refused",
-        "evidence_file_set_sha256": "b83f418e560502e1ccfc186a790ca9ceee98d02bd8b164c14bcdb2ca66981454",
+        "evidence_file_set_sha256": "53526aeb0f218e5e3acc410ce059533fb3594ff1e239c8ef9fed2ce4e319baf0",
         "country_site_counts": {
           "Denmark": 59,
           "Finland": 40,
@@ -505,7 +507,7 @@
           "Denmark": 59,
           "Finland": 40,
           "Norway": 45,
-          "Sweden": 11663
+          "Sweden": 11652
         }
       }
     }

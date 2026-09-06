@@ -33,9 +33,11 @@
         "time_end_bp": 8173,
         "time_mean_bp": 8074,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB75467"
@@ -114,9 +116,11 @@
         "time_end_bp": 7744,
         "time_mean_bp": 7246,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mitochondrial_phylogenetic_model",
         "evidence_class": "modeled_sample_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB75467"
@@ -196,9 +200,11 @@
         "time_end_bp": 9536,
         "time_mean_bp": 9334,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB75467"
@@ -277,9 +283,11 @@
         "time_end_bp": 9657,
         "time_mean_bp": 9546,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB75467"
@@ -358,9 +366,11 @@
         "time_end_bp": 3984,
         "time_mean_bp": 3908,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90141"
@@ -433,9 +443,11 @@
         "time_end_bp": 8030,
         "time_mean_bp": 7935,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90141"
@@ -508,9 +520,11 @@
         "time_end_bp": 13316,
         "time_mean_bp": 13242,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90141"
@@ -583,9 +597,11 @@
         "time_end_bp": 8170,
         "time_mean_bp": 8054,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90141"
@@ -658,9 +674,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -733,9 +751,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -808,9 +828,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -883,9 +905,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -959,9 +983,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -1034,9 +1060,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -1111,9 +1139,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -1198,9 +1228,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -1273,9 +1305,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -1348,9 +1382,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -1425,9 +1461,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -1500,9 +1538,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -1577,9 +1617,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -1652,9 +1694,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -1729,9 +1773,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -1808,9 +1854,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -1883,9 +1931,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -1961,9 +2011,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -2036,9 +2088,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -2116,9 +2170,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -2193,9 +2249,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB90261"
@@ -2268,9 +2326,11 @@
         "time_end_bp": 3580,
         "time_mean_bp": 3530,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "archaeological_period_assignment",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJNA1328209"
@@ -2347,9 +2407,11 @@
         "time_end_bp": 5155,
         "time_mean_bp": 5155,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB31613"
@@ -2422,9 +2484,11 @@
         "time_end_bp": 35870,
         "time_mean_bp": 33810,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB31613"
@@ -2500,9 +2564,11 @@
         "time_end_bp": 14450,
         "time_mean_bp": 14450,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB31613"
@@ -2575,9 +2641,11 @@
         "time_end_bp": 23789,
         "time_mean_bp": 23789,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB31613"
@@ -2650,9 +2718,11 @@
         "time_end_bp": 42758,
         "time_mean_bp": 29407,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB31613"
@@ -2726,9 +2796,11 @@
         "time_end_bp": 4075,
         "time_mean_bp": 3158,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -2803,9 +2875,11 @@
         "time_end_bp": 2610,
         "time_mean_bp": 2570,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -2880,9 +2954,11 @@
         "time_end_bp": 2804,
         "time_mean_bp": 2668,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -2957,9 +3033,11 @@
         "time_end_bp": 2600,
         "time_mean_bp": 2600,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -3032,9 +3110,11 @@
         "time_end_bp": 3704,
         "time_mean_bp": 3704,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -3107,9 +3187,11 @@
         "time_end_bp": 2611,
         "time_mean_bp": 2610,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -3183,9 +3265,11 @@
         "time_end_bp": 2535,
         "time_mean_bp": 2535,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -3258,9 +3342,11 @@
         "time_end_bp": 3191,
         "time_mean_bp": 3191,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -3333,9 +3419,11 @@
         "time_end_bp": 2575,
         "time_mean_bp": 2575,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -3408,9 +3496,11 @@
         "time_end_bp": 3901,
         "time_mean_bp": 3833,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -3486,9 +3576,11 @@
         "time_end_bp": 2608,
         "time_mean_bp": 2608,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -3561,9 +3653,11 @@
         "time_end_bp": 3018,
         "time_mean_bp": 3018,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -3636,9 +3730,11 @@
         "time_end_bp": 3799,
         "time_mean_bp": 3799,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -3711,9 +3807,11 @@
         "time_end_bp": 2815,
         "time_mean_bp": 2620,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -3787,9 +3885,11 @@
         "time_end_bp": 2760,
         "time_mean_bp": 2760,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -3862,9 +3962,11 @@
         "time_end_bp": 2575,
         "time_mean_bp": 2575,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -3937,9 +4039,11 @@
         "time_end_bp": 2688,
         "time_mean_bp": 2556,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -4014,9 +4118,11 @@
         "time_end_bp": 2538,
         "time_mean_bp": 2538,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -4089,9 +4195,11 @@
         "time_end_bp": 2737,
         "time_mean_bp": 2737,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -4164,9 +4272,11 @@
         "time_end_bp": 2725,
         "time_mean_bp": 2725,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -4240,9 +4350,11 @@
         "time_end_bp": 4013,
         "time_mean_bp": 4013,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -4315,9 +4427,11 @@
         "time_end_bp": 3806,
         "time_mean_bp": 3806,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -4391,9 +4505,11 @@
         "time_end_bp": 3987,
         "time_mean_bp": 3987,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -4466,9 +4582,11 @@
         "time_end_bp": 23605,
         "time_mean_bp": 20828,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -4552,9 +4670,11 @@
         "time_end_bp": 3904,
         "time_mean_bp": 3850,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -4635,9 +4755,11 @@
         "time_end_bp": 3500,
         "time_mean_bp": 3465,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -4715,9 +4837,11 @@
         "time_end_bp": 3444,
         "time_mean_bp": 3428,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -4794,9 +4918,11 @@
         "time_end_bp": 14616,
         "time_mean_bp": 14616,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -4869,9 +4995,11 @@
         "time_end_bp": 2725,
         "time_mean_bp": 2725,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -4944,9 +5072,11 @@
         "time_end_bp": 31606,
         "time_mean_bp": 31606,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -5019,9 +5149,11 @@
         "time_end_bp": 3748,
         "time_mean_bp": 3404,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -5095,9 +5227,11 @@
         "time_end_bp": 2530,
         "time_mean_bp": 2530,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -5170,9 +5304,11 @@
         "time_end_bp": 2567,
         "time_mean_bp": 2567,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -5245,9 +5381,11 @@
         "time_end_bp": 12350,
         "time_mean_bp": 12350,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -5320,9 +5458,11 @@
         "time_end_bp": 2959,
         "time_mean_bp": 2959,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -5395,9 +5535,11 @@
         "time_end_bp": 44425,
         "time_mean_bp": 35292,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -5473,9 +5615,11 @@
         "time_end_bp": 3323,
         "time_mean_bp": 3262,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -5549,9 +5693,11 @@
         "time_end_bp": 3433,
         "time_mean_bp": 3016,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -5625,9 +5771,11 @@
         "time_end_bp": 3050,
         "time_mean_bp": 2888,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -5703,9 +5851,11 @@
         "time_end_bp": 2815,
         "time_mean_bp": 2815,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -5778,9 +5928,11 @@
         "time_end_bp": 36751,
         "time_mean_bp": 36751,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -5853,9 +6005,11 @@
         "time_end_bp": 44950,
         "time_mean_bp": 34022,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -5930,9 +6084,11 @@
         "time_end_bp": 3633,
         "time_mean_bp": 3633,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6005,9 +6161,11 @@
         "time_end_bp": 3794,
         "time_mean_bp": 3794,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6080,9 +6238,11 @@
         "time_end_bp": 3782,
         "time_mean_bp": 3782,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6156,9 +6316,11 @@
         "time_end_bp": 3746,
         "time_mean_bp": 3740,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6232,9 +6394,11 @@
         "time_end_bp": 23963,
         "time_mean_bp": 19695,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6312,9 +6476,11 @@
         "time_end_bp": 3482,
         "time_mean_bp": 3482,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6387,9 +6553,11 @@
         "time_end_bp": 3833,
         "time_mean_bp": 3822,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6463,9 +6631,11 @@
         "time_end_bp": 2650,
         "time_mean_bp": 2627,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6540,9 +6710,11 @@
         "time_end_bp": 3052,
         "time_mean_bp": 3052,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6615,9 +6787,11 @@
         "time_end_bp": 19719,
         "time_mean_bp": 19719,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6690,9 +6864,11 @@
         "time_end_bp": 2243,
         "time_mean_bp": 2243,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6765,9 +6941,11 @@
         "time_end_bp": 2267,
         "time_mean_bp": 2267,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6840,9 +7018,11 @@
         "time_end_bp": 3815,
         "time_mean_bp": 3810,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6916,9 +7096,11 @@
         "time_end_bp": 2607,
         "time_mean_bp": 2607,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -6991,9 +7173,11 @@
         "time_end_bp": 3007,
         "time_mean_bp": 2985,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -7069,9 +7253,11 @@
         "time_end_bp": 2718,
         "time_mean_bp": 2718,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -7146,9 +7332,11 @@
         "time_end_bp": 3199,
         "time_mean_bp": 3199,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -7221,9 +7409,11 @@
         "time_end_bp": 3795,
         "time_mean_bp": 3795,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -7296,9 +7486,11 @@
         "time_end_bp": 3060,
         "time_mean_bp": 3060,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -7371,9 +7563,11 @@
         "time_end_bp": 3260,
         "time_mean_bp": 3260,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -7446,9 +7640,11 @@
         "time_end_bp": 2892,
         "time_mean_bp": 2892,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -7521,9 +7717,11 @@
         "time_end_bp": 2821,
         "time_mean_bp": 2821,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -7596,9 +7794,11 @@
         "time_end_bp": 2725,
         "time_mean_bp": 2725,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -7671,9 +7871,11 @@
         "time_end_bp": 3801,
         "time_mean_bp": 3770,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -7748,9 +7950,11 @@
         "time_end_bp": 3801,
         "time_mean_bp": 3801,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -7823,9 +8027,11 @@
         "time_end_bp": 32142,
         "time_mean_bp": 27756,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -7899,9 +8105,11 @@
         "time_end_bp": 2574,
         "time_mean_bp": 2574,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -7974,9 +8182,11 @@
         "time_end_bp": 3086,
         "time_mean_bp": 3086,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -8049,9 +8259,11 @@
         "time_end_bp": 3095,
         "time_mean_bp": 2992,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -8126,9 +8338,11 @@
         "time_end_bp": 3066,
         "time_mean_bp": 3066,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -8201,9 +8415,11 @@
         "time_end_bp": 2960,
         "time_mean_bp": 2960,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB44430"
@@ -8276,9 +8492,11 @@
         "time_end_bp": 9899,
         "time_mean_bp": 9729,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -8357,9 +8575,11 @@
         "time_end_bp": 1740,
         "time_mean_bp": 1675,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -8438,9 +8658,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -8519,9 +8741,11 @@
         "time_end_bp": 8379,
         "time_mean_bp": 8209,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -8601,9 +8825,11 @@
         "time_end_bp": 1060,
         "time_mean_bp": 985,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -8684,9 +8910,11 @@
         "time_end_bp": 510,
         "time_mean_bp": 415,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -8765,9 +8993,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -8846,9 +9076,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -8927,9 +9159,11 @@
         "time_end_bp": 7249,
         "time_mean_bp": 7119,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -9008,9 +9242,11 @@
         "time_end_bp": 650,
         "time_mean_bp": 600,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -9089,9 +9325,11 @@
         "time_end_bp": 6399,
         "time_mean_bp": 6224,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -9173,9 +9411,11 @@
         "time_end_bp": 2289,
         "time_mean_bp": 2144,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -9254,9 +9494,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -9335,9 +9577,11 @@
         "time_end_bp": 7319,
         "time_mean_bp": 7239,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -9416,9 +9660,11 @@
         "time_end_bp": 1375,
         "time_mean_bp": 1338,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -9497,9 +9743,11 @@
         "time_end_bp": 2349,
         "time_mean_bp": 2249,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -9579,9 +9827,11 @@
         "time_end_bp": 7429,
         "time_mean_bp": 7369,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -9660,9 +9910,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -9741,9 +9993,11 @@
         "time_end_bp": 1999,
         "time_mean_bp": 1934,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -9822,9 +10076,11 @@
         "time_end_bp": 8024,
         "time_mean_bp": 7976,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -9903,9 +10159,11 @@
         "time_end_bp": 1590,
         "time_mean_bp": 1500,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -9984,9 +10242,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -10065,9 +10325,11 @@
         "time_end_bp": 550,
         "time_mean_bp": 530,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -10146,9 +10408,11 @@
         "time_end_bp": 1720,
         "time_mean_bp": 1650,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -10228,9 +10492,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -10310,9 +10576,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -10392,9 +10660,11 @@
         "time_end_bp": 1930,
         "time_mean_bp": 1780,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -10474,9 +10744,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -10555,9 +10827,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -10636,9 +10910,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -10717,9 +10993,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "broad_period_label",
-        "precision_posture": "broad_period_only"
+        "precision_posture": "broad_period_only",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -10798,9 +11076,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -10879,9 +11159,11 @@
         "time_end_bp": 4649,
         "time_mean_bp": 4499,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "archaeological_context",
         "evidence_class": "archaeological_context_date",
-        "precision_posture": "contextual_interval"
+        "precision_posture": "contextual_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -10960,9 +11242,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -11041,9 +11325,11 @@
         "time_end_bp": 1989,
         "time_mean_bp": 1904,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -11122,9 +11408,11 @@
         "time_end_bp": 1890,
         "time_mean_bp": 1810,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -11203,9 +11491,11 @@
         "time_end_bp": 1930,
         "time_mean_bp": 1730,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -11285,9 +11575,11 @@
         "time_end_bp": 960,
         "time_mean_bp": 875,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -11366,9 +11658,11 @@
         "time_end_bp": 1310,
         "time_mean_bp": 1240,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB81815"
@@ -11450,9 +11744,11 @@
         "time_end_bp": 527,
         "time_mean_bp": 434,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB59481"
@@ -11532,9 +11828,11 @@
         "time_end_bp": 4151,
         "time_mean_bp": 3925,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB59481"
@@ -11615,9 +11913,11 @@
         "time_end_bp": 4700,
         "time_mean_bp": 4700,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "archaeological_context",
         "evidence_class": "archaeological_context_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB30282"
@@ -11699,9 +11999,11 @@
         "time_end_bp": 1000,
         "time_mean_bp": 1000,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "archaeological_context",
         "evidence_class": "archaeological_context_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "project_accessions": [
         "PRJEB30282"

@@ -71,7 +71,7 @@
         "distance_scoring_note": "Use LandClim to strengthen pollen context around lakes; do not treat it as direct human or archaeological evidence.",
         "detail_metrics": {
           "site_sequence_record_count": 490,
-          "numeric_interval_record_count": 480,
+          "numeric_interval_record_count": 368,
           "grid_cell_count": 77,
           "temporal_grid_feature_count": 2515
         },
@@ -82,8 +82,8 @@
       },
       "sead_archaeology": {
         "record_count": 1925,
-        "numeric_interval_record_count": 740,
-        "numeric_interval_share": 0.3844,
+        "numeric_interval_record_count": 739,
+        "numeric_interval_share": 0.3839,
         "capture_posture": "linked_chronology_captured",
         "site_inventory_only_record_count": 838,
         "spatial_representation": "site inventory plus record-level chronology points",
@@ -93,10 +93,10 @@
         "distance_scoring_posture": "contextual_archaeology_only",
         "distance_scoring_note": "Use SEAD to measure archaeology context around lakes; do not treat it as same-period support unless numeric intervals are explicitly present.",
         "detail_metrics": {
-          "unresolved_site_count": 1216,
+          "unresolved_site_count": 1219,
           "captured_chronology_record_count": 25109,
-          "mapped_temporal_feature_count": 8184,
-          "mapped_chronology_record_count": 14324
+          "mapped_temporal_feature_count": 8172,
+          "mapped_chronology_record_count": 14264
         }
       }
     },

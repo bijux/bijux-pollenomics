@@ -5,10 +5,10 @@ This governed surface publishes every geolocated Swedish SEAD site. Its order me
 ## Coverage
 
 - Sites: 1,925
-- Sites with linked numeric chronology: 371
-- Sites with unresolved chronology: 1,554
+- Sites with linked numeric chronology: 370
+- Sites with unresolved chronology: 1,555
 - Sites with linked bibliography: 1,074
-- Time-aware and explicitly unresolved map features: 9,738
+- Time-aware and explicitly unresolved map features: 9,727
 
 ## Interpretation contract
 
@@ -33,8 +33,8 @@ This governed surface publishes every geolocated Swedish SEAD site. Its order me
 | 10 | [Föllingsö säteri](https://browser.sead.se/site/4161) | chronology_and_bibliography_ready | 65 | 258 | 258 |
 | 11 | [Cramérska huset](https://browser.sead.se/site/4191) | chronology_and_bibliography_ready | 94 | 258 | 258 |
 | 12 | [Norra Åsums kyrka](https://browser.sead.se/site/4049) | chronology_and_bibliography_ready | 141 | 335 | 335 |
-| 13 | [Flöxhult säteri](https://browser.sead.se/site/4169) | chronology_and_bibliography_ready | 81 | 319 | 319 |
-| 14 | [Härnevi kyrka](https://browser.sead.se/site/4112) | chronology_and_bibliography_ready | 108 | 318 | 318 |
+| 13 | [Härnevi kyrka](https://browser.sead.se/site/4112) | chronology_and_bibliography_ready | 108 | 318 | 318 |
+| 14 | [Flöxhult säteri](https://browser.sead.se/site/4169) | chronology_and_bibliography_ready | 79 | 319 | 319 |
 | 15 | [Verksgatan](https://browser.sead.se/site/3843) | chronology_and_bibliography_ready | 32 | 204 | 204 |
 | 16 | [Smedstorp](https://browser.sead.se/site/4005) | chronology_and_bibliography_ready | 26 | 222 | 222 |
 | 17 | [Hunnebergsgatan 30A](https://browser.sead.se/site/4117) | chronology_and_bibliography_ready | 44 | 292 | 292 |
@@ -58,7 +58,7 @@ This governed surface publishes every geolocated Swedish SEAD site. Its order me
 | 35 | [Finntorp](https://browser.sead.se/site/4174) | chronology_and_bibliography_ready | 6 | 120 | 120 |
 | 36 | [Lau Kyrka](https://browser.sead.se/site/4080) | chronology_and_bibliography_ready | 26 | 120 | 120 |
 | 37 | [Kvarteret Boktryckaren](https://browser.sead.se/site/3893) | chronology_and_bibliography_ready | 30 | 144 | 144 |
-| 38 | [Hejde kyrka](https://browser.sead.se/site/4130) | chronology_and_bibliography_ready | 30 | 123 | 123 |
+| 38 | [Hejde kyrka](https://browser.sead.se/site/4130) | chronology_and_bibliography_ready | 29 | 123 | 123 |
 | 39 | [Biskops](https://browser.sead.se/site/4219) | chronology_and_bibliography_ready | 46 | 114 | 114 |
 | 40 | [Hagebyhöga kyrka](https://browser.sead.se/site/4142) | chronology_and_bibliography_ready | 60 | 211 | 211 |
 

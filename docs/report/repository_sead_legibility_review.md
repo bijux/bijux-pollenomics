@@ -9,7 +9,8 @@ This report-root packet explains what the repository can currently claim about S
 ## Normalization Risk
 
 - medium access constrained: `1360`
-- medium contextual numeric mix: `709`
+- medium contextual numeric mix: `707`
+- medium period label interpretation: `2`
 
 ## Access Visibility
 
@@ -18,10 +19,11 @@ This report-root packet explains what the repository can currently claim about S
 
 ## Temporal Postures
 
-- mixed interval and context: `478`
-- numeric interval: `144`
+- contextual label only: `2`
+- mixed interval and context: `476`
+- numeric interval: `143`
 - numeric interval with caveat: `231`
-- unresolved: `1216`
+- unresolved: `1217`
 
 ## Direct Links
 

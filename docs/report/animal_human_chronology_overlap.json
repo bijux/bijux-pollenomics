@@ -48,8 +48,8 @@
       "animal_locality_count": 2,
       "human_locality_count": 295,
       "overlapping_human_localities": 15,
-      "non_overlapping_human_localities": 277,
-      "noncomparable_human_localities": 3,
+      "non_overlapping_human_localities": 278,
+      "noncomparable_human_localities": 2,
       "assignment_confidence": "exact_country",
       "overlap_status": "overlap_detected"
     },
@@ -61,8 +61,8 @@
       "animal_locality_count": 2,
       "human_locality_count": 295,
       "overlapping_human_localities": 40,
-      "non_overlapping_human_localities": 252,
-      "noncomparable_human_localities": 3,
+      "non_overlapping_human_localities": 253,
+      "noncomparable_human_localities": 2,
       "assignment_confidence": "exact_country",
       "overlap_status": "overlap_detected"
     }
@@ -116,7 +116,7 @@
       "qualified_comparison_review_missing"
     ],
     "right_record_comparison_denominator": 750,
-    "comparable_right_record_comparison_denominator": 744,
+    "comparable_right_record_comparison_denominator": 746,
     "qualified_scientific_review_required": true
   }
 }

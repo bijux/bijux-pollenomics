@@ -19,10 +19,11 @@
       "display_name": "SEAD archaeology context",
       "row_count": 2069,
       "comparability_counts": {
-        "unresolved": 1216,
-        "mixed_interval_and_context": 478,
-        "numeric_interval": 144,
-        "numeric_interval_with_caveat": 231
+        "unresolved": 1217,
+        "mixed_interval_and_context": 476,
+        "numeric_interval": 143,
+        "numeric_interval_with_caveat": 231,
+        "contextual_label_only": 2
       },
       "comparison_policy": "SEAD rows remain site-level archaeology context even when numeric spans are available."
     }

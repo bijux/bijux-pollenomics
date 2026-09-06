@@ -597,7 +597,7 @@
       "species_latin_name": "Homo sapiens",
       "period_label": "0-1000 BP",
       "evidence_scope": "mapped_direct",
-      "mapped_locality_count": 68,
+      "mapped_locality_count": 65,
       "contextual_project_count": 0,
       "chronology_confidence": "locality_level_bp_window",
       "caution_note": "Human period coverage remains locality-based metadata, not genotype-aware chronology."
@@ -606,7 +606,7 @@
       "species_latin_name": "Homo sapiens",
       "period_label": "1001-3000 BP",
       "evidence_scope": "mapped_direct",
-      "mapped_locality_count": 223,
+      "mapped_locality_count": 224,
       "contextual_project_count": 0,
       "chronology_confidence": "locality_level_bp_window",
       "caution_note": "Human period coverage remains locality-based metadata, not genotype-aware chronology."
@@ -789,8 +789,8 @@
       "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
       "overlap_status": "locality_level_overlap_available",
       "overlapping_direct_localities": 25,
-      "non_overlapping_direct_localities": 419,
-      "noncomparable_records": 3,
+      "non_overlapping_direct_localities": 420,
+      "noncomparable_records": 2,
       "rationale": "Human locality chronology can be compared directly with time-aware context points."
     },
     {
@@ -798,8 +798,8 @@
       "context_layer_key": "animal-ovis-aries",
       "overlap_status": "locality_level_overlap_available",
       "overlapping_direct_localities": 52,
-      "non_overlapping_direct_localities": 392,
-      "noncomparable_records": 3,
+      "non_overlapping_direct_localities": 393,
+      "noncomparable_records": 2,
       "rationale": "Human locality chronology can be compared directly with time-aware context points."
     },
     {
@@ -807,8 +807,8 @@
       "context_layer_key": "animal-sus-scrofa-domesticus",
       "overlap_status": "locality_level_overlap_available",
       "overlapping_direct_localities": 104,
-      "non_overlapping_direct_localities": 340,
-      "noncomparable_records": 3,
+      "non_overlapping_direct_localities": 341,
+      "noncomparable_records": 2,
       "rationale": "Human locality chronology can be compared directly with time-aware context points."
     },
     {
@@ -824,9 +824,9 @@
       "species_latin_name": "Homo sapiens",
       "context_layer_key": "landclim-sites",
       "overlap_status": "locality_level_overlap_available",
-      "overlapping_direct_localities": 444,
+      "overlapping_direct_localities": 445,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
+      "noncomparable_records": 2,
       "rationale": "Human locality chronology can be compared directly with time-aware context points."
     },
     {
@@ -842,45 +842,45 @@
       "species_latin_name": "Homo sapiens",
       "context_layer_key": "neotoma-source-ecological-code",
       "overlap_status": "locality_level_overlap_available",
-      "overlapping_direct_localities": 444,
+      "overlapping_direct_localities": 445,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
+      "noncomparable_records": 2,
       "rationale": "Human locality chronology can be compared directly with time-aware context points."
     },
     {
       "species_latin_name": "Homo sapiens",
       "context_layer_key": "neotoma-source-exact-taxon",
       "overlap_status": "locality_level_overlap_available",
-      "overlapping_direct_localities": 444,
+      "overlapping_direct_localities": 445,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
+      "noncomparable_records": 2,
       "rationale": "Human locality chronology can be compared directly with time-aware context points."
     },
     {
       "species_latin_name": "Homo sapiens",
       "context_layer_key": "neotoma-source-sample-pollen-context",
       "overlap_status": "locality_level_overlap_available",
-      "overlapping_direct_localities": 444,
+      "overlapping_direct_localities": 445,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
+      "noncomparable_records": 2,
       "rationale": "Human locality chronology can be compared directly with time-aware context points."
     },
     {
       "species_latin_name": "Homo sapiens",
       "context_layer_key": "sead-sites",
       "overlap_status": "locality_level_overlap_available",
-      "overlapping_direct_localities": 444,
+      "overlapping_direct_localities": 445,
       "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
+      "noncomparable_records": 2,
       "rationale": "Human locality chronology can be compared directly with time-aware context points."
     },
     {
       "species_latin_name": "Homo sapiens",
       "context_layer_key": "sweden-archaeology-site-discovery",
       "overlap_status": "locality_level_overlap_available",
-      "overlapping_direct_localities": 118,
-      "non_overlapping_direct_localities": 326,
-      "noncomparable_records": 3,
+      "overlapping_direct_localities": 114,
+      "non_overlapping_direct_localities": 331,
+      "noncomparable_records": 2,
       "rationale": "Human locality chronology can be compared directly with time-aware context points."
     },
     {

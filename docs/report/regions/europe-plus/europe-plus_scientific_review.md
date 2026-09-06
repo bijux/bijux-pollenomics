@@ -90,8 +90,8 @@
 
 | Species | Period | Evidence scope | Mapped localities | Contextual projects | Chronology confidence | Caution |
 | --- | --- | --- | ---: | ---: | --- | --- |
-| Homo sapiens | 0-1000 BP | mapped_direct | 68 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
-| Homo sapiens | 1001-3000 BP | mapped_direct | 223 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
+| Homo sapiens | 0-1000 BP | mapped_direct | 65 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
+| Homo sapiens | 1001-3000 BP | mapped_direct | 224 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
 | Homo sapiens | 3001-6000 BP | mapped_direct | 115 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
 | Homo sapiens | 6001+ BP | mapped_direct | 41 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
 | Anas platyrhynchos domesticus | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
@@ -116,9 +116,9 @@
 
 | Species | Context layer | Overlap status | Overlapping direct localities | Non-overlapping direct localities | Noncomparable records | Rationale |
 | --- | --- | --- | ---: | ---: | ---: | --- |
-| Homo sapiens | animal-bos-taurus-wild-or-progenitor-context | locality_level_overlap_available | 25 | 419 | 3 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | animal-ovis-aries | locality_level_overlap_available | 52 | 392 | 3 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | animal-sus-scrofa-domesticus | locality_level_overlap_available | 104 | 340 | 3 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | animal-bos-taurus-wild-or-progenitor-context | locality_level_overlap_available | 25 | 420 | 2 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | animal-ovis-aries | locality_level_overlap_available | 52 | 393 | 2 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | animal-sus-scrofa-domesticus | locality_level_overlap_available | 104 | 341 | 2 | Human locality chronology can be compared directly with time-aware context points. |
 | Anas platyrhynchos domesticus | animal-bos-taurus-wild-or-progenitor-context | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Anas platyrhynchos domesticus | animal-ovis-aries | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Anas platyrhynchos domesticus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
