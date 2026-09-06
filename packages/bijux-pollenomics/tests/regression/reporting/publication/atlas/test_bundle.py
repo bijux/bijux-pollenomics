@@ -114,12 +114,22 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("No selection", map_html)
             self.assertNotIn("4 countries · 0 layers · 0 visible points", map_html)
             self.assertIn("basemap-preview--street", map_html)
-            self.assertIn("Minimal contrast for evidence-first inspection.", map_html)
+            self.assertIn(
+                "Keyless OpenStreetMap roads, labels, and place context.", map_html
+            )
+            self.assertIn(
+                "Keyless OpenTopoMap relief context for landform reading.", map_html
+            )
+            self.assertIn(
+                "Offline mode keeps evidence and orientation controls usable",
+                map_html,
+            )
             self.assertIn(
                 "__TITLE__".replace("__TITLE__", "Nordic Evidence Atlas"), map_html
             )
             self.assertIn('class="control-panel"', map_html)
-            self.assertIn('details class="control-group" open', map_html)
+            self.assertIn('details class="control-group">', map_html)
+            self.assertNotIn('details class="control-group" open', map_html)
             self.assertIn('id="dock-layer-filters"', map_html)
             self.assertIn('id="dock-layer-summary"', map_html)
             self.assertIn('id="dock-time-summary"', map_html)
