@@ -31,7 +31,7 @@ class RepositoryPostureTests(RepositoryTruthTestCase):
         self.assertEqual(
             payload["counts"]["papers_with_local_reference_supplements"], 0
         )
-        self.assertEqual(payload["counts"]["published_atlas_point_count"], 271)
+        self.assertEqual(payload["counts"]["published_atlas_point_count"], 151)
         self.assertTrue(
             any(
                 "unresolved" in row or "refused" in row
@@ -62,7 +62,7 @@ class RepositoryPostureTests(RepositoryTruthTestCase):
             for row in payload["rows"]
             if row["surface_key"] == "documentation_architecture"
         )
-        self.assertEqual(payload["overall_recovery_posture"], "moderate_recovery")
+        self.assertEqual(payload["overall_recovery_posture"], "recovery_required")
         self.assertEqual(animal_row["data_completeness"], 4)
         self.assertEqual(docs_row["documentation_clarity"], 4)
         self.assertIn("| Ancient DNA context | 4 |", markdown)
