@@ -5368,6 +5368,10 @@
           timeStartBp = captureFrame.frameWindow.youngerBp;
           timeIntervalYears = captureFrame.frameWindow.olderBp - captureFrame.frameWindow.youngerBp;
         } else {
+          ALL_LAYERS
+            .filter((layer) => layer.semantic_role === 'source_chronology_context')
+            .forEach((layer) => activeLayerKeys.delete(layer.key));
+          sourceRecordConcentrationActive = false;
           modeledContextFamilyKey = captureFrame.familyKey;
           modeledContextMetricKey = captureFrame.metricKey;
           await selectModeledContextWindow(captureFrame.sourceWindowIndex);
