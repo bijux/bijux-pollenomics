@@ -30,7 +30,9 @@ def test_animal_evidence_totals_must_reconcile(
 ) -> None:
     def corrupt_total(document: dict[str, object]) -> None:
         rows = cast(list[dict[str, object]], document["rows"])
-        rows[0]["mapped_sample_count"] = 3
+        rows[0]["mapped_sample_count"] = (
+            cast(int, rows[0]["mapped_sample_count"]) + 1
+        )
 
     _replace_input_document(
         monkeypatch, "docs/report/animal_country_species_coverage.json", corrupt_total
