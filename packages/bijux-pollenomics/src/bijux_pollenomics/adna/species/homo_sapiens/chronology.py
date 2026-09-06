@@ -60,8 +60,23 @@ def merge_duplicate_samples(
             time_end_bp=merged_interval[1] if merged_interval is not None else None,
             time_mean_bp=mean_bp_from_samples(existing, sample, merged_interval),
             date_stddev_bp=pick_value(existing.date_stddev_bp, sample.date_stddev_bp),
+            source_mean_bp_text=pick_value(
+                existing.chronology.source_mean_bp_text,
+                sample.chronology.source_mean_bp_text,
+            ),
             dating_basis=pick_value(existing.dating_basis, sample.dating_basis)
             or "unknown",
+            evidence_class=pick_value(
+                existing.chronology.evidence_class, sample.chronology.evidence_class
+            ),
+            precision_posture=pick_value(
+                existing.chronology.precision_posture,
+                sample.chronology.precision_posture,
+            ),
+            refusal_reason_code=pick_value(
+                existing.chronology.refusal_reason_code,
+                sample.chronology.refusal_reason_code,
+            ),
         ),
         data_type=pick_value(existing.data_type, sample.data_type),
         molecular_sex=pick_value(existing.molecular_sex, sample.molecular_sex),

@@ -206,6 +206,7 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
   await screenshot(normal.cdp, `${scope.name}/cereal-finder.png`);
   scopeReceipts.push(`${scope.name}/cereal-finder.png`);
   const captureNullRefusals = await captureNullInputs(normal.cdp);
+  const signedCaptureView = await captureSignedView(normal.cdp);
   const noBasemap = await applyCurrentFrame(normal.cdp, 'none');
   const normalResult = {
     scope: scope.name,
@@ -217,6 +218,7 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
     cereal_finder: cereal,
     chronology_journeys: chronologyJourneys,
     capture_null_refusals: captureNullRefusals,
+    signed_capture_view: signedCaptureView,
     no_basemap: noBasemap,
     responsive,
     runtime_failures: normal.runtimeFailures,
@@ -267,7 +269,13 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
         && defaultSnapshot.scientific_posture.classifications_reason_code === 'accepted_scientific_classifications_not_available'
         && defaultSnapshot.scientific_posture.observation_chronology_is_propagation === false
         && defaultSnapshot.visible_governed_candidate_count === 0,
-      capture_null_inputs_refused: captureNullRefusals.every((row) => row.refused && row.evidence_unchanged),
+      capture_null_inputs_refused: JSON.stringify(captureNullRefusals.map((row) => row.field))
+        === JSON.stringify(['time_start_bp', 'time_end_bp', 'time_start_bp.negative', 'time_end_bp.negative', 'view', 'view.latitude', 'view.longitude', 'view.zoom'])
+        && captureNullRefusals.every((row) => row.refused && row.evidence_unchanged),
+      signed_capture_view_preserved: signedCaptureView.accepted
+        && Math.abs(signedCaptureView.view.latitude - (-33.9)) < 0.000001
+        && Math.abs(signedCaptureView.view.longitude - (-70.7)) < 0.000001
+        && signedCaptureView.view.zoom === 4,
       responsive_1440: desktopLayoutPasses(responsive[1440]),
       responsive_1024: desktopLayoutPasses(responsive[1024]),
       responsive_768: mobileLayoutPasses(responsive[768]),
@@ -400,6 +408,7 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
   await normal.cdp.send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
   const timeJourney = await genericTimeJourney(normal.cdp, manifestFacts.point_record_count);
   const invalidCaptureInputs = await captureInvalidCommonInputs(normal.cdp);
+  const signedCaptureView = await captureSignedView(normal.cdp);
   const normalResult = {
     scope: scope.name,
     name: 'generic-time-and-responsive',
@@ -408,6 +417,7 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
     manifest_facts: manifestFacts,
     time_journey: timeJourney,
     invalid_capture_inputs: invalidCaptureInputs,
+    signed_capture_view: signedCaptureView,
     responsive,
     runtime_failures: normal.runtimeFailures,
     assertions: {
@@ -442,7 +452,13 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
         && defaultSnapshot.scientific_posture?.classifications_reason_code === manifestFacts.classifications_reason_code
         && defaultSnapshot.scientific_posture?.observation_chronology_is_propagation === false
         && defaultSnapshot.visible_governed_candidate_count === manifestFacts.edge_record_count,
-      capture_invalid_inputs_refused: invalidCaptureInputs.every((row) => row.refused && row.evidence_unchanged),
+      capture_invalid_inputs_refused: JSON.stringify(invalidCaptureInputs.map((row) => row.field))
+        === JSON.stringify(['frame', 'story_kind', 'basemap', 'time_start_bp.negative', 'time_end_bp.negative', 'view', 'view.latitude', 'view.longitude', 'view.zoom'])
+        && invalidCaptureInputs.every((row) => row.refused && row.evidence_unchanged),
+      signed_capture_view_preserved: signedCaptureView.accepted
+        && Math.abs(signedCaptureView.view.latitude - (-33.9)) < 0.000001
+        && Math.abs(signedCaptureView.view.longitude - (-70.7)) < 0.000001
+        && signedCaptureView.view.zoom === 4,
       responsive_1440: desktopLayoutPasses(responsive[1440]),
       responsive_1024: desktopLayoutPasses(responsive[1024]),
       responsive_768: mobileLayoutPasses(responsive[768]),
@@ -740,11 +756,17 @@ async function captureInvalidCommonInputs(cdp) {
   return evaluate(cdp, `(async () => {
     const api = globalThis.BijuxPollenomicsAtlasCapture;
     const state = api.snapshot();
-    const base = { story_kind: 'source_chronology', basemap: 'none', countries: state.countries };
+    const base = {
+      story_kind: 'source_chronology', basemap: 'none', countries: state.countries,
+      time_start_bp: state.time_window_bp.younger_bp,
+      time_end_bp: state.time_window_bp.older_bp,
+    };
     const invalid = [
       ['frame', null],
       ['story_kind', { ...base, story_kind: 'candidate_succession' }],
       ['basemap', { ...base, basemap: 'requires-api-key' }],
+      ['time_start_bp.negative', { ...base, time_start_bp: -1 }],
+      ['time_end_bp.negative', { ...base, time_end_bp: -1 }],
       ['view', { ...base, view: null }],
       ['view.latitude', { ...base, view: { latitude: null, longitude: 18, zoom: 5 } }],
       ['view.longitude', { ...base, view: { latitude: 60, longitude: null, zoom: 5 } }],
@@ -766,6 +788,25 @@ async function captureInvalidCommonInputs(cdp) {
       }
     }
     return results;
+  })()`);
+}
+
+async function captureSignedView(cdp) {
+  return evaluate(cdp, `(async () => {
+    const api = globalThis.BijuxPollenomicsAtlasCapture;
+    const state = api.snapshot();
+    const source = state.source_chronology || {};
+    const frame = {
+      story_kind: 'source_chronology', basemap: 'none', countries: state.countries,
+      source_level: source.level,
+      source_code: source.source_code || undefined,
+      source_taxon: source.source_taxon || undefined,
+      time_start_bp: state.time_window_bp.younger_bp,
+      time_end_bp: state.time_window_bp.older_bp,
+      view: { latitude: -33.9, longitude: -70.7, zoom: 4 },
+    };
+    const snapshot = await api.applyFrame(frame);
+    return { accepted: true, view: snapshot.view };
   })()`);
 }
 
@@ -1069,6 +1110,8 @@ async function captureNullInputs(cdp) {
     const invalid = [
       ['time_start_bp', { ...valid, time_start_bp: null }],
       ['time_end_bp', { ...valid, time_end_bp: null }],
+      ['time_start_bp.negative', { ...valid, time_start_bp: -1 }],
+      ['time_end_bp.negative', { ...valid, time_end_bp: -1 }],
       ['view', { ...valid, view: null }],
       ['view.latitude', { ...valid, view: { latitude: null, longitude: 18, zoom: 5 } }],
       ['view.longitude', { ...valid, view: { latitude: 60, longitude: null, zoom: 5 } }],

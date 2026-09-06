@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping
 import csv
+from collections.abc import Iterable, Mapping
 from pathlib import Path
 
 from bijux_pollenomics.adna.domain.locality import build_locality_identity
@@ -20,6 +20,7 @@ from bijux_pollenomics.adna.species.homo_sapiens_schema import (
     sample_time_mean,
     schema_value,
 )
+from bijux_pollenomics.core.temporal_semantics import admit_bp_interval
 
 from .text import clean_text
 
@@ -74,7 +75,12 @@ def _parse_sample_row(
         longitude = float(longitude_text)
     except ValueError:
         return None
-    time_interval = sample_time_interval(row, schema)
+    source_time_interval = sample_time_interval(row, schema)
+    time_admission = admit_bp_interval(
+        source_time_interval[0] if source_time_interval is not None else None,
+        source_time_interval[1] if source_time_interval is not None else None,
+    )
+    time_interval = time_admission.as_tuple()
     locality = clean_text(schema_value(row, schema, "locality")) or (
         "Unspecified locality"
     )
@@ -126,9 +132,23 @@ def _parse_sample_row(
             original_text=sample_time_label(row, schema),
             time_start_bp=time_interval[0] if time_interval is not None else None,
             time_end_bp=time_interval[1] if time_interval is not None else None,
-            time_mean_bp=sample_time_mean(row, schema),
+            time_mean_bp=(
+                sample_time_mean(row, schema) if time_admission.admitted else None
+            ),
             date_stddev_bp=clean_text(schema_value(row, schema, "date_stddev_bp")),
-            dating_basis=_dating_basis(row, schema, time_interval),
+            source_mean_bp_text=clean_text(schema_value(row, schema, "date_mean_bp")),
+            dating_basis=_dating_basis(row, schema, source_time_interval),
+            evidence_class=(
+                "direct_numeric_sample_date"
+                if source_time_interval is not None
+                else "unresolved"
+            ),
+            precision_posture=(
+                "sample_precise_interval"
+                if source_time_interval is not None
+                else "unresolved"
+            ),
+            refusal_reason_code=time_admission.refusal_reason_code,
         ),
         data_type=clean_text(schema_value(row, schema, "data_type")),
         molecular_sex=clean_text(schema_value(row, schema, "molecular_sex")),

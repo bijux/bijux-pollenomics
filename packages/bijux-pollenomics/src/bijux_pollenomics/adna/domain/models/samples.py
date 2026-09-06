@@ -104,7 +104,7 @@ class AdnaSampleRecord:
 
     @property
     def date_mean_bp(self) -> str:
-        return (
+        return self.chronology.source_mean_bp_text or (
             str(self.chronology.time_mean_bp)
             if self.chronology.time_mean_bp is not None
             else ""

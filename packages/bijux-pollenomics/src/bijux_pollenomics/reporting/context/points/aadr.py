@@ -3,7 +3,6 @@ from __future__ import annotations
 from collections.abc import Iterable
 
 from ....core.bp_time import build_bp_interval_label
-from ....core.temporal_semantics import build_temporal_semantics
 from ...models import SampleRecord
 
 
@@ -18,20 +17,12 @@ def build_aadr_point_layer(
         bp_coverage = sample.time_label or build_bp_interval_label(
             sample.time_start_bp, sample.time_end_bp
         )
-        temporal_semantics = build_temporal_semantics(
+        temporal_semantics = sample.chronology.as_temporal_semantics(
             source_family="aadr",
-            evidence_class="direct_numeric_sample_date",
-            precision_posture="sample_interval",
-            comparability_posture="numeric_interval",
-            time_start_bp=sample.time_start_bp,
-            time_end_bp=sample.time_end_bp,
-            time_mean_bp=sample.time_mean_bp,
-            summary_label=bp_coverage,
             comparison_note=(
                 "AADR exposes one sample-level numeric chronology surface here. Interpret it as direct evidence, not as a contextual period label."
             ),
-            original_labels=(bp_coverage,) if bp_coverage else (),
-        ).as_dict()
+        )
         features.append(
             {
                 "latitude": sample.latitude,

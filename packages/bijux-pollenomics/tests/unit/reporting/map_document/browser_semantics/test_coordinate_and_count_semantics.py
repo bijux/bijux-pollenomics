@@ -13,6 +13,7 @@ def test_browser_coordinates_and_counts_preserve_missing_values() -> None:
 console.log(JSON.stringify({
   missingPair: featureCoordinatePair({latitude:null, longitude:18}),
   zeroPair: featureCoordinatePair({latitude:0, longitude:'0'}),
+  signedPair: featureCoordinatePair({latitude:-33.9, longitude:-70.7}),
   booleanPair: featureCoordinatePair({latitude:false, longitude:18}),
   impossiblePair: featureCoordinatePair({latitude:91, longitude:18}),
   missingLabel: coordinateLabel({latitude:null, longitude:null}, 6),
@@ -33,6 +34,7 @@ console.log(JSON.stringify({
     assert observed == {
         "missingPair": None,
         "zeroPair": {"latitude": 0, "longitude": 0},
+        "signedPair": {"latitude": -33.9, "longitude": -70.7},
         "booleanPair": None,
         "impossiblePair": None,
         "missingLabel": "Unavailable",

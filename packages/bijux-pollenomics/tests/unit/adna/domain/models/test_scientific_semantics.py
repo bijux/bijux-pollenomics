@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 
-from dataclasses import FrozenInstanceError
 import pickle
+from dataclasses import FrozenInstanceError
 
 import pytest
-
 from bijux_pollenomics.adna.domain.models import (
     AdnaChronology,
     AdnaCoordinate,
@@ -68,6 +67,33 @@ def test_reversed_chronology_is_not_silently_made_comparable() -> None:
     assert payload["time_start_bp"] is None
     assert payload["time_end_bp"] is None
     assert payload["time_mean_bp"] is None
+
+
+def test_reason_coded_chronology_refusal_preserves_source_mean() -> None:
+    chronology = AdnaChronology(
+        "historical",
+        None,
+        None,
+        None,
+        date_stddev_bp="89",
+        source_mean_bp_text="146",
+        dating_basis="bp_mean_and_stddev",
+        evidence_class="direct_numeric_sample_date",
+        precision_posture="sample_precise_interval",
+        refusal_reason_code="negative_bp",
+    )
+
+    payload = chronology.as_temporal_semantics(source_family="AADR")
+
+    assert payload["comparability_posture"] == "refused"
+    assert payload["refusal_reason_code"] == "negative_bp"
+    assert payload["time_start_bp"] is None
+    assert payload["time_end_bp"] is None
+    assert payload["time_mean_bp"] is None
+    assert payload["original_labels"] == [
+        "historical",
+        "Source mean BP: 146",
+    ]
 
 
 def test_approximate_archaeological_interval_is_numeric_with_visible_caveat() -> None:

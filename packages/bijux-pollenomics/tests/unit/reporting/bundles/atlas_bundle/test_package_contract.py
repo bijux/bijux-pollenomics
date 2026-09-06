@@ -30,6 +30,68 @@ def test_facade_preserves_exports_and_signatures() -> None:
     )
 
 
+def test_context_projection_preserves_signed_coordinates_but_refuses_negative_bp() -> (
+    None
+):
+    records = atlas_bundle._extract_context_points(
+        [
+            {
+                "key": "context",
+                "label": "Context",
+                "source_name": "Source",
+                "description": "Context source",
+                "count": 1,
+                "features": [
+                    {
+                        "latitude": -33.9,
+                        "longitude": -70.7,
+                        "title": "Signed coordinate",
+                        "time_start_bp": -10,
+                        "time_end_bp": 20,
+                        "time_mean_bp": True,
+                    }
+                ],
+            }
+        ]
+    )
+
+    assert len(records) == 1
+    record = records[0]
+    assert (record.latitude, record.longitude) == (-33.9, -70.7)
+    assert record.time_start_bp is None
+    assert record.time_end_bp is None
+    assert record.time_mean_bp is None
+
+
+def test_context_projection_preserves_standalone_mean_with_null_interval() -> None:
+    records = atlas_bundle._extract_context_points(
+        [
+            {
+                "key": "context",
+                "label": "Context",
+                "source_name": "Source",
+                "description": "Context source",
+                "count": 1,
+                "features": [
+                    {
+                        "latitude": 59,
+                        "longitude": 18,
+                        "title": "Mean-only chronology",
+                        "time_start_bp": None,
+                        "time_end_bp": None,
+                        "time_mean_bp": 123,
+                    }
+                ],
+            }
+        ]
+    )
+
+    assert len(records) == 1
+    assert records[0].time_start_bp is None
+    assert records[0].time_end_bp is None
+    assert records[0].time_mean_bp == 123
+
+
 def test_package_is_bounded_and_grouped_by_publication_intent() -> None:
     package_root = Path(atlas_bundle.__file__).parent
     modules = sorted(path.name for path in package_root.glob("*.py"))

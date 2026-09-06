@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import base64
-from collections.abc import Mapping, Sequence
 import math
+from collections.abc import Mapping, Sequence
 
 ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v2"
 LEGACY_ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v1"
@@ -87,7 +87,9 @@ def normalize_asset_inventory(value: object) -> list[dict[str, object]]:
     if isinstance(value, list):
         return _validate_rows(value, require_decoded_counts=False)
     if not isinstance(value, Mapping):
-        raise ValueError("static atlas asset table shape is invalid")
+        raise ValueError(  # noqa: TRY004 - malformed serialized contract
+            "static atlas asset table shape is invalid"
+        )
     schema = value.get("schema_version")
     if schema == LEGACY_ASSET_TABLE_SCHEMA:
         return _normalize_legacy_table(value)
@@ -95,7 +97,9 @@ def normalize_asset_inventory(value: object) -> list[dict[str, object]]:
         raise ValueError("static atlas asset table shape is invalid")
     scope_slug = value.get("scope_slug")
     if not isinstance(scope_slug, str):
-        raise ValueError("static atlas asset table scope is invalid")
+        raise ValueError(  # noqa: TRY004 - malformed serialized contract
+            "static atlas asset table scope is invalid"
+        )
     _validate_scope_slug(scope_slug)
     fields = value.get("fields")
     if fields != list(ASSET_TABLE_STORED_FIELDS):
@@ -109,7 +113,9 @@ def normalize_asset_inventory(value: object) -> list[dict[str, object]]:
         if not isinstance(domain, str) or domain not in _ASSET_DOMAINS:
             raise ValueError("static atlas asset domain is invalid")
         if not isinstance(digest, str):
-            raise ValueError("static atlas asset sha256 is invalid")
+            raise ValueError(  # noqa: TRY004 - malformed serialized contract
+                "static atlas asset sha256 is invalid"
+            )
         row = {
             "asset_key": f"{domain}:{sequence}",
             "domain": domain,
@@ -237,7 +243,9 @@ def _validate_rows(
     sequences: set[int] = set()
     for position, value in enumerate(rows):
         if not isinstance(value, Mapping):
-            raise ValueError("static atlas asset row is invalid")
+            raise ValueError(  # noqa: TRY004 - malformed serialized contract
+                "static atlas asset row is invalid"
+            )
         row = dict(value)
         required = set(_CORE_FIELDS)
         if not require_decoded_counts:
@@ -304,7 +312,9 @@ def _validate_row_types(
     ):
         raise ValueError("static atlas asset decoded_byte_count is invalid")
     if not isinstance(row.get("initial_load"), bool):
-        raise ValueError("static atlas asset initial_load is invalid")
+        raise ValueError(  # noqa: TRY004 - malformed serialized contract
+            "static atlas asset initial_load is invalid"
+        )
     if row.get("domain") == "nodes":
         _validate_node_fields(row)
 
@@ -335,14 +345,27 @@ def _validate_node_fields(row: Mapping[str, object]) -> None:
         )
     ):
         raise ValueError("static atlas node bounds are invalid")
-    for field in ("time_min_bp", "time_max_bp"):
-        value = row.get(field)
-        if value is not None and (
-            isinstance(value, bool)
-            or not isinstance(value, (int, float))
-            or not math.isfinite(value)
-        ):
-            raise ValueError(f"static atlas node {field} is invalid")
+    minimum = row.get("time_min_bp")
+    maximum = row.get("time_max_bp")
+    if (minimum is None) != (maximum is None):
+        raise ValueError("static atlas node BP bounds are asymmetric")
+    if minimum is not None and (
+        isinstance(minimum, bool)
+        or not isinstance(minimum, (int, float))
+        or not math.isfinite(minimum)
+        or isinstance(maximum, bool)
+        or not isinstance(maximum, (int, float))
+        or not math.isfinite(maximum)
+        or minimum < 0
+        or maximum < 0
+        or minimum > maximum
+    ):
+        raise ValueError("static atlas node BP bounds are invalid")
+    all_records_are_untimed = row["untimed_record_count"] == row["record_count"]
+    if row["untimed_record_count"] > row["record_count"]:
+        raise ValueError("static atlas untimed node count exceeds record count")
+    if (minimum is None) != all_records_are_untimed:
+        raise ValueError("static atlas node BP bounds contradict untimed records")
 
 
 __all__ = [

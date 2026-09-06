@@ -45,6 +45,10 @@ def test_capture_contract_preserves_scientific_refusals_and_bp_semantics() -> No
     assert "visible_modeled_no_pollen_data_count:" in block
     assert "no_pollen_data_count: sourceWindow.no_pollen_data_count" in block
     assert "capture_layout:" in block
+    assert "view: {" in block
+    assert "latitude: map.getCenter().lat" in block
+    assert "longitude: map.getCenter().lng" in block
+    assert "zoom: map.getZoom()" in block
     assert "overlay_visible: overlayVisible" in block
     assert "overlay_bounded:" in block
     assert "overlay_content_bounded: overlayContentBounded" in block
@@ -202,6 +206,7 @@ console.log(JSON.stringify({
   invalidNumbers:invalidNumbers.map((value)=>outcome(()=>captureFrameNumber(value,'frame')).status),
   defaultView:outcome(()=>captureFrameView(undefined)),
   zeroView:outcome(()=>captureFrameView({latitude:0,longitude:0,zoom:0})),
+  signedView:outcome(()=>captureFrameView({latitude:-33.9,longitude:-70.7,zoom:4})),
   invalidViews:invalidViews.map((value)=>outcome(()=>captureFrameView(value)).status),
 }));
 """
@@ -214,6 +219,10 @@ console.log(JSON.stringify({
         "zeroView": {
             "status": "accepted",
             "value": {"latitude": 0, "longitude": 0, "zoom": 0},
+        },
+        "signedView": {
+            "status": "accepted",
+            "value": {"latitude": -33.9, "longitude": -70.7, "zoom": 4},
         },
         "invalidViews": ["refused"] * 6,
     }

@@ -233,6 +233,60 @@ class LandClimSiteProjectionTests(unittest.TestCase):
             )
             self.assertNotIn("Data owner or collector", popup)
 
+    def test_landclim_ii_refuses_negative_canonical_bp_and_keeps_source_bounds(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "landclim_ii.xlsx"
+            write_xlsx(
+                path,
+                {
+                    "LANDCLIMII metadata file": [
+                        [
+                            "SiteName",
+                            "csvfilename",
+                            "siteType",
+                            "londd",
+                            "latdd",
+                            "Country",
+                            "nTWs",
+                            "TopBP",
+                            "BotBP",
+                        ],
+                        [
+                            "Modern Lake",
+                            "modern-lake.csv",
+                            "Lake",
+                            "17.5",
+                            "59.5",
+                            "Sweden",
+                            "4",
+                            "-50",
+                            "150",
+                        ],
+                    ]
+                },
+            )
+
+            from bijux_pollenomics.collection.sources.landclim.collection import (
+                landclim_ii_site_records,
+            )
+
+            [record] = landclim_ii_site_records(
+                path, NORDIC_TEST_BBOX, cast(CountryBoundaries, SWEDEN_BOUNDARIES)
+            )
+
+            self.assertIsNone(record.time_start_bp)
+            self.assertIsNone(record.time_end_bp)
+            self.assertIsNone(record.time_mean_bp)
+            self.assertEqual(dict(record.popup_rows)["Top BP"], "-50")
+            semantics = cast(dict[str, object], record.temporal_semantics)
+            self.assertEqual(semantics["comparability_posture"], "refused")
+            self.assertEqual(semantics["refusal_reason_code"], "negative_bp")
+            self.assertEqual(
+                semantics["original_labels"], ["Top BP: -50", "Bottom BP: 150"]
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

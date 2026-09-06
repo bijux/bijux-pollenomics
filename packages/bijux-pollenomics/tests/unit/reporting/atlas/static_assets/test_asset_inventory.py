@@ -2,13 +2,12 @@
 
 from __future__ import annotations
 
-from copy import deepcopy
 import json
+from copy import deepcopy
 from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
     ASSET_TABLE_FIELDS,
     ASSET_TABLE_STORED_FIELDS,
@@ -108,6 +107,11 @@ def test_checked_in_inventory_reconciles_to_manifest_contract() -> None:
         ("invalid_digest", "sha256"),
         ("invalid_domain", "domain"),
         ("non_node_selection", "non-node selection"),
+        ("negative_time", "BP bounds are invalid"),
+        ("reversed_time", "BP bounds are invalid"),
+        ("asymmetric_time", "BP bounds are asymmetric"),
+        ("untimed_time_contradiction", "contradict untimed records"),
+        ("excess_untimed_count", "exceeds record count"),
     ],
 )
 def test_columnar_inventory_refuses_structural_drift(
@@ -133,11 +137,26 @@ def test_columnar_inventory_refuses_structural_drift(
         records[0][indexes["sha256"]] = "not-a-digest"
     elif mutation == "invalid_domain":
         records[0][indexes["domain"]] = "unknown"
-    else:
+    elif mutation == "non_node_selection":
         non_node = next(
             record for record in records if record[indexes["domain"]] != "nodes"
         )
         non_node[indexes["layer_index"]] = 0
+    else:
+        node = next(
+            record for record in records if record[indexes["domain"]] == "nodes"
+        )
+        if mutation == "negative_time":
+            node[indexes["time_min_bp"]] = -1
+        elif mutation == "reversed_time":
+            node[indexes["time_min_bp"]] = 200
+            node[indexes["time_max_bp"]] = 100
+        elif mutation == "asymmetric_time":
+            node[indexes["time_min_bp"]] = None
+        elif mutation == "excess_untimed_count":
+            node[indexes["untimed_record_count"]] = node[indexes["record_count"]] + 1
+        else:
+            node[indexes["untimed_record_count"]] = node[indexes["record_count"]]
 
     with pytest.raises(ValueError, match=message):
         normalize_asset_inventory(inventory)

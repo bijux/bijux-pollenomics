@@ -1,15 +1,80 @@
 from __future__ import annotations
 
-from hypothesis import given
-from hypothesis import strategies as st
 import pytest
-
 from bijux_pollenomics.core.temporal_semantics import (
     InvalidBpIntervalError,
+    admit_bp_interval,
+    build_temporal_semantics,
     canonical_bp_interval,
     closed_bp_intervals_overlap,
     directional_lag_bounds,
+    normalize_temporal_semantics_payload,
 )
+from hypothesis import given
+from hypothesis import strategies as st
+
+
+@pytest.mark.parametrize(
+    ("younger", "older", "reason"),
+    (
+        (None, 10, "partial_interval"),
+        (-1, 10, "negative_bp"),
+        (20, 10, "reversed_interval"),
+        (float("inf"), 10, "non_finite"),
+    ),
+)
+def test_bp_interval_admission_retains_normative_refusal_reason(
+    younger: object,
+    older: object,
+    reason: str,
+) -> None:
+    admission = admit_bp_interval(younger, older)
+
+    assert admission.interval is None
+    assert not admission.admitted
+    assert admission.refusal_reason_code == reason
+
+
+def test_temporal_semantics_refuses_negative_bounds_without_losing_source_label() -> (
+    None
+):
+    payload = build_temporal_semantics(
+        source_family="test",
+        evidence_class="direct",
+        precision_posture="source_interval",
+        comparability_posture="numeric_interval",
+        time_start_bp=-10,
+        time_end_bp=20,
+        time_mean_bp=5,
+        summary_label="source interval -10 to 20 BP",
+    ).as_dict()
+
+    assert payload["comparability_posture"] == "refused"
+    assert payload["refusal_reason_code"] == "negative_bp"
+    assert payload["time_start_bp"] is None
+    assert payload["time_end_bp"] is None
+    assert payload["time_mean_bp"] is None
+    assert payload["summary_label"] == "source interval -10 to 20 BP"
+
+
+def test_serialized_temporal_semantics_cannot_reintroduce_negative_bp() -> None:
+    payload = normalize_temporal_semantics_payload(
+        {
+            "comparability_posture": "numeric_interval",
+            "time_start_bp": -0.4,
+            "time_end_bp": 20,
+            "time_mean_bp": 10,
+            "temporal_window_key": "recent_historical",
+            "temporal_window_label": "Recent and historical (0-1000 BP)",
+        }
+    )
+
+    assert payload["comparability_posture"] == "refused"
+    assert payload["refusal_reason_code"] == "negative_bp"
+    assert payload["time_start_bp"] is None
+    assert payload["time_end_bp"] is None
+    assert payload["time_mean_bp"] is None
+    assert payload["temporal_window_key"] == "unresolved"
 
 
 @pytest.mark.parametrize(

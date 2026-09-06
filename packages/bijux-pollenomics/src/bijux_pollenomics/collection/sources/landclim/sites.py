@@ -7,10 +7,9 @@ from ....core.bp_time import (
     build_bp_interval_label,
     mean_bp_year_from_interval,
     merge_bp_intervals,
-    normalize_bp_interval,
     parse_bp_window_label,
 )
-from ....core.temporal_semantics import build_temporal_semantics
+from ....core.temporal_semantics import admit_bp_interval, build_temporal_semantics
 from ....core.text import clean_optional_text
 from ...contracts.models import ContextPointRecord
 from ...intake.workbooks import read_xlsx_sheet_rows
@@ -273,9 +272,19 @@ def landclim_ii_site_records(
         )
         if not country:
             continue
-        time_interval = landclim_top_bottom_interval(
-            parse_int(value_from_row(row, index, "TopBP")),
-            parse_int(value_from_row(row, index, "BotBP")),
+        source_top_bp = parse_int(value_from_row(row, index, "TopBP"))
+        source_bottom_bp = parse_int(value_from_row(row, index, "BotBP"))
+        time_admission = admit_bp_interval(source_top_bp, source_bottom_bp)
+        time_interval = time_admission.as_tuple()
+        source_interval_labels = tuple(
+            label
+            for label in (
+                f"Top BP: {source_top_bp}" if source_top_bp is not None else "",
+                f"Bottom BP: {source_bottom_bp}"
+                if source_bottom_bp is not None
+                else "",
+            )
+            if label
         )
         popup_rows = [
             ("Dataset", LANDCLIM_DATASET_METADATA["937075"]["label"]),
@@ -336,6 +345,8 @@ def landclim_ii_site_records(
                         "LANDCLIMII metadata file:"
                         f"{value_from_row(row, index, 'csvfilename')}"
                     ),
+                    refusal_reason_code=time_admission.refusal_reason_code,
+                    original_labels=source_interval_labels,
                 ),
                 popup_rows=tuple(
                     (label, value) for label, value in popup_rows if value
@@ -425,7 +436,7 @@ def parse_int(value: str) -> int | None:
     number = parse_float(value)
     if number is None:
         return None
-    return int(round(number))
+    return round(number)
 
 
 def parse_decimal(row: list[str], index: dict[str, int], field: str) -> float | None:
@@ -462,7 +473,7 @@ def landclim_top_bottom_interval(
     top_bp: int | None, bottom_bp: int | None
 ) -> tuple[int, int] | None:
     """Build a LandClim interval from top and bottom BP fields."""
-    return normalize_bp_interval(top_bp, bottom_bp)
+    return admit_bp_interval(top_bp, bottom_bp).as_tuple()
 
 
 def landclim_site_temporal_semantics(
@@ -471,6 +482,8 @@ def landclim_site_temporal_semantics(
     interval: tuple[int, int] | None,
     summary_label: str,
     provenance_locator: str,
+    refusal_reason_code: str = "",
+    original_labels: tuple[str, ...] = (),
 ) -> dict[str, object]:
     """Build explicit temporal posture for one LandClim site sequence."""
     return build_temporal_semantics(
@@ -479,12 +492,17 @@ def landclim_site_temporal_semantics(
         precision_posture="site_sequence_interval"
         if interval is not None
         else "source_metadata_without_numeric_interval",
-        comparability_posture="numeric_interval"
-        if interval is not None
-        else "unresolved",
+        comparability_posture=(
+            "refused"
+            if refusal_reason_code
+            else "numeric_interval"
+            if interval is not None
+            else "unresolved"
+        ),
         time_start_bp=interval[0] if interval is not None else None,
         time_end_bp=interval[1] if interval is not None else None,
         summary_label=summary_label,
+        refusal_reason_code=refusal_reason_code,
         comparison_note=(
             "This interval describes sequence coverage, not a single pollen observation "
             "or an event date."
@@ -499,7 +517,7 @@ def landclim_site_temporal_semantics(
             else "data/landclim/raw/landclim_ii_site_metadata.xlsx"
         ),
         provenance_locator=provenance_locator,
-        original_labels=(summary_label,) if summary_label else (),
+        original_labels=original_labels or ((summary_label,) if summary_label else ()),
         normalized_labels=(summary_label,) if summary_label else (),
     ).as_dict()
 

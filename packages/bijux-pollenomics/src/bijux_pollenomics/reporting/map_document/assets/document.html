@@ -5756,6 +5756,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           version: STATIC_ATLAS_BOOTSTRAP.version,
           ready: document.getElementById('map').getAttribute('aria-busy') !== 'true',
           basemap: currentBasemap,
+          view: {
+            latitude: map.getCenter().lat,
+            longitude: map.getCenter().lng,
+            zoom: map.getZoom(),
+          },
           countries: [...activeCountries].sort(),
           time_window_bp: { younger_bp: timeStartBp, older_bp: timeWindowEndBp() },
           source_chronology: modeledContextActive ? null : {

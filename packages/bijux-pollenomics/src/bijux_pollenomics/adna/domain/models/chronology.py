@@ -40,9 +40,11 @@ class AdnaChronology:
     time_end_bp: int | None
     time_mean_bp: int | None
     date_stddev_bp: str = ""
+    source_mean_bp_text: str = ""
     dating_basis: str = "unknown"
     evidence_class: str = "unresolved"
     precision_posture: str = "unresolved"
+    refusal_reason_code: str = ""
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -51,9 +53,11 @@ class AdnaChronology:
             "time_end_bp": self.time_end_bp,
             "time_mean_bp": self.time_mean_bp,
             "date_stddev_bp": self.date_stddev_bp,
+            "source_mean_bp_text": self.source_mean_bp_text,
             "dating_basis": self.dating_basis,
             "evidence_class": self.evidence_class,
             "precision_posture": self.precision_posture,
+            "refusal_reason_code": self.refusal_reason_code,
         }
 
     def as_temporal_semantics(
@@ -80,14 +84,20 @@ class AdnaChronology:
             interval = None
 
         has_numeric_interval = interval is not None
-        comparability_posture = "unresolved"
-        if has_numeric_interval and self.precision_posture in numeric_postures:
+        comparability_posture = "refused" if self.refusal_reason_code else "unresolved"
+        if (
+            not self.refusal_reason_code
+            and has_numeric_interval
+            and self.precision_posture in numeric_postures
+        ):
             comparability_posture = "numeric_interval"
         elif (
-            has_numeric_interval and self.precision_posture in caveated_numeric_postures
+            not self.refusal_reason_code
+            and has_numeric_interval
+            and self.precision_posture in caveated_numeric_postures
         ):
             comparability_posture = "numeric_interval_with_caveat"
-        elif self.original_text.strip():
+        elif not self.refusal_reason_code and self.original_text.strip():
             comparability_posture = "contextual_label_only"
 
         time_start_bp = (
@@ -125,8 +135,21 @@ class AdnaChronology:
             time_mean_bp=time_mean_bp,
             summary_label=self.original_text,
             comparison_note=resolved_note,
+            refusal_reason_code=self.refusal_reason_code,
             provenance_path=provenance_path,
             provenance_locator=provenance_locator,
             provenance_excerpt=provenance_excerpt,
-            original_labels=(self.original_text,) if self.original_text else (),
+            original_labels=tuple(
+                label
+                for label in (
+                    self.original_text,
+                    f"Source mean BP: {self.source_mean_bp_text}"
+                    if self.source_mean_bp_text
+                    else "",
+                )
+                if label
+            ),
+            uncertainty_notes=(self.refusal_reason_code,)
+            if self.refusal_reason_code
+            else (),
         ).as_dict()

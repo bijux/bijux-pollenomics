@@ -31,6 +31,10 @@ def test_coordinate_admission_preserves_zero_and_rejects_missing_or_impossible()
     None
 ):
     assert point_coordinate_pair({"latitude": 0, "longitude": "0"}) == (0, 0)
+    assert point_coordinate_pair({"latitude": -33.9, "longitude": -70.7}) == (
+        -33.9,
+        -70.7,
+    )
     assert point_coordinate_pair({"latitude": None, "longitude": 0}) is None
     assert point_coordinate_pair({"latitude": False, "longitude": 0}) is None
     assert point_coordinate_pair({"latitude": 91, "longitude": 0}) is None

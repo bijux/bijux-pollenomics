@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
 import re
+from collections.abc import Mapping
 from typing import cast
 
 from bijux_pollenomics.adna.domain.models import (
@@ -284,9 +284,11 @@ def _apply_chronology_semantics(
         time_end_bp=chronology.time_end_bp,
         time_mean_bp=chronology.time_mean_bp,
         date_stddev_bp=chronology.date_stddev_bp,
+        source_mean_bp_text=chronology.source_mean_bp_text,
         dating_basis=chronology.dating_basis,
         evidence_class=evidence_class,
         precision_posture=precision_posture,
+        refusal_reason_code=chronology.refusal_reason_code,
     )
 
 
