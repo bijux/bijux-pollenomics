@@ -34,6 +34,8 @@ def build_multi_country_map_summary(
             for label, filename in extra_artifacts
         ],
     }
+    if bundle_paths.playback_storyboards_path.is_file():
+        artifacts["playback_storyboards"] = bundle_paths.playback_storyboards_path.name
     if _has_animal_localities(animal_atlas_summary):
         artifacts.update(
             {
@@ -106,6 +108,8 @@ def build_multi_country_bundle_manifest(
             for label, filename in extra_artifacts
         ],
     }
+    if bundle_paths.playback_storyboards_path.is_file():
+        artifacts["playback_storyboards"] = bundle_paths.playback_storyboards_path.name
     if _has_animal_localities(animal_atlas_summary):
         artifacts.update(
             {

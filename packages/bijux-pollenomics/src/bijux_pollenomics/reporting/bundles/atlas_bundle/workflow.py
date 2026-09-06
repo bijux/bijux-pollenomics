@@ -9,6 +9,7 @@ from .contracts import publish_contracts
 from .evidence import publish_evidence_and_rankings
 from .finalization import finalize_bundle
 from .layers import prepare_layers
+from .playback import publish_playback_storyboards
 
 
 def publish_bundle(
@@ -91,6 +92,16 @@ def publish_bundle(
         animal_coordinate_review=animal_coordinate_review,
         extra_artifacts=extra_artifacts,
         surface=surface,
+    )
+    publish_playback_storyboards(
+        scope_key=report.scope_key,
+        countries=countries,
+        bundle_paths=bundle_paths,
+        point_layers=point_layers,
+        polygon_layers=polygon_layers,
+        static_assets=static_assets,
+        extra_artifacts=extra_artifacts,
+        write_summary_json_fn=write_summary_json_fn,
     )
     finalize_bundle(
         staging_output_dir=staging_output_dir,

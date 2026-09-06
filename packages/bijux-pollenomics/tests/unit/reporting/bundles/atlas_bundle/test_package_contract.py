@@ -41,6 +41,7 @@ def test_package_is_bounded_and_grouped_by_publication_intent() -> None:
         "finalization.py",
         "layers.py",
         "operations_api.py",
+        "playback.py",
         "workflow.py",
     ]
     assert len(modules) <= 10
@@ -50,7 +51,7 @@ def test_package_is_bounded_and_grouped_by_publication_intent() -> None:
     )
 
 
-def test_manifest_ownership_refusal_has_one_reachable_raise() -> None:
+def test_package_refusals_are_explicit_and_bounded() -> None:
     package_root = Path(atlas_bundle.__file__).parent
     messages = [
         ast.unparse(node.exc)
@@ -59,6 +60,10 @@ def test_manifest_ownership_refusal_has_one_reachable_raise() -> None:
         if isinstance(node, ast.Raise)
         if node.exc is not None
     ]
-    assert messages == [
-        "ValueError('static atlas manifest path does not match bundle ownership')"
+    assert sorted(messages) == [
+        "ValueError('candidate-succession playback cannot ignore governed atlas edges')",
+        "ValueError('candidate-succession playback requires explicit unavailable classification evidence')",
+        "ValueError('static atlas manifest path does not match bundle ownership')",
+        "ValueError(f'static atlas {field} contract is unavailable')",
+        "ValueError(f'static atlas {field} identity is unavailable')",
     ]

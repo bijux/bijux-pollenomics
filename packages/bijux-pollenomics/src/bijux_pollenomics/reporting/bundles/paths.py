@@ -75,6 +75,7 @@ class AtlasBundlePaths:
     bundle_manifest_path: Path
     map_html_path: Path
     map_static_assets_manifest_path: Path
+    playback_storyboards_path: Path
     samples_geojson_path: Path
     animal_localities_geojson_path: Path
     domesticated_animal_localities_geojson_path: Path
@@ -181,6 +182,8 @@ def build_atlas_bundle_paths(
         bundle_manifest_path=output_dir / f"{atlas_slug}_bundle.json",
         map_html_path=output_dir / f"{atlas_slug}_map.html",
         map_static_assets_manifest_path=output_dir / f"{atlas_slug}_map_assets.json",
+        playback_storyboards_path=output_dir
+        / f"{atlas_slug}_playback_storyboards.json",
         samples_geojson_path=output_dir / f"{atlas_slug}_samples.geojson",
         animal_localities_geojson_path=output_dir
         / f"{atlas_slug}_animal_localities.geojson",

@@ -97,6 +97,10 @@ class CountryReportTests(unittest.TestCase):
             "nordic-atlas_map_assets.json",
         )
         self.assertEqual(
+            atlas_paths.playback_storyboards_path.name,
+            "nordic-atlas_playback_storyboards.json",
+        )
+        self.assertEqual(
             atlas_paths.samples_geojson_path.name, "nordic-atlas_samples.geojson"
         )
         self.assertEqual(

@@ -11,3 +11,6 @@ def test_bundle_paths_own_static_asset_manifest(tmp_path: Path) -> None:
     assert paths.map_static_assets_manifest_path == (
         tmp_path / "nordic-atlas_map_assets.json"
     )
+    assert paths.playback_storyboards_path == (
+        tmp_path / "nordic-atlas_playback_storyboards.json"
+    )
