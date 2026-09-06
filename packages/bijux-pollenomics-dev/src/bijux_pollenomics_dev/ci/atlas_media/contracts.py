@@ -40,6 +40,7 @@ class StorySelection:
     modeled_metrics: tuple[str, ...] = DEFAULT_MODELED_METRICS
 
     def __post_init__(self) -> None:
+        """Reject ambiguous, empty, or unbounded story selections."""
         if not isinstance(self.include_core_source_stories, bool):
             raise AtlasMediaError("include_core_source_stories must be boolean")
         for label, values in (
@@ -95,6 +96,7 @@ class AtlasMediaPlan:
     timeout_seconds: int = 60
 
     def __post_init__(self) -> None:
+        """Reject unsafe paths, missing tools, and unbounded encodings."""
         repository_root = self.repository_root.resolve()
         artifact_root = self.artifact_root.resolve()
         if not repository_root.is_dir():
@@ -175,6 +177,7 @@ class SelectedStory:
     source_authority_sha256: str | None = None
 
     def __post_init__(self) -> None:
+        """Reject stories that violate source and modeled-evidence contracts."""
         if _SAFE_SLUG.fullmatch(self.story_id) is None:
             raise AtlasMediaError("story_id must be a durable lowercase slug")
         if not self.title.strip():

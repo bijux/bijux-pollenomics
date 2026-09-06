@@ -1,3 +1,5 @@
+"""Build exact capture and network receipts for atlas-media tests."""
+
 from __future__ import annotations
 
 import hashlib
@@ -9,6 +11,7 @@ from tests.atlas_media.fixtures import COUNTRIES, SUCCESSION
 
 
 def make_story() -> SelectedStory:
+    """Return one valid source-observation story."""
     return SelectedStory(
         story_id="source-sample",
         title="Source sample presence",
@@ -36,6 +39,7 @@ def make_story() -> SelectedStory:
 def build_capture_frames(
     media_plan: AtlasMediaPlan, story: SelectedStory
 ) -> list[dict[str, object]]:
+    """Describe the PNG frames already written for one story."""
     root = media_plan.artifact_root
     rows = []
     for ordinal in range(len(story.frames)):
@@ -53,6 +57,7 @@ def build_capture_frames(
 
 
 def network_receipt(media_plan: AtlasMediaPlan) -> dict[str, object]:
+    """Return the governed loopback-only network receipt for a fixture plan."""
     document = f"/{media_plan.atlas_document}"
     port = 8123
     atlas_manifest = json.loads(

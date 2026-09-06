@@ -52,6 +52,7 @@ class AtlasCandidate:
     build_id: str
 
     def __post_init__(self) -> None:
+        """Reject malformed repository and report identities."""
         _git_object_id(self.repository_head, label="candidate.repository_head")
         _git_object_id(self.repository_tree, label="candidate.repository_tree")
         _git_object_id(self.atlas_output_commit, label="candidate.atlas_output_commit")
@@ -79,6 +80,7 @@ class AtlasScope:
     manifest: str
 
     def __post_init__(self) -> None:
+        """Reject unsafe scope names and mismatched output locations."""
         if _SAFE_NAME.fullmatch(self.name) is None:
             raise AtlasBrowserContractError("scope.name is not a durable slug")
         _safe_relative_file(self.document, label="scope.document", suffix=".html")
@@ -110,6 +112,7 @@ class BrowserVerificationPlan:
     timeout_seconds: int = 45
 
     def __post_init__(self) -> None:
+        """Reject mutable, unsafe, or profile-incompatible plans."""
         repository_root = self.repository_root.resolve()
         artifact_root = self.artifact_root.resolve()
         if not repository_root.is_dir():
