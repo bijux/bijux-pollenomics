@@ -49,7 +49,9 @@ export function validateSnapshot(snapshot, frame, story, atlasIdentity) {
       );
     }
     if (snapshot.visible_source_chronology_point_count !== 0) {
-      throw new Error('modeled frame exposed source selected-layer visibility');
+      throw new Error(
+        `modeled frame exposed source selected-layer visibility: observed ${snapshot.visible_source_chronology_point_count}`,
+      );
     }
     if (snapshot.visible_point_count + snapshot.visible_polygon_layer_count < snapshot.visible_modeled_context_feature_count) {
       throw new Error('modeled selected-layer visibility exceeds rendered visibility');

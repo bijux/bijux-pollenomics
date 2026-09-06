@@ -5368,7 +5368,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           timeStartBp = captureFrame.frameWindow.youngerBp;
           timeIntervalYears = captureFrame.frameWindow.olderBp - captureFrame.frameWindow.youngerBp;
         } else {
-          sourceChronologyLayers().forEach((layer) => activeLayerKeys.delete(layer.key));
+          ALL_LAYERS
+            .filter((layer) => layer.semantic_role === 'source_chronology_context')
+            .forEach((layer) => activeLayerKeys.delete(layer.key));
           sourceRecordConcentrationActive = false;
           modeledContextFamilyKey = captureFrame.familyKey;
           modeledContextMetricKey = captureFrame.metricKey;
