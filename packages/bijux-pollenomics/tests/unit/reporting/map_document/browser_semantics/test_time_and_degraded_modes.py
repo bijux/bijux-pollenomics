@@ -77,7 +77,7 @@ console.log(JSON.stringify({
         "untimedNarrow": False,
         "genericUntimedFullExtent": True,
         "sourceUntimedFullExtent": False,
-        "negativeDeclaredFullExtent": False,
+        "negativeDeclaredFullExtent": True,
         "reversedDeclaredFullExtent": False,
         "blankDeclaredFullExtent": False,
         "partialDeclaredFullExtent": False,
@@ -171,9 +171,7 @@ def test_desktop_header_is_compact_and_control_toggle_shows_direction() -> None:
     assert 'id="time-step-newer"' in topbar
     assert 'id="time-playback-toggle"' in topbar
     assert 'data-basemap="street"' not in topbar
-    control_panel = template_block(
-        '<aside id="sidebar"', '<section id="focus-card"'
-    )
+    control_panel = template_block('<aside id="sidebar"', '<section id="focus-card"')
     assert 'aria-label="Basemap selection"' in control_panel
     assert 'data-basemap="none"' in control_panel
 

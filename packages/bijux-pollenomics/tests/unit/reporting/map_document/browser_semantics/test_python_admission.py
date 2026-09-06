@@ -114,6 +114,37 @@ def test_null_interval_uses_valid_mean_age_across_state_and_static_metadata() ->
     assert selection["untimed_record_count"] == 0
 
 
+def test_post_1950_bp_interval_is_timed_across_state_and_static_metadata() -> None:
+    feature = {
+        "latitude": 68,
+        "longitude": 19,
+        "country": "Sweden",
+        "time_start_bp": -54,
+        "time_end_bp": -51,
+    }
+    state = build_map_document_state(
+        policy=_policy(),
+        point_layers=[{"key": "sites", "features": [feature]}],
+        polygon_layers=[],
+    )
+    indexes = build_indexes([{"key": "sites", "features": [feature]}])
+    selection = node_asset_selection(
+        {
+            "layer_kind": "point",
+            "layer_index": 0,
+            "layer_key": "sites",
+            "country_keys": ["Sweden"],
+            "features": [feature],
+        }
+    )
+
+    assert (state.time_min_bp, state.time_max_bp) == (-54, -51)
+    assert indexes["time_interval_feature_indexes"] == [[-54.0, -51.0, "sites", 0]]
+    assert selection["time_min_bp"] == -54
+    assert selection["time_max_bp"] == -51
+    assert selection["untimed_record_count"] == 0
+
+
 def test_invalid_declared_mean_does_not_fall_through_to_year_age() -> None:
     feature = {
         "latitude": 59,

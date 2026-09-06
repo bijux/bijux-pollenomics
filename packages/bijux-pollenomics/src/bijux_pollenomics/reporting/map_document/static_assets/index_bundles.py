@@ -257,7 +257,6 @@ def _validate_merged_indexes(indexes: Mapping[str, object]) -> None:
             or not isinstance(row[3], int)
             or not isfinite(float(row[0]))
             or not isfinite(float(row[1]))
-            or row[0] < 0
             or row[0] > row[1]
             or row[3] < 0
         ):

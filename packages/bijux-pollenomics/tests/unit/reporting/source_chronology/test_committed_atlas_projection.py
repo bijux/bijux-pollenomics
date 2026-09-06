@@ -110,6 +110,19 @@ def _assert_committed_static_publication_budgets() -> None:
     rows = normalize_asset_inventory(manifest["assets"])
     paths = [bundle_root / cast(str, row["path"]) for row in rows]
     assert len(rows) == 232
+    map_document = (bundle_root / "nordic_map.html").read_text(encoding="utf-8")
+    assert "const TIME_MIN_BP = -187;" in map_document
+    sead_rows = [row for row in rows if row.get("layer_key") == "sead-sites"]
+    assert sum(cast(int, row["record_count"]) for row in sead_rows) == 2_069
+    assert sum(cast(int, row["untimed_record_count"]) for row in sead_rows) == 1_216
+    assert any(
+        row["country_keys"] == ["Sweden"] and row["time_min_bp"] == -54
+        for row in sead_rows
+    )
+    assert any(
+        row["country_keys"] == ["Finland"] and row["time_min_bp"] == -51
+        for row in sead_rows
+    )
     assert len(paths) <= ATLAS_STATIC_ASSETS_MAX_FILES
     assert all(path.is_file() for path in paths)
     assert all(

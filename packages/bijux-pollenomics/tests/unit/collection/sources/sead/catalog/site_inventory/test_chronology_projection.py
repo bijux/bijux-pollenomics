@@ -9,9 +9,16 @@ from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.source_dat
 from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.service import (
     populate_sead_site_inventory_from_reader,
 )
+from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.temporal import (
+    _ce_year_to_bp,
+)
 
 
 class SeadChronologyAcquisitionTests(unittest.TestCase):
+    def test_common_era_conversion_preserves_post_1950_signed_bp(self) -> None:
+        self.assertEqual(_ce_year_to_bp(1950), 0)
+        self.assertEqual(_ce_year_to_bp(2004), -54)
+
     def test_acquisition_preserves_the_entity_parent_chain_on_each_claim(self) -> None:
         site_rows = [
             {"site_id": 6468, "site_uuid": "uuid-6468"},

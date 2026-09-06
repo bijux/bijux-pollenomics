@@ -54,7 +54,7 @@ def _build_sead_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
         spatial_representation="site inventory plus record-level chronology points",
         temporal_support_posture=temporal_capture_posture,
         temporal_support_note=(
-            "SEAD chronology is published as interval-preserving temporal features; upstream-undated sites remain available only in the separate spatial inventory."
+            "The governed SEAD site inventory combines interval-preserving dated context with explicitly untimed spatial context; bulk record-level chronology remains normalized review evidence rather than a separate public GeoJSON."
         ),
         temporal_scope="linked archaeology chronology",
         distance_scoring_posture="contextual_archaeology_only",

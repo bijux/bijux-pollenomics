@@ -48,14 +48,16 @@ def test_fractional_source_extrema_expand_global_bounds_outward() -> None:
     assert state.initial_time_interval_years == 879
 
 
-def test_invalid_source_ages_do_not_create_global_time_bounds() -> None:
+def test_signed_bp_ages_extend_global_time_bounds_without_admitting_invalid_rows() -> (
+    None
+):
     state = build_map_document_state(
         policy=_policy(),
         point_layers=[
             {
                 "features": [
                     {"time_start_bp": None, "time_end_bp": None},
-                    {"time_start_bp": -1, "time_end_bp": 10},
+                    {"time_start_bp": -54, "time_end_bp": -51},
                     {"time_start_bp": 20, "time_end_bp": 10},
                     {"time_start_bp": False, "time_end_bp": 0},
                 ]
@@ -64,5 +66,5 @@ def test_invalid_source_ages_do_not_create_global_time_bounds() -> None:
         polygon_layers=[],
     )
 
-    assert state.has_time_data is False
-    assert (state.time_min_bp, state.time_max_bp) == (0, 0)
+    assert state.has_time_data is True
+    assert (state.time_min_bp, state.time_max_bp) == (-54, -51)

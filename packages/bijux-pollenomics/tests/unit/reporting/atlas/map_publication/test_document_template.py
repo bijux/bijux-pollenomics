@@ -26,7 +26,9 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
             "value === null || value === undefined || typeof value === 'boolean'",
             MAP_DOCUMENT_TEMPLATE,
         )
-        self.assertIn("numeric >= 0", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn(
+            "Number.isFinite(numeric) ? numeric : null", MAP_DOCUMENT_TEMPLATE
+        )
         self.assertIn("if (startDeclared || endDeclared)", MAP_DOCUMENT_TEMPLATE)
         self.assertIn(
             "start === null || end === null || start > end", MAP_DOCUMENT_TEMPLATE
@@ -75,14 +77,14 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
                 {"start": 0, "end": 100},
                 None,
                 None,
-                None,
+                {"start": -1, "end": 50},
                 {"start": 25, "end": 25},
-                None,
+                {"start": -1, "end": -1},
             ],
         )
         self.assertEqual(
             json.loads(result.stdout)["labels"],
-            ["source label", "", "", "", "source label", ""],
+            ["source label", "", "", "source label", "source label", "source label"],
         )
 
     def test_basemap_failure_has_bounded_failover_and_tile_free_mode(self) -> None:
@@ -94,7 +96,9 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
         self.assertIn("OpenTopoMap · no key", MAP_DOCUMENT_TEMPLATE)
         self.assertIn("Offline · no tiles", MAP_DOCUMENT_TEMPLATE)
         self.assertIn("viewControls.open = true", MAP_DOCUMENT_TEMPLATE)
-        self.assertIn("activeButton.focus({ preventScroll: true })", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn(
+            "activeButton.focus({ preventScroll: true })", MAP_DOCUMENT_TEMPLATE
+        )
         self.assertIn(
             "https://tile.openstreetmap.org/{z}/{x}/{y}.png", MAP_DOCUMENT_TEMPLATE
         )
