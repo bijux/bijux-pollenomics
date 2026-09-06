@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from bijux_pollenomics.adna.domain.models.vocabularies import (
+    ADNA_APPROXIMATE_COORDINATE_CONFIDENCE,
+)
+
 
 def build_species_rows(
     country: str,
@@ -38,7 +42,7 @@ def build_species_rows(
             1
             for row in species_sample_rows
             if str(row.get("coordinate_confidence", "")).strip()
-            in {"approximate", "inferred"}
+            in ADNA_APPROXIMATE_COORDINATE_CONFIDENCE
         )
         sample_lineage_backed_count = sum(
             1
@@ -73,14 +77,16 @@ def build_species_rows(
         if any(str(row.get("animal_scope")) == "comparator" for row in rows):
             caution_bits.append("comparator evidence only")
         if animal_scope == "wild_or_progenitor_context":
-            caution_bits.append("wild or progenitor context; not domesticated-core support")
+            caution_bits.append(
+                "wild or progenitor context; not domesticated-core support"
+            )
         if len(species_sample_rows) <= 2:
             caution_bits.append("sample support remains sparse")
         if coordinate_bases & {"named_site_geocoding", "named_site_geocoded"}:
             caution_bits.append(
                 "point surface relies on named-site geocoding rather than direct coordinates"
             )
-        if coordinate_confidences & {"approximate", "inferred"}:
+        if coordinate_confidences & set(ADNA_APPROXIMATE_COORDINATE_CONFIDENCE):
             caution_bits.append("coordinates remain approximate or inferred")
         species_rows.append(
             {

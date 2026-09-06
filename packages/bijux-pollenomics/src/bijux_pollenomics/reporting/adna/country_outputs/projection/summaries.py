@@ -1,5 +1,9 @@
 from __future__ import annotations
 
+from bijux_pollenomics.adna.domain.models.vocabularies import (
+    ADNA_APPROXIMATE_COORDINATE_CONFIDENCE,
+)
+
 
 def build_evidence_quality_summary(
     *,
@@ -34,7 +38,7 @@ def build_evidence_quality_summary(
             1
             for row in sample_rows
             if str(row.get("coordinate_confidence", "")).strip()
-            in {"approximate", "inferred"}
+            in ADNA_APPROXIMATE_COORDINATE_CONFIDENCE
         ),
     }
 

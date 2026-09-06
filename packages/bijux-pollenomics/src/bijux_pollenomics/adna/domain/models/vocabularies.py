@@ -10,6 +10,11 @@ ADNA_COORDINATE_CONFIDENCE = (
     "withheld",
     "unknown",
 )
+ADNA_APPROXIMATE_COORDINATE_CONFIDENCE = (
+    "source_reported_two_decimal_degrees",
+    "approximate",
+    "inferred",
+)
 ADNA_CHRONOLOGY_EVIDENCE_CLASSES = (
     "direct_radiocarbon_date",
     "modeled_sample_date",

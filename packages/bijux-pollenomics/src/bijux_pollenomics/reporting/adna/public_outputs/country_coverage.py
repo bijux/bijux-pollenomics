@@ -4,6 +4,10 @@ import json
 from pathlib import Path
 from typing import cast
 
+from bijux_pollenomics.adna.domain.models.vocabularies import (
+    ADNA_APPROXIMATE_COORDINATE_CONFIDENCE,
+)
+
 from ...models import CountryReport
 
 
@@ -85,7 +89,7 @@ def _build_country_species_coverage(
                 exact_coordinate_counts[species_name] = (
                     exact_coordinate_counts.get(species_name, 0) + 1
                 )
-            if coordinate_confidence in {"approximate", "inferred"}:
+            if coordinate_confidence in ADNA_APPROXIMATE_COORDINATE_CONFIDENCE:
                 approximate_coordinate_counts[species_name] = (
                     approximate_coordinate_counts.get(species_name, 0) + 1
                 )

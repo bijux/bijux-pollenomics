@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+from bijux_pollenomics.adna.domain.models.vocabularies import (
+    ADNA_APPROXIMATE_COORDINATE_CONFIDENCE,
+)
+
 from ..atlas_evidence_rows import AnimalAtlasEvidenceRow
 from ...geography import NORDIC_COUNTRIES
 
@@ -122,9 +126,7 @@ def _build_point_feature(
         "sample_group_ids": list(row.sample_group_ids),
         "source_native_taxon_labels": list(row.source_native_taxon_labels),
         "source_native_tax_ids": list(row.source_native_tax_ids),
-        "source_native_scientific_names": list(
-            row.source_native_scientific_names
-        ),
+        "source_native_scientific_names": list(row.source_native_scientific_names),
         "taxon_alignment_statuses": list(row.taxon_alignment_statuses),
         "sample_namespace": row.sample_namespace,
         "paper_title": row.paper_title,
@@ -166,7 +168,7 @@ def _warning_rows_for(
     review: dict[str, str],
 ) -> list[dict[str, str]]:
     warnings: list[str] = []
-    if row.coordinate_confidence in {"approximate", "inferred"}:
+    if row.coordinate_confidence in ADNA_APPROXIMATE_COORDINATE_CONFIDENCE:
         warnings.append(
             f"Coordinates are {row.coordinate_confidence}, not excavation-grade exact points."
         )

@@ -59,6 +59,25 @@ def test_country_outputs_publish_admitted_caveated_numeric_chronology() -> None:
     assert published_chronology_value(None, "sample_approximate_or_modeled") is None
 
 
+def test_source_reported_coordinate_precision_is_counted_as_approximate() -> None:
+    locality = _locality("Kastelholm", younger_bp=340, older_bp=527)
+    locality["coordinate_basis"] = "archive_coordinates"
+    locality["coordinate_confidence"] = "source_reported_two_decimal_degrees"
+    sample = {
+        **locality,
+        "sample_lineage_path": "data/sample.json",
+        "site_evidence_path": "data/site.json",
+        "chronology_provenance_path": "data/chronology.json",
+        "coordinate_provenance_path": "data/coordinate.json",
+    }
+
+    rows = build_species_rows("Finland", [locality], [sample])
+
+    assert rows[0]["exact_coordinate_sample_count"] == 0
+    assert rows[0]["approximate_coordinate_sample_count"] == 1
+    assert "coordinates remain approximate or inferred" in rows[0]["caution_note"]
+
+
 def _locality(
     locality: str,
     *,
