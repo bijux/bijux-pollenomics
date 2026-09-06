@@ -26,6 +26,21 @@ from .support import (
 )
 
 
+def test_mobile_scrim_stays_below_interactive_controls() -> None:
+    def z_index(selector: str) -> int:
+        match = re.search(
+            rf"{re.escape(selector)} \{{[^}}]*z-index: (?P<value>\d+);",
+            MAP_DOCUMENT_TEMPLATE,
+            re.DOTALL,
+        )
+        assert match is not None
+        return int(match.group("value"))
+
+    assert (
+        z_index(".mobile-scrim") < z_index(".control-panel") < z_index(".help-dialog")
+    )
+
+
 def test_controls_are_accessible_source_native_and_separate_from_modeled_context() -> (
     None
 ):
