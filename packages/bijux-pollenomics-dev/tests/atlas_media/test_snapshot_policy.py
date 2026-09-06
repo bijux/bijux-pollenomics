@@ -65,12 +65,12 @@ def test_snapshot_policy_rejects_stale_readiness_and_scientific_posture() -> Non
         ["visible_governed_candidate_count", 1],
     ]
     script = """
-      import { validateSnapshot } from %s;
-      const baseline = %s;
-      const frame = %s;
-      const story = %s;
-      const identity = %s;
-      const mutations = %s;
+      import { validateSnapshot } from __POLICY__;
+      const baseline = __SNAPSHOT__;
+      const frame = __FRAME__;
+      const story = __STORY__;
+      const identity = __IDENTITY__;
+      const mutations = __MUTATIONS__;
       const results = [];
       validateSnapshot(structuredClone(baseline), frame, story, identity);
       for (const [path, value] of mutations) {
@@ -87,17 +87,16 @@ def test_snapshot_policy_rejects_stale_readiness_and_scientific_posture() -> Non
         }
       }
       process.stdout.write(JSON.stringify(results));
-    """ % tuple(
-        json.dumps(value)
-        for value in (
-            policy.as_uri(),
-            snapshot,
-            frame,
-            story,
-            atlas_identity,
-            mutations,
-        )
-    )
+    """
+    for placeholder, value in (
+        ("__POLICY__", policy.as_uri()),
+        ("__SNAPSHOT__", snapshot),
+        ("__FRAME__", frame),
+        ("__STORY__", story),
+        ("__IDENTITY__", atlas_identity),
+        ("__MUTATIONS__", mutations),
+    ):
+        script = script.replace(placeholder, json.dumps(value))
 
     completed = subprocess.run(
         ("node", "--input-type=module", "--eval", script),

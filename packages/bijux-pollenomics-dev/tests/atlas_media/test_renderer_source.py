@@ -31,7 +31,7 @@ def test_renderer_is_valid_dependency_free_node_module() -> None:
 def test_debugger_policy_requires_exact_loopback_authority() -> None:
     policy = Path(atlas_media.__file__).with_name("debugger_policy.mjs")
     script = """
-      import { requireLoopbackDebuggerEndpoint, requireTargetDebuggerEndpoint } from %s;
+      import { requireLoopbackDebuggerEndpoint, requireTargetDebuggerEndpoint } from __POLICY__;
       const accepted = requireLoopbackDebuggerEndpoint('ws://127.0.0.1:8123/devtools/browser/id');
       requireTargetDebuggerEndpoint(
         'ws://127.0.0.1:8123/devtools/page/id',
@@ -52,7 +52,7 @@ def test_debugger_policy_requires_exact_loopback_authority() -> None:
         );
       } catch { rejected.push('wrong-target-port'); }
       process.stdout.write(JSON.stringify({ accepted, rejected }));
-    """ % json.dumps(policy.as_uri())
+    """.replace("__POLICY__", json.dumps(policy.as_uri()))
     completed = subprocess.run(
         ("node", "--input-type=module", "--eval", script),
         check=False,
@@ -100,14 +100,17 @@ def test_node_candidate_git_timeout_fails_closed(tmp_path: Path) -> None:
     )
     fake_git.chmod(0o755)
     script = """
-      import { boundedGit } from %s;
+      import { boundedGit } from __POLICY__;
       try {
-        boundedGit(%s, ['status'], 25);
+        boundedGit(__REPOSITORY_ROOT__, ['status'], 25);
         process.exitCode = 2;
       } catch (error) {
         process.stdout.write(error.message);
       }
-    """ % (json.dumps(policy.as_uri()), json.dumps(str(tmp_path)))
+    """
+    script = script.replace("__POLICY__", json.dumps(policy.as_uri())).replace(
+        "__REPOSITORY_ROOT__", json.dumps(str(tmp_path))
+    )
     started = time.monotonic()
     completed = subprocess.run(
         ("node", "--input-type=module", "--eval", script),
@@ -233,7 +236,7 @@ def test_package_module_help_is_free_of_runpy_import_warnings() -> None:
 def test_node_network_policy_allows_only_loopback_and_embedded_urls() -> None:
     policy = Path(atlas_media.__file__).with_name("network_policy.mjs")
     script = """
-      import { classifyNetworkRequest } from %s;
+      import { classifyNetworkRequest } from __POLICY__;
       const urls = [
         'http://127.0.0.1:8123/atlas.json',
         'http://127.0.0.1:8124/atlas.json',
@@ -256,7 +259,7 @@ def test_node_network_policy_allows_only_loopback_and_embedded_urls() -> None:
         authority,
       ));
       process.stdout.write(JSON.stringify(rows));
-    """ % json.dumps(policy.as_uri())
+    """.replace("__POLICY__", json.dumps(policy.as_uri()))
     completed = subprocess.run(
         ("node", "--input-type=module", "--eval", script),
         check=False,
@@ -298,7 +301,7 @@ def test_static_asset_policy_refuses_bytes_changed_after_planning() -> None:
     policy = Path(atlas_media.__file__).with_name("static_asset_policy.mjs")
     script = """
       import { createHash } from 'node:crypto';
-      import { normalizeStaticAssetAuthority, validateStaticAssetPayload } from %s;
+      import { normalizeStaticAssetAuthority, validateStaticAssetPayload } from __POLICY__;
       const original = Buffer.from('candidate bytes');
       const rows = [{
         path: '/atlas.html',
@@ -314,7 +317,7 @@ def test_static_asset_policy_refuses_bytes_changed_after_planning() -> None:
         rejected = true;
       }
       process.stdout.write(JSON.stringify(rejected));
-    """ % json.dumps(policy.as_uri())
+    """.replace("__POLICY__", json.dumps(policy.as_uri()))
     completed = subprocess.run(
         ("node", "--input-type=module", "--eval", script),
         check=False,

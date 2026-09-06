@@ -388,13 +388,13 @@ def test_node_network_receipts_round_trip_through_python_validation(
     policy = Path(capture.__file__).with_name("network_policy.mjs")
     document = f"/{media_plan.atlas_document}"
     script = """
-      import { classifyNetworkRequest } from %s;
+      import { classifyNetworkRequest } from __POLICY__;
       const authority = {
         origin: 'http://127.0.0.1:8123',
-        allowedPaths: new Set([%s]),
+        allowedPaths: new Set([__DOCUMENT__]),
       };
       const requests = [
-        [%s, 'Document'],
+        [__DOCUMENT_URL__, 'Document'],
         ['data:image/png;base64,AA==', 'Image'],
         ['blob:http://127.0.0.1:8123/identifier', 'Image'],
       ];
@@ -404,10 +404,11 @@ def test_node_network_receipts_round_trip_through_python_validation(
           authority,
         ).receipt
       )));
-    """ % (
-        json.dumps(policy.as_uri()),
-        json.dumps(document),
-        json.dumps(f"http://127.0.0.1:8123{document}"),
+    """
+    script = (
+        script.replace("__POLICY__", json.dumps(policy.as_uri()))
+        .replace("__DOCUMENT__", json.dumps(document))
+        .replace("__DOCUMENT_URL__", json.dumps(f"http://127.0.0.1:8123{document}"))
     )
     completed = subprocess.run(
         ("node", "--input-type=module", "--eval", script),
