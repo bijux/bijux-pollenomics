@@ -80,8 +80,8 @@ def write_neotoma_context(context_root: Path) -> None:
     snapshot: dict[str, object] = {
         "schema_version": "neotoma-relational-snapshot.v2",
         "source_family": "neotoma",
-        "source_snapshot_id": "sha256:country-report-fixture",
-        "build_id": "country-report-fixture",
+        "source_snapshot_id": "sha256:" + ("1" * 64),
+        "build_id": "sha256:" + ("2" * 64),
         "sites": [
             {
                 "site_id": "neotoma:site:1",
