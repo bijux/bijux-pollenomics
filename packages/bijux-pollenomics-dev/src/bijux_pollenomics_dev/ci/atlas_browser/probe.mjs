@@ -763,9 +763,10 @@ async function basemapDiscoverabilityFacts(cdp, width) {
     const providerDisclosure = providerButtons.map((button) => button.textContent.trim());
     const providerVisibility = [];
     for (const button of providerButtons) {
-      button.scrollIntoView({ block: 'nearest', behavior: 'auto' });
+      button.focus();
       await settle();
-      providerVisibility.push(visible(button) && bounded(button) && uncovered(button));
+      providerVisibility.push(document.activeElement === button
+        && visible(button) && bounded(button) && uncovered(button));
     }
     const visibleProviderDisclosure = providerVisibility.every(Boolean)
       && providerDisclosure.some((text) => text.includes('OpenStreetMap · no key'))
