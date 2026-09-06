@@ -5,10 +5,10 @@ from __future__ import annotations
 import copy
 
 import pytest
-
 from bijux_pollenomics.reporting.adna.public_outputs import atlas_readiness
 from bijux_pollenomics.reporting.adna.public_outputs.atlas_readiness import (
     _atlas_readiness_status,
+    _build_animal_atlas_exclusion_report,
     _build_animal_atlas_readiness,
     _required_count,
     _share,
@@ -17,6 +17,7 @@ from bijux_pollenomics.reporting.adna.public_outputs.rendering import (
     _format_nullable_share,
     _render_animal_atlas_readiness_markdown,
 )
+
 from tests.support.repository import REPOSITORY_ROOT
 
 
@@ -56,6 +57,18 @@ def test_atlas_readiness_never_combines_sample_and_site_denominators() -> None:
         )
         assert "total_curated_rows" not in row
         assert "map_ready_share" not in row
+
+
+def test_atlas_exclusions_preserve_missing_political_entity_as_null() -> None:
+    payload = _build_animal_atlas_exclusion_report(REPOSITORY_ROOT / "data")
+
+    rows = payload["rows"]
+    assert isinstance(rows, list)
+    missing_geography_rows = [
+        row for row in rows if row.get("political_entity") is None
+    ]
+    assert missing_geography_rows
+    assert all(row.get("political_entity") != "None" for row in rows)
 
 
 def test_undefined_shares_remain_null_and_render_as_not_applicable() -> None:

@@ -377,6 +377,7 @@ def _build_animal_atlas_exclusion_report(data_root: Path) -> dict[str, object]:
             locality_identity = cast(
                 dict[str, object], sample_row.get("locality_identity", {})
             )
+            political_entity = locality_identity.get("political_entity")
             project_accession = str(sample_row.get("project_accession", "")).strip()
             locality_text = str(locality_identity.get("locality_text", "")).strip()
             provenance = provenance_lookup.get((project_accession, locality_text), {})
@@ -394,8 +395,10 @@ def _build_animal_atlas_exclusion_report(data_root: Path) -> dict[str, object]:
                     "project_accession": project_accession,
                     "sample_record_id": sample_id,
                     "locality": str(sample_row.get("locality") or locality_text),
-                    "political_entity": str(
-                        locality_identity.get("political_entity", "")
+                    "political_entity": (
+                        str(political_entity).strip()
+                        if political_entity is not None
+                        else None
                     ),
                     "inclusion_status": str(sample_row.get("inclusion_status", "")),
                     "inclusion_note": str(sample_row.get("inclusion_note", "")),
