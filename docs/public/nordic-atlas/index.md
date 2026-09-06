@@ -66,7 +66,7 @@ contract publishes these governed layer populations:
 | Layer | Features | Role |
 | --- | ---: | --- |
 | AADR human samples | 1,231 | shared direct evidence |
-| admitted horse, sheep, and pig aDNA localities | 6 | shared animal evidence; 2 localities per species |
+| admitted cattle progenitor-context, sheep, and pig aDNA localities | 8 | shared animal evidence; cattle remains wild-or-progenitor context rather than domesticated-core support |
 | LandClim pollen sites | 490 | Nordic environmental context |
 | Neotoma pollen sites | 193 | Nordic environmental context |
 | Neotoma sample-presence nodes | 9,988 | dated source-observation chronology |
@@ -115,7 +115,7 @@ TRSH, UPHE, and AQVP codes, and exact source taxa such as *Secale*. The atlas
 reports both the selected facet denominator and the count visible in the active
 window, so an empty view can be distinguished from missing source data.
 
-The [chronology playback page](./chronology-playback/) provides six pre-rendered
+The [chronology playback page](./chronology-playback/) provides eight pre-rendered
 views for readers who want to inspect the same change through time without
 operating the map controls. Both surfaces preserve the rule that observation
 chronology and modeled context are not propagation claims.

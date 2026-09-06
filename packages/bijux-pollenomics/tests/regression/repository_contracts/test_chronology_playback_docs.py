@@ -19,6 +19,8 @@ EXPECTED_STORIES = (
     "neotoma-source-code-uphe",
     "neotoma-source-code-aqvp",
     "neotoma-source-taxon-967",
+    "pangaea-937075-metric-cerealia-t",
+    "pangaea-937075-metric-secale",
     "pangaea-937075-metric-ol",
 )
 EXPECTED_PUBLIC_ROWS = {
@@ -70,6 +72,22 @@ EXPECTED_PUBLIC_ROWS = {
         "last_interval": (0, 100),
         "page_row": "| open land (OL) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |",
     },
+    "pangaea-937075-metric-cerealia-t": {
+        "node_count": None,
+        "observation_denominator": None,
+        "frame_count": 25,
+        "first_interval": (11200, 11700),
+        "last_interval": (0, 100),
+        "page_row": "| modeled cereal type (Cerealia.t) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |",
+    },
+    "pangaea-937075-metric-secale": {
+        "node_count": None,
+        "observation_denominator": None,
+        "frame_count": 25,
+        "first_interval": (11200, 11700),
+        "last_interval": (0, 100),
+        "page_row": "| modeled *Secale cereale* | 75 modeled cells per frame | 25 source-defined windows; no interpolation |",
+    },
 }
 
 
@@ -95,10 +113,12 @@ def test_chronology_page_embeds_the_exact_governed_media_inventory() -> None:
         (PUBLICATION_ROOT / "publication-manifest.json").read_text(encoding="utf-8")
     )
 
-    assert manifest["schema_version"] == "atlas-media-publication.v1"
+    assert manifest["schema_version"] == "atlas-media-publication.v2"
     assert manifest["story_count"] == len(EXPECTED_STORIES)
     assert tuple(row["story_id"] for row in manifest["stories"]) == EXPECTED_STORIES
-    assert page.count('<video controls preload="metadata" muted playsinline loop') == 6
+    assert page.count(
+        '<video controls preload="metadata" muted playsinline loop'
+    ) == len(EXPECTED_STORIES)
     assert "autoplay" not in page
     assert 'href="./chronology-playback/"' in atlas_index
     for story in manifest["stories"]:

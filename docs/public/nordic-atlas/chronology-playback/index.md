@@ -9,18 +9,18 @@ last_reviewed: 2026-09-06
 
 # Nordic Chronology Playback
 
-These six governed animations replay dated evidence from the oldest window
+These eight governed animations replay dated evidence from the oldest window
 toward the present across Denmark, Finland, Norway, and Sweden. They use the
 same source selectors and temporal rules as the interactive Nordic atlas.
 
 The five Neotoma animations show discrete dated source observations. Changing
 spatial visibility through time can look flow-like, but it is not evidence of
-movement, migration, causation, or propagation. The open-land animation is
-non-interpolated modeled context from
+movement, migration, causation, or propagation. The three PANGAEA animations
+show non-interpolated modeled cereal-taxon and open-land context from
 [PANGAEA 937075](https://doi.org/10.1594/PANGAEA.937075), published with the
 [Githumbi et al. (2022) reconstruction](https://doi.org/10.5194/essd-14-1581-2022);
-it is not an observed pollen trajectory. Null ages remain unavailable and are
-never converted to zero.
+a modeled surface is not an observed pollen trajectory. Null ages remain
+unavailable and are never converted to zero.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="../../../report/regions/nordic/nordic_map.html">Explore the interactive atlas</a>
@@ -37,6 +37,8 @@ never converted to zero.
 | UPHE — upland herbs | 9,928 nodes / 91,739 observations | 230 contiguous windows; 100 years except the terminal window |
 | AQVP — aquatic vascular plants | 4,991 nodes / 9,666 observations | 192 contiguous windows; 100 years except the terminal window |
 | exact taxon: *Secale* | 469 nodes / 469 observations | 45 contiguous windows; 100 years except the terminal window; source taxon 967 only |
+| modeled cereal type (Cerealia.t) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
+| modeled *Secale cereale* | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
 | open land (OL) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
 
 Counts retain their declared denominator. Nodes and observations are not added
@@ -91,6 +93,26 @@ pollen-observation count.
     <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-967.mp4">Open the exact *Secale* chronology video.</a>
   </video>
   <figcaption>Only Neotoma source taxon 967 (*Secale*): 469 nodes and 469 observations. Broader cereal categories are not silently merged into this exact-taxon view.</figcaption>
+</figure>
+
+## PANGAEA Modeled Cereal Type — Cerealia.t
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-cerealia-t.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-cerealia-t.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-cerealia-t.mp4">Open the modeled cereal-type chronology video.</a>
+  </video>
+  <figcaption>Cerealia.t modeled context from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. This surface is distinct from exact source-taxon observations and is not an abundance or propagation claim.</figcaption>
+</figure>
+
+## PANGAEA Modeled *Secale cereale*
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-secale.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-secale.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-secale.mp4">Open the modeled <em>Secale cereale</em> chronology video.</a>
+  </video>
+  <figcaption><em>Secale cereale</em> modeled context from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. It is kept separate from Neotoma source taxon 967 and is not treated as an observed trajectory.</figcaption>
 </figure>
 
 ## PANGAEA Open-Land Context
