@@ -68,7 +68,7 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 | Common name | Latin name | Animal scope | Locality rows | Assignment posture | Caution |
 | --- | --- | --- | ---: | --- | --- |
-| sheep | Ovis aries | domesticated_core | 1 | exact_country | sample support remains sparse |
+| sheep | Ovis aries | domesticated_core | 1 | exact_country | sample support remains sparse; coordinates remain approximate or inferred |
 
 
 

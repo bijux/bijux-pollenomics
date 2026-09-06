@@ -15,7 +15,7 @@
     "chronology_provenance_backed_sample_count": 5,
     "coordinate_provenance_backed_sample_count": 5,
     "exact_coordinate_sample_count": 0,
-    "approximate_coordinate_sample_count": 2
+    "approximate_coordinate_sample_count": 5
   },
   "traceability_summary": {
     "sample_record_ids": [
@@ -341,12 +341,12 @@
       ],
       "sample_row_count": 3,
       "exact_coordinate_sample_count": 0,
-      "approximate_coordinate_sample_count": 0,
+      "approximate_coordinate_sample_count": 3,
       "sample_lineage_backed_sample_count": 3,
       "site_evidence_backed_sample_count": 3,
       "chronology_provenance_backed_sample_count": 3,
       "coordinate_provenance_backed_sample_count": 3,
-      "caution_note": "current country assignment is direct and explicit"
+      "caution_note": "coordinates remain approximate or inferred"
     }
   ],
   "localities": [

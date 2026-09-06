@@ -51,17 +51,15 @@
       "raw_status": "present",
       "normalized_status": "present",
       "reviewed_status": "present",
-      "published_status": "missing",
+      "published_status": "present",
       "provenance_depth": "review_ready",
-      "publication_posture": "review_ready_not_yet_published",
+      "publication_posture": "published_with_review_support",
       "authority_status": "not_required",
       "authority_reasons": [],
       "coverage_metrics": {
         "sead_point_count": 2069
       },
-      "blocking_reasons": [
-        "missing_published_surface"
-      ]
+      "blocking_reasons": []
     },
     {
       "source_key": "raa",
@@ -1079,7 +1077,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_complete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1105,7 +1102,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_complete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1136,7 +1132,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1169,7 +1164,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1202,7 +1196,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1233,7 +1226,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1266,7 +1258,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1299,7 +1290,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1336,7 +1326,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1367,7 +1356,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1398,7 +1386,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1429,7 +1416,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1470,7 +1456,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1507,7 +1492,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1534,7 +1518,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1565,7 +1548,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },
@@ -1596,7 +1578,6 @@
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_incomplete",
-          "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
       },

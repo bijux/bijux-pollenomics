@@ -60,7 +60,7 @@
       },
       "caveats": [
         "Source age-range labels include calendar-comparable BP systems, but the compact site layer withholds numeric intervals because extrema do not establish continuous site coverage.",
-        "Some checked-in Neotoma sites remain spatial context only because they do not carry publishable BP age ranges."
+        "Some checked-in Neotoma sites remain spatial context only because they do not carry source age-range context."
       ],
       "capability_contract_path": "data/source_family_contracts.json",
       "capability_materialization_audit_path": "data/source_family_evidence_stage_matrix.json",

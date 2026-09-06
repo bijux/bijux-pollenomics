@@ -78,12 +78,12 @@
       "normalized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "boundaries": {
-      "snapshot_sha256": "3eb20c2ba0f8204737a0077d570bd8642e331f5ccee6b52787e550b45216eeef",
+      "snapshot_sha256": "ca23df4cc6b6de570838c9cb63a41f8fd68a39690ef538a23e92cd9457b23615",
       "normalized_sha256": "44c05182fe053907fd8af620ad6d573ff83eeb01219f00ccea2006a8a8b9bd59"
     },
     "landclim": {
-      "snapshot_sha256": "806c4996bef700b555cbb71eb354ce75bff3ebbe06a65d33e73aad4075a5be54",
-      "normalized_sha256": "0f52f448a2945d742f657ba181efd48966c5b56a6d447c5e231e5f0e2dffee7b"
+      "snapshot_sha256": "54640b81bb74380d91224b0fb2229cab061ffcbe9fd037b11b462f7f1a09f070",
+      "normalized_sha256": "f4e622258fa5a6e7342da623a621f710d00bf01276c5f988b09532d34cc0127c"
     },
     "neotoma": {
       "snapshot_sha256": "d57b17ece6e8d99f399f0bd7d374ab6b84676ed4982fc8a7d73eeb93a9bf808e",
@@ -126,7 +126,7 @@
       "acquisition_method": "collector_pipeline",
       "snapshot_root": "data/boundaries",
       "normalized_root": "data/boundaries/normalized",
-      "snapshot_sha256": "3eb20c2ba0f8204737a0077d570bd8642e331f5ccee6b52787e550b45216eeef",
+      "snapshot_sha256": "ca23df4cc6b6de570838c9cb63a41f8fd68a39690ef538a23e92cd9457b23615",
       "normalized_sha256": "44c05182fe053907fd8af620ad6d573ff83eeb01219f00ccea2006a8a8b9bd59"
     },
     "landclim": {
@@ -139,8 +139,8 @@
       "acquisition_method": "collector_pipeline",
       "snapshot_root": "data/landclim",
       "normalized_root": "data/landclim/normalized",
-      "snapshot_sha256": "806c4996bef700b555cbb71eb354ce75bff3ebbe06a65d33e73aad4075a5be54",
-      "normalized_sha256": "0f52f448a2945d742f657ba181efd48966c5b56a6d447c5e231e5f0e2dffee7b"
+      "snapshot_sha256": "54640b81bb74380d91224b0fb2229cab061ffcbe9fd037b11b462f7f1a09f070",
+      "normalized_sha256": "f4e622258fa5a6e7342da623a621f710d00bf01276c5f988b09532d34cc0127c"
     },
     "neotoma": {
       "source": "neotoma",
@@ -266,17 +266,17 @@
       "source": "boundaries",
       "source_identity": "boundaries",
       "source_version": "5.1.1",
-      "snapshot_sha256": "3eb20c2ba0f8204737a0077d570bd8642e331f5ccee6b52787e550b45216eeef",
+      "snapshot_sha256": "ca23df4cc6b6de570838c9cb63a41f8fd68a39690ef538a23e92cd9457b23615",
       "normalized_sha256": "44c05182fe053907fd8af620ad6d573ff83eeb01219f00ccea2006a8a8b9bd59",
-      "dispute_token": "boundaries@5.1.1:3eb20c2ba0f8"
+      "dispute_token": "boundaries@5.1.1:ca23df4cc6b6"
     },
     "landclim": {
       "source": "landclim",
       "source_identity": "landclim",
       "source_version": "v66",
-      "snapshot_sha256": "806c4996bef700b555cbb71eb354ce75bff3ebbe06a65d33e73aad4075a5be54",
-      "normalized_sha256": "0f52f448a2945d742f657ba181efd48966c5b56a6d447c5e231e5f0e2dffee7b",
-      "dispute_token": "landclim@v66:806c4996bef7"
+      "snapshot_sha256": "54640b81bb74380d91224b0fb2229cab061ffcbe9fd037b11b462f7f1a09f070",
+      "normalized_sha256": "f4e622258fa5a6e7342da623a621f710d00bf01276c5f988b09532d34cc0127c",
+      "dispute_token": "landclim@v66:54640b81bb74"
     },
     "neotoma": {
       "source": "neotoma",
@@ -370,17 +370,15 @@
       "raw_status": "present",
       "normalized_status": "present",
       "reviewed_status": "present",
-      "published_status": "missing",
+      "published_status": "present",
       "provenance_depth": "review_ready",
-      "publication_posture": "review_ready_not_yet_published",
+      "publication_posture": "published_with_review_support",
       "authority_status": "not_required",
       "authority_reasons": [],
       "coverage_metrics": {
         "sead_point_count": 2069
       },
-      "blocking_reasons": [
-        "missing_published_surface"
-      ]
+      "blocking_reasons": []
     },
     {
       "source_key": "raa",

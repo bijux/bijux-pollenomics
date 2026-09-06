@@ -15,7 +15,7 @@
     "chronology_provenance_backed_sample_count": 2,
     "coordinate_provenance_backed_sample_count": 2,
     "exact_coordinate_sample_count": 0,
-    "approximate_coordinate_sample_count": 0
+    "approximate_coordinate_sample_count": 2
   },
   "traceability_summary": {
     "sample_record_ids": [
@@ -158,12 +158,12 @@
       ],
       "sample_row_count": 2,
       "exact_coordinate_sample_count": 0,
-      "approximate_coordinate_sample_count": 0,
+      "approximate_coordinate_sample_count": 2,
       "sample_lineage_backed_sample_count": 2,
       "site_evidence_backed_sample_count": 2,
       "chronology_provenance_backed_sample_count": 2,
       "coordinate_provenance_backed_sample_count": 2,
-      "caution_note": "sample support remains sparse"
+      "caution_note": "sample support remains sparse; coordinates remain approximate or inferred"
     }
   ],
   "localities": [

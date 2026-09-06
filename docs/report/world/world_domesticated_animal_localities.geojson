@@ -26929,6 +26929,10 @@
           },
           {
             "label": "Warning",
+            "value": "Coordinates are source_reported_two_decimal_degrees, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
             "value": "admissible_for_curated_support"
           }
         ],
@@ -27169,6 +27173,10 @@
           {
             "label": "Interpretation",
             "value": "Sample-level locality comes directly from the recovered sample source row."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are source_reported_two_decimal_degrees, not excavation-grade exact points."
           },
           {
             "label": "Warning",
