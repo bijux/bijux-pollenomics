@@ -17,11 +17,11 @@
     },
     {
       "claim_family": "sample_locality",
-      "locator": "SAMPLE_ATTRIBUTE[TAG='lat_lon']/VALUE"
+      "locator": "./SAMPLE/SAMPLE_ATTRIBUTES/SAMPLE_ATTRIBUTE[TAG='lat_lon']/VALUE"
     },
     {
       "claim_family": "sample_material",
-      "locator": "SAMPLE/DESCRIPTION and SAMPLE_ATTRIBUTES"
+      "locator": "./SAMPLE/DESCRIPTION"
     }
   ],
   "content_sha256": "e1541763210d77411992559dc9fcda4771db57931cb2f98ae0f682b052ca12dd",

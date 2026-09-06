@@ -12,17 +12,17 @@
   "evidence_locators": [
     {
       "claim_family": "sample_chronology",
-      "locator": "table-wrap[@id='evae114-T1']",
+      "locator": ".//table-wrap[@id='evae114-T1']",
       "label": "Table 1: Overview of samples sequenced for this study"
     },
     {
       "claim_family": "chronology_semantics",
-      "locator": "table-wrap[@id='evae114-T1']/table-wrap-foot",
+      "locator": ".//table-wrap[@id='evae114-T1']/table-wrap-foot",
       "label": "BP reference epoch and contextual-date footnote"
     },
     {
       "claim_family": "license",
-      "locator": "article-meta/permissions/license"
+      "locator": "./front/article-meta/permissions/license"
     }
   ],
   "content_sha256": "6be3492f07b3602598f77025afae03db65851570e2144e668bb3ef7012385862",
