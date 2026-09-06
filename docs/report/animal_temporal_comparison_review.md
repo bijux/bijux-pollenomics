@@ -4,7 +4,7 @@ This review names the temporal comparisons that remain safe and the ones that wo
 
 | Family | Rows | Comparison policy |
 | --- | ---: | --- |
-| Animal aDNA chronology | 1451 | Animal rows only support interval comparison when sample-owned chronology survives publication without false precision. |
+| Animal aDNA chronology | 1454 | Animal rows only support interval comparison when sample-owned chronology survives publication without false precision. |
 | SEAD archaeology context | 2069 | SEAD rows remain site-level archaeology context even when numeric spans are available. |
 
 ## Unsafe Comparison Findings

@@ -1,12 +1,11 @@
 {
-  "schema_version": "animal-output-honesty.v1",
+  "schema_version": "animal-output-honesty.v2",
   "totals": {
-    "tracked_sample_count": 1451,
-    "mapped_sample_count": 556,
-    "blocked_sample_count": 895,
-    "unresolved_sample_count": 0,
-    "country_published_sample_count": 5,
-    "region_refused_count": 5
+    "tracked_sample_count": 1450,
+    "mapped_sample_count": 606,
+    "blocked_sample_count": 844,
+    "unresolved_sample_count": 95,
+    "country_published_sample_count": 5
   },
   "rows": [
     {
@@ -15,9 +14,8 @@
       "tracked_sample_count": 132,
       "mapped_sample_count": 0,
       "blocked_sample_count": 132,
-      "unresolved_sample_count": 0,
-      "country_published_sample_count": 0,
-      "region_refused_count": 1
+      "unresolved_sample_count": 67,
+      "country_published_sample_count": 0
     },
     {
       "species_latin_name": "Camelus dromedarius",
@@ -26,8 +24,7 @@
       "mapped_sample_count": 0,
       "blocked_sample_count": 13,
       "unresolved_sample_count": 0,
-      "country_published_sample_count": 0,
-      "region_refused_count": 0
+      "country_published_sample_count": 0
     },
     {
       "species_latin_name": "Canis lupus familiaris",
@@ -35,9 +32,8 @@
       "tracked_sample_count": 4,
       "mapped_sample_count": 0,
       "blocked_sample_count": 4,
-      "unresolved_sample_count": 0,
-      "country_published_sample_count": 0,
-      "region_refused_count": 1
+      "unresolved_sample_count": 1,
+      "country_published_sample_count": 0
     },
     {
       "species_latin_name": "Capra hircus",
@@ -46,28 +42,25 @@
       "mapped_sample_count": 65,
       "blocked_sample_count": 17,
       "unresolved_sample_count": 0,
-      "country_published_sample_count": 0,
-      "region_refused_count": 0
+      "country_published_sample_count": 0
     },
     {
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
-      "tracked_sample_count": 548,
-      "mapped_sample_count": 489,
-      "blocked_sample_count": 59,
-      "unresolved_sample_count": 0,
-      "country_published_sample_count": 3,
-      "region_refused_count": 0
+      "tracked_sample_count": 550,
+      "mapped_sample_count": 483,
+      "blocked_sample_count": 67,
+      "unresolved_sample_count": 2,
+      "country_published_sample_count": 3
     },
     {
       "species_latin_name": "Felis catus",
       "species_common_name": "cat",
-      "tracked_sample_count": 109,
-      "mapped_sample_count": 0,
-      "blocked_sample_count": 109,
+      "tracked_sample_count": 106,
+      "mapped_sample_count": 56,
+      "blocked_sample_count": 50,
       "unresolved_sample_count": 0,
-      "country_published_sample_count": 0,
-      "region_refused_count": 1
+      "country_published_sample_count": 0
     },
     {
       "species_latin_name": "Ovis aries",
@@ -75,9 +68,8 @@
       "tracked_sample_count": 200,
       "mapped_sample_count": 0,
       "blocked_sample_count": 200,
-      "unresolved_sample_count": 0,
-      "country_published_sample_count": 0,
-      "region_refused_count": 1
+      "unresolved_sample_count": 5,
+      "country_published_sample_count": 0
     },
     {
       "species_latin_name": "Rangifer tarandus",
@@ -85,9 +77,8 @@
       "tracked_sample_count": 20,
       "mapped_sample_count": 0,
       "blocked_sample_count": 20,
-      "unresolved_sample_count": 0,
-      "country_published_sample_count": 0,
-      "region_refused_count": 1
+      "unresolved_sample_count": 20,
+      "country_published_sample_count": 0
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -96,8 +87,7 @@
       "mapped_sample_count": 2,
       "blocked_sample_count": 341,
       "unresolved_sample_count": 0,
-      "country_published_sample_count": 2,
-      "region_refused_count": 0
+      "country_published_sample_count": 2
     }
   ]
 }

@@ -2,16 +2,16 @@
 
 - Public posture: `sample_recovery_still_partial_and_project_gaps_explicit`
 - Tracked projects: `40`
-- Ready for publication review: `12`
-- Blocked projects: `22`
+- Ready for publication review: `9`
+- Blocked projects: `25`
 - Implausibly low recovery projects: `0`
 
 ## Sample Evidence Depth
 
 - sample identity only: `0`
-- sample with site: `559`
-- sample with site and chronology: `389`
-- sample with site chronology and coordinates: `503`
+- sample with site: `590`
+- sample with site and chronology: `333`
+- sample with site chronology and coordinates: `527`
 
 ## Top Gap Projects
 
@@ -19,24 +19,24 @@
 | --- | --- | --- | ---: | --- |
 | `PRJEB31621` | `Bos taurus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
 | `PRJEB75467` | `Bos taurus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
-| `PRJNA705960` | `Bos taurus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; coordinate_precision_gap; missing_primary_paper_linkage` |
+| `PRJNA705960` | `Bos taurus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap; coordinate_precision_gap; missing_primary_paper_linkage` |
 | `SRP073444` | `Camelus dromedarius` | `paper_or_capture_gap_blocks_estimate` | `1` | `sample_recovery_gap` |
-| `SRS1407451` | `Canis lupus familiaris` | `recovered_to_exact_expected_count` | `0` | `site_assignment_gap; coordinate_precision_gap` |
+| `SRS1407451` | `Canis lupus familiaris` | `recovered_to_exact_expected_count` | `0` | `site_assignment_gap; chronology_gap; coordinate_precision_gap` |
 | `PRJEB43564` | `Equus asinus` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB50952` | `Equus asinus` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB52590` | `Equus asinus` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB52849` | `Equus asinus` | `extractable_sources_but_no_governed_samples` | `0` | `coordinate_precision_gap; missing_primary_paper_linkage` |
 | `PRJEB10854` | `Equus caballus` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
+| `PRJEB19970` | `Equus caballus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
+| `PRJEB31613` | `Equus caballus` | `minimum_expected_floor_met` | `0` | `chronology_gap` |
 | `PRJEB56293` | `Equus caballus` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB7537` | `Equus caballus` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
-| `PRJEB81815` | `Felis catus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; coordinate_precision_gap` |
+| `PRJEB81815` | `Felis catus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
+| `PRJEB36540` | `Ovis aries` | `minimum_expected_floor_met` | `0` | `chronology_gap` |
 | `PRJEB41594` | `Ovis aries` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
-| `PRJEB59481` | `Ovis aries` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; coordinate_precision_gap` |
+| `PRJEB59481` | `Ovis aries` | `minimum_expected_floor_met` | `0` | `chronology_gap` |
 | `PRJEB61808` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB69690` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
-| `PRJEB81145` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
-| `PRJEB60484` | `Rangifer tarandus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; coordinate_precision_gap` |
-| `PRJEB30282` | `Sus scrofa domesticus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
 
 ## Direct Links
 

@@ -3,20 +3,21 @@
 - Repository: `bijux-pollenomics`
 - Primary domains: `pollen_context, environmental_context`
 - Contextual domains: `archaeology_context, boundary_framing, fieldwork_record, ancient_dna_context, publication_outputs`
-- Overall recovery posture: `recovery_required`
+- Overall recovery posture: `moderate_recovery`
 
 ## Counts
 
 - Tracked paper count: `18`
 - Papers with archived supplements: `18`
-- Published animal atlas points: `235`
-- Unresolved animal map rows: `0`
-- Refused animal map rows: `7`
+- Published animal atlas points: `271`
+- Unresolved animal samples: `95 of 1450`
+- Refused animal coordinate-provenance rows: `6 of 284`
 - Source-family explainer count: `15`
 
 ## Claim Freeze Reasons
 
-- tracked animal geography still leaves unresolved or refused rows outside the published surface
+- tracked animal samples still include unresolved locality assignments
+- animal coordinate provenance still includes refused or unpublished rows
 - RAÄ density remains refused until source inventory and qualified review reconcile
 
 ## Recovery Priorities

@@ -13,6 +13,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -34,6 +38,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -53,6 +61,12 @@
       ],
       "sample_group_ids": [
         "PRJEB30282"
+      ],
+      "source_native_taxon_labels": [
+        "Sus scrofa (tax_id 9823)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
       ],
       "sample_count": 1,
       "coordinate_basis": "named_site_geocoding",
@@ -76,6 +90,12 @@
       ],
       "sample_group_ids": [
         "PRJEB30282"
+      ],
+      "source_native_taxon_labels": [
+        "Sus scrofa (tax_id 9823)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
       ],
       "sample_count": 1,
       "coordinate_basis": "named_site_geocoding",

@@ -1,28 +1,28 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 520,
+  "surface_count": 614,
   "family_counts": {
     "caveats": 9,
     "maintenance": 51,
     "maps": 81,
     "portal": 2,
     "reviews": 33,
-    "scopes": 344
+    "scopes": 438
   },
   "audience_counts": {
     "maintainer_diagnostic": 53,
-    "public_reading_surface": 353,
+    "public_reading_surface": 447,
     "scientific_review_surface": 114
   },
   "geography_counts": {
     "denmark": 14,
     "europe_plus": 52,
     "finland": 14,
-    "nordic": 192,
+    "nordic": 276,
     "norway": 14,
     "report_root": 98,
     "sweden": 40,
-    "world": 96
+    "world": 106
   },
   "rows": [
     {
@@ -1706,7 +1706,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-edges.0012.fe3b1fe1fcb5e905.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-edges.0012.53b45e30f751cdac.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1718,7 +1718,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-indexes.0014.10629763b7697a26.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-indexes.0014.98e1ec362a48bbbc.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1730,7 +1730,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0001.500db74efe6c1704.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0001.2906b46784d74821.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1742,7 +1742,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0002.74f61fd545ca4263.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0002.81e39c78ae8c128e.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1754,7 +1754,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0003.d84d679adce10156.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0003.24636824c6043f9c.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1766,7 +1766,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0004.34ed1a1c91a74890.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0004.33a795d7454388ae.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1778,7 +1778,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0005.0ea6a6ded5a68389.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0005.7f07b3d53d99cfe1.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1790,7 +1790,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0006.7f2e5a64e8facb77.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0006.1dbaba2c2f05d788.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1802,7 +1802,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0007.aaf7a4bb739e4655.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0007.e60351b7904fd162.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1814,7 +1814,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0008.8b37aee1300072ed.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0008.635a35f9b4f84157.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1826,7 +1826,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0009.1bd5fa489eb6ea94.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0009.c87e835666d51819.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1838,7 +1838,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0010.d708ddc6a9cde288.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0010.6dcfc5ffc4280a95.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1850,7 +1850,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0011.b85f24c84aec4c4d.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-nodes.0011.927c45ba6d08b580.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1862,7 +1862,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-provenance.0000.733bef5c3e718cc8.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-provenance.0000.1f0b1fccca81c7ee.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -1874,7 +1874,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-sequences.0013.6f447108e0e946e4.js",
+      "repository_path": "docs/report/regions/europe-plus/europe-plus.atlas-sequences.0013.85ccaf48000b78b0.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2330,7 +2330,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0078.d4e7636cd614c25b.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0163.7f53a6376c4aade2.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2342,7 +2342,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0079.506f362f7773c044.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0164.7734d2919ae4d3e0.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2354,7 +2354,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0080.65aec897ab8e1e16.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0165.599b90fd08fa3c94.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2366,7 +2366,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0081.882a8330b6445ae6.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0166.54463ad3027bdb40.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2378,7 +2378,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0082.74bd5b207bcabd5f.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0167.467241a9871712a8.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2390,7 +2390,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0083.56fdee0785a6c1be.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0168.4b0c31a2bbbd20e2.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2402,7 +2402,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0084.003bc365a5d51d98.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0169.6df68d7b495e229f.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2414,7 +2414,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0085.3532c29be05cad37.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0170.8e6aecbf6eb3d158.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2426,7 +2426,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0086.ef45b03e96492903.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0171.2a40d382535aaacb.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2438,7 +2438,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0087.154e553707302bb8.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0172.3a3328f99d0aa6dc.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2450,7 +2450,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0088.7b9a5208f7b1ee76.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0173.369f3af74e68d7ff.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2462,7 +2462,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0089.df074c826e2a5903.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0174.cb32db9ac48ba4c5.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2474,7 +2474,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0090.36953a10779b5fc6.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0175.e7ff822d1e44c786.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2486,7 +2486,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0091.f81a9771861449e6.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0176.d1cbd314e416e9cd.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2498,7 +2498,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0092.338de298b44b3239.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0177.2033f4e571ec4838.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2510,7 +2510,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0093.46b835e6335daf0f.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0178.ded262d38003caf6.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2522,7 +2522,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0094.d9adce9bdd4914ac.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0179.808a568ae1a5abc9.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2534,7 +2534,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0095.7f14b054347d3978.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0180.8f6131ad837510d3.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2546,7 +2546,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0096.5a86fb7a93dc624d.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0181.060698327497bc36.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2558,7 +2558,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0097.170d4f381d53a86f.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0182.691f0ed8a249745b.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2570,7 +2570,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0098.cbb6ab6132e8338e.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0183.6af26fa114038c30.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2582,7 +2582,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0099.429c83ad3a70c68b.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0184.2bb8ffa26e6d0f01.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2594,7 +2594,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0100.91b5cde9096bca3e.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0185.f47eeea4815d68ca.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2606,7 +2606,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0101.a861fd3bc20a0a26.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0186.75ff5b81d5df9dbb.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2618,7 +2618,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0102.aaff9bb23172f8ba.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0187.a07bed3b03e64008.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2630,7 +2630,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0103.7a627e2983323e13.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0188.8bf6b4187b60bd5a.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2642,7 +2642,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0104.41ceadcab394dacc.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0189.59de584e488cf5c6.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2654,7 +2654,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0105.01bb656768e66631.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0190.740478e07f7d18a4.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2666,7 +2666,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0106.7dcd33b3f08d4137.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0191.cfc18c848e652ffb.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2678,7 +2678,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0107.e07252b4a9153f81.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0192.b2b06f750465c2c0.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2690,7 +2690,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0108.ffc7ad925ac14585.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0193.b1868e05cc27ec51.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2702,7 +2702,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0109.fe06d35265d4f505.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0194.9264d0094d89f95b.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2714,7 +2714,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0110.6d82c00144317505.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0195.565b3bff7d5054f6.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2726,7 +2726,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0111.95628c3402b69617.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0196.a472a2b61a30ee7c.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2738,7 +2738,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0112.91d15469e0627c5d.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0197.11f13117a4908b90.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2750,7 +2750,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0113.f02c7127cabdce1a.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0198.c804210d0330f869.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2762,7 +2762,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0114.5e12b19595861fe4.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0199.160be52a3154150c.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2774,7 +2774,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0115.1cff15d42628eba1.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0200.2c568efc0283744c.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2786,7 +2786,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0116.722381c5829002e9.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0201.212ae6db7229a01e.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2798,7 +2798,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0117.24e6aeefea35fa0d.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0202.b84afd76d710f83f.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2810,7 +2810,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0118.816c365ecabd8695.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0203.ad2dc6a36759e049.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2822,7 +2822,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0119.1e7987e43905c15b.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0204.d3b9685679799869.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2834,7 +2834,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0120.5336ee8c3782641a.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0205.8070599c0bb72c3d.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2846,7 +2846,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0121.c4dc6ad84ddab5ff.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0206.ef8daff9d3915694.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2858,7 +2858,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0122.335735d104662aa3.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0207.331b0920eff04e71.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2870,7 +2870,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0123.4b5d661d400f9b7b.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0208.ef588eebb6e4aaa3.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2882,7 +2882,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0124.79c9e233f5a61652.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0209.01c857d4847918af.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2894,7 +2894,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0125.dcb852d99dd979fe.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0210.d16a8a966ca1e093.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2906,7 +2906,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0126.f73d5c9bea0adcfc.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0211.6972dd9cbd3e34d9.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2918,7 +2918,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0127.63e9ddd40199f575.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0212.671ca9d4c3d8b860.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2930,7 +2930,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0128.03085c597a670076.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0213.b16cb213a3846561.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2942,7 +2942,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0129.9c7e509b40c377f1.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0214.9f745d40801fa9fd.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2954,7 +2954,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0130.ec6cd7ed8268e53e.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0215.8887929da6b1aa9c.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2966,7 +2966,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0131.6b0b123e01545f3b.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0216.d6e5b728bcc0e65e.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2978,7 +2978,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0132.953684a8b5c06755.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0217.339dc61a1ce3477c.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -2990,7 +2990,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0133.7aa1c58b25b0b138.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0218.dee6b6e93792e42f.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3002,7 +3002,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0134.9ae941d71951bc23.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0219.a2b902eefe7526d7.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3014,7 +3014,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0135.43a41a536a6663f8.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0220.dd295816f8890939.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3026,7 +3026,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0136.c9b44224081b9b8c.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0221.88f22b8e9b54a812.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3038,7 +3038,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0137.f6fe51596a284921.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0222.1313445033463cba.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3050,7 +3050,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0138.3ef1016ef6ee997b.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0223.1b2de290e2c06ae6.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3062,7 +3062,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0139.4695f8aa64737288.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0224.0acaa422294418cb.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3074,7 +3074,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0140.15f3b5a0b3712ca1.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0225.d9216a33eec7d562.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3086,7 +3086,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0141.33705d0e19bb38a5.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0226.8075a166be2bbfdb.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3098,7 +3098,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-details.0142.f398fa0e3567164b.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-edges.0227.01f3bb24b58dd12f.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3110,7 +3110,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-edges.0143.f073881bb5fd414d.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-indexes.0229.65d170601fedff8f.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3122,7 +3122,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-indexes.0145.fc272f4db0c433e4.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0001.4982fa5040f3eb82.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3134,7 +3134,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0001.e41cadfe33cedd8c.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0002.38d03fdf6ee5c646.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3146,7 +3146,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0002.a997c1b7cd1a17e9.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0003.cdbb5d8f052a5da4.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3158,7 +3158,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0003.aef5b46617a50acb.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0004.74b461edbcd72e92.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3170,7 +3170,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0004.64514a6465c11c20.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0005.a42c1891f3debe75.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3182,7 +3182,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0005.c7625896c3811049.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0006.d0f763b1f7475454.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3194,7 +3194,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0006.d0f8eaed902f1ceb.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0007.e500d55580449879.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3206,7 +3206,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0007.83551f2f51a7cdb7.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0008.f7ab5dc2ba821168.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3218,7 +3218,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0008.21d530e13da43126.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0009.65b398af184cd750.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3230,7 +3230,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0009.cf8d278d0b44d1a1.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0010.c568cd2d833bba79.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3242,7 +3242,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0010.0776a50624410f77.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0011.1c4463574e0447e2.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3254,7 +3254,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0011.a9118b5a30e1e317.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0012.733369b89fb617c8.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3266,7 +3266,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0012.34886dd57712a556.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0013.5b207fb3eeccfd5d.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3278,7 +3278,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0013.2d3bee3f1fc8e1e8.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0014.aa11c522e83c2c62.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3290,7 +3290,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0014.5c71ed68c41ccdf7.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0015.5582cf26d62ec931.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3302,7 +3302,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0015.bdea882bd7d2c337.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0016.1f06f4ea053c3e96.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3314,7 +3314,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0016.7b7a73491f8f4da5.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0017.6a43285c255cd211.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3326,7 +3326,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0017.ab7d861b8a94d2c5.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0018.344bfa33e637c2ab.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3338,7 +3338,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0018.0ed8710e80bade08.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0019.9e0281b247a439d0.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3350,7 +3350,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0019.c4a31049fa71bc77.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0020.86fb0d08d28c18b4.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3362,7 +3362,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0020.71c89549ef026256.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0021.ab10a6a5c49d67ad.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3374,7 +3374,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0021.16a69760c30a5e03.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0022.43efcc37328079bb.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3386,7 +3386,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0022.dc337ef23ccd8f4a.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0023.78c34a398638b055.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3398,7 +3398,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0023.c620163a89cf333d.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0024.ab981b1e79bb9d46.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3410,7 +3410,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0024.f47e45cdb6457d23.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0025.8f8b901d05356874.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3422,7 +3422,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0025.b649b1e431305e7b.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0026.6e50289bae04c946.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3434,7 +3434,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0026.20ad0fc026eb435b.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0027.fb34492a75b0275b.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3446,7 +3446,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0027.9d619929bb30a371.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0028.84e8137ad3251d66.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3458,7 +3458,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0028.ce7395b00f9f5681.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0029.5a66f4be40dd101f.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3470,7 +3470,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0029.c0b8b2ce6f5cdb17.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0030.a48dbb26e9657cb5.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3482,7 +3482,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0030.0d7a91706b447407.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0031.64d62152c92a5b2c.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3494,7 +3494,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0031.ff92878dda8200f7.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0032.45a828cb6e7a02bd.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3506,7 +3506,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0032.be53e7115f6fab56.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0033.3e623cef7bf2a362.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3518,7 +3518,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0033.776f16fa4e0e66af.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0034.f5e5399123d9dab9.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3530,7 +3530,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0034.389f35a8e331afd1.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0035.29808a6378216140.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3542,7 +3542,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0035.353156fd926740ed.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0036.b2bdafc792df674d.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3554,7 +3554,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0036.ea83526d1b296cb8.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0037.ec687e61681dad91.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3566,7 +3566,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0037.aa8d3714430c0ce2.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0038.1a677d1128bec792.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3578,7 +3578,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0038.5224572984fb5b0b.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0039.43c611f21b32857c.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3590,7 +3590,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0039.6f9a916ecd727397.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0040.2b19eb839ec5d02b.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3602,7 +3602,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0040.3ed50836fd3b38d1.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0041.3b53905feabee29a.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3614,7 +3614,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0041.77dd190b8913eb84.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0042.26b85c15bb3fe314.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3626,7 +3626,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0042.f02cef7e966750ea.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0043.1da12d69a61a6bd7.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3638,7 +3638,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0043.af3708c6cbe9014a.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0044.41ec4aef900f85c3.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3650,7 +3650,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0044.9821abeeeb785e9e.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0045.ff4f1591c1c52527.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3662,7 +3662,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0045.429d17caceed70ef.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0046.a34af0ea6f0cc511.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3674,7 +3674,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0046.668e06aa1cc01548.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0047.c5841503cf352910.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3686,7 +3686,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0047.2cfc23424578f6a1.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0048.82841fb1e2ec60c5.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3698,7 +3698,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0048.0352d2eb5e2e9ad4.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0049.9f40989f003565b0.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3710,7 +3710,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0049.a488a18d35a12115.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0050.e95aaec08dc083c5.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3722,7 +3722,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0050.67b5d6f2298ff12b.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0051.8817231e1375ac08.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3734,7 +3734,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0051.c82b01fbe0723aa7.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0052.d5e02a62a9678c4f.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3746,7 +3746,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0052.22f86c4f3c7fd5af.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0053.edc80fbc9f49bb16.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3758,7 +3758,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0053.4eb03228fc9ee19a.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0054.f7e81a1f178ab080.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3770,7 +3770,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0054.ba949a3db53ca181.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0055.6a6bbc77440585c5.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3782,7 +3782,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0055.a5e76c559298537a.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0056.513f83cb419021db.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3794,7 +3794,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0056.bf10a6f199825a08.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0057.077412b7df939723.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3806,7 +3806,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0057.ee3af75878128de7.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0058.8a89c053faedf1e2.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3818,7 +3818,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0058.03377fb6514c7702.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0059.fadc3c9f161e6c8d.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3830,7 +3830,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0059.20058bd9d1ed9898.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0060.c7556b983b634799.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3842,7 +3842,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0060.908ca1cc99f58278.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0061.f512957de4181950.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3854,7 +3854,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0061.349a1ca154b24bb1.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0062.35354eefa873e8f4.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3866,7 +3866,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0062.f200e382d92269aa.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0063.17b506fdc992a8b9.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3878,7 +3878,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0063.c6712915286ceb4a.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0064.cca36c950a778745.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3890,7 +3890,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0064.86dc1c02a9148e83.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0065.573377d146042d2b.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3902,7 +3902,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0065.ca14ee98bfd633eb.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0066.0dddbb95322214d7.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3914,7 +3914,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0066.9e1e189ee3795bbc.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0067.1da2d20c62829cfc.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3926,7 +3926,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0067.a06b30e6161d846a.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0068.3f73643054bc2367.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3938,7 +3938,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0068.9f9f6d522df30cf7.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0069.f361585552bd7c91.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3950,7 +3950,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0069.52dcc48626f820a0.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0070.869e8a6463439531.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3962,7 +3962,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0070.f5a5f7450aedf350.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0071.6cb3eadfab82a535.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3974,7 +3974,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0071.0b8011dcdb25312e.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0072.ad6f22d9801f45ba.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3986,7 +3986,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0072.f66759392e5d2919.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0073.3ea4dc67f0a26851.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -3998,7 +3998,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0073.db700953ae8e6184.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0074.0b0c37da4f6bb32a.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -4010,7 +4010,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0074.0badbb0801a68617.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0075.b637fac66b1e5590.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -4022,7 +4022,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0075.128b3fc4fb8ee23a.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0076.5981a074c3672f1d.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -4034,7 +4034,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0076.4f93cab07efc3e07.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0077.a67394f246bd5c02.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -4046,7 +4046,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0077.d070c80ee22eb39b.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0078.d8a1955796a041ac.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -4058,7 +4058,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-provenance.0000.15408feefe8f31b6.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0079.59d3510bceb1ee0c.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -4070,7 +4070,1015 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/regions/nordic/nordic.atlas-sequences.0144.bdd7978840036a99.js",
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0080.a72ab00ae300354f.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0081.b25477180a9dcd3c.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0082.17b5fd7144252584.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0083.0570f5eb19061bcd.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0084.d4ca7990ba8df423.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0085.32406ad4cff1f28e.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0086.bac660d99f120ddf.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0087.0a95d1fc050d9dbf.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0088.cae3e0f3164df3fb.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0089.a0122bae5420918f.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0090.25f23ba7eab038a3.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0091.356f9ff7e91e0cd5.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0092.550fbf84baae5c2c.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0093.a9317efdeca7bb69.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0094.d29abe4b0bc82868.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0095.438074c2ab372d44.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0096.4b7b5df3a16222ad.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0097.5b035a596e43a79b.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0098.146aea8ac4fb3e25.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0099.dfdecee65b8f86b4.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0100.e889dcaa5023acb2.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0101.3e608e8483bb78e3.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0102.f8e25b84e9f498e8.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0103.58a84b0930e13937.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0104.3a2ad0f7add836ef.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0105.be7ee0a559b417e8.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0106.842726d783ab8054.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0107.1a47fc309db2724d.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0108.a36d2424535426db.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0109.79db4dd7e358f6dd.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0110.3c9b431f1a539f72.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0111.b232fdb05fd2d93a.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0112.631f623640c88aee.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0113.a703d08fa246e42e.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0114.ea7dfac4d118f81d.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0115.86697366f9cc0b94.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0116.ae891cbb0552f0cf.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0117.58aa9c35ec90e6a8.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0118.9d3a581d5ee614e6.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0119.5230a35a3cddf902.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0120.cefb14791ae22971.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0121.84f196d20bf14a51.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0122.df946d55f72cd9d2.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0123.9f0aa32742f5d329.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0124.7f6d1ae53741cab6.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0125.2daa962ff800bb6d.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0126.78afcbfd832d682e.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0127.f7dbd3805fb38a5c.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0128.6521eaceea9361fb.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0129.4487752659c138d0.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0130.c13520d434509c68.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0131.8ffbac1d6562a627.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0132.e6a5658e9eb3d013.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0133.12af15607e423b41.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0134.ca989466033ee8e1.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0135.645c80e21bd916e9.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0136.175a699163797728.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0137.47db8dab7b9a631e.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0138.c49aeb91363e125f.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0139.28c88d1ebf777777.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0140.80128b58cbe98d61.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0141.4f1dead00958e630.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0142.2cf61ad77c8b487f.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0143.578944d536ce76c2.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0144.b64db3ca9592ba0f.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0145.b295111b825cac88.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0146.9bce0ff5094af65f.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0147.f1580bb7dd132d9c.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0148.b2ec8052107d4f22.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0149.9f92ee107cc3949a.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0150.f3cabaa3c32e3988.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0151.22536628088c8b11.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0152.0353a06926e85dea.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0153.50e7e1ca3891a08b.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0154.db21406de6d55820.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0155.24e810966be75bc6.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0156.8a47a22f58872baf.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0157.2a228f107c42910e.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0158.0d1bfde1e0e875df.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0159.bc3b9c7281617d33.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0160.231ad253ca45da6f.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0161.6674491781d4d47f.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-nodes.0162.00eacb59781a340e.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-provenance.0000.d524e45d8fc846be.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic.atlas-sequences.0228.34f1c155977715f1.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5174,7 +6182,7 @@
       "reader_route": "map_detail"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-edges.0056.7f1b35eb0effd7ea.js",
+      "repository_path": "docs/report/world/world.atlas-edges.0066.e2b671c81646d914.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5186,7 +6194,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-indexes.0058.e6929affb87fa3e0.js",
+      "repository_path": "docs/report/world/world.atlas-indexes.0068.ce31bd98858e792b.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5198,7 +6206,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0001.6b709491f1020dcb.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0001.c38a9027f249545b.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5210,7 +6218,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0002.a566d8157a774505.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0002.85f3fbbe570ae9cf.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5222,7 +6230,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0003.944cbd3aba6f7ba1.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0003.24c80320bb665093.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5234,7 +6242,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0004.2728c1f96a44540d.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0004.2149ea07c3912836.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5246,7 +6254,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0005.dae4a101e76e1bf5.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0005.2a3d1a1ac723447d.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5258,7 +6266,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0006.eeb371084933bc10.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0006.53301de1ed4fe6b6.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5270,7 +6278,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0007.94f3356e501fb3ca.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0007.118bf430e8d099ba.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5282,7 +6290,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0008.3245c2f622bb90b5.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0008.30d432c7b657160b.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5294,7 +6302,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0009.8272192c45dfd1cc.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0009.f807089650f7ef77.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5306,7 +6314,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0010.8967cdb665a0d39a.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0010.e99a92c1437079a8.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5318,7 +6326,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0011.cd0b35f9a890f0a2.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0011.b3439cac66847284.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5330,7 +6338,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0012.afdc8ec3597091c0.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0012.6f1d64744c30374e.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5342,7 +6350,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0013.f6a0ccd11eca58dd.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0013.c2d6a8bfde37221c.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5354,7 +6362,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0014.a94594cb7ee2d9f2.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0014.130439156ab12e45.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5366,7 +6374,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0015.54ca3c71183e6cc8.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0015.92a3c850c3083214.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5378,7 +6386,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0016.67eb96f10bf14ab0.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0016.5aa9018c83fa6c25.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5390,7 +6398,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0017.ccf57f155e50b5fd.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0017.80ea3be9c7c0578d.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5402,7 +6410,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0018.475f43419dcc2179.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0018.c54401ebb7d4c2d5.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5414,7 +6422,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0019.280c3236bfaf8101.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0019.dfdcbb9e59a97303.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5426,7 +6434,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0020.58b2aa25515cd045.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0020.558ab8cd6afbd0ff.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5438,7 +6446,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0021.0897a9bb451c3b29.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0021.d1c23159657b4327.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5450,7 +6458,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0022.ab26037e49e97add.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0022.3da5a799e421ebd2.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5462,7 +6470,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0023.acd7d3cf9f418d4b.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0023.bcaa262c61a33c2a.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5474,7 +6482,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0024.79295988279a3ffe.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0024.1ea49df4e92a492d.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5486,7 +6494,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0025.0c09335633a30db3.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0025.29899000225c6d4d.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5498,7 +6506,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0026.8f6494936ddcab78.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0026.b3fe2281618a457a.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5510,7 +6518,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0027.e605bbca6571e3f8.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0027.18552cad9e9c56fc.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5522,7 +6530,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0028.190707f6a6e28ef5.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0028.504bc8270d97bd34.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5534,7 +6542,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0029.7bec2310258ffaec.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0029.3c4bc90c7f3bf961.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5546,7 +6554,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0030.957541a392b0e43c.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0030.359a10ea1739f797.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5558,7 +6566,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0031.c95562e5a6b981e6.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0031.c139783911c9226b.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5570,7 +6578,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0032.628c398da575bcf2.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0032.84d7c52acac4b79c.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5582,7 +6590,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0033.96ee8b0fa24195c5.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0033.ed8402f80823d703.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5594,7 +6602,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0034.b24558f9b59f4306.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0034.014193a75e4292e6.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5606,7 +6614,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0035.3397ce9ae6647c36.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0035.aa56c8227ab69073.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5618,7 +6626,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0036.c28bc2715c756a43.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0036.8f896f7cb0e5e3e3.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5630,7 +6638,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0037.55558e0c20e8d839.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0037.388e8f13cf63ac4d.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5642,7 +6650,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0038.2f6bc6135b3fb370.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0038.c23505bc42d6d0c7.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5654,7 +6662,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0039.767dae97cc1b09fa.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0039.25456127d81541f5.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5666,7 +6674,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0040.f52e5bc428d6cb0a.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0040.229d8f655eedd1c3.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5678,7 +6686,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0041.182e7fd607fd2e8a.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0041.d88b56665148b781.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5690,7 +6698,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0042.47568e40c4e8cfff.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0042.2138c307579a08cf.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5702,7 +6710,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0043.d8f48ef258ab83eb.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0043.793192588b612662.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5714,7 +6722,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0044.fd63925bab170b67.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0044.b45b646b7a1b2a0d.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5726,7 +6734,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0045.e8abb72bc6c0776f.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0045.8b962bb8b7868d36.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5738,7 +6746,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0046.7c04a86b3a28e705.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0046.3dcee439b00843d8.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5750,7 +6758,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0047.284381268abf813d.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0047.10c67264993f9f9c.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5762,7 +6770,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0048.9229f25a914ea33f.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0048.73ed71be02586907.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5774,7 +6782,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0049.7e3913d35a0f3e72.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0049.88c49ec2f6cbedb4.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5786,7 +6794,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0050.c94be03388751fc0.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0050.ecd5a1589c6e6a8c.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5798,7 +6806,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0051.def1857848f8a3a3.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0051.3d26ae7911a74dc9.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5810,7 +6818,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0052.70df81b488740dba.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0052.2b230b63435a5635.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5822,7 +6830,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0053.2a1746c7a5815117.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0053.49be5272b6593469.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5834,7 +6842,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0054.134f05d033eab9fd.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0054.04d7b58c2715595f.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5846,7 +6854,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-nodes.0055.3f8b1c32e727c3c3.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0055.7039b8ebb84e4f85.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5858,7 +6866,7 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-provenance.0000.3e775997194d8c8d.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0056.10854d7bde84fd3d.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",
@@ -5870,7 +6878,127 @@
       "reader_route": "scope_bundle"
     },
     {
-      "repository_path": "docs/report/world/world.atlas-sequences.0057.0cd6162dde5f2a2c.js",
+      "repository_path": "docs/report/world/world.atlas-nodes.0057.f1408b92b7888095.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "world",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/world/world.atlas-nodes.0058.9b5ee9b8160b04db.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "world",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/world/world.atlas-nodes.0059.ecdf0213f74a3703.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "world",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/world/world.atlas-nodes.0060.bc31997a85448b08.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "world",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/world/world.atlas-nodes.0061.0ab77e64ccd17b6f.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "world",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/world/world.atlas-nodes.0062.649c2d4164004ed5.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "world",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/world/world.atlas-nodes.0063.1af8e24c466a4e67.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "world",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/world/world.atlas-nodes.0064.0036493a04125e2f.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "world",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/world/world.atlas-nodes.0065.66745d320054002f.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "world",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/world/world.atlas-provenance.0000.6c4f1932ce5fadb5.js",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "js",
+      "geography": "world",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/world/world.atlas-sequences.0067.f5fc3279827e80e0.js",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",

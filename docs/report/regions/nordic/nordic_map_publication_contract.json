@@ -108,12 +108,12 @@
       "label": "Neotoma pollen sites",
       "source_name": "Neotoma",
       "coverage_label": "Pollen and paleoecology sites staged from the Neotoma normalization bundle.",
-      "count": 200,
+      "count": 193,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
       "default_enabled": true,
       "applies_country_filter": true,
-      "applies_time_filter": true,
+      "applies_time_filter": false,
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
@@ -173,7 +173,7 @@
       "label": "Neotoma sample pollen-presence context",
       "source_name": "Neotoma",
       "coverage_label": "Dated source samples with positive reported pollen observations; not reviewed pollen-sum events.",
-      "count": 3569,
+      "count": 9988,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "shared_default",
       "default_enabled": true,
@@ -186,7 +186,7 @@
       "label": "Neotoma literal ecological codes",
       "source_name": "Neotoma",
       "coverage_label": "Literal source ecological codes without cross-source equivalence or propagation claims.",
-      "count": 8778,
+      "count": 25165,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "shared_default",
       "default_enabled": false,
@@ -199,7 +199,7 @@
       "label": "Neotoma exact source taxa",
       "source_name": "Neotoma",
       "coverage_label": "Exact source taxon identities without accepted ecological classification or propagation claims.",
-      "count": 74580,
+      "count": 215751,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "shared_default",
       "default_enabled": false,
@@ -252,7 +252,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 103179
+        "record_count": 267149
       },
       "edges": {
         "status": "unavailable",
@@ -266,12 +266,12 @@
       },
       "provenance": {
         "status": "record_level_available",
-        "record_count": 2269,
+        "record_count": 2262,
         "reason_code": null
       },
       "details": {
         "status": "available",
-        "record_count": 2269,
+        "record_count": 2262,
         "reason_code": null
       },
       "classifications": {
@@ -281,7 +281,7 @@
       },
       "indexes": {
         "status": "available",
-        "record_count": 102929
+        "record_count": 266892
       }
     }
   },
@@ -289,56 +289,73 @@
     "schema_version": "atlas-evidence-projection.v2",
     "status": "reconciled",
     "source_layer_count": 6,
-    "source_feature_count": 98934,
-    "matched_feature_count": 98934,
-    "detail_record_count": 2269,
-    "unique_feature_record_id_count": 2269,
-    "repeated_feature_reference_count": 96665,
+    "source_feature_count": 262904,
+    "matched_feature_count": 262904,
+    "detail_record_count": 2262,
+    "unique_feature_record_id_count": 2262,
+    "repeated_feature_reference_count": 260642,
     "unmatched_feature_count": 0,
     "unreferenced_detail_count": 0,
     "tab_availability": {
       "overview": {
-        "available": 2269,
+        "available": 2262,
         "unavailable": 0,
-        "denominator": 2269
+        "denominator": 2262
       },
       "samples": {
-        "available": 1436,
+        "available": 1429,
         "unavailable": 833,
-        "denominator": 2269
+        "denominator": 2262
       },
       "chronology": {
-        "available": 1053,
+        "available": 1046,
         "unavailable": 1216,
-        "denominator": 2269
+        "denominator": 2262
       },
       "pollen_composition": {
-        "available": 1287,
+        "available": 1280,
         "unavailable": 982,
-        "denominator": 2269
+        "denominator": 2262
       },
       "relation": {
         "available": 2069,
-        "unavailable": 200,
-        "denominator": 2269
+        "unavailable": 193,
+        "denominator": 2262
       },
       "classification": {
         "available": 0,
-        "unavailable": 2269,
-        "denominator": 2269
+        "unavailable": 2262,
+        "denominator": 2262
       },
       "provenance": {
-        "available": 2269,
+        "available": 2262,
         "unavailable": 0,
-        "denominator": 2269
+        "denominator": 2262
       }
     },
     "sources": {
       "neotoma": {
-        "source_feature_count": 200,
+        "source_feature_count": 193,
         "source_site_denominator": 200,
-        "projected_site_count": 200,
-        "unprojected_source_site_count": 0,
+        "governed_country_site_denominator": 193,
+        "governed_country_code_counts": {
+          "DK": 5,
+          "FI": 32,
+          "NO": 58,
+          "SE": 98
+        },
+        "projected_site_count": 193,
+        "unprojected_source_site_count": 7,
+        "excluded_unassigned_site_count": 7,
+        "excluded_unassigned_site_ids": [
+          "neotoma:site:13395",
+          "neotoma:site:26118",
+          "neotoma:site:3025",
+          "neotoma:site:3138",
+          "neotoma:site:3221",
+          "neotoma:site:3311",
+          "neotoma:site:700"
+        ],
         "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
         "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
         "materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
@@ -359,27 +376,35 @@
           "variables": 1262
         },
         "source_chronology": {
-          "schema_version": "neotoma-source-chronology-atlas-reconciliation.v1",
+          "schema_version": "neotoma-source-chronology-atlas-reconciliation.v2",
           "status": "reconciled",
           "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
           "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
-          "result_digest": "e21b3e15530de3725b44edbac217393137f8f4be4e289d75bdcedc956054ef37",
+          "result_digest": "21e029835d32b510a7b942ae245d440701c1477903159b37bf416b49d702752d",
           "input_observation_denominator": 370936,
-          "eligible_observation_denominator": 74598,
-          "refused_observation_count": 296338,
+          "eligible_observation_denominator": 215903,
+          "selected_sample_count": 9988,
+          "selected_default_chronology_count": 3569,
+          "selected_nondefault_chronology_count": 6419,
+          "selected_named_chronology_count": 9988,
+          "chronology_selection_posture_counts": {
+            "selected_source_default": 3569,
+            "selected_unique_nondefault": 6419
+          },
+          "refused_observation_count": 155033,
           "facet_refusal_count": 0,
-          "source_node_count": 86927,
-          "layer_feature_count": 86927,
+          "source_node_count": 250904,
+          "layer_feature_count": 250904,
           "layer_counts": {
-            "source_ecological_code": 8778,
-            "source_sample_presence": 3569,
-            "source_taxon": 74580
+            "source_ecological_code": 25165,
+            "source_sample_presence": 9988,
+            "source_taxon": 215751
           },
           "country_counts": {
-            "Sweden": 58055,
-            "Denmark": 0,
-            "Norway": 26703,
-            "Finland": 2169
+            "Sweden": 118704,
+            "Denmark": 3769,
+            "Norway": 93727,
+            "Finland": 34704
           },
           "propagation_eligible_event_count": 0,
           "edge_count": 0,

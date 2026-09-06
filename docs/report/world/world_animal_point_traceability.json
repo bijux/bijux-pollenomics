@@ -13,6 +13,10 @@
       "sample_group_ids": [
         "PRJEB90141"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -32,6 +36,10 @@
       ],
       "sample_group_ids": [
         "PRJEB90141"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -53,6 +61,10 @@
       "sample_group_ids": [
         "PRJEB90141"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -72,6 +84,10 @@
       ],
       "sample_group_ids": [
         "PRJEB90141"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -93,6 +109,10 @@
       "sample_group_ids": [
         "PRJEB90261"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -113,6 +133,10 @@
       "sample_group_ids": [
         "PRJEB90261"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -132,6 +156,10 @@
       ],
       "sample_group_ids": [
         "PRJEB90261"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -154,6 +182,10 @@
       "sample_group_ids": [
         "PRJEB90261"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -173,6 +205,10 @@
       ],
       "sample_group_ids": [
         "PRJEB90261"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -195,6 +231,10 @@
       ],
       "sample_group_ids": [
         "PRJEB90261"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -228,6 +268,10 @@
       "sample_group_ids": [
         "PRJEB90261"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 13,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -248,6 +292,10 @@
       "sample_group_ids": [
         "PRJEB90261"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -267,6 +315,10 @@
       ],
       "sample_group_ids": [
         "PRJEB90261"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -290,6 +342,10 @@
       "sample_group_ids": [
         "PRJEB90261"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -309,6 +365,10 @@
       ],
       "sample_group_ids": [
         "PRJEB90261"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -332,6 +392,10 @@
       "sample_group_ids": [
         "PRJEB90261"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -351,6 +415,10 @@
       ],
       "sample_group_ids": [
         "PRJEB90261"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -373,6 +441,10 @@
       ],
       "sample_group_ids": [
         "PRJEB90261"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -398,6 +470,10 @@
       "sample_group_ids": [
         "PRJEB90261"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 5,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -417,6 +493,10 @@
       ],
       "sample_group_ids": [
         "PRJEB90261"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -441,6 +521,10 @@
       "sample_group_ids": [
         "PRJEB90261"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 4,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -460,6 +544,10 @@
       ],
       "sample_group_ids": [
         "PRJEB90261"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -486,6 +574,10 @@
       "sample_group_ids": [
         "PRJEB90261"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 6,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -508,6 +600,10 @@
       "sample_group_ids": [
         "PRJEB90261"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -527,6 +623,10 @@
       ],
       "sample_group_ids": [
         "PRJEB90261"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -552,6 +652,10 @@
       "sample_group_ids": [
         "PRJNA1328209"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 5,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -571,6 +675,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -592,6 +700,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -611,6 +723,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -632,6 +748,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -658,6 +778,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 6,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -678,31 +802,15 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "source_locator": "Sheet1!row194",
-      "paper_doi": "10.1016/j.cell.2019.03.049",
-      "supplementary_sources": []
-    },
-    {
-      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-altata-russia",
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-altata-russia",
-      "site_record_id": "equus_caballus:locality:prjeb31613:altata:russia",
-      "species_latin_name": "Equus caballus",
-      "primary_project_accession": "PRJEB31613",
-      "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:cgg_1_017023"
-      ],
-      "sample_group_ids": [
-        "PRJEB31613"
-      ],
-      "sample_count": 1,
-      "coordinate_basis": "supplementary_table_coordinates",
-      "coordinate_confidence": "exact",
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "source_locator": "Sheet1!row11",
       "paper_doi": "10.1016/j.cell.2019.03.049",
       "supplementary_sources": []
     },
@@ -719,6 +827,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -743,6 +855,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 4,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -762,6 +878,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -784,6 +904,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -803,6 +927,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -824,6 +952,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -839,10 +971,14 @@
       "species_latin_name": "Equus caballus",
       "primary_project_accession": "PRJEB31613",
       "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:n/a"
+        "equus_caballus:sample:prjeb31613:batagai_5155"
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -865,6 +1001,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -884,6 +1024,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -905,6 +1049,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -925,32 +1073,15 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "source_locator": "Sheet1!row29",
-      "paper_doi": "10.1016/j.cell.2019.03.049",
-      "supplementary_sources": []
-    },
-    {
-      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-belkaragay-kazakhstan",
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-belkaragay-kazakhstan",
-      "site_record_id": "equus_caballus:locality:prjeb31613:belkaragay:kazakhstan",
-      "species_latin_name": "Equus caballus",
-      "primary_project_accession": "PRJEB31613",
-      "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:cgg_1_017005",
-        "equus_caballus:sample:prjeb31613:cgg_1_017007"
-      ],
-      "sample_group_ids": [
-        "PRJEB31613"
-      ],
-      "sample_count": 2,
-      "coordinate_basis": "supplementary_table_coordinates",
-      "coordinate_confidence": "exact",
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "source_locator": "Sheet1!row30",
       "paper_doi": "10.1016/j.cell.2019.03.049",
       "supplementary_sources": []
     },
@@ -976,6 +1107,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 11,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -999,6 +1134,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 5,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1047,6 +1186,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 28,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1066,6 +1209,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1087,6 +1234,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1111,6 +1262,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 4,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1130,6 +1285,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1151,6 +1310,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1170,6 +1333,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1191,6 +1358,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1210,6 +1381,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1247,6 +1422,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 17,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1267,32 +1446,15 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "source_locator": "Sheet1!row117",
-      "paper_doi": "10.1016/j.cell.2019.03.049",
-      "supplementary_sources": []
-    },
-    {
-      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-derkul-russia",
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-derkul-russia",
-      "site_record_id": "equus_caballus:locality:prjeb31613:derkul:russia",
-      "species_latin_name": "Equus caballus",
-      "primary_project_accession": "PRJEB31613",
-      "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:cgg_1_016994",
-        "equus_caballus:sample:prjeb31613:cgg_1_016996"
-      ],
-      "sample_group_ids": [
-        "PRJEB31613"
-      ],
-      "sample_count": 2,
-      "coordinate_basis": "supplementary_table_coordinates",
-      "coordinate_confidence": "exact",
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "source_locator": "Sheet1!row115",
       "paper_doi": "10.1016/j.cell.2019.03.049",
       "supplementary_sources": []
     },
@@ -1307,6 +1469,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1327,6 +1493,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1349,6 +1519,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1368,6 +1542,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1391,6 +1569,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1410,6 +1592,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1431,6 +1617,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1451,6 +1641,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1470,6 +1664,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1496,6 +1694,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 6,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1519,6 +1721,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 4,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1538,6 +1744,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1559,6 +1769,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1578,6 +1792,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1599,6 +1817,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1618,6 +1840,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1639,6 +1865,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1659,6 +1889,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1678,6 +1912,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1700,6 +1938,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1720,31 +1962,15 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "source_locator": "Sheet1!row149",
-      "paper_doi": "10.1016/j.cell.2019.03.049",
-      "supplementary_sources": []
-    },
-    {
-      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-lebyazhinkaiv-russia",
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-lebyazhinkaiv-russia",
-      "site_record_id": "equus_caballus:locality:prjeb31613:lebyazhinkaiv:russia",
-      "species_latin_name": "Equus caballus",
-      "primary_project_accession": "PRJEB31613",
-      "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:cgg_1_017027"
-      ],
-      "sample_group_ids": [
-        "PRJEB31613"
-      ],
-      "sample_count": 1,
-      "coordinate_basis": "supplementary_table_coordinates",
-      "coordinate_confidence": "exact",
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "source_locator": "Sheet1!row153",
       "paper_doi": "10.1016/j.cell.2019.03.049",
       "supplementary_sources": []
     },
@@ -1759,6 +1985,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1780,6 +2010,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1799,6 +2033,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1828,6 +2066,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 9,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1847,6 +2089,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1868,6 +2114,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1888,6 +2138,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1907,6 +2161,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1929,6 +2187,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1949,6 +2211,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -1971,6 +2237,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -1990,6 +2260,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2011,6 +2285,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2031,6 +2309,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2050,6 +2332,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2072,6 +2358,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2091,6 +2381,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2112,6 +2406,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2131,6 +2429,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2152,6 +2454,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2171,6 +2477,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2192,6 +2502,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2212,6 +2526,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2235,6 +2553,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2256,6 +2578,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2275,6 +2601,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2297,6 +2627,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2316,6 +2650,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2339,6 +2677,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2359,6 +2701,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2388,6 +2734,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 9,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2407,6 +2757,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2440,6 +2794,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 13,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2459,6 +2817,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2480,6 +2842,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2499,6 +2865,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2524,6 +2894,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 6,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2561,6 +2935,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 17,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2581,6 +2959,10 @@
       "sample_group_ids": [
         "PRJEB31613"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2600,6 +2982,10 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2623,6 +3009,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2644,6 +3034,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2668,6 +3062,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 4,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2687,6 +3085,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2710,6 +3112,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2732,6 +3138,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2752,6 +3162,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2771,6 +3185,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2793,6 +3211,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2812,6 +3234,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2833,6 +3259,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2853,6 +3283,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2876,6 +3310,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2896,6 +3334,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2915,6 +3357,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2939,6 +3385,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 4,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -2959,6 +3409,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -2983,6 +3437,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 4,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3002,6 +3460,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3040,6 +3502,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 18,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3060,6 +3526,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3079,6 +3549,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3101,6 +3575,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3120,6 +3598,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3141,6 +3623,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3160,6 +3646,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3183,6 +3673,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3202,6 +3696,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3225,6 +3723,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3245,6 +3747,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3264,6 +3770,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3288,6 +3798,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 4,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3309,6 +3823,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3328,6 +3846,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3349,6 +3871,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3375,6 +3901,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 6,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3394,6 +3924,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3415,6 +3949,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3447,6 +3985,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 12,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3475,6 +4017,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 9,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3494,6 +4040,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3520,6 +4070,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 6,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3544,6 +4098,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 5,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3563,6 +4121,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3584,6 +4146,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3603,6 +4169,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3624,6 +4194,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3643,6 +4217,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3665,6 +4243,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3686,6 +4268,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3705,6 +4291,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3726,6 +4316,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3745,6 +4339,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3766,6 +4364,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3786,6 +4388,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3805,6 +4411,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3829,6 +4439,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 4,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3848,6 +4462,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3870,6 +4488,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3890,6 +4512,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3914,6 +4540,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 4,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3933,6 +4563,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3955,6 +4589,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -3974,6 +4612,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -3997,6 +4639,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4016,6 +4662,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4037,6 +4687,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4057,6 +4711,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4080,6 +4738,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4101,6 +4763,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4120,6 +4786,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4141,6 +4811,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4167,6 +4841,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 6,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4187,6 +4865,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4206,6 +4888,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4228,6 +4914,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4248,6 +4938,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4271,6 +4965,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4290,6 +4988,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4311,6 +5013,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4330,6 +5036,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4351,6 +5061,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4370,6 +5084,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4391,6 +5109,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4410,6 +5132,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4431,6 +5157,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4456,6 +5186,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 5,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4476,6 +5210,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4495,6 +5233,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4519,6 +5261,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 4,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4541,6 +5287,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4560,6 +5310,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4581,6 +5335,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4600,6 +5358,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4621,6 +5383,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4640,6 +5406,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4665,6 +5435,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 5,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4684,6 +5458,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4705,6 +5483,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4724,6 +5506,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4747,6 +5533,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4766,6 +5556,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4788,6 +5582,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4809,6 +5607,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 2,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4828,6 +5630,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4852,6 +5658,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 4,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4871,6 +5681,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4892,6 +5706,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4911,6 +5729,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4934,6 +5756,10 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 3,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
@@ -4953,6 +5779,10 @@
       ],
       "sample_group_ids": [
         "PRJEB44430"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
@@ -4974,12 +5804,1074 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_count": 1,
       "coordinate_basis": "supplementary_table_coordinates",
       "coordinate_confidence": "exact",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "source_locator": "SI Table 1!row98",
       "paper_doi": "10.1038/s41586-021-04018-9",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-aklhyk-turkey",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-aklhyk-turkey",
+      "site_record_id": "felis_catus:locality:prjeb81815:aklhyk:turkey",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246517"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246517 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row6 -> Table_S1!row196",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-albafucenscisternafucinoabruzzi-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-albafucenscisternafucinoabruzzi-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:albafucenscisternafucinoabruzzi:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246516"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246516 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row5 -> Table_S1!row68",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-arenecandidefinaleliguresavonaliguria-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-arenecandidefinaleliguresavonaliguria-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:arenecandidefinaleliguresavonaliguria:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246515"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246515 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row3 -> Table_S1!row66",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-bademaac-turkey",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-bademaac-turkey",
+      "site_record_id": "felis_catus:locality:prjeb81815:bademaac:turkey",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246518",
+        "felis_catus:sample:prjeb81815:samea120246519"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246518 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row7 -> Table_S1!row197",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-bankofportugal-portugal",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-bankofportugal-portugal",
+      "site_record_id": "felis_catus:locality:prjeb81815:bankofportugal:portugal",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246522",
+        "felis_catus:sample:prjeb81815:samea120246523",
+        "felis_catus:sample:prjeb81815:samea120246524"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 3,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246522 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row13 -> Table_S1!row153",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-bernhardsthal-austria",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-bernhardsthal-austria",
+      "site_record_id": "felis_catus:locality:prjeb81815:bernhardsthal:austria",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246520",
+        "felis_catus:sample:prjeb81815:samea120246521"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)",
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match",
+        "project_species_mismatch"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246520 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row10 -> Table_S1!row3",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-bremen201altstadtmarktplatz-germany",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-bremen201altstadtmarktplatz-germany",
+      "site_record_id": "felis_catus:locality:prjeb81815:bremen201altstadtmarktplatz:germany",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246525"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246525 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row16 -> Table_S1!row44",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-bremen253altstadtamwall-germany",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-bremen253altstadtamwall-germany",
+      "site_record_id": "felis_catus:locality:prjeb81815:bremen253altstadtamwall:germany",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246526"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246526 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row17 -> Table_S1!row45",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-castiglioneinsabina-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-castiglioneinsabina-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:castiglioneinsabina:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246529"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246529 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row22 -> Table_S1!row74",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-covadeelstrocshuesca-spain",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-covadeelstrocshuesca-spain",
+      "site_record_id": "felis_catus:locality:prjeb81815:covadeelstrocshuesca:spain",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246531"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246531 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row25 -> Table_S1!row186",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-demircihyk-turkey",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-demircihyk-turkey",
+      "site_record_id": "felis_catus:locality:prjeb81815:demircihyk:turkey",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246533"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246533 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row28 -> Table_S1!row205",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-durankulak-bulgaria",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-durankulak-bulgaria",
+      "site_record_id": "felis_catus:locality:prjeb81815:durankulak:bulgaria",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246536",
+        "felis_catus:sample:prjeb81815:samea120246537",
+        "felis_catus:sample:prjeb81815:samea120246538",
+        "felis_catus:sample:prjeb81815:samea120246539"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 4,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246536 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row34 -> Table_S1!row30",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-genonisantuantinesardinia-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-genonisantuantinesardinia-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:genonisantuantinesardinia:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246544"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris lybica (tax_id 61377)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246544 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row45 -> Table_S1!row92",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-graffignanoviterbolatium-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-graffignanoviterbolatium-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:graffignanoviterbolatium:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246543"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246543 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row42 -> Table_S1!row91",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-grottadelcoccinarniumbria-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-grottadelcoccinarniumbria-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:grottadelcoccinarniumbria:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246532"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246532 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row26 -> Table_S1!row76",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-iznikromantheatre-turkey",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-iznikromantheatre-turkey",
+      "site_record_id": "felis_catus:locality:prjeb81815:iznikromantheatre:turkey",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246548"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246548 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row51 -> Table_S1!row207",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-kassope-greece",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-kassope-greece",
+      "site_record_id": "felis_catus:locality:prjeb81815:kassope:greece",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246549",
+        "felis_catus:sample:prjeb81815:samea120246550"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246549 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row52 -> Table_S1!row63",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-koprivec-bulgaria",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-koprivec-bulgaria",
+      "site_record_id": "felis_catus:locality:prjeb81815:koprivec:bulgaria",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246551"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246551 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row55 -> Table_S1!row37",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-labastida-spain",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-labastida-spain",
+      "site_record_id": "felis_catus:locality:prjeb81815:labastida:spain",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246552"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246552 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row57 -> Table_S1!row187",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-mauternvicusost-austria",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-mauternvicusost-austria",
+      "site_record_id": "felis_catus:locality:prjeb81815:mauternvicusost:austria",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246560"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246560 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row65 -> Table_S1!row6",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-mentee-turkey",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-mentee-turkey",
+      "site_record_id": "felis_catus:locality:prjeb81815:mentee:turkey",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246555"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246555 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row60 -> Table_S1!row209",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-musarnaviterbolatium-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-musarnaviterbolatium-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:musarnaviterbolatium:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246561"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246561 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row68 -> Table_S1!row105",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-nardtorresantacaterina-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-nardtorresantacaterina-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:nardtorresantacaterina:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246576"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246576 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row91 -> Table_S1!row132",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-padovaviacesarebattistiveneto-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-padovaviacesarebattistiveneto-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:padovaviacesarebattistiveneto:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246562"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246562 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row70 -> Table_S1!row106",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-palatinonortheastsloperome-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-palatinonortheastsloperome-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:palatinonortheastsloperome:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246567",
+        "felis_catus:sample:prjeb81815:samea120246568"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246567 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row77 -> Table_S1!row114",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-palmelacastle-portugal",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-palmelacastle-portugal",
+      "site_record_id": "felis_catus:locality:prjeb81815:palmelacastle:portugal",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246563",
+        "felis_catus:sample:prjeb81815:samea120246564"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246563 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row71 -> Table_S1!row161",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-parking58brussels-belgium",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-parking58brussels-belgium",
+      "site_record_id": "felis_catus:locality:prjeb81815:parking58brussels:belgium",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246527",
+        "felis_catus:sample:prjeb81815:samea120246528"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246527 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row18 -> Table_S1!row23",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-petronellcarnuntum-austria",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-petronellcarnuntum-austria",
+      "site_record_id": "felis_catus:locality:prjeb81815:petronellcarnuntum:austria",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246565",
+        "felis_catus:sample:prjeb81815:samea120246566"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246565 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row75 -> Table_S1!row14",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-romesceciliaintrastevere-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-romesceciliaintrastevere-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:romesceciliaintrastevere:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246530"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246530 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row23 -> Table_S1!row75",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-sagalassos-turkey",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-sagalassos-turkey",
+      "site_record_id": "felis_catus:locality:prjeb81815:sagalassos:turkey",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246573"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246573 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row87 -> Table_S1!row215",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-salzburgresidenz-austria",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-salzburgresidenz-austria",
+      "site_record_id": "felis_catus:locality:prjeb81815:salzburgresidenz:austria",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246575"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246575 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row89 -> Table_S1!row17",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-saracenacosenzacalabria-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-saracenacosenzacalabria-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:saracenacosenzacalabria:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246574"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246574 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row88 -> Table_S1!row130",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-sassaripalazzoducalesardinia-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-sassaripalazzoducalesardinia-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:sassaripalazzoducalesardinia:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246577"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246577 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row92 -> Table_S1!row135",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-tabernasspain-spain",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-tabernasspain-spain",
+      "site_record_id": "felis_catus:locality:prjeb81815:tabernasspain:spain",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246578"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246578 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row93 -> Table_S1!row192",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-terteniasardinia-italy",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-terteniasardinia-italy",
+      "site_record_id": "felis_catus:locality:prjeb81815:terteniasardinia:italy",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246579"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246579 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row95 -> Table_S1!row144",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-tongerenindustrieoost-belgium",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-tongerenindustrieoost-belgium",
+      "site_record_id": "felis_catus:locality:prjeb81815:tongerenindustrieoost:belgium",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246580"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246580 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row96 -> Table_S1!row25",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-traismauer-austria",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-traismauer-austria",
+      "site_record_id": "felis_catus:locality:prjeb81815:traismauer:austria",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246581"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246581 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row97 -> Table_S1!row18",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-viminaciumamphitheatre-serbia",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-viminaciumamphitheatre-serbia",
+      "site_record_id": "felis_catus:locality:prjeb81815:viminaciumamphitheatre:serbia",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246582",
+        "felis_catus:sample:prjeb81815:samea120246583"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246582 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row98 -> Table_S1!row172",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-viminaciumnadklepakom-serbia",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-viminaciumnadklepakom-serbia",
+      "site_record_id": "felis_catus:locality:prjeb81815:viminaciumnadklepakom:serbia",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246584"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis silvestris silvestris (tax_id 463207)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246584 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row100 -> Table_S1!row179",
+      "paper_doi": "10.1126/science.adt2642",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:felis-catus-locality-prjeb81815-yenikapmarmarayexc-turkey",
+      "evidence_row_id": "animal-atlas-row:felis-catus-prjeb81815-felis-catus-locality-prjeb81815-yenikapmarmarayexc-turkey",
+      "site_record_id": "felis_catus:locality:prjeb81815:yenikapmarmarayexc:turkey",
+      "species_latin_name": "Felis catus",
+      "primary_project_accession": "PRJEB81815",
+      "sample_record_ids": [
+        "felis_catus:sample:prjeb81815:samea120246556",
+        "felis_catus:sample:prjeb81815:samea120246557",
+        "felis_catus:sample:prjeb81815:samea120246558",
+        "felis_catus:sample:prjeb81815:samea120246559"
+      ],
+      "sample_group_ids": [
+        "PRJEB81815"
+      ],
+      "source_native_taxon_labels": [
+        "Felis catus (tax_id 9685)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 4,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+      "source_locator": "sample_accession:SAMEA120246556 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row61 -> Table_S1!row210",
+      "paper_doi": "10.1126/science.adt2642",
       "supplementary_sources": []
     },
     {
@@ -4993,6 +6885,12 @@
       ],
       "sample_group_ids": [
         "PRJEB30282"
+      ],
+      "source_native_taxon_labels": [
+        "Sus scrofa (tax_id 9823)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
       ],
       "sample_count": 1,
       "coordinate_basis": "named_site_geocoding",
@@ -5016,6 +6914,12 @@
       ],
       "sample_group_ids": [
         "PRJEB30282"
+      ],
+      "source_native_taxon_labels": [
+        "Sus scrofa (tax_id 9823)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
       ],
       "sample_count": 1,
       "coordinate_basis": "named_site_geocoding",

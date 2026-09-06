@@ -1,17 +1,17 @@
 # Animal sample chronology review
 
-- Sample chronology rows: `1451`
-- Normalized intervals: `410`
-- Normalized points: `482`
-- Text-only rows: `92`
-- Unresolved rows: `467`
-- Direct radiocarbon rows: `732`
+- Sample chronology rows: `1454`
+- Normalized intervals: `328`
+- Normalized points: `533`
+- Text-only rows: `130`
+- Unresolved rows: `463`
+- Direct radiocarbon rows: `769`
 - Modeled rows: `0`
-- Contextual rows: `37`
+- Contextual rows: `100`
 - Broad period rows: `0`
-- Numeric interval rows: `748`
-- Numeric rows with caveat: `144`
-- Context-only rows: `92`
+- Numeric interval rows: `749`
+- Numeric rows with caveat: `112`
+- Context-only rows: `130`
 
 | Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -25,73 +25,74 @@
 | Bos taurus | PRJEB31621 | prjeb31621:samea5577151 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB31621 | prjeb31621:samea5577153 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB31621 | prjeb31621:samea5577154 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577344 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577345 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577346 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577347 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577348 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577349 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577350 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577351 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577352 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577353 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577354 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577355 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577356 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577357 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577358 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577359 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577360 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577361 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577362 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577363 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577364 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577365 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577366 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577367 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577368 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577369 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577370 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577371 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577372 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577373 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577374 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577375 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577344 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 7949-9449 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577345 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 7949-9449 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577346 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4200 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577347 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3100 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577348 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6100 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577349 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6900 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577350 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6900 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577351 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2800 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577352 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 629 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577353 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 8100 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577354 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 8100 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577355 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7600 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577356 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3800 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577357 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1400 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577358 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7600 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577359 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 4949-5449 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577360 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7700 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577361 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 5249-6249 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577362 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7040 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577363 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3700 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577364 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4470 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577365 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2900 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577366 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2300 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577367 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1000 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577368 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1050 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577369 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1350 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577370 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1200 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577371 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1290 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577372 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1400 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577373 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3500 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577374 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6150 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577375 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3100 BP |
 | Bos taurus | PRJEB31621 | prjeb31621:samea5577376 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577377 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577378 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577379 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577380 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577381 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577382 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577383 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577384 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577385 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577386 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577387 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577388 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577389 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577390 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577391 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577392 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577377 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7920 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577378 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7200 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577379 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 4999-5249 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577380 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7125 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577381 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6950 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577382 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7025 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577383 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7000 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577384 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6650 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577385 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7126 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577386 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7000 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577387 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7001 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577388 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 7019-7269 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577389 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4760 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577390 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7373 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577391 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 7549-7699 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577392 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6600 BP |
 | Bos taurus | PRJEB31621 | prjeb31621:samea5577393 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577394 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577395 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577396 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577397 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577398 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577399 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577400 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577401 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577402 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577403 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577404 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577405 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577406 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577407 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577408 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB31621 | prjeb31621:samea5577409 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577394 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 5050 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577395 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7993 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577396 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6700 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577397 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3150 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577398 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3150 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577399 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2925 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577400 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3300 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577401 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4800 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577402 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4800 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577403 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4800 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577404 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2200 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577405 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2050 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577406 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1850 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577407 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2820 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577408 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3100 BP |
+| Bos taurus | PRJEB31621 | prjeb31621:samea5577409 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2800 BP |
 | Bos taurus | PRJEB31621 | prjeb31621:samea5605818 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB31621 | prjeb31621:supplement:men1 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 8050 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574404 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574405 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574406 | unresolved | unresolved | unresolved | unresolved |  |
@@ -136,17 +137,17 @@
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574455 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574456 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574457 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106827 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106828 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106829 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106830 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106831 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106832 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106833 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106834 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106835 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106836 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106837 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
+| Bos taurus | PRJNA705960 | prjna705960:samn18106827 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJNA705960 | prjna705960:samn18106828 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJNA705960 | prjna705960:samn18106829 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJNA705960 | prjna705960:samn18106830 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJNA705960 | prjna705960:samn18106831 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJNA705960 | prjna705960:samn18106832 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJNA705960 | prjna705960:samn18106833 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJNA705960 | prjna705960:samn18106834 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJNA705960 | prjna705960:samn18106835 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJNA705960 | prjna705960:samn18106836 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJNA705960 | prjna705960:samn18106837 | unresolved | unresolved | unresolved | unresolved |  |
 | Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605068 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 1650-2050 BP |
 | Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605069 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 1650-2050 BP |
 | Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605070 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 1650-2050 BP |
@@ -162,7 +163,7 @@
 | Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605080 | sample_owned_interval | historical_or_recent_date | sample_precise_point | normalized_point | 0 BP (modern comparator) |
 | Canis lupus familiaris | KX379528-KX379529 | kx379528-kx379529:kx379528 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2900-2632 BCE |
 | Canis lupus familiaris | KX379528-KX379529 | kx379528-kx379529:kx379529 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 5223-5040 BCE |
-| Canis lupus familiaris | SRS1407451 | srs1407451:srs1407451 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Ancient European dog genomic context |
+| Canis lupus familiaris | SRS1407451 | srs1407451:srs1407451 | unresolved | unresolved | unresolved | unresolved |  |
 | Canis lupus familiaris | SRS1407453 | srs1407453:srs1407453 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 5223-5040 BCE |
 | Capra hircus | PRJEB90141 | prjeb90141:samea4453841 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 11367-11220 BCE |
 | Capra hircus | PRJEB90141 | prjeb90141:samea4588077 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6081-5891 BCE |
@@ -259,7 +260,8 @@
 | Equus caballus | PRJEB19970 | prjeb19970:cgg_1_017038 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4023 BP |
 | Equus caballus | PRJEB19970 | prjeb19970:cgg_1_017079 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2727 BP |
 | Equus caballus | PRJEB19970 | prjeb19970:cgg_1_017088 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2727 BP |
-| Equus caballus | PRJEB19970 | prjeb19970:n/a | sample_owned_text_only | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | N/A |
+| Equus caballus | PRJEB19970 | prjeb19970:connemara_0004a | unresolved | unresolved | unresolved | unresolved |  |
+| Equus caballus | PRJEB19970 | prjeb19970:somali_0226a | unresolved | unresolved | unresolved | unresolved |  |
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_017139 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1979 BP |
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_018064 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3101 BP |
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_018120 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3123 BP |
@@ -302,6 +304,7 @@
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_020208 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_020209 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
 | Equus caballus | PRJEB22390 | prjeb22390:cgg_1_020210 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5500 BP |
+| Equus caballus | PRJEB31613 | prjeb31613:batagai_5155 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5155 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_010022 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 42758 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_010023 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 16056 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_010397 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 192 BP |
@@ -318,15 +321,15 @@
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016179 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2300 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016984 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2117-2217 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016987 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1617-1817 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016994 | project_context_interval | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016996 | project_context_interval | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016994 | unresolved | unresolved | unresolved | unresolved |  |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_016996 | unresolved | unresolved | unresolved | unresolved |  |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017001 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 4000-5000 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017002 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 4000-5000 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017005 | project_context_interval | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017007 | project_context_interval | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017005 | unresolved | unresolved | unresolved | unresolved |  |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017007 | unresolved | unresolved | unresolved | unresolved |  |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017010 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4692 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017023 | project_context_interval | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017027 | project_context_interval | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017023 | unresolved | unresolved | unresolved | unresolved |  |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017027 | unresolved | unresolved | unresolved | unresolved |  |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017036 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3550-3604 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017037 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3550-3604 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_017038 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4023 BP |
@@ -396,9 +399,9 @@
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018490 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1217-1417 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018495 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 89 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018497 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 105 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018522 | project_context_interval | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018522 | unresolved | unresolved | unresolved | unresolved |  |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018529 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 31750 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018533 | project_context_interval | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
+| Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018533 | unresolved | unresolved | unresolved | unresolved |  |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018540 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 35870 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018577 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1143 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_018579 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 1557 BP |
@@ -545,7 +548,7 @@
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020961 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 917-1217 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020962 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2672 BP |
 | Equus caballus | PRJEB31613 | prjeb31613:cgg_1_020989 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4791 BP |
-| Equus caballus | PRJEB31613 | prjeb31613:n/a | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5155 BP |
+| Equus caballus | PRJEB31613 | prjeb31613:przewalski_paratype_118 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 118 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:car05_hun_m2458 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4408 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533171 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2538 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533172 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2240 BP |
@@ -794,93 +797,93 @@
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533435 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 7494 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533436 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 7499 BP |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533438 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4509 BP |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246515 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246516 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246517 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246518 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246519 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246520 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246521 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246522 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246523 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246524 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246525 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246526 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246527 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246528 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246529 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246530 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246531 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246532 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246533 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246534 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246535 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246536 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246537 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246538 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246539 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246540 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246541 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246542 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246543 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246544 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246545 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246546 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246547 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246548 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246549 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246550 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246551 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246552 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246553 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246554 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246555 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246556 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246557 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246558 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246559 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246560 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246561 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246562 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246563 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246564 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246565 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246566 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246567 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246568 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246569 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246570 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246571 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246572 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246573 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246574 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246575 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246576 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246577 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246578 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246579 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246580 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246581 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246582 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246583 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246584 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246585 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246586 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246587 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246588 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246589 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246590 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246591 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246592 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246593 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246594 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246595 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246596 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246597 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246598 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246599 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246600 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
-| Felis catus | PRJEB81815 | prjeb81815:samea120246601 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Holocene cat dispersal across North Africa and Europe |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246515 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 10-11 ka (Epigravettian) |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246516 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1610-1740 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246517 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 9559-9899 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246518 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 8189-8379 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246519 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 8039-8339 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246520 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 970-1180 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246521 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | Roman |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246522 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 930-1060 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246523 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 910-1050 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246524 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 920-1060 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246525 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 320-510 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246526 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 16th |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246527 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | end 14th - 15th cent. AD |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246528 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | end 14th - 15th cent. AD |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246529 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 11-12th c AD |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246530 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 12-13th c AD |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246531 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 6989-7249 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246532 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 7159-7319 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246533 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 550-650 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246534 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 9889-10189 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246535 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 9449-10449 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246536 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 6279-6399 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246537 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 6049-6149 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246538 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 6049-6149 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246539 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 6049-6149 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246540 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1740-1930 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246541 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1170-1350 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246542 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 5475-5583 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246543 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | Late 15th-Early 16th cent AD |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246544 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1999-2289 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246545 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 900-1150 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246546 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 900-1150 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246547 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 900-1150 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246548 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1300-1375 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246549 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 2149-2349 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246550 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 4th-1st cent BC |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246551 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 7309-7429 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246552 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | end 15th-early 16th c. |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246553 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 8th/9th century CE |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246554 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 8th/9th century CE |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246555 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 7929-8024 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246556 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 4th-14th cent AD? |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246557 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 4th-14th cent AD? |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246558 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1170-1300 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246559 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1170-1310 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246560 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1870-1999 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246561 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1410-1590 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246562 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 510-550 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246563 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 12-13th c |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246564 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 11-12th c |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246565 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1630-1830 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246566 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1740-1930 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246567 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1580-1720 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246568 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | End 4th cent.-beg. 5th cent AD (Roman) |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246569 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | Early Bronze Age |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246570 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 3259-3449 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246571 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 3169-3359 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246572 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | Medieval |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246573 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | Early Byzantine |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246574 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | Early Neolithic |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246575 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 15/16th centuries |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246576 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 17-18th c AD |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246577 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 19th AD |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246578 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 4349-4649 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246579 | sample_owned_text_only | archaeological_context_date | broad_period_only | text_only_unparsed | 4th-5th c AD |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246580 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1820-1989 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246581 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1730-1890 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246582 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1530-1700 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246583 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1740-1930 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246584 | sample_owned_interval | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 790-960 BP |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246585 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246586 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246587 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246588 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246589 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246590 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246591 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246592 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246593 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246594 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246595 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246596 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246597 | unresolved | unresolved | unresolved | unresolved |  |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246598 | unresolved | unresolved | unresolved | unresolved |  |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246599 | unresolved | unresolved | unresolved | unresolved |  |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246600 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | 20th century |
+| Felis catus | PRJEB81815 | prjeb81815:samea120246601 | sample_owned_text_only | historical_or_recent_date | broad_period_only | text_only_unparsed | 20th century |
 | Felis catus | PRJNA1178732 | prjna1178732:fs1 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 1115 - 1234 CE |
 | Felis catus | PRJNA1178732 | prjna1178732:fs10 | sample_owned_interval | historical_or_recent_date | sample_precise_point | normalized_point | 1200 BCE |
 | Felis catus | PRJNA1178732 | prjna1178732:fs12 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 706 - 883 cal. CE |
@@ -974,11 +977,11 @@
 | Ovis aries | PRJEB36540 | prjeb36540:pb6 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6500-6000 cal BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:pb8 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6500-6000 cal BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:pb9 | sample_owned_text_only | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | 7. M cal BCE |
-| Ovis aries | PRJEB36540 | prjeb36540:tep02 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| Ovis aries | PRJEB36540 | prjeb36540:tep03 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep02 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:tep03 | unresolved | unresolved | unresolved | unresolved |  |
 | Ovis aries | PRJEB36540 | prjeb36540:tep03_depo* | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7059-6756 cal BCE |
-| Ovis aries | PRJEB36540 | prjeb36540:tep05 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| Ovis aries | PRJEB36540 | prjeb36540:tep09 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep05 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:tep09 | unresolved | unresolved | unresolved | unresolved |  |
 | Ovis aries | PRJEB36540 | prjeb36540:tep1 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6000-5800 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:tep10 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6000-5800 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:tep10_depo | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6500-5800 BCE |
@@ -1040,7 +1043,7 @@
 | Ovis aries | PRJEB36540 | prjeb36540:tep7_depo | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6500-6400 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:tep8 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6000-5800 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:tep82_2014 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6700-6600 BCE |
-| Ovis aries | PRJEB36540 | prjeb36540:tep83 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:tep83 | unresolved | unresolved | unresolved | unresolved |  |
 | Ovis aries | PRJEB36540 | prjeb36540:tep83_2014 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6469-6361 cal BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:tep87_2014 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6800-6700 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:tep8_depo | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6500-6400 BCE |
@@ -1076,15 +1079,15 @@
 | Ovis aries | PRJEB36540 | prjeb36540:uh5 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7000-6500 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:uh7 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7000-6500 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:uh8 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7000-6500 BCE |
-| Ovis aries | PRJEB36540 | prjeb36540:ulu04 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| Ovis aries | PRJEB36540 | prjeb36540:ulu06 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| Ovis aries | PRJEB36540 | prjeb36540:ulu09 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu04 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu06 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu09 | unresolved | unresolved | unresolved | unresolved |  |
 | Ovis aries | PRJEB36540 | prjeb36540:ulu12 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7000-6500 BCE |
-| Ovis aries | PRJEB36540 | prjeb36540:ulu16 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu16 | unresolved | unresolved | unresolved | unresolved |  |
 | Ovis aries | PRJEB36540 | prjeb36540:ulu23 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 6000- 5700/5600 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:ulu26 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6850-6500 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:ulu27 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7000-6500 BCE |
-| Ovis aries | PRJEB36540 | prjeb36540:ulu30 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
+| Ovis aries | PRJEB36540 | prjeb36540:ulu30 | unresolved | unresolved | unresolved | unresolved |  |
 | Ovis aries | PRJEB36540 | prjeb36540:ulu31* | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6227-6071 cal BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:ulu32 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6500-6000 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:ulu34 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6500-6000 BCE |
@@ -1098,31 +1101,31 @@
 | Ovis aries | PRJEB41594 | prjeb41594:samea8022722 | unresolved | unresolved | unresolved | unresolved |  |
 | Ovis aries | PRJEB41594 | prjeb41594:samea8022723 | unresolved | unresolved | unresolved | unresolved |  |
 | Ovis aries | PRJEB41594 | prjeb41594:samea8022724 | unresolved | unresolved | unresolved | unresolved |  |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960291 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Four millennia of Baltic sheep history |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960292 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Four millennia of Baltic sheep history |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960293 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Four millennia of Baltic sheep history |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960294 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Four millennia of Baltic sheep history |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960295 | project_context_interval | archaeological_context_date | contextual_interval | normalized_interval | Four millennia of Baltic sheep history |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757323 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757324 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757325 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757326 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757327 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757328 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757329 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757330 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757331 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757332 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757333 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757334 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757335 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757336 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757337 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757338 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757339 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757340 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea114857470 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea114857471 | project_context_interval | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960291 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960292 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960293 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960294 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960295 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757323 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757324 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757325 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757326 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757327 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757328 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757329 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757330 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757331 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757332 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757333 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757334 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757335 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757336 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757337 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757338 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757339 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757340 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea114857470 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea114857471 | unresolved | unresolved | unresolved | unresolved |  |
 | Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160866 | unresolved | unresolved | unresolved | unresolved |  |
 | Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160867 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | 4700 BP |
 | Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160868 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | 1000 BP |

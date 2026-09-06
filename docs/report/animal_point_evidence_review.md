@@ -1,6 +1,6 @@
 # Animal point evidence review
 
-- Published point count: `235`
+- Published point count: `271`
 
 ## animal-atlas-feature:capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey
 
@@ -254,15 +254,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-altata-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb31613-arzhani-russia
 
 - Species: `Equus caballus`
@@ -361,15 +352,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-belkaragay-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb31613-berel-kazakhstan
 
@@ -496,15 +478,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-derkul-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb31613-dunajvros-hungary
 
@@ -696,15 +669,6 @@
 - Sample rows: `2`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb31613-kuliancave-iran
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-lebyazhinkaiv-russia
 
 - Species: `Equus caballus`
 - Project accession: `PRJEB31613`
@@ -2098,6 +2062,366 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-aklhyk-turkey
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-albafucenscisternafucinoabruzzi-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-arenecandidefinaleliguresavonaliguria-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-bademaac-turkey
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `2`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-bankofportugal-portugal
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `3`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-bernhardsthal-austria
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `2`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-bremen201altstadtmarktplatz-germany
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-bremen253altstadtamwall-germany
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-castiglioneinsabina-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-covadeelstrocshuesca-spain
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-demircihyk-turkey
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-durankulak-bulgaria
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `4`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-genonisantuantinesardinia-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-graffignanoviterbolatium-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-grottadelcoccinarniumbria-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-iznikromantheatre-turkey
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-kassope-greece
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `2`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-koprivec-bulgaria
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-labastida-spain
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-mauternvicusost-austria
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-mentee-turkey
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-musarnaviterbolatium-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-nardtorresantacaterina-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-padovaviacesarebattistiveneto-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-palatinonortheastsloperome-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `2`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-palmelacastle-portugal
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `2`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-parking58brussels-belgium
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `2`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-petronellcarnuntum-austria
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `2`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-romesceciliaintrastevere-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-sagalassos-turkey
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-salzburgresidenz-austria
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-saracenacosenzacalabria-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-sassaripalazzoducalesardinia-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-tabernasspain-spain
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-terteniasardinia-italy
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-tongerenindustrieoost-belgium
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-traismauer-austria
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-viminaciumamphitheatre-serbia
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `2`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-viminaciumnadklepakom-serbia
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `1`
+
+## animal-atlas-feature:felis-catus-locality-prjeb81815-yenikapmarmarayexc-turkey
+
+- Species: `Felis catus`
+- Project accession: `PRJEB81815`
+- Paper DOI: `10.1126/science.adt2642`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `4`
 
 ## animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark
 

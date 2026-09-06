@@ -48,7 +48,7 @@
       ],
       "layer_role": "mapped_direct",
       "mapped": true,
-      "feature_count": 235,
+      "feature_count": 271,
       "evidence_posture": "mapped_species_owned_locality_evidence",
       "provenance_posture": "tracked_species_locality_summaries",
       "popup_contract": [
@@ -136,7 +136,7 @@
       "species_scope": [],
       "layer_role": "mapped_context",
       "mapped": true,
-      "feature_count": 235,
+      "feature_count": 271,
       "evidence_posture": "non_adna_context",
       "provenance_posture": "normalized_context_layers",
       "popup_contract": [
@@ -164,6 +164,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
@@ -188,6 +189,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
@@ -211,6 +213,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [
@@ -238,6 +241,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [
@@ -268,6 +272,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
@@ -291,6 +296,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
@@ -314,6 +320,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
@@ -338,6 +345,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
@@ -355,14 +363,15 @@
       "dataset_bucket": "archive_verified_needs_paper_pinning",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 207,
+      "mapped_direct_record_count": 203,
       "curated_project_count": 4,
       "study_summary_count": 8,
-      "chronology_posture": "mapped_locality_points_with_partial_chronology",
+      "chronology_posture": "mapped_locality_bp_windows_available",
       "geography_posture": "mapped_locality_points",
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [
@@ -383,19 +392,21 @@
       "dataset_bucket": "paper_pinned_core",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 0,
+      "mapped_direct_record_count": 40,
       "curated_project_count": 2,
       "study_summary_count": 2,
-      "chronology_posture": "project_level_chronology_without_locality_alignment",
-      "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
+      "chronology_posture": "mapped_locality_points_with_partial_chronology",
+      "geography_posture": "mapped_locality_points",
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
       "rationale": [
-        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
+        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
+        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims."
       ]
     },
     {
@@ -414,6 +425,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
@@ -437,6 +449,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
@@ -460,6 +473,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
@@ -483,6 +497,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [
@@ -510,6 +525,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
@@ -533,6 +549,7 @@
       "contextual_layer_dependencies": [
         "animal-capra-hircus",
         "animal-equus-caballus",
+        "animal-felis-catus",
         "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [
@@ -694,19 +711,9 @@
       "detail": "Curated animal project support cannot be promoted to mapped locality evidence without species-owned sample or locality records."
     },
     {
-      "subject": "Equus caballus",
-      "reason": "mapped_animal_chronology_requires_caution",
-      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
-    },
-    {
       "subject": "Felis catus",
       "reason": "mapped_animal_chronology_requires_caution",
       "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
-    },
-    {
-      "subject": "Felis catus",
-      "reason": "mapped_animal_geography_requires_caution",
-      "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
     },
     {
       "subject": "Gallus gallus domesticus",

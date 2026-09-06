@@ -1,5 +1,5 @@
 {
-  "schema_version": "repository-cross-domain-evidence-matrix.v1",
+  "schema_version": "repository-cross-domain-evidence-matrix.v2",
   "row_count": 6,
   "rows": [
     {
@@ -106,9 +106,14 @@
         "animal_adna"
       ],
       "tracked_metrics": {
+        "sample_accounting_available": true,
+        "coordinate_accounting_available": true,
         "tracked_paper_count": 18,
-        "published_atlas_point_count": 235,
-        "unresolved_map_rows": 0
+        "published_atlas_point_count": 271,
+        "tracked_sample_count": 1450,
+        "unresolved_sample_count": 95,
+        "coordinate_provenance_count": 284,
+        "refused_coordinate_provenance_count": 6
       },
       "docs_paths": [
         "docs/public/pollenomics-data/sources/animal-source-intake.md",
@@ -131,8 +136,9 @@
         "nordic_atlas"
       ],
       "tracked_metrics": {
+        "sample_accounting_available": true,
         "country_bundle_count": 4,
-        "animal_point_count": 235
+        "animal_point_count": 271
       },
       "docs_paths": [
         "docs/public/pollenomics-data/publications/reports.md",

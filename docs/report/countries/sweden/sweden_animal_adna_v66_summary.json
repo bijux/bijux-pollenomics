@@ -2,7 +2,7 @@
   "schema_version": "country-animal-adna-summary.v1",
   "country": "Sweden",
   "version": "v66",
-  "generated_on": "2026-09-05",
+  "generated_on": "2026-09-06",
   "total_sample_rows": 1,
   "total_species": 1,
   "total_localities": 1,
@@ -42,6 +42,9 @@
       "country": "Sweden",
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
       "sample_record_id": "equus_caballus:sample:prjeb31613:cgg_1_018490",
       "sample_group_id": "PRJEB31613",
       "sample_namespace": "equus_caballus:curated_sample",
@@ -192,6 +195,12 @@
       ],
       "sample_group_ids": [
         "PRJEB31613"
+      ],
+      "source_native_taxon_labels": [],
+      "source_native_tax_ids": [],
+      "source_native_scientific_names": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
       ],
       "sample_namespace": "equus_caballus:sample_locality",
       "inclusion_statuses": [

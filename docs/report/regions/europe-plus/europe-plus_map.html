@@ -1642,7 +1642,12 @@
                     <label class="field-label" for="source-chronology-taxon"><span>Exact source label</span><span>all by default</span></label>
                     <select id="source-chronology-taxon" class="search-input" aria-label="Filter by exact source-reported Neotoma label"></select>
                   </div>
+                  <div class="inline-actions">
+                    <button id="source-record-concentration-toggle" class="inline-button" type="button" aria-pressed="false" disabled>Show captured source-record concentration</button>
+                  </div>
                   <div id="source-chronology-state" class="search-meta" aria-live="polite">Source chronology metadata unavailable.</div>
+                  <div id="source-chronology-global-denominator" class="search-meta" aria-live="polite">Global pre-filter denominator unavailable.</div>
+                  <div class="search-meta">Captured source-record concentration groups admitted records only at the same source site. Symbol size is the raw visible node count. It is not abundance, absence, propagation, flow, or heat, and it never combines source levels or weights reported values.</div>
                 </div>
               </details>
               <details id="modeled-context-controls" class="control-group" hidden>
@@ -1910,7 +1915,7 @@
         </div>
       </div>
     </div>
-    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"europe-plus","version":"v66","build_id":"atlas-10acd757df262a8e1c6f0108540ffa85eb5f1cfe595e53c56a2d290a65768691","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3"},"budgets":{"bootstrap_max_bytes":65536,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1239},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":4,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1235}},"assets":{"schema_version":"atlas-static-asset-table.v1","fields":["asset_key","domain","sequence","path","sha256","integrity","payload_sha256","payload_encoding","decoded_byte_count","byte_count","record_count","initial_load","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","scientific_signal_ids"],"record_count":15,"records":[["provenance:0","provenance",0,"europe-plus.atlas-provenance.0000.733bef5c3e718cc8.js","733bef5c3e718cc8a2c1715a6ea4ca2fc1034fd17bb6d6ae24d39b84b4dbfd6f","sha256-czvvXD5xjMiiwXFabqTKL8EDT9F7ttauJNObhLTb/W8=","2103f5942892ce249d285f4ee1440cd3b6e07ea4da0df259bba4efa2a8a7c82b","gzip_base64",4794,2200,4,true,null,null,null,null,null,null,null,null,null],["nodes:1","nodes",1,"europe-plus.atlas-nodes.0001.500db74efe6c1704.js","500db74efe6c1704ff3eed02a01e5b579abc031f60bc43dc38607d52531ccb45","sha256-UA23Tv5sFwT/Pu0CoB5bV5q8Ax9gvEPcOGB9UlMcy0U=","41839c683b2d157bf5d607ad5b0848ce935aeaf8ebe011dd5972d298af2c3ba6","gzip_base64",1490382,80287,653,false,0,"aadr","point",["Denmark"],[54.623,8.728229,57.5065361,14.99854],73.0,10520.0,4,[]],["nodes:2","nodes",2,"europe-plus.atlas-nodes.0002.74f61fd545ca4263.js","74f61fd545ca426392e19edc37021de68afda1b9c29e8e69ff8cfe8f8eff0a24","sha256-dPYf1UXKQmOS4Z7cNwId5or9obnCno5p/4z+j47/CiQ=","4bc1c92b597fbcdc4cda4ca92cc093d056e3bc78fb820b5386cb8d76b75e3d89","gzip_base64",68081,3855,32,false,0,"aadr","point",["Finland"],[60.2,22.178,69.91,27.03],0.0,1688.0,0,[]],["nodes:3","nodes",3,"europe-plus.atlas-nodes.0003.d84d679adce10156.js","d84d679adce101560384ca83c317bf01eb5464f3bd31a4b3c27802661ea78b31","sha256-2E1nmtzhAVYDhMqDwxe/AetUZPO9MaSzwngCZh6nizE=","722bba05672c33655647835d3656c768e2edbf517df9dd81bb416384b23959b6","gzip_base64",296587,18199,130,false,0,"aadr","point",["Norway"],[58.064,5.126940543,70.117388,19.017706],0.0,9486.0,0,[]],["nodes:4","nodes",4,"europe-plus.atlas-nodes.0004.34ed1a1c91a74890.js","34ed1a1c91a74890b6c6114a9b4bd1ee2765da5f53f7931deac737a9e9cc39f1","sha256-NO0aHJGnSJC2xhFKm0vR7idl2l9T95Md6sc3qenMOfE=","1391437b5051e0081d43ee66bb06d050b26e91b405b3f3e660aceafd2c668de0","gzip_base64",957983,45915,416,false,0,"aadr","point",["Sweden"],[55.37774,11.3007,63.2,18.7],274.0,10010.0,0,[]],["nodes:5","nodes",5,"europe-plus.atlas-nodes.0005.0ea6a6ded5a68389.js","0ea6a6ded5a68389cdd54521044626e802c5e3a09b6ac8f76dd02791c487927c","sha256-Dqam3tWmg4nN1UUhBEYm6ALF46Cbasj3bdAnkcSHknw=","0495a1226195bed5d6bf74dac0a89b9cff6aa2c699913318348b7b597186584f","gzip_base64",6756,2991,1,false,1,"animal-equus-caballus","point",["Denmark"],[56.41134,10.74481,56.41134,10.74481],4944.0,4961.0,0,[]],["nodes:6","nodes",6,"europe-plus.atlas-nodes.0006.7f2e5a64e8facb77.js","7f2e5a64e8facb7726deb44cf9df9df269bbfb2ec0a7b8b9197c700a4ccebdd6","sha256-fy5aZOj6y3cm3rRM+d+d8mm7+y7Ap7i5GXxwCkzOvdY=","ae3487ae7bde674f0275ce245963121e838dcd777fb2c79dc4238bd7d78dde7d","gzip_base64",6336,2867,1,false,1,"animal-equus-caballus","point",["Sweden"],[59.861,17.639,59.861,17.639],1217.0,1417.0,0,[]],["nodes:7","nodes",7,"europe-plus.atlas-nodes.0007.aaf7a4bb739e4655.js","aaf7a4bb739e46550ae765341e077afba68c32a75c787388b9e060a145ca28e8","sha256-qveku3OeRlUK52U0Hgd6+6aMMqdceHOIueBgoUXKKOg=","5b9b13cef1597b5963c2e4353de1ef4917a0946c63f5af2a37158739e7b1cf73","gzip_base64",15436,3999,2,false,2,"animal-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],null,null,2,[]],["nodes:8","nodes",8,"europe-plus.atlas-nodes.0008.8b37aee1300072ed.js","8b37aee1300072edcf63cc1aed3be9d6899386d61215aa781459138fff684c15","sha256-izeu4TAAcu3PY8wa7Tvp1omThtYSFap4FFkTj/9oTBU=","cf6cfab057b236291423742f9d3124b0d4765221a7e507af4059ba7529467f05","gzip_base64",47146,23431,1,false,3,"country-boundaries","polygon",["Denmark"],[54.56859,8.094005,57.751166,15.151378],null,null,1,[]],["nodes:9","nodes",9,"europe-plus.atlas-nodes.0009.1bd5fa489eb6ea94.js","1bd5fa489eb6ea9424818feca3df51f7af79fa08149157503e0cf03ff15a7df3","sha256-G9X6SJ626pQkgY/so99R9695+ggUkVdQPgzwP/FaffM=","acc38e1761aebba6663bc73ec8e487b80da1cb37e878c1d12d15b0b2dc9a7877","gzip_base64",70886,35303,1,false,3,"country-boundaries","polygon",["Finland"],[59.811225,20.623165,70.07531,31.569525],null,null,1,[]],["nodes:10","nodes",10,"europe-plus.atlas-nodes.0010.d708ddc6a9cde288.js","d708ddc6a9cde288f687d7ade895334133aaaf89a43e59c0e292b38676c018c4","sha256-1wjdxqnN4oj2h9et6JUzQTOqr4mkPlnA4pKzhnbAGMQ=","a1ff1a97bef86b8219d285361bb1420aafaf1b76878900aa27ecc6f0986d60e6","gzip_base64",341282,165768,1,false,3,"country-boundaries","polygon",["Norway"],[-54.462498,-9.117421,80.770087,33.640391],null,null,1,[]],["nodes:11","nodes",11,"europe-plus.atlas-nodes.0011.b85f24c84aec4c4d.js","b85f24c84aec4c4df5a932aa2cb33aefd67872d89d79b7baa3dc9dea37eebb53","sha256-uF8kyErsTE31qTKqLLM679Z4ctidebe6o9yd6jfuu1M=","f9e8d210775ccc5ef0f38ae8c07ef9b23a0293518ac6dc7bba85a5f1139c9adb","gzip_base64",102306,50008,1,false,3,"country-boundaries","polygon",["Sweden"],[55.342678,11.108165,69.036356,24.163414],null,null,1,[]],["edges:12","edges",12,"europe-plus.atlas-edges.0012.fe3b1fe1fcb5e905.js","fe3b1fe1fcb5e9055fdff05dccba81c5d0038cd5f21babd949dd2435312b7d73","sha256-/jsf4fy16QVf3/BdzLqBxdADjNXyG6vZSd0kNTErfXM=","5925bf16ff18f92a7848dd09ed1a4adf08f3d5878afd99619ab38fb98d0778a2","json",281,589,0,true,null,null,null,null,null,null,null,null,null],["sequences:13","sequences",13,"europe-plus.atlas-sequences.0013.6f447108e0e946e4.js","6f447108e0e946e4a37b772899756bb1b4ac1e59146dd1ad3555cf902fcdef32","sha256-b0RxCODpRuSje3comXVrsbSsHlkUbdGtNVXPkC/N7zI=","e0c72308666426f74536f768244866642ca0fe3e0e0c37a4935d1363e3088997","json",296,608,0,true,null,null,null,null,null,null,null,null,null],["indexes:14","indexes",14,"europe-plus.atlas-indexes.0014.10629763b7697a26.js","10629763b7697a26b05dcfa4927b406792bf1649f81e607be246c65e7b3805b7","sha256-EGKXY7dpeiawXc+kkntAZ5K/Fkn4HmB74kbGXns4Bbc=","1de64564f7187482d93fa80bf11df13b27c8aafdced0b3f1de4fcdb832394957","json",18036,18456,1235,true,null,null,null,null,null,null,null,null,null]]}}</script>
+    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"europe-plus","version":"v66","build_id":"atlas-5369adb891748e29ba3f4189e13ae87e38b42317aa585173896987ee52b66ee7","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3"},"budgets":{"bootstrap_max_bytes":65536,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1239},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":4,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1235}},"assets":{"schema_version":"atlas-static-asset-table.v2","scope_slug":"europe-plus","fields":["domain","sha256","payload_sha256","decoded_byte_count","byte_count","record_count","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","scientific_signal_ids"],"record_count":15,"records":[["provenance","1f0b1fccca81c7eee484459d262e3cd4299299e23848f1e49e8ceabcd8dbeb3e","35fd420bef1e823672816fd4decdac1328e10025d7684141839cf8fe600d0cde",4794,2196,4,null,null,null,null,null,null,null,null,null],["nodes","2906b46784d74821a7e05309ebde577f52545fcd605a6e029732210c9a3b2eee","310f641d348cbaa16c22127d00765091cce079e86720be73c594eaebd542cdca",1490382,80283,653,0,"aadr","point",["Denmark"],[54.623,8.728229,57.5065361,14.99854],73.0,10520.0,4,[]],["nodes","81e39c78ae8c128e0745d9c1d2287fc2e2dfe39275c5242c15aed68d8503cc3e","c19d385698a8d1bc9bff3b069ed95e494b659a419038389705fbab33c507d4c4",68081,3855,32,0,"aadr","point",["Finland"],[60.2,22.178,69.91,27.03],0.0,1688.0,0,[]],["nodes","24636824c6043f9ce18cd753b8c1e0d277704e9e59b4b2bce5316958006318d8","5113b9276c01145e129463029054af32d9329e5b9241ec8a674c775b6ecbf04c",296587,18191,130,0,"aadr","point",["Norway"],[58.064,5.126940543,70.117388,19.017706],0.0,9486.0,0,[]],["nodes","33a795d7454388ae7c93883e1eccb5f6b1812936b63c036102deb79dcea75fe0","dee4d223d723ffd37ebcd6a466daf9c1d6ff48072f8fd1b9c1fc7d2a9c5ee5ce",957983,45911,416,0,"aadr","point",["Sweden"],[55.37774,11.3007,63.2,18.7],274.0,10010.0,0,[]],["nodes","7f07b3d53d99cfe12861c890f2f9f74949cfdef5803bf59b94e3b4c69a3a18ce","dd778979445533e42829d519dca2d5e70e27a46e47c73c93a53b14a9cee047eb",7090,3107,1,1,"animal-equus-caballus","point",["Denmark"],[56.41134,10.74481,56.41134,10.74481],4944.0,4961.0,0,[]],["nodes","1dbaba2c2f05d788cbc0d21bbb841a96bf3fcbef4fd0f9e9a2a997b03a0115c3","de321e91023078d7be68e6b72ad3994ea4a8cf149c1f5d05def1f7924a294448",6673,2987,1,1,"animal-equus-caballus","point",["Sweden"],[59.861,17.639,59.861,17.639],1217.0,1417.0,0,[]],["nodes","e60351b7904fd162b110489664bb4b57046e25ccd765809fd636684da6e87cee","b297521b68fb280f4b8bcf303f981d2341fbdb97762549870d41dd0eb2467be5",16724,4271,2,2,"animal-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],null,null,2,[]],["nodes","635a35f9b4f841574d5168e66b86c5dec788e8afb54fc7dc0db3b4914bf8747b","f22b95fecfadacbd53f2626e29a6ef879faff8f49580425dabf72e1f00dcce77",47146,23427,1,3,"country-boundaries","polygon",["Denmark"],[54.56859,8.094005,57.751166,15.151378],null,null,1,[]],["nodes","c87e835666d51819bde53bb658b5d5bd6c80cac2ecded5af6d0279cd78481eae","115f68e33ba559d428406b633b406154fa88b54d06c42270fac863194bce62c3",70886,35303,1,3,"country-boundaries","polygon",["Finland"],[59.811225,20.623165,70.07531,31.569525],null,null,1,[]],["nodes","6dcfc5ffc4280a95543b27317867bf5de928e248a7aa43303d819598fe004aef","4051b84f17e3006e938de5a9e627491fc6506b722b84ac302665d34ec187596e",341282,165764,1,3,"country-boundaries","polygon",["Norway"],[-54.462498,-9.117421,80.770087,33.640391],null,null,1,[]],["nodes","927c45ba6d08b580579697527f692238b29410b85e1494d9f732260b13e0aae1","1fe1263c82e60527cbc6a900893c8ed0a41cb5941cef5fde14064f1fef6fe793",102306,50000,1,3,"country-boundaries","polygon",["Sweden"],[55.342678,11.108165,69.036356,24.163414],null,null,1,[]],["edges","53b45e30f751cdac59a929b68dffe79e5161d4411ce043d77b9aaf2b40a22feb","860413cf29da422601a5c2c0a740aebd8d0e1697fca7b580eee68f142249a5c3",281,589,0,null,null,null,null,null,null,null,null,null],["sequences","85ccaf48000b78b09cc23130ef6e9ff64e04f98d249fc0a0e5970523d2cd3539","7872110327a6cc9245f86154fc2e2b7e7fd6a9e918a5ae8874cb9edc3fb4856e",296,608,0,null,null,null,null,null,null,null,null,null],["indexes","98e1ec362a48bbbc5ce400d3dbb6cbc3fc1250094c7954eecacbd70785ad54bc","6cd1dd42414f87a793db8cf8a6fb88387cccf566c3b328e2fe5ca66b514807c0",18036,18456,1235,null,null,null,null,null,null,null,null,null]]}}</script>
     <script src="./_map_assets/leaflet/leaflet.js"></script>
     <script src="./_map_assets/markercluster/leaflet.markercluster.js"></script>
 
@@ -1922,6 +1927,12 @@
         'record_count', 'initial_load', 'layer_index', 'layer_key', 'layer_kind',
         'country_keys', 'bounds', 'time_min_bp', 'time_max_bp',
         'untimed_record_count', 'scientific_signal_ids',
+      ]);
+      const STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS = Object.freeze([
+        'domain', 'sha256', 'payload_sha256', 'decoded_byte_count', 'byte_count',
+        'record_count', 'layer_index', 'layer_key', 'layer_kind', 'country_keys',
+        'bounds', 'time_min_bp', 'time_max_bp', 'untimed_record_count',
+        'scientific_signal_ids',
       ]);
       const STATIC_ATLAS_ASSET_CORE_FIELD_COUNT = 12;
       const STATIC_ATLAS_BOOTSTRAP = normalizeStaticAtlasBootstrap(JSON.parse(document.getElementById('atlas-static-bootstrap').textContent || '{}'));
@@ -1955,20 +1966,48 @@
         if (!Number.isFinite(numeric) || numeric < minimum || numeric > maximum) staticAtlasFailure(`${label} is invalid`);
         return numeric;
       }
+      function staticAtlasIntegrityFromHex(digest) {
+        if (!/^[a-f0-9]{64}$/.test(String(digest || '')) || typeof btoa !== 'function') staticAtlasFailure('asset table digest is invalid');
+        const bytes = String(digest).match(/.{2}/g).map((pair) => String.fromCharCode(Number.parseInt(pair, 16))).join('');
+        return `sha256-${btoa(bytes)}`;
+      }
       function normalizeStaticAtlasBootstrap(bootstrap) {
         if (!bootstrap || typeof bootstrap !== 'object' || bootstrap.schema_version !== 'atlas-static-bootstrap.v2') return bootstrap;
         const table = bootstrap.assets;
-        const expectedTableKeys = ['fields', 'record_count', 'records', 'schema_version'];
+        const compact = table?.schema_version === 'atlas-static-asset-table.v2';
+        const expectedTableKeys = compact
+          ? ['fields', 'record_count', 'records', 'schema_version', 'scope_slug']
+          : ['fields', 'record_count', 'records', 'schema_version'];
         if (!table || typeof table !== 'object' || Object.keys(table).sort().join('|') !== expectedTableKeys.join('|')) staticAtlasFailure('asset table shape is invalid');
-        if (table.schema_version !== 'atlas-static-asset-table.v1' || !Array.isArray(table.fields) || table.fields.length !== STATIC_ATLAS_ASSET_TABLE_FIELDS.length) staticAtlasFailure('asset table schema is invalid');
-        if (table.fields.some((field, index) => field !== STATIC_ATLAS_ASSET_TABLE_FIELDS[index]) || new Set(table.fields).size !== table.fields.length) staticAtlasFailure('asset table fields are invalid');
+        if (!['atlas-static-asset-table.v1', 'atlas-static-asset-table.v2'].includes(table.schema_version)) staticAtlasFailure('asset table schema is invalid');
+        const storedFields = compact ? STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS : STATIC_ATLAS_ASSET_TABLE_FIELDS;
+        if (!Array.isArray(table.fields) || table.fields.length !== storedFields.length || table.fields.some((field, index) => field !== storedFields[index]) || new Set(table.fields).size !== table.fields.length) staticAtlasFailure('asset table fields are invalid');
+        if (compact && (typeof table.scope_slug !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(table.scope_slug))) staticAtlasFailure('asset table scope is invalid');
         if (!Number.isSafeInteger(table.record_count) || table.record_count < 0 || !Array.isArray(table.records) || table.records.length !== table.record_count) staticAtlasFailure('asset table record count is invalid');
         const assetKeys = new Set();
         const paths = new Set();
         const sequences = new Set();
         const assets = table.records.map((record, recordIndex) => {
-          if (!Array.isArray(record) || record.length !== STATIC_ATLAS_ASSET_TABLE_FIELDS.length) staticAtlasFailure(`asset table row ${recordIndex} width is invalid`);
-          const row = Object.fromEntries(STATIC_ATLAS_ASSET_TABLE_FIELDS.map((field, index) => [field, record[index]]));
+          if (!Array.isArray(record) || record.length !== storedFields.length) staticAtlasFailure(`asset table row ${recordIndex} width is invalid`);
+          const stored = Object.fromEntries(storedFields.map((field, index) => [field, record[index]]));
+          const domain = stored.domain;
+          const row = compact
+            ? {
+                asset_key: `${domain}:${recordIndex}`,
+                domain,
+                sequence: recordIndex,
+                path: `${table.scope_slug}.atlas-${domain}.${String(recordIndex).padStart(4, '0')}.${String(stored.sha256 || '').slice(0, 16)}.js`,
+                sha256: stored.sha256,
+                integrity: staticAtlasIntegrityFromHex(stored.sha256),
+                payload_sha256: stored.payload_sha256,
+                payload_encoding: ['provenance', 'nodes', 'details'].includes(domain) ? 'gzip_base64' : 'json',
+                decoded_byte_count: stored.decoded_byte_count,
+                byte_count: stored.byte_count,
+                record_count: stored.record_count,
+                initial_load: !['nodes', 'details', 'indexes'].includes(domain),
+                ...Object.fromEntries(STATIC_ATLAS_ASSET_TABLE_FIELDS.slice(STATIC_ATLAS_ASSET_CORE_FIELD_COUNT).map((field) => [field, stored[field]])),
+              }
+            : stored;
           if (STATIC_ATLAS_ASSET_TABLE_FIELDS.slice(0, STATIC_ATLAS_ASSET_CORE_FIELD_COUNT).some((field) => row[field] === null || row[field] === undefined)) staticAtlasFailure(`asset table row ${recordIndex} core field is missing`);
           if (typeof row.asset_key !== 'string' || !row.asset_key || typeof row.domain !== 'string' || !row.domain || typeof row.path !== 'string' || !row.path) staticAtlasFailure(`asset table row ${recordIndex} identity is invalid`);
           if (!['provenance', 'nodes', 'details', 'edges', 'sequences', 'indexes'].includes(row.domain)) staticAtlasFailure(`asset table row ${recordIndex} domain is invalid`);
@@ -2317,7 +2356,7 @@
         for (const row of STATIC_ATLAS_BOOTSTRAP.assets.filter((candidate) => candidate.initial_load === true)) {
           await loadStaticAtlasAsset(row);
         }
-        if (!STATIC_ATLAS_CHUNKS.provenance || !STATIC_ATLAS_CHUNKS.indexes || !STATIC_ATLAS_CHUNKS.edges || !STATIC_ATLAS_CHUNKS.sequences) staticAtlasFailure('required metadata domains are incomplete');
+        if (!STATIC_ATLAS_CHUNKS.provenance || !STATIC_ATLAS_CHUNKS.edges || !STATIC_ATLAS_CHUNKS.sequences) staticAtlasFailure('required startup metadata domains are incomplete');
         for (const domain of ['edges', 'sequences']) {
           const payload = STATIC_ATLAS_CHUNKS[domain];
           if (!['available', 'unavailable'].includes(payload.status) || !Array.isArray(payload.records)) staticAtlasFailure(`${domain} availability declaration is invalid`);
@@ -2326,7 +2365,6 @@
         }
         if (!Array.isArray(STATIC_ATLAS_CHUNKS.provenance.scientific_signals)) staticAtlasFailure('evidence metadata domains are incomplete');
         if (STATIC_ATLAS_CHUNKS.provenance.schema_version === 'atlas-provenance-chunk.v2' && !Array.isArray(STATIC_ATLAS_CHUNKS.provenance.detail_records)) staticAtlasFailure('legacy detail metadata is incomplete');
-        if (STATIC_ATLAS_CHUNKS.provenance.schema_version === 'atlas-provenance-chunk.v3' && (!STATIC_ATLAS_CHUNKS.indexes.detail_record_asset_keys || typeof STATIC_ATLAS_CHUNKS.indexes.detail_record_asset_keys !== 'object')) staticAtlasFailure('lazy detail index is incomplete');
       }
       function hydrateStaticAtlasLayers(layerKind) {
         const partsByLayer = new Map();
@@ -2450,6 +2488,7 @@
       const mobilePanelCloseButton = document.getElementById('mobile-panel-close');
       const mobileScrim = document.getElementById('mobile-scrim');
       const mobileLayoutQuery = window.matchMedia('(max-width: 900px)');
+      const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
       const panelToggleButton = document.getElementById('panel-toggle');
       const helpToggleButton = document.getElementById('help-toggle');
       const helpDialog = document.getElementById('help-dialog');
@@ -2498,7 +2537,9 @@
       const sourceChronologyTaxonFields = document.getElementById('source-chronology-taxon-fields');
       const sourceChronologyTaxonQuery = document.getElementById('source-chronology-taxon-query');
       const sourceChronologyTaxon = document.getElementById('source-chronology-taxon');
+      const sourceRecordConcentrationToggle = document.getElementById('source-record-concentration-toggle');
       const sourceChronologyState = document.getElementById('source-chronology-state');
+      const sourceChronologyGlobalDenominator = document.getElementById('source-chronology-global-denominator');
       const modeledContextControls = document.getElementById('modeled-context-controls');
       const modeledContextSummary = document.getElementById('modeled-context-summary');
       const modeledContextFamily = document.getElementById('modeled-context-family');
@@ -2554,6 +2595,7 @@
           sourceChronologyLevel: params.get('source_chronology_level'),
           sourceChronologyCode: params.get('source_ecological_code'),
           sourceChronologyTaxon: params.get('source_taxon'),
+          sourceRecordConcentration: params.get('source_record_concentration'),
           density: params.get('density'),
           basemap: params.get('basemap'),
           panel: params.get('panel'),
@@ -2636,12 +2678,36 @@
         const start = clampTimeStart(currentStart, intervalYears);
         return Math.max(TIME_MIN_BP, start - clampTimeInterval(intervalYears));
       }
+      const MAX_AUTOMATIC_PLAYBACK_FRAMES = 1000;
+      function automaticPlaybackFrameCount(intervalYears) {
+        if (!TIME_HAS_DATA) return 0;
+        const interval = clampTimeInterval(intervalYears);
+        if (interval >= TIME_INTERVAL_MAX) return 1;
+        return Math.ceil((TIME_MAX_BP - TIME_MIN_BP) / interval);
+      }
+      function automaticTimePlaybackBlockReason() {
+        if (reducedMotionQuery.matches) return 'Reduced motion is active; use the BP controls for manual navigation.';
+        const frameCount = automaticPlaybackFrameCount(timeIntervalYears);
+        if (frameCount > MAX_AUTOMATIC_PLAYBACK_FRAMES) {
+          return `${frameCount} exact frames exceed the ${MAX_AUTOMATIC_PLAYBACK_FRAMES}-frame automatic limit; use manual BP navigation.`;
+        }
+        return '';
+      }
+      function refreshTimePlaybackControl() {
+        const blockReason = automaticTimePlaybackBlockReason();
+        const automaticAvailable = TIME_HAS_DATA && timeIntervalYears < TIME_INTERVAL_MAX && !blockReason;
+        timePlaybackToggle.disabled = !automaticAvailable;
+        timePlaybackToggle.title = blockReason;
+        if (timePlaybackTimer === null) {
+          timePlaybackToggle.setAttribute('aria-pressed', 'false');
+          timePlaybackToggle.textContent = blockReason ? 'Manual BP navigation only' : 'Play oldest → present';
+        }
+      }
       let timePlaybackTimer = null;
       function stopTimePlayback() {
         if (timePlaybackTimer !== null) window.clearTimeout(timePlaybackTimer);
         timePlaybackTimer = null;
-        timePlaybackToggle.setAttribute('aria-pressed', 'false');
-        timePlaybackToggle.textContent = 'Play oldest → present';
+        refreshTimePlaybackControl();
       }
       async function advanceTimePlayback() {
         if (timePlaybackTimer === null) return;
@@ -2659,7 +2725,10 @@
         }
       }
       async function startTimePlayback() {
-        if (!TIME_HAS_DATA || timeIntervalYears >= TIME_INTERVAL_MAX) return;
+        if (!TIME_HAS_DATA || timeIntervalYears >= TIME_INTERVAL_MAX || automaticTimePlaybackBlockReason()) {
+          stopTimePlayback();
+          return;
+        }
         deactivateModeledContext();
         timeStartBp = oldestPlaybackStart(timeIntervalYears);
         timePlaybackToggle.setAttribute('aria-pressed', 'true');
@@ -2692,7 +2761,7 @@
         dockTimeSummary.textContent = `[${timeStartBp}, ${endBp}] BP`;
         timeStartValue.textContent = `[${timeStartBp}, ${endBp}] BP`;
         timeIntervalValue.textContent = `${timeIntervalYears} years`;
-        timePlaybackToggle.disabled = timeIntervalYears >= TIME_INTERVAL_MAX;
+        refreshTimePlaybackControl();
       }
       const initialState = parseHashState();
       const MODELED_CONTEXT_WINDOWS = Object.freeze([...(MODELED_CONTEXT.windows_oldest_to_present || [])]);
@@ -2801,7 +2870,10 @@
         }
       }
       async function startModeledContextPlayback() {
-        if (!modeledContextAvailable()) return;
+        if (!modeledContextAvailable() || reducedMotionQuery.matches) {
+          stopModeledContextPlayback();
+          return;
+        }
         stopTimePlayback();
         modeledContextPlaybackTimer = -1;
         modeledContextPlayback.setAttribute('aria-pressed', 'true');
@@ -2890,13 +2962,19 @@
         modeledContextWindow.innerHTML = MODELED_CONTEXT_WINDOWS.map((sourceWindow, index) => `<option value="${index}" ${index === modeledContextWindowIndex ? 'selected' : ''}>${escapeHtml(sourceWindow.label)} · ${sourceWindow.feature_count} cells</option>`).join('');
         modeledContextToggle.setAttribute('aria-pressed', String(modeledContextActive));
         modeledContextToggle.textContent = modeledContextActive ? 'Hide modeled metric' : 'Show modeled metric';
-        modeledContextPlayback.disabled = !modeledContextActive;
+        modeledContextPlayback.disabled = !modeledContextActive || reducedMotionQuery.matches;
+        modeledContextPlayback.title = reducedMotionQuery.matches
+          ? 'Reduced motion is active; select published source windows manually.'
+          : '';
         modeledContextDownload.disabled = !modeledContextActive || modeledContextFrameFeatures().length === 0;
         const sourceWindow = currentModeledContextWindow();
         modeledContextSummary.textContent = modeledContextActive && sourceWindow ? `${metric.key} · ${sourceWindow.label}` : `PANGAEA 937075 · ${metric.key}`;
-        modeledContextState.textContent = modeledContextActive && sourceWindow
+        const modeledContextStateText = modeledContextActive && sourceWindow
           ? `${modeledContextFrameFeatures().length} visible cells · ${metric.source_label} (${metric.key}) percentage cover with source standard error · ${MODELED_CONTEXT.metric_count} source metrics reconciled · context only · no interpolation or propagation`
           : 'Context mode is off. Select Show modeled metric to inspect exact published windows.';
+        modeledContextState.textContent = reducedMotionQuery.matches
+          ? `${modeledContextStateText} Automatic source-window playback is disabled by the reduced-motion preference; manual window selection and frame download remain available.`
+          : modeledContextStateText;
         modeledContextLegend.hidden = !modeledContextActive;
         modeledContextLegend.innerHTML = modeledContextActive && sourceWindow
           ? `<div class="legend-group-label">${escapeHtml(sourceWindow.label)} · ${escapeHtml(metric.source_label)} (${escapeHtml(metric.key)}) · ${escapeHtml(MODELED_CONTEXT.value_unit)}</div>${(MODELED_CONTEXT.palette || []).map((entry) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(entry.color)};border-color:#334155;"></span><span>${escapeHtml(entry.label)}</span></div>`).join('')}`
@@ -2955,6 +3033,9 @@
       function sourceChronologyLayerForLevel(level) {
         return sourceChronologyLayers().find((layer) => layer.node_level === level) || null;
       }
+      function sourceChronologyTaxonIdentifierIsValid(value) {
+        return (typeof value === 'string' && Boolean(value.trim())) || (Number.isSafeInteger(value) && value >= 0);
+      }
       function sourceChronologyFacetForSelection(layer, code, taxon) {
         if (!layer) return null;
         const facets = layer.facet_metadata;
@@ -2979,11 +3060,116 @@
         }
         if (layer.node_level === 'source_taxon') {
           if (typeof feature.source_reported_name !== 'string' || !feature.source_reported_name.trim()) return false;
-          if (typeof feature.source_taxon_id !== 'string' || !feature.source_taxon_id.trim()) return false;
+          if (!sourceChronologyTaxonIdentifierIsValid(feature.source_taxon_id)) return false;
           if (feature.source_ecological_code !== null) return false;
           return taxon === 'all' || feature.feature_key === taxon;
         }
         return feature.source_ecological_code === null && feature.source_taxon_id === null && feature.source_reported_name === null;
+      }
+      function sourceRecordConcentrationFailure(message) {
+        throw new Error(`Captured source-record concentration unavailable: ${message}`);
+      }
+      function sourceRecordConcentrationCompareText(left, right) {
+        const leftText = String(left);
+        const rightText = String(right);
+        if (leftText === rightText) return 0;
+        return leftText < rightText ? -1 : 1;
+      }
+      function sourceRecordConcentrationSelection(layer) {
+        if (!layer || !sourceChronologyLayerIsValid(layer)) return null;
+        const activeSourceLayers = sourceChronologyLayers().filter((candidate) => activeLayerKeys.has(candidate.key));
+        if (activeSourceLayers.length !== 1 || activeSourceLayers[0].key !== layer.key) return null;
+        if (layer.node_level === 'source_ecological_code' && activeSourceChronologyCode === 'all') return null;
+        if (layer.node_level === 'source_taxon' && activeSourceChronologyTaxon === 'all') return null;
+        const facet = sourceChronologyFacetForSelection(layer, activeSourceChronologyCode, activeSourceChronologyTaxon);
+        if (!facet || sourceChronologyCount(facet.node_count) === null || sourceChronologyCount(facet.observation_denominator) === null) return null;
+        return facet;
+      }
+      function sourceRecordConcentrationFacetLabel(layer) {
+        if (!layer) return 'unavailable facet';
+        if (layer.node_level === 'source_ecological_code') return `literal source code ${activeSourceChronologyCode}`;
+        if (layer.node_level === 'source_taxon') {
+          const row = layer.facet_metadata.source_taxa.find((candidate) => candidate.value === activeSourceChronologyTaxon);
+          return row ? `exact source label ${row.label} (${row.source_taxon_id})` : 'unavailable exact source label';
+        }
+        return 'source sample pollen presence';
+      }
+      function sourceRecordConcentrationRadius(nodeCount) {
+        const count = sourceChronologyCount(nodeCount);
+        if (count === null || count < 1) sourceRecordConcentrationFailure('site node count is invalid');
+        if (count === 1) return 7;
+        if (count <= 4) return 10;
+        if (count <= 9) return 13;
+        if (count <= 24) return 16;
+        return 19;
+      }
+      function buildSourceRecordConcentration(layer, features, viewportBounds) {
+        const globalFacet = sourceRecordConcentrationSelection(layer);
+        if (!globalFacet) sourceRecordConcentrationFailure('select exactly one active source level and one exact facet');
+        if (!Array.isArray(features)) sourceRecordConcentrationFailure('admitted feature collection is invalid');
+        const seenNodeIds = new Set();
+        const siteCoordinates = new Map();
+        const selectedFeatures = [];
+        [...features]
+          .sort((left, right) => sourceRecordConcentrationCompareText(left?.node_id || '', right?.node_id || ''))
+          .forEach((feature) => {
+            if (!sourceChronologyFeatureMatches(layer, feature, 'all', 'all')) sourceRecordConcentrationFailure('a loaded source node violates the active-level contract');
+            const nodeId = typeof feature.node_id === 'string' ? feature.node_id.trim() : '';
+            const siteId = typeof feature.record_id === 'string' ? feature.record_id.trim() : '';
+            const observationCount = sourceChronologyCount(feature.observation_denominator);
+            const coordinates = featureCoordinatePair(feature);
+            if (!nodeId || !siteId) sourceRecordConcentrationFailure('node or site identity is missing');
+            if (seenNodeIds.has(nodeId)) sourceRecordConcentrationFailure(`duplicate node identity ${nodeId}`);
+            if (observationCount === null || observationCount < 1) sourceRecordConcentrationFailure(`node ${nodeId} has an invalid contributing-observation count`);
+            if (!coordinates || !featureTimeWindow(feature)) sourceRecordConcentrationFailure(`node ${nodeId} has invalid spatial or BP admission`);
+            seenNodeIds.add(nodeId);
+            const existingCoordinates = siteCoordinates.get(siteId);
+            if (existingCoordinates && (existingCoordinates.latitude !== coordinates.latitude || existingCoordinates.longitude !== coordinates.longitude)) {
+              sourceRecordConcentrationFailure(`site ${siteId} has conflicting coordinates`);
+            }
+            siteCoordinates.set(siteId, coordinates);
+            if (sourceChronologyFeatureMatches(layer, feature)) selectedFeatures.push(feature);
+          });
+        const sites = new Map();
+        selectedFeatures.forEach((feature) => {
+          if (!pointFeatureVisible(layer, feature)) return;
+          const coordinates = featureCoordinatePair(feature);
+          if (!coordinates) sourceRecordConcentrationFailure(`node ${feature.node_id} lost admitted coordinates`);
+          if (viewportBounds && !viewportBounds.contains([coordinates.latitude, coordinates.longitude])) return;
+          const siteId = feature.record_id;
+          const existing = sites.get(siteId) || {
+            site_id: siteId,
+            latitude: coordinates.latitude,
+            longitude: coordinates.longitude,
+            country: feature.country || '',
+            node_count: 0,
+            observation_denominator: 0,
+            node_ids: [],
+            feature,
+          };
+          if (existing.country !== (feature.country || '')) sourceRecordConcentrationFailure(`site ${siteId} has conflicting country identity`);
+          existing.node_count += 1;
+          existing.observation_denominator += feature.observation_denominator;
+          existing.node_ids.push(feature.node_id);
+          sites.set(siteId, existing);
+        });
+        const entries = [...sites.values()]
+          .map((entry) => ({ ...entry, node_ids: [...entry.node_ids].sort(sourceRecordConcentrationCompareText) }))
+          .sort((left, right) => sourceRecordConcentrationCompareText(left.site_id, right.site_id));
+        const visibleNodeCount = entries.reduce((total, entry) => total + entry.node_count, 0);
+        const visibleObservationDenominator = entries.reduce((total, entry) => total + entry.observation_denominator, 0);
+        if (visibleNodeCount > globalFacet.node_count || visibleObservationDenominator > globalFacet.observation_denominator) {
+          sourceRecordConcentrationFailure('visible counts exceed the global pre-filter denominator');
+        }
+        return {
+          status: 'available',
+          entries,
+          site_count: entries.length,
+          visible_node_count: visibleNodeCount,
+          visible_observation_denominator: visibleObservationDenominator,
+          global_node_count: globalFacet.node_count,
+          global_observation_denominator: globalFacet.observation_denominator,
+        };
       }
       let activeCountries = normalizedSetFromList(initialState.countries, COUNTRIES, DEFAULT_COUNTRIES);
       let activeLayerKeys = normalizedSetFromList(initialState.layers, ALL_LAYERS.map((layer) => layer.key), DEFAULT_LAYER_KEYS);
@@ -3014,6 +3200,8 @@
         );
       }
       let sourceChronologyTaxonSearch = '';
+      let sourceRecordConcentrationActive = initialState.sourceRecordConcentration === 'captured';
+      let sourceRecordConcentrationSnapshot = null;
       if (initialState.sourceChronologyLevel && initialSourceChronologyLayer && initialState.layers === null) {
         sourceChronologyLayers().forEach((layer) => activeLayerKeys.delete(layer.key));
         activeLayerKeys.add(initialSourceChronologyLayer.key);
@@ -3025,6 +3213,9 @@
       if (initiallyActiveSourceChronologyLayers.length > 1) {
         sourceChronologyLayers().forEach((layer) => activeLayerKeys.delete(layer.key));
         if (initialSourceChronologyLayer) activeLayerKeys.add(initialSourceChronologyLayer.key);
+      }
+      if (sourceRecordConcentrationActive && !sourceRecordConcentrationSelection(sourceChronologyLayerForLevel(activeSourceChronologyLevel))) {
+        sourceRecordConcentrationActive = false;
       }
       let activeScientificSignalIds = normalizedSetFromList(
         initialState.scientificSignals,
@@ -3359,6 +3550,7 @@
           if (activeSourceChronologyLevel !== defaultSourceChronologyLevel) params.set('source_chronology_level', activeSourceChronologyLevel);
           if (activeSourceChronologyCode !== 'all') params.set('source_ecological_code', activeSourceChronologyCode);
           if (activeSourceChronologyTaxon !== 'all') params.set('source_taxon', activeSourceChronologyTaxon);
+          if (sourceRecordConcentrationActive) params.set('source_record_concentration', 'captured');
         }
         if (Number(slider.value) !== 30) params.set('diameter', String(Number(slider.value)));
         const modeledWindow = currentModeledContextWindow();
@@ -3426,6 +3618,20 @@
       function unavailableDetailTabs(reasonCode) {
         return Object.fromEntries(DETAIL_TAB_DEFINITIONS.map(([key]) => [key, { status: 'unavailable', reason_code: reasonCode }]));
       }
+      async function ensureStaticAtlasIndexesLoaded() {
+        if (STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.indexes) return true;
+        const candidates = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.domain === 'indexes');
+        if (candidates.length !== 1) return false;
+        const row = candidates[0];
+        const interactionBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget');
+        if (staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`) > interactionBudget) return false;
+        try {
+          await loadStaticAtlasAsset(row);
+        } catch (error) {
+          return false;
+        }
+        return Boolean(STATIC_ATLAS_CHUNKS.indexes && typeof STATIC_ATLAS_CHUNKS.indexes.detail_record_asset_keys === 'object');
+      }
       async function detailTabsForRecordId(recordId) {
         if (!recordId) return unavailableDetailTabs('feature_record_id_not_available');
         const stored = DETAIL_RECORDS.get(recordId);
@@ -3433,6 +3639,7 @@
         if (STATIC_ATLAS_INLINE || ATLAS_EVIDENCE.details_status !== 'available') {
           return unavailableDetailTabs(ATLAS_EVIDENCE.details_reason_code || 'record_level_evidence_not_available');
         }
+        if (!(await ensureStaticAtlasIndexesLoaded())) return unavailableDetailTabs('detail_index_load_failed');
         const assetKey = STATIC_ATLAS_CHUNKS.indexes.detail_record_asset_keys?.[recordId];
         if (!assetKey) return unavailableDetailTabs('detail_record_not_indexed');
         const candidates = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.asset_key === assetKey && row.domain === 'details');
@@ -3706,9 +3913,9 @@
               ? POINT_LAYERS
                   .filter((layer) => activeLayerKeys.has(layer.key))
                   .reduce((count, layer) => count + layer.features.filter((feature) => pointFeatureVisible(layer, feature) && feature.country === country).length, 0)
-              : Object.entries(STATIC_ATLAS_CHUNKS.indexes.country_feature_indexes[country] || {})
-                  .filter(([layerKey]) => activeLayerKeys.has(layerKey))
-                  .reduce((count, [, featureIndexes]) => count + featureIndexes.length, 0),
+              : STATIC_ATLAS_BOOTSTRAP.assets
+                  .filter((row) => row.domain === 'nodes' && activeLayerKeys.has(row.layer_key) && Array.isArray(row.country_keys) && row.country_keys.includes(country))
+                  .reduce((count, row) => count + staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key} record count`), 0),
           ])
         );
         countryFilters.innerHTML = COUNTRIES.map((country) => {
@@ -3765,6 +3972,7 @@
       function selectSourceChronologyLevel(level) {
         const layer = sourceChronologyLayerForLevel(level);
         if (!layer) return false;
+        if (activeSourceChronologyLevel !== layer.node_level) sourceRecordConcentrationActive = false;
         activeSourceChronologyLevel = layer.node_level;
         sourceChronologyLayers().forEach((candidate) => activeLayerKeys.delete(candidate.key));
         activeLayerKeys.add(layer.key);
@@ -3777,6 +3985,7 @@
           return selectSourceChronologyLevel(layer.node_level);
         }
         if (enabled) activeLayerKeys.add(layer.key); else activeLayerKeys.delete(layer.key);
+        if (!enabled && layer.semantic_role === 'source_chronology_context') sourceRecordConcentrationActive = false;
         return true;
       }
       function renderSourceChronologyControls() {
@@ -3784,8 +3993,10 @@
         const selectedLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
         sourceChronologyControls.hidden = layers.length === 0;
         if (!layers.length || !selectedLayer) {
+          sourceRecordConcentrationToggle.disabled = true;
           sourceChronologySummary.textContent = 'Source facets unavailable';
           sourceChronologyState.textContent = 'Source chronology controls remain unavailable because governed facet metadata is absent or invalid.';
+          sourceChronologyGlobalDenominator.textContent = 'Global pre-filter denominator unavailable.';
           return;
         }
         sourceChronologyLevel.innerHTML = layers.map((layer) => `<option value="${escapeHtml(layer.node_level)}" ${layer.node_level === activeSourceChronologyLevel ? 'selected' : ''}>${escapeHtml(SOURCE_CHRONOLOGY_LEVEL_LABELS[layer.node_level])}</option>`).join('');
@@ -3807,13 +4018,33 @@
         sourceChronologyTaxon.innerHTML = `<option value="all">All source-reported labels · ${taxonRows.length} facets</option>` + visibleTaxa.map((row) => `<option value="${escapeHtml(row.value)}" ${row.value === activeSourceChronologyTaxon ? 'selected' : ''}>${escapeHtml(row.label)} · source taxon ${escapeHtml(row.source_taxon_id)} · ${row.node_count} nodes · ${row.observation_denominator} observations</option>`).join('');
         const selectedFacet = sourceChronologyFacetForSelection(selectedLayer, activeSourceChronologyCode, activeSourceChronologyTaxon);
         if (!selectedFacet) {
+          sourceRecordConcentrationToggle.disabled = true;
           sourceChronologySummary.textContent = 'Source facet unavailable';
           sourceChronologyState.textContent = 'The selected source facet is absent from governed metadata; no source chronology records are shown.';
+          sourceChronologyGlobalDenominator.textContent = 'Global pre-filter denominator unavailable.';
           return;
         }
         const unitCount = selectedLayer.facet_metadata.source_unit_counts.length;
         sourceChronologySummary.textContent = `${selectedFacet.node_count} nodes · ${selectedFacet.observation_denominator} observations`;
-        sourceChronologyState.textContent = `${selectedFacet.node_count} source nodes · ${selectedFacet.observation_denominator} contributing observations · ${unitCount} literal source units · denominator before country and BP-window filters · chronology context only`;
+        const concentrationEligible = sourceRecordConcentrationSelection(selectedLayer) !== null;
+        sourceRecordConcentrationToggle.disabled = !concentrationEligible;
+        sourceRecordConcentrationToggle.setAttribute('aria-pressed', String(sourceRecordConcentrationActive));
+        sourceRecordConcentrationToggle.textContent = sourceRecordConcentrationActive
+          ? 'Hide captured source-record concentration'
+          : 'Show captured source-record concentration';
+        sourceRecordConcentrationToggle.title = concentrationEligible
+          ? 'Group admitted records at identical source sites without interpolation or value weighting.'
+          : 'Choose exactly one active source level and, for code or taxon views, one exact source facet.';
+        sourceChronologyGlobalDenominator.textContent = `Global pre-filter denominator: ${selectedFacet.node_count} source nodes and ${selectedFacet.observation_denominator} contributing observations for ${sourceRecordConcentrationFacetLabel(selectedLayer)}.`;
+        if (sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'available') {
+          const snapshot = sourceRecordConcentrationSnapshot;
+          const countryLabel = activeCountries.size ? [...activeCountries].sort().join(', ') : 'no active countries';
+          sourceChronologyState.textContent = `${snapshot.site_count} sites · ${snapshot.visible_node_count} raw visible source nodes · ${snapshot.visible_observation_denominator} contributing observations · current viewport · [${timeStartBp}, ${timeWindowEndBp()}] BP · ${countryLabel} · ${sourceRecordConcentrationFacetLabel(selectedLayer)} · captured source-record concentration only`;
+        } else if (sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'refused') {
+          sourceChronologyState.textContent = `${sourceRecordConcentrationSnapshot.reason} No concentration symbols were rendered.`;
+        } else {
+          sourceChronologyState.textContent = `${selectedFacet.node_count} source nodes · ${selectedFacet.observation_denominator} contributing observations · ${unitCount} literal source units · denominator before country and BP-window filters · chronology context only`;
+        }
       }
       function renderLayerControls() {
         layerFilters.innerHTML = LAYER_GROUP_DEFINITIONS
@@ -3966,12 +4197,14 @@
           sourceChronologyLayers().forEach((layer) => activeLayerKeys.delete(layer.key));
           if (selectedSourceLayer) activeLayerKeys.add(selectedSourceLayer.key);
         }
+        if (!selectedSourceLayer || !activeLayerKeys.has(selectedSourceLayer.key)) sourceRecordConcentrationActive = false;
         renderLayerControls();
         renderMapState();
       }
       function renderLegend() {
         const activeLegendLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key));
         const activeAnimalLayers = activeLegendLayers.filter((layer) => isAnimalLayer(layer));
+        const concentrationLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
         const animalMetrics = summarizeAnimalMetrics();
         const renderGroup = (label, layers) => layers.length
           ? `<div class="legend-group"><div class="legend-group-label">${escapeHtml(label)}</div><div class="legend-list">${layers.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)} ${layer.coverage_label ? `(${escapeHtml(layer.coverage_label)})` : ''}</span></div>`).join('')}</div></div>`
@@ -3986,7 +4219,10 @@
         const scientificLegendSection = SCIENTIFIC_SIGNALS.length
           ? `<div class="legend-group"><div class="legend-group-label">Accepted scientific comparison</div><div class="legend-list">${SCIENTIFIC_SIGNALS.filter((signal) => activeScientificSignalIds.has(signal.signal_id)).map((signal) => `<div class="legend-item"><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span><span>${escapeHtml(signal.label)} · ${escapeHtml(signal.resolution)} · ${escapeHtml(signal.feature_key)}</span></div>`).join('') || '<div class="legend-item"><span>No accepted scientific signals selected.</span></div>'}</div></div>`
           : '';
-        legendItems.innerHTML = `${scientificLegendSection}${animalLegendSections}${LAYER_GROUP_DEFINITIONS
+        const sourceConcentrationLegendSection = concentrationLayer && sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'available'
+          ? `<div class="legend-group"><div class="legend-group-label">Captured source-record concentration</div><div class="legend-list"><div class="legend-item"><span class="legend-swatch" style="width:7px;height:7px;background:${escapeHtml(layerColor(concentrationLayer))};"></span><span>1 raw visible node at one source site</span></div><div class="legend-item"><span class="legend-swatch" style="width:10px;height:10px;background:${escapeHtml(layerColor(concentrationLayer))};"></span><span>2–4 nodes</span></div><div class="legend-item"><span class="legend-swatch" style="width:13px;height:13px;background:${escapeHtml(layerColor(concentrationLayer))};"></span><span>5–9 nodes</span></div><div class="legend-item"><span class="legend-swatch" style="width:16px;height:16px;background:${escapeHtml(layerColor(concentrationLayer))};"></span><span>10–24 nodes</span></div><div class="legend-item"><span class="legend-swatch" style="width:19px;height:19px;background:${escapeHtml(layerColor(concentrationLayer))};"></span><span>25+ nodes</span></div><div class="legend-item"><span>${sourceRecordConcentrationSnapshot.visible_observation_denominator} contributing observations for visible symbols; ${sourceRecordConcentrationSnapshot.global_observation_denominator} in the global pre-filter facet denominator. Values are not weighted.</span></div></div></div>`
+          : '';
+        legendItems.innerHTML = `${scientificLegendSection}${sourceConcentrationLegendSection}${animalLegendSections}${LAYER_GROUP_DEFINITIONS
           .map((group) => renderGroup(group.label, activeLegendLayers.filter((layer) => layer.group === group.key)))
           .join('')}` || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
         densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
@@ -4027,8 +4263,15 @@
             { label: 'Coordinate confidence', value: formatCoordinateConfidence(feature.coordinate_confidence || '') },
             { label: 'Source locator', value: feature.source_locator || '' },
           ].filter((row) => valueIsAvailable(row.value));
+          const detailValue = (label) => detailRows.find((row) => row.label === label)?.value;
           const secondaryRows = [
             { label: 'Chronology', value: feature.time_label || '' },
+            { label: 'Chronology evidence class', value: detailValue('Chronology evidence class') ?? feature.temporal_semantics?.evidence_class ?? '' },
+            { label: 'Chronology precision posture', value: detailValue('Chronology precision posture') ?? feature.temporal_semantics?.precision_posture ?? '' },
+            { label: 'Temporal comparison posture', value: detailValue('Temporal comparison posture') ?? feature.temporal_comparability_posture ?? feature.temporal_semantics?.comparability_posture ?? '' },
+            { label: 'Temporal comparison note', value: detailValue('Temporal comparison note') ?? feature.temporal_comparison_note ?? feature.temporal_semantics?.comparison_note ?? '' },
+            { label: 'Source-native taxa', value: Array.isArray(feature.source_native_taxon_labels) ? feature.source_native_taxon_labels.join(', ') : '' },
+            { label: 'Taxon alignment', value: Array.isArray(feature.taxon_alignment_statuses) ? feature.taxon_alignment_statuses.join(', ').replaceAll('_', ' ') : '' },
             { label: 'Mapped sample identifiers', value: Array.isArray(feature.sample_record_ids) ? feature.sample_record_ids.join(', ') : '' },
             { label: 'Original place text', value: feature.original_place_text || '' },
             { label: 'Resolved place text', value: feature.resolved_place_text || '' },
@@ -4208,6 +4451,7 @@
         circleLayerGroup.clearLayers();
         visiblePointEntries = [];
         highlightedPointEntry = null;
+        sourceRecordConcentrationSnapshot = null;
       }
       function createClusterGroup(layer) {
         return L.markerClusterGroup({
@@ -4222,10 +4466,59 @@
           }
         });
       }
+      function sourceRecordConcentrationPopupHtml(entry, snapshot, layer) {
+        return `<div class="popup-grid"><div><strong>Captured source-record concentration</strong> ${escapeHtml(entry.site_id)}</div><div><strong>Source level and facet</strong> ${escapeHtml(SOURCE_CHRONOLOGY_LEVEL_LABELS[layer.node_level])} · ${escapeHtml(sourceRecordConcentrationFacetLabel(layer))}</div><div><strong>Raw visible node count</strong> ${entry.node_count}</div><div><strong>Contributing-observation denominator</strong> ${entry.observation_denominator}</div><div><strong>Global pre-filter denominator</strong> ${snapshot.global_node_count} source nodes · ${snapshot.global_observation_denominator} contributing observations</div><div><strong>Active filters</strong> Current viewport · [${timeStartBp}, ${timeWindowEndBp()}] BP · ${escapeHtml(activeCountries.size ? [...activeCountries].sort().join(', ') : 'no active countries')}</div><div><strong>Interpretation</strong> Non-interpolated captured source-record concentration only; not abundance, absence, propagation, flow, or heat. Reported values are not weighted.</div></div>`;
+      }
+      function renderSourceRecordConcentrationLayer(layer) {
+        try {
+          const snapshot = buildSourceRecordConcentration(layer, layer.features, map.getBounds());
+          sourceRecordConcentrationSnapshot = snapshot;
+          const siteLayer = L.layerGroup();
+          snapshot.entries.forEach((site) => {
+            const radius = sourceRecordConcentrationRadius(site.node_count);
+            const marker = L.circleMarker([site.latitude, site.longitude], {
+              pane: 'pointPane',
+              radius,
+              color: layer.style.stroke,
+              weight: 1.8,
+              fillColor: layer.style.fill,
+              fillOpacity: 0.72,
+            });
+            marker.bindPopup(sourceRecordConcentrationPopupHtml(site, snapshot, layer), { maxWidth: 380 });
+            const feature = {
+              ...site.feature,
+              title: site.site_id,
+              subtitle: 'Captured source-record concentration at one source site',
+              observation_denominator: site.observation_denominator,
+              source_record_concentration_node_count: site.node_count,
+              time_start_bp: null,
+              time_end_bp: null,
+              time_label: null,
+            };
+            const entry = { layer, feature, marker };
+            marker.on('click', () => focusPointAtVisibleIndex(visiblePointEntries.indexOf(entry)));
+            siteLayer.addLayer(marker);
+            visiblePointEntries.push(entry);
+          });
+          if (siteLayer.getLayers().length > 0) {
+            siteLayer.addTo(map);
+            renderedPointGroups.push(siteLayer);
+          }
+        } catch (error) {
+          sourceRecordConcentrationSnapshot = {
+            status: 'refused',
+            reason: error instanceof Error ? error.message : 'Captured source-record concentration failed closed.',
+          };
+        }
+      }
       function renderPointLayers() {
         const diameterKm = Number(slider.value);
         const radiusMeters = (diameterKm * 1000) / 2;
         POINT_LAYERS.forEach((layer) => {
+          if (sourceRecordConcentrationActive && layer.key === sourceChronologyLayerForLevel(activeSourceChronologyLevel)?.key) {
+            renderSourceRecordConcentrationLayer(layer);
+            return;
+          }
           const clusterGroup = createClusterGroup(layer);
           layer.features.forEach((feature) => {
             if (!pointFeatureVisible(layer, feature)) return;
@@ -4446,9 +4739,13 @@
           }).length;
         }, 0);
         const timedVisibleCount = timedVisiblePoints + timedVisiblePolygons;
-        timeRecordCount.textContent = TIME_HAS_DATA
+        const timeRecordSummary = TIME_HAS_DATA
           ? `${timedVisibleCount} time-aware records are visible in the active BP window.`
           : 'No time-aware records are available for BP filtering.';
+        const playbackBlockReason = automaticTimePlaybackBlockReason();
+        timeRecordCount.textContent = playbackBlockReason
+          ? `${timeRecordSummary} Automatic playback is disabled. ${playbackBlockReason}`
+          : timeRecordSummary;
         const visiblePolygonLayers = renderedPolygonLayers.length;
         selectionReadout.textContent = `${visiblePointEntries.length} points · ${visibleAnimalCount} animal · ${visiblePolygonLayers} overlays`;
         selectionReadout.dataset.governedEdgeEligibility = String(GOVERNED_EDGE_ELIGIBILITY_COUNT);
@@ -4620,6 +4917,8 @@
         activeSourceChronologyCode = 'all';
         activeSourceChronologyTaxon = 'all';
         sourceChronologyTaxonSearch = '';
+        sourceRecordConcentrationActive = false;
+        sourceRecordConcentrationSnapshot = null;
         sourceChronologyTaxonQuery.value = '';
         slider.value = 30;
         timeStartBp = DEFAULT_TIME_START_BP;
@@ -4687,8 +4986,20 @@
       mobilePanelCloseButton.addEventListener('click', () => setPanelCollapsed(true));
       mobileScrim.addEventListener('click', () => setPanelCollapsed(true));
       slider.addEventListener('input', renderMapState);
-      timeStartSlider.addEventListener('input', () => { stopTimePlayback(); deactivateModeledContext(); timeStartBp = clampTimeStart(timeStartSlider.value, timeIntervalYears); renderMapState(); });
-      timeIntervalSlider.addEventListener('input', () => { stopTimePlayback(); deactivateModeledContext(); timeIntervalYears = clampTimeInterval(timeIntervalSlider.value); renderMapState(); });
+      function applyGlobalTimeStartInput() {
+        stopTimePlayback();
+        deactivateModeledContext();
+        timeStartBp = clampTimeStart(timeStartSlider.value, timeIntervalYears);
+        renderMapState();
+      }
+      function applyGlobalTimeIntervalInput() {
+        stopTimePlayback();
+        deactivateModeledContext();
+        timeIntervalYears = clampTimeInterval(timeIntervalSlider.value);
+        renderMapState();
+      }
+      timeStartSlider.addEventListener('input', applyGlobalTimeStartInput);
+      timeIntervalSlider.addEventListener('input', applyGlobalTimeIntervalInput);
       timePlaybackToggle.addEventListener('click', () => {
         if (timePlaybackTimer === null) startTimePlayback(); else stopTimePlayback();
       });
@@ -4735,6 +5046,7 @@
           ['all', ...layer.facet_metadata.source_ecological_codes.map((row) => row.value)],
           'all'
         );
+        sourceRecordConcentrationActive = false;
         renderMapState();
       });
       sourceChronologyTaxonQuery.addEventListener('input', () => {
@@ -4749,6 +5061,17 @@
           ['all', ...layer.facet_metadata.source_taxa.map((row) => row.value)],
           'all'
         );
+        sourceRecordConcentrationActive = false;
+        renderMapState();
+      });
+      sourceRecordConcentrationToggle.addEventListener('click', () => {
+        const layer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
+        if (!sourceRecordConcentrationSelection(layer)) {
+          sourceRecordConcentrationActive = false;
+          renderMapState();
+          return;
+        }
+        sourceRecordConcentrationActive = !sourceRecordConcentrationActive;
         renderMapState();
       });
       densityOpacitySlider.addEventListener('input', () => { densityOpacity = Number(densityOpacitySlider.value) / 100; renderMapState(); });
@@ -4840,6 +5163,14 @@
           return;
         }
         updatePanelToggleLabel();
+      });
+      reducedMotionQuery.addEventListener('change', () => {
+        if (reducedMotionQuery.matches) {
+          stopTimePlayback();
+          stopModeledContextPlayback();
+        }
+        refreshTimePlaybackControl();
+        renderModeledContextControls();
       });
       document.querySelectorAll('[data-layer-preset]').forEach((button) => {
         button.addEventListener('click', () => applyLayerPreset(button.dataset.layerPreset));

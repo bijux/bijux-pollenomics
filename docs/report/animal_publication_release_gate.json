@@ -33,7 +33,7 @@
     {
       "check_id": "unresolved_sample_chronology_does_not_publish_in_country_or_atlas_outputs",
       "passed": true,
-      "description": "Published country and atlas outputs do not carry unresolved or conflicting sample chronology rows.",
+      "description": "Published country and atlas outputs do not expose numeric chronology for unresolved or conflicting sample chronology rows.",
       "finding_count": 0,
       "findings": []
     },

@@ -1,141 +1,141 @@
 # Animal atlas exclusion report
 
-- Excluded tracked sample rows: `895`
+- Excluded tracked sample rows: `844`
 
 | Species | Project | Sample record | Locality | Inclusion status | Mapping posture | Exclusion reason |
 | --- | --- | --- | --- | --- | --- | --- |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577008 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577009 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577010 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577011 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577012 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577149 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577150 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577151 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577153 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577154 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577344 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577345 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577346 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577347 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577348 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577349 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577350 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577351 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577352 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577353 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577354 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577355 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577356 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577357 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577358 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577359 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577360 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577361 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577362 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577363 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577364 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577365 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577366 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577367 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577368 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577369 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577370 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577371 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577372 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577373 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577374 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577375 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577376 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577377 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577378 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577379 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577380 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577381 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577382 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577383 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577384 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577385 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577386 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577387 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577388 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577389 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577390 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577391 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577392 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577393 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577394 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577395 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577396 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577397 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577398 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577399 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577400 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577401 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577402 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577403 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577404 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577405 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577406 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577407 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577408 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577409 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5605818 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574404 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574405 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574406 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574407 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574408 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574409 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574411 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574412 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574415 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574416 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574417 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574418 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574419 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574420 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574421 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574422 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574423 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574424 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574426 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574428 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574429 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574430 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574432 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574433 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574434 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574435 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574436 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574437 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574440 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574441 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574442 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574443 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574444 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574445 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574446 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574447 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574448 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574449 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574450 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574452 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574454 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574455 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574456 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574457 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106827 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106828 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106829 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106830 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106831 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106832 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106833 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106834 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106835 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106836 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106837 | Galician mountain cave cattle context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577008 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577009 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577010 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577011 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577012 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577149 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577150 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577151 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577153 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577154 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577344 | Abu Gosh | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577345 | Abu Gosh | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577346 | Acemhöyük | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577347 | Tel Ashqelon | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577348 | Kul Tepe, Azerbaijan | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577349 | Belovode-Veliko Laole | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577350 | Belovode-Veliko Laole | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577351 | Bestansur | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577352 | Bestansur | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577353 | Blagotin | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577354 | Blagotin | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577355 | Bubanj | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577356 | Tilla Bulak | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577357 | Horvat Castra | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577358 | Çatalhöyük | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577359 | Tel Dan | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577360 | Mianroud, Fars | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577361 | Gilat | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577362 | Gyumri | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577363 | Hasanlu | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577364 | Hasanlu | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577365 | Hasanlu | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577366 | Hasanlu | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577367 | Dariali Tamara Fort | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577368 | Dariali Tamara Fort | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577369 | Dariali Tamara Fort | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577370 | Dariali Tamara Fort | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577371 | Dariali Tamara Fort | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577372 | Nishapur Kohandež, Central Khorasan | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577373 | Koktepe | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577374 | Maral Tappeh | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577375 | Tel Masos | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577376 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577377 | Menteşe | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577378 | Monjukli Depe | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577379 | Nahal Tillah | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577380 | Pločnik | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577381 | Pločnik | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577382 | Pločnik | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577383 | Pločnik | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577384 | Pločnik | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577385 | Pločnik | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577386 | Pločnik | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577387 | Pločnik | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577388 | Promachon, Serres | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577389 | Tepe Shizar, Qazvin | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577390 | Tappeh-Sang-e-Chakhmaq | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577391 | Sarakenos Cave, Boeotia | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577392 | Stubline | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577393 | Suberde and Erbaba | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577394 | Tel-Dalit | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577395 | Taghit Haddouch | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577396 | Tel-Hreiz | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577397 | Tel Miqne-Ekron | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577398 | Tel Miqne-Ekron | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577399 | Tel Miqne-Ekron | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577400 | Tel Miqne-Ekron | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577401 | Tel es-Qashish | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577402 | Tel es-Qashish | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577403 | Tel es-Qashish | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577404 | Tel Yoqneam | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577405 | Yerqurqan (Erkurgan) | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577406 | Tel Zahara | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577407 | Tel es-Safi | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577408 | Tel es-Safi | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577409 | Tel es-Safi | site_curated |  | no coordinate provenance row currently supports point publication |
+| Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5605818 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574404 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574405 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574406 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574407 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574408 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574409 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574411 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574412 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574415 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574416 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574417 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574418 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574419 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574420 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574421 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574422 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574423 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574424 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574426 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574428 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574429 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574430 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574432 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574433 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574434 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574435 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574436 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574437 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574440 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574441 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574442 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574443 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574444 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574445 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574446 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574447 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574448 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574449 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574450 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574452 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574454 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574455 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574456 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574457 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106827 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106828 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106829 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106830 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106831 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106832 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106833 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106834 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106835 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106836 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106837 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605068 | Palmyra | site_curated |  | no coordinate provenance row currently supports point publication |
 | Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605069 | Palmyra | site_curated |  | no coordinate provenance row currently supports point publication |
 | Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605070 | Palmyra | site_curated |  | no coordinate provenance row currently supports point publication |
@@ -151,7 +151,7 @@
 | Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605080 | Pakistan | site_curated |  | no coordinate provenance row currently supports point publication |
 | Canis lupus familiaris | KX379528-KX379529 | canis_lupus_familiaris:sample:kx379528-kx379529:kx379528 | Cherry Tree Cave | site_curated |  | no coordinate provenance row currently supports point publication |
 | Canis lupus familiaris | KX379528-KX379529 | canis_lupus_familiaris:sample:kx379528-kx379529:kx379529 | Herxheim | site_curated |  | no coordinate provenance row currently supports point publication |
-| Canis lupus familiaris | SRS1407451 | canis_lupus_familiaris:sample:srs1407451:srs1407451 | Ancient European dog CTC sample context | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
+| Canis lupus familiaris | SRS1407451 | canis_lupus_familiaris:sample:srs1407451:srs1407451 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Canis lupus familiaris | SRS1407453 | canis_lupus_familiaris:sample:srs1407453:srs1407453 | Herxheim | site_curated |  | no coordinate provenance row currently supports point publication |
 | Capra hircus | PRJEB90261 | capra_hircus:sample:prjeb90261:pgull-1295 | Lobos | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Capra hircus | PRJEB90261 | capra_hircus:sample:prjeb90261:pgull-1296 | Lobos | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
@@ -183,7 +183,8 @@
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_017038 | Sintashta | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_017079 | Arzhan I | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_017088 | Arzhan I | site_curated |  | no coordinate provenance row currently supports point publication |
-| Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:n/a | N/A | site_curated |  | no coordinate provenance row currently supports point publication |
+| Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:connemara_0004a | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:somali_0226a | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Equus caballus | PRJEB22390 | equus_caballus:sample:prjeb22390:cgg_1_017139 | Haunstetten | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB22390 | equus_caballus:sample:prjeb22390:cgg_1_018064 | GolModII | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB22390 | equus_caballus:sample:prjeb22390:cgg_1_018120 | UushgiinUvur | site_curated |  | no coordinate provenance row currently supports point publication |
@@ -226,96 +227,44 @@
 | Equus caballus | PRJEB22390 | equus_caballus:sample:prjeb22390:cgg_1_020208 | Botai | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB22390 | equus_caballus:sample:prjeb22390:cgg_1_020209 | Botai | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB22390 | equus_caballus:sample:prjeb22390:cgg_1_020210 | Botai Petrous | site_curated |  | no coordinate provenance row currently supports point publication |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016994 | Derkul | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016996 | Derkul | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017005 | Belkaragay | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017007 | Belkaragay | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017023 | Altata | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017027 | Lebyazhinka IV | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
 | Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018495 | museum specimen | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018497 | museum specimen | site_curated |  | no coordinate provenance row currently supports point publication |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:przewalski_paratype_118 | museum specimen | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533401 | Museum specimen | site_curated |  | no coordinate provenance row currently supports point publication |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246515 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246516 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246517 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246518 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246519 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246520 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246521 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246522 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246523 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246524 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246525 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246526 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246527 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246528 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246529 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246530 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246531 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246532 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246533 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246534 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246535 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246536 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246537 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246538 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246539 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246540 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246541 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246542 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246543 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246544 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246545 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246546 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246547 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246548 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246549 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246550 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246551 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246552 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246553 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246554 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246555 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246556 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246557 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246558 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246559 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246560 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246561 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246562 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246563 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246564 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246565 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246566 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246567 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246568 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246569 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246570 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246571 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246572 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246573 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246574 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246575 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246576 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246577 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246578 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246579 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246580 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246581 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246582 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246583 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246584 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246585 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246586 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246587 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246588 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246589 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246590 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246591 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246592 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246593 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246594 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246595 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246596 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246597 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246598 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246599 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246600 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246601 | North Africa to Europe domestic cat dispersal transect | site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246534 | Galgenbühel/Dos de la Forca-Salorno | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246535 | Galgenbühel/Dos de la Forca-Salorno | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246540 | Ecly | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246541 | nuraghe Flumenelongu, Sardinia | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246542 | Glencurran Cave, Co. Clare | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246545 | Haithabu, settlement area | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246546 | Haithabu, settlement area | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246547 | Haithabu, settlement area | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246553 | Lauchheim-Mittelhofen | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246554 | Lauchheim-Mittelhofen | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246569 | Partanna C. da Capo d'acqua | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246570 | Roca vecchia (Melendugno, Lecce) | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246571 | Roca vecchia (Melendugno, Lecce) | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246572 | Roca vecchia (Melendugno, Lecce) | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246585 | Sardinia | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246586 | Sardinia, Monte Arcosu | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246587 | Sardinia, Monte Arcosu | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246588 | Sardinia, Nuoro - around Bitti | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246589 | Tuscany - Maremma - Bivio Gavorrano | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246590 | Probabilly Sicily | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246591 | Sicily, monti Nebrodi | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246592 | Tuscany | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246593 | Rugo Storto, Fanna, PN | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246594 | Umbria - Perugia - Cascia | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246595 | Umbria - Perugia - Vallo di Nera | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246596 | Parco delle Dolomiti Lucane | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246600 | village Belene, Svishtov district (с. Белене, Свищовско) | site_curated |  | no coordinate provenance row currently supports point publication |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246601 | Pomorie, Forestry station (Поморие, горско стопанство) | site_curated |  | no coordinate provenance row currently supports point publication |
 | Felis catus | PRJNA1178732 | felis_catus:sample:prjna1178732:fs1 | Xitucheng City | site_curated |  | no coordinate provenance row currently supports point publication |
 | Felis catus | PRJNA1178732 | felis_catus:sample:prjna1178732:fs10 | Laoniupo | site_curated |  | no coordinate provenance row currently supports point publication |
 | Felis catus | PRJNA1178732 | felis_catus:sample:prjna1178732:fs12 | Tongwan City | site_curated |  | no coordinate provenance row currently supports point publication |
@@ -409,11 +358,11 @@
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:pb6 | Pınarbaşı Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:pb8 | Pınarbaşı Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:pb9 | Pınarbaşı Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep02 | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep03 | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
+| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep02 | Tepecik-Çiftlik Höyük | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep03 | Tepecik-Çiftlik Höyük | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep03_depo* | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep05 | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep09 | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
+| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep05 | Tepecik-Çiftlik Höyük | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep09 | Tepecik-Çiftlik Höyük | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep1 | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep10 | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep10_depo | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
@@ -475,7 +424,7 @@
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep7_depo | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep8 | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep82_2014 | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep83 | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
+| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep83 | Tepecik-Çiftlik Höyük | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep83_2014 | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep87_2014 | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:tep8_depo | Tepecik-Çiftlik Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
@@ -511,15 +460,15 @@
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:uh5 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:uh7 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:uh8 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu04 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu06 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu09 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
+| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu04 | Ulucak Höyük | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu06 | Ulucak Höyük | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu09 | Ulucak Höyük | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu12 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu16 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
+| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu16 | Ulucak Höyük | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu23 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu26 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu27 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu30 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
+| Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu30 | Ulucak Höyük | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu31* | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu32 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu34 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
@@ -528,36 +477,36 @@
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu4 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu6 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu9 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022720 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022721 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022722 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022723 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022724 |  | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960291 | Baltic Sea Region short-tailed sheep context | nordic_lead_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960292 | Baltic Sea Region short-tailed sheep context | nordic_lead_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960293 | Baltic Sea Region short-tailed sheep context | nordic_lead_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960294 | Baltic Sea Region short-tailed sheep context | nordic_lead_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960295 | Baltic Sea Region short-tailed sheep context | nordic_lead_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757323 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757324 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757325 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757326 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757327 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757328 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757329 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757330 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757331 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757332 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757333 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757334 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757335 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757336 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757337 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757338 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757339 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757340 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea114857470 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea114857471 | Svalbard ancient reindeer context | comparator_site_curated | refused_region_only | geography remains region-only and the atlas refuses a false point |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022720 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022721 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022722 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022723 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022724 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960291 | Kastelholm | nordic_lead_site_curated | refused_unresolved_location | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960292 | Kastelholm | nordic_lead_site_curated | refused_unresolved_location | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960293 | Stora Förvar | nordic_lead_site_curated | refused_unresolved_location | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960294 | Stora Förvar | nordic_lead_site_curated | refused_unresolved_location | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960295 | Stora Förvar | nordic_lead_site_curated | refused_unresolved_location | chronology remains unresolved enough that the sample stays out of the public map |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757323 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757324 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757325 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757326 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757327 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757328 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757329 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757330 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757331 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757332 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757333 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757334 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757335 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757336 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757337 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757338 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757339 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757340 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea114857470 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea114857471 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Sus scrofa domesticus | PRJEB30282 | sus_scrofa_domesticus:sample:prjeb30282:samea5160866 | site detail not yet extracted from tracked source support | archive_identity_only |  | chronology remains unresolved enough that the sample stays out of the public map |
 | Sus scrofa domesticus | PRJEB30282 | sus_scrofa_domesticus:sample:prjeb30282:samea5160869 | site detail not yet extracted from tracked source support | archive_identity_only |  | chronology remains unresolved enough that the sample stays out of the public map |
 | Sus scrofa domesticus | PRJEB30282 | sus_scrofa_domesticus:sample:prjeb30282:samea5160870 | site detail not yet extracted from tracked source support | archive_identity_only |  | chronology remains unresolved enough that the sample stays out of the public map |

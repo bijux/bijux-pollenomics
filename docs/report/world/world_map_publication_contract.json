@@ -51,7 +51,7 @@
     "point_traceability_json": "world_point_traceability.json"
   },
   "role_counts": {
-    "shared_world_scale_layer": 4,
+    "shared_world_scale_layer": 5,
     "region_filtered_layer": 1,
     "scope_specific_overlay": 0
   },
@@ -87,12 +87,25 @@
       "label": "Horse aDNA site evidence",
       "source_name": "Tracked animal aDNA localities",
       "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
-      "count": 207,
+      "count": 203,
       "publication_role": "shared_world_scale_layer",
       "scope_visibility": "shared_default",
       "default_enabled": true,
       "applies_country_filter": true,
       "applies_time_filter": true,
+      "scope_caveat": "Shared evidence layer across every governed scope."
+    },
+    {
+      "key": "animal-felis-catus",
+      "label": "Cat aDNA site evidence",
+      "source_name": "Tracked animal aDNA localities",
+      "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+      "count": 40,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": false,
       "scope_caveat": "Shared evidence layer across every governed scope."
     },
     {
@@ -140,7 +153,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 1470
+        "record_count": 1506
       },
       "edges": {
         "status": "unavailable",
@@ -154,7 +167,7 @@
       },
       "provenance": {
         "status": "layer_metadata_only",
-        "record_count": 5,
+        "record_count": 6,
         "reason_code": "record_level_provenance_model_not_available"
       },
       "details": {
@@ -169,7 +182,7 @@
       },
       "indexes": {
         "status": "available",
-        "record_count": 1466
+        "record_count": 1502
       }
     }
   },

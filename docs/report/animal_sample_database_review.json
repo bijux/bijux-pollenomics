@@ -18,56 +18,57 @@
     "tracked_paper_count": 18,
     "tracked_supplement_count": 72,
     "papers_with_archived_supplements": 18,
-    "sample_row_count": 1451,
-    "site_evidence_row_count": 309,
-    "sample_site_row_count": 1451,
-    "chronology_row_count": 1451,
-    "coordinate_row_count": 244,
-    "published_atlas_point_count": 235,
-    "mapped_sample_count": 556,
+    "sample_row_count": 1450,
+    "site_evidence_row_count": 409,
+    "sample_site_row_count": 1454,
+    "chronology_row_count": 1454,
+    "coordinate_row_count": 284,
+    "published_atlas_point_count": 271,
+    "mapped_sample_count": 606,
     "published_country_bundle_count": 4,
-    "mapped_sample_share": 0.3832,
-    "locality_conflict_row_count": 176,
+    "mapped_sample_share": 0.4179,
+    "locality_conflict_row_count": 574,
     "locality_curation_row_count": 9,
-    "locality_substitution_project_count": 10,
-    "locality_dictionary_row_count": 319
+    "locality_substitution_project_count": 11,
+    "locality_dictionary_row_count": 419
   },
   "locality_status_counts": {
-    "direct_sample_site": 858,
+    "direct_sample_site": 1015,
     "sample_group_site": 0,
     "project_level_site_only": 0,
     "named_place_inferred": 0,
-    "region_only": 467,
-    "unresolved": 126
+    "region_only": 0,
+    "unresolved": 439
   },
   "locality_completeness_counts": {
-    "exact_site_evidence_count": 855,
-    "broader_locality_evidence_count": 129,
-    "unresolved_geography_count": 467
+    "exact_site_evidence_count": 1010,
+    "broader_locality_evidence_count": 5,
+    "unresolved_geography_count": 439
   },
   "chronology_status_counts": {
-    "normalized_interval": 753,
-    "normalized_point": 480,
-    "text_only_unparsed": 92,
-    "unresolved": 126
+    "normalized_interval": 328,
+    "normalized_point": 533,
+    "text_only_unparsed": 130,
+    "unresolved": 463
   },
   "chronology_precision_counts": {
-    "sample_precise_point": 472,
+    "sample_precise_point": 473,
     "sample_precise_interval": 276,
-    "sample_approximate_or_modeled": 92,
-    "contextual_interval": 485,
-    "broad_period_only": 0,
-    "unresolved": 126
+    "sample_approximate_or_modeled": 188,
+    "contextual_interval": 15,
+    "broad_period_only": 39,
+    "unresolved": 463
   },
   "intake_recovery_counts": {
-    "blocked_projects": 22,
-    "ready_for_publication_review": 12,
+    "blocked_projects": 25,
+    "ready_for_publication_review": 9,
     "implausibly_low_recovery_project_count": 0
   },
   "posture_findings": [],
   "blockers": [
     "foundation_validation_not_yet_clean",
-    "region_only_geography_rows_remain",
+    "unresolved_site_assignment_rows_remain",
+    "coordinate_provenance_refusals_remain",
     "published_points_still_depend_on_named_site_geocoding"
   ],
   "direct_links": {

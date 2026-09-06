@@ -119,7 +119,7 @@
 | Homo sapiens | animal-sus-scrofa-domesticus | locality_level_overlap_available | 0 | 0 | 447 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | fieldwork-documentation | locality_level_overlap_available | 0 | 0 | 447 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | landclim-sites | locality_level_overlap_available | 444 | 0 | 3 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | neotoma-pollen | locality_level_overlap_available | 444 | 0 | 3 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | neotoma-pollen | locality_level_overlap_available | 0 | 0 | 447 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | neotoma-source-ecological-code | locality_level_overlap_available | 444 | 0 | 3 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | neotoma-source-exact-taxon | locality_level_overlap_available | 444 | 0 | 3 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | neotoma-source-sample-pollen-context | locality_level_overlap_available | 444 | 0 | 3 | Human locality chronology can be compared directly with time-aware context points. |
@@ -199,7 +199,7 @@
 | Equus caballus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | fieldwork-documentation | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | landclim-sites | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | neotoma-pollen | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | neotoma-pollen | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | neotoma-source-ecological-code | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | neotoma-source-exact-taxon | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | neotoma-source-sample-pollen-context | mapped_locality_overlap_with_caution | 2 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |

@@ -103,12 +103,11 @@
 | Capra hircus | 6001+ BP | mapped_direct | 3 | 3 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
 | Capra hircus | project_level_or_unresolved | mapped_direct | 21 | 3 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
 | Equus asinus | project_level_or_unresolved | contextual | 0 | 0 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
-| Equus caballus | 0-1000 BP | mapped_direct | 12 | 4 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
-| Equus caballus | 1001-3000 BP | mapped_direct | 87 | 4 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
-| Equus caballus | 3001-6000 BP | mapped_direct | 73 | 4 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
-| Equus caballus | 6001+ BP | mapped_direct | 31 | 4 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
-| Equus caballus | project_level_or_unresolved | mapped_direct | 4 | 4 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
-| Felis catus | project_level_or_unresolved | direct | 0 | 2 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
+| Equus caballus | 0-1000 BP | mapped_direct | 12 | 4 | mapped_locality_bp_windows_available | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
+| Equus caballus | 1001-3000 BP | mapped_direct | 87 | 4 | mapped_locality_bp_windows_available | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
+| Equus caballus | 3001-6000 BP | mapped_direct | 73 | 4 | mapped_locality_bp_windows_available | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
+| Equus caballus | 6001+ BP | mapped_direct | 31 | 4 | mapped_locality_bp_windows_available | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
+| Felis catus | project_level_or_unresolved | mapped_direct | 40 | 2 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
 | Gallus gallus domesticus | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
 | Meleagris gallopavo | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
 | Oryctolagus cuniculus | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
@@ -121,59 +120,75 @@
 | Species | Context layer | Overlap status | Overlapping direct localities | Non-overlapping direct localities | Noncomparable records | Rationale |
 | --- | --- | --- | ---: | ---: | ---: | --- |
 | Homo sapiens | animal-capra-hircus | locality_level_overlap_available | 51 | 393 | 3 | Human locality chronology can be compared directly with time-aware context points. |
-| Homo sapiens | animal-equus-caballus | locality_level_overlap_available | 440 | 4 | 3 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | animal-equus-caballus | locality_level_overlap_available | 430 | 14 | 3 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | animal-felis-catus | locality_level_overlap_available | 0 | 0 | 447 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | animal-sus-scrofa-domesticus | locality_level_overlap_available | 0 | 0 | 447 | Human locality chronology can be compared directly with time-aware context points. |
 | Anas platyrhynchos domesticus | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Anas platyrhynchos domesticus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
+| Anas platyrhynchos domesticus | animal-felis-catus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Anas platyrhynchos domesticus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos indicus | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos indicus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
+| Bos indicus | animal-felis-catus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos indicus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos taurus | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos taurus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
+| Bos taurus | animal-felis-catus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos taurus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Camelus dromedarius | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Camelus dromedarius | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
+| Camelus dromedarius | animal-felis-catus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Camelus dromedarius | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Canis lupus familiaris | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Canis lupus familiaris | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
+| Canis lupus familiaris | animal-felis-catus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Canis lupus familiaris | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Capra hircus | animal-capra-hircus | mapped_locality_overlap_with_caution | 5 | 0 | 21 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Capra hircus | animal-equus-caballus | mapped_locality_overlap_with_caution | 5 | 0 | 21 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Capra hircus | animal-equus-caballus | mapped_locality_overlap_with_caution | 2 | 3 | 21 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Capra hircus | animal-felis-catus | mapped_locality_overlap_with_caution | 0 | 0 | 26 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Capra hircus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 0 | 26 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus asinus | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Equus asinus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
+| Equus asinus | animal-felis-catus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Equus asinus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Equus caballus | animal-capra-hircus | mapped_locality_overlap_with_caution | 19 | 184 | 4 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | animal-equus-caballus | mapped_locality_overlap_with_caution | 203 | 0 | 4 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Equus caballus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 0 | 207 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Felis catus | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Felis catus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Felis catus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
+| Equus caballus | animal-capra-hircus | mapped_locality_overlap_with_caution | 18 | 185 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | animal-equus-caballus | mapped_locality_overlap_with_caution | 203 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | animal-felis-catus | mapped_locality_overlap_with_caution | 0 | 0 | 203 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 0 | 203 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Felis catus | animal-capra-hircus | mapped_locality_overlap_with_caution | 0 | 0 | 40 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Felis catus | animal-equus-caballus | mapped_locality_overlap_with_caution | 0 | 0 | 40 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Felis catus | animal-felis-catus | mapped_locality_overlap_with_caution | 0 | 0 | 40 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Felis catus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 0 | 40 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Gallus gallus domesticus | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Gallus gallus domesticus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
+| Gallus gallus domesticus | animal-felis-catus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Gallus gallus domesticus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Meleagris gallopavo | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Meleagris gallopavo | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
+| Meleagris gallopavo | animal-felis-catus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Meleagris gallopavo | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Oryctolagus cuniculus | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Oryctolagus cuniculus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
+| Oryctolagus cuniculus | animal-felis-catus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Oryctolagus cuniculus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Ovis aries | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Ovis aries | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
+| Ovis aries | animal-felis-catus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Ovis aries | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | animal-equus-caballus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
+| Rangifer tarandus | animal-felis-catus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Sus scrofa domesticus | animal-capra-hircus | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Sus scrofa domesticus | animal-equus-caballus | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Sus scrofa domesticus | animal-felis-catus | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Sus scrofa domesticus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 0 | 2 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 
 ## Animal Coordinate Review
 
 | Direct coordinates | Named-site geocoded | Weaker geography visible |
 | ---: | ---: | ---: |
-| 233 | 2 | 0 |
+| 269 | 2 | 0 |
 
 ## Uncertainty Register
 
@@ -202,10 +217,10 @@
 | Equus asinus | date_precision | medium | project_level_chronology_without_locality_alignment | animal evidence cannot yet support locality-aligned chronology claims |
 | Equus caballus | species_assignment | medium | nonhuman support remains species-review context or mixed-species blocked | cross-species comparisons cannot be promoted to locality-level inference safely |
 | Equus caballus | locality_precision | medium | mapped_locality_points | mapped animal atlas points remain useful but must keep their coordinate and regional caveats visible |
-| Equus caballus | date_precision | medium | mapped_locality_points_with_partial_chronology | mapped animal localities support chronology comparison only within the explicit BP and caveat bounds |
+| Equus caballus | date_precision | medium | mapped_locality_bp_windows_available | mapped animal localities support chronology comparison only within the explicit BP and caveat bounds |
 | Felis catus | species_assignment | medium | nonhuman support remains species-review context or mixed-species blocked | cross-species comparisons cannot be promoted to locality-level inference safely |
-| Felis catus | locality_precision | high | project_level_sites_known_but_not_runtime_mapped | country or atlas placement for animal evidence would overstate runtime geography support |
-| Felis catus | date_precision | medium | project_level_chronology_without_locality_alignment | animal evidence cannot yet support locality-aligned chronology claims |
+| Felis catus | locality_precision | medium | mapped_locality_points | mapped animal atlas points remain useful but must keep their coordinate and regional caveats visible |
+| Felis catus | date_precision | medium | mapped_locality_points_with_partial_chronology | mapped animal localities support chronology comparison only within the explicit BP and caveat bounds |
 | Gallus gallus domesticus | species_assignment | medium | nonhuman support remains species-review context or mixed-species blocked | cross-species comparisons cannot be promoted to locality-level inference safely |
 | Gallus gallus domesticus | locality_precision | high | no_curated_nonhuman_geography | country or atlas placement for animal evidence would overstate runtime geography support |
 | Gallus gallus domesticus | date_precision | medium | no_curated_nonhuman_chronology | animal evidence cannot yet support locality-aligned chronology claims |
@@ -230,7 +245,7 @@
 
 | Scenario | Claim scope | Current posture | Usable evidence | Blockers |
 | --- | --- | --- | --- | --- |
-| nordic_farming_arrival | exploratory | exploratory_only | mapped_homo_sapiens_localities, Capra hircus, Equus caballus, Sus scrofa domesticus | animal_evidence_mapped_with_precision_caveats, nonhuman_chronology_not_uniformly_country_resolved |
-| pastoral_species_turnover | comparative | comparative_with_locality_caveats | Capra hircus, Equus caballus, Sus scrofa domesticus | species_support_asymmetry, mapped_animal_precision_caveats |
+| nordic_farming_arrival | exploratory | exploratory_only | mapped_homo_sapiens_localities, Capra hircus, Equus caballus, Felis catus, Sus scrofa domesticus | animal_evidence_mapped_with_precision_caveats, nonhuman_chronology_not_uniformly_country_resolved |
+| pastoral_species_turnover | comparative | comparative_with_locality_caveats | Capra hircus, Equus caballus, Felis catus, Sus scrofa domesticus | species_support_asymmetry, mapped_animal_precision_caveats |
 | cattle_management_split | descriptive | descriptive_only | bovine_support_program | species_split_default, wild_or_progenitor_context_present, no_explicit_joint_taurine_indicine_project_manifest |
 | lake_selection_for_domestication_signal | exploratory | exploratory_only | human_context_overlap | field_sampling_gate_not_cleared, animal_evidence_not_yet_dense_enough_for_fieldwork_recommendation |

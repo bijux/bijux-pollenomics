@@ -38,6 +38,12 @@
         "sample_group_ids": [
           "PRJEB44430"
         ],
+        "source_native_taxon_labels": [],
+        "source_native_tax_ids": [],
+        "source_native_scientific_names": [],
+        "taxon_alignment_statuses": [
+          "not_reported"
+        ],
         "sample_namespace": "equus_caballus:sample_locality",
         "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
         "source_artifact_kind": "supplementary_spreadsheet_row",
@@ -60,6 +66,10 @@
           {
             "label": "Species",
             "value": "Equus caballus"
+          },
+          {
+            "label": "Taxon alignment",
+            "value": "not reported"
           },
           {
             "label": "Animal scope",
@@ -150,6 +160,18 @@
         "sample_group_ids": [
           "PRJEB30282"
         ],
+        "source_native_taxon_labels": [
+          "Sus scrofa (tax_id 9823)"
+        ],
+        "source_native_tax_ids": [
+          "9823"
+        ],
+        "source_native_scientific_names": [
+          "Sus scrofa"
+        ],
+        "taxon_alignment_statuses": [
+          "project_species_mismatch"
+        ],
         "sample_namespace": "sus_scrofa_domesticus:sample_locality",
         "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
         "source_artifact_kind": "supplementary_spreadsheet_row",
@@ -172,6 +194,14 @@
           {
             "label": "Species",
             "value": "Sus scrofa domesticus"
+          },
+          {
+            "label": "Source-native taxa",
+            "value": "Sus scrofa (tax_id 9823)"
+          },
+          {
+            "label": "Taxon alignment",
+            "value": "project species mismatch"
           },
           {
             "label": "Animal scope",
@@ -262,6 +292,18 @@
         "sample_group_ids": [
           "PRJEB30282"
         ],
+        "source_native_taxon_labels": [
+          "Sus scrofa (tax_id 9823)"
+        ],
+        "source_native_tax_ids": [
+          "9823"
+        ],
+        "source_native_scientific_names": [
+          "Sus scrofa"
+        ],
+        "taxon_alignment_statuses": [
+          "project_species_mismatch"
+        ],
         "sample_namespace": "sus_scrofa_domesticus:sample_locality",
         "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
         "source_artifact_kind": "supplementary_spreadsheet_row",
@@ -284,6 +326,14 @@
           {
             "label": "Species",
             "value": "Sus scrofa domesticus"
+          },
+          {
+            "label": "Source-native taxa",
+            "value": "Sus scrofa (tax_id 9823)"
+          },
+          {
+            "label": "Taxon alignment",
+            "value": "project species mismatch"
           },
           {
             "label": "Animal scope",

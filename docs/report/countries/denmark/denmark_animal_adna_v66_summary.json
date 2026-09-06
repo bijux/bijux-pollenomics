@@ -2,7 +2,7 @@
   "schema_version": "country-animal-adna-summary.v1",
   "country": "Denmark",
   "version": "v66",
-  "generated_on": "2026-09-05",
+  "generated_on": "2026-09-06",
   "total_sample_rows": 4,
   "total_species": 2,
   "total_localities": 3,
@@ -51,6 +51,9 @@
       "country": "Denmark",
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
       "sample_record_id": "equus_caballus:sample:prjeb44430:samea9533224",
       "sample_group_id": "PRJEB44430",
       "sample_namespace": "equus_caballus:curated_sample",
@@ -97,6 +100,9 @@
       "country": "Denmark",
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
       "sample_record_id": "equus_caballus:sample:prjeb44430:samea9533225",
       "sample_group_id": "PRJEB44430",
       "sample_namespace": "equus_caballus:curated_sample",
@@ -143,6 +149,9 @@
       "country": "Denmark",
       "species_latin_name": "Sus scrofa domesticus",
       "species_common_name": "pig",
+      "source_native_tax_id": "9823",
+      "source_native_scientific_name": "Sus scrofa",
+      "taxon_alignment_status": "project_species_mismatch",
       "sample_record_id": "sus_scrofa_domesticus:sample:prjeb30282:samea5160867",
       "sample_group_id": "PRJEB30282",
       "sample_namespace": "sus_scrofa_domesticus:curated_sample",
@@ -189,6 +198,9 @@
       "country": "Denmark",
       "species_latin_name": "Sus scrofa domesticus",
       "species_common_name": "pig",
+      "source_native_tax_id": "9823",
+      "source_native_scientific_name": "Sus scrofa",
+      "taxon_alignment_status": "project_species_mismatch",
       "sample_record_id": "sus_scrofa_domesticus:sample:prjeb30282:samea5160868",
       "sample_group_id": "PRJEB30282",
       "sample_namespace": "sus_scrofa_domesticus:curated_sample",
@@ -365,6 +377,12 @@
       "sample_group_ids": [
         "PRJEB44430"
       ],
+      "source_native_taxon_labels": [],
+      "source_native_tax_ids": [],
+      "source_native_scientific_names": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
       "sample_namespace": "equus_caballus:sample_locality",
       "inclusion_statuses": [
         "site_curated"
@@ -420,7 +438,7 @@
         "source_family": "animal_adna",
         "evidence_class": "archaeological_context_date",
         "precision_posture": "sample_approximate_or_modeled",
-        "comparability_posture": "numeric_interval_with_caveat",
+        "comparability_posture": "contextual_label_only",
         "summary_label": "4700 BP",
         "temporal_window_key": "unresolved",
         "temporal_window_label": "Unresolved time window",
@@ -428,7 +446,7 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "duration_years": null,
-        "comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
+        "comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
         "provenance_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
         "provenance_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
         "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | Bunds\u00f8 | Denmark | 2800-2600 BC | 4700 BP | Domestic",
@@ -440,9 +458,9 @@
       },
       "temporal_window_key": "unresolved",
       "temporal_window_label": "Unresolved time window",
-      "temporal_comparability_posture": "numeric_interval_with_caveat",
-      "temporal_comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
-      "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+      "temporal_comparability_posture": "contextual_label_only",
+      "temporal_comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
+      "dating_basis": "archaeological_context",
       "chronology_evidence_class": "archaeological_context_date",
       "chronology_precision_posture": "sample_approximate_or_modeled",
       "nordic_inclusion": true,
@@ -459,6 +477,18 @@
       ],
       "sample_group_ids": [
         "PRJEB30282"
+      ],
+      "source_native_taxon_labels": [
+        "Sus scrofa (tax_id 9823)"
+      ],
+      "source_native_tax_ids": [
+        "9823"
+      ],
+      "source_native_scientific_names": [
+        "Sus scrofa"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
       ],
       "sample_namespace": "sus_scrofa_domesticus:sample_locality",
       "inclusion_statuses": [
@@ -518,7 +548,7 @@
         "source_family": "animal_adna",
         "evidence_class": "archaeological_context_date",
         "precision_posture": "sample_approximate_or_modeled",
-        "comparability_posture": "numeric_interval_with_caveat",
+        "comparability_posture": "contextual_label_only",
         "summary_label": "1000 BP",
         "temporal_window_key": "unresolved",
         "temporal_window_label": "Unresolved time window",
@@ -526,7 +556,7 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "duration_years": null,
-        "comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
+        "comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
         "provenance_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
         "provenance_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
         "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | Trelleborg | Denmark | c. AD 1000 | 1000 BP | Domestic",
@@ -538,9 +568,9 @@
       },
       "temporal_window_key": "unresolved",
       "temporal_window_label": "Unresolved time window",
-      "temporal_comparability_posture": "numeric_interval_with_caveat",
-      "temporal_comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
-      "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+      "temporal_comparability_posture": "contextual_label_only",
+      "temporal_comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
+      "dating_basis": "archaeological_context",
       "chronology_evidence_class": "archaeological_context_date",
       "chronology_precision_posture": "sample_approximate_or_modeled",
       "nordic_inclusion": true,
@@ -557,6 +587,18 @@
       ],
       "sample_group_ids": [
         "PRJEB30282"
+      ],
+      "source_native_taxon_labels": [
+        "Sus scrofa (tax_id 9823)"
+      ],
+      "source_native_tax_ids": [
+        "9823"
+      ],
+      "source_native_scientific_names": [
+        "Sus scrofa"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
       ],
       "sample_namespace": "sus_scrofa_domesticus:sample_locality",
       "inclusion_statuses": [

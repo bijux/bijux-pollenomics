@@ -4,7 +4,7 @@
     "schema_version": "adna-source-library.v1",
     "archive_sufficient_count": 6,
     "paper_dependent_count": 34,
-    "supplement_dependent_count": 1,
+    "supplement_dependent_count": 2,
     "blocked_count": 19,
     "rows": [
       {
@@ -335,7 +335,7 @@
         "archive_status": "paper_pinned_core",
         "archive_metadata_sufficient": false,
         "paper_required": true,
-        "supplement_required": false,
+        "supplement_required": true,
         "paper_download_status": "archived",
         "supplement_download_status": "archived",
         "blockers": []
@@ -500,7 +500,7 @@
       }
     ]
   },
-  "row_count": 34,
+  "row_count": 33,
   "rows": [
     {
       "project_accession": "PRJEB31621",
@@ -512,10 +512,12 @@
       "ingestion_status": "paper_source_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "unresolved_sample_count": 0,
+      "unresolved_sample_count": 12,
       "region_only_site_count": 0,
-      "blockers": [],
-      "absence_stage": "not_point_publishable"
+      "blockers": [
+        "sample_context_blocked"
+      ],
+      "absence_stage": "site_extraction"
     },
     {
       "project_accession": "PRJEB75467",
@@ -527,10 +529,12 @@
       "ingestion_status": "paper_source_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "unresolved_sample_count": 0,
+      "unresolved_sample_count": 44,
       "region_only_site_count": 0,
-      "blockers": [],
-      "absence_stage": "not_point_publishable"
+      "blockers": [
+        "sample_context_blocked"
+      ],
+      "absence_stage": "site_extraction"
     },
     {
       "project_accession": "PRJNA705960",
@@ -542,12 +546,13 @@
       "ingestion_status": "blocked",
       "paper_download_status": "missing",
       "supplement_download_status": "missing",
-      "unresolved_sample_count": 0,
+      "unresolved_sample_count": 11,
       "region_only_site_count": 1,
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated",
-        "region_only_geography"
+        "region_only_geography",
+        "sample_context_blocked"
       ],
       "absence_stage": "paper_or_metadata_capture"
     },
@@ -606,12 +611,13 @@
       "ingestion_status": "paper_source_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "unresolved_sample_count": 0,
+      "unresolved_sample_count": 1,
       "region_only_site_count": 1,
       "blockers": [
-        "region_only_geography"
+        "region_only_geography",
+        "sample_context_blocked"
       ],
-      "absence_stage": "coordinate_resolution"
+      "absence_stage": "site_extraction"
     },
     {
       "project_accession": "SRS1407453",
@@ -746,10 +752,12 @@
       "ingestion_status": "paper_source_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "unresolved_sample_count": 0,
+      "unresolved_sample_count": 2,
       "region_only_site_count": 0,
-      "blockers": [],
-      "absence_stage": "not_point_publishable"
+      "blockers": [
+        "sample_context_blocked"
+      ],
+      "absence_stage": "site_extraction"
     },
     {
       "project_accession": "PRJEB22390",
@@ -820,23 +828,6 @@
       "absence_stage": "paper_or_metadata_capture"
     },
     {
-      "project_accession": "PRJEB81815",
-      "species_latin_name": "Felis catus",
-      "paper_doi": "10.1126/science.adt2642",
-      "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB81815&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
-      "archive_status": "paper_pinned_core",
-      "evidence_strength": "primary_paper_pinned",
-      "ingestion_status": "paper_source_archived",
-      "paper_download_status": "archived",
-      "supplement_download_status": "archived",
-      "unresolved_sample_count": 0,
-      "region_only_site_count": 1,
-      "blockers": [
-        "region_only_geography"
-      ],
-      "absence_stage": "coordinate_resolution"
-    },
-    {
       "project_accession": "PRJNA1178732",
       "species_latin_name": "Felis catus",
       "paper_doi": "10.1016/j.xgen.2025.101099",
@@ -876,10 +867,12 @@
       "ingestion_status": "paper_source_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "unresolved_sample_count": 0,
+      "unresolved_sample_count": 5,
       "region_only_site_count": 0,
-      "blockers": [],
-      "absence_stage": "not_point_publishable"
+      "blockers": [
+        "sample_context_blocked"
+      ],
+      "absence_stage": "site_extraction"
     },
     {
       "project_accession": "PRJEB59481",
@@ -892,11 +885,9 @@
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
       "unresolved_sample_count": 0,
-      "region_only_site_count": 1,
-      "blockers": [
-        "region_only_geography"
-      ],
-      "absence_stage": "coordinate_resolution"
+      "region_only_site_count": 0,
+      "blockers": [],
+      "absence_stage": "not_point_publishable"
     },
     {
       "project_accession": "PRJEB61808",
@@ -979,12 +970,13 @@
       "ingestion_status": "paper_source_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "unresolved_sample_count": 0,
+      "unresolved_sample_count": 20,
       "region_only_site_count": 1,
       "blockers": [
-        "region_only_geography"
+        "region_only_geography",
+        "sample_context_blocked"
       ],
-      "absence_stage": "coordinate_resolution"
+      "absence_stage": "site_extraction"
     },
     {
       "project_accession": "PRJEB61721",

@@ -3,8 +3,8 @@
   "public_posture": "sample_recovery_still_partial_and_project_gaps_explicit",
   "stage_review": {
     "tracked_project_count": 40,
-    "ready_for_publication_review": 12,
-    "blocked_projects": 22,
+    "ready_for_publication_review": 9,
+    "blocked_projects": 25,
     "in_progress_projects": 0
   },
   "yield_review": {
@@ -13,7 +13,7 @@
     "projects_with_minimum_expected_floor": 22,
     "projects_with_implausibly_low_recovery": 0,
     "exact_expected_sample_total": 17,
-    "recovered_final_sample_total": 1451,
+    "recovered_final_sample_total": 1450,
     "minimum_gap_total": 1
   },
   "species_deficit_counts": {
@@ -21,7 +21,7 @@
       "project_count": 3,
       "projects_with_sample_gap": 0,
       "projects_with_site_gap": 3,
-      "projects_with_chronology_gap": 2,
+      "projects_with_chronology_gap": 3,
       "projects_blocked_before_publication": 3
     },
     "Camelus dromedarius": {
@@ -35,7 +35,7 @@
       "project_count": 3,
       "projects_with_sample_gap": 0,
       "projects_with_site_gap": 1,
-      "projects_with_chronology_gap": 0,
+      "projects_with_chronology_gap": 1,
       "projects_blocked_before_publication": 1
     },
     "Capra hircus": {
@@ -55,29 +55,29 @@
     "Equus caballus": {
       "project_count": 8,
       "projects_with_sample_gap": 0,
-      "projects_with_site_gap": 0,
-      "projects_with_chronology_gap": 0,
-      "projects_blocked_before_publication": 4
+      "projects_with_site_gap": 1,
+      "projects_with_chronology_gap": 2,
+      "projects_blocked_before_publication": 6
     },
     "Felis catus": {
       "project_count": 2,
       "projects_with_sample_gap": 0,
       "projects_with_site_gap": 1,
-      "projects_with_chronology_gap": 0,
+      "projects_with_chronology_gap": 1,
       "projects_blocked_before_publication": 1
     },
     "Ovis aries": {
       "project_count": 6,
       "projects_with_sample_gap": 0,
-      "projects_with_site_gap": 2,
-      "projects_with_chronology_gap": 1,
-      "projects_blocked_before_publication": 5
+      "projects_with_site_gap": 1,
+      "projects_with_chronology_gap": 3,
+      "projects_blocked_before_publication": 6
     },
     "Rangifer tarandus": {
       "project_count": 4,
       "projects_with_sample_gap": 0,
       "projects_with_site_gap": 1,
-      "projects_with_chronology_gap": 0,
+      "projects_with_chronology_gap": 1,
       "projects_blocked_before_publication": 4
     },
     "Sus scrofa domesticus": {
@@ -89,9 +89,10 @@
     }
   },
   "manual_curation_counts": {
-    "chronology_recovery": 11,
+    "chronology_recovery": 12,
     "locality_string_resolution": 9,
-    "site_resolution": 9
+    "site_resolution": 9,
+    "sample_identity_resolution": 1
   },
   "missing_source_queue_counts": {
     "missing_primary_paper_linkage": 13
@@ -102,9 +103,9 @@
   },
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
-    "sample_with_site": 559,
-    "sample_with_site_and_chronology": 389,
-    "sample_with_site_chronology_and_coordinates": 503
+    "sample_with_site": 590,
+    "sample_with_site_and_chronology": 333,
+    "sample_with_site_chronology_and_coordinates": 527
   },
   "top_gap_projects": [
     {
@@ -134,6 +135,7 @@
       "minimum_gap_count": 0,
       "major_deficit_reasons": [
         "site_assignment_gap",
+        "chronology_gap",
         "coordinate_precision_gap",
         "missing_primary_paper_linkage"
       ]
@@ -154,6 +156,7 @@
       "minimum_gap_count": 0,
       "major_deficit_reasons": [
         "site_assignment_gap",
+        "chronology_gap",
         "coordinate_precision_gap"
       ]
     },
@@ -204,6 +207,25 @@
       ]
     },
     {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "minimum_gap_count": 0,
+      "major_deficit_reasons": [
+        "site_assignment_gap",
+        "chronology_gap"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31613",
+      "species_latin_name": "Equus caballus",
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "minimum_gap_count": 0,
+      "major_deficit_reasons": [
+        "chronology_gap"
+      ]
+    },
+    {
       "project_accession": "PRJEB56293",
       "species_latin_name": "Equus caballus",
       "recovery_gap_status": "extractable_sources_but_no_governed_samples",
@@ -228,7 +250,16 @@
       "minimum_gap_count": 0,
       "major_deficit_reasons": [
         "site_assignment_gap",
-        "coordinate_precision_gap"
+        "chronology_gap"
+      ]
+    },
+    {
+      "project_accession": "PRJEB36540",
+      "species_latin_name": "Ovis aries",
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "minimum_gap_count": 0,
+      "major_deficit_reasons": [
+        "chronology_gap"
       ]
     },
     {
@@ -247,8 +278,7 @@
       "recovery_gap_status": "minimum_expected_floor_met",
       "minimum_gap_count": 0,
       "major_deficit_reasons": [
-        "site_assignment_gap",
-        "coordinate_precision_gap"
+        "chronology_gap"
       ]
     },
     {
@@ -267,35 +297,6 @@
       "minimum_gap_count": null,
       "major_deficit_reasons": [
         "missing_primary_paper_linkage"
-      ]
-    },
-    {
-      "project_accession": "PRJEB81145",
-      "species_latin_name": "Ovis aries",
-      "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-      "minimum_gap_count": null,
-      "major_deficit_reasons": [
-        "missing_primary_paper_linkage"
-      ]
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "recovery_gap_status": "minimum_expected_floor_met",
-      "minimum_gap_count": 0,
-      "major_deficit_reasons": [
-        "site_assignment_gap",
-        "coordinate_precision_gap"
-      ]
-    },
-    {
-      "project_accession": "PRJEB30282",
-      "species_latin_name": "Sus scrofa domesticus",
-      "recovery_gap_status": "minimum_expected_floor_met",
-      "minimum_gap_count": 0,
-      "major_deficit_reasons": [
-        "site_assignment_gap",
-        "chronology_gap"
       ]
     }
   ],

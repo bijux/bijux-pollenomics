@@ -37,6 +37,12 @@
         "sample_group_ids": [
           "PRJEB31613"
         ],
+        "source_native_taxon_labels": [],
+        "source_native_tax_ids": [],
+        "source_native_scientific_names": [],
+        "taxon_alignment_statuses": [
+          "not_reported"
+        ],
         "sample_namespace": "equus_caballus:sample_locality",
         "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
         "source_artifact_kind": "supplementary_spreadsheet_row",
@@ -59,6 +65,10 @@
           {
             "label": "Species",
             "value": "Equus caballus"
+          },
+          {
+            "label": "Taxon alignment",
+            "value": "not reported"
           },
           {
             "label": "Animal scope",

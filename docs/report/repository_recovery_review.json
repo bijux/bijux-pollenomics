@@ -1,12 +1,18 @@
 {
-  "schema_version": "repository-recovery-review.v1",
+  "schema_version": "repository-recovery-review.v2",
   "score_max": 4,
-  "overall_recovery_posture": "recovery_required",
+  "overall_recovery_posture": "moderate_recovery",
   "average_dimension_scores": {
-    "data_completeness": 2.86,
-    "provenance_clarity": 2.86,
+    "data_completeness": 3.0,
+    "provenance_clarity": 3.29,
     "documentation_clarity": 3.57,
     "output_honesty": 3.43
+  },
+  "average_dimension_denominators": {
+    "data_completeness": 7,
+    "provenance_clarity": 7,
+    "documentation_clarity": 7,
+    "output_honesty": 7
   },
   "rows": [
     {
@@ -64,27 +70,34 @@
       "surface_key": "ancient_dna_context",
       "display_name": "Ancient DNA context",
       "data_completeness": 4,
-      "provenance_clarity": 1,
+      "provenance_clarity": 4,
       "documentation_clarity": 3,
       "output_honesty": 3,
       "metrics": {
         "tracked_papers": 18,
+        "sample_accounting_available": true,
+        "coordinate_accounting_available": true,
         "papers_with_archived_supplements": 18,
-        "published_atlas_points": 235,
-        "unresolved_rows": 0
+        "published_atlas_points": 271,
+        "tracked_samples": 1450,
+        "mapped_samples": 606,
+        "unresolved_samples": 95,
+        "mappable_coordinate_provenance": 278,
+        "refused_coordinate_provenance": 6
       },
       "note": "The animal aDNA program has real tracked structure but still weak evidence depth relative to its public surfaces."
     },
     {
       "surface_key": "publication_outputs",
       "display_name": "Publication outputs",
-      "data_completeness": 1,
+      "data_completeness": 2,
       "provenance_clarity": 3,
       "documentation_clarity": 3,
       "output_honesty": 3,
       "metrics": {
-        "published_atlas_points": 235,
-        "published_country_bundles": 4
+        "published_atlas_points": 271,
+        "published_country_bundles": 4,
+        "sample_accounting_available": true
       },
       "note": "The publication tree is reviewable and traceable, but the animal point surface remains too thin for stronger readiness language."
     },

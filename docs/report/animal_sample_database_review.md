@@ -11,17 +11,17 @@
 - Tracked projects: `40`
 - Tracked papers: `18`
 - Tracked supplements: `72`
-- Sample rows: `1451`
-- Site evidence rows: `309`
-- Sample site rows: `1451`
-- Chronology rows: `1451`
-- Coordinate rows: `244`
-- Published atlas points: `235`
+- Sample rows: `1450`
+- Site evidence rows: `409`
+- Sample site rows: `1454`
+- Chronology rows: `1454`
+- Coordinate rows: `284`
+- Published atlas points: `271`
 - Published country bundles: `4`
 - Papers with archived supplements: `18`
-- Mapped sample share: `0.3832`
-- Projects blocked in intake recovery: `22`
-- Projects ready for publication review: `12`
+- Mapped sample share: `0.4179`
+- Projects blocked in intake recovery: `25`
+- Projects ready for publication review: `9`
 - Implausibly low recovery projects: `0`
 
 ## Thresholds
@@ -72,5 +72,6 @@
 ## Current Blockers
 
 - foundation_validation_not_yet_clean
-- region_only_geography_rows_remain
+- unresolved_site_assignment_rows_remain
+- coordinate_provenance_refusals_remain
 - published_points_still_depend_on_named_site_geocoding
