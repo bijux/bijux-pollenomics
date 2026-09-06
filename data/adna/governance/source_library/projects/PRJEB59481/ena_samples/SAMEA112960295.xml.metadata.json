@@ -1,0 +1,32 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA112960295",
+  "artifact_kind": "ena_sample_xml",
+  "content_type": "application/xml",
+  "byte_size": 2694,
+  "project_accession": "PRJEB59481",
+  "sample_accession": "SAMEA112960295",
+  "retrieved_at_utc": "2026-09-06T05:19:16Z",
+  "license_name": "EMBL-EBI Terms of Use",
+  "license_url": "https://www.ebi.ac.uk/about/terms-of-use/",
+  "license_note": "EMBL-EBI imposes no additional restriction on contributed scientific data beyond rights retained by the original data owner; attribution is expected.",
+  "evidence_locators": [
+    {
+      "claim_family": "sample_identity",
+      "locator": "SAMPLE[@accession='SAMEA112960295']"
+    },
+    {
+      "claim_family": "sample_locality",
+      "locator": "SAMPLE_ATTRIBUTE[TAG='lat_lon']/VALUE"
+    },
+    {
+      "claim_family": "sample_material",
+      "locator": "SAMPLE/DESCRIPTION and SAMPLE_ATTRIBUTES"
+    }
+  ],
+  "content_sha256": "f9c399aa80f11cafe9db80c8949a4fd2a0ff898afb55e1824a11a06af0362686",
+  "storage_byte_size": 2694,
+  "storage_sha256": "f9c399aa80f11cafe9db80c8949a4fd2a0ff898afb55e1824a11a06af0362686",
+  "storage_path": "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960295.xml",
+  "content_encoding": null
+}
