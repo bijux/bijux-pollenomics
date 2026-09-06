@@ -335,9 +335,11 @@ def test_responsive_contract_proves_desktop_and_bottom_sheet_states() -> None:
     assert "layout.mobile.closed.scrim_hidden" in probe
     assert "layout.clear_map.panel_collapsed" in probe
     assert "layout.clear_map.legend_collapsed" in probe
+    assert "layout.clear_map.search_collapsed" in probe
     assert "layout.clear_map.center_uncovered" in probe
     assert "layout.clear_map.uncovered_sample_count" in probe
     assert "document.getElementById('legend-body')" in probe
+    assert "document.getElementById('topbar-search')" in probe
     assert "mapElement.contains(mapCenterHit)" in probe
 
 

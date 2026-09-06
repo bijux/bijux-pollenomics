@@ -1117,6 +1117,8 @@ async function responsiveFacts(cdp, width) {
     const mapElement = document.getElementById('map');
     const legendBody = document.getElementById('legend-body');
     const legendToggle = document.getElementById('legend-toggle');
+    const topbarSearch = document.getElementById('topbar-search');
+    const searchToggle = document.getElementById('search-toggle');
     const chronologyElements = {
       chronology: document.querySelector('.topbar-time-stepper'),
       older: document.getElementById('time-step-older'),
@@ -1126,6 +1128,7 @@ async function responsiveFacts(cdp, width) {
     };
     if (!sidebar.classList.contains('is-collapsed')) toggle.click();
     if (!legendBody.classList.contains('is-collapsed')) legendToggle.click();
+    if (!topbarSearch.hidden) searchToggle.click();
     await settle();
     const samplePoints = [];
     for (const xRatio of [0.15, 0.5, 0.85]) {
@@ -1138,6 +1141,7 @@ async function responsiveFacts(cdp, width) {
     const clearMap = {
       panel_collapsed: sidebar.classList.contains('is-collapsed'),
       legend_collapsed: legendBody.classList.contains('is-collapsed'),
+      search_collapsed: topbarSearch.hidden && searchToggle.getAttribute('aria-expanded') === 'false',
       center_uncovered: Boolean(mapCenterHit && mapElement.contains(mapCenterHit)),
       uncovered_sample_count: samplePoints.filter(Boolean).length,
       sample_count: samplePoints.length,
@@ -1491,6 +1495,7 @@ function desktopLayoutPasses(layout) {
     && layout.desktop_non_overlap === true
     && layout.clear_map.panel_collapsed
     && layout.clear_map.legend_collapsed
+    && layout.clear_map.search_collapsed
     && layout.clear_map.center_uncovered
     && layout.clear_map.uncovered_sample_count >= Math.ceil(layout.clear_map.sample_count * 0.4)
     && layout.elements.topbar.width > 0
@@ -1520,6 +1525,7 @@ function mobileLayoutPasses(layout) {
     && layout.horizontally_bounded
     && layout.clear_map.panel_collapsed
     && layout.clear_map.legend_collapsed
+    && layout.clear_map.search_collapsed
     && layout.clear_map.center_uncovered
     && layout.clear_map.uncovered_sample_count >= Math.ceil(layout.clear_map.sample_count * 0.4)
     && layout.mobile?.collapsed.sidebar_collapsed

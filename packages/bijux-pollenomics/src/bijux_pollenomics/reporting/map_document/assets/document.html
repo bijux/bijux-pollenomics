@@ -604,6 +604,9 @@
         width: min(460px, 100%);
         min-width: 0;
       }
+      .topbar-search[hidden] {
+        display: none;
+      }
       .topbar-search-meta {
         margin: 0;
       }
@@ -1636,10 +1639,11 @@
             </div>
             <div class="map-actions">
               <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
+              <button id="search-toggle" class="toolbar-button" type="button" aria-controls="topbar-search" aria-expanded="false">Search</button>
               <button id="panel-toggle" class="toolbar-button" type="button" aria-controls="sidebar" aria-expanded="false">← Show controls</button>
             </div>
           </div>
-          <div class="topbar-search">
+          <div id="topbar-search" class="topbar-search" hidden>
             <label class="sr-only" for="search-input">Search points and sites</label>
             <div class="search-shell">
               <input id="search-input" class="search-input" type="search" placeholder="Search points and sites by sample, locality, source, or country" aria-describedby="search-count">
@@ -2666,6 +2670,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const animalEvidenceConfidence = document.getElementById('animal-evidence-confidence');
       const animalEvidenceState = document.getElementById('animal-evidence-state');
       const legendItems = document.getElementById('legend-items');
+      const topbarSearch = document.getElementById('topbar-search');
+      const searchToggleButton = document.getElementById('search-toggle');
       const searchInput = document.getElementById('search-input');
       const searchClearButton = document.getElementById('search-clear');
       const searchResults = document.getElementById('search-results');
@@ -3914,7 +3920,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         document.body.classList.toggle('has-mobile-panel-open', mobileOpen);
       }
       function setPanelCollapsed(collapsed, persist = true) {
-        if (!collapsed && !legendCollapsed) setLegendCollapsed(true, false);
+        if (!collapsed) {
+          if (!legendCollapsed) setLegendCollapsed(true, false);
+          if (!topbarSearch.hidden) setSearchOpen(false);
+        }
         sidebar.classList.toggle('is-collapsed', collapsed);
         updatePanelToggleLabel();
         syncMobilePanelState();
@@ -3931,6 +3940,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function setLegendCollapsed(collapsed, persist = true) {
         if (!collapsed) {
           setPanelCollapsed(true, false);
+          setSearchOpen(false);
           if (focusState) setFocusState(null);
         }
         legendCollapsed = collapsed;
@@ -3938,6 +3948,22 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         legendToggleButton.textContent = collapsed ? 'Expand' : 'Collapse';
         legendToggleButton.setAttribute('aria-expanded', String(!collapsed));
         if (persist) syncHashState();
+      }
+      function setSearchOpen(open, restoreFocus = false) {
+        if (open) {
+          setPanelCollapsed(true, false);
+          setLegendCollapsed(true, false);
+          if (focusState) setFocusState(null);
+        }
+        topbarSearch.hidden = !open;
+        searchToggleButton.setAttribute('aria-expanded', String(open));
+        if (open) {
+          searchInput.focus({ preventScroll: true });
+          buildSearchResults();
+          return;
+        }
+        searchResults.hidden = true;
+        if (restoreFocus) searchToggleButton.focus({ preventScroll: true });
       }
       function openHelpDialog() {
         if (!helpDialog.hidden) return;
@@ -4034,7 +4060,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         highlightedPointEntry = entry;
       }
       function setFocusState(nextState) {
-        if (nextState) setLegendCollapsed(true, false);
+        if (nextState) {
+          setLegendCollapsed(true, false);
+          setSearchOpen(false);
+        }
         focusState = nextState;
         activeFocusTab = 'overview';
         detailTablePages.clear();
@@ -5342,7 +5371,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
             map.flyTo([coordinates.latitude, coordinates.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
             window.setTimeout(() => match.marker.openPopup(), 250);
-            searchResults.hidden = true;
+            setSearchOpen(false);
           });
         });
       }
@@ -5674,6 +5703,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         densityOpacitySlider.value = '60';
         setPanelCollapsed(defaultPanelCollapsed(), false);
         searchInput.value = '';
+        setSearchOpen(false);
         if (currentBasemap !== DEFAULT_BASEMAP) setBasemap(DEFAULT_BASEMAP, { manual: true });
         renderCountryControls();
         renderLayerControls();
@@ -5737,6 +5767,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         renderMapState();
       });
       document.getElementById('fit-active').addEventListener('click', fitToActive);
+      searchToggleButton.addEventListener('click', () => {
+        setSearchOpen(topbarSearch.hidden, !topbarSearch.hidden);
+      });
       document.getElementById('reset-view').addEventListener('click', resetView);
       document.getElementById('restore-defaults').addEventListener('click', restoreDefaults);
       document.getElementById('copy-link').addEventListener('click', async () => {
@@ -5940,8 +5973,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       searchInput.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
           event.preventDefault();
-          searchResults.hidden = true;
-          searchInput.focus({ preventScroll: true });
+          setSearchOpen(false, true);
           return;
         }
         if (event.key === 'Enter') {
@@ -6010,6 +6042,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         }
         if (event.key === 'Escape' && !helpDialog.hidden) {
           closeHelpDialog();
+          return;
+        }
+        if (event.key === 'Escape' && !topbarSearch.hidden) {
+          setSearchOpen(false, true);
           return;
         }
         if (event.key === 'Escape' && mobileLayoutQuery.matches && !sidebar.classList.contains('is-collapsed')) {

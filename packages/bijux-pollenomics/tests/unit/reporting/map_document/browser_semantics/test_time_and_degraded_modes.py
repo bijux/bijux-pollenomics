@@ -187,6 +187,10 @@ def test_map_opens_with_dismissible_surfaces_collapsed() -> None:
     assert 'aria-controls="legend-body" aria-expanded="false">Expand' in (
         MAP_DOCUMENT_TEMPLATE
     )
+    assert 'id="topbar-search" class="topbar-search" hidden' in MAP_DOCUMENT_TEMPLATE
+    assert 'aria-controls="topbar-search" aria-expanded="false">Search' in (
+        MAP_DOCUMENT_TEMPLATE
+    )
     assert "return true;" in template_block(
         "function defaultPanelCollapsed()",
         "function panelPreferenceFromHash()",
@@ -213,18 +217,27 @@ def test_overlays_yield_to_the_surface_the_user_opened() -> None:
     )
     assert "setLegendCollapsed(true, false)" in panel_collapse
     assert "setPanelCollapsed(true, false)" in legend_collapse
+    assert "setSearchOpen(false)" in legend_collapse
     assert "if (focusState) setFocusState(null);" in legend_collapse
-    assert "if (nextState) setLegendCollapsed(true, false);" in focus_state
+    assert "if (nextState) {" in focus_state
+    assert "setLegendCollapsed(true, false);" in focus_state
+    assert "setSearchOpen(false);" in focus_state
 
 
-def test_search_results_close_on_escape_without_losing_input_focus() -> None:
+def test_search_results_are_explicit_and_close_on_escape() -> None:
     search_handlers = template_block(
         "searchInput.addEventListener('keydown'",
         "document.addEventListener('click'",
     )
     assert "if (event.key === 'Escape')" in search_handlers
-    assert "searchResults.hidden = true;" in search_handlers
-    assert "searchInput.focus({ preventScroll: true });" in search_handlers
+    assert "setSearchOpen(false, true);" in search_handlers
+    search_state = template_block("function setSearchOpen", "function openHelpDialog")
+    assert "setPanelCollapsed(true, false)" in search_state
+    assert "setLegendCollapsed(true, false)" in search_state
+    assert (
+        "searchToggleButton.setAttribute('aria-expanded', String(open))" in search_state
+    )
+    assert "searchToggleButton.focus({ preventScroll: true })" in search_state
 
 
 def test_time_window_feedback_uses_visible_records_after_static_loading() -> None:
