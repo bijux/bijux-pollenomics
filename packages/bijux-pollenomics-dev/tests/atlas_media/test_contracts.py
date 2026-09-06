@@ -15,6 +15,7 @@ from bijux_pollenomics_dev.ci.atlas_media import (
 from bijux_pollenomics_dev.ci.atlas_media.catalog import (
     DEFAULT_EXACT_TAXA,
     DEFAULT_MODELED_METRICS,
+    LEGACY_PUBLICATION_STORY_TUPLES_V1,
     PUBLICATION_ASSET_COUNT,
     PUBLICATION_STORIES,
 )
@@ -38,6 +39,50 @@ def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
     assert DEFAULT_MODELED_METRICS == ("Cerealia.t", "Secale", "OL")
     assert len(PUBLICATION_STORIES) == 8
     assert PUBLICATION_ASSET_COUNT == 16
+    assert LEGACY_PUBLICATION_STORY_TUPLES_V1 == (
+        (
+            "neotoma-source-sample-presence",
+            "observation_chronology",
+            "source_sample_presence",
+            "all",
+            None,
+        ),
+        (
+            "neotoma-source-code-trsh",
+            "observation_chronology",
+            "source_ecological_code",
+            "TRSH",
+            None,
+        ),
+        (
+            "neotoma-source-code-uphe",
+            "observation_chronology",
+            "source_ecological_code",
+            "UPHE",
+            None,
+        ),
+        (
+            "neotoma-source-code-aqvp",
+            "observation_chronology",
+            "source_ecological_code",
+            "AQVP",
+            None,
+        ),
+        (
+            "neotoma-source-taxon-967",
+            "observation_chronology",
+            "source_taxon",
+            "source:neotoma:taxon:967",
+            None,
+        ),
+        (
+            "pangaea-937075-metric-ol",
+            "modeled_context",
+            "modeled_metric",
+            "OL",
+            "source_land_cover_types",
+        ),
+    )
     assert len({story.story_id for story in PUBLICATION_STORIES}) == 8
     assert (
         len(
