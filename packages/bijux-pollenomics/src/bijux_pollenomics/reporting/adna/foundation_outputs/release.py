@@ -84,7 +84,10 @@ def build_animal_publication_release_gate(
         str(row.get("master_id", "")).strip()
         for row in sample_rows
         if str(row.get("master_id", "")).strip() in blocked_sample_site_rows
-        and (_has_text_value(row.get("locality")) or _sample_row_has_numeric_coordinates(row))
+        and (
+            _has_text_value(row.get("locality"))
+            or _sample_row_has_numeric_coordinates(row)
+        )
     ]
     blocked_atlas_rows = sorted(
         {

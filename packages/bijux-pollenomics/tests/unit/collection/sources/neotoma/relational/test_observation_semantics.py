@@ -42,9 +42,7 @@ class NeotomaObservationSemanticsTests(unittest.TestCase):
             "reported_value",
         )
         self.assertIsNone(by_name["Source null"]["source_value"])
-        self.assertEqual(
-            by_name["Source null"]["detection_status"], "source_null"
-        )
+        self.assertEqual(by_name["Source null"]["detection_status"], "source_null")
         self.assertIsNone(by_name["Unreported value"]["source_value"])
         self.assertEqual(
             by_name["Unreported value"]["detection_status"],

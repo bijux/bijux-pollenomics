@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 
+
 def lake_scenario_row(
     scenario_key: str,
     scenario_label: str,

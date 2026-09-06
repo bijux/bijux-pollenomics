@@ -147,9 +147,7 @@ def test_official_sources_preserve_coordinates_jurisdictions_and_chronology() ->
         row.jurisdiction_registry_id == "baltic-sheep-region-country.v1"
         and row.jurisdiction_registry_version == "1.0.0"
         and row.jurisdiction_registry_path.endswith("official_evidence.py")
-        and row.jurisdiction_registry_locator.endswith(
-            f"[{row.region_name!r}]"
-        )
+        and row.jurisdiction_registry_locator.endswith(f"[{row.region_name!r}]")
         for row in samples.values()
     )
     article_root = ElementTree.fromstring(_article_payload())
@@ -332,7 +330,9 @@ def test_ena_identity_coordinate_and_locality_drift_fail_closed() -> None:
         )
 
 
-def test_official_source_load_reconciles_payload_bytes_and_receipt(tmp_path: Path) -> None:
+def test_official_source_load_reconciles_payload_bytes_and_receipt(
+    tmp_path: Path,
+) -> None:
     _copy_official_source_bundle(tmp_path)
     mutated_path = (
         tmp_path

@@ -40,6 +40,7 @@ def assign_evidence_row_to_country(
         }
     return None
 
+
 def assignment_sort_key(confidence: str) -> int:
     order = {
         "exact_country": 0,

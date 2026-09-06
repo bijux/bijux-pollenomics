@@ -36,9 +36,7 @@ def _build_farming_history_scenario(
     non_support: list[str] = []
 
     domesticated_first_rows = [
-        row
-        for row in first_rows
-        if str(row.get("animal_scope")) == "domesticated_core"
+        row for row in first_rows if str(row.get("animal_scope")) == "domesticated_core"
     ]
     if domesticated_first_rows:
         earliest = max(

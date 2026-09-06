@@ -41,9 +41,7 @@ def build_citation_rows(
                 paper_doi=row["paper_doi"],
                 publication_year=row["publication_year"],
                 journal_title=row["journal_title"],
-                country_assignment_confidence=row[
-                    "country_assignment_confidence"
-                ],
+                country_assignment_confidence=row["country_assignment_confidence"],
             ),
         )
         current.locality_row_ids.add(str(row["site_record_id"]))

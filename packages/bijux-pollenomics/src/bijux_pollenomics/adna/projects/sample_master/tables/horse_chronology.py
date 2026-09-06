@@ -41,15 +41,11 @@ def _build_horse_time_series_rows(
     built_rows: list[AdnaProjectSampleMasterRow] = []
     for row_number, row in enumerate(rows[4:], start=5):
         sample_label = _cell_value(row, sample_index)
-        registration = _clean_optional_source_text(
-            _cell_value(row, registration_index)
-        )
+        registration = _clean_optional_source_text(_cell_value(row, registration_index))
         species_label = (
             "" if species_index is None else _cell_value(row, species_index).casefold()
         )
-        if (
-            not sample_label or (species_label and species_label != "horse")
-        ):
+        if not sample_label or (species_label and species_label != "horse"):
             continue
         stable_anchor = registration or sample_label
         excerpt = " | ".join(value for value in row if value)[:300]
@@ -142,9 +138,7 @@ def _build_horse_comparative_panel_rows(
                 sample_lineage_excerpt=excerpt,
                 sample_identity_resolution="final",
                 sample_ambiguity_note="",
-                locality_text=_clean_optional_source_text(
-                    _cell_value(row, site_index)
-                ),
+                locality_text=_clean_optional_source_text(_cell_value(row, site_index)),
                 political_entity=""
                 if country_index is None
                 else _clean_optional_source_text(_cell_value(row, country_index)),

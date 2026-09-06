@@ -317,6 +317,5 @@ class PublicDocumentationRouteTests(unittest.TestCase):
         self.assertIn("animal_atlas_candidate_accountability.md", atlas_outputs)
 
 
-
 if __name__ == "__main__":
     unittest.main()

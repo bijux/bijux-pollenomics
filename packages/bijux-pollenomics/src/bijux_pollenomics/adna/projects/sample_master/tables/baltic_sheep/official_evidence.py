@@ -14,7 +14,9 @@ from typing import TypeVar
 from xml.etree import ElementTree
 
 from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_bytes
-from bijux_pollenomics.adna.workflow.source_artifacts import resolve_source_artifact_path
+from bijux_pollenomics.adna.workflow.source_artifacts import (
+    resolve_source_artifact_path,
+)
 from bijux_pollenomics.adna.workflow.source_artifacts import source_artifact_exists
 
 PROJECT_ACCESSION = "PRJEB59481"
@@ -30,8 +32,7 @@ EXPECTED_SAMPLE_COUNT = 5
 ARTICLE_DOI = "10.1093/gbe/evae114"
 ARTICLE_PMCID = "PMC11162877"
 ARTICLE_SOURCE_URL = (
-    "https://www.ebi.ac.uk/europepmc/webservices/rest/"
-    f"{ARTICLE_PMCID}/fullTextXML"
+    f"https://www.ebi.ac.uk/europepmc/webservices/rest/{ARTICLE_PMCID}/fullTextXML"
 )
 ARTICLE_LICENSE_NAME = "Creative Commons Attribution 4.0 International"
 ARTICLE_LICENSE_URL = "https://creativecommons.org/licenses/by/4.0/"
@@ -311,9 +312,7 @@ def parse_baltic_sheep_ena_sample(
             f"{described_site!r} != {expected_site!r}"
         )
     if description != expected_description:
-        raise ValueError(
-            f"Baltic sheep ENA description drift: {expected_accession}"
-        )
+        raise ValueError(f"Baltic sheep ENA description drift: {expected_accession}")
     attributes = _sample_attributes(sample, source_path=source_path)
     lat_lon_values = attributes.get("lat_lon", ())
     if len(lat_lon_values) != 1:
@@ -718,7 +717,9 @@ def _read_receipted_official_source(
             f"Official source receipt is missing or invalid: {repository_path}"
         ) from error
     if not isinstance(receipt, dict):
-        raise ValueError(f"Official source receipt must be an object: {repository_path}")
+        raise ValueError(
+            f"Official source receipt must be an object: {repository_path}"
+        )
 
     expected_receipt_values: dict[str, object] = {
         "schema_version": _SOURCE_LIBRARY_SCHEMA_VERSION,
@@ -744,7 +745,10 @@ def _read_receipted_official_source(
         mismatches["content_type"] = ("XML media type", content_type)
     retrieved_at_utc = receipt.get("retrieved_at_utc")
     if not isinstance(retrieved_at_utc, str) or not retrieved_at_utc.strip():
-        mismatches["retrieved_at_utc"] = ("nonempty retrieval timestamp", retrieved_at_utc)
+        mismatches["retrieved_at_utc"] = (
+            "nonempty retrieval timestamp",
+            retrieved_at_utc,
+        )
     if mismatches:
         details = ", ".join(
             f"{field}: expected {expected!r}, observed {observed!r}"

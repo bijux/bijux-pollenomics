@@ -258,7 +258,11 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             for sample_id in locality.sample_ids
         )
         self.assertFalse(
-            {membership: count for membership, count in memberships.items() if count > 1}
+            {
+                membership: count
+                for membership, count in memberships.items()
+                if count > 1
+            }
         )
         invalid_memberships = []
         for bundle in bundles:
@@ -268,7 +272,10 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             }
             for locality in bundle.locality_records:
                 for sample_id in locality.sample_ids:
-                    if sample_projects.get(sample_id) not in locality.project_accessions:
+                    if (
+                        sample_projects.get(sample_id)
+                        not in locality.project_accessions
+                    ):
                         invalid_memberships.append(
                             (bundle.species.latin_name, locality.locality, sample_id)
                         )

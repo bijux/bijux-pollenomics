@@ -5,6 +5,7 @@ import csv
 import json
 from pathlib import Path
 
+
 def write_json(path: Path, payload: dict[str, object] | Collection[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload), encoding="utf-8")

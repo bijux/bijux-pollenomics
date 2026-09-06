@@ -161,14 +161,12 @@ def _apply_explicit_sample_mean(
     if mean_bp is None:
         return chronology
     if isinstance(mean_bp, bool) or not isinstance(mean_bp, int) or mean_bp < 0:
-        raise ValueError("sample-owned chronology mean must be a nonnegative integer BP")
+        raise ValueError(
+            "sample-owned chronology mean must be a nonnegative integer BP"
+        )
     younger_bp = chronology.time_start_bp
     older_bp = chronology.time_end_bp
-    if (
-        younger_bp is None
-        or older_bp is None
-        or not younger_bp <= mean_bp <= older_bp
-    ):
+    if younger_bp is None or older_bp is None or not younger_bp <= mean_bp <= older_bp:
         raise ValueError("sample-owned chronology mean must lie inside its BP interval")
     return replace(chronology, time_mean_bp=mean_bp)
 

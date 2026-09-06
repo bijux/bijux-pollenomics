@@ -33,7 +33,6 @@ class SpeciesPublicationTests(unittest.TestCase):
         self.assertIn("## Evidence Boundary", readme_text)
         self.assertIn("```mermaid", readme_text)
 
-
     def test_public_data_docs_keep_the_evidence_chain_directly_linked(self) -> None:
         inventory_page = (
             REPO_ROOT
@@ -62,7 +61,6 @@ class SpeciesPublicationTests(unittest.TestCase):
         self.assertIn("site_name_normalization_dictionary.json", inventory_text)
         self.assertIn("project_sample_chronology_review.json", inventory_text)
         self.assertIn("sample_chronology.json", inventory_text)
-
 
     def test_project_sample_master_completeness_keeps_traceable_expected_counts(
         self,
@@ -94,7 +92,6 @@ class SpeciesPublicationTests(unittest.TestCase):
                 f"Expected sample count for {row['project_accession']} lacks an artifact path.",
             )
 
-
     def test_sample_master_rows_do_not_claim_final_status_with_unresolved_ambiguity(
         self,
     ) -> None:
@@ -113,7 +110,6 @@ class SpeciesPublicationTests(unittest.TestCase):
                     f"{path.relative_to(REPO_ROOT)} publishes a final sample row with an ambiguity note.",
                 )
 
-
     def test_homo_sapiens_adna_layout_exists_in_tracked_data_tree(self) -> None:
         species_root = REPO_ROOT / "data" / "adna" / "species" / "homo_sapiens"
 
@@ -125,7 +121,6 @@ class SpeciesPublicationTests(unittest.TestCase):
         raw_aadr = species_root / "raw" / "aadr"
         self.assertTrue(raw_aadr.is_symlink())
         self.assertEqual(raw_aadr.readlink().as_posix(), "../../../../aadr")
-
 
     def test_tracked_nonhuman_adna_roots_ship_real_reviewable_files(self) -> None:
         tracked_roots = (
@@ -244,7 +239,6 @@ class SpeciesPublicationTests(unittest.TestCase):
                 (species_root / "review" / "archive_integrity.json").is_file(),
                 slug,
             )
-
 
 
 if __name__ == "__main__":

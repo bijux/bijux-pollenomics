@@ -31,7 +31,6 @@ class RepositoryAutomationTests(unittest.TestCase):
             package_pyproject_text,
         )
 
-
     def test_makefile_exposes_named_test_suites(self) -> None:
         makefile_text = (REPO_ROOT / "Makefile").read_text(encoding="utf-8")
         root_make_text = (REPO_ROOT / "makes" / "root.mk").read_text(encoding="utf-8")
@@ -73,7 +72,6 @@ class RepositoryAutomationTests(unittest.TestCase):
             root_env_text,
         )
 
-
     def test_readme_bootstrap_flow_installs_before_running_the_console_script(
         self,
     ) -> None:
@@ -86,7 +84,6 @@ class RepositoryAutomationTests(unittest.TestCase):
 
         self.assertLess(install_index, console_version_index)
         self.assertIn("make package-verify", readme_text)
-
 
     def test_install_workflow_uses_console_script_smoke_after_install(self) -> None:
         workflow_text = (
@@ -108,7 +105,6 @@ class RepositoryAutomationTests(unittest.TestCase):
             "make package-check\nmake package-smoke\nmake package-source-smoke",
             workflow_text,
         )
-
 
     def test_command_reference_uses_installed_cli_examples(self) -> None:
         command_reference = (
@@ -147,7 +143,6 @@ class RepositoryAutomationTests(unittest.TestCase):
         )
         self.assertIn("for collection or `docs/report` for", command_reference)
         self.assertNotIn("python -m bijux_pollenomics.cli", command_reference)
-
 
     def test_github_workflows_cover_repository_checks_and_docs_deploy(self) -> None:
         ci_workflow = (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(
@@ -241,7 +236,6 @@ class RepositoryAutomationTests(unittest.TestCase):
         self.assertIn("artifacts/root/docs/build-site", deploy_workflow)
         self.assertIn("mkdocs.shared.yml", deploy_workflow)
 
-
     def test_root_readme_workflow_links_follow_checked_in_workflow_tree(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
         workflows_dir = REPO_ROOT / ".github" / "workflows"
@@ -265,12 +259,10 @@ class RepositoryAutomationTests(unittest.TestCase):
             <= found_workflows
         )
 
-
     def test_notice_file_keeps_copyright_holder(self) -> None:
         notice_text = (REPO_ROOT / "NOTICE").read_text(encoding="utf-8")
 
         self.assertIn("Bijan Mousavi <bijan@bijux.io>", notice_text)
-
 
     def test_repository_does_not_track_generated_cache_files(self) -> None:
         tracked_files = subprocess.run(
@@ -289,7 +281,6 @@ class RepositoryAutomationTests(unittest.TestCase):
         ]
 
         self.assertEqual(generated_cache_files, [])
-
 
 
 if __name__ == "__main__":

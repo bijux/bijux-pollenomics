@@ -42,12 +42,8 @@ def _project_stage_statuses(
     else:
         stage_statuses["paper_capture"] = "blocked"
 
-    if (
-        project_row.supplement_download_status == "archived"
-        or (
-            paper_row is not None
-            and paper_row.supplementary_download_status == "archived"
-        )
+    if project_row.supplement_download_status == "archived" or (
+        paper_row is not None and paper_row.supplementary_download_status == "archived"
     ):
         stage_statuses["supplement_capture"] = "complete"
     elif not bundle.supplement_required:
@@ -70,7 +66,9 @@ def _project_stage_statuses(
         stage_statuses["publication_readiness"] = "blocked"
         return stage_statuses
 
-    lacking_site = _int_value(site_row.get("lacking_defensible_site_assignment_count") or 0)
+    lacking_site = _int_value(
+        site_row.get("lacking_defensible_site_assignment_count") or 0
+    )
     if final_sample_count > 0 and lacking_site == 0:
         stage_statuses["site_recovery"] = "complete"
     else:
@@ -193,7 +191,10 @@ def _expected_contributions(
     ):
         contributions.append("site_evidence")
         contributions.append("coordinate_candidates")
-    if _int_value(chronology_row.get("unresolved_count") or 0) > 0 or not chronology_row:
+    if (
+        _int_value(chronology_row.get("unresolved_count") or 0) > 0
+        or not chronology_row
+    ):
         contributions.append("sample_chronology")
     return list(dict.fromkeys(contributions))
 

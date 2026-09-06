@@ -23,7 +23,6 @@ class DocumentationContentTests(unittest.TestCase):
                 ids.add(match.group(1).lower())
         return ids
 
-
     def test_docs_mermaid_diagrams_avoid_reserved_node_ids(self) -> None:
         failures: list[str] = []
 
@@ -45,7 +44,6 @@ class DocumentationContentTests(unittest.TestCase):
             failures,
             "Mermaid diagrams use reserved node ids:\n" + "\n".join(failures),
         )
-
 
     def test_readme_and_docs_separate_reader_proof_from_test_selection(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8")
@@ -77,7 +75,6 @@ class DocumentationContentTests(unittest.TestCase):
         self.assertIn("`tests/regression/`", maintainer_quality_text)
         self.assertIn("`tests/e2e/`", maintainer_quality_text)
 
-
     def test_docs_home_page_uses_repository_name_for_title_and_h1(self) -> None:
         docs_index = (REPO_ROOT / "docs" / "index.md").read_text(encoding="utf-8")
 
@@ -92,7 +89,6 @@ class DocumentationContentTests(unittest.TestCase):
             docs_index,
         )
 
-
     def test_public_docs_do_not_ship_reference_grade_phrase(self) -> None:
         failures: list[str] = []
 
@@ -106,7 +102,6 @@ class DocumentationContentTests(unittest.TestCase):
             "Public docs still ship the forbidden reference-grade phrase:\n"
             + "\n".join(failures),
         )
-
 
     def test_top_level_product_descriptions_stay_pollenomics_first(self) -> None:
         root_readme = " ".join(
@@ -154,7 +149,6 @@ class DocumentationContentTests(unittest.TestCase):
         self.assertIn("Point publication rules", atlas_index)
         self.assertIn("Filters and popups", atlas_index)
         self.assertIn("Current limits", atlas_index)
-
 
     def test_top_level_landings_keep_pollenomics_scope_and_source_breadth(self) -> None:
         readme_text = (REPO_ROOT / "README.md").read_text(encoding="utf-8").lower()
@@ -212,7 +206,6 @@ class DocumentationContentTests(unittest.TestCase):
         self.assertFalse((REPO_ROOT / "docs" / "public" / "index.md").exists())
         self.assertTrue((REPO_ROOT / "docs" / "internal" / "index.md").is_file())
 
-
     def test_package_readmes_keep_sharp_audiences(self) -> None:
         runtime_readme = (
             REPO_ROOT / "packages" / "bijux-pollenomics" / "README.md"
@@ -231,7 +224,6 @@ class DocumentationContentTests(unittest.TestCase):
         self.assertIn("Maintainer-only package", maintainer_readme)
         self.assertIn("It is not the owner of runtime commands", maintainer_readme)
 
-
     def test_runtime_package_boundary_doc_names_durable_scientific_ownership(
         self,
     ) -> None:
@@ -249,7 +241,6 @@ class DocumentationContentTests(unittest.TestCase):
         self.assertIn("## Package Split", boundary_doc)
         self.assertIn("bijux_pollenomics.adna.projects.registry.sites", boundary_doc)
         self.assertIn("bijux_pollenomics.reporting.review", boundary_doc)
-
 
     def test_module_map_mentions_adna_runtime_boundary(self) -> None:
         module_map = (
@@ -281,7 +272,6 @@ class DocumentationContentTests(unittest.TestCase):
         self.assertIn("alias distribution", module_map)
         self.assertIn("`src/bijux_pollenomics/adna/`", module_map)
 
-
     def test_directory_layout_docs_mentions_curated_species_roots(self) -> None:
         directory_layout = (
             REPO_ROOT
@@ -302,7 +292,6 @@ class DocumentationContentTests(unittest.TestCase):
         self.assertIn("`data/adna/species/equus_asinus/`", directory_layout)
         self.assertIn("`data/adna/species/felis_catus/`", directory_layout)
 
-
     def test_fieldwork_page_embeds_video_from_site_root_gallery(self) -> None:
         fieldwork_text = (
             REPO_ROOT
@@ -321,7 +310,6 @@ class DocumentationContentTests(unittest.TestCase):
             '<a href="../../../gallery/2026-02-26-data-collection.mp4">',
             fieldwork_text,
         )
-
 
     def test_public_atlas_and_fieldwork_pages_use_local_site_paths(self) -> None:
         atlas_text = (
@@ -371,7 +359,6 @@ class DocumentationContentTests(unittest.TestCase):
             fieldwork_detail_text,
         )
 
-
     def test_engineering_docs_describe_clean_verification_and_docs_asset_checks(
         self,
     ) -> None:
@@ -402,7 +389,6 @@ class DocumentationContentTests(unittest.TestCase):
         self.assertIn("strict MkDocs builds", testing_and_evidence)
         self.assertIn("`docs/assets/site-icons/`", testing_and_evidence)
         self.assertIn("shared Bijux docs theme contract", testing_and_evidence)
-
 
 
 if __name__ == "__main__":

@@ -286,9 +286,7 @@ class SourceCaptureTests(unittest.TestCase):
             assessment = source_library_acquisition._assess_downloaded_source_capture(
                 output_root=output_root,
                 logical_path=logical_path,
-                source_url=(
-                    "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA112960291"
-                ),
+                source_url=("https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA112960291"),
                 payload=payload,
                 content_type="application/xml",
             )
@@ -296,12 +294,8 @@ class SourceCaptureTests(unittest.TestCase):
             self.assertEqual(assessment.disposition.value, "refused")
             self.assertIsNotNone(assessment.refusal_path)
             assert assessment.refusal_path is not None
-            refusal = json.loads(
-                assessment.refusal_path.read_text(encoding="utf-8")
-            )
-            self.assertEqual(
-                refusal["reason_code"], "official_source_receipt_mismatch"
-            )
+            refusal = json.loads(assessment.refusal_path.read_text(encoding="utf-8"))
+            self.assertEqual(refusal["reason_code"], "official_source_receipt_mismatch")
 
     def test_identical_official_xml_refuses_stale_receipt(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -327,9 +321,7 @@ class SourceCaptureTests(unittest.TestCase):
             assessment = source_library_acquisition._assess_downloaded_source_capture(
                 output_root=output_root,
                 logical_path=logical_path,
-                source_url=(
-                    "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA112960291"
-                ),
+                source_url=("https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA112960291"),
                 payload=payload,
                 content_type="application/xml",
             )

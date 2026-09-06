@@ -31,11 +31,10 @@ def _parse_chronology(payload: object) -> AdnaChronology:
 
 def _atlas_public_chronology(chronology: AdnaChronology) -> AdnaChronology:
     temporal_semantics = chronology.as_temporal_semantics(source_family="animal_adna")
-    if (
-        temporal_semantics["comparability_posture"]
-        in {"numeric_interval", "numeric_interval_with_caveat"}
-        and _atlas_chronology_supports_publication(chronology)
-    ):
+    if temporal_semantics["comparability_posture"] in {
+        "numeric_interval",
+        "numeric_interval_with_caveat",
+    } and _atlas_chronology_supports_publication(chronology):
         time_start_bp = cast(int, temporal_semantics["time_start_bp"])
         time_end_bp = cast(int, temporal_semantics["time_end_bp"])
         time_mean_bp = chronology.time_mean_bp

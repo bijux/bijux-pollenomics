@@ -55,16 +55,12 @@ def _write_feature_collection(
                     "sample_count": feature["sample_count"],
                     "sample_record_ids": feature["sample_record_ids"],
                     "sample_group_ids": feature["sample_group_ids"],
-                    "source_native_taxon_labels": feature[
-                        "source_native_taxon_labels"
-                    ],
+                    "source_native_taxon_labels": feature["source_native_taxon_labels"],
                     "source_native_tax_ids": feature["source_native_tax_ids"],
                     "source_native_scientific_names": feature[
                         "source_native_scientific_names"
                     ],
-                    "taxon_alignment_statuses": feature[
-                        "taxon_alignment_statuses"
-                    ],
+                    "taxon_alignment_statuses": feature["taxon_alignment_statuses"],
                     "sample_namespace": feature["sample_namespace"],
                     "inclusion_notes": feature["inclusion_notes"],
                     "latitude_text": feature["latitude_text"],
@@ -169,9 +165,7 @@ def _write_animal_atlas_evidence_csv(
                     "source_native_scientific_names": ";".join(
                         row.source_native_scientific_names
                     ),
-                    "taxon_alignment_statuses": ";".join(
-                        row.taxon_alignment_statuses
-                    ),
+                    "taxon_alignment_statuses": ";".join(row.taxon_alignment_statuses),
                     "project_accessions": ";".join(row.project_accessions),
                     "paper_doi": row.paper_doi,
                     "supplementary_sources": ";".join(row.supplementary_sources),

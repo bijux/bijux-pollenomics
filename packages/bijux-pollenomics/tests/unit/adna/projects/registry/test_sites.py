@@ -47,10 +47,7 @@ class AdnaProjectSampleSitesUnitTests(unittest.TestCase):
             all(row.locality_resolution_status == "unresolved" for row in rows)
         )
         self.assertTrue(
-            all(
-                "no location evidence" in row.review_note.lower()
-                for row in rows
-            )
+            all("no location evidence" in row.review_note.lower() for row in rows)
         )
 
     def test_horse_project_sample_sites_publish_direct_botai_rows(self) -> None:

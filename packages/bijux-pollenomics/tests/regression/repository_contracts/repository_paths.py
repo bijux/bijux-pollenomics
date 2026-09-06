@@ -10,10 +10,15 @@ WORKFLOW_URL_RE = re.compile(
     r"(?P<workflow>[A-Za-z0-9_.-]+)"
 )
 MERMAID_RESERVED_IDS = {
-    "class", "classdef", "click", "default", "end", "graph",
-    "linkstyle", "style", "subgraph",
+    "class",
+    "classdef",
+    "click",
+    "default",
+    "end",
+    "graph",
+    "linkstyle",
+    "style",
+    "subgraph",
 }
 
-__all__ = [
-    "MERMAID_RESERVED_IDS", "PACKAGE_ROOT", "REPO_ROOT", "WORKFLOW_URL_RE"
-]
+__all__ = ["MERMAID_RESERVED_IDS", "PACKAGE_ROOT", "REPO_ROOT", "WORKFLOW_URL_RE"]

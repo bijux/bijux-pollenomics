@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from bijux_pollenomics.reporting.models import SampleRecord
+
 AADR_HEADER = "\t".join(
     [
         "Genetic ID",
@@ -20,6 +21,7 @@ AADR_HEADER = "\t".join(
         "Molecular Sex",
     ]
 )
+
 
 def write_anno(path: Path, rows: list[str]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)

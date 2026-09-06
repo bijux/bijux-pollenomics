@@ -34,7 +34,6 @@ class AdnaGovernanceArtifactTests(unittest.TestCase):
                 f"data/README.md points at a missing docs page: {target}",
             )
 
-
     def test_data_root_ships_contract_and_state_surfaces(self) -> None:
         data_root = REPO_ROOT / "data"
 
@@ -45,7 +44,6 @@ class AdnaGovernanceArtifactTests(unittest.TestCase):
         )
         self.assertTrue((data_root / "source_fact_ownership_registry.json").is_file())
         self.assertTrue((data_root / "evidence_artifact_contracts.json").is_file())
-
 
     def test_tracked_adna_root_ships_cross_species_audit_artifacts(self) -> None:
         adna_root = REPO_ROOT / "data" / "adna"
@@ -495,7 +493,6 @@ class AdnaGovernanceArtifactTests(unittest.TestCase):
                 / "supplementary_manifest.json"
             ).is_file()
         )
-
 
 
 if __name__ == "__main__":

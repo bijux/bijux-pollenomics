@@ -30,7 +30,6 @@ class MkDocsConfigurationTests(unittest.TestCase):
 
         self.assertEqual(missing_targets, [])
 
-
     def test_public_mkdocs_nav_uses_directory_sections_before_leaf_pages(self) -> None:
         config = yaml.load(
             (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8"),
@@ -86,14 +85,12 @@ class MkDocsConfigurationTests(unittest.TestCase):
             },
         )
 
-
     def test_shared_mkdocs_excludes_badge_template_from_public_docs_graph(self) -> None:
         config = yaml.unsafe_load(
             (REPO_ROOT / "mkdocs.shared.yml").read_text(encoding="utf-8")
         )
 
         self.assertEqual(config["exclude_docs"].strip(), "badges.md\ninternal/**")
-
 
     def test_shared_mkdocs_keeps_generic_shell_defaults(self) -> None:
         config = yaml.unsafe_load(
@@ -112,7 +109,6 @@ class MkDocsConfigurationTests(unittest.TestCase):
                 for link in bijux["hub_links"]
             )
         )
-
 
     def test_mkdocs_uses_main_branch_edit_links_and_local_mermaid_bundle(self) -> None:
         mkdocs_text = (REPO_ROOT / "mkdocs.yml").read_text(encoding="utf-8")
@@ -148,7 +144,6 @@ class MkDocsConfigurationTests(unittest.TestCase):
         )
         self.assertNotIn("cdn.jsdelivr.net/npm/mermaid", mkdocs_text)
 
-
     def test_docs_header_uses_repository_label_for_repository_handbook(self) -> None:
         header_text = (
             REPO_ROOT / "docs" / "overrides" / "partials" / "header.html"
@@ -157,7 +152,6 @@ class MkDocsConfigurationTests(unittest.TestCase):
         self.assertIn('title == "Repository Handbook"', header_text)
         self.assertIn("Repository", header_text)
         self.assertNotIn("\n    Home\n", header_text)
-
 
     def test_docs_keep_browser_icon_sources_under_assets(self) -> None:
         self.assertTrue(
@@ -187,7 +181,6 @@ class MkDocsConfigurationTests(unittest.TestCase):
         )
         self.assertFalse((REPO_ROOT / "docs" / "publications" / "gallery").exists())
 
-
     def test_navigation_sync_bootstraps_shared_navigation_shell(self) -> None:
         script_text = (
             REPO_ROOT / "docs" / "assets" / "javascripts" / "navigation-sync.js"
@@ -212,7 +205,6 @@ class MkDocsConfigurationTests(unittest.TestCase):
             detail_tabs_text,
         )
 
-
     def test_shared_nav_hides_scoped_sidebar_on_section_overview_homepages(
         self,
     ) -> None:
@@ -231,7 +223,6 @@ class MkDocsConfigurationTests(unittest.TestCase):
         self.assertEqual(nav_override, shared_nav)
         self.assertNotIn("bijux-docs-apply-repo-overrides", root_make)
         self.assertNotIn("bijux-docs-apply-repo-overrides", docs_make)
-
 
 
 if __name__ == "__main__":

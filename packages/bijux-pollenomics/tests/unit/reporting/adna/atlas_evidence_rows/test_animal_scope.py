@@ -350,21 +350,29 @@ def test_heterogeneous_project_without_sample_scope_evidence_fails_closed(
     ) == (None, "sample_scope_not_evidenced")
 
 
-def test_tracked_atlas_never_labels_source_native_mismatches_as_domesticated() -> (
-    None
-):
+def test_tracked_atlas_never_labels_source_native_mismatches_as_domesticated() -> None:
     rows = service.build_tracked_animal_atlas_evidence_rows(REPOSITORY_ROOT / "data")
-    domestic_rows = tuple(row for row in rows if row.animal_scope == "domesticated_core")
+    domestic_rows = tuple(
+        row for row in rows if row.animal_scope == "domesticated_core"
+    )
     wildcat_rows = tuple(
         row
         for row in rows
-        if any(name.startswith("Felis silvestris") for name in row.source_native_scientific_names)
+        if any(
+            name.startswith("Felis silvestris")
+            for name in row.source_native_scientific_names
+        )
     )
 
     assert domestic_rows
     assert not any(
         any(
-            name in {"Bos primigenius", "Felis silvestris lybica", "Felis silvestris silvestris"}
+            name
+            in {
+                "Bos primigenius",
+                "Felis silvestris lybica",
+                "Felis silvestris silvestris",
+            }
             for name in row.source_native_scientific_names
         )
         for row in domestic_rows

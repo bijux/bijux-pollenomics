@@ -95,9 +95,7 @@ def time_density_matches_facet(
         if density.get(field) != facet.get(field):
             return False
     node_count = _nonnegative_integer(facet.get("node_count"))
-    observation_denominator = _nonnegative_integer(
-        facet.get("observation_denominator")
-    )
+    observation_denominator = _nonnegative_integer(facet.get("observation_denominator"))
     time_min_bp = _nonnegative_number(facet.get("time_min_bp"))
     time_max_bp = _nonnegative_number(facet.get("time_max_bp"))
     if node_count is None or observation_denominator is None:
@@ -107,11 +105,7 @@ def time_density_matches_facet(
             return False
         expected_bin_count = 0
     else:
-        if (
-            time_min_bp is None
-            or time_max_bp is None
-            or time_min_bp > time_max_bp
-        ):
+        if time_min_bp is None or time_max_bp is None or time_min_bp > time_max_bp:
             return False
         expected_bin_count = 1 if time_min_bp == time_max_bp else 12
     bins = density.get("bins")

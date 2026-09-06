@@ -98,9 +98,7 @@ def load_source_chronology_authority(
         layer_index = row.get("layer_index")
         layer_key = row.get("layer_key")
         expected_level = (
-            _SOURCE_LAYER_LEVELS.get(layer_key)
-            if isinstance(layer_key, str)
-            else None
+            _SOURCE_LAYER_LEVELS.get(layer_key) if isinstance(layer_key, str) else None
         )
         if row.get("domain") != "nodes" or expected_level is None:
             continue

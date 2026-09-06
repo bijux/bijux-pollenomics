@@ -30,9 +30,7 @@ def build_sample_rows(
                     "species_latin_name": str(locality.get("species_latin_name", "")),
                     "species_common_name": str(locality.get("species_common_name", "")),
                     "animal_scope": str(locality.get("animal_scope", "")),
-                    "source_native_tax_id": str(
-                        sample.get("source_native_tax_id", "")
-                    ),
+                    "source_native_tax_id": str(sample.get("source_native_tax_id", "")),
                     "source_native_scientific_name": str(
                         sample.get("source_native_scientific_name", "")
                     ),
@@ -45,9 +43,7 @@ def build_sample_rows(
                         or sample.get("master_id")
                         or project_accession
                     ),
-                    "sample_namespace": str(
-                        identity.get("namespace", "")
-                    ),
+                    "sample_namespace": str(identity.get("namespace", "")),
                     "feature_id": str(locality.get("feature_id", "")),
                     "evidence_row_id": str(locality.get("evidence_row_id", "")),
                     "site_record_id": str(locality.get("site_record_id", "")),
@@ -147,6 +143,7 @@ def build_sample_rows(
         )
     )
     return sample_rows
+
 
 def load_country_sample_lookup(data_root: Path) -> dict[str, dict[str, object]]:
     lookup: dict[str, dict[str, object]] = {}

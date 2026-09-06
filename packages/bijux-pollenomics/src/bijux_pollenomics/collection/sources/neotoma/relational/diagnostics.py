@@ -61,9 +61,7 @@ def _merge_conflict_variants(
     canonical_variants = {
         _canonical_record_key(variant): copy.deepcopy(variant) for variant in variants
     }
-    ordered_variants = [
-        canonical_variants[key] for key in sorted(canonical_variants)
-    ]
+    ordered_variants = [canonical_variants[key] for key in sorted(canonical_variants)]
     merged = conflict_record(
         conflict_kind,
         subject_id,
@@ -127,8 +125,7 @@ def add_conflict(
 ) -> None:
     conflict = conflict_record(conflict_kind, subject_id, detail)
     if any(
-        existing.get("conflict_id") == conflict["conflict_id"]
-        for existing in conflicts
+        existing.get("conflict_id") == conflict["conflict_id"] for existing in conflicts
     ):
         return
     conflicts.append(conflict)

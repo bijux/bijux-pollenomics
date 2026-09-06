@@ -18,6 +18,7 @@ _PROJECT_SCOPE_RULES = {
     ("comparator_only", "ancient_comparator", True): "comparator",
 }
 
+
 def _load_locality_rows(species_root: Path) -> list[dict[str, object]]:
     path = species_root / "normalized" / "locality_summaries.json"
     if not path.is_file():

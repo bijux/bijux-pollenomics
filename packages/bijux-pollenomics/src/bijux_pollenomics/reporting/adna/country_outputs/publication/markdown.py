@@ -174,6 +174,7 @@ surface for now.
 {species_lines}
 """
 
+
 def format_evidence_locator(path: str, locator: str) -> str:
     path = path.strip()
     locator = locator.strip()

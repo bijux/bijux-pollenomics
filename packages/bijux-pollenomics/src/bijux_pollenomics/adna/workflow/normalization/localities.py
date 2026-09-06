@@ -86,9 +86,7 @@ def build_species_project_locality_records(
     }
     all_curated_sample_rows = build_species_curated_sample_rows(species_name)
     curated_sample_rows = tuple(
-        row
-        for row in all_curated_sample_rows
-        if _sample_record_is_admissible(row)
+        row for row in all_curated_sample_rows if _sample_record_is_admissible(row)
     )
     nonfinal_locality_labels_by_project: dict[str, set[str]] = defaultdict(set)
     for row in all_curated_sample_rows:

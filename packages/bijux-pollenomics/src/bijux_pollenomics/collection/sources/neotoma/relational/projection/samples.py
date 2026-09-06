@@ -53,9 +53,7 @@ def project_samples(
                 "source_igsn": copy.deepcopy(sample.get("igsn")),
                 "source_depth": copy.deepcopy(sample.get("depth")),
                 "source_thickness": copy.deepcopy(sample.get("thickness")),
-                "source_sample_analysts": copy.deepcopy(
-                    sample.get("sampleanalyst")
-                ),
+                "source_sample_analysts": copy.deepcopy(sample.get("sampleanalyst")),
                 "dataset_id": dataset_id,
                 "collection_unit_id": unit_id,
                 "site_id": site_id,

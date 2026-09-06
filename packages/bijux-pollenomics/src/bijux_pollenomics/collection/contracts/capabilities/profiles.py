@@ -266,8 +266,6 @@ def _profile(
     )
 
 
-
-
 def _validate_profiles(profiles: tuple[SourceCapabilityProfile, ...]) -> None:
     source_keys = [profile.source_key for profile in profiles]
     if len(source_keys) != len(set(source_keys)):

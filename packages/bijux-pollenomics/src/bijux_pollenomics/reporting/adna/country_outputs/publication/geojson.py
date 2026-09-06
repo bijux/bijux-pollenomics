@@ -34,15 +34,12 @@ def write_country_animal_localities_geojson(
             {"label": "Species", "value": row["species_latin_name"]},
             {
                 "label": "Source-native taxa",
-                "value": ", ".join(
-                    str(item) for item in source_native_taxon_labels
-                ),
+                "value": ", ".join(str(item) for item in source_native_taxon_labels),
             },
             {
                 "label": "Taxon alignment",
                 "value": ", ".join(
-                    str(item).replace("_", " ")
-                    for item in taxon_alignment_statuses
+                    str(item).replace("_", " ") for item in taxon_alignment_statuses
                 ),
             },
             {
@@ -112,9 +109,7 @@ def write_country_animal_localities_geojson(
                     "sample_count": row["sample_count"],
                     "sample_record_ids": row["sample_record_ids"],
                     "sample_group_ids": row["sample_group_ids"],
-                    "source_native_taxon_labels": row[
-                        "source_native_taxon_labels"
-                    ],
+                    "source_native_taxon_labels": row["source_native_taxon_labels"],
                     "source_native_tax_ids": row["source_native_tax_ids"],
                     "source_native_scientific_names": row[
                         "source_native_scientific_names"

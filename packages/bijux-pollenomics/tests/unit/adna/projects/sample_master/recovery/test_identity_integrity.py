@@ -26,9 +26,7 @@ pytestmark = pytest.mark.generated_artifacts
 
 class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
     def test_materialized_lineage_components_are_unique(self) -> None:
-        projects_root = (
-            self.data_root / "adna/governance/source_library/projects"
-        )
+        projects_root = self.data_root / "adna/governance/source_library/projects"
         duplicates = []
         for path in sorted(projects_root.glob("*/sample_master.json")):
             payload = json.loads(path.read_text(encoding="utf-8"))

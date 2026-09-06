@@ -331,9 +331,8 @@ def _xml_capture_refusal_reason(
     if logical_path.name == "article_full_text.xml" and root.tag != "article":
         return "article_full_text_source_root_mismatch"
     path_text = logical_path.as_posix()
-    if (
-        "/projects/PRJEB59481/ena_samples/" in path_text
-        and logical_path.name.endswith(".xml")
+    if "/projects/PRJEB59481/ena_samples/" in path_text and logical_path.name.endswith(
+        ".xml"
     ):
         try:
             from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep.official_evidence import (  # noqa: PLC0415

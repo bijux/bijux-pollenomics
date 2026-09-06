@@ -98,9 +98,7 @@ class AnimalAtlasEvidenceRow:
             "sample_group_ids": list(self.sample_group_ids),
             "source_native_taxon_labels": list(self.source_native_taxon_labels),
             "source_native_tax_ids": list(self.source_native_tax_ids),
-            "source_native_scientific_names": list(
-                self.source_native_scientific_names
-            ),
+            "source_native_scientific_names": list(self.source_native_scientific_names),
             "taxon_alignment_statuses": list(self.taxon_alignment_statuses),
             "sample_count": self.sample_count,
             "sample_namespace": self.sample_namespace,
