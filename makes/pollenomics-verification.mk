@@ -183,13 +183,19 @@ define run_pollenomics_pytest_gate
 		$(2)
 endef
 
-.PHONY: verify-science verify-data verify-map verify-provenance verify-doc-counts verify-rebuild refresh-release-gates release-evidence-request release-evidence verify-release-candidate
+.PHONY: verify-science verify-data verify-map verify-provenance verify-doc-counts verify-rebuild verify-sead-evidence-fixed-point refresh-release-gates release-evidence-request release-evidence verify-release-candidate
 
 verify-rebuild: root-check-env ## Prove tracked reports rebuild deterministically
 	@evidence_parent="$$(mktemp -d "$(CURDIR)/artifacts/execution-control/reproducible-report-build.XXXXXX")"; \
 	$(DEV_RUN) -m bijux_pollenomics_dev.ci.rebuild_reports \
 		--repo-root "$(CURDIR)" \
 		--policy "$(CURDIR)/configs/ci/reproducible-report-build.json" \
+		--evidence-root "$$evidence_parent/evidence"
+
+verify-sead-evidence-fixed-point: root-check-env ## Prove governed SEAD evidence rebuilds byte-identically without network
+	@evidence_parent="$$(mktemp -d "$(CURDIR)/artifacts/execution-control/sead-evidence-fixed-point.XXXXXX")"; \
+	$(DEV_RUN) -m bijux_pollenomics_dev.ci.rebuild_sead_evidence \
+		--repo-root "$(CURDIR)" \
 		--evidence-root "$$evidence_parent/evidence"
 
 verify-science: root-check-env ## Record focused scientific-semantics verification

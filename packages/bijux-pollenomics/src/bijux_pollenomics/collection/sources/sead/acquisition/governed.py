@@ -26,6 +26,23 @@ from .admission import (
 )
 
 
+def governed_sead_expected_identity(data_root: Path) -> SeadAdmissionExpectedIdentity:
+    """Return the exact caller-pinned identity for governed SEAD evidence."""
+    return SeadAdmissionExpectedIdentity(
+        scope_id=SEAD_GOVERNED_EVIDENCE_SCOPE_ID,
+        run_id=SEAD_GOVERNED_EVIDENCE_RUN_ID,
+        parent_run_id=SEAD_GOVERNED_PARENT_RUN_ID,
+        build_id=SEAD_GOVERNED_BUILD_ID,
+        country_authority_id=SEAD_GOVERNED_COUNTRY_AUTHORITY_ID,
+        country_authority_artifact_digest=SEAD_GOVERNED_COUNTRY_AUTHORITY_DIGEST,
+        country_authority_root=(Path(data_root) / "boundaries").resolve(),
+        bbox_payload_sha256=SEAD_GOVERNED_BBOX_PAYLOAD_SHA256,
+        acquisition_manifest_sha256=SEAD_GOVERNED_ACQUISITION_MANIFEST_SHA256,
+        country_decisions_sha256=SEAD_GOVERNED_COUNTRY_DECISIONS_SHA256,
+        parent_admission_sha256=SEAD_GOVERNED_PARENT_ADMISSION_SHA256,
+    )
+
+
 def validate_governed_sead_admission(
     acquisition_root: Path,
     *,
@@ -41,17 +58,5 @@ def validate_governed_sead_admission(
         raise ValueError("governed SEAD admission identity changed")
     return read_materialized_sead_full_evidence_admission(
         root,
-        expected_identity=SeadAdmissionExpectedIdentity(
-            scope_id=SEAD_GOVERNED_EVIDENCE_SCOPE_ID,
-            run_id=SEAD_GOVERNED_EVIDENCE_RUN_ID,
-            parent_run_id=SEAD_GOVERNED_PARENT_RUN_ID,
-            build_id=SEAD_GOVERNED_BUILD_ID,
-            country_authority_id=SEAD_GOVERNED_COUNTRY_AUTHORITY_ID,
-            country_authority_artifact_digest=SEAD_GOVERNED_COUNTRY_AUTHORITY_DIGEST,
-            country_authority_root=(Path(data_root) / "boundaries").resolve(),
-            bbox_payload_sha256=SEAD_GOVERNED_BBOX_PAYLOAD_SHA256,
-            acquisition_manifest_sha256=SEAD_GOVERNED_ACQUISITION_MANIFEST_SHA256,
-            country_decisions_sha256=SEAD_GOVERNED_COUNTRY_DECISIONS_SHA256,
-            parent_admission_sha256=SEAD_GOVERNED_PARENT_ADMISSION_SHA256,
-        ),
+        expected_identity=governed_sead_expected_identity(data_root),
     )
