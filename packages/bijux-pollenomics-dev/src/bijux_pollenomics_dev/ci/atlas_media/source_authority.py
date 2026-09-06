@@ -20,10 +20,10 @@ _PREFIX = (
     "globalThis.__BIJUX_ATLAS_RAW_CHUNKS__.push("
 )
 _SUFFIX = ");\n"
-_LAYERS = {
-    8: "source_sample_presence",
-    9: "source_ecological_code",
-    10: "source_taxon",
+_SOURCE_LAYER_LEVELS = {
+    "neotoma-source-sample-pollen-context": "source_sample_presence",
+    "neotoma-source-ecological-code": "source_ecological_code",
+    "neotoma-source-exact-taxon": "source_taxon",
 }
 
 
@@ -96,7 +96,13 @@ def load_source_chronology_authority(
             raise AtlasMediaError("static atlas asset table row is invalid")
         row = dict(zip(fields, values, strict=True))
         layer_index = row.get("layer_index")
-        if row.get("domain") != "nodes" or layer_index not in _LAYERS:
+        layer_key = row.get("layer_key")
+        expected_level = (
+            _SOURCE_LAYER_LEVELS.get(layer_key)
+            if isinstance(layer_key, str)
+            else None
+        )
+        if row.get("domain") != "nodes" or expected_level is None:
             continue
         digest = _sha(row.get("sha256"), "static source asset")
         filename = f"{scope}.atlas-nodes.{sequence:04d}.{digest[:16]}.js"
@@ -117,7 +123,7 @@ def load_source_chronology_authority(
             if not isinstance(value, dict):
                 raise AtlasMediaError(f"static source feature is invalid: {filename}")
             feature = cast(dict[str, object], value)
-            if feature.get("node_level") != _LAYERS[cast(int, layer_index)]:
+            if feature.get("node_level") != expected_level:
                 raise AtlasMediaError(
                     f"static source feature level differs: {filename}"
                 )
