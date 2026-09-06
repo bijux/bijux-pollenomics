@@ -15,6 +15,7 @@ from .admission import (
     _require_governed_inputs_at_head,
 )
 from .contracts import AtlasMediaError, AtlasMediaPlan, SelectedStory
+from .capture_evidence import capture_frame_evidence_valid, expected_capture_layer_key
 from .gallery import canonical_json_bytes, sha256_file
 from .process_execution import _run_logged, _write_json
 
@@ -79,6 +80,7 @@ def _render_frames(
                 "node_count": story.node_count,
                 "observation_denominator": story.observation_denominator,
                 "frame_feature_denominators": story.frame_feature_denominators,
+                "frame_no_pollen_data_counts": story.frame_no_pollen_data_counts,
                 "expected_visible_feature_counts": story.expected_visible_feature_counts,
                 "source_authority_sha256": story.source_authority_sha256,
                 "frames": [
@@ -189,6 +191,12 @@ def _validate_capture_receipt(
                 if story.frame_feature_denominators is not None
                 else None
             )
+            or row.get("frame_no_pollen_data_counts")
+            != (
+                list(story.frame_no_pollen_data_counts)
+                if story.frame_no_pollen_data_counts is not None
+                else None
+            )
             or row.get("expected_visible_feature_counts")
             != (
                 list(story.expected_visible_feature_counts)
@@ -230,6 +238,8 @@ def _validate_capture_receipt(
                 or frame_receipt.get("observation_denominator")
                 != story.observation_denominator
                 or frame_receipt.get("feature_count") != frame.get("feature_count")
+                or frame_receipt.get("no_pollen_data_count")
+                != frame.get("no_pollen_data_count")
                 or frame_receipt.get("source_level") != frame.get("source_level")
                 or frame_receipt.get("source_code") != frame.get("source_code")
                 or frame_receipt.get("source_taxon") != frame.get("source_taxon")
@@ -259,35 +269,30 @@ def _valid_visible_counts(
     story: SelectedStory,
     frame: dict[str, object],
 ) -> bool:
-    counts = (
-        frame_receipt.get("visible_point_count"),
-        frame_receipt.get("visible_polygon_layer_count"),
+    ordinal = frame.get("ordinal")
+    expected_source_count = (
+        story.expected_visible_feature_counts[cast(int, ordinal)]
+        if story.expected_visible_feature_counts is not None
+        and isinstance(ordinal, int)
+        else None
     )
-    if any(
-        isinstance(value, bool) or not isinstance(value, int) or value < 0
-        for value in counts
-    ):
-        return False
-    visible_counts = cast("tuple[int, int]", counts)
-    if frame_receipt.get("visible_feature_count") != sum(visible_counts):
-        return False
-    source_count = frame_receipt.get("visible_source_chronology_point_count")
-    modeled_count = frame_receipt.get("visible_modeled_context_feature_count")
-    if any(
-        isinstance(value, bool) or not isinstance(value, int) or value < 0
-        for value in (source_count, modeled_count)
-    ):
-        return False
-    if sum(visible_counts) < cast(int, source_count) + cast(int, modeled_count):
-        return False
-    if story.evidence_role == "observation_chronology":
-        return (
-            story.expected_visible_feature_counts is not None
-            and source_count
-            == story.expected_visible_feature_counts[cast(int, frame["ordinal"])]
-            and modeled_count == 0
-        )
-    return source_count == 0 and modeled_count == frame.get("feature_count")
+    return capture_frame_evidence_valid(
+        frame_receipt,
+        evidence_role=story.evidence_role,
+        source_level=frame.get("source_level"),
+        expected_evidence_layer_key=expected_capture_layer_key(
+            story_kind=frame.get("story_kind"), source_level=frame.get("source_level")
+        ),
+        expected_title=story.title,
+        expected_source_count=expected_source_count,
+        source_node_denominator=story.node_count,
+        source_observation_denominator=story.observation_denominator,
+        expected_modeled_count=frame.get("feature_count"),
+        expected_modeled_no_pollen_data_count=frame.get("no_pollen_data_count"),
+        source_window_label=frame.get("source_window_label"),
+        time_start_bp=frame.get("time_start_bp"),
+        time_end_bp=frame.get("time_end_bp"),
+    )
 
 
 def _validate_network_receipt(

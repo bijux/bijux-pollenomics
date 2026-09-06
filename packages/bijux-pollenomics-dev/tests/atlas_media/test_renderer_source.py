@@ -160,9 +160,13 @@ def test_renderer_uses_capture_api_without_polling_or_provider_tiles() -> None:
     assert "facet_observation_denominator" in renderer
     assert "modeled_context?.feature_count" in renderer
     assert "visible_feature_count" in renderer
+    assert "visible_polygon_feature_count" in renderer
     assert "source story rendered no selected-layer evidence" in renderer
     assert "visible_source_chronology_point_count" in renderer
     assert "visible_modeled_context_feature_count" in renderer
+    assert "capture_layers" in renderer
+    assert "capture_presentation" in renderer
+    assert "capture_layout" in renderer
     assert "#basemap=none" in renderer
     assert "git('status'" not in renderer
     assert "candidate static snapshot escapes artifact root" in renderer

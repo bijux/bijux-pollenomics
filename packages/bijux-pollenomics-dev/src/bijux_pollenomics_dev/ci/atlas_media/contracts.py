@@ -173,6 +173,7 @@ class SelectedStory:
     node_count: int | None = None
     observation_denominator: int | None = None
     frame_feature_denominators: tuple[int, ...] | None = None
+    frame_no_pollen_data_counts: tuple[int, ...] | None = None
     expected_visible_feature_counts: tuple[int, ...] | None = None
     source_authority_sha256: str | None = None
 
@@ -215,6 +216,10 @@ class SelectedStory:
             )
             if self.frame_feature_denominators is not None:
                 raise AtlasMediaError("source story cannot carry modeled denominators")
+            if self.frame_no_pollen_data_counts is not None:
+                raise AtlasMediaError(
+                    "source story cannot carry modeled quality counts"
+                )
             if (
                 not isinstance(self.expected_visible_feature_counts, tuple)
                 or len(self.expected_visible_feature_counts) != len(self.frames)
@@ -267,6 +272,20 @@ class SelectedStory:
                 raise AtlasMediaError(
                     "modeled story requires one positive feature denominator per frame"
                 )
+            if (
+                not isinstance(self.frame_no_pollen_data_counts, tuple)
+                or len(self.frame_no_pollen_data_counts) != len(self.frames)
+                or any(
+                    isinstance(value, bool)
+                    or not isinstance(value, int)
+                    or value < 0
+                    or value > self.frame_feature_denominators[index]
+                    for index, value in enumerate(self.frame_no_pollen_data_counts)
+                )
+            ):
+                raise AtlasMediaError(
+                    "modeled story requires one governed no-pollen-data count per frame"
+                )
         previous_younger: float | int | None = None
         zero_width_count = 0
         for ordinal, frame in enumerate(self.frames):
@@ -293,11 +312,21 @@ class SelectedStory:
                     raise AtlasMediaError(
                         "source story frame cannot carry a modeled denominator"
                     )
+                if frame.get("no_pollen_data_count") is not None:
+                    raise AtlasMediaError(
+                        "source story frame cannot carry modeled quality counts"
+                    )
             elif (
                 self.frame_feature_denominators is None
                 or feature_count != self.frame_feature_denominators[ordinal]
             ):
                 raise AtlasMediaError("modeled frame feature denominator differs")
+            elif (
+                self.frame_no_pollen_data_counts is None
+                or frame.get("no_pollen_data_count")
+                != self.frame_no_pollen_data_counts[ordinal]
+            ):
+                raise AtlasMediaError("modeled frame no-pollen-data count differs")
         if zero_width_count and (zero_width_count != 1 or len(self.frames) != 1):
             raise AtlasMediaError(
                 "an exact-instant story must contain one unique zero-width frame"

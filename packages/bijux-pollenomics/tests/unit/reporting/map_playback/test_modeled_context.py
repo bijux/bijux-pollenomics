@@ -37,6 +37,7 @@ def test_every_modeled_metric_keeps_all_exact_source_windows() -> None:
         "label": "11200-11700 BP",
         "source_window_label": "11200-11700 BP",
         "feature_count": 75,
+        "no_pollen_data_count": 12,
     }
     assert open_land.frames[-1].source_window_label == "0-100 BP"
     assert all(story.evidence_role == "modeled_context" for story in stories)
@@ -48,12 +49,20 @@ def test_every_modeled_metric_keeps_all_exact_source_windows() -> None:
     assert frames[0]["story_kind"] == "modeled_context"
     assert frames[0]["metric_family_key"] == "source_land_cover_types"
     assert frames[0]["metric_key"] == "OL"
+    assert frames[0]["no_pollen_data_count"] == 12
     assert frames[0]["basemap"] == "none"
     assert frames[0]["countries"] == list(NORDIC_COUNTRIES)
 
 
 @pytest.mark.parametrize(
-    "mutation", ["missing_window", "interpolation", "metric_count"]
+    "mutation",
+    [
+        "missing_window",
+        "interpolation",
+        "metric_count",
+        "missing_quality_count",
+        "excess_quality_count",
+    ],
 )
 def test_incomplete_or_promoted_modeled_context_fails_closed(mutation: str) -> None:
     manifest = deepcopy(modeled_manifest())
@@ -63,6 +72,15 @@ def test_incomplete_or_promoted_modeled_context_fails_closed(mutation: str) -> N
         windows.pop()
     elif mutation == "interpolation":
         manifest["interpolation_allowed"] = True
+    elif mutation in {"missing_quality_count", "excess_quality_count"}:
+        windows = manifest["windows_oldest_to_present"]
+        assert isinstance(windows, list)
+        first = windows[0]
+        assert isinstance(first, dict)
+        if mutation == "missing_quality_count":
+            first.pop("no_pollen_data_count")
+        else:
+            first["no_pollen_data_count"] = 76
     else:
         manifest["metric_count"] = 46
 

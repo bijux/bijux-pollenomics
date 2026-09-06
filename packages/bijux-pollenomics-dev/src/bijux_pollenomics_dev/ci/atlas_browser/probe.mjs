@@ -232,6 +232,8 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
       secale_exact_state: exactTaxonState(secale, expectedNordic.secale, /^Secale\b/i),
       cereal_finder_exact_state: exactTaxonState(cereal, expectedNordic.cereal, /Hordeum\/Secale/i)
         && cereal.query_before_capture === 'cereal|secale',
+      capture_frames_uncluttered: [sourceStates.TRSH, sourceStates.UPHE, sourceStates.AQVP, secale.snapshot, cereal.snapshot]
+        .every((snapshot) => captureFrameIsClear(snapshot, 'observation_chronology')),
       chronology_controls_persistent: [responsive[1440], responsive[390]].every((layout) => layout.chronology_controls_visible
         && layout.chronology_controls_bounded && layout.chronology_controls_uncovered
         && layout.chronology_controls_non_overlapping && layout.body_scroll_width <= layout.viewport.width + 1),
@@ -1092,7 +1094,7 @@ async function captureNullInputs(cdp) {
 
 async function responsiveFacts(cdp, width) {
   return evaluate(cdp, `(async () => {
-    document.documentElement.classList.add('atlas-capture-mode');
+    document.documentElement.classList.add('atlas-probe-motion-mode');
     const settle = () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     const sidebar = document.getElementById('sidebar');
     const toggle = document.getElementById('panel-toggle');
@@ -1119,6 +1121,7 @@ async function responsiveFacts(cdp, width) {
     const legendToggle = document.getElementById('legend-toggle');
     const topbarSearch = document.getElementById('topbar-search');
     const searchToggle = document.getElementById('search-toggle');
+    const searchInput = document.getElementById('search-input');
     const chronologyElements = {
       chronology: document.querySelector('.topbar-time-stepper'),
       older: document.getElementById('time-step-older'),
@@ -1146,6 +1149,33 @@ async function responsiveFacts(cdp, width) {
       uncovered_sample_count: samplePoints.filter(Boolean).length,
       sample_count: samplePoints.length,
     };
+    searchToggle.focus();
+    searchToggle.click();
+    await settle();
+    const searchRegionBox = box(topbarSearch);
+    const searchInputBox = box(searchInput);
+    const searchControl = {
+      region_visible: visible(topbarSearch),
+      region_bounded: searchRegionBox.left >= -1 && searchRegionBox.right <= innerWidth + 1
+        && searchRegionBox.top >= -1 && searchRegionBox.bottom <= innerHeight + 1,
+      region_uncovered: uncovered(topbarSearch),
+      input_visible: visible(searchInput),
+      input_bounded: searchInputBox.left >= -1 && searchInputBox.right <= innerWidth + 1
+        && searchInputBox.top >= -1 && searchInputBox.bottom <= innerHeight + 1,
+      input_uncovered: uncovered(searchInput),
+      input_focused: document.activeElement === searchInput,
+      toggle_expanded: searchToggle.getAttribute('aria-expanded') === 'true',
+      escape_hides_region: false,
+      escape_collapses_toggle: false,
+      escape_restores_focus: false,
+    };
+    searchInput.dispatchEvent(new KeyboardEvent('keydown', {
+      key: 'Escape', code: 'Escape', bubbles: true, cancelable: true,
+    }));
+    await settle();
+    searchControl.escape_hides_region = topbarSearch.hidden && !visible(topbarSearch);
+    searchControl.escape_collapses_toggle = searchToggle.getAttribute('aria-expanded') === 'false';
+    searchControl.escape_restores_focus = document.activeElement === searchToggle;
     let mobile = null;
     if (${width} <= 900) {
       const collapsed = {
@@ -1199,6 +1229,7 @@ async function responsiveFacts(cdp, width) {
     });
     return {
       viewport: { width: innerWidth, height: innerHeight }, elements, mobile, clear_map: clearMap,
+      search_control: searchControl,
       chronology: chronologyBoxes,
       chronology_controls_visible: chronologyControlsVisible,
       chronology_controls_bounded: chronologyControlsBounded,
@@ -1489,6 +1520,35 @@ function exactTaxonState(result, expected, labelPattern) {
     && result.selected_value === expected.taxon;
 }
 
+function captureFrameIsClear(snapshot, evidenceRole) {
+  const layers = snapshot?.capture_layers;
+  const presentation = snapshot?.capture_presentation;
+  const layout = snapshot?.capture_layout;
+  const permittedKeys = layers
+    ? [...new Set([...(layers.orientation_keys || []), layers.evidence_layer_key])].sort()
+    : [];
+  return Array.isArray(layers?.active_keys)
+    && JSON.stringify(layers.active_keys) === JSON.stringify(permittedKeys)
+    && layers.evidence_layer_key
+    && Array.isArray(layers.orientation_keys)
+    && presentation?.schema_version === 'atlas-capture-presentation.v1'
+    && presentation.evidence_role === evidenceRole
+    && presentation.null_handling === 'null_not_zero'
+    && presentation.interpolation_allowed === false
+    && presentation.propagation_use_allowed === false
+    && typeof presentation.title === 'string' && presentation.title.length > 0
+    && Array.isArray(presentation.key_labels) && presentation.key_labels.length > 0
+    && /no .*propagation inference/i.test(presentation.caveat || '')
+    && layout?.overlay_visible === true
+    && layout.overlay_bounded === true
+    && layout.overlay_overlaps_map === false
+    && layout.map_width_px >= Math.floor(layout.viewport_width_px * 0.65)
+    && snapshot.visible_point_count === snapshot.visible_source_chronology_point_count
+    && snapshot.visible_modeled_context_feature_count === 0
+    && Number.isInteger(snapshot.visible_polygon_feature_count)
+    && snapshot.visible_polygon_feature_count >= snapshot.visible_polygon_layer_count;
+}
+
 function desktopLayoutPasses(layout) {
   return layout.viewport.width >= 901
     && layout.horizontally_bounded
@@ -1498,6 +1558,7 @@ function desktopLayoutPasses(layout) {
     && layout.clear_map.search_collapsed
     && layout.clear_map.center_uncovered
     && layout.clear_map.uncovered_sample_count >= Math.ceil(layout.clear_map.sample_count * 0.4)
+    && searchControlPasses(layout.search_control)
     && layout.elements.topbar.width > 0
     && layout.elements.sidebar.width > 0;
 }
@@ -1528,6 +1589,7 @@ function mobileLayoutPasses(layout) {
     && layout.clear_map.search_collapsed
     && layout.clear_map.center_uncovered
     && layout.clear_map.uncovered_sample_count >= Math.ceil(layout.clear_map.sample_count * 0.4)
+    && searchControlPasses(layout.search_control)
     && layout.mobile?.collapsed.sidebar_collapsed
     && layout.mobile.collapsed.toggle_visible
     && layout.mobile.collapsed.scrim_hidden
@@ -1540,6 +1602,20 @@ function mobileLayoutPasses(layout) {
     && layout.mobile.closed.sidebar_collapsed
     && layout.mobile.closed.body_closed
     && layout.mobile.closed.scrim_hidden;
+}
+
+function searchControlPasses(facts) {
+  return facts.region_visible
+    && facts.region_bounded
+    && facts.region_uncovered
+    && facts.input_visible
+    && facts.input_bounded
+    && facts.input_uncovered
+    && facts.input_focused
+    && facts.toggle_expanded
+    && facts.escape_hides_region
+    && facts.escape_collapses_toggle
+    && facts.escape_restores_focus;
 }
 
 function evidenceIdentity(snapshot) {

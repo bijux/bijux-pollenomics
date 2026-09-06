@@ -23,7 +23,9 @@ from .catalog import (
     SUPPORTED_EXISTING_PUBLICATION_CONTRACTS,
 )
 from .contracts import AtlasMediaError
+from .capture_evidence import capture_frame_evidence_valid, expected_capture_layer_key
 from .gallery import canonical_json_bytes, sha256_file
+from .poster_selection import poster_frame_ordinal
 
 MAX_MP4_BYTES = 16 * 1024 * 1024
 MAX_POSTER_BYTES = 2 * 1024 * 1024
@@ -64,12 +66,14 @@ _STORY_FIELDS = {
     "node_count",
     "observation_denominator",
     "frame_feature_denominators",
+    "frame_no_pollen_data_counts",
     "expected_visible_feature_counts",
     "source_authority_sha256",
     "interpretation",
     "temporal_direction",
     "interval_semantics",
     "frame_count",
+    "poster_frame_ordinal",
     "first_frame",
     "last_frame",
     "frame_set_sha256",
@@ -104,9 +108,11 @@ _PUBLIC_STORY_FIELDS = {
     "node_count",
     "observation_denominator",
     "frame_feature_denominators",
+    "frame_no_pollen_data_counts",
     "expected_visible_feature_counts",
     "source_authority_sha256",
     "frame_count",
+    "poster_frame_ordinal",
     "first_frame",
     "last_frame",
     "frame_set_sha256",
@@ -348,6 +354,9 @@ def _publication_story(
     published_captures: list[dict[str, object]] = []
     for ordinal, capture in enumerate(captures):
         expected_path = f"frames/{story_id}/{ordinal:06d}.png"
+        source_counts = story.get("expected_visible_feature_counts")
+        modeled_counts = story.get("frame_feature_denominators")
+        modeled_no_pollen_counts = story.get("frame_no_pollen_data_counts")
         if (
             set(capture)
             != {
@@ -356,17 +365,68 @@ def _publication_story(
                 "frame_sha256",
                 "png_sha256",
                 "byte_count",
+                "time_start_bp",
+                "time_end_bp",
+                "source_window_label",
+                "no_pollen_data_count",
+                "visible_point_count",
+                "visible_polygon_layer_count",
+                "visible_polygon_feature_count",
+                "visible_feature_count",
                 "visible_source_chronology_point_count",
                 "visible_modeled_context_feature_count",
+                "visible_modeled_no_pollen_data_count",
+                "visible_source_node_count",
+                "visible_source_observation_denominator",
+                "capture_layers",
+                "capture_presentation",
+                "capture_layout",
             }
             or capture.get("ordinal") != ordinal
             or capture.get("file") != expected_path
             or not _is_sha256(capture.get("frame_sha256"))
             or not _is_sha256(capture.get("png_sha256"))
             or _positive_integer(capture.get("byte_count"), "capture byte_count") <= 0
+            or not capture_frame_evidence_valid(
+                capture,
+                evidence_role=role,
+                source_level=(
+                    selector_kind if role == "observation_chronology" else None
+                ),
+                expected_evidence_layer_key=expected_capture_layer_key(
+                    story_kind=(
+                        "source_chronology"
+                        if role == "observation_chronology"
+                        else "modeled_context"
+                    ),
+                    source_level=selector_kind,
+                ),
+                expected_title=cast(str, story.get("title")),
+                expected_source_count=(
+                    source_counts[ordinal] if isinstance(source_counts, list) else None
+                ),
+                source_node_denominator=story.get("node_count"),
+                source_observation_denominator=story.get("observation_denominator"),
+                expected_modeled_count=(
+                    modeled_counts[ordinal]
+                    if isinstance(modeled_counts, list)
+                    else None
+                ),
+                expected_modeled_no_pollen_data_count=(
+                    modeled_no_pollen_counts[ordinal]
+                    if isinstance(modeled_no_pollen_counts, list)
+                    else None
+                ),
+                source_window_label=capture.get("source_window_label"),
+                time_start_bp=capture.get("time_start_bp"),
+                time_end_bp=capture.get("time_end_bp"),
+            )
         ):
             raise AtlasMediaError(f"capture frame identity differs: {story_id}")
         published_captures.append(dict(capture))
+    poster_ordinal = poster_frame_ordinal(role, published_captures)
+    if story.get("poster_frame_ordinal") != poster_ordinal:
+        raise AtlasMediaError(f"poster frame selection differs: {story_id}")
     if (
         capture_set
         != hashlib.sha256(canonical_json_bytes(published_captures)).hexdigest()
@@ -381,6 +441,7 @@ def _publication_story(
             story.get("observation_denominator"), "observation_denominator"
         )
         modeled_denominators: list[object] | None = None
+        modeled_no_pollen_denominators: list[object] | None = None
         visible_counts = _nonnegative_integer_list(
             story.get("expected_visible_feature_counts"),
             length=frame_count,
@@ -391,12 +452,22 @@ def _publication_story(
         )
         if story.get("frame_feature_denominators") is not None:
             raise AtlasMediaError(f"source story has modeled denominators: {story_id}")
+        if story.get("frame_no_pollen_data_counts") is not None:
+            raise AtlasMediaError(
+                f"source story has modeled quality counts: {story_id}"
+            )
         if (
             sum(cast(list[int], visible_counts)) <= 0
             or any(cast(int, count) > cast(int, node_count) for count in visible_counts)
             or any(
                 capture.get("visible_source_chronology_point_count") != count
+                or capture.get("visible_point_count") != count
                 or capture.get("visible_modeled_context_feature_count") != 0
+                or capture.get("visible_source_node_count") != count
+                or not _valid_visible_source_observations(
+                    capture.get("visible_source_observation_denominator"),
+                    denominator=cast(int, observations),
+                )
                 for capture, count in zip(
                     published_captures, visible_counts, strict=True
                 )
@@ -421,11 +492,33 @@ def _publication_story(
             length=frame_count,
             label="modeled feature denominators",
         )
+        modeled_no_pollen_denominators = _nonnegative_integer_list(
+            story.get("frame_no_pollen_data_counts"),
+            length=frame_count,
+            label="modeled no-pollen-data counts",
+        )
+        if any(
+            cast(int, count) > cast(int, denominator)
+            for count, denominator in zip(
+                modeled_no_pollen_denominators,
+                modeled_denominators,
+                strict=True,
+            )
+        ):
+            raise AtlasMediaError("modeled no-pollen-data count exceeds denominator")
         if any(
             capture.get("visible_source_chronology_point_count") != 0
+            or capture.get("visible_point_count") != 0
             or capture.get("visible_modeled_context_feature_count") != denominator
-            for capture, denominator in zip(
-                published_captures, modeled_denominators, strict=True
+            or capture.get("visible_source_node_count") is not None
+            or capture.get("visible_source_observation_denominator") is not None
+            or capture.get("no_pollen_data_count") != no_pollen_count
+            or capture.get("visible_modeled_no_pollen_data_count") != no_pollen_count
+            for capture, denominator, no_pollen_count in zip(
+                published_captures,
+                modeled_denominators,
+                modeled_no_pollen_denominators,
+                strict=True,
             )
         ):
             raise AtlasMediaError("modeled visibility evidence differs")
@@ -447,7 +540,7 @@ def _publication_story(
             source_root=source_root,
             frame_count=frame_count,
             encoding=encoding,
-            first_capture=published_captures[0],
+            poster_capture=published_captures[poster_ordinal],
             mp4_probe=mp4_probe,
         )
         for media_type in ("poster", "mp4")
@@ -464,9 +557,11 @@ def _publication_story(
             "node_count": node_count,
             "observation_denominator": observations,
             "frame_feature_denominators": modeled_denominators,
+            "frame_no_pollen_data_counts": modeled_no_pollen_denominators,
             "expected_visible_feature_counts": visible_counts,
             "source_authority_sha256": authority,
             "frame_count": frame_count,
+            "poster_frame_ordinal": poster_ordinal,
             "first_frame": first_frame,
             "last_frame": last_frame,
             "frame_set_sha256": frame_set,
@@ -474,6 +569,14 @@ def _publication_story(
             "assets": [_public_asset_row(row) for row in transfers],
         },
         transfers,
+    )
+
+
+def _valid_visible_source_observations(value: object, *, denominator: int) -> bool:
+    return value is None or (
+        isinstance(value, int)
+        and not isinstance(value, bool)
+        and 0 <= value <= denominator
     )
 
 
@@ -485,7 +588,7 @@ def _publication_asset(
     source_root: Path,
     frame_count: int,
     encoding: Mapping[str, object],
-    first_capture: Mapping[str, object],
+    poster_capture: Mapping[str, object],
     mp4_probe: Mp4Probe,
 ) -> dict[str, object]:
     expected_fields = {
@@ -526,10 +629,10 @@ def _publication_asset(
             abs_tol=(1 / cast(int, encoding["frames_per_second"])) + 0.01,
         ):
             raise AtlasMediaError(f"mp4 duration differs: {story_id}")
-    elif digest != first_capture.get("png_sha256") or byte_count != first_capture.get(
+    elif digest != poster_capture.get("png_sha256") or byte_count != poster_capture.get(
         "byte_count"
     ):
-        raise AtlasMediaError(f"poster differs from the oldest capture: {story_id}")
+        raise AtlasMediaError(f"poster differs from the selected capture: {story_id}")
     path = _regular_child(source_root, source_path)
     if path.stat().st_size != byte_count or sha256_file(path) != digest:
         raise AtlasMediaError(f"{media_type} source bytes differ: {story_id}")
@@ -857,6 +960,13 @@ def _validate_published_story(
     frame_count = _positive_integer(
         story.get("frame_count"), "publication story frame_count"
     )
+    poster_ordinal = story.get("poster_frame_ordinal")
+    if (
+        isinstance(poster_ordinal, bool)
+        or not isinstance(poster_ordinal, int)
+        or not 0 <= poster_ordinal < frame_count
+    ):
+        raise AtlasMediaError("publication poster frame ordinal differs")
     first_frame = _frame_boundary(story.get("first_frame"), "published first_frame")
     last_frame = _frame_boundary(story.get("last_frame"), "published last_frame")
     _validate_boundary_selector(first_frame, ordinal=0, expected=expected)
@@ -882,6 +992,7 @@ def _validate_published_story(
         )
         if (
             story.get("frame_feature_denominators") is not None
+            or story.get("frame_no_pollen_data_counts") is not None
             or story.get("source_authority_sha256") != source_authority_sha256
             or sum(cast(list[int], visible)) <= 0
             or any(cast(int, count) > node_count for count in visible)
@@ -895,11 +1006,25 @@ def _validate_published_story(
     ):
         raise AtlasMediaError("published modeled story carries source evidence")
     else:
-        _positive_integer_list(
+        modeled_denominators = _positive_integer_list(
             story.get("frame_feature_denominators"),
             length=frame_count,
             label="published modeled denominators",
         )
+        no_pollen_counts = _nonnegative_integer_list(
+            story.get("frame_no_pollen_data_counts"),
+            length=frame_count,
+            label="published modeled no-pollen-data counts",
+        )
+        if any(
+            cast(int, count) > cast(int, denominator)
+            for count, denominator in zip(
+                no_pollen_counts, modeled_denominators, strict=True
+            )
+        ):
+            raise AtlasMediaError(
+                "published modeled no-pollen-data count exceeds denominator"
+            )
 
 
 def _published_encoding(value: object) -> dict[str, object]:
@@ -920,7 +1045,11 @@ def _published_encoding(value: object) -> dict[str, object]:
             "mp4",
         }
         or row.get("schema_version") != "atlas-media-publication-encoding.v1"
-        or row.get("poster") != {"format": "png", "source_frame_ordinal": 0}
+        or row.get("poster")
+        != {
+            "format": "png",
+            "source_frame_selection": "maximum_selected_evidence_earliest_ordinal_on_tie",
+        }
         or row.get("mp4")
         != {
             "codec": "libx264",
@@ -1307,7 +1436,11 @@ def _public_encoding(value: object) -> dict[str, object]:
     fps = _positive_integer(row.get("frames_per_second"), "encoding frame rate")
     if (
         row.get("schema_version") != "atlas-media-encoding-profile.v1"
-        or row.get("poster") != {"format": "png", "source_frame_ordinal": 0}
+        or row.get("poster")
+        != {
+            "format": "png",
+            "source_frame_selection": "maximum_selected_evidence_earliest_ordinal_on_tie",
+        }
         or row.get("mp4")
         != {
             "codec": "libx264",
@@ -1383,7 +1516,13 @@ def _validate_boundary_selector(
             expected_fields.add("source_taxon")
     else:
         expected_fields.update(
-            {"source_window_label", "metric_family_key", "metric_key", "feature_count"}
+            {
+                "source_window_label",
+                "metric_family_key",
+                "metric_key",
+                "feature_count",
+                "no_pollen_data_count",
+            }
         )
     if (
         set(frame) != expected_fields
@@ -1412,6 +1551,10 @@ def _validate_boundary_selector(
         or frame.get("metric_key") != selector_value
         or frame.get("metric_family_key") != selector_family
         or _positive_integer(frame.get("feature_count"), "boundary feature_count") <= 0
+        or isinstance(frame.get("no_pollen_data_count"), bool)
+        or not isinstance(frame.get("no_pollen_data_count"), int)
+        or cast(int, frame["no_pollen_data_count"]) < 0
+        or cast(int, frame["no_pollen_data_count"]) > cast(int, frame["feature_count"])
     ):
         raise AtlasMediaError("modeled story boundary selector differs")
 

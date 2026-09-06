@@ -283,7 +283,9 @@ def _selected_story(
             "source story temporal envelope differs from governed atlas assets"
         )
     if authority_facet is not None and selector_kind == "source_taxon":
-        expected_title = f"Neotoma exact source taxon — {authority_facet.label}"
+        expected_title = (
+            f"Neotoma exact source-reported taxon — {authority_facet.label}"
+        )
         if authority_facet.label is None or story.get("title") != expected_title:
             raise AtlasMediaError(
                 "source taxon story label differs from governed atlas assets"
@@ -307,6 +309,11 @@ def _selected_story(
         ),
         frame_feature_denominators=(
             tuple(_positive_int(frame, "feature_count") for frame in frames)
+            if evidence_role == "modeled_context"
+            else None
+        ),
+        frame_no_pollen_data_counts=(
+            tuple(_nonnegative_int(frame, "no_pollen_data_count") for frame in frames)
             if evidence_role == "modeled_context"
             else None
         ),
@@ -370,6 +377,13 @@ def _text(row: Mapping[str, object], field: str) -> str:
     return value
 
 
+def _nonnegative_int(row: Mapping[str, object], field: str) -> int:
+    value = row.get(field)
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+        raise AtlasMediaError(f"{field} must be a non-negative integer")
+    return value
+
+
 def _positive_int(row: Mapping[str, object], field: str) -> int:
     value = row.get(field)
     if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
@@ -425,7 +439,7 @@ def _exact_taxon_story(
         )
     return {
         "story_id": f"neotoma-source-taxon-{taxon_id}",
-        "title": f"Neotoma exact source taxon — {label}",
+        "title": f"Neotoma exact source-reported taxon — {label}",
         "dataset_id": "neotoma",
         "evidence_role": "observation_chronology",
         "countries": list(countries),

@@ -100,8 +100,11 @@ def test_complete_inventory_builds_exact_oldest_to_present_contract() -> None:
         "time_start_bp": 11200,
         "time_end_bp": 11700,
         "feature_count": 75,
+        "no_pollen_data_count": 75,
         "country_counts": PANGAEA_COUNTRY_CELL_COUNTS,
     }
+    assert sum(window["no_pollen_data_count"] for window in windows) == 307
+    assert all(0 <= window["no_pollen_data_count"] <= 75 for window in windows)
     assert windows[-1]["label"] == "0-100 BP"
     assert manifest["evidence_role"] == "context_only"
     assert manifest["propagation_use_allowed"] is False

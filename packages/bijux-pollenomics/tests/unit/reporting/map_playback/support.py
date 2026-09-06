@@ -162,6 +162,7 @@ def modeled_manifest() -> dict[str, object]:
             "time_start_bp": younger,
             "time_end_bp": older,
             "feature_count": 75,
+            "no_pollen_data_count": 12,
         }
         for label, younger, older in reversed(PANGAEA_WINDOWS_PRESENT_TO_OLDEST)
     ]

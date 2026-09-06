@@ -16,7 +16,13 @@ from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError, admission, cap
 from bijux_pollenomics_dev.ci.atlas_media.contracts import SelectedStory
 from bijux_pollenomics_dev.ci.atlas_media.gallery import canonical_json_bytes
 from tests.atlas_media.fixtures import COUNTRIES, plan
-from tests.atlas_media.receipt_fixtures import make_story, network_receipt
+from tests.atlas_media.receipt_fixtures import (
+    capture_layers,
+    capture_layout,
+    capture_presentation,
+    make_story,
+    network_receipt,
+)
 
 
 def test_capture_receipt_must_reconcile_every_frame(tmp_path: Path) -> None:
@@ -189,9 +195,18 @@ def test_capture_receipt_binds_frame_selector_build_and_png(tmp_path: Path) -> N
                         "metric_key": None,
                         "visible_point_count": 1,
                         "visible_polygon_layer_count": 0,
+                        "visible_polygon_feature_count": 0,
                         "visible_feature_count": 1,
                         "visible_source_chronology_point_count": 1,
                         "visible_modeled_context_feature_count": 0,
+                        "visible_modeled_no_pollen_data_count": None,
+                        "visible_source_node_count": 1,
+                        "visible_source_observation_denominator": 2,
+                        "capture_layers": capture_layers(),
+                        "capture_presentation": capture_presentation(
+                            evidence_role="observation_chronology"
+                        ),
+                        "capture_layout": capture_layout(),
                         "png_sha256": hashlib.sha256(b"captured-png").hexdigest(),
                         "byte_count": len(b"captured-png"),
                     }
@@ -250,6 +265,38 @@ def test_capture_receipt_binds_frame_selector_build_and_png(tmp_path: Path) -> N
             stories=(story,),
         )
 
+    wrong_layer = deepcopy(receipt)
+    wrong_layer_frame = wrong_layer["stories"][0]["frames"][0]
+    wrong_layer_frame["capture_layers"] = capture_layers("unrelated-layer")
+    with pytest.raises(AtlasMediaError, match="frame identity"):
+        capture._validate_capture_receipt(
+            wrong_layer,
+            plan=media_plan,
+            stories=(story,),
+        )
+
+    wrong_presentation = deepcopy(receipt)
+    wrong_presentation["stories"][0]["frames"][0]["capture_presentation"]["title"] = (
+        "Self-declared title"
+    )
+    with pytest.raises(AtlasMediaError, match="frame identity"):
+        capture._validate_capture_receipt(
+            wrong_presentation,
+            plan=media_plan,
+            stories=(story,),
+        )
+
+    zero_observations_with_visible_nodes = deepcopy(receipt)
+    zero_observations_with_visible_nodes["stories"][0]["frames"][0][
+        "visible_source_observation_denominator"
+    ] = 0
+    with pytest.raises(AtlasMediaError, match="frame identity"):
+        capture._validate_capture_receipt(
+            zero_observations_with_visible_nodes,
+            plan=media_plan,
+            stories=(story,),
+        )
+
     empty_frame = deepcopy(receipt)
     empty_frame["stories"][0]["frames"][0]["visible_point_count"] = 0
     empty_frame["stories"][0]["frames"][0]["visible_feature_count"] = 0
@@ -283,9 +330,18 @@ def test_selected_layer_visibility_uses_role_specific_denominators() -> None:
     source_empty_frame: dict[str, object] = {
         "visible_point_count": 1,
         "visible_polygon_layer_count": 0,
+        "visible_polygon_feature_count": 0,
         "visible_feature_count": 1,
         "visible_source_chronology_point_count": 0,
         "visible_modeled_context_feature_count": 0,
+        "visible_modeled_no_pollen_data_count": None,
+        "visible_source_node_count": 0,
+        "visible_source_observation_denominator": 0,
+        "capture_layers": capture_layers(),
+        "capture_presentation": capture_presentation(
+            evidence_role="observation_chronology"
+        ),
+        "capture_layout": capture_layout(),
     }
     assert not capture._valid_visible_counts(
         source_empty_frame,
@@ -310,6 +366,7 @@ def test_selected_layer_visibility_uses_role_specific_denominators() -> None:
         "time_start_bp": 0,
         "time_end_bp": 500,
         "feature_count": 75,
+        "no_pollen_data_count": 4,
         "countries": list(COUNTRIES),
         "basemap": "none",
     }
@@ -321,14 +378,27 @@ def test_selected_layer_visibility_uses_role_specific_denominators() -> None:
         selector_value="OL",
         selector_family="land_cover",
         frame_feature_denominators=(75,),
+        frame_no_pollen_data_counts=(4,),
         frames=(modeled_frame,),
     )
     modeled_receipt: dict[str, object] = {
         "visible_point_count": 0,
-        "visible_polygon_layer_count": 75,
+        "visible_polygon_layer_count": 2,
+        "visible_polygon_feature_count": 75,
         "visible_feature_count": 75,
         "visible_source_chronology_point_count": 0,
         "visible_modeled_context_feature_count": 75,
+        "visible_modeled_no_pollen_data_count": 4,
+        "visible_source_node_count": None,
+        "visible_source_observation_denominator": None,
+        "capture_layers": capture_layers("landclim-reveals-temporal-grid"),
+        "capture_presentation": capture_presentation(
+            evidence_role="modeled_context",
+            title="Open land modeled context",
+            younger_bp=0,
+            older_bp=500,
+        ),
+        "capture_layout": capture_layout(),
     }
     assert capture._valid_visible_counts(
         modeled_receipt,
@@ -338,6 +408,42 @@ def test_selected_layer_visibility_uses_role_specific_denominators() -> None:
     modeled_receipt["visible_modeled_context_feature_count"] = 74
     assert not capture._valid_visible_counts(
         modeled_receipt,
+        story=modeled,
+        frame=modeled_frame,
+    )
+    mixed_units = dict(modeled_receipt)
+    mixed_units["visible_modeled_context_feature_count"] = 75
+    mixed_units["visible_feature_count"] = 2
+    assert not capture._valid_visible_counts(
+        mixed_units,
+        story=modeled,
+        frame=modeled_frame,
+    )
+    wrong_governed_layer = dict(modeled_receipt)
+    wrong_governed_layer["capture_layers"] = capture_layers("other-modeled-layer")
+    assert not capture._valid_visible_counts(
+        wrong_governed_layer,
+        story=modeled,
+        frame=modeled_frame,
+    )
+    excessive_no_pollen_count = dict(modeled_receipt)
+    excessive_no_pollen_count["visible_modeled_no_pollen_data_count"] = 76
+    assert not capture._valid_visible_counts(
+        excessive_no_pollen_count,
+        story=modeled,
+        frame=modeled_frame,
+    )
+    coordinated_forgery = deepcopy(modeled_receipt)
+    coordinated_forgery["visible_modeled_no_pollen_data_count"] = 5
+    coordinated_forgery["capture_presentation"] = capture_presentation(
+        evidence_role="modeled_context",
+        title="Open land modeled context",
+        younger_bp=0,
+        older_bp=500,
+        modeled_no_pollen_data_count=5,
+    )
+    assert not capture._valid_visible_counts(
+        coordinated_forgery,
         story=modeled,
         frame=modeled_frame,
     )

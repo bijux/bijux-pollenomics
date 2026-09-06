@@ -58,6 +58,7 @@ class PlaybackFrame:
     label: str
     source_window_label: str | None = None
     feature_count: int | None = None
+    no_pollen_data_count: int | None = None
 
     def __post_init__(self) -> None:
         if (
@@ -82,10 +83,30 @@ class PlaybackFrame:
             raise PlaybackContractError(
                 "frame feature_count must be a non-negative integer or null"
             )
+        if self.no_pollen_data_count is not None and (
+            isinstance(self.no_pollen_data_count, bool)
+            or not isinstance(self.no_pollen_data_count, int)
+            or self.no_pollen_data_count < 0
+        ):
+            raise PlaybackContractError(
+                "frame no_pollen_data_count must be a non-negative integer or null"
+            )
+        if (self.feature_count is None) != (self.no_pollen_data_count is None):
+            raise PlaybackContractError(
+                "modeled frame denominators must be present or null together"
+            )
+        if (
+            self.feature_count is not None
+            and self.no_pollen_data_count is not None
+            and self.no_pollen_data_count > self.feature_count
+        ):
+            raise PlaybackContractError(
+                "frame no_pollen_data_count exceeds feature_count"
+            )
 
     def as_dict(self) -> dict[str, object]:
         """Return the stable browser-facing frame representation."""
-        return {
+        payload: dict[str, object] = {
             "ordinal": self.ordinal,
             "time_start_bp": self.younger_bp,
             "time_end_bp": self.older_bp,
@@ -93,6 +114,9 @@ class PlaybackFrame:
             "source_window_label": self.source_window_label,
             "feature_count": self.feature_count,
         }
+        if self.no_pollen_data_count is not None:
+            payload["no_pollen_data_count"] = self.no_pollen_data_count
+        return payload
 
 
 @dataclass(frozen=True, slots=True)

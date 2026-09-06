@@ -99,7 +99,7 @@ def build_exact_taxon_storyboard(
     """Materialize one explicitly selected exact source taxon, never the bulk index."""
     return PlaybackStory(
         story_id=f"neotoma-source-taxon-{taxon.source_taxon_id}",
-        title=f"Neotoma exact source taxon — {taxon.label}",
+        title=f"Neotoma exact source-reported taxon — {taxon.label}",
         dataset_id="neotoma",
         evidence_role="observation_chronology",
         selector_kind="source_taxon",

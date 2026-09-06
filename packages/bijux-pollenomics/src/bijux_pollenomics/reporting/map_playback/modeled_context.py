@@ -81,6 +81,7 @@ def _exact_source_frames(value: object) -> tuple[PlaybackFrame, ...]:
         younger = row.get("time_start_bp")
         older = row.get("time_end_bp")
         feature_count = row.get("feature_count")
+        no_pollen_data_count = row.get("no_pollen_data_count")
         frames.append(
             PlaybackFrame(
                 ordinal=ordinal,
@@ -89,6 +90,7 @@ def _exact_source_frames(value: object) -> tuple[PlaybackFrame, ...]:
                 label=label,
                 source_window_label=label,
                 feature_count=cast("int | None", feature_count),
+                no_pollen_data_count=cast("int | None", no_pollen_data_count),
             )
         )
     if len(frames) != 25:

@@ -9,6 +9,7 @@ import shutil
 
 from .contracts import AtlasMediaError, AtlasMediaPlan, SelectedStory
 from .gallery import media_asset_row, sha256_file
+from .poster_selection import poster_frame_ordinal
 from .process_execution import _run_logged
 
 
@@ -36,7 +37,8 @@ def _encode_story(
     poster = media_root / f"{story.story_id}.poster.png"
     mp4 = media_root / f"{story.story_id}.mp4"
     gif = media_root / f"{story.story_id}.gif"
-    shutil.copyfile(expected[0], poster)
+    poster_ordinal = poster_frame_ordinal(story.evidence_role, capture_frames)
+    shutil.copyfile(expected[poster_ordinal], poster)
     pattern = frames / "%06d.png"
     common = (
         str(plan.ffmpeg_binary.resolve()),
@@ -278,7 +280,10 @@ def _encoding_profile(plan: AtlasMediaPlan) -> dict[str, object]:
         "width": plan.width,
         "height": plan.height,
         "frames_per_second": plan.frames_per_second,
-        "poster": {"format": "png", "source_frame_ordinal": 0},
+        "poster": {
+            "format": "png",
+            "source_frame_selection": "maximum_selected_evidence_earliest_ordinal_on_tie",
+        },
         "mp4": {
             "codec": "libx264",
             "preset": "slow",

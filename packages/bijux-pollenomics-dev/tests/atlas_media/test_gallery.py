@@ -22,6 +22,11 @@ from bijux_pollenomics_dev.ci.atlas_media.run_evidence import (
     write_run_evidence_index,
 )
 from tests.atlas_media.fixtures import BUILD_ID, COUNTRIES, candidate
+from tests.atlas_media.receipt_fixtures import (
+    capture_layers,
+    capture_layout,
+    capture_presentation,
+)
 
 
 def _tool_identity() -> dict[str, object]:
@@ -41,7 +46,10 @@ def _encoding_profile() -> dict[str, object]:
         "width": 640,
         "height": 480,
         "frames_per_second": 1,
-        "poster": {"format": "png", "source_frame_ordinal": 0},
+        "poster": {
+            "format": "png",
+            "source_frame_selection": "maximum_selected_evidence_earliest_ordinal_on_tie",
+        },
         "mp4": {
             "codec": "libx264",
             "preset": "slow",
@@ -130,8 +138,20 @@ def test_gallery_checksums_every_story_asset_and_its_own_manifest(
                     "frame_sha256": "6" * 64,
                     "png_sha256": poster_asset["sha256"],
                     "byte_count": poster_asset["byte_count"],
+                    "visible_point_count": 1,
+                    "visible_polygon_layer_count": 0,
+                    "visible_polygon_feature_count": 0,
+                    "visible_feature_count": 1,
                     "visible_source_chronology_point_count": 1,
                     "visible_modeled_context_feature_count": 0,
+                    "visible_modeled_no_pollen_data_count": None,
+                    "visible_source_node_count": 1,
+                    "visible_source_observation_denominator": 2,
+                    "capture_layers": capture_layers(),
+                    "capture_presentation": capture_presentation(
+                        evidence_role="observation_chronology"
+                    ),
+                    "capture_layout": capture_layout(),
                 }
             ]
         },
@@ -170,6 +190,7 @@ def test_gallery_checksums_every_story_asset_and_its_own_manifest(
     assert manifest["stories"][0]["node_count"] == 10
     assert manifest["stories"][0]["observation_denominator"] == 20
     assert manifest["encoding_profile"]["frames_per_second"] == 1
+    assert manifest["stories"][0]["poster_frame_ordinal"] == 0
     assert manifest["command_execution_receipts"] == ["renderer.execution.json"]
     assert "capture_receipt_sha256" not in manifest
     assert (

@@ -74,6 +74,9 @@ def build_modeled_context_manifest(
     ]
     inventory_counts = Counter((label, country) for label, country, _ in admitted_rows)
     quality_counts = Counter(quality for _, _, quality in admitted_rows)
+    window_quality_counts = Counter(
+        (label, quality) for label, _, quality in admitted_rows
+    )
     expected_feature_count = len(expected_windows) * sum(
         PANGAEA_COUNTRY_CELL_COUNTS.values()
     )
@@ -98,6 +101,7 @@ def build_modeled_context_manifest(
             "time_start_bp": start,
             "time_end_bp": end,
             "feature_count": sum(PANGAEA_COUNTRY_CELL_COUNTS.values()),
+            "no_pollen_data_count": window_quality_counts[(label, "no_pollen_data")],
             "country_counts": dict(PANGAEA_COUNTRY_CELL_COUNTS),
         }
         for label, start, end in reversed(PANGAEA_WINDOWS_PRESENT_TO_OLDEST)

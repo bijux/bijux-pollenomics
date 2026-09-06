@@ -83,6 +83,8 @@ def _capture_frames(root: Path, story: SelectedStory) -> list[dict[str, object]]
                 "file": f"frames/{story.story_id}/{ordinal:06d}.png",
                 "png_sha256": hashlib.sha256(payload).hexdigest(),
                 "byte_count": len(payload),
+                "visible_source_chronology_point_count": ordinal + 1,
+                "visible_modeled_context_feature_count": 0,
             }
         )
     return rows
@@ -127,6 +129,10 @@ def test_real_encodes_are_byte_identical_and_probe_reconciled(
     for assets in evidence:
         by_type = {str(asset["media_type"]): asset for asset in assets}
         assert by_type["poster"]["frame_count"] == 1
+        poster = Path(str(by_type["poster"]["path"]))
+        assert (media_plan.artifact_root / poster).read_bytes() == (
+            media_plan.artifact_root / "frames" / story.story_id / "000001.png"
+        ).read_bytes()
         for media_type in ("mp4", "gif"):
             assert by_type[media_type]["frame_count"] == 2
             assert by_type[media_type]["width"] == 640

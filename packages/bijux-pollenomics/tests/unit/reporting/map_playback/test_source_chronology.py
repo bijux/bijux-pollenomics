@@ -77,6 +77,9 @@ def test_exact_taxon_story_is_materialized_only_after_explicit_selection() -> No
     frames = selected.as_dict()["frames"]
     assert isinstance(frames, list)
     assert selected not in default_stories
+    assert selected.title == (
+        f"Neotoma exact source-reported taxon — {exact_taxa[0].label}"
+    )
     assert frames[0]["story_kind"] == "source_chronology"
     assert frames[0]["source_level"] == "source_taxon"
     assert frames[0]["source_taxon"] == exact_taxa[0].feature_key

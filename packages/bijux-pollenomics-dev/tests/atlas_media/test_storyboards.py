@@ -70,8 +70,31 @@ def test_default_selection_covers_core_secale_and_open_land(tmp_path: Path) -> N
     assert modeled.evidence_role == "modeled_context"
     assert modeled.selector_value == "OL"
     assert modeled.frame_feature_denominators == (75,) * 25
+    assert modeled.frame_no_pollen_data_counts == (4,) * 25
     assert len(modeled.frames) == 25
     assert modeled.frames[0]["source_window_label"] == "11200-11700 BP"
+
+
+@pytest.mark.parametrize("value", (None, True, -1, 76))
+def test_modeled_no_pollen_data_denominator_is_governed(
+    tmp_path: Path, value: object
+) -> None:
+    manifest, media_plan = _manifest(tmp_path)
+    mutated = deepcopy(manifest)
+    story = next(
+        row
+        for row in mutated["modeled_context"]["stories"]
+        if row["selector"]["value"] == "OL"
+    )
+    if value is None:
+        story["frames"][0].pop("no_pollen_data_count")
+    else:
+        story["frames"][0]["no_pollen_data_count"] = value
+
+    with pytest.raises(AtlasMediaError, match="no_pollen_data_count|no-pollen-data"):
+        select_stories(
+            mutated, media_plan.selection, source_authority=source_authority()
+        )
 
 
 def test_selection_requires_exact_four_country_identity(tmp_path: Path) -> None:

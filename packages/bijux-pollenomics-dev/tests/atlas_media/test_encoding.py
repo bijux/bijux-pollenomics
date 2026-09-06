@@ -5,8 +5,23 @@ from pathlib import Path
 import pytest
 
 from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError, encoding
+from bijux_pollenomics_dev.ci.atlas_media.poster_selection import (
+    poster_frame_ordinal,
+)
 from tests.atlas_media.fixtures import plan
 from tests.atlas_media.receipt_fixtures import build_capture_frames, make_story
+
+
+def test_poster_selection_uses_maximum_evidence_and_earliest_tie() -> None:
+    source_frames = [
+        {"visible_source_chronology_point_count": count} for count in (0, 4, 4, 2)
+    ]
+    modeled_frames = [
+        {"visible_modeled_context_feature_count": count} for count in (0, 75, 12)
+    ]
+
+    assert poster_frame_ordinal("observation_chronology", source_frames) == 1
+    assert poster_frame_ordinal("modeled_context", modeled_frames) == 1
 
 
 def test_ffmpeg_commands_are_single_threaded_and_metadata_free(

@@ -343,6 +343,30 @@ def test_responsive_contract_proves_desktop_and_bottom_sheet_states() -> None:
     assert "mapElement.contains(mapCenterHit)" in probe
 
 
+def test_responsive_contract_proves_compact_search_keyboard_journey() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    for literal in (
+        "document.documentElement.classList.add('atlas-probe-motion-mode')",
+        "document.getElementById('search-toggle')",
+        "document.getElementById('topbar-search')",
+        "document.getElementById('search-input')",
+        "searchToggle.click()",
+        "document.activeElement === searchInput",
+        "searchToggle.getAttribute('aria-expanded') === 'true'",
+        "searchInput.dispatchEvent(new KeyboardEvent('keydown'",
+        "key: 'Escape', code: 'Escape', bubbles: true, cancelable: true",
+        "topbarSearch.hidden && !visible(topbarSearch)",
+        "searchToggle.getAttribute('aria-expanded') === 'false'",
+        "document.activeElement === searchToggle",
+        "searchControlPasses(layout.search_control)",
+    ):
+        assert literal in probe
+    assert "classList.add('atlas-capture-mode')" not in probe
+
+
 def test_chronology_contract_drives_real_controls_and_refuses_null() -> None:
     probe = (
         Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
@@ -360,6 +384,31 @@ def test_chronology_contract_drives_real_controls_and_refuses_null() -> None:
     assert "view: null" in probe
     assert "evidence_unchanged" in probe
     assert "document.elementFromPoint" in probe
+
+
+def test_nordic_capture_frames_prove_uncluttered_presentation() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    for literal in (
+        "capture_frames_uncluttered:",
+        "captureFrameIsClear(snapshot, 'observation_chronology')",
+        "function captureFrameIsClear(snapshot, evidenceRole)",
+        "snapshot?.capture_layers",
+        "snapshot?.capture_presentation",
+        "snapshot?.capture_layout",
+        "atlas-capture-presentation.v1",
+        "presentation.null_handling === 'null_not_zero'",
+        "presentation.interpolation_allowed === false",
+        "presentation.propagation_use_allowed === false",
+        "layout.overlay_overlaps_map === false",
+        "layout.map_width_px >= Math.floor(layout.viewport_width_px * 0.65)",
+        "snapshot.visible_point_count === snapshot.visible_source_chronology_point_count",
+        "snapshot.visible_modeled_context_feature_count === 0",
+        "snapshot.visible_polygon_feature_count >= snapshot.visible_polygon_layer_count",
+    ):
+        assert literal in probe
 
 
 def test_status_actions_prove_chronology_and_basemap_discoverability() -> None:

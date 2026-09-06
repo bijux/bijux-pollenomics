@@ -8,7 +8,7 @@ import hashlib
 import json
 from pathlib import Path
 import shutil
-from typing import Any
+from typing import Any, cast
 import zlib
 
 import pytest
@@ -30,6 +30,12 @@ from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     write_gallery_manifest,
 )
 from tests.atlas_media.fixtures import BUILD_ID, COUNTRIES, SUCCESSION, candidate
+from tests.atlas_media.receipt_fixtures import (
+    capture_evidence_layer_key,
+    capture_layers,
+    capture_layout,
+    capture_presentation,
+)
 
 StorySpec = tuple[str, str, str, str, str | None]
 STORIES: tuple[StorySpec, ...] = PUBLICATION_STORY_TUPLES
@@ -114,7 +120,10 @@ def _encoding_profile() -> dict[str, object]:
         "width": 16,
         "height": 16,
         "frames_per_second": 1,
-        "poster": {"format": "png", "source_frame_ordinal": 0},
+        "poster": {
+            "format": "png",
+            "source_frame_selection": "maximum_selected_evidence_earliest_ordinal_on_tie",
+        },
         "mp4": {
             "codec": "libx264",
             "preset": "slow",
@@ -181,6 +190,7 @@ def _story(spec: StorySpec) -> SelectedStory:
             "metric_key": value,
             "source_window_label": "100-200 BP",
             "feature_count": 75,
+            "no_pollen_data_count": 4,
         }
     )
     return SelectedStory(
@@ -191,6 +201,7 @@ def _story(spec: StorySpec) -> SelectedStory:
         selector_value=value,
         selector_family=family,
         frame_feature_denominators=(75,),
+        frame_no_pollen_data_counts=(4,),
         frames=(frame,),
     )
 
@@ -242,12 +253,56 @@ def _gallery(tmp_path: Path, *, stories: tuple[StorySpec, ...] = STORIES) -> Pat
                 "frame_sha256": "2" * 64,
                 "png_sha256": poster["sha256"],
                 "byte_count": poster["byte_count"],
+                "no_pollen_data_count": story.frames[0].get("no_pollen_data_count"),
+                "visible_point_count": (
+                    1 if story.evidence_role == "observation_chronology" else 0
+                ),
+                "visible_polygon_layer_count": (
+                    0 if story.evidence_role == "observation_chronology" else 2
+                ),
+                "visible_polygon_feature_count": (
+                    0 if story.evidence_role == "observation_chronology" else 75
+                ),
+                "visible_feature_count": (
+                    1 if story.evidence_role == "observation_chronology" else 75
+                ),
                 "visible_source_chronology_point_count": (
                     1 if story.evidence_role == "observation_chronology" else 0
                 ),
                 "visible_modeled_context_feature_count": (
                     75 if story.evidence_role == "modeled_context" else 0
                 ),
+                "visible_modeled_no_pollen_data_count": (
+                    4 if story.evidence_role == "modeled_context" else None
+                ),
+                "visible_source_node_count": (
+                    1 if story.evidence_role == "observation_chronology" else None
+                ),
+                "visible_source_observation_denominator": (
+                    1 if story.evidence_role == "observation_chronology" else None
+                ),
+                "capture_layers": capture_layers(
+                    capture_evidence_layer_key(story.selector_kind)
+                ),
+                "capture_presentation": capture_presentation(
+                    evidence_role=story.evidence_role,
+                    source_level=story.selector_kind,
+                    title=story.title,
+                    younger_bp=cast(int, story.frames[0]["time_start_bp"]),
+                    older_bp=cast(int, story.frames[0]["time_end_bp"]),
+                    visible_source_count=1,
+                    source_node_denominator=story.node_count or 0,
+                    visible_source_observations=1,
+                    source_observation_denominator=story.observation_denominator or 0,
+                    modeled_feature_count=cast(
+                        int, story.frames[0].get("feature_count") or 0
+                    ),
+                    modeled_no_pollen_data_count=4,
+                    source_window_label=str(
+                        story.frames[0].get("source_window_label") or ""
+                    ),
+                ),
+                "capture_layout": capture_layout(),
             }
         ]
     tools: dict[str, object] = {
@@ -452,6 +507,10 @@ def test_public_validator_reconciles_complete_existing_bundle_and_real_ffprobe(
             ),
             "budget contract differs",
         ),
+        (
+            lambda value: value["stories"][0].update({"poster_frame_ordinal": 1}),
+            "poster frame ordinal differs",
+        ),
     ),
 )
 def test_public_validator_refuses_rehashed_semantic_and_contract_forgery(
@@ -602,7 +661,7 @@ def test_publication_refuses_gallery_checksum_and_self_identity_mutations(
         _publish(source, tmp_path / "published-second")
 
 
-def test_publication_reconciles_capture_identity_and_oldest_poster(
+def test_publication_reconciles_capture_identity_and_selected_poster(
     tmp_path: Path,
 ) -> None:
     source = _gallery(tmp_path / "capture-set")
@@ -635,7 +694,9 @@ def test_publication_reconciles_capture_identity_and_oldest_poster(
         f"{hashlib.sha256(payload).hexdigest()}  gallery-manifest.json\n",
         encoding="utf-8",
     )
-    with pytest.raises(AtlasMediaError, match="poster differs from the oldest capture"):
+    with pytest.raises(
+        AtlasMediaError, match="poster differs from the selected capture"
+    ):
         _publish(source, tmp_path / "poster-output")
 
 

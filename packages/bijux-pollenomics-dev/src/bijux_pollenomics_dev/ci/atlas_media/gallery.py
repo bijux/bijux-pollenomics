@@ -7,7 +7,9 @@ import json
 import math
 from pathlib import Path
 
+from .capture_evidence import capture_frame_evidence_valid, expected_capture_layer_key
 from .contracts import AtlasMediaError, SelectedStory
+from .poster_selection import poster_frame_ordinal
 
 
 def sha256_file(path: Path) -> str:
@@ -106,6 +108,9 @@ def build_gallery_manifest(
             _capture_frame_identity(row, ordinal=ordinal, story=story)
             for ordinal, row in enumerate(capture_frames)
         ]
+        poster_ordinal = poster_frame_ordinal(
+            story.evidence_role, published_capture_frames
+        )
         assets_by_type = {str(asset["media_type"]): asset for asset in assets}
         dimensions = {(asset.get("width"), asset.get("height")) for asset in assets}
         expected_dimensions = {(encoding_profile["width"], encoding_profile["height"])}
@@ -123,9 +128,9 @@ def build_gallery_manifest(
             )
             or assets_by_type["poster"].get("frame_count") != 1
             or assets_by_type["poster"].get("sha256")
-            != published_capture_frames[0]["png_sha256"]
+            != published_capture_frames[poster_ordinal]["png_sha256"]
             or assets_by_type["poster"].get("byte_count")
-            != published_capture_frames[0]["byte_count"]
+            != published_capture_frames[poster_ordinal]["byte_count"]
             or any(
                 assets_by_type[media_type].get("frame_count") != len(story.frames)
                 or not _positive_number(
@@ -155,6 +160,11 @@ def build_gallery_manifest(
                     if story.frame_feature_denominators is not None
                     else None
                 ),
+                "frame_no_pollen_data_counts": (
+                    list(story.frame_no_pollen_data_counts)
+                    if story.frame_no_pollen_data_counts is not None
+                    else None
+                ),
                 "expected_visible_feature_counts": (
                     list(story.expected_visible_feature_counts)
                     if story.expected_visible_feature_counts is not None
@@ -169,6 +179,7 @@ def build_gallery_manifest(
                 "temporal_direction": "oldest_to_present",
                 "interval_semantics": "[younger_bp, older_bp]",
                 "frame_count": len(frames),
+                "poster_frame_ordinal": poster_ordinal,
                 "first_frame": _frame_identity(frames[0]),
                 "last_frame": _frame_identity(frames[-1]),
                 "frame_set_sha256": hashlib.sha256(
@@ -235,7 +246,11 @@ def _validate_encoding_profile(value: dict[str, object]) -> None:
         or isinstance(frames_per_second, bool)
         or not isinstance(frames_per_second, int)
         or not 1 <= frames_per_second <= 60
-        or value.get("poster") != {"format": "png", "source_frame_ordinal": 0}
+        or value.get("poster")
+        != {
+            "format": "png",
+            "source_frame_selection": "maximum_selected_evidence_earliest_ordinal_on_tie",
+        }
         or value.get("mp4")
         != {
             "codec": "libx264",
@@ -315,6 +330,7 @@ def _capture_frame_identity(
         or isinstance(byte_count, bool)
         or not isinstance(byte_count, int)
         or byte_count <= 0
+        or not _valid_capture_frame_counts(value, ordinal=ordinal, story=story)
     ):
         raise AtlasMediaError("gallery capture frame identity is invalid")
     return {
@@ -323,13 +339,59 @@ def _capture_frame_identity(
         "frame_sha256": value["frame_sha256"],
         "png_sha256": value["png_sha256"],
         "byte_count": byte_count,
+        "time_start_bp": story.frames[ordinal]["time_start_bp"],
+        "time_end_bp": story.frames[ordinal]["time_end_bp"],
+        "source_window_label": story.frames[ordinal].get("source_window_label"),
+        "no_pollen_data_count": story.frames[ordinal].get("no_pollen_data_count"),
+        "visible_point_count": value.get("visible_point_count"),
+        "visible_polygon_layer_count": value.get("visible_polygon_layer_count"),
+        "visible_polygon_feature_count": value.get("visible_polygon_feature_count"),
+        "visible_feature_count": value.get("visible_feature_count"),
         "visible_source_chronology_point_count": value.get(
             "visible_source_chronology_point_count"
         ),
         "visible_modeled_context_feature_count": value.get(
             "visible_modeled_context_feature_count"
         ),
+        "visible_modeled_no_pollen_data_count": value.get(
+            "visible_modeled_no_pollen_data_count"
+        ),
+        "visible_source_node_count": value.get("visible_source_node_count"),
+        "visible_source_observation_denominator": value.get(
+            "visible_source_observation_denominator"
+        ),
+        "capture_layers": value.get("capture_layers"),
+        "capture_presentation": value.get("capture_presentation"),
+        "capture_layout": value.get("capture_layout"),
     }
+
+
+def _valid_capture_frame_counts(
+    value: dict[str, object], *, ordinal: int, story: SelectedStory
+) -> bool:
+    frame = story.frames[ordinal]
+    expected_source_count = (
+        story.expected_visible_feature_counts[ordinal]
+        if story.expected_visible_feature_counts is not None
+        else None
+    )
+    return capture_frame_evidence_valid(
+        value,
+        evidence_role=story.evidence_role,
+        source_level=frame.get("source_level"),
+        expected_evidence_layer_key=expected_capture_layer_key(
+            story_kind=frame.get("story_kind"), source_level=frame.get("source_level")
+        ),
+        expected_title=story.title,
+        expected_source_count=expected_source_count,
+        source_node_denominator=story.node_count,
+        source_observation_denominator=story.observation_denominator,
+        expected_modeled_count=frame.get("feature_count"),
+        expected_modeled_no_pollen_data_count=frame.get("no_pollen_data_count"),
+        source_window_label=frame.get("source_window_label"),
+        time_start_bp=frame.get("time_start_bp"),
+        time_end_bp=frame.get("time_end_bp"),
+    )
 
 
 def write_gallery_manifest(
@@ -364,6 +426,7 @@ def _frame_identity(frame: dict[str, object]) -> dict[str, object]:
             "time_start_bp",
             "time_end_bp",
             "feature_count",
+            "no_pollen_data_count",
             "countries",
         )
         if key in frame

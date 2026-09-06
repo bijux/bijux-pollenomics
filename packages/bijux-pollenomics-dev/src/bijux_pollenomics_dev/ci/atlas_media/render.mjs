@@ -240,6 +240,7 @@ try {
         node_count: snapshot.source_chronology?.facet_node_count ?? null,
         observation_denominator: snapshot.source_chronology?.facet_observation_denominator ?? null,
         feature_count: snapshot.modeled_context?.feature_count ?? null,
+        no_pollen_data_count: frame.no_pollen_data_count ?? null,
         source_level: snapshot.source_chronology?.level ?? null,
         source_code: snapshot.source_chronology?.source_code ?? null,
         source_taxon: snapshot.source_chronology?.source_taxon ?? null,
@@ -248,9 +249,16 @@ try {
         metric_key: snapshot.modeled_context?.metric_key ?? null,
         visible_point_count: snapshot.visible_point_count,
         visible_polygon_layer_count: snapshot.visible_polygon_layer_count,
-        visible_feature_count: snapshot.visible_point_count + snapshot.visible_polygon_layer_count,
+        visible_polygon_feature_count: snapshot.visible_polygon_feature_count,
+        visible_feature_count: snapshot.visible_point_count + snapshot.visible_polygon_feature_count,
         visible_source_chronology_point_count: snapshot.visible_source_chronology_point_count,
         visible_modeled_context_feature_count: snapshot.visible_modeled_context_feature_count,
+        visible_modeled_no_pollen_data_count: snapshot.visible_modeled_no_pollen_data_count,
+        visible_source_node_count: snapshot.source_chronology?.visible_node_count ?? null,
+        visible_source_observation_denominator: snapshot.source_chronology?.visible_observation_denominator ?? null,
+        capture_layers: snapshot.capture_layers,
+        capture_presentation: snapshot.capture_presentation,
+        capture_layout: snapshot.capture_layout,
       });
     }
     if (
@@ -266,6 +274,7 @@ try {
       node_count: story.node_count,
       observation_denominator: story.observation_denominator,
       frame_feature_denominators: story.frame_feature_denominators,
+      frame_no_pollen_data_counts: story.frame_no_pollen_data_counts,
       expected_visible_feature_counts: story.expected_visible_feature_counts,
       source_authority_sha256: story.source_authority_sha256,
       frame_count: frameReceipts.length,

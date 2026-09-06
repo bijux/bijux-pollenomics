@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import pytest
 
@@ -19,7 +19,13 @@ from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     media_asset_row,
 )
 from tests.atlas_media.fixtures import SUCCESSION, plan, source_authority
-from tests.atlas_media.receipt_fixtures import network_receipt
+from tests.atlas_media.receipt_fixtures import (
+    capture_evidence_layer_key,
+    capture_layers,
+    capture_layout,
+    capture_presentation,
+    network_receipt,
+)
 
 
 def test_materializer_reconciles_capture_encoding_and_gallery(
@@ -120,12 +126,20 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
                         "source_window_label": frame.get("source_window_label"),
                         "metric_family_key": frame.get("metric_family_key"),
                         "metric_key": frame.get("metric_key"),
+                        "no_pollen_data_count": frame.get("no_pollen_data_count"),
                         "visible_point_count": (
                             source_count
                             if story.evidence_role == "observation_chronology"
+                            else 0
+                        ),
+                        "visible_polygon_layer_count": (
+                            0 if story.evidence_role == "observation_chronology" else 2
+                        ),
+                        "visible_polygon_feature_count": (
+                            0
+                            if story.evidence_role == "observation_chronology"
                             else frame["feature_count"]
                         ),
-                        "visible_polygon_layer_count": 0,
                         "visible_feature_count": (
                             source_count
                             if story.evidence_role == "observation_chronology"
@@ -137,6 +151,43 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
                             if story.evidence_role == "observation_chronology"
                             else frame["feature_count"]
                         ),
+                        "visible_modeled_no_pollen_data_count": (
+                            4 if story.evidence_role == "modeled_context" else None
+                        ),
+                        "visible_source_node_count": (
+                            source_count
+                            if story.evidence_role == "observation_chronology"
+                            else None
+                        ),
+                        "visible_source_observation_denominator": (
+                            source_count
+                            if story.evidence_role == "observation_chronology"
+                            else None
+                        ),
+                        "capture_layers": capture_layers(
+                            capture_evidence_layer_key(story.selector_kind)
+                        ),
+                        "capture_presentation": capture_presentation(
+                            evidence_role=story.evidence_role,
+                            source_level=story.selector_kind,
+                            title=story.title,
+                            younger_bp=cast(int, frame["time_start_bp"]),
+                            older_bp=cast(int, frame["time_end_bp"]),
+                            visible_source_count=source_count,
+                            source_node_denominator=story.node_count or 0,
+                            visible_source_observations=source_count,
+                            source_observation_denominator=(
+                                story.observation_denominator or 0
+                            ),
+                            modeled_feature_count=cast(
+                                int, frame.get("feature_count") or 0
+                            ),
+                            modeled_no_pollen_data_count=4,
+                            source_window_label=str(
+                                frame.get("source_window_label") or ""
+                            ),
+                        ),
+                        "capture_layout": capture_layout(),
                         "png_sha256": hashlib.sha256(payload).hexdigest(),
                         "byte_count": len(payload),
                     }
@@ -154,6 +205,11 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
                     "frame_feature_denominators": (
                         list(story.frame_feature_denominators)
                         if story.frame_feature_denominators is not None
+                        else None
+                    ),
+                    "frame_no_pollen_data_counts": (
+                        list(story.frame_no_pollen_data_counts)
+                        if story.frame_no_pollen_data_counts is not None
                         else None
                     ),
                     "expected_visible_feature_counts": (
