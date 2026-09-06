@@ -132,9 +132,14 @@ def capture_layout() -> dict[str, object]:
     return {
         "overlay_visible": True,
         "overlay_bounded": True,
+        "overlay_content_bounded": True,
+        "overlay_content_overflow": False,
         "overlay_overlaps_map": False,
+        "map_bounded": True,
         "map_width_px": 1110,
         "map_height_px": 900,
+        "scroll_x_px": 0,
+        "scroll_y_px": 0,
         "viewport_width_px": 1440,
         "viewport_height_px": 900,
     }

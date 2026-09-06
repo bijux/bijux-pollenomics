@@ -76,6 +76,12 @@
       .atlas-capture-overlay {
         display: none;
       }
+      html.atlas-capture-mode .map-stage {
+        position: fixed;
+        inset: 0;
+        min-height: 0;
+        height: 100vh;
+      }
       html.atlas-capture-mode .atlas-capture-overlay {
         position: fixed;
         left: 22px;
@@ -5684,6 +5690,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           });
         }
         if (document.fonts && document.fonts.ready) await document.fonts.ready;
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        map.invalidateSize({ animate: false });
+        await new Promise((resolve) => window.requestAnimationFrame(() => window.requestAnimationFrame(resolve)));
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
         map.invalidateSize({ animate: false });
         await new Promise((resolve) => window.requestAnimationFrame(() => window.requestAnimationFrame(resolve)));
         return atlasCaptureSnapshot();
@@ -5702,8 +5712,16 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const orientationLayerKeys = atlasCaptureOrientationKeys();
         const evidenceLayerKey = modeledContextActive ? MODELED_CONTEXT.layer_key : (sourceLayer?.key || null);
         const mapBounds = document.getElementById('map').getBoundingClientRect();
-        const overlayBounds = document.getElementById('atlas-capture-overlay').getBoundingClientRect();
+        const overlayElement = document.getElementById('atlas-capture-overlay');
+        const overlayBounds = overlayElement.getBoundingClientRect();
         const overlayVisible = overlayBounds.width > 0 && overlayBounds.height > 0;
+        const overlayContentBounded = [...overlayElement.children].every((child) => {
+          const bounds = child.getBoundingClientRect();
+          return bounds.left >= overlayBounds.left
+            && bounds.right <= overlayBounds.right
+            && bounds.top >= overlayBounds.top
+            && bounds.bottom <= overlayBounds.bottom;
+        });
         const overlayOverlapsMap = overlayVisible
           && overlayBounds.left < mapBounds.right
           && overlayBounds.right > mapBounds.left
@@ -5757,9 +5775,18 @@ __STATIC_CHUNK_SCRIPT_TAGS__
               && overlayBounds.right <= window.innerWidth
               && overlayBounds.top >= 0
               && overlayBounds.bottom <= window.innerHeight,
+            overlay_content_bounded: overlayContentBounded,
+            overlay_content_overflow: overlayElement.scrollWidth > overlayElement.clientWidth
+              || overlayElement.scrollHeight > overlayElement.clientHeight,
             overlay_overlaps_map: overlayOverlapsMap,
+            map_bounded: mapBounds.left >= 0
+              && mapBounds.right <= window.innerWidth
+              && mapBounds.top >= 0
+              && mapBounds.bottom <= window.innerHeight,
             map_width_px: Math.round(mapBounds.width),
             map_height_px: Math.round(mapBounds.height),
+            scroll_x_px: Math.round(window.scrollX),
+            scroll_y_px: Math.round(window.scrollY),
             viewport_width_px: window.innerWidth,
             viewport_height_px: window.innerHeight,
           },

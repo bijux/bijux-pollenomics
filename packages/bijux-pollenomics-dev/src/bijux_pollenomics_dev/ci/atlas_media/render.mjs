@@ -191,7 +191,7 @@ try {
         throw new Error(`canonical frame SHA-256 is invalid: ${story.story_id}`);
       }
       if (frame.ordinal !== ordinal) throw new Error(`non-contiguous frame ordinal: ${story.story_id}`);
-      const snapshot = await evaluate(cdp, `(async () => {
+      let snapshot = await evaluate(cdp, `(async () => {
         const api = globalThis.BijuxPollenomicsAtlasCapture;
         let timer;
         try {
@@ -217,6 +217,15 @@ try {
       const screenshot = await cdp.send('Page.captureScreenshot', {
         format: 'png', captureBeyondViewport: false, fromSurface: true,
       });
+      const postCaptureSnapshot = await evaluate(
+        cdp,
+        'globalThis.BijuxPollenomicsAtlasCapture.snapshot()',
+      );
+      validateSnapshot(postCaptureSnapshot, frame, story, atlasIdentity);
+      if (JSON.stringify(postCaptureSnapshot) !== JSON.stringify(snapshot)) {
+        throw new Error(`atlas state changed while capturing pixels: ${story.story_id}/${ordinal}`);
+      }
+      snapshot = postCaptureSnapshot;
       const payload = Buffer.from(screenshot.data, 'base64');
       const file = `${String(ordinal).padStart(6, '0')}.png`;
       await writeFile(join(frameRoot, file), payload, { flag: 'wx' });

@@ -279,19 +279,33 @@ def _capture_layout_valid(value: object) -> bool:
     if not isinstance(value, dict) or set(value) != {
         "overlay_visible",
         "overlay_bounded",
+        "overlay_content_bounded",
+        "overlay_content_overflow",
         "overlay_overlaps_map",
+        "map_bounded",
         "map_width_px",
         "map_height_px",
+        "scroll_x_px",
+        "scroll_y_px",
         "viewport_width_px",
         "viewport_height_px",
     }:
         return False
     map_width = value.get("map_width_px")
     map_height = value.get("map_height_px")
+    scroll_x = value.get("scroll_x_px")
+    scroll_y = value.get("scroll_y_px")
     return (
         value.get("overlay_visible") is True
         and value.get("overlay_bounded") is True
+        and value.get("overlay_content_bounded") is True
+        and value.get("overlay_content_overflow") is False
         and value.get("overlay_overlaps_map") is False
+        and value.get("map_bounded") is True
+        and _nonnegative_integer(scroll_x)
+        and scroll_x == 0
+        and _nonnegative_integer(scroll_y)
+        and scroll_y == 0
         and value.get("viewport_width_px") == 1440
         and value.get("viewport_height_px") == 900
         and _nonnegative_integer(map_width)

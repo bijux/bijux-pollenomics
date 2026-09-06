@@ -286,6 +286,22 @@ def test_capture_receipt_binds_frame_selector_build_and_png(tmp_path: Path) -> N
             stories=(story,),
         )
 
+    for field, invalid_value in (
+        ("overlay_content_bounded", False),
+        ("overlay_content_overflow", True),
+        ("map_bounded", False),
+        ("scroll_x_px", False),
+        ("scroll_y_px", 1),
+    ):
+        wrong_layout = deepcopy(receipt)
+        wrong_layout["stories"][0]["frames"][0]["capture_layout"][field] = invalid_value
+        with pytest.raises(AtlasMediaError, match="frame identity"):
+            capture._validate_capture_receipt(
+                wrong_layout,
+                plan=media_plan,
+                stories=(story,),
+            )
+
     zero_observations_with_visible_nodes = deepcopy(receipt)
     zero_observations_with_visible_nodes["stories"][0]["frames"][0][
         "visible_source_observation_denominator"

@@ -402,7 +402,12 @@ def test_nordic_capture_frames_prove_uncluttered_presentation() -> None:
         "presentation.null_handling === 'null_not_zero'",
         "presentation.interpolation_allowed === false",
         "presentation.propagation_use_allowed === false",
+        "layout.overlay_content_bounded === true",
+        "layout.overlay_content_overflow === false",
         "layout.overlay_overlaps_map === false",
+        "layout.map_bounded === true",
+        "layout.scroll_x_px === 0",
+        "layout.scroll_y_px === 0",
         "layout.map_width_px >= Math.floor(layout.viewport_width_px * 0.65)",
         "snapshot.visible_point_count === snapshot.visible_source_chronology_point_count",
         "snapshot.visible_modeled_context_feature_count === 0",
@@ -445,9 +450,12 @@ def test_status_actions_prove_chronology_and_basemap_discoverability() -> None:
     assert "chronology_status_action:" in probe
     assert "time_status_action:" in probe
     assert "basemap_discoverability:" in probe
-    assert probe.count(
-        "[responsive[1440], responsive[1024], responsive[768], responsive[390]].every((layout) => layout."
-    ) >= 2
+    assert (
+        probe.count(
+            "[responsive[1440], responsive[1024], responsive[768], responsive[390]].every((layout) => layout."
+        )
+        >= 2
+    )
     assert "const statusUncovered = uncovered(status);" in probe
     assert "button.focus();" in probe
     assert "document.activeElement === button" in probe

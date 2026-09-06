@@ -1541,7 +1541,12 @@ function captureFrameIsClear(snapshot, evidenceRole) {
     && /no .*propagation inference/i.test(presentation.caveat || '')
     && layout?.overlay_visible === true
     && layout.overlay_bounded === true
+    && layout.overlay_content_bounded === true
+    && layout.overlay_content_overflow === false
     && layout.overlay_overlaps_map === false
+    && layout.map_bounded === true
+    && layout.scroll_x_px === 0
+    && layout.scroll_y_px === 0
     && layout.map_width_px >= Math.floor(layout.viewport_width_px * 0.65)
     && snapshot.visible_point_count === snapshot.visible_source_chronology_point_count
     && snapshot.visible_modeled_context_feature_count === 0

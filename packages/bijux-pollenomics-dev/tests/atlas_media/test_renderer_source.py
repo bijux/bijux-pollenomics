@@ -140,6 +140,8 @@ def test_renderer_uses_capture_api_without_polling_or_provider_tiles() -> None:
     assert "atlas capture API readiness timed out" in renderer
     assert "atlas capture API unavailable" not in renderer
     assert "Page.captureScreenshot" in renderer
+    assert "postCaptureSnapshot" in renderer
+    assert "atlas state changed while capturing pixels" in renderer
     assert "Page.loadEventFired" in renderer
     assert "setInterval(" not in renderer
     assert "Fetch.enable" in renderer

@@ -190,12 +190,19 @@ function validateCaptureLayout(value) {
   }
   if (
     JSON.stringify(Object.keys(value).sort()) !== JSON.stringify([
-      'map_height_px', 'map_width_px', 'overlay_bounded', 'overlay_overlaps_map',
-      'overlay_visible', 'viewport_height_px', 'viewport_width_px',
+      'map_bounded', 'map_height_px', 'map_width_px', 'overlay_bounded',
+      'overlay_content_bounded', 'overlay_content_overflow', 'overlay_overlaps_map',
+      'overlay_visible', 'scroll_x_px', 'scroll_y_px', 'viewport_height_px',
+      'viewport_width_px',
     ])
     || value.overlay_visible !== true
     || value.overlay_bounded !== true
+    || value.overlay_content_bounded !== true
+    || value.overlay_content_overflow !== false
     || value.overlay_overlaps_map !== false
+    || value.map_bounded !== true
+    || value.scroll_x_px !== 0
+    || value.scroll_y_px !== 0
     || value.viewport_width_px !== 1440
     || value.viewport_height_px !== 900
     || !Number.isInteger(value.map_width_px)

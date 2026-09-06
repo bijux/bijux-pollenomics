@@ -83,7 +83,11 @@ def test_snapshot_policy_rejects_stale_readiness_and_scientific_posture() -> Non
         ["visible_polygon_feature_count", -1],
         ["capture_layers.active_keys", ["country-boundaries", "unrelated"]],
         ["capture_presentation.null_handling", "null_as_zero"],
+        ["capture_layout.overlay_content_bounded", False],
+        ["capture_layout.overlay_content_overflow", True],
         ["capture_layout.overlay_overlaps_map", True],
+        ["capture_layout.map_bounded", False],
+        ["capture_layout.scroll_y_px", 1],
     ]
     script = """
       import { validateSnapshot } from __POLICY__;

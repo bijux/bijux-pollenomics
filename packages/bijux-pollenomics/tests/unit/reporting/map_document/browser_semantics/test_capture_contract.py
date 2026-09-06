@@ -47,8 +47,13 @@ def test_capture_contract_preserves_scientific_refusals_and_bp_semantics() -> No
     assert "capture_layout:" in block
     assert "overlay_visible: overlayVisible" in block
     assert "overlay_bounded:" in block
+    assert "overlay_content_bounded: overlayContentBounded" in block
+    assert "overlay_content_overflow:" in block
     assert "overlay_overlaps_map: overlayOverlapsMap" in block
+    assert "map_bounded: mapBounds.left >= 0" in block
     assert "map_width_px: Math.round(mapBounds.width)" in block
+    assert "scroll_x_px: Math.round(window.scrollX)" in block
+    assert "scroll_y_px: Math.round(window.scrollY)" in block
     assert "renderAtlasCaptureOverlay(atlasCaptureSnapshot())" in block
     assert "interpolation_allowed: false" in block
     assert "propagation_use_allowed: false" in block
@@ -109,7 +114,14 @@ def test_capture_overlay_keeps_map_clear_and_labels_evidence_in_every_frame() ->
         "html.atlas-capture-mode .atlas-capture-overlay {\n        position: fixed;"
         in MAP_DOCUMENT_TEMPLATE
     )
-    assert "html.atlas-capture-mode body {\n        overflow: hidden;" in MAP_DOCUMENT_TEMPLATE
+    assert (
+        "html.atlas-capture-mode body {\n        overflow: hidden;"
+        in MAP_DOCUMENT_TEMPLATE
+    )
+    assert (
+        "html.atlas-capture-mode .map-stage {\n        position: fixed;"
+        in MAP_DOCUMENT_TEMPLATE
+    )
     assert "html.atlas-capture-mode .map-topbar" in MAP_DOCUMENT_TEMPLATE
     assert "html.atlas-capture-mode .floating-legend" in MAP_DOCUMENT_TEMPLATE
     assert "html.atlas-capture-mode .control-panel" in MAP_DOCUMENT_TEMPLATE
@@ -117,7 +129,16 @@ def test_capture_overlay_keeps_map_clear_and_labels_evidence_in_every_frame() ->
     assert "html.atlas-capture-mode .focus-card" in MAP_DOCUMENT_TEMPLATE
     assert "html.atlas-capture-mode .map-stage" in MAP_DOCUMENT_TEMPLATE
     assert "atlasCapturePresentation !== null" in MAP_DOCUMENT_TEMPLATE
-    assert "window.scrollTo({ top: 0, left: 0, behavior: 'auto' });" in MAP_DOCUMENT_TEMPLATE
+    assert (
+        "window.scrollTo({ top: 0, left: 0, behavior: 'auto' });"
+        in MAP_DOCUMENT_TEMPLATE
+    )
+    assert (
+        MAP_DOCUMENT_TEMPLATE.count(
+            "window.scrollTo({ top: 0, left: 0, behavior: 'auto' });"
+        )
+        == 3
+    )
     assert "padding-left: 330px" in MAP_DOCUMENT_TEMPLATE
     assert "width: 286px" in MAP_DOCUMENT_TEMPLATE
     assert "Observed source chronology" in block
