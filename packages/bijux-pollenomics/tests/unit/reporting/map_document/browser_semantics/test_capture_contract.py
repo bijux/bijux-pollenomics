@@ -105,7 +105,11 @@ def test_capture_overlay_keeps_map_clear_and_labels_evidence_in_every_frame() ->
     ):
         assert f'id="{element_id}"' in MAP_DOCUMENT_TEMPLATE
     assert ".atlas-capture-overlay {\n        display: none;" in MAP_DOCUMENT_TEMPLATE
-    assert "html.atlas-capture-mode .atlas-capture-overlay" in MAP_DOCUMENT_TEMPLATE
+    assert (
+        "html.atlas-capture-mode .atlas-capture-overlay {\n        position: fixed;"
+        in MAP_DOCUMENT_TEMPLATE
+    )
+    assert "html.atlas-capture-mode body {\n        overflow: hidden;" in MAP_DOCUMENT_TEMPLATE
     assert "html.atlas-capture-mode .map-topbar" in MAP_DOCUMENT_TEMPLATE
     assert "html.atlas-capture-mode .floating-legend" in MAP_DOCUMENT_TEMPLATE
     assert "html.atlas-capture-mode .control-panel" in MAP_DOCUMENT_TEMPLATE
@@ -113,6 +117,7 @@ def test_capture_overlay_keeps_map_clear_and_labels_evidence_in_every_frame() ->
     assert "html.atlas-capture-mode .focus-card" in MAP_DOCUMENT_TEMPLATE
     assert "html.atlas-capture-mode .map-stage" in MAP_DOCUMENT_TEMPLATE
     assert "atlasCapturePresentation !== null" in MAP_DOCUMENT_TEMPLATE
+    assert "window.scrollTo({ top: 0, left: 0, behavior: 'auto' });" in MAP_DOCUMENT_TEMPLATE
     assert "padding-left: 330px" in MAP_DOCUMENT_TEMPLATE
     assert "width: 286px" in MAP_DOCUMENT_TEMPLATE
     assert "Observed source chronology" in block
