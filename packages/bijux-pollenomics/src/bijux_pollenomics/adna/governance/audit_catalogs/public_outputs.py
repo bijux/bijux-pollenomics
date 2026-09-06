@@ -14,7 +14,6 @@ from .contracts import (
 )
 from .coverage import build_cross_species_coverage_dashboard
 from .repository import (
-    _load_coordinate_provenance_rows,
     _load_country_sample_ids_by_species,
     _load_mapped_sample_ids_by_species,
     _load_sample_rows,
@@ -90,45 +89,73 @@ def build_public_animal_output_honesty(
         "blocked_sample_count": 0,
         "unresolved_sample_count": 0,
         "country_published_sample_count": 0,
-        "region_refused_count": 0,
     }
+    sample_species: set[str] = set()
     for root in _species_roots(data_root):
         if root.name == "homo_sapiens":
             continue
         sample_rows = _load_sample_rows(root)
         if not sample_rows:
             continue
-        species_name = str(sample_rows[0].get("species_latin_name", "")).strip()
-        common_name = str(sample_rows[0].get("species_common_name", "")).strip()
-        tracked_sample_ids = {
-            _nested_string(row, "identity", "stable_token")
-            for row in sample_rows
-            if _nested_string(row, "identity", "stable_token")
+        species_names = {
+            str(row.get("species_latin_name", "")).strip() for row in sample_rows
         }
+        common_names = {
+            str(row.get("species_common_name", "")).strip() for row in sample_rows
+        }
+        if len(species_names) != 1 or "" in species_names:
+            raise ValueError(
+                f"Animal sample rows have mixed species identity in {root}"
+            )
+        if len(common_names) != 1 or "" in common_names:
+            raise ValueError(
+                f"Animal sample rows have mixed common-name identity in {root}"
+            )
+        species_name = species_names.pop()
+        common_name = common_names.pop()
+        sample_species.add(species_name)
+        sample_ids = [
+            _nested_string(row, "identity", "stable_token") for row in sample_rows
+        ]
+        if any(not sample_id for sample_id in sample_ids):
+            raise ValueError(
+                f"Animal sample rows contain blank stable IDs for {species_name}"
+            )
+        tracked_sample_ids = set(sample_ids)
+        if len(tracked_sample_ids) != len(sample_ids):
+            raise ValueError(
+                f"Animal sample rows contain duplicate stable IDs for {species_name}"
+            )
         mapped_sample_ids = mapped_sample_ids_by_species.get(species_name, set())
-        unresolved_sample_count = sum(
-            1
-            for row in sample_rows
+        if not mapped_sample_ids <= tracked_sample_ids:
+            raise ValueError(
+                f"Animal mapped sample IDs are not tracked for {species_name}"
+            )
+        unresolved_sample_ids = {
+            sample_id
+            for sample_id, row in zip(sample_ids, sample_rows, strict=True)
             if str(row.get("inclusion_status", "")).strip() == "sample_context_blocked"
+        }
+        country_published_sample_ids = country_sample_ids_by_species.get(
+            species_name, set()
         )
-        region_refused_count = sum(
-            1
-            for row in _load_coordinate_provenance_rows(root)
-            if str(row.get("mapping_posture", "")).strip() == "refused_region_only"
-        )
-        country_published_sample_count = len(
-            country_sample_ids_by_species.get(species_name, set())
-        )
+        if not country_published_sample_ids <= mapped_sample_ids:
+            raise ValueError(
+                f"Animal country-published sample IDs are not mapped for {species_name}"
+            )
         blocked_sample_count = len(tracked_sample_ids - mapped_sample_ids)
+        if not unresolved_sample_ids <= tracked_sample_ids - mapped_sample_ids:
+            raise ValueError(
+                f"Animal unresolved sample IDs are not blocked for {species_name}"
+            )
         row: HonestyRow = {
             "species_latin_name": species_name,
             "species_common_name": common_name,
             "tracked_sample_count": len(tracked_sample_ids),
             "mapped_sample_count": len(mapped_sample_ids),
             "blocked_sample_count": blocked_sample_count,
-            "unresolved_sample_count": unresolved_sample_count,
-            "country_published_sample_count": country_published_sample_count,
-            "region_refused_count": region_refused_count,
+            "unresolved_sample_count": len(unresolved_sample_ids),
+            "country_published_sample_count": len(country_published_sample_ids),
         }
         rows.append(row)
         totals["tracked_sample_count"] += row["tracked_sample_count"]
@@ -138,9 +165,18 @@ def build_public_animal_output_honesty(
         totals["country_published_sample_count"] += row[
             "country_published_sample_count"
         ]
-        totals["region_refused_count"] += row["region_refused_count"]
+    if any(
+        sample_ids and species_name not in sample_species
+        for species_name, sample_ids in mapped_sample_ids_by_species.items()
+    ):
+        raise ValueError("Animal mapped sample accounting contains an unknown species")
+    if any(
+        sample_ids and species_name not in sample_species
+        for species_name, sample_ids in country_sample_ids_by_species.items()
+    ):
+        raise ValueError("Animal country sample accounting contains an unknown species")
     return {
-        "schema_version": "animal-output-honesty.v1",
+        "schema_version": "animal-output-honesty.v2",
         "totals": totals,
         "rows": rows,
     }

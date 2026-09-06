@@ -51,8 +51,27 @@ def _build_animal_atlas_readiness(
     for row in readiness_rows:
         species_name = str(row.get("species_latin_name", "")).strip()
         unresolved_count = _required_count(row, "unresolved_sample_count")
+        direct_coordinate_count = _required_count(row, "direct_coordinate_backed")
+        indirect_coordinate_count = _required_count(row, "indirectly_geocoded")
         refused_count = _required_count(row, "refused_coordinate_provenance_count")
+        region_only_refusal_count = _required_count(
+            row, "region_only_coordinate_refusal_count"
+        )
+        unresolved_location_refusal_count = _required_count(
+            row, "unresolved_location_coordinate_refusal_count"
+        )
         map_ready_count = _required_count(row, "coordinate_provenance_mappable_count")
+        if direct_coordinate_count + indirect_coordinate_count != map_ready_count:
+            raise ValueError(
+                f"Animal mappable coordinate postures do not reconcile for {species_name}"
+            )
+        if (
+            region_only_refusal_count + unresolved_location_refusal_count
+            != refused_count
+        ):
+            raise ValueError(
+                f"Animal coordinate refusal postures do not reconcile for {species_name}"
+            )
         coordinate_provenance_denominator = map_ready_count + refused_count
         publication_candidate_count = _required_count(
             row, "publication_candidate_count"
@@ -157,10 +176,15 @@ def _build_animal_atlas_readiness(
     mapped_total = _required_count(honesty_totals, "mapped_sample_count")
     blocked_total = _required_count(honesty_totals, "blocked_sample_count")
     unresolved_total = _required_count(honesty_totals, "unresolved_sample_count")
+    readiness_unresolved_total = _required_count(
+        readiness_totals, "unresolved_sample_count"
+    )
     if mapped_total + blocked_total != tracked_total:
         raise ValueError("Animal sample readiness totals do not reconcile")
     if unresolved_total > blocked_total:
         raise ValueError("Unresolved animal samples exceed blocked sample totals")
+    if readiness_unresolved_total != unresolved_total:
+        raise ValueError("Animal unresolved sample totals do not reconcile")
     sample_row_totals = (
         sum(_required_count(row, "tracked_sample_count") for row in honesty_rows),
         sum(_required_count(row, "mapped_sample_count") for row in honesty_rows),
@@ -180,22 +204,51 @@ def _build_animal_atlas_readiness(
     mappable_total = _required_count(
         readiness_totals, "coordinate_provenance_mappable_count"
     )
+    direct_total = _required_count(readiness_totals, "direct_coordinate_backed")
+    indirect_total = _required_count(readiness_totals, "indirectly_geocoded")
     refused_total = _required_count(
         readiness_totals, "refused_coordinate_provenance_count"
+    )
+    region_only_refusal_total = _required_count(
+        readiness_totals, "region_only_coordinate_refusal_count"
+    )
+    unresolved_location_refusal_total = _required_count(
+        readiness_totals, "unresolved_location_coordinate_refusal_count"
     )
     published_total = _required_count(readiness_totals, "publication_candidate_count")
     not_materialized_total = _required_count(readiness_totals, "not_materialized_count")
     if mappable_total + refused_total != coordinate_total:
         raise ValueError("Animal coordinate-provenance totals do not reconcile")
+    if direct_total + indirect_total != mappable_total:
+        raise ValueError("Animal mappable coordinate posture totals do not reconcile")
+    if region_only_refusal_total + unresolved_location_refusal_total != refused_total:
+        raise ValueError("Animal coordinate refusal posture totals do not reconcile")
     if published_total + not_materialized_total != mappable_total:
         raise ValueError("Animal coordinate publication totals do not reconcile")
     row_mappable_total = sum(
         _required_count(row, "coordinate_provenance_mappable_count")
         for row in readiness_rows
     )
+    row_direct_total = sum(
+        _required_count(row, "direct_coordinate_backed") for row in readiness_rows
+    )
+    row_indirect_total = sum(
+        _required_count(row, "indirectly_geocoded") for row in readiness_rows
+    )
     row_refused_total = sum(
         _required_count(row, "refused_coordinate_provenance_count")
         for row in readiness_rows
+    )
+    row_region_only_refusal_total = sum(
+        _required_count(row, "region_only_coordinate_refusal_count")
+        for row in readiness_rows
+    )
+    row_unresolved_location_refusal_total = sum(
+        _required_count(row, "unresolved_location_coordinate_refusal_count")
+        for row in readiness_rows
+    )
+    row_unresolved_total = sum(
+        _required_count(row, "unresolved_sample_count") for row in readiness_rows
     )
     row_published_total = sum(
         _required_count(row, "publication_candidate_count") for row in readiness_rows
@@ -207,15 +260,25 @@ def _build_animal_atlas_readiness(
     if (
         row_coordinate_total,
         row_mappable_total,
+        row_direct_total,
+        row_indirect_total,
         row_refused_total,
+        row_region_only_refusal_total,
+        row_unresolved_location_refusal_total,
         row_published_total,
         row_not_materialized_total,
+        row_unresolved_total,
     ) != (
         coordinate_total,
         mappable_total,
+        direct_total,
+        indirect_total,
         refused_total,
+        region_only_refusal_total,
+        unresolved_location_refusal_total,
         published_total,
         not_materialized_total,
+        readiness_unresolved_total,
     ):
         raise ValueError("Animal coordinate readiness rows do not match totals")
     return {

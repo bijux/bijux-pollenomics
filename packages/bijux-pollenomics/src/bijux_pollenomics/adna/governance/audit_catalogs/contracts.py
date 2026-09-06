@@ -140,7 +140,6 @@ class HonestyRow(TypedDict):
     blocked_sample_count: int
     unresolved_sample_count: int
     country_published_sample_count: int
-    region_refused_count: int
 
 
 class HonestyTotals(TypedDict):
@@ -149,7 +148,6 @@ class HonestyTotals(TypedDict):
     blocked_sample_count: int
     unresolved_sample_count: int
     country_published_sample_count: int
-    region_refused_count: int
 
 
 class AnimalOutputHonesty(TypedDict):

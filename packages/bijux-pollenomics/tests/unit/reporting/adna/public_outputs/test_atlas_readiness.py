@@ -118,8 +118,12 @@ def _valid_accounting_payloads() -> tuple[dict[str, object], dict[str, object]]:
             {
                 "species_latin_name": "Ovis aries",
                 "species_common_name": "sheep",
+                "direct_coordinate_backed": 1,
+                "indirectly_geocoded": 1,
                 "coordinate_provenance_mappable_count": 2,
                 "refused_coordinate_provenance_count": 1,
+                "region_only_coordinate_refusal_count": 1,
+                "unresolved_location_coordinate_refusal_count": 0,
                 "publication_candidate_count": 1,
                 "not_materialized_count": 1,
                 "unresolved_sample_count": 1,
@@ -127,10 +131,15 @@ def _valid_accounting_payloads() -> tuple[dict[str, object], dict[str, object]]:
         ],
         "totals": {
             "coordinate_provenance_row_count": 3,
+            "direct_coordinate_backed": 1,
+            "indirectly_geocoded": 1,
             "coordinate_provenance_mappable_count": 2,
             "refused_coordinate_provenance_count": 1,
+            "region_only_coordinate_refusal_count": 1,
+            "unresolved_location_coordinate_refusal_count": 0,
             "publication_candidate_count": 1,
             "not_materialized_count": 1,
+            "unresolved_sample_count": 1,
         },
     }
     honesty = {
@@ -199,6 +208,29 @@ def test_readiness_equations_fail_closed_under_payload_drift(
             "coordinate_provenance_row_count",
             4,
         ),
+        ("direct total", "readiness", "totals", "direct_coordinate_backed", 0),
+        ("indirect row", "readiness", "rows", "indirectly_geocoded", 0),
+        (
+            "region refusal total",
+            "readiness",
+            "totals",
+            "region_only_coordinate_refusal_count",
+            0,
+        ),
+        (
+            "unresolved location row",
+            "readiness",
+            "rows",
+            "unresolved_location_coordinate_refusal_count",
+            1,
+        ),
+        (
+            "readiness unresolved total",
+            "readiness",
+            "totals",
+            "unresolved_sample_count",
+            0,
+        ),
         ("publication total", "readiness", "totals", "not_materialized_count", 2),
         ("species publication", "readiness", "rows", "not_materialized_count", 2),
         ("mapped samples", "honesty", "rows", "mapped_sample_count", 0),
@@ -228,3 +260,33 @@ def test_readiness_equations_fail_closed_under_payload_drift(
             honesty,
             candidate_count=2,
         )
+
+
+@pytest.mark.parametrize(
+    ("container", "field"),
+    [
+        ("rows", "direct_coordinate_backed"),
+        ("rows", "indirectly_geocoded"),
+        ("rows", "region_only_coordinate_refusal_count"),
+        ("rows", "unresolved_location_coordinate_refusal_count"),
+        ("totals", "direct_coordinate_backed"),
+        ("totals", "indirectly_geocoded"),
+        ("totals", "region_only_coordinate_refusal_count"),
+        ("totals", "unresolved_location_coordinate_refusal_count"),
+        ("totals", "unresolved_sample_count"),
+    ],
+)
+def test_readiness_posture_counts_refuse_negative_values(
+    monkeypatch: pytest.MonkeyPatch,
+    container: str,
+    field: str,
+) -> None:
+    readiness, honesty = _valid_accounting_payloads()
+    section = readiness[container]
+    if isinstance(section, list):
+        section[0][field] = -1
+    else:
+        section[field] = -1
+
+    with pytest.raises(ValueError, match="nonnegative"):
+        _build_stubbed_readiness(monkeypatch, readiness, honesty)

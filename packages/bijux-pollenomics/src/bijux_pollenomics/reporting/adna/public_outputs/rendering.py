@@ -187,15 +187,14 @@ def _render_output_honesty_markdown(payload: AnimalOutputHonesty) -> str:
         f"- Blocked sample rows: `{payload['totals']['blocked_sample_count']}`",
         f"- Unresolved sample rows: `{payload['totals']['unresolved_sample_count']}`",
         "",
-        "| Species | Tracked samples | Mapped samples | Blocked samples | Unresolved samples | Country-published samples | Region-refused rows |",
-        "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
+        "| Species | Tracked samples | Mapped samples | Blocked samples | Unresolved samples | Country-published samples |",
+        "| --- | ---: | ---: | ---: | ---: | ---: |",
     ]
     for row in payload["rows"]:
         lines.append(
             f"| {row['species_latin_name']} | {row['tracked_sample_count']} | "
             f"{row['mapped_sample_count']} | {row['blocked_sample_count']} | "
-            f"{row['unresolved_sample_count']} | {row['country_published_sample_count']} | "
-            f"{row['region_refused_count']} |"
+            f"{row['unresolved_sample_count']} | {row['country_published_sample_count']} |"
         )
     lines.append("")
     return "\n".join(lines)

@@ -103,18 +103,17 @@ def render_public_animal_output_honesty_markdown(payload: AnimalOutputHonesty) -
         f"- Unresolved sample rows: `{totals['unresolved_sample_count']}`",
         f"- Country-published sample rows: `{totals['country_published_sample_count']}`",
         "",
-        "| Species | Tracked samples | Mapped samples | Blocked samples | Unresolved samples | Country-published samples | Region-refused rows |",
-        "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
+        "| Species | Tracked samples | Mapped samples | Blocked samples | Unresolved samples | Country-published samples |",
+        "| --- | ---: | ---: | ---: | ---: | ---: |",
     ]
     if not rows:
-        lines.append("| No tracked animal sample rows yet | 0 | 0 | 0 | 0 | 0 | 0 |")
+        lines.append("| No tracked animal sample rows yet | 0 | 0 | 0 | 0 | 0 |")
     else:
         for row in rows:
             lines.append(
                 f"| {row['species_latin_name']} | {row['tracked_sample_count']} | "
                 f"{row['mapped_sample_count']} | {row['blocked_sample_count']} | "
-                f"{row['unresolved_sample_count']} | {row['country_published_sample_count']} | "
-                f"{row['region_refused_count']} |"
+                f"{row['unresolved_sample_count']} | {row['country_published_sample_count']} |"
             )
     lines.append("")
     return "\n".join(lines)
