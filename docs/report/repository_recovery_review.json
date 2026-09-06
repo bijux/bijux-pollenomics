@@ -1,10 +1,10 @@
 {
   "schema_version": "repository-recovery-review.v2",
   "score_max": 4,
-  "overall_recovery_posture": "moderate_recovery",
+  "overall_recovery_posture": "recovery_required",
   "average_dimension_scores": {
-    "data_completeness": 3.0,
-    "provenance_clarity": 3.29,
+    "data_completeness": 2.86,
+    "provenance_clarity": 3.0,
     "documentation_clarity": 3.57,
     "output_honesty": 3.43
   },
@@ -70,7 +70,7 @@
       "surface_key": "ancient_dna_context",
       "display_name": "Ancient DNA context",
       "data_completeness": 4,
-      "provenance_clarity": 4,
+      "provenance_clarity": 2,
       "documentation_clarity": 3,
       "output_honesty": 3,
       "metrics": {
@@ -78,11 +78,11 @@
         "sample_accounting_available": true,
         "coordinate_accounting_available": true,
         "papers_with_archived_supplements": 18,
-        "published_atlas_points": 273,
+        "published_atlas_points": 151,
         "tracked_samples": 1450,
-        "mapped_samples": 611,
-        "unresolved_samples": 95,
-        "mappable_coordinate_provenance": 280,
+        "mapped_samples": 288,
+        "unresolved_samples": 90,
+        "mappable_coordinate_provenance": 285,
         "refused_coordinate_provenance": 4
       },
       "note": "The animal aDNA program has real tracked structure but still weak evidence depth relative to its public surfaces."
@@ -90,12 +90,12 @@
     {
       "surface_key": "publication_outputs",
       "display_name": "Publication outputs",
-      "data_completeness": 2,
+      "data_completeness": 1,
       "provenance_clarity": 3,
       "documentation_clarity": 3,
       "output_honesty": 3,
       "metrics": {
-        "published_atlas_points": 273,
+        "published_atlas_points": 151,
         "published_country_bundles": 4,
         "sample_accounting_available": true
       },

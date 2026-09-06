@@ -1,23 +1,34 @@
 {
   "schema_version": "animal-first-appearance-by-country.v1",
   "reconciliation": {
-    "input_locality_count": 6,
-    "dated_locality_count": 4,
-    "undated_locality_count": 2,
+    "input_locality_count": 8,
+    "dated_locality_count": 8,
+    "undated_locality_count": 0,
     "refusal_reason_counts": {
-      "chronology_unavailable": 2
+      "chronology_unavailable": 0
     }
   },
   "rows": [
     {
       "country": "Denmark",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "animal_scope": "wild_or_progenitor_context",
+      "first_signal_bp": 8173,
+      "time_label": "7976-8173 BP",
+      "project_accession": "PRJEB75467",
+      "locality": "Hj\u00f8rring, Tofte B\u00e6k",
+      "assignment_confidence": "exact_country"
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
       "animal_scope": "domesticated_core",
-      "first_signal_bp": 4961,
-      "time_label": "4944-4961 BP",
-      "project_accession": "PRJEB44430",
-      "locality": "Ginnerup",
+      "first_signal_bp": 4700,
+      "time_label": "4700 BP",
+      "project_accession": "PRJEB30282",
+      "locality": "Bunds\u00f8",
       "assignment_confidence": "exact_country"
     },
     {
@@ -33,6 +44,17 @@
     },
     {
       "country": "Sweden",
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "animal_scope": "wild_or_progenitor_context",
+      "first_signal_bp": 9657,
+      "time_label": "9434-9657 BP",
+      "project_accession": "PRJEB75467",
+      "locality": "Sk\u00e5ne",
+      "assignment_confidence": "exact_country"
+    },
+    {
+      "country": "Sweden",
       "species_latin_name": "Ovis aries",
       "species_common_name": "sheep",
       "animal_scope": "domesticated_core",
@@ -40,17 +62,6 @@
       "time_label": "3699-4151 BP",
       "project_accession": "PRJEB59481",
       "locality": "Stora F\u00f6rvar",
-      "assignment_confidence": "exact_country"
-    },
-    {
-      "country": "Sweden",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
-      "animal_scope": "domesticated_core",
-      "first_signal_bp": 1417,
-      "time_label": "1217-1417 BP",
-      "project_accession": "PRJEB31613",
-      "locality": "Uppsala",
       "assignment_confidence": "exact_country"
     }
   ]

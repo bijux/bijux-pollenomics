@@ -3,9 +3,14 @@
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
+import re
 from typing import cast
 
+from bijux_pollenomics.core.text import slugify
+
 from .contracts import PlaybackContractError, PlaybackFrame, PlaybackStory
+
+_STORY_ID = re.compile(r"[a-z][a-z0-9-]*")
 
 
 def build_modeled_context_storyboards(
@@ -29,9 +34,15 @@ def build_modeled_context_storyboards(
     metrics = _source_metrics(modeled_manifest.get("metric_families"))
     if modeled_manifest.get("metric_count") != len(metrics):
         raise PlaybackContractError("modeled metric denominator does not reconcile")
+    story_ids = tuple(
+        _modeled_story_id(dataset_id, metric_key)
+        for _family_key, metric_key, _label in metrics
+    )
+    if len(story_ids) != len(set(story_ids)):
+        raise PlaybackContractError("modeled metric story identifiers collide")
     return tuple(
         PlaybackStory(
-            story_id=f"pangaea-{dataset_id}-metric-{metric_key.casefold()}",
+            story_id=story_id,
             title=f"PANGAEA {dataset_id} modeled context — {label}",
             dataset_id=dataset_id,
             evidence_role="modeled_context",
@@ -41,8 +52,17 @@ def build_modeled_context_storyboards(
             countries=countries,
             selector_family=family_key,
         )
-        for family_key, metric_key, label in metrics
+        for (family_key, metric_key, label), story_id in zip(
+            metrics, story_ids, strict=True
+        )
     )
+
+
+def _modeled_story_id(dataset_id: str, metric_key: str) -> str:
+    story_id = f"pangaea-{slugify(dataset_id)}-metric-{slugify(metric_key)}"
+    if _STORY_ID.fullmatch(story_id) is None:
+        raise PlaybackContractError("modeled metric story identifier is unsafe")
+    return story_id
 
 
 def _exact_source_frames(value: object) -> tuple[PlaybackFrame, ...]:

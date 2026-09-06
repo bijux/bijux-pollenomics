@@ -5,7 +5,12 @@ from __future__ import annotations
 from dataclasses import replace
 from typing import cast
 
+import pytest
+
 from bijux_pollenomics.reporting.source_chronology.facets import build_facet_metadata
+from bijux_pollenomics.reporting.source_chronology.validation import (
+    validate_source_chronology_atlas_projection,
+)
 
 from .support import DETAIL_ID, projection
 
@@ -69,7 +74,7 @@ def test_selector_facets_carry_exact_node_and_observation_denominators() -> None
     code_facets = cast(
         dict[str, object], layers["source_ecological_code"]["facet_metadata"]
     )
-    assert code_facets["schema_version"] == "neotoma-source-chronology-facets.v2"
+    assert code_facets["schema_version"] == "neotoma-source-chronology-facets.v3"
     assert (code_facets["time_min_bp"], code_facets["time_max_bp"]) == (100, 125)
     assert code_facets["country_counts"] == [
         {"value": "Sweden", "node_count": 1, "observation_denominator": 1},
@@ -77,7 +82,12 @@ def test_selector_facets_carry_exact_node_and_observation_denominators() -> None
         {"value": "Norway", "node_count": 0, "observation_denominator": 0},
         {"value": "Finland", "node_count": 0, "observation_denominator": 0},
     ]
-    assert code_facets["source_ecological_codes"] == [
+    code_rows = cast(list[dict[str, object]], code_facets["source_ecological_codes"])
+    assert len(code_rows) == 1
+    code_density = code_rows[0]["time_density"]
+    assert [
+        {key: value for key, value in code_rows[0].items() if key != "time_density"}
+    ] == [
         {
             "value": "TRSH",
             "label": "Trees and Shrubs",
@@ -89,8 +99,15 @@ def test_selector_facets_carry_exact_node_and_observation_denominators() -> None
             "time_max_bp": 125,
         }
     ]
+    assert cast(dict[str, object], code_density)["node_count"] == 1
+    assert len(cast(dict[str, object], code_density)["bins"]) == 12
     taxon_facets = cast(dict[str, object], layers["source_taxon"]["facet_metadata"])
-    assert taxon_facets["source_taxa"] == [
+    taxon_rows = cast(list[dict[str, object]], taxon_facets["source_taxa"])
+    assert len(taxon_rows) == 1
+    taxon_density = taxon_rows[0]["time_density"]
+    assert [
+        {key: value for key, value in taxon_rows[0].items() if key != "time_density"}
+    ] == [
         {
             "value": "source:neotoma:taxon:1",
             "source_taxon_id": "1",
@@ -101,17 +118,20 @@ def test_selector_facets_carry_exact_node_and_observation_denominators() -> None
             "time_max_bp": 125,
         }
     ]
+    assert cast(dict[str, object], taxon_density)["node_count"] == 1
+    assert len(cast(dict[str, object], taxon_density)["bins"]) == 12
 
 
 def test_empty_facet_metadata_has_no_invented_time_extent() -> None:
     metadata = build_facet_metadata([], node_level="source_taxon")
 
-    assert metadata["schema_version"] == "neotoma-source-chronology-facets.v2"
+    assert metadata["schema_version"] == "neotoma-source-chronology-facets.v3"
     assert metadata["node_count"] == 0
     assert metadata["observation_denominator"] == 0
     assert metadata["time_min_bp"] is None
     assert metadata["time_max_bp"] is None
     assert metadata["source_taxa"] == []
+    assert cast(dict[str, object], metadata["time_density"])["bins"] == []
 
 
 def test_selectable_facets_preserve_exact_independent_time_extents() -> None:
@@ -149,7 +169,7 @@ def test_selectable_facets_preserve_exact_independent_time_extents() -> None:
         node_level="source_taxon",
     )
 
-    assert code_metadata["schema_version"] == ("neotoma-source-chronology-facets.v2")
+    assert code_metadata["schema_version"] == ("neotoma-source-chronology-facets.v3")
     assert (code_metadata["time_min_bp"], code_metadata["time_max_bp"]) == (
         0.75,
         878.26,
@@ -184,3 +204,17 @@ def test_selectable_facets_preserve_exact_independent_time_extents() -> None:
         taxon_rows["source:neotoma:taxon:2"]["time_min_bp"],
         taxon_rows["source:neotoma:taxon:2"]["time_max_bp"],
     ) == (100.5, 125.125)
+
+
+def test_projection_validation_rejects_facet_density_drift() -> None:
+    result, atlas = projection()
+    facet_metadata = cast(dict[str, object], atlas.point_layers[0]["facet_metadata"])
+    time_density = cast(dict[str, object], facet_metadata["time_density"])
+    time_density["node_count"] = 2
+
+    with pytest.raises(ValueError, match="facet metadata does not reconcile"):
+        validate_source_chronology_atlas_projection(
+            result,
+            atlas,
+            detail_record_ids={DETAIL_ID},
+        )

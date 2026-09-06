@@ -320,6 +320,8 @@
       .topbar-time-stepper .time-stepper-status {
         grid-column: auto;
         min-width: 0;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        cursor: pointer;
       }
       .topbar-time-stepper #time-playback-toggle {
         min-height: 38px;
@@ -331,6 +333,55 @@
         padding: 8px 10px;
         border-radius: 999px;
         text-align: left;
+      }
+      .basemap-copy {
+        display: grid;
+        gap: 1px;
+      }
+      .basemap-subtitle {
+        color: var(--muted);
+        font-size: 9px;
+        font-weight: 600;
+      }
+      .status-pill-action {
+        appearance: none;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+        font: inherit;
+        text-align: left;
+        text-decoration: underline;
+        text-decoration-color: rgba(20, 33, 61, 0.24);
+        text-underline-offset: 3px;
+      }
+      .source-time-density {
+        margin: 14px 0 0;
+        padding: 12px;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.72);
+      }
+      .source-time-density figcaption {
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .source-time-density-bars {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(4px, 1fr));
+        align-items: end;
+        gap: 3px;
+        height: 82px;
+        margin-top: 10px;
+        border-bottom: 1px solid rgba(20, 33, 61, 0.14);
+      }
+      .source-time-density-bar {
+        min-height: 2px;
+        border-radius: 4px 4px 0 0;
+        background: linear-gradient(180deg, #0f766e, #14b8a6);
       }
       .basemap-preview {
         width: 18px;
@@ -1602,7 +1653,7 @@
           </div>
           <div class="time-stepper topbar-time-stepper" aria-label="Chronology navigation">
             <button id="time-step-older" class="inline-button" type="button">← Older</button>
-            <div id="time-stepper-status" class="time-stepper-status" aria-live="polite">Preparing chronological navigation</div>
+            <button id="time-stepper-status" class="time-stepper-status" type="button" aria-live="polite" aria-controls="source-chronology-controls">Preparing chronological navigation</button>
             <button id="time-step-newer" class="inline-button" type="button">Newer →</button>
             <button id="time-playback-toggle" class="inline-button is-primary" type="button" aria-pressed="false">Play oldest → present</button>
           </div>
@@ -1640,7 +1691,7 @@
               </div>
             </div>
             <div class="control-panel-body">
-              <details class="control-group">
+              <details id="view-controls" class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">View</span>
@@ -1649,10 +1700,10 @@
                   <span class="control-group-summary">Keyless or no-basemap</span>
                 </summary>
                 <div class="control-group-body">
-                  <div class="basemap-switch" aria-label="Basemap selection">
-                    <button class="basemap-button is-active" type="button" data-basemap="street" title="Keyless OpenStreetMap street and place context."><span class="basemap-preview basemap-preview--street"></span><span class="basemap-title">Street</span></button>
-                    <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span></button>
-                    <button class="basemap-button" type="button" data-basemap="none" title="Keep evidence and orientation controls usable without network tiles."><span class="basemap-preview"></span><span class="basemap-title">No basemap</span></button>
+                  <div id="basemap-switch" class="basemap-switch" aria-label="Basemap selection">
+                    <button class="basemap-button is-active" type="button" data-basemap="street" title="Keyless OpenStreetMap street and place context."><span class="basemap-preview basemap-preview--street"></span><span class="basemap-copy"><span class="basemap-title">Street</span><span class="basemap-subtitle">OpenStreetMap · no key</span></span></button>
+                    <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-copy"><span class="basemap-title">Terrain</span><span class="basemap-subtitle">OpenTopoMap · no key</span></span></button>
+                    <button class="basemap-button" type="button" data-basemap="none" title="Keep evidence and orientation controls usable without network tiles."><span class="basemap-preview"></span><span class="basemap-copy"><span class="basemap-title">No basemap</span><span class="basemap-subtitle">Offline · no tiles</span></span></button>
                   </div>
                   <div class="map-actions">
                     <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
@@ -1714,6 +1765,7 @@
                 </summary>
                 <div class="control-group-body">
                   <div class="search-meta">Inspect source-native sample presence, literal ecological codes, or source-reported taxon and pollen-type labels. Dense code and taxon views are opt-in. These records are chronology context only and are not propagation evidence.</div>
+__CHRONOLOGY_PLAYBACK_ACTION__
                   <label class="field-label" for="source-chronology-level"><span>Source node level</span><span>one layer at a time</span></label>
                   <select id="source-chronology-level" class="search-input" aria-label="Select a Neotoma source chronology node level"></select>
                   <div id="source-chronology-code-fields" hidden>
@@ -1732,6 +1784,11 @@
                   </div>
                   <div id="source-chronology-state" class="search-meta" aria-live="polite">Source chronology metadata unavailable.</div>
                   <div id="source-chronology-global-denominator" class="search-meta" aria-live="polite">Global pre-filter denominator unavailable.</div>
+                  <figure id="source-time-density" class="source-time-density" hidden>
+                    <figcaption id="source-time-density-caption">Oldest-to-present source-record density</figcaption>
+                    <div id="source-time-density-bars" class="source-time-density-bars" role="img" aria-labelledby="source-time-density-caption"></div>
+                    <div class="search-meta">Closed BP-interval overlap by governed facet. A record can intersect multiple bins, so bins are not additive and do not imply abundance, interpolation, flow, or propagation.</div>
+                  </figure>
                   <div class="search-meta">Captured source-record concentration groups admitted records only at the same source site. Symbol size is the raw visible node count. It is not abundance, absence, propagation, flow, or heat, and it never combines source levels or weights reported values.</div>
                 </div>
               </details>
@@ -1935,7 +1992,7 @@
           <div class="status-pill"><span class="status-pill-label">Center</span><span id="center-readout" class="status-pill-value">--</span></div>
           <div class="status-pill"><span class="status-pill-label">Cursor</span><span id="cursor-readout" class="status-pill-value">Move over map</span></div>
           <div class="status-pill"><span class="status-pill-label">Selection</span><span id="selection-readout" class="status-pill-value">No selection</span></div>
-          <div class="status-pill"><span class="status-pill-label">Basemap</span><span id="basemap-readout" class="status-pill-value" aria-live="polite">Starting</span></div>
+          <div class="status-pill"><span class="status-pill-label">Basemap</span><button id="basemap-readout" class="status-pill-value status-pill-action" type="button" aria-live="polite" aria-controls="basemap-switch">Starting</button></div>
         </div>
       </main>
     </div>
@@ -2577,6 +2634,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const mobileLayoutQuery = window.matchMedia('(max-width: 900px)');
       const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
       const panelToggleButton = document.getElementById('panel-toggle');
+      const viewControls = document.getElementById('view-controls');
+      const basemapSwitch = document.getElementById('basemap-switch');
       const helpToggleButton = document.getElementById('help-toggle');
       const helpDialog = document.getElementById('help-dialog');
       const helpCloseButton = document.getElementById('help-close');
@@ -2632,6 +2691,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const sourceRecordConcentrationToggle = document.getElementById('source-record-concentration-toggle');
       const sourceChronologyState = document.getElementById('source-chronology-state');
       const sourceChronologyGlobalDenominator = document.getElementById('source-chronology-global-denominator');
+      const sourceTimeDensity = document.getElementById('source-time-density');
+      const sourceTimeDensityCaption = document.getElementById('source-time-density-caption');
+      const sourceTimeDensityBars = document.getElementById('source-time-density-bars');
       const modeledContextControls = document.getElementById('modeled-context-controls');
       const modeledContextSummary = document.getElementById('modeled-context-summary');
       const modeledContextFamily = document.getElementById('modeled-context-family');
@@ -2910,11 +2972,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         dockTimeSummary.textContent = `[${timeStartBp}, ${endBp}] BP`;
         timeStartValue.textContent = `[${timeStartBp}, ${endBp}] BP`;
         timeIntervalValue.textContent = `${timeIntervalYears} years`;
-        const sourceSelection = sourceChronologyPlaybackSelection();
-        const navigationLabel = sourceSelection ? 'selected Neotoma source extent' : 'complete atlas extent';
         timeStepOlder.disabled = timeStartBp >= oldestPlaybackStart(timeIntervalYears, navigationExtent);
         timeStepNewer.disabled = timeStartBp <= navigationExtent.time_min_bp;
-        timeStepperStatus.textContent = `${navigationLabel} · ${automaticPlaybackFrameCount(timeIntervalYears, navigationExtent)} frames · oldest to present`;
         refreshTimePlaybackControl();
       }
       const initialState = parseHashState();
@@ -3199,6 +3258,27 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (nodeCount === 0) return row.time_min_bp === null && row.time_max_bp === null;
         return minimum !== null && maximum !== null && minimum <= maximum;
       }
+      function sourceChronologyTimeDensityIsValid(density, facet) {
+        if (!density || density.schema_version !== 'source-chronology-time-density.v1') return false;
+        if (density.temporal_direction !== 'oldest_to_present' || density.interval_semantics !== '[younger_bp, older_bp]') return false;
+        if (density.bin_admission !== 'closed_interval_overlap' || density.bins_are_additive !== false) return false;
+        if (density.node_count !== facet.node_count || density.observation_denominator !== facet.observation_denominator) return false;
+        if (density.time_min_bp !== facet.time_min_bp || density.time_max_bp !== facet.time_max_bp) return false;
+        if (!Array.isArray(density.bins)) return false;
+        const expectedBinCount = facet.node_count === 0 ? 0 : (facet.time_min_bp === facet.time_max_bp ? 1 : 12);
+        if (density.bins.length !== expectedBinCount) return false;
+        return density.bins.every((row, index) => {
+          if (!row || row.ordinal !== index) return false;
+          const younger = sourceChronologyTimeValue(row.younger_bp);
+          const older = sourceChronologyTimeValue(row.older_bp);
+          if (younger === null || older === null || younger > older) return false;
+          if (sourceChronologyCount(row.node_count) === null || sourceChronologyCount(row.observation_denominator) === null) return false;
+          if (index === 0 && older !== facet.time_max_bp) return false;
+          if (index === density.bins.length - 1 && younger !== facet.time_min_bp) return false;
+          if (index > 0 && density.bins[index - 1].younger_bp !== older) return false;
+          return true;
+        });
+      }
       function sourceChronologyFacetRowsAreValid(rows, { featureKey = false, taxon = false, timeExtent = false } = {}) {
         if (!Array.isArray(rows)) return false;
         const values = new Set();
@@ -3206,7 +3286,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (!row || typeof row !== 'object' || typeof row.value !== 'string' || !row.value.trim() || values.has(row.value)) return false;
           values.add(row.value);
           if (sourceChronologyCount(row.node_count) === null || sourceChronologyCount(row.observation_denominator) === null) return false;
-          if (timeExtent && !sourceChronologyExtentIsValid(row)) return false;
+          if (timeExtent && (
+            !sourceChronologyExtentIsValid(row)
+            || !sourceChronologyTimeDensityIsValid(row.time_density, row)
+          )) return false;
           if (featureKey && (typeof row.feature_key !== 'string' || !row.feature_key.trim())) return false;
           if (taxon && (typeof row.source_taxon_id !== 'string' || !row.source_taxon_id.trim() || typeof row.label !== 'string' || !row.label.trim())) return false;
           return true;
@@ -3218,9 +3301,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (layer.propagation_status !== 'refused' || layer.edge_count !== 0) return false;
         if (layer.temporal_direction !== 'oldest_to_present' || layer.interval_semantics !== '[younger_bp, older_bp]') return false;
         const facets = layer.facet_metadata;
-        if (!facets || facets.schema_version !== 'neotoma-source-chronology-facets.v2' || facets.node_level !== layer.node_level) return false;
+        if (!facets || facets.schema_version !== 'neotoma-source-chronology-facets.v3' || facets.node_level !== layer.node_level) return false;
         if (sourceChronologyCount(facets.node_count) === null || sourceChronologyCount(facets.observation_denominator) === null) return false;
         if (!sourceChronologyExtentIsValid(facets)) return false;
+        if (!sourceChronologyTimeDensityIsValid(facets.time_density, facets)) return false;
         if (sourceChronologyCount(layer.count) !== facets.node_count) return false;
         if (!sourceChronologyFacetRowsAreValid(facets.country_counts) || !sourceChronologyFacetRowsAreValid(facets.source_unit_counts)) return false;
         if (facets.country_counts.map((row) => row.value).join('|') !== 'Sweden|Denmark|Norway|Finland') return false;
@@ -3258,6 +3342,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           observation_denominator: facets.observation_denominator,
           time_min_bp: facets.time_min_bp,
           time_max_bp: facets.time_max_bp,
+          time_density: facets.time_density,
         };
       }
       function sourceChronologyPlaybackSelection() {
@@ -4300,6 +4385,30 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         }
         return true;
       }
+      function renderSourceTimeDensity(layer, facet) {
+        if (!layer || !facet || !sourceChronologyTimeDensityIsValid(facet.time_density, facet)) {
+          sourceTimeDensity.hidden = true;
+          sourceTimeDensityBars.innerHTML = '';
+          sourceTimeDensityBars.removeAttribute('aria-label');
+          return;
+        }
+        const density = facet.time_density;
+        const bins = density.bins;
+        const maximum = Math.max(0, ...bins.map((row) => row.node_count));
+        const facetLabel = sourceRecordConcentrationFacetLabel(layer);
+        sourceTimeDensity.hidden = false;
+        sourceTimeDensityCaption.textContent = `${facetLabel} · oldest-to-present source-record density`;
+        sourceTimeDensityBars.style.gridTemplateColumns = `repeat(${Math.max(1, bins.length)}, minmax(4px, 1fr))`;
+        sourceTimeDensityBars.setAttribute(
+          'aria-label',
+          `${facetLabel}: ${density.node_count} source nodes and ${density.observation_denominator} contributing observations across ${bins.length} non-additive closed-overlap bins, oldest to present.`
+        );
+        sourceTimeDensityBars.innerHTML = bins.map((row) => {
+          const height = maximum === 0 ? 3 : Math.max(3, Math.round((row.node_count / maximum) * 100));
+          const label = `[${row.younger_bp}, ${row.older_bp}] BP: ${row.node_count} source nodes; ${row.observation_denominator} contributing observations`;
+          return `<span class="source-time-density-bar" style="height:${height}%" role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"></span>`;
+        }).join('');
+      }
       function renderSourceChronologyControls() {
         const layers = sourceChronologyLayers();
         const selectedLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
@@ -4309,6 +4418,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           sourceChronologySummary.textContent = 'Source facets unavailable';
           sourceChronologyState.textContent = 'Source chronology controls remain unavailable because governed facet metadata is absent or invalid.';
           sourceChronologyGlobalDenominator.textContent = 'Global pre-filter denominator unavailable.';
+          renderSourceTimeDensity(null, null);
           return;
         }
         sourceChronologyLevel.innerHTML = layers.map((layer) => `<option value="${escapeHtml(layer.node_level)}" ${layer.node_level === activeSourceChronologyLevel ? 'selected' : ''}>${escapeHtml(SOURCE_CHRONOLOGY_LEVEL_LABELS[layer.node_level])}</option>`).join('');
@@ -4357,8 +4467,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           sourceChronologySummary.textContent = 'Source facet unavailable';
           sourceChronologyState.textContent = 'The selected source facet is absent from governed metadata; no source chronology records are shown.';
           sourceChronologyGlobalDenominator.textContent = 'Global pre-filter denominator unavailable.';
+          renderSourceTimeDensity(null, null);
           return;
         }
+        renderSourceTimeDensity(selectedLayer, selectedFacet);
         const unitCount = selectedLayer.facet_metadata.source_unit_counts.length;
         const untimedExclusion = sourceChronologyUntimedExclusion(selectedLayer);
         const extentLabel = `[${selectedFacet.time_min_bp}, ${selectedFacet.time_max_bp}] BP`;
@@ -4392,6 +4504,42 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         } else {
           sourceChronologyState.textContent = `${visibleSourceEntries.length} source nodes and ${visibleObservationLabel} contributing observations visible in ${activeWindowLabel} · ${selectedFacet.node_count} nodes and ${selectedFacet.observation_denominator} observations in the global selected-facet denominator before country and BP-window filters · ${unitCount} literal source units · source playback extent ${extentLabel} · ${untimedLabel} · chronology context only`;
         }
+      }
+      function refreshTimeStepperStatus() {
+        if (!TIME_HAS_DATA) {
+          timeStepperStatus.disabled = true;
+          timeStepperStatus.textContent = 'No BP chronology available';
+          return;
+        }
+        const layers = sourceChronologyLayers();
+        timeStepperStatus.disabled = layers.length === 0;
+        timeStepperStatus.title = layers.length ? 'Open source chronology controls' : 'Source chronology unavailable';
+        const selectedLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
+        const activeWindow = `[${timeStartBp}, ${timeWindowEndBp()}] BP`;
+        if (!selectedLayer || !activeLayerKeys.has(selectedLayer.key)) {
+          timeStepperStatus.textContent = `Source chronology off · ${activeWindow} · complete atlas extent`;
+          return;
+        }
+        const selectedFacet = sourceChronologyFacetForSelection(selectedLayer, activeSourceChronologyCode, activeSourceChronologyTaxon);
+        if (!selectedFacet) {
+          timeStepperStatus.textContent = `Selected source facet unavailable · ${activeWindow}`;
+          return;
+        }
+        let visibleNodeCount;
+        let visibleObservationDenominator;
+        if (sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'available') {
+          visibleNodeCount = sourceRecordConcentrationSnapshot.visible_node_count;
+          visibleObservationDenominator = sourceRecordConcentrationSnapshot.visible_observation_denominator;
+        } else {
+          const visible = visiblePointEntries.filter(({ layer }) => layer.key === selectedLayer.key);
+          visibleNodeCount = visible.length;
+          const observationCounts = visible.map(({ feature }) => sourceChronologyCount(feature.observation_denominator));
+          visibleObservationDenominator = observationCounts.every((count) => count !== null)
+            ? observationCounts.reduce((total, count) => total + count, 0)
+            : null;
+        }
+        const visibleObservationLabel = visibleObservationDenominator === null ? 'unavailable' : visibleObservationDenominator;
+        timeStepperStatus.textContent = `${sourceRecordConcentrationFacetLabel(selectedLayer)} · ${visibleNodeCount}/${selectedFacet.node_count} nodes · ${visibleObservationLabel}/${selectedFacet.observation_denominator} observations · ${activeWindow}`;
       }
       function renderLayerControls() {
         layerFilters.innerHTML = LAYER_GROUP_DEFINITIONS
@@ -5197,6 +5345,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         renderRelationControls();
         renderAnimalControls();
         renderSourceChronologyControls();
+        refreshTimeStepperStatus();
         renderModeledContextControls();
         renderLegend();
         renderControlPanelSummary();
@@ -5565,6 +5714,25 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       });
       document.querySelectorAll('.basemap-button').forEach((button) => button.addEventListener('click', () => setBasemap(button.dataset.basemap, { manual: true })));
       panelToggleButton.addEventListener('click', () => setPanelCollapsed(!sidebar.classList.contains('is-collapsed')));
+      basemapReadout.addEventListener('click', () => {
+        setPanelCollapsed(false);
+        viewControls.open = true;
+        basemapSwitch.scrollIntoView({
+          block: 'nearest',
+          behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
+        });
+        const activeButton = basemapSwitch.querySelector('.basemap-button.is-active');
+        if (activeButton) activeButton.focus({ preventScroll: true });
+      });
+      timeStepperStatus.addEventListener('click', () => {
+        if (sourceChronologyLayers().length === 0) return;
+        setPanelCollapsed(false);
+        sourceChronologyControls.open = true;
+        sourceChronologyControls.scrollIntoView({
+          block: 'nearest',
+          behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
+        });
+      });
       helpToggleButton.addEventListener('click', openHelpDialog);
       helpCloseButton.addEventListener('click', closeHelpDialog);
       helpDialog.addEventListener('click', (event) => {

@@ -38,6 +38,14 @@ def test_controls_are_accessible_source_native_and_separate_from_modeled_context
     assert 'id="source-chronology-taxon"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="source-chronology-taxon-shortcuts"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="source-chronology-state"' in MAP_DOCUMENT_TEMPLATE
+    assert 'id="source-time-density"' in MAP_DOCUMENT_TEMPLATE
+    assert 'id="source-time-density-bars"' in MAP_DOCUMENT_TEMPLATE
+    assert (
+        'id="time-stepper-status" class="time-stepper-status" type="button"'
+        in MAP_DOCUMENT_TEMPLATE
+    )
+    assert "bins are not additive" in MAP_DOCUMENT_TEMPLATE
+    assert "refreshTimeStepperStatus();" in MAP_DOCUMENT_TEMPLATE
     assert "source-reported taxon and pollen-type labels" in MAP_DOCUMENT_TEMPLATE
     assert "not a species assertion" in MAP_DOCUMENT_TEMPLATE
     assert "chronology context only" in MAP_DOCUMENT_TEMPLATE
@@ -60,14 +68,21 @@ def test_metadata_contract_fails_closed_and_dense_layers_are_opt_in() -> None:
     observed = run_node_json(
         """
 function facets(level, rows={}) {
-  const withExtent=(row)=>({...row,time_min_bp:row.node_count ? 100 : null,time_max_bp:row.node_count ? 900 : null});
+  const withExtent=(row)=>{
+    const extended={...row,time_min_bp:row.node_count ? 100 : null,time_max_bp:row.node_count ? 900 : null};
+    if (!row.node_count) return extended;
+    return {...extended,time_density:{
+      schema_version:'source-chronology-time-density.v1',temporal_direction:'oldest_to_present',
+      interval_semantics:'[younger_bp, older_bp]',bin_admission:'closed_interval_overlap',bins_are_additive:false,
+      node_count:row.node_count,observation_denominator:row.observation_denominator,time_min_bp:100,time_max_bp:900,
+      bins:Array.from({length:12},(_,ordinal)=>({ordinal,younger_bp:100+((11-ordinal)*800/12),older_bp:100+((12-ordinal)*800/12),node_count:row.node_count,observation_denominator:row.observation_denominator})),
+    }};
+  };
+  const overall=withExtent({node_count:2,observation_denominator:7});
   return {
-    schema_version:'neotoma-source-chronology-facets.v2',
+    schema_version:'neotoma-source-chronology-facets.v3',
     node_level:level,
-    node_count:2,
-    observation_denominator:7,
-    time_min_bp:100,
-    time_max_bp:900,
+    ...overall,
     country_counts:[
       {value:'Sweden',node_count:2,observation_denominator:7},
       {value:'Denmark',node_count:0,observation_denominator:0},
@@ -99,6 +114,7 @@ const taxon=layer('source_taxon','taxon',false,{taxa:[
 ]});
 const invalidDense={...code,default_enabled:true};
 const invalidDirection={...sample,temporal_direction:'present_to_oldest'};
+const invalidDensity={...sample,facet_metadata:{...sample.facet_metadata,time_density:{...sample.facet_metadata.time_density,node_count:3}}};
 const POINT_LAYERS=[sample,code,taxon];
 let activeSourceChronologyCode='all';
 let activeSourceChronologyTaxon='all';
@@ -113,6 +129,7 @@ console.log(JSON.stringify({
   literals:code.facet_metadata.source_ecological_codes.map((row)=>row.value),
   denseDefaultRejected:sourceChronologyLayerIsValid(invalidDense),
   directionRejected:sourceChronologyLayerIsValid(invalidDirection),
+  densityDriftRejected:sourceChronologyLayerIsValid(invalidDensity),
   countryOrderRejected:sourceChronologyLayerIsValid({...sample,facet_metadata:{...sample.facet_metadata,country_counts:[...sample.facet_metadata.country_counts].reverse()}}),
   malformedRejected:sourceChronologyLayerIsValid({...code,facet_metadata:null}),
   stringExtentRejected:sourceChronologyLayerIsValid({...code,facet_metadata:{...code.facet_metadata,time_min_bp:'100'}}),
@@ -138,6 +155,7 @@ console.log(JSON.stringify({
         "literals": ["AQVP", "TRSH", "UPHE"],
         "denseDefaultRejected": False,
         "directionRejected": False,
+        "densityDriftRejected": False,
         "countryOrderRejected": False,
         "malformedRejected": False,
         "stringExtentRejected": False,
@@ -325,6 +343,54 @@ def test_source_shortcuts_open_real_chronology_levels_and_cereal_labels() -> Non
     assert "focusSourceChronologyNavigation();" in MAP_DOCUMENT_TEMPLATE
 
 
+def test_topbar_chronology_status_reports_off_and_visible_source_counts() -> None:
+    status_helper = template_block(
+        "function refreshTimeStepperStatus",
+        "function renderLayerControls",
+    )
+    observed = run_node_json(
+        """
+const TIME_HAS_DATA=true;
+const timeStepperStatus={disabled:false,textContent:'',title:''};
+const selectedLayer={key:'source-code',node_level:'source_ecological_code'};
+const activeLayerKeys=new Set();
+const activeSourceChronologyLevel='source_ecological_code';
+const activeSourceChronologyCode='TRSH';
+const activeSourceChronologyTaxon='all';
+const selectedFacet={node_count:10,observation_denominator:40};
+const visiblePointEntries=[
+  {layer:selectedLayer,feature:{observation_denominator:3}},
+  {layer:selectedLayer,feature:{observation_denominator:5}},
+];
+const sourceRecordConcentrationActive=false;
+const sourceRecordConcentrationSnapshot=null;
+let timeStartBp=100;
+function timeWindowEndBp(){return 200}
+function sourceChronologyLayers(){return [selectedLayer]}
+function sourceChronologyLayerForLevel(){return selectedLayer}
+function sourceChronologyFacetForSelection(){return selectedFacet}
+function sourceRecordConcentrationFacetLabel(){return 'literal source code TRSH'}
+function sourceChronologyCount(value){return Number.isSafeInteger(value) && value >= 0 ? value : null}
+"""
+        + status_helper
+        + """
+refreshTimeStepperStatus();
+const off=timeStepperStatus.textContent;
+activeLayerKeys.add('source-code');
+refreshTimeStepperStatus();
+console.log(JSON.stringify({off,active:timeStepperStatus.textContent,disabled:timeStepperStatus.disabled}));
+"""
+    )
+
+    assert observed == {
+        "off": "Source chronology off · [100, 200] BP · complete atlas extent",
+        "active": (
+            "literal source code TRSH · 2/10 nodes · 8/40 observations · [100, 200] BP"
+        ),
+        "disabled": False,
+    }
+
+
 def test_manual_chronology_arrows_move_exactly_one_window() -> None:
     controls = template_block("function finiteControlNumber", "const initialState")
     observed = run_node_json(
@@ -399,8 +465,14 @@ const sourceLayer={
   temporal_direction:'oldest_to_present',interval_semantics:'[younger_bp, older_bp]',
   applies_country_filter:true,
   facet_metadata:{
-    schema_version:'neotoma-source-chronology-facets.v2',node_level:'source_ecological_code',
+    schema_version:'neotoma-source-chronology-facets.v3',node_level:'source_ecological_code',
     node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900,
+    time_density:{
+      schema_version:'source-chronology-time-density.v1',temporal_direction:'oldest_to_present',
+      interval_semantics:'[younger_bp, older_bp]',bin_admission:'closed_interval_overlap',bins_are_additive:false,
+      node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900,
+      bins:Array.from({length:12},(_,ordinal)=>({ordinal,younger_bp:100+((11-ordinal)*800/12),older_bp:100+((12-ordinal)*800/12),node_count:2,observation_denominator:2})),
+    },
     country_counts:[
       {value:'Sweden',node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900},
       {value:'Denmark',node_count:0,observation_denominator:0,time_min_bp:null,time_max_bp:null},
@@ -408,7 +480,12 @@ const sourceLayer={
       {value:'Finland',node_count:0,observation_denominator:0,time_min_bp:null,time_max_bp:null},
     ],
     source_unit_counts:[{value:'percent',node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900}],
-    source_ecological_codes:[{value:'TRSH',label:'TRSH',feature_key:'source:code:TRSH',node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900}],
+    source_ecological_codes:[{value:'TRSH',label:'TRSH',feature_key:'source:code:TRSH',node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900,time_density:{
+      schema_version:'source-chronology-time-density.v1',temporal_direction:'oldest_to_present',
+      interval_semantics:'[younger_bp, older_bp]',bin_admission:'closed_interval_overlap',bins_are_additive:false,
+      node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900,
+      bins:Array.from({length:12},(_,ordinal)=>({ordinal,younger_bp:100+((11-ordinal)*800/12),older_bp:100+((12-ordinal)*800/12),node_count:2,observation_denominator:2})),
+    }}],
     source_taxa:[],
   },
 };

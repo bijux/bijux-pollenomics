@@ -8,76 +8,85 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.74481,
-          56.41134
+          9.8686973853874,
+          57.2407065497517
         ]
       },
       "properties": {
-        "name": "Ginnerup",
+        "name": "Hj\u00f8rring, Tofte B\u00e6k",
         "country": "Denmark",
-        "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-ginnerup-denmark",
-        "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-ginnerup-denmark",
-        "site_record_id": "equus_caballus:locality:prjeb44430:ginnerup:denmark",
-        "species_latin_name": "Equus caballus",
-        "species_common_name": "horse",
-        "animal_scope": "domesticated_core",
-        "project_accession": "PRJEB44430",
+        "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-hjrringtoftebk-denmark",
+        "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-hjrringtoftebk-denmark",
+        "site_record_id": "bos_taurus:locality:prjeb75467:hjrringtoftebk:denmark",
+        "species_latin_name": "Bos taurus",
+        "species_common_name": "cattle",
+        "animal_scope": "wild_or_progenitor_context",
+        "project_accession": "PRJEB75467",
         "project_accessions": [
-          "PRJEB44430"
+          "PRJEB75467"
         ],
-        "support_class": "accepted",
+        "support_class": "ancient_but_too_weak",
         "country_assignment_confidence": "exact_country",
         "country_assignment_reason": "The tracked locality lead is already labeled `Denmark`.",
-        "coordinate_basis": "supplementary_table_coordinates",
-        "coordinate_confidence": "exact",
-        "sample_count": 2,
+        "coordinate_basis": "supplementary_proximal_site_coordinates",
+        "coordinate_confidence": "approximate",
+        "sample_count": 1,
         "sample_record_ids": [
-          "equus_caballus:sample:prjeb44430:samea9533224",
-          "equus_caballus:sample:prjeb44430:samea9533225"
+          "bos_taurus:sample:prjeb75467:samea115574419"
         ],
         "sample_group_ids": [
-          "PRJEB44430"
+          "PRJEB75467"
         ],
-        "source_native_taxon_labels": [],
-        "source_native_tax_ids": [],
-        "source_native_scientific_names": [],
+        "source_native_taxon_labels": [
+          "Bos primigenius (tax_id 9909)"
+        ],
+        "source_native_tax_ids": [
+          "9909"
+        ],
+        "source_native_scientific_names": [
+          "Bos primigenius"
+        ],
         "taxon_alignment_statuses": [
-          "not_reported"
+          "project_species_mismatch"
         ],
-        "sample_namespace": "equus_caballus:sample_locality",
-        "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+        "sample_namespace": "bos_taurus:sample_locality",
+        "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
         "source_artifact_kind": "supplementary_spreadsheet_row",
-        "source_locator": "SI Table 1!row252",
+        "source_locator": "Supplementary Data 1!A26:Y26",
         "source_support_status": "supplementary_table_row",
-        "coordinate_source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
-        "coordinate_source_locator": "SI Table 1!row252",
+        "coordinate_source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+        "coordinate_source_locator": "Supplementary Data 1!A26:Y26",
         "coordinate_supplementary_source": "",
         "coordinate_support_gap_note": "",
-        "time_start_bp": 4944,
-        "time_end_bp": 4961,
-        "time_mean_bp": 4952,
-        "time_label": "4944-4961 BP",
+        "time_start_bp": 7976,
+        "time_end_bp": 8173,
+        "time_mean_bp": 8074,
+        "time_label": "7976-8173 BP",
         "chronology_evidence_class": "direct_radiocarbon_date",
-        "chronology_precision_posture": "sample_precise_point",
-        "paper_title": "The origins and spread of domestic horses from the Western Eurasian steppes",
-        "paper_doi": "10.1038/s41586-021-04018-9",
-        "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+        "chronology_precision_posture": "sample_precise_interval",
+        "paper_title": "The genomic natural history of the aurochs",
+        "paper_doi": "10.1038/s41586-024-08112-6",
+        "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
         "popup_rows": [
           {
             "label": "Species",
-            "value": "Equus caballus"
+            "value": "Bos taurus"
+          },
+          {
+            "label": "Source-native taxa",
+            "value": "Bos primigenius (tax_id 9909)"
           },
           {
             "label": "Taxon alignment",
-            "value": "not reported"
+            "value": "project species mismatch"
           },
           {
             "label": "Animal scope",
-            "value": "domesticated core"
+            "value": "wild or progenitor context"
           },
           {
             "label": "Project accession",
-            "value": "PRJEB44430"
+            "value": "PRJEB75467"
           },
           {
             "label": "Country assignment",
@@ -89,7 +98,7 @@
           },
           {
             "label": "Chronology",
-            "value": "4944-4961 BP"
+            "value": "7976-8173 BP"
           },
           {
             "label": "Chronology class",
@@ -97,27 +106,160 @@
           },
           {
             "label": "Chronology posture",
-            "value": "sample_precise_point"
+            "value": "sample_precise_interval"
           },
           {
             "label": "Coordinate basis",
-            "value": "supplementary_table_coordinates"
+            "value": "supplementary_proximal_site_coordinates"
           },
           {
             "label": "Coordinate confidence",
-            "value": "exact"
+            "value": "approximate"
           },
           {
             "label": "Mapped sample identifiers",
-            "value": "equus_caballus:sample:prjeb44430:samea9533224, equus_caballus:sample:prjeb44430:samea9533225"
+            "value": "bos_taurus:sample:prjeb75467:samea115574419"
           },
           {
             "label": "Site evidence locator",
-            "value": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx#SI Table 1!row252"
+            "value": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx#Supplementary Data 1!A26:Y26"
           },
           {
             "label": "Coordinate evidence locator",
-            "value": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx#SI Table 1!row252"
+            "value": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx#Supplementary Data 1!A26:Y26"
+          },
+          {
+            "label": "Interpretation",
+            "value": "Sample-level locality comes directly from the recovered sample source row."
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.3931303537925,
+          55.3584015935903
+        ]
+      },
+      "properties": {
+        "name": "Lundby I",
+        "country": "Denmark",
+        "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-lundbyi-denmark",
+        "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-lundbyi-denmark",
+        "site_record_id": "bos_taurus:locality:prjeb75467:lundbyi:denmark",
+        "species_latin_name": "Bos taurus",
+        "species_common_name": "cattle",
+        "animal_scope": "wild_or_progenitor_context",
+        "project_accession": "PRJEB75467",
+        "project_accessions": [
+          "PRJEB75467"
+        ],
+        "support_class": "ancient_but_too_weak",
+        "country_assignment_confidence": "exact_country",
+        "country_assignment_reason": "The tracked locality lead is already labeled `Denmark`.",
+        "coordinate_basis": "supplementary_proximal_site_coordinates",
+        "coordinate_confidence": "approximate",
+        "sample_count": 2,
+        "sample_record_ids": [
+          "bos_taurus:sample:prjeb75467:samea115574456",
+          "bos_taurus:sample:prjeb75467:samea115574457"
+        ],
+        "sample_group_ids": [
+          "PRJEB75467"
+        ],
+        "source_native_taxon_labels": [
+          "Bos primigenius (tax_id 9909)"
+        ],
+        "source_native_tax_ids": [
+          "9909"
+        ],
+        "source_native_scientific_names": [
+          "Bos primigenius"
+        ],
+        "taxon_alignment_statuses": [
+          "project_species_mismatch"
+        ],
+        "sample_namespace": "bos_taurus:sample_locality",
+        "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "Supplementary Data 1!A36:Y36 || Supplementary Data 1!A41:Y41",
+        "source_support_status": "supplementary_table_row",
+        "coordinate_source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+        "coordinate_source_locator": "Supplementary Data 1!A36:Y36 || Supplementary Data 1!A41:Y41",
+        "coordinate_supplementary_source": "",
+        "coordinate_support_gap_note": "",
+        "time_start_bp": 6748,
+        "time_end_bp": 7744,
+        "time_mean_bp": 7246,
+        "time_label": "6748-7744 BP",
+        "chronology_evidence_class": "modeled_sample_date",
+        "chronology_precision_posture": "sample_approximate_or_modeled",
+        "paper_title": "The genomic natural history of the aurochs",
+        "paper_doi": "10.1038/s41586-024-08112-6",
+        "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Bos taurus"
+          },
+          {
+            "label": "Source-native taxa",
+            "value": "Bos primigenius (tax_id 9909)"
+          },
+          {
+            "label": "Taxon alignment",
+            "value": "project species mismatch"
+          },
+          {
+            "label": "Animal scope",
+            "value": "wild or progenitor context"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB75467"
+          },
+          {
+            "label": "Country assignment",
+            "value": "exact_country"
+          },
+          {
+            "label": "Assignment note",
+            "value": "The tracked locality lead is already labeled `Denmark`."
+          },
+          {
+            "label": "Chronology",
+            "value": "6748-7744 BP"
+          },
+          {
+            "label": "Chronology class",
+            "value": "modeled_sample_date"
+          },
+          {
+            "label": "Chronology posture",
+            "value": "sample_approximate_or_modeled"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "supplementary_proximal_site_coordinates"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "bos_taurus:sample:prjeb75467:samea115574456, bos_taurus:sample:prjeb75467:samea115574457"
+          },
+          {
+            "label": "Site evidence locator",
+            "value": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx#Supplementary Data 1!A36:Y36 || Supplementary Data 1!A41:Y41"
+          },
+          {
+            "label": "Coordinate evidence locator",
+            "value": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx#Supplementary Data 1!A36:Y36 || Supplementary Data 1!A41:Y41"
           },
           {
             "label": "Interpretation",
@@ -181,9 +323,9 @@
         "coordinate_source_locator": "Fund og Fortidsminder systemnr 86607, stednr 230102, loknr 48; WFS feature fundogfortidsminder_punkt_ikkefredet.1509047",
         "coordinate_supplementary_source": "https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf",
         "coordinate_support_gap_note": "",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
+        "time_start_bp": 4700,
+        "time_end_bp": 4700,
+        "time_mean_bp": 4700,
         "time_label": "4700 BP",
         "chronology_evidence_class": "archaeological_context_date",
         "chronology_precision_posture": "sample_approximate_or_modeled",
@@ -313,9 +455,9 @@
         "coordinate_source_locator": "Management Plan page 22, component part 4 Trelleborg, central point N55\u00b023\u203239\u2033 E11\u00b015\u203255\u2033",
         "coordinate_supplementary_source": "https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf",
         "coordinate_support_gap_note": "",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
+        "time_start_bp": 1000,
+        "time_end_bp": 1000,
+        "time_mean_bp": 1000,
         "time_label": "1000 BP",
         "chronology_evidence_class": "archaeological_context_date",
         "chronology_precision_posture": "sample_approximate_or_modeled",

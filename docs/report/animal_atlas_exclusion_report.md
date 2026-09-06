@@ -1,6 +1,6 @@
 # Animal atlas exclusion report
 
-- Excluded tracked sample rows: `839`
+- Excluded tracked sample rows: `1162`
 
 | Species | Project | Sample record | Locality | Inclusion status | Mapping posture | Exclusion reason |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -93,7 +93,6 @@
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574416 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574417 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574418 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574419 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574420 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574421 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574422 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
@@ -110,8 +109,6 @@
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574436 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574437 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574440 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574441 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574442 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574443 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574444 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574445 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
@@ -123,8 +120,6 @@
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574452 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574454 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574455 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574456 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574457 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106827 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106828 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106829 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
@@ -227,16 +222,344 @@
 | Equus caballus | PRJEB22390 | equus_caballus:sample:prjeb22390:cgg_1_020208 | Botai | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB22390 | equus_caballus:sample:prjeb22390:cgg_1_020209 | Botai | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB22390 | equus_caballus:sample:prjeb22390:cgg_1_020210 | Botai Petrous | site_curated |  | no coordinate provenance row currently supports point publication |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_010397 | Tumeski | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016168 | Berel' | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016169 | Berel' | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016171 | Berel' | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016172 | Berel' | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016173 | Berel' | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016174 | Berel' | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016175 | Berel' | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016176 | Berel' | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016177 | Berel' | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016178 | Berel' | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016179 | Berel' | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016984 | Capote | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016987 | Vicerrectorado | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016994 | Derkul | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
 | Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_016996 | Derkul | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017001 | Krasnokamenka | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017002 | Krasnokamenka | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017005 | Belkaragay | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
 | Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017007 | Belkaragay | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017010 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017023 | Altata | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
 | Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017027 | Lebyazhinka IV | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017036 | Sintashta | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017037 | Sintashta | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017038 | Sintashta | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017079 | Arzhan I | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017084 | Arzhan II | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017086 | Arzhan II | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017088 | Arzhan I | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017089 | Arzhan I | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017098 | Halvai 5 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017099 | Halvai 3 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_017139 | Haunstetten | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018029 | Boz-Adyr | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018031 | Boz-Adyr | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018038 | Khotont | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018049 | Tavan Tolgoi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018050 | Tavan Tolgoi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018057 | Tavan Tolgoi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018059 | Gol Mod II | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018060 | Gol Mod II | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018061 | Gol Mod II | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018062 | Gol Mod II | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018063 | Gol Mod II | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018064 | Gol Mod II | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018073 | Uushgiin Uvur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018075 | Uushgiin Uvur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018076 | Uushgiin Uvur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018077 | Uushgiin Uvur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018078 | Uushgiin Uvur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018079 | Uushgiin Uvur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018080 | Uushgiin Uvur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018081 | Uushgiin Uvur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018115 | Uushgiin Uvur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018120 | Uushgiin Uvur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018122 | Uushgiin Uvur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018123 | Uushgiin Uvur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018125 | Uushgiin Uvur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018150 | Mainz | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018151 | Frankfurt-Heddenheim | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018154 | Gregorevka 4 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018157 | Borly 4 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018161 | Borly 4 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018165 | Borly 4 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018167 | Borly 4 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018171 | Borly 4 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018173 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018174 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018175 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018176 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018177 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018178 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018337 | Potapovka I | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018375 | Schloßvippach | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018376 | Bruszcewo | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018386 | Dunaújváros | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018388 | Miciurin | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018389 | Garbovat | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018391 | Camino de las Yeseras, Madrid | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018394 | Tachti Perda | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018396 | Fengtai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018397 | Olon Kurin Gol | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018398 | Olon Kurin Gol | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018468 | Ridala | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018469 | Ridala | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018473 | Otepää | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018474 | Saadjärve | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018487 | Šebastovce | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018490 | Uppsala | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018495 | museum specimen | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018497 | museum specimen | site_curated |  | no coordinate provenance row currently supports point publication |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018577 | Zhanaturmus | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018579 | Shar-I-Qumis | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018580 | Shar-I-Qumis | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018706 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018707 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018708 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018711 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018712 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018716 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018736 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018737 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018738 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018739 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018741 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018742 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018747 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018759 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018760 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018795 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018809 | Yenikapi | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018909 | Khatuu 2 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018919 | Syrgal 1 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_018920 | Syrgal 1 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019160 | Arzhan II | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019162 | Arzhan II | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019164 | Bateni | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019166 | Bateni | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019169 | Balagansk | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019185 | Oktyabrsky | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019186 | Oktyabrsky | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019189 | Sayangorsk | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019195 | Krasnaya Gorka | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019246 | Augusta Raurica - Insula 8 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019259 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019262 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019267 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019284 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019286 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019294 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019301 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019305 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019306 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019311 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019314 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019318 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019333 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019339 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019369 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019370 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019373 | Chartres, boulevard de la Courtille | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019380 | Beauvais, la Maladrerie Saint-Lazare | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019381 | Noyon - Orroire | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019382 | Actiparc | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019384 | Fresnes-lès-Montauban | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019387 | Longueil-Annel | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019388 | Marvelė cemetery | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019389 | Marvelė cemetery | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019392 | Marvelė cemetery | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019403 | Marvelė cemetery | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019405 | Marvelė cemetery | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019408 | Marvelė cemetery | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019409 | Marvelė cemetery | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019414 | Marvelė cemetery | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019419 | Marvelė cemetery | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019435 | Whitehall Roman Villa | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019442 | Witter Place | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019443 | Witter Place | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019444 | Witter Place | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019445 | Witter Place | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019446 | Witter Place | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019447 | Witter Place | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019521 | Belgheis | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019559 | Sagzabad | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019703 | Capesterre-Belle-Eau | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019707 | Evreux, Clos-au-Duc | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019709 | Evreux, Clos-au-Duc | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019714 | Evreux, Clos-au-Duc | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019765 | Boves, chemin de Glisy | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019773 | Vermand, rue De Gaulle | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019775 | Macon, rue Rambuteau | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019816 | Saint-Just-en-Chaussée | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019857 | Actiparc | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019858 | Actiparc | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019859 | Actiparc | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019860 | Actiparc | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019861 | Actiparc | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019871 | Metz, Place de la République | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019877 | Saint-Quentin | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019925 | Beauvais, VIlliers-de-l'Isle Adam | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019986 | Tepe Hasanlu | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019988 | Tepe Hasanlu | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019992 | Tepe Hasanlu | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019994 | Tepe Hasanlu | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019995 | Tepe Hasanlu | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019996 | Tepe Hasanlu | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019997 | Tepe Hasanlu | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_019998 | Tepe Hasanlu | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020003 | Tepe Hasanlu | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020032 | Alcáçova de Santarém | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020179 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020181 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020182 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020183 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020185 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020186 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020187 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020188 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020189 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020192 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020194 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020195 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020196 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020198 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020200 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020204 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020205 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020207 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020208 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020209 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020210 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020254 | Yerqorqan | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_02026 | Dariali, Tamara Fort | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020438 | Nuštar | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020439 | Nuštar | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020441 | Otok | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020443 | Bapska Gradac | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020446 | Kulian Cave | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020484 | El Acequión | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020485 | El Acequión | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020499 | Solothurn-Vigier | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020505 | Augusta Raurica - Schmidmatt | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020506 | Augusta Raurica - Schmidmatt | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020509 | Steim am Rhein Charregass | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020512 | Solothurn-Vigier | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020949 | Brough Of Deerness | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020950 | Brough Of Deerness | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020952 | Quoygrew | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020955 | Granastaðir | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020957 | BroughOfDeerness | site_curated |  | no coordinate provenance row currently supports point publication |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020959 | BroughOfDeerness | site_curated |  | no coordinate provenance row currently supports point publication |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020961 | Berufjordur | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020962 | Els Vilars | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:cgg_1_020989 | Cantorella | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB31613 | equus_caballus:sample:prjeb31613:przewalski_paratype_118 | museum specimen | site_curated |  | no coordinate provenance row currently supports point publication |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:car05_hun_m2458 | Kaposújlak-Várdomb | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533179 | Bestamak | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533180 | Bestamak | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533181 | Bestamak | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533183 | Borly | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533184 | Borly | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533185 | Borly | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533186 | Borly | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533187 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533188 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533189 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533190 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533191 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533192 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533193 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533194 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533195 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533196 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533197 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533198 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533199 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533200 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533201 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533202 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533203 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533204 | Botai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533209 | Tureau des Gardes 6 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533210 | Aygurskiy 2 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533213 | Çadır Höyük | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533214 | Çadır Höyük | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533215 | Çadır Höyük | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533216 | Cova Fosca | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533223 | Divnogor'ye 9 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533224 | Ginnerup | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533225 | Ginnerup | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533230 | Etiolles | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533231 | Etiolles | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533232 | Etiolles | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533233 | Etiolles | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533267 | Hohler Stein bei Schwabthal | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533268 | Hohler Stein bei Schwabthal | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533269 | Hohler Stein bei Schwabthal | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533270 | Hohler Stein bei Schwabthal | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533271 | Hohler Stein bei Schwabthal | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533272 | Hohler Stein bei Schwabthal | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533273 | Kirklareli-Kanligecit | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533284 | Kozhai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533287 | Köşk Höyük | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533289 | Krasnyi Yar | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533291 | Hyena's Lair | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533292 | Hyena's Lair | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533293 | Repin khutor | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533294 | Repin khutor | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533295 | Turganik | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533296 | Turganik | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533297 | Turganik | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533300 | Algay | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533316 | Michuruno I | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533323 | Belkaragay | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533324 | Belkaragay | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533328 | Novoilinka-III | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533329 | Novoilinka-III | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533330 | Novoilinka-VI | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533331 | Novoilinka-VI | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533332 | Novoilinka-VI | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533336 | Borly 4 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533337 | Borly 4 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533338 | Pietrele | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533348 | Mozgawa 1-3 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533349 | Mozgawa 1-3 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533351 | Litovice | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533359 | Stránská skála | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533361 | Yana | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533362 | Yana | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533363 | Yana | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533364 | Yana | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533384 | Turganik | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533385 | Turganik | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533386 | Oroshaemoe I | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533387 | Căscioarele | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533388 | Căscioarele | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533389 | Căscioarele | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533391 | Yukagir | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533393 | Shiderty III | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533394 | Sholma-1 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533401 | Museum specimen | site_curated |  | no coordinate provenance row currently supports point publication |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533410 | Semenovka 1 | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533412 | Sosnovka | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533413 | Sosnovka | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533414 | Sosnovka | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533415 | Sosnovka | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533416 | Sosnovka | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533429 | Aleksandrovskoe IV | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533430 | Aleksandrovskoe IV | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533431 | Aleksandrovskoe IV | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533432 | Aleksandrovskoe IV | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533433 | Kozhai | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533435 | Varfolomeevka | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533436 | Varfolomeevka | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Equus caballus | PRJEB44430 | equus_caballus:sample:prjeb44430:samea9533438 | Zambujal | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246520 | Bernhardsthal | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
+| Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246521 | Bernhardsthal | site_curated | mappable_point | sample is tracked but does not yet satisfy the full atlas point contract |
 | Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246534 | Galgenbühel/Dos de la Forca-Salorno | site_curated |  | no coordinate provenance row currently supports point publication |
 | Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246535 | Galgenbühel/Dos de la Forca-Salorno | site_curated |  | no coordinate provenance row currently supports point publication |
 | Felis catus | PRJEB81815 | felis_catus:sample:prjeb81815:samea120246540 | Ecly | site_curated |  | no coordinate provenance row currently supports point publication |

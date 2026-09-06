@@ -7,7 +7,7 @@ for deeper source-family review files.
 ## Summary
 
 - Scope key: `nordic`
-- Visible point rows: `264632`
+- Visible point rows: `264634`
 - Visible point layers: `12`
 
 ## Example Rows

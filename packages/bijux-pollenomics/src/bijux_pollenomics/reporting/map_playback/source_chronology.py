@@ -6,6 +6,10 @@ from collections.abc import Mapping, Sequence
 import math
 from typing import cast
 
+from bijux_pollenomics.reporting.source_chronology.time_density import (
+    time_density_matches_facet,
+)
+
 from .contracts import (
     ExactTaxonDiscovery,
     PlaybackContractError,
@@ -69,6 +73,7 @@ def build_source_chronology_storyboards(
         )
     for code in SOURCE_PLAYBACK_CODES:
         row = code_rows[code]
+        _validate_facet_density(row)
         label = _required_text(row, "label")
         stories.append(
             _source_story(
@@ -129,10 +134,12 @@ def _facet_metadata(
     if not isinstance(facets, Mapping):
         raise PlaybackContractError("source chronology layer lacks facet metadata")
     if (
-        facets.get("schema_version") != "neotoma-source-chronology-facets.v2"
+        facets.get("schema_version") != "neotoma-source-chronology-facets.v3"
         or facets.get("node_level") != expected_level
     ):
         raise PlaybackContractError("source chronology facet contract is incompatible")
+    if not time_density_matches_facet(facets.get("time_density"), facets):
+        raise PlaybackContractError("source chronology time density is incompatible")
     return cast(Mapping[str, object], facets)
 
 
@@ -244,6 +251,8 @@ def _rows_by_value(value: object) -> dict[str, Mapping[str, object]]:
 
 def _exact_taxa(value: object) -> tuple[ExactTaxonDiscovery, ...]:
     rows = _rows_by_value(value)
+    for row in rows.values():
+        _validate_facet_density(row)
     taxa = tuple(
         ExactTaxonDiscovery(
             feature_key=feature_key,
@@ -266,6 +275,11 @@ def _exact_taxa(value: object) -> tuple[ExactTaxonDiscovery, ...]:
     if not taxa:
         raise PlaybackContractError("exact source taxon discovery index is empty")
     return taxa
+
+
+def _validate_facet_density(row: Mapping[str, object]) -> None:
+    if not time_density_matches_facet(row.get("time_density"), row):
+        raise PlaybackContractError("source chronology facet density is incompatible")
 
 
 def _required_text(row: Mapping[str, object], field: str) -> str:

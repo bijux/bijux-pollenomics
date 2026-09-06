@@ -19,45 +19,45 @@
     "tracked_supplement_count": 72,
     "papers_with_archived_supplements": 18,
     "sample_row_count": 1450,
-    "site_evidence_row_count": 409,
-    "sample_site_row_count": 1454,
-    "chronology_row_count": 1454,
-    "coordinate_row_count": 284,
-    "published_atlas_point_count": 273,
-    "mapped_sample_count": 611,
+    "site_evidence_row_count": 414,
+    "sample_site_row_count": 1455,
+    "chronology_row_count": 1455,
+    "coordinate_row_count": 289,
+    "published_atlas_point_count": 151,
+    "mapped_sample_count": 288,
     "published_country_bundle_count": 4,
-    "mapped_sample_share": 0.4214,
-    "locality_conflict_row_count": 559,
+    "mapped_sample_share": 0.1986,
+    "locality_conflict_row_count": 565,
     "locality_curation_row_count": 9,
     "locality_substitution_project_count": 10,
-    "locality_dictionary_row_count": 419
+    "locality_dictionary_row_count": 424
   },
   "locality_status_counts": {
-    "direct_sample_site": 1015,
+    "direct_sample_site": 1021,
     "sample_group_site": 0,
     "project_level_site_only": 0,
     "named_place_inferred": 0,
     "region_only": 0,
-    "unresolved": 439
+    "unresolved": 434
   },
   "locality_completeness_counts": {
-    "exact_site_evidence_count": 1010,
+    "exact_site_evidence_count": 1016,
     "broader_locality_evidence_count": 5,
-    "unresolved_geography_count": 439
+    "unresolved_geography_count": 434
   },
   "chronology_status_counts": {
-    "normalized_interval": 332,
-    "normalized_point": 533,
-    "text_only_unparsed": 131,
-    "unresolved": 458
+    "normalized_interval": 338,
+    "normalized_point": 528,
+    "text_only_unparsed": 136,
+    "unresolved": 453
   },
   "chronology_precision_counts": {
-    "sample_precise_point": 473,
-    "sample_precise_interval": 279,
-    "sample_approximate_or_modeled": 188,
+    "sample_precise_point": 468,
+    "sample_precise_interval": 282,
+    "sample_approximate_or_modeled": 196,
     "contextual_interval": 16,
     "broad_period_only": 40,
-    "unresolved": 458
+    "unresolved": 453
   },
   "intake_recovery_counts": {
     "blocked_projects": 24,

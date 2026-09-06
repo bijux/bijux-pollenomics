@@ -21,6 +21,12 @@ class ScopeAndTimeStateTests(MapPublicationTestCase):
         self.assertEqual(world_policy.default_basemap, "street")
         self.assertEqual(europe_plus_policy.default_basemap, "street")
         self.assertEqual(nordic_policy.default_basemap, "street")
+        self.assertIsNone(world_policy.chronology_playback_href)
+        self.assertIsNone(europe_plus_policy.chronology_playback_href)
+        self.assertEqual(
+            nordic_policy.chronology_playback_href,
+            "../../../public/nordic-atlas/chronology-playback/",
+        )
         self.assertLess(
             world_policy.minimum_bounds[0][1], europe_plus_policy.minimum_bounds[0][1]
         )

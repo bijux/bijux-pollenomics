@@ -1,6 +1,42 @@
 # Animal point evidence review
 
-- Published point count: `273`
+- Published point count: `151`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-hjrringtoftebk-denmark
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-lundbyi-denmark
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `2`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-nevishg-sweden
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-skne-sweden
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
 
 ## animal-atlas-feature:capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey
 
@@ -236,78 +272,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `5`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-actiparc-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `6`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-alcovadesantarm-portugal
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-arzhani-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `3`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-arzhanii-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `4`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-augustarauricainsula8-switzerland
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-augustarauricaschmidmatt-switzerland
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-balagansk-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-bapskagradac-croatia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb31613-batagai-russia
 
 - Species: `Equus caballus`
@@ -316,258 +280,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-bateni-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-beauvaislamaladreriesaintlazare-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-beauvaisvilliersdelisleadam-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-belgheis-iran
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-berel-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `11`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-berufjordur-iceland
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-borly4-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `5`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-botai-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `28`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-boveschemindeglisy-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-bozadyr-kyrgyzstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-broughofdeerness-unitedkingdom
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `4`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-bruszcewo-poland
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-caminodelasyeserasmadrid-spain
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-cantorella-spain
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-capesterrebelleeau-guadeloupefrance
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-capote-spain
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-chartresboulevarddelacourtille-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `17`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-darialitamarafort-georgia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-dunajvros-hungary
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-ebastovce-slovakia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-elacequin-spain
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-elsvilars-spain
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-evreuxclosauduc-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `3`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-fengtai-china
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-frankfurtheddenheim-germany
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-fresneslsmontauban-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-garbovat-romania
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-golmodii-mongolia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `6`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb31613-goyet-belgium
 
@@ -578,69 +290,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `4`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-granastair-iceland
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-gregorevka4-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-halvai3-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-halvai5-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-haunstetten-germany
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-khatuu2-mongolia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-khotont-mongolia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb31613-kokorevo-russia
 
 - Species: `Equus caballus`
@@ -649,69 +298,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-krasnayagorka-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-krasnokamenka-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-kuliancave-iran
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-longueilannel-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-maconruerambuteau-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-mainz-germany
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-marvelcemetery-lithuania
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `9`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb31613-merzlyyar-russia
 
@@ -722,222 +308,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-metzplacedelarpublique-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-miciurin-moldova
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-noyonorroire-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-nutar-croatia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-oktyabrsky-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-olonkuringol-mongolia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-otep-estonia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-otok-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-potapovkai-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-quoygrew-unitedkingdom
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-ridala-estonia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-saadjrve-estonia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-sagzabad-iran
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-saintjustenchausse-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-saintquentin-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-sayangorsk-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-schlossvippach-germany
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-shariqumis-iran
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-sintashta-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `3`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-solothurnvigier-switzerland
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-steimamrheincharregass-switzerland
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-syrgal1-mongolia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-tachtiperda-georgia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-tavantolgoi-mongolia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `3`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb31613-taymyr-russia
 
 - Species: `Equus caballus`
@@ -947,105 +317,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `2`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-tepehasanlu-iran
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `9`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-tumeski-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-uppsala-sweden
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-uushgiinuvur-mongolia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `13`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-vermandruedegaulle-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-vicerrectorado-spain
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-whitehallromanvilla-unitedkingdom
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-witterplace-unitedkingdom
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `6`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-yenikapi-turkey
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `17`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-yerqorqan-uzbekistan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb31613-zhanaturmus-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB31613`
-- Paper DOI: `10.1016/j.cell.2019.03.049`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-acemhoyuk-turkey
 
 - Species: `Equus caballus`
@@ -1054,33 +325,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `3`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-adrhyk-turkey
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `3`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-aleksandrovskoeiv-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `4`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-algay-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-althiburos-tunisia
 
@@ -1127,15 +371,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `2`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-aygurskiy2-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-badpirawarth-austria
 
 - Species: `Equus caballus`
@@ -1144,24 +379,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-belkaragay-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-bestamak-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `3`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-bezno-czechrepublic
 
@@ -1190,24 +407,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `4`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-borly-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `4`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-borly4-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-borshoroonii-mongolia
 
 - Species: `Equus caballus`
@@ -1216,15 +415,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-botai-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `18`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-burgast-mongolia
 
@@ -1271,33 +461,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-covafosca-spain
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-cscioarele-romania
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `3`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-divnogorye9-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-elsvilars-spain
 
 - Species: `Equus caballus`
@@ -1325,25 +488,7 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-etiolles-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `4`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-gangatsagaanereg-mongolia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-ginnerup-denmark
 
 - Species: `Equus caballus`
 - Project accession: `PRJEB44430`
@@ -1370,15 +515,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `2`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-hohlersteinbeischwabthal-germany
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `6`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-holubice-czechrepublic
 
 - Species: `Equus caballus`
@@ -1387,15 +523,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-hyenaslair-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-iguedugral-france
 
@@ -1414,15 +541,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `9`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-kaposjlakvrdomb-hungary
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-kazimierzawielka6-poland
 
@@ -1460,24 +578,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-kirklarelikanligecit-turkey
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-kkhyk-turkey
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-kostenki-russia
 
 - Species: `Equus caballus`
@@ -1487,15 +587,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-kozhai-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-krasnosamarskoye-russia
 
 - Species: `Equus caballus`
@@ -1504,15 +595,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-krasnyiyar-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-kuyum-russia
 
@@ -1541,15 +623,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-litovice-czechrepublic
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-magor-unitedkingdom
 
 - Species: `Equus caballus`
@@ -1567,15 +640,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `4`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-michurunoi-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-miciurin-moldova
 
@@ -1613,15 +677,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-mozgawa13-poland
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-nandrupeteracurat-romania
 
 - Species: `Equus caballus`
@@ -1658,24 +713,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-novoilinkaiii-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-novoilinkavi-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `3`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-novoilinovskiy2-kazakhstan
 
 - Species: `Equus caballus`
@@ -1684,15 +721,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-oroshaemoei-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-ouren-russia
 
@@ -1721,25 +749,7 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-pietrele-romania
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-potapovka-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-repinkhutor-russia
 
 - Species: `Equus caballus`
 - Project accession: `PRJEB44430`
@@ -1766,15 +776,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-semenovka1-ukraine
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-serpievskaya-russia
 
 - Species: `Equus caballus`
@@ -1784,25 +785,7 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-shidertyiii-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-shilikty5-kazakhstan
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-sholma1-russia
 
 - Species: `Equus caballus`
 - Project accession: `PRJEB44430`
@@ -1828,24 +811,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `2`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-sosnovka-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `5`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-strnskskla-czechrepublic
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-tarquinia-italy
 
@@ -1910,24 +875,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-tureaudesgardes6-france
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-turganik-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `5`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-ulaantolgoi-mongolia
 
 - Species: `Equus caballus`
@@ -1973,15 +920,6 @@
 - Coordinate confidence: `exact`
 - Sample rows: `1`
 
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-varfolomeevka-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
-
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-verkhnegubakhinskaya-russia
 
 - Species: `Equus caballus`
@@ -1992,33 +930,6 @@
 - Sample rows: `2`
 
 ## animal-atlas-feature:equus-caballus-locality-prjeb44430-vlinves-czechrepublic
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-yana-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `4`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-yukagir-russia
-
-- Species: `Equus caballus`
-- Project accession: `PRJEB44430`
-- Paper DOI: `10.1038/s41586-021-04018-9`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `1`
-
-## animal-atlas-feature:equus-caballus-locality-prjeb44430-zambujal-portugal
 
 - Species: `Equus caballus`
 - Project accession: `PRJEB44430`
@@ -2107,15 +1018,6 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `3`
-
-## animal-atlas-feature:felis-catus-locality-prjeb81815-bernhardsthal-austria
-
-- Species: `Felis catus`
-- Project accession: `PRJEB81815`
-- Paper DOI: `10.1126/science.adt2642`
-- Coordinate basis: `supplementary_table_coordinates`
-- Coordinate confidence: `exact`
-- Sample rows: `2`
 
 ## animal-atlas-feature:felis-catus-locality-prjeb81815-bremen201altstadtmarktplatz-germany
 

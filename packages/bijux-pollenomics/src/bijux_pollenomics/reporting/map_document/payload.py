@@ -70,6 +70,13 @@ def build_map_document_payload(
         "__TITLE__": escape_html_fn(title),
         "__SCOPE_BADGE__": escape_html_fn(policy.eyebrow_label),
         "__SCOPE_NOTE__": escape_html_fn(policy.summary),
+        "__CHRONOLOGY_PLAYBACK_ACTION__": (
+            '<div class="inline-actions">'
+            f'<a class="inline-button is-primary" href="{escape_html_fn(policy.chronology_playback_href)}">'
+            "Open prepared chronology playback</a></div>"
+            if policy.chronology_playback_href is not None
+            else ""
+        ),
         "__VERSION_JSON__": serialize_json_for_script(version),
         "__GENERATED_ON__": escape_html_fn(generated_on),
         "__COUNTRIES_JSON__": serialize_json_for_script(list(countries)),

@@ -4,8 +4,8 @@
 
 | Country | Species | Pollen records | Overlapping | Non-overlapping | Non-comparable | Status |
 | --- | --- | ---: | ---: | ---: | ---: | --- |
-| Sweden | Equus caballus | 0 | 0 | 0 | 0 | no_context_rows |
+| Sweden | Bos taurus | 0 | 0 | 0 | 0 | no_context_rows |
 | Sweden | Ovis aries | 0 | 0 | 0 | 0 | no_context_rows |
 | Finland | Ovis aries | 0 | 0 | 0 | 0 | no_context_rows |
-| Denmark | Equus caballus | 0 | 0 | 0 | 0 | no_context_rows |
+| Denmark | Bos taurus | 0 | 0 | 0 | 0 | no_context_rows |
 | Denmark | Sus scrofa domesticus | 0 | 0 | 0 | 0 | no_context_rows |

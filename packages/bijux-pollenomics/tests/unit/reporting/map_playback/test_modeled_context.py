@@ -20,6 +20,14 @@ def test_every_modeled_metric_keeps_all_exact_source_windows() -> None:
 
     assert len(stories) == 47
     assert len({story.selector_value for story in stories}) == 47
+    assert len({story.story_id for story in stories}) == 47
+    assert all("." not in story.story_id for story in stories)
+    assert (
+        next(
+            story.story_id for story in stories if story.selector_value == "Cerealia.t"
+        )
+        == "pangaea-937075-metric-cerealia-t"
+    )
     assert {len(story.frames) for story in stories} == {25}
     open_land = next(story for story in stories if story.selector_value == "OL")
     assert open_land.frames[0].as_dict() == {
@@ -59,4 +67,28 @@ def test_incomplete_or_promoted_modeled_context_fails_closed(mutation: str) -> N
         manifest["metric_count"] = 46
 
     with pytest.raises(PlaybackContractError):
+        build_modeled_context_storyboards(manifest, countries=NORDIC_COUNTRIES)
+
+
+def test_modeled_metric_story_id_normalization_must_remain_unique() -> None:
+    manifest = deepcopy(modeled_manifest())
+    families = manifest["metric_families"]
+    assert isinstance(families, list)
+    family = next(
+        row
+        for row in families
+        if isinstance(row, dict)
+        and isinstance(row.get("metrics"), list)
+        and any(
+            isinstance(metric, dict) and metric.get("key") == "Cerealia.t"
+            for metric in row["metrics"]
+        )
+    )
+    metrics = family["metrics"]
+    assert isinstance(metrics, list)
+    metrics.append({"key": "Cerealia-t", "label": "Colliding cereal metric"})
+    family["metric_count"] = len(metrics)
+    manifest["metric_count"] = 48
+
+    with pytest.raises(PlaybackContractError, match="identifiers collide"):
         build_modeled_context_storyboards(manifest, countries=NORDIC_COUNTRIES)

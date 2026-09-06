@@ -3,15 +3,15 @@
 - Repository: `bijux-pollenomics`
 - Primary domains: `pollen_context, environmental_context`
 - Contextual domains: `archaeology_context, boundary_framing, fieldwork_record, ancient_dna_context, publication_outputs`
-- Overall recovery posture: `moderate_recovery`
+- Overall recovery posture: `recovery_required`
 
 ## Counts
 
 - Tracked paper count: `18`
 - Papers with archived supplements: `18`
-- Published animal atlas points: `273`
-- Unresolved animal samples: `95 of 1450`
-- Refused animal coordinate-provenance rows: `4 of 284`
+- Published animal atlas points: `151`
+- Unresolved animal samples: `90 of 1450`
+- Refused animal coordinate-provenance rows: `4 of 289`
 - Source-family explainer count: `15`
 
 ## Claim Freeze Reasons

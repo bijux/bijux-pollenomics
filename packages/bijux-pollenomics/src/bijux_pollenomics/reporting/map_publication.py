@@ -32,6 +32,7 @@ class MapScopePolicy:
     legend_sections: tuple[str, ...]
     visible_caveats: tuple[str, ...]
     engine_summary: str
+    chronology_playback_href: str | None = None
 
 
 _COMMON_FILTER_SURFACES = (
@@ -149,6 +150,7 @@ _MAP_SCOPE_POLICIES: dict[str, MapScopePolicy] = {
             "Approximate or inferred coordinates remain visible with explicit warnings instead of being silently dropped.",
         ),
         engine_summary=_COMMON_ENGINE_SUMMARY,
+        chronology_playback_href="../../../public/nordic-atlas/chronology-playback/",
     ),
     "custom": MapScopePolicy(
         key="custom",

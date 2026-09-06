@@ -55,6 +55,10 @@
         "filename": "europe-plus_comparator_animal_localities.geojson"
       },
       {
+        "label": "Wild and progenitor animal locality GeoJSON",
+        "filename": "europe-plus_progenitor_animal_localities.geojson"
+      },
+      {
         "label": "Animal atlas evidence CSV",
         "filename": "europe-plus_animal_atlas_evidence.csv"
       },
@@ -72,71 +76,71 @@
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-provenance.0000.cd603670a45ac5d7.js"
+        "filename": "europe-plus.atlas-provenance.0000.6d5eb7ccc748e9cc.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0001.dad98535cf18ce13.js"
+        "filename": "europe-plus.atlas-nodes.0001.52fda8e5d063678a.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0002.a8bed5c9ea21fd0c.js"
+        "filename": "europe-plus.atlas-nodes.0002.d8fd897f5b46fb8f.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0003.3b6f3a22100e3365.js"
+        "filename": "europe-plus.atlas-nodes.0003.ce88a575ad16fee7.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0004.d4651e9acb8f2658.js"
+        "filename": "europe-plus.atlas-nodes.0004.c93387abc2841a6b.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0005.a0278c74dad20c4c.js"
+        "filename": "europe-plus.atlas-nodes.0005.6aa2e2702d69480a.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0006.7f8f5c276ff731a0.js"
+        "filename": "europe-plus.atlas-nodes.0006.06e94ae4ba82b1a4.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0007.8e34b39a32679f84.js"
+        "filename": "europe-plus.atlas-nodes.0007.0ca749bb97f1ca90.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0008.41013216d9279b9e.js"
+        "filename": "europe-plus.atlas-nodes.0008.9a124ea0a33a4656.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0009.85aacf6be98922fa.js"
+        "filename": "europe-plus.atlas-nodes.0009.a5b2e5ad2c92699c.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0010.184c29af98599695.js"
+        "filename": "europe-plus.atlas-nodes.0010.a80cc06ce0915abe.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0011.6cf48b865cf55705.js"
+        "filename": "europe-plus.atlas-nodes.0011.50354722438d7786.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0012.f5900fa053a35696.js"
+        "filename": "europe-plus.atlas-nodes.0012.0cca78d221884ea4.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0013.323b39c6ce6a2c72.js"
+        "filename": "europe-plus.atlas-nodes.0013.26413c97d5fd97ec.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-edges.0014.3952fd1282b64d75.js"
+        "filename": "europe-plus.atlas-edges.0014.e7f4cbcd88e60ba3.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-sequences.0015.b0ef3b1cc58181e6.js"
+        "filename": "europe-plus.atlas-sequences.0015.189ac018ebd22881.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-indexes.0016.8779db0fce756f6e.js"
+        "filename": "europe-plus.atlas-indexes.0016.a5ee7aa28273a2f3.js"
       },
       {
         "label": "Candidate site ranking CSV",
@@ -258,11 +262,11 @@
         "scope_caveat": "Shared evidence layer across every governed scope."
       },
       {
-        "key": "animal-equus-caballus",
-        "label": "Horse aDNA site evidence",
+        "key": "animal-bos-taurus-wild-or-progenitor-context",
+        "label": "Cattle aDNA site evidence (wild or progenitor context)",
         "source_name": "Tracked animal aDNA localities",
         "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
-        "count": 2,
+        "count": 4,
         "publication_role": "shared_world_scale_layer",
         "scope_visibility": "shared_default",
         "default_enabled": true,
@@ -272,7 +276,7 @@
       },
       {
         "key": "animal-ovis-aries",
-        "label": "Sheep aDNA site evidence",
+        "label": "Sheep aDNA site evidence (domesticated core)",
         "source_name": "Tracked animal aDNA localities",
         "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
         "count": 2,
@@ -285,7 +289,7 @@
       },
       {
         "key": "animal-sus-scrofa-domesticus",
-        "label": "Pig aDNA site evidence",
+        "label": "Pig aDNA site evidence (domesticated core)",
         "source_name": "Tracked animal aDNA localities",
         "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
         "count": 2,
@@ -293,7 +297,7 @@
         "scope_visibility": "shared_default",
         "default_enabled": true,
         "applies_country_filter": true,
-        "applies_time_filter": false,
+        "applies_time_filter": true,
         "scope_caveat": "Shared evidence layer across every governed scope."
       },
       {
@@ -328,7 +332,7 @@
       "domains": {
         "nodes": {
           "status": "available",
-          "record_count": 1241
+          "record_count": 1243
         },
         "edges": {
           "status": "unavailable",
@@ -357,7 +361,7 @@
         },
         "indexes": {
           "status": "available",
-          "record_count": 1237
+          "record_count": 1239
         }
       }
     },
@@ -413,16 +417,18 @@
     }
   },
   "animal_atlas": {
-    "total_locality_points": 6,
-    "direct_coordinate_feature_count": 4,
+    "total_locality_points": 8,
+    "direct_coordinate_feature_count": 6,
     "named_site_geocoded_feature_count": 2,
     "weaker_geography_feature_count": 0,
     "total_species": 3,
-    "domesticated_species_count": 3,
+    "domesticated_species_count": 2,
     "comparator_species_count": 0,
+    "wild_or_progenitor_species_count": 1,
     "layer_groups": [
       "Domesticated-core animal evidence",
-      "Comparator animal evidence"
+      "Comparator animal evidence",
+      "Wild and progenitor animal evidence"
     ],
     "filter_surfaces": [
       "Species focus",
@@ -437,28 +443,27 @@
       "Species and confidence legend sections"
     ],
     "temporal_windows": [
-      "Late Holocene (1001-3000 BP)",
+      "Early Holocene and older (6001+ BP)",
       "Mid-Holocene (3001-6000 BP)",
-      "Recent and historical (0-1000 BP)",
-      "Unresolved time window"
+      "Recent and historical (0-1000 BP)"
     ],
     "coordinate_confidence_counts": {
-      "exact": 2,
-      "source_reported_two_decimal_degrees": 2,
-      "approximate": 2
+      "approximate": 6,
+      "source_reported_two_decimal_degrees": 2
     },
     "visible_caveats": [
       "Approximate or inferred coordinates remain visible with explicit warnings.",
       "Comparator-only evidence remains visible without being counted as domesticated-core support.",
+      "Wild or progenitor evidence remains visible in its own scope and is not farming support.",
       "Weak or rejected support classes remain labeled in point popups instead of being silently hidden.",
       "Nordic relevance can remain regional rather than one exact named country."
     ],
     "species_layers": [
       {
-        "latin_name": "Equus caballus",
-        "common_name": "horse",
-        "animal_scope": "domesticated_core",
-        "locality_count": 2
+        "latin_name": "Bos taurus",
+        "common_name": "cattle",
+        "animal_scope": "wild_or_progenitor_context",
+        "locality_count": 4
       },
       {
         "latin_name": "Ovis aries",

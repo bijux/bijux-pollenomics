@@ -49,7 +49,7 @@ def _assert_committed_source_chronology_contract(
         assert layer["interval_semantics"] == "[younger_bp, older_bp]"
         assert layer["propagation_status"] == "refused"
         assert layer["edge_count"] == 0
-        assert facets["schema_version"] == "neotoma-source-chronology-facets.v2"
+        assert facets["schema_version"] == "neotoma-source-chronology-facets.v3"
         assert facets["time_min_bp"] == 0
         assert facets["time_max_bp"] == 22_911
         assert {
@@ -58,12 +58,11 @@ def _assert_committed_source_chronology_contract(
         } == SOURCE_COUNTRIES
         assert all(feature["propagation_eligible"] is False for feature in features)
         assert all(
-            feature["candidate_generation_status"] == "refused"
-            for feature in features
+            feature["candidate_generation_status"] == "refused" for feature in features
         )
-        assert {
-            feature["candidate_refusal_reason"] for feature in features
-        } == {expected_refusal_reasons[cast(str, layer["node_level"])]}
+        assert {feature["candidate_refusal_reason"] for feature in features} == {
+            expected_refusal_reasons[cast(str, layer["node_level"])]
+        }
         intervals = [
             (cast(float, feature["time_end_bp"]), cast(float, feature["time_start_bp"]))
             for feature in features
@@ -77,9 +76,7 @@ def _assert_committed_source_chronology_contract(
     )
     code_rows = {
         cast(str, row["value"]): row
-        for row in cast(
-            list[dict[str, object]], code_facets["source_ecological_codes"]
-        )
+        for row in cast(list[dict[str, object]], code_facets["source_ecological_codes"])
     }
     assert {
         code: (
@@ -112,7 +109,7 @@ def _assert_committed_static_publication_budgets() -> None:
     )
     rows = normalize_asset_inventory(manifest["assets"])
     paths = [bundle_root / cast(str, row["path"]) for row in rows]
-    assert len(rows) == 230
+    assert len(rows) == 232
     assert len(paths) <= ATLAS_STATIC_ASSETS_MAX_FILES
     assert all(path.is_file() for path in paths)
     assert all(

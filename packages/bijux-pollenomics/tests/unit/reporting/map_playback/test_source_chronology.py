@@ -114,17 +114,27 @@ def test_playback_contracts_are_immutable() -> None:
         exact_taxa[0].label = "changed"  # type: ignore[misc]
 
 
-@pytest.mark.parametrize("mutation", ["promoted", "edge", "reversed_interval"])
+@pytest.mark.parametrize(
+    "mutation", ["promoted", "edge", "reversed_interval", "density_drift"]
+)
 def test_unsupported_source_semantics_fail_closed(mutation: str) -> None:
     layers = mutable_source_layers()
     if mutation == "promoted":
         layers[0]["propagation_status"] = "available"
     elif mutation == "edge":
         layers[1]["edge_count"] = 1
-    else:
+    elif mutation == "reversed_interval":
         facets = layers[0]["facet_metadata"]
         assert isinstance(facets, dict)
         facets["time_min_bp"] = 30_000
+    else:
+        facets = layers[1]["facet_metadata"]
+        assert isinstance(facets, dict)
+        rows = facets["source_ecological_codes"]
+        assert isinstance(rows, list) and isinstance(rows[0], dict)
+        density = rows[0]["time_density"]
+        assert isinstance(density, dict)
+        density["node_count"] = 0
 
     with pytest.raises(PlaybackContractError):
         build_source_chronology_storyboards(layers, countries=NORDIC_COUNTRIES)
@@ -156,6 +166,17 @@ def test_explicit_zero_observation_layers_publish_no_playback() -> None:
     for layer in layers:
         facets = layer["facet_metadata"]
         assert isinstance(facets, dict)
+        density = facets["time_density"]
+        assert isinstance(density, dict)
+        density.update(
+            {
+                "node_count": 0,
+                "observation_denominator": 0,
+                "time_min_bp": None,
+                "time_max_bp": None,
+                "bins": [],
+            }
+        )
         facets.update(
             {
                 "node_count": 0,
@@ -167,6 +188,7 @@ def test_explicit_zero_observation_layers_publish_no_playback() -> None:
             }
         )
 
-    assert build_source_chronology_storyboards(
-        layers, countries=NORDIC_COUNTRIES
-    ) == ((), ())
+    assert build_source_chronology_storyboards(layers, countries=NORDIC_COUNTRIES) == (
+        (),
+        (),
+    )

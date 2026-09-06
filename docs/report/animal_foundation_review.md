@@ -2,10 +2,10 @@
 
 - Public posture: `governed_metadata_foundation_not_reference_grade`
 - Strongest claim allowed: `false`
-- Published point count: `273`
-- Direct-coordinate point count: `276`
+- Published point count: `151`
+- Direct-coordinate point count: `281`
 - Geocoded point count: `4`
-- Unresolved sample count: `95`
+- Unresolved sample count: `90`
 - Coordinate-provenance refusal count: `4`
 
 ## Strengths

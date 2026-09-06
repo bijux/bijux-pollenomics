@@ -11,6 +11,7 @@ from bijux_pollenomics.analysis.propagation.source_chronology import (
 )
 
 from .features import build_atlas_feature, canonical_neotoma_site_record_id
+from .facets import build_facet_metadata
 from .models import SourceChronologyAtlasProjection
 
 _LAYER_KEYS = {
@@ -40,6 +41,11 @@ def validate_source_chronology_atlas_projection(
             raise ValueError("source chronology layer default visibility is invalid")
         if layer.get("propagation_status") != "refused" or layer.get("edge_count") != 0:
             raise ValueError("source chronology layer was promoted to propagation")
+        level_nodes = [node for node in result.nodes if node.node_level == level]
+        if layer.get("facet_metadata") != build_facet_metadata(
+            level_nodes, node_level=level
+        ):
+            raise ValueError("source chronology facet metadata does not reconcile")
         raw_features = layer.get("features")
         if not isinstance(raw_features, list) or layer.get("count") != len(
             raw_features

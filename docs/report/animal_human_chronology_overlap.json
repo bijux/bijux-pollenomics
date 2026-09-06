@@ -3,13 +3,13 @@
   "rows": [
     {
       "country": "Sweden",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
-      "animal_scope": "domesticated_core",
-      "animal_locality_count": 1,
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "animal_scope": "wild_or_progenitor_context",
+      "animal_locality_count": 2,
       "human_locality_count": 77,
-      "overlapping_human_localities": 10,
-      "non_overlapping_human_localities": 67,
+      "overlapping_human_localities": 3,
+      "non_overlapping_human_localities": 74,
       "noncomparable_human_localities": 0,
       "assignment_confidence": "exact_country",
       "overlap_status": "overlap_detected"
@@ -42,13 +42,13 @@
     },
     {
       "country": "Denmark",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
-      "animal_scope": "domesticated_core",
-      "animal_locality_count": 1,
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "animal_scope": "wild_or_progenitor_context",
+      "animal_locality_count": 2,
       "human_locality_count": 295,
-      "overlapping_human_localities": 8,
-      "non_overlapping_human_localities": 284,
+      "overlapping_human_localities": 15,
+      "non_overlapping_human_localities": 277,
       "noncomparable_human_localities": 3,
       "assignment_confidence": "exact_country",
       "overlap_status": "overlap_detected"
@@ -60,11 +60,11 @@
       "animal_scope": "domesticated_core",
       "animal_locality_count": 2,
       "human_locality_count": 295,
-      "overlapping_human_localities": 0,
-      "non_overlapping_human_localities": 0,
-      "noncomparable_human_localities": 295,
+      "overlapping_human_localities": 40,
+      "non_overlapping_human_localities": 252,
+      "noncomparable_human_localities": 3,
       "assignment_confidence": "exact_country",
-      "overlap_status": "chronology_not_comparable"
+      "overlap_status": "overlap_detected"
     }
   ],
   "comparison_contract": {
@@ -116,7 +116,7 @@
       "qualified_comparison_review_missing"
     ],
     "right_record_comparison_denominator": 750,
-    "comparable_right_record_comparison_denominator": 452,
+    "comparable_right_record_comparison_denominator": 744,
     "qualified_scientific_review_required": true
   }
 }

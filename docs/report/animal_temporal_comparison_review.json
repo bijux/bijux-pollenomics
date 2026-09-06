@@ -5,12 +5,12 @@
     {
       "family_key": "animal_adna",
       "display_name": "Animal aDNA chronology",
-      "row_count": 1454,
+      "row_count": 1455,
       "comparability_counts": {
-        "numeric_interval": 752,
-        "unresolved": 458,
-        "numeric_interval_with_caveat": 113,
-        "contextual_label_only": 131
+        "numeric_interval": 750,
+        "unresolved": 453,
+        "numeric_interval_with_caveat": 116,
+        "contextual_label_only": 136
       },
       "comparison_policy": "Animal rows only support interval comparison when sample-owned chronology survives publication without false precision."
     },

@@ -2,20 +2,20 @@
   "schema_version": "animal-output-honesty.v2",
   "totals": {
     "tracked_sample_count": 1450,
-    "mapped_sample_count": 611,
-    "blocked_sample_count": 839,
-    "unresolved_sample_count": 95,
-    "country_published_sample_count": 10
+    "mapped_sample_count": 288,
+    "blocked_sample_count": 1162,
+    "unresolved_sample_count": 90,
+    "country_published_sample_count": 12
   },
   "rows": [
     {
       "species_latin_name": "Bos taurus",
       "species_common_name": "cattle",
       "tracked_sample_count": 132,
-      "mapped_sample_count": 0,
-      "blocked_sample_count": 132,
-      "unresolved_sample_count": 67,
-      "country_published_sample_count": 0
+      "mapped_sample_count": 5,
+      "blocked_sample_count": 127,
+      "unresolved_sample_count": 62,
+      "country_published_sample_count": 5
     },
     {
       "species_latin_name": "Camelus dromedarius",
@@ -48,17 +48,17 @@
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
       "tracked_sample_count": 550,
-      "mapped_sample_count": 483,
-      "blocked_sample_count": 67,
+      "mapped_sample_count": 157,
+      "blocked_sample_count": 393,
       "unresolved_sample_count": 2,
-      "country_published_sample_count": 3
+      "country_published_sample_count": 0
     },
     {
       "species_latin_name": "Felis catus",
       "species_common_name": "cat",
       "tracked_sample_count": 106,
-      "mapped_sample_count": 56,
-      "blocked_sample_count": 50,
+      "mapped_sample_count": 54,
+      "blocked_sample_count": 52,
       "unresolved_sample_count": 0,
       "country_published_sample_count": 0
     },

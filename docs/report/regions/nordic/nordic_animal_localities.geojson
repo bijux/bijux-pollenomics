@@ -10,60 +10,64 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          10.74481,
-          56.41134
+          9.8686973853874,
+          57.2407065497517
         ]
       },
       "properties": {
-        "name": "Ginnerup",
-        "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-ginnerup-denmark",
-        "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-ginnerup-denmark",
-        "site_record_id": "equus_caballus:locality:prjeb44430:ginnerup:denmark",
-        "category": "Horse atlas evidence row",
+        "name": "Hj\u00f8rring, Tofte B\u00e6k",
+        "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-hjrringtoftebk-denmark",
+        "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-hjrringtoftebk-denmark",
+        "site_record_id": "bos_taurus:locality:prjeb75467:hjrringtoftebk:denmark",
+        "category": "Cattle atlas evidence row",
         "country": "Denmark",
         "layer_key": "animal-localities",
         "layer_label": "Animal aDNA atlas evidence",
-        "source_url": "https://doi.org/10.1038/s41586-021-04018-9",
+        "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
         "popup_rows": [
           {
             "label": "Species",
-            "value": "Equus caballus"
+            "value": "Bos taurus"
           },
           {
             "label": "Support class",
-            "value": "accepted"
+            "value": "ancient_but_too_weak"
           },
           {
             "label": "Animal scope",
-            "value": "domesticated core"
+            "value": "wild or progenitor context"
           },
           {
             "label": "Mapped sample count",
-            "value": "2"
+            "value": "1"
           },
           {
             "label": "Mapped sample identifiers",
-            "value": "equus_caballus:sample:prjeb44430:samea9533224, equus_caballus:sample:prjeb44430:samea9533225"
+            "value": "bos_taurus:sample:prjeb75467:samea115574419"
+          },
+          {
+            "label": "Source-native taxa",
+            "value": "Bos primigenius (tax_id 9909)"
           },
           {
             "label": "Taxon alignment",
-            "value": "not reported"
+            "value": "project species mismatch"
           },
           {
             "label": "Project accession",
-            "value": "PRJEB44430"
+            "value": "PRJEB75467"
           },
           {
             "label": "Paper title",
-            "value": "The origins and spread of domestic horses from the Western Eurasian steppes"
+            "value": "The genomic natural history of the aurochs"
           },
           {
             "label": "Paper DOI",
-            "value": "10.1038/s41586-021-04018-9"
+            "value": "10.1038/s41586-024-08112-6"
           },
           {
             "label": "Publication year",
-            "value": "2021"
+            "value": "2024"
           },
           {
             "label": "Journal",
@@ -71,7 +75,7 @@
           },
           {
             "label": "Chronology",
-            "value": "4944-4961 BP"
+            "value": "7976-8173 BP"
           },
           {
             "label": "Chronology evidence class",
@@ -79,11 +83,11 @@
           },
           {
             "label": "Chronology precision posture",
-            "value": "sample precise point"
+            "value": "sample precise interval"
           },
           {
             "label": "Temporal window",
-            "value": "Mid-Holocene (3001-6000 BP)"
+            "value": "Early Holocene and older (6001+ BP)"
           },
           {
             "label": "Temporal comparison posture",
@@ -95,15 +99,15 @@
           },
           {
             "label": "Support note",
-            "value": "admissible_for_curated_support"
+            "value": "ancient_but_not_domesticated_core"
           },
           {
             "label": "Coordinate basis",
-            "value": "supplementary_table_coordinates"
+            "value": "supplementary_proximal_site_coordinates"
           },
           {
             "label": "Coordinate confidence",
-            "value": "exact"
+            "value": "approximate"
           },
           {
             "label": "Coordinate method",
@@ -115,19 +119,19 @@
           },
           {
             "label": "Original place text",
-            "value": "Ginnerup"
+            "value": "Hj\u00f8rring, Tofte B\u00e6k"
           },
           {
             "label": "Resolved place text",
-            "value": "Ginnerup"
+            "value": "Hj\u00f8rring, Tofte B\u00e6k"
           },
           {
             "label": "Coordinate rationale",
-            "value": "The published supplementary table provides direct coordinates for this locality."
+            "value": "The published supplementary table describes this coordinate as proximal to the site, so it is suitable for approximate locality placement but not an exact specimen findspot."
           },
           {
             "label": "Source locator",
-            "value": "SI Table 1!row252"
+            "value": "Supplementary Data 1!A26:Y26"
           },
           {
             "label": "Source support status",
@@ -135,7 +139,7 @@
           },
           {
             "label": "Source evidence text",
-            "value": "DJM130x6_Dan_m3011 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224902 | 4405 | 20 | -3095 | -2926 | 3011 | 4961 | M | this study | 1 | 4 | 4 | 345157978 | 49419848 | 394577826 | - | - | - | 652.433672858"
+            "value": "workbook sample Hjo1 | specimen VHM500/1985, ZMK103/1989 | locality Hj\u00f8rring, Tofte B\u00e6k, Denmark | source BP claim 8173-7976 | canonical BP interval [7976, 8173] | published analysis mean 8074.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context"
           },
           {
             "label": "Nordic relevance",
@@ -151,91 +155,108 @@
           },
           {
             "label": "Warning",
-            "value": "admissible_for_curated_support"
+            "value": "Coordinates are approximate, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "Wild or progenitor evidence: keep visible as evolutionary context, not domesticated-core farming support."
+          },
+          {
+            "label": "Warning",
+            "value": "One or more mapped biological samples have a source-native taxon different from the configured project species; inspect Source-native taxa before making domestication claims."
+          },
+          {
+            "label": "Warning",
+            "value": "ancient_but_not_domesticated_core"
           }
         ],
-        "species_latin_name": "Equus caballus",
-        "species_common_name": "horse",
-        "animal_scope": "domesticated_core",
-        "support_class": "accepted",
+        "species_latin_name": "Bos taurus",
+        "species_common_name": "cattle",
+        "animal_scope": "wild_or_progenitor_context",
+        "support_class": "ancient_but_too_weak",
         "temporal_semantics": {
           "schema_version": "temporal-semantics.v1",
           "source_family": "animal_adna",
           "evidence_class": "direct_radiocarbon_date",
-          "precision_posture": "sample_precise_point",
+          "precision_posture": "sample_precise_interval",
           "comparability_posture": "numeric_interval",
-          "summary_label": "4944-4961 BP",
-          "temporal_window_key": "mid_holocene",
-          "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
-          "time_start_bp": 4944,
-          "time_end_bp": 4961,
-          "time_mean_bp": 4952,
-          "duration_years": 17,
+          "summary_label": "7976-8173 BP",
+          "temporal_window_key": "early_holocene_and_older",
+          "temporal_window_label": "Early Holocene and older (6001+ BP)",
+          "time_start_bp": 7976,
+          "time_end_bp": 8173,
+          "time_mean_bp": 8074,
+          "duration_years": 197,
           "comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
-          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
-          "provenance_locator": "SI Table 1!row252",
-          "provenance_excerpt": "DJM130x6_Dan_m3011 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224902 | 4405 | 20 | -3095 | -2926 | 3011 | 4961 | M | this study | 1 | 4 | 4 | 345157978 | 49419848 | 394577826 | - | - | - | 652.433672858",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "provenance_locator": "Supplementary Data 1!A26:Y26",
+          "provenance_excerpt": "workbook sample Hjo1 | specimen VHM500/1985, ZMK103/1989 | locality Hj\u00f8rring, Tofte B\u00e6k, Denmark | source BP claim 8173-7976 | canonical BP interval [7976, 8173] | published analysis mean 8074.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
           "original_labels": [
-            "4944-4961 BP"
+            "7976-8173 BP"
           ],
           "normalized_labels": [],
           "uncertainty_notes": []
         },
-        "temporal_window_key": "mid_holocene",
-        "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+        "temporal_window_key": "early_holocene_and_older",
+        "temporal_window_label": "Early Holocene and older (6001+ BP)",
         "temporal_comparability_posture": "numeric_interval",
         "temporal_comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
         "nordic_inclusion": true,
         "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence.",
-        "coordinate_basis": "supplementary_table_coordinates",
-        "coordinate_confidence": "exact",
-        "sample_count": 2,
+        "coordinate_basis": "supplementary_proximal_site_coordinates",
+        "coordinate_confidence": "approximate",
+        "sample_count": 1,
         "sample_record_ids": [
-          "equus_caballus:sample:prjeb44430:samea9533224",
-          "equus_caballus:sample:prjeb44430:samea9533225"
+          "bos_taurus:sample:prjeb75467:samea115574419"
         ],
         "sample_group_ids": [
-          "PRJEB44430"
+          "PRJEB75467"
         ],
-        "source_native_taxon_labels": [],
-        "source_native_tax_ids": [],
-        "source_native_scientific_names": [],
+        "source_native_taxon_labels": [
+          "Bos primigenius (tax_id 9909)"
+        ],
+        "source_native_tax_ids": [
+          "9909"
+        ],
+        "source_native_scientific_names": [
+          "Bos primigenius"
+        ],
         "taxon_alignment_statuses": [
-          "not_reported"
+          "project_species_mismatch"
         ],
-        "sample_namespace": "equus_caballus:sample_locality",
+        "sample_namespace": "bos_taurus:sample_locality",
         "inclusion_notes": [
-          "Sample-level locality comes directly from the recovered sample source row."
+          "The supplementary workbook identifies this coordinate as proximal to the site; it supports approximate locality placement without implying an exact specimen findspot."
         ],
-        "latitude_text": "56.41134",
-        "longitude_text": "10.74481",
+        "latitude_text": "57.2407065497517",
+        "longitude_text": "9.8686973853874",
         "geocoding_method": "direct_supplementary_coordinate_capture",
         "geocoder_or_gazetteer": "not required because the supplementary table ships coordinates",
-        "confidence_rationale": "The published supplementary table provides direct coordinates for this locality.",
-        "original_place_text": "Ginnerup",
-        "resolved_place_text": "Ginnerup",
-        "paper_title": "The origins and spread of domestic horses from the Western Eurasian steppes",
-        "paper_doi": "10.1038/s41586-021-04018-9",
+        "confidence_rationale": "The published supplementary table describes this coordinate as proximal to the site, so it is suitable for approximate locality placement but not an exact specimen findspot.",
+        "original_place_text": "Hj\u00f8rring, Tofte B\u00e6k",
+        "resolved_place_text": "Hj\u00f8rring, Tofte B\u00e6k",
+        "paper_title": "The genomic natural history of the aurochs",
+        "paper_doi": "10.1038/s41586-024-08112-6",
         "journal_title": "Nature",
-        "publication_year": "2021",
+        "publication_year": "2024",
         "supplementary_sources": [],
         "project_accessions": [
-          "PRJEB44430"
+          "PRJEB75467"
         ],
-        "primary_project_accession": "PRJEB44430",
+        "primary_project_accession": "PRJEB75467",
         "inclusion_statuses": [
           "site_curated"
         ],
-        "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+        "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
         "source_artifact_kind": "supplementary_spreadsheet_row",
-        "source_locator": "SI Table 1!row252",
+        "source_locator": "Supplementary Data 1!A26:Y26",
         "source_support_status": "supplementary_table_row",
-        "exact_source_text": "DJM130x6_Dan_m3011 | 56.41134 N, 10.74481 N | Ginnerup | Denmark | FB/PWC | settlement, Neolithic - transition between Funnel Beaker and Pitted Ware Cultures | 224902 | 4405 | 20 | -3095 | -2926 | 3011 | 4961 | M | this study | 1 | 4 | 4 | 345157978 | 49419848 | 394577826 | - | - | - | 652.433672858",
-        "time_start_bp": 4944,
-        "time_end_bp": 4961,
-        "time_mean_bp": 4952,
-        "time_year_bp": 4952,
-        "time_label": "4944-4961 BP"
+        "exact_source_text": "workbook sample Hjo1 | specimen VHM500/1985, ZMK103/1989 | locality Hj\u00f8rring, Tofte B\u00e6k, Denmark | source BP claim 8173-7976 | canonical BP interval [7976, 8173] | published analysis mean 8074.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+        "time_start_bp": 7976,
+        "time_end_bp": 8173,
+        "time_mean_bp": 8074,
+        "time_year_bp": 8074,
+        "time_label": "7976-8173 BP"
       }
     },
     {
@@ -243,100 +264,104 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          17.639,
-          59.861
+          11.3931303537925,
+          55.3584015935903
         ]
       },
       "properties": {
-        "name": "Uppsala",
-        "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-uppsala-sweden",
-        "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-uppsala-sweden",
-        "site_record_id": "equus_caballus:locality:prjeb31613:uppsala:sweden",
-        "category": "Horse atlas evidence row",
-        "country": "Sweden",
+        "name": "Lundby I",
+        "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-lundbyi-denmark",
+        "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-lundbyi-denmark",
+        "site_record_id": "bos_taurus:locality:prjeb75467:lundbyi:denmark",
+        "category": "Cattle atlas evidence row",
+        "country": "Denmark",
         "layer_key": "animal-localities",
         "layer_label": "Animal aDNA atlas evidence",
-        "source_url": "https://doi.org/10.1016/j.cell.2019.03.049",
+        "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
         "popup_rows": [
           {
             "label": "Species",
-            "value": "Equus caballus"
+            "value": "Bos taurus"
           },
           {
             "label": "Support class",
-            "value": "accepted"
+            "value": "ancient_but_too_weak"
           },
           {
             "label": "Animal scope",
-            "value": "domesticated core"
+            "value": "wild or progenitor context"
           },
           {
             "label": "Mapped sample count",
-            "value": "1"
+            "value": "2"
           },
           {
             "label": "Mapped sample identifiers",
-            "value": "equus_caballus:sample:prjeb31613:cgg_1_018490"
+            "value": "bos_taurus:sample:prjeb75467:samea115574456, bos_taurus:sample:prjeb75467:samea115574457"
+          },
+          {
+            "label": "Source-native taxa",
+            "value": "Bos primigenius (tax_id 9909)"
           },
           {
             "label": "Taxon alignment",
-            "value": "not reported"
+            "value": "project species mismatch"
           },
           {
             "label": "Project accession",
-            "value": "PRJEB31613"
+            "value": "PRJEB75467"
           },
           {
             "label": "Paper title",
-            "value": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series"
+            "value": "The genomic natural history of the aurochs"
           },
           {
             "label": "Paper DOI",
-            "value": "10.1016/j.cell.2019.03.049"
+            "value": "10.1038/s41586-024-08112-6"
           },
           {
             "label": "Publication year",
-            "value": "2019"
+            "value": "2024"
           },
           {
             "label": "Journal",
-            "value": "Cell"
+            "value": "Nature"
           },
           {
             "label": "Chronology",
-            "value": "1217-1417 BP"
+            "value": "6748-7744 BP"
           },
           {
             "label": "Chronology evidence class",
-            "value": "direct radiocarbon date"
+            "value": "modeled sample date"
           },
           {
             "label": "Chronology precision posture",
-            "value": "sample precise interval"
+            "value": "sample approximate or modeled"
           },
           {
             "label": "Temporal window",
-            "value": "Late Holocene (1001-3000 BP)"
+            "value": "Early Holocene and older (6001+ BP)"
           },
           {
             "label": "Temporal comparison posture",
-            "value": "numeric interval"
+            "value": "numeric interval with caveat"
           },
           {
             "label": "Temporal comparison note",
-            "value": "This chronology supports interval-based comparison without implying more than the published sample interval."
+            "value": "This chronology carries numeric values, but its evidence class or precision posture still requires caution."
           },
           {
             "label": "Support note",
-            "value": "admissible_for_curated_support"
+            "value": "ancient_but_not_domesticated_core"
           },
           {
             "label": "Coordinate basis",
-            "value": "supplementary_table_coordinates"
+            "value": "supplementary_proximal_site_coordinates"
           },
           {
             "label": "Coordinate confidence",
-            "value": "exact"
+            "value": "approximate"
           },
           {
             "label": "Coordinate method",
@@ -348,19 +373,19 @@
           },
           {
             "label": "Original place text",
-            "value": "Uppsala"
+            "value": "Lundby I"
           },
           {
             "label": "Resolved place text",
-            "value": "Uppsala"
+            "value": "Lundby I"
           },
           {
             "label": "Coordinate rationale",
-            "value": "The published supplementary table provides direct coordinates for this locality."
+            "value": "The published supplementary table describes this coordinate as proximal to the site, so it is suitable for approximate locality placement but not an exact specimen findspot."
           },
           {
             "label": "Source locator",
-            "value": "Sheet1!row226"
+            "value": "Supplementary Data 1!A36:Y36 || Supplementary Data 1!A41:Y41"
           },
           {
             "label": "Source support status",
@@ -368,7 +393,262 @@
           },
           {
             "label": "Source evidence text",
-            "value": "Uppsala_Upps02_1317 | CGG_1_018490 | Middle Ages | 1217-1417 | Uppsala | 59.860999999999997 | 17.638999999999999 | Sweden | horse | male | 50.41977232 | 4.19440491624E-2 | 0 | 0 | 0 | 0"
+            "value": "workbook sample Zea1 | specimen 3/1930 Hovedfelt II, P269/2021PB | locality Lundby I, Denmark | source BP claim 7302 (6754-7744) | canonical BP interval [6754, 7744] | published analysis mean 7302 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || workbook sample Zea2 | specimen 3/1930 Hovedfelt II, E6, P270/2021PB | locality Lundby I, Denmark | source BP claim 7296 (6748-7744) | canonical BP interval [6748, 7744] | published analysis mean 7296 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "nordic_lead"
+          },
+          {
+            "label": "Nordic note",
+            "value": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence."
+          },
+          {
+            "label": "Interpretation",
+            "value": "Sample-level locality comes directly from the recovered sample source row."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are approximate, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "Wild or progenitor evidence: keep visible as evolutionary context, not domesticated-core farming support."
+          },
+          {
+            "label": "Warning",
+            "value": "One or more mapped biological samples have a source-native taxon different from the configured project species; inspect Source-native taxa before making domestication claims."
+          },
+          {
+            "label": "Warning",
+            "value": "ancient_but_not_domesticated_core"
+          }
+        ],
+        "species_latin_name": "Bos taurus",
+        "species_common_name": "cattle",
+        "animal_scope": "wild_or_progenitor_context",
+        "support_class": "ancient_but_too_weak",
+        "temporal_semantics": {
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "animal_adna",
+          "evidence_class": "modeled_sample_date",
+          "precision_posture": "sample_approximate_or_modeled",
+          "comparability_posture": "numeric_interval_with_caveat",
+          "summary_label": "6748-7744 BP",
+          "temporal_window_key": "early_holocene_and_older",
+          "temporal_window_label": "Early Holocene and older (6001+ BP)",
+          "time_start_bp": 6748,
+          "time_end_bp": 7744,
+          "time_mean_bp": 7246,
+          "duration_years": 996,
+          "comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "provenance_locator": "Supplementary Data 1!A36:Y36 || Supplementary Data 1!A41:Y41",
+          "provenance_excerpt": "workbook sample Zea1 | specimen 3/1930 Hovedfelt II, P269/2021PB | locality Lundby I, Denmark | source BP claim 7302 (6754-7744) | canonical BP interval [6754, 7744] | published analysis mean 7302 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || workbook sample Zea2 | specimen 3/1930 Hovedfelt II, E6, P270/2021PB | locality Lundby I, Denmark | source BP claim 7296 (6748-7744) | canonical BP interval [6748, 7744] | published analysis mean 7296 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+          "original_labels": [
+            "6748-7744 BP"
+          ],
+          "normalized_labels": [],
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "early_holocene_and_older",
+        "temporal_window_label": "Early Holocene and older (6001+ BP)",
+        "temporal_comparability_posture": "numeric_interval_with_caveat",
+        "temporal_comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
+        "nordic_inclusion": true,
+        "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence.",
+        "coordinate_basis": "supplementary_proximal_site_coordinates",
+        "coordinate_confidence": "approximate",
+        "sample_count": 2,
+        "sample_record_ids": [
+          "bos_taurus:sample:prjeb75467:samea115574456",
+          "bos_taurus:sample:prjeb75467:samea115574457"
+        ],
+        "sample_group_ids": [
+          "PRJEB75467"
+        ],
+        "source_native_taxon_labels": [
+          "Bos primigenius (tax_id 9909)"
+        ],
+        "source_native_tax_ids": [
+          "9909"
+        ],
+        "source_native_scientific_names": [
+          "Bos primigenius"
+        ],
+        "taxon_alignment_statuses": [
+          "project_species_mismatch"
+        ],
+        "sample_namespace": "bos_taurus:sample_locality",
+        "inclusion_notes": [
+          "The supplementary workbook identifies this coordinate as proximal to the site; it supports approximate locality placement without implying an exact specimen findspot."
+        ],
+        "latitude_text": "55.3584015935903",
+        "longitude_text": "11.3931303537925",
+        "geocoding_method": "direct_supplementary_coordinate_capture",
+        "geocoder_or_gazetteer": "not required because the supplementary table ships coordinates",
+        "confidence_rationale": "The published supplementary table describes this coordinate as proximal to the site, so it is suitable for approximate locality placement but not an exact specimen findspot.",
+        "original_place_text": "Lundby I",
+        "resolved_place_text": "Lundby I",
+        "paper_title": "The genomic natural history of the aurochs",
+        "paper_doi": "10.1038/s41586-024-08112-6",
+        "journal_title": "Nature",
+        "publication_year": "2024",
+        "supplementary_sources": [],
+        "project_accessions": [
+          "PRJEB75467"
+        ],
+        "primary_project_accession": "PRJEB75467",
+        "inclusion_statuses": [
+          "site_curated"
+        ],
+        "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "Supplementary Data 1!A36:Y36 || Supplementary Data 1!A41:Y41",
+        "source_support_status": "supplementary_table_row",
+        "exact_source_text": "workbook sample Zea1 | specimen 3/1930 Hovedfelt II, P269/2021PB | locality Lundby I, Denmark | source BP claim 7302 (6754-7744) | canonical BP interval [6754, 7744] | published analysis mean 7302 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || workbook sample Zea2 | specimen 3/1930 Hovedfelt II, E6, P270/2021PB | locality Lundby I, Denmark | source BP claim 7296 (6748-7744) | canonical BP interval [6748, 7744] | published analysis mean 7296 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+        "time_start_bp": 6748,
+        "time_end_bp": 7744,
+        "time_mean_bp": 7246,
+        "time_year_bp": 7246,
+        "time_label": "6748-7744 BP"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.2297,
+          55.6219
+        ]
+      },
+      "properties": {
+        "name": "Nevish\u00f6g",
+        "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-nevishg-sweden",
+        "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-nevishg-sweden",
+        "site_record_id": "bos_taurus:locality:prjeb75467:nevishg:sweden",
+        "category": "Cattle atlas evidence row",
+        "country": "Sweden",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA atlas evidence",
+        "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Bos taurus"
+          },
+          {
+            "label": "Support class",
+            "value": "ancient_but_too_weak"
+          },
+          {
+            "label": "Animal scope",
+            "value": "wild or progenitor context"
+          },
+          {
+            "label": "Mapped sample count",
+            "value": "1"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "bos_taurus:sample:prjeb75467:samea115574441"
+          },
+          {
+            "label": "Source-native taxa",
+            "value": "Bos primigenius (tax_id 9909)"
+          },
+          {
+            "label": "Taxon alignment",
+            "value": "project species mismatch"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB75467"
+          },
+          {
+            "label": "Paper title",
+            "value": "The genomic natural history of the aurochs"
+          },
+          {
+            "label": "Paper DOI",
+            "value": "10.1038/s41586-024-08112-6"
+          },
+          {
+            "label": "Publication year",
+            "value": "2024"
+          },
+          {
+            "label": "Journal",
+            "value": "Nature"
+          },
+          {
+            "label": "Chronology",
+            "value": "9133-9536 BP"
+          },
+          {
+            "label": "Chronology evidence class",
+            "value": "direct radiocarbon date"
+          },
+          {
+            "label": "Chronology precision posture",
+            "value": "sample precise interval"
+          },
+          {
+            "label": "Temporal window",
+            "value": "Early Holocene and older (6001+ BP)"
+          },
+          {
+            "label": "Temporal comparison posture",
+            "value": "numeric interval"
+          },
+          {
+            "label": "Temporal comparison note",
+            "value": "This chronology supports interval-based comparison without implying more than the published sample interval."
+          },
+          {
+            "label": "Support note",
+            "value": "ancient_but_not_domesticated_core"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "supplementary_proximal_site_coordinates"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "direct_supplementary_coordinate_capture"
+          },
+          {
+            "label": "Coordinate gazetteer",
+            "value": "not required because the supplementary table ships coordinates"
+          },
+          {
+            "label": "Original place text",
+            "value": "Nevish\u00f6g"
+          },
+          {
+            "label": "Resolved place text",
+            "value": "Nevish\u00f6g"
+          },
+          {
+            "label": "Coordinate rationale",
+            "value": "The published supplementary table describes this coordinate as proximal to the site, so it is suitable for approximate locality placement but not an exact specimen findspot."
+          },
+          {
+            "label": "Source locator",
+            "value": "Supplementary Data 1!A34:Y34"
+          },
+          {
+            "label": "Source support status",
+            "value": "supplementary_table_row"
+          },
+          {
+            "label": "Source evidence text",
+            "value": "workbook sample Ska1 | specimen Lzzz/3362 L62 | locality Nevish\u00f6g, Sweden | source BP claim 9536-9133 | canonical BP interval [9133, 9536] | published analysis mean 9334.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context"
           },
           {
             "label": "Nordic relevance",
@@ -384,90 +664,362 @@
           },
           {
             "label": "Warning",
-            "value": "admissible_for_curated_support"
+            "value": "Coordinates are approximate, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "Wild or progenitor evidence: keep visible as evolutionary context, not domesticated-core farming support."
+          },
+          {
+            "label": "Warning",
+            "value": "One or more mapped biological samples have a source-native taxon different from the configured project species; inspect Source-native taxa before making domestication claims."
+          },
+          {
+            "label": "Warning",
+            "value": "ancient_but_not_domesticated_core"
           }
         ],
-        "species_latin_name": "Equus caballus",
-        "species_common_name": "horse",
-        "animal_scope": "domesticated_core",
-        "support_class": "accepted",
+        "species_latin_name": "Bos taurus",
+        "species_common_name": "cattle",
+        "animal_scope": "wild_or_progenitor_context",
+        "support_class": "ancient_but_too_weak",
         "temporal_semantics": {
           "schema_version": "temporal-semantics.v1",
           "source_family": "animal_adna",
           "evidence_class": "direct_radiocarbon_date",
           "precision_posture": "sample_precise_interval",
           "comparability_posture": "numeric_interval",
-          "summary_label": "1217-1417 BP",
-          "temporal_window_key": "late_holocene",
-          "temporal_window_label": "Late Holocene (1001-3000 BP)",
-          "time_start_bp": 1217,
-          "time_end_bp": 1417,
-          "time_mean_bp": 1317,
-          "duration_years": 200,
+          "summary_label": "9133-9536 BP",
+          "temporal_window_key": "early_holocene_and_older",
+          "temporal_window_label": "Early Holocene and older (6001+ BP)",
+          "time_start_bp": 9133,
+          "time_end_bp": 9536,
+          "time_mean_bp": 9334,
+          "duration_years": 403,
           "comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
-          "provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-          "provenance_locator": "Sheet1!row226",
-          "provenance_excerpt": "Uppsala_Upps02_1317 | CGG_1_018490 | Middle Ages | 1217-1417 | Uppsala | 59.860999999999997 | 17.638999999999999 | Sweden | horse | male | 50.41977232 | 4.19440491624E-2 | 0 | 0 | 0 | 0",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "provenance_locator": "Supplementary Data 1!A34:Y34",
+          "provenance_excerpt": "workbook sample Ska1 | specimen Lzzz/3362 L62 | locality Nevish\u00f6g, Sweden | source BP claim 9536-9133 | canonical BP interval [9133, 9536] | published analysis mean 9334.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
           "original_labels": [
-            "1217-1417 BP"
+            "9133-9536 BP"
           ],
           "normalized_labels": [],
           "uncertainty_notes": []
         },
-        "temporal_window_key": "late_holocene",
-        "temporal_window_label": "Late Holocene (1001-3000 BP)",
+        "temporal_window_key": "early_holocene_and_older",
+        "temporal_window_label": "Early Holocene and older (6001+ BP)",
         "temporal_comparability_posture": "numeric_interval",
         "temporal_comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
         "nordic_inclusion": true,
         "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Sweden sample evidence.",
-        "coordinate_basis": "supplementary_table_coordinates",
-        "coordinate_confidence": "exact",
+        "coordinate_basis": "supplementary_proximal_site_coordinates",
+        "coordinate_confidence": "approximate",
         "sample_count": 1,
         "sample_record_ids": [
-          "equus_caballus:sample:prjeb31613:cgg_1_018490"
+          "bos_taurus:sample:prjeb75467:samea115574441"
         ],
         "sample_group_ids": [
-          "PRJEB31613"
+          "PRJEB75467"
         ],
-        "source_native_taxon_labels": [],
-        "source_native_tax_ids": [],
-        "source_native_scientific_names": [],
+        "source_native_taxon_labels": [
+          "Bos primigenius (tax_id 9909)"
+        ],
+        "source_native_tax_ids": [
+          "9909"
+        ],
+        "source_native_scientific_names": [
+          "Bos primigenius"
+        ],
         "taxon_alignment_statuses": [
-          "not_reported"
+          "project_species_mismatch"
         ],
-        "sample_namespace": "equus_caballus:sample_locality",
+        "sample_namespace": "bos_taurus:sample_locality",
         "inclusion_notes": [
-          "Sample-level locality comes directly from the recovered sample source row."
+          "The supplementary workbook identifies this coordinate as proximal to the site; it supports approximate locality placement without implying an exact specimen findspot."
         ],
-        "latitude_text": "59.860999999999997",
-        "longitude_text": "17.638999999999999",
+        "latitude_text": "55.6219",
+        "longitude_text": "13.2297",
         "geocoding_method": "direct_supplementary_coordinate_capture",
         "geocoder_or_gazetteer": "not required because the supplementary table ships coordinates",
-        "confidence_rationale": "The published supplementary table provides direct coordinates for this locality.",
-        "original_place_text": "Uppsala",
-        "resolved_place_text": "Uppsala",
-        "paper_title": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
-        "paper_doi": "10.1016/j.cell.2019.03.049",
-        "journal_title": "Cell",
-        "publication_year": "2019",
+        "confidence_rationale": "The published supplementary table describes this coordinate as proximal to the site, so it is suitable for approximate locality placement but not an exact specimen findspot.",
+        "original_place_text": "Nevish\u00f6g",
+        "resolved_place_text": "Nevish\u00f6g",
+        "paper_title": "The genomic natural history of the aurochs",
+        "paper_doi": "10.1038/s41586-024-08112-6",
+        "journal_title": "Nature",
+        "publication_year": "2024",
         "supplementary_sources": [],
         "project_accessions": [
-          "PRJEB31613"
+          "PRJEB75467"
         ],
-        "primary_project_accession": "PRJEB31613",
+        "primary_project_accession": "PRJEB75467",
         "inclusion_statuses": [
           "site_curated"
         ],
-        "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+        "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
         "source_artifact_kind": "supplementary_spreadsheet_row",
-        "source_locator": "Sheet1!row226",
+        "source_locator": "Supplementary Data 1!A34:Y34",
         "source_support_status": "supplementary_table_row",
-        "exact_source_text": "Uppsala_Upps02_1317 | CGG_1_018490 | Middle Ages | 1217-1417 | Uppsala | 59.860999999999997 | 17.638999999999999 | Sweden | horse | male | 50.41977232 | 4.19440491624E-2 | 0 | 0 | 0 | 0",
-        "time_start_bp": 1217,
-        "time_end_bp": 1417,
-        "time_mean_bp": 1317,
-        "time_year_bp": 1317,
-        "time_label": "1217-1417 BP"
+        "exact_source_text": "workbook sample Ska1 | specimen Lzzz/3362 L62 | locality Nevish\u00f6g, Sweden | source BP claim 9536-9133 | canonical BP interval [9133, 9536] | published analysis mean 9334.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+        "time_start_bp": 9133,
+        "time_end_bp": 9536,
+        "time_mean_bp": 9334,
+        "time_year_bp": 9334,
+        "time_label": "9133-9536 BP"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.8093770947441,
+          55.8476269883224
+        ]
+      },
+      "properties": {
+        "name": "Sk\u00e5ne",
+        "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-skne-sweden",
+        "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-skne-sweden",
+        "site_record_id": "bos_taurus:locality:prjeb75467:skne:sweden",
+        "category": "Cattle atlas evidence row",
+        "country": "Sweden",
+        "layer_key": "animal-localities",
+        "layer_label": "Animal aDNA atlas evidence",
+        "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Bos taurus"
+          },
+          {
+            "label": "Support class",
+            "value": "ancient_but_too_weak"
+          },
+          {
+            "label": "Animal scope",
+            "value": "wild or progenitor context"
+          },
+          {
+            "label": "Mapped sample count",
+            "value": "1"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "bos_taurus:sample:prjeb75467:samea115574442"
+          },
+          {
+            "label": "Source-native taxa",
+            "value": "Bos primigenius (tax_id 9909)"
+          },
+          {
+            "label": "Taxon alignment",
+            "value": "project species mismatch"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB75467"
+          },
+          {
+            "label": "Paper title",
+            "value": "The genomic natural history of the aurochs"
+          },
+          {
+            "label": "Paper DOI",
+            "value": "10.1038/s41586-024-08112-6"
+          },
+          {
+            "label": "Publication year",
+            "value": "2024"
+          },
+          {
+            "label": "Journal",
+            "value": "Nature"
+          },
+          {
+            "label": "Chronology",
+            "value": "9434-9657 BP"
+          },
+          {
+            "label": "Chronology evidence class",
+            "value": "direct radiocarbon date"
+          },
+          {
+            "label": "Chronology precision posture",
+            "value": "sample precise interval"
+          },
+          {
+            "label": "Temporal window",
+            "value": "Early Holocene and older (6001+ BP)"
+          },
+          {
+            "label": "Temporal comparison posture",
+            "value": "numeric interval"
+          },
+          {
+            "label": "Temporal comparison note",
+            "value": "This chronology supports interval-based comparison without implying more than the published sample interval."
+          },
+          {
+            "label": "Support note",
+            "value": "ancient_but_not_domesticated_core"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "supplementary_proximal_site_coordinates"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "approximate"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "direct_supplementary_coordinate_capture"
+          },
+          {
+            "label": "Coordinate gazetteer",
+            "value": "not required because the supplementary table ships coordinates"
+          },
+          {
+            "label": "Original place text",
+            "value": "Sk\u00e5ne"
+          },
+          {
+            "label": "Resolved place text",
+            "value": "Sk\u00e5ne"
+          },
+          {
+            "label": "Coordinate rationale",
+            "value": "The published supplementary table describes this coordinate as proximal to the site, so it is suitable for approximate locality placement but not an exact specimen findspot."
+          },
+          {
+            "label": "Source locator",
+            "value": "Supplementary Data 1!A33:Y33"
+          },
+          {
+            "label": "Source support status",
+            "value": "supplementary_table_row"
+          },
+          {
+            "label": "Source evidence text",
+            "value": "workbook sample Ska3 | specimen Lzzz/3284 L84 | locality Sk\u00e5ne, Sweden | source BP claim 9657-9434 | canonical BP interval [9434, 9657] | published analysis mean 9545.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "nordic_lead"
+          },
+          {
+            "label": "Nordic note",
+            "value": "This locality falls inside the Nordic publication footprint through direct Sweden sample evidence."
+          },
+          {
+            "label": "Interpretation",
+            "value": "Sample-level locality comes directly from the recovered sample source row."
+          },
+          {
+            "label": "Warning",
+            "value": "Coordinates are approximate, not excavation-grade exact points."
+          },
+          {
+            "label": "Warning",
+            "value": "Wild or progenitor evidence: keep visible as evolutionary context, not domesticated-core farming support."
+          },
+          {
+            "label": "Warning",
+            "value": "One or more mapped biological samples have a source-native taxon different from the configured project species; inspect Source-native taxa before making domestication claims."
+          },
+          {
+            "label": "Warning",
+            "value": "ancient_but_not_domesticated_core"
+          }
+        ],
+        "species_latin_name": "Bos taurus",
+        "species_common_name": "cattle",
+        "animal_scope": "wild_or_progenitor_context",
+        "support_class": "ancient_but_too_weak",
+        "temporal_semantics": {
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "animal_adna",
+          "evidence_class": "direct_radiocarbon_date",
+          "precision_posture": "sample_precise_interval",
+          "comparability_posture": "numeric_interval",
+          "summary_label": "9434-9657 BP",
+          "temporal_window_key": "early_holocene_and_older",
+          "temporal_window_label": "Early Holocene and older (6001+ BP)",
+          "time_start_bp": 9434,
+          "time_end_bp": 9657,
+          "time_mean_bp": 9546,
+          "duration_years": 223,
+          "comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "provenance_locator": "Supplementary Data 1!A33:Y33",
+          "provenance_excerpt": "workbook sample Ska3 | specimen Lzzz/3284 L84 | locality Sk\u00e5ne, Sweden | source BP claim 9657-9434 | canonical BP interval [9434, 9657] | published analysis mean 9545.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+          "original_labels": [
+            "9434-9657 BP"
+          ],
+          "normalized_labels": [],
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "early_holocene_and_older",
+        "temporal_window_label": "Early Holocene and older (6001+ BP)",
+        "temporal_comparability_posture": "numeric_interval",
+        "temporal_comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+        "nordic_inclusion": true,
+        "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Sweden sample evidence.",
+        "coordinate_basis": "supplementary_proximal_site_coordinates",
+        "coordinate_confidence": "approximate",
+        "sample_count": 1,
+        "sample_record_ids": [
+          "bos_taurus:sample:prjeb75467:samea115574442"
+        ],
+        "sample_group_ids": [
+          "PRJEB75467"
+        ],
+        "source_native_taxon_labels": [
+          "Bos primigenius (tax_id 9909)"
+        ],
+        "source_native_tax_ids": [
+          "9909"
+        ],
+        "source_native_scientific_names": [
+          "Bos primigenius"
+        ],
+        "taxon_alignment_statuses": [
+          "project_species_mismatch"
+        ],
+        "sample_namespace": "bos_taurus:sample_locality",
+        "inclusion_notes": [
+          "The supplementary workbook identifies this coordinate as proximal to the site; it supports approximate locality placement without implying an exact specimen findspot."
+        ],
+        "latitude_text": "55.8476269883224",
+        "longitude_text": "13.8093770947441",
+        "geocoding_method": "direct_supplementary_coordinate_capture",
+        "geocoder_or_gazetteer": "not required because the supplementary table ships coordinates",
+        "confidence_rationale": "The published supplementary table describes this coordinate as proximal to the site, so it is suitable for approximate locality placement but not an exact specimen findspot.",
+        "original_place_text": "Sk\u00e5ne",
+        "resolved_place_text": "Sk\u00e5ne",
+        "paper_title": "The genomic natural history of the aurochs",
+        "paper_doi": "10.1038/s41586-024-08112-6",
+        "journal_title": "Nature",
+        "publication_year": "2024",
+        "supplementary_sources": [],
+        "project_accessions": [
+          "PRJEB75467"
+        ],
+        "primary_project_accession": "PRJEB75467",
+        "inclusion_statuses": [
+          "site_curated"
+        ],
+        "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "Supplementary Data 1!A33:Y33",
+        "source_support_status": "supplementary_table_row",
+        "exact_source_text": "workbook sample Ska3 | specimen Lzzz/3284 L84 | locality Sk\u00e5ne, Sweden | source BP claim 9657-9434 | canonical BP interval [9434, 9657] | published analysis mean 9545.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+        "time_start_bp": 9434,
+        "time_end_bp": 9657,
+        "time_mean_bp": 9546,
+        "time_year_bp": 9546,
+        "time_label": "9434-9657 BP"
       }
     },
     {
@@ -1039,15 +1591,15 @@
           },
           {
             "label": "Temporal window",
-            "value": "Unresolved time window"
+            "value": "Mid-Holocene (3001-6000 BP)"
           },
           {
             "label": "Temporal comparison posture",
-            "value": "contextual label only"
+            "value": "numeric interval with caveat"
           },
           {
             "label": "Temporal comparison note",
-            "value": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date."
+            "value": "This chronology carries numeric values, but its evidence class or precision posture still requires caution."
           },
           {
             "label": "Support note",
@@ -1131,15 +1683,15 @@
           "source_family": "animal_adna",
           "evidence_class": "archaeological_context_date",
           "precision_posture": "sample_approximate_or_modeled",
-          "comparability_posture": "contextual_label_only",
+          "comparability_posture": "numeric_interval_with_caveat",
           "summary_label": "4700 BP",
-          "temporal_window_key": "unresolved",
-          "temporal_window_label": "Unresolved time window",
-          "time_start_bp": null,
-          "time_end_bp": null,
-          "time_mean_bp": null,
-          "duration_years": null,
-          "comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
+          "temporal_window_key": "mid_holocene",
+          "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+          "time_start_bp": 4700,
+          "time_end_bp": 4700,
+          "time_mean_bp": 4700,
+          "duration_years": 0,
+          "comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
           "provenance_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
           "provenance_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
           "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | Bunds\u00f8 | Denmark | 2800-2600 BC | 4700 BP | Domestic",
@@ -1149,10 +1701,10 @@
           "normalized_labels": [],
           "uncertainty_notes": []
         },
-        "temporal_window_key": "unresolved",
-        "temporal_window_label": "Unresolved time window",
-        "temporal_comparability_posture": "contextual_label_only",
-        "temporal_comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
+        "temporal_window_key": "mid_holocene",
+        "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+        "temporal_comparability_posture": "numeric_interval_with_caveat",
+        "temporal_comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
         "nordic_inclusion": true,
         "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence.",
         "coordinate_basis": "named_site_geocoding",
@@ -1207,10 +1759,10 @@
         "source_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
         "source_support_status": "supplementary_table_row",
         "exact_source_text": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | Bunds\u00f8 | Denmark | 2800-2600 BC | 4700 BP | Domestic",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
-        "time_year_bp": null,
+        "time_start_bp": 4700,
+        "time_end_bp": 4700,
+        "time_mean_bp": 4700,
+        "time_year_bp": 4700,
         "time_label": "4700 BP"
       }
     },
@@ -1296,15 +1848,15 @@
           },
           {
             "label": "Temporal window",
-            "value": "Unresolved time window"
+            "value": "Recent and historical (0-1000 BP)"
           },
           {
             "label": "Temporal comparison posture",
-            "value": "contextual label only"
+            "value": "numeric interval with caveat"
           },
           {
             "label": "Temporal comparison note",
-            "value": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date."
+            "value": "This chronology carries numeric values, but its evidence class or precision posture still requires caution."
           },
           {
             "label": "Support note",
@@ -1388,15 +1940,15 @@
           "source_family": "animal_adna",
           "evidence_class": "archaeological_context_date",
           "precision_posture": "sample_approximate_or_modeled",
-          "comparability_posture": "contextual_label_only",
+          "comparability_posture": "numeric_interval_with_caveat",
           "summary_label": "1000 BP",
-          "temporal_window_key": "unresolved",
-          "temporal_window_label": "Unresolved time window",
-          "time_start_bp": null,
-          "time_end_bp": null,
-          "time_mean_bp": null,
-          "duration_years": null,
-          "comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
+          "temporal_window_key": "recent_historical",
+          "temporal_window_label": "Recent and historical (0-1000 BP)",
+          "time_start_bp": 1000,
+          "time_end_bp": 1000,
+          "time_mean_bp": 1000,
+          "duration_years": 0,
+          "comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
           "provenance_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
           "provenance_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
           "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | Trelleborg | Denmark | c. AD 1000 | 1000 BP | Domestic",
@@ -1406,10 +1958,10 @@
           "normalized_labels": [],
           "uncertainty_notes": []
         },
-        "temporal_window_key": "unresolved",
-        "temporal_window_label": "Unresolved time window",
-        "temporal_comparability_posture": "contextual_label_only",
-        "temporal_comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
+        "temporal_window_key": "recent_historical",
+        "temporal_window_label": "Recent and historical (0-1000 BP)",
+        "temporal_comparability_posture": "numeric_interval_with_caveat",
+        "temporal_comparison_note": "This chronology carries numeric values, but its evidence class or precision posture still requires caution.",
         "nordic_inclusion": true,
         "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Denmark sample evidence.",
         "coordinate_basis": "named_site_geocoding",
@@ -1464,10 +2016,10 @@
         "source_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
         "source_support_status": "supplementary_table_row",
         "exact_source_text": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | Trelleborg | Denmark | c. AD 1000 | 1000 BP | Domestic",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
-        "time_year_bp": null,
+        "time_start_bp": 1000,
+        "time_end_bp": 1000,
+        "time_mean_bp": 1000,
+        "time_year_bp": 1000,
         "time_label": "1000 BP"
       }
     }

@@ -87,7 +87,17 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
 
     def test_basemap_failure_has_bounded_failover_and_tile_free_mode(self) -> None:
         self.assertIn('data-basemap="none"', MAP_DOCUMENT_TEMPLATE)
-        self.assertIn("https://tile.openstreetmap.org/{z}/{x}/{y}.png", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn('id="view-controls"', MAP_DOCUMENT_TEMPLATE)
+        self.assertIn('id="basemap-switch"', MAP_DOCUMENT_TEMPLATE)
+        self.assertIn('aria-controls="basemap-switch"', MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("OpenStreetMap · no key", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("OpenTopoMap · no key", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("Offline · no tiles", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("viewControls.open = true", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("activeButton.focus({ preventScroll: true })", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn(
+            "https://tile.openstreetmap.org/{z}/{x}/{y}.png", MAP_DOCUMENT_TEMPLATE
+        )
         self.assertNotIn("basemaps.cartocdn.com", MAP_DOCUMENT_TEMPLATE)
         self.assertIn("zoomControl: false, maxZoom: 20", MAP_DOCUMENT_TEMPLATE)
         self.assertIn("const MAX_PROVIDER_TILE_ERRORS = 3", MAP_DOCUMENT_TEMPLATE)
@@ -126,3 +136,25 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
         self.assertNotIn("currentBasemap !== 'street'", html)
         self.assertIn("for (const candidate of BASEMAP_FALLBACK_ORDER)", html)
         self.assertIn("if (candidate === name) continue;", html)
+        self.assertNotIn("Open prepared chronology playback", html)
+
+    def test_nordic_map_links_to_prepared_chronology_playback(self) -> None:
+        plan = build_published_geography_plan(("Sweden", "Norway"))
+        nordic_policy = resolve_map_scope_policy(
+            next(scope for scope in plan.regional_scopes if scope.key == "nordic")
+        )
+
+        html = render_multi_country_map_html(
+            "Nordic",
+            "test-build",
+            "2026-09-06",
+            ("Sweden", "Norway"),
+            nordic_policy,
+            [],
+            [],
+            "../../../assets",
+        )
+
+        self.assertIn('href="../../../public/nordic-atlas/chronology-playback/"', html)
+        self.assertIn("Open prepared chronology playback", html)
+        self.assertNotIn("__CHRONOLOGY_PLAYBACK_ACTION__", html)

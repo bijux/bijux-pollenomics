@@ -2,25 +2,25 @@
   "schema_version": "animal-atlas-readiness.v2",
   "status_counts": {
     "publishable": 3,
-    "thin": 2,
-    "blocked": 5
+    "thin": 3,
+    "blocked": 4
   },
   "reconciled_denominators": {
     "coordinate_provenance": {
-      "denominator": 284,
-      "mappable": 280,
+      "denominator": 289,
+      "mappable": 285,
       "refused": 4
     },
     "publication": {
-      "denominator": 280,
-      "published": 273,
-      "not_materialized": 7
+      "denominator": 285,
+      "published": 151,
+      "not_materialized": 134
     },
     "samples": {
       "denominator": 1450,
-      "mapped": 611,
-      "blocked": 839,
-      "unresolved_subset_of_blocked": 95
+      "mapped": 288,
+      "blocked": 1162,
+      "unresolved_subset_of_blocked": 90
     }
   },
   "rows": [
@@ -34,23 +34,20 @@
       "region_only_coordinate_refusal_count": 0,
       "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 208,
-      "publication_candidate_count": 203,
-      "not_materialized_count": 5,
-      "candidate_point_count": 203,
-      "mapped_sample_count": 483,
-      "blocked_sample_count": 67,
+      "publication_candidate_count": 78,
+      "not_materialized_count": 130,
+      "candidate_point_count": 78,
+      "mapped_sample_count": 157,
+      "blocked_sample_count": 393,
       "tracked_sample_count": 550,
       "coordinate_mappable_provenance_count": 208,
       "coordinate_refused_provenance_count": 0,
       "coordinate_provenance_denominator": 208,
       "coordinate_mappable_share": 1.0,
-      "publication_share_of_mappable_coordinates": 0.976,
+      "publication_share_of_mappable_coordinates": 0.375,
       "readiness_status": "publishable",
-      "status_reason": "203 candidate point rows now survive the current atlas contract.",
-      "country_mapped_locality_counts": {
-        "Sweden": 1,
-        "Denmark": 1
-      }
+      "status_reason": "78 candidate point rows now survive the current atlas contract.",
+      "country_mapped_locality_counts": {}
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
@@ -110,27 +107,30 @@
     {
       "species_latin_name": "Bos taurus",
       "species_common_name": "cattle",
-      "direct_coordinate_backed": 0,
+      "direct_coordinate_backed": 5,
       "indirectly_geocoded": 0,
-      "unresolved_sample_count": 67,
+      "unresolved_sample_count": 62,
       "refused_coordinate_provenance_count": 1,
       "region_only_coordinate_refusal_count": 1,
       "unresolved_location_coordinate_refusal_count": 0,
-      "coordinate_provenance_mappable_count": 0,
-      "publication_candidate_count": 0,
-      "not_materialized_count": 0,
-      "candidate_point_count": 0,
-      "mapped_sample_count": 0,
-      "blocked_sample_count": 132,
+      "coordinate_provenance_mappable_count": 5,
+      "publication_candidate_count": 4,
+      "not_materialized_count": 1,
+      "candidate_point_count": 4,
+      "mapped_sample_count": 5,
+      "blocked_sample_count": 127,
       "tracked_sample_count": 132,
-      "coordinate_mappable_provenance_count": 0,
+      "coordinate_mappable_provenance_count": 5,
       "coordinate_refused_provenance_count": 1,
-      "coordinate_provenance_denominator": 1,
-      "coordinate_mappable_share": 0.0,
-      "publication_share_of_mappable_coordinates": null,
-      "readiness_status": "blocked",
-      "status_reason": "132 blocked sample rows and 1 refused coordinate-provenance rows still prevent atlas publication.",
-      "country_mapped_locality_counts": {}
+      "coordinate_provenance_denominator": 6,
+      "coordinate_mappable_share": 0.8333,
+      "publication_share_of_mappable_coordinates": 0.8,
+      "readiness_status": "thin",
+      "status_reason": "4 candidate point rows remain too thin for broad atlas claims.",
+      "country_mapped_locality_counts": {
+        "Sweden": 2,
+        "Denmark": 2
+      }
     },
     {
       "species_latin_name": "Capra hircus",
@@ -192,19 +192,19 @@
       "region_only_coordinate_refusal_count": 0,
       "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 40,
-      "publication_candidate_count": 40,
-      "not_materialized_count": 0,
-      "candidate_point_count": 40,
-      "mapped_sample_count": 56,
-      "blocked_sample_count": 50,
+      "publication_candidate_count": 39,
+      "not_materialized_count": 1,
+      "candidate_point_count": 39,
+      "mapped_sample_count": 54,
+      "blocked_sample_count": 52,
       "tracked_sample_count": 106,
       "coordinate_mappable_provenance_count": 40,
       "coordinate_refused_provenance_count": 0,
       "coordinate_provenance_denominator": 40,
       "coordinate_mappable_share": 1.0,
-      "publication_share_of_mappable_coordinates": 1.0,
+      "publication_share_of_mappable_coordinates": 0.975,
       "readiness_status": "publishable",
-      "status_reason": "40 candidate point rows now survive the current atlas contract.",
+      "status_reason": "39 candidate point rows now survive the current atlas contract.",
       "country_mapped_locality_counts": {}
     },
     {

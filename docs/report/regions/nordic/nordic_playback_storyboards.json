@@ -1,7 +1,7 @@
 {
   "schema_version": "map-playback-manifest.v1",
   "atlas_identity": {
-    "build_id": "atlas-b2cb7b42ef144bfc300a1dba5b31eb0a23ae2ddae6c04337aed8107cbf400191",
+    "build_id": "atlas-bd5976451ef3c21f332e172cb9d65b0a501e2aed50c6104e3400abcf05b97564",
     "scope_slug": "nordic",
     "version": "v66",
     "countries": [
@@ -28430,7 +28430,7 @@
     "story_count": 47,
     "stories": [
       {
-        "story_id": "pangaea-937075-metric-abies.alba",
+        "story_id": "pangaea-937075-metric-abies-alba",
         "title": "PANGAEA 937075 modeled context \u2014 Abies alba",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -29384,7 +29384,7 @@
         ]
       },
       {
-        "story_id": "pangaea-937075-metric-alnus.glutinosa",
+        "story_id": "pangaea-937075-metric-alnus-glutinosa",
         "title": "PANGAEA 937075 modeled context \u2014 Alnus glutinosa",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -29861,7 +29861,7 @@
         ]
       },
       {
-        "story_id": "pangaea-937075-metric-amanranthaceae.chenopodiaceae",
+        "story_id": "pangaea-937075-metric-amanranthaceae-chenopodiaceae",
         "title": "PANGAEA 937075 modeled context \u2014 Amaranthaceae/Chenopodiaceae",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -31292,7 +31292,7 @@
         ]
       },
       {
-        "story_id": "pangaea-937075-metric-buxus.sempervirens",
+        "story_id": "pangaea-937075-metric-buxus-sempervirens",
         "title": "PANGAEA 937075 modeled context \u2014 Buxus sempervirens",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -31769,7 +31769,7 @@
         ]
       },
       {
-        "story_id": "pangaea-937075-metric-calluna.vulgaris",
+        "story_id": "pangaea-937075-metric-calluna-vulgaris",
         "title": "PANGAEA 937075 modeled context \u2014 Calluna vulgaris",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -32246,7 +32246,7 @@
         ]
       },
       {
-        "story_id": "pangaea-937075-metric-carpinus.betulus",
+        "story_id": "pangaea-937075-metric-carpinus-betulus",
         "title": "PANGAEA 937075 modeled context \u2014 Carpinus betulus",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -32723,7 +32723,7 @@
         ]
       },
       {
-        "story_id": "pangaea-937075-metric-carpinus.orientalis",
+        "story_id": "pangaea-937075-metric-carpinus-orientalis",
         "title": "PANGAEA 937075 modeled context \u2014 Carpinus orientalis",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -33677,7 +33677,7 @@
         ]
       },
       {
-        "story_id": "pangaea-937075-metric-cerealia.t",
+        "story_id": "pangaea-937075-metric-cerealia-t",
         "title": "PANGAEA 937075 modeled context \u2014 Cerealia-t",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -34154,7 +34154,7 @@
         ]
       },
       {
-        "story_id": "pangaea-937075-metric-corylus.avellana",
+        "story_id": "pangaea-937075-metric-corylus-avellana",
         "title": "PANGAEA 937075 modeled context \u2014 Corylus avellana",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -36062,7 +36062,7 @@
         ]
       },
       {
-        "story_id": "pangaea-937075-metric-fagus.sylvatica",
+        "story_id": "pangaea-937075-metric-fagus-sylvatica",
         "title": "PANGAEA 937075 modeled context \u2014 Fagus sylvatica",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -43694,7 +43694,7 @@
         ]
       },
       {
-        "story_id": "pangaea-937075-metric-plantago.lanceolata.type",
+        "story_id": "pangaea-937075-metric-plantago-lanceolata-type",
         "title": "PANGAEA 937075 modeled context \u2014 Plantago lanceolata",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -44648,7 +44648,7 @@
         ]
       },
       {
-        "story_id": "pangaea-937075-metric-quercus.deciduous",
+        "story_id": "pangaea-937075-metric-quercus-deciduous",
         "title": "PANGAEA 937075 modeled context \u2014 Quercus deciduous t.",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -45125,7 +45125,7 @@
         ]
       },
       {
-        "story_id": "pangaea-937075-metric-quercus.evergreen",
+        "story_id": "pangaea-937075-metric-quercus-evergreen",
         "title": "PANGAEA 937075 modeled context \u2014 Quercus evergreen t.",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -45602,7 +45602,7 @@
         ]
       },
       {
-        "story_id": "pangaea-937075-metric-rumex.acetosa.t",
+        "story_id": "pangaea-937075-metric-rumex-acetosa-t",
         "title": "PANGAEA 937075 modeled context \u2014 Rumex acetosa-t",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
@@ -50858,5 +50858,5 @@
     "story_count": 0,
     "edge_count": 0
   },
-  "content_sha256": "1e773fb328a8bf066b0ed0d9e58cbe5fcff63df388c9c82952eaac780c983251"
+  "content_sha256": "0647f0a0bb1f90b8f0d859e926176d907ff4f03e40a79094b4f53471b8f93649"
 }

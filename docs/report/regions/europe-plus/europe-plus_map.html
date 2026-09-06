@@ -320,6 +320,8 @@
       .topbar-time-stepper .time-stepper-status {
         grid-column: auto;
         min-width: 0;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        cursor: pointer;
       }
       .topbar-time-stepper #time-playback-toggle {
         min-height: 38px;
@@ -331,6 +333,55 @@
         padding: 8px 10px;
         border-radius: 999px;
         text-align: left;
+      }
+      .basemap-copy {
+        display: grid;
+        gap: 1px;
+      }
+      .basemap-subtitle {
+        color: var(--muted);
+        font-size: 9px;
+        font-weight: 600;
+      }
+      .status-pill-action {
+        appearance: none;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+        font: inherit;
+        text-align: left;
+        text-decoration: underline;
+        text-decoration-color: rgba(20, 33, 61, 0.24);
+        text-underline-offset: 3px;
+      }
+      .source-time-density {
+        margin: 14px 0 0;
+        padding: 12px;
+        border: 1px solid rgba(20, 33, 61, 0.10);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.72);
+      }
+      .source-time-density figcaption {
+        color: var(--ink);
+        font-size: 12px;
+        font-weight: 800;
+      }
+      .source-time-density-bars {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(4px, 1fr));
+        align-items: end;
+        gap: 3px;
+        height: 82px;
+        margin-top: 10px;
+        border-bottom: 1px solid rgba(20, 33, 61, 0.14);
+      }
+      .source-time-density-bar {
+        min-height: 2px;
+        border-radius: 4px 4px 0 0;
+        background: linear-gradient(180deg, #0f766e, #14b8a6);
       }
       .basemap-preview {
         width: 18px;
@@ -1602,7 +1653,7 @@
           </div>
           <div class="time-stepper topbar-time-stepper" aria-label="Chronology navigation">
             <button id="time-step-older" class="inline-button" type="button">← Older</button>
-            <div id="time-stepper-status" class="time-stepper-status" aria-live="polite">Preparing chronological navigation</div>
+            <button id="time-stepper-status" class="time-stepper-status" type="button" aria-live="polite" aria-controls="source-chronology-controls">Preparing chronological navigation</button>
             <button id="time-step-newer" class="inline-button" type="button">Newer →</button>
             <button id="time-playback-toggle" class="inline-button is-primary" type="button" aria-pressed="false">Play oldest → present</button>
           </div>
@@ -1640,7 +1691,7 @@
               </div>
             </div>
             <div class="control-panel-body">
-              <details class="control-group">
+              <details id="view-controls" class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">View</span>
@@ -1649,10 +1700,10 @@
                   <span class="control-group-summary">Keyless or no-basemap</span>
                 </summary>
                 <div class="control-group-body">
-                  <div class="basemap-switch" aria-label="Basemap selection">
-                    <button class="basemap-button is-active" type="button" data-basemap="street" title="Keyless OpenStreetMap street and place context."><span class="basemap-preview basemap-preview--street"></span><span class="basemap-title">Street</span></button>
-                    <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span></button>
-                    <button class="basemap-button" type="button" data-basemap="none" title="Keep evidence and orientation controls usable without network tiles."><span class="basemap-preview"></span><span class="basemap-title">No basemap</span></button>
+                  <div id="basemap-switch" class="basemap-switch" aria-label="Basemap selection">
+                    <button class="basemap-button is-active" type="button" data-basemap="street" title="Keyless OpenStreetMap street and place context."><span class="basemap-preview basemap-preview--street"></span><span class="basemap-copy"><span class="basemap-title">Street</span><span class="basemap-subtitle">OpenStreetMap · no key</span></span></button>
+                    <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-copy"><span class="basemap-title">Terrain</span><span class="basemap-subtitle">OpenTopoMap · no key</span></span></button>
+                    <button class="basemap-button" type="button" data-basemap="none" title="Keep evidence and orientation controls usable without network tiles."><span class="basemap-preview"></span><span class="basemap-copy"><span class="basemap-title">No basemap</span><span class="basemap-subtitle">Offline · no tiles</span></span></button>
                   </div>
                   <div class="map-actions">
                     <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
@@ -1714,6 +1765,7 @@
                 </summary>
                 <div class="control-group-body">
                   <div class="search-meta">Inspect source-native sample presence, literal ecological codes, or source-reported taxon and pollen-type labels. Dense code and taxon views are opt-in. These records are chronology context only and are not propagation evidence.</div>
+
                   <label class="field-label" for="source-chronology-level"><span>Source node level</span><span>one layer at a time</span></label>
                   <select id="source-chronology-level" class="search-input" aria-label="Select a Neotoma source chronology node level"></select>
                   <div id="source-chronology-code-fields" hidden>
@@ -1732,6 +1784,11 @@
                   </div>
                   <div id="source-chronology-state" class="search-meta" aria-live="polite">Source chronology metadata unavailable.</div>
                   <div id="source-chronology-global-denominator" class="search-meta" aria-live="polite">Global pre-filter denominator unavailable.</div>
+                  <figure id="source-time-density" class="source-time-density" hidden>
+                    <figcaption id="source-time-density-caption">Oldest-to-present source-record density</figcaption>
+                    <div id="source-time-density-bars" class="source-time-density-bars" role="img" aria-labelledby="source-time-density-caption"></div>
+                    <div class="search-meta">Closed BP-interval overlap by governed facet. A record can intersect multiple bins, so bins are not additive and do not imply abundance, interpolation, flow, or propagation.</div>
+                  </figure>
                   <div class="search-meta">Captured source-record concentration groups admitted records only at the same source site. Symbol size is the raw visible node count. It is not abundance, absence, propagation, flow, or heat, and it never combines source levels or weights reported values.</div>
                 </div>
               </details>
@@ -1935,7 +1992,7 @@
           <div class="status-pill"><span class="status-pill-label">Center</span><span id="center-readout" class="status-pill-value">--</span></div>
           <div class="status-pill"><span class="status-pill-label">Cursor</span><span id="cursor-readout" class="status-pill-value">Move over map</span></div>
           <div class="status-pill"><span class="status-pill-label">Selection</span><span id="selection-readout" class="status-pill-value">No selection</span></div>
-          <div class="status-pill"><span class="status-pill-label">Basemap</span><span id="basemap-readout" class="status-pill-value" aria-live="polite">Starting</span></div>
+          <div class="status-pill"><span class="status-pill-label">Basemap</span><button id="basemap-readout" class="status-pill-value status-pill-action" type="button" aria-live="polite" aria-controls="basemap-switch">Starting</button></div>
         </div>
       </main>
     </div>
@@ -2001,7 +2058,7 @@
         </div>
       </div>
     </div>
-    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"europe-plus","version":"v66","build_id":"atlas-7353dfe1bd47bb81c83ccd5986652a0113c4e55a0ff57d01add14324a59c7c68","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3"},"budgets":{"bootstrap_max_bytes":65536,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1241},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":5,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1237}},"assets":{"schema_version":"atlas-static-asset-table.v2","scope_slug":"europe-plus","fields":["domain","sha256","payload_sha256","decoded_byte_count","byte_count","record_count","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","scientific_signal_ids"],"record_count":17,"records":[["provenance","cd603670a45ac5d7b21880df65528a20259acf8a0b0502953957bed5208e744d","44391b4788d7361da2578cbdb702dfe80d07708101b675d6ef08a2b60b9e1fc1",6083,2348,5,null,null,null,null,null,null,null,null,null],["nodes","dad98535cf18ce13352ff60e1d066a79240349da6612e0b02156bde93cbf7893","4b6e20590f83eb5faa4f22e777d64b7c4c62832af7e2ceb0f9dffad1bdbb9e35",1490382,80287,653,0,"aadr","point",["Denmark"],[54.623,8.728229,57.5065361,14.99854],73.0,10520.0,4,[]],["nodes","a8bed5c9ea21fd0cda90c9c7b4ef70aa93c251949a2350af932a7bf6614ccdcc","4ac1ce349413c6c449781c29964e2959361c2898010be3c88f78f57f825c5ead",68081,3855,32,0,"aadr","point",["Finland"],[60.2,22.178,69.91,27.03],0.0,1688.0,0,[]],["nodes","3b6f3a22100e336546c25d2c5dd094f11f072877f4ef1134ebe701301d00db35","dc403749cb75e4d935734399610cf5f2496962dcb4f4c33c5c2a4e27d3be7ae1",296587,18199,130,0,"aadr","point",["Norway"],[58.064,5.126940543,70.117388,19.017706],0.0,9486.0,0,[]],["nodes","d4651e9acb8f26585f529f6351efd58fe7bf77b8f1c923ba3ed0fa1216202dc9","78e8e73461078e6fc8b468ef55f66d5a0a928de91772b98d5c160b797fcbf481",957983,45915,416,0,"aadr","point",["Sweden"],[55.37774,11.3007,63.2,18.7],274.0,10010.0,0,[]],["nodes","a0278c74dad20c4c7b8a58abc2a82c6477b628032cceb6b2b406df5a3985c599","c0bd4d2b3c255dd970e44db7462d5a3bd19e47e316e097120b377e33117d2ee1",7090,3107,1,1,"animal-equus-caballus","point",["Denmark"],[56.41134,10.74481,56.41134,10.74481],4944.0,4961.0,0,[]],["nodes","7f8f5c276ff731a0bf1cfd081ce5ce986c8ed1836837a866fc254d0869f4e32b","4b0bafef6bc44dca91077c93bd3767d113f729fcd9bbc27dd30e4db04f6d654d",6673,2987,1,1,"animal-equus-caballus","point",["Sweden"],[59.861,17.639,59.861,17.639],1217.0,1417.0,0,[]],["nodes","8e34b39a32679f84a6ad6f06ed01869372c265ada85861ec59b3e3f288d28fbe","8d36792881934f2efe44e0116805f2cf8ab2ede21b1dbe0db03e67087a62b92e",6738,3123,1,2,"animal-ovis-aries","point",["Finland"],[60.23,20.08,60.23,20.08],340.0,527.0,0,[]],["nodes","41013216d9279b9eaa70724a9a787761d49d307a67f6a6291c579a304c522dd1","c888446886b293afc0ac3b8dc8f58de38fe29eb017b48253e12b292c40d12610",6865,3151,1,2,"animal-ovis-aries","point",["Sweden"],[57.29,17.97,57.29,17.97],3699.0,4151.0,0,[]],["nodes","85aacf6be98922fa6da7035be2a6e08cfb44b87070912c955c93438d4beacb41","e0e93f7e7cefdeddc9f9e1d4daadcd558c26ee22394ad8c87c0a252282117d87",16724,4271,2,3,"animal-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],null,null,2,[]],["nodes","184c29af98599695f602f894a206d0f11b57bbca99a640bf8f66a5c0bbf442e6","a577badbe8527728e3931d987049df5b741447729e2eb88997904dc37a10a980",47147,23436,1,4,"country-boundaries","polygon",["Denmark"],[54.56859,8.094005,57.751166,15.151378],null,null,1,[]],["nodes","6cf48b865cf557058b5baf7d604c765972c905d9a7ba896ebf69897069195f13","26b9e5262749278e38166332aad64f56e8b46c9a989f54996f6b78a599a6e198",70887,35312,1,4,"country-boundaries","polygon",["Finland"],[59.811225,20.623165,70.07531,31.569525],null,null,1,[]],["nodes","f5900fa053a35696fbfcf38eaa98212b3d306ab709ea33edee670d297aef2360","a041cb39fe38f36427d89f099ddd66126db308f85f7658f2d0d05abc66f51dbf",341282,165780,1,4,"country-boundaries","polygon",["Norway"],[-54.462498,-9.117421,80.770087,33.640391],null,null,1,[]],["nodes","323b39c6ce6a2c7262b2ec06da303d30bfd36621c4645b687e5fa44cd8710bb7","dc5be508e4976f7117fe7404a63049b97d935da0900f3c1314ca2f927c1fc16f",102306,50008,1,4,"country-boundaries","polygon",["Sweden"],[55.342678,11.108165,69.036356,24.163414],null,null,1,[]],["edges","3952fd1282b64d75b95a6e04f106f03b9100c907fc067de9622820b9e5b14fd4","b40107c78d4fe8b17b0ac576d7758e97b2602be1513948d95cb7cdafdc491bc4",281,589,0,null,null,null,null,null,null,null,null,null],["sequences","b0ef3b1cc58181e65116249d91c0ca6a74266e5c9f85e676ae41f71d8b602fff","ea3b65c23788a6e5cf5022ab25647275732b2023a60b6972cf81ecb8456ab302",296,608,0,null,null,null,null,null,null,null,null,null],["indexes","8779db0fce756f6edca3d20872e1d0b58445858d825e569f23ae57cb37c971e3","f6d0aaebd46c0ea70b3eed3cf28b8de9aeba2d1bd5d09812acf46f977d5642b9",18169,18589,1237,null,null,null,null,null,null,null,null,null]]}}</script>
+    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"europe-plus","version":"v66","build_id":"atlas-15290a4aa083cf600dbf6cdac0cffa3461873f8238e38e1321400616fee43104","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3"},"budgets":{"bootstrap_max_bytes":65536,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1243},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":5,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1239}},"assets":{"schema_version":"atlas-static-asset-table.v2","scope_slug":"europe-plus","fields":["domain","sha256","payload_sha256","decoded_byte_count","byte_count","record_count","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","scientific_signal_ids"],"record_count":17,"records":[["provenance","6d5eb7ccc748e9cc1f88d51e0d359d5db41b02b150aa6873d06d1be1ed17911c","d50d65e5a8d463df422d34fbb16bfa05f995b727643c95b276bd2b163574b0be",6237,2384,5,null,null,null,null,null,null,null,null,null],["nodes","52fda8e5d063678af29cb010760a4e5b7957ebaa22f5b73947f8112d7eb9ae27","bbff1ecdc512dadd77fc177e4b9029b2636f7a34ce8c1a78375407b90de4b34f",1490382,80287,653,0,"aadr","point",["Denmark"],[54.623,8.728229,57.5065361,14.99854],73.0,10520.0,4,[]],["nodes","d8fd897f5b46fb8fb2afdead2cb98a8f109634f727b7b158d8bf7b87f631c935","cc0521322d3299767602b42eb76dd21fe2184210db9419d267a9c79a5efc93c5",68081,3855,32,0,"aadr","point",["Finland"],[60.2,22.178,69.91,27.03],0.0,1688.0,0,[]],["nodes","ce88a575ad16fee7c53ef1b50fc17937adc9660f531899d2dc17390eccae23df","4b2b1a7c0e0e57dc7169136d43796fcf7282c515d783c1d430c6e823d0ec3826",296587,18199,130,0,"aadr","point",["Norway"],[58.064,5.126940543,70.117388,19.017706],0.0,9486.0,0,[]],["nodes","c93387abc2841a6b3045fb1011b07723e8b16cfc43a6c8c74ff263399ec63dd1","bb2a081ffda29d5977a88ac71d2184d364d5d7bc8da5bf4cb3d1749ed83d59bb",957983,45919,416,0,"aadr","point",["Sweden"],[55.37774,11.3007,63.2,18.7],274.0,10010.0,0,[]],["nodes","6aa2e2702d69480a1c41c8dc41126eff801d2eab26819a819b99965a2d19905b","6beddedf1f65fbed2da8eb75a68adbc595b30f327eef2255b1faa0dc39ef630d",17195,4207,2,1,"animal-bos-taurus-wild-or-progenitor-context","point",["Denmark"],[55.3584015935903,9.8686973853874,57.2407065497517,11.3931303537925],6748.0,8173.0,0,[]],["nodes","06e94ae4ba82b1a4288fcc08cfaa7a520d67ce0eb6ca6123162af7cae0d9662c","32e0b08d7022366dba0a6fbbb6f15fbc8af2b75243d623c265080d67a1bf5c71",15645,3839,2,1,"animal-bos-taurus-wild-or-progenitor-context","point",["Sweden"],[55.6219,13.2297,55.8476269883224,13.8093770947441],9133.0,9657.0,0,[]],["nodes","0ca749bb97f1ca90296d5f816da7bcfd1b504f4ffc1d79c2d8f2e15880b19382","8786410abb2c246e97a577d7012aab3a40abfc0fd0139582ee6b0e92b6b614a3",6738,3123,1,2,"animal-ovis-aries","point",["Finland"],[60.23,20.08,60.23,20.08],340.0,527.0,0,[]],["nodes","9a124ea0a33a4656ede971b817c86fc5e1c91a81e763a7b3bafaf62674e36381","b5de46c31161f8ef2953e333ce6dc25cf837454f8b9865efd37360c9e9660cb4",6865,3151,1,2,"animal-ovis-aries","point",["Sweden"],[57.29,17.97,57.29,17.97],3699.0,4151.0,0,[]],["nodes","a5b2e5ad2c92699cca27ec2532f207855be7cf79de7d1e2fed2f6ec6a1f280e1","de13da8da903ec0049788085a7a047fd74d0589203f3850420e5e30f2b407626",16868,4367,2,3,"animal-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],1000.0,4700.0,0,[]],["nodes","a80cc06ce0915abe7253961b9aeed445e337441c04785b7764fa3dc638773a98","75f9a5e6acdab44b6c08a0eeb73d98003fcc0981cdfa01f1d20e911e98f44a77",47147,23428,1,4,"country-boundaries","polygon",["Denmark"],[54.56859,8.094005,57.751166,15.151378],null,null,1,[]],["nodes","50354722438d7786493349ba6e722978a0fd31f39923b6d065457ca9593a627c","2de0ceb3aa1e62ad44b5ac4852811ce299b2d0fb8e12b931082827cba45a9949",70887,35316,1,4,"country-boundaries","polygon",["Finland"],[59.811225,20.623165,70.07531,31.569525],null,null,1,[]],["nodes","0cca78d221884ea43a1d0c6663845252e4abcbcd00013376db7c46b762a6ff24","8e8cb01134ac7f5e7046e4e4a703336b30b75cb70186fc622ae50353f2833375",341282,165772,1,4,"country-boundaries","polygon",["Norway"],[-54.462498,-9.117421,80.770087,33.640391],null,null,1,[]],["nodes","26413c97d5fd97ec84c83c7ac7b5e56bb037cfda3df4542ce4689ad0bd6ed867","79119f4c11704a5bce7667b4b011dde43d0b38e9730145cd6e37d0283b3f9e84",102306,50000,1,4,"country-boundaries","polygon",["Sweden"],[55.342678,11.108165,69.036356,24.163414],null,null,1,[]],["edges","e7f4cbcd88e60ba383a340ddf8f4dd15f18e6bcca51ed902cdd646cf9ea67eb4","423bc5f6bc09b4b4ca44dd56fb16bb2e80ffd69f3dedafc3f8c2d10227b7dba9",281,589,0,null,null,null,null,null,null,null,null,null],["sequences","189ac018ebd2288167917b6b89849efb40b4748d4dc9930b8aca0322323ea900","eed3e1f429fbae51c50a90d0c46f0050b5694267c08259fd25661e2f39376a3c",296,608,0,null,null,null,null,null,null,null,null,null],["indexes","a5ee7aa28273a2f3e91344a150d730fa940dc67db96e40278f3b5bed87c03b62","6d7946e7471358d89d793f68ac8db2698530574bae0f62bc5f51c9a8f729588a",18417,18837,1239,null,null,null,null,null,null,null,null,null]]}}</script>
     <script src="./_map_assets/leaflet/leaflet.js"></script>
     <script src="./_map_assets/markercluster/leaflet.markercluster.js"></script>
 
@@ -2505,12 +2562,13 @@
         { key: 'primary-evidence', label: 'Human aDNA' },
         { key: 'animal-domesticated-evidence', label: 'Domesticated animal aDNA' },
         { key: 'animal-comparator-evidence', label: 'Comparator animal aDNA' },
+        { key: 'animal-progenitor-evidence', label: 'Wild and progenitor animal aDNA' },
         { key: 'candidate-ranking', label: 'Sweden lake ranking' },
         { key: 'environmental-context', label: 'Environmental context' },
         { key: 'archaeology-context', label: 'Archaeology context' },
         { key: 'orientation', label: 'Orientation layers' },
       ];
-      const ANIMAL_LAYER_GROUPS = new Set(['animal-domesticated-evidence', 'animal-comparator-evidence']);
+      const ANIMAL_LAYER_GROUPS = new Set(['animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence']);
       const ANIMAL_SPECIES = Array.from(
         new Map(
           POINT_LAYERS
@@ -2576,6 +2634,8 @@
       const mobileLayoutQuery = window.matchMedia('(max-width: 900px)');
       const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
       const panelToggleButton = document.getElementById('panel-toggle');
+      const viewControls = document.getElementById('view-controls');
+      const basemapSwitch = document.getElementById('basemap-switch');
       const helpToggleButton = document.getElementById('help-toggle');
       const helpDialog = document.getElementById('help-dialog');
       const helpCloseButton = document.getElementById('help-close');
@@ -2631,6 +2691,9 @@
       const sourceRecordConcentrationToggle = document.getElementById('source-record-concentration-toggle');
       const sourceChronologyState = document.getElementById('source-chronology-state');
       const sourceChronologyGlobalDenominator = document.getElementById('source-chronology-global-denominator');
+      const sourceTimeDensity = document.getElementById('source-time-density');
+      const sourceTimeDensityCaption = document.getElementById('source-time-density-caption');
+      const sourceTimeDensityBars = document.getElementById('source-time-density-bars');
       const modeledContextControls = document.getElementById('modeled-context-controls');
       const modeledContextSummary = document.getElementById('modeled-context-summary');
       const modeledContextFamily = document.getElementById('modeled-context-family');
@@ -2909,11 +2972,8 @@
         dockTimeSummary.textContent = `[${timeStartBp}, ${endBp}] BP`;
         timeStartValue.textContent = `[${timeStartBp}, ${endBp}] BP`;
         timeIntervalValue.textContent = `${timeIntervalYears} years`;
-        const sourceSelection = sourceChronologyPlaybackSelection();
-        const navigationLabel = sourceSelection ? 'selected Neotoma source extent' : 'complete atlas extent';
         timeStepOlder.disabled = timeStartBp >= oldestPlaybackStart(timeIntervalYears, navigationExtent);
         timeStepNewer.disabled = timeStartBp <= navigationExtent.time_min_bp;
-        timeStepperStatus.textContent = `${navigationLabel} · ${automaticPlaybackFrameCount(timeIntervalYears, navigationExtent)} frames · oldest to present`;
         refreshTimePlaybackControl();
       }
       const initialState = parseHashState();
@@ -3198,6 +3258,27 @@
         if (nodeCount === 0) return row.time_min_bp === null && row.time_max_bp === null;
         return minimum !== null && maximum !== null && minimum <= maximum;
       }
+      function sourceChronologyTimeDensityIsValid(density, facet) {
+        if (!density || density.schema_version !== 'source-chronology-time-density.v1') return false;
+        if (density.temporal_direction !== 'oldest_to_present' || density.interval_semantics !== '[younger_bp, older_bp]') return false;
+        if (density.bin_admission !== 'closed_interval_overlap' || density.bins_are_additive !== false) return false;
+        if (density.node_count !== facet.node_count || density.observation_denominator !== facet.observation_denominator) return false;
+        if (density.time_min_bp !== facet.time_min_bp || density.time_max_bp !== facet.time_max_bp) return false;
+        if (!Array.isArray(density.bins)) return false;
+        const expectedBinCount = facet.node_count === 0 ? 0 : (facet.time_min_bp === facet.time_max_bp ? 1 : 12);
+        if (density.bins.length !== expectedBinCount) return false;
+        return density.bins.every((row, index) => {
+          if (!row || row.ordinal !== index) return false;
+          const younger = sourceChronologyTimeValue(row.younger_bp);
+          const older = sourceChronologyTimeValue(row.older_bp);
+          if (younger === null || older === null || younger > older) return false;
+          if (sourceChronologyCount(row.node_count) === null || sourceChronologyCount(row.observation_denominator) === null) return false;
+          if (index === 0 && older !== facet.time_max_bp) return false;
+          if (index === density.bins.length - 1 && younger !== facet.time_min_bp) return false;
+          if (index > 0 && density.bins[index - 1].younger_bp !== older) return false;
+          return true;
+        });
+      }
       function sourceChronologyFacetRowsAreValid(rows, { featureKey = false, taxon = false, timeExtent = false } = {}) {
         if (!Array.isArray(rows)) return false;
         const values = new Set();
@@ -3205,7 +3286,10 @@
           if (!row || typeof row !== 'object' || typeof row.value !== 'string' || !row.value.trim() || values.has(row.value)) return false;
           values.add(row.value);
           if (sourceChronologyCount(row.node_count) === null || sourceChronologyCount(row.observation_denominator) === null) return false;
-          if (timeExtent && !sourceChronologyExtentIsValid(row)) return false;
+          if (timeExtent && (
+            !sourceChronologyExtentIsValid(row)
+            || !sourceChronologyTimeDensityIsValid(row.time_density, row)
+          )) return false;
           if (featureKey && (typeof row.feature_key !== 'string' || !row.feature_key.trim())) return false;
           if (taxon && (typeof row.source_taxon_id !== 'string' || !row.source_taxon_id.trim() || typeof row.label !== 'string' || !row.label.trim())) return false;
           return true;
@@ -3217,9 +3301,10 @@
         if (layer.propagation_status !== 'refused' || layer.edge_count !== 0) return false;
         if (layer.temporal_direction !== 'oldest_to_present' || layer.interval_semantics !== '[younger_bp, older_bp]') return false;
         const facets = layer.facet_metadata;
-        if (!facets || facets.schema_version !== 'neotoma-source-chronology-facets.v2' || facets.node_level !== layer.node_level) return false;
+        if (!facets || facets.schema_version !== 'neotoma-source-chronology-facets.v3' || facets.node_level !== layer.node_level) return false;
         if (sourceChronologyCount(facets.node_count) === null || sourceChronologyCount(facets.observation_denominator) === null) return false;
         if (!sourceChronologyExtentIsValid(facets)) return false;
+        if (!sourceChronologyTimeDensityIsValid(facets.time_density, facets)) return false;
         if (sourceChronologyCount(layer.count) !== facets.node_count) return false;
         if (!sourceChronologyFacetRowsAreValid(facets.country_counts) || !sourceChronologyFacetRowsAreValid(facets.source_unit_counts)) return false;
         if (facets.country_counts.map((row) => row.value).join('|') !== 'Sweden|Denmark|Norway|Finland') return false;
@@ -3257,6 +3342,7 @@
           observation_denominator: facets.observation_denominator,
           time_min_bp: facets.time_min_bp,
           time_max_bp: facets.time_max_bp,
+          time_density: facets.time_density,
         };
       }
       function sourceChronologyPlaybackSelection() {
@@ -4299,6 +4385,30 @@
         }
         return true;
       }
+      function renderSourceTimeDensity(layer, facet) {
+        if (!layer || !facet || !sourceChronologyTimeDensityIsValid(facet.time_density, facet)) {
+          sourceTimeDensity.hidden = true;
+          sourceTimeDensityBars.innerHTML = '';
+          sourceTimeDensityBars.removeAttribute('aria-label');
+          return;
+        }
+        const density = facet.time_density;
+        const bins = density.bins;
+        const maximum = Math.max(0, ...bins.map((row) => row.node_count));
+        const facetLabel = sourceRecordConcentrationFacetLabel(layer);
+        sourceTimeDensity.hidden = false;
+        sourceTimeDensityCaption.textContent = `${facetLabel} · oldest-to-present source-record density`;
+        sourceTimeDensityBars.style.gridTemplateColumns = `repeat(${Math.max(1, bins.length)}, minmax(4px, 1fr))`;
+        sourceTimeDensityBars.setAttribute(
+          'aria-label',
+          `${facetLabel}: ${density.node_count} source nodes and ${density.observation_denominator} contributing observations across ${bins.length} non-additive closed-overlap bins, oldest to present.`
+        );
+        sourceTimeDensityBars.innerHTML = bins.map((row) => {
+          const height = maximum === 0 ? 3 : Math.max(3, Math.round((row.node_count / maximum) * 100));
+          const label = `[${row.younger_bp}, ${row.older_bp}] BP: ${row.node_count} source nodes; ${row.observation_denominator} contributing observations`;
+          return `<span class="source-time-density-bar" style="height:${height}%" role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}"></span>`;
+        }).join('');
+      }
       function renderSourceChronologyControls() {
         const layers = sourceChronologyLayers();
         const selectedLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
@@ -4308,6 +4418,7 @@
           sourceChronologySummary.textContent = 'Source facets unavailable';
           sourceChronologyState.textContent = 'Source chronology controls remain unavailable because governed facet metadata is absent or invalid.';
           sourceChronologyGlobalDenominator.textContent = 'Global pre-filter denominator unavailable.';
+          renderSourceTimeDensity(null, null);
           return;
         }
         sourceChronologyLevel.innerHTML = layers.map((layer) => `<option value="${escapeHtml(layer.node_level)}" ${layer.node_level === activeSourceChronologyLevel ? 'selected' : ''}>${escapeHtml(SOURCE_CHRONOLOGY_LEVEL_LABELS[layer.node_level])}</option>`).join('');
@@ -4356,8 +4467,10 @@
           sourceChronologySummary.textContent = 'Source facet unavailable';
           sourceChronologyState.textContent = 'The selected source facet is absent from governed metadata; no source chronology records are shown.';
           sourceChronologyGlobalDenominator.textContent = 'Global pre-filter denominator unavailable.';
+          renderSourceTimeDensity(null, null);
           return;
         }
+        renderSourceTimeDensity(selectedLayer, selectedFacet);
         const unitCount = selectedLayer.facet_metadata.source_unit_counts.length;
         const untimedExclusion = sourceChronologyUntimedExclusion(selectedLayer);
         const extentLabel = `[${selectedFacet.time_min_bp}, ${selectedFacet.time_max_bp}] BP`;
@@ -4391,6 +4504,42 @@
         } else {
           sourceChronologyState.textContent = `${visibleSourceEntries.length} source nodes and ${visibleObservationLabel} contributing observations visible in ${activeWindowLabel} · ${selectedFacet.node_count} nodes and ${selectedFacet.observation_denominator} observations in the global selected-facet denominator before country and BP-window filters · ${unitCount} literal source units · source playback extent ${extentLabel} · ${untimedLabel} · chronology context only`;
         }
+      }
+      function refreshTimeStepperStatus() {
+        if (!TIME_HAS_DATA) {
+          timeStepperStatus.disabled = true;
+          timeStepperStatus.textContent = 'No BP chronology available';
+          return;
+        }
+        const layers = sourceChronologyLayers();
+        timeStepperStatus.disabled = layers.length === 0;
+        timeStepperStatus.title = layers.length ? 'Open source chronology controls' : 'Source chronology unavailable';
+        const selectedLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
+        const activeWindow = `[${timeStartBp}, ${timeWindowEndBp()}] BP`;
+        if (!selectedLayer || !activeLayerKeys.has(selectedLayer.key)) {
+          timeStepperStatus.textContent = `Source chronology off · ${activeWindow} · complete atlas extent`;
+          return;
+        }
+        const selectedFacet = sourceChronologyFacetForSelection(selectedLayer, activeSourceChronologyCode, activeSourceChronologyTaxon);
+        if (!selectedFacet) {
+          timeStepperStatus.textContent = `Selected source facet unavailable · ${activeWindow}`;
+          return;
+        }
+        let visibleNodeCount;
+        let visibleObservationDenominator;
+        if (sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'available') {
+          visibleNodeCount = sourceRecordConcentrationSnapshot.visible_node_count;
+          visibleObservationDenominator = sourceRecordConcentrationSnapshot.visible_observation_denominator;
+        } else {
+          const visible = visiblePointEntries.filter(({ layer }) => layer.key === selectedLayer.key);
+          visibleNodeCount = visible.length;
+          const observationCounts = visible.map(({ feature }) => sourceChronologyCount(feature.observation_denominator));
+          visibleObservationDenominator = observationCounts.every((count) => count !== null)
+            ? observationCounts.reduce((total, count) => total + count, 0)
+            : null;
+        }
+        const visibleObservationLabel = visibleObservationDenominator === null ? 'unavailable' : visibleObservationDenominator;
+        timeStepperStatus.textContent = `${sourceRecordConcentrationFacetLabel(selectedLayer)} · ${visibleNodeCount}/${selectedFacet.node_count} nodes · ${visibleObservationLabel}/${selectedFacet.observation_denominator} observations · ${activeWindow}`;
       }
       function renderLayerControls() {
         layerFilters.innerHTML = LAYER_GROUP_DEFINITIONS
@@ -4516,21 +4665,21 @@
         if (preset === 'evidence') {
           activeLayerKeys = new Set(
             ALL_LAYERS
-              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence'].includes(layer.group))
+              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence'].includes(layer.group))
               .map((layer) => layer.key)
           );
         }
         if (preset === 'context') {
           activeLayerKeys = new Set(
             ALL_LAYERS
-              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'environmental-context', 'archaeology-context'].includes(layer.group))
+              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence', 'environmental-context', 'archaeology-context'].includes(layer.group))
               .map((layer) => layer.key)
           );
         }
         if (preset === 'orientation') {
           activeLayerKeys = new Set(
             ALL_LAYERS
-              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'orientation'].includes(layer.group))
+              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence', 'orientation'].includes(layer.group))
               .map((layer) => layer.key)
           );
         }
@@ -5196,6 +5345,7 @@
         renderRelationControls();
         renderAnimalControls();
         renderSourceChronologyControls();
+        refreshTimeStepperStatus();
         renderModeledContextControls();
         renderLegend();
         renderControlPanelSummary();
@@ -5564,6 +5714,25 @@
       });
       document.querySelectorAll('.basemap-button').forEach((button) => button.addEventListener('click', () => setBasemap(button.dataset.basemap, { manual: true })));
       panelToggleButton.addEventListener('click', () => setPanelCollapsed(!sidebar.classList.contains('is-collapsed')));
+      basemapReadout.addEventListener('click', () => {
+        setPanelCollapsed(false);
+        viewControls.open = true;
+        basemapSwitch.scrollIntoView({
+          block: 'nearest',
+          behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
+        });
+        const activeButton = basemapSwitch.querySelector('.basemap-button.is-active');
+        if (activeButton) activeButton.focus({ preventScroll: true });
+      });
+      timeStepperStatus.addEventListener('click', () => {
+        if (sourceChronologyLayers().length === 0) return;
+        setPanelCollapsed(false);
+        sourceChronologyControls.open = true;
+        sourceChronologyControls.scrollIntoView({
+          block: 'nearest',
+          behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
+        });
+      });
       helpToggleButton.addEventListener('click', openHelpDialog);
       helpCloseButton.addEventListener('click', closeHelpDialog);
       helpDialog.addEventListener('click', (event) => {

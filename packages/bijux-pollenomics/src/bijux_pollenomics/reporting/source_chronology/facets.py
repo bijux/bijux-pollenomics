@@ -10,6 +10,8 @@ from bijux_pollenomics.analysis.propagation.source_chronology import (
     SourceChronologyNode,
 )
 
+from .time_density import build_time_density
+
 COUNTRY_NAMES = {
     "SE": "Sweden",
     "DK": "Denmark",
@@ -44,9 +46,9 @@ def build_facet_metadata(
     """Return exact feature and observation denominators for selectable facets."""
     selected = [node for node in nodes if node.node_level == node_level]
     return {
-        "schema_version": "neotoma-source-chronology-facets.v2",
+        "schema_version": "neotoma-source-chronology-facets.v3",
         "node_level": node_level,
-        **_facet_summary(selected),
+        **_facet_payload(selected),
         "country_counts": _country_counts(selected),
         "source_unit_counts": _value_counts(
             (node.source_unit, len(node.observation_ids)) for node in selected
@@ -91,11 +93,13 @@ def _country_counts(nodes: Sequence[SourceChronologyNode]) -> list[dict[str, obj
 
 def _code_facets(nodes: Sequence[SourceChronologyNode]) -> list[dict[str, object]]:
     aggregates: dict[str, _FacetAggregate] = defaultdict(_empty_facet_aggregate)
+    members: dict[str, list[SourceChronologyNode]] = defaultdict(list)
     for node in nodes:
         code = node.source_ecological_group
         if code is None:
             raise ValueError("source ecological-code node lost its literal code")
         _add_to_facet_aggregate(aggregates[code], node)
+        members[code].append(node)
     return [
         {
             "value": code,
@@ -103,6 +107,7 @@ def _code_facets(nodes: Sequence[SourceChronologyNode]) -> list[dict[str, object
             "source_code": code,
             "feature_key": f"source:neotoma:ecological-code:{code}",
             **aggregates[code],
+            "time_density": build_time_density(members[code]),
         }
         for code in sorted(aggregates)
     ]
@@ -112,6 +117,7 @@ def _taxon_facets(nodes: Sequence[SourceChronologyNode]) -> list[dict[str, objec
     aggregates: dict[tuple[str, str, str], _FacetAggregate] = defaultdict(
         _empty_facet_aggregate
     )
+    members: dict[tuple[str, str, str], list[SourceChronologyNode]] = defaultdict(list)
     for node in nodes:
         if node.source_taxon_id is None or node.source_reported_name is None:
             raise ValueError("source taxon node lost exact source identity")
@@ -121,12 +127,14 @@ def _taxon_facets(nodes: Sequence[SourceChronologyNode]) -> list[dict[str, objec
             node.source_reported_name,
         )
         _add_to_facet_aggregate(aggregates[key], node)
+        members[key].append(node)
     return [
         {
             "value": feature_key,
             "source_taxon_id": taxon_id,
             "label": name,
             **aggregates[(feature_key, taxon_id, name)],
+            "time_density": build_time_density(members[(feature_key, taxon_id, name)]),
         }
         for feature_key, taxon_id, name in sorted(
             aggregates, key=lambda row: (row[2].casefold(), row[1], row[0])
@@ -139,6 +147,10 @@ def _facet_summary(nodes: Sequence[SourceChronologyNode]) -> _FacetAggregate:
     for node in nodes:
         _add_to_facet_aggregate(aggregate, node)
     return aggregate
+
+
+def _facet_payload(nodes: Sequence[SourceChronologyNode]) -> dict[str, object]:
+    return {**_facet_summary(nodes), "time_density": build_time_density(nodes)}
 
 
 def _empty_facet_aggregate() -> _FacetAggregate:

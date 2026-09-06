@@ -2,9 +2,9 @@
 
 - Overall ok: `false`
 - Sample rows: `1450`
-- Site evidence rows: `409`
-- Coordinate rows: `284`
-- Atlas rows: `273`
+- Site evidence rows: `414`
+- Coordinate rows: `289`
+- Atlas rows: `151`
 
 | Check | Passed | Finding count |
 | --- | --- | ---: |

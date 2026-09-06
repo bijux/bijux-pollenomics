@@ -1,11 +1,10 @@
 # Animal project publication gap review
 
-- Non-published project count: `32`
+- Non-published project count: `31`
 
 | Project | Species | Absence stage | Blockers |
 | --- | --- | --- | --- |
 | PRJEB31621 | Bos taurus | site_extraction | sample_context_blocked |
-| PRJEB75467 | Bos taurus | site_extraction | sample_context_blocked |
 | PRJNA705960 | Bos taurus | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated, region_only_geography, sample_context_blocked |
 | KU605068-KU605080 | Camelus dromedarius | not_point_publishable |  |
 | SRP073444 | Camelus dromedarius | not_point_publishable |  |

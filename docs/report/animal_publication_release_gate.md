@@ -18,7 +18,7 @@
 | blocked_sample_site_rows_do_not_publish_as_exact_sites_or_atlas_points | `true` | 0 |
 | unresolved_sample_chronology_does_not_publish_in_country_or_atlas_outputs | `true` | 0 |
 | project_level_locality_substitution_projects_do_not_publish_country_or_atlas_rows | `true` | 0 |
-| broad_or_contextual_chronology_does_not_publish_numeric_windows | `true` | 0 |
+| numeric_chronology_keeps_supported_precision_posture | `true` | 0 |
 | temporal_semantics_keep_contextual_rows_from_looking_numeric | `true` | 0 |
 | docs_do_not_overclaim_all_species_map_readiness | `true` | 0 |
 | docs_do_not_claim_reference_grade_without_support | `true` | 0 |

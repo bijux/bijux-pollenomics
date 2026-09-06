@@ -148,11 +148,11 @@
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
-      "key": "animal-equus-caballus",
-      "label": "Horse aDNA site evidence",
+      "key": "animal-bos-taurus-wild-or-progenitor-context",
+      "label": "Cattle aDNA site evidence (wild or progenitor context)",
       "source_name": "Tracked animal aDNA localities",
       "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
-      "count": 2,
+      "count": 4,
       "publication_role": "shared_world_scale_layer",
       "scope_visibility": "shared_default",
       "default_enabled": true,
@@ -162,7 +162,7 @@
     },
     {
       "key": "animal-ovis-aries",
-      "label": "Sheep aDNA site evidence",
+      "label": "Sheep aDNA site evidence (domesticated core)",
       "source_name": "Tracked animal aDNA localities",
       "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
       "count": 2,
@@ -175,7 +175,7 @@
     },
     {
       "key": "animal-sus-scrofa-domesticus",
-      "label": "Pig aDNA site evidence",
+      "label": "Pig aDNA site evidence (domesticated core)",
       "source_name": "Tracked animal aDNA localities",
       "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
       "count": 2,
@@ -183,7 +183,7 @@
       "scope_visibility": "shared_default",
       "default_enabled": true,
       "applies_country_filter": true,
-      "applies_time_filter": false,
+      "applies_time_filter": true,
       "scope_caveat": "Shared evidence layer across every governed scope."
     },
     {
@@ -270,7 +270,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 267151
+        "record_count": 267153
       },
       "edges": {
         "status": "unavailable",
@@ -299,7 +299,7 @@
       },
       "indexes": {
         "status": "available",
-        "record_count": 266894
+        "record_count": 266896
       }
     }
   },
