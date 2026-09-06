@@ -30,11 +30,19 @@ def publish_playback_storyboards(
     if scope_key != "nordic":
         return
 
+    if not any(
+        layer.get("semantic_role") == "source_chronology_context"
+        for layer in point_layers
+    ):
+        return
+
     canonical_countries = tuple(sorted(countries))
     source_stories, exact_taxa = build_source_chronology_storyboards(
         point_layers,
         countries=canonical_countries,
     )
+    if not source_stories:
+        return
     modeled_stories = build_modeled_context_storyboards(
         build_modeled_context_manifest(polygon_layers),
         countries=canonical_countries,

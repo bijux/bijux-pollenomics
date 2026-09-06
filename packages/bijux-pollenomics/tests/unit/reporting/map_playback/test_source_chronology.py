@@ -149,3 +149,24 @@ def test_country_selection_must_be_explicit_and_canonical() -> None:
         build_source_chronology_storyboards(
             source_layers(), countries=("Sweden", "Denmark")
         )
+
+
+def test_explicit_zero_observation_layers_publish_no_playback() -> None:
+    layers = mutable_source_layers()
+    for layer in layers:
+        facets = layer["facet_metadata"]
+        assert isinstance(facets, dict)
+        facets.update(
+            {
+                "node_count": 0,
+                "observation_denominator": 0,
+                "time_min_bp": None,
+                "time_max_bp": None,
+                "source_ecological_codes": [],
+                "source_taxa": [],
+            }
+        )
+
+    assert build_source_chronology_storyboards(
+        layers, countries=NORDIC_COUNTRIES
+    ) == ((), ())

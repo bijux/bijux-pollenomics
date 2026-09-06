@@ -41,8 +41,13 @@ def build_source_chronology_storyboards(
     for layer in layers.values():
         _validate_refused_source_layer(layer)
 
-    sample_layer = layers["source_sample_presence"]
-    sample_facets = _facet_metadata(sample_layer, "source_sample_presence")
+    facets_by_level = {
+        level: _facet_metadata(layer, level) for level, layer in layers.items()
+    }
+    if all(_is_explicit_empty_facet(facet) for facet in facets_by_level.values()):
+        return (), ()
+
+    sample_facets = facets_by_level["source_sample_presence"]
     stories = [
         _source_story(
             story_id="neotoma-source-sample-presence",
@@ -54,8 +59,7 @@ def build_source_chronology_storyboards(
         )
     ]
 
-    code_layer = layers["source_ecological_code"]
-    code_facets = _facet_metadata(code_layer, "source_ecological_code")
+    code_facets = facets_by_level["source_ecological_code"]
     code_rows = _rows_by_value(code_facets.get("source_ecological_codes"))
     missing_codes = [code for code in SOURCE_PLAYBACK_CODES if code not in code_rows]
     if missing_codes:
@@ -77,8 +81,7 @@ def build_source_chronology_storyboards(
             )
         )
 
-    taxon_layer = layers["source_taxon"]
-    taxon_facets = _facet_metadata(taxon_layer, "source_taxon")
+    taxon_facets = facets_by_level["source_taxon"]
     taxa = _exact_taxa(taxon_facets.get("source_taxa"))
     return tuple(stories), taxa
 
@@ -131,6 +134,15 @@ def _facet_metadata(
     ):
         raise PlaybackContractError("source chronology facet contract is incompatible")
     return cast(Mapping[str, object], facets)
+
+
+def _is_explicit_empty_facet(facet: Mapping[str, object]) -> bool:
+    return (
+        facet.get("node_count") == 0
+        and facet.get("observation_denominator") == 0
+        and facet.get("time_min_bp") is None
+        and facet.get("time_max_bp") is None
+    )
 
 
 def _source_story(
