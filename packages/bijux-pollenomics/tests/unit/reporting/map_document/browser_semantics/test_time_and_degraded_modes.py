@@ -176,6 +176,57 @@ def test_desktop_header_is_compact_and_control_toggle_shows_direction() -> None:
     assert 'data-basemap="none"' in control_panel
 
 
+def test_map_opens_with_dismissible_surfaces_collapsed() -> None:
+    assert 'id="sidebar" class="control-panel is-collapsed"' in MAP_DOCUMENT_TEMPLATE
+    assert 'id="legend-body" class="legend-body is-collapsed"' in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert 'aria-controls="sidebar" aria-expanded="false">← Show controls' in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert 'aria-controls="legend-body" aria-expanded="false">Expand' in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "return true;" in template_block(
+        "function defaultPanelCollapsed()",
+        "function panelPreferenceFromHash()",
+    )
+    assert "let legendCollapsed = initialState.legend !== 'expanded';" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "if (!legendCollapsed) params.set('legend', 'expanded');" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+
+
+def test_overlays_yield_to_the_surface_the_user_opened() -> None:
+    panel_collapse = template_block(
+        "function setPanelCollapsed",
+        "function closeMobilePanel",
+    )
+    legend_collapse = template_block(
+        "function setLegendCollapsed",
+        "function openHelpDialog",
+    )
+    focus_state = template_block(
+        "function setFocusState", "function unavailableDetailTabs"
+    )
+    assert "setLegendCollapsed(true, false)" in panel_collapse
+    assert "setPanelCollapsed(true, false)" in legend_collapse
+    assert "if (focusState) setFocusState(null);" in legend_collapse
+    assert "if (nextState) setLegendCollapsed(true, false);" in focus_state
+
+
+def test_search_results_close_on_escape_without_losing_input_focus() -> None:
+    search_handlers = template_block(
+        "searchInput.addEventListener('keydown'",
+        "document.addEventListener('click'",
+    )
+    assert "if (event.key === 'Escape')" in search_handlers
+    assert "searchResults.hidden = true;" in search_handlers
+    assert "searchInput.focus({ preventScroll: true });" in search_handlers
+
+
 def test_time_window_feedback_uses_visible_records_after_static_loading() -> None:
     country_controls = template_block(
         "function renderCountryControls",

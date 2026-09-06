@@ -800,7 +800,7 @@ async function basemapDiscoverabilityFacts(cdp, width) {
     const activeProvider = providerButtons.find((button) => button.classList.contains('is-active'));
     const controlsOpened = controls.open && visible(controls);
     const activeProviderFocused = document.activeElement === activeProvider;
-    const providerDisclosure = providerButtons.map((button) => button.textContent.trim());
+    const providerDisclosure = providerButtons.map((button) => button.innerText.trim());
     const providerVisibility = [];
     for (const button of providerButtons) {
       button.focus();
@@ -1114,6 +1114,9 @@ async function responsiveFacts(cdp, width) {
       return { left: value.left, right: value.right, top: value.top, bottom: value.bottom, width: value.width, height: value.height };
     };
     const topbar = document.querySelector('.map-topbar');
+    const mapElement = document.getElementById('map');
+    const legendBody = document.getElementById('legend-body');
+    const legendToggle = document.getElementById('legend-toggle');
     const chronologyElements = {
       chronology: document.querySelector('.topbar-time-stepper'),
       older: document.getElementById('time-step-older'),
@@ -1121,10 +1124,26 @@ async function responsiveFacts(cdp, width) {
       status: document.getElementById('time-stepper-status'),
       playback: document.getElementById('time-playback-toggle'),
     };
+    if (!sidebar.classList.contains('is-collapsed')) toggle.click();
+    if (!legendBody.classList.contains('is-collapsed')) legendToggle.click();
+    await settle();
+    const samplePoints = [];
+    for (const xRatio of [0.15, 0.5, 0.85]) {
+      for (const yRatio of [0.15, 0.35, 0.55, 0.75, 0.9]) {
+        const hit = document.elementFromPoint(innerWidth * xRatio, innerHeight * yRatio);
+        samplePoints.push(Boolean(hit && mapElement.contains(hit)));
+      }
+    }
+    const mapCenterHit = document.elementFromPoint(innerWidth / 2, innerHeight / 2);
+    const clearMap = {
+      panel_collapsed: sidebar.classList.contains('is-collapsed'),
+      legend_collapsed: legendBody.classList.contains('is-collapsed'),
+      center_uncovered: Boolean(mapCenterHit && mapElement.contains(mapCenterHit)),
+      uncovered_sample_count: samplePoints.filter(Boolean).length,
+      sample_count: samplePoints.length,
+    };
     let mobile = null;
     if (${width} <= 900) {
-      if (!sidebar.classList.contains('is-collapsed')) toggle.click();
-      await settle();
       const collapsed = {
         sidebar_collapsed: sidebar.classList.contains('is-collapsed'),
         toggle_visible: visible(toggle),
@@ -1155,7 +1174,7 @@ async function responsiveFacts(cdp, width) {
       toggle.click();
       await settle();
     }
-    const elements = { topbar: box(topbar), sidebar: box(sidebar), map: box(document.getElementById('map')) };
+    const elements = { topbar: box(topbar), sidebar: box(sidebar), map: box(mapElement) };
     const horizontallyBounded = Object.values(elements).every((value) => value.left >= -1 && value.right <= innerWidth + 1);
     const chronologyBoxes = Object.fromEntries(Object.entries(chronologyElements).map(([name, element]) => [name, box(element)]));
     const chronologyControlsVisible = Object.values(chronologyElements).every(visible);
@@ -1175,7 +1194,7 @@ async function responsiveFacts(cdp, width) {
       });
     });
     return {
-      viewport: { width: innerWidth, height: innerHeight }, elements, mobile,
+      viewport: { width: innerWidth, height: innerHeight }, elements, mobile, clear_map: clearMap,
       chronology: chronologyBoxes,
       chronology_controls_visible: chronologyControlsVisible,
       chronology_controls_bounded: chronologyControlsBounded,
@@ -1470,6 +1489,10 @@ function desktopLayoutPasses(layout) {
   return layout.viewport.width >= 901
     && layout.horizontally_bounded
     && layout.desktop_non_overlap === true
+    && layout.clear_map.panel_collapsed
+    && layout.clear_map.legend_collapsed
+    && layout.clear_map.center_uncovered
+    && layout.clear_map.uncovered_sample_count >= Math.ceil(layout.clear_map.sample_count * 0.4)
     && layout.elements.topbar.width > 0
     && layout.elements.sidebar.width > 0;
 }
@@ -1495,6 +1518,10 @@ function helpDialogPasses(facts) {
 function mobileLayoutPasses(layout) {
   return layout.viewport.width <= 900
     && layout.horizontally_bounded
+    && layout.clear_map.panel_collapsed
+    && layout.clear_map.legend_collapsed
+    && layout.clear_map.center_uncovered
+    && layout.clear_map.uncovered_sample_count >= Math.ceil(layout.clear_map.sample_count * 0.4)
     && layout.mobile?.collapsed.sidebar_collapsed
     && layout.mobile.collapsed.toggle_visible
     && layout.mobile.collapsed.scrim_hidden

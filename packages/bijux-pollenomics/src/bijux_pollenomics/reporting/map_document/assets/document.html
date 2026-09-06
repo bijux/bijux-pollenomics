@@ -407,9 +407,6 @@
         letter-spacing: 0.04em;
         text-transform: uppercase;
       }
-      .basemap-copy {
-        display: none;
-      }
       .topbar-context {
         display: grid;
         gap: 6px;
@@ -1639,7 +1636,7 @@
             </div>
             <div class="map-actions">
               <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
-              <button id="panel-toggle" class="toolbar-button" type="button">Hide controls →</button>
+              <button id="panel-toggle" class="toolbar-button" type="button" aria-controls="sidebar" aria-expanded="false">← Show controls</button>
             </div>
           </div>
           <div class="topbar-search">
@@ -1666,9 +1663,9 @@
         <div id="floating-legend" class="floating-legend">
           <div class="legend-head">
             <div class="legend-title">Legend</div>
-            <button id="legend-toggle" class="legend-toggle" type="button">Collapse</button>
+            <button id="legend-toggle" class="legend-toggle" type="button" aria-controls="legend-body" aria-expanded="false">Expand</button>
           </div>
-          <div id="legend-body" class="legend-body">
+          <div id="legend-body" class="legend-body is-collapsed">
             <div id="legend-items" class="legend-list"></div>
             <div id="density-ramp" class="density-ramp">
               <div class="legend-item"><span class="legend-swatch" style="background: rgba(37, 99, 235, 0.10); border-color: rgba(37, 99, 235, 0.45);"></span><span>Acceptance circles use semi-transparent fills so overlap remains visible.</span></div>
@@ -1678,7 +1675,7 @@
             </div>
           </div>
         </div>
-        <aside id="sidebar" class="control-panel" aria-label="Map controls">
+        <aside id="sidebar" class="control-panel is-collapsed" aria-label="Map controls">
           <div class="control-panel-card">
             <div class="control-panel-head">
               <div>
@@ -2818,7 +2815,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return Math.max(1, Math.min(TIME_INTERVAL_MAX, Math.round(selected)));
       }
       function defaultPanelCollapsed() {
-        return mobileLayoutQuery.matches;
+        return true;
       }
       function panelPreferenceFromHash() {
         const raw = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
@@ -3680,7 +3677,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       let activeBasemap = null;
       const failedBasemaps = new Set();
       const basemapErrorCounts = new Map();
-      let legendCollapsed = initialState.legend === 'collapsed';
+      let legendCollapsed = initialState.legend !== 'expanded';
       let focusState = null;
       let activeFocusTab = 'overview';
       const DETAIL_TABLE_PAGE_SIZE = 25;
@@ -3917,6 +3914,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         document.body.classList.toggle('has-mobile-panel-open', mobileOpen);
       }
       function setPanelCollapsed(collapsed, persist = true) {
+        if (!collapsed && !legendCollapsed) setLegendCollapsed(true, false);
         sidebar.classList.toggle('is-collapsed', collapsed);
         updatePanelToggleLabel();
         syncMobilePanelState();
@@ -3931,9 +3929,14 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         }
       }
       function setLegendCollapsed(collapsed, persist = true) {
+        if (!collapsed) {
+          setPanelCollapsed(true, false);
+          if (focusState) setFocusState(null);
+        }
         legendCollapsed = collapsed;
         legendBody.classList.toggle('is-collapsed', collapsed);
         legendToggleButton.textContent = collapsed ? 'Expand' : 'Collapse';
+        legendToggleButton.setAttribute('aria-expanded', String(!collapsed));
         if (persist) syncHashState();
       }
       function openHelpDialog() {
@@ -3993,7 +3996,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (sidebar.classList.contains('is-collapsed') !== defaultPanelCollapsed()) {
           params.set('panel', sidebar.classList.contains('is-collapsed') ? 'collapsed' : 'open');
         }
-        if (legendCollapsed) params.set('legend', 'collapsed');
+        if (!legendCollapsed) params.set('legend', 'expanded');
         const nextHash = params.toString();
         const desiredHash = nextHash ? `#${nextHash}` : '';
         if (window.location.hash !== desiredHash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${desiredHash}`);
@@ -4031,6 +4034,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         highlightedPointEntry = entry;
       }
       function setFocusState(nextState) {
+        if (nextState) setLegendCollapsed(true, false);
         focusState = nextState;
         activeFocusTab = 'overview';
         detailTablePages.clear();
@@ -5934,6 +5938,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       });
       searchInput.addEventListener('focus', buildSearchResults);
       searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          searchResults.hidden = true;
+          searchInput.focus({ preventScroll: true });
+          return;
+        }
         if (event.key === 'Enter') {
           const firstResult = searchResults.querySelector('[data-search-index]');
           if (firstResult) firstResult.click();

@@ -333,6 +333,12 @@ def test_responsive_contract_proves_desktop_and_bottom_sheet_states() -> None:
     assert "layout.mobile.expanded.close_uncovered" in probe
     assert "layout.mobile.expanded.scrim_catches_outside_panel" in probe
     assert "layout.mobile.closed.scrim_hidden" in probe
+    assert "layout.clear_map.panel_collapsed" in probe
+    assert "layout.clear_map.legend_collapsed" in probe
+    assert "layout.clear_map.center_uncovered" in probe
+    assert "layout.clear_map.uncovered_sample_count" in probe
+    assert "document.getElementById('legend-body')" in probe
+    assert "mapElement.contains(mapCenterHit)" in probe
 
 
 def test_chronology_contract_drives_real_controls_and_refuses_null() -> None:
@@ -393,6 +399,7 @@ def test_status_actions_prove_chronology_and_basemap_discoverability() -> None:
     assert "document.activeElement === button" in probe
     assert "provider_visibility: providerVisibility" in probe
     assert "row.focused && row.visible && row.bounded && row.uncovered" in probe
+    assert "providerButtons.map((button) => button.innerText.trim())" in probe
 
 
 def test_help_dialog_runtime_contract_proves_modal_focus_and_stacking() -> None:

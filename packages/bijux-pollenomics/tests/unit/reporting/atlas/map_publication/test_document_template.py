@@ -95,6 +95,9 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
         self.assertIn("OpenStreetMap · no key", MAP_DOCUMENT_TEMPLATE)
         self.assertIn("OpenTopoMap · no key", MAP_DOCUMENT_TEMPLATE)
         self.assertIn("Offline · no tiles", MAP_DOCUMENT_TEMPLATE)
+        self.assertNotIn(
+            ".basemap-copy {\n        display: none;", MAP_DOCUMENT_TEMPLATE
+        )
         self.assertIn("viewControls.open = true", MAP_DOCUMENT_TEMPLATE)
         self.assertIn(
             "activeButton.focus({ preventScroll: true })", MAP_DOCUMENT_TEMPLATE
