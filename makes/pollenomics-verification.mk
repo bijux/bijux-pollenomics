@@ -92,12 +92,7 @@ POLLENOMICS_DATA_INPUTS := \
 	$(POLLENOMICS_DATA_TESTS)
 
 POLLENOMICS_MAP_TESTS := \
-	$(POLLENOMICS_TEST_ROOT)/unit/reporting/map_document/evidence_projection \
-	$(POLLENOMICS_TEST_ROOT)/unit/reporting/atlas/map_publication \
-	$(POLLENOMICS_TEST_ROOT)/unit/reporting/atlas/static_assets \
-	$(POLLENOMICS_TEST_ROOT)/unit/reporting/atlas/test_publication_geography.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/reporting/portal/test_reporting_artifacts.py \
-	$(POLLENOMICS_TEST_ROOT)/unit/reporting/portal/test_report_portal.py \
+	$(POLLENOMICS_TEST_ROOT)/unit/reporting \
 	$(POLLENOMICS_TEST_ROOT)/unit/evidence/surfaces \
 	$(POLLENOMICS_TEST_ROOT)/unit/analysis/propagation/test_propagation_outputs \
 	$(POLLENOMICS_TEST_ROOT)/unit/governance/test_public_artifact_language.py

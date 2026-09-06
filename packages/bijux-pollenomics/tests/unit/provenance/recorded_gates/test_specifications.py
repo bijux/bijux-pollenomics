@@ -17,6 +17,9 @@ def test_product_map_gate_binds_generated_report_tree() -> None:
     specification = build_product_gate_specification(repository_root, "map")
 
     assert "docs/report" in specification.input_paths
+    reporting_tests = "packages/bijux-pollenomics/tests/unit/reporting"
+    assert reporting_tests in specification.argv
+    assert reporting_tests in specification.input_paths
     assert specification.timeout_seconds == 900.0
     runtime_identity = dict(specification.runtime_identity)
     assert runtime_identity["command_executable_path"].endswith("/pytest")

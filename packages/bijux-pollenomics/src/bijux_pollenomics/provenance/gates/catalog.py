@@ -54,12 +54,7 @@ _GATE_TESTS: dict[str, tuple[str, ...]] = {
         "collection/catalog/test_source_validation.py",
     ),
     "map": (
-        "reporting/map_document/evidence_projection",
-        "reporting/atlas/map_publication",
-        "reporting/atlas/static_assets",
-        "reporting/atlas/test_publication_geography.py",
-        "reporting/portal/test_reporting_artifacts.py",
-        "reporting/portal/test_report_portal.py",
+        "reporting",
         "evidence/surfaces",
         "analysis/propagation/test_propagation_outputs",
         "governance/test_public_artifact_language.py",
