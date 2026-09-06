@@ -1,24 +1,24 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 614,
+  "surface_count": 615,
   "family_counts": {
     "caveats": 9,
     "maintenance": 51,
     "maps": 81,
     "portal": 2,
     "reviews": 33,
-    "scopes": 438
+    "scopes": 439
   },
   "audience_counts": {
     "maintainer_diagnostic": 53,
-    "public_reading_surface": 447,
+    "public_reading_surface": 448,
     "scientific_review_surface": 114
   },
   "geography_counts": {
     "denmark": 14,
     "europe_plus": 52,
     "finland": 14,
-    "nordic": 276,
+    "nordic": 277,
     "norway": 14,
     "report_root": 98,
     "sweden": 40,
@@ -5340,6 +5340,18 @@
       "caution_level": "medium",
       "explanation": "Governed publication contract for one map scope.",
       "reader_route": "map_detail"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/nordic_playback_storyboards.json",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "json",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_point_traceability.json",

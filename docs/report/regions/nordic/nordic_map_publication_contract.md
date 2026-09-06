@@ -42,6 +42,11 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 - Time window
 - Distance circles
 - Basemap switch
+- Accepted scientific comparison when qualified classifications are available
+- Neotoma source-sample, literal-code, and exact-label chronology
+- Oldest-to-present BP window navigation and playback
+- PANGAEA 937075 exact-window modeled context
+- Modeled-context visible-frame export
 - Animal species focus when animal layers are present
 - Animal scope when animal layers are present
 - Animal coordinate confidence when animal layers are present

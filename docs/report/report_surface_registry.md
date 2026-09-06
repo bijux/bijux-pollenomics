@@ -4,7 +4,7 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `614`
+- Surface count: `615`
 
 ## Family Counts
 
@@ -15,14 +15,14 @@ coherent report surface instead of a loose artifact dump.
 | Map surfaces | 81 |
 | Portal guidance | 2 |
 | Evidence reviews | 33 |
-| Scope-filtered outputs | 438 |
+| Scope-filtered outputs | 439 |
 
 ## Audience Counts
 
 | Audience | Count |
 | --- | ---: |
 | Maintainer diagnostic | 53 |
-| Public reading surface | 447 |
+| Public reading surface | 448 |
 | Scientific review surface | 114 |
 
 ## Classified Surfaces
@@ -472,6 +472,7 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/regions/nordic/nordic_map_assets.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_map_publication_contract.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Governed publication contract for one map scope. |
 | `docs/report/regions/nordic/nordic_map_publication_contract.md` | Map surfaces | Scientific review surface | `nordic` | `md` | Governed publication contract for one map scope. |
+| `docs/report/regions/nordic/nordic_playback_storyboards.json` | Scope-filtered outputs | Public reading surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/nordic_point_traceability.json` | Map surfaces | Scientific review surface | `nordic` | `json` | Traceability surface for visible mapped points and overlays. |
 | `docs/report/regions/nordic/nordic_point_traceability.md` | Map surfaces | Scientific review surface | `nordic` | `md` | Traceability surface for visible mapped points and overlays. |
 | `docs/report/regions/nordic/nordic_pollen_site_sequences.geojson` | Map surfaces | Scientific review surface | `nordic` | `geojson` | Governed report artifact. |

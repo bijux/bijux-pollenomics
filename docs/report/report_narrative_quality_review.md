@@ -72,11 +72,11 @@ link farms or coded operator notes.
 | `docs/report/regions/europe-plus/europe-plus_map_publication_contract.md` | `reader_ready` | 6 | 0 | 6 | 6 | 7 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/europe-plus/europe-plus_point_traceability.md` | `reader_ready` | 1 | 0 | 0 | 42 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/europe-plus/europe-plus_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 179 | 10 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/README.md` | `reader_ready` | 9 | 0 | 288 | 29 | 14 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/README.md` | `reader_ready` | 9 | 0 | 294 | 29 | 14 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_candidate_site_sensitivity.md` | `thin_structure` | 1 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/nordic_candidate_sites.md` | `thin_structure` | 4 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/nordic_evidence_surface.md` | `reader_ready` | 1 | 0 | 0 | 48 | 4 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/nordic_map_publication_contract.md` | `reader_ready` | 7 | 0 | 14 | 15 | 7 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/nordic_map_publication_contract.md` | `reader_ready` | 7 | 0 | 19 | 15 | 7 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_point_traceability.md` | `reader_ready` | 1 | 0 | 0 | 42 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 307 | 10 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/sweden_archaeology_site_discovery.md` | `reader_ready` | 4 | 0 | 4 | 42 | 4 | Page explains its purpose before or alongside artifact links. |

@@ -1071,8 +1071,13 @@
       {
         "label": "Atlas scientific review markdown",
         "filename": "nordic_scientific_review.md"
+      },
+      {
+        "label": "Governed oldest-to-present playback storyboards",
+        "filename": "nordic_playback_storyboards.json"
       }
     ],
+    "playback_storyboards": "nordic_playback_storyboards.json",
     "animal_localities_geojson": "nordic_animal_localities.geojson",
     "domesticated_animal_localities_geojson": "nordic_domesticated_animal_localities.geojson",
     "comparator_animal_localities_geojson": "nordic_comparator_animal_localities.geojson",
@@ -1115,6 +1120,11 @@
       "Time window",
       "Distance circles",
       "Basemap switch",
+      "Accepted scientific comparison when qualified classifications are available",
+      "Neotoma source-sample, literal-code, and exact-label chronology",
+      "Oldest-to-present BP window navigation and playback",
+      "PANGAEA 937075 exact-window modeled context",
+      "Modeled-context visible-frame export",
       "Animal species focus when animal layers are present",
       "Animal scope when animal layers are present",
       "Animal coordinate confidence when animal layers are present",
