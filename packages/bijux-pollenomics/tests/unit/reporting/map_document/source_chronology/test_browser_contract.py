@@ -30,6 +30,7 @@ def test_controls_are_accessible_source_native_and_separate_from_modeled_context
     None
 ):
     assert 'id="source-chronology-controls"' in MAP_DOCUMENT_TEMPLATE
+    assert 'id="time-controls"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="source-chronology-level"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="source-chronology-code"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="source-chronology-taxon-query"' in MAP_DOCUMENT_TEMPLATE
@@ -47,6 +48,7 @@ def test_controls_are_accessible_source_native_and_separate_from_modeled_context
     assert "bins are not additive" in MAP_DOCUMENT_TEMPLATE
     assert "refreshTimeStepperStatus();" in MAP_DOCUMENT_TEMPLATE
     assert "mobilePanelReturnFocus = timeStepperStatus" in MAP_DOCUMENT_TEMPLATE
+    assert "mobilePanelReturnFocus = panelToggleButton" in MAP_DOCUMENT_TEMPLATE
     assert (
         "sourceChronologyLevel.focus({ preventScroll: true })" in MAP_DOCUMENT_TEMPLATE
     )
@@ -57,6 +59,8 @@ def test_controls_are_accessible_source_native_and_separate_from_modeled_context
     assert (
         "mobilePanelReturnFocus.focus({ preventScroll: true })" in MAP_DOCUMENT_TEMPLATE
     )
+    assert "closeMobilePanel();" in MAP_DOCUMENT_TEMPLATE
+    assert "intervalPreset.focus({ preventScroll: true })" in MAP_DOCUMENT_TEMPLATE
     assert (
         "classList.contains('atlas-capture-mode') ? 'auto' : 'smooth'"
         in MAP_DOCUMENT_TEMPLATE
@@ -366,7 +370,7 @@ def test_topbar_chronology_status_reports_off_and_visible_source_counts() -> Non
     observed = run_node_json(
         """
 const TIME_HAS_DATA=true;
-const timeStepperStatus={disabled:false,textContent:'',title:''};
+const timeStepperStatus={disabled:false,textContent:'',title:'',ariaControls:'',setAttribute(name,value){if(name==='aria-controls')this.ariaControls=value}};
 const selectedLayer={key:'source-code',node_level:'source_ecological_code'};
 const activeLayerKeys=new Set();
 const activeSourceChronologyLevel='source_ecological_code';
@@ -381,7 +385,8 @@ const sourceRecordConcentrationActive=false;
 const sourceRecordConcentrationSnapshot=null;
 let timeStartBp=100;
 function timeWindowEndBp(){return 200}
-function sourceChronologyLayers(){return [selectedLayer]}
+let sourceLayers=[selectedLayer];
+function sourceChronologyLayers(){return sourceLayers}
 function sourceChronologyLayerForLevel(){return selectedLayer}
 function sourceChronologyFacetForSelection(){return selectedFacet}
 function sourceRecordConcentrationFacetLabel(){return 'literal source code TRSH'}
@@ -393,7 +398,10 @@ refreshTimeStepperStatus();
 const off=timeStepperStatus.textContent;
 activeLayerKeys.add('source-code');
 refreshTimeStepperStatus();
-console.log(JSON.stringify({off,active:timeStepperStatus.textContent,disabled:timeStepperStatus.disabled}));
+const active=timeStepperStatus.textContent;
+sourceLayers=[];
+refreshTimeStepperStatus();
+console.log(JSON.stringify({off,active,generic:timeStepperStatus.textContent,ariaControls:timeStepperStatus.ariaControls,disabled:timeStepperStatus.disabled}));
 """
     )
 
@@ -402,6 +410,10 @@ console.log(JSON.stringify({off,active:timeStepperStatus.textContent,disabled:ti
         "active": (
             "literal source code TRSH · 2/10 nodes · 8/40 observations · [100, 200] BP"
         ),
+        "generic": (
+            "Complete atlas chronology · [100, 200] BP · choose a shorter span to explore change"
+        ),
+        "ariaControls": "time-controls",
         "disabled": False,
     }
 
