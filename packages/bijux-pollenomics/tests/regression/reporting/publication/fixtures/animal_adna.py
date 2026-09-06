@@ -170,6 +170,27 @@ def write_tracked_animal_species(
         },
     )
     write_json(
+        species_root / "normalized" / "project_summaries.json",
+        {
+            "projects": [
+                {
+                    "project_accession": project_accession,
+                    "support_class": (
+                        "comparator_only"
+                        if product_role == "comparator"
+                        else "domesticated_core_curated"
+                    ),
+                    "domestication_scope": (
+                        "ancient_comparator"
+                        if product_role == "comparator"
+                        else "domesticated_core"
+                    ),
+                    "comparator_status": product_role == "comparator",
+                }
+            ]
+        },
+    )
+    write_json(
         species_root / "normalized" / "coordinate_provenance.json",
         {
             "schema_version": "adna-coordinate-provenance-export.v1",
