@@ -81,8 +81,17 @@ def _validate_reconciliation(cells: list[dict[str, object]]) -> None:
     neotoma_reported = total("neotoma", "source_reported", "sites")
     if neotoma_reported != total("neotoma", "governed_assignment", "sites"):
         raise CountryCoverageError("Neotoma governed sites do not reconcile")
-    if neotoma_reported != total("neotoma", "publication", "sites"):
-        raise CountryCoverageError("Neotoma publication sites do not reconcile")
+    for country in COUNTRIES:
+        governed_counts = _object(
+            index[("neotoma", "governed_assignment", country)]["counts"], "counts"
+        )
+        publication_counts = _object(
+            index[("neotoma", "publication", country)]["counts"], "counts"
+        )
+        if governed_counts["accepted_records"] != publication_counts["sites"]:
+            raise CountryCoverageError(
+                "Neotoma accepted publication sites do not reconcile"
+            )
     neotoma_accounted = sum(
         total("neotoma", "governed_assignment", measure)
         for measure in ("accepted_records", "unresolved_records", "excluded_records")

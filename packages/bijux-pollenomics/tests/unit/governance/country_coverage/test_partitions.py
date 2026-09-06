@@ -4,13 +4,23 @@ from __future__ import annotations
 import hashlib
 import json
 from typing import cast
+import pytest
 from bijux_pollenomics.governance.country_coverage import (
     COUNT_FIELDS,
     COUNTRIES,
     COUNTRY_DIMENSIONS,
+    CountryCoverageError,
     SOURCE_FAMILIES,
 )
-from .fixtures import _CELL_SCHEMA_PATH, _build, _cell, _cells, _counts, _measure_total
+from .fixtures import (
+    _CELL_SCHEMA_PATH,
+    _build,
+    _cell,
+    _cells,
+    _counts,
+    _measure_total,
+    _replace_input_document,
+)
 
 
 def test_ledger_has_one_schema_valid_cell_per_complete_partition() -> None:
@@ -148,14 +158,39 @@ def test_neotoma_dimensions_reconcile_without_collapsing_country_identity() -> N
         )
         == 370_936
     )
-    assert _measure_total(ledger, "neotoma", "publication", "sites") == 200
+    assert _measure_total(ledger, "neotoma", "publication", "sites") == 193
     assert _counts(_cell(ledger, "neotoma", "source_reported", "SE"))["sites"] == 101
     assert _counts(_cell(ledger, "neotoma", "governed_assignment", "SE"))["sites"] == 98
-    assert _counts(_cell(ledger, "neotoma", "publication", "SE"))["sites"] == 99
+    assert _counts(_cell(ledger, "neotoma", "publication", "SE"))["sites"] == 98
     unassigned = _cell(ledger, "neotoma", "governed_assignment", "UNASSIGNED")
     assert _counts(unassigned)["unresolved_records"] == 7
     assert unassigned["availability_status"] == "unresolved"
     assert unassigned["lifecycle_status"] == "review_required"
+
+
+def test_neotoma_publication_must_match_accepted_country_partitions(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def move_published_site_between_countries(document: dict[str, object]) -> None:
+        features = cast(list[dict[str, object]], document["features"])
+        feature = next(
+            row
+            for row in features
+            if cast(dict[str, object], row["properties"])["country"] == "Sweden"
+        )
+        cast(dict[str, object], feature["properties"])["country"] = "Norway"
+
+    _replace_input_document(
+        monkeypatch,
+        "docs/report/regions/nordic/nordic_pollen_sites.geojson",
+        move_published_site_between_countries,
+    )
+
+    with pytest.raises(
+        CountryCoverageError,
+        match="Neotoma accepted publication sites do not reconcile",
+    ):
+        _build()
 
 
 def test_sead_preserves_assigned_review_and_refused_partitions() -> None:
@@ -279,7 +314,9 @@ def test_source_specific_absence_and_review_are_not_encoded_as_zero() -> None:
             "samples",
             countries=nordic_countries,
         )
-        == 3
+        == 5
     )
+    assert _counts(_cell(ledger, "animal_adna", "publication", "SE"))["samples"] == 1
+    assert _counts(_cell(ledger, "animal_adna", "publication", "DK"))["samples"] == 4
     assert _counts(_cell(ledger, "animal_adna", "publication", "NO"))["samples"] == 0
     assert _counts(_cell(ledger, "animal_adna", "publication", "FI"))["samples"] == 0
