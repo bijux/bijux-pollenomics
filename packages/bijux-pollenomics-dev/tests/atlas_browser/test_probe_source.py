@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from copy import deepcopy
 import json
 from pathlib import Path
 import re
@@ -8,6 +9,10 @@ import subprocess
 import pytest
 
 from bijux_pollenomics_dev.ci import atlas_browser
+from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
+    GENERIC_TIME_AWARE_PROFILE,
+    NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+)
 from bijux_pollenomics_dev.ci.atlas_browser.verdict import PROFILE_REQUIRED_ASSERTIONS
 
 
@@ -31,6 +36,35 @@ def _run_generic_manifest_facts(
         f"const manifest = {manifest_expression};\n"
         "try { console.log(JSON.stringify(genericManifestFacts(manifest))); } "
         "catch (error) { console.error(error.message); process.exitCode = 2; }\n"
+    )
+    return subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+
+def _run_capture_frame_clarity(
+    snapshots: dict[str, dict[str, object]],
+) -> subprocess.CompletedProcess[str]:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    match = re.search(
+        r"function captureFrameIsClear.*?\n}\n\nfunction desktopLayoutPasses",
+        probe,
+        re.DOTALL,
+    )
+    assert match is not None
+    function_source = match.group(0).removesuffix("\n\nfunction desktopLayoutPasses")
+    script = (
+        f"{function_source}\n"
+        f"const snapshots = {json.dumps(snapshots)};\n"
+        "const results = Object.fromEntries(Object.entries(snapshots).map("
+        "([name, snapshot]) => [name, captureFrameIsClear("
+        "snapshot, 'observation_chronology')]));\n"
+        "process.stdout.write(JSON.stringify(results));\n"
     )
     return subprocess.run(
         ("node", "--input-type=module", "--eval", script),
@@ -103,10 +137,15 @@ def test_generic_profile_does_not_reuse_nordic_source_journeys() -> None:
     generic = match.group(0)
     assert "expectedNordic" not in generic
     assert "shortcutFrame" not in generic
+    assert "captureFrameIsClear" not in generic
     assert "visible_source_chronology_point_count" not in generic
     assert "genericTimeJourney" in generic
     assert "data-time-interval" in probe
     assert "dataset.timeInterval === '1000'" in probe
+    assert (
+        "capture_frames_uncluttered"
+        not in PROFILE_REQUIRED_ASSERTIONS[GENERIC_TIME_AWARE_PROFILE]
+    )
 
 
 def test_page_readiness_uses_capture_api_and_mutation_observer() -> None:
@@ -414,6 +453,91 @@ def test_nordic_capture_frames_prove_uncluttered_presentation() -> None:
         "snapshot.visible_polygon_feature_count >= snapshot.visible_polygon_layer_count",
     ):
         assert literal in probe
+    assert (
+        "capture_frames_uncluttered"
+        in PROFILE_REQUIRED_ASSERTIONS[NORDIC_SOURCE_CHRONOLOGY_PROFILE]
+    )
+
+
+def test_capture_frame_clarity_rejects_obstruction_and_semantic_drift() -> None:
+    baseline: dict[str, object] = {
+        "capture_layers": {
+            "active_keys": [
+                "country-boundaries",
+                "neotoma-source-ecological-code",
+            ],
+            "evidence_layer_key": "neotoma-source-ecological-code",
+            "orientation_keys": ["country-boundaries"],
+        },
+        "capture_presentation": {
+            "schema_version": "atlas-capture-presentation.v1",
+            "evidence_role": "observation_chronology",
+            "null_handling": "null_not_zero",
+            "interpolation_allowed": False,
+            "propagation_use_allowed": False,
+            "title": "Neotoma TRSH",
+            "key_labels": ["source record", "country boundary"],
+            "caveat": "Observed records only; no interpolation or propagation inference.",
+        },
+        "capture_layout": {
+            "overlay_visible": True,
+            "overlay_bounded": True,
+            "overlay_content_bounded": True,
+            "overlay_content_overflow": False,
+            "overlay_overlaps_map": False,
+            "map_bounded": True,
+            "scroll_x_px": 0,
+            "scroll_y_px": 0,
+            "map_width_px": 936,
+            "viewport_width_px": 1440,
+        },
+        "visible_point_count": 1,
+        "visible_source_chronology_point_count": 1,
+        "visible_modeled_context_feature_count": 0,
+        "visible_polygon_layer_count": 1,
+        "visible_polygon_feature_count": 1,
+    }
+    mutations: tuple[tuple[str, object], ...] = (
+        (
+            "capture_layers.active_keys",
+            ["country-boundaries", "neotoma-source-ecological-code", "noise"],
+        ),
+        ("capture_presentation.evidence_role", "modeled_context"),
+        ("capture_presentation.null_handling", "null_as_zero"),
+        ("capture_presentation.interpolation_allowed", True),
+        ("capture_presentation.propagation_use_allowed", True),
+        ("capture_layout.overlay_visible", False),
+        ("capture_layout.overlay_bounded", False),
+        ("capture_layout.overlay_content_bounded", False),
+        ("capture_layout.overlay_content_overflow", True),
+        ("capture_layout.overlay_overlaps_map", True),
+        ("capture_layout.map_bounded", False),
+        ("capture_layout.scroll_x_px", 1),
+        ("capture_layout.scroll_y_px", 1),
+        ("capture_layout.map_width_px", 935),
+        ("visible_point_count", 2),
+        ("visible_modeled_context_feature_count", 1),
+    )
+    snapshots = {"valid": baseline}
+    for path, invalid_value in mutations:
+        mutated = deepcopy(baseline)
+        parts = path.split(".")
+        target = mutated
+        for part in parts[:-1]:
+            nested = target[part]
+            assert isinstance(nested, dict)
+            target = nested
+        target[parts[-1]] = invalid_value
+        snapshots[path] = mutated
+
+    completed = _run_capture_frame_clarity(snapshots)
+
+    assert completed.returncode == 0, completed.stderr
+    results = json.loads(completed.stdout)
+    assert results == {
+        "valid": True,
+        **{path: False for path, _invalid_value in mutations},
+    }
 
 
 def test_status_actions_prove_chronology_and_basemap_discoverability() -> None:

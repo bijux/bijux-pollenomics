@@ -24,6 +24,7 @@ NORDIC_SOURCE_CHRONOLOGY_REQUIRED_ASSERTIONS = frozenset(
         "aqvp_exact_state",
         "secale_exact_state",
         "cereal_finder_exact_state",
+        "capture_frames_uncluttered",
         "chronology_buttons_navigate",
         "chronology_controls_persistent",
         "chronology_status_action",

@@ -56,6 +56,17 @@ def test_one_false_assertion_fails() -> None:
     assert summary["failed_assertions"] == ["provider_failure_evidence_unchanged"]
 
 
+def test_false_capture_clarity_assertion_fails_closed() -> None:
+    summary = evaluate_browser_report(
+        _report(failed="capture_frames_uncluttered"),
+        candidate=candidate(),
+        verification_profile=NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+    )
+
+    assert summary["status"] == "FAIL"
+    assert summary["failed_assertions"] == ["capture_frames_uncluttered"]
+
+
 @pytest.mark.parametrize(
     "failed",
     (
@@ -119,6 +130,7 @@ def test_generic_profile_has_an_exact_independent_verdict() -> None:
     assert summary["status"] == "PASS"
     assertions = cast(list[str], summary["assertions"])
     assert set(assertions) == GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS
+    assert "capture_frames_uncluttered" not in GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS
     with pytest.raises(AtlasBrowserContractError, match="profile differs"):
         evaluate_browser_report(
             report,
