@@ -131,8 +131,9 @@ console.log(JSON.stringify({label:featureTimeLabel(feature),descriptor:featureTi
         "admitted": False,
     }
     assert "].concat(featureTimeDescriptor(properties)" in MAP_DOCUMENT_TEMPLATE
-    assert "${escapeHtml(timeDescriptor.label)}: ${escapeHtml(timeDescriptor.value)}" in (
-        MAP_DOCUMENT_TEMPLATE
+    assert (
+        "${escapeHtml(timeDescriptor.label)}: ${escapeHtml(timeDescriptor.value)}"
+        in (MAP_DOCUMENT_TEMPLATE)
     )
 
 
@@ -163,6 +164,33 @@ def test_desktop_header_is_compact_and_control_toggle_shows_direction() -> None:
     assert "width: min(460px, 100%)" in MAP_DOCUMENT_TEMPLATE
     assert "← Show controls" in MAP_DOCUMENT_TEMPLATE
     assert "Hide controls →" in MAP_DOCUMENT_TEMPLATE
+
+
+def test_time_window_feedback_uses_visible_records_after_static_loading() -> None:
+    country_controls = template_block(
+        "function renderCountryControls",
+        "function renderScientificControls",
+    )
+    assert "visiblePointEntries.filter" in country_controls
+    assert "STATIC_ATLAS_BOOTSTRAP.assets" not in country_controls
+
+    source_controls = template_block(
+        "function renderSourceChronologyControls",
+        "function renderLayerControls",
+    )
+    assert "visibleSourceEntries.length" in source_controls
+    assert "visibleObservationDenominator" in source_controls
+    assert "visible in ${activeWindowLabel}" in source_controls
+    assert "global selected-facet denominator" in source_controls
+
+    render_state = template_block(
+        "async function renderMapState",
+        "function renderLoadedMapState",
+    )
+    assert "Loading selected evidence…" in render_state
+    assert "admitted records loaded" not in render_state
+    assert "selectionReadout.dataset.staticLoad" in render_state
+    assert "selectionReadout.dataset.filterRenderMs" in render_state
 
 
 def test_diameter_hash_value_is_finite_bounded_and_step_normalized() -> None:
@@ -291,7 +319,9 @@ console.log(JSON.stringify({
 
 
 def test_animal_candidates_refuse_blank_country_values() -> None:
-    helper = template_block("function animalCandidateEntries", "function animalEntryMatchesFilters")
+    helper = template_block(
+        "function animalCandidateEntries", "function animalEntryMatchesFilters"
+    )
     observed = run_node_json(
         """
 const layer={key:'animals',applies_country_filter:true,features:[

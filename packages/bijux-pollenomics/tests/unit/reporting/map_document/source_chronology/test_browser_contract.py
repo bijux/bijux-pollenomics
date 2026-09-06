@@ -236,7 +236,10 @@ def test_source_shortcuts_preserve_literal_semantics_and_reset_exact_taxa() -> N
         "document.querySelectorAll('[data-source-shortcut]')",
         "countryPairFilter.addEventListener",
     )
-    assert "sourceChronologyTaxonSearch = shortcut === 'cereals' ? 'cereal|secale'" in handlers
+    assert (
+        "sourceChronologyTaxonSearch = shortcut === 'cereals' ? 'cereal|secale'"
+        in handlers
+    )
     assert "sourceChronologyTaxonQuery.value = sourceChronologyTaxonSearch" in handlers
     assert "shortcut === 'taxa'" in handlers
     assert "activeSourceChronologyTaxon = 'all'" in handlers
@@ -244,7 +247,9 @@ def test_source_shortcuts_preserve_literal_semantics_and_reset_exact_taxa() -> N
 
 
 def test_restore_defaults_returns_to_the_source_chronology_landing_window() -> None:
-    restore = template_block("async function restoreDefaults", "searchInput.addEventListener")
+    restore = template_block(
+        "async function restoreDefaults", "searchInput.addEventListener"
+    )
     assert "activeSourceChronologyLevel = defaultSourceChronologyLevel" in restore
     assert "timeStartBp = DEFAULT_TIME_START_BP" in restore
     assert "timeIntervalYears = DEFAULT_TIME_INTERVAL_YEARS" in restore
@@ -690,9 +695,9 @@ def test_large_static_indexes_are_lazy_without_losing_detail_or_country_support(
     country_controls = template_block(
         "function renderCountryControls", "function renderScientificControls"
     )
-    assert "row.domain === 'nodes'" in country_controls
-    assert "row.country_keys.includes(country)" in country_controls
-    assert "row.record_count" in country_controls
+    assert "visiblePointEntries.filter" in country_controls
+    assert "feature.country === country" in country_controls
+    assert "STATIC_ATLAS_BOOTSTRAP.assets" not in country_controls
     assert "STATIC_ATLAS_CHUNKS.indexes" not in country_controls
 
 

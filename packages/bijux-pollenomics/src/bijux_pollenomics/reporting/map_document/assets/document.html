@@ -4174,13 +4174,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const pointCountsByCountry = Object.fromEntries(
           COUNTRIES.map((country) => [
             country,
-            STATIC_ATLAS_INLINE
-              ? POINT_LAYERS
-                  .filter((layer) => activeLayerKeys.has(layer.key))
-                  .reduce((count, layer) => count + layer.features.filter((feature) => pointFeatureVisible(layer, feature) && feature.country === country).length, 0)
-              : STATIC_ATLAS_BOOTSTRAP.assets
-                  .filter((row) => row.domain === 'nodes' && activeLayerKeys.has(row.layer_key) && Array.isArray(row.country_keys) && row.country_keys.includes(country))
-                  .reduce((count, row) => count + staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key} record count`), 0),
+            visiblePointEntries.filter(({ feature }) => feature.country === country).length,
           ])
         );
         countryFilters.innerHTML = COUNTRIES.map((country) => {
@@ -4312,10 +4306,17 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const unitCount = selectedLayer.facet_metadata.source_unit_counts.length;
         const untimedExclusion = sourceChronologyUntimedExclusion(selectedLayer);
         const extentLabel = `[${selectedFacet.time_min_bp}, ${selectedFacet.time_max_bp}] BP`;
+        const visibleSourceEntries = visiblePointEntries.filter(({ layer }) => layer.key === selectedLayer.key);
+        const visibleObservationCounts = visibleSourceEntries.map(({ feature }) => sourceChronologyCount(feature.observation_denominator));
+        const visibleObservationDenominator = visibleObservationCounts.every((count) => count !== null)
+          ? visibleObservationCounts.reduce((total, count) => total + count, 0)
+          : null;
+        const visibleObservationLabel = visibleObservationDenominator === null ? 'unavailable' : String(visibleObservationDenominator);
+        const activeWindowLabel = `[${timeStartBp}, ${timeWindowEndBp()}] BP`;
         const untimedLabel = untimedExclusion.status === 'available'
           ? `${untimedExclusion.count} untimed source nodes excluded before viewport filtering`
           : 'untimed source-node count unavailable for this exact filtered selection';
-        sourceChronologySummary.textContent = `${selectedFacet.node_count} nodes · ${selectedFacet.observation_denominator} observations · ${extentLabel}`;
+        sourceChronologySummary.textContent = `${visibleSourceEntries.length} of ${selectedFacet.node_count} nodes visible · ${activeWindowLabel}`;
         const concentrationEligible = sourceRecordConcentrationSelection(selectedLayer) !== null;
         sourceRecordConcentrationToggle.disabled = !concentrationEligible;
         sourceRecordConcentrationToggle.setAttribute('aria-pressed', String(sourceRecordConcentrationActive));
@@ -4333,7 +4334,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         } else if (sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'refused') {
           sourceChronologyState.textContent = `${sourceRecordConcentrationSnapshot.reason} No concentration symbols were rendered.`;
         } else {
-          sourceChronologyState.textContent = `${selectedFacet.node_count} source nodes · ${selectedFacet.observation_denominator} contributing observations · ${unitCount} literal source units · source playback extent ${extentLabel} · ${untimedLabel} · denominator before country and BP-window filters · chronology context only`;
+          sourceChronologyState.textContent = `${visibleSourceEntries.length} source nodes and ${visibleObservationLabel} contributing observations visible in ${activeWindowLabel} · ${selectedFacet.node_count} nodes and ${selectedFacet.observation_denominator} observations in the global selected-facet denominator before country and BP-window filters · ${unitCount} literal source units · source playback extent ${extentLabel} · ${untimedLabel} · chronology context only`;
         }
       }
       function renderLayerControls() {
@@ -5117,11 +5118,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             ? loaded
             : ALL_LAYERS.reduce((total, layer) => total + staticAtlasNonnegativeInteger(layer.static_feature_count, `${layer.key} admitted feature count`), 0);
           selectionReadout.dataset.staticLoad = `${loaded}/${admitted}`;
-          if (duration > Number(STATIC_ATLAS_BOOTSTRAP.budgets.filter_main_thread_max_ms)) {
-            topbarStatePill.textContent = `${loaded} of ${admitted} admitted records loaded · filter render ${Math.round(duration)} ms`;
-          } else if (requested.length) {
-            topbarStatePill.textContent = `${loaded} of ${admitted} admitted records loaded`;
-          }
+          selectionReadout.dataset.staticLoadRequestedAssetCount = String(requested.length);
+          selectionReadout.dataset.filterRenderMs = String(Math.round(duration));
+          selectionReadout.dataset.filterRenderBudgetExceeded = String(duration > Number(STATIC_ATLAS_BOOTSTRAP.budgets.filter_main_thread_max_ms));
         } catch (error) {
           if (generation !== staticAtlasLoadGeneration) return;
           topbarStatePill.textContent = error instanceof Error ? error.message : 'Static atlas selection failed to load.';
