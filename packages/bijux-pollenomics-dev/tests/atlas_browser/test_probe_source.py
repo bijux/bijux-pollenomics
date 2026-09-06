@@ -60,6 +60,8 @@ def test_provider_failure_uses_request_interception() -> None:
     assert "Fetch.failRequest" in probe
     assert "errorReason: 'Failed'" in probe
     assert "Fetch.fulfillRequest" not in probe
+    assert "refusal_observation: failureObservation" in probe
+    assert "timed_out: true" in probe
 
 
 def test_nordic_source_states_are_literal_release_requirements() -> None:

@@ -299,7 +299,8 @@ async function verifyScope(scope, debuggerOrigin) {
   scopeScenarios.push(withoutBasemapResult);
 
   const failure = await openAtlas(scope, debuggerOrigin, { name: 'provider-failure', blockProviders: true });
-  const failureSnapshot = await waitForProviderRefusal(failure.cdp);
+  const failureObservation = await waitForProviderRefusal(failure.cdp);
+  const failureSnapshot = failureObservation.snapshot;
   const failureDom = await pageFacts(failure.cdp);
   await screenshot(failure.cdp, `${scope.name}/provider-failure.png`);
   scopeReceipts.push(`${scope.name}/provider-failure.png`);
@@ -309,9 +310,11 @@ async function verifyScope(scope, debuggerOrigin) {
     snapshot: failureSnapshot,
     dom: failureDom,
     provider_requests: failure.providerRequests,
+    refusal_observation: failureObservation,
     runtime_failures: failure.runtimeFailures,
     assertions: {
-      provider_failure_osm_terrain_none: failureSnapshot.basemap === 'none'
+      provider_failure_osm_terrain_none: !failureObservation.timed_out
+        && failureSnapshot.basemap === 'none'
         && failure.providerRequests.some((row) => row.url.includes('tile.openstreetmap.org'))
         && failure.providerRequests.some((row) => row.url.includes('tile.opentopomap.org'))
         && failure.providerRequests.findIndex((row) => row.url.includes('tile.openstreetmap.org'))
@@ -810,7 +813,7 @@ async function applyCurrentFrame(cdp, basemap) {
 }
 
 async function waitForProviderRefusal(cdp) {
-  return evaluate(cdp, `(() => new Promise((resolve, reject) => {
+  return evaluate(cdp, `(() => new Promise((resolve) => {
     const api = globalThis.BijuxPollenomicsAtlasCapture;
     const readout = document.getElementById('basemap-readout');
     const finish = async () => {
@@ -818,11 +821,18 @@ async function waitForProviderRefusal(cdp) {
       if (state.basemap !== 'none') return false;
       observer.disconnect();
       clearTimeout(timeout);
-      resolve(await api.awaitReady());
+      resolve({ snapshot: await api.awaitReady(), timed_out: false });
       return true;
     };
     const observer = new MutationObserver(finish);
-    const timeout = setTimeout(() => { observer.disconnect(); reject(new Error('provider refusal timed out')); }, ${timeoutMs});
+    const timeout = setTimeout(async () => {
+      observer.disconnect();
+      resolve({
+        snapshot: await api.awaitReady(),
+        timed_out: true,
+        basemap_readout: readout?.textContent || '',
+      });
+    }, ${timeoutMs});
     observer.observe(readout, { childList: true, characterData: true, subtree: true });
     finish();
   }))()`);
