@@ -45,6 +45,7 @@ from .tables.baltic_sheep import (
     baltic_sheep_official_evidence_available,
     load_baltic_sheep_official_evidence,
 )
+from .tables.aurochs_natural_history import _build_aurochs_natural_history_rows
 from .tables.european_cats import (
     EUROPEAN_CAT_WORKBOOK_MEMBER,
     _build_european_cat_rows,
@@ -93,9 +94,57 @@ def _project_specific_sample_rows(
         return _fertile_crescent_cattle_supplementary_sample_rows(
             output_root, species, project
         )
+    if project.project_accession == "PRJEB75467":
+        return _aurochs_natural_history_supplementary_sample_rows(
+            output_root, species, project
+        )
     if project.project_accession in _ARCHIVE_PROJECT_SAMPLE_ACCESSIONS:
         return _project_scope_archive_sample_rows(output_root, species, project)
     return ()
+
+
+def _aurochs_natural_history_supplementary_sample_rows(
+    output_root: Path,
+    species: AdnaSpeciesDefinition,
+    project: AdnaArchiveProject,
+) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    paper_row = _paper_row_by_project(output_root, project.project_accession)
+    workbook_artifact = next(
+        (
+            artifact
+            for artifact in paper_row.expected_supplementary_artifacts
+            if artifact.endswith("41586_2024_8112_MOESM3_ESM.xlsx")
+        ),
+        None,
+    )
+    if workbook_artifact is None:
+        return ()
+    workbook_source_path = (
+        f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41586-024-08112-6/"
+        "supplementary/41586_2024_8112_MOESM3_ESM.xlsx"
+    )
+    archive_source_path = (
+        f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/"
+        "archive_metadata.html"
+    )
+    workbook_path = _resolve_data_relative_path(output_root, workbook_artifact)
+    archive_path = _resolve_data_relative_path(output_root, archive_source_path)
+    if not workbook_path.is_file() or not archive_path.is_file():
+        return ()
+    workbook_payload = read_source_artifact_bytes(workbook_path)
+    reconciled = _build_aurochs_natural_history_rows(
+        species=species,
+        project=project,
+        workbook_source_path=workbook_source_path,
+        workbook_rows=_read_xlsx_rows(workbook_path, sheet_name="Supplementary Data 1"),
+        workbook_sha256=sha256(workbook_payload).hexdigest(),
+        archive_source_path=archive_source_path,
+        archive_text=read_source_artifact_text(archive_path),
+    )
+    return (
+        *reconciled,
+        *_project_scope_archive_sample_rows(output_root, species, project),
+    )
 
 
 def _fertile_crescent_cattle_supplementary_sample_rows(
