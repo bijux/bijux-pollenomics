@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import hashlib
 import os
-import shutil
 from pathlib import Path, PurePosixPath
+import shutil
 from typing import IO
 from zipfile import ZipFile
 
@@ -24,9 +24,10 @@ def extract_zip_members(
     inventory: ArchiveInventory,
     member_paths: tuple[str, ...],
     *,
-    limits: ArchiveLimits = ArchiveLimits(),
+    limits: ArchiveLimits | None = None,
 ) -> tuple[Path, ...]:
     """Copy explicitly selected regular members after fresh validation."""
+    limits = limits or ArchiveLimits()
     if destination.is_symlink() or not destination.is_dir():
         raise IntakeRefusal("invalid_extraction_target", str(destination))
     if any(destination.iterdir()):

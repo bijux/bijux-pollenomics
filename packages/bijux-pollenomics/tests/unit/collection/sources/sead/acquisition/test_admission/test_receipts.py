@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-import tempfile
-import unittest
 from collections.abc import Sequence
 from dataclasses import replace
 from pathlib import Path
+import tempfile
 from typing import cast
+import unittest
 
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     validate_sead_acquisition_admission,

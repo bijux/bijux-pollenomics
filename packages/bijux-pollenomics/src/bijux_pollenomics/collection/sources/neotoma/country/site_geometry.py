@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import json
 from collections.abc import Mapping
+import json
 
 from bijux_pollenomics.collection.spatial import (
     classify_country,

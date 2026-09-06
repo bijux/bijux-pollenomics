@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-import re
 from pathlib import Path
+import re
 
 import pytest
+
 from bijux_pollenomics.architecture import build_repository_architecture_contract
 
 REPO_ROOT = Path(__file__).resolve().parents[4]

@@ -4,10 +4,10 @@ from __future__ import annotations
 
 import hashlib
 import os
+from pathlib import Path
 import platform
 import stat
 import sys
-from pathlib import Path
 
 from ..release_evidence import ReleaseEvidenceError
 from .codec import _digest_json

@@ -5,8 +5,8 @@ import hashlib
 import io
 import json
 import os
-import tempfile
 from pathlib import Path
+import tempfile
 
 __all__ = [
     "SourceArtifactContentDriftError",

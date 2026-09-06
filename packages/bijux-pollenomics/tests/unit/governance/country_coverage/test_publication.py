@@ -4,11 +4,12 @@ from __future__ import annotations
 
 import hashlib
 import json
-import tempfile
 from pathlib import Path
+import tempfile
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics.governance.country_coverage import (
     CELL_SCHEMA_ID,
     build_country_dimension_coverage_ledger,

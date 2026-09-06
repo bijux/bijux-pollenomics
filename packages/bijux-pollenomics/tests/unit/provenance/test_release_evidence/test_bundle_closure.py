@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 import json
 import os
-import shutil
-from dataclasses import replace
 from pathlib import Path
+import shutil
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics.provenance import (
     ArtifactInput,
     ArtifactReference,

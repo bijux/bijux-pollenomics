@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 import csv
-import hashlib
-import re
 from dataclasses import dataclass
+import hashlib
 from pathlib import Path
+import re
 from zipfile import ZipFile
 
 from ....core.http import fetch_binary, fetch_text

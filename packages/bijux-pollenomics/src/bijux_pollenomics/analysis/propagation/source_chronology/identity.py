@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
 import hashlib
 import json
-from collections.abc import Mapping, Sequence
 from math import isfinite
 from typing import TypeGuard
 

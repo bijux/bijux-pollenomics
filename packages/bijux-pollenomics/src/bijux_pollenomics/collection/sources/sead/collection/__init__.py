@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-import time
 from collections.abc import Callable, Iterable, Mapping
 from pathlib import Path
+import time
 
 from bijux_pollenomics.collection.sources.boundaries.store import (
     load_repository_country_boundaries,

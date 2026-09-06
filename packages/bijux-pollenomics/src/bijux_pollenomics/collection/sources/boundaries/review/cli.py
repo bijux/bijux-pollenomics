@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import argparse
-import json
 from collections.abc import Sequence
 from dataclasses import asdict
+import json
 from pathlib import Path
 
 from .publication import materialize_boundary_country_review

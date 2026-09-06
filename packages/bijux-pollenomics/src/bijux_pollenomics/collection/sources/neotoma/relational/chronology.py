@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 import copy
 import math
-from collections.abc import Mapping
 
 from .....core.text import clean_optional_text
 from .diagnostics import add_orphan

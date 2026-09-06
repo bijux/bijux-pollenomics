@@ -1,14 +1,15 @@
 from __future__ import annotations
 
 import hashlib
-import json
-import stat
 from io import BytesIO
+import json
 from pathlib import Path
+import stat
 from typing import cast
 from zipfile import ZipFile, ZipInfo
 
 import pytest
+
 from bijux_pollenomics.collection.sources.quarantine import IntakeRefusal
 from bijux_pollenomics.collection.sources.rootsi import authority, normalization, ooxml
 

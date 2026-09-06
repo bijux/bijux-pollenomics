@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import base64
+from dataclasses import dataclass
 import gzip
 import hashlib
 import json
 import math
-from dataclasses import dataclass
 from pathlib import Path
 from typing import cast
 

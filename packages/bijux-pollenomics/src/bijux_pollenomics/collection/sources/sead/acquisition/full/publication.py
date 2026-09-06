@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
 import hashlib
 import os
-from collections.abc import Mapping, Sequence
 from pathlib import Path
 
 from .model import ACQUISITION_MANIFEST_SCHEMA_VERSION, SeadTableAcquisition

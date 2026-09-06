@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import pytest
+
 from bijux_pollenomics.adna.projects.sample_master import (
     build_project_sample_master_rows,
 )
@@ -11,7 +12,6 @@ from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep import (
     build_baltic_sheep_join_audit,
 )
 from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_text
-
 from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts

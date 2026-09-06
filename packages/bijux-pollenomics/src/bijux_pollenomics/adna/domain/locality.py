@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-import re
 from collections import defaultdict
 from collections.abc import Iterable
+import re
 
 from bijux_pollenomics.adna.domain.models import (
     AdnaChronology,

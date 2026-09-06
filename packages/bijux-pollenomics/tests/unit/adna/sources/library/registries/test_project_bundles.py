@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 
 from bijux_pollenomics.adna.sources.library import build_project_source_bundles
 

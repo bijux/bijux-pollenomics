@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import importlib
 from collections.abc import Mapping
+import importlib
 from pathlib import Path
 from types import ModuleType
 from typing import cast

@@ -14,7 +14,6 @@ from bijux_pollenomics.analysis.propagation.outputs import (
 from bijux_pollenomics.analysis.propagation.outputs import (
     PROPAGATION_PRODUCER_VERSION as PRODUCT_PROPAGATION_PRODUCER_VERSION,
 )
-
 from tests.support.repository import REPOSITORY_ROOT as TEST_REPOSITORY_ROOT
 
 REPOSITORY_ROOT = TEST_REPOSITORY_ROOT

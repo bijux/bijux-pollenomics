@@ -3,6 +3,7 @@ from __future__ import annotations
 import unittest
 
 import pytest
+
 from bijux_pollenomics.governance import (
     DISALLOWED_PUBLIC_ARTIFACT_TOKENS,
     PUBLIC_INFORMATION_ROLE_MEANINGS,
@@ -10,7 +11,6 @@ from bijux_pollenomics.governance import (
     infer_public_information_role,
     validate_public_artifact_stem,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts

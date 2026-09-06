@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import stat
 from pathlib import Path
+import stat
 
 
 def _positive_int(value: object) -> int | None:

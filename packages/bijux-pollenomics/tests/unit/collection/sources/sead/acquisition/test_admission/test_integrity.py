@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-import tempfile
-import unittest
 from dataclasses import replace
 from pathlib import Path
+import tempfile
+import unittest
 
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     validate_sead_acquisition_admission,

@@ -5,10 +5,10 @@
 
 from __future__ import annotations
 
-import hashlib
-import json
 from dataclasses import dataclass
 from datetime import date
+import hashlib
+import json
 from pathlib import Path, PurePosixPath
 from zipfile import BadZipFile, ZipFile
 

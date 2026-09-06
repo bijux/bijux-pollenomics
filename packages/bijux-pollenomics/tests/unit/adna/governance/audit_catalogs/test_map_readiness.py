@@ -6,6 +6,7 @@ from collections import Counter
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.adna.governance.audit_catalogs import map_readiness
 from bijux_pollenomics.adna.governance.audit_catalogs.map_readiness import (
     _build_species_map_readiness_row,

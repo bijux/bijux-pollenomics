@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-import hashlib
-import json
 from collections import Counter
 from collections.abc import Iterable, Mapping
+import hashlib
+import json
 
 MATERIALIZATION_MANIFEST_SCHEMA_VERSION = (
     "neotoma-relational-materialization-manifest.v1"

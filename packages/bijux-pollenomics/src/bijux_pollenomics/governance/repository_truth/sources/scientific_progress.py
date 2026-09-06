@@ -12,15 +12,12 @@ __all__ = [
     "render_repository_scientific_progress_audit_markdown",
 ]
 
-_ScientificProgressPayload = TypedDict(
-    "_ScientificProgressPayload",
-    {
-        "overall_progress_posture": str,
-        "progress_measures": list[str],
-        "anti_measures": list[str],
-        "findings": list[str],
-    },
-)
+
+class _ScientificProgressPayload(TypedDict):
+    overall_progress_posture: str
+    progress_measures: list[str]
+    anti_measures: list[str]
+    findings: list[str]
 
 
 def build_repository_scientific_progress_audit(

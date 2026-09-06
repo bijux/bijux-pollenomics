@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import hashlib
 from collections.abc import Mapping
+import hashlib
 from pathlib import Path
 
 from .primitives import _positive_int, _regular_non_symlink, _safe_relative_path

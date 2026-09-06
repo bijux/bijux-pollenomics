@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-import csv as csv
-import math as math
-import re as re
 from collections.abc import Mapping as Mapping
+import csv as csv
 from io import TextIOWrapper as TextIOWrapper
+import math as math
 from pathlib import Path as Path
+import re as re
 from zipfile import ZipFile as ZipFile
 
 from .....core.bp_time import mean_bp_year_from_interval as mean_bp_year_from_interval

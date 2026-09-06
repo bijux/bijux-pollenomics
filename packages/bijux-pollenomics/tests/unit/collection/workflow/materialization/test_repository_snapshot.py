@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 
 from bijux_pollenomics.collection.workflow.materialization.contracts import (
     write_data_contract_surfaces,

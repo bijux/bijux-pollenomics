@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-import zipfile
 from functools import cache
 from pathlib import Path
+import zipfile
 
 from ..models import AdnaSupplementRegistryRow
 from ..storage import _source_library_cache_key, build_source_artifact_index

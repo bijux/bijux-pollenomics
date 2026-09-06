@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import pytest
+
 from bijux_pollenomics.reporting.adna.foundation_outputs.chronology import (
     build_animal_sample_chronology_review,
 )

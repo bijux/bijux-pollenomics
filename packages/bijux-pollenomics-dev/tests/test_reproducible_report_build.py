@@ -1,12 +1,13 @@
 from __future__ import annotations
 
-import json
-import sys
 from collections.abc import Sequence
+import json
 from pathlib import Path
+import sys
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics_dev.ci.rebuild_reports import (
     CommandResult,
     ReproducibleReportError,

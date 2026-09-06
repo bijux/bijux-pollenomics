@@ -4,6 +4,7 @@ from decimal import Decimal
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.collection.sources.quarantine import IntakeRefusal
 from bijux_pollenomics.collection.sources.spatiocompo_human_land_use import (
     intake,

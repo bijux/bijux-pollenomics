@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-import json
-import os
 from collections.abc import Callable
 from dataclasses import replace
+import json
+import os
 from pathlib import Path
 
 from ...adna.governance.audit_catalogs import (

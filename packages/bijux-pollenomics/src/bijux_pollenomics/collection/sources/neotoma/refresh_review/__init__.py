@@ -16,9 +16,17 @@ from ..production import (
 from .baseline import build_baseline as build_baseline
 from .comparison import (
     build_review as build_review,
+)
+from .comparison import (
     change_kind as change_kind,
+)
+from .comparison import (
     collect_changes as collect_changes,
+)
+from .comparison import (
     optional_baseline_id as optional_baseline_id,
+)
+from .comparison import (
     validate_baseline as validate_baseline,
 )
 from .constants import BASELINE_SCHEMA_VERSION as BASELINE_SCHEMA_VERSION
@@ -55,13 +63,29 @@ from .serialization import write_baseline as write_baseline
 from .serialization import write_review as write_review
 from .validation import (
     canonical_json as canonical_json,
+)
+from .validation import (
     json_object as json_object,
+)
+from .validation import (
     mapping as mapping,
+)
+from .validation import (
     non_negative_integer as non_negative_integer,
+)
+from .validation import (
     read_regular_file as read_regular_file,
+)
+from .validation import (
     required_text as required_text,
+)
+from .validation import (
     safe_filename as safe_filename,
+)
+from .validation import (
     safe_public_path as safe_public_path,
+)
+from .validation import (
     write_atomic as write_atomic,
 )
 from .validation_api import (

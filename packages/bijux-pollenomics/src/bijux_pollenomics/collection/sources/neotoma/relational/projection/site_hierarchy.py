@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import copy
 from collections.abc import Mapping
+import copy
 
 from ..country import (
     NeotomaCountryAttribution,

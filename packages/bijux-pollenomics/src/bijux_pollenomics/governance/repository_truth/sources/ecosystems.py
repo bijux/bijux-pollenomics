@@ -10,21 +10,19 @@ __all__ = [
     "render_repository_source_ecosystem_review_markdown",
 ]
 
-_EcosystemRow = TypedDict(
-    "_EcosystemRow",
-    {
-        "display_name": str,
-        "ecosystem_role": str,
-        "fit_posture": str,
-        "repository_role": str,
-        "official_entry_points": list[str],
-        "recommended_repository_actions": list[str],
-    },
-)
-_EcosystemPayload = TypedDict(
-    "_EcosystemPayload",
-    {"row_count": int, "rows": list[_EcosystemRow]},
-)
+
+class _EcosystemRow(TypedDict):
+    display_name: str
+    ecosystem_role: str
+    fit_posture: str
+    repository_role: str
+    official_entry_points: list[str]
+    recommended_repository_actions: list[str]
+
+
+class _EcosystemPayload(TypedDict):
+    row_count: int
+    rows: list[_EcosystemRow]
 
 
 def build_repository_source_ecosystem_review(

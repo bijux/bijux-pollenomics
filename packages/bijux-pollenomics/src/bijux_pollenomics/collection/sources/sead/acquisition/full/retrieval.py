@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-import time
 from collections.abc import Callable, Mapping, Sequence
 from datetime import UTC, datetime
+import time
 from typing import TypedDict
 from urllib.error import HTTPError, URLError
 

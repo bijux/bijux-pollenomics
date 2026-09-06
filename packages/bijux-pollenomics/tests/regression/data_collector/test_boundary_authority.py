@@ -4,12 +4,13 @@ from __future__ import annotations
 
 import hashlib
 import json
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 from unittest.mock import patch
 
 import pytest
+
 from bijux_pollenomics.collection.sources.boundaries.collection import (
     NATURAL_EARTH_ADMIN0_URL,
     NATURAL_EARTH_TERMS_URL,

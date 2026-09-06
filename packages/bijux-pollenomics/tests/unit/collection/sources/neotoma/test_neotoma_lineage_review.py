@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.collection.sources.neotoma.lineage import (
     LINEAGE_SCHEMA_VERSION,
     build_neotoma_compact_lineage,
@@ -146,7 +147,7 @@ def _fixture(root: Path) -> tuple[Path, Path, Path, Path]:
         raw_rows,
         source_snapshot_id=source_snapshot_id,
         build_id="fixture-build",
-        country_by_site_id={index: "Sweden" for index in range(1, 10)},
+        country_by_site_id=dict.fromkeys(range(1, 10), "Sweden"),
     )
     materialize_neotoma_relational_snapshot(
         relational_root.resolve(), snapshot, rows_per_part=3

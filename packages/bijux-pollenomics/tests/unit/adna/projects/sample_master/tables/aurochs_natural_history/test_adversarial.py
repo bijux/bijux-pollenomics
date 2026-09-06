@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import pytest
+
 from bijux_pollenomics.adna.projects.sample_master.tables.aurochs_natural_history import (
     AUROCHS_NATURAL_HISTORY_WORKBOOK_SHA256,
     _parse_archive_evidence,

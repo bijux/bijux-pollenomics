@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 
 import pytest
+
 from bijux_pollenomics.reporting.map_playback import (
     PlaybackContractError,
     build_modeled_context_storyboards,
@@ -13,7 +14,6 @@ from bijux_pollenomics.reporting.map_playback import (
     canonical_json_bytes,
     refuse_candidate_succession_storyboard,
 )
-
 from tests.unit.reporting.map_playback.support import (
     NORDIC_COUNTRIES,
     modeled_manifest,

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import re
 from collections import defaultdict
+import re
 
 from bijux_pollenomics.adna.workflow.paths import ADNA_SPECIES_DIR
 

@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     sead as sead_projection,
 )

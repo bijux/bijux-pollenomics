@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import pytest
+
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
     GENERIC_TIME_AWARE_PROFILE,
     NORDIC_SOURCE_CHRONOLOGY_PROFILE,

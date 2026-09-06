@@ -15,30 +15,25 @@ __all__ = [
     "render_repository_source_explainer_audit_markdown",
 ]
 
-_ExplainerRow = TypedDict(
-    "_ExplainerRow",
-    {
-        "page_path": str,
-        "surface_kind": str,
-        "status": str,
-        "notes": str,
-    },
-)
-_ExplainerStatusCounts = TypedDict(
-    "_ExplainerStatusCounts",
-    {
-        "present_useful_form": int,
-        "restoration_plan_required": int,
-    },
-)
-_ExplainerPayload = TypedDict(
-    "_ExplainerPayload",
-    {
-        "row_count": int,
-        "status_counts": _ExplainerStatusCounts,
-        "rows": list[_ExplainerRow],
-    },
-)
+
+class _ExplainerRow(TypedDict):
+    page_path: str
+    surface_kind: str
+    status: str
+    notes: str
+
+
+class _ExplainerStatusCounts(TypedDict):
+    present_useful_form: int
+    restoration_plan_required: int
+
+
+class _ExplainerPayload(TypedDict):
+    row_count: int
+    status_counts: _ExplainerStatusCounts
+    rows: list[_ExplainerRow]
+
+
 _build_source_explainer_audit_row = cast(
     Callable[..., _ExplainerRow], _untyped_source_explainer_audit_row
 )

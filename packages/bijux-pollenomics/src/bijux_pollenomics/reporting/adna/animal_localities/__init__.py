@@ -24,6 +24,10 @@ from ..atlas_evidence_rows import (
     build_tracked_animal_atlas_evidence_rows,
     load_tracked_animal_mappable_localities,
 )
+from . import features as _features
+from . import layers as _layers
+from . import publication as _publication
+from . import review as _review
 from .assembly import (
     _features_have_time_filter,
     _group_rows_by_species_and_scope,
@@ -31,55 +35,26 @@ from .assembly import (
     _select_evidence_rows,
     _select_localities,
 )
-from .features import (
-    _build_point_feature as _build_point_feature,
-)
-from .features import (
-    _temporal_semantics_for as _temporal_semantics_for,
-)
-from .features import (
-    _warning_rows_for as _warning_rows_for,
-)
-from .layers import (
-    _SPECIES_STYLES as _SPECIES_STYLES,
-)
-from .layers import (
-    _alpha as _alpha,
-)
-from .layers import (
-    _animal_scope_for as _animal_scope_for,
-)
-from .layers import (
-    _layer_description_for as _layer_description_for,
-)
-from .layers import (
-    _layer_group_for as _layer_group_for,
-)
-from .layers import (
-    _layer_style_for as _layer_style_for,
-)
 from .model import AnimalAtlasBundle as AnimalAtlasBundle
-from .publication import (
-    _write_animal_atlas_evidence_csv as _write_animal_atlas_evidence_csv,
+
+_build_point_feature = _features._build_point_feature
+_temporal_semantics_for = _features._temporal_semantics_for
+_warning_rows_for = _features._warning_rows_for
+_SPECIES_STYLES = _layers._SPECIES_STYLES
+_alpha = _layers._alpha
+_animal_scope_for = _layers._animal_scope_for
+_layer_description_for = _layers._layer_description_for
+_layer_group_for = _layers._layer_group_for
+_layer_style_for = _layers._layer_style_for
+_write_animal_atlas_evidence_csv = _publication._write_animal_atlas_evidence_csv
+_write_animal_atlas_evidence_json = _publication._write_animal_atlas_evidence_json
+_write_animal_point_traceability_json = (
+    _publication._write_animal_point_traceability_json
 )
-from .publication import (
-    _write_animal_atlas_evidence_json as _write_animal_atlas_evidence_json,
-)
-from .publication import (
-    _write_animal_point_traceability_json as _write_animal_point_traceability_json,
-)
-from .publication import (
-    _write_feature_collection as _write_feature_collection,
-)
-from .review import (
-    _load_dataset_review as _load_dataset_review,
-)
-from .review import (
-    _load_review_lookup as _load_review_lookup,
-)
-from .review import (
-    _optional_str as _optional_str,
-)
+_write_feature_collection = _publication._write_feature_collection
+_load_dataset_review = _review._load_dataset_review
+_load_review_lookup = _review._load_review_lookup
+_optional_str = _review._optional_str
 
 __all__ = [
     "AnimalAtlasBundle",

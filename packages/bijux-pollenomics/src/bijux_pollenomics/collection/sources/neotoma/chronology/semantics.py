@@ -47,9 +47,11 @@ def _build_neotoma_temporal_semantics(
     uncertainty_notes: tuple[str, ...] = ()
     if selected_system is not None and excluded_systems:
         uncertainty_notes = (
-            "The display interval uses only "
-            f"{selected_system}; incompatible source age systems were excluded: "
-            f"{', '.join(excluded_systems)}.",
+            (
+                "The display interval uses only "
+                f"{selected_system}; incompatible source age systems were excluded: "
+                f"{', '.join(excluded_systems)}."
+            ),
         )
     if time_interval is not None and excluded_systems:
         comparability_posture = "mixed_interval_and_context"

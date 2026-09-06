@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import pytest
+
 from bijux_pollenomics.adna.projects.evidence.chronology import (
     build_project_sample_chronology_rows,
 )

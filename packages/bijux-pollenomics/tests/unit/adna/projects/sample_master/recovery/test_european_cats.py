@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import Counter
 
 import pytest
+
 from bijux_pollenomics.adna.projects.sample_master.models import (
     AdnaProjectSampleMasterRow,
 )
@@ -23,7 +24,6 @@ from bijux_pollenomics.adna.workflow.source_artifacts import (
     read_source_artifact_text,
     resolve_source_artifact_path,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts

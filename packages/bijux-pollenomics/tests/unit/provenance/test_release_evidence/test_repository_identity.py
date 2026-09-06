@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 import os
-import subprocess
 from pathlib import Path
+import subprocess
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics.provenance import (
     ArtifactInput,
     ReleaseEvidenceError,

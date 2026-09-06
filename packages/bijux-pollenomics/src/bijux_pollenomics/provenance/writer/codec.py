@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import json
 from collections.abc import Mapping
+import json
 from typing import cast
 
 from ..release_evidence import ReleaseEvidenceError

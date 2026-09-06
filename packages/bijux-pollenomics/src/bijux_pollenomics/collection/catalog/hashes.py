@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import hashlib
 from dataclasses import dataclass
+import hashlib
 from pathlib import Path
 
 __all__ = ["SourceHashes", "build_source_hashes"]

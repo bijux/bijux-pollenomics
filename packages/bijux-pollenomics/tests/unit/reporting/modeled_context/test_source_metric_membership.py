@@ -9,7 +9,6 @@ from bijux_pollenomics.reporting.modeled_context.metric_families import (
     METRIC_FAMILIES,
     PANGAEA_METRIC_KEYS,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 
@@ -24,9 +23,11 @@ def test_family_union_equals_exact_published_result_header() -> None:
             member
             for member in archive.namelist()
             if member.endswith(".csv")
-            and (
-                member.startswith("LANDCLIMII.RV.means.JUN2021/")
-                or member.startswith("LANDCLIMII.RV.standarderrors.JUN2021/")
+            and member.startswith(
+                (
+                    "LANDCLIMII.RV.means.JUN2021/",
+                    "LANDCLIMII.RV.standarderrors.JUN2021/",
+                )
             )
         )
         headers = []

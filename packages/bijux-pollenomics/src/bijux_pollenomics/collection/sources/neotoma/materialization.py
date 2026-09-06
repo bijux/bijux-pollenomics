@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-import copy
-import hashlib
 from collections import Counter
 from collections.abc import Mapping
+import copy
+import hashlib
 from pathlib import Path
 
 from bijux_pollenomics.core.owned_tree import (

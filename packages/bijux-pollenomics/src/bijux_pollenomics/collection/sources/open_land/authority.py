@@ -30,10 +30,10 @@ SOURCE_INTERVAL_BY_SLICE_BP = {
 }
 
 SOURCE_ROW_COUNT_BY_SLICE_BP = {
-    **{label: 1_859 for label in (50, 225, 550, 1000)},
-    **{label: 1_863 for label in range(1500, 9501, 500)},
+    **dict.fromkeys((50, 225, 550, 1000), 1859),
+    **dict.fromkeys(range(1500, 9501, 500), 1863),
     10000: 1_440,
-    **{label: 1_555 for label in (10500, 11000, 11500)},
+    **dict.fromkeys((10500, 11000, 11500), 1555),
 }
 
 _GRID_DIGEST_1859 = "fee4aa7e9af60ffcceeac707f8391c8da1260547fda299411f9a15836e3a6fb9"
@@ -41,10 +41,10 @@ _GRID_DIGEST_1863 = "27e695ba2b4c7a16a11feb5ec75fb095d451c4859a8ad8cdfd7af4f8f7c
 _GRID_DIGEST_1440 = "6acaf3ddc634978d844e957ac004b958b038f8fab5a9db2b441a89dd59d2e2db"
 _GRID_DIGEST_1555 = "0c69d6d177c5a1def6bf7470a12f80a84eb5dec1b3b84360b4ad7e7f1de1b764"
 SOURCE_GRID_SHA256_BY_SLICE_BP = {
-    **{label: _GRID_DIGEST_1859 for label in (50, 225, 550, 1000)},
-    **{label: _GRID_DIGEST_1863 for label in range(1500, 9501, 500)},
+    **dict.fromkeys((50, 225, 550, 1000), _GRID_DIGEST_1859),
+    **dict.fromkeys(range(1500, 9501, 500), _GRID_DIGEST_1863),
     10000: _GRID_DIGEST_1440,
-    **{label: _GRID_DIGEST_1555 for label in (10500, 11000, 11500)},
+    **dict.fromkeys((10500, 11000, 11500), _GRID_DIGEST_1555),
 }
 CSV_HEADERS = (
     "Lon",

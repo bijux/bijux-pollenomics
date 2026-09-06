@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import ssl
-import unittest
 from types import TracebackType
+import unittest
 from unittest.mock import patch
 from urllib.error import URLError
 

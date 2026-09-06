@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import tempfile
 from pathlib import Path
+import tempfile
 
 from bijux_pollenomics.governance import (
     build_repository_claim_audit,

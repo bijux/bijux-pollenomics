@@ -6,6 +6,7 @@ from dataclasses import FrozenInstanceError, replace
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics_dev.ci.atlas_media import (
     AtlasMediaError,
     SelectedStory,
@@ -18,7 +19,6 @@ from bijux_pollenomics_dev.ci.atlas_media.catalog import (
     PUBLICATION_ASSET_COUNT,
     PUBLICATION_STORIES,
 )
-
 from tests.atlas_media.fixtures import COUNTRIES, plan
 
 

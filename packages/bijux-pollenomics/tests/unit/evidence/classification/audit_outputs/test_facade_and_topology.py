@@ -63,7 +63,7 @@ _OWNED_MODULES = frozenset(
 
 def test_legacy_facade_preserves_public_and_private_imports() -> None:
     assert tuple(audit_outputs.__all__) == _PUBLIC_API
-    assert _LEGACY_PRIVATE_API <= frozenset(vars(audit_outputs))
+    assert frozenset(vars(audit_outputs)) >= _LEGACY_PRIVATE_API
 
     signature = inspect.signature(audit_outputs.materialize_classification_audit)
     assert tuple(signature.parameters) == (

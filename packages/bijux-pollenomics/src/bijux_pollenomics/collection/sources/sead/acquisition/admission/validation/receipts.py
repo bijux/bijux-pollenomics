@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import hashlib
 from collections.abc import Mapping, Sequence
+import hashlib
 
 from bijux_pollenomics.collection.sources.sead.acquisition.client import (
     SEAD_LIMIT,

@@ -13,20 +13,18 @@ __all__ = [
     "render_repository_atlas_input_audit_markdown",
 ]
 
-_AtlasInputRow = TypedDict(
-    "_AtlasInputRow",
-    {
-        "display_name": str,
-        "domain_role": str,
-        "refresh_anchor": str,
-        "metrics": dict[str, object],
-        "note": str,
-    },
-)
-_AtlasInputPayload = TypedDict(
-    "_AtlasInputPayload",
-    {"row_count": int, "rows": list[_AtlasInputRow]},
-)
+
+class _AtlasInputRow(TypedDict):
+    display_name: str
+    domain_role: str
+    refresh_anchor: str
+    metrics: dict[str, object]
+    note: str
+
+
+class _AtlasInputPayload(TypedDict):
+    row_count: int
+    rows: list[_AtlasInputRow]
 
 
 def build_repository_atlas_input_audit(

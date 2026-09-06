@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import math
 from collections.abc import Mapping
+import math
 
 
 def finite_coordinate(value: object, *, minimum: float, maximum: float) -> float | None:

@@ -5,9 +5,9 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+from pathlib import Path
 import shutil
 import tempfile
-from pathlib import Path
 
 from ..quarantine import IntakeRefusal
 from .authority import (

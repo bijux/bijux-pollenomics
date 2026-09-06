@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
+from contextlib import suppress
+from datetime import UTC, datetime
 import os
+from pathlib import Path
 import signal
 import subprocess  # nosec B404
 import time
-from datetime import UTC, datetime
-from pathlib import Path
 
 from .contracts import AtlasMediaError
 from .gallery import canonical_json_bytes, sha256_file
@@ -98,10 +99,8 @@ def _terminate_process_tree(
         _signal_process_group(process.pid, signal.SIGTERM)
     else:
         process.terminate()
-    try:
+    with suppress(subprocess.TimeoutExpired):
         process.wait(timeout=grace_seconds)
-    except subprocess.TimeoutExpired:
-        pass
     group_survived_term = os.name == "posix" and _process_group_exists(process.pid)
     if process.poll() is None or group_survived_term:
         if os.name == "posix":

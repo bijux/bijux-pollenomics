@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import pytest
+
 from bijux_pollenomics.adna.projects.sample_master.tables.aurochs_natural_history import (
     _reconcile_aurochs_natural_history,
 )

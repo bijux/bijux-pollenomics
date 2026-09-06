@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import shutil
 from pathlib import Path
+import shutil
 
 from ..release_evidence import ReleaseEvidenceError
 from .catalog import _GATE_FIXED_INPUTS, _GATE_GLOBS, _GATE_TESTS

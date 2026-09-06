@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import hashlib
 from dataclasses import replace
+import hashlib
 
 from bijux_pollenomics.collection.sources.spatiocompo_human_land_use.authority import (
     EXPECTED_ROWS_PER_SLICE,

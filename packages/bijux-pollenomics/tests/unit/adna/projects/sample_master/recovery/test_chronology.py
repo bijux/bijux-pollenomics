@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import pytest
+
 from bijux_pollenomics.adna.projects.sample_master.identity import (
     _format_horse_age_text,
 )

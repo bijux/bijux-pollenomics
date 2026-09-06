@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 
 from bijux_pollenomics.adna.governance.contracts import (
     build_adna_governance_role_registry,

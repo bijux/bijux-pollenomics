@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import unittest
 from pathlib import Path
+import unittest
 
 from bijux_pollenomics.config import (
     ATLAS_DEFAULTS,

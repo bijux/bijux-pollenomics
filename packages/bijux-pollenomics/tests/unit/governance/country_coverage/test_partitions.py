@@ -7,6 +7,7 @@ import json
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics.governance.country_coverage import (
     COUNT_FIELDS,
     COUNTRIES,

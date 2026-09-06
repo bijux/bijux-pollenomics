@@ -3,6 +3,7 @@ from __future__ import annotations
 from urllib.error import URLError
 
 import pytest
+
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     SeadAcquisitionError,
 )

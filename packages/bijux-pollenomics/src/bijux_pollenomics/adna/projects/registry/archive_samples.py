@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-import re
 from dataclasses import dataclass
 from html import unescape
 from pathlib import Path
+import re
 
 from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_text
 

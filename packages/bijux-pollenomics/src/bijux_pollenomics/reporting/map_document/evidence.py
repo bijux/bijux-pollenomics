@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-import hashlib
-import re
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+import hashlib
+import re
 
 from ...core.geospatial.geojson import JsonObject
 

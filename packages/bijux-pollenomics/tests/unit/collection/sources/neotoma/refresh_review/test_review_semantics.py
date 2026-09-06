@@ -5,6 +5,7 @@ import hashlib
 from typing import Any, cast
 
 import pytest
+
 from bijux_pollenomics.collection.sources.neotoma import refresh_review
 
 

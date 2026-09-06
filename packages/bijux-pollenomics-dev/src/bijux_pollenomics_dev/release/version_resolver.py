@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import argparse
+from pathlib import Path
 import shutil
 import sys
 import tomllib
-from pathlib import Path
 from typing import Any, cast
 
 from bijux_pollenomics_dev.trusted_process import run_text

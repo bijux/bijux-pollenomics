@@ -7,7 +7,6 @@ import json
 from bijux_pollenomics.collection.sources.neotoma.collection import (
     normalize_neotoma_rows,
 )
-
 from tests.support.context_data import NordicBoundaryTestCase
 
 

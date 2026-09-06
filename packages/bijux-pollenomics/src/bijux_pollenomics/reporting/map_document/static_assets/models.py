@@ -1,8 +1,8 @@
 """Public static-atlas identities and safe release naming."""
 
-import re
 from dataclasses import dataclass
 from pathlib import Path
+import re
 
 _SAFE_RELEASE_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]{0,63}")
 

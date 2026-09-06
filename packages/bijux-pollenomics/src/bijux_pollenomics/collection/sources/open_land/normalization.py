@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterator
 import csv
+from decimal import Decimal, InvalidOperation
 import hashlib
 import io
-from collections.abc import Iterator
-from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from zipfile import ZipFile
 

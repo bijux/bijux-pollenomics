@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-import copy
 from collections import Counter
 from collections.abc import Mapping
+import copy
 
 from ..chronology import build_age_claim
 from ..diagnostics import add_orphan, register_record, required_source_id

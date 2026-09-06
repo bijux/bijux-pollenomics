@@ -5,9 +5,9 @@ from __future__ import annotations
 import gzip
 import io
 import json
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 from unittest.mock import patch
 
 from bijux_pollenomics.adna.sources import library as source_library_module
@@ -24,7 +24,6 @@ from bijux_pollenomics.adna.workflow.source_artifacts import (
     read_source_artifact_text,
     write_source_artifact_bytes,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 from .fixtures import _bounded_paper_spec

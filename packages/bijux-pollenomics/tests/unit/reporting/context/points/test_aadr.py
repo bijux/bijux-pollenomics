@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import unittest
 from typing import cast
+import unittest
 
 from bijux_pollenomics.adna import (
     AdnaChronology,

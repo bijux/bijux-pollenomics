@@ -10,13 +10,21 @@ from typing import Any as Any
 
 from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     LakeEvidenceRichnessAssessment as LakeEvidenceRichnessAssessment,
+)
+from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     LakeEvidenceRichnessReport as LakeEvidenceRichnessReport,
 )
 
 from ..lake_fieldwork_priority import (
     band_score as band_score,
+)
+from ..lake_fieldwork_priority import (
     fieldwork_rows as fieldwork_rows,
+)
+from ..lake_fieldwork_priority import (
     fieldwork_shortlist_score as fieldwork_shortlist_score,
+)
+from ..lake_fieldwork_priority import (
     human_context_posture as human_context_posture,
 )
 from .candidate_row import build_candidate_row as build_candidate_row
@@ -24,6 +32,8 @@ from .csv_output import write_csv as write_csv
 from .json_output import write_json as write_json
 from .markdown_output import (
     render_markdown as render_markdown,
+)
+from .markdown_output import (
     render_section as render_section,
 )
 from .operations_api import (
@@ -61,12 +71,26 @@ from .operations_api import (
 from .payloads import build_payload as build_payload
 from .postures import (
     google_maps_url as google_maps_url,
+)
+from .postures import (
     identity_posture as identity_posture,
+)
+from .postures import (
     palaeopen_alignment_posture as palaeopen_alignment_posture,
+)
+from .postures import (
     preparation_posture as preparation_posture,
+)
+from .postures import (
     required_actions as required_actions,
+)
+from .postures import (
     scenario_consistency_posture as scenario_consistency_posture,
+)
+from .postures import (
     scenario_top20_presence_count as scenario_top20_presence_count,
+)
+from .postures import (
     sead_context_posture as sead_context_posture,
 )
 

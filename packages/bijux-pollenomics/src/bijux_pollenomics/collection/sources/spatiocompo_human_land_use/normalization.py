@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import csv
+from decimal import Decimal, InvalidOperation
 import hashlib
 import io
-from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 from ..quarantine import IntakeRefusal

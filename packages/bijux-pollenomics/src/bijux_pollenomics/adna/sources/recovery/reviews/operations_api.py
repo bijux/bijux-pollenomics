@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import importlib
 from functools import lru_cache
+import importlib
 from pathlib import Path
 from types import ModuleType
 from typing import Any, cast

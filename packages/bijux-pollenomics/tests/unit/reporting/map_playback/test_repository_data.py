@@ -14,7 +14,6 @@ from bijux_pollenomics.reporting.map_playback import (
     build_exact_taxon_storyboard,
     build_source_chronology_storyboards,
 )
-
 from tests.unit.reporting.map_playback.support import NORDIC_COUNTRIES
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[6]

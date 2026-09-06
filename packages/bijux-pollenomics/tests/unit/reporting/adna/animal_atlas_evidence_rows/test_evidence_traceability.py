@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import copy
 import json
-import tempfile
 from pathlib import Path
+import tempfile
 
 from bijux_pollenomics.reporting.adna import (
     build_tracked_animal_atlas_coordinate_review,

@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-import re
 from dataclasses import replace
 from pathlib import Path
+import re
 
 from bijux_pollenomics.adna.domain.models import (
     AdnaChronology,

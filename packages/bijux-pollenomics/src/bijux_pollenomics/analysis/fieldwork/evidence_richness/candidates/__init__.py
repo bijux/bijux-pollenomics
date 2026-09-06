@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-import re as re
-import unicodedata as unicodedata
 from collections import Counter as Counter
 from collections.abc import Iterable as Iterable
 from collections.abc import Sequence as Sequence
+import re as re
 from typing import TypedDict as TypedDict
+import unicodedata as unicodedata
 
 from bijux_pollenomics.collection.contracts.models import (
     ContextPointRecord as ContextPointRecord,

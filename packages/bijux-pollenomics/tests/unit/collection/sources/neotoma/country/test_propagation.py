@@ -6,7 +6,6 @@ import unittest
 from bijux_pollenomics.collection.sources.neotoma.relational import (
     build_neotoma_relational_snapshot,
 )
-
 from tests.support.neotoma import (
     country_decisions,
     download_row,

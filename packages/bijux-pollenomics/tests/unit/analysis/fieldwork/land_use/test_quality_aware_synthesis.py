@@ -4,6 +4,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
+
 from bijux_pollenomics.analysis.fieldwork.land_use.models import _Target
 from bijux_pollenomics.analysis.fieldwork.land_use.synthesis import build_synthesis
 

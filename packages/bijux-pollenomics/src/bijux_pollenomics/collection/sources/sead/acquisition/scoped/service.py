@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-import hashlib
-import json
-import time
 from collections.abc import Callable, Mapping, Sequence
 from datetime import datetime
+import hashlib
+import json
 from pathlib import Path
+import time
 
 from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_FULL_EVIDENCE_SOURCE_TABLES,

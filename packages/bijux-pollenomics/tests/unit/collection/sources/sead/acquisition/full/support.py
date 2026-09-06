@@ -8,7 +8,6 @@ from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     SeadTableAcquisition,
     acquire_sead_table,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 _SCOPE = ("SE", "DK", "NO", "FI")

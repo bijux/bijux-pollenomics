@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import copy
 from collections.abc import Mapping
+import copy
 
 from .....core.text import clean_optional_text
 from .diagnostics import conflict_record

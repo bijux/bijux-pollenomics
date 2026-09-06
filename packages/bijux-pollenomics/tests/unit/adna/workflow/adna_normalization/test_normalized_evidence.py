@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-import unittest
 from collections import Counter
 from types import SimpleNamespace
+import unittest
 
 from bijux_pollenomics.adna import AdnaChronology, build_species_normalization_bundle
 from bijux_pollenomics.adna.workflow.normalization import (

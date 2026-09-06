@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections import Counter
 
 import pytest
+
 from bijux_pollenomics.reporting.adna.foundation_outputs.drift import (
     build_animal_cross_surface_drift_report,
 )

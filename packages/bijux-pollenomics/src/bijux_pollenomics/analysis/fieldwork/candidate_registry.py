@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-import json
-import unicodedata
 from collections import defaultdict
 from collections.abc import Iterable, Sequence
+import json
 from pathlib import Path
+import unicodedata
 
 from ...collection.spatial.representative_points import (
     geometry_to_representative_point,

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import re
 from pathlib import Path
+import re
 
 from bijux_pollenomics.adna.projects.evidence.article_samples import (
     resolve_article_sample_evidence,

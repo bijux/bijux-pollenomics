@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import pytest
+
 from bijux_pollenomics.adna.projects.sample_master.tables.pig_panel import (
     build_pig_panel_join_audit,
 )

@@ -6,6 +6,7 @@ from dataclasses import replace
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics.reporting.source_chronology.facets import build_facet_metadata
 from bijux_pollenomics.reporting.source_chronology.validation import (
     validate_source_chronology_atlas_projection,

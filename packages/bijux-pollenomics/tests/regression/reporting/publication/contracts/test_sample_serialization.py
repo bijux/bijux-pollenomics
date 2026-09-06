@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-import unittest
 from typing import cast
+import unittest
 
 import pytest
+
 from bijux_pollenomics.reporting.rendering import (
     build_sample_geojson_feature,
     serialize_sample_record,

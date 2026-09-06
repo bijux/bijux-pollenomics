@@ -4,16 +4,16 @@
 
 from __future__ import annotations
 
-import hashlib
-import json
-import os
-import re
-import shutil
-import tempfile
 from collections import Counter, defaultdict
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+import hashlib
+import json
+import os
 from pathlib import Path
+import re
+import shutil
+import tempfile
 from typing import cast
 
 from .accounting import (

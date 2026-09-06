@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import json
 from collections import Counter
+import json
 from pathlib import Path
 
 from bijux_pollenomics.adna.species.tracked_species import TRACKED_ADNA_SPECIES

@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-import math
-import sys
 from collections.abc import Mapping
 from dataclasses import dataclass
 from itertools import pairwise
+import math
+import sys
 from typing import Literal, TypeAlias, cast
 
 from ....core.geospatial.geojson import (

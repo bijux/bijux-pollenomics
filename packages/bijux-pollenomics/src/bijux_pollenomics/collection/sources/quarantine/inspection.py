@@ -2,16 +2,16 @@
 
 from __future__ import annotations
 
-import hashlib
-import json
-import os
-import stat
-import unicodedata
 from collections.abc import Iterator
 from contextlib import contextmanager
 from dataclasses import replace
+import hashlib
+import json
+import os
 from pathlib import Path, PurePosixPath
+import stat
 from typing import IO
+import unicodedata
 from zipfile import BadZipFile, ZipFile, ZipInfo
 
 from .models import (
@@ -182,9 +182,10 @@ def inspect_zip_archive(
     path: Path,
     *,
     expected_sha256: str,
-    limits: ArchiveLimits = ArchiveLimits(),
+    limits: ArchiveLimits | None = None,
 ) -> ArchiveInventory:
     """Bind a safe ZIP inventory to the expected immutable receipt."""
+    limits = limits or ArchiveLimits()
     with path.open("rb") as stream:
         return _inspect_zip_stream(
             stream,
@@ -200,9 +201,10 @@ def inspected_zip_archive(
     path: Path,
     *,
     expected_sha256: str,
-    limits: ArchiveLimits = ArchiveLimits(),
+    limits: ArchiveLimits | None = None,
 ) -> Iterator[tuple[ArchiveInventory, ZipFile]]:
     """Yield a ZIP reader bound to the same validated file descriptor."""
+    limits = limits or ArchiveLimits()
     with path.open("rb") as stream:
         inventory = _inspect_zip_stream(
             stream,

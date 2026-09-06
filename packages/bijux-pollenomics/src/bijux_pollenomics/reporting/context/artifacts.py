@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-import json
-import shutil
 from collections.abc import Callable
+import json
 from pathlib import Path
+import shutil
 
 from ...collection.contracts.artifacts import (
     ATLAS_POINT_ARTIFACTS,

@@ -33,7 +33,7 @@ def test_facade_preserves_legacy_symbols_and_public_contract() -> None:
         "build_tracked_animal_atlas_bundle",
         "load_tracked_animal_localities",
     }
-    assert _LEGACY_DEFINITIONS <= set(vars(animal_localities))
+    assert set(vars(animal_localities)) >= _LEGACY_DEFINITIONS
     assert str(
         inspect.signature(animal_localities.build_tracked_animal_atlas_bundle)
     ) == (

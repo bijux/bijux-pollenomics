@@ -6,6 +6,7 @@ from copy import deepcopy
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics.reporting.source_chronology import (
     SourceChronologyAtlasProjection,
     validate_source_chronology_atlas_projection,

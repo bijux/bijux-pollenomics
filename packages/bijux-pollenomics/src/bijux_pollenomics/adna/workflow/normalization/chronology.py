@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import re
 from collections.abc import Mapping
+import re
 from typing import cast
 
 from bijux_pollenomics.adna.domain.models import (

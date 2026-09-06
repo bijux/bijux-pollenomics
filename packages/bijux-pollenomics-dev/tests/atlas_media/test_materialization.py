@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+
 from bijux_pollenomics_dev.ci.atlas_media import (
     AtlasMediaError,
     admission,
@@ -18,7 +19,6 @@ from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     canonical_json_bytes,
     media_asset_row,
 )
-
 from tests.atlas_media.fixtures import SUCCESSION, plan, source_authority
 from tests.atlas_media.receipt_fixtures import network_receipt
 

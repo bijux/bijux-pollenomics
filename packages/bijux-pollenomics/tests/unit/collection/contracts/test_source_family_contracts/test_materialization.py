@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-import tempfile
 from pathlib import Path
+import tempfile
 
 import pytest
+
 from bijux_pollenomics.collection.contracts.capabilities import (
     NEOTOMA_CLASSIFICATION_EVIDENCE,
     NEOTOMA_PROPAGATION_EVIDENCE,
@@ -310,10 +311,14 @@ def test_ignored_release_bundles_do_not_overstate_clean_root_materialization() -
         repository_root = Path(temporary_directory)
         output_root = repository_root / "data"
         for relative_path in (
-            "artifacts/execution-control/classification/"
-            "neotoma-audit-f0e5a830/manifest.json",
-            "artifacts/execution-control/propagation/"
-            "neotoma-pollen-release-refusal-87ac6d28/manifest.json",
+            (
+                "artifacts/execution-control/classification/"
+                "neotoma-audit-f0e5a830/manifest.json"
+            ),
+            (
+                "artifacts/execution-control/propagation/"
+                "neotoma-pollen-release-refusal-87ac6d28/manifest.json"
+            ),
         ):
             path = repository_root / relative_path
             path.parent.mkdir(parents=True, exist_ok=True)

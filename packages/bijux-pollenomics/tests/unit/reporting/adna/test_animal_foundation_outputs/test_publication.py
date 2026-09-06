@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import json
-import tempfile
 from pathlib import Path
+import tempfile
 
 import pytest
+
 from bijux_pollenomics.reporting.adna.foundation_outputs.publication import (
     publish_animal_foundation_outputs,
 )

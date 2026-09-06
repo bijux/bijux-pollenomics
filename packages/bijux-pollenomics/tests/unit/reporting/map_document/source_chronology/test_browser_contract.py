@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import json
-import re
 from pathlib import Path
+import re
 from typing import cast
 
 from bijux_pollenomics.reporting.map_document import render_multi_country_map_html

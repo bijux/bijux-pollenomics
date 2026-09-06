@@ -1,10 +1,11 @@
 from __future__ import annotations
 
-import json
 from copy import deepcopy
+import json
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics.reporting.context.polygons import build_external_polygon_layer
 from bijux_pollenomics.reporting.modeled_context import (
     ModeledContextContractError,
@@ -19,7 +20,6 @@ from bijux_pollenomics.reporting.modeled_context.contracts import (
 from bijux_pollenomics.reporting.modeled_context.metric_families import (
     PANGAEA_METRIC_KEYS,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 
@@ -61,9 +61,7 @@ def _complete_layer() -> dict[str, object]:
                             ),
                             "bibliography_reference_keys": ["githumbi-et-al-2022"],
                             "reconstruction_values": _metric_values(),
-                            "standard_errors": {
-                                key: 2.25 for key in PANGAEA_METRIC_KEYS
-                            },
+                            "standard_errors": dict.fromkeys(PANGAEA_METRIC_KEYS, 2.25),
                         },
                     }
                 )

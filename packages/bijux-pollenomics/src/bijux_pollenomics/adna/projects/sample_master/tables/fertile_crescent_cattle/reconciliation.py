@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import csv
-import re
 from dataclasses import dataclass
 from hashlib import sha256
 from io import StringIO
 from pathlib import Path
+import re
 from typing import Final
 
 from bijux_pollenomics.adna.projects.sample_master.models import (

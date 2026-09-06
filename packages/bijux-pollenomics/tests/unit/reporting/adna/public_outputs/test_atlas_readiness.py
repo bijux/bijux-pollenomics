@@ -5,6 +5,7 @@ from __future__ import annotations
 import copy
 
 import pytest
+
 from bijux_pollenomics.reporting.adna.public_outputs import atlas_readiness
 from bijux_pollenomics.reporting.adna.public_outputs.atlas_readiness import (
     _atlas_readiness_status,
@@ -16,7 +17,6 @@ from bijux_pollenomics.reporting.adna.public_outputs.rendering import (
     _format_nullable_share,
     _render_animal_atlas_readiness_markdown,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 
@@ -237,7 +237,7 @@ def test_readiness_equations_fail_closed_under_payload_drift(
         ("unresolved samples", "honesty", "rows", "unresolved_sample_count", 0),
         ("sample totals", "honesty", "totals", "tracked_sample_count", 3),
     )
-    for label, target, container, field, value in mutations:
+    for _label, target, container, field, value in mutations:
         mutated_readiness = copy.deepcopy(readiness)
         mutated_honesty = copy.deepcopy(honesty)
         payload = mutated_readiness if target == "readiness" else mutated_honesty

@@ -2,14 +2,14 @@
 
 from __future__ import annotations
 
-import copy as copy
-import hashlib as hashlib
-import json as json
-import re as re
 from collections import Counter as Counter
 from collections import defaultdict as defaultdict
 from collections.abc import Mapping as Mapping
 from collections.abc import Sequence as Sequence
+import copy as copy
+import hashlib as hashlib
+import json as json
+import re as re
 
 from .accounting import (
     _build_neotoma_classification_accounting as _build_neotoma_classification_accounting,

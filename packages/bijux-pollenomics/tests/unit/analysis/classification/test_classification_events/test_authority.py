@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from copy import deepcopy
 import hashlib
 import json
-from copy import deepcopy
 
 import pytest
 

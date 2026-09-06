@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-import hashlib
-import re
 from collections.abc import Mapping
+import hashlib
 from pathlib import Path
+import re
 
 from .text import clean_text
 

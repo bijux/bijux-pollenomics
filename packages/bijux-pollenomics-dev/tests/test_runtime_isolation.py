@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import re
 from pathlib import Path
+import re
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 DEV_SRC = REPO_ROOT / "packages" / "bijux-pollenomics-dev" / "src"

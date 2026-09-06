@@ -5,12 +5,12 @@ from __future__ import annotations
 import argparse
 import json
 import os
+from pathlib import Path
 import shlex
 import shutil
 import sys
 import tempfile
 import tomllib
-from pathlib import Path
 from typing import Any
 
 from bijux_pollenomics_dev.trusted_process import run_text

@@ -10,7 +10,6 @@ from bijux_pollenomics.collection.contracts.capabilities import (
 from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_FULL_EVIDENCE_SOURCE_TABLES,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 REPO_ROOT = REPOSITORY_ROOT

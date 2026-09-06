@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 import hashlib
 import json
 import os
-import tempfile
-from collections.abc import Mapping
 from pathlib import Path
+import tempfile
 from typing import cast
 
 from .models import JsonObject

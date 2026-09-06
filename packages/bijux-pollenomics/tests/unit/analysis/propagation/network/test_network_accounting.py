@@ -4,6 +4,9 @@ from __future__ import annotations
 
 import json
 
+from hypothesis import given, settings
+from hypothesis import strategies as st
+
 from bijux_pollenomics.analysis.propagation.candidates import (
     DEFAULT_PROPAGATION_SCENARIO,
     CandidatePropagationScenario,
@@ -15,8 +18,6 @@ from bijux_pollenomics.analysis.propagation.network import (
     generate_propagation_network_exhaustive,
     run_propagation_sensitivity,
 )
-from hypothesis import given, settings
-from hypothesis import strategies as st
 
 from .support import event, scenario
 

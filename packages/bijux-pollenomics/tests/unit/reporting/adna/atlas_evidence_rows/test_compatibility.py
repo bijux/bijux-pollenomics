@@ -95,7 +95,7 @@ _LEGACY_FUNCTION_SIGNATURES = {
 
 def test_facade_preserves_public_and_private_imports() -> None:
     assert tuple(atlas_evidence_rows.__all__) == _PUBLIC_API
-    assert _LEGACY_PRIVATE_API <= frozenset(vars(atlas_evidence_rows))
+    assert frozenset(vars(atlas_evidence_rows)) >= _LEGACY_PRIVATE_API
 
 
 def test_public_callable_signatures_remain_stable() -> None:

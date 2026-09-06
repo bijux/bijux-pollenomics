@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import tempfile
 from pathlib import Path
+import tempfile
 
 from bijux_pollenomics.reporting.review import publish_repository_truth_outputs
 

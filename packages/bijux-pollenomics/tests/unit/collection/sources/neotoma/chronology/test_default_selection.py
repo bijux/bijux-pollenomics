@@ -8,7 +8,6 @@ from bijux_pollenomics.collection.sources.neotoma.relational import (
 from bijux_pollenomics.collection.sources.neotoma.site_inventory import (
     build_neotoma_site_rows_from_downloads,
 )
-
 from tests.support.neotoma import download_row
 
 

@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
-import hashlib
-import json
 from copy import deepcopy
 from dataclasses import replace
+import hashlib
+import json
 from pathlib import Path
 from typing import Any
 
 import pytest
+
 from bijux_pollenomics.reporting.map_playback import canonical_json_bytes
 from bijux_pollenomics_dev.ci.atlas_media import (
     AtlasMediaError,
@@ -18,7 +19,6 @@ from bijux_pollenomics_dev.ci.atlas_media import (
     load_storyboard_manifest,
     select_stories,
 )
-
 from tests.atlas_media.fixtures import plan, source_authority
 
 

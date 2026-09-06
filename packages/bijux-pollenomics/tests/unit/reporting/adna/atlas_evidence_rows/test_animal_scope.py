@@ -7,6 +7,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
+
 from bijux_pollenomics.reporting.adna.atlas_evidence_rows import service
 from bijux_pollenomics.reporting.adna.atlas_evidence_rows import (
     source_records as source_records_module,
@@ -18,7 +19,6 @@ from bijux_pollenomics.reporting.adna.atlas_evidence_rows.validation import (
     _project_sample_animal_scope_for,
     _project_sample_animal_scope_resolution_for,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 

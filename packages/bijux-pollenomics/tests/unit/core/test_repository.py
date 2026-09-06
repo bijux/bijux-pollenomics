@@ -3,12 +3,12 @@
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.core.repository import (
     RepositoryRootNotFoundError,
     find_repository_root,
     repository_data_root,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 

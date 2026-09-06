@@ -6,7 +6,6 @@ from bijux_pollenomics.reporting.context.polygons import build_external_polygon_
 from bijux_pollenomics.reporting.map_document.payload import build_map_document_payload
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 from bijux_pollenomics.reporting.map_publication import resolve_map_scope_policy
-
 from tests.support.repository import REPOSITORY_ROOT
 
 from ..browser_semantics.support import run_node_json, template_block

@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-import json
-import sys
 from collections.abc import Mapping, Sequence
+import json
 from pathlib import Path
+import sys
 
 from ..release_evidence import ReleaseEvidenceError, validate_release_evidence_manifest
 from .arguments import _parser

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import hashlib
 from dataclasses import replace
+import hashlib
 from pathlib import Path
 from unittest.mock import patch
 

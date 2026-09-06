@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-import os
-import subprocess  # nosec B404
 from collections.abc import Sequence
+import os
 from pathlib import Path
+import subprocess  # nosec B404
 
 CommandArg = str | os.PathLike[str]
 

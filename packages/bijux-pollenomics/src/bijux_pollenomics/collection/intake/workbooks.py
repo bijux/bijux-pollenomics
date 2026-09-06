@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import re
 from pathlib import Path
+import re
 from typing import cast
 from zipfile import ZipFile
 

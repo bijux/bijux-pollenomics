@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.collection.sources.sead import collection as production_sead
 
 from .support import _REPOSITORY_ROOT

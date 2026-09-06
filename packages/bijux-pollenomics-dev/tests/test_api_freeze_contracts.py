@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import unittest
 from pathlib import Path
+import unittest
 
 from bijux_pollenomics_dev.api.freeze_contracts import run as run_api_freeze_contracts
 

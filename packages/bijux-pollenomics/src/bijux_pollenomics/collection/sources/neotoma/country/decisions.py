@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+from collections.abc import Iterable, Mapping
+from dataclasses import replace
 import hashlib
 import json
 import math
-from collections.abc import Iterable, Mapping
-from dataclasses import replace
 
 from bijux_pollenomics.collection.spatial import (
     CountryAttributionDecision,

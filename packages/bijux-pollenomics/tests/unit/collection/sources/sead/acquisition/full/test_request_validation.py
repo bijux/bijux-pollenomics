@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import pytest
+
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     acquire_sead_table,
 )

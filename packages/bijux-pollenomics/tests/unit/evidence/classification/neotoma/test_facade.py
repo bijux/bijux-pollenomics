@@ -5,6 +5,7 @@ from __future__ import annotations
 import inspect
 
 import pytest
+
 from bijux_pollenomics.evidence.classification import neotoma
 
 from .support import representative_snapshot

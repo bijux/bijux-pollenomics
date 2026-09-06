@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import json
 from collections.abc import Callable
+import json
 from pathlib import Path
 from types import ModuleType
 from typing import Any

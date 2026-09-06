@@ -1,12 +1,13 @@
 from __future__ import annotations
 
 import hashlib
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 from unittest.mock import patch
 
 import pytest
+
 from bijux_pollenomics.adna import (
     AdnaSampleQuery,
     build_species_runtime_manifest,
@@ -15,7 +16,6 @@ from bijux_pollenomics.adna import (
 from bijux_pollenomics.adna import (
     homo_sapiens as homo_sapiens_runtime,
 )
-
 from tests.support.aadr import AADR_HEADER, write_anno_file
 
 pytestmark = pytest.mark.generated_artifacts

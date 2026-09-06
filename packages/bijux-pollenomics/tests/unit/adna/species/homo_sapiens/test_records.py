@@ -6,7 +6,6 @@ from bijux_pollenomics.adna.domain.models import AdnaSampleRecord
 from bijux_pollenomics.adna.species.homo_sapiens import (
     iter_homo_sapiens_samples_from_anno,
 )
-
 from tests.support.aadr import AADR_HEADER, write_anno_file
 
 

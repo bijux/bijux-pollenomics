@@ -7,9 +7,9 @@ import json
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.provenance import ReleaseEvidenceError
 from bijux_pollenomics.provenance.release_evidence import policy
-
 from tests.unit.provenance.test_release_evidence.support.codec import _canonical_json
 from tests.unit.provenance.test_release_evidence.support.policy import (
     _write_fixture_policy,

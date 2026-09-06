@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 import json
-import shutil
 from pathlib import Path
+import shutil
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics.provenance import (
     GateResult,
     ReleaseEvidenceError,

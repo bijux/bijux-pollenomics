@@ -6,6 +6,7 @@ import hashlib
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     neotoma as neotoma_projection,
 )

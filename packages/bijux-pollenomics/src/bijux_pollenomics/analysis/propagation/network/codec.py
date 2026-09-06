@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 import hashlib
 import json
-from collections.abc import Sequence
 
 from .errors import EventValidationError
 from .models import PhenomenonEvent

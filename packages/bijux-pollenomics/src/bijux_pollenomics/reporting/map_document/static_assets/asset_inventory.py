@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import base64
-import math
 from collections.abc import Mapping, Sequence
+import math
 
 ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v2"
 LEGACY_ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v1"

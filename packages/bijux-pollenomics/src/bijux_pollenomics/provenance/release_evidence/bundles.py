@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 import hashlib
 import json
 import os
-import stat
-from collections.abc import Mapping
 from pathlib import Path, PurePosixPath
+import stat
 
 from .codec import (
     _digest_bytes,

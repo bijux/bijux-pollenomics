@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_FULL_EVIDENCE_SOURCE_TABLES,
     SEAD_LINKED_SOURCE_TABLES,
@@ -104,7 +105,7 @@ def test_full_evidence_acquisition_is_bounded_and_preserves_native_values(
     assert manifest["required_tables"] == sorted(SEAD_FULL_EVIDENCE_SOURCE_TABLES)
     assert manifest["status"] == "complete"
 
-    calls_by_table = {table: params for table, params in fetcher.calls}
+    calls_by_table = dict(fetcher.calls)
     assert set(calls_by_table) == set(SEAD_FULL_EVIDENCE_SOURCE_TABLES)
     for table, params in fetcher.calls:
         if table != "tbl_sites":

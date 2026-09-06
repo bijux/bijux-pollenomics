@@ -1,12 +1,13 @@
 from __future__ import annotations
 
-import tempfile
-import unittest
 from pathlib import Path
+import tempfile
 from types import SimpleNamespace
+import unittest
 from unittest.mock import patch
 
 import pytest
+
 from bijux_pollenomics.adna.projects.registry import (
     sites as project_sample_sites_module,
 )
@@ -16,7 +17,6 @@ from bijux_pollenomics.adna.projects.registry.sites import (
     build_sample_site_ambiguity_ledger,
     build_sample_site_manual_curation_queue,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts

@@ -5,11 +5,11 @@ from __future__ import annotations
 from copy import deepcopy
 
 import pytest
+
 from bijux_pollenomics.reporting.map_playback import (
     PlaybackContractError,
     build_modeled_context_storyboards,
 )
-
 from tests.unit.reporting.map_playback.support import NORDIC_COUNTRIES, modeled_manifest
 
 

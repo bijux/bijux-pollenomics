@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import math
 from collections.abc import Callable, Mapping
+import math
 from typing import Any
 
 QUALITY_CLASSES = frozenset({"high", "low", "no_pollen_data"})
@@ -18,7 +18,7 @@ def modeled_values(
 ) -> dict[str, float | None]:
     """Retain valid estimates and mask source-declared no-pollen windows."""
     if quality_class == "no_pollen_data":
-        return {key: None for key in MODELED_METRIC_KEYS}
+        return dict.fromkeys(MODELED_METRIC_KEYS)
     if not isinstance(reconstruction, Mapping):
         raise ValueError("LandClim modeled values must be a mapping")
     values: dict[str, float | None] = {}

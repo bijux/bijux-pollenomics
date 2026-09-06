@@ -3,19 +3,19 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Callable, Iterable, Mapping, Sequence
+from dataclasses import dataclass
 import hashlib
 import json
 import math
 import os
+from pathlib import Path
 import re
 import shutil
 import subprocess
 import tempfile
-import zlib
-from collections.abc import Callable, Iterable, Mapping, Sequence
-from dataclasses import dataclass
-from pathlib import Path
 from typing import NoReturn, cast
+import zlib
 
 from .catalog import (
     PUBLICATION_SCHEMA_VERSION,

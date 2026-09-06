@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import json
 from copy import deepcopy
+import json
 from pathlib import Path
 from typing import cast
 

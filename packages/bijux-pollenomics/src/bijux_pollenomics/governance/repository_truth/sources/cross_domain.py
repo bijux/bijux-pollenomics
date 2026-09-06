@@ -13,20 +13,18 @@ __all__ = [
     "render_repository_cross_domain_evidence_matrix_markdown",
 ]
 
-_CrossDomainRow = TypedDict(
-    "_CrossDomainRow",
-    {
-        "display_name": str,
-        "domain_role": str,
-        "tracked_metrics": dict[str, object],
-        "coverage_posture": str,
-        "current_gap": str,
-    },
-)
-_CrossDomainPayload = TypedDict(
-    "_CrossDomainPayload",
-    {"row_count": int, "rows": list[_CrossDomainRow]},
-)
+
+class _CrossDomainRow(TypedDict):
+    display_name: str
+    domain_role: str
+    tracked_metrics: dict[str, object]
+    coverage_posture: str
+    current_gap: str
+
+
+class _CrossDomainPayload(TypedDict):
+    row_count: int
+    rows: list[_CrossDomainRow]
 
 
 def build_repository_cross_domain_evidence_matrix(

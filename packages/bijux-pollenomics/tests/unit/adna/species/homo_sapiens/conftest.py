@@ -3,6 +3,7 @@
 from collections.abc import Callable
 
 import pytest
+
 from bijux_pollenomics.adna.domain.models import (
     AdnaChronology,
     AdnaCoordinate,

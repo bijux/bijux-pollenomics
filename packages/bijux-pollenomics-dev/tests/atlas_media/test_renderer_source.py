@@ -4,12 +4,13 @@ from __future__ import annotations
 
 import json
 import os
+from pathlib import Path
 import subprocess
 import sys
 import time
-from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics_dev.ci import atlas_media
 from bijux_pollenomics_dev.ci.atlas_media import admission
 from bijux_pollenomics_dev.ci.atlas_media.contracts import AtlasMediaError

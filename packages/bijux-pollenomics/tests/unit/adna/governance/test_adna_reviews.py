@@ -3,6 +3,7 @@ from __future__ import annotations
 import unittest
 
 import pytest
+
 from bijux_pollenomics.adna import (
     AdnaSpeciesProjectManifest,
     AdnaSpeciesProjectRow,

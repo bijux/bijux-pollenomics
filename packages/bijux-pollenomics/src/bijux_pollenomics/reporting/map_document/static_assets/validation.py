@@ -1,9 +1,9 @@
 """Fail-closed validation for static atlas manifests and asset payloads."""
 
 import base64
+from collections.abc import Mapping, Sequence
 import hashlib
 import json
-from collections.abc import Mapping, Sequence
 
 from .asset_inventory import normalize_asset_inventory
 from .budgets import (

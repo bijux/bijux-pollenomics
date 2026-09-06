@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-import hashlib
 from collections import Counter
 from collections.abc import Mapping, Sequence
+import hashlib
 
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     NORDIC_COUNTRY_CODES,

@@ -8,10 +8,10 @@ from pathlib import Path
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     sead as sead_projection,
 )
-
 from tests.support.sead_evidence import (
     install_sead_projection_fixture,
     sead_projection_layers,

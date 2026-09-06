@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import re
 from dataclasses import asdict, dataclass
+import re
 
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition

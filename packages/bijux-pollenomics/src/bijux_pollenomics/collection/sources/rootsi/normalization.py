@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import os
 from decimal import Decimal, InvalidOperation
+import os
 from pathlib import Path
 from typing import NoReturn
 

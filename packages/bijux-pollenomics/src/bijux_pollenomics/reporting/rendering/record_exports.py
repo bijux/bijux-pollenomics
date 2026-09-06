@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 import csv
 import json
-from collections.abc import Iterable
 from pathlib import Path
 
 from ..models import LocalitySummary, SampleRecord

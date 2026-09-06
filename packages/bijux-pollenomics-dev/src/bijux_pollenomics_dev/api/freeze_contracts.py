@@ -3,12 +3,12 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
-import json
-import sys
 from datetime import date, datetime
 from enum import Enum
+import hashlib
+import json
 from pathlib import Path
+import sys
 from typing import Any
 
 import yaml

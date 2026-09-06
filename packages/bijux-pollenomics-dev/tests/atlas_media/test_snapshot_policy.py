@@ -3,11 +3,10 @@
 from __future__ import annotations
 
 import json
-import subprocess
 from pathlib import Path
+import subprocess
 
 from bijux_pollenomics_dev.ci import atlas_media
-
 from tests.atlas_media.fixtures import BUILD_ID, COUNTRIES
 
 

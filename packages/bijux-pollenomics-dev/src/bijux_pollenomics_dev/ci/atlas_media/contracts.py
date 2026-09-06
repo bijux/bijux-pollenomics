@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-import math
-import re
 from dataclasses import dataclass
+import math
 from pathlib import Path
+import re
 from typing import cast
 
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasCandidate

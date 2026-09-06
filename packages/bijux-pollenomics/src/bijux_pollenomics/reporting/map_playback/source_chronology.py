@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import math
 from collections.abc import Mapping, Sequence
+import math
 from typing import cast
 
 from bijux_pollenomics.reporting.source_chronology.time_density import (

@@ -2,9 +2,9 @@ from __future__ import annotations
 
 import csv
 import json
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.collection.sources.sead.catalog.discovery import (

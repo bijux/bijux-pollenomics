@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import hashlib
 from collections.abc import Mapping
+import hashlib
 from pathlib import Path
 from typing import cast
 

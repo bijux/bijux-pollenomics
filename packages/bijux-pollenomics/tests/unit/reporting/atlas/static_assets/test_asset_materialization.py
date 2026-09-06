@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import hashlib
 import json
+from pathlib import Path
 import random
 import shutil
 import subprocess
-from pathlib import Path
 
 from bijux_pollenomics.core.geospatial.geojson import JsonObject
 from bijux_pollenomics.reporting.map_document.evidence import DETAIL_TAB_KEYS

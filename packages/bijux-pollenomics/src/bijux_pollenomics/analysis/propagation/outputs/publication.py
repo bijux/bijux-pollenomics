@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 import json
 import os
+from pathlib import Path
 import shutil
 import tempfile
-from collections.abc import Mapping
-from pathlib import Path
 
 from .codec import _refuse
 from .inputs import _path_has_symlink_component

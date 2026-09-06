@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+from functools import cache
 import json
 import os
-from functools import cache
 from pathlib import Path
 
 from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog

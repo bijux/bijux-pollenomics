@@ -6,6 +6,7 @@ from types import SimpleNamespace
 from typing import Any
 
 import pytest
+
 from bijux_pollenomics.collection.sources.neotoma import production
 
 

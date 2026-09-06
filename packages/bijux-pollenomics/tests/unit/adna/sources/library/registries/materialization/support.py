@@ -3,14 +3,13 @@
 from __future__ import annotations
 
 import io
-import zipfile
 from pathlib import Path
+import zipfile
 
 from bijux_pollenomics.adna.sources.library import (
     materialize_source_library,
     refresh_source_library,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 

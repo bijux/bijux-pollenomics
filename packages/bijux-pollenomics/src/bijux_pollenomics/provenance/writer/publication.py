@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-import os
-import secrets
 from collections.abc import Callable, Mapping
 from contextlib import suppress
+import os
 from pathlib import Path
+import secrets
 
 from ..release_evidence import ReleaseEvidenceError
 from .codec import _canonical_bytes

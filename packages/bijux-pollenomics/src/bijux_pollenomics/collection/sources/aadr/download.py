@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import hashlib
 from collections.abc import Callable
+import hashlib
 from pathlib import Path
 
 from .constants import (

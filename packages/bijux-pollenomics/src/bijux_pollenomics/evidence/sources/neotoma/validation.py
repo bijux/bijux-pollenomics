@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
+from collections import Counter
+from collections.abc import Mapping
 import copy
 import hashlib
 import json
-import re
-from collections import Counter
-from collections.abc import Mapping
 from pathlib import Path, PurePosixPath
+import re
 
 from .contract import (
     COUNTRY_CODES,

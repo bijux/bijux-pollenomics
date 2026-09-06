@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import re
 from dataclasses import dataclass
+import re
 
 from ..constants import NODE_PRODUCER_VERSION, SOURCE_NODE_CONFIG_DIGEST
 from .nodes import SourceChronologyNode

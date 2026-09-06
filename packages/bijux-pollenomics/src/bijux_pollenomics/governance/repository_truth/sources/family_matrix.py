@@ -13,20 +13,18 @@ __all__ = [
     "render_repository_source_family_matrix_markdown",
 ]
 
-_SourceFamilyRow = TypedDict(
-    "_SourceFamilyRow",
-    {
-        "display_name": str,
-        "role": str,
-        "visible_count": int,
-        "acquisition_posture": str,
-        "main_gap": str,
-    },
-)
-_SourceFamilyPayload = TypedDict(
-    "_SourceFamilyPayload",
-    {"row_count": int, "rows": list[_SourceFamilyRow]},
-)
+
+class _SourceFamilyRow(TypedDict):
+    display_name: str
+    role: str
+    visible_count: int
+    acquisition_posture: str
+    main_gap: str
+
+
+class _SourceFamilyPayload(TypedDict):
+    row_count: int
+    rows: list[_SourceFamilyRow]
 
 
 def build_repository_source_family_matrix(

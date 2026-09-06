@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import unittest
 from collections import Counter
+import unittest
 
 from bijux_pollenomics.adna.projects.registry.localities import AdnaProjectLocalityLead
 from bijux_pollenomics.adna.projects.registry.samples import (

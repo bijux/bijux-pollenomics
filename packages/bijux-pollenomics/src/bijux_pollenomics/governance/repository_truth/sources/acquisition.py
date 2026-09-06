@@ -12,19 +12,17 @@ __all__ = [
     "render_repository_source_acquisition_queue_markdown",
 ]
 
-_AcquisitionRow = TypedDict(
-    "_AcquisitionRow",
-    {
-        "source_family": str,
-        "priority": str,
-        "current_gap": str,
-        "required_outcome": str,
-    },
-)
-_AcquisitionPayload = TypedDict(
-    "_AcquisitionPayload",
-    {"row_count": int, "rows": list[_AcquisitionRow]},
-)
+
+class _AcquisitionRow(TypedDict):
+    source_family: str
+    priority: str
+    current_gap: str
+    required_outcome: str
+
+
+class _AcquisitionPayload(TypedDict):
+    row_count: int
+    rows: list[_AcquisitionRow]
 
 
 def build_repository_source_acquisition_queue(

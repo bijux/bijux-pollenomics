@@ -1,12 +1,13 @@
 from __future__ import annotations
 
-import tempfile
-import unittest
 from pathlib import Path
+import tempfile
 from typing import cast
+import unittest
 from unittest.mock import patch
 
 import pytest
+
 from bijux_pollenomics.reporting import (
     generate_multi_country_map,
 )

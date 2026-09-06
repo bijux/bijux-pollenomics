@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import unittest
 from typing import cast
+import unittest
 from unittest.mock import patch
 
 from bijux_pollenomics.collection.sources.neotoma.collection import (

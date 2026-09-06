@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-import unittest
 from pathlib import Path
+import unittest
 
 import pytest
+
 from bijux_pollenomics.reporting.bundles import (
     build_atlas_bundle_paths,
     build_country_bundle_paths,

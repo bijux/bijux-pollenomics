@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 import hashlib
 import os
+from pathlib import Path
 import shutil
 import subprocess
-from dataclasses import replace
-from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasCandidate
 from bijux_pollenomics_dev.ci.atlas_media import (
     AtlasMediaPlan,

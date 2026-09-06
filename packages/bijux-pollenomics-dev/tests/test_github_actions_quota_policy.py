@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-import json
-import re
 from itertools import product
+import json
 from pathlib import Path
+import re
 
 import yaml
 

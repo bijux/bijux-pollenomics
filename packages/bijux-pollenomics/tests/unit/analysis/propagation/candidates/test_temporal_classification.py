@@ -2,15 +2,16 @@
 
 from __future__ import annotations
 
+from hypothesis import given
+from hypothesis import strategies as st
 import pytest
+
 from bijux_pollenomics.analysis.propagation.candidates import (
     DEFAULT_PROPAGATION_SCENARIO,
     classify_candidate_propagation,
 )
 from bijux_pollenomics.analysis.propagation.candidates.scoring import _windows_overlap
 from bijux_pollenomics.core.temporal_semantics import canonical_bp_interval
-from hypothesis import given
-from hypothesis import strategies as st
 
 from .support import locality
 

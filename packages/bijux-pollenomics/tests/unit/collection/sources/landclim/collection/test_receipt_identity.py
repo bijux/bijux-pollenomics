@@ -4,7 +4,6 @@ import hashlib
 import json
 
 from bijux_pollenomics.collection.sources.landclim import collection
-
 from tests.support.repository import REPOSITORY_ROOT
 
 RAW_ROOT = REPOSITORY_ROOT / "data" / "landclim" / "raw"

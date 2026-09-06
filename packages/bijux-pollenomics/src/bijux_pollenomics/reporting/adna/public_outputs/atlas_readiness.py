@@ -494,8 +494,10 @@ def _atlas_readiness_status(
     ):
         return (
             "blocked",
-            f"{blocked_sample_count} blocked sample rows and {refused_count} refused "
-            "coordinate-provenance rows still prevent atlas publication.",
+            (
+                f"{blocked_sample_count} blocked sample rows and {refused_count} refused "
+                "coordinate-provenance rows still prevent atlas publication."
+            ),
         )
     if candidate_point_count == 0:
         return (

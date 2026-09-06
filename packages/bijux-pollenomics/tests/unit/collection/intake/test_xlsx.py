@@ -1,14 +1,13 @@
 from __future__ import annotations
 
+from pathlib import Path
 import tempfile
 import unittest
-from pathlib import Path
 
 from bijux_pollenomics.collection.intake import (
     list_xlsx_sheet_names,
     read_xlsx_sheet_rows,
 )
-
 from tests.support.workbooks import write_xlsx
 
 

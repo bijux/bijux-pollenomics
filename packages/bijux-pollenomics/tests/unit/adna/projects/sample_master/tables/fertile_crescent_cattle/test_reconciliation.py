@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import Counter
 
 import pytest
+
 from bijux_pollenomics.adna.projects.sample_master.tables.fertile_crescent_cattle import (
     FERTILE_CRESCENT_CATTLE_SUPPLEMENT_SHA256,
     _reconcile_fertile_crescent_cattle_panel,

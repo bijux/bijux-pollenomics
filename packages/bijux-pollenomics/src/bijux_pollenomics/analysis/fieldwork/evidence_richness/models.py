@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import re
 from dataclasses import dataclass
+import re
 
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 

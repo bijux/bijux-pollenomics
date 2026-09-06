@@ -3,12 +3,12 @@ from __future__ import annotations
 import contextlib
 import io
 import os
+from pathlib import Path
 import subprocess
 import sys
 import tempfile
-import unittest
-from pathlib import Path
 from types import SimpleNamespace
+import unittest
 from unittest.mock import patch
 
 from bijux_pollenomics import __version__
@@ -19,7 +19,6 @@ from bijux_pollenomics.config import (
     DEFAULT_ATLAS_TITLE,
     DEFAULT_PUBLISHED_COUNTRIES,
 )
-
 from tests.support.aadr import AADR_HEADER
 
 REPO_ROOT = Path(__file__).resolve().parents[2]

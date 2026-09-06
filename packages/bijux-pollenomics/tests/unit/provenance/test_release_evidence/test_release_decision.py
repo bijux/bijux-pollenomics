@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Literal, cast
 
 import pytest
+
 from bijux_pollenomics.provenance import (
     ArtifactInput,
     Blocker,

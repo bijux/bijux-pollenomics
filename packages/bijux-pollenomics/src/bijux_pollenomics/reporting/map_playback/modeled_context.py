@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import re
 from collections.abc import Mapping, Sequence
+import re
 from typing import cast
 
 from bijux_pollenomics.core.text import slugify

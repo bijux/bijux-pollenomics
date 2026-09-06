@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from datetime import UTC, datetime
 import hashlib
 import json
-from datetime import UTC, datetime
 from pathlib import Path
 
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
@@ -46,7 +46,7 @@ class _FullEvidencePostgrestFixture:
         self.calls.append((table, list(params)))
         projection = next(value for key, value in params if key == "select")
         fields = projection.split(",")
-        row: dict[str, object] = {field: None for field in fields}
+        row: dict[str, object] = dict.fromkeys(fields)
         for field in fields:
             if field.endswith("_id"):
                 row[field] = 1

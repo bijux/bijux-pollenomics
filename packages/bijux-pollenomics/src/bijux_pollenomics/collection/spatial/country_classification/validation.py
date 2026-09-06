@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import math
 from collections.abc import Mapping
+import math
 
 from .model import RawCountryComparison
 

@@ -4,14 +4,13 @@ from __future__ import annotations
 
 import hashlib
 import json
-import unittest
 from pathlib import Path
+import unittest
 
 from bijux_pollenomics.adna.workflow.source_artifacts import (
     read_source_artifact_bytes,
     resolve_source_artifact_path,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 

@@ -3,8 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError, encoding
 
+from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError, encoding
 from tests.atlas_media.fixtures import plan
 from tests.atlas_media.receipt_fixtures import build_capture_frames, make_story
 
@@ -57,7 +57,7 @@ def test_ffmpeg_commands_are_single_threaded_and_metadata_free(
 
     assert {asset["media_type"] for asset in assets} == {"poster", "mp4", "gif"}
     mp4 = commands[0]
-    assert ("-threads", "1") == mp4[mp4.index("-threads") : mp4.index("-threads") + 2]
+    assert mp4[mp4.index("-threads") : mp4.index("-threads") + 2] == ("-threads", "1")
     assert "-map_metadata" in mp4
     assert "+bitexact" in mp4
     assert "-flags:v" in mp4
@@ -65,7 +65,7 @@ def test_ffmpeg_commands_are_single_threaded_and_metadata_free(
     assert "-map_metadata" in gif
     assert "-fflags" in gif
     assert "-flags:v" in gif
-    assert ("-threads", "1") == gif[gif.index("-threads") : gif.index("-threads") + 2]
+    assert gif[gif.index("-threads") : gif.index("-threads") + 2] == ("-threads", "1")
     assert (
         "palettegen=stats_mode=diff"
         in commands[1][commands[1].index("-filter_complex") + 1]

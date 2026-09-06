@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-import unittest
 from email.message import Message
 from io import BytesIO
+import unittest
 from unittest.mock import patch
 from urllib.error import HTTPError
 

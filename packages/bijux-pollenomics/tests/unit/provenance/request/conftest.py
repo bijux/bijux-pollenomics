@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import pytest
-from bijux_pollenomics.provenance import gates as gate_module
 
+from bijux_pollenomics.provenance import gates as gate_module
 from tests.unit.provenance.release_evidence_writer.support import (
     _fixture_specification,
 )

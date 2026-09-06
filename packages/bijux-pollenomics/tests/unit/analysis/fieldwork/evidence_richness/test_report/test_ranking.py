@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import csv
 import json
-import tempfile
 from pathlib import Path
+import tempfile
 
 from bijux_pollenomics.analysis import (
     build_lake_archaeology_sensitivity_payload,

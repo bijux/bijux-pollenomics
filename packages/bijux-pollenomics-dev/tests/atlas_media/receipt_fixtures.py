@@ -5,7 +5,6 @@ import json
 
 from bijux_pollenomics_dev.ci.atlas_media import admission
 from bijux_pollenomics_dev.ci.atlas_media.contracts import AtlasMediaPlan, SelectedStory
-
 from tests.atlas_media.fixtures import COUNTRIES, SUCCESSION
 
 

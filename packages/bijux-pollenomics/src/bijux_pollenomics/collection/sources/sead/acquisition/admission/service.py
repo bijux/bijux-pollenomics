@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 import hashlib
 import os
-import shutil
-from collections.abc import Mapping
 from pathlib import Path, PurePosixPath
+import shutil
 from types import MappingProxyType
 
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (

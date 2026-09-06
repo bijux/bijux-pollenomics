@@ -8,7 +8,6 @@ from bijux_pollenomics.collection.sources.sead.collection import (
     normalize_sead_rows,
     normalize_sead_temporal_evidence,
 )
-
 from tests.support.context_data import NordicBoundaryTestCase
 
 

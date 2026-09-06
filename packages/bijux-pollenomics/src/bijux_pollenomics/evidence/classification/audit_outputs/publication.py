@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 import os
+from pathlib import Path
 import shutil
 import tempfile
-from collections.abc import Mapping
-from pathlib import Path
 
 from .constants import MANIFEST_NAME, OUTPUT_NAMES
 from .models import ClassificationAuditOutputPaths, ClassificationAuditRefusalError

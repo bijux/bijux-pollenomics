@@ -6,6 +6,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pytest
+
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     materialize_sead_full_evidence_admission,
 )

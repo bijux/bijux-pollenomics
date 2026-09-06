@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from dataclasses import replace
 import hashlib
 import json
-from dataclasses import replace
 from unittest.mock import patch
 
 from bijux_pollenomics.analysis.classification.events import (
@@ -13,7 +13,6 @@ from bijux_pollenomics.analysis.classification.events import (
 from bijux_pollenomics.analysis.classification.events import (
     authority as classification_authority_module,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 EVENT_SCHEMA_PATH = (

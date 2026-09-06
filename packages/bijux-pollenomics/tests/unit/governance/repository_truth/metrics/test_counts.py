@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.governance.repository_truth.metrics.counts import (
     _build_core_counts,
     _surface_count,

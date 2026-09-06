@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.analysis.propagation.outputs import (
     PropagationOutputRefusalError,
 )

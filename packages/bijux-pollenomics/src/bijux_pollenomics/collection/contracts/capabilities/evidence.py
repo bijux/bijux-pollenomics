@@ -1,12 +1,12 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 import csv
 import hashlib
 import io
 import json
-import stat
-from collections.abc import Mapping
 from pathlib import Path
+import stat
 
 from . import receipts, sead
 from .constants import (

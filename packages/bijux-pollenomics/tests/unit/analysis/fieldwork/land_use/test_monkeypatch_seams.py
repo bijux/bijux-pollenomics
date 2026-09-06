@@ -5,6 +5,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
+
 from bijux_pollenomics.analysis.fieldwork import land_use
 
 

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import json
 from collections.abc import Callable
+import json
 from typing import TYPE_CHECKING
 
 from ...core.geospatial.geojson import JsonObject

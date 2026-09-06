@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-import json
-import shutil
 from dataclasses import replace
+import json
 from pathlib import Path
+import shutil
 from xml.etree import ElementTree
 
 import pytest
+
 from bijux_pollenomics.adna.projects.evidence.chronology import (
     build_project_sample_chronology_rows,
 )
@@ -33,7 +34,6 @@ from bijux_pollenomics.adna.sources.recovery import build_project_recovery_dossi
 from bijux_pollenomics.adna.workflow.source_artifacts import (
     resolve_source_artifact_path,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts
@@ -236,10 +236,14 @@ def test_material_conflicts_round_trip_as_a_governed_ledger(tmp_path: Path) -> N
     )
     indexed = {row.local_path: row for row in build_source_artifact_index(tmp_path)}
     conflict_paths = {
-        "adna/governance/source_library/projects/PRJEB59481/"
-        "material_evidence_conflicts.json",
-        "adna/governance/source_library/projects/PRJEB59481/"
-        "material_evidence_conflicts.csv",
+        (
+            "adna/governance/source_library/projects/PRJEB59481/"
+            "material_evidence_conflicts.json"
+        ),
+        (
+            "adna/governance/source_library/projects/PRJEB59481/"
+            "material_evidence_conflicts.csv"
+        ),
     }
     assert conflict_paths <= indexed.keys()
     assert all(indexed[path].fetch_status == "archived" for path in conflict_paths)

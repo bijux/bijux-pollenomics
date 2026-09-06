@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
 import csv
 import io
-from collections.abc import Mapping, Sequence
 
 
 def _render_csv(

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import shutil
 from pathlib import Path
+import shutil
 
 __all__ = [
     "build_recovery_output_dir",

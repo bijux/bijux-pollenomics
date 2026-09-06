@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import hashlib
 from collections.abc import Mapping
+import hashlib
 
 from ..codec import _expect_equal, _json_object
 from ..models import (

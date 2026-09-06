@@ -24,7 +24,7 @@ _LEGACY_DEFINITIONS = {
 
 def test_facade_preserves_the_legacy_surface_contract() -> None:
     assert surfaces.__all__ == ["build_atlas_evidence_surface"]
-    assert _LEGACY_DEFINITIONS <= vars(surfaces).keys()
+    assert vars(surfaces).keys() >= _LEGACY_DEFINITIONS
     assert str(inspect.signature(surfaces.build_atlas_evidence_surface)) == (
         "(*, countries: 'tuple[str, ...]', "
         "human_localities: 'Iterable[AdnaLocalitySummary]', "

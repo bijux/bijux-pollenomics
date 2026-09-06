@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import argparse
-import shutil
-import tomllib
 from dataclasses import dataclass
 from pathlib import Path
+import shutil
+import tomllib
 from typing import Any, cast
 
 REPO_ROOT = Path(__file__).resolve().parents[5]

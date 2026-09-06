@@ -3,12 +3,12 @@
 from __future__ import annotations
 
 import base64
+from collections.abc import Mapping
 import gzip
 import hashlib
 import json
-import zlib
-from collections.abc import Mapping
 from math import isfinite
+import zlib
 
 from .budgets import ATLAS_CHUNK_MAX_BYTES, ATLAS_CHUNK_TARGET_BYTES
 from .indexes import index_reference_count

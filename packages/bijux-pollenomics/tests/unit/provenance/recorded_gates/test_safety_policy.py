@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-import sys
 from pathlib import Path
+import sys
 
 import pytest
+
 from bijux_pollenomics.provenance.gates import run_recorded_gate
 from bijux_pollenomics.provenance.release_evidence import ReleaseEvidenceError
 

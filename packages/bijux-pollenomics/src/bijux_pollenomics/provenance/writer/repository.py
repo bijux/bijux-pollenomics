@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-import os
-import stat
 from collections.abc import Mapping
 from contextlib import suppress
+import os
 from pathlib import Path, PurePosixPath
+import stat
 
 from ..release_evidence import ReleaseEvidenceError
 from .codec import _load_json

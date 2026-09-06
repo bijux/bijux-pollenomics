@@ -6,7 +6,6 @@ import ast
 import inspect
 
 from bijux_pollenomics.evidence import scientific_review
-
 from tests.support.repository import REPOSITORY_ROOT
 
 _PUBLIC_API = (

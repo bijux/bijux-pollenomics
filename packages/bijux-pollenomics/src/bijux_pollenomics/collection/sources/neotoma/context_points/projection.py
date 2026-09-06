@@ -241,8 +241,10 @@ def _build_site_context_temporal_semantics(
             "sample-owned Neotoma chronology layers for numeric time filtering."
         )
         uncertainty_notes = (
-            "Compact site chronology is withheld because one interval would fill "
-            "unobserved gaps between source records.",
+            (
+                "Compact site chronology is withheld because one interval would fill "
+                "unobserved gaps between source records."
+            ),
         )
     else:
         evidence_class = "unresolved"

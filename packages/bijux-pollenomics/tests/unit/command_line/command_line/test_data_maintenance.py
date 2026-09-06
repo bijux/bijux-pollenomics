@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import unittest
 from pathlib import Path
+import unittest
 from unittest.mock import patch
 
 from bijux_pollenomics.command_line.parsing import build_parser

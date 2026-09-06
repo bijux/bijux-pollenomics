@@ -1,9 +1,9 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 import shutil
 import subprocess
-from pathlib import Path
 from typing import Any
 
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
