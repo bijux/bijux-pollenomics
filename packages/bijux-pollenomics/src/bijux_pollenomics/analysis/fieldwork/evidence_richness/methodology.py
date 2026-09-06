@@ -334,11 +334,17 @@ def _merge_source_temporal_review(
         ).strip()
         if capture_posture:
             summary["capture_posture"] = capture_posture
-        summary["bp_age_range_record_count"] = int(
-            coverage_summary.get("site_count_with_bp_age_ranges", 0) or 0
+        summary["source_bp_labelled_context_record_count"] = int(
+            coverage_summary.get("site_count_with_source_bp_labelled_context", 0) or 0
         )
-        summary["chronology_row_record_count"] = int(
-            coverage_summary.get("site_count_with_chronologies", 0) or 0
+        summary["calendar_comparable_bp_system_context_record_count"] = int(
+            coverage_summary.get(
+                "site_count_with_calendar_comparable_bp_system_context", 0
+            )
+            or 0
+        )
+        summary["compact_chronology_row_record_count"] = int(
+            coverage_summary.get("site_count_with_compact_chronology_rows", 0) or 0
         )
         return
     if source_family == "sead":

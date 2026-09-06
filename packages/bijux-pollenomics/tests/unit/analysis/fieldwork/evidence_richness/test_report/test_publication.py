@@ -57,7 +57,7 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
             root / "neotoma" / "review" / "temporal_review.json",
             {
                 "coverage_summary": {
-                    "chronology_capture_posture": "bp_site_spans_without_chronology_rows"
+                    "chronology_capture_posture": "calendar_comparable_system_context_without_compact_chronology"
                 }
             },
         )
@@ -149,7 +149,7 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         assert "Lake registry id" in markdown
         assert "not_available" in markdown
         assert "no checked-in records" in markdown
-        assert "chronology rows absent in checked-in raw capture" in markdown
+        assert "compact numeric intervals withheld" in markdown
         assert "- Sampling note:" not in markdown
         assert (
             "https://www.google.com/maps/search/?api=1&query=57.000000,14.000000"

@@ -87,15 +87,20 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
         )
         self.assertEqual(
             rows["neotoma"]["temporal_support_posture"],
-            "bp_site_spans_without_chronology_rows",
+            "calendar_comparable_system_context_without_compact_chronology",
         )
+        self.assertEqual(rows["neotoma"]["numeric_interval_record_count"], 0)
         self.assertEqual(
             rows["sead"]["temporal_support_posture"], "linked_chronology_captured"
         )
-        self.assertEqual(rows["sead"]["numeric_interval_record_count"], 9_380)
+        self.assertEqual(rows["sead"]["numeric_interval_record_count"], 8_184)
         self.assertEqual(
             rows["sead"]["detail_metrics"]["captured_chronology_record_count"],
-            27_002,
+            25_109,
+        )
+        self.assertEqual(
+            rows["sead"]["detail_metrics"]["mapped_chronology_record_count"],
+            14_324,
         )
         self.assertEqual(
             rows["svar"]["distance_scoring_posture"],

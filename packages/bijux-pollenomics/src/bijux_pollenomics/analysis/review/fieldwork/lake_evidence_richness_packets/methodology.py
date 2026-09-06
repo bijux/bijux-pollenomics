@@ -165,8 +165,13 @@ def _render_source_temporal_posture(*, key: str, item: Mapping[str, object]) -> 
     if total == 0:
         return "no checked-in records"
     if key == "neotoma_pollen":
-        if capture_posture == "bp_site_spans_without_chronology_rows":
-            base = "BP site spans available; chronology rows absent in checked-in raw capture"
+        if (
+            capture_posture
+            == "calendar_comparable_system_context_without_compact_chronology"
+        ):
+            base = (
+                "source BP-system context retained; compact numeric intervals withheld"
+            )
             if distance_scoring_note:
                 return f"{base}; {distance_scoring_note[0].lower()}{distance_scoring_note[1:]}"
             return base

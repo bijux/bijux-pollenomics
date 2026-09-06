@@ -87,20 +87,33 @@ def _build_neotoma_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
     )
     coverage_summary = _dict(review_payload.get("coverage_summary"))
     feature_count = len(_geojson_features(normalized_payload))
-    bp_age_range_count = _int(coverage_summary.get("site_count_with_bp_age_ranges", 0))
-    chronology_count = _int(coverage_summary.get("site_count_with_chronologies", 0))
+    source_bp_context_count = _int(
+        coverage_summary.get("site_count_with_source_bp_labelled_context", 0)
+    )
+    comparable_system_context_count = _int(
+        coverage_summary.get("site_count_with_calendar_comparable_bp_system_context", 0)
+    )
+    chronology_count = _int(
+        coverage_summary.get("site_count_with_compact_chronology_rows", 0)
+    )
+    numeric_interval_count = _int(
+        coverage_summary.get("compact_numeric_site_interval_count", 0)
+    )
     chronology_capture_posture = (
         str(coverage_summary.get("chronology_capture_posture", "")).strip()
         or "unresolved"
     )
     caveats = []
-    if chronology_capture_posture == "bp_site_spans_without_chronology_rows":
+    if (
+        chronology_capture_posture
+        == "calendar_comparable_system_context_without_compact_chronology"
+    ):
         caveats.append(
-            "Numeric BP site spans are available, but the checked-in raw capture does not currently include chronology rows for the same Sweden-facing site family."
+            "Source age-range labels include calendar-comparable BP systems, but the compact site layer withholds numeric intervals because extrema do not establish continuous site coverage."
         )
-    if _int(coverage_summary.get("site_count_with_no_age_ranges", 0)) > 0:
+    if _int(coverage_summary.get("site_count_without_age_range_context", 0)) > 0:
         caveats.append(
-            "Some checked-in Neotoma sites remain spatial context only because they do not carry publishable BP age ranges."
+            "Some checked-in Neotoma sites remain spatial context only because they do not carry source age-range context."
         )
     return SourceSpatiotemporalPostureRecord(
         source_key="neotoma",
@@ -110,9 +123,9 @@ def _build_neotoma_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
         spatial_representation="site point inventory",
         temporal_support_posture=chronology_capture_posture,
         temporal_support_note=(
-            "Checked-in Neotoma points can carry numeric BP site spans, but chronology support remains uneven and must be read from the review packet."
+            "The compact Neotoma points retain source BP-labelled context without promoting site-level extrema to numeric chronology; admitted sample-owned relational claims govern chronological comparison."
         ),
-        temporal_scope="site-span pollen context",
+        temporal_scope="source-labelled site context with separate sample chronology",
         distance_scoring_posture="supporting_pollen_context",
         distance_scoring_note=(
             "Use Neotoma to compare pollen context around lakes; only promote it into chronology-aware support when a numeric interval is actually present."
@@ -120,12 +133,13 @@ def _build_neotoma_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
         availability_status="available_with_limitations",
         refusal_reasons=(),
         record_count=feature_count,
-        numeric_interval_record_count=bp_age_range_count,
+        numeric_interval_record_count=numeric_interval_count,
         detail_metrics={
-            "site_count_with_bp_age_ranges": bp_age_range_count,
-            "site_count_with_chronology_rows": chronology_count,
-            "site_count_without_bp_age_ranges": _int(
-                coverage_summary.get("site_count_without_bp_age_ranges", 0)
+            "site_count_with_source_bp_labelled_context": source_bp_context_count,
+            "site_count_with_calendar_comparable_bp_system_context": comparable_system_context_count,
+            "site_count_with_compact_chronology_rows": chronology_count,
+            "site_count_without_source_bp_labelled_context": _int(
+                coverage_summary.get("site_count_without_source_bp_labelled_context", 0)
             ),
         },
         caveats=tuple(caveats),
