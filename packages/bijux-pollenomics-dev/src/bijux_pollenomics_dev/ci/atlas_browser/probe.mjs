@@ -247,7 +247,7 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
         && layout.discoverability.chronology_controls_opened
         && layout.discoverability.chronology_controls_focused
         && (layout.viewport.width > 900 || layout.discoverability.chronology_close_restored_focus)),
-      basemap_discoverability: [responsive[1440], responsive[390]].every((layout) => layout.discoverability.basemap_status_visible
+      basemap_discoverability: [responsive[1440], responsive[1024], responsive[768], responsive[390]].every((layout) => layout.discoverability.basemap_status_visible
         && layout.discoverability.basemap_status_bounded
         && layout.discoverability.basemap_status_uncovered
         && layout.discoverability.basemap_controls_opened
@@ -430,7 +430,7 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
       time_buttons_navigate: timeJourney.newer_moves_toward_present
         && timeJourney.older_restores_window && timeJourney.playback_started_at_oldest
         && timeJourney.playback_stopped,
-      basemap_discoverability: [responsive[1440], responsive[390]].every((layout) => layout.basemap_discoverability.status_visible
+      basemap_discoverability: [responsive[1440], responsive[1024], responsive[768], responsive[390]].every((layout) => layout.basemap_discoverability.status_visible
         && layout.basemap_discoverability.status_bounded && layout.basemap_discoverability.status_uncovered
         && layout.basemap_discoverability.controls_opened && layout.basemap_discoverability.active_provider_focused
         && (layout.viewport.width > 900 || layout.basemap_discoverability.close_restored_focus)

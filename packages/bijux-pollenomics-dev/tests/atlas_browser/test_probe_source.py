@@ -445,6 +445,9 @@ def test_status_actions_prove_chronology_and_basemap_discoverability() -> None:
     assert "chronology_status_action:" in probe
     assert "time_status_action:" in probe
     assert "basemap_discoverability:" in probe
+    assert probe.count(
+        "[responsive[1440], responsive[1024], responsive[768], responsive[390]].every((layout) => layout."
+    ) >= 2
     assert "const statusUncovered = uncovered(status);" in probe
     assert "button.focus();" in probe
     assert "document.activeElement === button" in probe
