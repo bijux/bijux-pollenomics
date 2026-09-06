@@ -32,8 +32,11 @@ def test_plan_requires_dedicated_repository_artifact_output(tmp_path: Path) -> N
     )
     with pytest.raises(FrozenInstanceError):
         media_plan.width = 10  # type: ignore[misc]
-    with pytest.raises(AtlasMediaError, match="even"):
+    assert (media_plan.width, media_plan.height) == (1440, 900)
+    with pytest.raises(AtlasMediaError, match="canonical 1440x900"):
         replace(media_plan, width=641)
+    with pytest.raises(AtlasMediaError, match="canonical 1440x900"):
+        replace(media_plan, height=1000)
 
 
 def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:

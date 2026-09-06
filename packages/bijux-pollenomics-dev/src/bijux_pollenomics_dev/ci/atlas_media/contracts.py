@@ -91,7 +91,7 @@ class AtlasMediaPlan:
     candidate: AtlasCandidate
     selection: StorySelection = StorySelection()
     width: int = 1440
-    height: int = 1000
+    height: int = 900
     frames_per_second: int = 12
     timeout_seconds: int = 60
 
@@ -138,15 +138,10 @@ class AtlasMediaPlan:
                 )
         if Path(self.atlas_document).parent != Path(self.atlas_manifest).parent:
             raise AtlasMediaError("atlas document and manifest must share a directory")
-        if (
-            isinstance(self.width, bool)
-            or not 640 <= self.width <= 3840
-            or self.width % 2 != 0
-            or isinstance(self.height, bool)
-            or not 480 <= self.height <= 2160
-            or self.height % 2 != 0
-        ):
-            raise AtlasMediaError("media dimensions must be even and within bounds")
+        if self.width != 1440 or self.height != 900:
+            raise AtlasMediaError(
+                "media dimensions must use the canonical 1440x900 viewport"
+            )
         if (
             isinstance(self.frames_per_second, bool)
             or not 1 <= self.frames_per_second <= 60

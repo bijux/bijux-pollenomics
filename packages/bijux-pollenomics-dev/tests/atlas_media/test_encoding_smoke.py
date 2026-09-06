@@ -58,7 +58,7 @@ def _write_source_frames(ffmpeg: Path, root: Path, story: SelectedStory) -> None
                 "-f",
                 "lavfi",
                 "-i",
-                f"color=c={color}:s=640x480:d=0.1",
+                f"color=c={color}:s=1440x900:d=0.1",
                 "-frames:v",
                 "1",
                 "-threads",
@@ -107,8 +107,8 @@ def test_real_encodes_are_byte_identical_and_probe_reconciled(
             plan(tmp_path / name),
             ffmpeg_binary=ffmpeg,
             ffprobe_binary=ffprobe,
-            width=640,
-            height=480,
+            width=1440,
+            height=900,
             frames_per_second=2,
         )
         _write_source_frames(ffmpeg, media_plan.artifact_root, story)
@@ -135,8 +135,8 @@ def test_real_encodes_are_byte_identical_and_probe_reconciled(
         ).read_bytes()
         for media_type in ("mp4", "gif"):
             assert by_type[media_type]["frame_count"] == 2
-            assert by_type[media_type]["width"] == 640
-            assert by_type[media_type]["height"] == 480
+            assert by_type[media_type]["width"] == 1440
+            assert by_type[media_type]["height"] == 900
             duration = by_type[media_type]["duration_seconds"]
             assert isinstance(duration, (int, float))
             assert float(duration) == pytest.approx(

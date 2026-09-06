@@ -139,8 +139,8 @@ def test_real_atlas_frame_is_pixel_identical_across_browser_replays() -> None:
                 exact_taxa=("source:neotoma:taxon:967",),
                 modeled_metrics=(),
             ),
-            width=960,
-            height=600,
+            width=1440,
+            height=900,
             timeout_seconds=60,
         )
         capture._render_frames(
