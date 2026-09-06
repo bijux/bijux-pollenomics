@@ -1,5 +1,5 @@
 {
-  "schema_version": "animal-country-species-coverage.v1",
+  "schema_version": "animal-country-species-coverage.v2",
   "rows": [
     {
       "country": "Denmark",
@@ -24,8 +24,8 @@
       "chronology_provenance_backed_sample_count": 3,
       "coordinate_provenance_backed_sample_count": 3,
       "caution_note": "wild or progenitor context; not domesticated-core support; coordinates remain approximate or inferred",
-      "direct_coordinate_site_count": 3,
-      "geocoded_site_count": 0,
+      "direct_coordinate_sample_count": 3,
+      "geocoded_coordinate_sample_count": 0,
       "unresolved_sample_count": 0
     },
     {
@@ -51,8 +51,8 @@
       "chronology_provenance_backed_sample_count": 2,
       "coordinate_provenance_backed_sample_count": 2,
       "caution_note": "sample support remains sparse; point surface relies on named-site geocoding rather than direct coordinates; coordinates remain approximate or inferred",
-      "direct_coordinate_site_count": 0,
-      "geocoded_site_count": 2,
+      "direct_coordinate_sample_count": 0,
+      "geocoded_coordinate_sample_count": 2,
       "unresolved_sample_count": 0
     },
     {
@@ -78,8 +78,8 @@
       "chronology_provenance_backed_sample_count": 2,
       "coordinate_provenance_backed_sample_count": 2,
       "caution_note": "sample support remains sparse; coordinates remain approximate or inferred",
-      "direct_coordinate_site_count": 2,
-      "geocoded_site_count": 0,
+      "direct_coordinate_sample_count": 2,
+      "geocoded_coordinate_sample_count": 0,
       "unresolved_sample_count": 0
     },
     {
@@ -105,8 +105,8 @@
       "chronology_provenance_backed_sample_count": 2,
       "coordinate_provenance_backed_sample_count": 2,
       "caution_note": "wild or progenitor context; not domesticated-core support; sample support remains sparse; coordinates remain approximate or inferred",
-      "direct_coordinate_site_count": 2,
-      "geocoded_site_count": 0,
+      "direct_coordinate_sample_count": 2,
+      "geocoded_coordinate_sample_count": 0,
       "unresolved_sample_count": 0
     },
     {
@@ -132,8 +132,8 @@
       "chronology_provenance_backed_sample_count": 3,
       "coordinate_provenance_backed_sample_count": 3,
       "caution_note": "coordinates remain approximate or inferred",
-      "direct_coordinate_site_count": 3,
-      "geocoded_site_count": 0,
+      "direct_coordinate_sample_count": 3,
+      "geocoded_coordinate_sample_count": 0,
       "unresolved_sample_count": 0
     }
   ]
