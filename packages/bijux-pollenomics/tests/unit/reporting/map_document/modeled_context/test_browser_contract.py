@@ -172,6 +172,33 @@ function escapeHtml(value) { return String(value); }
     }
 
 
+def test_modeled_window_selection_refuses_coercion_and_out_of_range_indexes() -> None:
+    block = template_block(
+        "function admittedModeledContextWindowIndex",
+        "async function advanceModeledContextPlayback",
+    )
+    observed = run_node_json(
+        """
+const MODELED_CONTEXT_WINDOWS = Array.from({length:25}, (_, index) => ({index}));
+const invalid = [null, undefined, '', '0', false, true, [], {}, -1, 1.5, 25, Number.NaN, Infinity];
+"""
+        + block
+        + """
+console.log(JSON.stringify({
+  zero: admittedModeledContextWindowIndex(0),
+  last: admittedModeledContextWindowIndex(24),
+  invalid: invalid.map((value) => admittedModeledContextWindowIndex(value)),
+}));
+"""
+    )
+
+    assert observed == {
+        "zero": 0,
+        "last": 24,
+        "invalid": [None] * 13,
+    }
+
+
 def test_generic_time_actions_deactivate_mode_and_normal_style_is_restored() -> None:
     assert "timeStartSlider.addEventListener('input', applyGlobalTimeStartInput)" in (
         MAP_DOCUMENT_TEMPLATE

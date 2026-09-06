@@ -123,7 +123,39 @@ def _run_map_visibility_checks(
         f"const scenarios = {json.dumps(scenarios)};\n"
         "const results = Object.fromEntries(Object.entries(scenarios).map("
         "([name, value]) => [name, value.legend "
-        "? expandedLegendPasses(value.facts) : mapVisibilityPasses(value.facts)]));\n"
+        "? expandedLegendPasses(value.facts) "
+        ": mapVisibilityPasses(value.facts, value.minimum)]));\n"
+        "process.stdout.write(JSON.stringify(results));\n"
+    )
+    return subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+
+def _run_visual_density_checks(
+    scenarios: dict[str, dict[str, object]],
+) -> subprocess.CompletedProcess[str]:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    match = re.search(
+        r"function visualDensityPasses.*?\n}\n\nfunction mapVisibilityPasses",
+        probe,
+        re.DOTALL,
+    )
+    assert match is not None
+    function_source = match.group(0).removesuffix(
+        "\n\nfunction mapVisibilityPasses"
+    )
+    script = (
+        f"{function_source}\n"
+        f"const scenarios = {json.dumps(scenarios)};\n"
+        "const results = Object.fromEntries(Object.entries(scenarios).map("
+        "([name, value]) => [name, visualDensityPasses("
+        "value.facts, value.maximum)]));\n"
         "process.stdout.write(JSON.stringify(results));\n"
     )
     return subprocess.run(
@@ -532,55 +564,82 @@ def test_responsive_contract_proves_desktop_and_bottom_sheet_states() -> None:
     assert "layout.clear_map.panel_collapsed" in probe
     assert "layout.clear_map.legend_collapsed" in probe
     assert "layout.clear_map.search_collapsed" in probe
+    assert "const ratios = Array.from({ length: 9 }" in probe
     assert "center_uncovered:" in probe
     assert "uncovered_sample_count:" in probe
     assert "legendToggle.click()" in probe
     assert "expanded_legend: expandedLegend" in probe
     assert "content_accessible:" in probe
     assert "map_visibility: sampleMapVisibility()" in probe
-    assert "mapVisibilityPasses(layout.clear_map)" in probe
+    assert "mapVisibilityPasses(layout.clear_map, 0.8)" in probe
     assert "expandedLegendPasses(layout.expanded_legend)" in probe
-    assert "facts.sample_count >= 25" in probe
-    assert "Math.ceil(facts.sample_count * 0.7)" in probe
+    assert "facts.sample_count >= 81" in probe
+    assert "Math.ceil(facts.sample_count * minimumClearFraction)" in probe
+    assert "panel_center_uncovered: uncovered(legendPanel)" in probe
+    assert "sidebar_center_uncovered: uncovered(sidebar)" in probe
+    assert "topbar_non_overlapping:" in probe
     assert "document.getElementById('legend-body')" in probe
     assert "document.getElementById('floating-legend')" in probe
     assert "document.getElementById('topbar-search')" in probe
     assert "mapElement.contains(mapCenterHit)" in probe
 
 
-def test_map_visibility_requires_clear_center_and_seventy_percent_sample() -> None:
-    valid_visibility = {
+def test_map_visibility_requires_dense_sampling_and_contextual_clear_fraction() -> None:
+    expanded_visibility = {
         "center_uncovered": True,
-        "uncovered_sample_count": 18,
-        "sample_count": 25,
+        "uncovered_sample_count": 57,
+        "sample_count": 81,
+    }
+    default_visibility = {
+        **expanded_visibility,
+        "uncovered_sample_count": 65,
     }
     valid_legend = {
         "expanded": True,
         "toggle_expanded": True,
         "toggle_uncovered": True,
         "body_visible": True,
+        "panel_center_uncovered": True,
         "panel_bounded": True,
         "body_bounded": True,
         "content_accessible": True,
+        "topbar_non_overlapping": True,
         "collapsed_after_journey": True,
-        "map_visibility": valid_visibility,
+        "map_visibility": expanded_visibility,
     }
     scenarios = {
-        "valid_map": {"legend": False, "facts": valid_visibility},
+        "valid_default": {
+            "legend": False,
+            "minimum": 0.8,
+            "facts": default_visibility,
+        },
+        "below_eighty_percent": {
+            "legend": False,
+            "minimum": 0.8,
+            "facts": {**default_visibility, "uncovered_sample_count": 64},
+        },
+        "valid_expanded": {
+            "legend": False,
+            "minimum": 0.7,
+            "facts": expanded_visibility,
+        },
         "covered_center": {
             "legend": False,
-            "facts": {**valid_visibility, "center_uncovered": False},
+            "minimum": 0.7,
+            "facts": {**expanded_visibility, "center_uncovered": False},
         },
         "below_seventy_percent": {
             "legend": False,
-            "facts": {**valid_visibility, "uncovered_sample_count": 17},
+            "minimum": 0.7,
+            "facts": {**expanded_visibility, "uncovered_sample_count": 56},
         },
         "weak_sample": {
             "legend": False,
+            "minimum": 0.7,
             "facts": {
                 "center_uncovered": True,
-                "uncovered_sample_count": 7,
-                "sample_count": 10,
+                "uncovered_sample_count": 56,
+                "sample_count": 80,
             },
         },
         "valid_legend": {"legend": True, "facts": valid_legend},
@@ -588,13 +647,21 @@ def test_map_visibility_requires_clear_center_and_seventy_percent_sample() -> No
             "legend": True,
             "facts": {**valid_legend, "content_accessible": False},
         },
+        "occluded_legend": {
+            "legend": True,
+            "facts": {**valid_legend, "panel_center_uncovered": False},
+        },
+        "legend_overlaps_topbar": {
+            "legend": True,
+            "facts": {**valid_legend, "topbar_non_overlapping": False},
+        },
         "legend_hides_map": {
             "legend": True,
             "facts": {
                 **valid_legend,
                 "map_visibility": {
-                    **valid_visibility,
-                    "uncovered_sample_count": 17,
+                    **expanded_visibility,
+                    "uncovered_sample_count": 56,
                 },
             },
         },
@@ -604,14 +671,168 @@ def test_map_visibility_requires_clear_center_and_seventy_percent_sample() -> No
 
     assert completed.returncode == 0, completed.stderr
     assert json.loads(completed.stdout) == {
-        "valid_map": True,
+        "valid_default": True,
+        "below_eighty_percent": False,
+        "valid_expanded": True,
         "covered_center": False,
         "below_seventy_percent": False,
         "weak_sample": False,
         "valid_legend": True,
         "clipped_legend": False,
+        "occluded_legend": False,
+        "legend_overlaps_topbar": False,
         "legend_hides_map": False,
     }
+
+
+def test_visual_density_contract_rejects_loud_or_ambiguous_symbols() -> None:
+    baseline = {
+        "boundary_count": 1,
+        "boundaries": [
+            {"stroke_width_px": 1.4, "opacity": 0.72, "fill_opacity": 0.04}
+        ],
+        "cluster_count": 1,
+        "clusters": [
+            {
+                "width_px": 44,
+                "height_px": 44,
+                "diameter_px": 44,
+                "border_width_px": 2,
+                "count_text": "12",
+                "count": 12,
+            }
+        ],
+        "aggregate_cluster_footprint_ratio": 0.04,
+    }
+    scenarios: dict[str, dict[str, object]] = {
+        "valid_desktop": {"facts": baseline, "maximum": 0.04},
+        "valid_mobile": {
+            "facts": {**baseline, "aggregate_cluster_footprint_ratio": 0.08},
+            "maximum": 0.08,
+        },
+        "valid_without_clusters": {
+            "facts": {
+                **baseline,
+                "cluster_count": 0,
+                "clusters": [],
+                "aggregate_cluster_footprint_ratio": 0,
+            },
+            "maximum": 0.04,
+        },
+        "missing_boundary": {
+            "facts": {**baseline, "boundary_count": 0, "boundaries": []},
+            "maximum": 0.04,
+        },
+        "thick_boundary": {
+            "facts": {
+                **baseline,
+                "boundaries": [
+                    {"stroke_width_px": 1.41, "opacity": 0.72, "fill_opacity": 0.04}
+                ],
+            },
+            "maximum": 0.04,
+        },
+        "opaque_boundary": {
+            "facts": {
+                **baseline,
+                "boundaries": [
+                    {"stroke_width_px": 1.4, "opacity": 0.73, "fill_opacity": 0.04}
+                ],
+            },
+            "maximum": 0.04,
+        },
+        "strong_boundary_fill": {
+            "facts": {
+                **baseline,
+                "boundaries": [
+                    {"stroke_width_px": 1.4, "opacity": 0.72, "fill_opacity": 0.041}
+                ],
+            },
+            "maximum": 0.04,
+        },
+        "small_cluster": {
+            "facts": {
+                **baseline,
+                "clusters": [{**baseline["clusters"][0], "diameter_px": 31.9}],
+            },
+            "maximum": 0.04,
+        },
+        "large_cluster": {
+            "facts": {
+                **baseline,
+                "clusters": [{**baseline["clusters"][0], "diameter_px": 44.1}],
+            },
+            "maximum": 0.04,
+        },
+        "thick_cluster_border": {
+            "facts": {
+                **baseline,
+                "clusters": [{**baseline["clusters"][0], "border_width_px": 2.1}],
+            },
+            "maximum": 0.04,
+        },
+        "non_integer_cluster_count": {
+            "facts": {
+                **baseline,
+                "clusters": [{**baseline["clusters"][0], "count": 12.5}],
+            },
+            "maximum": 0.04,
+        },
+        "mismatched_cluster_label": {
+            "facts": {
+                **baseline,
+                "clusters": [{**baseline["clusters"][0], "count_text": "13"}],
+            },
+            "maximum": 0.04,
+        },
+        "desktop_footprint_exceeded": {
+            "facts": {**baseline, "aggregate_cluster_footprint_ratio": 0.0401},
+            "maximum": 0.04,
+        },
+    }
+
+    completed = _run_visual_density_checks(scenarios)
+
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        "valid_desktop": True,
+        "valid_mobile": True,
+        "valid_without_clusters": True,
+        "missing_boundary": False,
+        "thick_boundary": False,
+        "opaque_boundary": False,
+        "strong_boundary_fill": False,
+        "small_cluster": False,
+        "large_cluster": False,
+        "thick_cluster_border": False,
+        "non_integer_cluster_count": False,
+        "mismatched_cluster_label": False,
+        "desktop_footprint_exceeded": False,
+    }
+
+
+def test_visual_density_facts_measure_rendered_boundaries_and_cluster_footprint() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    for literal in (
+        "document.querySelectorAll('.leaflet-boundary-pane path')",
+        "numericStyle(style.strokeWidth)",
+        "numericStyle(style.strokeOpacity)",
+        "numericStyle(style.fillOpacity)",
+        "document.querySelectorAll('.leaflet-marker-pane .cluster-pill')",
+        "diameter_px: Math.max(bounds.width, bounds.height)",
+        "style.borderTopWidth",
+        "borderWidths.every((value) => value !== null)",
+        "count: /^[1-9]\\\\d*$/.test(countText) ? Number(countText) : null",
+        "Math.PI * cluster.width_px * cluster.height_px / 4",
+        "aggregate_cluster_footprint_ratio:",
+        "visualDensityPasses(layout.visual_density, 0.04)",
+        "visualDensityPasses(layout.visual_density, 0.08)",
+    ):
+        assert literal in probe
+    assert "facts.cluster_count <=" not in probe
 
 
 def test_responsive_contract_proves_compact_search_keyboard_journey() -> None:
@@ -648,11 +869,28 @@ def test_responsive_contract_proves_compact_search_keyboard_journey() -> None:
     assert "classList.add('atlas-capture-mode')" not in probe
 
 
+def test_mobile_panel_must_not_cover_the_topbar() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    mobile_contract = re.search(
+        r"function mobileLayoutPasses.*?\n}\n\nfunction searchControlPasses",
+        probe,
+        re.DOTALL,
+    )
+
+    assert mobile_contract is not None
+    assert "layout.mobile.expanded.topbar_non_overlapping" in mobile_contract.group(0)
+    assert probe.count(
+        "topbar_non_overlapping: !boxesOverlap(legendPanelBox, box(topbar))"
+    ) == 1
+
+
 def test_populated_search_and_focused_record_checks_fail_closed() -> None:
     map_visibility = {
         "center_uncovered": True,
-        "uncovered_sample_count": 18,
-        "sample_count": 25,
+        "uncovered_sample_count": 57,
+        "sample_count": 81,
     }
     search = {
         "query": "a",
@@ -667,12 +905,14 @@ def test_populated_search_and_focused_record_checks_fail_closed() -> None:
     focus = {
         "result_available": True,
         "card_visible": True,
+        "card_center_uncovered": True,
         "card_bounded": True,
         "content_accessible": True,
         "panel_collapsed": True,
         "panel_hidden": True,
         "legend_collapsed": True,
         "search_collapsed": True,
+        "topbar_non_overlapping": True,
         "map_visibility": map_visibility,
         "closed_after_journey": True,
     }
@@ -690,7 +930,7 @@ def test_populated_search_and_focused_record_checks_fail_closed() -> None:
             "kind": "search",
             "facts": {
                 **search,
-                "map_visibility": {**map_visibility, "uncovered_sample_count": 17},
+                "map_visibility": {**map_visibility, "uncovered_sample_count": 56},
             },
         },
         "valid_focus": {"kind": "focus", "facts": focus},
@@ -704,6 +944,14 @@ def test_populated_search_and_focused_record_checks_fail_closed() -> None:
                 **focus,
                 "map_visibility": {**map_visibility, "center_uncovered": False},
             },
+        },
+        "focus_is_occluded": {
+            "kind": "focus",
+            "facts": {**focus, "card_center_uncovered": False},
+        },
+        "focus_overlaps_topbar": {
+            "kind": "focus",
+            "facts": {**focus, "topbar_non_overlapping": False},
         },
         "focus_not_dismissed": {
             "kind": "focus",
@@ -722,6 +970,8 @@ def test_populated_search_and_focused_record_checks_fail_closed() -> None:
         "valid_focus": True,
         "focus_keeps_panel": False,
         "focus_hides_map": False,
+        "focus_is_occluded": False,
+        "focus_overlaps_topbar": False,
         "focus_not_dismissed": False,
     }
 

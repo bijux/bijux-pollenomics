@@ -286,6 +286,17 @@ def test_capture_receipt_binds_frame_selector_build_and_png(tmp_path: Path) -> N
             stories=(story,),
         )
 
+    wrong_cluster_key = deepcopy(receipt)
+    wrong_cluster_key["stories"][0]["frames"][0]["capture_presentation"][
+        "key_items"
+    ][1]["fill"] = "rgb(255, 255, 255)"
+    with pytest.raises(AtlasMediaError, match="frame identity"):
+        capture._validate_capture_receipt(
+            wrong_cluster_key,
+            plan=media_plan,
+            stories=(story,),
+        )
+
     for field, invalid_value in (
         ("overlay_content_bounded", False),
         ("overlay_content_overflow", True),

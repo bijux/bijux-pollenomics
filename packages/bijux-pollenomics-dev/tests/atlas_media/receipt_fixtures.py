@@ -75,7 +75,7 @@ def capture_presentation(
     styles = (
         [
             source_colors[source_level],
-            ("rgba(255, 255, 255, 0.9)", "rgba(24, 37, 61, 0.35)"),
+            source_colors[source_level],
             ("rgba(0, 0, 0, 0)", "rgb(100, 116, 139)"),
         ]
         if source

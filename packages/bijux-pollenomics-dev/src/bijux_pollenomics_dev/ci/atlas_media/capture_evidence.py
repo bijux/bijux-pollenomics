@@ -209,7 +209,7 @@ def _capture_presentation_valid(
         )
         expected_styles = [
             (selected_fill, selected_stroke),
-            ("rgba(255, 255, 255, 0.9)", "rgba(24, 37, 61, 0.35)"),
+            (selected_fill, selected_stroke),
             ("rgba(0, 0, 0, 0)", "rgb(100, 116, 139)"),
         ]
         observation_label = (

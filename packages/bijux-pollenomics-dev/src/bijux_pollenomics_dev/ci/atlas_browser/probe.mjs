@@ -1197,6 +1197,8 @@ async function responsiveFacts(cdp, width) {
       const value = element.getBoundingClientRect();
       return { left: value.left, right: value.right, top: value.top, bottom: value.bottom, width: value.width, height: value.height };
     };
+    const boxesOverlap = (first, second) => first.left < second.right && first.right > second.left
+      && first.top < second.bottom && first.bottom > second.top;
     const topbar = document.querySelector('.map-topbar');
     const mapElement = document.getElementById('map');
     const legendBody = document.getElementById('legend-body');
@@ -1223,8 +1225,9 @@ async function responsiveFacts(cdp, width) {
     const sampleMapVisibility = () => {
       const mapBox = mapElement.getBoundingClientRect();
       const samplePoints = [];
-      for (const xRatio of [0.1, 0.3, 0.5, 0.7, 0.9]) {
-        for (const yRatio of [0.2, 0.35, 0.5, 0.65, 0.8]) {
+      const ratios = Array.from({ length: 9 }, (_value, index) => (index + 1) / 10);
+      for (const xRatio of ratios) {
+        for (const yRatio of ratios) {
           const hit = document.elementFromPoint(
             mapBox.left + (mapBox.width * xRatio),
             mapBox.top + (mapBox.height * yRatio),
@@ -1242,12 +1245,61 @@ async function responsiveFacts(cdp, width) {
         sample_count: samplePoints.length,
       };
     };
+    const sampleVisualDensity = () => {
+      const numericStyle = (value) => {
+        const numeric = Number.parseFloat(value);
+        return Number.isFinite(numeric) ? numeric : null;
+      };
+      const boundaries = [...document.querySelectorAll('.leaflet-boundary-pane path')].map((path) => {
+        const style = getComputedStyle(path);
+        return {
+          stroke_width_px: numericStyle(style.strokeWidth),
+          opacity: numericStyle(style.strokeOpacity),
+          fill_opacity: numericStyle(style.fillOpacity),
+        };
+      });
+      const clusters = [...document.querySelectorAll('.leaflet-marker-pane .cluster-pill')].map((pill) => {
+        const bounds = pill.getBoundingClientRect();
+        const style = getComputedStyle(pill);
+        const countText = pill.textContent.trim();
+        const borderWidths = [
+          style.borderTopWidth,
+          style.borderRightWidth,
+          style.borderBottomWidth,
+          style.borderLeftWidth,
+        ].map(numericStyle);
+        return {
+          width_px: bounds.width,
+          height_px: bounds.height,
+          diameter_px: Math.max(bounds.width, bounds.height),
+          border_width_px: borderWidths.every((value) => value !== null)
+            ? Math.max(...borderWidths)
+            : null,
+          count_text: countText,
+          count: /^[1-9]\\d*$/.test(countText) ? Number(countText) : null,
+        };
+      });
+      const mapBounds = mapElement.getBoundingClientRect();
+      const mapArea = mapBounds.width * mapBounds.height;
+      const clusterArea = clusters.reduce(
+        (total, cluster) => total + (Math.PI * cluster.width_px * cluster.height_px / 4),
+        0,
+      );
+      return {
+        boundary_count: boundaries.length,
+        boundaries,
+        cluster_count: clusters.length,
+        clusters,
+        aggregate_cluster_footprint_ratio: mapArea > 0 ? clusterArea / mapArea : null,
+      };
+    };
     const clearMap = {
       panel_collapsed: sidebar.classList.contains('is-collapsed'),
       legend_collapsed: legendBody.classList.contains('is-collapsed'),
       search_collapsed: topbarSearch.hidden && searchToggle.getAttribute('aria-expanded') === 'false',
       ...sampleMapVisibility(),
     };
+    const visualDensity = sampleVisualDensity();
     legendToggle.focus();
     legendToggle.click();
     await settle();
@@ -1260,6 +1312,7 @@ async function responsiveFacts(cdp, width) {
       toggle_expanded: legendToggle.getAttribute('aria-expanded') === 'true',
       toggle_uncovered: uncovered(legendToggle),
       body_visible: visible(legendBody),
+      panel_center_uncovered: uncovered(legendPanel),
       panel_bounded: legendPanelBox.left >= -1 && legendPanelBox.right <= innerWidth + 1
         && legendPanelBox.top >= -1 && legendPanelBox.bottom <= innerHeight + 1,
       body_bounded: legendBodyBox.left >= legendPanelBox.left - 1
@@ -1269,6 +1322,7 @@ async function responsiveFacts(cdp, width) {
       content_accessible: legendBody.scrollHeight <= legendBody.clientHeight + 1
         || ['auto', 'scroll'].includes(legendBodyStyle.overflowY)
         || ['auto', 'scroll'].includes(legendPanelStyle.overflowY),
+      topbar_non_overlapping: !boxesOverlap(legendPanelBox, box(topbar)),
       map_visibility: sampleMapVisibility(),
       collapsed_after_journey: false,
     };
@@ -1340,6 +1394,7 @@ async function responsiveFacts(cdp, width) {
       const outsidePanelHit = document.elementFromPoint(innerWidth / 2, Math.max(1, sidebarBox.top - 8));
       const expanded = {
         sidebar_expanded: !sidebar.classList.contains('is-collapsed') && visible(sidebar),
+        sidebar_center_uncovered: uncovered(sidebar),
         sidebar_bounded: sidebarBox.left >= -1 && sidebarBox.right <= innerWidth + 1
           && sidebarBox.top >= -1 && sidebarBox.bottom <= innerHeight + 1,
         sidebar_height_px: sidebarBox.height,
@@ -1351,6 +1406,7 @@ async function responsiveFacts(cdp, width) {
         close_visible: visible(close),
         close_uncovered: uncovered(close),
         scrim_catches_outside_panel: outsidePanelHit === scrim,
+        topbar_non_overlapping: !boxesOverlap(box(sidebar), box(topbar)),
       };
       expandedPanel = expanded;
       close.click();
@@ -1369,10 +1425,12 @@ async function responsiveFacts(cdp, width) {
       const sidebarBox = box(sidebar);
       expandedPanel = {
         sidebar_expanded: !sidebar.classList.contains('is-collapsed') && visible(sidebar),
+        sidebar_center_uncovered: uncovered(sidebar),
         sidebar_bounded: sidebarBox.left >= -1 && sidebarBox.right <= innerWidth + 1
           && sidebarBox.top >= -1 && sidebarBox.bottom <= innerHeight + 1,
         content_accessible: sidebar.scrollHeight <= sidebar.clientHeight + 1
           || ['auto', 'scroll'].includes(getComputedStyle(sidebar.querySelector('.control-panel-body')).overflowY),
+        topbar_non_overlapping: !boxesOverlap(sidebarBox, box(topbar)),
         map_visibility: sampleMapVisibility(),
       };
     }
@@ -1398,12 +1456,14 @@ async function responsiveFacts(cdp, width) {
     let focusedRecord = {
       result_available: false,
       card_visible: false,
+      card_center_uncovered: false,
       card_bounded: false,
       content_accessible: false,
       panel_collapsed: false,
       panel_hidden: false,
       legend_collapsed: false,
       search_collapsed: false,
+      topbar_non_overlapping: false,
       map_visibility: null,
       closed_after_journey: false,
     };
@@ -1417,6 +1477,7 @@ async function responsiveFacts(cdp, width) {
       focusedRecord = {
         result_available: true,
         card_visible: visible(focusCard),
+        card_center_uncovered: uncovered(focusCard),
         card_bounded: focusBox.left >= -1 && focusBox.right <= innerWidth + 1
           && focusBox.top >= -1 && focusBox.bottom <= innerHeight + 1,
         content_accessible: focusCard.scrollHeight <= focusCard.clientHeight + 1
@@ -1425,6 +1486,7 @@ async function responsiveFacts(cdp, width) {
         panel_hidden: !visible(sidebar),
         legend_collapsed: legendBody.classList.contains('is-collapsed'),
         search_collapsed: topbarSearch.hidden,
+        topbar_non_overlapping: !boxesOverlap(focusBox, box(topbar)),
         map_visibility: sampleMapVisibility(),
         closed_after_journey: false,
       };
@@ -1445,6 +1507,7 @@ async function responsiveFacts(cdp, width) {
       search_control: searchControl,
       expanded_panel: expandedPanel,
       focused_record: focusedRecord,
+      visual_density: visualDensity,
       chronology: chronologyBoxes,
       chronology_controls_visible: chronologyControlsVisible,
       chronology_controls_bounded: chronologyControlsBounded,
@@ -1818,12 +1881,44 @@ function captureFrameIsClear(snapshot, evidenceRole) {
     && snapshot.visible_polygon_feature_count >= snapshot.visible_polygon_layer_count;
 }
 
-function mapVisibilityPasses(facts) {
+function visualDensityPasses(facts, maximumClusterFootprintRatio) {
+  return Number.isInteger(facts?.boundary_count)
+    && facts.boundary_count > 0
+    && Array.isArray(facts.boundaries)
+    && facts.boundaries.length === facts.boundary_count
+    && facts.boundaries.every((boundary) => Number.isFinite(boundary?.stroke_width_px)
+      && boundary.stroke_width_px <= 1.4
+      && Number.isFinite(boundary.opacity)
+      && boundary.opacity <= 0.72
+      && Number.isFinite(boundary.fill_opacity)
+      && boundary.fill_opacity <= 0.04)
+    && Number.isInteger(facts.cluster_count)
+    && facts.cluster_count >= 0
+    && Array.isArray(facts.clusters)
+    && facts.clusters.length === facts.cluster_count
+    && facts.clusters.every((cluster) => Number.isFinite(cluster?.diameter_px)
+      && cluster.diameter_px >= 32
+      && cluster.diameter_px <= 44
+      && Number.isFinite(cluster.border_width_px)
+      && cluster.border_width_px <= 2
+      && Number.isInteger(cluster.count)
+      && cluster.count > 0
+      && cluster.count_text === String(cluster.count))
+    && Number.isFinite(facts.aggregate_cluster_footprint_ratio)
+    && facts.aggregate_cluster_footprint_ratio >= 0
+    && Number.isFinite(maximumClusterFootprintRatio)
+    && facts.aggregate_cluster_footprint_ratio <= maximumClusterFootprintRatio;
+}
+
+function mapVisibilityPasses(facts, minimumClearFraction = 0.7) {
   return facts?.center_uncovered === true
     && Number.isInteger(facts.uncovered_sample_count)
     && Number.isInteger(facts.sample_count)
-    && facts.sample_count >= 25
-    && facts.uncovered_sample_count >= Math.ceil(facts.sample_count * 0.7);
+    && facts.sample_count >= 81
+    && Number.isFinite(minimumClearFraction)
+    && minimumClearFraction >= 0
+    && minimumClearFraction <= 1
+    && facts.uncovered_sample_count >= Math.ceil(facts.sample_count * minimumClearFraction);
 }
 
 function expandedLegendPasses(facts) {
@@ -1831,9 +1926,11 @@ function expandedLegendPasses(facts) {
     && facts.toggle_expanded === true
     && facts.toggle_uncovered === true
     && facts.body_visible === true
+    && facts.panel_center_uncovered === true
     && facts.panel_bounded === true
     && facts.body_bounded === true
     && facts.content_accessible === true
+    && facts.topbar_non_overlapping === true
     && facts.collapsed_after_journey === true
     && mapVisibilityPasses(facts.map_visibility);
 }
@@ -1853,12 +1950,14 @@ function populatedSearchPasses(facts) {
 function focusedRecordPasses(facts) {
   return facts?.result_available === true
     && facts.card_visible === true
+    && facts.card_center_uncovered === true
     && facts.card_bounded === true
     && facts.content_accessible === true
     && facts.panel_collapsed === true
     && facts.panel_hidden === true
     && facts.legend_collapsed === true
     && facts.search_collapsed === true
+    && facts.topbar_non_overlapping === true
     && mapVisibilityPasses(facts.map_visibility)
     && facts.closed_after_journey === true;
 }
@@ -1870,12 +1969,15 @@ function desktopLayoutPasses(layout) {
     && layout.clear_map.panel_collapsed
     && layout.clear_map.legend_collapsed
     && layout.clear_map.search_collapsed
-    && mapVisibilityPasses(layout.clear_map)
+    && mapVisibilityPasses(layout.clear_map, 0.8)
+    && visualDensityPasses(layout.visual_density, 0.04)
     && expandedLegendPasses(layout.expanded_legend)
     && searchControlPasses(layout.search_control)
     && layout.expanded_panel?.sidebar_expanded === true
+    && layout.expanded_panel.sidebar_center_uncovered === true
     && layout.expanded_panel.sidebar_bounded === true
     && layout.expanded_panel.content_accessible === true
+    && layout.expanded_panel.topbar_non_overlapping === true
     && mapVisibilityPasses(layout.expanded_panel.map_visibility)
     && focusedRecordPasses(layout.focused_record)
     && layout.elements.topbar.width > 0
@@ -1906,13 +2008,15 @@ function mobileLayoutPasses(layout) {
     && layout.clear_map.panel_collapsed
     && layout.clear_map.legend_collapsed
     && layout.clear_map.search_collapsed
-    && mapVisibilityPasses(layout.clear_map)
+    && mapVisibilityPasses(layout.clear_map, 0.8)
+    && visualDensityPasses(layout.visual_density, 0.08)
     && expandedLegendPasses(layout.expanded_legend)
     && searchControlPasses(layout.search_control)
     && layout.mobile?.collapsed.sidebar_collapsed
     && layout.mobile.collapsed.toggle_visible
     && layout.mobile.collapsed.scrim_hidden
     && layout.mobile.expanded.sidebar_expanded
+    && layout.mobile.expanded.sidebar_center_uncovered
     && layout.mobile.expanded.sidebar_bounded
     && layout.mobile.expanded.sidebar_height_px <= layout.viewport.height * 0.72 + 1
     && layout.mobile.expanded.content_accessible
@@ -1921,6 +2025,7 @@ function mobileLayoutPasses(layout) {
     && layout.mobile.expanded.close_visible
     && layout.mobile.expanded.close_uncovered
     && layout.mobile.expanded.scrim_catches_outside_panel
+    && layout.mobile.expanded.topbar_non_overlapping
     && layout.mobile.closed.sidebar_collapsed
     && layout.mobile.closed.body_closed
     && layout.mobile.closed.scrim_hidden

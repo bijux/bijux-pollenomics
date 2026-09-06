@@ -155,6 +155,12 @@ function validateCapturePresentation(value, frame, story, snapshot) {
   const expectedCues = sourceFrame
     ? ['point', 'cluster-count', 'line']
     : ['area', 'area', 'area', 'area', 'area', 'area', 'line'];
+  const sourceColors = {
+    source_sample_presence: ['rgb(180, 83, 9)', 'rgb(120, 53, 15)'],
+    source_ecological_code: ['rgb(15, 118, 110)', 'rgb(19, 78, 74)'],
+    source_taxon: ['rgb(124, 58, 237)', 'rgb(76, 29, 149)'],
+  };
+  const expectedSourceColors = sourceColors[frame.source_level];
   const visibleObservations = snapshot.source_chronology?.visible_observation_denominator;
   const expectedCounts = sourceFrame
     ? `${snapshot.visible_source_chronology_point_count}/${story.node_count} governed source nodes in this interval · ${visibleObservations}/${story.observation_denominator} contributing observations`
@@ -179,6 +185,13 @@ function validateCapturePresentation(value, frame, story, snapshot) {
       || item.label !== expectedKeyLabels[index]
       || item.cue !== expectedCues[index]
       || [item.fill, item.stroke].some((style) => typeof style !== 'string' || !style.trim())
+    ))
+    || (sourceFrame && (
+      !expectedSourceColors
+      || value.key_items[0].fill !== expectedSourceColors[0]
+      || value.key_items[0].stroke !== expectedSourceColors[1]
+      || value.key_items[1].fill !== expectedSourceColors[0]
+      || value.key_items[1].stroke !== expectedSourceColors[1]
     ))
     || value.caveat !== expectedCaveat
   ) throw new Error('captured presentation identity differs');

@@ -83,6 +83,8 @@ def test_snapshot_policy_rejects_stale_readiness_and_scientific_posture() -> Non
         ["visible_polygon_feature_count", -1],
         ["capture_layers.active_keys", ["country-boundaries", "unrelated"]],
         ["capture_presentation.null_handling", "null_as_zero"],
+        ["capture_presentation.key_items.1.fill", "rgb(255, 255, 255)"],
+        ["capture_presentation.key_items.1.stroke", "rgb(24, 37, 61)"],
         ["capture_layout.overlay_content_bounded", False],
         ["capture_layout.overlay_content_overflow", True],
         ["capture_layout.overlay_overlaps_map", True],

@@ -394,6 +394,32 @@
         border: 1px solid rgba(24, 37, 61, 0.28);
         flex: 0 0 auto;
       }
+      .legend-acceptance-cue {
+        width: 16px;
+        height: 16px;
+        border: 1px solid currentColor;
+        border-radius: 999px;
+        flex: 0 0 auto;
+      }
+      .legend-boundary-cue {
+        width: 20px;
+        border-top: 2px solid currentColor;
+        flex: 0 0 auto;
+      }
+      .legend-cluster-cue {
+        display: inline-grid;
+        width: 24px;
+        height: 24px;
+        place-items: center;
+        border: 2px solid rgba(255, 255, 255, 0.88);
+        border-radius: 999px;
+        background: #64748b;
+        color: #fff;
+        font-size: 8px;
+        font-weight: 700;
+        box-shadow: 0 4px 10px rgba(20, 33, 61, 0.12);
+        flex: 0 0 auto;
+      }
       .chip-count {
         display: inline-flex;
         align-items: center;
@@ -1173,7 +1199,7 @@
         bottom: 24px;
         z-index: 1100;
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, auto));
+        grid-template-columns: repeat(5, minmax(0, auto));
         gap: 16px;
         padding: 12px 16px;
         border-radius: 22px;
@@ -1581,13 +1607,13 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 42px;
-        height: 42px;
+        width: 38px;
+        height: 38px;
         border-radius: 999px;
         color: white;
-        border: 3px solid rgba(255, 255, 255, 0.88);
+        border: 2px solid rgba(255, 255, 255, 0.88);
         font-weight: 700;
-        box-shadow: 0 10px 24px rgba(20, 33, 61, 0.20);
+        box-shadow: 0 6px 14px rgba(20, 33, 61, 0.14);
       }
       @media (max-width: 1080px) {
         .map-topbar {
@@ -1608,7 +1634,7 @@
           right: 12px;
           bottom: 12px;
           border-radius: 18px;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
+          grid-template-columns: repeat(5, minmax(0, 1fr));
         }
         .focus-card {
           left: 12px;
@@ -1847,7 +1873,7 @@
           <div id="legend-body" class="legend-body is-collapsed">
             <div id="legend-items" class="legend-list"></div>
             <div id="density-ramp" class="density-ramp">
-              <div class="legend-item"><span class="legend-swatch" style="background: rgba(37, 99, 235, 0.10); border-color: rgba(37, 99, 235, 0.45);"></span><span>Acceptance circles use semi-transparent fills so overlap remains visible.</span></div>
+              <div class="legend-item"><span>Acceptance rings use each active layer's marker colors and remain translucent so overlap is visible.</span></div>
               <div class="legend-item"><span class="legend-swatch" style="background: rgba(239, 68, 68, 0.22); border-color: #7f1d1d;"></span><span>RAÄ archaeology density shows Swedish `Fornlämning` counts in 1° grid cells.</span></div>
               <div class="density-bar"><span></span><span></span><span></span><span></span><span></span><span></span></div>
               <div class="density-labels"><span>Lower density</span><span>Higher density</span></div>
@@ -3266,12 +3292,21 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           timeIntervalYears = previousTime.timeIntervalYears;
         }
       }
+      function admittedModeledContextWindowIndex(value) {
+        return typeof value === 'number'
+          && Number.isSafeInteger(value)
+          && value >= 0
+          && value < MODELED_CONTEXT_WINDOWS.length
+          ? value
+          : null;
+      }
       async function selectModeledContextWindow(index) {
         if (!modeledContextAvailable()) return;
+        const nextIndex = admittedModeledContextWindowIndex(index);
+        if (nextIndex === null) return;
         if (!modeledContextActive) {
           modeledContextPreviousTime = { timeStartBp, timeIntervalYears };
         }
-        const nextIndex = Math.max(0, Math.min(MODELED_CONTEXT_WINDOWS.length - 1, Number(index) || 0));
         modeledContextWindowIndex = nextIndex;
         modeledContextActive = true;
         const sourceWindow = currentModeledContextWindow();
@@ -4956,8 +4991,27 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const activeAnimalLayers = activeLegendLayers.filter((layer) => isAnimalLayer(layer));
         const concentrationLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
         const animalMetrics = summarizeAnimalMetrics();
+        const renderLayerCue = (layer) => {
+          if (layer.kind === 'country-boundaries') {
+            return [...activeCountries].sort().map((country) => {
+              const style = countryStyle(country);
+              return `<div class="legend-item legend-item--compact" data-legend-country="${escapeHtml(country)}"><span class="legend-boundary-cue" style="color:${escapeHtml(style.stroke)};"></span><span>${escapeHtml(country)} boundary</span></div>`;
+            }).join('');
+          }
+          const fill = layerColor(layer);
+          const stroke = layer.style.stroke || fill;
+          const acceptanceFill = layer.style.circleFill || fill;
+          const acceptanceStroke = layer.style.circleStroke || stroke;
+          const acceptanceCue = POINT_LAYERS.includes(layer)
+            ? `<span class="legend-acceptance-cue" data-legend-acceptance-layer="${escapeHtml(layer.key)}" title="Acceptance ring for ${escapeHtml(layer.label)}" style="color:${escapeHtml(acceptanceStroke)};background:${escapeHtml(acceptanceFill)};"></span>`
+            : '';
+          return `<div class="legend-item" data-legend-layer="${escapeHtml(layer.key)}"><span class="legend-swatch" style="background:${escapeHtml(fill)};border-color:${escapeHtml(stroke)};"></span>${acceptanceCue}<span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)} ${layer.coverage_label ? `(${escapeHtml(layer.coverage_label)})` : ''}</span></div>`;
+        };
         const renderGroup = (label, layers) => layers.length
-          ? `<div class="legend-group"><div class="legend-group-label">${escapeHtml(label)}</div><div class="legend-list">${layers.map((layer) => `<div class="legend-item"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)} ${layer.coverage_label ? `(${escapeHtml(layer.coverage_label)})` : ''}</span></div>`).join('')}</div></div>`
+          ? `<div class="legend-group"><div class="legend-group-label">${escapeHtml(label)}</div><div class="legend-list">${layers.map(renderLayerCue).join('')}</div></div>`
+          : '';
+        const clusterLegendSection = activeLegendLayers.some((layer) => POINT_LAYERS.includes(layer))
+          ? '<div class="legend-group"><div class="legend-group-label">Map grouping</div><div class="legend-item legend-item--compact"><span class="legend-cluster-cue">12</span><span>Numbered circles group same-layer records at the current zoom; the number is a record count, not abundance.</span></div></div>'
           : '';
         const animalLegendSections = activeAnimalLayers.length
           ? [
@@ -4970,9 +5024,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           ? `<div class="legend-group"><div class="legend-group-label">Accepted scientific comparison</div><div class="legend-list">${SCIENTIFIC_SIGNALS.filter((signal) => activeScientificSignalIds.has(signal.signal_id)).map((signal) => `<div class="legend-item"><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span><span>${escapeHtml(signal.label)} · ${escapeHtml(signal.resolution)} · ${escapeHtml(signal.feature_key)}</span></div>`).join('') || '<div class="legend-item"><span>No accepted scientific signals selected.</span></div>'}</div></div>`
           : '';
         const sourceConcentrationLegendSection = concentrationLayer && sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'available'
-          ? `<div class="legend-group"><div class="legend-group-label">Captured source-record concentration</div><div class="legend-list"><div class="legend-item"><span class="legend-swatch" style="width:7px;height:7px;background:${escapeHtml(layerColor(concentrationLayer))};"></span><span>1 raw visible node at one source site</span></div><div class="legend-item"><span class="legend-swatch" style="width:10px;height:10px;background:${escapeHtml(layerColor(concentrationLayer))};"></span><span>2–4 nodes</span></div><div class="legend-item"><span class="legend-swatch" style="width:13px;height:13px;background:${escapeHtml(layerColor(concentrationLayer))};"></span><span>5–9 nodes</span></div><div class="legend-item"><span class="legend-swatch" style="width:16px;height:16px;background:${escapeHtml(layerColor(concentrationLayer))};"></span><span>10–24 nodes</span></div><div class="legend-item"><span class="legend-swatch" style="width:19px;height:19px;background:${escapeHtml(layerColor(concentrationLayer))};"></span><span>25+ nodes</span></div><div class="legend-item"><span>${sourceRecordConcentrationSnapshot.visible_observation_denominator} contributing observations for visible symbols; ${sourceRecordConcentrationSnapshot.global_observation_denominator} in the global pre-filter facet denominator. Values are not weighted.</span></div></div></div>`
+          ? `<div class="legend-group"><div class="legend-group-label">Captured source-record concentration</div><div class="legend-list">${[[7, '1 raw visible node at one source site'], [10, '2–4 nodes'], [13, '5–9 nodes'], [16, '10–24 nodes'], [19, '25+ nodes']].map(([size, label]) => `<div class="legend-item"><span class="legend-swatch" data-legend-concentration-size="${size}" style="width:${size}px;height:${size}px;background:${escapeHtml(layerColor(concentrationLayer))};border-color:${escapeHtml(concentrationLayer.style.stroke || layerColor(concentrationLayer))};"></span><span>${label}</span></div>`).join('')}<div class="legend-item"><span>${sourceRecordConcentrationSnapshot.visible_observation_denominator} contributing observations for visible symbols; ${sourceRecordConcentrationSnapshot.global_observation_denominator} in the global pre-filter facet denominator. Values are not weighted.</span></div></div></div>`
           : '';
-        legendItems.innerHTML = `${scientificLegendSection}${sourceConcentrationLegendSection}${animalLegendSections}${LAYER_GROUP_DEFINITIONS
+        legendItems.innerHTML = `${clusterLegendSection}${scientificLegendSection}${sourceConcentrationLegendSection}${animalLegendSections}${LAYER_GROUP_DEFINITIONS
           .map((group) => renderGroup(group.label, activeLegendLayers.filter((layer) => layer.group === group.key)))
           .join('')}` || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
         densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
@@ -5225,11 +5279,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return L.markerClusterGroup({
           showCoverageOnHover: false,
           spiderfyOnMaxZoom: true,
-          maxClusterRadius: 46,
+          maxClusterRadius: 56,
           disableClusteringAtZoom: 10,
           iconCreateFunction(cluster) {
             const count = cluster.getChildCount();
-            const size = count > 100 ? 50 : count > 25 ? 44 : 38;
+            const size = count > 100 ? 44 : count > 25 ? 38 : 32;
             return L.divIcon({ html: `<div class="cluster-pill" style="width:${size}px;height:${size}px;background:${layer.style.fill};">${count}</div>`, className: '', iconSize: [size, size] });
           }
         });
@@ -5398,7 +5452,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
                   return { color: '#64748b', weight: 1.1, fillColor: '#f8fafc', fillOpacity: 0.025, opacity: 0.62 };
                 }
                 const style = countryStyle(country);
-                return { color: style.stroke, weight: activeCountries.has(country) ? 2.2 : 1.2, fillColor: style.fill, fillOpacity: activeCountries.has(country) ? 0.10 : 0.02, opacity: activeCountries.has(country) ? 0.95 : 0.45 };
+                return { color: style.stroke, weight: 1.4, fillColor: style.fill, fillOpacity: 0.04, opacity: 0.72 };
               },
               onEachFeature(feature, featureLayer) {
                 featureLayer.bindPopup(`<div class="popup-grid"><div><strong>Country</strong> ${escapeHtml(feature.properties.name || '')}</div><div><strong>Filter state</strong> ${activeCountries.has(feature.properties.country) ? 'Visible' : 'Hidden'}</div></div>`);
@@ -5851,7 +5905,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           return `<span class="atlas-capture-key-item" data-capture-cue="point"><span class="atlas-capture-swatch atlas-capture-swatch--point" style="background:${escapeHtml(item.fill)};border-color:${escapeHtml(item.stroke)};"></span>${label}</span>`;
         }
         if (item.cue === 'cluster-count') {
-          return `<span class="atlas-capture-key-item" data-capture-cue="cluster-count"><span class="atlas-capture-cluster-cue">12</span>${label}</span>`;
+          return `<span class="atlas-capture-key-item" data-capture-cue="cluster-count"><span class="atlas-capture-cluster-cue" style="background:${escapeHtml(item.fill)};border-color:${escapeHtml(item.stroke)};">12</span>${label}</span>`;
         }
         if (item.cue === 'line') {
           return `<span class="atlas-capture-key-item" data-capture-cue="line"><span class="atlas-capture-boundary-cue"></span>${label}</span>`;
@@ -5911,7 +5965,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const visibleObservationLabel = visibleObservations === null ? 'unavailable' : String(visibleObservations);
           const keyItems = [
             { label: 'source record', cue: 'point', fill: layerFill, stroke: layerStroke },
-            { label: 'records grouped at current zoom', cue: 'cluster-count', fill: null, stroke: null },
+            { label: 'records grouped at current zoom', cue: 'cluster-count', fill: layerFill, stroke: layerStroke },
             { label: 'country boundary', cue: 'line', fill: null, stroke: '#64748b' },
           ];
           commitAtlasCapturePresentation({

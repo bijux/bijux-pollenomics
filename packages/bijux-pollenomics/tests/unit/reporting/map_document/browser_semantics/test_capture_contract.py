@@ -165,6 +165,8 @@ def test_capture_overlay_keeps_map_clear_and_labels_evidence_in_every_frame() ->
     assert "function atlasCapturePresentationSnapshot()" in block
     assert "window.getComputedStyle(cue)" in block
     assert "key_items: keyItems" in block
+    assert "style=\"background:${escapeHtml(item.fill)};border-color:${escapeHtml(item.stroke)};\"" in block
+    assert "cue: 'cluster-count', fill: layerFill, stroke: layerStroke" in block
     assert (
         "atlasCaptureKey.innerHTML = keyItems.map(atlasCaptureKeyItemHtml).join('')"
         in block
