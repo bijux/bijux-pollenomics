@@ -220,6 +220,8 @@ def test_overlays_yield_to_the_surface_the_user_opened() -> None:
     assert "setSearchOpen(false)" in legend_collapse
     assert "if (focusState) setFocusState(null);" in legend_collapse
     assert "if (nextState) {" in focus_state
+    assert "setPanelCollapsed(true, false);" in focus_state
+    assert "mobilePanelReturnFocus = null;" in focus_state
     assert "setLegendCollapsed(true, false);" in focus_state
     assert "setSearchOpen(false);" in focus_state
 
@@ -238,6 +240,16 @@ def test_search_results_are_explicit_and_close_on_escape() -> None:
         "searchToggleButton.setAttribute('aria-expanded', String(open))" in search_state
     )
     assert "searchToggleButton.focus({ preventScroll: true })" in search_state
+
+
+def test_populated_search_and_mobile_focus_preserve_map_space() -> None:
+    assert "width: min(360px, 100%);" in MAP_DOCUMENT_TEMPLATE
+    assert "max-height: min(18vh, 140px);" in MAP_DOCUMENT_TEMPLATE
+    assert "width: min(240px, 46vw);" in MAP_DOCUMENT_TEMPLATE
+    assert "max-height: min(26vh, 260px);" in MAP_DOCUMENT_TEMPLATE
+    assert MAP_DOCUMENT_TEMPLATE.index('class="time-stepper topbar-time-stepper"') < (
+        MAP_DOCUMENT_TEMPLATE.index('id="topbar-search" class="topbar-search"')
+    )
 
 
 def test_time_window_feedback_uses_visible_records_after_static_loading() -> None:

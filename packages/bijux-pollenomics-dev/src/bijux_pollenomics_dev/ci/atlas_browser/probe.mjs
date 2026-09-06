@@ -1205,6 +1205,10 @@ async function responsiveFacts(cdp, width) {
     const topbarSearch = document.getElementById('topbar-search');
     const searchToggle = document.getElementById('search-toggle');
     const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const focusCard = document.getElementById('focus-card');
+    const focusClose = document.getElementById('focus-close');
+    const fitActive = document.getElementById('fit-active');
     const chronologyElements = {
       chronology: document.querySelector('.topbar-time-stepper'),
       older: document.getElementById('time-step-older'),
@@ -1275,8 +1279,28 @@ async function responsiveFacts(cdp, width) {
     searchToggle.focus();
     searchToggle.click();
     await settle();
+    searchInput.value = 'a';
+    searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+    await settle();
     const searchRegionBox = box(topbarSearch);
     const searchInputBox = box(searchInput);
+    const searchResultsBox = box(searchResults);
+    const searchResultsStyle = getComputedStyle(searchResults);
+    const firstSearchResult = searchResults.querySelector('[data-search-index]');
+    const populatedSearch = {
+      query: searchInput.value,
+      results_visible: visible(searchResults),
+      results_bounded: searchResultsBox.left >= -1 && searchResultsBox.right <= innerWidth + 1
+        && searchResultsBox.top >= -1 && searchResultsBox.bottom <= innerHeight + 1,
+      results_uncovered: uncovered(searchResults),
+      result_count: searchResults.querySelectorAll('[data-search-index]').length,
+      content_accessible: searchResults.scrollHeight <= searchResults.clientHeight + 1
+        || ['auto', 'scroll'].includes(searchResultsStyle.overflowY),
+      chronology_controls_uncovered: Object.values(chronologyElements).every(visible)
+        && Object.entries(chronologyElements).filter(([name]) => name !== 'chronology')
+          .every(([, element]) => uncovered(element)),
+      map_visibility: sampleMapVisibility(),
+    };
     const searchControl = {
       region_visible: visible(topbarSearch),
       region_bounded: searchRegionBox.left >= -1 && searchRegionBox.right <= innerWidth + 1
@@ -1289,6 +1313,7 @@ async function responsiveFacts(cdp, width) {
       input_focused: document.activeElement === searchInput,
       toggle_expanded: searchToggle.getAttribute('aria-expanded') === 'true',
       map_visibility: sampleMapVisibility(),
+      populated: populatedSearch,
       escape_hides_region: false,
       escape_collapses_toggle: false,
       escape_restores_focus: false,
@@ -1301,6 +1326,7 @@ async function responsiveFacts(cdp, width) {
     searchControl.escape_collapses_toggle = searchToggle.getAttribute('aria-expanded') === 'false';
     searchControl.escape_restores_focus = document.activeElement === searchToggle;
     let mobile = null;
+    let expandedPanel = null;
     if (${width} <= 900) {
       const collapsed = {
         sidebar_collapsed: sidebar.classList.contains('is-collapsed'),
@@ -1314,12 +1340,19 @@ async function responsiveFacts(cdp, width) {
       const outsidePanelHit = document.elementFromPoint(innerWidth / 2, Math.max(1, sidebarBox.top - 8));
       const expanded = {
         sidebar_expanded: !sidebar.classList.contains('is-collapsed') && visible(sidebar),
+        sidebar_bounded: sidebarBox.left >= -1 && sidebarBox.right <= innerWidth + 1
+          && sidebarBox.top >= -1 && sidebarBox.bottom <= innerHeight + 1,
+        sidebar_height_px: sidebarBox.height,
+        content_accessible: sidebar.scrollHeight <= sidebar.clientHeight + 1
+          || ['auto', 'scroll'].includes(getComputedStyle(sidebar).overflowY)
+          || ['auto', 'scroll'].includes(getComputedStyle(sidebar.querySelector('.control-panel-body')).overflowY),
         body_open: document.body.classList.contains('has-mobile-panel-open'),
         scrim_visible: scrim.classList.contains('is-visible') && scrim.getAttribute('aria-hidden') === 'false' && visible(scrim),
         close_visible: visible(close),
         close_uncovered: uncovered(close),
         scrim_catches_outside_panel: outsidePanelHit === scrim,
       };
+      expandedPanel = expanded;
       close.click();
       await settle();
       const closed = {
@@ -1331,6 +1364,17 @@ async function responsiveFacts(cdp, width) {
     } else if (sidebar.classList.contains('is-collapsed')) {
       toggle.click();
       await settle();
+    }
+    if (${width} > 900) {
+      const sidebarBox = box(sidebar);
+      expandedPanel = {
+        sidebar_expanded: !sidebar.classList.contains('is-collapsed') && visible(sidebar),
+        sidebar_bounded: sidebarBox.left >= -1 && sidebarBox.right <= innerWidth + 1
+          && sidebarBox.top >= -1 && sidebarBox.bottom <= innerHeight + 1,
+        content_accessible: sidebar.scrollHeight <= sidebar.clientHeight + 1
+          || ['auto', 'scroll'].includes(getComputedStyle(sidebar.querySelector('.control-panel-body')).overflowY),
+        map_visibility: sampleMapVisibility(),
+      };
     }
     const elements = { topbar: box(topbar), sidebar: box(sidebar), map: box(mapElement) };
     const horizontallyBounded = Object.values(elements).every((value) => value.left >= -1 && value.right <= innerWidth + 1);
@@ -1351,10 +1395,56 @@ async function responsiveFacts(cdp, width) {
         return first.right <= second.left || second.right <= first.left || first.bottom <= second.top || second.bottom <= first.top;
       });
     });
+    let focusedRecord = {
+      result_available: false,
+      card_visible: false,
+      card_bounded: false,
+      content_accessible: false,
+      panel_collapsed: false,
+      panel_hidden: false,
+      legend_collapsed: false,
+      search_collapsed: false,
+      map_visibility: null,
+      closed_after_journey: false,
+    };
+    if (firstSearchResult) {
+      if (sidebar.classList.contains('is-collapsed')) toggle.click();
+      await settle();
+      firstSearchResult.click();
+      await settle();
+      const focusBox = box(focusCard);
+      const focusStyle = getComputedStyle(focusCard);
+      focusedRecord = {
+        result_available: true,
+        card_visible: visible(focusCard),
+        card_bounded: focusBox.left >= -1 && focusBox.right <= innerWidth + 1
+          && focusBox.top >= -1 && focusBox.bottom <= innerHeight + 1,
+        content_accessible: focusCard.scrollHeight <= focusCard.clientHeight + 1
+          || ['auto', 'scroll'].includes(focusStyle.overflowY),
+        panel_collapsed: sidebar.classList.contains('is-collapsed'),
+        panel_hidden: !visible(sidebar),
+        legend_collapsed: legendBody.classList.contains('is-collapsed'),
+        search_collapsed: topbarSearch.hidden,
+        map_visibility: sampleMapVisibility(),
+        closed_after_journey: false,
+      };
+      focusClose.click();
+      await settle();
+      focusedRecord.closed_after_journey = focusCard.hidden && !visible(focusCard);
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      document.querySelector('.leaflet-popup-close-button')?.click();
+      fitActive.click();
+      await settle();
+    } else if (!sidebar.classList.contains('is-collapsed')) {
+      toggle.click();
+      await settle();
+    }
     return {
       viewport: { width: innerWidth, height: innerHeight }, elements, mobile, clear_map: clearMap,
       expanded_legend: expandedLegend,
       search_control: searchControl,
+      expanded_panel: expandedPanel,
+      focused_record: focusedRecord,
       chronology: chronologyBoxes,
       chronology_controls_visible: chronologyControlsVisible,
       chronology_controls_bounded: chronologyControlsBounded,
@@ -1748,6 +1838,31 @@ function expandedLegendPasses(facts) {
     && mapVisibilityPasses(facts.map_visibility);
 }
 
+function populatedSearchPasses(facts) {
+  return facts?.query === 'a'
+    && facts.results_visible === true
+    && facts.results_bounded === true
+    && facts.results_uncovered === true
+    && Number.isInteger(facts.result_count)
+    && facts.result_count > 0
+    && facts.content_accessible === true
+    && facts.chronology_controls_uncovered === true
+    && mapVisibilityPasses(facts.map_visibility);
+}
+
+function focusedRecordPasses(facts) {
+  return facts?.result_available === true
+    && facts.card_visible === true
+    && facts.card_bounded === true
+    && facts.content_accessible === true
+    && facts.panel_collapsed === true
+    && facts.panel_hidden === true
+    && facts.legend_collapsed === true
+    && facts.search_collapsed === true
+    && mapVisibilityPasses(facts.map_visibility)
+    && facts.closed_after_journey === true;
+}
+
 function desktopLayoutPasses(layout) {
   return layout.viewport.width >= 901
     && layout.horizontally_bounded
@@ -1758,6 +1873,11 @@ function desktopLayoutPasses(layout) {
     && mapVisibilityPasses(layout.clear_map)
     && expandedLegendPasses(layout.expanded_legend)
     && searchControlPasses(layout.search_control)
+    && layout.expanded_panel?.sidebar_expanded === true
+    && layout.expanded_panel.sidebar_bounded === true
+    && layout.expanded_panel.content_accessible === true
+    && mapVisibilityPasses(layout.expanded_panel.map_visibility)
+    && focusedRecordPasses(layout.focused_record)
     && layout.elements.topbar.width > 0
     && layout.elements.sidebar.width > 0;
 }
@@ -1793,6 +1913,9 @@ function mobileLayoutPasses(layout) {
     && layout.mobile.collapsed.toggle_visible
     && layout.mobile.collapsed.scrim_hidden
     && layout.mobile.expanded.sidebar_expanded
+    && layout.mobile.expanded.sidebar_bounded
+    && layout.mobile.expanded.sidebar_height_px <= layout.viewport.height * 0.72 + 1
+    && layout.mobile.expanded.content_accessible
     && layout.mobile.expanded.body_open
     && layout.mobile.expanded.scrim_visible
     && layout.mobile.expanded.close_visible
@@ -1800,7 +1923,8 @@ function mobileLayoutPasses(layout) {
     && layout.mobile.expanded.scrim_catches_outside_panel
     && layout.mobile.closed.sidebar_collapsed
     && layout.mobile.closed.body_closed
-    && layout.mobile.closed.scrim_hidden;
+    && layout.mobile.closed.scrim_hidden
+    && focusedRecordPasses(layout.focused_record);
 }
 
 function searchControlPasses(facts) {
@@ -1813,6 +1937,7 @@ function searchControlPasses(facts) {
     && facts.input_focused
     && facts.toggle_expanded
     && mapVisibilityPasses(facts.map_visibility)
+    && populatedSearchPasses(facts.populated)
     && facts.escape_hides_region
     && facts.escape_collapses_toggle
     && facts.escape_restores_focus;

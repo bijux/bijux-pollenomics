@@ -757,8 +757,8 @@
         position: absolute;
         top: calc(100% + 8px);
         left: 0;
-        width: min(560px, 100%);
-        max-height: min(44vh, 420px);
+        width: min(360px, 100%);
+        max-height: min(18vh, 140px);
         overflow: auto;
         padding: 10px;
         border-radius: 18px;
@@ -1659,7 +1659,9 @@
           justify-content: space-between;
         }
         .search-results--floating {
-          width: 100%;
+          left: auto;
+          right: 0;
+          width: min(240px, 46vw);
         }
         .floating-legend {
           right: 10px;
@@ -1680,6 +1682,7 @@
           right: 10px;
           bottom: 76px;
           width: auto;
+          max-height: min(26vh, 260px);
           transition: opacity 160ms ease, transform 160ms ease;
         }
         .map-status {
@@ -1805,6 +1808,12 @@
               <button id="panel-toggle" class="toolbar-button" type="button" aria-controls="sidebar" aria-expanded="false">← Show controls</button>
             </div>
           </div>
+          <div class="time-stepper topbar-time-stepper" aria-label="Chronology navigation">
+            <button id="time-step-older" class="inline-button" type="button">← Older</button>
+            <button id="time-stepper-status" class="time-stepper-status" type="button" aria-live="polite" aria-controls="source-chronology-controls">Preparing chronological navigation</button>
+            <button id="time-step-newer" class="inline-button" type="button">Newer →</button>
+            <button id="time-playback-toggle" class="inline-button is-primary" type="button" aria-pressed="false">Play oldest → present</button>
+          </div>
           <div id="topbar-search" class="topbar-search" hidden>
             <label class="sr-only" for="search-input">Search points and sites</label>
             <div class="search-shell">
@@ -1813,12 +1822,6 @@
             </div>
             <div id="search-count" class="search-meta topbar-search-meta" aria-live="polite">Search points and sites</div>
             <div id="search-results" class="search-results search-results--floating" hidden></div>
-          </div>
-          <div class="time-stepper topbar-time-stepper" aria-label="Chronology navigation">
-            <button id="time-step-older" class="inline-button" type="button">← Older</button>
-            <button id="time-stepper-status" class="time-stepper-status" type="button" aria-live="polite" aria-controls="source-chronology-controls">Preparing chronological navigation</button>
-            <button id="time-step-newer" class="inline-button" type="button">Newer →</button>
-            <button id="time-playback-toggle" class="inline-button is-primary" type="button" aria-pressed="false">Play oldest → present</button>
           </div>
         </div>
         <div id="map" aria-label="__TITLE__"></div>
@@ -4239,6 +4242,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function setFocusState(nextState) {
         if (nextState) {
+          setPanelCollapsed(true, false);
+          mobilePanelReturnFocus = null;
           setLegendCollapsed(true, false);
           setSearchOpen(false);
         }

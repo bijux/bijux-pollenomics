@@ -134,6 +134,36 @@ def _run_map_visibility_checks(
     )
 
 
+def _run_interaction_visibility_checks(
+    scenarios: dict[str, dict[str, object]],
+) -> subprocess.CompletedProcess[str]:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    match = re.search(
+        r"function mapVisibilityPasses.*?\n}\n\nfunction desktopLayoutPasses",
+        probe,
+        re.DOTALL,
+    )
+    assert match is not None
+    function_source = match.group(0).removesuffix("\n\nfunction desktopLayoutPasses")
+    script = (
+        f"{function_source}\n"
+        f"const scenarios = {json.dumps(scenarios)};\n"
+        "const results = Object.fromEntries(Object.entries(scenarios).map("
+        "([name, value]) => [name, value.kind === 'search' "
+        "? populatedSearchPasses(value.facts) "
+        ": focusedRecordPasses(value.facts)]));\n"
+        "process.stdout.write(JSON.stringify(results));\n"
+    )
+    return subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+
 def _generic_manifest(*rows: list[object]) -> dict[str, object]:
     return {
         "assets": {
@@ -594,7 +624,17 @@ def test_responsive_contract_proves_compact_search_keyboard_journey() -> None:
         "document.getElementById('search-toggle')",
         "document.getElementById('topbar-search')",
         "document.getElementById('search-input')",
+        "document.getElementById('search-results')",
+        "document.getElementById('focus-card')",
+        "document.getElementById('focus-close')",
         "searchToggle.click()",
+        "searchInput.dispatchEvent(new Event('input', { bubbles: true }))",
+        "searchResults.querySelectorAll('[data-search-index]').length",
+        "chronology_controls_uncovered:",
+        "expanded_panel: expandedPanel",
+        "focused_record: focusedRecord",
+        "firstSearchResult.click()",
+        "panel_collapsed: sidebar.classList.contains('is-collapsed')",
         "document.activeElement === searchInput",
         "searchToggle.getAttribute('aria-expanded') === 'true'",
         "searchInput.dispatchEvent(new KeyboardEvent('keydown'",
@@ -606,6 +646,84 @@ def test_responsive_contract_proves_compact_search_keyboard_journey() -> None:
     ):
         assert literal in probe
     assert "classList.add('atlas-capture-mode')" not in probe
+
+
+def test_populated_search_and_focused_record_checks_fail_closed() -> None:
+    map_visibility = {
+        "center_uncovered": True,
+        "uncovered_sample_count": 18,
+        "sample_count": 25,
+    }
+    search = {
+        "query": "a",
+        "results_visible": True,
+        "results_bounded": True,
+        "results_uncovered": True,
+        "result_count": 1,
+        "content_accessible": True,
+        "chronology_controls_uncovered": True,
+        "map_visibility": map_visibility,
+    }
+    focus = {
+        "result_available": True,
+        "card_visible": True,
+        "card_bounded": True,
+        "content_accessible": True,
+        "panel_collapsed": True,
+        "panel_hidden": True,
+        "legend_collapsed": True,
+        "search_collapsed": True,
+        "map_visibility": map_visibility,
+        "closed_after_journey": True,
+    }
+    scenarios: dict[str, dict[str, object]] = {
+        "valid_search": {"kind": "search", "facts": search},
+        "empty_search": {
+            "kind": "search",
+            "facts": {**search, "result_count": 0},
+        },
+        "search_hides_chronology": {
+            "kind": "search",
+            "facts": {**search, "chronology_controls_uncovered": False},
+        },
+        "search_hides_map": {
+            "kind": "search",
+            "facts": {
+                **search,
+                "map_visibility": {**map_visibility, "uncovered_sample_count": 17},
+            },
+        },
+        "valid_focus": {"kind": "focus", "facts": focus},
+        "focus_keeps_panel": {
+            "kind": "focus",
+            "facts": {**focus, "panel_collapsed": False},
+        },
+        "focus_hides_map": {
+            "kind": "focus",
+            "facts": {
+                **focus,
+                "map_visibility": {**map_visibility, "center_uncovered": False},
+            },
+        },
+        "focus_not_dismissed": {
+            "kind": "focus",
+            "facts": {**focus, "closed_after_journey": False},
+        },
+    }
+
+    completed = _run_interaction_visibility_checks(scenarios)
+
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        "valid_search": True,
+        "empty_search": False,
+        "search_hides_chronology": False,
+        "search_hides_map": False,
+        "valid_focus": True,
+        "focus_keeps_panel": False,
+        "focus_hides_map": False,
+        "focus_not_dismissed": False,
+    }
 
 
 def test_chronology_contract_drives_real_controls_and_refuses_null() -> None:
