@@ -31,9 +31,9 @@ def test_coordinate_caveat_surface_groups_point_and_refused_rows(
 ) -> None:
     caveat_surface = build_coordinate_caveat_surface(catalog_data_root)
 
-    assert len(caveat_surface["direct_coordinates"]) == 274
+    assert len(caveat_surface["direct_coordinates"]) == 276
     assert len(caveat_surface["place_name_resolution"]) == 4
-    assert len(caveat_surface["still_weak_geography"]) == 6
+    assert len(caveat_surface["still_weak_geography"]) == 4
     assert {
         (row["project_accession"], row["site_label"])
         for row in caveat_surface["place_name_resolution"]
@@ -42,14 +42,10 @@ def test_coordinate_caveat_surface_groups_point_and_refused_rows(
         ("PRJEB30282", "Bundsø"),
         ("PRJEB30282", "Trelleborg"),
     }
-    assert {
-        (row["project_accession"], row["site_label"], row["mapping_posture"])
+    assert not any(
+        row["project_accession"] == "PRJEB59481"
         for row in caveat_surface["still_weak_geography"]
-        if row["project_accession"] == "PRJEB59481"
-    } == {
-        ("PRJEB59481", "Kastelholm", "refused_unresolved_location"),
-        ("PRJEB59481", "Stora Förvar", "refused_unresolved_location"),
-    }
+    )
     assert any(
         row["site_label"] == "Actiparc" for row in caveat_surface["direct_coordinates"]
     )

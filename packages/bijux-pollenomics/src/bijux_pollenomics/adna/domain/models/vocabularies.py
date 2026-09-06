@@ -4,6 +4,7 @@ from __future__ import annotations
 
 ADNA_COORDINATE_CONFIDENCE = (
     "exact",
+    "source_reported_two_decimal_degrees",
     "approximate",
     "inferred",
     "withheld",

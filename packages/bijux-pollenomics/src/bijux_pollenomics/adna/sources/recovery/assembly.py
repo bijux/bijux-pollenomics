@@ -16,6 +16,9 @@ from bijux_pollenomics.adna.projects.evidence.localities import (
 from bijux_pollenomics.adna.projects.sample_master import (
     build_cross_project_sample_master_completeness,
 )
+from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep import (
+    build_baltic_sheep_material_conflicts,
+)
 from bijux_pollenomics.adna.projects.registry.sites import (
     build_project_sample_site_review_rows,
 )
@@ -92,6 +95,7 @@ def _project_recovery_rows_cached(
         for row in build_project_locality_substitution_ledger(output_root)
     }
     coordinate_counts = _coordinate_counts_by_project(output_root)
+    baltic_material_conflicts = build_baltic_sheep_material_conflicts(output_root)
 
     rows: list[dict[str, Any]] = []
     for project_row in project_rows:
@@ -121,7 +125,9 @@ def _project_recovery_rows_cached(
         minimum_expected = _minimum_expected_sample_count(
             project_row, sample_master_row
         )
-        final_sample_count = _int_value(sample_master_row.get("final_sample_count") or 0)
+        final_sample_count = _int_value(
+            sample_master_row.get("final_sample_count") or 0
+        )
         minimum_gap_count = (
             None
             if minimum_expected is None
@@ -167,14 +173,26 @@ def _project_recovery_rows_cached(
                 "sample_group_site_count": _int_value(
                     site_row.get("sample_group_site_count") or 0
                 ),
-                "missing_chronology_count": _int_value(gap_row.get("missing_date_count") or 0),
+                "missing_chronology_count": _int_value(
+                    gap_row.get("missing_date_count") or 0
+                ),
                 "chronology_conflict_count": _int_value(
                     chronology_conflict_counts.get(project_row.project_accession, 0)
                 ),
                 "chronology_ambiguity_count": _int_value(
                     chronology_ambiguity_counts.get(project_row.project_accession, 0)
                 ),
-                "mappable_coordinate_count": _int_value(coord_counts.get("mappable_point", 0)),
+                "material_evidence_expected_count": (
+                    5 if project_row.project_accession == "PRJEB59481" else 0
+                ),
+                "material_evidence_conflict_count": (
+                    len(baltic_material_conflicts)
+                    if project_row.project_accession == "PRJEB59481"
+                    else 0
+                ),
+                "mappable_coordinate_count": _int_value(
+                    coord_counts.get("mappable_point", 0)
+                ),
                 "coordinate_blocked_count": _int_value(
                     coord_counts.get("refused_region_only", 0)
                 )

@@ -287,6 +287,7 @@ class _PaperSourceSpec:
     article_local_path: str
     article_kind: str
     article_note: str
+    additional_assets: tuple[_RemoteArtifactSpec, ...] = ()
     supplementary_assets: tuple[_RemoteArtifactSpec, ...] = ()
     supplement_required: bool = False
     parsing_status: str = "ready_for_project_sample_extraction"

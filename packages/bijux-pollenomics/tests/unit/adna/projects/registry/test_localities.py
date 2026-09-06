@@ -20,7 +20,7 @@ class AdnaProjectLocalityUnitTests(unittest.TestCase):
         self.assertEqual(botai.coordinate_basis, "")
         self.assertEqual(botai.chronology_text, "5500 BP")
 
-    def test_resolve_project_locality_leads_keeps_exact_sites_point_refused(
+    def test_resolve_project_locality_leads_maps_source_reported_sites(
         self,
     ) -> None:
         rows = resolve_project_locality_leads("PRJEB59481")
@@ -30,12 +30,16 @@ class AdnaProjectLocalityUnitTests(unittest.TestCase):
             {row.locality_text for row in rows}, {"Kastelholm", "Stora Förvar"}
         )
         self.assertTrue(
-            all(row.coordinate_basis == "unresolved_location_state" for row in rows)
+            all(row.coordinate_basis == "archive_coordinates" for row in rows)
         )
-        self.assertTrue(all(row.latitude_text == "" for row in rows))
-        self.assertTrue(all(row.longitude_text == "" for row in rows))
+        self.assertEqual(
+            {(row.latitude_text, row.longitude_text) for row in rows},
+            {("60.23", "20.08"), ("57.29", "17.97")},
+        )
+        self.assertEqual({row.political_entity for row in rows}, {"Finland", "Sweden"})
         self.assertTrue(all(row.time_start_bp is None for row in rows))
         self.assertTrue(all(row.time_end_bp is None for row in rows))
+        self.assertTrue(all(row.chronology_text == "" for row in rows))
 
     def test_resolve_project_locality_leads_keep_direct_horse_coordinate_sites(
         self,

@@ -364,10 +364,29 @@ def _resolve_row_context(
         ):
             latitude_text = master_row.latitude_text
             longitude_text = master_row.longitude_text
-            if not coordinate_basis:
+            if project.project_accession == "PRJEB59481":
+                coordinate_basis = "archive_coordinates"
+                inclusion_status = _inclusion_status_for(
+                    project.archive_status, project_context.nordic_relevance
+                )
+                inclusion_note = (
+                    "The official ENA sample record supplies a two-decimal-degree "
+                    "lat_lon pair; this supports map placement without implying an "
+                    "exact specimen findspot."
+                )
+            elif not coordinate_basis:
                 coordinate_basis = "supplementary_table_coordinates"
         if getattr(master_row, "chronology_text", ""):
             chronology_text = master_row.chronology_text
+            if project.project_accession == "PRJEB59481":
+                from ...workflow.normalization import normalize_chronology_text
+
+                chronology = normalize_chronology_text(
+                    chronology_text,
+                    dating_basis=master_row.chronology_dating_basis,
+                )
+                time_start_bp = chronology.time_start_bp
+                time_end_bp = chronology.time_end_bp
             if lead is None:
                 inclusion_note = (
                     "This sample row keeps chronology recovered from the sample-owned source row, "
@@ -478,7 +497,10 @@ def _record_modality_for(project: object) -> str:
 def _inclusion_status_for(archive_status: str, nordic_relevance: str) -> str:
     if archive_status == "comparator_only":
         return "comparator_site_curated"
-    if nordic_relevance == "nordic_relevant_unmapped":
+    if nordic_relevance in {
+        "nordic_relevant_mapped",
+        "nordic_relevant_unmapped",
+    }:
         return "nordic_lead_site_curated"
     return "site_curated"
 

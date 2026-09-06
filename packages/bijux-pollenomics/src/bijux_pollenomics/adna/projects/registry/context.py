@@ -12,6 +12,7 @@ __all__ = [
 ]
 
 ADNA_NORDIC_RELEVANCE = (
+    "nordic_relevant_mapped",
     "nordic_relevant_unmapped",
     "nordic_adjacent",
     "non_nordic",
@@ -38,13 +39,13 @@ class AdnaProjectContext:
 
 _PROJECT_CONTEXT: dict[str, AdnaProjectContext] = {
     "PRJEB59481": AdnaProjectContext(
-        nordic_relevance="nordic_relevant_unmapped",
+        nordic_relevance="nordic_relevant_mapped",
         nordic_relevance_reason=(
-            "The Nordic-relevant primary supplement resolves the five Baltic sheep "
-            "samples to Kastelholm and Stora Förvar, but neither site has admitted "
-            "primary coordinates for atlas point publication."
+            "Official ENA sample records supply source-native two-decimal-degree "
+            "coordinates for Kastelholm and Stora Förvar; the Åland records are "
+            "governed as Finland and the Gotland records as Sweden."
         ),
-        last_checked_on=_LAST_CHECKED_ON,
+        last_checked_on="2026-09-06",
     ),
     "PRJEB60484": AdnaProjectContext(
         nordic_relevance="nordic_relevant_unmapped",
@@ -125,6 +126,11 @@ def build_species_freshness_rows(
                 "project_count": len(species_projects),
                 "inventory_last_checked_on": last_checked_on,
                 "paper_last_checked_on": last_checked_on,
+                "has_nordic_mapped_lead": any(
+                    resolve_project_context(project).nordic_relevance
+                    == "nordic_relevant_mapped"
+                    for project in species_projects
+                ),
                 "has_nordic_unmapped_lead": any(
                     resolve_project_context(project).nordic_relevance
                     == "nordic_relevant_unmapped"

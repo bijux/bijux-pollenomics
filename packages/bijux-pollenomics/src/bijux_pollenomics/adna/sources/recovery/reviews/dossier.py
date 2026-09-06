@@ -27,6 +27,12 @@ def build_dossier(
         contradictory_evidence.append(
             f"{row['chronology_conflict_count']} chronology row(s) still disagree between sample-owned and context-level evidence."
         )
+    if surface._int_value(row["material_evidence_conflict_count"]) > 0:
+        contradictory_evidence.append(
+            f"{row['material_evidence_conflict_count']} of "
+            f"{row['material_evidence_expected_count']} material claim pairs "
+            "retain unresolved source disagreement."
+        )
     if bool(row["publication_blocked_by_locality_substitution"]):
         contradictory_evidence.append(
             "Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence."
@@ -62,6 +68,8 @@ def build_dossier(
         "recovered_sample_count": row["recovered_sample_count"],
         "final_sample_count": row["final_sample_count"],
         "unresolved_sample_count": row["unresolved_sample_count"],
+        "material_evidence_expected_count": row["material_evidence_expected_count"],
+        "material_evidence_conflict_count": row["material_evidence_conflict_count"],
         "minimum_gap_count": row["minimum_gap_count"],
         "recovery_gap_status": row["recovery_gap_status"],
         "implausibly_low_recovery": row["implausibly_low_recovery"],

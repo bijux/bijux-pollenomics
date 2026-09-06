@@ -86,21 +86,26 @@ class AdnaCoordinateProvenanceUnitTests(unittest.TestCase):
             ["PRJEB59481", "PRJEB59481", "PRJEB22390"],
         )
 
-    def test_baltic_sheep_sites_remain_refused_without_source_coordinates(self) -> None:
+    def test_baltic_sheep_sites_use_official_ena_coordinates(self) -> None:
         rows = resolve_project_coordinate_provenance("PRJEB59481")
 
         self.assertEqual(
             {row.site_label for row in rows}, {"Kastelholm", "Stora Förvar"}
         )
+        self.assertTrue(all(row.mapping_posture == "mappable_point" for row in rows))
         self.assertTrue(
-            all(row.mapping_posture == "refused_unresolved_location" for row in rows)
+            all(row.coordinate_basis == "archive_coordinates" for row in rows)
         )
         self.assertTrue(
-            all(row.coordinate_basis == "unresolved_location_state" for row in rows)
+            all(
+                row.coordinate_confidence == "source_reported_two_decimal_degrees"
+                for row in rows
+            )
         )
-        self.assertTrue(all(row.coordinate_confidence == "withheld" for row in rows))
-        self.assertTrue(
-            all(row.latitude_text == row.longitude_text == "" for row in rows)
+        self.assertTrue(all(row.latitude_text and row.longitude_text for row in rows))
+        self.assertEqual(
+            {(row.latitude_text, row.longitude_text) for row in rows},
+            {("60.23", "20.08"), ("57.29", "17.97")},
         )
         self.assertTrue(all(row.time_start_bp is None for row in rows))
         self.assertTrue(all(row.time_end_bp is None for row in rows))

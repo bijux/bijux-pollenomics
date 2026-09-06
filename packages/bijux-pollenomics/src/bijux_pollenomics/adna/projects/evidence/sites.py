@@ -10,6 +10,10 @@ from ..sample_master.tables.pig_panel import (
     PigSiteCoordinateEvidence,
     load_pig_site_coordinate_evidence,
 )
+from ..sample_master.tables.baltic_sheep import (
+    baltic_sheep_official_evidence_available,
+    load_baltic_sheep_official_evidence,
+)
 
 __all__ = [
     "build_species_site_evidence_rows",
@@ -86,69 +90,6 @@ _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
             interpretation_note=(
                 "This is a broad domestication transect, not one excavation site, so "
                 "the atlas point remains an inferred regional centroid."
-            ),
-        ),
-    ),
-    "PRJEB59481": (
-        AdnaSiteEvidenceRecord(
-            project_accession="PRJEB59481",
-            species_latin_name="Ovis aries",
-            species_common_name="sheep",
-            site_label="Kastelholm",
-            political_entity=None,
-            source_artifact_path=(
-                "adna/governance/source_library/papers/10.1093-gbe-evae114/"
-                "supplementary/SupplementaryTables_Revision2.xlsx"
-            ),
-            source_artifact_kind="supplementary_spreadsheet_row",
-            source_locator="STab 5 - Continuity AKAS!rows1-2",
-            exact_source_text=(
-                "Supplementary Table 5: Continuity results for AKAS | Kastelholm"
-            ),
-            source_support_status="supplementary_table_row",
-            paper_doi="10.1093/gbe/evae114",
-            paper_url=_doi_url("10.1093/gbe/evae114"),
-            coordinate_basis="unresolved_location_state",
-            dating_basis="unknown",
-            domestication_context="domesticated_core",
-            interpretation_note=(
-                "The primary supplement identifies Kastelholm and binds AKAS remains "
-                "to that site. It does not supply a coordinate or numeric sample date."
-            ),
-            support_gap_note=(
-                "Coordinate publication and numeric chronology remain refused until "
-                "sample-level primary evidence is available."
-            ),
-        ),
-        AdnaSiteEvidenceRecord(
-            project_accession="PRJEB59481",
-            species_latin_name="Ovis aries",
-            species_common_name="sheep",
-            site_label="Stora Förvar",
-            political_entity=None,
-            source_artifact_path=(
-                "adna/governance/source_library/papers/10.1093-gbe-evae114/"
-                "supplementary/SupplementaryTables_Revision2.xlsx"
-            ),
-            source_artifact_kind="supplementary_spreadsheet_row",
-            source_locator="STab 4 - Continuity ASTF!rows1-2",
-            exact_source_text=(
-                "Supplementary Table 4: Continuity results for ASTF | Stora Förvar"
-            ),
-            source_support_status="supplementary_table_row",
-            paper_doi="10.1093/gbe/evae114",
-            paper_url=_doi_url("10.1093/gbe/evae114"),
-            coordinate_basis="unresolved_location_state",
-            dating_basis="unknown",
-            domestication_context="domesticated_core",
-            interpretation_note=(
-                "The primary supplement identifies Stora Förvar and binds ASTF "
-                "remains to that site. It does not supply a coordinate or numeric "
-                "sample date."
-            ),
-            support_gap_note=(
-                "Coordinate publication and numeric chronology remain refused until "
-                "sample-level primary evidence is available."
             ),
         ),
     ),
@@ -449,10 +390,17 @@ def _direct_sample_site_rows(
         if project_accession == "PRJEB30282"
         else {}
     )
+    baltic_sheep_evidence = (
+        load_baltic_sheep_official_evidence(_default_data_root()).by_accession()
+        if project_accession == "PRJEB59481"
+        and baltic_sheep_official_evidence_available(_default_data_root())
+        else {}
+    )
     rows: list[AdnaSiteEvidenceRecord] = []
     for group_key, group in grouped.items():
         first = group[0]
         pig_site = pig_evidence.get(group_key)
+        baltic_sheep_sample = baltic_sheep_evidence.get(first.archive_native_sample_id)
         pig_chronology_bp = _pig_chronology_bp(first.chronology_text, pig_site)
         chronology_values = {
             row.chronology_text for row in group if row.chronology_text
@@ -467,18 +415,40 @@ def _direct_sample_site_rows(
                 species_common_name=first.species_common_name,
                 site_label=first.locality_text,
                 political_entity=first.political_entity or None,
-                source_artifact_path=first.sample_lineage_path,
-                source_artifact_kind="supplementary_spreadsheet_row",
-                source_locator=first.sample_lineage_locator,
-                exact_source_text=first.sample_lineage_excerpt,
-                source_support_status="supplementary_table_row",
+                source_artifact_path=(
+                    baltic_sheep_sample.archive.source_path
+                    if baltic_sheep_sample is not None
+                    else first.sample_lineage_path
+                ),
+                source_artifact_kind=(
+                    "ena_sample_xml"
+                    if baltic_sheep_sample is not None
+                    else "supplementary_spreadsheet_row"
+                ),
+                source_locator=(
+                    baltic_sheep_sample.archive.description_source_locator
+                    if baltic_sheep_sample is not None
+                    else first.sample_lineage_locator
+                ),
+                exact_source_text=(
+                    baltic_sheep_sample.archive.description
+                    if baltic_sheep_sample is not None
+                    else first.sample_lineage_excerpt
+                ),
+                source_support_status=(
+                    "archive_sample_record"
+                    if baltic_sheep_sample is not None
+                    else "supplementary_table_row"
+                ),
                 paper_doi=paper_doi,
                 paper_url=paper_url,
                 supplementary_source=(
                     "" if pig_site is None else pig_site.coordinate_source_url
                 ),
                 coordinate_basis=(
-                    "supplementary_table_coordinates"
+                    "archive_coordinates"
+                    if baltic_sheep_sample is not None
+                    else "supplementary_table_coordinates"
                     if first.latitude_text and first.longitude_text and pig_site is None
                     else pig_site.coordinate_basis
                     if pig_site is not None
@@ -501,9 +471,13 @@ def _direct_sample_site_rows(
                     else "domesticated_core"
                 ),
                 interpretation_note=(
-                    "This locality is backed by direct sample rows recovered from the "
-                    "supplementary table; chronology remains sample-owned when its "
-                    "records have different dates."
+                    "The ENA sample XML supplies source-native coordinates at two "
+                    "decimal degrees. The supplement independently supports "
+                    "specimen and site identity; chronology remains sample-owned."
+                    if baltic_sheep_sample is not None
+                    else "This locality is backed by direct sample rows recovered "
+                    "from the supplementary table; chronology remains sample-owned "
+                    "when its records have different dates."
                     if pig_site is None
                     else (
                         "The supplementary row and primary supplement bind the sample to this "

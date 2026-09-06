@@ -52,6 +52,12 @@ def materialize_source_library(output_root: Path) -> None:
     source_root = adna_source_library_root(output_root)
     source_root.mkdir(parents=True, exist_ok=True)
     _materialize_curated_local_supplements(output_root)
+    from ...projects.sample_master.tables.baltic_sheep import (
+        materialize_baltic_sheep_material_conflicts,
+    )
+
+    materialize_baltic_sheep_material_conflicts(output_root)
+    _clear_source_library_caches()
 
     project_registry = build_project_registry(output_root)
     paper_registry = build_paper_registry(output_root)

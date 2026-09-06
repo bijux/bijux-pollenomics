@@ -28,6 +28,30 @@ def _project_hierarchy_profiles(
     output_root: Path,
     project_accession: str,
 ) -> dict[str, _Hierarchy]:
+    if project_accession == "PRJEB59481":
+        from ...sample_master.tables.baltic_sheep import (
+            baltic_sheep_official_evidence_available,
+            load_baltic_sheep_official_evidence,
+        )
+
+        if not baltic_sheep_official_evidence_available(output_root):
+            return {}
+        profiles: dict[str, _Hierarchy] = {}
+        for evidence in load_baltic_sheep_official_evidence(output_root).samples:
+            archive = evidence.archive
+            profile = _Hierarchy(
+                site_name=archive.site_name,
+                municipality_name="",
+                region_name=evidence.region_name,
+                country_name=evidence.country_name,
+                broader_geography="Baltic Sea region",
+            )
+            prior = profiles.setdefault(archive.site_name, profile)
+            if prior != profile:
+                raise ValueError(
+                    f"Baltic sheep hierarchy conflict for {archive.site_name}"
+                )
+        return profiles
     if project_accession != "PRJEB36540":
         return {}
     source_path = (

@@ -4,11 +4,27 @@ from __future__ import annotations
 
 import re
 from dataclasses import asdict, dataclass
+from pathlib import Path
 
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
+from bijux_pollenomics.adna.workflow.source_artifacts import (
+    read_source_artifact_text,
+    source_artifact_exists,
+)
+from bijux_pollenomics.core.files import write_json, write_text
+from bijux_pollenomics.core.tabular import render_csv_rows
 
 from ...models import AdnaProjectSampleMasterRow
+from ..workbook import _read_xlsx_rows
+from .official_evidence import (
+    ARTICLE_SOURCE_PATH,
+    ENA_SAMPLE_SOURCE_DIRECTORY,
+    BalticSheepOfficialEvidenceBundle,
+    BalticSheepMaterialEvidenceConflict,
+    build_baltic_sheep_material_conflict,
+    load_baltic_sheep_official_evidence,
+)
 
 _EXPECTED_IDENTITIES = {
     "AKAS001": ("SAMEA112960291", "Kastelholm"),
@@ -20,6 +36,13 @@ _EXPECTED_IDENTITIES = {
 _REMAINS_HEADER = ("Sample ID", "Alternative ID", "Section", "Element", "Description")
 _ARCHIVE_LABEL = re.compile(
     r"(?:^|[/._-])(?P<prefix>AKAS|ASTF)[_-]?(?P<number>\d{3})(?=[/._-])"
+)
+_WORKBOOK_SOURCE_PATH = (
+    "data/adna/governance/source_library/papers/10.1093-gbe-evae114/"
+    "supplementary/SupplementaryTables_Revision2.xlsx"
+)
+_ARCHIVE_SOURCE_PATH = (
+    "data/adna/governance/source_library/projects/PRJEB59481/archive_metadata.html"
 )
 
 
@@ -115,6 +138,83 @@ def build_baltic_sheep_join_audit(
     return tuple(audit_rows)
 
 
+def build_baltic_sheep_material_conflicts(
+    output_root: Path,
+) -> tuple[BalticSheepMaterialEvidenceConflict, ...]:
+    """Build the five unresolved ENA-versus-supplement anatomy conflicts."""
+    output_root = Path(output_root)
+    workbook_path = output_root / _WORKBOOK_SOURCE_PATH.removeprefix("data/")
+    archive_path = output_root / _ARCHIVE_SOURCE_PATH.removeprefix("data/")
+    official_paths = (
+        output_root / ARTICLE_SOURCE_PATH.removeprefix("data/"),
+        *(
+            output_root
+            / ENA_SAMPLE_SOURCE_DIRECTORY.removeprefix("data/")
+            / f"{accession}.xml"
+            for accession, _ in _EXPECTED_IDENTITIES.values()
+        ),
+    )
+    if (
+        not source_artifact_exists(workbook_path)
+        or not source_artifact_exists(archive_path)
+        or not all(source_artifact_exists(path) for path in official_paths)
+    ):
+        return ()
+    audit = build_baltic_sheep_join_audit(
+        source_path=_WORKBOOK_SOURCE_PATH,
+        ancient_remains_rows=_read_xlsx_rows(
+            workbook_path, sheet_name="STab 6 - Ancient remains"
+        ),
+        astf_context_rows=_read_xlsx_rows(
+            workbook_path, sheet_name="STab 4 - Continuity ASTF"
+        ),
+        akas_context_rows=_read_xlsx_rows(
+            workbook_path, sheet_name="STab 5 - Continuity AKAS"
+        ),
+        archive_source_path=_ARCHIVE_SOURCE_PATH,
+        archive_text=read_source_artifact_text(archive_path),
+    )
+    official_by_accession = load_baltic_sheep_official_evidence(
+        output_root
+    ).by_accession()
+    conflicts = tuple(
+        build_baltic_sheep_material_conflict(
+            official_evidence=official_by_accession[row.archive_native_sample_id],
+            supplement_claim=row.element,
+            supplement_source_path=row.workbook_source_path,
+            supplement_source_locator=row.workbook_source_locator,
+        )
+        for row in audit
+    )
+    if len(conflicts) != len(_EXPECTED_IDENTITIES):
+        raise ValueError("Baltic sheep material-conflict denominator drift")
+    return conflicts
+
+
+def materialize_baltic_sheep_material_conflicts(output_root: Path) -> None:
+    """Publish the typed material conflict ledger when all sources are available."""
+    rows = build_baltic_sheep_material_conflicts(output_root)
+    if not rows:
+        return
+    payload_rows = tuple(row.as_dict() for row in rows)
+    project_root = (
+        Path(output_root) / "adna/governance/source_library/projects/PRJEB59481"
+    )
+    write_json(
+        project_root / "material_evidence_conflicts.json",
+        {
+            "schema_version": "animal-material-evidence-conflict.v1",
+            "expected_sample_count": len(_EXPECTED_IDENTITIES),
+            "conflict_count": len(payload_rows),
+            "rows": list(payload_rows),
+        },
+    )
+    write_text(
+        project_root / "material_evidence_conflicts.csv",
+        render_csv_rows(payload_rows),
+    )
+
+
 def _build_baltic_sheep_rows(
     *,
     species: AdnaSpeciesDefinition,
@@ -125,8 +225,9 @@ def _build_baltic_sheep_rows(
     akas_context_rows: tuple[tuple[str, ...], ...],
     archive_source_path: str,
     archive_text: str,
+    official_evidence: BalticSheepOfficialEvidenceBundle,
 ) -> tuple[AdnaProjectSampleMasterRow, ...]:
-    """Build five exact sample/site rows while withholding unsupported values."""
+    """Build five exact rows from the supplement, ENA, and article table."""
     if species.latin_name != "Ovis aries":
         raise ValueError("Baltic sheep admission requires Ovis aries")
     if project.project_accession != "PRJEB59481":
@@ -139,8 +240,29 @@ def _build_baltic_sheep_rows(
         archive_source_path=archive_source_path,
         archive_text=archive_text,
     )
-    return tuple(
-        AdnaProjectSampleMasterRow(
+    official_by_accession = official_evidence.by_accession()
+    if set(official_by_accession) != {row.archive_native_sample_id for row in audit}:
+        raise ValueError("Baltic sheep official evidence does not cover the exact join")
+
+    def build_row(row: BalticSheepJoinAuditRow) -> AdnaProjectSampleMasterRow:
+        official = official_by_accession[row.archive_native_sample_id]
+        archive = official.archive
+        chronology = official.chronology
+        build_baltic_sheep_material_conflict(
+            official_evidence=official,
+            supplement_claim=row.element,
+            supplement_source_path=row.workbook_source_path,
+            supplement_source_locator=row.workbook_source_locator,
+        )
+        if archive.sample_label != row.sample_label:
+            raise ValueError(
+                f"Baltic sheep official identity cross-contamination: {row.sample_label}"
+            )
+        if archive.site_name != row.locality_text:
+            raise ValueError(
+                f"Baltic sheep official locality cross-contamination: {row.sample_label}"
+            )
+        return AdnaProjectSampleMasterRow(
             species_latin_name=species.latin_name,
             species_common_name=species.common_name,
             project_accession=project.project_accession,
@@ -151,7 +273,9 @@ def _build_baltic_sheep_rows(
             paper_native_sample_label=row.sample_label,
             supplementary_table_sample_label=row.sample_label,
             preferred_sample_label=row.sample_label,
-            sample_basis="supplementary_table_and_archive_identity_join",
+            sample_basis=(
+                "supplementary_table_archive_identity_and_official_evidence_join"
+            ),
             sample_evidence_status="direct_table_extracted",
             sample_lineage_path=row.workbook_source_path,
             sample_lineage_locator=(
@@ -172,20 +296,20 @@ def _build_baltic_sheep_rows(
             sample_identity_resolution="final",
             sample_ambiguity_note="",
             locality_text=row.locality_text,
-            political_entity="",
-            latitude_text="",
-            longitude_text="",
-            chronology_text="",
-            chronology_dating_basis="unknown",
-            chronology_evidence_class="unresolved",
-            chronology_precision_posture="unresolved",
+            political_entity=official.country_name,
+            latitude_text=archive.latitude_text,
+            longitude_text=archive.longitude_text,
+            chronology_text=chronology.chronology_text,
+            chronology_dating_basis=chronology.dating_basis,
+            chronology_evidence_class=chronology.evidence_class,
+            chronology_precision_posture=chronology.precision_posture,
             source_native_tax_id=row.source_native_tax_id,
             source_native_scientific_name=row.source_native_scientific_name,
             taxon_alignment_status="project_species_match",
             source_native_identity_kind="biological_sample_accession",
         )
-        for row in audit
-    )
+
+    return tuple(build_row(row) for row in audit)
 
 
 def _indexed_remains_rows(

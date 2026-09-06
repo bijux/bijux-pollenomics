@@ -20,7 +20,12 @@ from .models import (
     _ReferenceStashDraft,
     _ReferenceStashRecord,
 )
-from .specifications import _doi_slug, _expand_remote_assets, _paper_source_specs
+from .specifications import (
+    _doi_slug,
+    _expand_remote_assets,
+    _paper_source_specs,
+    _project_remote_assets,
+)
 
 
 def _source_library_cache_key(output_root: Path) -> str:
@@ -132,10 +137,14 @@ def _content_type_from_filename(filename: str) -> str:
         return "application/vnd.ms-excel"
     if lowered.endswith(".csv"):
         return "text/csv"
+    if lowered.endswith(".json"):
+        return "application/json"
     if lowered.endswith(".tsv"):
         return "text/tab-separated-values"
     if lowered.endswith(".zip"):
         return "application/zip"
+    if lowered.endswith(".xml"):
+        return "application/xml"
     if lowered.endswith((".jpg", ".jpeg")):
         return "image/jpeg"
     if lowered.endswith(".png"):
@@ -198,6 +207,122 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
             )
         )
         seen_artifact_ids.add(f"{project.project_accession}:archive_metadata.html")
+        for remote in _project_remote_assets(project.project_accession):
+            asset_path = source_root / remote.relative_path
+            metadata_path = asset_path.with_suffix(asset_path.suffix + ".metadata.json")
+            metadata = (
+                json.loads(metadata_path.read_text(encoding="utf-8"))
+                if metadata_path.is_file()
+                else {}
+            )
+            artifact_id = f"{project.project_accession}:{asset_path.name}"
+            rows.append(
+                AdnaSourceArtifact(
+                    artifact_id=artifact_id,
+                    artifact_kind=remote.artifact_kind,
+                    label=remote.label,
+                    source_url=remote.source_url,
+                    local_path=str(asset_path.relative_to(output_root)),
+                    fetch_status=(
+                        "archived" if source_artifact_exists(asset_path) else "missing"
+                    ),
+                    remote_note=remote.remote_note,
+                    project_accessions=(project.project_accession,),
+                    paper_doi=(
+                        None
+                        if project.paper_linkage is None
+                        else project.paper_linkage.doi
+                    ),
+                    content_type=metadata.get("content_type"),
+                    byte_size=metadata.get("byte_size"),
+                    storage_path=(
+                        str(
+                            resolve_source_artifact_path(asset_path).relative_to(
+                                output_root
+                            )
+                        )
+                        if source_artifact_exists(asset_path)
+                        else None
+                    ),
+                    storage_byte_size=metadata.get("storage_byte_size"),
+                    content_encoding=metadata.get("content_encoding"),
+                )
+            )
+            seen_artifact_ids.add(artifact_id)
+            if metadata_path.is_file():
+                receipt_id = f"{project.project_accession}:{metadata_path.name}"
+                rows.append(
+                    AdnaSourceArtifact(
+                        artifact_id=receipt_id,
+                        artifact_kind="source_receipt_json",
+                        label=f"capture receipt for {remote.label}",
+                        source_url=remote.source_url,
+                        local_path=str(metadata_path.relative_to(output_root)),
+                        fetch_status="archived",
+                        remote_note=(
+                            "Capture receipt preserves source URL, byte and digest "
+                            "identity, licensing, and evidence locators."
+                        ),
+                        project_accessions=(project.project_accession,),
+                        paper_doi=(
+                            None
+                            if project.paper_linkage is None
+                            else project.paper_linkage.doi
+                        ),
+                        content_type="application/json",
+                        byte_size=metadata_path.stat().st_size,
+                        storage_path=str(metadata_path.relative_to(output_root)),
+                        storage_byte_size=metadata_path.stat().st_size,
+                    )
+                )
+                seen_artifact_ids.add(receipt_id)
+        if project.project_accession == "PRJEB59481":
+            for filename, artifact_kind in (
+                (
+                    "material_evidence_conflicts.json",
+                    "material_evidence_conflict_json",
+                ),
+                (
+                    "material_evidence_conflicts.csv",
+                    "material_evidence_conflict_csv",
+                ),
+            ):
+                artifact_path = (
+                    source_root / "projects" / project.project_accession / filename
+                )
+                artifact_id = f"{project.project_accession}:{filename}"
+                exists = artifact_path.is_file()
+                rows.append(
+                    AdnaSourceArtifact(
+                        artifact_id=artifact_id,
+                        artifact_kind=artifact_kind,
+                        label="unresolved ENA-versus-supplement material evidence",
+                        source_url="",
+                        local_path=str(artifact_path.relative_to(output_root)),
+                        fetch_status="archived" if exists else "missing",
+                        remote_note=(
+                            "Source-derived conflict ledger preserves both anatomical "
+                            "claims without selecting either one."
+                        ),
+                        project_accessions=(project.project_accession,),
+                        paper_doi=(
+                            None
+                            if project.paper_linkage is None
+                            else project.paper_linkage.doi
+                        ),
+                        content_type=_content_type_from_filename(filename),
+                        byte_size=artifact_path.stat().st_size if exists else None,
+                        storage_path=(
+                            str(artifact_path.relative_to(output_root))
+                            if exists
+                            else None
+                        ),
+                        storage_byte_size=(
+                            artifact_path.stat().st_size if exists else None
+                        ),
+                    )
+                )
+                seen_artifact_ids.add(artifact_id)
     for doi, spec in _paper_source_specs().items():
         projects = tuple(
             sorted(
@@ -250,6 +375,32 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
                 )
             )
             seen_artifact_ids.add(_artifact_id(doi, local_path.name))
+            if (
+                remote.artifact_kind == "article_full_text_xml"
+                and metadata_path.is_file()
+            ):
+                receipt_id = _artifact_id(doi, metadata_path.name)
+                rows.append(
+                    AdnaSourceArtifact(
+                        artifact_id=receipt_id,
+                        artifact_kind="source_receipt_json",
+                        label=f"capture receipt for {remote.label}",
+                        source_url=remote.source_url,
+                        local_path=str(metadata_path.relative_to(output_root)),
+                        fetch_status="archived",
+                        remote_note=(
+                            "Capture receipt preserves source URL, byte and digest "
+                            "identity, licensing, and evidence locators."
+                        ),
+                        project_accessions=projects,
+                        paper_doi=doi,
+                        content_type="application/json",
+                        byte_size=metadata_path.stat().st_size,
+                        storage_path=str(metadata_path.relative_to(output_root)),
+                        storage_byte_size=metadata_path.stat().st_size,
+                    )
+                )
+                seen_artifact_ids.add(receipt_id)
     for metadata_path in sorted(
         source_root.glob("papers/*/supplementary/*.*.metadata.json")
     ):

@@ -50,16 +50,21 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
             {row.site_label for row in rows}, {"Kastelholm", "Stora Förvar"}
         )
         self.assertTrue(
-            all(row.source_support_status == "supplementary_table_row" for row in rows)
+            all(row.source_support_status == "archive_sample_record" for row in rows)
         )
         self.assertTrue(all(row.time_start_bp is None for row in rows))
         self.assertTrue(all(row.time_end_bp is None for row in rows))
         self.assertTrue(all(row.chronology_text == "" for row in rows))
         self.assertTrue(
             all(
-                "SupplementaryTables_Revision2.xlsx" in row.source_artifact_path
+                row.source_artifact_path.endswith(".xml")
+                and "/ena_samples/SAMEA" in row.source_artifact_path
                 for row in rows
             )
+        )
+        self.assertTrue(all(row.source_locator.endswith("/DESCRIPTION") for row in rows))
+        self.assertTrue(
+            all("Sheep humerus excavated in" in row.exact_source_text for row in rows)
         )
 
     def test_cat_sites_do_not_flatten_distinct_sample_chronologies(self) -> None:

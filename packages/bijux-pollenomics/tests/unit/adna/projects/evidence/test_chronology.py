@@ -194,14 +194,14 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
         self.assertEqual(audit["sample_row_count"], 1454)
-        self.assertEqual(audit["normalized_interval_count"], 328)
+        self.assertEqual(audit["normalized_interval_count"], 332)
         self.assertEqual(audit["normalized_point_count"], 533)
-        self.assertEqual(audit["unresolved_count"], 463)
-        self.assertEqual(audit["precision_counts"]["contextual_interval"], 15)
+        self.assertEqual(audit["unresolved_count"], 458)
+        self.assertEqual(audit["precision_counts"]["contextual_interval"], 16)
         self.assertEqual(
             audit["precision_counts"]["sample_approximate_or_modeled"], 188
         )
-        self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 276)
+        self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 279)
         self.assertFalse(
             any(
                 row["project_accession"]
@@ -222,12 +222,15 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         sheep_species = next(
             row for row in species_rows if row["species_latin_name"] == "Ovis aries"
         )
-        self.assertEqual(sheep_species["normalized_row_count"], 180)
+        self.assertEqual(sheep_species["normalized_row_count"], 184)
         baltic_sheep_project = next(
             row for row in project_rows if row["project_accession"] == "PRJEB59481"
         )
-        self.assertEqual(baltic_sheep_project["normalized_row_count"], 0)
-        self.assertEqual(baltic_sheep_project["unresolved_count"], 5)
+        self.assertEqual(baltic_sheep_project["normalized_row_count"], 4)
+        self.assertEqual(baltic_sheep_project["exact_sample_date_count"], 3)
+        self.assertEqual(baltic_sheep_project["contextual_date_count"], 1)
+        self.assertEqual(baltic_sheep_project["broad_label_count"], 1)
+        self.assertEqual(baltic_sheep_project["unresolved_count"], 0)
         camel_project = next(
             row
             for row in project_rows
@@ -260,7 +263,8 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertTrue(
             any(
                 row["project_accession"] == "PRJEB59481"
-                and "missing_sample_level_date_evidence" in row["gap_reasons"]
+                and row["gap_reasons"]
+                == ["broad_period_labels_still_need_stronger_date_support"]
                 for row in gap_queue
             )
         )

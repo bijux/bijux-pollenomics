@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import replace
 from pathlib import Path
 
 from bijux_pollenomics.adna.domain.models import AdnaSiteEvidenceRecord
@@ -7,6 +8,11 @@ from bijux_pollenomics.adna.projects.evidence.sites import resolve_project_site_
 from bijux_pollenomics.adna.projects.sample_master import (
     AdnaProjectSampleMasterRow,
     build_project_sample_master_rows,
+)
+from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep import (
+    BalticSheepOfficialSampleEvidence,
+    baltic_sheep_official_evidence_available,
+    load_baltic_sheep_official_evidence,
 )
 from bijux_pollenomics.adna.sources.archive import (
     AdnaArchiveProject,
@@ -25,6 +31,12 @@ def build_project_sample_chronology_rows(
     project = _project_by_accession(project_accession)
     master_rows = build_project_sample_master_rows(output_root, project_accession)
     site_rows = resolve_project_site_evidence(project_accession)
+    baltic_sheep_evidence = (
+        load_baltic_sheep_official_evidence(output_root).by_accession()
+        if project_accession == "PRJEB59481"
+        and baltic_sheep_official_evidence_available(output_root)
+        else {}
+    )
     rows: list[AdnaProjectSampleChronologyRow] = []
 
     for master_row in master_rows:
@@ -34,8 +46,12 @@ def build_project_sample_chronology_rows(
         dating_basis = (
             master_row.chronology_dating_basis or project.dating_basis or "unknown"
         )
+        chronology_master_row = _with_baltic_sheep_chronology_lineage(
+            master_row,
+            baltic_sheep_evidence.get(master_row.archive_native_sample_id),
+        )
         source = _resolve_chronology_source(
-            master_row=master_row,
+            master_row=chronology_master_row,
             site_row=site_row,
             dating_basis=dating_basis,
         )
@@ -70,6 +86,31 @@ def build_project_sample_chronology_rows(
 
     rows.sort(key=lambda row: (row.project_accession, row.repo_stable_sample_id))
     return tuple(rows)
+
+
+def _with_baltic_sheep_chronology_lineage(
+    master_row: AdnaProjectSampleMasterRow,
+    evidence: BalticSheepOfficialSampleEvidence | None,
+) -> AdnaProjectSampleMasterRow:
+    if master_row.project_accession != "PRJEB59481":
+        return master_row
+    if evidence is None:
+        raise ValueError(
+            "Baltic sheep chronology evidence is missing for "
+            f"{master_row.archive_native_sample_id}"
+        )
+    chronology = evidence.chronology
+    if chronology.sample_label != master_row.preferred_sample_label:
+        raise ValueError(
+            "Baltic sheep chronology identity cross-contamination for "
+            f"{master_row.preferred_sample_label}"
+        )
+    return replace(
+        master_row,
+        sample_lineage_path=chronology.source_path,
+        sample_lineage_locator=chronology.source_locator,
+        sample_lineage_excerpt=chronology.source_excerpt,
+    )
 
 
 def _matching_site_row(

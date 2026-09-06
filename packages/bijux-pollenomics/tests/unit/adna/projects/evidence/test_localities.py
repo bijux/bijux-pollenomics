@@ -50,10 +50,9 @@ class AdnaProjectSampleLocalityEvidenceUnitTests(unittest.TestCase):
     ) -> None:
         rows = build_project_locality_worksheet_rows(self.data_root, "PRJEB59481")
 
-        self.assertEqual(len(rows), 8)
+        self.assertEqual(len(rows), 2)
         self.assertEqual(
-            {row["source_surface"] for row in rows},
-            {"coordinate_resolution", "supplementary_table"},
+            {row["source_surface"] for row in rows}, {"supplementary_table"}
         )
         sample_owned = {
             row["resolved_locality_text"]: row["supporting_sample_count"]

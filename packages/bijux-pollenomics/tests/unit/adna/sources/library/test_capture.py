@@ -8,6 +8,7 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
+from tests.support.repository import REPOSITORY_ROOT
 from bijux_pollenomics.adna.workflow.source_artifacts import (
     SourceArtifactContentDriftError,
     migrate_html_source_artifact,
@@ -23,6 +24,8 @@ from bijux_pollenomics.adna.sources.library import (
     refresh_source_library,
 )
 from .fixtures import _bounded_paper_spec
+
+DATA_ROOT = REPOSITORY_ROOT / "data"
 
 
 class SourceCaptureTests(unittest.TestCase):
@@ -169,6 +172,170 @@ class SourceCaptureTests(unittest.TestCase):
                     ),
                     "http_success_block_or_error_page",
                 )
+
+    def test_xml_capture_rejects_html_and_wrong_official_roots(self) -> None:
+        ena_path = Path(
+            "adna/governance/source_library/projects/PRJEB59481/ena_samples/"
+            "SAMEA112960291.xml"
+        )
+        article_path = Path(
+            "adna/governance/source_library/papers/10.1093-gbe-evae114/"
+            "article_full_text.xml"
+        )
+
+        self.assertEqual(
+            source_library_acquisition._xml_capture_refusal_reason(
+                logical_path=ena_path,
+                payload=b"<html/>",
+                content_type="text/html",
+            ),
+            "xml_source_returned_non_xml_media_type",
+        )
+        self.assertEqual(
+            source_library_acquisition._xml_capture_refusal_reason(
+                logical_path=ena_path,
+                payload=b"<article/>",
+                content_type="application/xml",
+            ),
+            "ena_sample_source_root_mismatch",
+        )
+        self.assertEqual(
+            source_library_acquisition._xml_capture_refusal_reason(
+                logical_path=article_path,
+                payload=b"<SAMPLE_SET/>",
+                content_type="application/xml",
+            ),
+            "article_full_text_source_root_mismatch",
+        )
+        self.assertEqual(
+            source_library_acquisition._xml_capture_refusal_reason(
+                logical_path=ena_path,
+                payload=b"<SAMPLE_SET/>",
+                content_type="application/xml",
+            ),
+            "ena_sample_source_semantic_mismatch",
+        )
+        self.assertEqual(
+            source_library_acquisition._xml_capture_refusal_reason(
+                logical_path=article_path,
+                payload=b"<article/>",
+                content_type="application/xml",
+            ),
+            "article_full_text_source_semantic_mismatch",
+        )
+
+    def test_official_xml_capture_uses_full_artifact_semantics(self) -> None:
+        ena_path = Path(
+            "adna/governance/source_library/projects/PRJEB59481/ena_samples/"
+            "SAMEA112960291.xml"
+        )
+        article_path = Path(
+            "adna/governance/source_library/papers/10.1093-gbe-evae114/"
+            "article_full_text.xml"
+        )
+        ena_payload = (DATA_ROOT / ena_path).read_bytes()
+        article_payload = (DATA_ROOT / article_path).read_bytes()
+
+        self.assertIsNone(
+            source_library_acquisition._xml_capture_refusal_reason(
+                logical_path=ena_path,
+                payload=ena_payload,
+                content_type="application/xml",
+            )
+        )
+        self.assertIsNone(
+            source_library_acquisition._xml_capture_refusal_reason(
+                logical_path=article_path,
+                payload=article_payload,
+                content_type="application/xml",
+            )
+        )
+        self.assertEqual(
+            source_library_acquisition._xml_capture_refusal_reason(
+                logical_path=ena_path,
+                payload=ena_payload.replace(b"60.23", b"60.24"),
+                content_type="application/xml",
+            ),
+            "ena_sample_source_semantic_mismatch",
+        )
+        self.assertEqual(
+            source_library_acquisition._xml_capture_refusal_reason(
+                logical_path=article_path,
+                payload=article_payload.replace(b"PMC11162877", b"PMC00000000", 1),
+                content_type="application/xml",
+            ),
+            "article_full_text_source_semantic_mismatch",
+        )
+
+    def test_identical_official_xml_refuses_missing_receipt(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            logical_path = (
+                output_root
+                / "adna/governance/source_library/projects/PRJEB59481/ena_samples/"
+                "SAMEA112960291.xml"
+            )
+            payload = (
+                DATA_ROOT
+                / "adna/governance/source_library/projects/PRJEB59481/ena_samples/"
+                "SAMEA112960291.xml"
+            ).read_bytes()
+            logical_path.parent.mkdir(parents=True, exist_ok=True)
+            logical_path.write_bytes(payload)
+
+            assessment = source_library_acquisition._assess_downloaded_source_capture(
+                output_root=output_root,
+                logical_path=logical_path,
+                source_url=(
+                    "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA112960291"
+                ),
+                payload=payload,
+                content_type="application/xml",
+            )
+
+            self.assertEqual(assessment.disposition.value, "refused")
+            self.assertIsNotNone(assessment.refusal_path)
+            assert assessment.refusal_path is not None
+            refusal = json.loads(
+                assessment.refusal_path.read_text(encoding="utf-8")
+            )
+            self.assertEqual(
+                refusal["reason_code"], "official_source_receipt_mismatch"
+            )
+
+    def test_identical_official_xml_refuses_stale_receipt(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            relative_path = Path(
+                "adna/governance/source_library/projects/PRJEB59481/ena_samples/"
+                "SAMEA112960291.xml"
+            )
+            logical_path = output_root / relative_path
+            source_path = DATA_ROOT / relative_path
+            receipt_path = logical_path.with_suffix(".xml.metadata.json")
+            logical_path.parent.mkdir(parents=True, exist_ok=True)
+            payload = source_path.read_bytes()
+            logical_path.write_bytes(payload)
+            receipt = json.loads(
+                source_path.with_suffix(".xml.metadata.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            receipt["content_sha256"] = "0" * 64
+            receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+
+            assessment = source_library_acquisition._assess_downloaded_source_capture(
+                output_root=output_root,
+                logical_path=logical_path,
+                source_url=(
+                    "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA112960291"
+                ),
+                payload=payload,
+                content_type="application/xml",
+            )
+
+            self.assertEqual(assessment.disposition.value, "refused")
+            self.assertIsNotNone(assessment.refusal_path)
 
     def test_refresh_refuses_http_success_access_denied_page(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

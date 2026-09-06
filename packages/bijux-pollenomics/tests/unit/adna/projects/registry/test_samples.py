@@ -84,10 +84,26 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
                 "ASTF003": "Stora Förvar",
             },
         )
-        self.assertTrue(all(row.time_start_bp is None for row in rows))
-        self.assertTrue(all(row.time_end_bp is None for row in rows))
+        by_label = {row.paper_native_sample_label: row for row in rows}
+        self.assertEqual(
+            {
+                label: (row.time_start_bp, row.time_end_bp)
+                for label, row in by_label.items()
+            },
+            {
+                "AKAS001": (340, 527),
+                "AKAS002": (400, 450),
+                "ASTF001": (3699, 3957),
+                "ASTF002": (3936, 4151),
+                "ASTF003": (None, None),
+            },
+        )
+        self.assertEqual(
+            {(row.latitude_text, row.longitude_text) for row in rows},
+            {("60.23", "20.08"), ("57.29", "17.97")},
+        )
         self.assertTrue(
-            all(row.latitude_text == row.longitude_text == "" for row in rows)
+            all(row.coordinate_basis == "archive_coordinates" for row in rows)
         )
 
     def test_cat_samples_keep_sample_owned_time_taxonomy_and_coordinate_refusals(
@@ -139,9 +155,7 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
         self.assertIsNone(
             _matching_locality_lead((locality_lead,), "Different Site", "")
         )
-        self.assertIsNone(
-            _matching_locality_lead((locality_lead,), "N/A", "N/A")
-        )
+        self.assertIsNone(_matching_locality_lead((locality_lead,), "N/A", "N/A"))
         self.assertIsNone(
             _matching_locality_lead((locality_lead,), "Example Site", "Sweden")
         )

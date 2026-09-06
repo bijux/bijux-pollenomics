@@ -40,7 +40,11 @@ from .tables import (
     _read_xlsx_member_rows,
     _read_xlsx_rows,
 )
-from .tables.baltic_sheep import _build_baltic_sheep_rows
+from .tables.baltic_sheep import (
+    _build_baltic_sheep_rows,
+    baltic_sheep_official_evidence_available,
+    load_baltic_sheep_official_evidence,
+)
 from .tables.european_cats import (
     EUROPEAN_CAT_WORKBOOK_MEMBER,
     _build_european_cat_rows,
@@ -197,6 +201,8 @@ def _baltic_sheep_supplementary_sample_rows(
     species: AdnaSpeciesDefinition,
     project: AdnaArchiveProject,
 ) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    if not baltic_sheep_official_evidence_available(output_root):
+        return ()
     paper_row = _paper_row_by_project(output_root, project.project_accession)
     workbook_artifact = next(
         (
@@ -235,6 +241,7 @@ def _baltic_sheep_supplementary_sample_rows(
         ),
         archive_source_path=archive_source_path,
         archive_text=read_source_artifact_text(archive_path),
+        official_evidence=load_baltic_sheep_official_evidence(output_root),
     )
 
 

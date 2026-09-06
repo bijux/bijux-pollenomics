@@ -96,6 +96,21 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
             article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1093-gbe-evae114/article.html",
             article_kind="article_html",
             article_note="Publisher article page is archived where accessible; OUP bot protection can still block richer downloads.",
+            additional_assets=(
+                _RemoteArtifactSpec(
+                    artifact_kind="article_full_text_xml",
+                    label="Europe PMC full-text XML",
+                    source_url=(
+                        "https://www.ebi.ac.uk/europepmc/webservices/rest/"
+                        "PMC11162877/fullTextXML"
+                    ),
+                    relative_path=("papers/10.1093-gbe-evae114/article_full_text.xml"),
+                    remote_note=(
+                        "Official open-access full text supplies Table 1 sample "
+                        "chronology and its BP/context footnotes."
+                    ),
+                ),
+            ),
         ),
         "10.1093/gbe/evaf181": _PaperSourceSpec(
             doi="10.1093/gbe/evaf181",
@@ -235,8 +250,33 @@ def _expand_remote_assets(
                 remote_note="PubMed XML snapshot provides publisher-independent citation and abstract metadata.",
             )
         )
+    assets.extend(spec.additional_assets)
     assets.extend(spec.supplementary_assets)
     return tuple(assets)
+
+
+def _project_remote_assets(project_accession: str) -> tuple[_RemoteArtifactSpec, ...]:
+    if project_accession != "PRJEB59481":
+        return ()
+    return tuple(
+        _RemoteArtifactSpec(
+            artifact_kind="ena_sample_xml",
+            label=f"ENA sample XML {accession}",
+            source_url=f"https://www.ebi.ac.uk/ena/browser/api/xml/{accession}",
+            relative_path=(f"projects/PRJEB59481/ena_samples/{accession}.xml"),
+            remote_note=(
+                "Official ENA biological-sample record supplies exact sample "
+                "identity, source-native lat_lon, taxonomy, and material wording."
+            ),
+        )
+        for accession in (
+            "SAMEA112960291",
+            "SAMEA112960292",
+            "SAMEA112960293",
+            "SAMEA112960294",
+            "SAMEA112960295",
+        )
+    )
 
 
 def _paper_required(archive_status: str) -> bool:

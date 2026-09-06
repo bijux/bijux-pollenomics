@@ -122,15 +122,15 @@ def test_map_readiness_reconciles_point_ready_and_unpublished_counts(
         for row in readiness["rows"]
         if row["species_latin_name"] == "Sus scrofa domesticus"
     )
-    assert readiness["totals"]["direct_coordinate_backed"] == 274
+    assert readiness["totals"]["direct_coordinate_backed"] == 276
     assert readiness["totals"]["indirectly_geocoded"] == 4
-    assert readiness["totals"]["coordinate_provenance_mappable_count"] == 278
+    assert readiness["totals"]["coordinate_provenance_mappable_count"] == 280
     assert readiness["totals"]["coordinate_provenance_row_count"] == 284
-    assert readiness["totals"]["publication_candidate_count"] == 271
+    assert readiness["totals"]["publication_candidate_count"] == 273
     assert readiness["totals"]["not_materialized_count"] == 7
-    assert readiness["totals"]["refused_coordinate_provenance_count"] == 6
+    assert readiness["totals"]["refused_coordinate_provenance_count"] == 4
     assert readiness["totals"]["region_only_coordinate_refusal_count"] == 4
-    assert readiness["totals"]["unresolved_location_coordinate_refusal_count"] == 2
+    assert readiness["totals"]["unresolved_location_coordinate_refusal_count"] == 0
     assert readiness["totals"]["unresolved_sample_count"] == 95
     assert readiness["publication_accounting"]["overall_ok"]
     assert {
@@ -181,11 +181,12 @@ def test_map_readiness_reconciles_point_ready_and_unpublished_counts(
     assert pig_row["coordinate_provenance_mappable_count"] == 2
     assert pig_row["publication_candidate_count"] == 2
     assert pig_row["not_materialized_count"] == 0
-    assert sheep_row["refused_coordinate_provenance_count"] == 2
+    assert sheep_row["direct_coordinate_backed"] == 2
+    assert sheep_row["refused_coordinate_provenance_count"] == 0
     assert sheep_row["region_only_coordinate_refusal_count"] == 0
-    assert sheep_row["unresolved_location_coordinate_refusal_count"] == 2
-    assert sheep_row["coordinate_provenance_mappable_count"] == 0
-    assert sheep_row["publication_candidate_count"] == 0
+    assert sheep_row["unresolved_location_coordinate_refusal_count"] == 0
+    assert sheep_row["coordinate_provenance_mappable_count"] == 2
+    assert sheep_row["publication_candidate_count"] == 2
 
 
 def test_map_accounting_refuses_duplicate_publication_identity(

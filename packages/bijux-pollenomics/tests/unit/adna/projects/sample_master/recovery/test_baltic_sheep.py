@@ -83,7 +83,7 @@ def test_audit_binds_all_five_archive_identities_to_exact_sites() -> None:
     assert all("Continuity" in row.site_source_locator for row in audit)
 
 
-def test_sample_master_preserves_identity_and_withholds_unproven_values() -> None:
+def test_sample_master_preserves_identity_and_integrates_official_values() -> None:
     rows = build_project_sample_master_rows(DATA_ROOT, "PRJEB59481")
 
     assert len(rows) == 5
@@ -100,9 +100,18 @@ def test_sample_master_preserves_identity_and_withholds_unproven_values() -> Non
     assert {row.locality_text for row in rows} == {"Kastelholm", "Stora Förvar"}
     assert all(row.sample_identity_resolution == "final" for row in rows)
     assert all(row.sample_evidence_status == "direct_table_extracted" for row in rows)
-    assert all(row.chronology_text == "" for row in rows)
-    assert all(row.latitude_text == row.longitude_text == "" for row in rows)
-    assert all(row.political_entity == "" for row in rows)
+    assert {row.chronology_text for row in rows} == {
+        "340-527 BP",
+        "400-450 BP",
+        "3699-3957 BP",
+        "3936-4151 BP",
+        "Late Neolithic",
+    }
+    assert {(row.latitude_text, row.longitude_text) for row in rows} == {
+        ("60.23", "20.08"),
+        ("57.29", "17.97"),
+    }
+    assert {row.political_entity for row in rows} == {"Finland", "Sweden"}
     assert all(
         "SupplementaryTables_Revision2.xlsx" in row.sample_lineage_path for row in rows
     )

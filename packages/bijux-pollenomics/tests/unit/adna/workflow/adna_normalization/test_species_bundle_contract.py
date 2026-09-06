@@ -114,8 +114,8 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             if item.project_accession == "SRP073444"
         )
 
-        self.assertEqual(sheep_project.nordic_relevance, "nordic_relevant_unmapped")
-        self.assertIn("unmapped", sheep_project.interpretation_caveat)
+        self.assertEqual(sheep_project.nordic_relevance, "nordic_relevant_mapped")
+        self.assertNotIn("unmapped", sheep_project.interpretation_caveat)
         self.assertEqual(camel_project.nordic_relevance, "non_nordic")
         self.assertIn(
             "not as shipped Nordic evidence", camel_project.interpretation_caveat
@@ -126,7 +126,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             if "PRJEB59481" in item.project_accessions
         )
         self.assertTrue(sheep_locality.nordic_inclusion)
-        self.assertEqual(sheep_locality.coordinate_confidence, "withheld")
+        self.assertEqual(sheep_locality.coordinate_confidence, "approximate")
         self.assertIn("Nordic", sheep_locality.nordic_inclusion_reason)
         horse_localities = {
             (item.locality, item.identity.political_entity)

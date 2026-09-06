@@ -15,7 +15,12 @@ def _render_curation_note(bundle: AdnaSourceBundleManifest) -> str:
         "Paper and supplementary materials are required to recover sample and site detail."
         if bundle.paper_required and bundle.supplement_required
         else (
-            "Paper-level evidence is required for this project, but no supplementary artifact is currently curated."
+            "Paper-level evidence is required; locally curated supplementary "
+            "evidence is also available."
+            if bundle.paper_required
+            and bundle.supplement_download_status in {"archived", "partial"}
+            else "Paper-level evidence is required, and no supplementary artifact "
+            "is currently curated."
             if bundle.paper_required
             else "Archive metadata is sufficient for the current curation posture."
         )

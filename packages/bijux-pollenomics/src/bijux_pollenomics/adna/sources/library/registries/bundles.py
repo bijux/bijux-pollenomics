@@ -39,7 +39,12 @@ def build_project_source_bundles(
             item
             for item in local_project_artifacts
             if item.artifact_kind
-            in {"article_html", "article_pdf", "paper_metadata_json"}
+            in {
+                "article_html",
+                "article_pdf",
+                "article_full_text_xml",
+                "paper_metadata_json",
+            }
         )
         supplement_artifacts = tuple(
             item

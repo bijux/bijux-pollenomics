@@ -43,9 +43,10 @@ def _is_nordic_locality(
     locality = locality_text.casefold()
     if "svalbard" in locality:
         return True
-    return (
-        getattr(project_context, "nordic_relevance", "") == "nordic_relevant_unmapped"
-    )
+    return getattr(project_context, "nordic_relevance", "") in {
+        "nordic_relevant_mapped",
+        "nordic_relevant_unmapped",
+    }
 
 
 def _nordic_locality_reason(

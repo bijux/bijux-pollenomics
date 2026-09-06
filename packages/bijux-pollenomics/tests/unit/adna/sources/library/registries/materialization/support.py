@@ -5,6 +5,7 @@ from __future__ import annotations
 import io
 from pathlib import Path
 import zipfile
+from tests.support.repository import REPOSITORY_ROOT
 
 from bijux_pollenomics.adna.sources.library import (
     materialize_source_library,
@@ -25,6 +26,21 @@ def source_library_root(output_root: Path) -> Path:
 
 
 def _fixture_downloader(url: str) -> tuple[bytes, str]:
+    if "/ena/browser/api/xml/SAMEA11296029" in url:
+        accession = url.rsplit("/", maxsplit=1)[-1]
+        source_path = (
+            REPOSITORY_ROOT
+            / "data/adna/governance/source_library/projects/PRJEB59481/ena_samples"
+            / f"{accession}.xml"
+        )
+        return (source_path.read_bytes(), "application/xml")
+    if url.endswith("PMC11162877/fullTextXML"):
+        source_path = (
+            REPOSITORY_ROOT
+            / "data/adna/governance/source_library/papers/10.1093-gbe-evae114/"
+            "article_full_text.xml"
+        )
+        return (source_path.read_bytes(), "application/xml")
     if url.endswith(".zip"):
         payload = io.BytesIO()
         with zipfile.ZipFile(payload, "w") as archive:

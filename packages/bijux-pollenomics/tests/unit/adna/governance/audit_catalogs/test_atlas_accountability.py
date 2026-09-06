@@ -22,8 +22,8 @@ def test_atlas_candidates_retain_complete_evidence_accountability(
     accountability = build_animal_atlas_candidate_accountability(catalog_data_root)
     markdown = render_animal_atlas_candidate_accountability_markdown(accountability)
 
-    assert accountability["candidate_row_count"] == 271
-    assert accountability["passed_row_count"] == 271
+    assert accountability["candidate_row_count"] == 273
+    assert accountability["passed_row_count"] == 273
     assert accountability["overall_ok"]
     assert all(row["fully_accountable"] for row in accountability["rows"])
     assert {

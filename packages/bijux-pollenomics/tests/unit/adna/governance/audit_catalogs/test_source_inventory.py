@@ -33,11 +33,12 @@ def test_cross_species_archive_inventory_reports_access_policies() -> None:
     )
 
 
-def test_cross_species_freshness_table_tracks_nordic_unmapped_leads() -> None:
+def test_cross_species_freshness_table_tracks_nordic_mapping_posture() -> None:
     freshness_rows = build_species_freshness_table()
     sheep_row = next(
         row for row in freshness_rows if row["species_latin_name"] == "Ovis aries"
     )
 
-    assert sheep_row["has_nordic_unmapped_lead"]
-    assert sheep_row["inventory_last_checked_on"] == "2026-05-07"
+    assert sheep_row["has_nordic_mapped_lead"]
+    assert not sheep_row["has_nordic_unmapped_lead"]
+    assert sheep_row["inventory_last_checked_on"] == "2026-09-06"

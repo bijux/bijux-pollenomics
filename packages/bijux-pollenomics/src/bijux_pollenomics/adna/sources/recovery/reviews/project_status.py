@@ -105,6 +105,8 @@ def build_species_deficit_ledger(output_root: Path, *, surface: Any) -> dict[str
             ],
             "missing_chronology_count": row["missing_chronology_count"],
             "chronology_conflict_count": row["chronology_conflict_count"],
+            "material_evidence_expected_count": row["material_evidence_expected_count"],
+            "material_evidence_conflict_count": row["material_evidence_conflict_count"],
             "chronology_ambiguity_count": row["chronology_ambiguity_count"],
             "coordinate_blocked_count": row["coordinate_blocked_count"],
             "publication_readiness_status": row["publication_readiness_status"],

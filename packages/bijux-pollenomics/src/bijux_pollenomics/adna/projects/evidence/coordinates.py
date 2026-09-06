@@ -11,6 +11,10 @@ from ..sample_master.tables.pig_panel import (
     PigSiteCoordinateEvidence,
     load_pig_site_coordinate_evidence,
 )
+from ..sample_master.tables.baltic_sheep import (
+    baltic_sheep_official_evidence_available,
+    load_baltic_sheep_official_evidence,
+)
 
 __all__ = [
     "build_species_coordinate_provenance_rows",
@@ -92,82 +96,6 @@ _PROJECT_COORDINATE_PROVENANCE: dict[
             domestication_context="domesticated_core",
             interpretation_note="Region-level pig turnover evidence is kept as non-mappable context until site rows exist.",
             support_gap_note="The current pig lead is explicitly regional and therefore refused from point publication.",
-        ),
-    ),
-    "PRJEB59481": (
-        AdnaCoordinateProvenanceRecord(
-            project_accession="PRJEB59481",
-            species_latin_name="Ovis aries",
-            species_common_name="sheep",
-            site_label="Kastelholm",
-            original_place_text="Kastelholm",
-            resolved_place_text="Kastelholm",
-            political_entity=None,
-            source_artifact_path=(
-                "adna/governance/source_library/papers/10.1093-gbe-evae114/"
-                "supplementary/SupplementaryTables_Revision2.xlsx"
-            ),
-            source_locator="STab 5 - Continuity AKAS!rows1-2",
-            coordinate_basis="unresolved_location_state",
-            mapping_posture="refused_unresolved_location",
-            geocoding_method="not_applied",
-            geocoder_or_gazetteer=(
-                "not applied because no primary coordinate evidence is admitted"
-            ),
-            confidence_rationale=(
-                "The supplement proves the site name but supplies no coordinates; "
-                "a place-name geocode would not be specimen-findspot evidence."
-            ),
-            coordinate_confidence="withheld",
-            paper_doi="10.1093/gbe/evae114",
-            paper_url=_doi_url("10.1093/gbe/evae114"),
-            dating_basis="unknown",
-            domestication_context="domesticated_core",
-            interpretation_note=(
-                "Kastelholm is retained as source-backed site identity and withheld "
-                "from point mapping."
-            ),
-            support_gap_note=(
-                "A primary sample coordinate or governed site-coordinate source is "
-                "still required for point publication."
-            ),
-        ),
-        AdnaCoordinateProvenanceRecord(
-            project_accession="PRJEB59481",
-            species_latin_name="Ovis aries",
-            species_common_name="sheep",
-            site_label="Stora Förvar",
-            original_place_text="Stora Förvar",
-            resolved_place_text="Stora Förvar",
-            political_entity=None,
-            source_artifact_path=(
-                "adna/governance/source_library/papers/10.1093-gbe-evae114/"
-                "supplementary/SupplementaryTables_Revision2.xlsx"
-            ),
-            source_locator="STab 4 - Continuity ASTF!rows1-2",
-            coordinate_basis="unresolved_location_state",
-            mapping_posture="refused_unresolved_location",
-            geocoding_method="not_applied",
-            geocoder_or_gazetteer=(
-                "not applied because no primary coordinate evidence is admitted"
-            ),
-            confidence_rationale=(
-                "The supplement proves the site name but supplies no coordinates; "
-                "a place-name geocode would not be specimen-findspot evidence."
-            ),
-            coordinate_confidence="withheld",
-            paper_doi="10.1093/gbe/evae114",
-            paper_url=_doi_url("10.1093/gbe/evae114"),
-            dating_basis="unknown",
-            domestication_context="domesticated_core",
-            interpretation_note=(
-                "Stora Förvar is retained as source-backed site identity and withheld "
-                "from point mapping."
-            ),
-            support_gap_note=(
-                "A primary sample coordinate or governed site-coordinate source is "
-                "still required for point publication."
-            ),
         ),
     ),
     "PRJNA705960": (
@@ -454,10 +382,17 @@ def _direct_sample_coordinate_rows(
         if project_accession == "PRJEB30282"
         else {}
     )
+    baltic_sheep_evidence = (
+        load_baltic_sheep_official_evidence(_default_data_root()).by_accession()
+        if project_accession == "PRJEB59481"
+        and baltic_sheep_official_evidence_available(_default_data_root())
+        else {}
+    )
     records: list[AdnaCoordinateProvenanceRecord] = []
     for group_key, rows in grouped.items():
         first = rows[0]
         pig_site = pig_evidence.get(group_key)
+        baltic_sheep_sample = baltic_sheep_evidence.get(first.archive_native_sample_id)
         pig_chronology_bp = _pig_chronology_bp(first.chronology_text, pig_site)
         chronology_values = {row.chronology_text for row in rows if row.chronology_text}
         site_chronology_text = (
@@ -473,17 +408,23 @@ def _direct_sample_coordinate_rows(
                 resolved_place_text=first.locality_text,
                 political_entity=first.political_entity or None,
                 source_artifact_path=(
-                    first.sample_lineage_path
+                    baltic_sheep_sample.archive.source_path
+                    if baltic_sheep_sample is not None
+                    else first.sample_lineage_path
                     if pig_site is None
                     else PIG_SITE_COORDINATE_EVIDENCE_PATH
                 ),
                 source_locator=(
-                    first.sample_lineage_locator
+                    baltic_sheep_sample.archive.source_locator
+                    if baltic_sheep_sample is not None
+                    else first.sample_lineage_locator
                     if pig_site is None
                     else pig_site.coordinate_source_locator
                 ),
                 coordinate_basis=(
-                    "supplementary_table_coordinates"
+                    "archive_coordinates"
+                    if baltic_sheep_sample is not None
+                    else "supplementary_table_coordinates"
                     if pig_site is None
                     else pig_site.coordinate_basis
                 ),
@@ -491,22 +432,34 @@ def _direct_sample_coordinate_rows(
                 latitude_text=first.latitude_text,
                 longitude_text=first.longitude_text,
                 geocoding_method=(
-                    "direct_supplementary_coordinate_capture"
+                    "direct_ena_sample_coordinate_capture"
+                    if baltic_sheep_sample is not None
+                    else "direct_supplementary_coordinate_capture"
                     if pig_site is None
                     else pig_site.coordinate_source_kind
                 ),
                 geocoder_or_gazetteer=(
-                    "not required because the supplementary table ships coordinates"
+                    "not required because the ENA sample record ships lat_lon"
+                    if baltic_sheep_sample is not None
+                    else "not required because the supplementary table ships coordinates"
                     if pig_site is None
                     else pig_site.coordinate_source_url
                 ),
                 confidence_rationale=(
-                    "The published supplementary table provides direct coordinates for this locality."
+                    "The official ENA sample XML provides the source-native lat_lon "
+                    "pair at two decimal degrees; it is not claimed as an exact "
+                    "specimen findspot."
+                    if baltic_sheep_sample is not None
+                    else "The published supplementary table provides direct coordinates for this locality."
                     if pig_site is None
                     else pig_site.confidence_rationale
                 ),
                 coordinate_confidence=(
-                    "exact" if pig_site is None else pig_site.coordinate_confidence
+                    "source_reported_two_decimal_degrees"
+                    if baltic_sheep_sample is not None
+                    else "exact"
+                    if pig_site is None
+                    else pig_site.coordinate_confidence
                 ),
                 paper_doi=paper_doi,
                 paper_url=paper_url,
@@ -528,9 +481,14 @@ def _direct_sample_coordinate_rows(
                     else "domesticated_core"
                 ),
                 interpretation_note=(
-                    "This locality is mapped from direct supplementary coordinates "
-                    "rather than a project-level geocode; chronology remains "
-                    "sample-owned when its records have different dates."
+                    "The ENA sample XML supplies source-native coordinates at two "
+                    "decimal degrees. The supplement independently binds the "
+                    "specimen to this site; the coordinates are not represented as "
+                    "a survey-grade specimen findspot."
+                    if baltic_sheep_sample is not None
+                    else "This locality is mapped from direct supplementary "
+                    "coordinates rather than a project-level geocode; chronology "
+                    "remains sample-owned when its records have different dates."
                     if pig_site is None
                     else (
                         "The primary supplement binds the sample to the named archaeological site; "

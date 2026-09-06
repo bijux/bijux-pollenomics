@@ -136,6 +136,11 @@ def _lead_rows(
         )
         time_start_bp = None if coordinate_row is None else coordinate_row.time_start_bp
         time_end_bp = None if coordinate_row is None else coordinate_row.time_end_bp
+        chronology_text = (
+            coordinate_row.chronology_text
+            if row.project_accession == "PRJEB59481" and coordinate_row is not None
+            else row.chronology_text
+        )
         interpretation_note = (
             row.review_note
             if row.review_note
@@ -151,7 +156,7 @@ def _lead_rows(
                 latitude_text=latitude_text,
                 longitude_text=longitude_text,
                 coordinate_basis=coordinate_basis,
-                chronology_text=row.chronology_text,
+                chronology_text=chronology_text,
                 time_start_bp=time_start_bp,
                 time_end_bp=time_end_bp,
                 interpretation_note=interpretation_note,

@@ -93,10 +93,11 @@ def _coordinate_confidence_for(geographic_basis: str) -> str:
         for token in (
             "direct_published_coordinates",
             "supplementary_table_coordinates",
-            "archive_coordinates",
         )
     ):
         return "exact"
+    if "archive_coordinates" in basis:
+        return "approximate"
     if "approximate" in basis or "site_level" in basis:
         return "approximate"
     if "inferred" in basis:
