@@ -1311,10 +1311,16 @@ async function responsiveFacts(cdp, width) {
     legendToggle.focus();
     legendToggle.click();
     await settle();
+    const legendInitialScrollTop = legendBody.scrollTop;
+    legendBody.scrollTop = legendBody.scrollHeight;
+    await settle();
     const legendPanelBox = box(legendPanel);
     const legendBodyBox = box(legendBody);
     const legendBodyStyle = getComputedStyle(legendBody);
-    const legendPanelStyle = getComputedStyle(legendPanel);
+    const legendLastContent = legendBody.querySelector('#density-ramp > :last-child')
+      || legendBody.lastElementChild;
+    const legendLastContentBox = legendLastContent ? box(legendLastContent) : null;
+    const legendMaximumScrollTop = Math.max(0, legendBody.scrollHeight - legendBody.clientHeight);
     const expandedLegend = {
       expanded: !legendBody.classList.contains('is-collapsed'),
       toggle_expanded: legendToggle.getAttribute('aria-expanded') === 'true',
@@ -1329,12 +1335,17 @@ async function responsiveFacts(cdp, width) {
       body_top_contained: legendBodyBox.top >= legendPanelBox.top - 1
         && legendBodyBox.top <= legendPanelBox.bottom + 1,
       content_accessible: legendBody.scrollHeight <= legendBody.clientHeight + 1
-        || ['auto', 'scroll'].includes(legendBodyStyle.overflowY)
-        || ['auto', 'scroll'].includes(legendPanelStyle.overflowY),
+        || ['auto', 'scroll'].includes(legendBodyStyle.overflowY),
+      scrolled_to_end: Math.abs(legendBody.scrollTop - legendMaximumScrollTop) <= 1,
+      last_content_reachable: Boolean(legendLastContentBox)
+        && legendLastContentBox.top >= legendBodyBox.top - 1
+        && legendLastContentBox.bottom <= legendBodyBox.bottom + 1
+        && legendLastContentBox.bottom <= legendPanelBox.bottom + 1,
       topbar_non_overlapping: !boxesOverlap(legendPanelBox, box(topbar)),
       map_visibility: sampleMapVisibility(),
       collapsed_after_journey: false,
     };
+    legendBody.scrollTop = legendInitialScrollTop;
     legendToggle.click();
     await settle();
     expandedLegend.collapsed_after_journey = legendBody.classList.contains('is-collapsed')
@@ -1379,6 +1390,11 @@ async function responsiveFacts(cdp, width) {
       escape_hides_region: false,
       escape_collapses_toggle: false,
       escape_restores_focus: false,
+      toggle_visible_while_open: visible(searchToggle),
+      toggle_uncovered_while_open: uncovered(searchToggle),
+      pointer_hides_region: false,
+      pointer_collapses_toggle: false,
+      pointer_restores_focus: false,
     };
     searchInput.dispatchEvent(new KeyboardEvent('keydown', {
       key: 'Escape', code: 'Escape', bubbles: true, cancelable: true,
@@ -1387,6 +1403,15 @@ async function responsiveFacts(cdp, width) {
     searchControl.escape_hides_region = topbarSearch.hidden && !visible(topbarSearch);
     searchControl.escape_collapses_toggle = searchToggle.getAttribute('aria-expanded') === 'false';
     searchControl.escape_restores_focus = document.activeElement === searchToggle;
+    searchToggle.click();
+    await settle();
+    searchControl.toggle_visible_while_open = visible(searchToggle);
+    searchControl.toggle_uncovered_while_open = uncovered(searchToggle);
+    searchToggle.click();
+    await settle();
+    searchControl.pointer_hides_region = topbarSearch.hidden && !visible(topbarSearch);
+    searchControl.pointer_collapses_toggle = searchToggle.getAttribute('aria-expanded') === 'false';
+    searchControl.pointer_restores_focus = document.activeElement === searchToggle;
     let mobile = null;
     let expandedPanel = null;
     if (${width} <= 900) {
@@ -1936,10 +1961,13 @@ function visualDensityPasses(facts, maximumClusterFootprintRatio) {
     && Array.isArray(facts.boundaries)
     && facts.boundaries.length === facts.boundary_count
     && facts.boundaries.every((boundary) => Number.isFinite(boundary?.stroke_width_px)
+      && boundary.stroke_width_px > 0
       && boundary.stroke_width_px <= 1.4
       && Number.isFinite(boundary.opacity)
+      && boundary.opacity > 0
       && boundary.opacity <= 0.72
       && Number.isFinite(boundary.fill_opacity)
+      && boundary.fill_opacity > 0
       && boundary.fill_opacity <= 0.04)
     && Number.isInteger(facts.cluster_count)
     && facts.cluster_count >= 0
@@ -1980,6 +2008,8 @@ function expandedLegendPasses(facts) {
     && facts.body_horizontally_contained === true
     && facts.body_top_contained === true
     && facts.content_accessible === true
+    && facts.scrolled_to_end === true
+    && facts.last_content_reachable === true
     && facts.topbar_non_overlapping === true
     && facts.collapsed_after_journey === true
     && mapVisibilityPasses(facts.map_visibility);
@@ -2095,7 +2125,12 @@ function searchControlPasses(facts) {
     && populatedSearchPasses(facts.populated)
     && facts.escape_hides_region
     && facts.escape_collapses_toggle
-    && facts.escape_restores_focus;
+    && facts.escape_restores_focus
+    && facts.toggle_visible_while_open
+    && facts.toggle_uncovered_while_open
+    && facts.pointer_hides_region
+    && facts.pointer_collapses_toggle
+    && facts.pointer_restores_focus;
 }
 
 function evidenceIdentity(snapshot) {

@@ -721,7 +721,9 @@ def test_responsive_contract_proves_desktop_and_bottom_sheet_states() -> None:
     assert "mapElement.contains(mapCenterHit)" in probe
     assert "body_horizontally_contained:" in probe
     assert "body_top_contained:" in probe
-    assert "legendBodyBox.bottom <= legendPanelBox.bottom" not in probe
+    assert "legendBody.scrollTop = legendBody.scrollHeight" in probe
+    assert "last_content_reachable:" in probe
+    assert "legendLastContentBox.bottom <= legendBodyBox.bottom" in probe
 
 
 def test_map_visibility_requires_dense_sampling_and_contextual_clear_fraction() -> None:
@@ -744,6 +746,8 @@ def test_map_visibility_requires_dense_sampling_and_contextual_clear_fraction() 
         "body_horizontally_contained": True,
         "body_top_contained": True,
         "content_accessible": True,
+        "scrolled_to_end": True,
+        "last_content_reachable": True,
         "topbar_non_overlapping": True,
         "collapsed_after_journey": True,
         "map_visibility": expanded_visibility,
@@ -796,6 +800,10 @@ def test_map_visibility_requires_dense_sampling_and_contextual_clear_fraction() 
             "legend": True,
             "facts": {**valid_legend, "body_top_contained": False},
         },
+        "unreachable_legend_end": {
+            "legend": True,
+            "facts": {**valid_legend, "last_content_reachable": False},
+        },
         "occluded_legend": {
             "legend": True,
             "facts": {**valid_legend, "panel_center_uncovered": False},
@@ -830,6 +838,7 @@ def test_map_visibility_requires_dense_sampling_and_contextual_clear_fraction() 
         "clipped_legend": False,
         "horizontally_overflowing_legend": False,
         "misplaced_legend_body": False,
+        "unreachable_legend_end": False,
         "occluded_legend": False,
         "legend_overlaps_topbar": False,
         "legend_hides_map": False,
@@ -901,6 +910,24 @@ def test_visual_density_contract_rejects_loud_or_ambiguous_symbols() -> None:
             },
             "maximum": 0.04,
         },
+        "invisible_boundary_stroke": {
+            "facts": {
+                **baseline,
+                "boundaries": [
+                    {"stroke_width_px": 0, "opacity": 0.72, "fill_opacity": 0.04}
+                ],
+            },
+            "maximum": 0.04,
+        },
+        "transparent_boundary": {
+            "facts": {
+                **baseline,
+                "boundaries": [
+                    {"stroke_width_px": 1.4, "opacity": 0, "fill_opacity": 0}
+                ],
+            },
+            "maximum": 0.04,
+        },
         "small_cluster": {
             "facts": {
                 **baseline,
@@ -953,6 +980,8 @@ def test_visual_density_contract_rejects_loud_or_ambiguous_symbols() -> None:
         "thick_boundary": False,
         "opaque_boundary": False,
         "strong_boundary_fill": False,
+        "invisible_boundary_stroke": False,
+        "transparent_boundary": False,
         "small_cluster": False,
         "large_cluster": False,
         "thick_cluster_border": False,
@@ -1016,6 +1045,11 @@ def test_responsive_contract_proves_compact_search_keyboard_journey() -> None:
         "topbarSearch.hidden && !visible(topbarSearch)",
         "searchToggle.getAttribute('aria-expanded') === 'false'",
         "document.activeElement === searchToggle",
+        "toggle_visible_while_open: visible(searchToggle)",
+        "toggle_uncovered_while_open: uncovered(searchToggle)",
+        "pointer_hides_region",
+        "pointer_collapses_toggle",
+        "pointer_restores_focus",
         "searchControlPasses(layout.search_control)",
     ):
         assert literal in probe
