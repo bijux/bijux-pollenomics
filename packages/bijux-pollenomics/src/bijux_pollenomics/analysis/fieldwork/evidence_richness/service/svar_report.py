@@ -7,7 +7,7 @@ from pathlib import Path
 from ..candidates import _derive_svar_lake_candidates
 from ..inputs import _load_sweden_svar_lakes
 from ..methodology import _build_empty_report, _build_methodology
-from ..models import LakeEvidenceRichnessReport, _SVAR_AGGREGATE_RADIUS_WEIGHTS
+from ..models import _SVAR_AGGREGATE_RADIUS_WEIGHTS, LakeEvidenceRichnessReport
 from ..temporal import _attach_temporal_context
 from .context import _ReportContext
 from .policies import (

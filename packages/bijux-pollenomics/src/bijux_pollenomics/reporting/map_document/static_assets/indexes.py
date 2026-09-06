@@ -1,7 +1,7 @@
 """Selection indexes for point-layer atlas records."""
 
-from collections.abc import Sequence
 import math
+from collections.abc import Sequence
 
 from ....core.geospatial.geojson import JsonObject
 from ..coordinates import point_coordinate_pair

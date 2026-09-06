@@ -4,8 +4,10 @@ from __future__ import annotations
 
 from collections import Counter
 from collections.abc import Sequence
+
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.core import haversine_km
+
 from ..metrics import _weighted_average
 from ..models import (
     LakeEvidenceCandidate,

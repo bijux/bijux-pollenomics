@@ -1,7 +1,9 @@
 """Pinned boundary-authority fixture construction."""
 
 from __future__ import annotations
+
 from pathlib import Path
+
 from bijux_pollenomics.collection.sources.boundaries.collection import (
     BOUNDARY_CODES,
     NATURAL_EARTH_ADMIN0_URL,

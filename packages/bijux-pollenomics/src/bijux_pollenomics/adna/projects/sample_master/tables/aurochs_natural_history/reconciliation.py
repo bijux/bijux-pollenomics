@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import csv
+import re
 from dataclasses import dataclass
 from hashlib import sha256
 from io import StringIO
 from pathlib import PurePosixPath
-import re
 from typing import Final
 
 from bijux_pollenomics.adna.projects.sample_master.models import (
@@ -25,7 +25,6 @@ from .evidence import (
     AUROCHS_WILD_POPULATION_LABEL,
     PAPER_ONLY_SAMPLE_LABEL,
 )
-
 
 _EXPECTED_WORKBOOK_HEADER: Final = (
     "Analysis ID",

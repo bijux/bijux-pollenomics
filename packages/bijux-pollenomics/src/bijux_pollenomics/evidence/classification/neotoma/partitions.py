@@ -10,8 +10,8 @@ def _build_partitions(
     memberships: Sequence[Mapping[str, object]],
 ) -> dict[str, list[dict[str, object]]]:
     from . import (
-        Counter,
         _MAPPING_STATUSES,
+        Counter,
         _concept_field_partition_rows,
         _country_partition_rows,
         _country_relation_rows,

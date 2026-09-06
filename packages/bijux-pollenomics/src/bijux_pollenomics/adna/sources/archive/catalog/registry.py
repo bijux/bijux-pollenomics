@@ -3,16 +3,16 @@ from __future__ import annotations
 from bijux_pollenomics.adna.species.definitions import resolve_species_definition
 
 from ..contracts import AdnaArchiveProject
-from .taxa.equids import build_horse_projects, build_donkey_projects
 from .taxa.bovids import (
-    build_sheep_projects,
     build_cattle_projects,
     build_goat_projects,
+    build_sheep_projects,
 )
-from .taxa.suids import build_pig_projects
-from .taxa.carnivorans import build_cat_projects, build_dog_projects
 from .taxa.camelids import build_dromedary_projects
+from .taxa.carnivorans import build_cat_projects, build_dog_projects
 from .taxa.cervids import build_reindeer_projects
+from .taxa.equids import build_donkey_projects, build_horse_projects
+from .taxa.suids import build_pig_projects
 
 
 def build_archive_project_catalog() -> tuple[AdnaArchiveProject, ...]:

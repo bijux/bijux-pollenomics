@@ -3,12 +3,11 @@
 from __future__ import annotations
 
 import pytest
-
-from bijux_pollenomics.adna.projects.evidence.coordinates import (
-    resolve_project_coordinate_provenance,
-)
 from bijux_pollenomics.adna.projects.evidence.chronology import (
     build_project_sample_chronology_rows,
+)
+from bijux_pollenomics.adna.projects.evidence.coordinates import (
+    resolve_project_coordinate_provenance,
 )
 from bijux_pollenomics.adna.projects.evidence.sites import (
     resolve_project_site_evidence,

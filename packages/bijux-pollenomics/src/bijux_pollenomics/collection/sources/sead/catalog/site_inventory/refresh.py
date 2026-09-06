@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from bijux_pollenomics.core.text import clean_optional_text
 
-from .values import parse_optional_int, parse_required_int
 from .chronology_records import (
     _analysis_entity_age_interval,
     _dendro_date_interval,
@@ -19,6 +18,7 @@ from .temporal import (
     merge_sead_intervals,
     sead_dating_interval,
 )
+from .values import parse_optional_int, parse_required_int
 
 
 def _dict_rows(value: object) -> list[dict[str, object]]:

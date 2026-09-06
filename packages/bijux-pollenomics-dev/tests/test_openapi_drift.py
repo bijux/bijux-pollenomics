@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
 import unittest
+from pathlib import Path
 
 from bijux_pollenomics_dev.api.openapi_drift import run as run_openapi_drift
 

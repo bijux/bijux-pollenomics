@@ -1,9 +1,11 @@
 """Indexed pair enumeration and pre-candidate refusal accounting."""
 
 from __future__ import annotations
+
 from collections import defaultdict
 from collections.abc import Iterable
 from math import cos, floor, radians
+
 from bijux_pollenomics.analysis.propagation.candidates import (
     CandidatePropagationScenario,
 )

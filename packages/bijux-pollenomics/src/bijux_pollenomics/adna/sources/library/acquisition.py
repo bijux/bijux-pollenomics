@@ -2,16 +2,16 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable
-from datetime import UTC, datetime
 import hashlib
 import json
+from collections.abc import Callable
+from datetime import UTC, datetime
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 from xml.etree import ElementTree
-from bijux_pollenomics.core.files import write_json
-from bijux_pollenomics.core.http import validate_http_url
+
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from bijux_pollenomics.adna.workflow.paths import (
     adna_source_library_root,
 )
@@ -22,16 +22,18 @@ from bijux_pollenomics.adna.workflow.source_artifacts import (
     source_artifact_exists,
     write_source_artifact_bytes,
 )
-from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
+from bijux_pollenomics.core.files import write_json
+from bijux_pollenomics.core.http import validate_http_url
+
 from .cache_control import _clear_source_library_caches
 from .models import (
-    SOURCE_LIBRARY_SCHEMA_VERSION,
     _CAPTURE_REFUSAL_SCHEMA_VERSION,
+    _USER_AGENT,
+    SOURCE_LIBRARY_SCHEMA_VERSION,
     _PendingSourceCapture,
     _RemoteArtifactSpec,
     _SourceCaptureAssessment,
     _SourceCaptureDisposition,
-    _USER_AGENT,
 )
 from .specifications import (
     _expand_remote_assets,
@@ -335,7 +337,7 @@ def _xml_capture_refusal_reason(
         ".xml"
     ):
         try:
-            from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep.official_evidence import (  # noqa: PLC0415
+            from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep.official_evidence import (
                 parse_baltic_sheep_ena_sample,
             )
 
@@ -351,7 +353,7 @@ def _xml_capture_refusal_reason(
         and logical_path.name == "article_full_text.xml"
     ):
         try:
-            from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep.official_evidence import (  # noqa: PLC0415
+            from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep.official_evidence import (
                 parse_baltic_sheep_article_chronology,
             )
 
@@ -374,7 +376,7 @@ def _official_source_receipt_refusal_reason(
         return None
     try:
         repository_path = f"data/{logical_path.relative_to(output_root)}"
-        from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep.official_evidence import (  # noqa: PLC0415
+        from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep.official_evidence import (
             read_receipted_baltic_sheep_official_source,
         )
 

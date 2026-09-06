@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from .models import CategoricalPeriod, ExportFileAuthority, ModelVariant
 
-
 SOURCE_REPOSITORY = "https://github.com/BehnazP/SpatioCompoMixed"
 SOURCE_COMMIT = "ff8ed3c2365b54d319df29f8fc776b269b0273c3"
 SOURCE_CITATION_DOI = "https://doi.org/10.1002/env.2743"

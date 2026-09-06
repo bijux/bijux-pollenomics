@@ -5,7 +5,6 @@ import pickle
 
 from bijux_pollenomics.adna.projects.registry import sample_truth
 
-
 EXPECTED_EXPORTS = [
     "build_animal_sample_aggregation_warnings",
     "build_animal_sample_foundation_truth",

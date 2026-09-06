@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from decimal import Decimal, InvalidOperation
 import os
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import NoReturn
 
@@ -16,8 +16,8 @@ from .authority import (
     METADATA_HEADERS,
     METADATA_MEMBER,
     METADATA_SHA256,
-    METADATA_SIZE_BYTES,
     METADATA_SITE_COUNT,
+    METADATA_SIZE_BYTES,
 )
 from .models import RootsiIntakePosture, RootsiSiteMetadataClaim
 from .ooxml import read_first_worksheet

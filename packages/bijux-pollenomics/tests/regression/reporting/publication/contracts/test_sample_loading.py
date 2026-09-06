@@ -1,18 +1,15 @@
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.reporting import (
     load_country_samples,
 )
 
-
 from ..fixtures.aadr import write_anno
-
 
 pytestmark = pytest.mark.generated_artifacts
 

@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
-from typing import cast
 import unittest
+from pathlib import Path
+from typing import cast
 
 from bijux_pollenomics.reporting.context import build_context_layers
 from bijux_pollenomics.reporting.geography import build_published_geography_plan

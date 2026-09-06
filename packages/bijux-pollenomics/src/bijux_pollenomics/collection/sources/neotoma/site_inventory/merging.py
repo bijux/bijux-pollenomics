@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
 import copy
+from collections.abc import Iterable
 
 from bijux_pollenomics.core.text import clean_optional_text
 

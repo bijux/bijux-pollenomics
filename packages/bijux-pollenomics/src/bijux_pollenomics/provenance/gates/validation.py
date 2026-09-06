@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
-from pathlib import PurePosixPath, Path
 import re
+from collections.abc import Mapping, Sequence
+from pathlib import Path, PurePosixPath
 
 from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 

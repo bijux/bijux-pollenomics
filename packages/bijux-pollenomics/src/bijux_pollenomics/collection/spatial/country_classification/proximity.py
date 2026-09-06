@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable
 import math
+from collections.abc import Callable
 
 from ....core.geospatial.geojson import (
     CountryBoundaryCollection,

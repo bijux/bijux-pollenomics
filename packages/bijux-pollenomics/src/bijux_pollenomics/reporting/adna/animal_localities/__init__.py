@@ -6,6 +6,8 @@ from pathlib import Path
 
 from ....adna import (
     AdnaLocalitySummary as AdnaLocalitySummary,
+)
+from ....adna import (
     build_species_support_matrix,
 )
 from ....adna.workflow.paths import adna_species_dir
@@ -13,7 +15,11 @@ from ...geography import GeographicScope, scope_contains_political_entity
 from ...presentation.text import slugify
 from ..atlas_evidence_rows import (
     AnimalAtlasCoordinateReview as AnimalAtlasCoordinateReview,
+)
+from ..atlas_evidence_rows import (
     AnimalAtlasEvidenceRow as AnimalAtlasEvidenceRow,
+)
+from ..atlas_evidence_rows import (
     build_tracked_animal_atlas_coordinate_review,
     build_tracked_animal_atlas_evidence_rows,
     load_tracked_animal_mappable_localities,
@@ -27,27 +33,51 @@ from .assembly import (
 )
 from .features import (
     _build_point_feature as _build_point_feature,
+)
+from .features import (
     _temporal_semantics_for as _temporal_semantics_for,
+)
+from .features import (
     _warning_rows_for as _warning_rows_for,
 )
 from .layers import (
     _SPECIES_STYLES as _SPECIES_STYLES,
+)
+from .layers import (
     _alpha as _alpha,
+)
+from .layers import (
     _animal_scope_for as _animal_scope_for,
+)
+from .layers import (
     _layer_description_for as _layer_description_for,
+)
+from .layers import (
     _layer_group_for as _layer_group_for,
+)
+from .layers import (
     _layer_style_for as _layer_style_for,
 )
 from .model import AnimalAtlasBundle as AnimalAtlasBundle
 from .publication import (
     _write_animal_atlas_evidence_csv as _write_animal_atlas_evidence_csv,
+)
+from .publication import (
     _write_animal_atlas_evidence_json as _write_animal_atlas_evidence_json,
+)
+from .publication import (
     _write_animal_point_traceability_json as _write_animal_point_traceability_json,
+)
+from .publication import (
     _write_feature_collection as _write_feature_collection,
 )
 from .review import (
     _load_dataset_review as _load_dataset_review,
+)
+from .review import (
     _load_review_lookup as _load_review_lookup,
+)
+from .review import (
     _optional_str as _optional_str,
 )
 

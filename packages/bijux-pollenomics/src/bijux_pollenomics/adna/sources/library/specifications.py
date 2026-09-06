@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.workflow.paths import (
     ADNA_SOURCE_LIBRARY_DIR,
 )
-from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
+
 from .models import AdnaSourceBundleManifest, _PaperSourceSpec, _RemoteArtifactSpec
 
 

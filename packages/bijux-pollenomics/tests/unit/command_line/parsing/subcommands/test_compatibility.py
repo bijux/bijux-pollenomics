@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import inspect
 from collections.abc import Callable
 from contextlib import ExitStack
-import inspect
 from typing import cast
 from unittest.mock import patch
 

@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import hashlib
 import json
-from pathlib import Path
 import random
 import shutil
 import subprocess
+from pathlib import Path
 
 from bijux_pollenomics.core.geospatial.geojson import JsonObject
 from bijux_pollenomics.reporting.map_document.evidence import DETAIL_TAB_KEYS
@@ -19,11 +19,11 @@ from bijux_pollenomics.reporting.map_document.static_assets import (
     validate_static_atlas_assets,
     write_static_atlas_assets,
 )
-from bijux_pollenomics.reporting.map_document.static_assets.index_bundles import (
-    decode_index_bundle,
-)
 from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
     normalize_asset_inventory,
+)
+from bijux_pollenomics.reporting.map_document.static_assets.index_bundles import (
+    decode_index_bundle,
 )
 
 from .fixtures.layers import build_point_layers, build_polygon_layers

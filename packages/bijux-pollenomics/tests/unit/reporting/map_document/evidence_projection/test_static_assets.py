@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import base64
-from collections import defaultdict
 import gzip
 import json
+from collections import defaultdict
 from pathlib import Path
 from typing import cast
 

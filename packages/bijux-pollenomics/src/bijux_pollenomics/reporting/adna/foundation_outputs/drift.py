@@ -1,8 +1,10 @@
 """Animal foundation drift responsibilities."""
 
 from __future__ import annotations
-from typing import Any, cast
+
 from pathlib import Path
+from typing import Any, cast
+
 from ..atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
 from .repository import (
     _group_coordinate_rows_by_species,

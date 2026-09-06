@@ -1,12 +1,13 @@
 """Race-resistant repository object identity and state inspection."""
 
 from __future__ import annotations
-from contextlib import suppress
+
 import hashlib
 import os
-from pathlib import Path, PurePosixPath
 import stat
 import subprocess  # nosec B404
+from contextlib import suppress
+from pathlib import Path, PurePosixPath
 from typing import cast
 
 from .codec import _digest_bytes, _digest_json

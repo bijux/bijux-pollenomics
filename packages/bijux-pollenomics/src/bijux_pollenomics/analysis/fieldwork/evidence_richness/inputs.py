@@ -9,6 +9,7 @@ from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.collection.spatial.representative_points import (
     geometry_to_representative_point,
 )
+
 from .candidates import (
     _build_lake_token,
     _clean_lake_name_display,

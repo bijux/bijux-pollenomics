@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-import bijux_pollenomics.adna.projects.evidence.localities as localities
-
+from bijux_pollenomics.adna.projects.evidence import localities
 
 _PUBLIC_API = [
     "ADNA_LOCALITY_CLASSES",

@@ -4,17 +4,17 @@ from pathlib import Path
 
 from ....adna.governance.contracts import materialize_adna_governance_contracts
 from ....core.files import write_json
-from ...contracts.repository import (
-    build_evidence_artifact_contract_payload,
-    build_source_fact_ownership_payload,
+from ...catalog.spatiotemporal import (
+    build_source_spatiotemporal_posture_payload,
 )
-from ...contracts.models import DataCollectionSummary
 from ...contracts.families import (
     build_source_family_contract_payload,
     build_source_family_state_matrix_payload,
 )
-from ...catalog.spatiotemporal import (
-    build_source_spatiotemporal_posture_payload,
+from ...contracts.models import DataCollectionSummary
+from ...contracts.repository import (
+    build_evidence_artifact_contract_payload,
+    build_source_fact_ownership_payload,
 )
 
 __all__ = [

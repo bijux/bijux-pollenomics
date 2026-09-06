@@ -1,13 +1,18 @@
 """Canonical release-evidence records and primitive contract decoders."""
 
 from __future__ import annotations
-from collections.abc import Iterable, Mapping
-from datetime import UTC, datetime
+
 import hashlib
 import json
+from collections.abc import Iterable, Mapping
+from datetime import UTC, datetime
 from typing import Literal, cast
 
 from .models import (
+    _COMMIT_PATTERN,
+    _DIGEST_PATTERN,
+    _IDENTITY_PATTERN,
+    _UTC_TIMESTAMP_PATTERN,
     ArtifactInput,
     ArtifactReference,
     ArtifactRole,
@@ -18,10 +23,6 @@ from .models import (
     GateStatus,
     ReconciliationDimension,
     ReleaseEvidenceError,
-    _COMMIT_PATTERN,
-    _DIGEST_PATTERN,
-    _IDENTITY_PATTERN,
-    _UTC_TIMESTAMP_PATTERN,
 )
 
 

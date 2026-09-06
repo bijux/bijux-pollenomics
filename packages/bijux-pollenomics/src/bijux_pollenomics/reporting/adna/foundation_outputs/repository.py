@@ -1,10 +1,11 @@
 """Animal foundation repository responsibilities."""
 
 from __future__ import annotations
-from typing import Any
+
 import json
 from pathlib import Path
-from ....adna.workflow.paths import adna_species_dir
+from typing import Any
+
 from ....adna.projects.evidence.chronology import (
     ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
     build_sample_chronology_review_rows,
@@ -14,7 +15,7 @@ from ....adna.projects.registry.sites import (
     build_project_sample_site_rows,
 )
 from ....adna.sources.archive import build_archive_project_catalog
-
+from ....adna.workflow.paths import adna_species_dir
 
 _EvidenceIdentity = tuple[str, str, str]
 

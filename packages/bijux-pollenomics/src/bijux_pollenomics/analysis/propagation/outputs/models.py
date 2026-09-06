@@ -1,9 +1,9 @@
 """Propagation output identities, governed vocabularies, and result models."""
 
 from __future__ import annotations
+
 from dataclasses import dataclass
 from pathlib import Path
-
 
 _EVENT_SCHEMA_NAME = "phenomenon-event.schema.json"
 _CANDIDATE_SCHEMA_NAME = "propagation-candidate.schema.json"

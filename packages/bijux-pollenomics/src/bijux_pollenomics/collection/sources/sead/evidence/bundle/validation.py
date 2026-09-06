@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from collections.abc import Mapping
 import hashlib
+from collections.abc import Mapping
 from pathlib import Path
 from typing import cast
 
@@ -10,11 +10,11 @@ from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
 )
 
 from .constants import (
-    EVIDENCE_MANIFEST_SCHEMA_VERSION,
-    MULTIPART_SCHEMA_VERSION,
     _DIMENSION_RELATION_TABLES,
     _MAX_GOVERNED_FILE_BYTES,
     _OBSERVATION_TABLES,
+    EVIDENCE_MANIFEST_SCHEMA_VERSION,
+    MULTIPART_SCHEMA_VERSION,
 )
 from .serialization import (
     _canonical_bytes,

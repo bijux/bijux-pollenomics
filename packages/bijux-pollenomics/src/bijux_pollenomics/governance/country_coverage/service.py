@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_ADMISSION_SHA256,
     SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
@@ -11,20 +12,21 @@ from bijux_pollenomics.evidence.sources.sead import (
     governed_sead_evidence_root,
     read_validated_sead_evidence_document,
 )
+
 from .boundaries import _validate_boundary_evidence
 from .constants import (
     BOUNDARY_ARTIFACT_PATH,
     CELL_SCHEMA_ID,
     CELL_SCHEMA_SHA256,
+    COUNT_FIELDS,
     COUNTRIES,
     COUNTRY_DIMENSIONS,
-    COUNT_FIELDS,
-    CountryCoverageError,
     INPUT_PATHS,
     LEDGER_SCHEMA_VERSION,
     PRODUCER_VERSION,
     SEAD_ADMISSION_PATH,
     SOURCE_FAMILIES,
+    CountryCoverageError,
 )
 from .decoding import (
     _canonical_bytes,

@@ -4,7 +4,6 @@ from pathlib import Path
 
 from bijux_pollenomics.collection.spatial import country_classification
 
-
 EXPECTED_MODULES = {
     "__init__.py",
     "boundary_distance.py",

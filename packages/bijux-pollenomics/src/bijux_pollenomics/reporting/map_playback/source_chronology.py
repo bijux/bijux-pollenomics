@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
 import math
+from collections.abc import Mapping, Sequence
 from typing import cast
 
 from bijux_pollenomics.reporting.source_chronology.time_density import (
@@ -182,8 +182,8 @@ def _source_story(
 
 
 def _partition_oldest_to_present(
-    younger_bp: float | int,
-    older_bp: float | int,
+    younger_bp: float,
+    older_bp: float,
     *,
     width_bp: int,
 ) -> tuple[PlaybackFrame, ...]:

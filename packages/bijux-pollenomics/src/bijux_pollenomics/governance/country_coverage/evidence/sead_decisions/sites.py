@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
-from ...constants import CountryCoverageError, _UUID_PATTERN
+from ...constants import _UUID_PATTERN, CountryCoverageError
 from ...decoding import (
     _coordinate,
     _integer,

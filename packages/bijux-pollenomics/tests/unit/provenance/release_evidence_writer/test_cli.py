@@ -6,8 +6,6 @@ import json
 from pathlib import Path
 
 import pytest
-
-
 from bijux_pollenomics.provenance import (
     release_evidence_main,
     write_release_evidence_request,

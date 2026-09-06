@@ -13,7 +13,7 @@ from bijux_pollenomics.collection.sources.sead.acquisition.scoped.plans import (
 def test_existing_import_surfaces_share_the_join_inventory() -> None:
     assert plans.SEAD_FULL_EVIDENCE_JOIN_PLANS is (joins.SEAD_FULL_EVIDENCE_JOIN_PLANS)
     assert scoped.SEAD_FULL_EVIDENCE_JOIN_PLANS is (joins.SEAD_FULL_EVIDENCE_JOIN_PLANS)
-    assert getattr(service, "SEAD_FULL_EVIDENCE_JOIN_PLANS") is (
+    assert service.SEAD_FULL_EVIDENCE_JOIN_PLANS is (
         joins.SEAD_FULL_EVIDENCE_JOIN_PLANS
     )
 

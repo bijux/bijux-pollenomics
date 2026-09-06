@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
 import copy
 import math
+from collections.abc import Mapping
 
 from .....core.text import clean_optional_text
 from .diagnostics import add_orphan
@@ -147,8 +147,8 @@ def age_temporal_posture(age: Mapping[str, object]) -> dict[str, object]:
 def temporal_result(
     calibration_status: str,
     comparability_status: str,
-    younger_bp: int | float | None,
-    older_bp: int | float | None,
+    younger_bp: float | None,
+    older_bp: float | None,
     reason_code: str | None,
 ) -> dict[str, object]:
     return {

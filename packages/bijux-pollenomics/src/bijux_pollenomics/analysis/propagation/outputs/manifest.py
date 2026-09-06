@@ -1,8 +1,10 @@
 """Bundle manifest construction and scenario lineage validation."""
 
 from __future__ import annotations
+
 from collections.abc import Mapping
 from typing import Any
+
 from bijux_pollenomics.analysis.propagation.network import (
     PROPAGATION_SENSITIVITY_SCENARIOS,
 )

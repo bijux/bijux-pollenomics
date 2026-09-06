@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from typing import Final
 
-
 EVIDENCE_BUNDLE_SCHEMA_VERSION: Final = "sead-source-native-evidence-bundle.v1"
 
 

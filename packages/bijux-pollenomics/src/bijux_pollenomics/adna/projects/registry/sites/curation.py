@@ -3,8 +3,9 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable, cast
+from typing import cast
 
 from ....sources.archive import build_archive_project_catalog
 from .assembly import build_project_sample_site_rows

@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 _ACCEPTED_STATUSES = {"accepted", "accepted_qualified"}
 
 

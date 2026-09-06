@@ -2,13 +2,12 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 import pytest
-
 from bijux_pollenomics.collection.workflow.collection import (
     AVAILABLE_SOURCES,
     build_staging_output_dir,

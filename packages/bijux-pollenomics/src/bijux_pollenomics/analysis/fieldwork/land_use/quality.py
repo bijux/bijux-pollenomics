@@ -2,10 +2,9 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
 import math
+from collections.abc import Callable, Mapping
 from typing import Any
-
 
 QUALITY_CLASSES = frozenset({"high", "low", "no_pollen_data"})
 MODELED_METRIC_KEYS = ("ET", "ST", "OL", "AL", "GL", "Cerealia.t", "Secale")

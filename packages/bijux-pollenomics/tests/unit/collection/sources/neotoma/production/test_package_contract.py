@@ -3,7 +3,7 @@ from __future__ import annotations
 import inspect
 from pathlib import Path
 
-import bijux_pollenomics.collection.sources.neotoma.production as production
+from bijux_pollenomics.collection.sources.neotoma import production
 
 EXPECTED_SIGNATURES = {
     "NeotomaProductionConfig": "(producer_id: 'str' = 'bijux-pollenomics.neotoma-relational-production', producer_version: 'str' = '1', config_schema: 'str' = 'neotoma-relational-production-config.v1', rows_per_part: 'int' = 50000, proximity_tolerance: 'float' = 0.15, raw_country_aliases: 'tuple[tuple[str, str], ...]' = ()) -> None",

@@ -1,13 +1,13 @@
 from __future__ import annotations
 
-from collections import Counter
 import unittest
+from collections import Counter
 
+from bijux_pollenomics.adna.projects.registry.localities import AdnaProjectLocalityLead
 from bijux_pollenomics.adna.projects.registry.samples import (
     _matching_locality_lead,
     build_species_curated_sample_rows,
 )
-from bijux_pollenomics.adna.projects.registry.localities import AdnaProjectLocalityLead
 
 
 class AdnaSampleRegistryUnitTests(unittest.TestCase):

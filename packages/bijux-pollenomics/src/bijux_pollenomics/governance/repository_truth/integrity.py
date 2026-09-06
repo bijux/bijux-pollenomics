@@ -13,10 +13,10 @@ from .metrics import (
 )
 
 __all__ = [
-    "build_repository_recovery_review",
-    "render_repository_recovery_review_markdown",
     "build_repository_governance_artifact_review",
+    "build_repository_recovery_review",
     "render_repository_governance_artifact_review_markdown",
+    "render_repository_recovery_review_markdown",
 ]
 
 

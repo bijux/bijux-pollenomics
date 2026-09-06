@@ -8,7 +8,7 @@ from collections.abc import Mapping
 from bijux_pollenomics.core.geospatial.geojson import CountryBoundaryCollection
 
 from ...boundaries import _boundary_component_index, _recomputed_country_decision
-from ...constants import CountryCoverageError, _UUID_PATTERN
+from ...constants import _UUID_PATTERN, CountryCoverageError
 from ...decoding import (
     _bbox,
     _coordinate,

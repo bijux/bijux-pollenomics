@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import pytest
-
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasBrowserContractError
 from bijux_pollenomics_dev.ci.atlas_browser.verdict import (
     REQUIRED_ASSERTIONS,

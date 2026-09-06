@@ -14,6 +14,7 @@ from bijux_pollenomics.governance import (
     render_repository_output_sustainability_review_markdown,
     render_repository_product_model_markdown,
 )
+
 from .support import RepositoryTruthTestCase
 
 

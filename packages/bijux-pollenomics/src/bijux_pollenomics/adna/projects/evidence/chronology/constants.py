@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import re
 
-
 ADNA_CHRONOLOGY_STRENGTHS = (
     "sample_owned_interval",
     "sample_owned_text_only",

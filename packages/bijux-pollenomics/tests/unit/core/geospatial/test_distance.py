@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import pytest
-
 from bijux_pollenomics.core.geospatial.distance import (
     InvalidCoordinateError,
     haversine_km,

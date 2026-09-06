@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import bijux_pollenomics.collection.contracts.families as families
+from bijux_pollenomics.collection.contracts import families
 from bijux_pollenomics.collection.contracts.families.archaeology_contracts import (
     build_archaeology_source_family_contracts,
 )
@@ -16,7 +16,6 @@ from bijux_pollenomics.collection.contracts.families.hydrography_contracts impor
 from bijux_pollenomics.collection.contracts.families.pollen_contracts import (
     build_pollen_source_family_contracts,
 )
-
 
 _PUBLIC_API = [
     "SourceFamilyContract",

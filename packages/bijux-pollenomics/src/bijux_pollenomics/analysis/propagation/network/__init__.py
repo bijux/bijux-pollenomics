@@ -1,12 +1,12 @@
 """Canonical propagation network evaluation and reconciliation."""
 
-from .evaluation import evaluate_propagation_pair
 from .errors import EventValidationError
+from .evaluation import evaluate_propagation_pair
 from .models import (
     COUNTRY_CODES,
     EDGE_SCHEMA_VERSION,
-    EVIDENCE_DOMAINS,
     EVENT_SCHEMA_VERSION,
+    EVIDENCE_DOMAINS,
     NETWORK_PRODUCER_VERSION,
     PROPAGATION_CONTRACT_VERSION,
     TEMPORAL_CONTRACT_VERSION,
@@ -27,8 +27,8 @@ from .service import (
 __all__ = [
     "COUNTRY_CODES",
     "EDGE_SCHEMA_VERSION",
-    "EVIDENCE_DOMAINS",
     "EVENT_SCHEMA_VERSION",
+    "EVIDENCE_DOMAINS",
     "NETWORK_PRODUCER_VERSION",
     "PROPAGATION_CONTRACT_VERSION",
     "PROPAGATION_SENSITIVITY_SCENARIOS",

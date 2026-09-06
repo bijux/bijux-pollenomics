@@ -21,12 +21,12 @@ from .metrics import (
 from .release import build_repository_final_release_refusal
 
 __all__ = [
-    "build_repository_truth_posture",
-    "render_repository_truth_posture_markdown",
     "build_repository_claim_audit",
-    "render_repository_claim_audit_markdown",
     "build_repository_docs_recovery_review",
+    "build_repository_truth_posture",
+    "render_repository_claim_audit_markdown",
     "render_repository_docs_recovery_review_markdown",
+    "render_repository_truth_posture_markdown",
 ]
 
 

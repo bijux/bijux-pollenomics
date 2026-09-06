@@ -6,7 +6,6 @@ import hashlib
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.provenance import gates
 from bijux_pollenomics.provenance.gates import producer
 from bijux_pollenomics.provenance.release_evidence import ReleaseEvidenceError

@@ -1,28 +1,32 @@
 """aDNA source capture, storage, and drift-refusal tests."""
 
 from __future__ import annotations
+
 import gzip
 import io
 import json
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
-from tests.support.repository import REPOSITORY_ROOT
+
+from bijux_pollenomics.adna.sources import library as source_library_module
+from bijux_pollenomics.adna.sources.library import (
+    acquisition as source_library_acquisition,
+)
+from bijux_pollenomics.adna.sources.library import (
+    refresh_source_library,
+)
+from bijux_pollenomics.adna.sources.library import storage as source_library_storage
 from bijux_pollenomics.adna.workflow.source_artifacts import (
     SourceArtifactContentDriftError,
     migrate_html_source_artifact,
     read_source_artifact_text,
     write_source_artifact_bytes,
 )
-from bijux_pollenomics.adna.sources import library as source_library_module
-from bijux_pollenomics.adna.sources.library import (
-    acquisition as source_library_acquisition,
-)
-from bijux_pollenomics.adna.sources.library import storage as source_library_storage
-from bijux_pollenomics.adna.sources.library import (
-    refresh_source_library,
-)
+
+from tests.support.repository import REPOSITORY_ROOT
+
 from .fixtures import _bounded_paper_spec
 
 DATA_ROOT = REPOSITORY_ROOT / "data"

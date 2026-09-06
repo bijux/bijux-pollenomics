@@ -3,7 +3,6 @@ from __future__ import annotations
 from datetime import datetime
 
 import pytest
-
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     NORDIC_COUNTRY_CODES,
     reconcile_sead_countries,

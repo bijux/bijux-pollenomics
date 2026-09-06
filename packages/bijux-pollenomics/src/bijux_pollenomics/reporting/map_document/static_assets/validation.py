@@ -1,10 +1,11 @@
 """Fail-closed validation for static atlas manifests and asset payloads."""
 
 import base64
-from collections.abc import Mapping, Sequence
 import hashlib
 import json
+from collections.abc import Mapping, Sequence
 
+from .asset_inventory import normalize_asset_inventory
 from .budgets import (
     ATLAS_BOOTSTRAP_MAX_BYTES,
     ATLAS_CHUNK_MAX_BYTES,
@@ -14,7 +15,6 @@ from .budgets import (
     ATLAS_STATIC_ASSETS_MAX_BYTES,
     ATLAS_STATIC_ASSETS_MAX_FILES,
 )
-from .asset_inventory import normalize_asset_inventory
 from .index_bundles import decode_index_bundle
 from .models import StaticAtlasAssets
 from .serialization import decode_chunk_script

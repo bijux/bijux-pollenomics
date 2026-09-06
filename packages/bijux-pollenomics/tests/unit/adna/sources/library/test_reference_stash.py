@@ -1,10 +1,12 @@
 """aDNA local reference-stash reconciliation tests."""
 
 from __future__ import annotations
-from pathlib import Path
+
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
+
 from bijux_pollenomics.adna.sources.inventory import (
     build_reference_stash_doi_integrity_audit,
     build_reference_stash_reconciliation,

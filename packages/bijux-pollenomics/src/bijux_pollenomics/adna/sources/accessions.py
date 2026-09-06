@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
 import re
+from dataclasses import dataclass
 
 __all__ = [
     "AdnaAccessionReference",
-    "resolve_accession_reference",
     "resolve_accession_lineage",
+    "resolve_accession_reference",
 ]
 
 _GENBANK_RANGE_RE = re.compile(

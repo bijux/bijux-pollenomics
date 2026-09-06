@@ -6,7 +6,6 @@ from copy import deepcopy
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     SeadAcquisitionError,
 )

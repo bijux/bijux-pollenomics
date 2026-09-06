@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.adna.governance.audit_catalogs.atlas_accountability import (
     build_animal_atlas_candidate_accountability,
 )

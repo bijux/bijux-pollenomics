@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
 import json
+from collections.abc import Mapping
 from pathlib import Path
 from typing import cast
 
@@ -23,6 +23,7 @@ from bijux_pollenomics.reporting.map_document.static_assets import (
 from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
     normalize_asset_inventory,
 )
+
 from .committed_bundle import committed_nordic_inputs
 from .static_proof import (
     assert_point_layer_index_coverage,

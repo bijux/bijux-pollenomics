@@ -1,11 +1,12 @@
 """Validation of immutable recorded-gate attestations."""
 
 from __future__ import annotations
-from collections.abc import Mapping
+
 import hashlib
 import json
-from pathlib import Path
 import stat
+from collections.abc import Mapping
+from pathlib import Path
 
 from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 
@@ -21,7 +22,7 @@ from .codec import (
     _string_field,
     _string_items,
 )
-from .models import GateResult, ReleaseEvidenceError, _GATE_STATUSES
+from .models import _GATE_STATUSES, GateResult, ReleaseEvidenceError
 from .repository import (
     _hash_repository_object,
     _read_repository_file,

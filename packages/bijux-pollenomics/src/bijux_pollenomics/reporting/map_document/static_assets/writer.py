@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import base64
-from collections.abc import Sequence
 import hashlib
+from collections.abc import Sequence
 from pathlib import Path
 
 from ....core.geospatial.geojson import JsonObject

@@ -10,8 +10,8 @@ from bijux_pollenomics.analysis.propagation.source_chronology import (
     SourceNodeDerivationResult,
 )
 
-from .features import build_atlas_feature, canonical_neotoma_site_record_id
 from .facets import build_facet_metadata
+from .features import build_atlas_feature, canonical_neotoma_site_record_id
 from .models import SourceChronologyAtlasProjection
 
 _LAYER_KEYS = {

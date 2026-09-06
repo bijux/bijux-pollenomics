@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+import re
 from collections.abc import Sequence
 from pathlib import Path
-import re
 
 from .model import NORDIC_COUNTRY_CODES
 

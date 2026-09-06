@@ -4,11 +4,11 @@ from __future__ import annotations
 
 import re
 from typing import Final
+
+from bijux_pollenomics.collection.spatial import CountryAttributionDecision
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
 )
-from bijux_pollenomics.collection.spatial import CountryAttributionDecision
-
 
 COUNTRIES: Final = ("SE", "DK", "NO", "FI", "UNASSIGNED", "OUTSIDE")
 

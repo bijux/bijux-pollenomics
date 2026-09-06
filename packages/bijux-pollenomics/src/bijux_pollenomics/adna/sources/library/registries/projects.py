@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+import re
 from functools import cache
 from pathlib import Path
-import re
 
 from bijux_pollenomics.adna.sources.archive import (
     AdnaArchiveProject,
@@ -17,8 +17,8 @@ from ..models import (
     AdnaPaperRegistryRow,
     AdnaProjectRegistryRow,
     AdnaSourceBundleManifest,
-    _ProjectIntakeExpectation,
     _empty_reference_stash_record,
+    _ProjectIntakeExpectation,
 )
 from ..specifications import _derive_ingestion_status, _paper_source_spec
 from ..storage import _source_library_cache_key

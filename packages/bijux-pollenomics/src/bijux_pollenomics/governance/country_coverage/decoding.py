@@ -2,16 +2,17 @@
 
 from __future__ import annotations
 
-from collections import Counter
-from collections.abc import Mapping
 import hashlib
 import json
+from collections import Counter
+from collections.abc import Mapping
 from typing import Any, cast
+
 from .constants import (
-    CountryCoverageError,
     _NAME_TO_CODE,
     _RAW_SHA256_PATTERN,
     _SHA256_ID_PATTERN,
+    CountryCoverageError,
 )
 
 

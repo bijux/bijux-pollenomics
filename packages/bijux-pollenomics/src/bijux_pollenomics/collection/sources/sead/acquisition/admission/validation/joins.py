@@ -1,8 +1,10 @@
 """Relational join reconciliation and integrity validation."""
 
 from __future__ import annotations
+
 from collections import Counter
 from collections.abc import Mapping, Sequence
+
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     reconcile_sead_join,
 )

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from collections.abc import Callable, Iterable
 import time
+from collections.abc import Callable, Iterable
 from urllib.error import HTTPError, URLError
 
 SEAD_LIMIT = 1000

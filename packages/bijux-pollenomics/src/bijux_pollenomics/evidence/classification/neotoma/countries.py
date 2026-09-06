@@ -6,9 +6,9 @@ from collections.abc import Mapping, Sequence
 
 
 def _source_country_code(site: Mapping[str, object] | None) -> str:
+    from . import _COUNTRY_CODES
     from . import Mapping as RuntimeMapping
     from . import Sequence as RuntimeSequence
-    from . import _COUNTRY_CODES
 
     if site is None:
         return "UNASSIGNED"
@@ -37,8 +37,8 @@ def _country_partition_rows(
     memberships: Sequence[Mapping[str, object]],
     dimension: str,
 ) -> list[dict[str, object]]:
-    from . import Counter, Sequence as RuntimeSequence
-    from . import _COUNTRY_PARTITION, defaultdict
+    from . import _COUNTRY_PARTITION, Counter, defaultdict
+    from . import Sequence as RuntimeSequence
 
     membership_field = f"{dimension}_code"
     concept_field = f"{dimension}_codes"
@@ -66,7 +66,7 @@ def _country_relation_rows(
     concepts: Sequence[Mapping[str, object]],
     memberships: Sequence[Mapping[str, object]],
 ) -> list[dict[str, object]]:
-    from . import Counter, _COUNTRY_PARTITION, defaultdict
+    from . import _COUNTRY_PARTITION, Counter, defaultdict
 
     observation_counts = Counter(
         (str(row["source_country_code"]), str(row["governed_country_code"]))

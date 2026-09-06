@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 CAPABILITY_DIMENSIONS = (
     "site_identity",
     "coordinates",

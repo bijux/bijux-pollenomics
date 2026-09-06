@@ -1,10 +1,11 @@
 """Sample-level evidence normalization and refusal accounting."""
 
 from __future__ import annotations
+
+import re
 from dataclasses import replace
 from pathlib import Path
-import re
-from ....core.repository import repository_data_root
+
 from bijux_pollenomics.adna.domain.models import (
     AdnaChronology,
     AdnaCoordinate,
@@ -12,13 +13,14 @@ from bijux_pollenomics.adna.domain.models import (
     AdnaSampleIdentity,
     AdnaSampleRecord,
 )
+
+from ....core.repository import repository_data_root
 from ...projects.evidence.chronology import build_project_sample_chronology_rows
 from ...projects.registry.samples import (
     AdnaCuratedSampleRow,
     build_species_curated_sample_rows,
 )
 from ...species.definitions import AdnaSpeciesDefinition, resolve_species_definition
-
 from .chronology import (
     _apply_chronology_semantics,
     _fallback_chronology_evidence_class,

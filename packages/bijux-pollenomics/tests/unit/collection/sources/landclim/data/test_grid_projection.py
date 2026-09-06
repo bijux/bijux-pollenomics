@@ -1,10 +1,10 @@
 from __future__ import annotations
 
+import tempfile
+import unittest
 from collections.abc import Mapping
 from pathlib import Path
-import tempfile
 from typing import cast
-import unittest
 
 from bijux_pollenomics.collection.sources.landclim.collection import (
     build_landclim_grid_geojson,
@@ -13,6 +13,7 @@ from bijux_pollenomics.collection.sources.landclim.collection import (
 from bijux_pollenomics.collection.sources.landclim.time_windows import (
     time_window_from_tw_filename,
 )
+
 from tests.support.geography import NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
 from tests.support.workbooks import write_landclim_ii_zip, write_xlsx
 

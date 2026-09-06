@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
 import hashlib
 import os
+from collections.abc import Mapping, Sequence
 from pathlib import Path
 
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
@@ -10,10 +10,10 @@ from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
 )
 
 from .constants import (
-    EVIDENCE_MANIFEST_SCHEMA_VERSION,
-    MULTIPART_SCHEMA_VERSION,
     _MAX_GOVERNED_FILE_BYTES,
     _PART_TARGET_BYTES,
+    EVIDENCE_MANIFEST_SCHEMA_VERSION,
+    MULTIPART_SCHEMA_VERSION,
 )
 from .derivation import build_sead_source_native_evidence_bundle
 from .serialization import (

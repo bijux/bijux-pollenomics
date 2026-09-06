@@ -1,9 +1,10 @@
 """Canonical scoped-acquisition serialization and time handling."""
 
 from __future__ import annotations
+
+import json
 from collections.abc import Iterable, Mapping, Sequence
 from datetime import UTC, datetime
-import json
 
 from .models import _SAFE_RUN_ID
 

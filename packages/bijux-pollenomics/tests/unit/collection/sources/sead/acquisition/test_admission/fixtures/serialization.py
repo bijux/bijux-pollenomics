@@ -1,15 +1,17 @@
 """Fixture mutation, schema observation, and canonical serialization."""
 
 from __future__ import annotations
-from collections.abc import Mapping
+
 import hashlib
 import json
+from collections.abc import Mapping
 from pathlib import Path
-from bijux_pollenomics.collection.sources.sead.acquisition.full import (
-    ACQUISITION_MANIFEST_SCHEMA_VERSION,
-)
+
 from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_LINKED_SOURCE_TABLES,
+)
+from bijux_pollenomics.collection.sources.sead.acquisition.full import (
+    ACQUISITION_MANIFEST_SCHEMA_VERSION,
 )
 
 

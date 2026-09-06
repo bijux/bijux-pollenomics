@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from contextlib import suppress
 import os
-from pathlib import Path
 import secrets
 import stat
+from contextlib import suppress
+from pathlib import Path
+
 from .constants import (
     COUNTRY_COVERAGE_ARTIFACT_ROOT,
     COUNTRY_COVERAGE_OUTPUT_PATH,

@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import io
-from pathlib import PurePosixPath
 import re
 import stat
-from typing import IO
 import unicodedata
+from pathlib import PurePosixPath
+from typing import IO
 from xml.etree.ElementTree import Element
 from zipfile import BadZipFile, ZipFile, ZipInfo
 

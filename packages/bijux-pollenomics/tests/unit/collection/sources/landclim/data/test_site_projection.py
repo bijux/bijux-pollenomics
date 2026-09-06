@@ -1,15 +1,16 @@
 from __future__ import annotations
 
+import tempfile
+import unittest
 from collections.abc import Mapping
 from pathlib import Path
-import tempfile
 from typing import cast
-import unittest
 
 from bijux_pollenomics.collection.sources.landclim.collection import (
     build_landclim_site_records,
     landclim_i_site_records,
 )
+
 from tests.support.geography import NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
 from tests.support.workbooks import write_xlsx
 

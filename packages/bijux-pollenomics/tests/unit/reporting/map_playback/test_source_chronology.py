@@ -5,12 +5,12 @@ from __future__ import annotations
 from dataclasses import FrozenInstanceError, replace
 
 import pytest
-
 from bijux_pollenomics.reporting.map_playback import (
     PlaybackContractError,
     build_exact_taxon_storyboard,
     build_source_chronology_storyboards,
 )
+
 from tests.unit.reporting.map_playback.support import (
     NORDIC_COUNTRIES,
     mutable_source_layers,

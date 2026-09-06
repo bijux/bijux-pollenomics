@@ -1,12 +1,14 @@
 """Bundle Closure tests."""
 
 from __future__ import annotations
-from dataclasses import replace
+
 import json
 import os
-from pathlib import Path
 import shutil
+from dataclasses import replace
+from pathlib import Path
 from typing import cast
+
 import pytest
 from bijux_pollenomics.provenance import (
     ArtifactInput,
@@ -17,6 +19,7 @@ from bijux_pollenomics.provenance import (
 from bijux_pollenomics.provenance.release_evidence import bundles as release_bundles
 from bijux_pollenomics.provenance.release_evidence import models as release_models
 from bijux_pollenomics.provenance.release_evidence import policy as release_policy
+
 from .support import (
     _artifacts,
     _build,

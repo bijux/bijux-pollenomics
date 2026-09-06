@@ -6,9 +6,14 @@ from collections.abc import Callable, Mapping
 from pathlib import Path
 from typing import cast
 
-from ..release_evidence.models import ArtifactInput, GateResult, GateStatus
-from ..release_evidence.models import _GATE_STATUSES, _ReleaseEvidencePolicy
-from ..release_evidence.models import ReleaseEvidenceError
+from ..release_evidence.models import (
+    _GATE_STATUSES,
+    ArtifactInput,
+    GateResult,
+    GateStatus,
+    ReleaseEvidenceError,
+    _ReleaseEvidencePolicy,
+)
 
 
 def derive_gate_results(

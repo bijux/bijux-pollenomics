@@ -6,8 +6,7 @@ from types import SimpleNamespace
 from typing import Any
 
 import pytest
-
-import bijux_pollenomics.collection.sources.neotoma.production as production
+from bijux_pollenomics.collection.sources.neotoma import production
 
 
 def test_production_resolves_all_orchestration_dependencies_from_facade(

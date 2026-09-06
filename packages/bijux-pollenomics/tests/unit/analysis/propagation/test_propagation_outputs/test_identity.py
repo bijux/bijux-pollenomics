@@ -1,13 +1,16 @@
 """Identity tests."""
 
 from __future__ import annotations
+
 import hashlib
 import json
 from pathlib import Path
+
 import pytest
 from bijux_pollenomics.analysis.propagation.outputs import (
     PropagationOutputRefusalError,
 )
+
 from .support import (
     _MODEL,
     _MODEL_BYTES,

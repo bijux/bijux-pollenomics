@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+import re
 import unittest
 
 import pytest
-import re
 
 from .repository_paths import (
     REPO_ROOT,

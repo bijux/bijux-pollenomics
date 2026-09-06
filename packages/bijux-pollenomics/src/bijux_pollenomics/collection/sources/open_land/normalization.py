@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import csv
-from decimal import Decimal, InvalidOperation
 import hashlib
 import io
-from pathlib import Path
 from collections.abc import Iterator
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
 from zipfile import ZipFile
 
 from ..quarantine import (
@@ -96,9 +96,9 @@ def _normalize_row(
         _decimal(row.get(header), field=header, locator=locator)
         for header in CSV_HEADERS
     )
-    if not Decimal("-180") <= longitude <= Decimal("180"):
+    if not Decimal(-180) <= longitude <= Decimal(180):
         raise IntakeRefusal("invalid_longitude", locator)
-    if not Decimal("-90") <= latitude <= Decimal("90"):
+    if not Decimal(-90) <= latitude <= Decimal(90):
         raise IntakeRefusal("invalid_latitude", locator)
     components = (coniferous, broadleaved, open_land)
     if any(value < 0 or value > 1 for value in components):

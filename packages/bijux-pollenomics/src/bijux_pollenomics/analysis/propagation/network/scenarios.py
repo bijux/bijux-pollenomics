@@ -1,6 +1,7 @@
 """Governed propagation sensitivity scenarios."""
 
 from __future__ import annotations
+
 from bijux_pollenomics.analysis.propagation.candidates import (
     CandidatePropagationScenario,
 )

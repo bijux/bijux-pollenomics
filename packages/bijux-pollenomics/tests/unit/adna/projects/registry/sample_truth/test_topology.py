@@ -5,7 +5,6 @@ from pathlib import Path
 
 from bijux_pollenomics.adna.projects.registry import sample_truth
 
-
 EXPECTED_MODULES = {
     "__init__.py",
     "classification.py",

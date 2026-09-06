@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import pytest
-
 from bijux_pollenomics.collection.sources.sead import collection as production_sead
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     SeadAcquisitionError,

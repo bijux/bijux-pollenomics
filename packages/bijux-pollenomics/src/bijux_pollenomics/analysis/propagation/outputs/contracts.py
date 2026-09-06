@@ -1,18 +1,20 @@
 """Normative propagation contract and scientific-claim validation."""
 
 from __future__ import annotations
+
 from pathlib import Path
+
+from bijux_pollenomics.analysis.propagation.candidates import (
+    DEFAULT_PROPAGATION_SCENARIO,
+)
 from bijux_pollenomics.analysis.propagation.network import (
     COUNTRY_CODES,
     EVIDENCE_DOMAINS,
 )
-from bijux_pollenomics.analysis.propagation.candidates import (
-    DEFAULT_PROPAGATION_SCENARIO,
-)
 
 from .codec import _refuse, _sha256
 from .inputs import _path_has_symlink_component, _read_identity_file
-from .models import PropagationOutputRefusalError, _SCIENTIFIC_CLAIM_BOOLEAN_FIELDS
+from .models import _SCIENTIFIC_CLAIM_BOOLEAN_FIELDS, PropagationOutputRefusalError
 from .producer import _required_contract_section
 
 

@@ -20,15 +20,15 @@ from .scoring import CandidateSiteScore, score_candidate_site
 
 __all__ = [
     "DEFAULT_PROPAGATION_SCENARIO",
-    "CandidateRankingProfile",
+    "CandidatePairRefusalError",
     "CandidatePropagationAssessment",
     "CandidatePropagationScenario",
-    "CandidatePairRefusalError",
+    "CandidateRankingProfile",
     "CandidateSiteContext",
     "CandidateSiteScore",
     "PropagationStatusDecision",
-    "assess_candidate_propagation",
     "ScoringWeights",
+    "assess_candidate_propagation",
     "build_ranking_profiles",
     "classify_candidate_propagation",
     "resolve_ranking_profile",

@@ -1,12 +1,14 @@
 """Manifest bundle inventories and payload-closure validation."""
 
 from __future__ import annotations
-from collections.abc import Mapping
+
 import hashlib
 import json
 import os
-from pathlib import Path, PurePosixPath
 import stat
+from collections.abc import Mapping
+from pathlib import Path, PurePosixPath
+
 from .codec import (
     _digest_bytes,
     _int_field,
@@ -15,10 +17,10 @@ from .codec import (
     _string_field,
 )
 from .models import (
+    _RAW_SHA256_PATTERN,
     ArtifactInput,
     ReleaseEvidenceError,
     _BundleInventory,
-    _RAW_SHA256_PATTERN,
     _ReleaseEvidencePolicy,
 )
 from .repository import (

@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import base64
-from dataclasses import dataclass
 import gzip
 import hashlib
 import json
 import math
+from dataclasses import dataclass
 from pathlib import Path
 from typing import cast
 
@@ -37,7 +37,7 @@ class SourceFacetAuthority:
     observation_denominator: int
     intervals: tuple[tuple[float | int, float | int], ...]
 
-    def visible_count(self, younger_bp: float | int, older_bp: float | int) -> int:
+    def visible_count(self, younger_bp: float, older_bp: float) -> int:
         """Count closed source intervals overlapping one closed playback frame."""
         return sum(
             feature_older >= younger_bp and feature_younger <= older_bp

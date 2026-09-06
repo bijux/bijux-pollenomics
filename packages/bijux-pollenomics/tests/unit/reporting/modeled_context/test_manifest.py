@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from copy import deepcopy
 import json
+from copy import deepcopy
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.reporting.context.polygons import build_external_polygon_layer
 from bijux_pollenomics.reporting.modeled_context import (
     ModeledContextContractError,
@@ -20,6 +19,7 @@ from bijux_pollenomics.reporting.modeled_context.contracts import (
 from bijux_pollenomics.reporting.modeled_context.metric_families import (
     PANGAEA_METRIC_KEYS,
 )
+
 from tests.support.repository import REPOSITORY_ROOT
 
 

@@ -1,12 +1,15 @@
 """Publication tests."""
 
 from __future__ import annotations
+
 import json
 from pathlib import Path
+
 import pytest
 from bijux_pollenomics.analysis.propagation.outputs import (
     PropagationOutputRefusalError,
 )
+
 from .support import (
     _REPOSITORY_ROOT,
     _classification_bundle,

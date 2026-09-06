@@ -5,6 +5,7 @@ from datetime import date
 from typing import Final
 
 from bijux_pollenomics.adna.workflow.manifests import build_species_manifest
+
 from ..sources.archive import (
     AdnaArchiveProject,
     build_species_archive_projects,

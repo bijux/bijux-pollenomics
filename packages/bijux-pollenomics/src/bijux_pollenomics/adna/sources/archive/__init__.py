@@ -2,8 +2,8 @@
 
 from .catalog import build_archive_project_catalog, build_species_archive_projects
 from .contracts import (
-    ADNA_ACCESSION_SCOPES,
     ADNA_ACCESS_POLICIES,
+    ADNA_ACCESSION_SCOPES,
     ADNA_DOMESTICATION_SCOPES,
     ADNA_PROJECT_EVIDENCE_STRENGTHS,
     AdnaArchiveProject,

@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
-
+from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError
 from bijux_pollenomics_dev.ci.atlas_media.contracts import SelectedStory
 from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     build_gallery_manifest,
@@ -20,7 +20,7 @@ from bijux_pollenomics_dev.ci.atlas_media.run_evidence import (
     build_run_evidence_index,
     write_run_evidence_index,
 )
-from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError
+
 from tests.atlas_media.fixtures import BUILD_ID, COUNTRIES, candidate
 
 

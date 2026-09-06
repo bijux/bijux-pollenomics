@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from bijux_pollenomics.adna.workflow.paths import ADNA_SPECIES_DIR
+
 from ..species.definitions import AdnaSpeciesDefinition, resolve_species_definition
 
 __all__ = [

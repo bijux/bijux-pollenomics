@@ -1,8 +1,10 @@
 """Animal foundation review responsibilities."""
 
 from __future__ import annotations
-from typing import Any, cast
+
 from pathlib import Path
+from typing import Any, cast
+
 from ....adna.governance.audit_catalogs import (
     build_cross_species_map_readiness,
     build_overbroad_site_ledger,

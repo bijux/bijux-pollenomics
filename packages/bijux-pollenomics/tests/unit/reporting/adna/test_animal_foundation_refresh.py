@@ -1,18 +1,18 @@
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 import pytest
-
-from bijux_pollenomics.config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 from bijux_pollenomics.adna.workflow.source_artifacts import (
     read_source_artifact_bytes,
 )
+from bijux_pollenomics.config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 from bijux_pollenomics.reporting.models import PublishedReportsReport
 from bijux_pollenomics.reporting.service import refresh_animal_adna_foundation
+
 from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts

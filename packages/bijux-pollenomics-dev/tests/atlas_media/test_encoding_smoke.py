@@ -2,16 +2,16 @@
 
 from __future__ import annotations
 
-from dataclasses import replace
 import hashlib
-from pathlib import Path
 import shutil
 import subprocess
+from dataclasses import replace
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics_dev.ci.atlas_media import encoding
 from bijux_pollenomics_dev.ci.atlas_media.contracts import SelectedStory
+
 from tests.atlas_media.fixtures import COUNTRIES, plan
 
 

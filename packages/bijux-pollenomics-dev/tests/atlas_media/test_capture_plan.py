@@ -8,7 +8,6 @@ from pathlib import Path
 from typing import Any
 
 import pytest
-
 from bijux_pollenomics_dev.ci.atlas_media import admission, capture
 from bijux_pollenomics_dev.ci.atlas_media.contracts import SelectedStory
 from bijux_pollenomics_dev.ci.atlas_media.gallery import canonical_json_bytes

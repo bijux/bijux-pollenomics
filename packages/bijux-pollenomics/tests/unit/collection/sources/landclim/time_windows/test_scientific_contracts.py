@@ -8,8 +8,8 @@ from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.collection.sources.landclim import time_windows
+
 from tests.support.geography import NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
 from tests.support.workbooks import write_landclim_ii_zip
 

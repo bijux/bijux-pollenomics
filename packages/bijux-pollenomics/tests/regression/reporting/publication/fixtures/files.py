@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from collections.abc import Collection
 import csv
 import json
+from collections.abc import Collection
 from pathlib import Path
 
 

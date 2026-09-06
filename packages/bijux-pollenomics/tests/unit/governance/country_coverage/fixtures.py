@@ -1,11 +1,12 @@
 """Governed country-coverage test fixtures and mutation helpers."""
 
 from __future__ import annotations
-from collections.abc import Callable, Mapping
+
 import json
+from collections.abc import Callable, Mapping
 from pathlib import Path
-from tests.support.repository import REPOSITORY_ROOT
 from typing import cast
+
 import pytest
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
@@ -15,6 +16,7 @@ from bijux_pollenomics.governance.country_coverage import (
     build_country_dimension_coverage_ledger,
 )
 
+from tests.support.repository import REPOSITORY_ROOT
 
 _READ_BYTES = Path.read_bytes
 

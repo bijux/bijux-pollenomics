@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+import copy
 from collections import Counter
 from collections.abc import Mapping
-import copy
 
 from ......core.text import clean_optional_text
 from ..diagnostics import add_orphan, register_record

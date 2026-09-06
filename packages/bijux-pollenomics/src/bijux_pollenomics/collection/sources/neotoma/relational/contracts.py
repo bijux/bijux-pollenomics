@@ -2,6 +2,8 @@
 
 from bijux_pollenomics.evidence.sources.neotoma.contract import (
     COUNTRY_CODES as COUNTRY_CODES,
+)
+from bijux_pollenomics.evidence.sources.neotoma.contract import (
     RELATIONAL_TABLE_SURFACES,
     SURFACE_ID_FIELDS,
 )

@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.adna.governance.audit_catalogs import public_outputs
 from bijux_pollenomics.adna.governance.audit_catalogs.public_outputs import (
     build_public_animal_output_audit,

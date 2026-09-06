@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 
 from bijux_pollenomics.adna.species.tracked_species import TRACKED_ADNA_SPECIES
+
 from .contracts import CoordinateCaveatRow, CoordinateCaveatSurface
 from .repository import (
     _load_coordinate_provenance_rows,

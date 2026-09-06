@@ -5,13 +5,17 @@ from __future__ import annotations
 import hashlib
 import json
 
-from tests.support.repository import REPOSITORY_ROOT as TEST_REPOSITORY_ROOT
-
 from bijux_pollenomics.analysis.propagation.outputs import (
     PROPAGATION_PRODUCER_ID as PRODUCT_PROPAGATION_PRODUCER_ID,
+)
+from bijux_pollenomics.analysis.propagation.outputs import (
     PROPAGATION_PRODUCER_SOURCE_PATHS,
+)
+from bijux_pollenomics.analysis.propagation.outputs import (
     PROPAGATION_PRODUCER_VERSION as PRODUCT_PROPAGATION_PRODUCER_VERSION,
 )
+
+from tests.support.repository import REPOSITORY_ROOT as TEST_REPOSITORY_ROOT
 
 REPOSITORY_ROOT = TEST_REPOSITORY_ROOT
 PROPAGATION_PRODUCER_ID = PRODUCT_PROPAGATION_PRODUCER_ID

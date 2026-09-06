@@ -2,15 +2,13 @@
 
 from __future__ import annotations
 
-from dataclasses import replace
 import json
-from pathlib import Path
 import shutil
+from dataclasses import replace
+from pathlib import Path
 from xml.etree import ElementTree
 
 import pytest
-from tests.support.repository import REPOSITORY_ROOT
-
 from bijux_pollenomics.adna.projects.evidence.chronology import (
     build_project_sample_chronology_rows,
 )
@@ -35,6 +33,8 @@ from bijux_pollenomics.adna.sources.recovery import build_project_recovery_dossi
 from bijux_pollenomics.adna.workflow.source_artifacts import (
     resolve_source_artifact_path,
 )
+
+from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts
 

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import pytest
-
 from bijux_pollenomics.adna.governance.audit_catalogs.rendering import (
     render_coordinate_caveat_surface_markdown,
     render_coordinate_confidence_scale_markdown,

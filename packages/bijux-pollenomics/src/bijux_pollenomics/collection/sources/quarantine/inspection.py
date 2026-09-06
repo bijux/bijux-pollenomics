@@ -2,16 +2,16 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterator
-from contextlib import contextmanager
-from dataclasses import replace
 import hashlib
 import json
 import os
-from pathlib import Path, PurePosixPath
 import stat
-from typing import IO
 import unicodedata
+from collections.abc import Iterator
+from contextlib import contextmanager
+from dataclasses import replace
+from pathlib import Path, PurePosixPath
+from typing import IO
 from zipfile import BadZipFile, ZipFile, ZipInfo
 
 from .models import (

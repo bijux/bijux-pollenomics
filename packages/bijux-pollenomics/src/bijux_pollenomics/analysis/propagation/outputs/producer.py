@@ -1,18 +1,19 @@
 """Propagation producer identity and governed source inventory."""
 
 from __future__ import annotations
-from collections.abc import Mapping
+
 import json
+from collections.abc import Mapping
 from pathlib import Path
 from typing import Any, cast
 
 from .codec import _refuse, _sha256
 from .inputs import _path_has_symlink_component, _read_identity_file
 from .models import (
+    _CLASSIFICATION_MANIFEST_NAME,
     PROPAGATION_PRODUCER_ID,
     PROPAGATION_PRODUCER_SOURCE_PATHS,
     PROPAGATION_PRODUCER_VERSION,
-    _CLASSIFICATION_MANIFEST_NAME,
 )
 
 

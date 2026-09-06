@@ -13,10 +13,10 @@ WGS84_GEODESIC = Geod(ellps="WGS84")
 
 __all__ = [
     "EARTH_RADIUS_KM",
-    "GeodesicDistance",
-    "InvalidCoordinateError",
     "WGS84_DISTANCE_ALGORITHM",
     "WGS84_DISTANCE_LIBRARY",
+    "GeodesicDistance",
+    "InvalidCoordinateError",
     "haversine_km",
     "wgs84_inverse_geodesic",
 ]

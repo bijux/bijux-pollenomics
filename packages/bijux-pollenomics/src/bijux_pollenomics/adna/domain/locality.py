@@ -1,20 +1,21 @@
 from __future__ import annotations
 
+import re
 from collections import defaultdict
 from collections.abc import Iterable
-import re
 
-from ...core.bp_time import (
-    build_bp_interval_label,
-    merge_bp_intervals,
-    midpoint_bp_year,
-)
 from bijux_pollenomics.adna.domain.models import (
     AdnaChronology,
     AdnaCoordinate,
     AdnaLocalityIdentity,
     AdnaLocalitySummary,
     AdnaSampleRecord,
+)
+
+from ...core.bp_time import (
+    build_bp_interval_label,
+    merge_bp_intervals,
+    midpoint_bp_year,
 )
 from ..species.definitions import resolve_species_definition
 

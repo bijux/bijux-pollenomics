@@ -3,11 +3,11 @@ from __future__ import annotations
 import unittest
 from unittest.mock import Mock
 
-from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.source_data.table_readers import (
-    SeadTableReader,
-)
 from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.service import (
     populate_sead_site_inventory_from_reader,
+)
+from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.source_data.table_readers import (
+    SeadTableReader,
 )
 from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.temporal import (
     _ce_year_to_bp,

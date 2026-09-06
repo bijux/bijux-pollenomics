@@ -5,8 +5,7 @@ import hashlib
 from typing import Any, cast
 
 import pytest
-
-import bijux_pollenomics.collection.sources.neotoma.refresh_review as refresh_review
+from bijux_pollenomics.collection.sources.neotoma import refresh_review
 
 
 def _baseline() -> dict[str, object]:

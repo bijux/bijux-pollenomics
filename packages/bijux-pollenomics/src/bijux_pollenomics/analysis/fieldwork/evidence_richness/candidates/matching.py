@@ -7,6 +7,7 @@ from collections.abc import Sequence
 
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.core import haversine_km
+
 from ..models import (
     _LAKE_MATCH_DISTANCE_KM,
     _LakeSourcePoint,

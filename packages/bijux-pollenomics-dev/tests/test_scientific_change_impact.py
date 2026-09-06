@@ -3,12 +3,11 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import re
+from pathlib import Path
 
 import pytest
 import yaml
-
 from bijux_pollenomics_dev.ci.path_selection import (
     REQUIRED_SURFACE_IDS,
     ChangeImpactContract,

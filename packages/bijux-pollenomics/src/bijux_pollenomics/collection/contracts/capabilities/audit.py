@@ -5,9 +5,9 @@ from dataclasses import asdict
 from pathlib import Path
 
 from .constants import (
-    CAPABILITY_DIMENSIONS,
     _MATERIALIZATION_STATUSES,
     _SUPPORT_STATUSES,
+    CAPABILITY_DIMENSIONS,
 )
 from .evidence import _path_has_content, _resolve_path
 from .models import _CapabilityAuditRow

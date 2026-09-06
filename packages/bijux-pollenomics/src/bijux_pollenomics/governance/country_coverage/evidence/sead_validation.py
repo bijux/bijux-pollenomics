@@ -9,7 +9,7 @@ from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_EVIDENCE_SCOPE_ID,
 )
 
-from ..constants import CountryCoverageError, _CODE_TO_NAME, _NORDIC_COUNTRY_CODES
+from ..constants import _CODE_TO_NAME, _NORDIC_COUNTRY_CODES, CountryCoverageError
 from ..decoding import (
     _integer,
     _integer_counts,

@@ -40,12 +40,12 @@ from .tables import (
     _read_xlsx_member_rows,
     _read_xlsx_rows,
 )
+from .tables.aurochs_natural_history import _build_aurochs_natural_history_rows
 from .tables.baltic_sheep import (
     _build_baltic_sheep_rows,
     baltic_sheep_official_evidence_available,
     load_baltic_sheep_official_evidence,
 )
-from .tables.aurochs_natural_history import _build_aurochs_natural_history_rows
 from .tables.european_cats import (
     EUROPEAN_CAT_WORKBOOK_MEMBER,
     _build_european_cat_rows,

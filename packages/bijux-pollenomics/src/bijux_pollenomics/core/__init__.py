@@ -29,6 +29,8 @@ from .temporal_semantics import (
 
 __all__ = [
     "EARTH_RADIUS_KM",
+    "TEMPORAL_COMPARABILITY_POSTURES",
+    "TEMPORAL_WINDOW_ROWS",
     "CountryBoundaryCollection",
     "GeoJsonFeature",
     "GeoJsonFeatureCollection",
@@ -37,8 +39,6 @@ __all__ = [
     "MultiPolygon",
     "Polygon",
     "Position",
-    "TEMPORAL_COMPARABILITY_POSTURES",
-    "TEMPORAL_WINDOW_ROWS",
     "TemporalSemantics",
     "as_mapping",
     "build_temporal_semantics",

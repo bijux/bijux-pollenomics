@@ -1,13 +1,16 @@
 """Integrity tests."""
 
 from __future__ import annotations
-from dataclasses import replace
-from pathlib import Path
+
 import tempfile
 import unittest
+from dataclasses import replace
+from pathlib import Path
+
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     validate_sead_acquisition_admission,
 )
+
 from .fixtures import (
     _RUN_ID,
     _expected_identity,

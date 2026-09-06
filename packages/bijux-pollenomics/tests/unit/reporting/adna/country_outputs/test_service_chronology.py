@@ -3,12 +3,10 @@
 from __future__ import annotations
 
 import pytest
-
 from bijux_pollenomics.core.repository import repository_data_root
 from bijux_pollenomics.reporting.adna.country_outputs.service import (
     build_country_animal_output_bundle,
 )
-
 
 pytestmark = pytest.mark.generated_artifacts
 

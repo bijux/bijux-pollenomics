@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import pytest
-
 from bijux_pollenomics.provenance import gates as gate_module
 
 from .support import _fixture_specification

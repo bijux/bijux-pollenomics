@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import hashlib
 import json
-from pathlib import Path
 import shutil
 import subprocess  # nosec B404
+from pathlib import Path
 from typing import cast
 
 from .contracts import AtlasMediaError, AtlasMediaPlan
@@ -214,7 +214,7 @@ def _candidate_blobs(
     if executable is None:
         raise AtlasMediaError("git executable is unavailable")
     requests = b"".join(
-        f"{plan.candidate.repository_head}:{relative}\n".encode("utf-8")
+        f"{plan.candidate.repository_head}:{relative}\n".encode()
         for relative in relative_paths
     )
     try:

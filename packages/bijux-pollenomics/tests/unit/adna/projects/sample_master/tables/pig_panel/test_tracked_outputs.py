@@ -5,7 +5,6 @@ from __future__ import annotations
 import json
 
 import pytest
-
 from bijux_pollenomics.adna.projects.registry.sample_truth import (
     build_project_locality_count_drift,
 )

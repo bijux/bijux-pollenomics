@@ -1,9 +1,11 @@
 """Scoped row, identity, country, and coverage validation."""
 
 from __future__ import annotations
+
+import math
 from collections import Counter
 from collections.abc import Iterable, Mapping, Sequence
-import math
+
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     NORDIC_COUNTRY_CODES,
 )

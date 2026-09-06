@@ -1,10 +1,12 @@
 """Recorded Gates tests."""
 
 from __future__ import annotations
+
 import json
-from pathlib import Path
 import shutil
+from pathlib import Path
 from typing import cast
+
 import pytest
 from bijux_pollenomics.provenance import (
     GateResult,
@@ -13,6 +15,7 @@ from bijux_pollenomics.provenance import (
     validate_recorded_gate,
 )
 from bijux_pollenomics.provenance.gates import producer as gate_producer
+
 from .support import (
     _artifacts,
     _build,

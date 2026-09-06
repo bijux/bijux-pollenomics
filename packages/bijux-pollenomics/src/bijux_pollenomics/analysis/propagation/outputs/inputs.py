@@ -1,17 +1,18 @@
 """Safe identity-file, schema, and output-record validation."""
 
 from __future__ import annotations
-from collections.abc import Mapping, Sequence
+
 import json
+from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any, cast
 
 from .codec import _refuse
 from .models import (
-    PropagationOutputRefusalError,
     _CANDIDATE_SCHEMA_NAME,
     _EVENT_SCHEMA_NAME,
     _EXPECTED_SCHEMA_IDS,
+    PropagationOutputRefusalError,
 )
 
 

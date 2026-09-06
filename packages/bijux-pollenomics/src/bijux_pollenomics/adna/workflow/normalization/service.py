@@ -1,13 +1,14 @@
 """Species normalization orchestration."""
 
 from __future__ import annotations
+
 from bijux_pollenomics.adna.governance.curation import build_species_curation_manifest
 from bijux_pollenomics.adna.workflow.manifests import (
     build_species_manifest,
 )
+
 from ...projects.evidence.coordinates import build_species_coordinate_provenance_rows
 from ...projects.evidence.sites import build_species_site_evidence_rows
-
 from .localities import build_species_project_locality_records
 from .models import AdnaSpeciesNormalizationBundle
 from .projects import (

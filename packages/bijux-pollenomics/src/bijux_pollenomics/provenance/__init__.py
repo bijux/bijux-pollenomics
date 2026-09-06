@@ -28,8 +28,8 @@ __all__ = [
     "hash_repository_object",
     "release_evidence_main",
     "validate_recorded_gate",
-    "validate_release_evidence_request",
     "validate_release_evidence_manifest",
+    "validate_release_evidence_request",
     "write_release_evidence_manifest",
     "write_release_evidence_request",
 ]

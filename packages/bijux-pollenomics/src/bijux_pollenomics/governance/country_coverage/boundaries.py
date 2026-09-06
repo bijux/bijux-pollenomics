@@ -5,17 +5,19 @@ from __future__ import annotations
 from collections import Counter
 from collections.abc import Mapping
 from typing import cast
-from bijux_pollenomics.core.geospatial.geojson import CountryBoundaryCollection
+
 from bijux_pollenomics.collection.spatial import (
     COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE,
     CountryAttributionDecision,
     decide_country_attribution,
 )
+from bijux_pollenomics.core.geospatial.geojson import CountryBoundaryCollection
+
 from .constants import (
-    CountryCoverageError,
     _CODE_TO_NAME,
     _COUNTRY_DECISION_CACHE,
     _NORDIC_COUNTRY_CODES,
+    CountryCoverageError,
 )
 from .decoding import (
     _coordinate,

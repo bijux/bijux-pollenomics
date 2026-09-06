@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.provenance import ReleaseEvidenceError, hash_repository_object
 
 from ..support import _artifacts, _build, _digest, _json_digest, _rewrite_gate_record

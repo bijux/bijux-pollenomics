@@ -1,6 +1,7 @@
 """Pairwise candidate propagation evaluation."""
 
 from __future__ import annotations
+
 from bijux_pollenomics.analysis.propagation.candidates import (
     DEFAULT_PROPAGATION_SCENARIO,
     CandidatePropagationScenario,

@@ -5,10 +5,10 @@ from typing import Any
 
 
 def intervals_overlap(
-    start_a: float | int | None,
-    end_a: float | int | None,
-    start_b: float | int | None,
-    end_b: float | int | None,
+    start_a: float | None,
+    end_a: float | None,
+    start_b: float | None,
+    end_b: float | None,
     *,
     canonical_interval: Callable[[Any, Any], Any],
     invalid_interval_error: type[Exception],

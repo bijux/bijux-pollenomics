@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import hashlib
 import os
-from pathlib import Path, PurePosixPath
 import shutil
+from pathlib import Path, PurePosixPath
 from typing import IO
 from zipfile import ZipFile
 

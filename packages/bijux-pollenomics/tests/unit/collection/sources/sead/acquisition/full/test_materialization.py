@@ -5,12 +5,12 @@ import json
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     materialize_sead_acquisition,
     reconcile_sead_countries,
     reconcile_sead_join,
 )
+
 from .support import _acquire
 
 

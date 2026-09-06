@@ -3,7 +3,7 @@ from __future__ import annotations
 import inspect
 from pathlib import Path
 
-import bijux_pollenomics.analysis.fieldwork.land_use as land_use
+from bijux_pollenomics.analysis.fieldwork import land_use
 
 EXPECTED_SIGNATURES = {
     "build_sweden_land_use_synthesis": "(*, context_root: 'Path', lake_report, human_localities, animal_localities) -> 'dict[str, object]'",

@@ -1,17 +1,20 @@
 """Materialization tests."""
 
 from __future__ import annotations
+
 import os
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
+
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     ADMISSION_SCHEMA_VERSION,
 )
 from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_LINKED_SOURCE_TABLES,
 )
+
 from .fixtures import (
     _RUN_ID,
     _canonical_bytes,

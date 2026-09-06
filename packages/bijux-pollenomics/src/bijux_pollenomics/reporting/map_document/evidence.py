@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
-from dataclasses import dataclass
 import hashlib
 import re
+from collections.abc import Mapping, Sequence
+from dataclasses import dataclass
 
 from ...core.geospatial.geojson import JsonObject
 
@@ -245,9 +245,9 @@ def _stable_cue(signal_id: str) -> str:
 
 
 __all__ = [
-    "AtlasEvidence",
     "DETAIL_TAB_KEYS",
     "SCIENTIFIC_RESOLUTIONS",
+    "AtlasEvidence",
     "normalize_atlas_evidence",
     "validate_feature_signal_references",
 ]

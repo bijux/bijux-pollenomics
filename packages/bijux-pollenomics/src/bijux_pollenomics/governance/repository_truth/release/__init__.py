@@ -12,13 +12,23 @@ from ..integrity import (
 )
 from ..metrics import (
     SCORE_MAX as SCORE_MAX,
+)
+from ..metrics import (
     _build_core_counts as _build_core_counts,
+)
+from ..metrics import (
     _count_suffix_files as _count_suffix_files,
+)
+from ..metrics import (
     _count_tree_files as _count_tree_files,
+)
+from ..metrics import (
     _load_json_or_default as _load_json_or_default,
 )
 from .credibility import (
     _credibility_row as _credibility_row,
+)
+from .credibility import (
     build_repository_credibility_dashboard,
     render_repository_credibility_dashboard_markdown,
 )
@@ -36,6 +46,8 @@ from .product_model import (
 )
 from .refusal import (
     _release_refusal_row as _release_refusal_row,
+)
+from .refusal import (
     build_repository_final_release_refusal,
     render_repository_final_release_refusal_markdown,
 )
@@ -45,16 +57,16 @@ from .sustainability import (
 )
 
 __all__ = [
-    "build_repository_product_model",
-    "render_repository_product_model_markdown",
-    "build_repository_credibility_dashboard",
-    "render_repository_credibility_dashboard_markdown",
-    "build_repository_output_sustainability_review",
-    "render_repository_output_sustainability_review_markdown",
-    "build_repository_extension_review",
-    "render_repository_extension_review_markdown",
     "build_repository_brutal_honesty_review",
-    "render_repository_brutal_honesty_review_markdown",
+    "build_repository_credibility_dashboard",
+    "build_repository_extension_review",
     "build_repository_final_release_refusal",
+    "build_repository_output_sustainability_review",
+    "build_repository_product_model",
+    "render_repository_brutal_honesty_review_markdown",
+    "render_repository_credibility_dashboard_markdown",
+    "render_repository_extension_review_markdown",
     "render_repository_final_release_refusal_markdown",
+    "render_repository_output_sustainability_review_markdown",
+    "render_repository_product_model_markdown",
 ]

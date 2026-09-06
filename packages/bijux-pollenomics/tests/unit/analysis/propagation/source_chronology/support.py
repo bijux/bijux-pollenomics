@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
 import json
+from collections.abc import Mapping, Sequence
 
 from bijux_pollenomics.analysis.propagation.source_chronology import (
     SOURCE_NODE_CONFIG_DIGEST,

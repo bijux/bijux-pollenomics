@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
 import json
 import re
+from collections.abc import Callable, Mapping
 
 from ....core.geospatial.geojson import as_mapping
 from .constants import AADR_DATAVERSE_PERSISTENT_ID, AADR_DATAVERSE_VERSIONS_URL

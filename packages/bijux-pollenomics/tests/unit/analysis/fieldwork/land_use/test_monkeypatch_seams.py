@@ -5,8 +5,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
-
-import bijux_pollenomics.analysis.fieldwork.land_use as land_use
+from bijux_pollenomics.analysis.fieldwork import land_use
 
 
 def _target() -> land_use._Target:

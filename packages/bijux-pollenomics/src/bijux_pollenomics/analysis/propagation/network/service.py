@@ -1,8 +1,10 @@
 """Indexed, exhaustive, and sensitivity network orchestration."""
 
 from __future__ import annotations
+
 from collections import defaultdict
 from collections.abc import Sequence
+
 from bijux_pollenomics.analysis.propagation.candidates import (
     DEFAULT_PROPAGATION_SCENARIO,
     CandidatePropagationScenario,

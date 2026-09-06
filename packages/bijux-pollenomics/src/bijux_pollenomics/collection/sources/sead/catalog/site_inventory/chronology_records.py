@@ -7,7 +7,6 @@ from collections.abc import Mapping
 from bijux_pollenomics.core.bp_time import normalize_bp_interval
 from bijux_pollenomics.core.text import clean_optional_text
 
-from .values import parse_optional_int, parse_required_int
 from .temporal import (
     _interval_from_relative_age_label,
     _normalize_optional_interval,
@@ -15,6 +14,7 @@ from .temporal import (
     _relative_interval_from_range,
     sead_dating_interval,
 )
+from .values import parse_optional_int, parse_required_int
 
 
 def _build_relative_period_row(

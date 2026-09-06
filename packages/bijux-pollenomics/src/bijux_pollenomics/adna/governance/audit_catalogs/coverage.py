@@ -2,11 +2,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from bijux_pollenomics.adna.workflow.paths import adna_species_root
-
 from bijux_pollenomics.adna.projects.registry.context import resolve_project_context
 from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from bijux_pollenomics.adna.species.tracked_species import TRACKED_ADNA_SPECIES
+from bijux_pollenomics.adna.workflow.paths import adna_species_root
+
 from .contracts import CoverageDashboard, CoverageRow, ShippedProductAudit
 from .repository import (
     _atlas_locality_count,

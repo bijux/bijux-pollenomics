@@ -1,13 +1,12 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import re
 import shutil
 import subprocess
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
 from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
 from bijux_pollenomics.reporting.map_document.payload import serialize_json_for_script

@@ -20,7 +20,7 @@ from ..scoring import (
     _build_band_maxima,
     _build_raw_band_metrics,
 )
-from .signals import _TotalScorePolicy, _build_band_score
+from .signals import _build_band_score, _TotalScorePolicy
 
 __all__: list[str] = []
 

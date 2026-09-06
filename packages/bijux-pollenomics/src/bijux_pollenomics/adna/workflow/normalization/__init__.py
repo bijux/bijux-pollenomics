@@ -21,18 +21,18 @@ from .service import build_species_normalization_bundle
 
 __all__ = [
     "ADNA_DOMESTICATION_STATUSES",
+    "RECOVERED_SAMPLE_EVIDENCE_STATUSES",
     "AdnaCoordinateResolution",
     "AdnaNormalizationLineage",
     "AdnaNormalizationRefusal",
     "AdnaProjectSummary",
     "AdnaSpeciesNormalizationBundle",
     "AdnaStudySummary",
-    "RECOVERED_SAMPLE_EVIDENCE_STATUSES",
     "build_species_normalization_bundle",
     "build_species_project_locality_records",
+    "normalize_breed_label",
     "normalize_chronology_text",
     "normalize_coordinate_resolution",
     "normalize_explicit_bp_window",
-    "normalize_breed_label",
     "normalize_species_anchor",
 ]

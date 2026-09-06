@@ -1,13 +1,12 @@
 """Complete admitted-acquisition fixture construction and entry points."""
 
 from __future__ import annotations
+
 from pathlib import Path
+
 from bijux_pollenomics.collection.sources.boundaries.collection import (
     BOUNDARY_CODES,
     NATURAL_EARTH_VERSION,
-)
-from bijux_pollenomics.collection.sources.sead.acquisition.full import (
-    TABLE_PAYLOAD_SCHEMA_VERSION,
 )
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     SeadAcquisitionAdmission,
@@ -17,6 +16,9 @@ from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
 )
 from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_LINKED_SOURCE_TABLES,
+)
+from bijux_pollenomics.collection.sources.sead.acquisition.full import (
+    TABLE_PAYLOAD_SCHEMA_VERSION,
 )
 from bijux_pollenomics.collection.sources.sead.acquisition.scoped import (
     SCOPED_RECEIPT_SCHEMA_VERSION,

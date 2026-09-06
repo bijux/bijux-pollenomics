@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.reporting.adna.foundation_outputs.release import (
     _has_text_value,
     build_animal_publication_release_gate,

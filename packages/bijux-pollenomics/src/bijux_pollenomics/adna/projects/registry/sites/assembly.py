@@ -5,10 +5,10 @@ from __future__ import annotations
 from pathlib import Path
 from typing import TypeVar
 
+from ....sources.archive import build_archive_project_catalog
 from ...evidence.coordinates import resolve_project_coordinate_provenance
 from ...evidence.sites import resolve_project_site_evidence
 from ...sample_master import build_project_sample_master_rows
-from ....sources.archive import build_archive_project_catalog
 from .evidence import (
     _artifact_kind_from_path,
     _project_level_locality_status,

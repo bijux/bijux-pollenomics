@@ -6,7 +6,6 @@ from pathlib import Path
 
 from tests.support.repository import REPOSITORY_ROOT
 
-
 _POLICY_ROOT = (
     REPOSITORY_ROOT
     / "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/release_evidence/policy"

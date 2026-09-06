@@ -6,7 +6,6 @@ from pathlib import Path
 
 from tests.support.repository import REPOSITORY_ROOT
 
-
 _SOURCE_ROOT = (
     REPOSITORY_ROOT
     / "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/neotoma"

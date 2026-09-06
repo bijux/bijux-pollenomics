@@ -8,17 +8,16 @@ from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     sead as sead_projection,
 )
+
 from tests.support.sead_evidence import (
     install_sead_projection_fixture,
     sead_projection_layers,
 )
 
 from ..fixtures.common import _decode_dictionary_table, _decode_sead_claim_table
-
 
 _CANONICAL_PROJECTION_SHA256 = (
     "60a17d55baa42eef324b0a60d44bbde239b092355024a13c3bfeaeac0d4c2652"

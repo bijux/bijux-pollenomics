@@ -17,14 +17,14 @@ from ..codec import _require_identity as _require_identity
 from ..codec import _require_unique as _require_unique
 from ..codec import _string_field as _string_field
 from ..codec import _string_items as _string_items
+from ..models import _ARTIFACT_ROLES as _ARTIFACT_ROLES
+from ..models import _RELEASE_POLICY_PATH as _RELEASE_POLICY_PATH
 from ..models import ArtifactRole as ArtifactRole
 from ..models import ReleaseEvidenceError as ReleaseEvidenceError
-from ..models import _ARTIFACT_ROLES as _ARTIFACT_ROLES
 from ..models import _ArtifactOwnershipRule as _ArtifactOwnershipRule
 from ..models import _BundleInventory as _BundleInventory
 from ..models import _EmbeddedProducerIdentity as _EmbeddedProducerIdentity
 from ..models import _PropagationContractIdentity as _PropagationContractIdentity
-from ..models import _RELEASE_POLICY_PATH as _RELEASE_POLICY_PATH
 from ..models import _ReleaseEvidencePolicy as _ReleaseEvidencePolicy
 from ..models import _RequiredArtifact as _RequiredArtifact
 from ..models import _RequiredReconciliation as _RequiredReconciliation

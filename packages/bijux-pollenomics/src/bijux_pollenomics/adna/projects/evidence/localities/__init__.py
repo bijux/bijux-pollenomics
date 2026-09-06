@@ -18,8 +18,8 @@ from .worksheets import build_project_locality_worksheet_rows
 __all__ = [
     "ADNA_LOCALITY_CLASSES",
     "build_project_locality_completeness_rows",
-    "build_project_locality_worksheet_rows",
     "build_project_locality_substitution_ledger",
+    "build_project_locality_worksheet_rows",
     "build_project_sample_locality_evidence_rows",
     "build_sample_locality_conflict_ledger",
     "build_sample_locality_manual_curation_workflow_rows",

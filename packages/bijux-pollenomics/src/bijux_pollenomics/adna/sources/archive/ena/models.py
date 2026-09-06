@@ -3,7 +3,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Final
 
-
 ADNA_ENA_RESULT_KINDS: Final[tuple[str, ...]] = ("read_run", "analysis")
 
 

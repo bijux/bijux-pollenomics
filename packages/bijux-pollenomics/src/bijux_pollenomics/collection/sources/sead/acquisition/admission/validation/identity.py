@@ -1,7 +1,9 @@
 """Expected, embedded, and country-decision identity validation."""
 
 from __future__ import annotations
+
 from collections.abc import Mapping
+
 from ..codec import (
     _expect_equal,
     _required_text,
@@ -9,10 +11,10 @@ from ..codec import (
     _sha256_id,
 )
 from ..models import (
-    SeadAdmissionExpectedIdentity,
     _COUNTRY_NAMES,
     _SAFE_RUN_ID,
     _TARGET_COUNTRY_CODES,
+    SeadAdmissionExpectedIdentity,
 )
 
 

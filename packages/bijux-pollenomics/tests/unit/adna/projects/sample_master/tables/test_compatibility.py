@@ -8,7 +8,6 @@ from pathlib import Path
 
 from bijux_pollenomics.adna.projects.sample_master import tables
 
-
 _LEGACY_FUNCTIONS = (
     "_build_goat_canary_rows",
     "_build_goat_imputation_rows",

@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.reporting.adna.foundation_outputs.drift import (
     build_animal_cross_surface_drift_report,
 )

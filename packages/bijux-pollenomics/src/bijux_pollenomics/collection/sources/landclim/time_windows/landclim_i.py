@@ -102,8 +102,12 @@ def _merge_landclim_i_time_windows(
 def _landclim_i_values_by_cell(
     path: Path, sheet_name: str
 ) -> dict[str, dict[str, float]]:
-    from . import _landclim_i_header_index, _numeric_values, clean_optional_text
-    from . import read_xlsx_sheet_rows
+    from . import (
+        _landclim_i_header_index,
+        _numeric_values,
+        clean_optional_text,
+        read_xlsx_sheet_rows,
+    )
 
     try:
         rows = read_xlsx_sheet_rows(path, sheet_name)

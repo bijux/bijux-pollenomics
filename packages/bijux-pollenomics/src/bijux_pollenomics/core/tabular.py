@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
 import csv
 import io
+from collections.abc import Mapping, Sequence
 
 
 def render_csv_rows(rows: Sequence[Mapping[str, object]]) -> str:

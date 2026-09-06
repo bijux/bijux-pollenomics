@@ -1,24 +1,23 @@
 from __future__ import annotations
 
 import hashlib
+import stat
+import unicodedata
 from dataclasses import replace
 from io import BytesIO
 from pathlib import Path
-import stat
-import unicodedata
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 import pytest
-
 from bijux_pollenomics.collection.sources.quarantine import (
     ArchiveLimits,
     ArchiveMember,
     IntakeRefusal,
+    archives,
     extract_zip_members,
     inspect_zip_archive,
+    inspection,
 )
-from bijux_pollenomics.collection.sources.quarantine import archives
-from bijux_pollenomics.collection.sources.quarantine import inspection
 
 
 def _digest(path: Path) -> str:

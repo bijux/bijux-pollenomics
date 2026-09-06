@@ -20,10 +20,10 @@ __all__ = [
     "SeadAcquisitionAdmission",
     "SeadAdmissionExpectedIdentity",
     "SeadMaterializedAdmissionSnapshot",
-    "materialize_sead_full_evidence_admission",
     "materialize_sead_acquisition_admission",
-    "validate_materialized_sead_full_evidence_admission",
+    "materialize_sead_full_evidence_admission",
     "read_materialized_sead_full_evidence_admission",
-    "validate_sead_full_evidence_admission",
+    "validate_materialized_sead_full_evidence_admission",
     "validate_sead_acquisition_admission",
+    "validate_sead_full_evidence_admission",
 ]

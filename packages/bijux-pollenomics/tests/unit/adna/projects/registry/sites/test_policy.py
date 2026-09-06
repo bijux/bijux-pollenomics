@@ -5,8 +5,8 @@ from __future__ import annotations
 from types import SimpleNamespace
 
 from bijux_pollenomics.adna.projects.registry.sites import (
-    _Hierarchy,
     _artifact_kind_from_path,
+    _Hierarchy,
     _project_level_locality_status,
     _recommended_next_surface,
     _resolve_hierarchy,

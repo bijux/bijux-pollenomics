@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable, Iterable, Sequence
 import importlib
+from collections.abc import Callable, Iterable, Sequence
 from pathlib import Path
 from types import ModuleType
 from typing import cast

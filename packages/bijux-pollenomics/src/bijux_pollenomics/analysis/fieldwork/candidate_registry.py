@@ -1,15 +1,15 @@
 from __future__ import annotations
 
+import json
+import unicodedata
 from collections import defaultdict
 from collections.abc import Iterable, Sequence
-import json
 from pathlib import Path
-import unicodedata
 
-from ...core import haversine_km
 from ...collection.spatial.representative_points import (
     geometry_to_representative_point,
 )
+from ...core import haversine_km
 
 __all__ = [
     "SOUTHERN_SWEDEN_LAKE_REVIEW_TARGETS",

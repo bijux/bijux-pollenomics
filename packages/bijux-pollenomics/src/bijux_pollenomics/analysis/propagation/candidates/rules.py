@@ -133,10 +133,10 @@ def assess_candidate_propagation(
     source_longitude: float,
     target_latitude: float,
     target_longitude: float,
-    source_younger_bp: float | int | None,
-    source_older_bp: float | int | None,
-    target_younger_bp: float | int | None,
-    target_older_bp: float | int | None,
+    source_younger_bp: float | None,
+    source_older_bp: float | None,
+    target_younger_bp: float | None,
+    target_older_bp: float | None,
     scenario: CandidatePropagationScenario = DEFAULT_PROPAGATION_SCENARIO,
 ) -> CandidatePropagationAssessment:
     """Evaluate one schema-compatible pair without inferring route or causation."""

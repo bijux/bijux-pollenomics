@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from ..candidates import _derive_lake_candidates
 from ..methodology import _build_empty_report, _build_methodology
-from ..models import LakeEvidenceRichnessReport, _AGGREGATE_RADIUS_WEIGHTS
+from ..models import _AGGREGATE_RADIUS_WEIGHTS, LakeEvidenceRichnessReport
 from ..temporal import _attach_temporal_context
 from .context import _ReportContext
 from .policies import (

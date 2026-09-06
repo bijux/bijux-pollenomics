@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import hashlib
 import json
-from pathlib import Path
 import tempfile
-from typing import cast
 import unittest
+from pathlib import Path
+from typing import cast
 from unittest.mock import patch
 
 from bijux_pollenomics.collection.sources.boundaries.collection import (

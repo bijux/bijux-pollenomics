@@ -20,8 +20,8 @@ from ..workbook import _read_xlsx_rows
 from .official_evidence import (
     ARTICLE_SOURCE_PATH,
     ENA_SAMPLE_SOURCE_DIRECTORY,
-    BalticSheepOfficialEvidenceBundle,
     BalticSheepMaterialEvidenceConflict,
+    BalticSheepOfficialEvidenceBundle,
     build_baltic_sheep_material_conflict,
     load_baltic_sheep_official_evidence,
 )

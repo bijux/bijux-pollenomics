@@ -4,14 +4,16 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import TypedDict
+
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from bijux_pollenomics.adna.workflow.source_artifacts import (
     resolve_source_artifact_path,
 )
-from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
+
 from .models import (
+    SOURCE_LIBRARY_SCHEMA_VERSION,
     AdnaProjectRegistryRow,
     AdnaSourceBundleManifest,
-    SOURCE_LIBRARY_SCHEMA_VERSION,
 )
 from .registries import (
     build_paper_registry,

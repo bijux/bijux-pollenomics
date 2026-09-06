@@ -6,7 +6,6 @@ import re
 
 from bijux_pollenomics.core.bp_time import build_bp_interval_label
 
-
 _CALENDAR_YEAR_RE = re.compile(
     r"(?P<year>\d{1,5})\s*(?:cal\s*)?(?P<era>BC|BCE|AD|CE)\b",
     re.IGNORECASE,

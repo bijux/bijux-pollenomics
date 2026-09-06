@@ -1,15 +1,14 @@
 from __future__ import annotations
 
-from hypothesis import given
-from hypothesis import strategies as st
 import pytest
-
 from bijux_pollenomics.core.temporal_semantics import (
     InvalidBpIntervalError,
     canonical_bp_interval,
     closed_bp_intervals_overlap,
     directional_lag_bounds,
 )
+from hypothesis import given
+from hypothesis import strategies as st
 
 
 @pytest.mark.parametrize(
@@ -86,8 +85,8 @@ def test_closed_bp_interval_overlap(
 )
 def test_invalid_canonical_intervals_are_refused(
     fixture_id: str,
-    younger: float | int | None,
-    older: float | int | None,
+    younger: float | None,
+    older: float | None,
 ) -> None:
     del fixture_id
     with pytest.raises(InvalidBpIntervalError):

@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
-from bijux_pollenomics.reporting.presentation import publish_report_portal
-from bijux_pollenomics.reporting.presentation import report_portal
+from bijux_pollenomics.reporting.presentation import (
+    publish_report_portal,
+    report_portal,
+)
 
 
 class ReportPortalUnitTests(unittest.TestCase):

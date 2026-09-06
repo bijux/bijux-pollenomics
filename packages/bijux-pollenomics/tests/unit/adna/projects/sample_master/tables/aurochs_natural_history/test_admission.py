@@ -5,14 +5,12 @@ from __future__ import annotations
 from collections import Counter
 
 import pytest
-
 from bijux_pollenomics.adna import ADNA_DATING_BASES
 from bijux_pollenomics.adna.projects.sample_master import (
     build_project_sample_master_rows,
 )
 
 from .support import DATA_ROOT
-
 
 pytestmark = pytest.mark.generated_artifacts
 

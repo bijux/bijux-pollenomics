@@ -7,18 +7,15 @@ from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     LakeEvidenceRichnessReport,
 )
 
+from ..lake_fieldwork_priority import band_score as _band_score
 from .candidate_features import (
     _render_context_evidence_json,
     _render_temporal_evidence_json,
 )
-
 from .presentation import (
     _google_maps_url,
     _render_source_point_cell,
 )
-
-from ..lake_fieldwork_priority import band_score as _band_score
-
 from .ranking_tables import (
     _fieldwork_rank_map,
     _fieldwork_rows,

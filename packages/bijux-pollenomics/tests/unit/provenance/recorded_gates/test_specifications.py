@@ -4,11 +4,11 @@ import os
 import re
 import subprocess
 
-from tests.support.repository import REPOSITORY_ROOT
-
 from bijux_pollenomics.governance.country_coverage import INPUT_PATHS
 from bijux_pollenomics.provenance import gates as gate_module
 from bijux_pollenomics.provenance.gates import build_product_gate_specification
+
+from tests.support.repository import REPOSITORY_ROOT
 
 
 def test_product_map_gate_binds_generated_report_tree() -> None:

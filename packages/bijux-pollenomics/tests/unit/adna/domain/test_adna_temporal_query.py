@@ -1,14 +1,12 @@
 from __future__ import annotations
 
 import pytest
-
 from bijux_pollenomics.adna import (
     AdnaSampleQuery,
     build_species_runtime_manifest,
     load_species_samples,
 )
 from bijux_pollenomics.adna import homo_sapiens as homo_sapiens_runtime
-from bijux_pollenomics.adna.workflow import runtime as adna_runtime
 from bijux_pollenomics.adna.domain.models import (
     AdnaChronology,
     AdnaCoordinate,
@@ -16,6 +14,7 @@ from bijux_pollenomics.adna.domain.models import (
     AdnaSampleIdentity,
     AdnaSampleRecord,
 )
+from bijux_pollenomics.adna.workflow import runtime as adna_runtime
 from bijux_pollenomics.core.temporal_semantics import InvalidBpIntervalError
 
 

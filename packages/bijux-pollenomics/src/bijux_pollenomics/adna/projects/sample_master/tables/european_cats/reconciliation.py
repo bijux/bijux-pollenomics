@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import csv
 from dataclasses import dataclass
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import ROUND_HALF_UP, Decimal
 from io import StringIO
 from pathlib import Path
 from typing import Final
@@ -19,7 +19,6 @@ from .chronology import (
     _calendar_union_bp,
     _calendar_union_label,
 )
-
 
 EUROPEAN_CAT_PROJECT_ACCESSION: Final = "PRJEB81815"
 EUROPEAN_CAT_WORKBOOK_MEMBER: Final = "science.adt2642_tables s1_to_s8.xlsx"

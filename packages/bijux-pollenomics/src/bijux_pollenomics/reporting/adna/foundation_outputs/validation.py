@@ -1,8 +1,10 @@
 """Animal foundation validation responsibilities."""
 
 from __future__ import annotations
-from typing import Any
+
 from pathlib import Path
+from typing import Any
+
 from ....adna.sources.library import (
     build_project_source_bundles,
 )

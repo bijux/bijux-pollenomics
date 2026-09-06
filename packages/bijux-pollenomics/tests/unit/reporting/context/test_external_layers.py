@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from typing import cast
 import unittest
+from typing import cast
 
 from bijux_pollenomics.reporting.context import (
     build_external_point_layer,

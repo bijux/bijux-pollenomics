@@ -1,18 +1,21 @@
 """Receipts tests."""
 
 from __future__ import annotations
+
+import tempfile
+import unittest
 from collections.abc import Sequence
 from dataclasses import replace
 from pathlib import Path
-import tempfile
 from typing import cast
-import unittest
+
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     validate_sead_acquisition_admission,
 )
 from bijux_pollenomics.collection.sources.sead.acquisition.admission.validation import (
     receipts as admission_receipts,
 )
+
 from .fixtures import (
     _BUILD_ID,
     _PARENT_RUN_ID,

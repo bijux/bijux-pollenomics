@@ -5,7 +5,7 @@ from .models import MapEvidenceProjection
 from .service import build_map_evidence_projection
 
 __all__ = [
-    "MapEvidenceProjection",
     "PROJECTION_SCHEMA_VERSION",
+    "MapEvidenceProjection",
     "build_map_evidence_projection",
 ]

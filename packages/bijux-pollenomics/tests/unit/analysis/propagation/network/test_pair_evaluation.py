@@ -4,8 +4,6 @@ from __future__ import annotations
 
 from dataclasses import replace
 
-from pyproj import Geod
-
 from bijux_pollenomics.analysis.propagation.candidates import (
     DEFAULT_PROPAGATION_SCENARIO,
     CandidatePropagationScenario,
@@ -17,6 +15,7 @@ from bijux_pollenomics.analysis.propagation.network import (
     generate_propagation_network,
 )
 from bijux_pollenomics.core.geospatial.distance import wgs84_inverse_geodesic
+from pyproj import Geod
 
 from .support import event, scenario
 

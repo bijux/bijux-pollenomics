@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+import hashlib
+import json
 from collections import Counter, defaultdict
 from collections.abc import Iterable
 from decimal import Decimal
-import hashlib
-import json
 
 from ...spatial.country_classification import (
     CountryAttributionDecision,

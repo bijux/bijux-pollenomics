@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.collection.contracts.models import SourceAcquisitionMetadata
 from bijux_pollenomics.collection.catalog.traceability import (
     build_source_traceability_records,
 )
+from bijux_pollenomics.collection.contracts.models import SourceAcquisitionMetadata
 
 
 class SourceTraceabilityUnitTests(unittest.TestCase):

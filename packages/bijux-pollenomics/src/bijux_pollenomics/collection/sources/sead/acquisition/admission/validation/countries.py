@@ -1,12 +1,15 @@
 """Country assignment accounting and spatial reconciliation."""
 
 from __future__ import annotations
+
+import hashlib
 from collections import Counter
 from collections.abc import Mapping, Sequence
-import hashlib
+
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     NORDIC_COUNTRY_CODES,
 )
+
 from ..codec import (
     _bbox,
     _canonical_bytes,
@@ -20,11 +23,7 @@ from ..codec import (
     _required_text,
     _sha256_id,
 )
-from .contracts import _bbox_query_parameters
 from ..models import (
-    SeadAdmissionExpectedIdentity,
-    _AdmissionProfile,
-    _BoundaryAuthority,
     _COUNTRY_DECISIONS_SCHEMA_VERSION,
     _COUNTRY_NAMES,
     _COUNTRY_RECONCILIATION_SCHEMA_VERSION,
@@ -33,13 +32,16 @@ from ..models import (
     _SITE_PRIMARY_KEY,
     _SITE_PROJECTION,
     _TARGET_COUNTRY_CODES,
+    SeadAdmissionExpectedIdentity,
+    _AdmissionProfile,
+    _BoundaryAuthority,
 )
-from .receipts import _validate_acquisition_receipt
-
+from .contracts import _bbox_query_parameters
 from .identity import (
     _validate_country_decision_vocabulary,
     _validate_identities,
 )
+from .receipts import _validate_acquisition_receipt
 
 
 def _validate_site_rows(rows: Sequence[Mapping[str, object]]) -> None:

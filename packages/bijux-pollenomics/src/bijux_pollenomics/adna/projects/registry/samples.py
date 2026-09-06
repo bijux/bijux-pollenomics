@@ -3,9 +3,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from ....core.repository import repository_data_root
-from ...sources.archive import AdnaArchiveProject, build_species_archive_projects
-from ...species.definitions import resolve_species_definition
 from bijux_pollenomics.adna.projects.registry.context import (
     AdnaProjectContext,
     resolve_project_context,
@@ -14,6 +11,10 @@ from bijux_pollenomics.adna.projects.registry.localities import (
     AdnaProjectLocalityLead,
     resolve_project_locality_leads,
 )
+
+from ....core.repository import repository_data_root
+from ...sources.archive import AdnaArchiveProject, build_species_archive_projects
+from ...species.definitions import resolve_species_definition
 from ..sample_master import AdnaProjectSampleMasterRow, build_project_sample_master_rows
 
 __all__ = [

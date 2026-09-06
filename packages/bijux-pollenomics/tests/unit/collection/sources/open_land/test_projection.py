@@ -3,7 +3,6 @@ from __future__ import annotations
 from decimal import Decimal
 
 import pytest
-
 from bijux_pollenomics.collection.sources.open_land.models import ModeledLandCoverCell
 from bijux_pollenomics.collection.sources.open_land.projection import (
     project_nordic_modeled_land_cover,

@@ -1,10 +1,12 @@
 """Materialization tests."""
 
 from __future__ import annotations
-from dataclasses import replace
+
 import hashlib
 import json
+from dataclasses import replace
 from pathlib import Path
+
 from .support import (
     _PROPAGATION_CONTRACT_DIGEST,
     _PROPAGATION_CONTRACT_VERSION,

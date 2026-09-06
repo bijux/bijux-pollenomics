@@ -1,11 +1,8 @@
 from __future__ import annotations
 
-
-from tests.support.repository import REPOSITORY_ROOT
 import unittest
 
 import pytest
-
 from bijux_pollenomics.adna.sources.recovery import (
     ADNA_INTAKE_STAGE_KEYS,
     build_manual_curation_worklist,
@@ -19,6 +16,8 @@ from bijux_pollenomics.adna.sources.recovery import (
     build_species_project_deficit_ledger,
     render_source_recovery_release_guard_markdown,
 )
+
+from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts
 

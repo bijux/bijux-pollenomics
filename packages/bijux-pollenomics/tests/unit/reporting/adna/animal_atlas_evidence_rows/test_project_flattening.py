@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 from bijux_pollenomics.reporting.adna import build_tracked_animal_atlas_evidence_rows
 

@@ -3,7 +3,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Final
 
-
 ADNA_ACCESSION_SCOPES: Final[tuple[str, ...]] = (
     "project",
     "sample",

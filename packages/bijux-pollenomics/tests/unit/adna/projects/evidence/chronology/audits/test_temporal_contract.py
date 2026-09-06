@@ -7,7 +7,6 @@ from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.adna.projects.evidence.chronology import audits
 
 from .support import project_catalog, rows_for_project

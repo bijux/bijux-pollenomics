@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from dataclasses import MISSING, fields
 import hashlib
 import inspect
 import json
+from dataclasses import MISSING, fields
 from typing import Any
 
 from bijux_pollenomics.adna.domain import models

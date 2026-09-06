@@ -5,7 +5,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Final
 
-
 ARCHIVE_GZIP_SHA256: Final = (
     "6f958dbaf61775f20e5acf59fe3a3616ab6ec3ef9ac9b8399a00e1e9e82a6487"
 )
@@ -355,15 +354,15 @@ DARIALI_SOURCE_COORDINATE: Final = "UTM 38N 469400, 4731800; datum not stated"
 
 __all__ = [
     "APPROXIMATE_BP_BY_SAMPLE",
-    "ARCHIVE_ONLY_IDENTITIES",
     "ARCHIVE_GZIP_SHA256",
+    "ARCHIVE_ONLY_IDENTITIES",
     "ARCHIVE_TEXT_SHA256",
     "CANONICAL_BP_INTERVAL_BY_SAMPLE",
     "CHRONOLOGY_CONFLICT_BY_SAMPLE",
-    "CattleSiteEvidence",
     "DARIALI_SOURCE_COORDINATE",
     "EXPLICIT_ARCHIVE_ALIASES",
+    "FERTILE_CRESCENT_CATTLE_SUPPLEMENT_SHA256",
     "SITE_EVIDENCE",
     "SOURCE_INTERVAL_BY_SAMPLE",
-    "FERTILE_CRESCENT_CATTLE_SUPPLEMENT_SHA256",
+    "CattleSiteEvidence",
 ]

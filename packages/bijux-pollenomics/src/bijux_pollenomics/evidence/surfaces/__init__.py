@@ -11,9 +11,17 @@ from .countries import _build_country_profiles
 from .layers import _build_atlas_layers
 from .posture import (
     _chronology_posture_for as _chronology_posture_for,
+)
+from .posture import (
     _contribution_role_for as _contribution_role_for,
+)
+from .posture import (
     _geography_posture_for as _geography_posture_for,
+)
+from .posture import (
     _interaction_posture_for as _interaction_posture_for,
+)
+from .posture import (
     _rationale_for as _rationale_for,
 )
 from .refusals import _build_refusals

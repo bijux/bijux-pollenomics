@@ -27,20 +27,20 @@ from .homo_sapiens import (
 )
 
 __all__ = [
-    "SchemaError",
     "AnimalAtlasBundle",
     "AnimalAtlasCoordinateReview",
     "AnimalAtlasEvidenceRow",
     "CountryAnimalOutputBundle",
+    "SchemaError",
+    "build_country_animal_output_bundle",
     "build_tracked_animal_atlas_bundle",
     "build_tracked_animal_atlas_coordinate_review",
     "build_tracked_animal_atlas_evidence_rows",
-    "build_country_animal_output_bundle",
     "discover_anno_files",
     "iter_samples_from_anno",
     "load_country_samples",
-    "load_tracked_animal_mappable_localities",
     "load_tracked_animal_localities",
+    "load_tracked_animal_mappable_localities",
     "summarize_localities",
 ]
 

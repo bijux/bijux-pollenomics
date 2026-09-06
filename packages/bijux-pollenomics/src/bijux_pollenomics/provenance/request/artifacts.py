@@ -6,8 +6,11 @@ from collections.abc import Callable
 from pathlib import Path
 from typing import cast
 
-from ..release_evidence.models import ArtifactInput, ArtifactReference
-from ..release_evidence.models import _ReleaseEvidencePolicy
+from ..release_evidence.models import (
+    ArtifactInput,
+    ArtifactReference,
+    _ReleaseEvidencePolicy,
+)
 
 
 def derive_artifact_inputs(

@@ -6,12 +6,13 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import re
 import sys
+from pathlib import Path
 from typing import cast
 
 from bijux_pollenomics.adna.workflow.paths import adna_species_root
+
 from ....species.definitions import resolve_species_definition
 from ....species.tracked_species import TRACKED_ADNA_SPECIES
 from .classification import (
@@ -22,15 +23,21 @@ from .classification import (
     sample_truth_status,
     status_counts,
 )
+from .dependencies import SampleTruthDependencies
 from .drift import (
     build_project_locality_count_drift as _build_project_drift,
+)
+from .drift import (
     build_species_sample_count_drift as _build_species_drift,
 )
-from .dependencies import SampleTruthDependencies
 from .foundation import build_animal_sample_foundation_truth as _build_foundation_truth
 from .markdown import (
     render_animal_sample_aggregation_warnings_markdown as _render_warnings_markdown,
+)
+from .markdown import (
     render_animal_sample_foundation_truth_markdown as _render_truth_markdown,
+)
+from .markdown import (
     render_animal_sample_product_contract_markdown as _render_contract_markdown,
 )
 from .product_contract import build_animal_sample_product_contract as _build_contract

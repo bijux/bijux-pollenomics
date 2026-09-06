@@ -5,13 +5,15 @@ from __future__ import annotations
 from pathlib import Path
 
 from bijux_pollenomics.adna.sources import inventory
-from bijux_pollenomics.adna.sources.inventory import blocker_review
-from bijux_pollenomics.adna.sources.inventory import materialization
-from bijux_pollenomics.adna.sources.inventory import model
-from bijux_pollenomics.adna.sources.inventory import project_evidence
-from bijux_pollenomics.adna.sources.inventory import reference_reconciliation
-from bijux_pollenomics.adna.sources.inventory import rendering
-from bijux_pollenomics.adna.sources.inventory import supplements
+from bijux_pollenomics.adna.sources.inventory import (
+    blocker_review,
+    materialization,
+    model,
+    project_evidence,
+    reference_reconciliation,
+    rendering,
+    supplements,
+)
 
 
 def test_facade_preserves_the_source_inventory_contract() -> None:

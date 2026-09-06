@@ -5,7 +5,6 @@ from __future__ import annotations
 from dataclasses import replace
 
 import pytest
-
 from bijux_pollenomics.analysis.propagation.network import EventValidationError
 from bijux_pollenomics.analysis.propagation.network.codec import _event_manifest_digest
 

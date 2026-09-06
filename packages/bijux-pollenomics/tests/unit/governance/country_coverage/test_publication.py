@@ -1,11 +1,13 @@
 """Country-coverage identity and fail-closed publication tests."""
 
 from __future__ import annotations
+
 import hashlib
 import json
-from pathlib import Path
 import tempfile
+from pathlib import Path
 from typing import cast
+
 import pytest
 from bijux_pollenomics.governance.country_coverage import (
     CELL_SCHEMA_ID,
@@ -15,6 +17,7 @@ from bijux_pollenomics.governance.country_coverage import (
 from bijux_pollenomics.governance.country_coverage import (
     service as country_coverage_service,
 )
+
 from .fixtures import (
     _CELL_SCHEMA_PATH,
     _COUNTRY_COVERAGE_ARTIFACT_ROOT,

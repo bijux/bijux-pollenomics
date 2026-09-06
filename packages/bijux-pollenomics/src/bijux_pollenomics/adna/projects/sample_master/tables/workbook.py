@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
+import zipfile
 from functools import lru_cache
 from io import BytesIO
 from pathlib import Path
-import zipfile
 
 from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 

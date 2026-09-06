@@ -5,8 +5,11 @@ from __future__ import annotations
 from pathlib import Path
 from typing import cast
 
-from .authority import _boundary_identity, _build_boundary_review
-from .authority import _load_boundary_authority
+from .authority import (
+    _boundary_identity,
+    _build_boundary_review,
+    _load_boundary_authority,
+)
 from .decisions import _decision_summary, build_point_country_decision
 from .loaders import _load_governed_points
 from .models import BoundaryCountryReviewReport, JsonObject

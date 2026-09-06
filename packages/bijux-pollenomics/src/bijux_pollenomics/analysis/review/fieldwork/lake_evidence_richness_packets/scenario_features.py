@@ -8,28 +8,25 @@ from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     LakeEvidenceRichnessReport,
 )
 
+from ..lake_fieldwork_priority import band_score as _band_score
 from .candidate_features import (
     _candidate_temporal_sources,
     _temporal_popup_rows,
     _temporal_properties,
     _temporal_record_id,
 )
-
-from .scenario_metrics import scenario_metric_map as _scenario_metric_map
-
 from .presentation import (
     _candidate_description,
     _candidate_media_links,
     _render_ambiguity_cell,
 )
-from ..lake_fieldwork_priority import band_score as _band_score
-
 from .ranking_tables import (
     _consensus_rows,
     _fieldwork_rank_map,
     _fieldwork_rows,
     _fieldwork_shortlist_score,
 )
+from .scenario_metrics import scenario_metric_map as _scenario_metric_map
 
 
 class LakeEvidenceScenario(TypedDict):

@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.adna.species.tracked_data import (
     materialize_tracked_species_adna,
 )

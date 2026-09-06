@@ -5,9 +5,9 @@ from __future__ import annotations
 import ast
 import inspect
 
-import bijux_pollenomics.governance.country_coverage.evidence as evidence
-from tests.support.repository import REPOSITORY_ROOT
+from bijux_pollenomics.governance.country_coverage import evidence
 
+from tests.support.repository import REPOSITORY_ROOT
 
 _EXPORTED_FUNCTIONS = (
     "_cell",

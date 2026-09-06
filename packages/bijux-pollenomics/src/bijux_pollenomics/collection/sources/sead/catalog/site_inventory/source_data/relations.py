@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from .source_tables import SeadInventorySourceRows
 from ..values import parse_optional_int, parse_required_int
+from .source_tables import SeadInventorySourceRows
 
 
 @dataclass(frozen=True, slots=True)

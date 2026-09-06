@@ -6,7 +6,6 @@ from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.core.repository import repository_data_root
 from bijux_pollenomics.reporting.adna import animal_localities
 

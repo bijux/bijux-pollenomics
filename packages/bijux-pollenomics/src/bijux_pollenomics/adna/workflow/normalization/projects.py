@@ -1,9 +1,12 @@
 """Project, study, and lineage normalization."""
 
 from __future__ import annotations
-from collections import defaultdict
+
 import re
+from collections import defaultdict
+
 from bijux_pollenomics.adna.workflow.paths import ADNA_SPECIES_DIR
+
 from ...projects.registry.context import AdnaProjectContext, resolve_project_context
 from ...sources.archive import (
     AdnaArchiveProject,
@@ -11,7 +14,6 @@ from ...sources.archive import (
     classify_archive_project_evidence,
 )
 from ...species.definitions import AdnaSpeciesDefinition, resolve_species_definition
-
 from .models import (
     AdnaNormalizationLineage,
     AdnaNormalizationRefusal,

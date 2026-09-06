@@ -2,18 +2,18 @@
 
 from __future__ import annotations
 
+import csv
+import json
 from collections import defaultdict
 from collections.abc import Iterable, Mapping, Sequence
-import csv
 from dataclasses import dataclass
 from datetime import date
-import json
 from pathlib import Path
 
 from .....core.files import write_json
 from .....core.temporal_semantics import build_temporal_semantics
-from ....exports.context_points import write_context_points_geojson
 from ....contracts.models import ContextPointRecord
+from ....exports.context_points import write_context_points_geojson
 
 DISCOVERY_LAYER_KEY = "sweden-archaeology-site-discovery"
 DISCOVERY_LAYER_LABEL = "Sweden archaeology site discovery"

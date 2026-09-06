@@ -5,8 +5,11 @@ from __future__ import annotations
 from itertools import product
 from pathlib import Path
 
-from ...release_evidence.models import CountReconciliation
-from ...release_evidence.models import _COUNTRIES, _ReleaseEvidencePolicy
+from ...release_evidence.models import (
+    _COUNTRIES,
+    CountReconciliation,
+    _ReleaseEvidencePolicy,
+)
 from .country import governed_country_values
 from .propagation import propagation_scope_counts, scope_suffix
 from .records import aggregate_source_count, derived_count, unavailable_count

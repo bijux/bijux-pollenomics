@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.collection.contracts.models import SourceAcquisitionMetadata
 from bijux_pollenomics.collection.catalog.provenance import build_source_provenance
+from bijux_pollenomics.collection.contracts.models import SourceAcquisitionMetadata
 
 
 class SourceProvenanceUnitTests(unittest.TestCase):

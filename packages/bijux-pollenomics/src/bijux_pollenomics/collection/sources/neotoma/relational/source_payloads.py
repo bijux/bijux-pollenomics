@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
 import copy
+from collections.abc import Mapping
 
 
 def copy_source_payload_excluding(

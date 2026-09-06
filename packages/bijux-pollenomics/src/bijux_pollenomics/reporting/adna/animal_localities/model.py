@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+
 from ....adna import AdnaLocalitySummary
 from ..atlas_evidence_rows import (
     AnimalAtlasCoordinateReview,

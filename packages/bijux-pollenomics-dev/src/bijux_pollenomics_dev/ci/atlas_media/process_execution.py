@@ -4,10 +4,10 @@ from __future__ import annotations
 
 import os
 import signal
-from datetime import UTC, datetime
-from pathlib import Path
 import subprocess  # nosec B404
 import time
+from datetime import UTC, datetime
+from pathlib import Path
 
 from .contracts import AtlasMediaError
 from .gallery import canonical_json_bytes, sha256_file

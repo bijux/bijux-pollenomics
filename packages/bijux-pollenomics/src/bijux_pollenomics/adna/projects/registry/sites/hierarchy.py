@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 import hashlib
-from pathlib import Path
 import re
 import shutil
 import subprocess  # nosec B404
+from dataclasses import dataclass
+from pathlib import Path
 
 _SINGLE_COUNTRY_RE = re.compile(r"^[A-Za-z][A-Za-z .'-]+$")
 _PRJEB36540_HIERARCHY_SOURCE_SHA256 = (

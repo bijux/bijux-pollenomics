@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from collections.abc import Callable
 import json
-from pathlib import Path
 import shutil
+from collections.abc import Callable
+from pathlib import Path
 
-from ...core.geospatial.geojson import as_mapping
 from ...collection.contracts.artifacts import (
     ATLAS_POINT_ARTIFACTS,
     BOUNDARY_COLLECTION,
@@ -19,6 +18,7 @@ from ...collection.contracts.artifacts import (
     SEAD_ARCHAEOLOGY_DISCOVERY_MARKDOWN,
 )
 from ...collection.sources.raa import assess_raa_density_authority
+from ...core.geospatial.geojson import as_mapping
 from ..map_publication import map_allows_context_layer
 
 __all__ = ["stage_context_point_layers", "stage_context_polygon_layers"]

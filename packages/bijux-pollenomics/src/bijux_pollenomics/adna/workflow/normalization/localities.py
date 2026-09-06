@@ -1,15 +1,18 @@
 """Project locality aggregation and Nordic context posture."""
 
 from __future__ import annotations
+
 from collections import defaultdict
+
 from bijux_pollenomics.adna.domain.models import (
     AdnaCoordinate,
     AdnaLocalityIdentity,
     AdnaLocalitySummary,
 )
+
+from ...projects.evidence.chronology import build_project_sample_chronology_rows
 from ...projects.registry.context import AdnaProjectContext, resolve_project_context
 from ...projects.registry.localities import build_species_project_locality_leads
-from ...projects.evidence.chronology import build_project_sample_chronology_rows
 from ...projects.registry.samples import (
     AdnaCuratedSampleRow,
     build_species_curated_sample_rows,
@@ -18,7 +21,6 @@ from ...sources.archive import (
     build_species_archive_projects,
 )
 from ...species.definitions import resolve_species_definition
-
 from .chronology import _aggregate_locality_chronology
 from .models import AdnaNormalizationRefusal, AdnaProjectSummary
 from .primitives import normalize_coordinate_resolution

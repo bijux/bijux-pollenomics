@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from itertools import pairwise
 import math
+from itertools import pairwise
 
 from ....core.geospatial.geojson import (
     JsonObject,

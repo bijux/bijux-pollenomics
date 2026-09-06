@@ -6,8 +6,8 @@ from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
-
 from bijux_pollenomics.reporting.bundles.atlas_bundle import playback
+
 from tests.unit.reporting.map_playback.support import modeled_manifest, source_layers
 
 

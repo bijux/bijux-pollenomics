@@ -1,16 +1,17 @@
 """Scenario denominator and connected-component reconciliation."""
 
 from __future__ import annotations
+
 from collections import defaultdict
 
 from .models import (
+    _CANDIDATE_STATUSES,
     COUNTRY_CODES,
     EVIDENCE_DOMAINS,
     PhenomenonEvent,
     PropagationCandidate,
     PropagationPairRefusal,
     ScenarioReconciliation,
-    _CANDIDATE_STATUSES,
 )
 
 

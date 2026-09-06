@@ -1,12 +1,11 @@
 from __future__ import annotations
 
-from decimal import Decimal
 import hashlib
+from decimal import Decimal
 from pathlib import Path
 from zipfile import ZipFile
 
 import pytest
-
 from bijux_pollenomics.collection.sources.open_land import normalization
 from bijux_pollenomics.collection.sources.open_land.authority import (
     SOURCE_CITATION_DOI,

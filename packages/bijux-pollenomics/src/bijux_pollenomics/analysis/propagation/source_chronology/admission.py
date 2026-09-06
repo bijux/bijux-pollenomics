@@ -163,8 +163,8 @@ def source_chronology_refusal_reason(
 __all__ = [
     "canonical_claim_interval",
     "chronology_reason",
-    "source_coordinate",
     "source_chronology_refusal_reason",
+    "source_coordinate",
     "source_observation_refusal_reason",
     "source_refusal_reason",
 ]

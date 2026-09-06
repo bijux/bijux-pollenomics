@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 from bijux_pollenomics.reporting import rendering
 from bijux_pollenomics.reporting.rendering import artifacts as rendering_artifacts

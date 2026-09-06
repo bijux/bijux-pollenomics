@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping
 import copy
+import json
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 from datetime import date
-import json
 from pathlib import Path
 
 from ....core.files import write_json
@@ -51,11 +51,11 @@ from .client import (
 )
 from .context_points import normalize_neotoma_rows
 from .country import classify_neotoma_site_country
+from .review import write_neotoma_review_outputs
 from .site_inventory import (
     build_neotoma_site_rows_from_downloads,
     build_neotoma_site_snapshot_rows,
 )
-from .review import write_neotoma_review_outputs
 
 # Neotoma bbox searches drop valid Nordic sites when paginated in smaller chunks.
 # Keep the inventory query large enough to fit in one response under current coverage.

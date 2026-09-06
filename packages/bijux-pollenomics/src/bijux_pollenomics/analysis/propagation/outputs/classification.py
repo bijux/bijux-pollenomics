@@ -1,6 +1,7 @@
 """Classification authority identity and queue validation."""
 
 from __future__ import annotations
+
 from collections import Counter
 from collections.abc import Mapping, Sequence
 from pathlib import Path

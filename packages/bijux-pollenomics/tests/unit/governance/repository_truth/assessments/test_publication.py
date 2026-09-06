@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 from bijux_pollenomics.reporting.review import publish_repository_truth_outputs
+
 from .support import RepositoryTruthTestCase
 
 

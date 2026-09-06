@@ -1,16 +1,18 @@
 """Scoped query-receipt and join-row fixture construction."""
 
 from __future__ import annotations
+
 from collections.abc import Mapping
-from bijux_pollenomics.collection.sources.sead.acquisition.full import (
-    ACQUISITION_RECEIPT_SCHEMA_VERSION,
-    TABLE_PAYLOAD_SCHEMA_VERSION,
-    reconcile_sead_join,
-)
+
 from bijux_pollenomics.collection.sources.sead.acquisition.client import (
     SEAD_LIMIT,
     SEAD_POSTGREST_ROOT,
     build_sead_in_filter,
+)
+from bijux_pollenomics.collection.sources.sead.acquisition.full import (
+    ACQUISITION_RECEIPT_SCHEMA_VERSION,
+    TABLE_PAYLOAD_SCHEMA_VERSION,
+    reconcile_sead_join,
 )
 from bijux_pollenomics.collection.sources.sead.acquisition.scoped import (
     SEAD_SCOPED_TABLE_PLANS,

@@ -6,12 +6,12 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 
 from ..constants import (
+    _AUTHORITY_STATUS_VALUES,
+    _STAGE_STATUS_VALUES,
     BOUNDARY_METHOD,
     PRODUCER_VERSION,
     PUBLICATION_METHOD,
     CountryCoverageError,
-    _AUTHORITY_STATUS_VALUES,
-    _STAGE_STATUS_VALUES,
 )
 from ..decoding import (
     _required_text,

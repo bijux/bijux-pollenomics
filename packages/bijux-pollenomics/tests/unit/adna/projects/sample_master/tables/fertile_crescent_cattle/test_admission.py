@@ -5,7 +5,6 @@ from __future__ import annotations
 from collections import Counter
 
 import pytest
-
 from bijux_pollenomics.adna.projects.sample_master import (
     build_project_sample_master_rows,
 )

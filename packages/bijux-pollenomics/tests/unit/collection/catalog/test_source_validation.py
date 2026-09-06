@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
-from bijux_pollenomics.collection.contracts.models import SourceAcquisitionMetadata
 from bijux_pollenomics.collection.catalog.validation import validate_source_snapshot
+from bijux_pollenomics.collection.contracts.models import SourceAcquisitionMetadata
 
 
 class SourceValidationUnitTests(unittest.TestCase):

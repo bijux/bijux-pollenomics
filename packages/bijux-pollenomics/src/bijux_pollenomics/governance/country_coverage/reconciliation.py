@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
+
 from .constants import (
+    COUNT_FIELDS,
     COUNTRIES,
     COUNTRY_DIMENSIONS,
-    COUNT_FIELDS,
-    CountryCoverageError,
     SOURCE_FAMILIES,
+    CountryCoverageError,
 )
 from .decoding import _object
 

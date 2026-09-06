@@ -3,11 +3,10 @@
 from __future__ import annotations
 
 import gzip
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.adna.projects.sample_master.archive import (
     _build_archive_sample_accession_lookup,
     _project_scope_archive_sample_accessions,

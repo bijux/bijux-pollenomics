@@ -7,7 +7,6 @@ from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.provenance import (
     ArtifactInput,
     ReleaseEvidenceError,

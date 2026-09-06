@@ -1,10 +1,11 @@
 from __future__ import annotations
 
-from collections import Counter
 import json
+from collections import Counter
 from pathlib import Path
 
 from bijux_pollenomics.adna.species.tracked_species import TRACKED_ADNA_SPECIES
+
 from .contracts import (
     MapReadinessAudit,
     MapReadinessPostureRow,

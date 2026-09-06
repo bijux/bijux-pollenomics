@@ -1,11 +1,11 @@
 from __future__ import annotations
 
 import pytest
-
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     acquire_sead_table,
 )
-from .support import _BBOX, _Clock, _SCOPE
+
+from .support import _BBOX, _SCOPE, _Clock
 
 
 @pytest.mark.parametrize(

@@ -1,10 +1,9 @@
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.collection.contracts.capabilities import (
     NEOTOMA_CLASSIFICATION_EVIDENCE,
     NEOTOMA_PROPAGATION_EVIDENCE,

@@ -1,14 +1,11 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
-
-from tests.support.repository import REPOSITORY_ROOT
 import tempfile
 import unittest
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.adna import (
     build_animal_sample_aggregation_warnings,
     build_animal_sample_foundation_truth,
@@ -19,6 +16,8 @@ from bijux_pollenomics.adna import (
 from bijux_pollenomics.adna.species.tracked_data import (
     materialize_tracked_species_adna,
 )
+
+from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts
 

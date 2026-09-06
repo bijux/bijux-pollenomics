@@ -7,7 +7,6 @@ from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
-
 from bijux_pollenomics.reporting.bundles.atlas_bundle.layers import prepare_layers
 
 

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import unittest
 
-from bijux_pollenomics.core.geospatial.geojson import CountryBoundaryCollection
 from bijux_pollenomics.collection.spatial import (
     CountryAttributionDecision,
     classify_country,
@@ -10,6 +9,7 @@ from bijux_pollenomics.collection.spatial import (
     geometry_to_representative_point,
     point_in_geometry,
 )
+from bijux_pollenomics.core.geospatial.geojson import CountryBoundaryCollection
 
 BOUNDARY_DIGEST = "sha256:boundary-fixture"
 BOUNDARY_VERSION = "natural-earth-5.1.1-test"

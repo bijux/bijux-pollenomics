@@ -1,23 +1,23 @@
 from __future__ import annotations
 
-
 from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     LakeEvidenceRichnessAssessment,
     LakeEvidenceRichnessReport,
 )
+
 from ..lake_fieldwork_priority import (
     band_score as fieldwork_band_score,
+)
+from ..lake_fieldwork_priority import (
     fieldwork_rows,
     fieldwork_shortlist_score,
     human_context_posture,
 )
-
-from .scenario_metrics import scenario_metric_map as _scenario_metric_map
-
 from .presentation import (
     _render_coordinate_link,
     _render_lake_area,
 )
+from .scenario_metrics import scenario_metric_map as _scenario_metric_map
 
 
 def _fieldwork_rows(

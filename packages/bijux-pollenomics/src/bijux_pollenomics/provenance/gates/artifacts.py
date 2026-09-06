@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from contextlib import suppress
 import os
-from pathlib import Path
 import stat
 import tempfile
+from contextlib import suppress
+from pathlib import Path
 
 from ..release_evidence import ReleaseEvidenceError
 from .validation import _relative_parts

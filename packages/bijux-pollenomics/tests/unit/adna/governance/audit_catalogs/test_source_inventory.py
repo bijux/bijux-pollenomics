@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import pytest
-
 from bijux_pollenomics.adna.governance.audit_catalogs.source_inventory import (
     build_cross_species_archive_inventory,
     build_cross_species_bibliography,

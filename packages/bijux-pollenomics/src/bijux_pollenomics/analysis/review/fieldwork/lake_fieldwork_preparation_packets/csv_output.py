@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable
 import csv
+from collections.abc import Callable
 from pathlib import Path
 from types import ModuleType
 from typing import Any

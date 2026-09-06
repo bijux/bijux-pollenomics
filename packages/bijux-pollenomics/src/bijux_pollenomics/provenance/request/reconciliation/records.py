@@ -4,8 +4,11 @@ from __future__ import annotations
 
 from typing import cast
 
-from ...release_evidence.models import CountReconciliation, ReconciliationDimension
-from ...release_evidence.models import _RequiredReconciliation
+from ...release_evidence.models import (
+    CountReconciliation,
+    ReconciliationDimension,
+    _RequiredReconciliation,
+)
 from .model import DerivedCount
 
 

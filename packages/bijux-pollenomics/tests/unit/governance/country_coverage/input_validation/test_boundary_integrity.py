@@ -8,7 +8,6 @@ from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.governance.country_coverage import (
     build_country_dimension_coverage_ledger,
 )

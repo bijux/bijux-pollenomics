@@ -5,11 +5,38 @@ from pathlib import Path
 
 from ...adna.species.tracked_data import materialize_tracked_species_adna
 from ...config import DEFAULT_AADR_VERSION
+from ..catalog.hashes import build_source_hashes
+from ..catalog.metadata import build_source_metadata
+from ..catalog.provenance import build_source_provenance
+from ..catalog.replacement import build_source_replacement_rules
+from ..catalog.traceability import build_source_traceability_records
+from ..catalog.validation import validate_source_snapshot
+from ..contracts.layout import (
+    build_source_layout_contract,
+    validate_source_layout_contract,
+)
+from ..contracts.models import DataCollectionReport
+from ..sources.aadr import download_aadr_anno_files
+from ..sources.boundaries import resolve_country_boundaries
 from ..sources.boundaries.collection import (
     collect_boundaries_data,
     fetch_country_boundaries,
     load_country_boundaries,
 )
+from ..sources.landclim.collection import collect_landclim_data
+from ..sources.neotoma.collection import collect_neotoma_data
+from ..sources.raa.collection import collect_raa_data
+from ..sources.sead.collection import collect_sead_data
+from ..sources.svar.collection import collect_svar_data
+from .context_collection import collect_context_source
+from .materialization.contracts import write_data_contract_surfaces
+from .materialization.reports import (
+    build_data_collection_report,
+    build_data_collection_summary,
+    initialize_source_counts,
+)
+from .materialization.staging import build_staging_output_dir, collect_into_staging_dir
+from .materialization.summary import write_collection_summary
 from .planning.layout import (
     AVAILABLE_SOURCES,
     build_source_output_roots,
@@ -17,35 +44,8 @@ from .planning.layout import (
     ensure_homo_sapiens_adna_layout,
     write_data_directory_readme,
 )
-from ..sources.landclim.collection import collect_landclim_data
-from ..contracts.models import DataCollectionReport
-from ..sources.neotoma.collection import collect_neotoma_data
-from .materialization.reports import (
-    build_data_collection_report,
-    build_data_collection_summary,
-    initialize_source_counts,
-)
-from .context_collection import collect_context_source
-from .materialization.contracts import write_data_contract_surfaces
 from .planning.requests import normalize_requested_sources
 from .planning.source_registry import CONTEXT_SOURCE_SPECS
-from .materialization.staging import build_staging_output_dir, collect_into_staging_dir
-from .materialization.summary import write_collection_summary
-from ..sources.raa.collection import collect_raa_data
-from ..sources.sead.collection import collect_sead_data
-from ..catalog.hashes import build_source_hashes
-from ..contracts.layout import (
-    build_source_layout_contract,
-    validate_source_layout_contract,
-)
-from ..catalog.metadata import build_source_metadata
-from ..catalog.provenance import build_source_provenance
-from ..catalog.replacement import build_source_replacement_rules
-from ..catalog.traceability import build_source_traceability_records
-from ..catalog.validation import validate_source_snapshot
-from ..sources.aadr import download_aadr_anno_files
-from ..sources.boundaries import resolve_country_boundaries
-from ..sources.svar.collection import collect_svar_data
 
 __all__ = [
     "AVAILABLE_SOURCES",

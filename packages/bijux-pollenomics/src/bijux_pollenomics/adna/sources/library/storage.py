@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
-from functools import cache
 import json
 import os
+from functools import cache
 from pathlib import Path
+
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from bijux_pollenomics.adna.workflow.paths import (
     adna_source_library_root,
 )
@@ -13,10 +15,10 @@ from bijux_pollenomics.adna.workflow.source_artifacts import (
     resolve_source_artifact_path,
     source_artifact_exists,
 )
-from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
+
 from .models import (
-    AdnaSourceArtifact,
     SOURCE_LIBRARY_SCHEMA_VERSION,
+    AdnaSourceArtifact,
     _ReferenceStashDraft,
     _ReferenceStashRecord,
 )

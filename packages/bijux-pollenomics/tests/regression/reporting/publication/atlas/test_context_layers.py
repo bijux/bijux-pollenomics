@@ -1,17 +1,15 @@
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
-from typing import cast
 import unittest
+from pathlib import Path
+from typing import cast
 from unittest.mock import patch
 
 import pytest
-
 from bijux_pollenomics.reporting import (
     generate_multi_country_map,
 )
-
 
 from ..fixtures.aadr import write_anno
 from ..fixtures.animal_adna import write_tracked_animal_species
@@ -22,7 +20,6 @@ from ..fixtures.context_sources import (
 )
 from ..fixtures.files import write_json
 from ..static_assets import read_static_atlas_payload_text
-
 
 pytestmark = pytest.mark.generated_artifacts
 

@@ -1,8 +1,5 @@
 from __future__ import annotations
 
-from hypothesis import assume, given
-from hypothesis import strategies as st
-
 from bijux_pollenomics.adna import (
     AdnaChronology,
     AdnaCoordinate,
@@ -15,6 +12,8 @@ from bijux_pollenomics.adna import (
 )
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.evidence import build_scientific_review_surface
+from hypothesis import assume, given
+from hypothesis import strategies as st
 
 
 @given(

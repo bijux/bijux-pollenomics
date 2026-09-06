@@ -3,14 +3,16 @@
 from __future__ import annotations
 
 from pathlib import Path
-from bijux_pollenomics.core.files import write_json, write_text
+
 from bijux_pollenomics.adna.governance.contracts import (
     materialize_adna_governance_contracts,
 )
+from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from bijux_pollenomics.adna.workflow.paths import (
     adna_source_library_root,
 )
-from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
+from bijux_pollenomics.core.files import write_json, write_text
+
 from .audits import (
     build_cross_project_source_audit,
     build_missing_source_blockers,
@@ -178,8 +180,8 @@ def materialize_source_library(output_root: Path) -> None:
     from ...projects.evidence.localities import (
         materialize_project_sample_locality_evidence_library,
     )
-    from ...projects.sample_master import materialize_sample_master_library
     from ...projects.registry.sites import materialize_project_sample_site_library
+    from ...projects.sample_master import materialize_sample_master_library
     from ..inventory import materialize_source_inventory
 
     materialize_sample_master_library(output_root)

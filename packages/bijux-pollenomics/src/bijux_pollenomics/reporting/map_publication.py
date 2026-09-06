@@ -12,9 +12,9 @@ __all__ = [
     "build_map_publication_contract",
     "map_allows_context_layer",
     "map_allows_fieldwork_layer",
-    "resolve_map_scope_policy",
     "render_map_point_traceability_markdown",
     "render_map_publication_contract_markdown",
+    "resolve_map_scope_policy",
 ]
 
 

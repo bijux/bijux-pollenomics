@@ -6,6 +6,7 @@ from pathlib import Path
 from bijux_pollenomics.collection.sources.neotoma.materialization import (
     materialize_neotoma_relational_snapshot,
 )
+
 from tests.support.sead_evidence import write_sead_projection_fixture
 
 

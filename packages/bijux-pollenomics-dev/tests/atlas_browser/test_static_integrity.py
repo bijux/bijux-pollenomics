@@ -4,7 +4,6 @@ import json
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasBrowserContractError
 from bijux_pollenomics_dev.ci.atlas_browser.static_integrity import audit_static_atlas
 

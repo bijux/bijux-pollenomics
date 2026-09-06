@@ -6,7 +6,6 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pytest
-
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     SeadAdmissionExpectedIdentity,
     materialize_sead_full_evidence_admission,
@@ -20,9 +19,9 @@ from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
 )
 
 from .support import (
-    _FullEvidencePostgrestFixture,
     _acquire,
     _full_admission_inputs,
+    _FullEvidencePostgrestFixture,
     _refresh_capture_manifest,
 )
 

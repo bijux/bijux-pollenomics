@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-
-from tests.support.repository import REPOSITORY_ROOT
 import re
 import unittest
 
 import pytest
+
+from tests.support.repository import REPOSITORY_ROOT
 
 REPO_ROOT = REPOSITORY_ROOT
 

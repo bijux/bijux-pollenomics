@@ -4,13 +4,12 @@ from __future__ import annotations
 
 from hashlib import sha256
 
-from tests.support.repository import REPOSITORY_ROOT
-
 from bijux_pollenomics.adna.workflow.source_artifacts import (
     read_source_artifact_bytes,
     read_source_artifact_text,
 )
 
+from tests.support.repository import REPOSITORY_ROOT
 
 DATA_ROOT = REPOSITORY_ROOT / "data"
 ARCHIVE_PATH = (

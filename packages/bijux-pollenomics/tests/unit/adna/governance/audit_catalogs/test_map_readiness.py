@@ -6,14 +6,13 @@ from collections import Counter
 from pathlib import Path
 
 import pytest
-
+from bijux_pollenomics.adna.governance.audit_catalogs import map_readiness
 from bijux_pollenomics.adna.governance.audit_catalogs.map_readiness import (
     _build_species_map_readiness_row,
     _map_publication_accounting,
     _map_publication_key,
     build_cross_species_map_readiness,
 )
-from bijux_pollenomics.adna.governance.audit_catalogs import map_readiness
 from bijux_pollenomics.reporting import adna as reporting_adna
 
 pytestmark = pytest.mark.generated_artifacts

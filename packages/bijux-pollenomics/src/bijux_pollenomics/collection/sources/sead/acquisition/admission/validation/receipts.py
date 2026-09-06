@@ -1,16 +1,18 @@
 """Scoped query and acquisition receipt validation."""
 
 from __future__ import annotations
-from collections.abc import Mapping, Sequence
+
 import hashlib
-from bijux_pollenomics.collection.sources.sead.acquisition.full import (
-    ACQUISITION_RECEIPT_SCHEMA_VERSION,
-    TABLE_PAYLOAD_SCHEMA_VERSION,
-)
+from collections.abc import Mapping, Sequence
+
 from bijux_pollenomics.collection.sources.sead.acquisition.client import (
     SEAD_LIMIT,
     SEAD_POSTGREST_ROOT,
     build_sead_in_filter,
+)
+from bijux_pollenomics.collection.sources.sead.acquisition.full import (
+    ACQUISITION_RECEIPT_SCHEMA_VERSION,
+    TABLE_PAYLOAD_SCHEMA_VERSION,
 )
 
 from ..codec import (
@@ -25,15 +27,15 @@ from ..codec import (
     _required_text,
     _sha256,
 )
-from .contracts import _bbox_query_parameters, _declared_table_contract
 from ..models import (
     _AGGREGATE_ROUTE,
-    _AdmissionProfile,
     _COUNTRY_SCOPE,
     _QUERY_MAX_PAGES,
     _QUERY_ROUTE,
     _QUERY_TOOL_VERSION,
+    _AdmissionProfile,
 )
+from .contracts import _bbox_query_parameters, _declared_table_contract
 
 
 def _validate_scoped_receipts(

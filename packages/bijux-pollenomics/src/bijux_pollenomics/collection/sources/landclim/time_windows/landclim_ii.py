@@ -19,6 +19,7 @@ def _merge_landclim_ii_time_windows(
 ) -> None:
     from . import (
         LANDCLIM_II_MEANS_DIRECTORY,
+        TextIOWrapper,
         ZipFile,
         _landclim_ii_standard_errors,
         _numeric_mapping,
@@ -34,7 +35,6 @@ def _merge_landclim_ii_time_windows(
         summarize_quality_labels,
         time_window_from_tw_filename,
     )
-    from . import TextIOWrapper
 
     with ZipFile(path) as archive:
         standard_errors = _landclim_ii_standard_errors(archive)

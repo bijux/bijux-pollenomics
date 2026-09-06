@@ -1,20 +1,17 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.reporting import (
     generate_country_report,
 )
 
-
 from ..fixtures.aadr import write_anno
 from ..fixtures.animal_adna import write_tracked_animal_species
-
 
 pytestmark = pytest.mark.generated_artifacts
 

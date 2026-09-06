@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import pytest
-
 from bijux_pollenomics.analysis.propagation.candidates import (
     CandidatePairRefusalError,
     assess_candidate_propagation,

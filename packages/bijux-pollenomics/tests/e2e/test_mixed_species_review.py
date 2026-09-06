@@ -1,13 +1,14 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import tempfile
+from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 
 from bijux_pollenomics.cli import main
 from bijux_pollenomics.config import DEFAULT_AADR_VERSION, DEFAULT_ATLAS_SLUG
+
 from tests.support.aadr import AADR_HEADER
 
 

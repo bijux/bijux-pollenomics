@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from dataclasses import replace
 import hashlib
+from dataclasses import replace
 from pathlib import Path
 from unittest.mock import patch
 
@@ -67,10 +67,7 @@ def materialize(
     release = read_json(classification_bundle_root / "release_metadata.json")
     authority_accepted_count = release["accepted_mapping_count"]
     assert isinstance(authority_accepted_count, int)
-    product_authority = getattr(
-        propagation_classification,
-        "_CLASSIFICATION_AUTHORITY",
-    )
+    product_authority = propagation_classification._CLASSIFICATION_AUTHORITY
     test_authority = replace(
         product_authority,
         manifest_sha256=observed_review_digest,

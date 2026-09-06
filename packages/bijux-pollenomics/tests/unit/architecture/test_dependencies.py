@@ -3,11 +3,11 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.architecture import (
     assert_acyclic_package_imports,
     find_package_import_cycles,
 )
+
 from tests.support.repository import REPOSITORY_ROOT
 
 _SOURCE_ROOT = REPOSITORY_ROOT / "packages/bijux-pollenomics/src/bijux_pollenomics"

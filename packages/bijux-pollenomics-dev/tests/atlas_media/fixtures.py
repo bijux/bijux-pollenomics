@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import shutil
 import subprocess
+from pathlib import Path
 
 from bijux_pollenomics.reporting.map_playback import (
     build_modeled_context_storyboards,
@@ -51,8 +51,8 @@ def candidate() -> AtlasCandidate:
 def _time_density(
     node_count: int,
     observation_denominator: int,
-    time_min_bp: float | int,
-    time_max_bp: float | int,
+    time_min_bp: float,
+    time_max_bp: float,
 ) -> dict[str, object]:
     span = time_max_bp - time_min_bp
     bins = (

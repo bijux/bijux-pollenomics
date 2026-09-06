@@ -1,6 +1,7 @@
 """Gate, reconciliation, blocker, and release-decision assessment."""
 
 from __future__ import annotations
+
 from collections.abc import Mapping, Sequence
 from itertools import product
 from pathlib import Path
@@ -15,12 +16,12 @@ from .codec import (
     _utc_timestamp,
 )
 from .models import (
+    _COUNTRIES,
+    _GATE_STATUSES,
     Blocker,
     CountReconciliation,
     GateResult,
     ReleaseEvidenceError,
-    _COUNTRIES,
-    _GATE_STATUSES,
     _ReleaseEvidencePolicy,
 )
 from .recorded_gates import validate_recorded_gate

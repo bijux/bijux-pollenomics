@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
 import math
+from collections.abc import Mapping, Sequence
 
 from ...core.geospatial.geojson import as_mapping, feature_list
 from .contracts import (

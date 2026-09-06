@@ -3,16 +3,16 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import os
 import subprocess
 import sys
 import time
+from pathlib import Path
 
-import bijux_pollenomics_dev.ci.atlas_media as atlas_media
+import pytest
+from bijux_pollenomics_dev.ci import atlas_media
 from bijux_pollenomics_dev.ci.atlas_media import admission
 from bijux_pollenomics_dev.ci.atlas_media.contracts import AtlasMediaError
-import pytest
 
 
 def test_renderer_is_valid_dependency_free_node_module() -> None:

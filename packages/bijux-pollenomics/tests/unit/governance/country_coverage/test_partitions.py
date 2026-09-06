@@ -1,17 +1,20 @@
 """Country and source-dimension partition tests."""
 
 from __future__ import annotations
+
 import hashlib
 import json
 from typing import cast
+
 import pytest
 from bijux_pollenomics.governance.country_coverage import (
     COUNT_FIELDS,
     COUNTRIES,
     COUNTRY_DIMENSIONS,
-    CountryCoverageError,
     SOURCE_FAMILIES,
+    CountryCoverageError,
 )
+
 from .fixtures import (
     _CELL_SCHEMA_PATH,
     _build,

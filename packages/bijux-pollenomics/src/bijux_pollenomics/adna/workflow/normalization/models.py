@@ -1,10 +1,9 @@
 """Normalization result and summary models."""
 
 from __future__ import annotations
+
 from dataclasses import dataclass
-from bijux_pollenomics.adna.workflow.manifests import (
-    AdnaSpeciesManifest,
-)
+
 from bijux_pollenomics.adna.domain.models import (
     AdnaCoordinate,
     AdnaCoordinateProvenanceRecord,
@@ -12,8 +11,11 @@ from bijux_pollenomics.adna.domain.models import (
     AdnaSampleRecord,
     AdnaSiteEvidenceRecord,
 )
-from ...species.definitions import AdnaSpeciesDefinition
+from bijux_pollenomics.adna.workflow.manifests import (
+    AdnaSpeciesManifest,
+)
 
+from ...species.definitions import AdnaSpeciesDefinition
 
 ADNA_DOMESTICATION_STATUSES = (
     "domesticated_core",

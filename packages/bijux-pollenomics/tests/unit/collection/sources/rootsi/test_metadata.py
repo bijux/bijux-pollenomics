@@ -1,19 +1,16 @@
 from __future__ import annotations
 
 import hashlib
-from io import BytesIO
 import json
-from pathlib import Path
 import stat
+from io import BytesIO
+from pathlib import Path
 from typing import cast
-from zipfile import ZipFile
-from zipfile import ZipInfo
+from zipfile import ZipFile, ZipInfo
 
 import pytest
-
-from bijux_pollenomics.collection.sources.rootsi import normalization
-from bijux_pollenomics.collection.sources.rootsi import authority, ooxml
 from bijux_pollenomics.collection.sources.quarantine import IntakeRefusal
+from bijux_pollenomics.collection.sources.rootsi import authority, normalization, ooxml
 
 _SHARED = (
     "Country",

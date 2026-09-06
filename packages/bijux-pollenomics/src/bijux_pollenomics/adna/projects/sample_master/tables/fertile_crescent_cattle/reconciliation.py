@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import csv
+import re
 from dataclasses import dataclass
 from hashlib import sha256
 from io import StringIO
 from pathlib import Path
-import re
 from typing import Final
 
 from bijux_pollenomics.adna.projects.sample_master.models import (
@@ -15,6 +15,7 @@ from bijux_pollenomics.adna.projects.sample_master.models import (
 )
 from bijux_pollenomics.adna.sources.archive import AdnaArchiveProject
 from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
+
 from .evidence import (
     APPROXIMATE_BP_BY_SAMPLE,
     ARCHIVE_ONLY_IDENTITIES,
@@ -28,7 +29,6 @@ from .evidence import (
     SOURCE_INTERVAL_BY_SAMPLE,
     CattleSiteEvidence,
 )
-
 
 FERTILE_CRESCENT_CATTLE_PROJECT_ACCESSION: Final = "PRJEB31621"
 _EXPECTED_TAXA: Final = {

@@ -4,7 +4,6 @@ import json
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_FULL_EVIDENCE_SOURCE_TABLES,
     SEAD_LINKED_SOURCE_TABLES,
@@ -15,7 +14,7 @@ from bijux_pollenomics.collection.sources.sead.acquisition.scoped import (
     SEAD_FULL_EVIDENCE_TABLE_PLANS,
 )
 
-from .support import _SITE_FIELDS, _FullEvidencePostgrestFixture, _acquire
+from .support import _SITE_FIELDS, _acquire, _FullEvidencePostgrestFixture
 
 
 def test_full_evidence_plan_is_distinct_and_dependency_ordered() -> None:

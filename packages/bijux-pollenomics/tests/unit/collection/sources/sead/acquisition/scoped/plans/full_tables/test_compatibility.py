@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 
-from bijux_pollenomics.collection.sources.sead.acquisition.scoped import plans
-from bijux_pollenomics.collection.sources.sead.acquisition.scoped import service
-from bijux_pollenomics.collection.sources.sead.acquisition.scoped.plans import joins
+from bijux_pollenomics.collection.sources.sead.acquisition.scoped import plans, service
 from bijux_pollenomics.collection.sources.sead.acquisition.scoped.plans import (
     full_tables,
+    joins,
 )
 
 
@@ -14,11 +13,11 @@ def test_existing_import_surfaces_share_the_facade_constants() -> None:
     assert plans.SEAD_FULL_EVIDENCE_TABLE_PLANS is (
         full_tables.SEAD_FULL_EVIDENCE_TABLE_PLANS
     )
-    assert getattr(service, "SEAD_FULL_EVIDENCE_TABLE_PLANS") is (
+    assert service.SEAD_FULL_EVIDENCE_TABLE_PLANS is (
         full_tables.SEAD_FULL_EVIDENCE_TABLE_PLANS
     )
-    assert getattr(service, "_CORE_JOIN_PLANS") is full_tables._CORE_JOIN_PLANS
-    assert getattr(service, "_LOOKUP_JOIN_PLANS") is full_tables._LOOKUP_JOIN_PLANS
+    assert service._CORE_JOIN_PLANS is full_tables._CORE_JOIN_PLANS
+    assert service._LOOKUP_JOIN_PLANS is full_tables._LOOKUP_JOIN_PLANS
 
 
 def test_join_assembly_retains_the_compatibility_prefixes() -> None:

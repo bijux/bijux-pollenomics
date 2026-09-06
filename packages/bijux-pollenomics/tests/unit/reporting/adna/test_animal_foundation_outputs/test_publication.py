@@ -1,14 +1,14 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.reporting.adna.foundation_outputs.publication import (
     publish_animal_foundation_outputs,
 )
+
 from .support import AnimalFoundationOutputsTestCase
 
 pytestmark = pytest.mark.generated_artifacts

@@ -6,16 +6,16 @@ from collections.abc import Callable, Mapping, Sequence
 
 from .bibliography_projection import project_site_bibliography
 from .chronology_projection import project_site_chronology
+from .site_projection import apply_site_inventory_projection
 from .source_data.lookups import build_lookup_index
-from .values import parse_optional_int
+from .source_data.relations import build_relation_index
+from .source_data.source_tables import load_inventory_source_rows
 from .source_data.table_readers import (
     ApiSeadTableReader,
     MappingSeadTableReader,
     SeadTableReader,
 )
-from .site_projection import apply_site_inventory_projection
-from .source_data.relations import build_relation_index
-from .source_data.source_tables import load_inventory_source_rows
+from .values import parse_optional_int
 
 _REQUIRED_ACQUISITION_TABLES = frozenset(
     {

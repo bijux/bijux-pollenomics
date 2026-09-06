@@ -2,17 +2,19 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import replace
 from pathlib import Path
-import re
-from bijux_pollenomics.adna.workflow.source_artifacts import (
-    resolve_source_artifact_path,
-)
+
 from bijux_pollenomics.adna.sources.library import (
     AdnaPaperRegistryRow,
     build_paper_registry,
     build_project_registry,
 )
+from bijux_pollenomics.adna.workflow.source_artifacts import (
+    resolve_source_artifact_path,
+)
+
 from .models import AdnaProjectSampleMasterRow
 
 

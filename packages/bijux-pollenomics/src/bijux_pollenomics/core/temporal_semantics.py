@@ -10,11 +10,11 @@ from .bp_time import (
 )
 
 __all__ = [
+    "TEMPORAL_COMPARABILITY_POSTURES",
+    "TEMPORAL_WINDOW_ROWS",
     "BpInterval",
     "DirectionalLagBounds",
     "InvalidBpIntervalError",
-    "TEMPORAL_COMPARABILITY_POSTURES",
-    "TEMPORAL_WINDOW_ROWS",
     "TemporalSemantics",
     "build_temporal_semantics",
     "canonical_bp_interval",
@@ -72,8 +72,8 @@ class DirectionalLagBounds:
 
 
 def canonical_bp_interval(
-    younger_bp: float | int | None,
-    older_bp: float | int | None,
+    younger_bp: float | None,
+    older_bp: float | None,
 ) -> BpInterval | None:
     """Validate canonical ``[younger_bp, older_bp]`` input without reordering it."""
     if younger_bp is None and older_bp is None:

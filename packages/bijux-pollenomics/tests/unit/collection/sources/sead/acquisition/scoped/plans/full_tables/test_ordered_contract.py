@@ -2,15 +2,15 @@
 
 from __future__ import annotations
 
-from dataclasses import asdict
 import hashlib
 import json
+from dataclasses import asdict
 from typing import Any
 
 from bijux_pollenomics.collection.sources.sead.acquisition.scoped.plans.full_tables import (
-    SEAD_FULL_EVIDENCE_TABLE_PLANS,
     _CORE_JOIN_PLANS,
     _LOOKUP_JOIN_PLANS,
+    SEAD_FULL_EVIDENCE_TABLE_PLANS,
 )
 
 

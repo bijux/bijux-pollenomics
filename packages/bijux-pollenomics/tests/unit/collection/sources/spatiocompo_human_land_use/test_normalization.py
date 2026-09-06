@@ -4,7 +4,6 @@ from decimal import Decimal
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.collection.sources.quarantine import IntakeRefusal
 from bijux_pollenomics.collection.sources.spatiocompo_human_land_use import (
     intake,
@@ -14,14 +13,14 @@ from bijux_pollenomics.collection.sources.spatiocompo_human_land_use.authority i
     KNOWN_REFUSED_RELATIVE_PATH,
     SOURCE_DIRECTORY,
 )
-from bijux_pollenomics.collection.sources.spatiocompo_human_land_use.normalization import (
-    normalize_export_file,
-)
 from bijux_pollenomics.collection.sources.spatiocompo_human_land_use.intake import (
     normalize_spatiocompo_human_land_use,
 )
 from bijux_pollenomics.collection.sources.spatiocompo_human_land_use.models import (
     ExportFileAuthority,
+)
+from bijux_pollenomics.collection.sources.spatiocompo_human_land_use.normalization import (
+    normalize_export_file,
 )
 
 from .support import fixture_authority, fixture_payload
@@ -169,7 +168,7 @@ def test_malformed_rows_duplicate_coordinates_and_grid_drift_are_refused(
         normalize_export_file(
             valid_path,
             valid,
-            expected_grid=frozenset({(Decimal("0"), Decimal("0"))}),
+            expected_grid=frozenset({(Decimal(0), Decimal(0))}),
         )
 
 

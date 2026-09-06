@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import pytest
-
 from bijux_pollenomics.analysis.fieldwork.evidence_richness.candidates.sampling import (
     _classify_sampling_lake,
     _lake_sampling_fit,

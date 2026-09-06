@@ -1,8 +1,10 @@
 """Lineage tests."""
 
 from __future__ import annotations
+
 import hashlib
 from pathlib import Path
+
 import pytest
 from bijux_pollenomics.analysis.propagation.outputs import (
     PropagationOutputRefusalError,
@@ -11,6 +13,7 @@ from bijux_pollenomics.analysis.propagation.outputs import (
     manifest as propagation_manifest,
 )
 from bijux_pollenomics.analysis.propagation.outputs import models as propagation_models
+
 from .support import (
     _PROPAGATION_CONTRACT_DIGEST,
     _PROPAGATION_CONTRACT_VERSION,

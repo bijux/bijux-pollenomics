@@ -5,7 +5,6 @@ from pathlib import Path
 
 from bijux_pollenomics.reporting.adna import animal_localities
 
-
 _LEGACY_DEFINITIONS = {
     "AnimalAtlasBundle",
     "load_tracked_animal_localities",

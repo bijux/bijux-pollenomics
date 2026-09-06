@@ -1,14 +1,15 @@
 """Scoped-acquisition identities, dependencies, and result models."""
 
 from __future__ import annotations
+
+import re
 from dataclasses import dataclass
 from pathlib import Path
-import re
+
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     NORDIC_COUNTRY_CODES,
     SeadTableAcquisition,
 )
-
 
 SCOPED_RECEIPT_SCHEMA_VERSION = "sead-scoped-acquisition-receipt.v1"
 SCOPED_RESULT_SCHEMA_VERSION = "sead-scoped-acquisition-result.v1"

@@ -2,13 +2,12 @@
 
 from __future__ import annotations
 
-from copy import deepcopy
 import json
+from copy import deepcopy
 from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
     ASSET_TABLE_FIELDS,
     ASSET_TABLE_STORED_FIELDS,

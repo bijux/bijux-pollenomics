@@ -8,8 +8,8 @@ from .metrics import _docs_breadth_expectations, _docs_restoration_expectations
 
 __all__ = [
     "build_repository_docs_restoration_ledger",
-    "render_repository_docs_restoration_ledger_markdown",
     "build_repository_docs_scope_validation",
+    "render_repository_docs_restoration_ledger_markdown",
     "render_repository_docs_scope_validation_markdown",
 ]
 

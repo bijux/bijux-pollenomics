@@ -3,7 +3,6 @@ from __future__ import annotations
 from collections import Counter
 
 import pytest
-
 from bijux_pollenomics.reporting.adna.foundation_outputs.drift import (
     build_animal_cross_surface_drift_report,
 )
@@ -15,6 +14,7 @@ from bijux_pollenomics.reporting.adna.foundation_outputs.review import (
 from bijux_pollenomics.reporting.adna.foundation_outputs.validation import (
     build_animal_foundation_validation_report,
 )
+
 from .support import AnimalFoundationOutputsTestCase
 
 pytestmark = pytest.mark.generated_artifacts

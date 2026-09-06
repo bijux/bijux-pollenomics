@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from collections.abc import Callable
-from dataclasses import replace
 import json
 import os
+from collections.abc import Callable
+from dataclasses import replace
 from pathlib import Path
 
 from ...adna.governance.audit_catalogs import (
@@ -12,7 +12,6 @@ from ...adna.governance.audit_catalogs import (
 )
 from ..adna.foundation_outputs import publish_animal_foundation_outputs
 from ..adna.public_outputs import publish_public_animal_reporting_outputs
-from ..review.repository_truth_outputs import publish_repository_truth_outputs
 from ..geography import (
     GeographicScope,
     PublishedGeographyPlan,
@@ -24,6 +23,7 @@ from ..geography import (
 )
 from ..models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from ..presentation import publish_report_portal
+from ..review.repository_truth_outputs import publish_repository_truth_outputs
 from .paths import (
     AtlasBundlePaths,
     build_country_bundle_paths,

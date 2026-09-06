@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable, Iterable, Sequence
 import json
+from collections.abc import Callable, Iterable, Sequence
 from pathlib import Path
 
 from ....adna import AdnaLocalitySummary

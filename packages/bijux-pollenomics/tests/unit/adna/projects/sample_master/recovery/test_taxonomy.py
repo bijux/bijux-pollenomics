@@ -5,7 +5,6 @@ from __future__ import annotations
 from dataclasses import replace
 
 import pytest
-
 from bijux_pollenomics.adna.projects.sample_master import (
     build_project_sample_master_rows,
 )

@@ -2,22 +2,22 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from decimal import Decimal, InvalidOperation
 import hashlib
 import json
-from pathlib import Path
 import re
+from collections.abc import Mapping
+from dataclasses import dataclass
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
 from types import MappingProxyType
-from typing import Mapping
 from typing import TypeVar
 from xml.etree import ElementTree
 
-from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_bytes
 from bijux_pollenomics.adna.workflow.source_artifacts import (
+    read_source_artifact_bytes,
     resolve_source_artifact_path,
+    source_artifact_exists,
 )
-from bijux_pollenomics.adna.workflow.source_artifacts import source_artifact_exists
 
 PROJECT_ACCESSION = "PRJEB59481"
 ENA_SAMPLE_SOURCE_DIRECTORY = (
@@ -326,10 +326,8 @@ def parse_baltic_sheep_ena_sample(
     longitude_text = coordinate_match.group("longitude")
     if (latitude_text, longitude_text) != (expected_latitude, expected_longitude):
         raise ValueError(f"Baltic sheep ENA coordinate drift: {expected_accession}")
-    _validate_coordinate(latitude_text, minimum=Decimal("-90"), maximum=Decimal("90"))
-    _validate_coordinate(
-        longitude_text, minimum=Decimal("-180"), maximum=Decimal("180")
-    )
+    _validate_coordinate(latitude_text, minimum=Decimal(-90), maximum=Decimal(90))
+    _validate_coordinate(longitude_text, minimum=Decimal(-180), maximum=Decimal(180))
     return BalticSheepArchiveEvidence(
         accession=accession,
         sample_label=sample_label,

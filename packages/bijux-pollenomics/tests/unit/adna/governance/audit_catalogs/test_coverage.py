@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.adna.governance.audit_catalogs.coverage import (
     build_cross_species_coverage_dashboard,
     build_shipped_adna_product_audit,

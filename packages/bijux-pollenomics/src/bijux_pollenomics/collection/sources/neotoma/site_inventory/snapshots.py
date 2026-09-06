@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
 import copy
+from collections.abc import Iterable
 
 from .merging import (
     collection_unit_sort_key,

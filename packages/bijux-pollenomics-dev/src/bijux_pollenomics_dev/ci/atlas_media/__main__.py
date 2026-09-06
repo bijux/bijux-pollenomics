@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
 import shutil
 import sys
+from pathlib import Path
 
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasCandidate
 

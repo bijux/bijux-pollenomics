@@ -4,9 +4,9 @@ import base64
 import gzip
 import hashlib
 import json
+import zlib
 from pathlib import Path
 from typing import Any
-import zlib
 
 from .budgets import ATLAS_CHUNK_MAX_BYTES
 

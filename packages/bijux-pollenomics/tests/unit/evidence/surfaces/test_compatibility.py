@@ -7,7 +7,6 @@ from pathlib import Path
 
 from bijux_pollenomics.evidence import surfaces
 
-
 _LEGACY_DEFINITIONS = {
     "build_atlas_evidence_surface",
     "_build_human_species_row",

@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
 import hashlib
 import json
+from collections.abc import Callable, Mapping
 from pathlib import Path
 from typing import Any
 

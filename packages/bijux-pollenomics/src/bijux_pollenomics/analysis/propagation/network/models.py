@@ -1,8 +1,10 @@
 """Propagation event, candidate, refusal, reconciliation, and result models."""
 
 from __future__ import annotations
+
 from dataclasses import dataclass
 from math import isfinite
+
 from bijux_pollenomics.analysis.propagation.candidates import (
     CandidatePropagationScenario,
 )

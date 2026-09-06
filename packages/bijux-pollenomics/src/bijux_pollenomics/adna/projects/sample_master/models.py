@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-
 ADNA_SAMPLE_EVIDENCE_STATUSES = (
     "direct_table_extracted",
     "article_text_extracted",

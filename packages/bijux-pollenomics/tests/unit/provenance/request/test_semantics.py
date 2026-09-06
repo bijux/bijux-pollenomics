@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import cast
 
 from bijux_pollenomics.provenance.request import derive_release_evidence_request
+
 from tests.unit.provenance.release_evidence_writer.support import _inputs
 
 

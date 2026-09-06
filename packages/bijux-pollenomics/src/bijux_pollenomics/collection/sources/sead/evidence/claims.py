@@ -2,14 +2,13 @@
 
 from __future__ import annotations
 
-from collections import Counter
-from collections.abc import Mapping
 import hashlib
 import json
+from collections import Counter
+from collections.abc import Mapping
 from pathlib import Path
 from typing import Final, cast
 
-from .....core.files import write_json
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     SeadMaterializedAdmissionSnapshot,
 )
@@ -23,6 +22,8 @@ from bijux_pollenomics.collection.sources.sead.evidence.normalization import (
     SeadChronologyClaim,
     normalize_sead_chronology_claims,
 )
+
+from .....core.files import write_json
 
 CLAIM_BUNDLE_SCHEMA_VERSION: Final = "sead-chronology-claim-bundle.v1"
 CLAIM_SCHEMA_VERSION: Final = "sead-chronology-claim.v1"

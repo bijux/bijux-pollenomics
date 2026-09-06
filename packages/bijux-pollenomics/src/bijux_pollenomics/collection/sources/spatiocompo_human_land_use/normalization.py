@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import csv
-from decimal import Decimal, InvalidOperation
 import hashlib
 import io
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 from ..quarantine import IntakeRefusal
@@ -23,7 +23,6 @@ from .models import (
     ModeledHumanLandUseCell,
     ModeledHumanLandUseSlice,
 )
-
 
 _COMPOSITION_TOLERANCE = Decimal("0.000000001")
 _EQUATION_TOLERANCE = Decimal("0.000000001")
@@ -72,9 +71,9 @@ def _cell(
     locator = f"{authority.relative_path}:{row_number}"
     longitude = _decimal(row[0], locator=f"{locator} Lon")
     latitude = _decimal(row[1], locator=f"{locator} Lat")
-    if not Decimal("-180") <= longitude <= Decimal("180"):
+    if not Decimal(-180) <= longitude <= Decimal(180):
         raise IntakeRefusal("invalid_spatiocompo_longitude", locator)
-    if not Decimal("-90") <= latitude <= Decimal("90"):
+    if not Decimal(-90) <= latitude <= Decimal(90):
         raise IntakeRefusal("invalid_spatiocompo_latitude", locator)
     values = tuple(
         _decimal(value, locator=f"{locator} column {column}")

@@ -3,11 +3,11 @@ from __future__ import annotations
 from dataclasses import asdict
 
 from .constants import (
-    CAPABILITY_DIMENSIONS,
     _NORMATIVE_CONTRACT_ID,
     _NORMATIVE_CONTRACT_VERSION,
     _NORMATIVE_SOURCE_KEYS,
     _SUPPORT_STATUSES,
+    CAPABILITY_DIMENSIONS,
 )
 from .models import SourceCapabilityProfile
 from .paths import _source_evidence_paths

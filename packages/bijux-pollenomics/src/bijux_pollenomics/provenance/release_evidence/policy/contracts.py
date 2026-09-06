@@ -30,8 +30,8 @@ def _parse_propagation_contract(
 ) -> _PropagationContractIdentity:
     from . import (
         ReleaseEvidenceError,
-        _PropagationContractIdentity,
         _mapping,
+        _PropagationContractIdentity,
         _require_digest,
         _require_identity,
         _string_field,

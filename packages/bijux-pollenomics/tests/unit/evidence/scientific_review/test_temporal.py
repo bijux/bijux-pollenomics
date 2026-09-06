@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import pytest
-
 from bijux_pollenomics.evidence.scientific_review import (
     _locality_overlaps_point,
     _period_label_for,

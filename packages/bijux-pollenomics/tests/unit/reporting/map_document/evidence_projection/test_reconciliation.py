@@ -7,13 +7,13 @@ from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
 )
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     build_map_evidence_projection,
 )
+
 from tests.support.sead_evidence import (
     install_sead_projection_fixture,
     sead_projection_layers,

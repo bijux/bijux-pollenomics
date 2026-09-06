@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
 import copy
 import json
+from collections.abc import Mapping
 
 from .identifiers import digest, optional_source_id
 

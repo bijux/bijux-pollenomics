@@ -6,7 +6,6 @@ import json
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.collection.sources.neotoma.lineage import (
     LINEAGE_SCHEMA_VERSION,
     build_neotoma_compact_lineage,

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 from bijux_pollenomics.analysis import (
     build_sweden_lake_evidence_richness_report,

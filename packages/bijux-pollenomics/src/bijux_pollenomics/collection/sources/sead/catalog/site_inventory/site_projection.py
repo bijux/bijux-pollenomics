@@ -8,12 +8,12 @@ from .bibliography_projection import SeadBibliographyProjection
 from .chronology_projection import SeadChronologyProjection
 from .source_data.lookups import SeadLookupIndex
 from .source_data.relations import SeadRelationIndex
-from .values import parse_required_int
 from .temporal import (
     _normalized_period_labels,
     _uncertainty_labels,
     merge_sead_intervals,
 )
+from .values import parse_required_int
 
 
 @dataclass(frozen=True, slots=True)

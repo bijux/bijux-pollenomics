@@ -7,11 +7,11 @@ from dataclasses import dataclass
 from bijux_pollenomics.core.text import clean_optional_text
 
 from .chronology_projection import SeadChronologyProjection
-from .source_data.lookups import SeadLookupIndex
-from .values import parse_required_int
 from .chronology_records import _build_bibliography_row, _deduplicate_bibliography_rows
+from .source_data.lookups import SeadLookupIndex
 from .source_data.relations import SeadRelationIndex
 from .source_data.source_tables import SeadInventorySourceRows
+from .values import parse_required_int
 
 Row = dict[str, object]
 

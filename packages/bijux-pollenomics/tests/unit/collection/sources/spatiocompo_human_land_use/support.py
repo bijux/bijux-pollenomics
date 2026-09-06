@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import replace
 import hashlib
+from dataclasses import replace
 
 from bijux_pollenomics.collection.sources.spatiocompo_human_land_use.authority import (
     EXPECTED_ROWS_PER_SLICE,
@@ -10,7 +10,6 @@ from bijux_pollenomics.collection.sources.spatiocompo_human_land_use.authority i
 from bijux_pollenomics.collection.sources.spatiocompo_human_land_use.models import (
     ExportFileAuthority,
 )
-
 
 DEFAULT_VALUES = ("0.18", "0.27", "0.55", "0.2", "0.3", "0.5", "0.1")
 

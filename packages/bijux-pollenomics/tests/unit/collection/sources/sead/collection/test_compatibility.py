@@ -37,7 +37,7 @@ def test_public_call_signatures_remain_stable() -> None:
 
 
 def test_legacy_private_seams_remain_available() -> None:
-    assert callable(getattr(collection, "_load_sead_acquisition_rows"))
-    assert callable(getattr(collection, "_attach_sead_country_decisions"))
-    assert callable(getattr(collection, "_write_sead_site_archive"))
-    assert callable(getattr(collection, "_validate_sead_rows"))
+    assert callable(collection._load_sead_acquisition_rows)
+    assert callable(collection._attach_sead_country_decisions)
+    assert callable(collection._write_sead_site_archive)
+    assert callable(collection._validate_sead_rows)

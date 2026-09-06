@@ -3,13 +3,13 @@
 from __future__ import annotations
 
 import argparse
-from collections.abc import Mapping, Sequence
 import hashlib
 import json
 import math
-from pathlib import Path
 import re
 import sys
+from collections.abc import Mapping, Sequence
+from pathlib import Path
 
 from ...boundaries.collection import (
     BOUNDARY_CODES,

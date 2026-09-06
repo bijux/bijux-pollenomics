@@ -1,36 +1,37 @@
 """Artifact graph structure and lineage validation."""
 
 from __future__ import annotations
+
 from collections.abc import Mapping, Sequence
 from pathlib import Path
+
+from .bundles import _validate_manifest_bundle_closures
 from .codec import (
     _require_digest,
     _require_identity,
     _require_unique,
     _string_field,
 )
+from .embedded import (
+    _validate_embedded_input_inventory,
+    _validate_embedded_producer_identities,
+    _validate_embedded_schema_identity,
+    _validate_propagation_contract_binding,
+)
 from .models import (
-    ArtifactInput,
-    ReleaseEvidenceError,
     _ARTIFACT_ROLES,
     _CONFIG_ROLES,
     _DERIVED_ROLES,
     _OUTPUT_ROLES,
     _RELEASE_POLICY_PATH,
     _REQUIRED_ROLES,
+    ArtifactInput,
+    ReleaseEvidenceError,
     _ReleaseEvidencePolicy,
 )
 from .repository import (
     _hash_repository_object,
     _path_has_prefix,
-)
-
-from .bundles import _validate_manifest_bundle_closures
-from .embedded import (
-    _validate_embedded_input_inventory,
-    _validate_embedded_producer_identities,
-    _validate_embedded_schema_identity,
-    _validate_propagation_contract_binding,
 )
 
 

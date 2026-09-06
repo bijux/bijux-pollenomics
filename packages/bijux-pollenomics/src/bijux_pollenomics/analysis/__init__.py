@@ -7,11 +7,6 @@ from bijux_pollenomics.analysis.classification.events import (
     ClassificationEventRefusal,
     derive_classification_events,
 )
-from bijux_pollenomics.analysis.fieldwork.engine_manifest import (
-    LakeSelectionRequirement,
-    RankingEngineManifest,
-    build_ranking_engine_manifest,
-)
 from bijux_pollenomics.analysis.classification.harmonization import (
     HarmonizationRule,
     default_harmonization_rules,
@@ -20,6 +15,11 @@ from bijux_pollenomics.analysis.fieldwork.candidate_registry import (
     SOUTHERN_SWEDEN_LAKE_REVIEW_TARGETS,
     build_sweden_lake_candidate_registry,
     write_sweden_lake_candidate_registry,
+)
+from bijux_pollenomics.analysis.fieldwork.engine_manifest import (
+    LakeSelectionRequirement,
+    RankingEngineManifest,
+    build_ranking_engine_manifest,
 )
 from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     DEFAULT_LAKE_EVIDENCE_RADII_KM,
@@ -30,6 +30,12 @@ from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     LakeEvidenceSourceAnchor,
     build_sweden_lake_evidence_richness_report,
 )
+from bijux_pollenomics.analysis.fieldwork.land_use import (
+    build_sweden_land_use_synthesis,
+    render_sweden_land_use_synthesis_markdown,
+    write_sweden_land_use_synthesis_csv,
+    write_sweden_land_use_synthesis_json,
+)
 from bijux_pollenomics.analysis.fieldwork.ranking import (
     CandidateSensitivityReport,
     CandidateSensitivityRow,
@@ -37,6 +43,15 @@ from bijux_pollenomics.analysis.fieldwork.ranking import (
     build_ranking_sensitivity_report,
     rank_localities,
     temporal_overlap,
+)
+from bijux_pollenomics.analysis.propagation.candidates import (
+    CandidateRankingProfile,
+    CandidateSiteContext,
+    CandidateSiteScore,
+    ScoringWeights,
+    build_ranking_profiles,
+    resolve_ranking_profile,
+    score_candidate_site,
 )
 from bijux_pollenomics.analysis.review.fieldwork import (
     build_lake_archaeology_sensitivity_payload,
@@ -63,21 +78,6 @@ from bijux_pollenomics.analysis.review.fieldwork import (
     write_lake_evidence_richness_scenario_csv,
     write_lake_fieldwork_preparation_csv,
     write_lake_fieldwork_preparation_json,
-)
-from bijux_pollenomics.analysis.propagation.candidates import (
-    CandidateRankingProfile,
-    CandidateSiteContext,
-    CandidateSiteScore,
-    ScoringWeights,
-    build_ranking_profiles,
-    resolve_ranking_profile,
-    score_candidate_site,
-)
-from bijux_pollenomics.analysis.fieldwork.land_use import (
-    build_sweden_land_use_synthesis,
-    render_sweden_land_use_synthesis_markdown,
-    write_sweden_land_use_synthesis_csv,
-    write_sweden_land_use_synthesis_json,
 )
 
 __all__ = [

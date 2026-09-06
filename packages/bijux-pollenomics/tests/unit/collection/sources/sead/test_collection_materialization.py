@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import tempfile
+from pathlib import Path
 from typing import cast
 from unittest.mock import patch
 
@@ -12,6 +12,7 @@ from bijux_pollenomics.collection.sources.sead.collection import (
     collect_sead_data,
     materialize_sead_repository_surfaces,
 )
+
 from tests.support.context_data import NordicBoundaryTestCase
 
 

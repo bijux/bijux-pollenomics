@@ -3,17 +3,16 @@
 from __future__ import annotations
 
 import base64
-from collections.abc import Callable
 import hashlib
 import json
-from pathlib import Path
 import shutil
-from typing import Any
 import zlib
+from collections.abc import Callable
+from pathlib import Path
+from typing import Any
 
 import pytest
-
-from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError
+from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError, publication
 from bijux_pollenomics_dev.ci.atlas_media.catalog import (
     PUBLICATION_ASSET_COUNT,
     PUBLICATION_SCHEMA_VERSION,
@@ -29,7 +28,7 @@ from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     sha256_file,
     write_gallery_manifest,
 )
-from bijux_pollenomics_dev.ci.atlas_media import publication
+
 from tests.atlas_media.fixtures import BUILD_ID, COUNTRIES, SUCCESSION, candidate
 
 StorySpec = tuple[str, str, str, str, str | None]

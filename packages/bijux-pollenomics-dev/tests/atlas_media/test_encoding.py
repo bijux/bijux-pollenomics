@@ -3,7 +3,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError, encoding
 
 from tests.atlas_media.fixtures import plan

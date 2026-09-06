@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import defaultdict
 from collections.abc import Mapping, MutableMapping, Sequence
 from typing import cast
+
 from .io import _identifier_text, _mapping, _required_text
 
 

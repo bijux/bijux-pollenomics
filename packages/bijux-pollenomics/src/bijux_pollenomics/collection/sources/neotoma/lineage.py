@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from collections import Counter
-from collections.abc import Mapping
 import hashlib
 import json
+from collections import Counter
+from collections.abc import Mapping
 from pathlib import Path, PurePosixPath
 
 from bijux_pollenomics.evidence.sources.neotoma import (

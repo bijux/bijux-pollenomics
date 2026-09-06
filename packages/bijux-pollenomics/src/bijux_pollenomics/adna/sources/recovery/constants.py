@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 ADNA_INTAKE_STAGE_KEYS = (
     "project_admission",
     "paper_capture",

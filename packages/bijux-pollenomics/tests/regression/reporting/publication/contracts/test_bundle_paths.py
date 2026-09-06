@@ -1,15 +1,13 @@
 from __future__ import annotations
 
-from pathlib import Path
 import unittest
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.reporting.bundles import (
     build_atlas_bundle_paths,
     build_country_bundle_paths,
 )
-
 
 pytestmark = pytest.mark.generated_artifacts
 

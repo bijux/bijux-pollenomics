@@ -1,12 +1,12 @@
 from __future__ import annotations
 
-from collections.abc import Callable
 import json
+from collections.abc import Callable
 from typing import TYPE_CHECKING
 
 from ...core.geospatial.geojson import JsonObject
-from ..modeled_context import build_modeled_context_manifest
 from ..map_publication import MapScopePolicy
+from ..modeled_context import build_modeled_context_manifest
 from .state import build_map_document_state
 from .static_assets.budgets import ATLAS_FILTER_MAIN_THREAD_MAX_MS
 

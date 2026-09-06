@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
 import math
+from collections.abc import Mapping
 from pathlib import Path
 
 from .....core.geospatial.geojson import (
@@ -26,8 +26,12 @@ from .policy import (
     COUNTRY_NAMES_BY_CODE,
     COUNTRY_ORDER,
 )
-from .serialization import _canonical_digest, _file_sha256, _read_json_object
-from .serialization import _required_text
+from .serialization import (
+    _canonical_digest,
+    _file_sha256,
+    _read_json_object,
+    _required_text,
+)
 
 
 def _load_boundary_authority(data_root: Path) -> BoundaryAuthority:

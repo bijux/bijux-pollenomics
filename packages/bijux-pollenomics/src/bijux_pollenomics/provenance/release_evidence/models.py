@@ -1,10 +1,10 @@
 """Release-evidence value objects, vocabularies, and policy models."""
 
 from __future__ import annotations
-from dataclasses import dataclass
-import re
-from typing import Final, Literal, TypeAlias
 
+import re
+from dataclasses import dataclass
+from typing import Final, Literal, TypeAlias
 
 ArtifactRole: TypeAlias = Literal[
     "source_receipt",

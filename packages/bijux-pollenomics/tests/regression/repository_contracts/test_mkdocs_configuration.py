@@ -6,7 +6,6 @@ import pytest
 import yaml
 
 from .mkdocs_loading import MkDocsLoader
-
 from .repository_paths import (
     REPO_ROOT,
 )

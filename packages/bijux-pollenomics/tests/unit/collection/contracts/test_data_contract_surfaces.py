@@ -2,19 +2,14 @@ from __future__ import annotations
 
 import hashlib
 import json
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 
 from bijux_pollenomics.adna.governance.contracts import (
     build_adna_governance_role_registry,
     build_source_library_project_surface_contract,
     materialize_adna_governance_contracts,
-)
-from bijux_pollenomics.collection.contracts.repository import (
-    build_contract_artifact_paths,
-    build_evidence_artifact_contract_payload,
-    build_source_fact_ownership_payload,
 )
 from bijux_pollenomics.collection.contracts.capabilities import (
     SEAD_ADMITTED_ACQUISITION_ADMISSION,
@@ -27,6 +22,11 @@ from bijux_pollenomics.collection.contracts.families import (
     build_source_family_contract_payload,
     build_source_family_contracts,
     build_source_family_state_matrix_payload,
+)
+from bijux_pollenomics.collection.contracts.repository import (
+    build_contract_artifact_paths,
+    build_evidence_artifact_contract_payload,
+    build_source_fact_ownership_payload,
 )
 
 

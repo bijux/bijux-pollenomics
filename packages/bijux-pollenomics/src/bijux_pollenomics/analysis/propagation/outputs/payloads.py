@@ -1,9 +1,14 @@
 """Propagation event, candidate, reconciliation, and sensitivity payloads."""
 
 from __future__ import annotations
+
 from collections import Counter
 from collections.abc import Mapping, Sequence
 from typing import Any
+
+from bijux_pollenomics.analysis.propagation.candidates import (
+    DEFAULT_PROPAGATION_SCENARIO,
+)
 from bijux_pollenomics.analysis.propagation.network import (
     COUNTRY_CODES,
     EVIDENCE_DOMAINS,
@@ -11,9 +16,6 @@ from bijux_pollenomics.analysis.propagation.network import (
     PhenomenonEvent,
     PropagationNetworkResult,
     PropagationScenarioResult,
-)
-from bijux_pollenomics.analysis.propagation.candidates import (
-    DEFAULT_PROPAGATION_SCENARIO,
 )
 
 from .codec import _refuse

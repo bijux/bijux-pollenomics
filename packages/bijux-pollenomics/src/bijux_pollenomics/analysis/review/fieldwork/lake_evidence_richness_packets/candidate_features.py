@@ -8,12 +8,12 @@ from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     LakeEvidenceSourceAnchor,
 )
 
+from ..lake_fieldwork_priority import band_score as _band_score
 from .presentation import (
     _candidate_description,
     _candidate_media_links,
     _render_ambiguity_cell,
 )
-from ..lake_fieldwork_priority import band_score as _band_score
 
 
 def _build_candidate_features(

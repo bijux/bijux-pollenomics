@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.adna.governance.audit_catalogs.site_posture import (
     build_coordinate_caveat_surface,
     build_overbroad_site_ledger,

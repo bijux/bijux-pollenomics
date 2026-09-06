@@ -153,8 +153,8 @@ def _nonnegative_number(value: object) -> float | int | None:
 def _bin(
     *,
     ordinal: int,
-    younger_bp: float | int,
-    older_bp: float | int,
+    younger_bp: float,
+    older_bp: float,
     nodes: Sequence[SourceChronologyNode],
 ) -> dict[str, object]:
     overlapping = [
@@ -177,8 +177,8 @@ def _payload(
     *,
     node_count: int,
     observation_denominator: int,
-    time_min_bp: float | int | None,
-    time_max_bp: float | int | None,
+    time_min_bp: float | None,
+    time_max_bp: float | None,
     bins: list[dict[str, object]],
 ) -> dict[str, object]:
     return {

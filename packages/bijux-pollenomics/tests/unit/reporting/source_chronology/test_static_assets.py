@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+
 from bijux_pollenomics.reporting.map_document.static_assets import (
     write_static_atlas_assets,
 )

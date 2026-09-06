@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import argparse
-from collections.abc import Sequence
 import json
-from pathlib import Path, PurePosixPath
 import stat
 import sys
+from collections.abc import Sequence
+from pathlib import Path, PurePosixPath
 
 from .gates import run_recorded_gate
 from .release_evidence import ReleaseEvidenceError

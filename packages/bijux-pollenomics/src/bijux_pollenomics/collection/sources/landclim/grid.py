@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-from collections.abc import Mapping
 import csv
-from io import TextIOWrapper
 import math
-from pathlib import Path
 import re
+from collections.abc import Mapping
+from io import TextIOWrapper
+from pathlib import Path
 from zipfile import ZipFile
 
 from ....core.bp_time import mean_bp_year_from_interval

@@ -4,14 +4,14 @@ import hashlib
 import json
 from pathlib import Path
 
-from tests.support.repository import REPOSITORY_ROOT
-
 from bijux_pollenomics.collection.contracts.capabilities import (
     SEAD_ADMITTED_ACQUISITION_ADMISSION,
 )
 from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_FULL_EVIDENCE_SOURCE_TABLES,
 )
+
+from tests.support.repository import REPOSITORY_ROOT
 
 REPO_ROOT = REPOSITORY_ROOT
 

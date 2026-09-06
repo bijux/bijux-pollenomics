@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 
-from dataclasses import FrozenInstanceError
 import pickle
+from dataclasses import FrozenInstanceError
 
 import pytest
-
 from bijux_pollenomics.adna.domain.models import (
     AdnaChronology,
     AdnaCoordinate,
@@ -130,4 +129,4 @@ def test_models_remain_frozen_and_pickle_through_the_legacy_module() -> None:
     assert type(coordinate).__module__ == "bijux_pollenomics.adna.domain.models"
     assert pickle.loads(pickle.dumps(coordinate, protocol=5)) == coordinate
     with pytest.raises(FrozenInstanceError):
-        setattr(coordinate, "latitude", None)
+        coordinate.latitude = None

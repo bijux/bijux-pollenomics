@@ -3,11 +3,12 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-from ...core.files import write_json, write_text
 from bijux_pollenomics.adna.workflow.paths import (
     adna_governance_root,
     adna_source_library_root,
 )
+
+from ...core.files import write_json, write_text
 
 __all__ = [
     "build_adna_governance_role_registry",

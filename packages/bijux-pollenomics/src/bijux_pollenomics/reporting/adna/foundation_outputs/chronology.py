@@ -1,8 +1,10 @@
 """Animal foundation chronology responsibilities."""
 
 from __future__ import annotations
-from typing import Any
+
 from pathlib import Path
+from typing import Any
+
 from ....adna.projects.evidence.chronology import (
     ADNA_CHRONOLOGY_EVIDENCE_CLASSES,
     ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,

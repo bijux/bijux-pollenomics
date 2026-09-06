@@ -1,12 +1,9 @@
 from __future__ import annotations
 
-
-from tests.support.repository import REPOSITORY_ROOT
-from types import SimpleNamespace
 import unittest
+from types import SimpleNamespace
 
 import pytest
-
 from bijux_pollenomics.adna.projects.evidence.chronology import (
     build_cross_project_sample_chronology_audit,
     build_date_evidence_gap_queue,
@@ -23,6 +20,8 @@ from bijux_pollenomics.adna.projects.evidence.chronology import (
 from bijux_pollenomics.adna.projects.evidence.chronology.resolution import (
     _resolve_chronology_source,
 )
+
+from tests.support.repository import REPOSITORY_ROOT
 
 CONFLICTING_CHRONOLOGY_CASES = (
     {

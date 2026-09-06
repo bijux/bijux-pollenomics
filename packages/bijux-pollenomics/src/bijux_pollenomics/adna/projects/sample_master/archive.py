@@ -2,23 +2,25 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 import re
-from bijux_pollenomics.adna.workflow.source_artifacts import (
-    read_source_artifact_text,
+from pathlib import Path
+
+from bijux_pollenomics.adna.projects.evidence.article_samples import (
+    resolve_article_sample_evidence,
+)
+from bijux_pollenomics.adna.projects.registry.archive_samples import (
+    read_archive_project_samples,
 )
 from bijux_pollenomics.adna.sources.archive import (
     AdnaArchiveProject,
     build_archive_project_catalog,
 )
-from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
 from bijux_pollenomics.adna.sources.library import ADNA_SOURCE_LIBRARY_DIR
-from bijux_pollenomics.adna.projects.registry.archive_samples import (
-    read_archive_project_samples,
+from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
+from bijux_pollenomics.adna.workflow.source_artifacts import (
+    read_source_artifact_text,
 )
-from bijux_pollenomics.adna.projects.evidence.article_samples import (
-    resolve_article_sample_evidence,
-)
+
 from .identity import (
     _normalize_sample_label,
     _resolve_data_relative_path,

@@ -1,11 +1,8 @@
 from __future__ import annotations
 
-
-from tests.support.repository import REPOSITORY_ROOT
 import unittest
 
 import pytest
-
 from bijux_pollenomics.adna.projects.evidence.localities import (
     build_project_locality_substitution_ledger,
     build_project_locality_worksheet_rows,
@@ -13,6 +10,8 @@ from bijux_pollenomics.adna.projects.evidence.localities import (
     build_sample_locality_conflict_ledger,
     build_sample_locality_manual_curation_workflow_rows,
 )
+
+from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts
 

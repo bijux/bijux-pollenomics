@@ -1,30 +1,33 @@
 """Scoped and full-evidence acquisition orchestration."""
 
 from __future__ import annotations
-from collections.abc import Callable, Mapping, Sequence
-from datetime import datetime
+
 import hashlib
 import json
-from pathlib import Path
 import time
+from collections.abc import Callable, Mapping, Sequence
+from datetime import datetime
+from pathlib import Path
+
+from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
+    SEAD_FULL_EVIDENCE_SOURCE_TABLES,
+    SEAD_LINKED_SOURCE_TABLES,
+)
+from bijux_pollenomics.collection.sources.sead.acquisition.client import (
+    SEAD_FILTER_BATCH_SIZE,
+    SEAD_LIMIT,
+)
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     acquire_sead_table,
     assert_sead_join_complete,
     materialize_sead_acquisition,
     reconcile_sead_countries,
 )
-from bijux_pollenomics.collection.sources.sead.acquisition.client import (
-    SEAD_FILTER_BATCH_SIZE,
-    SEAD_LIMIT,
-)
-from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
-    SEAD_FULL_EVIDENCE_SOURCE_TABLES,
-    SEAD_LINKED_SOURCE_TABLES,
-)
 
 from .codec import _canonical_bytes, _current_utc, _validate_identity
 from .dependencies import _acquire_dependency_scoped_table, _aggregate_table_acquisition
 from .models import (
+    _SITE_PROJECTION,
     FULL_EVIDENCE_ORCHESTRATOR_VERSION,
     NORDIC_TARGET_COUNTRIES,
     SCOPED_ORCHESTRATOR_VERSION,
@@ -32,12 +35,11 @@ from .models import (
     SeadJoinPlan,
     SeadScopedAcquisitionResult,
     SeadScopedTablePlan,
-    _SITE_PROJECTION,
 )
 from .plans.full_tables import (
-    SEAD_FULL_EVIDENCE_TABLE_PLANS,
     _CORE_JOIN_PLANS,
     _LOOKUP_JOIN_PLANS,
+    SEAD_FULL_EVIDENCE_TABLE_PLANS,
 )
 from .plans.joins import SEAD_FULL_EVIDENCE_JOIN_PLANS
 from .plans.scoped import SEAD_SCOPED_TABLE_PLANS

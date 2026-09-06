@@ -2,12 +2,11 @@ from __future__ import annotations
 
 import json
 import os
-from pathlib import Path
 import sys
 import time
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError, process_execution
 
 

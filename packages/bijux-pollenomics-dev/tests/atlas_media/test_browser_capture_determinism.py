@@ -2,26 +2,26 @@
 
 from __future__ import annotations
 
-from dataclasses import replace
 import hashlib
 import os
-from pathlib import Path
 import shutil
 import subprocess
+from dataclasses import replace
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasCandidate
 from bijux_pollenomics_dev.ci.atlas_media import (
     AtlasMediaPlan,
     StorySelection,
+    admission,
+    capture,
     load_storyboard_manifest,
     select_stories,
 )
 from bijux_pollenomics_dev.ci.atlas_media.source_authority import (
     load_source_chronology_authority,
 )
-from bijux_pollenomics_dev.ci.atlas_media import admission, capture
 
 
 def _command(root: Path, *arguments: str) -> str:

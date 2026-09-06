@@ -1,8 +1,10 @@
 """SEAD atlas projection fixtures."""
 
 from __future__ import annotations
+
 import hashlib
 from pathlib import Path
+
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
 )

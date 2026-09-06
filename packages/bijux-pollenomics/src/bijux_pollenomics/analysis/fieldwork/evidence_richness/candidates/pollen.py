@@ -7,6 +7,7 @@ from collections.abc import Iterable
 from typing import TypedDict
 
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+
 from ..metrics import _weighted_average
 from ..models import (
     LakeEvidenceCandidate,

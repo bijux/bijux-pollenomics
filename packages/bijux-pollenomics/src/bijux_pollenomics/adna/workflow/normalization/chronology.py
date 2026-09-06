@@ -1,21 +1,23 @@
 """Chronology parsing and locality interval aggregation."""
 
 from __future__ import annotations
-from collections.abc import Mapping
+
 import re
+from collections.abc import Mapping
 from typing import cast
+
+from bijux_pollenomics.adna.domain.models import (
+    AdnaChronology,
+)
+
 from ....core.bp_time import (
     build_bp_interval_label,
     midpoint_bp_year,
     normalize_bp_interval,
     parse_bp_window_label,
 )
-from bijux_pollenomics.adna.domain.models import (
-    AdnaChronology,
-)
 from ...projects.evidence.chronology import AdnaProjectSampleChronologyRow
 from ...projects.registry.samples import AdnaCuratedSampleRow
-
 
 _BP_MEAN_STDDEV_RE = re.compile(
     r"(?P<mean>\d{1,5})\s*(?:±|\+/-)\s*(?P<stddev>\d{1,4})\s*BP",

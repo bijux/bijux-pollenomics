@@ -15,8 +15,8 @@ from bijux_pollenomics.provenance import (
     hash_repository_object,
     write_release_evidence_manifest,
 )
-from bijux_pollenomics.provenance.gates import RecordedGateSpecification
 from bijux_pollenomics.provenance import writer as writer_module
+from bijux_pollenomics.provenance.gates import RecordedGateSpecification
 from bijux_pollenomics.provenance.release_evidence import ArtifactRole, GateStatus
 
 COMMIT = "3" * 40

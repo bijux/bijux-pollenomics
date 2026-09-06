@@ -1,18 +1,15 @@
 from __future__ import annotations
 
-from typing import cast
 import unittest
+from typing import cast
 
 import pytest
-
 from bijux_pollenomics.reporting.rendering import (
     build_sample_geojson_feature,
     serialize_sample_record,
 )
 
-
 from ..fixtures.aadr import sample_record
-
 
 pytestmark = pytest.mark.generated_artifacts
 

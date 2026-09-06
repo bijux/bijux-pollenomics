@@ -5,8 +5,9 @@ import json
 from pathlib import Path
 from typing import TYPE_CHECKING
 
-from ....publication_policy import build_site_ranking_policy
 from bijux_pollenomics.analysis.propagation.candidates import resolve_ranking_profile
+
+from ....publication_policy import build_site_ranking_policy
 
 if TYPE_CHECKING:
     from bijux_pollenomics.analysis.fieldwork.ranking import CandidateSensitivityReport
@@ -15,8 +16,8 @@ if TYPE_CHECKING:
 __all__ = [
     "build_candidate_site_sensitivity_payload",
     "build_candidate_sites_json_payload",
-    "render_candidate_site_sensitivity_markdown",
     "render_candidate_site_markdown",
+    "render_candidate_site_sensitivity_markdown",
     "write_candidate_site_sensitivity_json",
     "write_candidate_sites_csv",
     "write_candidate_sites_json",

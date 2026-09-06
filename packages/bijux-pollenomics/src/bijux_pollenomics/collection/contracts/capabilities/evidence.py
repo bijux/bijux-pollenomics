@@ -1,18 +1,18 @@
 from __future__ import annotations
 
-from collections.abc import Mapping
 import csv
 import hashlib
 import io
 import json
-from pathlib import Path
 import stat
+from collections.abc import Mapping
+from pathlib import Path
 
 from . import receipts, sead
 from .constants import (
-    SEAD_NORMALIZED_EVIDENCE_MANIFEST,
     _SEAD_NORMALIZED_ROOT,
     _SEAD_RUN_ID,
+    SEAD_NORMALIZED_EVIDENCE_MANIFEST,
 )
 from .primitives import _non_negative_int, _positive_int
 

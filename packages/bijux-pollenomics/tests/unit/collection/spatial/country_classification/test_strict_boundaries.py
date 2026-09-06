@@ -7,7 +7,6 @@ import math
 from unittest.mock import patch
 
 import pytest
-
 from bijux_pollenomics.collection.spatial import country_classification
 from bijux_pollenomics.collection.spatial.country_classification import (
     CountryAttributionDecision,

@@ -9,6 +9,7 @@ from bijux_pollenomics.reporting.modeled_context.metric_families import (
     METRIC_FAMILIES,
     PANGAEA_METRIC_KEYS,
 )
+
 from tests.support.repository import REPOSITORY_ROOT
 
 

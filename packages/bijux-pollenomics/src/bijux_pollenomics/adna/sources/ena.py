@@ -1,8 +1,8 @@
 """Compatibility facade for governed animal archive sources."""
 
 from .archive import (
-    ADNA_ACCESSION_SCOPES,
     ADNA_ACCESS_POLICIES,
+    ADNA_ACCESSION_SCOPES,
     ADNA_DOMESTICATION_SCOPES,
     ADNA_ENA_RESULT_KINDS,
     ADNA_PROJECT_EVIDENCE_STRENGTHS,

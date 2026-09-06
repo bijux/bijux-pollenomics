@@ -1,6 +1,7 @@
 """Animal foundation publication responsibilities."""
 
 from __future__ import annotations
+
 import json
 from pathlib import Path
 

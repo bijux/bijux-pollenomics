@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 import math
+from dataclasses import dataclass
 from typing import Literal
 
 
@@ -41,7 +41,7 @@ def validate_playback_countries(countries: tuple[str, ...]) -> None:
         )
 
 
-def _finite_nonnegative_number(value: float | int, *, field: str) -> None:
+def _finite_nonnegative_number(value: float, *, field: str) -> None:
     if isinstance(value, bool) or not isinstance(value, (float, int)):
         raise PlaybackContractError(f"{field} must be a finite non-negative number")
     if not math.isfinite(float(value)) or value < 0:
@@ -312,12 +312,12 @@ class PlaybackRefusal:
 
 
 __all__ = [
+    "PLAYBACK_COUNTRY_VOCABULARY",
     "ExactTaxonDiscovery",
     "PlaybackContractError",
     "PlaybackFrame",
     "PlaybackRefusal",
     "PlaybackStory",
-    "PLAYBACK_COUNTRY_VOCABULARY",
     "SelectorKind",
     "validate_playback_countries",
 ]

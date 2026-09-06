@@ -4,13 +4,13 @@ from collections.abc import Callable
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.collection.sources.landclim.grid import (
     landclim_ii_quality_lookup,
 )
 from bijux_pollenomics.collection.sources.landclim.time_windows import (
     time_window_from_tw_filename,
 )
+
 from tests.support.workbooks import write_xlsx
 
 _CANONICAL_WINDOWS = tuple(

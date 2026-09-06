@@ -7,8 +7,6 @@ from pathlib import Path
 from typing import cast
 
 import pytest
-
-
 from bijux_pollenomics.provenance import (
     ReleaseEvidenceError,
     derive_release_evidence_request,

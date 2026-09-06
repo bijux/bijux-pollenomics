@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from .models import AdnaEnaQuery, AdnaEnaRecord
 
-
 _ENA_API_BASE = "https://www.ebi.ac.uk/ena/portal/api/filereport"
 
 

@@ -4,12 +4,12 @@ from __future__ import annotations
 
 from datetime import UTC, datetime
 
-from tests.support.repository import REPOSITORY_ROOT
-
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     SeadTableAcquisition,
     acquire_sead_table,
 )
+
+from tests.support.repository import REPOSITORY_ROOT
 
 _SCOPE = ("SE", "DK", "NO", "FI")
 _BBOX = {"bbox": [4.0, 54.0, 35.0, 72.0], "crs": "EPSG:4326"}

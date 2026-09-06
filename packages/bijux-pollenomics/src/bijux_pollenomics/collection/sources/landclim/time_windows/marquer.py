@@ -99,8 +99,8 @@ def _marquer_cell_geometries(path: Path) -> dict[str, dict[str, object]]:
         clean_optional_text,
         grid_geometry_from_center,
         parse_coordinate,
-        read_xlsx_sheet_rows,
         re,
+        read_xlsx_sheet_rows,
     )
 
     grouped_coordinates: dict[str, list[tuple[float, float]]] = {}

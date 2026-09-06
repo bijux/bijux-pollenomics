@@ -1,9 +1,11 @@
 """Acquisition manifest and table-payload validation."""
 
 from __future__ import annotations
-from collections.abc import Mapping, Sequence
+
 import hashlib
+from collections.abc import Mapping, Sequence
 from pathlib import Path, PurePosixPath
+
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     TABLE_PAYLOAD_SCHEMA_VERSION,
 )
@@ -22,8 +24,8 @@ from ..codec import (
     _safe_relative_path,
     _sha256,
 )
-from .contracts import _declared_table_contract
 from ..models import _AdmissionProfile
+from .contracts import _declared_table_contract
 
 
 def _validate_manifest_files(

@@ -3,7 +3,6 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from ....core.repository import repository_data_root
 from bijux_pollenomics.adna.domain.models import AdnaCoordinateProvenanceRecord
 from bijux_pollenomics.adna.projects.evidence.coordinates import (
     build_species_coordinate_provenance_rows,
@@ -13,6 +12,8 @@ from bijux_pollenomics.adna.projects.registry.sites import (
     AdnaProjectSampleSiteRow,
     build_project_sample_site_rows,
 )
+
+from ....core.repository import repository_data_root
 
 __all__ = [
     "AdnaProjectLocalityLead",

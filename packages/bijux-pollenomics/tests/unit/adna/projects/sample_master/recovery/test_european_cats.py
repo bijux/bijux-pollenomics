@@ -5,26 +5,26 @@ from __future__ import annotations
 from collections import Counter
 
 import pytest
-from tests.support.repository import REPOSITORY_ROOT
-
+from bijux_pollenomics.adna.projects.sample_master.models import (
+    AdnaProjectSampleMasterRow,
+)
 from bijux_pollenomics.adna.projects.sample_master.tables.european_cats import (
     EUROPEAN_CAT_WORKBOOK_MEMBER,
     EuropeanCatReconciliationRow,
     _build_european_cat_rows,
     _reconcile_european_cat_panel,
 )
-from bijux_pollenomics.adna.projects.sample_master.models import (
-    AdnaProjectSampleMasterRow,
-)
 from bijux_pollenomics.adna.projects.sample_master.tables.workbook import (
     _read_xlsx_member_rows,
 )
 from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from bijux_pollenomics.adna.species.definitions import resolve_species_definition
-from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_text
 from bijux_pollenomics.adna.workflow.source_artifacts import (
+    read_source_artifact_text,
     resolve_source_artifact_path,
 )
+
+from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts
 

@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-
 _RUN_ID = "sead-live-fixture"
 
 _SCOPE_ID = "sha256:" + "1" * 64

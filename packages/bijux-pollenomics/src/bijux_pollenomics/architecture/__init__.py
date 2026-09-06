@@ -51,6 +51,6 @@ __all__ = [
     "build_surface_map",
     "compatibility_alias_contract",
     "find_package_import_cycles",
-    "runtime_surface_contract",
     "repository_topology_policy",
+    "runtime_surface_contract",
 ]

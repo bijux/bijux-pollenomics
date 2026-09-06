@@ -6,7 +6,6 @@ import json
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.reporting.map_document.static_assets import (
     ATLAS_CHUNK_MAX_BYTES,
     validate_static_atlas_assets,

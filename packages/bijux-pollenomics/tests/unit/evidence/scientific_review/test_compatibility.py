@@ -5,7 +5,8 @@ from __future__ import annotations
 import ast
 import inspect
 
-import bijux_pollenomics.evidence.scientific_review as scientific_review
+from bijux_pollenomics.evidence import scientific_review
+
 from tests.support.repository import REPOSITORY_ROOT
 
 _PUBLIC_API = (

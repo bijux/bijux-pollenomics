@@ -2,8 +2,8 @@
 
 import csv
 import json
-from pathlib import Path
 import tempfile
+from pathlib import Path
 
 from bijux_pollenomics.analysis import (
     write_lake_fieldwork_preparation_csv,

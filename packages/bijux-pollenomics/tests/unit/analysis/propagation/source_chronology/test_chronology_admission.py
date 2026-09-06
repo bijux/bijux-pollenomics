@@ -5,14 +5,12 @@ from __future__ import annotations
 from copy import deepcopy
 
 import pytest
-
 from bijux_pollenomics.analysis.propagation.source_chronology import (
     SOURCE_NODE_CONFIG_DIGEST,
     SourceNodeContext,
 )
 
-from .support import BUILD, SNAPSHOT
-from .support import derive, source_rows
+from .support import BUILD, SNAPSHOT, derive, source_rows
 
 
 def test_context_requires_the_governed_derivation_config_identity() -> None:

@@ -5,7 +5,6 @@ from pathlib import Path
 from typing import IO
 
 import pytest
-
 from bijux_pollenomics.collection.sources.quarantine import IntakeRefusal
 from bijux_pollenomics.collection.sources.rootsi import normalization
 

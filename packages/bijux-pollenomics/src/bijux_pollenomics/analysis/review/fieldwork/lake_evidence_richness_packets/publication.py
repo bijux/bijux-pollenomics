@@ -1,19 +1,18 @@
 from __future__ import annotations
 
-from dataclasses import replace
 from collections.abc import Mapping
+from dataclasses import replace
 from pathlib import Path
 
+from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
+    LakeEvidenceRichnessReport,
+)
 from bijux_pollenomics.reporting.context.points import build_external_point_layer
 from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
 from bijux_pollenomics.reporting.map_publication import resolve_map_scope_policy
 from bijux_pollenomics.reporting.rendering.artifacts import copy_map_assets
-from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
-    LakeEvidenceRichnessReport,
-)
 
 from ..lake_fieldwork_priority import band_score as _band_score
-
 from .methodology import (
     _is_registry_backed_report,
     _lake_ranking_summary_paragraph,
@@ -26,18 +25,15 @@ from .methodology import (
     _render_temporal_alignment_rule,
     _render_temporal_navigation,
 )
-
 from .presentation import (
     _render_ambiguity_cell,
     _render_coordinate_link,
 )
-
 from .ranking_tables import (
     _render_consensus_table,
     _render_fieldwork_shortlist_table,
     _render_lake_identity_cell,
 )
-
 from .scenario_features import (
     _build_scenario_feature_collection,
     _lake_bounds,

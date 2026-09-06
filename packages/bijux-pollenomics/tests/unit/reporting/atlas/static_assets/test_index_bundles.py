@@ -2,14 +2,13 @@
 
 from __future__ import annotations
 
-from copy import deepcopy
 import base64
 import gzip
 import hashlib
 import json
+from copy import deepcopy
 
 import pytest
-
 from bijux_pollenomics.reporting.map_document.static_assets.index_bundles import (
     INDEX_KINDS,
     build_index_bundle,

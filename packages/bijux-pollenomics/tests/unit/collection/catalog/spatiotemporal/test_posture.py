@@ -3,14 +3,14 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
-
-from tests.support.repository import REPOSITORY_ROOT
 import tempfile
+from pathlib import Path
 
 from bijux_pollenomics.collection.catalog.spatiotemporal import (
     build_source_spatiotemporal_posture_payload,
 )
+
+from tests.support.repository import REPOSITORY_ROOT
 
 REPO_ROOT = REPOSITORY_ROOT
 

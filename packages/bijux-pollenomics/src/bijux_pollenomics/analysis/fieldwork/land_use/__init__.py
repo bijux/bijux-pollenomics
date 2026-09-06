@@ -179,10 +179,10 @@ def _within_radius(target: _Target, *, latitude: float, longitude: float) -> boo
 
 
 def _intervals_overlap(
-    start_a: float | int | None,
-    end_a: float | int | None,
-    start_b: float | int | None,
-    end_b: float | int | None,
+    start_a: float | None,
+    end_a: float | None,
+    start_b: float | None,
+    end_b: float | None,
 ) -> bool:
     return intervals_overlap(
         start_a,

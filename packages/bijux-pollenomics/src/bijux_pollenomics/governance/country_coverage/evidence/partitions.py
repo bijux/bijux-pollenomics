@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
-from ..constants import COUNTRIES, COUNT_FIELDS, CountryCoverageError
+from ..constants import COUNT_FIELDS, COUNTRIES, CountryCoverageError
 
 EvidenceCounts = dict[str, int | None]
 EvidenceMap = dict[tuple[str, str, str], EvidenceCounts]

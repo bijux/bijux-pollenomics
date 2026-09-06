@@ -3,7 +3,7 @@ from __future__ import annotations
 import inspect
 from pathlib import Path
 
-import bijux_pollenomics.collection.sources.neotoma.refresh_review as refresh_review
+from bijux_pollenomics.collection.sources.neotoma import refresh_review
 
 EXPECTED_SIGNATURES = {
     "build_neotoma_refresh_baseline": "(*, raw_archive_root: 'Path', relational_root: 'Path', compact_geojson_path: 'Path', lineage_path: 'Path', raw_public_root: 'str' = 'data/neotoma/raw/neotoma_pollen_dataset_downloads', relational_public_root: 'str' = 'data/neotoma/relational', compact_public_path: 'str' = 'data/neotoma/normalized/nordic_pollen_sites.geojson', lineage_public_path: 'str' = 'data/neotoma/review/compact_relational_lineage.json') -> 'dict[str, object]'",

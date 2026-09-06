@@ -1,10 +1,12 @@
 """Compact and validate SEAD chronology claims."""
 
 from __future__ import annotations
-from collections.abc import Mapping, Sequence
+
 import hashlib
+from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import cast
+
 from .constants import (
     _SEAD_CLAIM_COMMON_FIELDS,
     _SEAD_CLAIM_FIELDS,

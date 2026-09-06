@@ -6,7 +6,6 @@ from types import SimpleNamespace
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     LakeEvidenceRichnessAssessment,
     LakeEvidenceRichnessReport,

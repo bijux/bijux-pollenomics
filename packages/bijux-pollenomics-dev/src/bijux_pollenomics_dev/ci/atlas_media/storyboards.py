@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
 import hashlib
 import json
 import math
+from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import cast
 
@@ -436,8 +436,8 @@ def _taxon_frame(
     *,
     ordinal: int,
     feature_key: str,
-    younger: float | int,
-    older: float | int,
+    younger: float,
+    older: float,
     countries: tuple[str, ...],
 ) -> dict[str, object]:
     label = f"{younger:g} BP" if younger == older else f"{younger:g}–{older:g} BP"

@@ -1,8 +1,10 @@
 """Deterministic propagation bundle materialization orchestration."""
 
 from __future__ import annotations
+
 from collections.abc import Sequence
 from pathlib import Path
+
 from bijux_pollenomics.analysis.propagation.network import (
     PROPAGATION_CONTRACT_VERSION,
     PhenomenonEvent,
@@ -21,7 +23,7 @@ from .codec import (
 from .contracts import _validate_propagation_contract_identity
 from .inputs import _load_and_check_schemas
 from .manifest import _build_manifest, _validate_scenario_artifact_lineage
-from .models import PropagationMaterializationResult, _MANIFEST_NAME
+from .models import _MANIFEST_NAME, PropagationMaterializationResult
 from .payloads import (
     _build_payloads,
     _primary_result,

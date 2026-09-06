@@ -1,9 +1,9 @@
 from __future__ import annotations
 
+import subprocess
 import unittest
 
 import pytest
-import subprocess
 
 from .repository_paths import (
     PACKAGE_ROOT,

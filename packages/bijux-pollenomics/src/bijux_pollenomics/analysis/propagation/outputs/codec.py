@@ -1,6 +1,7 @@
 """Canonical JSON, SHA-256, strict text, and refusal primitives."""
 
 from __future__ import annotations
+
 import hashlib
 import json
 from typing import NoReturn

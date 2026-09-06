@@ -5,7 +5,6 @@ from __future__ import annotations
 import json
 
 import pytest
-
 from bijux_pollenomics.adna.projects.registry.archive_samples import (
     read_archive_project_samples,
 )

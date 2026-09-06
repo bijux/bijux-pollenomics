@@ -1,14 +1,16 @@
 from __future__ import annotations
 
-from copy import deepcopy
 import json
+from copy import deepcopy
 from typing import Any
 
-from jsonschema import Draft202012Validator  # type: ignore[import-untyped]
 import pytest
+from jsonschema import Draft202012Validator  # type: ignore[import-untyped]
 
 from .support import (
     EVENT_SCHEMA_PATH as _EVENT_SCHEMA_PATH,
+)
+from .support import (
     _chronology,
     _derive,
     _mapping,

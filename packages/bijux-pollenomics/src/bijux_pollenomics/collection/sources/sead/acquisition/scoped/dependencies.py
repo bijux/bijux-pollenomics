@@ -1,15 +1,17 @@
 """Dependency-scoped table acquisition and aggregation."""
 
 from __future__ import annotations
+
+import hashlib
 from collections.abc import Callable, Iterable, Mapping, Sequence
 from datetime import datetime
-import hashlib
+
+from bijux_pollenomics.collection.sources.sead.acquisition.client import (
+    build_sead_in_filter,
+)
 from bijux_pollenomics.collection.sources.sead.acquisition.full import (
     SeadTableAcquisition,
     acquire_sead_table,
-)
-from bijux_pollenomics.collection.sources.sead.acquisition.client import (
-    build_sead_in_filter,
 )
 
 from .codec import _canonical_bytes, _observed_schema, _table_payload_bytes, _utc_text

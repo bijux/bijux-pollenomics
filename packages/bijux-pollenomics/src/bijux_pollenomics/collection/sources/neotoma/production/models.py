@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
 import math
+from dataclasses import asdict, dataclass
 
 from .constants import (
     PRODUCTION_CONFIG_SCHEMA,

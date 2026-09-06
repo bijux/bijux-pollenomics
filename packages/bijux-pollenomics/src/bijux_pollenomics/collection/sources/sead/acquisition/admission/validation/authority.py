@@ -1,8 +1,10 @@
 """Pinned Nordic boundary-authority loading and validation."""
 
 from __future__ import annotations
+
 import hashlib
 from pathlib import Path
+
 from ..codec import (
     _canonical_bytes,
     _expect_equal,

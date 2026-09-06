@@ -5,11 +5,11 @@ from __future__ import annotations
 import inspect
 from pathlib import Path
 
-from bijux_pollenomics.governance.repository_truth import release
 from bijux_pollenomics.governance.repository_truth import (
     documentation,
     integrity,
     metrics,
+    release,
 )
 from bijux_pollenomics.governance.repository_truth.release import (
     credibility,

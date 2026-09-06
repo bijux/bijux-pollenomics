@@ -1,12 +1,14 @@
 """Species, breed, and coordinate normalization primitives."""
 
 from __future__ import annotations
+
 import re
+
 from bijux_pollenomics.adna.domain.models import (
     AdnaCoordinate,
 )
-from ...species.definitions import AdnaSpeciesDefinition, resolve_species_definition
 
+from ...species.definitions import AdnaSpeciesDefinition, resolve_species_definition
 from .models import AdnaCoordinateResolution
 
 

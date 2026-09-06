@@ -6,8 +6,8 @@ from bijux_pollenomics.adna.domain.models.vocabularies import (
     ADNA_APPROXIMATE_COORDINATE_CONFIDENCE,
 )
 
-from ..atlas_evidence_rows import AnimalAtlasEvidenceRow
 from ...geography import NORDIC_COUNTRIES
+from ..atlas_evidence_rows import AnimalAtlasEvidenceRow
 
 
 def _build_point_feature(

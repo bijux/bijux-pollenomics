@@ -1,17 +1,16 @@
 from __future__ import annotations
 
 import json
+import shutil
 from pathlib import Path
 
-from tests.support.repository import REPOSITORY_ROOT
-import shutil
-
 import pytest
-
 from bijux_pollenomics.collection.sources.landclim.collection import (
     LandClimRawReceiptError,
     validate_landclim_raw_receipt,
 )
+
+from tests.support.repository import REPOSITORY_ROOT
 
 _REPOSITORY_ROOT = REPOSITORY_ROOT
 _RAW_ROOT = _REPOSITORY_ROOT / "data" / "landclim" / "raw"

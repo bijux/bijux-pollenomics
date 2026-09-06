@@ -5,7 +5,6 @@ import pickle
 
 from bijux_pollenomics.collection.spatial import country_classification
 
-
 EXPECTED_EXPORTS = [
     "BOUNDARY_CONTACT_EPSILON",
     "COUNTRY_BOUNDARY_PROXIMITY_TOLERANCE",

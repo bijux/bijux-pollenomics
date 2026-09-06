@@ -6,15 +6,14 @@ from pathlib import Path
 from typing import Any
 
 import pytest
-
 from bijux_pollenomics_dev.ci.atlas_media import (
     AtlasMediaError,
     admission,
     capture,
     runner,
 )
-from bijux_pollenomics_dev.ci.atlas_media.contracts import SelectedStory
 from bijux_pollenomics_dev.ci.atlas_media.catalog import PUBLICATION_STORIES
+from bijux_pollenomics_dev.ci.atlas_media.contracts import SelectedStory
 from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     canonical_json_bytes,
     media_asset_row,

@@ -3,19 +3,19 @@
 from __future__ import annotations
 
 import argparse
-from collections.abc import Callable, Iterable, Mapping, Sequence
-from dataclasses import dataclass
 import hashlib
 import json
 import math
 import os
-from pathlib import Path
 import re
 import shutil
 import subprocess
 import tempfile
-from typing import NoReturn, cast
 import zlib
+from collections.abc import Callable, Iterable, Mapping, Sequence
+from dataclasses import dataclass
+from pathlib import Path
+from typing import NoReturn, cast
 
 from .catalog import (
     PUBLICATION_SCHEMA_VERSION,
@@ -1073,7 +1073,7 @@ def _validate_media_properties(
     width: int,
     height: int,
     frame_count: int,
-    duration_seconds: float | int | None,
+    duration_seconds: float | None,
     mp4_probe: Mp4Probe,
 ) -> None:
     if media_type == "poster":

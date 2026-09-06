@@ -179,15 +179,15 @@ PANGAEA_METRIC_KEYS: Final = tuple(
 )
 
 __all__ = [
-    "EXACT_TAXON_KEYS",
     "EXACT_TAXA",
+    "EXACT_TAXON_KEYS",
     "LAND_COVER_COMPONENT_KEYS",
     "LAND_COVER_TYPE_DEFINITIONS",
     "MAPPING_TABLE_EVIDENCE",
     "METRIC_FAMILIES",
-    "MetricDefinition",
-    "MetricFamily",
     "PANGAEA_METRIC_KEYS",
     "PFT_DEFINITIONS",
     "RESULT_HEADER_EVIDENCE",
+    "MetricDefinition",
+    "MetricFamily",
 ]

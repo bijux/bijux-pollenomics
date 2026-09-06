@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from collections import Counter
 import unittest
+from collections import Counter
 
 from bijux_pollenomics.adna.sources.archive import (
     build_archive_project_catalog,
@@ -43,7 +43,7 @@ class ArchiveCatalogTests(unittest.TestCase):
         catalog = build_archive_project_catalog()
         projects_by_species = {
             species: [row for row in catalog if row.species_latin_name == species]
-            for species in {
+            for species in (
                 "Equus caballus",
                 "Capra hircus",
                 "Canis lupus familiaris",
@@ -51,7 +51,7 @@ class ArchiveCatalogTests(unittest.TestCase):
                 "Rangifer tarandus",
                 "Equus asinus",
                 "Sus scrofa domesticus",
-            }
+            )
         }
 
         self.assertGreaterEqual(len(projects_by_species["Equus caballus"]), 8)

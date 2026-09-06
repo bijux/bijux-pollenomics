@@ -14,6 +14,8 @@ def _parse_artifact_ownership(
 ) -> tuple[_ArtifactOwnershipRule, ...]:
     from . import (
         _ARTIFACT_ROLES,
+        ArtifactRole,
+        ReleaseEvidenceError,
         _ArtifactOwnershipRule,
         _mapping_list,
         _relative_path,
@@ -21,7 +23,6 @@ def _parse_artifact_ownership(
         _string_field,
         cast,
     )
-    from . import ArtifactRole, ReleaseEvidenceError
 
     ownership: list[_ArtifactOwnershipRule] = []
     ownership_keys: list[str] = []
@@ -60,16 +61,17 @@ def _parse_required_artifacts(
 ) -> tuple[_RequiredArtifact, ...]:
     from . import (
         _ARTIFACT_ROLES,
-        _RequiredArtifact,
+        ArtifactRole,
+        ReleaseEvidenceError,
         _mapping_list,
         _relative_path,
         _require_identity,
         _require_unique,
+        _RequiredArtifact,
         _string_field,
         _string_items,
         cast,
     )
-    from . import ArtifactRole, ReleaseEvidenceError
 
     required_artifacts: list[_RequiredArtifact] = []
     required_artifact_identities: list[str] = []

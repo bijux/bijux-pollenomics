@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from pathlib import Path
 import re
 import subprocess
+from pathlib import Path
 
-import bijux_pollenomics_dev.ci.atlas_browser as atlas_browser
+from bijux_pollenomics_dev.ci import atlas_browser
 from bijux_pollenomics_dev.ci.atlas_browser.verdict import REQUIRED_ASSERTIONS
 
 

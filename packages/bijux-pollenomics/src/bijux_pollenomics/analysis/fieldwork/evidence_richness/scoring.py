@@ -4,14 +4,15 @@ from __future__ import annotations
 
 from collections.abc import Sequence
 
+from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.core import (
     haversine_km,
 )
-from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+
 from .models import (
+    _SVAR_AGGREGATE_RADIUS_WEIGHTS,
     LakeEvidenceBandScore,
     LakeEvidenceCandidate,
-    _SVAR_AGGREGATE_RADIUS_WEIGHTS,
     _DensityCell,
     _PointEvidence,
 )

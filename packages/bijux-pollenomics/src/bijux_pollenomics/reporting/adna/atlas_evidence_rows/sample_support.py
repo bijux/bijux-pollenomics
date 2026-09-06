@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-
 ATLAS_PUBLICATION_INCLUSION_STATUSES = frozenset(
     {
         "comparator_site_curated",

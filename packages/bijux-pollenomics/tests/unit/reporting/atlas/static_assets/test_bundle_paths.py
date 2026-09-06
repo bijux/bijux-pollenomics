@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from pathlib import Path
 
-
 from bijux_pollenomics.reporting.bundles.paths import build_atlas_bundle_paths
 
 

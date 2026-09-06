@@ -5,9 +5,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pytest
-
 from bijux_pollenomics.collection.sources.landclim import collection
-
 
 EXPECTED_EXPORTS = [
     "LandClimRawReceiptError",

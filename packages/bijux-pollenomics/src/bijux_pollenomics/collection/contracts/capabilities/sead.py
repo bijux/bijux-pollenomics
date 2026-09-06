@@ -1,14 +1,11 @@
 from __future__ import annotations
 
-from collections.abc import Mapping
 import hashlib
 import json
+from collections.abc import Mapping
 from pathlib import Path
 
 from .constants import (
-    SEAD_NORMALIZED_EVIDENCE_EVENTS,
-    SEAD_NORMALIZED_OBSERVATIONS,
-    SEAD_NORMALIZED_RELATIONS,
     _SEAD_ACQUISITION_BUNDLE_SHA256,
     _SEAD_ACQUISITION_MANIFEST_SHA256,
     _SEAD_ADMISSION_SHA256,
@@ -19,6 +16,9 @@ from .constants import (
     _SEAD_PARENT_ADMISSION_SHA256,
     _SEAD_RUN_ID,
     _SEAD_SCOPE_ID,
+    SEAD_NORMALIZED_EVIDENCE_EVENTS,
+    SEAD_NORMALIZED_OBSERVATIONS,
+    SEAD_NORMALIZED_RELATIONS,
 )
 from .primitives import (
     _non_negative_int,

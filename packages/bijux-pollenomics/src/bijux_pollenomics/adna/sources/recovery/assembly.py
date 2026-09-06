@@ -13,14 +13,14 @@ from bijux_pollenomics.adna.projects.evidence.chronology import (
 from bijux_pollenomics.adna.projects.evidence.localities import (
     build_project_locality_substitution_ledger,
 )
+from bijux_pollenomics.adna.projects.registry.sites import (
+    build_project_sample_site_review_rows,
+)
 from bijux_pollenomics.adna.projects.sample_master import (
     build_cross_project_sample_master_completeness,
 )
 from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep import (
     build_baltic_sheep_material_conflicts,
-)
-from bijux_pollenomics.adna.projects.registry.sites import (
-    build_project_sample_site_review_rows,
 )
 from bijux_pollenomics.adna.sources.library.registries import (
     build_paper_registry,

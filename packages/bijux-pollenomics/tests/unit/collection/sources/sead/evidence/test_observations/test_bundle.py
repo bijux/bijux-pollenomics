@@ -6,7 +6,6 @@ from pathlib import Path
 from unittest.mock import patch
 
 import pytest
-
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     materialize_sead_full_evidence_admission,
 )
@@ -25,7 +24,7 @@ from bijux_pollenomics.collection.sources.sead.evidence.bundle import (
     serialization as evidence_serialization,
 )
 
-from .support import _FullEvidencePostgrestFixture, _acquire, _full_admission_inputs
+from .support import _acquire, _full_admission_inputs, _FullEvidencePostgrestFixture
 
 
 def test_source_native_evidence_preserves_every_row_and_is_fixed_point(

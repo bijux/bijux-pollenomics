@@ -5,7 +5,6 @@ from pathlib import Path
 
 from bijux_pollenomics.collection.sources.landclim import collection
 
-
 EXPECTED_MODULES = {
     "__init__.py",
     "archive_identity.py",

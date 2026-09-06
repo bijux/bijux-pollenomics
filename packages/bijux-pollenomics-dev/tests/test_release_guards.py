@@ -5,7 +5,6 @@ from __future__ import annotations
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics_dev.release.publication_guard import (
     artifact_versions,
     assert_artifacts_match_version,

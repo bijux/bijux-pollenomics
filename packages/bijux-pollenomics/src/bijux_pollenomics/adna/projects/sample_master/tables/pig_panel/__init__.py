@@ -11,7 +11,11 @@ from bijux_pollenomics.adna.species.definitions import AdnaSpeciesDefinition
 from ...models import AdnaProjectSampleMasterRow
 from .site_coordinates import (
     PIG_SITE_COORDINATE_EVIDENCE_PATH as PIG_SITE_COORDINATE_EVIDENCE_PATH,
+)
+from .site_coordinates import (
     PigSiteCoordinateEvidence as PigSiteCoordinateEvidence,
+)
+from .site_coordinates import (
     load_pig_site_coordinate_evidence as load_pig_site_coordinate_evidence,
 )
 

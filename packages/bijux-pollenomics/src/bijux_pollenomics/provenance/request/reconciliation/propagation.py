@@ -6,8 +6,7 @@ from collections.abc import Mapping
 from itertools import product
 from pathlib import Path
 
-from ...release_evidence.models import CountReconciliation
-from ...release_evidence.models import _RequiredReconciliation
+from ...release_evidence.models import CountReconciliation, _RequiredReconciliation
 from .json_object import optional_json_object
 from .records import reported_count
 

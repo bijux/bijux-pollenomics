@@ -4,8 +4,8 @@ from collections.abc import Callable
 from pathlib import Path
 
 from ...config import NORDIC_BBOX
-from .planning.source_registry import ContextSourceSpec
 from .materialization.staging import collect_into_staging_dir
+from .planning.source_registry import ContextSourceSpec
 
 __all__ = ["collect_context_source", "collect_context_source_into_dir"]
 

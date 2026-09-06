@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Iterable, Sequence
 from dataclasses import replace
 
+from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.core import (
     build_temporal_semantics,
     haversine_km,
@@ -17,11 +18,11 @@ from bijux_pollenomics.core.temporal_semantics import (
     canonical_bp_interval,
     closed_bp_intervals_overlap,
 )
-from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+
 from .models import (
+    _TEMPORAL_NAVIGATION_INTERVALS,
     LakeEvidenceCandidate,
     LakeEvidenceSourceAnchor,
-    _TEMPORAL_NAVIGATION_INTERVALS,
     _PointEvidence,
 )
 
