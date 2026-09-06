@@ -5158,9 +5158,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       const ATLAS_CAPTURE_API_VERSION = 'atlas-capture.v1';
       function captureFrameNumber(value, label) {
-        const number = Number(value);
-        if (!Number.isFinite(number) || number < 0) throw new Error(`${label} must be a finite non-negative number`);
-        return number;
+        if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) throw new Error(`${label} must be a finite non-negative number`);
+        return value;
       }
       function captureFrameCountries(value) {
         if (value === undefined) return [...activeCountries].sort();
@@ -5177,10 +5176,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function captureFrameView(value) {
         if (value === undefined) return null;
-        const latitude = Number(value && value.latitude);
-        const longitude = Number(value && value.longitude);
-        const zoom = Number(value && value.zoom);
-        if (!Number.isFinite(latitude) || latitude < -90 || latitude > 90 || !Number.isFinite(longitude) || longitude < -180 || longitude > 180 || !Number.isFinite(zoom) || zoom < 0 || zoom > 20) {
+        if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('capture view is invalid');
+        const { latitude, longitude, zoom } = value;
+        if (typeof latitude !== 'number' || !Number.isFinite(latitude) || latitude < -90 || latitude > 90 || typeof longitude !== 'number' || !Number.isFinite(longitude) || longitude < -180 || longitude > 180 || typeof zoom !== 'number' || !Number.isFinite(zoom) || zoom < 0 || zoom > 20) {
           throw new Error('capture view is invalid');
         }
         return { latitude, longitude, zoom };
