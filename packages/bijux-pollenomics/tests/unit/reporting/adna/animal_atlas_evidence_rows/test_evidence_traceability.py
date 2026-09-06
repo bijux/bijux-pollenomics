@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import copy
+import json
 from pathlib import Path
 import tempfile
 
@@ -73,6 +75,8 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
                             "time_end_bp": 1600,
                             "time_mean_bp": 1400,
                             "dating_basis": "bp_window",
+                            "evidence_class": "direct_radiocarbon_date",
+                            "precision_posture": "sample_precise_interval",
                         },
                         "sample_namespace": "animal-locality",
                         "project_accessions": ["PRJEB59481"],
@@ -120,6 +124,15 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
                 ],
             },
         )
+        sample_path = species_root / "normalized" / "sample_records.json"
+        sample_payload = json.loads(sample_path.read_text(encoding="utf-8"))
+        blocked_sample = copy.deepcopy(sample_payload["samples"][0])
+        blocked_sample["identity"]["stable_token"] = (
+            "ovis_aries:sample:prjeb59481:blocked"
+        )
+        blocked_sample["inclusion_status"] = "sample_context_blocked"
+        sample_payload["samples"].append(blocked_sample)
+        _write_json(sample_path, sample_payload)
         _write_json(
             species_root / "normalized" / "coordinate_provenance.json",
             {
@@ -236,11 +249,11 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
             {
                 "schema_version": "adna-sample-record-export.v1",
                 "species_latin_name": "Ovis aries",
-                "samples": [],
+                "samples": [blocked_sample],
             },
         )
-        unbacked_rows = build_tracked_animal_atlas_evidence_rows(data_root)
-        unbacked_localities = load_tracked_animal_mappable_localities(data_root)
+        blocked_rows = build_tracked_animal_atlas_evidence_rows(data_root)
+        blocked_localities = load_tracked_animal_mappable_localities(data_root)
 
     assert len(rows) == 1
     assert len(localities) == 1
@@ -267,5 +280,5 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
     assert coordinate_review.direct_coordinate_feature_count == 0
     assert coordinate_review.named_site_geocoded_feature_count == 1
     assert coordinate_review.weaker_geography_feature_count == 0
-    assert unbacked_rows == ()
-    assert unbacked_localities == ()
+    assert blocked_rows == ()
+    assert blocked_localities == ()

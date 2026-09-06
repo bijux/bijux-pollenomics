@@ -10,8 +10,8 @@
 ## Sample Evidence Depth
 
 - sample identity only: `0`
-- sample with site: `654`
-- sample with site and chronology: `269`
+- sample with site: `590`
+- sample with site and chronology: `333`
 - sample with site chronology and coordinates: `527`
 
 | Project | Species | Completed stages | Required stages | Recovery depth score |

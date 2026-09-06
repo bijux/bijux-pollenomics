@@ -34,10 +34,19 @@ ADNA_COORDINATE_PROVENANCE_CLASSES = (
     "unresolved_location_state",
 )
 ADNA_DATING_BASES = (
+    "archaeological_context",
+    "archaeological_period_assignment",
     "bp_mean_and_stddev",
     "bp_window",
     "archaeological_period",
+    "historical_and_archaeological_context",
     "historical_attribution",
+    "mixed_radiocarbon_and_archaeological_context",
+    "modern_sampling",
+    "not_yet_curated",
+    "population_history_context",
+    "radiocarbon",
+    "relative_period",
     "unknown",
 )
 ADNA_MAPPING_POSTURES = (

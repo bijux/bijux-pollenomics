@@ -3,6 +3,26 @@
 from __future__ import annotations
 
 
+ATLAS_PUBLICATION_INCLUSION_STATUSES = frozenset(
+    {
+        "comparator_site_curated",
+        "nordic_lead_site_curated",
+        "site_curated",
+    }
+)
+
+
+def _atlas_admitted_sample_rows(
+    sample_rows: tuple[dict[str, object], ...],
+) -> tuple[dict[str, object], ...]:
+    return tuple(
+        row
+        for row in sample_rows
+        if str(row.get("inclusion_status", "")).strip()
+        in ATLAS_PUBLICATION_INCLUSION_STATUSES
+    )
+
+
 def _sample_locality_token(row: dict[str, object]) -> str:
     locality_identity = row.get("locality_identity", {})
     if not isinstance(locality_identity, dict):
@@ -60,9 +80,7 @@ def _source_native_taxonomy_for(
         for tax_id, scientific_name in ordered_pairs
     )
     tax_ids = tuple(sorted({tax_id for tax_id, _ in ordered_pairs if tax_id}))
-    scientific_names = tuple(
-        sorted({name for _, name in ordered_pairs if name})
-    )
+    scientific_names = tuple(sorted({name for _, name in ordered_pairs if name}))
     alignment_statuses = tuple(
         sorted(
             {

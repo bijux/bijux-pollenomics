@@ -193,13 +193,13 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         )
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
-        self.assertEqual(audit["sample_row_count"], 1453)
-        self.assertEqual(audit["normalized_interval_count"], 321)
-        self.assertEqual(audit["normalized_point_count"], 475)
-        self.assertEqual(audit["unresolved_count"], 527)
-        self.assertEqual(audit["precision_counts"]["contextual_interval"], 8)
+        self.assertEqual(audit["sample_row_count"], 1454)
+        self.assertEqual(audit["normalized_interval_count"], 328)
+        self.assertEqual(audit["normalized_point_count"], 533)
+        self.assertEqual(audit["unresolved_count"], 463)
+        self.assertEqual(audit["precision_counts"]["contextual_interval"], 15)
         self.assertEqual(
-            audit["precision_counts"]["sample_approximate_or_modeled"], 130
+            audit["precision_counts"]["sample_approximate_or_modeled"], 188
         )
         self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 276)
         self.assertFalse(
@@ -217,7 +217,7 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(conflict_rows, ())
         self.assertEqual(
             precision_audit["precision_counts"]["sample_approximate_or_modeled"],
-            130,
+            188,
         )
         sheep_species = next(
             row for row in species_rows if row["species_latin_name"] == "Ovis aries"
@@ -264,8 +264,8 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
                 for row in gap_queue
             )
         )
-        self.assertEqual(len(sample_review_rows), 1453)
-        self.assertEqual(len(provenance_rows), 1453)
+        self.assertEqual(len(sample_review_rows), 1454)
+        self.assertEqual(len(provenance_rows), 1454)
         horse_provenance = next(
             row
             for row in provenance_rows

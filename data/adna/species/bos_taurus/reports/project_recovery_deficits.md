@@ -8,6 +8,6 @@
 
 | Project | Minimum sample gap | Site gap | Chronology gap | Publication status |
 | --- | ---: | ---: | ---: | --- |
-| `PRJEB31621` | `0` | `77` | `77` | `blocked` |
+| `PRJEB31621` | `0` | `12` | `13` | `blocked` |
 | `PRJEB75467` | `0` | `44` | `44` | `blocked` |
 | `PRJNA705960` | `0` | `11` | `11` | `blocked` |

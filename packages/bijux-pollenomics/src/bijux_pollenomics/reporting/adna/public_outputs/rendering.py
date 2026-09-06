@@ -146,24 +146,36 @@ def _render_animal_atlas_readiness_markdown(payload: dict[str, object]) -> str:
         "",
         f"- Status counts: `{payload.get('status_counts', {})}`",
         "",
-        "| Species | Status | Candidate points | Mapped samples | Blocked samples | Unresolved rows | Region-refused rows | Map-ready share | Reason |",
-        "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
+        "| Species | Status | Candidate points | Mapped samples | Blocked samples | Unresolved samples | Mappable coordinate provenance | Refused coordinate provenance | Coordinate-provenance denominator | Mappable share | Publication share of mappable coordinates | Reason |",
+        "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
     ]
     if not rows:
         lines.append(
-            "| No readiness rows yet | absent | 0 | 0 | 0 | 0 | 0 | 0.0000 | no tracked sample rows |"
+            "| No readiness rows yet | absent | 0 | 0 | 0 | 0 | 0 | 0 | 0 | N/A | N/A | no tracked sample rows |"
         )
     else:
         for row in rows:
             lines.append(
                 f"| {row['species_latin_name']} | {row['readiness_status']} | "
                 f"{row['candidate_point_count']} | {row['mapped_sample_count']} | "
-                f"{row['blocked_sample_count']} | {row['unresolved']} | "
-                f"{row['refused_from_mapping']} | {row['map_ready_share']:.4f} | "
+                f"{row['blocked_sample_count']} | {row['unresolved_sample_count']} | "
+                f"{row['coordinate_mappable_provenance_count']} | "
+                f"{row['coordinate_refused_provenance_count']} | "
+                f"{row['coordinate_provenance_denominator']} | "
+                f"{_format_nullable_share(row['coordinate_mappable_share'])} | "
+                f"{_format_nullable_share(row['publication_share_of_mappable_coordinates'])} | "
                 f"{row['status_reason']} |"
             )
     lines.append("")
     return "\n".join(lines)
+
+
+def _format_nullable_share(value: object) -> str:
+    if value is None:
+        return "N/A"
+    if isinstance(value, (float, int, str)):
+        return f"{float(value):.4f}"
+    raise TypeError(f"Expected numeric share, got {type(value).__name__}")
 
 
 def _render_output_honesty_markdown(payload: AnimalOutputHonesty) -> str:

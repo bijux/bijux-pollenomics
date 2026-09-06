@@ -70,8 +70,10 @@ class MapReadinessPostureRow(TypedDict):
     species_common_name: str
     direct_coordinate_backed: int
     indirectly_geocoded: int
-    unresolved: int
-    refused_from_mapping: int
+    unresolved_sample_count: int
+    refused_coordinate_provenance_count: int
+    region_only_coordinate_refusal_count: int
+    unresolved_location_coordinate_refusal_count: int
 
 
 class MapReadinessRow(MapReadinessPostureRow):
@@ -83,9 +85,12 @@ class MapReadinessRow(MapReadinessPostureRow):
 class MapReadinessTotals(TypedDict):
     direct_coordinate_backed: int
     indirectly_geocoded: int
-    unresolved: int
-    refused_from_mapping: int
+    unresolved_sample_count: int
+    refused_coordinate_provenance_count: int
+    region_only_coordinate_refusal_count: int
+    unresolved_location_coordinate_refusal_count: int
     coordinate_provenance_mappable_count: int
+    coordinate_provenance_row_count: int
     publication_candidate_count: int
     not_materialized_count: int
 
@@ -95,6 +100,8 @@ class PublicationAccounting(TypedDict):
     coordinate_posture_definition: str
     publication_candidate_definition: str
     not_materialized_reason_definition: str
+    unresolved_sample_definition: str
+    coordinate_refusal_definition: str
 
 
 class MapReadinessAudit(TypedDict):

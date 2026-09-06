@@ -111,7 +111,7 @@ def render_animal_foundation_review_markdown(payload: dict[str, Any]) -> str:
         f"- Direct-coordinate point count: `{payload['counts']['direct_coordinate_point_count']}`",
         f"- Geocoded point count: `{payload['counts']['geocoded_point_count']}`",
         f"- Unresolved sample count: `{payload['counts']['unresolved_sample_count']}`",
-        f"- Region-only refusal count: `{payload['counts']['region_only_refusal_count']}`",
+        f"- Coordinate-provenance refusal count: `{payload['counts']['coordinate_provenance_refusal_count']}`",
         "",
     ]
     if payload["strengths"]:

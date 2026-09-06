@@ -1,8 +1,8 @@
 # Animal atlas candidate accountability
 
-- Candidate rows: `275`
+- Candidate rows: `271`
 - Fully accountable rows: `271`
-- Overall ok: `false`
+- Overall ok: `true`
 
 | Species | Project | Sample rows | Sample lineage | Site evidence | Chronology evidence | Coordinate evidence | Locality match |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -38,33 +38,6 @@
 | Equus caballus | PRJEB44430 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | false | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | false | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | false | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
@@ -86,7 +59,30 @@
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
-| Equus caballus | PRJEB31613 | true | true | true | false | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
+| Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |
 | Equus caballus | PRJEB31613 | true | true | true | true | true | true |

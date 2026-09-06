@@ -244,14 +244,14 @@
     {
       "project_accession": "PRJEB31621",
       "species_latin_name": "Bos taurus",
-      "recovered_sample_row_count": 77,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 78,
+      "direct_sample_site_count": 66,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
       "region_only_count": 0,
-      "unresolved_count": 77,
-      "lacking_defensible_site_assignment_count": 77,
+      "unresolved_count": 12,
+      "lacking_defensible_site_assignment_count": 12,
       "missing_reasons": [
         "unresolved"
       ]

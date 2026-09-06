@@ -83,11 +83,11 @@ def test_real_animal_layers_withhold_context_dates_from_numeric_playback(
     ]
 
     assert numeric_caveated == []
-    assert len(untimed) == 67
+    assert len(untimed) == 63
     assert {
         cast(dict[str, object], feature["temporal_semantics"])["comparability_posture"]
         for feature in untimed
-    } == {"contextual_label_only", "unresolved"}
+    } == {"contextual_label_only"}
 
     cat_layer = layers["Felis catus"]
     cat_features = cast(list[dict[str, object]], cat_layer["features"])

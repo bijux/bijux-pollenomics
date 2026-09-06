@@ -3,8 +3,8 @@
   "project_count": 40,
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
-    "sample_with_site": 654,
-    "sample_with_site_and_chronology": 269,
+    "sample_with_site": 590,
+    "sample_with_site_and_chronology": 333,
     "sample_with_site_chronology_and_coordinates": 527
   },
   "project_counts": {

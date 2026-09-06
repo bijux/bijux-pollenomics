@@ -48,12 +48,8 @@
 - Some recovered sample rows still lack a defensible site assignment.
 - Some recovered sample rows still lack sample-level chronology.
 
-## Contradictory Evidence
-
-- Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence.
-
 ## Manual Curation Work Units
 
-- `chronology_recovery`: 154 item(s), blocks chronology honesty and publication precision
-- `locality_string_resolution`: 77 item(s), blocks coordinate derivation and exact locality publication
-- `site_resolution`: 77 item(s), blocks exact site, coordinate, and publication recovery
+- `chronology_recovery`: 91 item(s), blocks chronology honesty and publication precision
+- `locality_string_resolution`: 12 item(s), blocks coordinate derivation and exact locality publication
+- `site_resolution`: 12 item(s), blocks exact site, coordinate, and publication recovery

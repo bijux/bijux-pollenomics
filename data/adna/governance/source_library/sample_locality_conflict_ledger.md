@@ -1,6 +1,6 @@
 # Sample locality conflict ledger
 
-- Conflicting rows: `508`
+- Conflicting rows: `574`
 
 | Project accession | Sample id | Sample locality | Conflicting surface | Conflicting locality | Reason |
 | --- | --- | --- | --- | --- | --- |
@@ -151,6 +151,72 @@
 | PRJEB30282 | prjeb30282:samea5160868 | Trelleborg | article_text | Near East and Europe pig domestication transect | project_context_disagrees_with_sample_owned_site |
 | PRJEB30282 | prjeb30282:samea5160868 | Trelleborg | coordinate_resolution | Near East and Europe pig domestication transect | project_context_disagrees_with_sample_owned_site |
 | PRJEB30282 | prjeb30282:samea5160868 | Trelleborg | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577344 | Abu Gosh | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577345 | Abu Gosh | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577346 | Acemhöyük | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577347 | Tel Ashqelon | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577348 | Kul Tepe, Azerbaijan | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577349 | Belovode-Veliko Laole | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577350 | Belovode-Veliko Laole | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577351 | Bestansur | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577352 | Bestansur | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577353 | Blagotin | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577354 | Blagotin | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577355 | Bubanj | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577356 | Tilla Bulak | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577357 | Horvat Castra | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577358 | Çatalhöyük | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577359 | Tel Dan | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577360 | Mianroud, Fars | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577361 | Gilat | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577362 | Gyumri | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577363 | Hasanlu | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577364 | Hasanlu | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577365 | Hasanlu | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577366 | Hasanlu | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577367 | Dariali Tamara Fort | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577368 | Dariali Tamara Fort | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577369 | Dariali Tamara Fort | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577370 | Dariali Tamara Fort | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577371 | Dariali Tamara Fort | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577372 | Nishapur Kohandež, Central Khorasan | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577373 | Koktepe | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577374 | Maral Tappeh | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577375 | Tel Masos | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577377 | Menteşe | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577378 | Monjukli Depe | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577379 | Nahal Tillah | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577380 | Pločnik | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577381 | Pločnik | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577382 | Pločnik | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577383 | Pločnik | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577384 | Pločnik | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577385 | Pločnik | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577386 | Pločnik | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577387 | Pločnik | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577388 | Promachon, Serres | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577389 | Tepe Shizar, Qazvin | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577390 | Tappeh-Sang-e-Chakhmaq | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577391 | Sarakenos Cave, Boeotia | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577392 | Stubline | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577393 | Suberde and Erbaba | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577394 | Tel-Dalit | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577395 | Taghit Haddouch | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577396 | Tel-Hreiz | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577397 | Tel Miqne-Ekron | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577398 | Tel Miqne-Ekron | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577399 | Tel Miqne-Ekron | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577400 | Tel Miqne-Ekron | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577401 | Tel es-Qashish | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577402 | Tel es-Qashish | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577403 | Tel es-Qashish | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577404 | Tel Yoqneam | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577405 | Yerqurqan (Erkurgan) | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577406 | Tel Zahara | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577407 | Tel es-Safi | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577408 | Tel es-Safi | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:samea5577409 | Tel es-Safi | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB31621 | prjeb31621:supplement:men1 | Menteşe | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB59481 | prjeb59481:samea112960291 | Kastelholm | coordinate_resolution | Stora Förvar | project_context_disagrees_with_sample_owned_site |
 | PRJEB59481 | prjeb59481:samea112960291 | Kastelholm | supplementary_table | Stora Förvar | project_context_disagrees_with_sample_owned_site |
 | PRJEB59481 | prjeb59481:samea112960291 | Kastelholm | supplementary_table | Stora Förvar | project_context_disagrees_with_sample_owned_site |

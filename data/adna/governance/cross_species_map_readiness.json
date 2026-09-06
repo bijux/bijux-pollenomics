@@ -1,24 +1,28 @@
 {
-  "schema_version": "adna-cross-species-map-readiness.v2",
+  "schema_version": "adna-cross-species-map-readiness.v3",
   "rows": [
     {
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
       "direct_coordinate_backed": 207,
       "indirectly_geocoded": 1,
-      "unresolved": 2,
-      "refused_from_mapping": 0,
+      "unresolved_sample_count": 2,
+      "refused_coordinate_provenance_count": 0,
+      "region_only_coordinate_refusal_count": 0,
+      "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 208,
-      "publication_candidate_count": 207,
-      "not_materialized_count": 1
+      "publication_candidate_count": 203,
+      "not_materialized_count": 5
     },
     {
       "species_latin_name": "Sus scrofa domesticus",
       "species_common_name": "pig",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 2,
-      "unresolved": 0,
-      "refused_from_mapping": 0,
+      "unresolved_sample_count": 0,
+      "refused_coordinate_provenance_count": 0,
+      "region_only_coordinate_refusal_count": 0,
+      "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 2,
       "publication_candidate_count": 2,
       "not_materialized_count": 0
@@ -28,8 +32,10 @@
       "species_common_name": "sheep",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 0,
-      "unresolved": 5,
-      "refused_from_mapping": 0,
+      "unresolved_sample_count": 5,
+      "refused_coordinate_provenance_count": 2,
+      "region_only_coordinate_refusal_count": 0,
+      "unresolved_location_coordinate_refusal_count": 2,
       "coordinate_provenance_mappable_count": 0,
       "publication_candidate_count": 0,
       "not_materialized_count": 0
@@ -39,8 +45,10 @@
       "species_common_name": "cattle",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 0,
-      "unresolved": 132,
-      "refused_from_mapping": 1,
+      "unresolved_sample_count": 67,
+      "refused_coordinate_provenance_count": 1,
+      "region_only_coordinate_refusal_count": 1,
+      "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 0,
       "publication_candidate_count": 0,
       "not_materialized_count": 0
@@ -50,8 +58,10 @@
       "species_common_name": "goat",
       "direct_coordinate_backed": 27,
       "indirectly_geocoded": 0,
-      "unresolved": 0,
-      "refused_from_mapping": 0,
+      "unresolved_sample_count": 0,
+      "refused_coordinate_provenance_count": 0,
+      "region_only_coordinate_refusal_count": 0,
+      "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 27,
       "publication_candidate_count": 26,
       "not_materialized_count": 1
@@ -61,8 +71,10 @@
       "species_common_name": "dog",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 0,
-      "unresolved": 1,
-      "refused_from_mapping": 1,
+      "unresolved_sample_count": 1,
+      "refused_coordinate_provenance_count": 1,
+      "region_only_coordinate_refusal_count": 1,
+      "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 0,
       "publication_candidate_count": 0,
       "not_materialized_count": 0
@@ -72,8 +84,10 @@
       "species_common_name": "cat",
       "direct_coordinate_backed": 40,
       "indirectly_geocoded": 0,
-      "unresolved": 0,
-      "refused_from_mapping": 0,
+      "unresolved_sample_count": 0,
+      "refused_coordinate_provenance_count": 0,
+      "region_only_coordinate_refusal_count": 0,
+      "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 40,
       "publication_candidate_count": 40,
       "not_materialized_count": 0
@@ -83,8 +97,10 @@
       "species_common_name": "dromedary camel",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 1,
-      "unresolved": 0,
-      "refused_from_mapping": 0,
+      "unresolved_sample_count": 0,
+      "refused_coordinate_provenance_count": 0,
+      "region_only_coordinate_refusal_count": 0,
+      "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 1,
       "publication_candidate_count": 0,
       "not_materialized_count": 1
@@ -94,8 +110,10 @@
       "species_common_name": "reindeer",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 0,
-      "unresolved": 20,
-      "refused_from_mapping": 1,
+      "unresolved_sample_count": 20,
+      "refused_coordinate_provenance_count": 1,
+      "region_only_coordinate_refusal_count": 1,
+      "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 0,
       "publication_candidate_count": 0,
       "not_materialized_count": 0
@@ -105,8 +123,10 @@
       "species_common_name": "donkey",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 0,
-      "unresolved": 0,
-      "refused_from_mapping": 1,
+      "unresolved_sample_count": 0,
+      "refused_coordinate_provenance_count": 1,
+      "region_only_coordinate_refusal_count": 1,
+      "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 0,
       "publication_candidate_count": 0,
       "not_materialized_count": 0
@@ -115,11 +135,14 @@
   "totals": {
     "direct_coordinate_backed": 274,
     "indirectly_geocoded": 4,
-    "unresolved": 160,
-    "refused_from_mapping": 4,
+    "unresolved_sample_count": 95,
+    "refused_coordinate_provenance_count": 6,
+    "region_only_coordinate_refusal_count": 4,
+    "unresolved_location_coordinate_refusal_count": 2,
     "coordinate_provenance_mappable_count": 278,
-    "publication_candidate_count": 275,
-    "not_materialized_count": 3
+    "coordinate_provenance_row_count": 284,
+    "publication_candidate_count": 271,
+    "not_materialized_count": 7
   },
   "not_materialized_rows": [
     {
@@ -130,7 +153,7 @@
       "coordinate_basis": "named_site_geocoding",
       "source_artifact_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
       "source_locator": "introduction",
-      "reason_code": "no_sample_backed_locality_candidate"
+      "reason_code": "no_admitted_sample_backed_locality_candidate"
     },
     {
       "species_latin_name": "Capra hircus",
@@ -140,7 +163,7 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "source_locator": "Table S2!row60",
-      "reason_code": "no_sample_backed_locality_candidate"
+      "reason_code": "no_admitted_sample_backed_locality_candidate"
     },
     {
       "species_latin_name": "Equus caballus",
@@ -150,13 +173,55 @@
       "coordinate_basis": "named_site_geocoding",
       "source_artifact_path": "adna/governance/source_library/papers/10.1126-science.aao3297/article.html",
       "source_locator": "meta description",
-      "reason_code": "no_sample_backed_locality_candidate"
+      "reason_code": "no_admitted_sample_backed_locality_candidate"
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB31613",
+      "site_label": "Altata",
+      "coordinate_basis": "supplementary_table_coordinates",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "source_locator": "Sheet1!row11",
+      "reason_code": "chronology_not_supported_for_atlas_publication"
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB31613",
+      "site_label": "Belkaragay",
+      "coordinate_basis": "supplementary_table_coordinates",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "source_locator": "Sheet1!row30",
+      "reason_code": "chronology_not_supported_for_atlas_publication"
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB31613",
+      "site_label": "Derkul",
+      "coordinate_basis": "supplementary_table_coordinates",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "source_locator": "Sheet1!row115",
+      "reason_code": "chronology_not_supported_for_atlas_publication"
+    },
+    {
+      "species_latin_name": "Equus caballus",
+      "species_common_name": "horse",
+      "project_accession": "PRJEB31613",
+      "site_label": "Lebyazhinka IV",
+      "coordinate_basis": "supplementary_table_coordinates",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "source_locator": "Sheet1!row153",
+      "reason_code": "chronology_not_supported_for_atlas_publication"
     }
   ],
   "publication_accounting": {
     "overall_ok": true,
     "coordinate_posture_definition": "Coordinate provenance rows whose mapping posture is mappable_point.",
     "publication_candidate_definition": "Atlas rows backed by an admitted sample and a joined locality.",
-    "not_materialized_reason_definition": "A coordinate-ready provenance row did not join to a sample-backed locality candidate and remains excluded from point publication."
+    "not_materialized_reason_definition": "A coordinate-ready provenance row did not satisfy every atlas publication admission requirement, including sample, locality, and chronology support, and remains excluded from point publication.",
+    "unresolved_sample_definition": "Sample rows whose inclusion status is sample_context_blocked; this sample denominator is never added to coordinate-provenance rows.",
+    "coordinate_refusal_definition": "Coordinate provenance rows with a refused_* mapping posture, partitioned into region-only and unresolved-location refusals."
   }
 }

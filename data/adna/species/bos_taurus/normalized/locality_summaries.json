@@ -5,6 +5,2411 @@
     {
       "identity": {
         "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:abugosh:israel",
+        "locality_text": "Abu Gosh",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Abu Gosh",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb31621:samea5577344",
+        "prjeb31621:samea5577345"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "7949-9449 BP",
+        "time_start_bp": 7949,
+        "time_end_bp": 9449,
+        "time_mean_bp": 8699,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Abu Gosh",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:acemhyk:turkey",
+        "locality_text": "Acemhöyük",
+        "political_entity": "Turkey",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Acemhöyük",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577346"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "4200 BP",
+        "time_start_bp": 4200,
+        "time_end_bp": 4200,
+        "time_mean_bp": 4200,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Acemhöyük",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:atalhyk:turkey",
+        "locality_text": "Çatalhöyük",
+        "political_entity": "Turkey",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Çatalhöyük",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577358"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "7600 BP",
+        "time_start_bp": 7600,
+        "time_end_bp": 7600,
+        "time_mean_bp": 7600,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Çatalhöyük",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:belovodevelikolaole:serbia",
+        "locality_text": "Belovode-Veliko Laole",
+        "political_entity": "Serbia",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Belovode-Veliko Laole",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb31621:samea5577349",
+        "prjeb31621:samea5577350"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "6900 BP",
+        "time_start_bp": 6900,
+        "time_end_bp": 6900,
+        "time_mean_bp": 6900,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Belovode-Veliko Laole",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:bestansur:iraq",
+        "locality_text": "Bestansur",
+        "political_entity": "Iraq",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Bestansur",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb31621:samea5577351",
+        "prjeb31621:samea5577352"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "629-2800 BP",
+        "time_start_bp": 629,
+        "time_end_bp": 2800,
+        "time_mean_bp": 1714,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Bestansur",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:blagotin:serbia",
+        "locality_text": "Blagotin",
+        "political_entity": "Serbia",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Blagotin",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb31621:samea5577353",
+        "prjeb31621:samea5577354"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "8100 BP",
+        "time_start_bp": 8100,
+        "time_end_bp": 8100,
+        "time_mean_bp": 8100,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Blagotin",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:bubanj:serbia",
+        "locality_text": "Bubanj",
+        "political_entity": "Serbia",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Bubanj",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577355"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "7600 BP",
+        "time_start_bp": 7600,
+        "time_end_bp": 7600,
+        "time_mean_bp": 7600,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Bubanj",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:darialitamarafort:georgia",
+        "locality_text": "Dariali Tamara Fort",
+        "political_entity": "Georgia",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Dariali Tamara Fort",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 5,
+      "sample_ids": [
+        "prjeb31621:samea5577367",
+        "prjeb31621:samea5577368",
+        "prjeb31621:samea5577369",
+        "prjeb31621:samea5577370",
+        "prjeb31621:samea5577371"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "1000-1350 BP",
+        "time_start_bp": 1000,
+        "time_end_bp": 1350,
+        "time_mean_bp": 1175,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Dariali Tamara Fort",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:gilat:israel",
+        "locality_text": "Gilat",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Gilat",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577361"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "5249-6249 BP",
+        "time_start_bp": 5249,
+        "time_end_bp": 6249,
+        "time_mean_bp": 5749,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Gilat",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:gyumri:armenia",
+        "locality_text": "Gyumri",
+        "political_entity": "Armenia",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Gyumri",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577362"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "7040 BP",
+        "time_start_bp": 7040,
+        "time_end_bp": 7040,
+        "time_mean_bp": 7040,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Gyumri",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:hasanlu:iran",
+        "locality_text": "Hasanlu",
+        "political_entity": "Iran",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Hasanlu",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 4,
+      "sample_ids": [
+        "prjeb31621:samea5577363",
+        "prjeb31621:samea5577364",
+        "prjeb31621:samea5577365",
+        "prjeb31621:samea5577366"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "2300-4470 BP",
+        "time_start_bp": 2300,
+        "time_end_bp": 4470,
+        "time_mean_bp": 3385,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Hasanlu",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:horvatcastra:israel",
+        "locality_text": "Horvat Castra",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Horvat Castra",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577357"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "1400 BP",
+        "time_start_bp": 1400,
+        "time_end_bp": 1400,
+        "time_mean_bp": 1400,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Horvat Castra",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:koktepe:uzbekistan",
+        "locality_text": "Koktepe",
+        "political_entity": "Uzbekistan",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Koktepe",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577373"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "3500 BP",
+        "time_start_bp": 3500,
+        "time_end_bp": 3500,
+        "time_mean_bp": 3500,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Koktepe",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:kultepeazerbaijan:iran",
+        "locality_text": "Kul Tepe, Azerbaijan",
+        "political_entity": "Iran",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Kul Tepe, Azerbaijan",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577348"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "6100 BP",
+        "time_start_bp": 6100,
+        "time_end_bp": 6100,
+        "time_mean_bp": 6100,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Kul Tepe, Azerbaijan",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:maraltappeh:iran",
+        "locality_text": "Maral Tappeh",
+        "political_entity": "Iran",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Maral Tappeh",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577374"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "6150 BP",
+        "time_start_bp": 6150,
+        "time_end_bp": 6150,
+        "time_mean_bp": 6150,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Maral Tappeh",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:mentee:turkey",
+        "locality_text": "Menteşe",
+        "political_entity": "Turkey",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Menteşe",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb31621:samea5577377",
+        "prjeb31621:supplement:men1"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "7920-8050 BP",
+        "time_start_bp": 7920,
+        "time_end_bp": 8050,
+        "time_mean_bp": 7985,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Menteşe",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:mianroudfars:iran",
+        "locality_text": "Mianroud, Fars",
+        "political_entity": "Iran",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Mianroud, Fars",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577360"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "7700 BP",
+        "time_start_bp": 7700,
+        "time_end_bp": 7700,
+        "time_mean_bp": 7700,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Mianroud, Fars",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:monjuklidepe:turkmenistan",
+        "locality_text": "Monjukli Depe",
+        "political_entity": "Turkmenistan",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Monjukli Depe",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577378"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "7200 BP",
+        "time_start_bp": 7200,
+        "time_end_bp": 7200,
+        "time_mean_bp": 7200,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Monjukli Depe",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:nahaltillah:israel",
+        "locality_text": "Nahal Tillah",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Nahal Tillah",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577379"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "4999-5249 BP",
+        "time_start_bp": 4999,
+        "time_end_bp": 5249,
+        "time_mean_bp": 5124,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Nahal Tillah",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:nishapurkohandecentralkhorasan:iran",
+        "locality_text": "Nishapur Kohandež, Central Khorasan",
+        "political_entity": "Iran",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Nishapur Kohandež, Central Khorasan",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577372"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "1400 BP",
+        "time_start_bp": 1400,
+        "time_end_bp": 1400,
+        "time_mean_bp": 1400,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Nishapur Kohandež, Central Khorasan",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:plonik:serbia",
+        "locality_text": "Pločnik",
+        "political_entity": "Serbia",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Pločnik",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 8,
+      "sample_ids": [
+        "prjeb31621:samea5577380",
+        "prjeb31621:samea5577381",
+        "prjeb31621:samea5577382",
+        "prjeb31621:samea5577383",
+        "prjeb31621:samea5577384",
+        "prjeb31621:samea5577385",
+        "prjeb31621:samea5577386",
+        "prjeb31621:samea5577387"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "6650-7126 BP",
+        "time_start_bp": 6650,
+        "time_end_bp": 7126,
+        "time_mean_bp": 6888,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Pločnik",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:promachonserres:greece",
+        "locality_text": "Promachon, Serres",
+        "political_entity": "Greece",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Promachon, Serres",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577388"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "7019-7269 BP",
+        "time_start_bp": 7019,
+        "time_end_bp": 7269,
+        "time_mean_bp": 7144,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Promachon, Serres",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:sarakenoscaveboeotia:greece",
+        "locality_text": "Sarakenos Cave, Boeotia",
+        "political_entity": "Greece",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Sarakenos Cave, Boeotia",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577391"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "7549-7699 BP",
+        "time_start_bp": 7549,
+        "time_end_bp": 7699,
+        "time_mean_bp": 7624,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Sarakenos Cave, Boeotia",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:stubline:serbia",
+        "locality_text": "Stubline",
+        "political_entity": "Serbia",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Stubline",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577392"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "6600 BP",
+        "time_start_bp": 6600,
+        "time_end_bp": 6600,
+        "time_mean_bp": 6600,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Stubline",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:suberdeanderbaba:turkey",
+        "locality_text": "Suberde and Erbaba",
+        "political_entity": "Turkey",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Suberde and Erbaba",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577393"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Suberde and Erbaba",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:taghithaddouch:morocco",
+        "locality_text": "Taghit Haddouch",
+        "political_entity": "Morocco",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Taghit Haddouch",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577395"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "7993 BP",
+        "time_start_bp": 7993,
+        "time_end_bp": 7993,
+        "time_mean_bp": 7993,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Taghit Haddouch",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:tappehsangechakhmaq:iran",
+        "locality_text": "Tappeh-Sang-e-Chakhmaq",
+        "political_entity": "Iran",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tappeh-Sang-e-Chakhmaq",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577390"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "7373 BP",
+        "time_start_bp": 7373,
+        "time_end_bp": 7373,
+        "time_mean_bp": 7373,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Tappeh-Sang-e-Chakhmaq",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:telashqelon:israel",
+        "locality_text": "Tel Ashqelon",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tel Ashqelon",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577347"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "3100 BP",
+        "time_start_bp": 3100,
+        "time_end_bp": 3100,
+        "time_mean_bp": 3100,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Tel Ashqelon",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:teldalit:israel",
+        "locality_text": "Tel-Dalit",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tel-Dalit",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577394"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "5050 BP",
+        "time_start_bp": 5050,
+        "time_end_bp": 5050,
+        "time_mean_bp": 5050,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Tel-Dalit",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:teldan:israel",
+        "locality_text": "Tel Dan",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tel Dan",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577359"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "4949-5449 BP",
+        "time_start_bp": 4949,
+        "time_end_bp": 5449,
+        "time_mean_bp": 5199,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Tel Dan",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:telesqashish:israel",
+        "locality_text": "Tel es-Qashish",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tel es-Qashish",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "prjeb31621:samea5577401",
+        "prjeb31621:samea5577402",
+        "prjeb31621:samea5577403"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "4800 BP",
+        "time_start_bp": 4800,
+        "time_end_bp": 4800,
+        "time_mean_bp": 4800,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Tel es-Qashish",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:telessafi:israel",
+        "locality_text": "Tel es-Safi",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tel es-Safi",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "prjeb31621:samea5577407",
+        "prjeb31621:samea5577408",
+        "prjeb31621:samea5577409"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "2800-3100 BP",
+        "time_start_bp": 2800,
+        "time_end_bp": 3100,
+        "time_mean_bp": 2950,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Tel es-Safi",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:telhreiz:israel",
+        "locality_text": "Tel-Hreiz",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tel-Hreiz",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577396"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "6700 BP",
+        "time_start_bp": 6700,
+        "time_end_bp": 6700,
+        "time_mean_bp": 6700,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Tel-Hreiz",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:telmasos:israel",
+        "locality_text": "Tel Masos",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tel Masos",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577375"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "3100 BP",
+        "time_start_bp": 3100,
+        "time_end_bp": 3100,
+        "time_mean_bp": 3100,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Tel Masos",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:telmiqneekron:israel",
+        "locality_text": "Tel Miqne-Ekron",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tel Miqne-Ekron",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 4,
+      "sample_ids": [
+        "prjeb31621:samea5577397",
+        "prjeb31621:samea5577398",
+        "prjeb31621:samea5577399",
+        "prjeb31621:samea5577400"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "2925-3300 BP",
+        "time_start_bp": 2925,
+        "time_end_bp": 3300,
+        "time_mean_bp": 3112,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Tel Miqne-Ekron",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:telyoqneam:israel",
+        "locality_text": "Tel Yoqneam",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tel Yoqneam",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577404"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "2200 BP",
+        "time_start_bp": 2200,
+        "time_end_bp": 2200,
+        "time_mean_bp": 2200,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Tel Yoqneam",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:telzahara:israel",
+        "locality_text": "Tel Zahara",
+        "political_entity": "Israel",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tel Zahara",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577406"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "1850 BP",
+        "time_start_bp": 1850,
+        "time_end_bp": 1850,
+        "time_mean_bp": 1850,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Tel Zahara",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:tepeshizarqazvin:iran",
+        "locality_text": "Tepe Shizar, Qazvin",
+        "political_entity": "Iran",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tepe Shizar, Qazvin",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577389"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "4760 BP",
+        "time_start_bp": 4760,
+        "time_end_bp": 4760,
+        "time_mean_bp": 4760,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Tepe Shizar, Qazvin",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:tillabulak:uzbekistan",
+        "locality_text": "Tilla Bulak",
+        "political_entity": "Uzbekistan",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tilla Bulak",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577356"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "3800 BP",
+        "time_start_bp": 3800,
+        "time_end_bp": 3800,
+        "time_mean_bp": 3800,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Tilla Bulak",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
         "stable_token": "bos_taurus:locality:prjeb31621:unresolved",
         "locality_text": "",
         "political_entity": "",
@@ -37,7 +2442,7 @@
         "longitude_text": "",
         "confidence": "unknown"
       },
-      "sample_count": 77,
+      "sample_count": 78,
       "sample_ids": [
         "prjeb31621:samea5577008",
         "prjeb31621:samea5577009",
@@ -115,20 +2520,21 @@
         "prjeb31621:samea5577407",
         "prjeb31621:samea5577408",
         "prjeb31621:samea5577409",
-        "prjeb31621:samea5605818"
+        "prjeb31621:samea5605818",
+        "prjeb31621:supplement:men1"
       ],
       "datasets": [
         "bos_taurus:project:PRJEB31621"
       ],
       "chronology": {
-        "original_text": "",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
+        "original_text": "629-9449 BP",
+        "time_start_bp": 629,
+        "time_end_bp": 9449,
+        "time_mean_bp": 5039,
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
       },
       "sample_namespace": "bos_taurus:sample_locality",
       "project_accessions": [
@@ -138,6 +2544,67 @@
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
       "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
+    },
+    {
+      "identity": {
+        "namespace": "bos_taurus:project_locality",
+        "stable_token": "bos_taurus:locality:prjeb31621:yerqurqanerkurgan:uzbekistan",
+        "locality_text": "Yerqurqan (Erkurgan)",
+        "political_entity": "Uzbekistan",
+        "source_anchor_tokens": [
+          "PRJEB31621",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB31621"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Yerqurqan (Erkurgan)",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb31621:samea5577405"
+      ],
+      "datasets": [
+        "bos_taurus:project:PRJEB31621"
+      ],
+      "chronology": {
+        "original_text": "2050 BP",
+        "time_start_bp": 2050,
+        "time_end_bp": 2050,
+        "time_mean_bp": 2050,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "sample_approximate_or_modeled"
+      },
+      "sample_namespace": "bos_taurus:sample_locality",
+      "project_accessions": [
+        "PRJEB31621"
+      ],
+      "original_location_text": "Yerqurqan (Erkurgan)",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {

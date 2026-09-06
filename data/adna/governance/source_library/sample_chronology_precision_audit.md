@@ -1,12 +1,12 @@
 # Sample chronology precision audit
 
-- Rows audited: `1453`
+- Rows audited: `1454`
 - Precise point rows: `473`
 - Precise interval rows: `276`
-- Approximate or modeled rows: `130`
-- Contextual rows: `8`
+- Approximate or modeled rows: `188`
+- Contextual rows: `15`
 - Broad period rows: `39`
-- Unresolved rows: `527`
+- Unresolved rows: `463`
 
 | Project accession | Sample id | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- |
@@ -406,73 +406,74 @@
 | PRJEB31621 | prjeb31621:samea5577151 | unresolved | unresolved | unresolved |  |
 | PRJEB31621 | prjeb31621:samea5577153 | unresolved | unresolved | unresolved |  |
 | PRJEB31621 | prjeb31621:samea5577154 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577344 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577345 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577346 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577347 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577348 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577349 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577350 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577351 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577352 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577353 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577354 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577355 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577356 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577357 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577358 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577359 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577360 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577361 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577362 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577363 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577364 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577365 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577366 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577367 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577368 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577369 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577370 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577371 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577372 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577373 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577374 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577375 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577344 | archaeological_context_date | contextual_interval | normalized_interval | 7949-9449 BP |
+| PRJEB31621 | prjeb31621:samea5577345 | archaeological_context_date | contextual_interval | normalized_interval | 7949-9449 BP |
+| PRJEB31621 | prjeb31621:samea5577346 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4200 BP |
+| PRJEB31621 | prjeb31621:samea5577347 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3100 BP |
+| PRJEB31621 | prjeb31621:samea5577348 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6100 BP |
+| PRJEB31621 | prjeb31621:samea5577349 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6900 BP |
+| PRJEB31621 | prjeb31621:samea5577350 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6900 BP |
+| PRJEB31621 | prjeb31621:samea5577351 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2800 BP |
+| PRJEB31621 | prjeb31621:samea5577352 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 629 BP |
+| PRJEB31621 | prjeb31621:samea5577353 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 8100 BP |
+| PRJEB31621 | prjeb31621:samea5577354 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 8100 BP |
+| PRJEB31621 | prjeb31621:samea5577355 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7600 BP |
+| PRJEB31621 | prjeb31621:samea5577356 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3800 BP |
+| PRJEB31621 | prjeb31621:samea5577357 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1400 BP |
+| PRJEB31621 | prjeb31621:samea5577358 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7600 BP |
+| PRJEB31621 | prjeb31621:samea5577359 | archaeological_context_date | contextual_interval | normalized_interval | 4949-5449 BP |
+| PRJEB31621 | prjeb31621:samea5577360 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7700 BP |
+| PRJEB31621 | prjeb31621:samea5577361 | archaeological_context_date | contextual_interval | normalized_interval | 5249-6249 BP |
+| PRJEB31621 | prjeb31621:samea5577362 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7040 BP |
+| PRJEB31621 | prjeb31621:samea5577363 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3700 BP |
+| PRJEB31621 | prjeb31621:samea5577364 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4470 BP |
+| PRJEB31621 | prjeb31621:samea5577365 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2900 BP |
+| PRJEB31621 | prjeb31621:samea5577366 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2300 BP |
+| PRJEB31621 | prjeb31621:samea5577367 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1000 BP |
+| PRJEB31621 | prjeb31621:samea5577368 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1050 BP |
+| PRJEB31621 | prjeb31621:samea5577369 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1350 BP |
+| PRJEB31621 | prjeb31621:samea5577370 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1200 BP |
+| PRJEB31621 | prjeb31621:samea5577371 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1290 BP |
+| PRJEB31621 | prjeb31621:samea5577372 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1400 BP |
+| PRJEB31621 | prjeb31621:samea5577373 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3500 BP |
+| PRJEB31621 | prjeb31621:samea5577374 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6150 BP |
+| PRJEB31621 | prjeb31621:samea5577375 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3100 BP |
 | PRJEB31621 | prjeb31621:samea5577376 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577377 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577378 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577379 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577380 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577381 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577382 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577383 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577384 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577385 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577386 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577387 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577388 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577389 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577390 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577391 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577392 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577377 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7920 BP |
+| PRJEB31621 | prjeb31621:samea5577378 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7200 BP |
+| PRJEB31621 | prjeb31621:samea5577379 | archaeological_context_date | contextual_interval | normalized_interval | 4999-5249 BP |
+| PRJEB31621 | prjeb31621:samea5577380 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7125 BP |
+| PRJEB31621 | prjeb31621:samea5577381 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6950 BP |
+| PRJEB31621 | prjeb31621:samea5577382 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7025 BP |
+| PRJEB31621 | prjeb31621:samea5577383 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7000 BP |
+| PRJEB31621 | prjeb31621:samea5577384 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6650 BP |
+| PRJEB31621 | prjeb31621:samea5577385 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7126 BP |
+| PRJEB31621 | prjeb31621:samea5577386 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7000 BP |
+| PRJEB31621 | prjeb31621:samea5577387 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7001 BP |
+| PRJEB31621 | prjeb31621:samea5577388 | archaeological_context_date | contextual_interval | normalized_interval | 7019-7269 BP |
+| PRJEB31621 | prjeb31621:samea5577389 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4760 BP |
+| PRJEB31621 | prjeb31621:samea5577390 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7373 BP |
+| PRJEB31621 | prjeb31621:samea5577391 | archaeological_context_date | contextual_interval | normalized_interval | 7549-7699 BP |
+| PRJEB31621 | prjeb31621:samea5577392 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6600 BP |
 | PRJEB31621 | prjeb31621:samea5577393 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577394 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577395 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577396 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577397 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577398 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577399 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577400 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577401 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577402 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577403 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577404 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577405 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577406 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577407 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577408 | unresolved | unresolved | unresolved |  |
-| PRJEB31621 | prjeb31621:samea5577409 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577394 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 5050 BP |
+| PRJEB31621 | prjeb31621:samea5577395 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7993 BP |
+| PRJEB31621 | prjeb31621:samea5577396 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6700 BP |
+| PRJEB31621 | prjeb31621:samea5577397 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3150 BP |
+| PRJEB31621 | prjeb31621:samea5577398 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3150 BP |
+| PRJEB31621 | prjeb31621:samea5577399 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2925 BP |
+| PRJEB31621 | prjeb31621:samea5577400 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3300 BP |
+| PRJEB31621 | prjeb31621:samea5577401 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4800 BP |
+| PRJEB31621 | prjeb31621:samea5577402 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4800 BP |
+| PRJEB31621 | prjeb31621:samea5577403 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4800 BP |
+| PRJEB31621 | prjeb31621:samea5577404 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2200 BP |
+| PRJEB31621 | prjeb31621:samea5577405 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2050 BP |
+| PRJEB31621 | prjeb31621:samea5577406 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1850 BP |
+| PRJEB31621 | prjeb31621:samea5577407 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2820 BP |
+| PRJEB31621 | prjeb31621:samea5577408 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3100 BP |
+| PRJEB31621 | prjeb31621:samea5577409 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2800 BP |
 | PRJEB31621 | prjeb31621:samea5605818 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:supplement:men1 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 8050 BP |
 | PRJEB75467 | prjeb75467:samea115574404 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574405 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574406 | unresolved | unresolved | unresolved |  |

@@ -4,9 +4,9 @@
 
 | Project | Species | Work unit | State | Open items | Impact |
 | --- | --- | --- | --- | ---: | --- |
-| `PRJEB31621` | `Bos taurus` | `chronology_recovery` | `pending_source_recovery` | `154` | blocks chronology honesty and publication precision |
-| `PRJEB31621` | `Bos taurus` | `locality_string_resolution` | `pending_manual_curation` | `77` | blocks coordinate derivation and exact locality publication |
-| `PRJEB31621` | `Bos taurus` | `site_resolution` | `pending_manual_curation` | `77` | blocks exact site, coordinate, and publication recovery |
+| `PRJEB31621` | `Bos taurus` | `chronology_recovery` | `pending_source_recovery` | `91` | blocks chronology honesty and publication precision |
+| `PRJEB31621` | `Bos taurus` | `locality_string_resolution` | `pending_manual_curation` | `12` | blocks coordinate derivation and exact locality publication |
+| `PRJEB31621` | `Bos taurus` | `site_resolution` | `pending_manual_curation` | `12` | blocks exact site, coordinate, and publication recovery |
 | `PRJEB75467` | `Bos taurus` | `chronology_recovery` | `pending_source_recovery` | `88` | blocks chronology honesty and publication precision |
 | `PRJEB75467` | `Bos taurus` | `locality_string_resolution` | `pending_manual_curation` | `44` | blocks coordinate derivation and exact locality publication |
 | `PRJEB75467` | `Bos taurus` | `site_resolution` | `pending_manual_curation` | `44` | blocks exact site, coordinate, and publication recovery |

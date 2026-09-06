@@ -1,13 +1,13 @@
 # Sample chronology normalization audit
 
-- Sample rows: `1453`
-- Normalized intervals: `321`
-- Normalized points: `475`
+- Sample rows: `1454`
+- Normalized intervals: `328`
+- Normalized points: `533`
 - Text-only rows: `130`
-- Unresolved rows: `527`
+- Unresolved rows: `463`
 - Direct radiocarbon rows: `769`
 - Modeled sample-date rows: `0`
-- Archaeological-context rows: `35`
+- Archaeological-context rows: `100`
 - Broad period rows: `0`
 
 ## Projects requiring manual chronology review
@@ -47,7 +47,7 @@
 | PRJNA788987 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJNA878488 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJNA421430 | 0 | 0 | 0 | 0 | 0 | 0 |
-| PRJEB31621 | 77 | 0 | 0 | 0 | 77 | 0 |
+| PRJEB31621 | 78 | 7 | 58 | 0 | 13 | 0 |
 | PRJEB75467 | 44 | 0 | 0 | 0 | 44 | 0 |
 | PRJNA705960 | 11 | 0 | 0 | 0 | 11 | 0 |
 | PRJEB90141 | 4 | 4 | 0 | 0 | 0 | 0 |

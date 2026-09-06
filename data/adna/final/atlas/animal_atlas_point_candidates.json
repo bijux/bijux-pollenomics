@@ -1,6 +1,6 @@
 {
   "schema_version": "animal-atlas-point-candidates.v1",
-  "row_count": 275,
+  "row_count": 271,
   "rows": [
     {
       "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey",
@@ -2448,81 +2448,6 @@
       "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
-      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-altata-russia",
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-altata-russia",
-      "site_record_id": "equus_caballus:locality:prjeb31613:altata:russia",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
-      "animal_scope": "domesticated_core",
-      "support_class": "accepted",
-      "support_note": "admissible_for_curated_support",
-      "locality": "Altata",
-      "political_entity": "Russia",
-      "latitude": 51.07,
-      "longitude": 48.44,
-      "latitude_text": "51.07",
-      "longitude_text": "48.44",
-      "coordinate_basis": "supplementary_table_coordinates",
-      "coordinate_confidence": "exact",
-      "geocoding_method": "direct_supplementary_coordinate_capture",
-      "geocoder_or_gazetteer": "not required because the supplementary table ships coordinates",
-      "confidence_rationale": "The published supplementary table provides direct coordinates for this locality.",
-      "original_place_text": "Altata",
-      "resolved_place_text": "Altata",
-      "coordinate_source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "coordinate_source_locator": "Sheet1!row11",
-      "coordinate_supplementary_source": "",
-      "coordinate_support_gap_note": "",
-      "chronology": {
-        "original_text": "",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
-        "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
-      },
-      "project_accessions": [
-        "PRJEB31613"
-      ],
-      "primary_project_accession": "PRJEB31613",
-      "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:cgg_1_017023"
-      ],
-      "sample_group_ids": [
-        "PRJEB31613"
-      ],
-      "source_native_taxon_labels": [],
-      "source_native_tax_ids": [],
-      "source_native_scientific_names": [],
-      "taxon_alignment_statuses": [
-        "not_reported"
-      ],
-      "sample_count": 1,
-      "sample_namespace": "equus_caballus:sample_locality",
-      "inclusion_statuses": [
-        "site_curated"
-      ],
-      "inclusion_notes": [
-        "Sample-level locality comes directly from the recovered sample source row."
-      ],
-      "paper_title": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
-      "paper_doi": "10.1016/j.cell.2019.03.049",
-      "publication_year": "2019",
-      "journal_title": "Cell",
-      "paper_url": "https://doi.org/10.1016/j.cell.2019.03.049",
-      "supplementary_sources": [],
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "source_artifact_kind": "supplementary_spreadsheet_row",
-      "source_locator": "Sheet1!row11",
-      "source_support_status": "supplementary_table_row",
-      "exact_source_text": "Altata_NB31_Neolithic | CGG_1_017023 | Neolithic | - | Altata | 51.07 | 48.44 | Russia | horse | male | 2.79868184542 | 6.0389796895E-2 | 0 | 0 | 0 | 0",
-      "nordic_inclusion": false,
-      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
-    },
-    {
       "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-arzhani-russia",
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-arzhani-russia",
       "site_record_id": "equus_caballus:locality:prjeb31613:arzhani:russia",
@@ -3350,82 +3275,6 @@
       "source_locator": "Sheet1!row29",
       "source_support_status": "supplementary_table_row",
       "exact_source_text": "Belgheis_TrBWBX116_485 | CGG_1_019521 | Early Modern period | 485 | Belgheis | 37.042453100000003 | 57.471565200000001 | Iran | horse | male | 113.14284000000001 | 2.3895290733199999 | 0 | 0 | 0 | 0 | 4.0999999999999996 | 390 | 20 | 1445 | 1618 | 95.4 | 1531.5 | -485.5",
-      "nordic_inclusion": false,
-      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
-    },
-    {
-      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-belkaragay-kazakhstan",
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-belkaragay-kazakhstan",
-      "site_record_id": "equus_caballus:locality:prjeb31613:belkaragay:kazakhstan",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
-      "animal_scope": "domesticated_core",
-      "support_class": "accepted",
-      "support_note": "admissible_for_curated_support",
-      "locality": "Belkaragay",
-      "political_entity": "Kazakhstan",
-      "latitude": 51.52,
-      "longitude": 62.55,
-      "latitude_text": "51.52",
-      "longitude_text": "62.55",
-      "coordinate_basis": "supplementary_table_coordinates",
-      "coordinate_confidence": "exact",
-      "geocoding_method": "direct_supplementary_coordinate_capture",
-      "geocoder_or_gazetteer": "not required because the supplementary table ships coordinates",
-      "confidence_rationale": "The published supplementary table provides direct coordinates for this locality.",
-      "original_place_text": "Belkaragay",
-      "resolved_place_text": "Belkaragay",
-      "coordinate_source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "coordinate_source_locator": "Sheet1!row30",
-      "coordinate_supplementary_source": "",
-      "coordinate_support_gap_note": "",
-      "chronology": {
-        "original_text": "",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
-        "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
-      },
-      "project_accessions": [
-        "PRJEB31613"
-      ],
-      "primary_project_accession": "PRJEB31613",
-      "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:cgg_1_017005",
-        "equus_caballus:sample:prjeb31613:cgg_1_017007"
-      ],
-      "sample_group_ids": [
-        "PRJEB31613"
-      ],
-      "source_native_taxon_labels": [],
-      "source_native_tax_ids": [],
-      "source_native_scientific_names": [],
-      "taxon_alignment_statuses": [
-        "not_reported"
-      ],
-      "sample_count": 2,
-      "sample_namespace": "equus_caballus:sample_locality",
-      "inclusion_statuses": [
-        "site_curated"
-      ],
-      "inclusion_notes": [
-        "Sample-level locality comes directly from the recovered sample source row."
-      ],
-      "paper_title": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
-      "paper_doi": "10.1016/j.cell.2019.03.049",
-      "publication_year": "2019",
-      "journal_title": "Cell",
-      "paper_url": "https://doi.org/10.1016/j.cell.2019.03.049",
-      "supplementary_sources": [],
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "source_artifact_kind": "supplementary_spreadsheet_row",
-      "source_locator": "Sheet1!row30",
-      "source_support_status": "supplementary_table_row",
-      "exact_source_text": "Belkaragay_NB13_CopperAge | CGG_1_017005 | Copper Age | - | Belkaragay | 51.52 | 62.55 | Kazakhstan | horse | male | 5.9599161169999997 | 0.113485456001 | 0 | 0 | 0 | 0",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
       "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
@@ -4462,82 +4311,6 @@
       "source_locator": "Sheet1!row117",
       "source_support_status": "supplementary_table_row",
       "exact_source_text": "Dariali_Georgia2_317 | CGG_1_02026 | Early Modern period | 17-617 | Dariali, Tamara Fort | 42.740163709999997 | 44.620164189999997 | Georgia | horse | female | 1.5255242660299999 | 3.6331922223400002E-2 | 0 | 0 | 0 | 0",
-      "nordic_inclusion": false,
-      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
-    },
-    {
-      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-derkul-russia",
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-derkul-russia",
-      "site_record_id": "equus_caballus:locality:prjeb31613:derkul:russia",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
-      "animal_scope": "domesticated_core",
-      "support_class": "accepted",
-      "support_note": "admissible_for_curated_support",
-      "locality": "Derkul",
-      "political_entity": "Russia",
-      "latitude": 51.16,
-      "longitude": 51.17,
-      "latitude_text": "51.16",
-      "longitude_text": "51.17",
-      "coordinate_basis": "supplementary_table_coordinates",
-      "coordinate_confidence": "exact",
-      "geocoding_method": "direct_supplementary_coordinate_capture",
-      "geocoder_or_gazetteer": "not required because the supplementary table ships coordinates",
-      "confidence_rationale": "The published supplementary table provides direct coordinates for this locality.",
-      "original_place_text": "Derkul",
-      "resolved_place_text": "Derkul",
-      "coordinate_source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "coordinate_source_locator": "Sheet1!row115",
-      "coordinate_supplementary_source": "",
-      "coordinate_support_gap_note": "",
-      "chronology": {
-        "original_text": "",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
-        "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
-      },
-      "project_accessions": [
-        "PRJEB31613"
-      ],
-      "primary_project_accession": "PRJEB31613",
-      "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:cgg_1_016994",
-        "equus_caballus:sample:prjeb31613:cgg_1_016996"
-      ],
-      "sample_group_ids": [
-        "PRJEB31613"
-      ],
-      "source_native_taxon_labels": [],
-      "source_native_tax_ids": [],
-      "source_native_scientific_names": [],
-      "taxon_alignment_statuses": [
-        "not_reported"
-      ],
-      "sample_count": 2,
-      "sample_namespace": "equus_caballus:sample_locality",
-      "inclusion_statuses": [
-        "site_curated"
-      ],
-      "inclusion_notes": [
-        "Sample-level locality comes directly from the recovered sample source row."
-      ],
-      "paper_title": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
-      "paper_doi": "10.1016/j.cell.2019.03.049",
-      "publication_year": "2019",
-      "journal_title": "Cell",
-      "paper_url": "https://doi.org/10.1016/j.cell.2019.03.049",
-      "supplementary_sources": [],
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "source_artifact_kind": "supplementary_spreadsheet_row",
-      "source_locator": "Sheet1!row115",
-      "source_support_status": "supplementary_table_row",
-      "exact_source_text": "Derkul_NB2_Neolithic | CGG_1_016994 | Neolithic | - | Derkul | 51.16 | 51.17 | Russia | horse | male | 1.9924505692000001 | 3.00094758991E-2 | 0 | 0 | 0 | 0",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
       "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
@@ -6125,81 +5898,6 @@
       "source_locator": "Sheet1!row149",
       "source_support_status": "supplementary_table_row",
       "exact_source_text": "KulianCave_MV178_1694 | CGG_1_020446 | Sasanian period | 1694 | Kulian Cave | 34.730428000000003 | 46.671981000000002 | Iran | horse | female | 3.440023966 | 8.7210930915500001E-2 | 0 | 0 | 0 | 0 | 3.2 | 1715 | 20 | 255 | 390 | 95.4 | 322.5 | -1694.5",
-      "nordic_inclusion": false,
-      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
-    },
-    {
-      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-lebyazhinkaiv-russia",
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-lebyazhinkaiv-russia",
-      "site_record_id": "equus_caballus:locality:prjeb31613:lebyazhinkaiv:russia",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
-      "animal_scope": "domesticated_core",
-      "support_class": "accepted",
-      "support_note": "admissible_for_curated_support",
-      "locality": "Lebyazhinka IV",
-      "political_entity": "Russia",
-      "latitude": 53.43,
-      "longitude": 50.4,
-      "latitude_text": "53.43",
-      "longitude_text": "50.4",
-      "coordinate_basis": "supplementary_table_coordinates",
-      "coordinate_confidence": "exact",
-      "geocoding_method": "direct_supplementary_coordinate_capture",
-      "geocoder_or_gazetteer": "not required because the supplementary table ships coordinates",
-      "confidence_rationale": "The published supplementary table provides direct coordinates for this locality.",
-      "original_place_text": "Lebyazhinka IV",
-      "resolved_place_text": "Lebyazhinka IV",
-      "coordinate_source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "coordinate_source_locator": "Sheet1!row153",
-      "coordinate_supplementary_source": "",
-      "coordinate_support_gap_note": "",
-      "chronology": {
-        "original_text": "",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
-        "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
-      },
-      "project_accessions": [
-        "PRJEB31613"
-      ],
-      "primary_project_accession": "PRJEB31613",
-      "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:cgg_1_017027"
-      ],
-      "sample_group_ids": [
-        "PRJEB31613"
-      ],
-      "source_native_taxon_labels": [],
-      "source_native_tax_ids": [],
-      "source_native_scientific_names": [],
-      "taxon_alignment_statuses": [
-        "not_reported"
-      ],
-      "sample_count": 1,
-      "sample_namespace": "equus_caballus:sample_locality",
-      "inclusion_statuses": [
-        "site_curated"
-      ],
-      "inclusion_notes": [
-        "Sample-level locality comes directly from the recovered sample source row."
-      ],
-      "paper_title": "Tracking Five Millennia of Horse Management with Extensive Ancient Genome Time Series",
-      "paper_doi": "10.1016/j.cell.2019.03.049",
-      "publication_year": "2019",
-      "journal_title": "Cell",
-      "paper_url": "https://doi.org/10.1016/j.cell.2019.03.049",
-      "supplementary_sources": [],
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "source_artifact_kind": "supplementary_spreadsheet_row",
-      "source_locator": "Sheet1!row153",
-      "source_support_status": "supplementary_table_row",
-      "exact_source_text": "LebyazhinkaIV_NB35_Neolithic | CGG_1_017027 | Neolithic | - | Lebyazhinka IV | 53.43 | 50.4 | Russia | horse | male | 11.89808268 | 0.21848074436600001 | 0 | 0 | 0 | 0",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
       "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."

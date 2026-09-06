@@ -1,6 +1,6 @@
 # Sample site ambiguity ledger
 
-- Ambiguous or weak site rows: `504`
+- Ambiguous or weak site rows: `439`
 
 | Project accession | Sample id | Status | Locality | Note |
 | --- | --- | --- | --- | --- |
@@ -362,72 +362,7 @@
 | PRJEB31621 | prjeb31621:samea5577151 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB31621 | prjeb31621:samea5577153 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB31621 | prjeb31621:samea5577154 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577344 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577345 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577346 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577347 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577348 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577349 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577350 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577351 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577352 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577353 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577354 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577355 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577356 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577357 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577358 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577359 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577360 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577361 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577362 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577363 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577364 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577365 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577366 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577367 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577368 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577369 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577370 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577371 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577372 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577373 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577374 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577375 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB31621 | prjeb31621:samea5577376 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577377 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577378 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577379 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577380 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577381 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577382 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577383 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577384 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577385 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577386 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577387 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577388 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577389 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577390 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577391 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577392 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577393 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577394 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577395 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577396 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577397 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577398 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577399 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577400 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577401 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577402 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577403 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577404 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577405 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577406 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577407 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577408 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB31621 | prjeb31621:samea5577409 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB31621 | prjeb31621:samea5605818 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574404 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574405 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |

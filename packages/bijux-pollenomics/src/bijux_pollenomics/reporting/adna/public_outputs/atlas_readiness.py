@@ -25,39 +25,94 @@ def _build_animal_atlas_readiness(
     rows = []
     country_counts: dict[str, dict[str, int]] = {}
     for payload in country_payloads:
-        country = str(payload.get("country", ""))
-        for row in cast(list[object], payload.get("species_rows", [])):
-            if not isinstance(row, dict):
-                continue
+        country = str(payload.get("country", "")).strip()
+        if not country:
+            raise ValueError("Animal country readiness requires a country identity")
+        for row in _required_rows(payload, "species_rows"):
             species_name = str(row.get("species_latin_name", ""))
             if not species_name:
-                continue
+                raise ValueError("Animal country readiness row requires a species name")
             species_counts = country_counts.setdefault(species_name, {})
-            species_counts[country] = int(row.get("mapped_locality_count", 0) or 0)
-    for row in cast(list[object], readiness_payload.get("rows", [])):
-        if not isinstance(row, dict):
-            continue
-        species_name = str(row.get("species_latin_name", ""))
-        direct_count = int(row.get("direct_coordinate_backed", 0) or 0)
-        geocoded_count = int(row.get("indirectly_geocoded", 0) or 0)
-        unresolved_count = int(row.get("unresolved", 0) or 0)
-        refused_count = int(row.get("refused_from_mapping", 0) or 0)
-        map_ready_count = direct_count + geocoded_count
-        total_curated = map_ready_count + unresolved_count + refused_count
-        honesty_row: dict[str, object] = next(
-            (
-                item
-                for item in cast(list[object], honesty_payload.get("rows", []))
-                if isinstance(item, dict)
-                and str(item.get("species_latin_name", "")) == species_name
-            ),
-            {},
+            if country in species_counts:
+                raise ValueError(
+                    f"Animal country readiness repeats {species_name} for {country}"
+                )
+            species_counts[country] = _required_count(row, "mapped_locality_count")
+    honesty_rows = _required_rows(honesty_payload, "rows")
+    honesty_by_species = _rows_by_species(honesty_rows, context="sample accounting")
+    readiness_rows = _required_rows(readiness_payload, "rows")
+    readiness_by_species = _rows_by_species(
+        readiness_rows, context="coordinate readiness"
+    )
+    if not honesty_by_species.keys() <= readiness_by_species.keys():
+        raise ValueError(
+            "Animal sample accounting contains an unknown coordinate-readiness species"
+        )
+    for row in readiness_rows:
+        species_name = str(row.get("species_latin_name", "")).strip()
+        unresolved_count = _required_count(row, "unresolved_sample_count")
+        refused_count = _required_count(row, "refused_coordinate_provenance_count")
+        map_ready_count = _required_count(row, "coordinate_provenance_mappable_count")
+        coordinate_provenance_denominator = map_ready_count + refused_count
+        publication_candidate_count = _required_count(
+            row, "publication_candidate_count"
         )
         candidate_point_count = len(candidate_rows_by_species.get(species_name, []))
+        if candidate_point_count != publication_candidate_count:
+            raise ValueError(
+                f"Animal publication candidates do not reconcile for {species_name}"
+            )
+        not_materialized_count = _required_count(row, "not_materialized_count")
+        if publication_candidate_count + not_materialized_count != map_ready_count:
+            raise ValueError(
+                f"Animal mappable coordinate provenance does not reconcile for {species_name}"
+            )
         mapped_sample_count = len(mapped_sample_ids_by_species.get(species_name, set()))
-        blocked_sample_count = int(
-            cast(str, honesty_row.get("blocked_sample_count", 0)) or 0
+        honesty_row = honesty_by_species.get(species_name)
+        if honesty_row is None:
+            if any(
+                (
+                    unresolved_count,
+                    map_ready_count,
+                    publication_candidate_count,
+                    not_materialized_count,
+                    candidate_point_count,
+                    mapped_sample_count,
+                )
+            ):
+                raise ValueError(
+                    f"Animal atlas readiness has evidence but no sample accounting for {species_name}"
+                )
+            honesty_row = {
+                "mapped_sample_count": 0,
+                "blocked_sample_count": 0,
+                "tracked_sample_count": 0,
+                "unresolved_sample_count": 0,
+            }
+        honesty_mapped_sample_count = _required_count(
+            honesty_row, "mapped_sample_count"
         )
+        blocked_sample_count = _required_count(honesty_row, "blocked_sample_count")
+        tracked_sample_count = _required_count(honesty_row, "tracked_sample_count")
+        honesty_unresolved_count = _required_count(
+            honesty_row, "unresolved_sample_count"
+        )
+        if mapped_sample_count != honesty_mapped_sample_count:
+            raise ValueError(
+                f"Animal mapped sample accounting does not reconcile for {species_name}"
+            )
+        if unresolved_count != honesty_unresolved_count:
+            raise ValueError(
+                f"Animal unresolved sample accounting does not reconcile for {species_name}"
+            )
+        if mapped_sample_count + blocked_sample_count != tracked_sample_count:
+            raise ValueError(
+                f"Animal sample readiness does not reconcile for {species_name}"
+            )
+        if unresolved_count > blocked_sample_count:
+            raise ValueError(
+                f"Unresolved samples exceed blocked samples for {species_name}"
+            )
         readiness_status, status_reason = _atlas_readiness_status(
             candidate_point_count=candidate_point_count,
             mapped_sample_count=mapped_sample_count,
@@ -71,10 +126,18 @@ def _build_animal_atlas_readiness(
                 "candidate_point_count": candidate_point_count,
                 "mapped_sample_count": mapped_sample_count,
                 "blocked_sample_count": blocked_sample_count,
-                "map_ready_count": map_ready_count,
-                "total_curated_rows": total_curated,
-                "map_ready_share": (
-                    round(map_ready_count / total_curated, 4) if total_curated else 0.0
+                "tracked_sample_count": tracked_sample_count,
+                "unresolved_sample_count": unresolved_count,
+                "coordinate_mappable_provenance_count": map_ready_count,
+                "coordinate_refused_provenance_count": refused_count,
+                "coordinate_provenance_denominator": (
+                    coordinate_provenance_denominator
+                ),
+                "coordinate_mappable_share": _share(
+                    map_ready_count, coordinate_provenance_denominator
+                ),
+                "publication_share_of_mappable_coordinates": _share(
+                    publication_candidate_count, map_ready_count
                 ),
                 "readiness_status": readiness_status,
                 "status_reason": status_reason,
@@ -88,11 +151,139 @@ def _build_animal_atlas_readiness(
     for row in rows:
         status = str(row.get("readiness_status", ""))
         status_counts[status] = status_counts.get(status, 0) + 1
+    readiness_totals = cast(dict[str, object], readiness_payload.get("totals", {}))
+    honesty_totals = cast(dict[str, object], honesty_payload.get("totals", {}))
+    tracked_total = _required_count(honesty_totals, "tracked_sample_count")
+    mapped_total = _required_count(honesty_totals, "mapped_sample_count")
+    blocked_total = _required_count(honesty_totals, "blocked_sample_count")
+    unresolved_total = _required_count(honesty_totals, "unresolved_sample_count")
+    if mapped_total + blocked_total != tracked_total:
+        raise ValueError("Animal sample readiness totals do not reconcile")
+    if unresolved_total > blocked_total:
+        raise ValueError("Unresolved animal samples exceed blocked sample totals")
+    sample_row_totals = (
+        sum(_required_count(row, "tracked_sample_count") for row in honesty_rows),
+        sum(_required_count(row, "mapped_sample_count") for row in honesty_rows),
+        sum(_required_count(row, "blocked_sample_count") for row in honesty_rows),
+        sum(_required_count(row, "unresolved_sample_count") for row in honesty_rows),
+    )
+    if sample_row_totals != (
+        tracked_total,
+        mapped_total,
+        blocked_total,
+        unresolved_total,
+    ):
+        raise ValueError("Animal sample accounting rows do not match totals")
+    coordinate_total = _required_count(
+        readiness_totals, "coordinate_provenance_row_count"
+    )
+    mappable_total = _required_count(
+        readiness_totals, "coordinate_provenance_mappable_count"
+    )
+    refused_total = _required_count(
+        readiness_totals, "refused_coordinate_provenance_count"
+    )
+    published_total = _required_count(readiness_totals, "publication_candidate_count")
+    not_materialized_total = _required_count(readiness_totals, "not_materialized_count")
+    if mappable_total + refused_total != coordinate_total:
+        raise ValueError("Animal coordinate-provenance totals do not reconcile")
+    if published_total + not_materialized_total != mappable_total:
+        raise ValueError("Animal coordinate publication totals do not reconcile")
+    row_mappable_total = sum(
+        _required_count(row, "coordinate_provenance_mappable_count")
+        for row in readiness_rows
+    )
+    row_refused_total = sum(
+        _required_count(row, "refused_coordinate_provenance_count")
+        for row in readiness_rows
+    )
+    row_published_total = sum(
+        _required_count(row, "publication_candidate_count") for row in readiness_rows
+    )
+    row_not_materialized_total = sum(
+        _required_count(row, "not_materialized_count") for row in readiness_rows
+    )
+    row_coordinate_total = row_mappable_total + row_refused_total
+    if (
+        row_coordinate_total,
+        row_mappable_total,
+        row_refused_total,
+        row_published_total,
+        row_not_materialized_total,
+    ) != (
+        coordinate_total,
+        mappable_total,
+        refused_total,
+        published_total,
+        not_materialized_total,
+    ):
+        raise ValueError("Animal coordinate readiness rows do not match totals")
     return {
-        "schema_version": "animal-atlas-readiness.v1",
+        "schema_version": "animal-atlas-readiness.v2",
         "status_counts": status_counts,
+        "reconciled_denominators": {
+            "coordinate_provenance": {
+                "denominator": coordinate_total,
+                "mappable": mappable_total,
+                "refused": refused_total,
+            },
+            "publication": {
+                "denominator": mappable_total,
+                "published": published_total,
+                "not_materialized": not_materialized_total,
+            },
+            "samples": {
+                "denominator": tracked_total,
+                "mapped": mapped_total,
+                "blocked": blocked_total,
+                "unresolved_subset_of_blocked": unresolved_total,
+            },
+        },
         "rows": rows,
     }
+
+
+def _share(numerator: int, denominator: int) -> float | None:
+    if numerator < 0 or denominator < 0 or numerator > denominator:
+        raise ValueError("Animal atlas readiness share must use a valid denominator")
+    if denominator == 0:
+        return None
+    return round(numerator / denominator, 4)
+
+
+def _required_count(payload: dict[str, object], field: str) -> int:
+    value = payload.get(field)
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+        raise ValueError(
+            f"Animal atlas readiness {field} must be a nonnegative integer"
+        )
+    return value
+
+
+def _required_rows(
+    payload: dict[str, object],
+    field: str,
+) -> list[dict[str, object]]:
+    value = payload.get(field)
+    if not isinstance(value, list) or any(not isinstance(row, dict) for row in value):
+        raise ValueError(f"Animal atlas readiness {field} must be a list of rows")
+    return cast(list[dict[str, object]], value)
+
+
+def _rows_by_species(
+    rows: list[dict[str, object]],
+    *,
+    context: str,
+) -> dict[str, dict[str, object]]:
+    indexed: dict[str, dict[str, object]] = {}
+    for row in rows:
+        species_name = str(row.get("species_latin_name", "")).strip()
+        if not species_name:
+            raise ValueError(f"Animal {context} row requires a species name")
+        if species_name in indexed:
+            raise ValueError(f"Animal {context} repeats {species_name}")
+        indexed[species_name] = row
+    return indexed
 
 
 def _build_animal_atlas_exclusion_report(data_root: Path) -> dict[str, object]:
@@ -235,10 +426,13 @@ def _atlas_readiness_status(
     unresolved_count: int,
     refused_count: int,
 ) -> tuple[str, str]:
-    if candidate_point_count == 0 and (unresolved_count > 0 or refused_count > 0):
+    if candidate_point_count == 0 and (
+        blocked_sample_count > 0 or unresolved_count > 0 or refused_count > 0
+    ):
         return (
             "blocked",
-            f"{blocked_sample_count} blocked sample rows still fail atlas publication.",
+            f"{blocked_sample_count} blocked sample rows and {refused_count} refused "
+            "coordinate-provenance rows still prevent atlas publication.",
         )
     if candidate_point_count == 0:
         return (

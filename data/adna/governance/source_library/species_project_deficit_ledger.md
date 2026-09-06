@@ -4,7 +4,7 @@
 
 | Species | Project | Minimum sample gap | Site gap | Chronology gap | Publication status |
 | --- | --- | ---: | ---: | ---: | --- |
-| `Bos taurus` | `PRJEB31621` | `0` | `77` | `77` | `blocked` |
+| `Bos taurus` | `PRJEB31621` | `0` | `12` | `13` | `blocked` |
 | `Bos taurus` | `PRJEB75467` | `0` | `44` | `44` | `blocked` |
 | `Bos taurus` | `PRJNA705960` | `0` | `11` | `11` | `blocked` |
 | `Camelus dromedarius` | `KU605068-KU605080` | `0` | `0` | `0` | `complete` |

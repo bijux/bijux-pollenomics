@@ -6,7 +6,7 @@
 | --- | --- | --- | --- | ---: |
 | PRJEB19970 | unresolved |  | Arzhan I, Berel', Sintashta | 2 |
 | PRJEB30282 | unresolved |  | Bundsø, Near East and Europe pig domestication transect, Trelleborg | 341 |
-| PRJEB31621 | unresolved |  | - | 77 |
+| PRJEB31621 | unresolved |  | Abu Gosh, Acemhöyük, Belovode-Veliko Laole, Bestansur, Blagotin, Bubanj, Dariali Tamara Fort, Gilat, Gyumri, Hasanlu, Horvat Castra, Koktepe, Kul Tepe, Azerbaijan, Maral Tappeh, Menteşe, Mianroud, Fars, Monjukli Depe, Nahal Tillah, Nishapur Kohandež, Central Khorasan, Pločnik, Promachon, Serres, Sarakenos Cave, Boeotia, Stubline, Suberde and Erbaba, Taghit Haddouch, Tappeh-Sang-e-Chakhmaq, Tel Ashqelon, Tel Dan, Tel Masos, Tel Miqne-Ekron, Tel Yoqneam, Tel Zahara, Tel es-Qashish, Tel es-Safi, Tel-Dalit, Tel-Hreiz, Tepe Shizar, Qazvin, Tilla Bulak, Yerqurqan (Erkurgan), Çatalhöyük | 12 |
 | PRJEB41594 | unresolved |  | - | 5 |
 | PRJEB60484 | unresolved |  | Svalbard ancient reindeer context, Svalbard archipelago reindeer context | 20 |
 | PRJEB75467 | unresolved |  | - | 44 |

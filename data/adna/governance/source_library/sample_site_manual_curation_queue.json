@@ -40,7 +40,7 @@
     {
       "project_accession": "PRJEB31621",
       "species_latin_name": "Bos taurus",
-      "queued_sample_count": 77,
+      "queued_sample_count": 12,
       "queue_reasons": [
         "recovered_sample_rows_still_lack_any_location_claim"
       ],

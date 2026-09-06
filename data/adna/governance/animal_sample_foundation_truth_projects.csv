@@ -7,7 +7,7 @@ Sus scrofa domesticus,pig,PRJEB30282,343,2,0,0,0,341,2,2,false,archive_project_s
 Ovis aries,sheep,PRJEB36540,190,0,167,0,0,23,6,6,false,supplementary_table_sample_label_anchor
 Ovis aries,sheep,PRJEB41594,5,0,0,0,5,0,0,1,false,archive_project_sample_accession_anchor
 Ovis aries,sheep,PRJEB59481,5,0,0,0,0,5,2,2,false,supplementary_table_and_archive_identity_join
-Bos taurus,cattle,PRJEB31621,77,0,0,0,77,0,0,1,false,archive_project_sample_accession_anchor
+Bos taurus,cattle,PRJEB31621,77,0,64,0,12,1,40,41,false,archive_project_sample_accession_anchor;archive_supplement_primary_source_join
 Bos taurus,cattle,PRJEB75467,44,0,0,0,44,0,0,1,false,archive_project_sample_accession_anchor
 Bos taurus,cattle,PRJNA705960,11,0,0,11,0,0,0,1,false,archive_project_sample_accession_anchor
 Capra hircus,goat,PRJEB90141,4,4,0,0,0,0,4,4,false,supplementary_table_sample_label_anchor

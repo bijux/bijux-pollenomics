@@ -81,12 +81,12 @@ class AnimalFoundationReviewReportTests(AnimalFoundationOutputsTestCase):
         )
 
         self.assertEqual(payload["schema_version"], "animal-point-evidence-review.v1")
-        self.assertEqual(payload["row_count"], 275)
+        self.assertEqual(payload["row_count"], 271)
         self.assertEqual(
             Counter(row["species_latin_name"] for row in payload["rows"]),
             {
                 "Capra hircus": 26,
-                "Equus caballus": 207,
+                "Equus caballus": 203,
                 "Felis catus": 40,
                 "Sus scrofa domesticus": 2,
             },

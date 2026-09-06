@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from bijux_pollenomics.adna.governance.audit_catalogs.map_readiness import (
+    _build_species_map_readiness_row,
     _map_publication_accounting,
     _map_publication_key,
     build_cross_species_map_readiness,
@@ -121,13 +122,16 @@ def test_map_readiness_reconciles_point_ready_and_unpublished_counts(
         for row in readiness["rows"]
         if row["species_latin_name"] == "Sus scrofa domesticus"
     )
-    assert readiness["totals"]["direct_coordinate_backed"] == 234
+    assert readiness["totals"]["direct_coordinate_backed"] == 274
     assert readiness["totals"]["indirectly_geocoded"] == 4
-    assert readiness["totals"]["coordinate_provenance_mappable_count"] == 238
-    assert readiness["totals"]["publication_candidate_count"] == 235
-    assert readiness["totals"]["not_materialized_count"] == 3
-    assert readiness["totals"]["refused_from_mapping"] == 5
-    assert readiness["totals"]["unresolved"] == 0
+    assert readiness["totals"]["coordinate_provenance_mappable_count"] == 278
+    assert readiness["totals"]["coordinate_provenance_row_count"] == 284
+    assert readiness["totals"]["publication_candidate_count"] == 271
+    assert readiness["totals"]["not_materialized_count"] == 7
+    assert readiness["totals"]["refused_coordinate_provenance_count"] == 6
+    assert readiness["totals"]["region_only_coordinate_refusal_count"] == 4
+    assert readiness["totals"]["unresolved_location_coordinate_refusal_count"] == 2
+    assert readiness["totals"]["unresolved_sample_count"] == 95
     assert readiness["publication_accounting"]["overall_ok"]
     assert {
         (row["project_accession"], row["site_label"])
@@ -136,9 +140,40 @@ def test_map_readiness_reconciles_point_ready_and_unpublished_counts(
         ("PRJEB22390", "Botai archaeological site horse context"),
         ("PRJEB90261", "Lobos"),
         ("SRP073444", "Site 1040 near Wadi Halfa dromedary context"),
+        ("PRJEB31613", "Altata"),
+        ("PRJEB31613", "Belkaragay"),
+        ("PRJEB31613", "Derkul"),
+        ("PRJEB31613", "Lebyazhinka IV"),
     }
-    assert {row["reason_code"] for row in readiness["not_materialized_rows"]} == {
-        "no_sample_backed_locality_candidate"
+    assert {
+        (row["project_accession"], row["site_label"]): row["reason_code"]
+        for row in readiness["not_materialized_rows"]
+    } == {
+        (
+            "PRJEB22390",
+            "Botai archaeological site horse context",
+        ): "no_admitted_sample_backed_locality_candidate",
+        ("PRJEB90261", "Lobos"): "no_admitted_sample_backed_locality_candidate",
+        (
+            "SRP073444",
+            "Site 1040 near Wadi Halfa dromedary context",
+        ): "no_admitted_sample_backed_locality_candidate",
+        (
+            "PRJEB31613",
+            "Altata",
+        ): "chronology_not_supported_for_atlas_publication",
+        (
+            "PRJEB31613",
+            "Belkaragay",
+        ): "chronology_not_supported_for_atlas_publication",
+        (
+            "PRJEB31613",
+            "Derkul",
+        ): "chronology_not_supported_for_atlas_publication",
+        (
+            "PRJEB31613",
+            "Lebyazhinka IV",
+        ): "chronology_not_supported_for_atlas_publication",
     }
     assert horse_row["direct_coordinate_backed"] == 207
     assert horse_row["indirectly_geocoded"] == 1
@@ -146,7 +181,9 @@ def test_map_readiness_reconciles_point_ready_and_unpublished_counts(
     assert pig_row["coordinate_provenance_mappable_count"] == 2
     assert pig_row["publication_candidate_count"] == 2
     assert pig_row["not_materialized_count"] == 0
-    assert sheep_row["refused_from_mapping"] == 0
+    assert sheep_row["refused_coordinate_provenance_count"] == 2
+    assert sheep_row["region_only_coordinate_refusal_count"] == 0
+    assert sheep_row["unresolved_location_coordinate_refusal_count"] == 2
     assert sheep_row["coordinate_provenance_mappable_count"] == 0
     assert sheep_row["publication_candidate_count"] == 0
 
@@ -203,3 +240,30 @@ def test_map_accounting_refuses_publication_without_coordinate_provenance(
 
     with pytest.raises(ValueError, match="do not reconcile"):
         _map_publication_accounting(Path("data"))
+
+
+@pytest.mark.parametrize(
+    ("overrides", "message"),
+    [
+        ({"mapping_posture": ""}, "unsupported mapping postures: <empty>"),
+        (
+            {"coordinate_basis": "invented_basis"},
+            "unsupported mappable coordinate bases: invented_basis",
+        ),
+    ],
+)
+def test_map_posture_accounting_refuses_unknown_contract_values(
+    monkeypatch: pytest.MonkeyPatch,
+    overrides: dict[str, object],
+    message: str,
+) -> None:
+    monkeypatch.setattr(map_readiness, "_species_root", lambda *_args: Path("species"))
+    monkeypatch.setattr(
+        map_readiness,
+        "_load_coordinate_provenance_rows",
+        lambda _root: [_coordinate_payload(**overrides)],
+    )
+    monkeypatch.setattr(map_readiness, "_load_sample_rows", lambda _root: [])
+
+    with pytest.raises(ValueError, match=message):
+        _build_species_map_readiness_row(Path("data"), "Equus caballus")

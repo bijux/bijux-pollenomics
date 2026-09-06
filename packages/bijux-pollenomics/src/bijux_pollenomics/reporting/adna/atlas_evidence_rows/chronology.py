@@ -5,20 +5,27 @@ from __future__ import annotations
 from typing import cast
 
 from ....adna import AdnaChronology
+from ....adna.domain.models.vocabularies import (
+    ADNA_CHRONOLOGY_EVIDENCE_CLASSES,
+    ADNA_CHRONOLOGY_PRECISION_POSTURES,
+    ADNA_DATING_BASES,
+)
 
 
 def _parse_chronology(payload: object) -> AdnaChronology:
     if not isinstance(payload, dict):
         raise TypeError("Chronology payload must be a dict")
     return AdnaChronology(
-        original_text=str(payload.get("original_text", "")),
+        original_text=_optional_str(payload.get("original_text")) or "",
         time_start_bp=_optional_int(payload.get("time_start_bp")),
         time_end_bp=_optional_int(payload.get("time_end_bp")),
         time_mean_bp=_optional_int(payload.get("time_mean_bp")),
-        date_stddev_bp=str(payload.get("date_stddev_bp", "")),
-        dating_basis=str(payload.get("dating_basis", "unknown")),
-        evidence_class=str(payload.get("evidence_class", "unresolved")),
-        precision_posture=str(payload.get("precision_posture", "unresolved")),
+        date_stddev_bp=_optional_str(payload.get("date_stddev_bp")) or "",
+        dating_basis=_optional_str(payload.get("dating_basis")) or "unknown",
+        evidence_class=_optional_str(payload.get("evidence_class")) or "unresolved",
+        precision_posture=(
+            _optional_str(payload.get("precision_posture")) or "unresolved"
+        ),
     )
 
 
@@ -36,6 +43,31 @@ def _atlas_public_chronology(chronology: AdnaChronology) -> AdnaChronology:
         evidence_class=chronology.evidence_class,
         precision_posture=chronology.precision_posture,
     )
+
+
+def _atlas_chronology_supports_publication(chronology: AdnaChronology) -> bool:
+    """Return whether chronology has enough source support for an atlas row."""
+    if (
+        not chronology.original_text.strip()
+        or chronology.dating_basis not in ADNA_DATING_BASES
+        or chronology.dating_basis in {"not_yet_curated", "unknown"}
+        or chronology.evidence_class not in ADNA_CHRONOLOGY_EVIDENCE_CLASSES
+        or chronology.evidence_class == "unresolved"
+        or chronology.precision_posture not in ADNA_CHRONOLOGY_PRECISION_POSTURES
+        or chronology.precision_posture == "unresolved"
+    ):
+        return False
+    temporal_semantics = chronology.as_temporal_semantics(source_family="animal_adna")
+    comparability_posture = temporal_semantics["comparability_posture"]
+    if chronology.precision_posture in {
+        "sample_precise_point",
+        "sample_precise_interval",
+    }:
+        return comparability_posture == "numeric_interval"
+    return comparability_posture in {
+        "numeric_interval",
+        "contextual_label_only",
+    }
 
 
 def _optional_str(value: object) -> str | None:

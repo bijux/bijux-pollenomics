@@ -77,7 +77,7 @@ class AnimalFoundationPublicationTests(AnimalFoundationOutputsTestCase):
                 review_payload["public_posture"],
                 "governed_metadata_foundation_not_reference_grade",
             )
-            self.assertEqual(chronology_payload["row_count"], 1453)
+            self.assertEqual(chronology_payload["row_count"], 1454)
             self.assertGreater(
                 intake_recovery_payload["stage_review"]["blocked_projects"],
                 0,

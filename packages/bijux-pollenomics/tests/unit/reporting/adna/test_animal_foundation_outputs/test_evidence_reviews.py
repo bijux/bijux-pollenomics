@@ -56,17 +56,17 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
         self.assertEqual(
             payload["schema_version"], "animal-sample-chronology-review.v1"
         )
-        self.assertEqual(payload["row_count"], 1453)
-        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 321)
-        self.assertEqual(payload["normalization_counts"]["normalized_point"], 475)
-        self.assertEqual(payload["normalization_counts"]["unresolved"], 527)
-        self.assertEqual(payload["precision_counts"]["contextual_interval"], 8)
+        self.assertEqual(payload["row_count"], 1454)
+        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 328)
+        self.assertEqual(payload["normalization_counts"]["normalized_point"], 533)
+        self.assertEqual(payload["normalization_counts"]["unresolved"], 463)
+        self.assertEqual(payload["precision_counts"]["contextual_interval"], 15)
         self.assertEqual(payload["comparability_counts"]["numeric_interval"], 749)
         self.assertEqual(
-            payload["comparability_counts"]["numeric_interval_with_caveat"], 47
+            payload["comparability_counts"]["numeric_interval_with_caveat"], 112
         )
         self.assertEqual(payload["comparability_counts"]["contextual_label_only"], 130)
-        self.assertEqual(payload["comparability_counts"]["unresolved"], 527)
+        self.assertEqual(payload["comparability_counts"]["unresolved"], 463)
         pig_rows = [
             row for row in payload["rows"] if row["project_accession"] == "PRJEB30282"
         ]
@@ -166,9 +166,9 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
         self.assertTrue(payload["sample_database_claim_supported"])
         self.assertTrue(payload["nordic_view_supported_now"])
         self.assertFalse(payload["region_agnostic_contract_ready"])
-        self.assertEqual(payload["counts"]["published_atlas_point_count"], 275)
-        self.assertEqual(payload["counts"]["mapped_sample_count"], 612)
-        self.assertEqual(payload["counts"]["mapped_sample_share"], 0.4221)
+        self.assertEqual(payload["counts"]["published_atlas_point_count"], 271)
+        self.assertEqual(payload["counts"]["mapped_sample_count"], 606)
+        self.assertEqual(payload["counts"]["mapped_sample_share"], 0.4179)
         pig_points = [
             row
             for row in point_payload["rows"]

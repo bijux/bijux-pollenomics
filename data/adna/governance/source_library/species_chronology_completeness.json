@@ -3,15 +3,15 @@
   "rows": [
     {
       "species_latin_name": "Bos taurus",
-      "recovered_sample_row_count": 132,
-      "normalized_row_count": 0,
+      "recovered_sample_row_count": 133,
+      "normalized_row_count": 65,
       "exact_sample_date_count": 0,
-      "modeled_or_approximate_sample_date_count": 0,
-      "contextual_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 58,
+      "contextual_date_count": 7,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 132,
-      "chronology_completeness_ratio": 0.0
+      "unresolved_count": 68,
+      "chronology_completeness_ratio": 0.4887
     },
     {
       "species_latin_name": "Camelus dromedarius",

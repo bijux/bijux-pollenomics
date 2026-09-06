@@ -42,6 +42,10 @@ def test_master_uses_canonical_bp_for_computation_and_preserves_source_wording()
     }
     assert "3500-3000 BC" in by_label["Dan1"].sample_lineage_excerpt
     assert "5320-5070 Cal. BC" in by_label["Pro1"].sample_lineage_excerpt
+    dan_payload = by_label["Dan1"].as_dict()
+    assert dan_payload["chronology_dating_basis"] == "archaeological_period"
+    assert dan_payload["chronology_evidence_class"] == ("archaeological_context_date")
+    assert dan_payload["chronology_precision_posture"] == "contextual_interval"
     assert by_label["Sub1"].chronology_text == ""
     assert by_label["Sub1"].chronology_precision_posture == "unresolved"
     assert (

@@ -2280,6 +2280,646 @@
       ]
     },
     {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Abu Gosh",
+      "geocoding_safe_token": "abugosh",
+      "original_source_spellings": [
+        "Abu Gosh"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Acemhöyük",
+      "geocoding_safe_token": "acemhöyük",
+      "original_source_spellings": [
+        "Acemhöyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Belovode-Veliko Laole",
+      "geocoding_safe_token": "belovodevelikolaole",
+      "original_source_spellings": [
+        "Belovode-Veliko Laole"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Bestansur",
+      "geocoding_safe_token": "bestansur",
+      "original_source_spellings": [
+        "Bestansur"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Blagotin",
+      "geocoding_safe_token": "blagotin",
+      "original_source_spellings": [
+        "Blagotin"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Bubanj",
+      "geocoding_safe_token": "bubanj",
+      "original_source_spellings": [
+        "Bubanj"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Dariali Tamara Fort",
+      "geocoding_safe_token": "darialitamarafort",
+      "original_source_spellings": [
+        "Dariali Tamara Fort"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Gilat",
+      "geocoding_safe_token": "gilat",
+      "original_source_spellings": [
+        "Gilat"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Gyumri",
+      "geocoding_safe_token": "gyumri",
+      "original_source_spellings": [
+        "Gyumri"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Hasanlu",
+      "geocoding_safe_token": "hasanlu",
+      "original_source_spellings": [
+        "Hasanlu"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Horvat Castra",
+      "geocoding_safe_token": "horvatcastra",
+      "original_source_spellings": [
+        "Horvat Castra"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Koktepe",
+      "geocoding_safe_token": "koktepe",
+      "original_source_spellings": [
+        "Koktepe"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Kul Tepe, Azerbaijan",
+      "geocoding_safe_token": "kultepeazerbaijan",
+      "original_source_spellings": [
+        "Kul Tepe, Azerbaijan"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Maral Tappeh",
+      "geocoding_safe_token": "maraltappeh",
+      "original_source_spellings": [
+        "Maral Tappeh"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Menteşe",
+      "geocoding_safe_token": "menteşe",
+      "original_source_spellings": [
+        "Menteşe"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Mianroud, Fars",
+      "geocoding_safe_token": "mianroudfars",
+      "original_source_spellings": [
+        "Mianroud, Fars"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Monjukli Depe",
+      "geocoding_safe_token": "monjuklidepe",
+      "original_source_spellings": [
+        "Monjukli Depe"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Nahal Tillah",
+      "geocoding_safe_token": "nahaltillah",
+      "original_source_spellings": [
+        "Nahal Tillah"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Nishapur Kohandež, Central Khorasan",
+      "geocoding_safe_token": "nishapurkohandežcentralkhorasan",
+      "original_source_spellings": [
+        "Nishapur Kohandež, Central Khorasan"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Pločnik",
+      "geocoding_safe_token": "pločnik",
+      "original_source_spellings": [
+        "Pločnik"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Promachon, Serres",
+      "geocoding_safe_token": "promachonserres",
+      "original_source_spellings": [
+        "Promachon, Serres"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Sarakenos Cave, Boeotia",
+      "geocoding_safe_token": "sarakenoscaveboeotia",
+      "original_source_spellings": [
+        "Sarakenos Cave, Boeotia"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Stubline",
+      "geocoding_safe_token": "stubline",
+      "original_source_spellings": [
+        "Stubline"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Suberde and Erbaba",
+      "geocoding_safe_token": "suberdeanderbaba",
+      "original_source_spellings": [
+        "Suberde and Erbaba"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Taghit Haddouch",
+      "geocoding_safe_token": "taghithaddouch",
+      "original_source_spellings": [
+        "Taghit Haddouch"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tappeh-Sang-e-Chakhmaq",
+      "geocoding_safe_token": "tappehsangechakhmaq",
+      "original_source_spellings": [
+        "Tappeh-Sang-e-Chakhmaq"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tel Ashqelon",
+      "geocoding_safe_token": "telashqelon",
+      "original_source_spellings": [
+        "Tel Ashqelon"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tel Dan",
+      "geocoding_safe_token": "teldan",
+      "original_source_spellings": [
+        "Tel Dan"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tel es-Qashish",
+      "geocoding_safe_token": "telesqashish",
+      "original_source_spellings": [
+        "Tel es-Qashish"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tel es-Safi",
+      "geocoding_safe_token": "telessafi",
+      "original_source_spellings": [
+        "Tel es-Safi"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tel Masos",
+      "geocoding_safe_token": "telmasos",
+      "original_source_spellings": [
+        "Tel Masos"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tel Miqne-Ekron",
+      "geocoding_safe_token": "telmiqneekron",
+      "original_source_spellings": [
+        "Tel Miqne-Ekron"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tel Yoqneam",
+      "geocoding_safe_token": "telyoqneam",
+      "original_source_spellings": [
+        "Tel Yoqneam"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tel Zahara",
+      "geocoding_safe_token": "telzahara",
+      "original_source_spellings": [
+        "Tel Zahara"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tel-Dalit",
+      "geocoding_safe_token": "teldalit",
+      "original_source_spellings": [
+        "Tel-Dalit"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tel-Hreiz",
+      "geocoding_safe_token": "telhreiz",
+      "original_source_spellings": [
+        "Tel-Hreiz"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tepe Shizar, Qazvin",
+      "geocoding_safe_token": "tepeshizarqazvin",
+      "original_source_spellings": [
+        "Tepe Shizar, Qazvin"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tilla Bulak",
+      "geocoding_safe_token": "tillabulak",
+      "original_source_spellings": [
+        "Tilla Bulak"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Yerqurqan (Erkurgan)",
+      "geocoding_safe_token": "yerqurqanerkurgan",
+      "original_source_spellings": [
+        "Yerqurqan (Erkurgan)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB31621",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Çatalhöyük",
+      "geocoding_safe_token": "çatalhöyük",
+      "original_source_spellings": [
+        "Çatalhöyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
       "project_accession": "PRJEB36540",
       "species_latin_name": "Ovis aries",
       "normalized_display_spelling": "Barcın Höyük",

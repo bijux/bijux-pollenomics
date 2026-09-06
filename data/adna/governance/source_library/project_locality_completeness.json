@@ -292,18 +292,18 @@
     {
       "project_accession": "PRJEB31621",
       "species_latin_name": "Bos taurus",
-      "recovered_sample_row_count": 77,
-      "exact_site_evidence_count": 0,
+      "recovered_sample_row_count": 78,
+      "exact_site_evidence_count": 66,
       "broader_locality_evidence_count": 0,
-      "unresolved_geography_count": 77,
-      "excavation_site_count": 0,
+      "unresolved_geography_count": 12,
+      "excavation_site_count": 66,
       "broader_locality_count": 0,
       "municipality_count": 0,
       "region_count": 0,
       "country_count": 0,
       "inferred_place_string_count": 0,
-      "locality_unresolved_count": 77,
-      "locality_completeness_ratio": 0.0
+      "locality_unresolved_count": 12,
+      "locality_completeness_ratio": 0.8462
     },
     {
       "project_accession": "PRJEB75467",

@@ -8,10 +8,19 @@ from typing import cast
 
 from ....adna import build_species_support_matrix
 from ....adna.workflow.paths import adna_species_dir
-from .chronology import _optional_float
+from .chronology import (
+    _atlas_chronology_supports_publication,
+    _atlas_public_chronology,
+    _optional_float,
+    _parse_chronology,
+)
 from .models import AnimalAtlasEvidenceRow
 from .row_factory import _build_evidence_row
-from .sample_support import _sample_locality_token, _sample_record_ids_for
+from .sample_support import (
+    _atlas_admitted_sample_rows,
+    _sample_locality_token,
+    _sample_record_ids_for,
+)
 from .source_records import (
     _animal_scope_for,
     _load_citation_lookup,
@@ -80,11 +89,14 @@ def build_tracked_animal_atlas_evidence_rows(
             site_record_id = str(site_identity.get("stable_token", "")).strip()
             if not site_record_id:
                 continue
-            matched_sample_rows = tuple(
-                row
-                for row in sample_rows
-                if str(row.get("project_accession", "")).strip() in project_accessions
-                and _sample_locality_token(row) == site_record_id
+            matched_sample_rows = _atlas_admitted_sample_rows(
+                tuple(
+                    row
+                    for row in sample_rows
+                    if str(row.get("project_accession", "")).strip()
+                    in project_accessions
+                    and _sample_locality_token(row) == site_record_id
+                )
             )
             _assert_no_project_level_flattening(
                 primary_project_accession=primary_project_accession,
@@ -92,6 +104,11 @@ def build_tracked_animal_atlas_evidence_rows(
                 sample_rows=matched_sample_rows,
             )
             if not _sample_record_ids_for(matched_sample_rows):
+                continue
+            public_chronology = _atlas_public_chronology(
+                _parse_chronology(locality.get("chronology", {}))
+            )
+            if not _atlas_chronology_supports_publication(public_chronology):
                 continue
             site_evidence = _lookup_project_locality_row(
                 site_evidence_lookup,

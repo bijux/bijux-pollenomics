@@ -1,8 +1,8 @@
 {
   "schema_version": "animal-atlas-candidate-accountability.v1",
-  "candidate_row_count": 275,
+  "candidate_row_count": 271,
   "passed_row_count": 271,
-  "overall_ok": false,
+  "overall_ok": true,
   "rows": [
     {
       "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey",
@@ -882,30 +882,6 @@
       "fully_accountable": true
     },
     {
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-altata-russia",
-      "species_latin_name": "Equus caballus",
-      "project_accession": "PRJEB31613",
-      "site_record_id": "equus_caballus:locality:prjeb31613:altata:russia",
-      "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:cgg_1_017023"
-      ],
-      "sample_rows_present": true,
-      "sample_lineage_present": true,
-      "site_evidence_present": true,
-      "chronology_evidence_present": false,
-      "coordinate_provenance_present": true,
-      "sample_locality_matches_site_record": true,
-      "sample_lineage_paths": [
-        "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
-      ],
-      "site_evidence_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "site_evidence_locator": "Sheet1!row11",
-      "chronology_provenance_paths": [],
-      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "coordinate_provenance_locator": "Sheet1!row11",
-      "fully_accountable": false
-    },
-    {
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-arzhani-russia",
       "species_latin_name": "Equus caballus",
       "project_accession": "PRJEB31613",
@@ -1197,31 +1173,6 @@
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "coordinate_provenance_locator": "Sheet1!row29",
       "fully_accountable": true
-    },
-    {
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-belkaragay-kazakhstan",
-      "species_latin_name": "Equus caballus",
-      "project_accession": "PRJEB31613",
-      "site_record_id": "equus_caballus:locality:prjeb31613:belkaragay:kazakhstan",
-      "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:cgg_1_017005",
-        "equus_caballus:sample:prjeb31613:cgg_1_017007"
-      ],
-      "sample_rows_present": true,
-      "sample_lineage_present": true,
-      "site_evidence_present": true,
-      "chronology_evidence_present": false,
-      "coordinate_provenance_present": true,
-      "sample_locality_matches_site_record": true,
-      "sample_lineage_paths": [
-        "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
-      ],
-      "site_evidence_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "site_evidence_locator": "Sheet1!row30",
-      "chronology_provenance_paths": [],
-      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "coordinate_provenance_locator": "Sheet1!row30",
-      "fully_accountable": false
     },
     {
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-berel-kazakhstan",
@@ -1621,31 +1572,6 @@
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "coordinate_provenance_locator": "Sheet1!row117",
       "fully_accountable": true
-    },
-    {
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-derkul-russia",
-      "species_latin_name": "Equus caballus",
-      "project_accession": "PRJEB31613",
-      "site_record_id": "equus_caballus:locality:prjeb31613:derkul:russia",
-      "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:cgg_1_016994",
-        "equus_caballus:sample:prjeb31613:cgg_1_016996"
-      ],
-      "sample_rows_present": true,
-      "sample_lineage_present": true,
-      "site_evidence_present": true,
-      "chronology_evidence_present": false,
-      "coordinate_provenance_present": true,
-      "sample_locality_matches_site_record": true,
-      "sample_lineage_paths": [
-        "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
-      ],
-      "site_evidence_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "site_evidence_locator": "Sheet1!row115",
-      "chronology_provenance_paths": [],
-      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "coordinate_provenance_locator": "Sheet1!row115",
-      "fully_accountable": false
     },
     {
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-dunajvros-hungary",
@@ -2204,30 +2130,6 @@
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "coordinate_provenance_locator": "Sheet1!row149",
       "fully_accountable": true
-    },
-    {
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-lebyazhinkaiv-russia",
-      "species_latin_name": "Equus caballus",
-      "project_accession": "PRJEB31613",
-      "site_record_id": "equus_caballus:locality:prjeb31613:lebyazhinkaiv:russia",
-      "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:cgg_1_017027"
-      ],
-      "sample_rows_present": true,
-      "sample_lineage_present": true,
-      "site_evidence_present": true,
-      "chronology_evidence_present": false,
-      "coordinate_provenance_present": true,
-      "sample_locality_matches_site_record": true,
-      "sample_lineage_paths": [
-        "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
-      ],
-      "site_evidence_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "site_evidence_locator": "Sheet1!row153",
-      "chronology_provenance_paths": [],
-      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "coordinate_provenance_locator": "Sheet1!row153",
-      "fully_accountable": false
     },
     {
       "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-longueilannel-france",

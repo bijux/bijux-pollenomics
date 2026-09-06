@@ -232,8 +232,8 @@ def build_animal_foundation_review_packet(
     readiness_totals = cast(dict[str, Any], readiness["totals"])
     direct_points = int(readiness_totals["direct_coordinate_backed"])
     geocoded_points = int(readiness_totals["indirectly_geocoded"])
-    unresolved = int(readiness_totals["unresolved"])
-    refused = int(readiness_totals["refused_from_mapping"])
+    unresolved = int(readiness_totals["unresolved_sample_count"])
+    refused = int(readiness_totals["refused_coordinate_provenance_count"])
     reference_grade_claim_allowed = (
         validation_payload["overall_ok"]
         and not drift_payload["drift_detected"]
@@ -268,7 +268,7 @@ def build_animal_foundation_review_packet(
     if unresolved:
         blockers.append("unresolved_site_assignment_rows_remain")
     if refused:
-        blockers.append("region_only_geography_rows_remain")
+        blockers.append("coordinate_provenance_refusals_remain")
     if geocoded_points:
         blockers.append("published_points_still_depend_on_named_site_geocoding")
     return {
@@ -282,7 +282,7 @@ def build_animal_foundation_review_packet(
             "direct_coordinate_point_count": direct_points,
             "geocoded_point_count": geocoded_points,
             "unresolved_sample_count": unresolved,
-            "region_only_refusal_count": refused,
+            "coordinate_provenance_refusal_count": refused,
             "blocked_project_count": absence_payload["row_count"],
         },
         "validation_overall_ok": validation_payload["overall_ok"],

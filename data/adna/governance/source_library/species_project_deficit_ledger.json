@@ -82,10 +82,10 @@
       "expected_sample_count": null,
       "minimum_expected_sample_count": 1,
       "minimum_gap_count": 0,
-      "lacking_defensible_site_assignment_count": 77,
-      "missing_chronology_count": 77,
+      "lacking_defensible_site_assignment_count": 12,
+      "missing_chronology_count": 13,
       "chronology_conflict_count": 0,
-      "chronology_ambiguity_count": 77,
+      "chronology_ambiguity_count": 78,
       "coordinate_blocked_count": 0,
       "publication_readiness_status": "blocked",
       "major_deficit_reasons": [

@@ -5,8 +5,10 @@ from __future__ import annotations
 import pytest
 
 from bijux_pollenomics.adna import AdnaChronology
-from bijux_pollenomics.reporting.adna.atlas_evidence_rows import (
+from bijux_pollenomics.reporting.adna.atlas_evidence_rows.chronology import (
+    _atlas_chronology_supports_publication,
     _atlas_public_chronology,
+    _parse_chronology,
 )
 
 
@@ -88,3 +90,100 @@ def test_noncomparable_chronology_cannot_leak_numeric_fields(
     assert public.time_end_bp is None
     assert public.time_mean_bp is None
     assert semantics["comparability_posture"] == "contextual_label_only"
+    if precision_posture in {"sample_precise_point", "sample_precise_interval"}:
+        assert not _atlas_chronology_supports_publication(public)
+
+
+def test_atlas_publication_requires_source_chronology_text_and_supported_semantics() -> (
+    None
+):
+    supported = AdnaChronology(
+        "Late Neolithic",
+        None,
+        None,
+        None,
+        dating_basis="archaeological_period",
+        evidence_class="archaeological_context_date",
+        precision_posture="broad_period_only",
+    )
+    unresolved = AdnaChronology(
+        "source text without resolved semantics",
+        None,
+        None,
+        None,
+        evidence_class="unresolved",
+        precision_posture="unresolved",
+    )
+
+    assert _atlas_chronology_supports_publication(supported)
+    assert not _atlas_chronology_supports_publication(unresolved)
+
+
+@pytest.mark.parametrize(
+    ("evidence_class", "precision_posture"),
+    [
+        ("unresolved", "broad_period_only"),
+        ("archaeological_context_date", "unresolved"),
+    ],
+)
+def test_either_unresolved_chronology_dimension_refuses_publication(
+    evidence_class: str,
+    precision_posture: str,
+) -> None:
+    chronology = AdnaChronology(
+        "source chronology remains unresolved",
+        None,
+        None,
+        None,
+        evidence_class=evidence_class,
+        precision_posture=precision_posture,
+    )
+
+    assert not _atlas_chronology_supports_publication(chronology)
+
+
+@pytest.mark.parametrize(
+    ("dating_basis", "evidence_class", "precision_posture"),
+    [
+        ("invented_basis", "archaeological_context_date", "broad_period_only"),
+        ("archaeological_period", "invented_evidence", "broad_period_only"),
+        ("archaeological_period", "broad_period_label", "invented_precision"),
+        ("unknown", "broad_period_label", "broad_period_only"),
+        ("not_yet_curated", "broad_period_label", "broad_period_only"),
+    ],
+)
+def test_unknown_or_uncurated_chronology_vocabulary_refuses_publication(
+    dating_basis: str,
+    evidence_class: str,
+    precision_posture: str,
+) -> None:
+    chronology = AdnaChronology(
+        "source chronology",
+        None,
+        None,
+        None,
+        dating_basis=dating_basis,
+        evidence_class=evidence_class,
+        precision_posture=precision_posture,
+    )
+
+    assert not _atlas_chronology_supports_publication(chronology)
+
+
+def test_null_chronology_text_does_not_become_the_literal_string_none() -> None:
+    parsed = _parse_chronology(
+        {
+            "original_text": None,
+            "date_stddev_bp": None,
+            "dating_basis": None,
+            "evidence_class": None,
+            "precision_posture": None,
+        }
+    )
+
+    assert parsed.original_text == ""
+    assert parsed.date_stddev_bp == ""
+    assert parsed.dating_basis == "unknown"
+    assert parsed.evidence_class == "unresolved"
+    assert parsed.precision_posture == "unresolved"
+    assert not _atlas_chronology_supports_publication(parsed)
