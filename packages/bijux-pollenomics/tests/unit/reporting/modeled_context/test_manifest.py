@@ -20,6 +20,9 @@ from bijux_pollenomics.reporting.modeled_context.contracts import (
 from bijux_pollenomics.reporting.modeled_context.metric_families import (
     PANGAEA_METRIC_KEYS,
 )
+from bijux_pollenomics.reporting.modeled_context.validation import (
+    expected_quality_inventory,
+)
 from tests.support.repository import REPOSITORY_ROOT
 
 
@@ -31,40 +34,69 @@ def _metric_values() -> dict[str, float]:
 
 def _complete_layer() -> dict[str, object]:
     features: list[dict[str, object]] = []
-    record_number = 0
-    for label, start, end in PANGAEA_WINDOWS_PRESENT_TO_OLDEST:
-        for country, count in PANGAEA_COUNTRY_CELL_COUNTS.items():
-            for _ in range(count):
-                record_number += 1
-                quality_class = (
-                    "high"
-                    if record_number <= 628
-                    else "low"
-                    if record_number <= 1_568
-                    else "no_pollen_data"
-                )
-                features.append(
+    parent_rows: list[tuple[str, str, int, dict[str, object]]] = []
+    parent_number = 0
+    for country, count in PANGAEA_COUNTRY_CELL_COUNTS.items():
+        for country_index in range(count):
+            parent_number += 1
+            longitude = 5.0 + parent_number / 10
+            latitude = 55.0 + parent_number / 20
+            parent_rows.append(
+                (
+                    f"cell-{parent_number:03d}",
+                    country,
+                    country_index,
                     {
-                        "type": "Feature",
-                        "properties": {
-                            "record_id": f"modeled-{record_number:04d}",
-                            "dataset_id": "937075",
-                            "country": country,
-                            "time_label": label,
-                            "time_start_bp": start,
-                            "time_end_bp": end,
-                            "source_url": PANGAEA_DATASET_DOI,
-                            "value_unit": "percentage_cover",
-                            "quality_class": quality_class,
-                            "temporal_comparability_posture": (
-                                "numeric_interval_with_caveat"
-                            ),
-                            "bibliography_reference_keys": ["githumbi-et-al-2022"],
-                            "reconstruction_values": _metric_values(),
-                            "standard_errors": dict.fromkeys(PANGAEA_METRIC_KEYS, 2.25),
-                        },
-                    }
+                        "type": "Polygon",
+                        "coordinates": [
+                            [
+                                [longitude, latitude],
+                                [longitude + 0.1, latitude],
+                                [longitude + 0.1, latitude + 0.1],
+                                [longitude, latitude + 0.1],
+                                [longitude, latitude],
+                            ]
+                        ],
+                    },
                 )
+            )
+    expected_quality = expected_quality_inventory()
+    for label, start, end in PANGAEA_WINDOWS_PRESENT_TO_OLDEST:
+        label_slug = label.lower().replace(" ", "-")
+        for parent_id, country, country_index, geometry in parent_rows:
+            high_count = expected_quality[(label, country, "high")]
+            low_count = expected_quality[(label, country, "low")]
+            quality_class = (
+                "high"
+                if country_index < high_count
+                else "low"
+                if country_index < high_count + low_count
+                else "no_pollen_data"
+            )
+            features.append(
+                {
+                    "type": "Feature",
+                    "geometry": deepcopy(geometry),
+                    "properties": {
+                        "record_id": f"937075:{parent_id}:{label_slug}",
+                        "parent_grid_record_id": parent_id,
+                        "dataset_id": "937075",
+                        "country": country,
+                        "time_label": label,
+                        "time_start_bp": start,
+                        "time_end_bp": end,
+                        "source_url": PANGAEA_DATASET_DOI,
+                        "value_unit": "percentage_cover",
+                        "quality_class": quality_class,
+                        "temporal_comparability_posture": (
+                            "numeric_interval_with_caveat"
+                        ),
+                        "bibliography_reference_keys": ["githumbi-et-al-2022"],
+                        "reconstruction_values": _metric_values(),
+                        "standard_errors": dict.fromkeys(PANGAEA_METRIC_KEYS, 2.25),
+                    },
+                }
+            )
     return {
         "key": "landclim-reveals-temporal-grid",
         "geojson": {"type": "FeatureCollection", "features": features},
@@ -92,16 +124,31 @@ def test_complete_inventory_builds_exact_oldest_to_present_contract() -> None:
         "Norway": 24,
         "Sweden": 26,
     }
+    assert manifest["country_quality_class_counts"] == {
+        "Denmark": {"high": 50, "low": 24, "no_pollen_data": 76},
+        "Finland": {"high": 84, "low": 291, "no_pollen_data": 100},
+        "Norway": {"high": 226, "low": 325, "no_pollen_data": 49},
+        "Sweden": {"high": 268, "low": 300, "no_pollen_data": 82},
+    }
     windows = manifest["windows_oldest_to_present"]
     assert isinstance(windows, list)
     assert len(windows) == 25
-    assert windows[0] == {
-        "label": "11200-11700 BP",
-        "time_start_bp": 11200,
-        "time_end_bp": 11700,
-        "feature_count": 75,
-        "no_pollen_data_count": 75,
-        "country_counts": PANGAEA_COUNTRY_CELL_COUNTS,
+    assert windows[0]["label"] == "11200-11700 BP"
+    assert windows[0]["time_start_bp"] == 11200
+    assert windows[0]["time_end_bp"] == 11700
+    assert windows[0]["feature_count"] == 75
+    assert windows[0]["no_pollen_data_count"] == 48
+    assert windows[0]["quality_class_counts"] == {
+        "high": 10,
+        "low": 17,
+        "no_pollen_data": 48,
+    }
+    assert windows[0]["country_counts"] == PANGAEA_COUNTRY_CELL_COUNTS
+    assert windows[0]["country_quality_class_counts"] == {
+        "Denmark": {"high": 0, "low": 1, "no_pollen_data": 5},
+        "Finland": {"high": 1, "low": 2, "no_pollen_data": 16},
+        "Norway": {"high": 5, "low": 7, "no_pollen_data": 12},
+        "Sweden": {"high": 4, "low": 7, "no_pollen_data": 15},
     }
     assert sum(window["no_pollen_data_count"] for window in windows) == 307
     assert all(0 <= window["no_pollen_data_count"] <= 75 for window in windows)
@@ -182,6 +229,15 @@ def _first_properties(layer: dict[str, object]) -> dict[str, object]:
     return cast(dict[str, object], features[0]["properties"])
 
 
+def _features(layer: dict[str, object]) -> list[dict[str, object]]:
+    geojson = cast(dict[str, object], layer["geojson"])
+    return cast(list[dict[str, object]], geojson["features"])
+
+
+def _properties(feature: dict[str, object]) -> dict[str, object]:
+    return cast(dict[str, object], feature["properties"])
+
+
 @pytest.mark.parametrize(
     ("mutation", "message"),
     [
@@ -216,7 +272,95 @@ def test_incomplete_country_window_inventory_fails_closed() -> None:
 
     with pytest.raises(
         ModeledContextContractError,
-        match="Nordic country/window inventory is incomplete",
+        match="parent-grid/window topology is incomplete or duplicated",
+    ):
+        build_modeled_context_manifest([layer])
+
+
+def test_duplicate_parent_cannot_replace_a_missing_parent_in_one_window() -> None:
+    layer = _complete_layer()
+    features = _features(layer)
+    retained_parent = str(_properties(features[0])["parent_grid_record_id"])
+    replaced = _properties(features[1])
+    replaced["parent_grid_record_id"] = retained_parent
+    replaced["record_id"] = f"937075:{retained_parent}:duplicate-0-100-bp"
+
+    with pytest.raises(
+        ModeledContextContractError,
+        match="parent-grid/window topology is incomplete or duplicated",
+    ):
+        build_modeled_context_manifest([layer])
+
+
+def test_parent_geometry_must_remain_invariant_across_windows() -> None:
+    layer = _complete_layer()
+    features = _features(layer)
+    parent_id = _properties(features[0])["parent_grid_record_id"]
+    later_feature = next(
+        feature
+        for feature in features[1:]
+        if _properties(feature)["parent_grid_record_id"] == parent_id
+    )
+    geometry = cast(dict[str, object], later_feature["geometry"])
+    rings = cast(list[list[list[float]]], geometry["coordinates"])
+    rings[0][0][0] += 0.01
+    rings[0][-1][0] += 0.01
+
+    with pytest.raises(
+        ModeledContextContractError,
+        match="parent-grid geometry drifts across windows",
+    ):
+        build_modeled_context_manifest([layer])
+
+
+def test_parent_country_drift_fails_when_country_totals_are_unchanged() -> None:
+    layer = _complete_layer()
+    features = _features(layer)
+    denmark = next(
+        feature
+        for feature in features
+        if _properties(feature)["time_label"] == "0-100 BP"
+        and _properties(feature)["country"] == "Denmark"
+    )
+    finland = next(
+        feature
+        for feature in features
+        if _properties(feature)["time_label"] == "0-100 BP"
+        and _properties(feature)["country"] == "Finland"
+    )
+    _properties(denmark)["country"] = "Finland"
+    _properties(finland)["country"] = "Denmark"
+
+    with pytest.raises(
+        ModeledContextContractError,
+        match="parent-grid country assignment drifts across windows",
+    ):
+        build_modeled_context_manifest([layer])
+
+
+def test_quality_swap_cannot_hide_behind_unchanged_global_totals() -> None:
+    layer = _complete_layer()
+    features = _features(layer)
+    recent_high = next(
+        feature
+        for feature in features
+        if _properties(feature)["time_label"] == "0-100 BP"
+        and _properties(feature)["country"] == "Denmark"
+        and _properties(feature)["quality_class"] == "high"
+    )
+    older_low = next(
+        feature
+        for feature in features
+        if _properties(feature)["time_label"] == "350-700 BP"
+        and _properties(feature)["country"] == "Denmark"
+        and _properties(feature)["quality_class"] == "low"
+    )
+    _properties(recent_high)["quality_class"] = "low"
+    _properties(older_low)["quality_class"] = "high"
+
+    with pytest.raises(
+        ModeledContextContractError,
+        match="country/window quality inventory differs from the source workbook",
     ):
         build_modeled_context_manifest([layer])
 
@@ -283,4 +427,4 @@ def test_repository_pangaea_surface_matches_presentation_contract() -> None:
         "low": 940,
         "no_pollen_data": 307,
     }
-    assert len(manifest["windows_oldest_to_present"]) == 25
+    assert len(cast(list[object], manifest["windows_oldest_to_present"])) == 25
