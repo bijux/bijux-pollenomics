@@ -2530,6 +2530,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       let renderedEdgeLayers = [];
       let renderedPolygonLayers = [];
       let visiblePointEntries = [];
+      let visiblePolygonFeatureEntries = [];
       let highlightedPointEntry = null;
       const sidebar = document.getElementById('sidebar');
       const mobilePanelCloseButton = document.getElementById('mobile-panel-close');
@@ -4756,6 +4757,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         renderedPolygonLayers = [];
         circleLayerGroup.clearLayers();
         visiblePointEntries = [];
+        visiblePolygonFeatureEntries = [];
         highlightedPointEntry = null;
         sourceRecordConcentrationSnapshot = null;
       }
@@ -4925,6 +4927,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         POLYGON_LAYERS.forEach((layer) => {
           const visibleFeatures = (layer.geojson.features || []).filter((feature) => polygonGeometryIsAdmitted(feature) && polygonFeatureVisible(layer, feature.properties || {}));
           if (!visibleFeatures.length) return;
+          visibleFeatures.forEach((feature) => visiblePolygonFeatureEntries.push({ layer, feature }));
           let geoJsonLayer;
           if (layer.kind === 'country-boundaries') {
             geoJsonLayer = L.geoJSON({ type: 'FeatureCollection', features: visibleFeatures }, {
@@ -5284,6 +5287,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           } : null,
           visible_point_count: visiblePointEntries.length,
           visible_polygon_layer_count: renderedPolygonLayers.length,
+          visible_source_chronology_point_count: visiblePointEntries.filter(({ layer }) => layer.semantic_role === 'source_chronology_context').length,
+          visible_modeled_context_feature_count: visiblePolygonFeatureEntries.filter(({ layer, feature }) => modeledContextActive && isModeledContextFeature(layer, feature.properties || {})).length,
           visible_governed_candidate_count: renderedEdgeLayers.length,
           scientific_posture: {
             classifications_status: ATLAS_EVIDENCE.classifications_status,

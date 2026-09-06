@@ -32,6 +32,10 @@ def test_capture_contract_preserves_scientific_refusals_and_bp_semantics() -> No
     assert "observation_chronology_is_propagation: false" in block
     assert "evidence_role: 'context_only'" in block
     assert "feature_count: sourceWindow.feature_count" in block
+    assert "visible_source_chronology_point_count:" in block
+    assert "layer.semantic_role === 'source_chronology_context'" in block
+    assert "visible_modeled_context_feature_count:" in block
+    assert "isModeledContextFeature(layer, feature.properties || {})" in block
     assert "interpolation_allowed: false" in block
     assert "propagation_use_allowed: false" in block
     assert "capture BP interval exceeds the selected source extent" in block
