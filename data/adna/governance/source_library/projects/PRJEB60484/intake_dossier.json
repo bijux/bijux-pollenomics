@@ -30,6 +30,8 @@
   "recovered_sample_count": 20,
   "final_sample_count": 20,
   "unresolved_sample_count": null,
+  "material_evidence_expected_count": 0,
+  "material_evidence_conflict_count": 0,
   "minimum_gap_count": 0,
   "recovery_gap_status": "minimum_expected_floor_met",
   "implausibly_low_recovery": false,

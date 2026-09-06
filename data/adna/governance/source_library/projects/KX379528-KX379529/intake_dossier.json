@@ -27,6 +27,8 @@
   "recovered_sample_count": 2,
   "final_sample_count": 2,
   "unresolved_sample_count": 0,
+  "material_evidence_expected_count": 0,
+  "material_evidence_conflict_count": 0,
   "minimum_gap_count": 0,
   "recovery_gap_status": "recovered_to_exact_expected_count",
   "implausibly_low_recovery": false,

@@ -12,7 +12,7 @@
 | PRJEB36540 | Ovis aries | 190 | 167 | 0 | 0 | 10 | missing_sample_level_date_evidence |
 | PRJEB31613 | Equus caballus | 245 | 237 | 0 | 0 | 8 | missing_sample_level_date_evidence |
 | PRJEB41594 | Ovis aries | 5 | 0 | 0 | 0 | 5 | no_sample_owned_chronology_recovered, missing_sample_level_date_evidence |
-| PRJEB59481 | Ovis aries | 5 | 0 | 0 | 0 | 5 | no_sample_owned_chronology_recovered, missing_sample_level_date_evidence |
 | PRJEB81815 | Felis catus | 87 | 0 | 8 | 39 | 3 | missing_sample_level_date_evidence, broad_period_labels_still_need_stronger_date_support, project_context_dates_still_dominate |
 | PRJEB19970 | Equus caballus | 15 | 13 | 0 | 0 | 2 | missing_sample_level_date_evidence |
 | SRS1407451 | Canis lupus familiaris | 1 | 0 | 0 | 0 | 1 | no_sample_owned_chronology_recovered, missing_sample_level_date_evidence |
+| PRJEB59481 | Ovis aries | 5 | 3 | 1 | 1 | 0 | broad_period_labels_still_need_stronger_date_support |

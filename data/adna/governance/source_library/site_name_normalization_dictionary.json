@@ -4885,11 +4885,9 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "coordinate_resolution",
         "supplementary_table"
       ],
       "locality_classes": [
-        "country",
         "excavation_site"
       ]
     },
@@ -4903,11 +4901,9 @@
       ],
       "alternative_spellings": [],
       "source_surfaces": [
-        "coordinate_resolution",
         "supplementary_table"
       ],
       "locality_classes": [
-        "country",
         "excavation_site"
       ]
     },

@@ -303,8 +303,8 @@ PRJEB44430,Equus caballus,Çadır Höyük,çadırhöyük,Çadır Höyük,,supple
 PRJEB44430,Equus caballus,Černý Vůl,černývůl,Černý Vůl,,supplementary_table,excavation_site
 PRJEB52849,Equus asinus,Africa to Europe and Asia donkey spread context,africatoeuropeandasiadonkeyspreadcontext,Africa to Europe and Asia donkey spread context,,archive_metadata,broader_locality
 PRJEB52849,Equus asinus,North African donkey domestication and spread transect,northafricandonkeydomesticationandspreadtransect,North Africa and Levant dispersal extent;North African donkey domestication and spread transect,North Africa and Levant dispersal extent,archive_metadata;coordinate_resolution,broader_locality
-PRJEB59481,Ovis aries,Kastelholm,kastelholm,Kastelholm,,coordinate_resolution;supplementary_table,country;excavation_site
-PRJEB59481,Ovis aries,Stora Förvar,storaförvar,Stora Förvar,,coordinate_resolution;supplementary_table,country;excavation_site
+PRJEB59481,Ovis aries,Kastelholm,kastelholm,Kastelholm,,supplementary_table,excavation_site
+PRJEB59481,Ovis aries,Stora Förvar,storaförvar,Stora Förvar,,supplementary_table,excavation_site
 PRJEB60484,Rangifer tarandus,Svalbard ancient reindeer context,svalbardancientreindeercontext,Svalbard ancient reindeer context;Svalbard archipelago,Svalbard archipelago,archive_metadata;coordinate_resolution,broader_locality
 PRJEB60484,Rangifer tarandus,Svalbard archipelago reindeer context,svalbardarchipelagoreindeercontext,Svalbard archipelago reindeer context,,archive_metadata,broader_locality
 PRJEB81815,Felis catus,"Alba Fucens -Cisterna (Fucino, Abruzzi)",albafucenscisternafucinoabruzzi,"Alba Fucens -Cisterna (Fucino, Abruzzi)",,supplementary_table,excavation_site

@@ -1,7 +1,7 @@
 species_latin_name,species_common_name,direct_coordinate_backed,indirectly_geocoded,unresolved_sample_count,refused_coordinate_provenance_count,region_only_coordinate_refusal_count,unresolved_location_coordinate_refusal_count,coordinate_provenance_mappable_count,publication_candidate_count,not_materialized_count
 Equus caballus,horse,207,1,2,0,0,0,208,203,5
 Sus scrofa domesticus,pig,0,2,0,0,0,0,2,2,0
-Ovis aries,sheep,0,0,5,2,0,2,0,0,0
+Ovis aries,sheep,2,0,5,0,0,0,2,2,0
 Bos taurus,cattle,0,0,67,1,1,0,0,0,0
 Capra hircus,goat,27,0,0,0,0,0,27,26,1
 Canis lupus familiaris,dog,0,0,1,1,1,0,0,0,0

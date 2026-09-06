@@ -1090,11 +1090,11 @@
 | Ovis aries | PRJEB41594 | prjeb41594:samea8022722 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Ovis aries | PRJEB41594 | prjeb41594:samea8022723 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Ovis aries | PRJEB41594 | prjeb41594:samea8022724 | unresolved | unresolved | unresolved | unresolved |  |  |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960291 | unresolved | unresolved | unresolved | unresolved |  |  |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960292 | unresolved | unresolved | unresolved | unresolved |  |  |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960293 | unresolved | unresolved | unresolved | unresolved |  |  |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960294 | unresolved | unresolved | unresolved | unresolved |  |  |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960295 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960291 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 340-527 BP | data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960292 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 400-450 BP | data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960293 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3699-3957 BP | data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960294 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3936-4151 BP | data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960295 | sample_owned_text_only | broad_period_label | broad_period_only | text_only_unparsed | Late Neolithic | data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757323 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757324 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757325 | unresolved | unresolved | unresolved | unresolved |  |  |

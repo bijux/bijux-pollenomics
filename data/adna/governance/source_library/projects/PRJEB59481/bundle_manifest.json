@@ -14,14 +14,42 @@
   "local_artifact_ids": [
     "10.1093-gbe-evae114:Supplementary Figures Baltic Sheep.pdf",
     "10.1093-gbe-evae114:SupplementaryTables_Revision2.xlsx",
+    "10.1093-gbe-evae114:article_full_text.xml",
+    "10.1093-gbe-evae114:article_full_text.xml.metadata.json",
     "10.1093-gbe-evae114:crossref.json",
-    "PRJEB59481:archive_metadata.html"
+    "PRJEB59481:SAMEA112960291.xml",
+    "PRJEB59481:SAMEA112960291.xml.metadata.json",
+    "PRJEB59481:SAMEA112960292.xml",
+    "PRJEB59481:SAMEA112960292.xml.metadata.json",
+    "PRJEB59481:SAMEA112960293.xml",
+    "PRJEB59481:SAMEA112960293.xml.metadata.json",
+    "PRJEB59481:SAMEA112960294.xml",
+    "PRJEB59481:SAMEA112960294.xml.metadata.json",
+    "PRJEB59481:SAMEA112960295.xml",
+    "PRJEB59481:SAMEA112960295.xml.metadata.json",
+    "PRJEB59481:archive_metadata.html",
+    "PRJEB59481:material_evidence_conflicts.csv",
+    "PRJEB59481:material_evidence_conflicts.json"
   ],
   "local_artifact_paths": [
     "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf",
     "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+    "adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml",
+    "adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml.metadata.json",
     "adna/governance/source_library/papers/10.1093-gbe-evae114/crossref.json",
-    "adna/governance/source_library/projects/PRJEB59481/archive_metadata.html"
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960292.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960292.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960294.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960294.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960295.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960295.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB59481/archive_metadata.html",
+    "adna/governance/source_library/projects/PRJEB59481/material_evidence_conflicts.csv",
+    "adna/governance/source_library/projects/PRJEB59481/material_evidence_conflicts.json"
   ],
   "blockers": []
 }

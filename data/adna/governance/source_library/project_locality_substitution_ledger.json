@@ -47,15 +47,6 @@
       "blocked_sample_count": 5
     },
     {
-      "project_accession": "PRJEB59481",
-      "species_latin_name": "Ovis aries",
-      "publication_blocked": false,
-      "reason": "project_context_rows_cannot_substitute_for_multi_site_sample_owned_localities",
-      "distinct_sample_owned_locality_count": 2,
-      "project_context_row_count": 6,
-      "blocked_sample_count": 0
-    },
-    {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
       "publication_blocked": true,

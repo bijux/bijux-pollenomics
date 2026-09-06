@@ -99,9 +99,9 @@
       "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
       "paper_doi": "10.1093/gbe/evae114",
       "paper_url": "https://doi.org/10.1093/gbe/evae114",
-      "nordic_relevance": "nordic_relevant_unmapped",
-      "nordic_relevance_reason": "The Nordic-relevant primary supplement resolves the five Baltic sheep samples to Kastelholm and Stora Förvar, but neither site has admitted primary coordinates for atlas point publication.",
-      "interpretation_caveat": "Baltic ancient sheep genomes across four millennia. Nordic-relevant lead remains unmapped in the shipped public atlas.",
+      "nordic_relevance": "nordic_relevant_mapped",
+      "nordic_relevance_reason": "Official ENA sample records supply source-native two-decimal-degree coordinates for Kastelholm and Stora Förvar; the Åland records are governed as Finland and the Gotland records as Sweden.",
+      "interpretation_caveat": "Baltic ancient sheep genomes across four millennia.",
       "notes": "Baltic ancient sheep genomes across four millennia."
     },
     {

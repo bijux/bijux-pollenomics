@@ -2486,6 +2486,30 @@
       "confidence_rationale": "The published supplementary table provides direct coordinates for this locality."
     },
     {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB59481",
+      "site_label": "Kastelholm",
+      "original_place_text": "Kastelholm",
+      "resolved_place_text": "Kastelholm",
+      "coordinate_basis": "archive_coordinates",
+      "coordinate_confidence": "source_reported_two_decimal_degrees",
+      "mapping_posture": "mappable_point",
+      "confidence_rationale": "The official ENA sample XML provides the source-native lat_lon pair at two decimal degrees; it is not claimed as an exact specimen findspot."
+    },
+    {
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "project_accession": "PRJEB59481",
+      "site_label": "Stora Förvar",
+      "original_place_text": "Stora Förvar",
+      "resolved_place_text": "Stora Förvar",
+      "coordinate_basis": "archive_coordinates",
+      "coordinate_confidence": "source_reported_two_decimal_degrees",
+      "mapping_posture": "mappable_point",
+      "confidence_rationale": "The official ENA sample XML provides the source-native lat_lon pair at two decimal degrees; it is not claimed as an exact specimen findspot."
+    },
+    {
       "species_latin_name": "Capra hircus",
       "species_common_name": "goat",
       "project_accession": "PRJEB90141",
@@ -3341,30 +3365,6 @@
     }
   ],
   "still_weak_geography": [
-    {
-      "species_latin_name": "Ovis aries",
-      "species_common_name": "sheep",
-      "project_accession": "PRJEB59481",
-      "site_label": "Kastelholm",
-      "original_place_text": "Kastelholm",
-      "resolved_place_text": "Kastelholm",
-      "coordinate_basis": "unresolved_location_state",
-      "coordinate_confidence": "withheld",
-      "mapping_posture": "refused_unresolved_location",
-      "confidence_rationale": "The supplement proves the site name but supplies no coordinates; a place-name geocode would not be specimen-findspot evidence."
-    },
-    {
-      "species_latin_name": "Ovis aries",
-      "species_common_name": "sheep",
-      "project_accession": "PRJEB59481",
-      "site_label": "Stora Förvar",
-      "original_place_text": "Stora Förvar",
-      "resolved_place_text": "Stora Förvar",
-      "coordinate_basis": "unresolved_location_state",
-      "coordinate_confidence": "withheld",
-      "mapping_posture": "refused_unresolved_location",
-      "confidence_rationale": "The supplement proves the site name but supplies no coordinates; a place-name geocode would not be specimen-findspot evidence."
-    },
     {
       "species_latin_name": "Bos taurus",
       "species_common_name": "cattle",

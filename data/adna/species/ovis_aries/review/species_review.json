@@ -137,9 +137,9 @@
         "public_release_date": null,
         "domestication_scope": "domesticated_core",
         "notes": "Baltic ancient sheep genomes across four millennia.",
-        "nordic_relevance": "nordic_relevant_unmapped",
-        "nordic_relevance_reason": "The Nordic-relevant primary supplement resolves the five Baltic sheep samples to Kastelholm and Stora Förvar, but neither site has admitted primary coordinates for atlas point publication.",
-        "last_checked_on": "2026-05-07"
+        "nordic_relevance": "nordic_relevant_mapped",
+        "nordic_relevance_reason": "Official ENA sample records supply source-native two-decimal-degree coordinates for Kastelholm and Stora Förvar; the Åland records are governed as Finland and the Gotland records as Sweden.",
+        "last_checked_on": "2026-09-06"
       },
       {
         "project_accession": "PRJEB61808",
@@ -338,8 +338,8 @@
       "archive_status": "paper_pinned_core",
       "support_class": "accepted",
       "reason": "admissible_for_curated_support",
-      "nordic_relevance": "nordic_relevant_unmapped",
-      "nordic_relevance_reason": "The Nordic-relevant primary supplement resolves the five Baltic sheep samples to Kastelholm and Stora Förvar, but neither site has admitted primary coordinates for atlas point publication."
+      "nordic_relevance": "nordic_relevant_mapped",
+      "nordic_relevance_reason": "Official ENA sample records supply source-native two-decimal-degree coordinates for Kastelholm and Stora Förvar; the Åland records are governed as Finland and the Gotland records as Sweden."
     }
   ],
   "rejected_projects": [],
@@ -376,18 +376,7 @@
     }
   ],
   "comparator_projects": [],
-  "nordic_unmapped_leads": [
-    {
-      "project_accession": "PRJEB59481",
-      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
-      "paper_doi": "10.1093/gbe/evae114",
-      "archive_status": "paper_pinned_core",
-      "support_class": "accepted",
-      "reason": "admissible_for_curated_support",
-      "nordic_relevance": "nordic_relevant_unmapped",
-      "nordic_relevance_reason": "The Nordic-relevant primary supplement resolves the five Baltic sheep samples to Kastelholm and Stora Förvar, but neither site has admitted primary coordinates for atlas point publication."
-    }
-  ],
+  "nordic_unmapped_leads": [],
   "release_blockers": [
     "missing_primary_paper_pins",
     "missing_archive_paper_pinning_rationale",

@@ -1,8 +1,8 @@
 # Coordinate caveat surface
 
-- Direct-coordinate points: `274`
+- Direct-coordinate points: `276`
 - Place-name resolved points: `4`
-- Still-weak geography rows: `6`
+- Still-weak geography rows: `4`
 
 ## Direct-coordinate points
 
@@ -215,6 +215,8 @@
 | Equus caballus | PRJEB44430 | Zuunkhangai 257 | supplementary_table_coordinates | exact |
 | Equus caballus | PRJEB44430 | Çadır Höyük | supplementary_table_coordinates | exact |
 | Equus caballus | PRJEB44430 | Černý Vůl | supplementary_table_coordinates | exact |
+| Ovis aries | PRJEB59481 | Kastelholm | archive_coordinates | source_reported_two_decimal_degrees |
+| Ovis aries | PRJEB59481 | Stora Förvar | archive_coordinates | source_reported_two_decimal_degrees |
 | Capra hircus | PRJEB90141 | Acemhöyük | supplementary_table_coordinates | exact |
 | Capra hircus | PRJEB90141 | Blagotin-Poljna | supplementary_table_coordinates | exact |
 | Capra hircus | PRJEB90141 | Direkli Cave | supplementary_table_coordinates | exact |
@@ -296,8 +298,6 @@
 
 | Species | Project | Original place text | Resolved place | Posture |
 | --- | --- | --- | --- | --- |
-| Ovis aries | PRJEB59481 | Kastelholm | Kastelholm | refused_unresolved_location |
-| Ovis aries | PRJEB59481 | Stora Förvar | Stora Förvar | refused_unresolved_location |
 | Bos taurus | PRJNA705960 | different mountain caves in Galicia | Galicia, Spain | refused_region_only |
 | Canis lupus familiaris | SRS1407451 | Herxheim and Cherry Tree Cave ancient dog contexts | Central Europe multi-site dog context | refused_region_only |
 | Rangifer tarandus | PRJEB60484 | Svalbard archipelago reindeer context | Svalbard archipelago | refused_region_only |

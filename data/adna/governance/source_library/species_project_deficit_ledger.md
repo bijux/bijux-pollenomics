@@ -32,7 +32,7 @@
 | `Felis catus` | `PRJNA1178732` | `0` | `0` | `0` | `complete` |
 | `Ovis aries` | `PRJEB36540` | `0` | `0` | `10` | `blocked` |
 | `Ovis aries` | `PRJEB41594` | `0` | `5` | `5` | `blocked` |
-| `Ovis aries` | `PRJEB59481` | `0` | `0` | `5` | `blocked` |
+| `Ovis aries` | `PRJEB59481` | `0` | `0` | `0` | `complete` |
 | `Ovis aries` | `PRJEB61808` | `0` | `0` | `0` | `blocked` |
 | `Ovis aries` | `PRJEB69690` | `0` | `0` | `0` | `blocked` |
 | `Ovis aries` | `PRJEB81145` | `0` | `0` | `0` | `blocked` |

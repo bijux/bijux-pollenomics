@@ -1,0 +1,62 @@
+{
+  "schema_version": "animal-material-evidence-conflict.v1",
+  "expected_sample_count": 5,
+  "conflict_count": 5,
+  "rows": [
+    {
+      "accession": "SAMEA112960291",
+      "sample_label": "AKAS001",
+      "status": "source_disagreement_unresolved",
+      "archive_claim": "humerus",
+      "supplement_claim": "right radius, a proximal part of the element, missing c.20% of the distal part",
+      "archive_source_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+      "archive_source_locator": "./SAMPLE[@accession='SAMEA112960291']/DESCRIPTION",
+      "supplement_source_path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+      "supplement_source_locator": "STab 6 - Ancient remains!row6"
+    },
+    {
+      "accession": "SAMEA112960292",
+      "sample_label": "AKAS002",
+      "status": "source_disagreement_unresolved",
+      "archive_claim": "humerus",
+      "supplement_claim": "right radius, complete diaphysis with the proximal epiphysis fused while the distal part is unfused (and missing)",
+      "archive_source_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960292.xml",
+      "archive_source_locator": "./SAMPLE[@accession='SAMEA112960292']/DESCRIPTION",
+      "supplement_source_path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+      "supplement_source_locator": "STab 6 - Ancient remains!row7"
+    },
+    {
+      "accession": "SAMEA112960293",
+      "sample_label": "ASTF001",
+      "status": "source_disagreement_unresolved",
+      "archive_claim": "humerus",
+      "supplement_claim": "Right radius. Mid Part of diaphysis.",
+      "archive_source_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "archive_source_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+      "supplement_source_path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+      "supplement_source_locator": "STab 6 - Ancient remains!row3"
+    },
+    {
+      "accession": "SAMEA112960294",
+      "sample_label": "ASTF002",
+      "status": "source_disagreement_unresolved",
+      "archive_claim": "humerus",
+      "supplement_claim": "Proximal part of the diaphysis of right radius.",
+      "archive_source_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960294.xml",
+      "archive_source_locator": "./SAMPLE[@accession='SAMEA112960294']/DESCRIPTION",
+      "supplement_source_path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+      "supplement_source_locator": "STab 6 - Ancient remains!row4"
+    },
+    {
+      "accession": "SAMEA112960295",
+      "sample_label": "ASTF003",
+      "status": "source_disagreement_unresolved",
+      "archive_claim": "humerus",
+      "supplement_claim": "Complete diaphysis of right radius, fused proximally but unfused distal part.",
+      "archive_source_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960295.xml",
+      "archive_source_locator": "./SAMPLE[@accession='SAMEA112960295']/DESCRIPTION",
+      "supplement_source_path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+      "supplement_source_locator": "STab 6 - Ancient remains!row5"
+    }
+  ]
+}

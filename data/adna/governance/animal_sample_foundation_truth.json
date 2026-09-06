@@ -4,11 +4,11 @@
     "tracked_species_count": 10,
     "tracked_project_count": 21,
     "sample_row_count": 1450,
-    "fully_grounded_count": 527,
+    "fully_grounded_count": 531,
     "partially_grounded_count": 333,
     "blocked_missing_metadata_count": 11,
     "blocked_missing_location_detail_count": 84,
-    "blocked_weak_chronology_count": 495
+    "blocked_weak_chronology_count": 491
   },
   "species_rows": [
     {
@@ -41,11 +41,11 @@
       "species_latin_name": "Ovis aries",
       "species_common_name": "sheep",
       "sample_row_count": 200,
-      "fully_grounded_count": 0,
+      "fully_grounded_count": 4,
       "partially_grounded_count": 167,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 5,
-      "blocked_weak_chronology_count": 28,
+      "blocked_weak_chronology_count": 24,
       "project_count": 3,
       "reported_curated_sample_count": 200,
       "uses_project_level_sample_anchor": false
@@ -267,16 +267,16 @@
       "species_common_name": "sheep",
       "project_accession": "PRJEB59481",
       "sample_row_count": 5,
-      "fully_grounded_count": 0,
+      "fully_grounded_count": 4,
       "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 0,
-      "blocked_weak_chronology_count": 5,
+      "blocked_weak_chronology_count": 1,
       "sample_backed_site_count": 2,
       "project_locality_summary_count": 2,
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
-        "supplementary_table_and_archive_identity_join"
+        "supplementary_table_archive_identity_and_official_evidence_join"
       ]
     },
     {

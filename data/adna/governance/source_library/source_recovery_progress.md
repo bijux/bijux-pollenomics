@@ -3,16 +3,16 @@
 - Tracked projects: `40`
 - Sample identity rows present: `21`
 - Defensible site rows present: `12`
-- Sample-owned chronology present: `9`
-- Mappable coordinate projects: `9`
-- Ready for publication review: `9`
+- Sample-owned chronology present: `10`
+- Mappable coordinate projects: `10`
+- Ready for publication review: `10`
 
 ## Sample Evidence Depth
 
 - sample identity only: `0`
-- sample with site: `590`
+- sample with site: `586`
 - sample with site and chronology: `333`
-- sample with site chronology and coordinates: `527`
+- sample with site chronology and coordinates: `531`
 
 | Project | Species | Completed stages | Required stages | Recovery depth score |
 | --- | --- | ---: | ---: | ---: |
@@ -44,7 +44,7 @@
 | `PRJNA1178732` | `Felis catus` | `6` | `7` | `0.8571` |
 | `PRJEB36540` | `Ovis aries` | `5` | `8` | `0.625` |
 | `PRJEB41594` | `Ovis aries` | `3` | `7` | `0.4286` |
-| `PRJEB59481` | `Ovis aries` | `4` | `7` | `0.5714` |
+| `PRJEB59481` | `Ovis aries` | `7` | `7` | `1.0` |
 | `PRJEB61808` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB69690` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB81145` | `Ovis aries` | `1` | `7` | `0.1429` |

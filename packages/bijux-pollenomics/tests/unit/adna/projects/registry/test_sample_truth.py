@@ -40,9 +40,7 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertIn("chronology.original_text", required_fields)
         self.assertIn("coordinates.confidence", required_fields)
         self.assertIn("inclusion_status", required_fields)
-        meanings = {
-            row["field"]: row["meaning"] for row in payload["required_fields"]
-        }
+        meanings = {row["field"]: row["meaning"] for row in payload["required_fields"]}
         self.assertIn("younger bound", meanings["chronology.time_start_bp"])
         self.assertIn("older bound", meanings["chronology.time_end_bp"])
 
@@ -57,11 +55,11 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertEqual(summary["tracked_species_count"], 10)
         self.assertEqual(summary["tracked_project_count"], 21)
         self.assertEqual(summary["sample_row_count"], 1450)
-        self.assertEqual(summary["fully_grounded_count"], 527)
+        self.assertEqual(summary["fully_grounded_count"], 531)
         self.assertEqual(summary["partially_grounded_count"], 333)
         self.assertEqual(summary["blocked_missing_metadata_count"], 11)
         self.assertEqual(summary["blocked_missing_location_detail_count"], 84)
-        self.assertEqual(summary["blocked_weak_chronology_count"], 495)
+        self.assertEqual(summary["blocked_weak_chronology_count"], 491)
         self.assertEqual(
             sum(
                 int(summary[field])

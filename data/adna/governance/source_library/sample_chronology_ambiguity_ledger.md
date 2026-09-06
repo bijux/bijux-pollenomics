@@ -1,6 +1,6 @@
 # Sample chronology ambiguity ledger
 
-- Rows requiring chronology review: `705`
+- Rows requiring chronology review: `702`
 
 | Project accession | Sample id | Strength | Normalization | Chronology | Note |
 | --- | --- | --- | --- | --- | --- |
@@ -42,11 +42,8 @@
 | PRJEB41594 | prjeb41594:samea8022722 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB41594 | prjeb41594:samea8022723 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB41594 | prjeb41594:samea8022724 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB59481 | prjeb59481:samea112960291 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB59481 | prjeb59481:samea112960292 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB59481 | prjeb59481:samea112960293 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB59481 | prjeb59481:samea112960294 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB59481 | prjeb59481:samea112960295 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| PRJEB59481 | prjeb59481:samea112960292 | sample_owned_interval / contextual_interval | normalized_interval | 400-450 BP | Chronology comes from the recovered sample-owned source row. |
+| PRJEB59481 | prjeb59481:samea112960295 | sample_owned_text_only / broad_period_only | text_only_unparsed | Late Neolithic | Chronology comes from the recovered sample-owned source row. |
 | PRJEB30282 | prjeb30282:samea5160866 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB30282 | prjeb30282:samea5160867 | sample_owned_interval / sample_approximate_or_modeled | normalized_point | 4700 BP | Chronology comes from the recovered sample-owned source row. |
 | PRJEB30282 | prjeb30282:samea5160868 | sample_owned_interval / sample_approximate_or_modeled | normalized_point | 1000 BP | Chronology comes from the recovered sample-owned source row. |

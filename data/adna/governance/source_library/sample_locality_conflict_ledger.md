@@ -1,6 +1,6 @@
 # Sample locality conflict ledger
 
-- Conflicting rows: `574`
+- Conflicting rows: `559`
 
 | Project accession | Sample id | Sample locality | Conflicting surface | Conflicting locality | Reason |
 | --- | --- | --- | --- | --- | --- |
@@ -217,21 +217,6 @@
 | PRJEB31621 | prjeb31621:samea5577408 | Tel es-Safi | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB31621 | prjeb31621:samea5577409 | Tel es-Safi | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB31621 | prjeb31621:supplement:men1 | Menteşe | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960291 | Kastelholm | coordinate_resolution | Stora Förvar | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960291 | Kastelholm | supplementary_table | Stora Förvar | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960291 | Kastelholm | supplementary_table | Stora Förvar | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960292 | Kastelholm | coordinate_resolution | Stora Förvar | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960292 | Kastelholm | supplementary_table | Stora Förvar | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960292 | Kastelholm | supplementary_table | Stora Förvar | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960293 | Stora Förvar | coordinate_resolution | Kastelholm | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960293 | Stora Förvar | supplementary_table | Kastelholm | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960293 | Stora Förvar | supplementary_table | Kastelholm | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960294 | Stora Förvar | coordinate_resolution | Kastelholm | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960294 | Stora Förvar | supplementary_table | Kastelholm | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960294 | Stora Förvar | supplementary_table | Kastelholm | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960295 | Stora Förvar | coordinate_resolution | Kastelholm | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960295 | Stora Förvar | supplementary_table | Kastelholm | project_context_disagrees_with_sample_owned_site |
-| PRJEB59481 | prjeb59481:samea112960295 | Stora Förvar | supplementary_table | Kastelholm | project_context_disagrees_with_sample_owned_site |
 | PRJEB81815 | prjeb81815:samea120246515 | Arene Candide (Finale Ligure, Savona, Liguria) | article_text | North Africa to Europe cat population context | project_context_disagrees_with_sample_owned_site |
 | PRJEB81815 | prjeb81815:samea120246515 | Arene Candide (Finale Ligure, Savona, Liguria) | article_text | North Africa to Europe cat population context | project_context_disagrees_with_sample_owned_site |
 | PRJEB81815 | prjeb81815:samea120246515 | Arene Candide (Finale Ligure, Savona, Liguria) | coordinate_resolution | North Africa to Europe cat population context | project_context_disagrees_with_sample_owned_site |

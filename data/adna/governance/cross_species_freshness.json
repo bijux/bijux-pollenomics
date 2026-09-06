@@ -5,6 +5,7 @@
       "project_count": 3,
       "inventory_last_checked_on": "2026-05-07",
       "paper_last_checked_on": "2026-05-07",
+      "has_nordic_mapped_lead": false,
       "has_nordic_unmapped_lead": false
     },
     {
@@ -12,6 +13,7 @@
       "project_count": 2,
       "inventory_last_checked_on": "2026-05-07",
       "paper_last_checked_on": "2026-05-07",
+      "has_nordic_mapped_lead": false,
       "has_nordic_unmapped_lead": false
     },
     {
@@ -19,6 +21,7 @@
       "project_count": 3,
       "inventory_last_checked_on": "2026-05-07",
       "paper_last_checked_on": "2026-05-07",
+      "has_nordic_mapped_lead": false,
       "has_nordic_unmapped_lead": false
     },
     {
@@ -26,6 +29,7 @@
       "project_count": 3,
       "inventory_last_checked_on": "2026-05-07",
       "paper_last_checked_on": "2026-05-07",
+      "has_nordic_mapped_lead": false,
       "has_nordic_unmapped_lead": false
     },
     {
@@ -33,6 +37,7 @@
       "project_count": 5,
       "inventory_last_checked_on": "2026-05-07",
       "paper_last_checked_on": "2026-05-07",
+      "has_nordic_mapped_lead": false,
       "has_nordic_unmapped_lead": false
     },
     {
@@ -40,6 +45,7 @@
       "project_count": 8,
       "inventory_last_checked_on": "2026-05-07",
       "paper_last_checked_on": "2026-05-07",
+      "has_nordic_mapped_lead": false,
       "has_nordic_unmapped_lead": false
     },
     {
@@ -47,20 +53,23 @@
       "project_count": 2,
       "inventory_last_checked_on": "2026-05-07",
       "paper_last_checked_on": "2026-05-07",
+      "has_nordic_mapped_lead": false,
       "has_nordic_unmapped_lead": false
     },
     {
       "species_latin_name": "Ovis aries",
       "project_count": 6,
-      "inventory_last_checked_on": "2026-05-07",
-      "paper_last_checked_on": "2026-05-07",
-      "has_nordic_unmapped_lead": true
+      "inventory_last_checked_on": "2026-09-06",
+      "paper_last_checked_on": "2026-09-06",
+      "has_nordic_mapped_lead": true,
+      "has_nordic_unmapped_lead": false
     },
     {
       "species_latin_name": "Rangifer tarandus",
       "project_count": 4,
       "inventory_last_checked_on": "2026-05-07",
       "paper_last_checked_on": "2026-05-07",
+      "has_nordic_mapped_lead": false,
       "has_nordic_unmapped_lead": true
     },
     {
@@ -68,6 +77,7 @@
       "project_count": 4,
       "inventory_last_checked_on": "2026-05-07",
       "paper_last_checked_on": "2026-05-07",
+      "has_nordic_mapped_lead": false,
       "has_nordic_unmapped_lead": false
     }
   ]

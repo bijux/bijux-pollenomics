@@ -2,11 +2,11 @@
 
 - Rows audited: `1454`
 - Precise point rows: `473`
-- Precise interval rows: `276`
+- Precise interval rows: `279`
 - Approximate or modeled rows: `188`
-- Contextual rows: `15`
-- Broad period rows: `39`
-- Unresolved rows: `463`
+- Contextual rows: `16`
+- Broad period rows: `40`
+- Unresolved rows: `458`
 
 | Project accession | Sample id | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- |
@@ -48,11 +48,8 @@
 | PRJEB41594 | prjeb41594:samea8022722 | unresolved | unresolved | unresolved |  |
 | PRJEB41594 | prjeb41594:samea8022723 | unresolved | unresolved | unresolved |  |
 | PRJEB41594 | prjeb41594:samea8022724 | unresolved | unresolved | unresolved |  |
-| PRJEB59481 | prjeb59481:samea112960291 | unresolved | unresolved | unresolved |  |
-| PRJEB59481 | prjeb59481:samea112960292 | unresolved | unresolved | unresolved |  |
-| PRJEB59481 | prjeb59481:samea112960293 | unresolved | unresolved | unresolved |  |
-| PRJEB59481 | prjeb59481:samea112960294 | unresolved | unresolved | unresolved |  |
-| PRJEB59481 | prjeb59481:samea112960295 | unresolved | unresolved | unresolved |  |
+| PRJEB59481 | prjeb59481:samea112960292 | archaeological_context_date | contextual_interval | normalized_interval | 400-450 BP |
+| PRJEB59481 | prjeb59481:samea112960295 | broad_period_label | broad_period_only | text_only_unparsed | Late Neolithic |
 | PRJEB30282 | prjeb30282:samea5160866 | unresolved | unresolved | unresolved |  |
 | PRJEB30282 | prjeb30282:samea5160867 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | 4700 BP |
 | PRJEB30282 | prjeb30282:samea5160868 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | 1000 BP |

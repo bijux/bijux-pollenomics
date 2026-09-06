@@ -12,15 +12,13 @@
     "supplement_capture": "not_required",
     "sample_identity_recovery": "complete",
     "site_recovery": "complete",
-    "chronology_recovery": "in_progress",
-    "coordinate_derivation": "in_progress",
-    "publication_readiness": "blocked"
+    "chronology_recovery": "complete",
+    "coordinate_derivation": "complete",
+    "publication_readiness": "complete"
   },
-  "blocking_stages": [
-    "publication_readiness"
-  ],
-  "next_required_stage": "chronology_recovery",
-  "publication_readiness_status": "blocked",
+  "blocking_stages": [],
+  "next_required_stage": null,
+  "publication_readiness_status": "complete",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
@@ -29,6 +27,8 @@
   "recovered_sample_count": 5,
   "final_sample_count": 5,
   "unresolved_sample_count": null,
+  "material_evidence_expected_count": 5,
+  "material_evidence_conflict_count": 5,
   "minimum_gap_count": 0,
   "recovery_gap_status": "minimum_expected_floor_met",
   "implausibly_low_recovery": false,
@@ -36,20 +36,31 @@
   "known_assets": [
     "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf",
     "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+    "adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml",
+    "adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml.metadata.json",
     "adna/governance/source_library/papers/10.1093-gbe-evae114/crossref.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960292.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960292.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960294.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960294.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960295.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960295.xml.metadata.json",
     "adna/governance/source_library/projects/PRJEB59481/archive_metadata.html",
+    "adna/governance/source_library/projects/PRJEB59481/material_evidence_conflicts.csv",
+    "adna/governance/source_library/projects/PRJEB59481/material_evidence_conflicts.json",
     "data/adna/governance/source_library/projects/PRJEB59481/sample_master.json",
     "data/adna/governance/source_library/projects/PRJEB59481/sample_sites.json",
     "data/adna/governance/source_library/projects/PRJEB59481/sample_chronology.json",
     "data/adna/governance/source_library/projects/PRJEB59481/sample_locality_evidence.json"
   ],
-  "missing_assets": [
-    "Some recovered sample rows still lack sample-level chronology."
-  ],
+  "missing_assets": [],
   "expected_contributions": [
     "sample_identities",
-    "taxonomic_context",
-    "sample_chronology"
+    "taxonomic_context"
   ],
   "expected_contribution_surfaces": [
     "data/adna/governance/source_library/projects/PRJEB59481/archive_metadata.html",
@@ -57,7 +68,9 @@
     "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf",
     "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx"
   ],
-  "contradictory_evidence": [],
+  "contradictory_evidence": [
+    "5 of 5 material claim pairs retain unresolved source disagreement."
+  ],
   "inferred_claims": [],
   "manual_curation_work_units": [
     {
@@ -65,8 +78,8 @@
       "species_latin_name": "Ovis aries",
       "work_unit_type": "chronology_recovery",
       "work_unit_state": "pending_source_recovery",
-      "open_item_count": 10,
-      "rationale": "no_sample_owned_chronology_recovered; missing_sample_level_date_evidence",
+      "open_item_count": 2,
+      "rationale": "broad_period_labels_still_need_stronger_date_support",
       "downstream_impact": "blocks chronology honesty and publication precision",
       "recommended_source_surfaces": [
         "data/adna/governance/source_library/projects/PRJEB59481/sample_chronology.json",
@@ -74,7 +87,5 @@
       ]
     }
   ],
-  "major_deficit_reasons": [
-    "chronology_gap"
-  ]
+  "major_deficit_reasons": []
 }

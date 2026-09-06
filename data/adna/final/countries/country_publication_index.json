@@ -3,10 +3,10 @@
   "rows": [
     {
       "country": "Sweden",
-      "sample_row_count": 1,
-      "species_count": 1,
-      "locality_count": 1,
-      "citation_count": 1,
+      "sample_row_count": 4,
+      "species_count": 2,
+      "locality_count": 2,
+      "citation_count": 2,
       "warning_count": 2
     },
     {
@@ -19,11 +19,11 @@
     },
     {
       "country": "Finland",
-      "sample_row_count": 0,
-      "species_count": 0,
-      "locality_count": 0,
-      "citation_count": 0,
-      "warning_count": 1
+      "sample_row_count": 2,
+      "species_count": 1,
+      "locality_count": 1,
+      "citation_count": 1,
+      "warning_count": 2
     },
     {
       "country": "Denmark",

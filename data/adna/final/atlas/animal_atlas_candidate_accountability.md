@@ -1,7 +1,7 @@
 # Animal atlas candidate accountability
 
-- Candidate rows: `271`
-- Fully accountable rows: `271`
+- Candidate rows: `273`
+- Fully accountable rows: `273`
 - Overall ok: `true`
 
 | Species | Project | Sample rows | Sample lineage | Site evidence | Chronology evidence | Coordinate evidence | Locality match |
@@ -275,5 +275,7 @@
 | Felis catus | PRJEB81815 | true | true | true | true | true | true |
 | Felis catus | PRJEB81815 | true | true | true | true | true | true |
 | Felis catus | PRJEB81815 | true | true | true | true | true | true |
+| Ovis aries | PRJEB59481 | true | true | true | true | true | true |
+| Ovis aries | PRJEB59481 | true | true | true | true | true | true |
 | Sus scrofa domesticus | PRJEB30282 | true | true | true | true | true | true |
 | Sus scrofa domesticus | PRJEB30282 | true | true | true | true | true | true |

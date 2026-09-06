@@ -30,14 +30,14 @@
     {
       "species_latin_name": "Ovis aries",
       "species_common_name": "sheep",
-      "direct_coordinate_backed": 0,
+      "direct_coordinate_backed": 2,
       "indirectly_geocoded": 0,
       "unresolved_sample_count": 5,
-      "refused_coordinate_provenance_count": 2,
+      "refused_coordinate_provenance_count": 0,
       "region_only_coordinate_refusal_count": 0,
-      "unresolved_location_coordinate_refusal_count": 2,
-      "coordinate_provenance_mappable_count": 0,
-      "publication_candidate_count": 0,
+      "unresolved_location_coordinate_refusal_count": 0,
+      "coordinate_provenance_mappable_count": 2,
+      "publication_candidate_count": 2,
       "not_materialized_count": 0
     },
     {
@@ -133,15 +133,15 @@
     }
   ],
   "totals": {
-    "direct_coordinate_backed": 274,
+    "direct_coordinate_backed": 276,
     "indirectly_geocoded": 4,
     "unresolved_sample_count": 95,
-    "refused_coordinate_provenance_count": 6,
+    "refused_coordinate_provenance_count": 4,
     "region_only_coordinate_refusal_count": 4,
-    "unresolved_location_coordinate_refusal_count": 2,
-    "coordinate_provenance_mappable_count": 278,
+    "unresolved_location_coordinate_refusal_count": 0,
+    "coordinate_provenance_mappable_count": 280,
     "coordinate_provenance_row_count": 284,
-    "publication_candidate_count": 271,
+    "publication_candidate_count": 273,
     "not_materialized_count": 7
   },
   "not_materialized_rows": [

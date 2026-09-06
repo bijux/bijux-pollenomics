@@ -620,13 +620,13 @@
     {
       "identity": {
         "namespace": "ovis_aries:project_locality",
-        "stable_token": "ovis_aries:locality:prjeb59481:kastelholm",
+        "stable_token": "ovis_aries:locality:prjeb59481:kastelholm:finland",
         "locality_text": "Kastelholm",
-        "political_entity": "",
+        "political_entity": "Finland",
         "source_anchor_tokens": [
           "PRJEB59481",
-          "",
-          ""
+          "60.23",
+          "20.08"
         ]
       },
       "species_latin_name": "Ovis aries",
@@ -646,11 +646,11 @@
       ],
       "locality": "Kastelholm",
       "coordinates": {
-        "latitude": null,
-        "longitude": null,
-        "latitude_text": "",
-        "longitude_text": "",
-        "confidence": "withheld"
+        "latitude": 60.23,
+        "longitude": 20.08,
+        "latitude_text": "60.23",
+        "longitude_text": "20.08",
+        "confidence": "approximate"
       },
       "sample_count": 2,
       "sample_ids": [
@@ -661,14 +661,14 @@
         "ovis_aries:project:PRJEB59481"
       ],
       "chronology": {
-        "original_text": "",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
+        "original_text": "340-527 BP",
+        "time_start_bp": 340,
+        "time_end_bp": 527,
+        "time_mean_bp": 434,
         "date_stddev_bp": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -676,19 +676,19 @@
       ],
       "original_location_text": "Kastelholm",
       "nordic_inclusion": true,
-      "nordic_inclusion_reason": "The Nordic-relevant primary supplement resolves the five Baltic sheep samples to Kastelholm and Stora Förvar, but neither site has admitted primary coordinates for atlas point publication.",
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Finland sample evidence.",
       "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
       "identity": {
         "namespace": "ovis_aries:project_locality",
-        "stable_token": "ovis_aries:locality:prjeb59481:storafrvar",
+        "stable_token": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
         "locality_text": "Stora Förvar",
-        "political_entity": "",
+        "political_entity": "Sweden",
         "source_anchor_tokens": [
           "PRJEB59481",
-          "",
-          ""
+          "57.29",
+          "17.97"
         ]
       },
       "species_latin_name": "Ovis aries",
@@ -708,11 +708,11 @@
       ],
       "locality": "Stora Förvar",
       "coordinates": {
-        "latitude": null,
-        "longitude": null,
-        "latitude_text": "",
-        "longitude_text": "",
-        "confidence": "withheld"
+        "latitude": 57.29,
+        "longitude": 17.97,
+        "latitude_text": "57.29",
+        "longitude_text": "17.97",
+        "confidence": "approximate"
       },
       "sample_count": 3,
       "sample_ids": [
@@ -724,14 +724,14 @@
         "ovis_aries:project:PRJEB59481"
       ],
       "chronology": {
-        "original_text": "",
-        "time_start_bp": null,
-        "time_end_bp": null,
-        "time_mean_bp": null,
+        "original_text": "3699-4151 BP",
+        "time_start_bp": 3699,
+        "time_end_bp": 4151,
+        "time_mean_bp": 3925,
         "date_stddev_bp": "",
-        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-        "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -739,7 +739,7 @@
       ],
       "original_location_text": "Stora Förvar",
       "nordic_inclusion": true,
-      "nordic_inclusion_reason": "The Nordic-relevant primary supplement resolves the five Baltic sheep samples to Kastelholm and Stora Förvar, but neither site has admitted primary coordinates for atlas point publication.",
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Sweden sample evidence.",
       "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     }
   ]

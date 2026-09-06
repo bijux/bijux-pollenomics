@@ -33,6 +33,8 @@
   "recovered_sample_count": 0,
   "final_sample_count": 0,
   "unresolved_sample_count": null,
+  "material_evidence_expected_count": 0,
+  "material_evidence_conflict_count": 0,
   "minimum_gap_count": 1,
   "recovery_gap_status": "paper_or_capture_gap_blocks_estimate",
   "implausibly_low_recovery": false,

@@ -1,7 +1,7 @@
 {
   "schema_version": "animal-atlas-candidate-accountability.v1",
-  "candidate_row_count": 271,
-  "passed_row_count": 271,
+  "candidate_row_count": 273,
+  "passed_row_count": 273,
   "overall_ok": true,
   "rows": [
     {
@@ -7331,6 +7331,61 @@
       ],
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
       "coordinate_provenance_locator": "sample_accession:SAMEA120246556 || science.adt2642_tables s1_to_s8.xlsx#Table_S3!row61 -> Table_S1!row210",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-kastelholm-finland",
+      "species_latin_name": "Ovis aries",
+      "project_accession": "PRJEB59481",
+      "site_record_id": "ovis_aries:locality:prjeb59481:kastelholm:finland",
+      "sample_record_ids": [
+        "ovis_aries:sample:prjeb59481:samea112960291",
+        "ovis_aries:sample:prjeb59481:samea112960292"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+      "site_evidence_locator": "./SAMPLE[@accession='SAMEA112960291']/DESCRIPTION",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+      "coordinate_provenance_locator": "./SAMPLE[@accession='SAMEA112960291']/SAMPLE_ATTRIBUTES/SAMPLE_ATTRIBUTE[TAG='lat_lon']",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "species_latin_name": "Ovis aries",
+      "project_accession": "PRJEB59481",
+      "site_record_id": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
+      "sample_record_ids": [
+        "ovis_aries:sample:prjeb59481:samea112960293",
+        "ovis_aries:sample:prjeb59481:samea112960294",
+        "ovis_aries:sample:prjeb59481:samea112960295"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "site_evidence_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "coordinate_provenance_locator": "./SAMPLE[@accession='SAMEA112960293']/SAMPLE_ATTRIBUTES/SAMPLE_ATTRIBUTE[TAG='lat_lon']",
       "fully_accountable": true
     },
     {
