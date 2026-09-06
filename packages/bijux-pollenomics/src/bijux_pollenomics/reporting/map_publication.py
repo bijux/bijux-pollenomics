@@ -126,6 +126,11 @@ _MAP_SCOPE_POLICIES: dict[str, MapScopePolicy] = {
         minimum_bounds=((54.0, 4.0), (72.0, 35.0)),
         filter_surfaces=(
             *_COMMON_FILTER_SURFACES,
+            "Accepted scientific comparison when qualified classifications are available",
+            "Neotoma source-sample, literal-code, and exact-label chronology",
+            "Oldest-to-present BP window navigation and playback",
+            "PANGAEA 937075 exact-window modeled context",
+            "Modeled-context visible-frame export",
             "Animal species focus when animal layers are present",
             "Animal scope when animal layers are present",
             "Animal coordinate confidence when animal layers are present",

@@ -213,6 +213,10 @@ def test_hash_filters_are_distinct_and_source_selection_drives_playback() -> Non
     assert "timeStartSlider.max = String(Math.max(navigationExtent.time_min_bp" in (
         MAP_DOCUMENT_TEMPLATE
     )
+    assert "timeIntervalSlider.max = String(navigationSpan)" in MAP_DOCUMENT_TEMPLATE
+    assert "!initialTimeWindowIsExplicit) focusSourceChronologyNavigation()" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
     assert "untimed source nodes excluded before viewport filtering" in (
         MAP_DOCUMENT_TEMPLATE
     )
@@ -222,6 +226,20 @@ def test_hash_filters_are_distinct_and_source_selection_drives_playback() -> Non
     assert "stopTimePlayback();\n        activeSourceChronologyTaxon" in (
         MAP_DOCUMENT_TEMPLATE
     )
+
+
+def test_source_shortcuts_preserve_literal_semantics_and_reset_exact_taxa() -> None:
+    assert "Source sample presence" in MAP_DOCUMENT_TEMPLATE
+    assert "Find cereal-like labels" in MAP_DOCUMENT_TEMPLATE
+    assert "Whole pollen sites" not in MAP_DOCUMENT_TEMPLATE
+    handlers = template_block(
+        "document.querySelectorAll('[data-source-shortcut]')",
+        "countryPairFilter.addEventListener",
+    )
+    assert "sourceChronologyTaxonSearch = shortcut === 'cereals' ? 'cereal|secale'" in handlers
+    assert "shortcut === 'taxa'" in handlers
+    assert "activeSourceChronologyTaxon = 'all'" in handlers
+    assert "cerealFacets[0]?.value" in handlers
 
 
 def test_source_facet_extent_bounds_automatic_playback_without_global_empty_frames() -> (

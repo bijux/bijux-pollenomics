@@ -533,7 +533,7 @@
         position: relative;
         display: grid;
         gap: 8px;
-        width: min(620px, 100%);
+        width: min(460px, 100%);
         min-width: 0;
       }
       .topbar-search-meta {
@@ -580,6 +580,15 @@
         width: min(288px, calc(100vw - 32px));
         max-height: calc(100vh - 208px);
         transition: transform 180ms ease, opacity 180ms ease;
+      }
+      @media (min-width: 1081px) {
+        .map-topbar {
+          right: auto;
+          width: min(880px, calc(100vw - 352px));
+        }
+        .topbar-note {
+          max-width: 58ch;
+        }
       }
       .control-panel.is-collapsed {
         transform: translateX(calc(100% + 20px));
@@ -1553,7 +1562,7 @@
               <div class="map-actions">
                 <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
                 <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
-                <button id="panel-toggle" class="toolbar-button" type="button">Hide controls</button>
+                <button id="panel-toggle" class="toolbar-button" type="button">Hide controls →</button>
                 <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
                 <button id="help-toggle" class="toolbar-button" type="button">Help</button>
                 <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
@@ -1636,12 +1645,12 @@
                     <button id="scientific-clear" class="inline-button" type="button">Clear comparison</button>
                   </div>
                   <div class="source-shortcuts" aria-label="Open source-native pollen views">
-                    <button class="inline-button is-primary" type="button" data-source-shortcut="sample">Whole pollen sites</button>
+                    <button class="inline-button is-primary" type="button" data-source-shortcut="sample">Source sample presence</button>
                     <button class="inline-button" type="button" data-source-shortcut="TRSH">TRSH</button>
                     <button class="inline-button" type="button" data-source-shortcut="UPHE">UPHE</button>
                     <button class="inline-button" type="button" data-source-shortcut="AQVP">AQVP</button>
                     <button class="inline-button" type="button" data-source-shortcut="taxa">All exact labels</button>
-                    <button class="inline-button" type="button" data-source-shortcut="cereals">Cerealia / Secale</button>
+                    <button class="inline-button" type="button" data-source-shortcut="cereals">Find cereal-like labels</button>
                   </div>
                 </div>
               </details>
@@ -2829,14 +2838,15 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           timeIntervalValue.textContent = '--';
           return;
         }
-        timeIntervalYears = clampTimeInterval(timeIntervalYears);
         const navigationExtent = selectedTimePlaybackExtent();
+        const navigationSpan = Math.max(1, navigationExtent.time_max_bp - navigationExtent.time_min_bp);
+        timeIntervalYears = Math.min(clampTimeInterval(timeIntervalYears), navigationSpan);
         timeStartBp = clampPlaybackTimeStart(timeStartBp, timeIntervalYears, navigationExtent);
         timeStartSlider.min = String(navigationExtent.time_min_bp);
         timeStartSlider.max = String(Math.max(navigationExtent.time_min_bp, navigationExtent.time_max_bp - timeIntervalYears));
         timeStartSlider.value = String(timeStartBp);
         timeIntervalSlider.min = '1';
-        timeIntervalSlider.max = String(TIME_INTERVAL_MAX);
+        timeIntervalSlider.max = String(navigationSpan);
         timeIntervalSlider.value = String(timeIntervalYears);
         const endBp = timeWindowEndBp();
         dockTimeSummary.textContent = `[${timeStartBp}, ${endBp}] BP`;
@@ -3493,6 +3503,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       let animalNordicOnly = initialState.animalNordic === 'only';
       let timeIntervalYears = TIME_HAS_DATA ? clampTimeInterval(initialState.timeInterval) : DEFAULT_TIME_INTERVAL_YEARS;
       let timeStartBp = TIME_HAS_DATA ? clampTimeStart(initialState.timeStart, timeIntervalYears) : DEFAULT_TIME_START_BP;
+      const initialTimeWindowIsExplicit = initialState.timeStart !== null || initialState.timeInterval !== null;
+      if (TIME_HAS_DATA && !initialTimeWindowIsExplicit) focusSourceChronologyNavigation();
       const initialModeledContextIndex = MODELED_CONTEXT_WINDOWS.findIndex(
         (sourceWindow) => sourceWindow.label === initialState.modeledContext
       );
@@ -3726,19 +3738,21 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         });
       }
       function syncTimePresetButtons() {
+        const navigationExtent = selectedTimePlaybackExtent();
+        const navigationSpan = Math.max(1, navigationExtent.time_max_bp - navigationExtent.time_min_bp);
         document.querySelectorAll('[data-time-interval]').forEach((button) => {
           const preset = button.dataset.timeInterval;
-          const active = preset === 'full' ? timeIntervalYears === TIME_INTERVAL_MAX : Number(preset) === Number(timeIntervalYears);
+          const active = preset === 'full' ? timeIntervalYears === navigationSpan : Number(preset) === Number(timeIntervalYears);
           button.classList.toggle('is-active', active);
         });
       }
       function updatePanelToggleLabel() {
         const collapsed = sidebar.classList.contains('is-collapsed');
         if (mobileLayoutQuery.matches) {
-          panelToggleButton.textContent = collapsed ? 'Show controls' : 'Hide controls';
+          panelToggleButton.textContent = collapsed ? '← Show controls' : 'Hide controls →';
           return;
         }
-        panelToggleButton.textContent = collapsed ? 'Show controls' : 'Hide controls';
+        panelToggleButton.textContent = collapsed ? '← Show controls' : 'Hide controls →';
       }
       function syncMobilePanelState() {
         const mobileOpen = mobileLayoutQuery.matches && !sidebar.classList.contains('is-collapsed');
@@ -5249,6 +5263,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
               ['all', ...layer.facet_metadata.source_ecological_codes.map((row) => row.value)],
               'all'
             );
+          } else if (shortcut === 'taxa') {
+            activeSourceChronologyTaxon = 'all';
           } else if (shortcut === 'cereals') {
             const layer = sourceChronologyLayerForLevel(targetLevel);
             const cerealFacets = layer.facet_metadata.source_taxa.filter((row) => /cereal|secale/i.test(row.label));
@@ -5418,7 +5434,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           stopTimePlayback();
           deactivateModeledContext();
           const preset = button.dataset.timeInterval;
-          timeIntervalYears = preset === 'full' ? TIME_INTERVAL_MAX : Number(preset);
+          const navigationExtent = selectedTimePlaybackExtent();
+          timeIntervalYears = preset === 'full'
+            ? Math.max(1, navigationExtent.time_max_bp - navigationExtent.time_min_bp)
+            : Number(preset);
           renderMapState();
         });
       });
