@@ -92,7 +92,11 @@ def test_provider_failure_uses_request_interception() -> None:
     )
     assert refusal is not None
     assert "await api.awaitReady()" not in refusal.group(0)
-    assert "snapshot: api.snapshot()" in refusal.group(0)
+    assert "if (!api || typeof api.snapshot !== 'function') return false" in (
+        refusal.group(0)
+    )
+    assert "observer.observe(document.documentElement" in refusal.group(0)
+    assert "? api.snapshot() : null" in refusal.group(0)
 
 
 def test_generic_time_journey_counts_zero_as_a_real_visibility_state() -> None:

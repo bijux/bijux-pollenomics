@@ -335,13 +335,14 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
     runtime_failures: failure.runtimeFailures,
     assertions: {
       provider_failure_osm_terrain_none: !failureObservation.timed_out
-        && failureSnapshot.basemap === 'none'
+        && failureSnapshot?.basemap === 'none'
         && failure.providerRequests.some((row) => row.url.includes('tile.openstreetmap.org'))
         && failure.providerRequests.some((row) => row.url.includes('tile.opentopomap.org'))
         && failure.providerRequests.findIndex((row) => row.url.includes('tile.openstreetmap.org'))
           < failure.providerRequests.findIndex((row) => row.url.includes('tile.opentopomap.org'))
         && /unavailable|no basemap/i.test(failureDom.basemap_readout),
-      provider_failure_evidence_unchanged: JSON.stringify(evidenceIdentity(failureSnapshot)) === JSON.stringify(defaultEvidence),
+      provider_failure_evidence_unchanged: failureSnapshot !== null
+        && JSON.stringify(evidenceIdentity(failureSnapshot)) === JSON.stringify(defaultEvidence),
       runtime_console_clean: failure.runtimeFailures.length === 0,
     },
   };
@@ -491,11 +492,12 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
     runtime_failures: failure.runtimeFailures,
     assertions: {
       provider_failure_osm_terrain_none: !failureObservation.timed_out
-        && failureSnapshot.basemap === 'none'
+        && failureSnapshot?.basemap === 'none'
         && failure.providerRequests.some((row) => row.url.includes('tile.openstreetmap.org'))
         && failure.providerRequests.some((row) => row.url.includes('tile.opentopomap.org'))
         && /unavailable|no basemap/i.test(failureDom.basemap_readout),
-      provider_failure_evidence_unchanged: JSON.stringify(evidenceIdentity(failureSnapshot)) === JSON.stringify(defaultEvidence),
+      provider_failure_evidence_unchanged: failureSnapshot !== null
+        && JSON.stringify(evidenceIdentity(failureSnapshot)) === JSON.stringify(defaultEvidence),
       runtime_console_clean: failure.runtimeFailures.length === 0,
     },
   };
@@ -1194,9 +1196,9 @@ async function applyCurrentFrame(cdp, basemap) {
 
 async function waitForProviderRefusal(cdp) {
   return evaluate(cdp, `(() => new Promise((resolve) => {
-    const api = globalThis.BijuxPollenomicsAtlasCapture;
-    const readout = document.getElementById('basemap-readout');
     const finish = () => {
+      const api = globalThis.BijuxPollenomicsAtlasCapture;
+      if (!api || typeof api.snapshot !== 'function') return false;
       const state = api.snapshot();
       if (state.basemap !== 'none') return false;
       observer.disconnect();
@@ -1207,13 +1209,14 @@ async function waitForProviderRefusal(cdp) {
     const observer = new MutationObserver(finish);
     const timeout = setTimeout(() => {
       observer.disconnect();
+      const api = globalThis.BijuxPollenomicsAtlasCapture;
       resolve({
-        snapshot: api.snapshot(),
+        snapshot: api && typeof api.snapshot === 'function' ? api.snapshot() : null,
         timed_out: true,
-        basemap_readout: readout?.textContent || '',
+        basemap_readout: document.getElementById('basemap-readout')?.textContent || '',
       });
     }, ${timeoutMs});
-    observer.observe(readout, { childList: true, characterData: true, subtree: true });
+    observer.observe(document.documentElement, { childList: true, characterData: true, subtree: true });
     finish();
   }))()`);
 }
