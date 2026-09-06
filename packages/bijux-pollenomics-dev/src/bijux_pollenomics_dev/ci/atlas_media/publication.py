@@ -1373,7 +1373,7 @@ def _validate_boundary_selector(
         "countries",
     }
     if role == "observation_chronology":
-        expected_fields.add("source_level")
+        expected_fields.update({"source_level", "source_window_label", "feature_count"})
         if selector_kind == "source_ecological_code":
             expected_fields.add("source_code")
         elif selector_kind == "source_taxon":
@@ -1392,6 +1392,8 @@ def _validate_boundary_selector(
         if (
             frame.get("story_kind") != "source_chronology"
             or frame.get("source_level") != selector_kind
+            or frame.get("source_window_label") is not None
+            or frame.get("feature_count") is not None
             or (
                 selector_kind == "source_ecological_code"
                 and frame.get("source_code") != selector_value

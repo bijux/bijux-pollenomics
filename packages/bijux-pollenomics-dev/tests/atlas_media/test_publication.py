@@ -189,7 +189,13 @@ def _story(spec: StorySpec) -> SelectedStory:
         "basemap": "none",
     }
     if role == "observation_chronology":
-        frame["source_level"] = kind
+        frame.update(
+            {
+                "source_level": kind,
+                "source_window_label": None,
+                "feature_count": None,
+            }
+        )
         if kind == "source_ecological_code":
             frame["source_code"] = value
         if kind == "source_taxon":
