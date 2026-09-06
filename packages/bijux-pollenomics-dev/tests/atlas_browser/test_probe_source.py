@@ -29,6 +29,8 @@ def test_page_readiness_uses_capture_api_and_mutation_observer() -> None:
     assert "new MutationObserver" in probe
     assert "atlas capture API readiness timed out" in probe
     assert "observer.observe(document.documentElement" in probe
+    assert "exact source taxon readiness timed out" in probe
+    assert "observer.observe(select, { childList: true })" in probe
     assert "setInterval(" not in probe
 
 

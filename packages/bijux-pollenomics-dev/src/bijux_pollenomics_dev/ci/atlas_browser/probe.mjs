@@ -379,8 +379,24 @@ async function exactTaxonFrame(cdp, labelPattern) {
     const button = [...document.querySelectorAll('[data-source-shortcut]')].find((row) => row.dataset.sourceShortcut === 'taxa');
     button.click();
     const select = document.getElementById('source-chronology-taxon');
-    const option = [...select.options].find((row) => new RegExp(${JSON.stringify(labelPattern)}, 'i').test(row.textContent));
-    if (!option) throw new Error('exact source taxon unavailable: ${labelPattern}');
+    const option = await new Promise((resolve, reject) => {
+      const findOption = () => [...select.options].find((row) => new RegExp(${JSON.stringify(labelPattern)}, 'i').test(row.textContent));
+      const finish = () => {
+        const match = findOption();
+        if (!match) return false;
+        observer.disconnect();
+        clearTimeout(timeout);
+        resolve(match);
+        return true;
+      };
+      const observer = new MutationObserver(finish);
+      const timeout = setTimeout(() => {
+        observer.disconnect();
+        reject(new Error('exact source taxon readiness timed out: ${labelPattern}'));
+      }, ${timeoutMs});
+      observer.observe(select, { childList: true });
+      finish();
+    });
     select.value = option.value;
     select.dispatchEvent(new Event('change', { bubbles: true }));
     const api = globalThis.BijuxPollenomicsAtlasCapture;
