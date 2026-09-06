@@ -5,6 +5,7 @@ from __future__ import annotations
 import base64
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
 from typing import cast
@@ -48,6 +49,62 @@ def _mapping(value: object, *, label: str) -> JsonObject:
     return cast(JsonObject, value)
 
 
+def _nonnegative_integer(value: object, *, label: str) -> int:
+    if not isinstance(value, int) or isinstance(value, bool) or value < 0:
+        raise AtlasBrowserContractError(f"{label} must be a non-negative integer")
+    return value
+
+
+def _finite_number(value: object, *, label: str) -> float:
+    if (
+        not isinstance(value, (int, float))
+        or isinstance(value, bool)
+        or not math.isfinite(value)
+    ):
+        raise AtlasBrowserContractError(f"{label} must be a finite number")
+    return float(value)
+
+
+def _validate_asset_counts_and_time(asset: JsonObject, *, sequence: int) -> None:
+    record_count = _nonnegative_integer(
+        asset["record_count"], label=f"manifest asset row {sequence} record_count"
+    )
+    _nonnegative_integer(
+        asset["decoded_byte_count"],
+        label=f"manifest asset row {sequence} decoded_byte_count",
+    )
+    _nonnegative_integer(
+        asset["byte_count"], label=f"manifest asset row {sequence} byte_count"
+    )
+    untimed = asset["untimed_record_count"]
+    if untimed is not None:
+        untimed_count = _nonnegative_integer(
+            untimed,
+            label=f"manifest asset row {sequence} untimed_record_count",
+        )
+        if untimed_count > record_count:
+            raise AtlasBrowserContractError(
+                f"manifest asset row {sequence} untimed_record_count exceeds record_count"
+            )
+    minimum = asset["time_min_bp"]
+    maximum = asset["time_max_bp"]
+    if (minimum is None) != (maximum is None):
+        raise AtlasBrowserContractError(
+            f"manifest asset row {sequence} has asymmetric BP bounds"
+        )
+    if minimum is not None:
+        younger = _finite_number(
+            minimum, label=f"manifest asset row {sequence} time_min_bp"
+        )
+        older = _finite_number(
+            maximum, label=f"manifest asset row {sequence} time_max_bp"
+        )
+        if younger > older:
+            raise AtlasBrowserContractError(
+                f"manifest asset row {sequence} BP bounds are reversed"
+            )
+
+
 def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
     table = _mapping(manifest.get("assets"), label="manifest.assets")
     if table.get("fields") != list(_ASSET_FIELDS):
@@ -70,6 +127,7 @@ def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
             raise AtlasBrowserContractError(
                 f"manifest asset row {sequence} identity is malformed"
             )
+        _validate_asset_counts_and_time(asset, sequence=sequence)
         asset["path"] = (
             f"{manifest['scope_slug']}.atlas-{domain}.{sequence:04d}.{digest[:16]}.js"
         )

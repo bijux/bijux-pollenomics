@@ -119,6 +119,16 @@ def test_generic_time_journey_counts_zero_as_a_real_visibility_state() -> None:
     assert "after.time_window_bp.younger_bp > before.time_window_bp.younger_bp" in probe
 
 
+def test_generic_manifest_counts_fail_closed_instead_of_coercing_null() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    assert "Number.isSafeInteger(value)" in probe
+    assert "row[index.record_count] || 0" not in probe
+    assert "manifest.domains?.edges?.record_count || 0" not in probe
+
+
 def test_cereal_finder_can_navigate_beyond_the_preferred_shortcut_result() -> None:
     probe = (
         Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")

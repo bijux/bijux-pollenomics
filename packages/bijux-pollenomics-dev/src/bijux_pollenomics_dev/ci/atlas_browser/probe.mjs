@@ -538,13 +538,22 @@ function genericManifestFacts(manifest) {
   if (!pointRows.length || !finiteMinimums.length || !finiteMaximums.length) {
     throw new Error('generic time-aware manifest has no timed point domain');
   }
+  const requireCount = (value, label) => {
+    if (!Number.isSafeInteger(value) || value < 0) {
+      throw new Error(`${label} must be a non-negative safe integer`);
+    }
+    return value;
+  };
   return {
-    point_record_count: pointRows.reduce((sum, row) => sum + Number(row[index.record_count] || 0), 0),
+    point_record_count: pointRows.reduce(
+      (sum, row, position) => sum + requireCount(row[index.record_count], `point row ${position} record_count`),
+      0,
+    ),
     time_min_bp: Math.min(...finiteMinimums),
     time_max_bp: Math.max(...finiteMaximums),
     classifications_status: manifest.domains?.classifications?.status,
     classifications_reason_code: manifest.domains?.classifications?.reason_code,
-    edge_record_count: Number(manifest.domains?.edges?.record_count || 0),
+    edge_record_count: requireCount(manifest.domains?.edges?.record_count, 'edge record_count'),
   };
 }
 

@@ -57,3 +57,53 @@ def test_static_atlas_rejects_manifest_count_ambiguity(tmp_path: Path) -> None:
 
     with pytest.raises(AtlasBrowserContractError, match="record_count"):
         audit_static_atlas(tmp_path, scope, candidate())
+
+
+@pytest.mark.parametrize("invalid_count", [None, -1, 1.5, "1", True])
+def test_static_atlas_rejects_invalid_asset_counts(
+    tmp_path: Path, invalid_count: object
+) -> None:
+    scope = write_static_atlas(tmp_path)
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["assets"]["records"][0][5] = invalid_count
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(AtlasBrowserContractError, match="non-negative integer"):
+        audit_static_atlas(tmp_path, scope, candidate())
+
+
+def test_static_atlas_rejects_untimed_count_above_total(tmp_path: Path) -> None:
+    scope = write_static_atlas(tmp_path)
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    row = manifest["assets"]["records"][0]
+    row[13] = row[5] + 1
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(AtlasBrowserContractError, match="exceeds record_count"):
+        audit_static_atlas(tmp_path, scope, candidate())
+
+
+@pytest.mark.parametrize(
+    ("minimum", "maximum", "message"),
+    [
+        (0.0, None, "asymmetric BP bounds"),
+        (None, 100.0, "asymmetric BP bounds"),
+        (float("nan"), 100.0, "finite number"),
+        (200.0, 100.0, "BP bounds are reversed"),
+    ],
+)
+def test_static_atlas_rejects_invalid_time_bounds(
+    tmp_path: Path, minimum: object, maximum: object, message: str
+) -> None:
+    scope = write_static_atlas(tmp_path)
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    row = manifest["assets"]["records"][0]
+    row[11] = minimum
+    row[12] = maximum
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(AtlasBrowserContractError, match=message):
+        audit_static_atlas(tmp_path, scope, candidate())
