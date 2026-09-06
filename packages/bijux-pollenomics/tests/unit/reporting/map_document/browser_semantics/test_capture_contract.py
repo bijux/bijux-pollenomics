@@ -26,7 +26,7 @@ def test_capture_contract_preserves_scientific_refusals_and_bp_semantics() -> No
         "function updateBasemapReadout",
     )
 
-    assert "time_start_bp < time_end_bp" in block
+    assert "time_start_bp <= time_end_bp" in block
     assert "Number.isFinite(number)" in block
     assert "candidate_succession_capture_not_releasable" in block
     assert "observation_chronology_is_propagation: false" in block
@@ -34,6 +34,7 @@ def test_capture_contract_preserves_scientific_refusals_and_bp_semantics() -> No
     assert "interpolation_allowed: false" in block
     assert "propagation_use_allowed: false" in block
     assert "capture BP interval exceeds the selected source extent" in block
+    assert "const minimum = sourceChronologyTimeValue(facet.time_min_bp)" in block
 
 
 def test_capture_contract_validates_source_facets_context_metrics_and_view() -> None:

@@ -149,6 +149,12 @@ def test_time_controls_expose_canonical_interval_and_playback_direction() -> Non
         "timeIntervalYears = Math.min(clampTimeInterval(timeIntervalYears), navigationSpan)"
         in MAP_DOCUMENT_TEMPLATE
     )
+    assert "timeIntervalSlider.min = captureInterval ? '0' : '1'" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "timeStartSlider.step = captureInterval ? 'any' : '1'" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
 
 
 def test_desktop_header_is_compact_and_control_toggle_shows_direction() -> None:

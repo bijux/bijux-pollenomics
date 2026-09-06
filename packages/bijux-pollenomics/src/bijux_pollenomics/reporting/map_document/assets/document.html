@@ -2848,13 +2848,22 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         }
         const navigationExtent = selectedTimePlaybackExtent();
         const navigationSpan = Math.max(1, navigationExtent.time_max_bp - navigationExtent.time_min_bp);
-        timeIntervalYears = Math.min(clampTimeInterval(timeIntervalYears), navigationSpan);
-        timeStartBp = clampPlaybackTimeStart(timeStartBp, timeIntervalYears, navigationExtent);
+        const captureInterval = document.documentElement.classList.contains('atlas-capture-mode');
+        if (captureInterval) {
+          timeIntervalYears = Math.max(0, Math.min(Number(timeIntervalYears), navigationSpan));
+          const maximumStart = Math.max(navigationExtent.time_min_bp, navigationExtent.time_max_bp - timeIntervalYears);
+          timeStartBp = Math.max(navigationExtent.time_min_bp, Math.min(maximumStart, Number(timeStartBp)));
+        } else {
+          timeIntervalYears = Math.min(clampTimeInterval(timeIntervalYears), navigationSpan);
+          timeStartBp = clampPlaybackTimeStart(timeStartBp, timeIntervalYears, navigationExtent);
+        }
         timeStartSlider.min = String(navigationExtent.time_min_bp);
         timeStartSlider.max = String(Math.max(navigationExtent.time_min_bp, navigationExtent.time_max_bp - timeIntervalYears));
+        timeStartSlider.step = captureInterval ? 'any' : '1';
         timeStartSlider.value = String(timeStartBp);
-        timeIntervalSlider.min = '1';
+        timeIntervalSlider.min = captureInterval ? '0' : '1';
         timeIntervalSlider.max = String(navigationSpan);
+        timeIntervalSlider.step = captureInterval ? 'any' : '1';
         timeIntervalSlider.value = String(timeIntervalYears);
         const endBp = timeWindowEndBp();
         dockTimeSummary.textContent = `[${timeStartBp}, ${endBp}] BP`;
@@ -5160,7 +5169,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function captureFrameWindow(frameSpec) {
         const youngerBp = captureFrameNumber(frameSpec.time_start_bp, 'capture time_start_bp');
         const olderBp = captureFrameNumber(frameSpec.time_end_bp, 'capture time_end_bp');
-        if (youngerBp >= olderBp) throw new Error('capture BP interval must satisfy time_start_bp < time_end_bp');
+        if (youngerBp > olderBp) throw new Error('capture BP interval must satisfy time_start_bp <= time_end_bp');
         return { youngerBp, olderBp };
       }
       function captureFrameView(value) {
@@ -5204,8 +5213,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const frameWindow = captureFrameWindow(frameSpec);
           const facet = sourceChronologyFacetForSelection(sourceLayer, sourceCode, sourceTaxon);
           if (!facet || !sourceChronologyExtentIsValid(facet) || facet.node_count === 0) throw new Error('capture source facet has no chronological evidence');
-          const minimum = Math.floor(sourceChronologyTimeValue(facet.time_min_bp));
-          const maximum = Math.ceil(sourceChronologyTimeValue(facet.time_max_bp));
+          const minimum = sourceChronologyTimeValue(facet.time_min_bp);
+          const maximum = sourceChronologyTimeValue(facet.time_max_bp);
           if (frameWindow.youngerBp < minimum || frameWindow.olderBp > maximum) throw new Error('capture BP interval exceeds the selected source extent');
           return { ...common, sourceLevel, sourceCode, sourceTaxon, frameWindow };
         }
