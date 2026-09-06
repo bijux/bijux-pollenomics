@@ -828,6 +828,8 @@
       }
       .floating-legend {
         position: absolute;
+        display: flex;
+        flex-direction: column;
         right: 16px;
         bottom: 88px;
         z-index: 1100;
@@ -1021,6 +1023,7 @@
       }
       .legend-head {
         display: flex;
+        flex: 0 0 auto;
         align-items: center;
         justify-content: space-between;
         gap: 10px;
@@ -1043,7 +1046,8 @@
         display: none;
       }
       .legend-body {
-        max-height: calc(var(--legend-max-height) - 54px);
+        flex: 1 1 auto;
+        min-height: 0;
         overflow-x: hidden;
         overflow-y: auto;
       }
@@ -1784,8 +1788,7 @@
           gap: 6px;
         }
         body.has-legend-open .map-topbar-main,
-        body.has-legend-open .map-status,
-        body.has-search-open .map-topbar-main {
+        body.has-legend-open .map-status {
           display: none;
         }
         .help-grid {
@@ -1800,8 +1803,9 @@
         .floating-legend {
           right: 8px;
           bottom: 72px;
-          width: min(236px, calc(100vw - 16px));
-          padding: 10px;
+          width: min(188px, calc(100vw - 16px));
+          --legend-max-height: min(24vh, 184px);
+          padding: 8px;
         }
         .control-panel {
           left: 8px;
@@ -4341,12 +4345,31 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         }
         highlightedPointEntry = entry;
       }
+      function pointFocusIdentity(layer, feature) {
+        const layerKey = String(layer?.key ?? '').trim();
+        const recordId = String(feature?.record_id ?? '').trim();
+        const nodeId = String(feature?.node_id ?? '').trim();
+        if (!layerKey || !recordId) return null;
+        return {
+          layerKey,
+          featureKey: nodeId ? `node:${nodeId}` : `record:${recordId}`,
+          recordId,
+        };
+      }
+      function uniquePointEntryForFocus(entries, state) {
+        if (!state || state.kind !== 'point' || !state.layerKey || !state.featureKey || !state.recordId) return null;
+        const matches = entries.filter(({ layer, feature }) => {
+          const identity = pointFocusIdentity(layer, feature);
+          return identity
+            && identity.layerKey === state.layerKey
+            && identity.featureKey === state.featureKey
+            && identity.recordId === state.recordId;
+        });
+        if (matches.length > 1) throw new Error('point focus identity is not unique');
+        return matches[0] || null;
+      }
       function visiblePointEntryForFocus(state = focusState) {
-        if (!state || state.kind !== 'point' || !state.layerKey || !state.recordId) return null;
-        return visiblePointEntries.find(({ layer, feature }) => (
-          layer.key === state.layerKey
-          && String(feature.record_id ?? '') === state.recordId
-        )) || null;
+        return uniquePointEntryForFocus(visiblePointEntries, state);
       }
       function setFocusState(nextState) {
         if (nextState) {
@@ -4596,8 +4619,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (!entry) return;
         const coordinates = featureCoordinatePair(entry.feature);
         if (!coordinates) return;
-        const recordId = String(entry.feature.record_id ?? '');
-        if (!recordId) return;
+        const identity = pointFocusIdentity(entry.layer, entry.feature);
+        if (!identity) return;
         const mediaLinks = normalizedMediaLinks(entry.feature.media_links);
         const primaryAction = entry.feature.source_url
           ? { label: 'Open source', url: entry.feature.source_url }
@@ -4611,7 +4634,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (timeDescriptor) meta.splice(2, 0, timeDescriptor);
         const nextFocus = {
           kind: 'point',
-          layerKey: entry.layer.key,
+          ...identity,
           title: entry.feature.title || entry.layer.label,
           subtitle: entry.feature.subtitle || 'Point record',
           meta,
@@ -4619,7 +4642,6 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           sourceLabel: primaryAction ? primaryAction.label : 'Open source',
           latitude: coordinates.latitude,
           longitude: coordinates.longitude,
-          recordId,
           detailTabs: unavailableDetailTabs('detail_record_loading'),
         };
         setFocusState(nextFocus);
@@ -4628,6 +4650,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           focusState
           && focusState.kind === 'point'
           && focusState.layerKey === nextFocus.layerKey
+          && focusState.featureKey === nextFocus.featureKey
           && focusState.recordId === nextFocus.recordId
         ) {
           focusState = { ...focusState, detailTabs };
@@ -6088,6 +6111,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const captureFrame = normalizeAtlasCaptureFrame(frameSpec);
         stopTimePlayback();
         stopModeledContextPlayback();
+        sourceRecordConcentrationActive = false;
+        sourceRecordConcentrationSnapshot = null;
         atlasCapturePresentation = null;
         document.documentElement.classList.add('atlas-capture-mode');
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -6111,7 +6136,6 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         } else {
           activeLayerKeys = new Set(atlasCaptureOrientationKeys());
           activeLayerKeys.add(MODELED_CONTEXT.layer_key);
-          sourceRecordConcentrationActive = false;
           modeledContextFamilyKey = captureFrame.familyKey;
           modeledContextMetricKey = captureFrame.metricKey;
           await selectModeledContextWindow(captureFrame.sourceWindowIndex);

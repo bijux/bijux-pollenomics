@@ -231,19 +231,68 @@ def test_overlays_yield_to_the_surface_the_user_opened() -> None:
 
 def test_focused_point_identity_survives_rendered_entry_replacement() -> None:
     focus_identity = template_block(
-        "function visiblePointEntryForFocus", "function unavailableDetailTabs"
+        "function pointFocusIdentity", "function unavailableDetailTabs"
     )
     focus_render = template_block("function renderFocusCard", "function countActiveOverrides")
     focus_navigation = template_block(
         "focusPreviousButton.addEventListener", "focusZoomButton.addEventListener"
     )
 
-    assert "layer.key === state.layerKey" in focus_identity
-    assert "String(feature.record_id ?? '') === state.recordId" in focus_identity
-    assert "if (!recordId) return;" in focus_render
+    observed = run_node_json(
+        focus_identity
+        + """
+const layer={key:'source-taxon'};
+const entries=[
+  {layer,feature:{record_id:'site:42',node_id:'node:early'}},
+  {layer,feature:{record_id:'site:42',node_id:'node:late'}},
+  {layer,feature:{record_id:'site:99'}},
+];
+const early=pointFocusIdentity(layer,entries[0].feature);
+const late=pointFocusIdentity(layer,entries[1].feature);
+const record=pointFocusIdentity(layer,entries[2].feature);
+let duplicateRefused=false;
+try { uniquePointEntryForFocus([entries[0],entries[0]],{kind:'point',...early}); }
+catch (error) { duplicateRefused=error.message === 'point focus identity is not unique'; }
+console.log(JSON.stringify({
+  early,
+  late,
+  record,
+  resolvedEarly:uniquePointEntryForFocus(entries,{kind:'point',...early})?.feature.node_id,
+  resolvedLate:uniquePointEntryForFocus(entries,{kind:'point',...late})?.feature.node_id,
+  missingRecord:pointFocusIdentity(layer,{node_id:'orphan'}),
+  duplicateRefused,
+}));
+"""
+    )
+
+    assert observed == {
+        "early": {
+            "layerKey": "source-taxon",
+            "featureKey": "node:node:early",
+            "recordId": "site:42",
+        },
+        "late": {
+            "layerKey": "source-taxon",
+            "featureKey": "node:node:late",
+            "recordId": "site:42",
+        },
+        "record": {
+            "layerKey": "source-taxon",
+            "featureKey": "record:site:99",
+            "recordId": "site:99",
+        },
+        "resolvedEarly": "node:early",
+        "resolvedLate": "node:late",
+        "missingRecord": None,
+        "duplicateRefused": True,
+    }
+    assert "const identity = pointFocusIdentity(entry.layer, entry.feature);" in focus_render
+    assert "if (!identity) return;" in focus_render
+    assert "...identity," in focus_render
     assert "highlightPointEntry(visiblePointEntryForFocus(focusState))" in focus_identity
     assert "const pointEntry = visiblePointEntryForFocus();" in focus_render
     assert "focusState.layerKey === nextFocus.layerKey" in focus_render
+    assert "focusState.featureKey === nextFocus.featureKey" in focus_render
     assert "focusState.recordId === nextFocus.recordId" in focus_render
     assert "visiblePointEntryForFocus(focusState)" in focus_navigation
     assert "visiblePointIndex" not in MAP_DOCUMENT_TEMPLATE

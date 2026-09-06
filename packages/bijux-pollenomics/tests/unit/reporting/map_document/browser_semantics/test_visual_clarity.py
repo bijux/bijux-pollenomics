@@ -41,16 +41,19 @@ def test_viewport_chrome_is_compact_clipped_and_non_overlapping() -> None:
         MAP_DOCUMENT_TEMPLATE
     )
     assert "body.has-legend-open .map-status" in MAP_DOCUMENT_TEMPLATE
-    assert "body.has-search-open .map-topbar-main" in MAP_DOCUMENT_TEMPLATE
+    assert "body.has-search-open .map-topbar-main" not in MAP_DOCUMENT_TEMPLATE
+    assert "width: min(188px, calc(100vw - 16px));" in MAP_DOCUMENT_TEMPLATE
+    assert "--legend-max-height: min(24vh, 184px);" in MAP_DOCUMENT_TEMPLATE
 
 
 def test_expanded_legend_scrolls_inside_its_bounded_surface() -> None:
     assert "--legend-max-height: min(42vh, 360px);" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: var(--legend-max-height);" in MAP_DOCUMENT_TEMPLATE
+    assert "display: flex;" in MAP_DOCUMENT_TEMPLATE
+    assert "flex-direction: column;" in MAP_DOCUMENT_TEMPLATE
     assert ".legend-body {" in MAP_DOCUMENT_TEMPLATE
-    assert "max-height: calc(var(--legend-max-height) - 54px);" in (
-        MAP_DOCUMENT_TEMPLATE
-    )
+    assert "flex: 1 1 auto;" in MAP_DOCUMENT_TEMPLATE
+    assert "min-height: 0;" in MAP_DOCUMENT_TEMPLATE
     assert "overflow-y: auto;" in MAP_DOCUMENT_TEMPLATE
 
 

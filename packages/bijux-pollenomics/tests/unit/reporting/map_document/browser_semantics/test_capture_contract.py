@@ -98,6 +98,59 @@ def test_capture_contract_validates_source_facets_context_metrics_and_view() -> 
     assert "map.invalidateSize({ animate: false })" in block
 
 
+def test_source_capture_resets_prior_concentration_state() -> None:
+    apply_frame = template_block(
+        "async function applyAtlasCaptureFrame",
+        "globalThis.BijuxPollenomicsAtlasCapture",
+    )
+    observed = run_node_json(
+        """
+let sourceRecordConcentrationActive=true;
+let sourceRecordConcentrationSnapshot={status:'available'};
+let atlasCapturePresentation={stale:true};
+let activeCountries=new Set();
+let activeLayerKeys=new Set();
+let activeSourceChronologyCode='';
+let activeSourceChronologyTaxon='';
+let sourceChronologyTaxonSearch='stale';
+let timeStartBp=0;
+let timeIntervalYears=0;
+const document={documentElement:{classList:{add(){}}}};
+const window={scrollTo(){}};
+const map={invalidateSize(){},setView(){}};
+function normalizeAtlasCaptureFrame(value){return value;}
+function stopTimePlayback(){}
+function stopModeledContextPlayback(){}
+function setBasemap(){}
+function deactivateModeledContext(){}
+function selectSourceChronologyLevel(){}
+function sourceChronologyLayerForLevel(){return {key:'source-taxon'};}
+function atlasCaptureOrientationKeys(){return ['boundaries'];}
+function setPanelCollapsed(){}
+function setLegendCollapsed(){}
+async function renderMapState(){}
+function atlasCaptureSnapshot(){return {
+  sourceRecordConcentrationActive,
+  sourceRecordConcentrationSnapshot,
+};}
+function renderAtlasCaptureOverlay(){}
+async function awaitAtlasCaptureReady(){return atlasCaptureSnapshot();}
+"""
+        + apply_frame
+        + """
+(async()=>console.log(JSON.stringify(await applyAtlasCaptureFrame({
+  storyKind:'source_chronology',countries:['SE'],basemap:'none',
+  sourceLevel:'source_taxon',sourceTaxon:'Secale',
+  frameWindow:{youngerBp:0,olderBp:100},view:null,
+}))))();
+"""
+    )
+    assert observed == {
+        "sourceRecordConcentrationActive": False,
+        "sourceRecordConcentrationSnapshot": None,
+    }
+
+
 def test_capture_overlay_keeps_map_clear_and_labels_evidence_in_every_frame() -> None:
     block = template_block(
         "function atlasCaptureOrientationKeys",
