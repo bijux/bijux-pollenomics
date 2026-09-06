@@ -2,7 +2,7 @@
   "generated_on": "2026-09-06",
   "source": "LandClim",
   "site_count": 490,
-  "numeric_site_interval_count": 480,
+  "numeric_site_interval_count": 368,
   "grid_cell_count": 77,
   "temporal_grid_feature_count": 2515,
   "bibliography_dataset_count": 3,
