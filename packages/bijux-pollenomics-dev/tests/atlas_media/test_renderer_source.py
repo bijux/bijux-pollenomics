@@ -172,6 +172,23 @@ def test_renderer_uses_capture_api_without_polling_or_provider_tiles() -> None:
     assert "requireExactNavigation" in renderer
 
 
+def test_renderer_terminates_browser_without_waiting_after_a_signal_exit() -> None:
+    renderer = (
+        Path(atlas_media.__file__).with_name("render.mjs").read_text(encoding="utf-8")
+    )
+
+    assert "await terminateBrowser(browser, timeoutMs)" in renderer
+    assert "browser.exitCode !== null || browser.signalCode !== null" in renderer
+    assert "const terminated = new Promise" in renderer
+    assert renderer.index("const terminated = new Promise") < renderer.index(
+        "browser.kill('SIGTERM')"
+    )
+    assert "const killed = new Promise" in renderer
+    assert renderer.index("const killed = new Promise") < renderer.index(
+        "browser.kill('SIGKILL')"
+    )
+
+
 def test_package_export_does_not_eagerly_import_runner() -> None:
     package = "bijux_pollenomics_dev.ci.atlas_media"
     completed = subprocess.run(

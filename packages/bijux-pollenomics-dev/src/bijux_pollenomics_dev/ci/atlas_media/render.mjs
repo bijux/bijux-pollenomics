@@ -328,18 +328,7 @@ try {
   }
   throw error;
 } finally {
-  browser.kill('SIGTERM');
-  await Promise.race([
-    new Promise((accept) => browser.once('exit', accept)),
-    new Promise((accept) => setTimeout(accept, 4000)),
-  ]);
-  if (browser.exitCode === null) {
-    browser.kill('SIGKILL');
-    await Promise.race([
-      new Promise((accept) => browser.once('exit', accept)),
-      new Promise((_, reject) => setTimeout(() => reject(new Error('browser kill timed out')), timeoutMs)),
-    ]);
-  }
+  await terminateBrowser(browser, timeoutMs);
   server.closeAllConnections();
   await Promise.race([
     new Promise((accept, reject) => server.close((error) => error ? reject(error) : accept())),
@@ -353,6 +342,23 @@ try {
     new Promise((_, reject) => setTimeout(() => reject(new Error('browser log close timed out')), timeoutMs)),
   ]);
   await rm(profileRoot, { recursive: true, force: true });
+}
+
+async function terminateBrowser(browser, timeoutMs) {
+  if (browser.exitCode !== null || browser.signalCode !== null) return;
+  const terminated = new Promise((accept) => browser.once('exit', accept));
+  browser.kill('SIGTERM');
+  await Promise.race([
+    terminated,
+    new Promise((accept) => setTimeout(accept, 4000)),
+  ]);
+  if (browser.exitCode !== null || browser.signalCode !== null) return;
+  const killed = new Promise((accept) => browser.once('exit', accept));
+  browser.kill('SIGKILL');
+  await Promise.race([
+    killed,
+    new Promise((_, reject) => setTimeout(() => reject(new Error('browser kill timed out')), timeoutMs)),
+  ]);
 }
 
 function requireExactNavigation(requests, port, documentPath) {
