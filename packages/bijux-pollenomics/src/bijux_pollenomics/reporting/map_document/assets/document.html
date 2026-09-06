@@ -162,7 +162,7 @@
         line-height: 1.6;
       }
       .map-stage { position: relative; min-height: 100vh; }
-      #map { height: 100vh; width: 100%; }
+      #map { height: 100vh; height: 100dvh; width: 100%; }
       .eyebrow {
         display: inline-flex;
         align-items: center;
@@ -311,6 +311,18 @@
         font-weight: 700;
         line-height: 1.45;
         text-align: center;
+      }
+      .topbar-time-stepper {
+        grid-template-columns: auto minmax(190px, 1fr) auto auto;
+        align-items: center;
+        margin-top: 0;
+      }
+      .topbar-time-stepper .time-stepper-status {
+        grid-column: auto;
+        min-width: 0;
+      }
+      .topbar-time-stepper #time-playback-toggle {
+        min-height: 38px;
       }
       .basemap-button {
         display: inline-flex;
@@ -592,7 +604,7 @@
       @media (min-width: 901px) {
         .map-topbar {
           right: auto;
-          width: min(880px, calc(100vw - 352px));
+          width: min(720px, calc(100vw - 352px));
         }
         .topbar-note {
           max-width: 58ch;
@@ -1421,9 +1433,13 @@
           border-radius: 18px;
         }
         .map-topbar-main {
-          flex-direction: column;
-          align-items: stretch;
+          align-items: center;
           gap: 10px;
+        }
+        .map-topbar .eyebrow,
+        .map-topbar .topbar-note,
+        .topbar-search-meta {
+          display: none;
         }
         .topbar-row,
         .map-actions {
@@ -1461,16 +1477,18 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
           transition: opacity 160ms ease, transform 160ms ease;
         }
+        .map-status .status-pill:nth-child(-n + 3) {
+          display: none;
+        }
       }
       @media (max-width: 640px) {
         .map-topbar {
           left: 8px;
           right: 8px;
-          top: 8px;
+          top: max(8px, env(safe-area-inset-top));
         }
         .map-topbar-main {
-          flex-direction: column;
-          align-items: stretch;
+          align-items: center;
           gap: 10px;
         }
         .help-grid {
@@ -1491,7 +1509,7 @@
         .control-panel {
           left: 8px;
           right: 8px;
-          bottom: 8px;
+          bottom: max(8px, env(safe-area-inset-bottom));
         }
         .focus-card {
           left: 8px;
@@ -1541,8 +1559,15 @@
         .preset-button,
         .toolbar-button,
         .basemap-button {
+          min-height: 44px;
           padding: 9px 12px;
           font-size: 12px;
+        }
+        .topbar-time-stepper {
+          grid-template-columns: auto minmax(0, 1fr) auto;
+        }
+        .topbar-time-stepper #time-playback-toggle {
+          grid-column: 1 / -1;
         }
       }
     </style>
@@ -1561,20 +1586,9 @@
               </div>
               <p class="topbar-note">__SCOPE_NOTE__</p>
             </div>
-            <div class="topbar-row">
-              <div class="basemap-switch">
-                <button class="basemap-button is-active" type="button" data-basemap="street" title="Keyless OpenStreetMap street and place context."><span class="basemap-preview basemap-preview--street"></span><span class="basemap-title">Street</span></button>
-                <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span></button>
-                <button class="basemap-button" type="button" data-basemap="none" title="Keep evidence and orientation controls usable without network tiles."><span class="basemap-preview"></span><span class="basemap-title">No basemap</span></button>
-              </div>
-              <div class="map-actions">
-                <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
-                <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
-                <button id="panel-toggle" class="toolbar-button" type="button">Hide controls →</button>
-                <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
-                <button id="help-toggle" class="toolbar-button" type="button">Help</button>
-                <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
-              </div>
+            <div class="map-actions">
+              <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
+              <button id="panel-toggle" class="toolbar-button" type="button">Hide controls →</button>
             </div>
           </div>
           <div class="topbar-search">
@@ -1585,6 +1599,12 @@
             </div>
             <div id="search-count" class="search-meta topbar-search-meta" aria-live="polite">Search points and sites</div>
             <div id="search-results" class="search-results search-results--floating" hidden></div>
+          </div>
+          <div class="time-stepper topbar-time-stepper" aria-label="Chronology navigation">
+            <button id="time-step-older" class="inline-button" type="button">← Older</button>
+            <div id="time-stepper-status" class="time-stepper-status" aria-live="polite">Preparing chronological navigation</div>
+            <button id="time-step-newer" class="inline-button" type="button">Newer →</button>
+            <button id="time-playback-toggle" class="inline-button is-primary" type="button" aria-pressed="false">Play oldest → present</button>
           </div>
         </div>
         <div id="map" aria-label="__TITLE__"></div>
@@ -1620,7 +1640,29 @@
               </div>
             </div>
             <div class="control-panel-body">
-              <details class="control-group" open>
+              <details class="control-group">
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">View</span>
+                    <h3>Basemap and tools</h3>
+                  </div>
+                  <span class="control-group-summary">Keyless or no-basemap</span>
+                </summary>
+                <div class="control-group-body">
+                  <div class="basemap-switch" aria-label="Basemap selection">
+                    <button class="basemap-button is-active" type="button" data-basemap="street" title="Keyless OpenStreetMap street and place context."><span class="basemap-preview basemap-preview--street"></span><span class="basemap-title">Street</span></button>
+                    <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span></button>
+                    <button class="basemap-button" type="button" data-basemap="none" title="Keep evidence and orientation controls usable without network tiles."><span class="basemap-preview"></span><span class="basemap-title">No basemap</span></button>
+                  </div>
+                  <div class="map-actions">
+                    <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
+                    <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
+                    <button id="help-toggle" class="toolbar-button" type="button">Help</button>
+                    <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
+                  </div>
+                </div>
+              </details>
+              <details class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Countries</span>
@@ -1637,7 +1679,7 @@
                   </div>
                 </div>
               </details>
-              <details class="control-group" open>
+              <details class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Scientific resolution</span>
@@ -1736,7 +1778,7 @@
                   </label>
                 </div>
               </details>
-              <details class="control-group" open>
+              <details class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Evidence</span>
@@ -1754,7 +1796,7 @@
                   <div id="dock-layer-filters" class="dock-layer-grid"></div>
                 </div>
               </details>
-              <details class="control-group" open>
+              <details class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Animal aDNA</span>
@@ -1830,12 +1872,7 @@
                     <button class="preset-button" type="button" data-time-interval="50000">50000 years</button>
                     <button class="preset-button is-active" type="button" data-time-interval="full">Full span</button>
                   </div>
-                  <div class="time-stepper" aria-label="Chronology navigation">
-                    <button id="time-step-older" class="inline-button" type="button">← Older</button>
-                    <button id="time-step-newer" class="inline-button" type="button">Newer →</button>
-                    <div id="time-stepper-status" class="time-stepper-status" aria-live="polite">Preparing chronological navigation</div>
-                  </div>
-                  <button id="time-playback-toggle" class="inline-button" type="button" aria-pressed="false">Play oldest → present</button>
+                  <div class="search-meta">Use the persistent Older, Newer, and Play controls above the map while this panel is closed.</div>
                   <div class="search-meta">When a Neotoma source level is active, the slider, arrows, and playback use that exact sample, ecological-code, or taxon extent. Disable the source layer to navigate the complete atlas span.</div>
                   <div id="time-record-count" class="search-meta">Calculating time-aware records in the active BP window.</div>
                 </div>

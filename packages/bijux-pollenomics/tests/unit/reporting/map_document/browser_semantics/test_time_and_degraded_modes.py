@@ -160,10 +160,22 @@ def test_time_controls_expose_canonical_interval_and_playback_direction() -> Non
 
 def test_desktop_header_is_compact_and_control_toggle_shows_direction() -> None:
     assert "@media (min-width: 901px)" in MAP_DOCUMENT_TEMPLATE
-    assert "width: min(880px, calc(100vw - 352px))" in MAP_DOCUMENT_TEMPLATE
+    assert "width: min(720px, calc(100vw - 352px))" in MAP_DOCUMENT_TEMPLATE
     assert "width: min(460px, 100%)" in MAP_DOCUMENT_TEMPLATE
     assert "← Show controls" in MAP_DOCUMENT_TEMPLATE
     assert "Hide controls →" in MAP_DOCUMENT_TEMPLATE
+    assert 'class="time-stepper topbar-time-stepper"' in MAP_DOCUMENT_TEMPLATE
+    assert "min-height: 44px" in MAP_DOCUMENT_TEMPLATE
+    topbar = template_block('<div class="map-topbar">', '<div id="map"')
+    assert 'id="time-step-older"' in topbar
+    assert 'id="time-step-newer"' in topbar
+    assert 'id="time-playback-toggle"' in topbar
+    assert 'data-basemap="street"' not in topbar
+    control_panel = template_block(
+        '<aside id="sidebar"', '<section id="focus-card"'
+    )
+    assert 'aria-label="Basemap selection"' in control_panel
+    assert 'data-basemap="none"' in control_panel
 
 
 def test_time_window_feedback_uses_visible_records_after_static_loading() -> None:
