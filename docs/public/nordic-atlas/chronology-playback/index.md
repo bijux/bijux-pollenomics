@@ -10,8 +10,10 @@ last_reviewed: 2026-09-06
 # Nordic Chronology Playback
 
 These fifteen governed animations replay dated evidence from the oldest window
-toward the present across Denmark, Finland, Norway, and Sweden. They use the
-same source selectors and temporal rules as the interactive Nordic atlas.
+toward the present. Denmark, Finland, Norway, and Sweden remain available as
+the same four filter scopes used by the interactive Nordic atlas; a country
+with no evidence for a selected taxon remains empty and is not presented as
+covered.
 
 The twelve Neotoma animations show discrete dated source observations. Changing
 spatial visibility through time can look flow-like, but it is not evidence of
@@ -54,6 +56,23 @@ pollen-observation count. Each Neotoma taxon label remains bound to its distinct
 source taxon ID; similar cereal labels are not merged or silently resolved to a
 species.
 
+### Country Availability for Exact Taxa
+
+| Exact source taxon | Denmark | Finland | Norway | Sweden |
+| --- | ---: | ---: | ---: | ---: |
+| Poaceae (Cerealia), 416 | 0 | 2 | 0 | 26 |
+| Poaceae (Cerealia) undiff., 427 | 0 | 11 | 35 | 211 |
+| Poaceae (Cerealia-type), 1947 | 0 | 104 | 10 | 261 |
+| *Hordeum/Secale*, 3924 | 0 | 0 | 0 | 2 |
+| *Secale*, 967 | 15 | 76 | 13 | 365 |
+| *Secale cereale*, 3926 | 0 | 3 | 36 | 152 |
+| *Secale*-type, 488 | 0 | 0 | 0 | 45 |
+| *Triticum*, 969 | 0 | 3 | 2 | 148 |
+
+Values are source-observation counts, and each row reconciles to its governed
+population above. Zero means no admitted observation for that exact source
+taxon in that country; it does not mean absence in the past environment.
+
 ## All Neotoma Pollen Samples
 
 <figure class="bijux-media-card">
@@ -81,7 +100,7 @@ species.
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-uphe.mp4" type="video/mp4">
     <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-code-uphe.mp4">Open the UPHE chronology video.</a>
   </video>
-  <figcaption>Source-native UPHE observations only, with the same interval and four-country rules as the atlas.</figcaption>
+  <figcaption>Source-native UPHE observations only, with the same interval rules and four-country filter controls as the atlas.</figcaption>
 </figure>
 
 ## AQVP — Aquatic Vascular Plants
