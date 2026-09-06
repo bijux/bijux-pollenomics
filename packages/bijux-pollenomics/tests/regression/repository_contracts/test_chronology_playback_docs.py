@@ -18,7 +18,14 @@ EXPECTED_STORIES = (
     "neotoma-source-code-trsh",
     "neotoma-source-code-uphe",
     "neotoma-source-code-aqvp",
+    "neotoma-source-taxon-416",
+    "neotoma-source-taxon-427",
+    "neotoma-source-taxon-1947",
+    "neotoma-source-taxon-3924",
     "neotoma-source-taxon-967",
+    "neotoma-source-taxon-3926",
+    "neotoma-source-taxon-488",
+    "neotoma-source-taxon-969",
     "pangaea-937075-metric-cerealia-t",
     "pangaea-937075-metric-secale",
     "pangaea-937075-metric-ol",
@@ -56,6 +63,38 @@ EXPECTED_PUBLIC_ROWS = {
         "last_interval": (0, 90),
         "page_row": "| AQVP — aquatic vascular plants | 4,991 nodes / 9,666 observations | 192 contiguous windows; 100 years except the terminal window |",
     },
+    "neotoma-source-taxon-416": {
+        "node_count": 28,
+        "observation_denominator": 28,
+        "frame_count": 24,
+        "first_interval": (2237, 2337),
+        "last_interval": (0, 37),
+        "page_row": "| exact taxon: Poaceae (Cerealia) | 28 nodes / 28 observations | 24 contiguous windows; 2,337–0 BP; source taxon 416 only |",
+    },
+    "neotoma-source-taxon-427": {
+        "node_count": 257,
+        "observation_denominator": 257,
+        "frame_count": 90,
+        "first_interval": (8854.761, 8954.761),
+        "last_interval": (0, 54.76100000000042),
+        "page_row": "| exact taxon: Poaceae (Cerealia) undiff. | 257 nodes / 257 observations | 90 contiguous windows; 8,954.761–0 BP; source taxon 427 only |",
+    },
+    "neotoma-source-taxon-1947": {
+        "node_count": 375,
+        "observation_denominator": 375,
+        "frame_count": 119,
+        "first_interval": (11791, 11891),
+        "last_interval": (2, 91),
+        "page_row": "| exact taxon: Poaceae (Cerealia-type) | 375 nodes / 375 observations | 119 contiguous windows; 11,891–2 BP; source taxon 1947 only |",
+    },
+    "neotoma-source-taxon-3924": {
+        "node_count": 2,
+        "observation_denominator": 2,
+        "frame_count": 14,
+        "first_interval": (1651, 1751),
+        "last_interval": (376, 451),
+        "page_row": "| exact taxon: *Hordeum/Secale* | 2 nodes / 2 observations | 14 contiguous windows; 1,751–376 BP; source taxon 3924 only |",
+    },
     "neotoma-source-taxon-967": {
         "node_count": 469,
         "observation_denominator": 469,
@@ -63,6 +102,30 @@ EXPECTED_PUBLIC_ROWS = {
         "first_interval": (4361, 4461),
         "last_interval": (2, 61),
         "page_row": "| exact taxon: *Secale* | 469 nodes / 469 observations | 45 contiguous windows; 100 years except the terminal window; source taxon 967 only |",
+    },
+    "neotoma-source-taxon-3926": {
+        "node_count": 191,
+        "observation_denominator": 191,
+        "frame_count": 31,
+        "first_interval": (2967, 3067),
+        "last_interval": (0, 67),
+        "page_row": "| exact taxon: *Secale cereale* | 191 nodes / 191 observations | 31 contiguous windows; 3,067–0 BP; source taxon 3926 only |",
+    },
+    "neotoma-source-taxon-488": {
+        "node_count": 45,
+        "observation_denominator": 45,
+        "frame_count": 38,
+        "first_interval": (3708, 3808),
+        "last_interval": (29, 108),
+        "page_row": "| exact taxon: *Secale*-type | 45 nodes / 45 observations | 38 contiguous windows; 3,808–29 BP; source taxon 488 only |",
+    },
+    "neotoma-source-taxon-969": {
+        "node_count": 153,
+        "observation_denominator": 153,
+        "frame_count": 72,
+        "first_interval": (7097.5, 7197.5),
+        "last_interval": (11, 97.5),
+        "page_row": "| exact taxon: *Triticum* | 153 nodes / 153 observations | 72 contiguous windows; 7,197.5–11 BP; source taxon 969 only |",
     },
     "pangaea-937075-metric-ol": {
         "node_count": None,
@@ -113,7 +176,7 @@ def test_chronology_page_embeds_the_exact_governed_media_inventory() -> None:
         (PUBLICATION_ROOT / "publication-manifest.json").read_text(encoding="utf-8")
     )
 
-    assert manifest["schema_version"] == "atlas-media-publication.v2"
+    assert manifest["schema_version"] == "atlas-media-publication.v3"
     assert manifest["story_count"] == len(EXPECTED_STORIES)
     assert tuple(row["story_id"] for row in manifest["stories"]) == EXPECTED_STORIES
     assert page.count(
