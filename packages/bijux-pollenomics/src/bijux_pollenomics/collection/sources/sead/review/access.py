@@ -7,6 +7,8 @@ from bijux_pollenomics.collection.sources.sead.acquisition.access import (
     build_sead_site_access_model,
 )
 
+from .inventory import site_uuid_for
+
 
 def build_sead_access_model_packet(rows: list[dict[str, object]]) -> dict[str, object]:
     """Build one global explanation packet for SEAD access posture."""
@@ -23,6 +25,7 @@ def build_sead_access_model_packet(rows: list[dict[str, object]]) -> dict[str, o
         review_rows.append(
             {
                 "site_id": str(row.get("site_id", "")).strip(),
+                "site_uuid": site_uuid_for(row),
                 "site_name": str(row.get("site_name", "")).strip(),
                 "access_visibility": visibility,
                 "site_page_url": str(access_model.get("site_page_url", "")).strip(),
@@ -42,6 +45,7 @@ def build_sead_access_model_packet(rows: list[dict[str, object]]) -> dict[str, o
         key=lambda row: (
             str(row["access_visibility"]),
             str(row["site_name"]).casefold(),
+            str(row["site_uuid"]),
         )
     )
     return {
@@ -102,13 +106,14 @@ def render_sead_access_model_markdown(payload: dict[str, object]) -> str:
     lines.extend(
         [
             "",
-            "| Site | Access visibility | Reference links | Stable site page |",
-            "| --- | --- | ---: | --- |",
+            "| Site | Site UUID | Access visibility | Reference links | Stable site page |",
+            "| --- | --- | --- | ---: | --- |",
         ]
     )
     for row in review_rows:
         lines.append(
-            f"| {row['site_name']} (`{row['site_id']}`) | {row['access_visibility']} | "
+            f"| {row['site_name']} (`{row['site_id']}`) | `{row['site_uuid']}` | "
+            f"{row['access_visibility']} | "
             f"{row['reference_link_count']} | {row['site_page_url'] or 'None'} |"
         )
     lines.append("")

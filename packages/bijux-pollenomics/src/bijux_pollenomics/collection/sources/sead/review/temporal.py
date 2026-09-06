@@ -5,7 +5,7 @@ from typing import Any, cast
 
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 
-from .inventory import inventory_summary, sead_row_capture_posture
+from .inventory import inventory_summary, sead_row_capture_posture, site_uuid_for
 
 
 def build_sead_temporal_review(
@@ -27,6 +27,7 @@ def build_sead_temporal_review(
         review_rows.append(
             {
                 "site_id": site_id,
+                "site_uuid": site_uuid_for(row),
                 "site_name": str(row.get("site_name", "")).strip(),
                 "country": str(record.country if record is not None else "").strip(),
                 "comparability_posture": posture,
@@ -97,13 +98,14 @@ def render_sead_temporal_review_markdown(payload: dict[str, object]) -> str:
     lines.extend(
         [
             "",
-            "| Site | Country | Comparability posture | Raw capture posture | Time summary | Normalized period labels | Uncertainty notes |",
-            "| --- | --- | --- | --- | --- | --- | --- |",
+            "| Site | Site UUID | Country | Comparability posture | Raw capture posture | Time summary | Normalized period labels | Uncertainty notes |",
+            "| --- | --- | --- | --- | --- | --- | --- | --- |",
         ]
     )
     for row in rows:
         lines.append(
-            f"| {row['site_name']} (`{row['site_id']}`) | {row['country']} | "
+            f"| {row['site_name']} (`{row['site_id']}`) | `{row['site_uuid']}` | "
+            f"{row['country']} | "
             f"{row['comparability_posture']} | {row['raw_capture_posture']} | "
             f"{row['summary_label']} | "
             f"{', '.join(row['normalized_period_labels']) or 'None'} | "

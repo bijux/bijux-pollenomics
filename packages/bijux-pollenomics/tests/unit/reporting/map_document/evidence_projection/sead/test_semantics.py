@@ -20,7 +20,7 @@ from tests.support.sead_evidence import (
 from ..fixtures.common import _decode_dictionary_table, _decode_sead_claim_table
 
 _CANONICAL_PROJECTION_SHA256 = (
-    "60a17d55baa42eef324b0a60d44bbde239b092355024a13c3bfeaeac0d4c2652"
+    "8bbe8a01c9e14ab51054171613dd90cef12596da446af8adcee6c53c0995b0a5"
 )
 
 
@@ -46,7 +46,7 @@ def test_projection_preserves_canonical_serialized_bytes(
         + "\n"
     ).encode()
 
-    assert len(payload) == 17_662
+    assert len(payload) == 18_517
     assert hashlib.sha256(payload).hexdigest() == _CANONICAL_PROJECTION_SHA256
 
 
@@ -77,6 +77,59 @@ def test_projection_keeps_null_zero_chronology_and_refusal_semantics(
     assert accounting["propagation_status"] == "refused"
 
 
+def test_projection_exposes_stable_site_and_parent_admission_identity(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    records, accounting, layers = _projection(tmp_path.absolute(), monkeypatch)
+    details = {str(row["record_id"]): row for row in records}
+    detail = details["sead:site:2"]
+    tabs = cast(dict[str, object], detail["tabs"])
+    overview = cast(dict[str, object], tabs["overview"])
+    provenance = cast(dict[str, object], tabs["provenance"])
+
+    assert detail["site_uuid"] == "site-2"
+    assert overview["site_uuid"] == "site-2"
+    assert provenance["site_uuid"] == "site-2"
+    assert provenance["parent_admission_sha256"] == "a" * 64
+    assert accounting["source_site_uuid_denominator"] == 4
+    assert accounting["parent_admission_sha256"] == "a" * 64
+    assert {
+        cast(str, feature["site_uuid"])
+        for layer in layers
+        for feature in cast(list[dict[str, object]], layer["features"])
+    } == {"site-1", "site-2", "site-3", "site-4"}
+
+
+def test_projection_rejects_parent_admission_lineage_drift(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    install_sead_projection_fixture(tmp_path.absolute(), monkeypatch)
+    manifest_path = (
+        tmp_path
+        / "sead"
+        / "normalized"
+        / "acquisitions"
+        / sead_projection.SEAD_GOVERNED_EVIDENCE_RUN_ID
+        / "evidence_materialization_manifest.json"
+    )
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["parent_admission_sha256"] = "d" * 64
+    payload = (
+        json.dumps(manifest, sort_keys=True, separators=(",", ":")) + "\n"
+    ).encode()
+    manifest_path.write_bytes(payload)
+    monkeypatch.setattr(
+        sead_projection,
+        "SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256",
+        hashlib.sha256(payload).hexdigest(),
+    )
+
+    with pytest.raises(ValueError, match="parent admission identity diverges"):
+        sead_projection._project_sead(
+            tmp_path.absolute(), sead_projection_layers()[1:]
+        )
+
+
 def test_projection_retains_unresolved_locator_popup_and_country_attribution(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -90,6 +143,7 @@ def test_projection_retains_unresolved_locator_popup_and_country_attribution(
 
     assert unresolved["evidence_row_id"] == "1:unresolved:discovery"
     assert unresolved["record_id"] == "sead:site:1"
+    assert unresolved["site_uuid"] == "site-1"
     assert unresolved["popup_rows"] == popup
     assert accounting["country_site_counts"] == {
         "Denmark": 1,

@@ -34,6 +34,7 @@ from .models import (
     RelationIndex,
     SiteIndex,
 )
+from .provenance import build_provenance_tab
 
 
 def build_detail_records(
@@ -124,13 +125,16 @@ def _site_detail_record(
         )
     )
     record_id = f"sead:site:{source_site_id}"
+    site_uuid = sites.site_uuid_by_id[source_site_id]
     return {
         "record_id": record_id,
+        "site_uuid": site_uuid,
         "tabs": {
             "overview": {
                 "source_family": "sead",
                 "site_id": record_id,
                 "source_site_id": source_site_id,
+                "site_uuid": site_uuid,
                 "site_name": site.get("name"),
                 "country": site.get("country"),
                 "source_url": site.get("source_url"),
@@ -166,7 +170,7 @@ def _site_detail_record(
                 "scientific_posture": "observation succession is not proof of migration or causation",
             },
             "classification": dict(_UNAVAILABLE_CLASSIFICATION),
-            "provenance": _provenance_tab(bundle, source_site_id),
+            "provenance": build_provenance_tab(bundle, source_site_id, site_uuid),
         },
     }
 
@@ -237,22 +241,4 @@ def _composition_tab(
         "evidence_posture": "complete source-native observations; tab name does not imply pollen classification",
         "source_value_posture": "source null, zero, false, and text zero remain distinct",
         "classification_status": "not_accepted",
-    }
-
-
-def _provenance_tab(bundle: EvidenceBundle, source_site_id: str) -> dict[str, object]:
-    return {
-        "source_run_id": bundle.run_id,
-        "build_id": bundle.claims.get("source_build_id"),
-        "acquisition_manifest_sha256": bundle.claims.get("acquisition_manifest_sha256"),
-        "evidence_bundle_path": f"data/sead/normalized/acquisitions/{bundle.run_id}",
-        "evidence_file_set_sha256": bundle.file_set_sha256,
-        "claim_locator_contract": "chronology_claims.json#chronology_claim_id={chronology_claim_id}",
-        "observation_locator_contract": "source_native_observations.json#observation_id={observation_id}",
-        "relation_locator_contract": "observation_relation_index.json#{relation_id}",
-        "event_refusal_locator_contract": "evidence_events.json#observation_id={observation_id}",
-        "record_locator": f"tbl_sites#site_id={source_site_id}",
-        "acquisition_release_status": bundle.admission.get("release_status"),
-        "propagation_status": bundle.claims.get("propagation_status"),
-        "propagation_reason_code": bundle.claims.get("propagation_reason_code"),
     }

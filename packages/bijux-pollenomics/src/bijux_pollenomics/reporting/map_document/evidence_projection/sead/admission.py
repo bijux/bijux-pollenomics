@@ -48,6 +48,23 @@ def load_evidence_bundle(
     file_set_sha256 = _required_text(
         manifest.get("file_set_sha256"), "SEAD evidence file-set SHA-256"
     )
+    build_id = _required_text(manifest.get("build_id"), "SEAD evidence build ID")
+    acquisition_manifest_sha256 = _required_text(
+        manifest.get("acquisition_manifest_sha256"),
+        "SEAD acquisition manifest SHA-256",
+    )
+    parent_admission_sha256 = _required_text(
+        manifest.get("parent_admission_sha256"),
+        "SEAD parent admission SHA-256",
+    )
+    if manifest.get("source_run_id") != run_id:
+        raise ValueError("SEAD evidence manifest source run identity diverges")
+    if claims.get("source_build_id") != build_id:
+        raise ValueError("SEAD evidence manifest build identity diverges")
+    if claims.get("acquisition_manifest_sha256") != acquisition_manifest_sha256:
+        raise ValueError("SEAD evidence manifest acquisition identity diverges")
+    if admission.get("parent_admission_sha256") != parent_admission_sha256:
+        raise ValueError("SEAD evidence parent admission identity diverges")
     admission_sha256 = hashlib.sha256(
         _read_regular_bytes(acquisition_root / "admission.json", "SEAD admission")
     ).hexdigest()
@@ -63,6 +80,9 @@ def load_evidence_bundle(
         manifest=manifest,
         admission=admission,
         run_id=run_id,
+        build_id=build_id,
+        acquisition_manifest_sha256=acquisition_manifest_sha256,
+        parent_admission_sha256=parent_admission_sha256,
         file_set_sha256=file_set_sha256,
     )
 

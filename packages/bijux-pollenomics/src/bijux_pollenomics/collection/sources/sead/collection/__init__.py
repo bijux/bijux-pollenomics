@@ -257,6 +257,7 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
         rows=rows,
         records=records,
         temporal_records=temporal_records,
+        admission=dict(validated_snapshot.admission),
     )
     return SeadDataReport(
         output_dir=output_root,

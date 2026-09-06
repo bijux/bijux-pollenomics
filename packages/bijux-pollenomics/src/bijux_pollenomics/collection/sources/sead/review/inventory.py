@@ -1,5 +1,32 @@
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
+
+
+def site_uuid_for(row: Mapping[str, object]) -> str:
+    """Return the required stable SEAD site identity for a review row."""
+    site_uuid = row.get("site_uuid")
+    if not isinstance(site_uuid, str) or not site_uuid.strip():
+        raise ValueError("SEAD review row site_uuid is missing")
+    return site_uuid.strip()
+
+
+def validate_site_identities(rows: Sequence[Mapping[str, object]]) -> None:
+    """Reject missing or ambiguous identities before publishing review rows."""
+    site_ids: set[str] = set()
+    site_uuids: set[str] = set()
+    for row in rows:
+        site_id = str(row.get("site_id", "")).strip()
+        if not site_id:
+            raise ValueError("SEAD review row site_id is missing")
+        site_uuid = site_uuid_for(row)
+        if site_id in site_ids:
+            raise ValueError(f"SEAD review site_id is duplicated: {site_id}")
+        if site_uuid in site_uuids:
+            raise ValueError(f"SEAD review site_uuid is duplicated: {site_uuid}")
+        site_ids.add(site_id)
+        site_uuids.add(site_uuid)
+
 
 def inventory_summary(rows: list[dict[str, object]]) -> dict[str, int | str]:
     def sites_with_records(key: str) -> int:

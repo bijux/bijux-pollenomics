@@ -17,13 +17,17 @@ def write_sead_projection_fixture(
 ) -> tuple[str, str]:
     run_id = SEAD_GOVERNED_EVIDENCE_RUN_ID
     build_id = "sha256:" + "c" * 64
+    parent_admission_sha256 = "a" * 64
     acquisition = root / "sead" / "raw" / "acquisitions" / run_id
     countries = (("1", "Sweden"), ("2", "Denmark"), ("3", "Norway"), ("4", "Finland"))
     site_payload = _write_json(
         acquisition / "payloads" / "tbl_sites.json",
         {
             "table": "tbl_sites",
-            "rows": [{"site_id": int(site_id)} for site_id, _ in countries],
+            "rows": [
+                {"site_id": int(site_id), "site_uuid": f"site-{site_id}"}
+                for site_id, _ in countries
+            ],
         },
     )
     manifest_payload = _write_json(
@@ -41,6 +45,7 @@ def write_sead_projection_fixture(
             "decisions": [
                 {
                     "site_id": int(site_id),
+                    "site_uuid": f"site-{site_id}",
                     "governed_country_code": country_codes[country],
                     "decision": {"decision_status": "assigned"},
                 }
@@ -73,6 +78,7 @@ def write_sead_projection_fixture(
             "build_id": build_id,
             "acquisition_manifest_sha256": acquisition_manifest_sha256,
             "acquisition_bundle_sha256": acquisition_bundle_sha256,
+            "parent_admission_sha256": parent_admission_sha256,
             "release_status": "refused",
             "copied_files": copied,
         },
@@ -180,7 +186,7 @@ def write_sead_projection_fixture(
         acquisition_bundle_sha256=acquisition_bundle_sha256,
         country_decisions_sha256=country_decisions_sha256,
         table_payload_sha256=hashlib.sha256(site_payload).hexdigest(),
-        parent_admission_sha256=hashlib.sha256(admission_payload).hexdigest(),
+        parent_admission_sha256=parent_admission_sha256,
         claim=claim,
         observation_entity_id=observation_entity_id,
     )

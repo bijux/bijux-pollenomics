@@ -30,6 +30,7 @@ def build_accounting(
     return {
         "source_feature_count": sites.feature_count,
         "source_site_denominator": len(sites.rows_by_id),
+        "source_site_uuid_denominator": len(set(sites.site_uuid_by_id.values())),
         "bbox_site_denominator": len(sites.decision_rows),
         "assigned_site_count": len(sites.assigned_site_ids),
         "excluded_site_count": len(sites.decision_rows) - len(sites.assigned_site_ids),
@@ -98,8 +99,9 @@ def build_accounting(
             "event_refusals": len(observations.refusal_rows),
         },
         "source_run_id": bundle.run_id,
-        "build_id": bundle.claims.get("source_build_id"),
-        "acquisition_manifest_sha256": bundle.claims.get("acquisition_manifest_sha256"),
+        "build_id": bundle.build_id,
+        "acquisition_manifest_sha256": bundle.acquisition_manifest_sha256,
+        "parent_admission_sha256": bundle.parent_admission_sha256,
         "acquisition_release_status": bundle.admission.get("release_status"),
         "evidence_file_set_sha256": bundle.file_set_sha256,
         "country_site_counts": dict(

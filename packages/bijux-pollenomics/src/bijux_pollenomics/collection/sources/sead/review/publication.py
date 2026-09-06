@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 import json
 from pathlib import Path
 from typing import cast
@@ -8,6 +9,7 @@ from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.core.files import write_json
 
 from .access import build_sead_access_model_packet, render_sead_access_model_markdown
+from .inventory import validate_site_identities
 from .legibility import (
     build_sead_evidence_legibility_review,
     render_sead_evidence_legibility_review_markdown,
@@ -18,14 +20,24 @@ from .recovery import (
 )
 from .temporal import build_sead_temporal_review, render_sead_temporal_review_markdown
 
+_LINEAGE_FIELDS = (
+    "source_run_id",
+    "build_id",
+    "acquisition_manifest_sha256",
+    "parent_admission_sha256",
+)
+
 
 def write_sead_review_outputs(
     output_root: Path,
     *,
     rows: list[dict[str, object]],
     records: list[ContextPointRecord],
+    lineage: Mapping[str, object] | None = None,
 ) -> dict[str, str]:
     """Write SEAD review surfaces beside raw and normalized outputs."""
+    validate_site_identities(rows)
+    lineage_fields = _review_lineage_fields(lineage)
     review_root = Path(output_root) / "review"
     review_root.mkdir(parents=True, exist_ok=True)
     temporal_review = build_sead_temporal_review(rows, records)
@@ -35,6 +47,13 @@ def write_sead_review_outputs(
         access_model_packet=access_model,
         evidence_legibility_review=evidence_review,
     )
+    for payload in (
+        temporal_review,
+        access_model,
+        evidence_review,
+        recovery_requirements,
+    ):
+        payload["lineage"] = dict(lineage_fields)
     payload_specs = (
         (
             "temporal_review",
@@ -72,6 +91,40 @@ def write_sead_review_outputs(
         artifact_paths[f"{stem}_markdown"] = f"review/{stem}.md"
         artifact_paths[f"{stem}_csv"] = f"review/{stem}.csv"
     return artifact_paths
+
+
+def review_lineage_from_admission(
+    admission: Mapping[str, object],
+) -> dict[str, str]:
+    """Bind review outputs to one validated raw-acquisition admission."""
+    lineage = {
+        "source_run_id": admission.get("run_id"),
+        "build_id": admission.get("build_id"),
+        "acquisition_manifest_sha256": admission.get("acquisition_manifest_sha256"),
+        "parent_admission_sha256": admission.get("parent_admission_sha256"),
+    }
+    return cast(dict[str, str], _review_lineage_fields(lineage, allow_null=False))
+
+
+def _review_lineage_fields(
+    lineage: Mapping[str, object] | None,
+    *,
+    allow_null: bool = True,
+) -> dict[str, object]:
+    if lineage is None:
+        if not allow_null:
+            raise ValueError("SEAD review lineage is required")
+        return dict.fromkeys(_LINEAGE_FIELDS)
+    normalized: dict[str, object] = {}
+    for field in _LINEAGE_FIELDS:
+        value = lineage.get(field)
+        if value is None and allow_null:
+            normalized[field] = None
+            continue
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError(f"SEAD review lineage {field} is missing")
+        normalized[field] = value.strip()
+    return normalized
 
 
 def render_review_csv(rows: list[dict[str, object]]) -> str:

@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import tempfile
+from types import SimpleNamespace
 from typing import cast
 from unittest.mock import patch
 
@@ -162,7 +163,16 @@ class SeadMaterializationTests(NordicBoundaryTestCase):
             )["rows"]
             with (
                 patch(
-                    "bijux_pollenomics.collection.sources.sead.collection.validate_governed_sead_admission"
+                    "bijux_pollenomics.collection.sources.sead.collection.validate_governed_sead_admission",
+                    return_value=SimpleNamespace(
+                        admission={
+                            "run_id": "sead-test-run",
+                            "build_id": "sha256:" + "b" * 64,
+                            "acquisition_manifest_sha256": "a" * 64,
+                            "parent_admission_sha256": "p" * 64,
+                        },
+                        copied_files={},
+                    ),
                 ),
                 patch(
                     "bijux_pollenomics.collection.sources.sead.collection._load_sead_acquisition_rows",
@@ -256,3 +266,20 @@ class SeadMaterializationTests(NordicBoundaryTestCase):
             "unresolved_chronology_boundary",
         )
         self.assertEqual(recovery_requirements["rows"][0]["evidence_gap_count"], 1)
+        self.assertEqual(
+            recovery_requirements["rows"][0]["affected_site_uuids"], ["uuid-1"]
+        )
+        for payload in (
+            evidence_review,
+            access_model,
+            temporal_review,
+            recovery_requirements,
+        ):
+            lineage = payload["lineage"]
+            self.assertEqual(lineage["source_run_id"], "sead-test-run")
+            self.assertEqual(lineage["build_id"], "sha256:" + "b" * 64)
+            self.assertEqual(lineage["acquisition_manifest_sha256"], "a" * 64)
+            self.assertEqual(lineage["parent_admission_sha256"], "p" * 64)
+        self.assertEqual(evidence_review["rows"][0]["site_uuid"], "uuid-1")
+        self.assertEqual(access_model["rows"][0]["site_uuid"], "uuid-1")
+        self.assertEqual(temporal_review["rows"][0]["site_uuid"], "uuid-1")

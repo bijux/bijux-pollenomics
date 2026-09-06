@@ -19,6 +19,9 @@ from bijux_pollenomics.collection.sources.sead.catalog.discovery import (
     write_sweden_archaeology_site_discovery,
 )
 from bijux_pollenomics.collection.sources.sead.review import write_sead_review_outputs
+from bijux_pollenomics.collection.sources.sead.review.publication import (
+    review_lineage_from_admission,
+)
 
 
 def write_source_surfaces(
@@ -48,6 +51,7 @@ def write_repository_surfaces(
     rows: list[dict[str, object]],
     records: list[ContextPointRecord],
     temporal_records: list[ContextPointRecord],
+    admission: dict[str, object],
 ) -> tuple[Path, Path]:
     output_root = data_root / "sead"
     normalized_csv_path = SEAD_POINT_CSV.path_under(data_root)
@@ -61,7 +65,13 @@ def write_repository_surfaces(
         records,
         temporal_records,
     )
-    _write_reviews_and_discovery(output_root, rows, records, temporal_records)
+    _write_reviews_and_discovery(
+        output_root,
+        rows,
+        records,
+        temporal_records,
+        review_lineage=review_lineage_from_admission(admission),
+    )
     return normalized_csv_path, normalized_geojson_path
 
 
@@ -84,8 +94,15 @@ def _write_reviews_and_discovery(
     rows: list[dict[str, object]],
     records: list[ContextPointRecord],
     temporal_records: list[ContextPointRecord],
+    *,
+    review_lineage: dict[str, str] | None = None,
 ) -> None:
-    write_sead_review_outputs(output_root, rows=rows, records=records)
+    write_sead_review_outputs(
+        output_root,
+        rows=rows,
+        records=records,
+        lineage=review_lineage,
+    )
     write_archaeology_site_discovery(
         output_root=output_root,
         rows=rows,

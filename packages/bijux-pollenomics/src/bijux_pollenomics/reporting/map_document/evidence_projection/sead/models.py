@@ -21,6 +21,9 @@ class EvidenceBundle:
     manifest: Mapping[str, object]
     admission: Mapping[str, object]
     run_id: str
+    build_id: str
+    acquisition_manifest_sha256: str
+    parent_admission_sha256: str
     file_set_sha256: str
 
 
@@ -77,6 +80,7 @@ class SiteIndex:
     """Governed Nordic sites reconciled to mutable atlas features."""
 
     rows_by_id: dict[str, Mapping[str, object]]
+    site_uuid_by_id: dict[str, str]
     decision_rows: list[Mapping[str, object]]
     assigned_site_ids: set[str]
     feature_site_ids: set[str]

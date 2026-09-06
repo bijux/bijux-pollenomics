@@ -8,7 +8,7 @@ from bijux_pollenomics.collection.sources.sead.acquisition.access import (
     build_sead_site_access_model,
 )
 
-from .inventory import inventory_summary
+from .inventory import inventory_summary, site_uuid_for
 
 
 def build_sead_evidence_legibility_review(
@@ -50,6 +50,7 @@ def build_sead_evidence_legibility_review(
         review_rows.append(
             {
                 "site_id": site_id,
+                "site_uuid": site_uuid_for(row),
                 "site_name": str(row.get("site_name", "")).strip(),
                 "country": str(record.country if record is not None else "").strip(),
                 "temporal_strength": temporal_strength,
@@ -72,6 +73,7 @@ def build_sead_evidence_legibility_review(
             str(row["normalization_risk"]),
             str(row["temporal_strength"]),
             str(row["site_name"]).casefold(),
+            str(row["site_uuid"]),
         )
     )
     return {
@@ -162,13 +164,14 @@ def render_sead_evidence_legibility_review_markdown(payload: dict[str, object]) 
     lines.extend(
         [
             "",
-            "| Site | Temporal strength | Duration posture | Access visibility | Normalization risk | Review note |",
-            "| --- | --- | --- | --- | --- | --- |",
+            "| Site | Site UUID | Temporal strength | Duration posture | Access visibility | Normalization risk | Review note |",
+            "| --- | --- | --- | --- | --- | --- | --- |",
         ]
     )
     for row in review_rows:
         lines.append(
-            f"| {row['site_name']} (`{row['site_id']}`) | {row['temporal_strength']} | "
+            f"| {row['site_name']} (`{row['site_id']}`) | `{row['site_uuid']}` | "
+            f"{row['temporal_strength']} | "
             f"{row['duration_posture']} | {row['access_visibility']} | "
             f"{row['normalization_risk']} | {row['review_note']} |"
         )

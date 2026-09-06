@@ -28,7 +28,8 @@ def test_public_signatures_remain_stable() -> None:
     )
     assert str(inspect.signature(review.write_sead_review_outputs)) == (
         "(output_root: 'Path', *, rows: 'list[dict[str, object]]', "
-        "records: 'list[ContextPointRecord]') -> 'dict[str, str]'"
+        "records: 'list[ContextPointRecord]', lineage: "
+        "'Mapping[str, object] | None' = None) -> 'dict[str, str]'"
     )
 
 

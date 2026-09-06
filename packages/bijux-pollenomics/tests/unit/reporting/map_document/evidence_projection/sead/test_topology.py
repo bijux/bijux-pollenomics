@@ -24,6 +24,7 @@ def test_projection_package_has_intent_named_bounded_modules() -> None:
         "models.py",
         "observations.py",
         "projection.py",
+        "provenance.py",
         "relations.py",
         "sites.py",
     }
@@ -47,4 +48,5 @@ def test_projection_workflow_has_one_coordinator_and_distinct_stage_owners() -> 
     assert function_owners["index_observations"] == ["observations.py"]
     assert function_owners["index_sites"] == ["sites.py"]
     assert function_owners["build_detail_records"] == ["detail_records.py"]
+    assert function_owners["build_provenance_tab"] == ["provenance.py"]
     assert function_owners["build_accounting"] == ["accounting.py"]
