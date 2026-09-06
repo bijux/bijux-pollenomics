@@ -1,7 +1,7 @@
 {
-  "baseline_id": "sha256:83f2e9cf0a45917416d3777e094604439be4bf5612a08228079377f8921e72bc",
+  "baseline_id": "sha256:a6bb53e8d86320e6ed21a25196fe0a78a6daabbdbb865e7b9fe4e286c9a5fac9",
   "counts": {
-    "compact_records": 200,
+    "compact_records": 193,
     "raw_archive_parts": 9,
     "raw_download_rows": 209,
     "raw_downloaded_datasets": 209,
@@ -10,7 +10,7 @@
     "relational_chronologies": 384,
     "relational_chronology_controls": 2798,
     "relational_collection_units": 206,
-    "relational_conflicts": 150,
+    "relational_conflicts": 144,
     "relational_datasets": 209,
     "relational_observations": 370936,
     "relational_orphans": 52,
@@ -20,20 +20,20 @@
   },
   "identity": {
     "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
-    "compact_sha256": "2d800adcce1e069985bec5dbf1f734ced7c3322c4b3cd5ae4c69f676a1700c32",
-    "lineage_sha256": "b53ff99a957b037c30073cc30d144a8942df831cfc52565ddeb818e65069fd88",
+    "compact_sha256": "21c20db0766ea1391d13d6a851ff96255447256ab2655cccf7057194aa85184c",
+    "lineage_sha256": "75ab6a685bf17e0989aae04ced8fe7c46157f1623ec11df651f7406e7b8b2c33",
     "raw_generated_on": "2026-04-01",
-    "relational_materialization_sha256": "2b65a0bd692a7228324902616824af0dcb0d66be80289dc3b4ab31278470624f",
+    "relational_materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
     "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
   },
   "input_artifacts": {
     "compact_lineage": {
       "path": "data/neotoma/review/compact_relational_lineage.json",
-      "sha256": "b53ff99a957b037c30073cc30d144a8942df831cfc52565ddeb818e65069fd88"
+      "sha256": "75ab6a685bf17e0989aae04ced8fe7c46157f1623ec11df651f7406e7b8b2c33"
     },
     "compact_site_layer": {
       "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-      "sha256": "2d800adcce1e069985bec5dbf1f734ced7c3322c4b3cd5ae4c69f676a1700c32"
+      "sha256": "21c20db0766ea1391d13d6a851ff96255447256ab2655cccf7057194aa85184c"
     },
     "raw_archive": {
       "manifest_sha256": "248dc5c1a8aedc441484f2c0a5d4bc54317329aa4fb96f4a3a16f8cec80c947d",
@@ -51,13 +51,13 @@
       "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads"
     },
     "relational_detail": {
-      "materialization_sha256": "2b65a0bd692a7228324902616824af0dcb0d66be80289dc3b4ab31278470624f",
+      "materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
       "path": "data/neotoma/relational"
     }
   },
   "schema_version": "neotoma-refresh-baseline.v1",
   "schemas": {
-    "compact_lineage": "neotoma-compact-relational-lineage.v1",
+    "compact_lineage": "neotoma-compact-relational-lineage.v2",
     "relational_manifest": "neotoma-relational-materialization-manifest.v1",
     "relational_snapshot": "neotoma-relational-snapshot.v2",
     "surfaces": {
