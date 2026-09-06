@@ -45,6 +45,8 @@ def test_one_false_assertion_fails() -> None:
         "capture_null_inputs_refused",
         "chronology_buttons_navigate",
         "chronology_controls_persistent",
+        "chronology_status_action",
+        "basemap_discoverability",
         "source_slider_changes_visibility",
     ),
 )

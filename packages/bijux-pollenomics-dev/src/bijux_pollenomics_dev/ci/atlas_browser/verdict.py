@@ -20,6 +20,8 @@ REQUIRED_ASSERTIONS = frozenset(
         "cereal_finder_exact_state",
         "chronology_buttons_navigate",
         "chronology_controls_persistent",
+        "chronology_status_action",
+        "basemap_discoverability",
         "comparison_refusal",
         "capture_null_inputs_refused",
         "responsive_1440",

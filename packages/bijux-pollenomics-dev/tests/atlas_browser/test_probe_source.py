@@ -108,3 +108,25 @@ def test_chronology_contract_drives_real_controls_and_refuses_null() -> None:
     assert "view: null" in probe
     assert "evidence_unchanged" in probe
     assert "document.elementFromPoint" in probe
+
+
+def test_status_actions_prove_chronology_and_basemap_discoverability() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    for literal in (
+        "discoverabilityFacts(normal.cdp, width)",
+        "document.getElementById('time-stepper-status')",
+        "document.getElementById('source-chronology-controls')",
+        "document.getElementById('basemap-readout')",
+        "document.getElementById('view-controls')",
+        "document.getElementById('basemap-switch')",
+        "OpenStreetMap · no key",
+        "OpenTopoMap · no key",
+        "Offline · no tiles",
+        "document.activeElement === activeBasemap",
+    ):
+        assert literal in probe
+    assert "chronology_status_action:" in probe
+    assert "basemap_discoverability:" in probe

@@ -157,6 +157,7 @@ async function verifyScope(scope, debuggerOrigin) {
       width, height, deviceScaleFactor: 1, mobile: width === 390,
     });
     responsive[width] = await responsiveFacts(normal.cdp, width);
+    responsive[width].discoverability = await discoverabilityFacts(normal.cdp, width);
     const path = `${scope.name}/responsive-${width}.png`;
     await screenshot(normal.cdp, path);
     scopeReceipts.push(path);
@@ -211,6 +212,18 @@ async function verifyScope(scope, debuggerOrigin) {
       chronology_controls_persistent: [responsive[1440], responsive[390]].every((layout) => layout.chronology_controls_visible
         && layout.chronology_controls_bounded && layout.chronology_controls_uncovered
         && layout.chronology_controls_non_overlapping && layout.body_scroll_width <= layout.viewport.width + 1),
+      chronology_status_action: [responsive[1440], responsive[390]].every((layout) => layout.discoverability.chronology_status_visible
+        && layout.discoverability.chronology_status_bounded
+        && layout.discoverability.chronology_status_uncovered
+        && layout.discoverability.chronology_status_has_denominators
+        && layout.discoverability.chronology_status_has_bp_interval
+        && layout.discoverability.chronology_controls_opened),
+      basemap_discoverability: [responsive[1440], responsive[390]].every((layout) => layout.discoverability.basemap_status_visible
+        && layout.discoverability.basemap_status_bounded
+        && layout.discoverability.basemap_status_uncovered
+        && layout.discoverability.basemap_controls_opened
+        && layout.discoverability.active_basemap_focused
+        && layout.discoverability.visible_provider_disclosure),
       source_slider_changes_visibility: Object.values(chronologyJourneys).every((journey) => journey.slider_values_applied
         && journey.visible_counts_within_denominator && journey.distinct_positive_visible_counts >= 2
         && journey.time_readouts_match),
@@ -658,6 +671,74 @@ async function responsiveFacts(cdp, width) {
         && document.body.scrollWidth <= innerWidth + 1,
       desktop_non_overlap: ${width} >= 901 ? elements.topbar.right <= elements.sidebar.left - 1 : null,
     };
+  })()`);
+}
+
+async function discoverabilityFacts(cdp, width) {
+  return evaluate(cdp, `(async () => {
+    const settle = () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    const visible = (element) => {
+      const style = getComputedStyle(element);
+      const box = element.getBoundingClientRect();
+      return style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity) > 0
+        && box.width > 0 && box.height > 0 && box.right > 0 && box.left < innerWidth
+        && box.bottom > 0 && box.top < innerHeight;
+    };
+    const bounded = (element) => {
+      const box = element.getBoundingClientRect();
+      return box.left >= -1 && box.right <= innerWidth + 1 && box.top >= -1 && box.bottom <= innerHeight + 1;
+    };
+    const uncovered = (element) => {
+      const box = element.getBoundingClientRect();
+      const hit = document.elementFromPoint(box.left + (box.width / 2), box.top + (box.height / 2));
+      return hit === element || element.contains(hit);
+    };
+    const sidebar = document.getElementById('sidebar');
+    const close = document.getElementById('mobile-panel-close');
+    const chronologyStatus = document.getElementById('time-stepper-status');
+    const sourceControls = document.getElementById('source-chronology-controls');
+    const basemapStatus = document.getElementById('basemap-readout');
+    const viewControls = document.getElementById('view-controls');
+    const basemapSwitch = document.getElementById('basemap-switch');
+    const chronologyStatusText = chronologyStatus.textContent || '';
+    const result = {
+      chronology_status_visible: visible(chronologyStatus),
+      chronology_status_bounded: bounded(chronologyStatus),
+      chronology_status_uncovered: uncovered(chronologyStatus),
+      chronology_status_has_denominators: /\\d+\\/\\d+ nodes/.test(chronologyStatusText)
+        && /\\d+\\/\\d+ observations/.test(chronologyStatusText),
+      chronology_status_has_bp_interval: /\\[[0-9.]+, [0-9.]+\\] BP/.test(chronologyStatusText),
+      chronology_controls_opened: false,
+      basemap_status_visible: false,
+      basemap_status_bounded: false,
+      basemap_status_uncovered: false,
+      basemap_controls_opened: false,
+      active_basemap_focused: false,
+      visible_provider_disclosure: false,
+    };
+    chronologyStatus.click();
+    await settle();
+    result.chronology_controls_opened = sourceControls.open && !sidebar.classList.contains('is-collapsed');
+    if (${width} <= 900) {
+      close.click();
+      await settle();
+    }
+    result.basemap_status_visible = visible(basemapStatus);
+    result.basemap_status_bounded = bounded(basemapStatus);
+    result.basemap_status_uncovered = uncovered(basemapStatus);
+    basemapStatus.click();
+    await settle();
+    const activeBasemap = basemapSwitch.querySelector('.basemap-button.is-active');
+    result.basemap_controls_opened = viewControls.open && !sidebar.classList.contains('is-collapsed');
+    result.active_basemap_focused = document.activeElement === activeBasemap;
+    const providerText = basemapSwitch.innerText;
+    result.visible_provider_disclosure = providerText.includes('OpenStreetMap · no key')
+      && providerText.includes('OpenTopoMap · no key') && providerText.includes('Offline · no tiles');
+    if (${width} <= 900) {
+      close.click();
+      await settle();
+    }
+    return result;
   })()`);
 }
 
