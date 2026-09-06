@@ -20,7 +20,7 @@ from ..atlas_evidence_rows import (
 )
 from .assembly import (
     _features_have_time_filter,
-    _group_rows_by_species,
+    _group_rows_by_species_and_scope,
     _partition_features,
     _select_evidence_rows,
     _select_localities,
@@ -85,7 +85,7 @@ def build_tracked_animal_atlas_bundle(
         load_localities=load_tracked_animal_mappable_localities,
         scope_contains=scope_contains_political_entity,
     )
-    grouped_rows = _group_rows_by_species(evidence_rows)
+    grouped_rows = _group_rows_by_species_and_scope(evidence_rows)
     species_slug_lookup = {
         species.latin_name: species.slug
         for species in build_species_support_matrix()
@@ -96,7 +96,8 @@ def build_tracked_animal_atlas_bundle(
     all_features: list[dict[str, object]] = []
     domesticated_features: list[dict[str, object]] = []
     comparator_features: list[dict[str, object]] = []
-    for species_name, species_rows in sorted(grouped_rows.items()):
+    progenitor_features: list[dict[str, object]] = []
+    for (species_name, animal_scope), species_rows in sorted(grouped_rows.items()):
         species_slug = species_slug_lookup.get(species_name)
         if species_slug is None:
             continue
@@ -104,7 +105,9 @@ def build_tracked_animal_atlas_bundle(
         dataset_review = _load_dataset_review(species_root)
         review_lookup = _load_review_lookup(species_root)
         layer_key = f"animal-{slugify(species_slug)}"
-        layer_group = _layer_group_for(dataset_review.get("product_role"))
+        if animal_scope != _animal_scope_for(dataset_review):
+            layer_key = f"{layer_key}-{slugify(animal_scope)}"
+        layer_group = _layer_group_for(animal_scope)
         style = _layer_style_for(species_name)
         features = [
             _build_point_feature(
@@ -123,17 +126,21 @@ def build_tracked_animal_atlas_bundle(
         point_layers.append(
             {
                 "key": layer_key,
-                "label": f"{species_rows[0].species_common_name.title()} aDNA site evidence",
+                "label": (
+                    f"{species_rows[0].species_common_name.title()} aDNA site evidence "
+                    f"({animal_scope.replace('_', ' ')})"
+                ),
                 "count": len(features),
                 "description": _layer_description_for(
                     species_common_name=species_rows[0].species_common_name,
                     dataset_review=dataset_review,
+                    animal_scope=animal_scope,
                 ),
                 "group": layer_group,
                 "atlas_layer_key": layer_key,
                 "species_latin_name": species_rows[0].species_latin_name,
                 "species_common_name": species_rows[0].species_common_name,
-                "animal_scope": _animal_scope_for(dataset_review),
+                "animal_scope": animal_scope,
                 "contribution_role": "direct",
                 "provenance_posture": "sample_backed_or_site_backed_atlas_evidence_rows",
                 "source_name": "Tracked animal aDNA localities",
@@ -160,6 +167,7 @@ def build_tracked_animal_atlas_bundle(
             features=features,
             domesticated=domesticated_features,
             comparator=comparator_features,
+            progenitor=progenitor_features,
         )
 
     _write_feature_collection(
@@ -182,6 +190,16 @@ def build_tracked_animal_atlas_bundle(
         layer_key="comparator-animal-localities",
         layer_label="Comparator animal aDNA atlas evidence",
         description="Comparator animal atlas evidence rows included in the atlas bundle.",
+    )
+    _write_feature_collection(
+        output_dir / f"{atlas_slug}_progenitor_animal_localities.geojson",
+        features=progenitor_features,
+        layer_key="progenitor-animal-localities",
+        layer_label="Wild and progenitor animal aDNA atlas evidence",
+        description=(
+            "Wild or progenitor animal atlas evidence rows kept separate from "
+            "domesticated-core and comparator products."
+        ),
     )
     _write_animal_atlas_evidence_csv(
         output_dir / f"{atlas_slug}_animal_atlas_evidence.csv",
@@ -209,6 +227,10 @@ def build_tracked_animal_atlas_bundle(
             (
                 "Comparator animal locality GeoJSON",
                 f"{atlas_slug}_comparator_animal_localities.geojson",
+            ),
+            (
+                "Wild and progenitor animal locality GeoJSON",
+                f"{atlas_slug}_progenitor_animal_localities.geojson",
             ),
             ("Animal atlas evidence CSV", f"{atlas_slug}_animal_atlas_evidence.csv"),
             ("Animal atlas evidence JSON", f"{atlas_slug}_animal_atlas_evidence.json"),

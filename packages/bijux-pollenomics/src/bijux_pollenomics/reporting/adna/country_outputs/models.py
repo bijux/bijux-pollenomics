@@ -25,7 +25,13 @@ class CountryAnimalOutputBundle:
             "version": self.version,
             "generated_on": self.generated_on,
             "total_sample_rows": len(self.sample_rows),
-            "total_species": len(self.species_rows),
+            "total_species": len(
+                {
+                    str(row.get("species_latin_name", "")).strip()
+                    for row in self.species_rows
+                    if str(row.get("species_latin_name", "")).strip()
+                }
+            ),
             "total_localities": len(self.localities),
             "total_projects": len(
                 {

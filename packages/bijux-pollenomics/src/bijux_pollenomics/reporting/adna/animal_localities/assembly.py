@@ -47,12 +47,12 @@ def _select_localities(
     )
 
 
-def _group_rows_by_species(
+def _group_rows_by_species_and_scope(
     rows: Iterable[AnimalAtlasEvidenceRow],
-) -> dict[str, list[AnimalAtlasEvidenceRow]]:
-    grouped: dict[str, list[AnimalAtlasEvidenceRow]] = {}
+) -> dict[tuple[str, str], list[AnimalAtlasEvidenceRow]]:
+    grouped: dict[tuple[str, str], list[AnimalAtlasEvidenceRow]] = {}
     for row in rows:
-        grouped.setdefault(row.species_latin_name, []).append(row)
+        grouped.setdefault((row.species_latin_name, row.animal_scope), []).append(row)
     return grouped
 
 
@@ -71,6 +71,15 @@ def _partition_features(
     features: list[dict[str, object]],
     domesticated: list[dict[str, object]],
     comparator: list[dict[str, object]],
+    progenitor: list[dict[str, object]],
 ) -> None:
-    target = comparator if layer_group == "animal-comparator-evidence" else domesticated
+    targets = {
+        "animal-domesticated-evidence": domesticated,
+        "animal-comparator-evidence": comparator,
+        "animal-progenitor-evidence": progenitor,
+    }
+    try:
+        target = targets[layer_group]
+    except KeyError as exc:
+        raise ValueError(f"unsupported animal layer group: {layer_group}") from exc
     target.extend(features)

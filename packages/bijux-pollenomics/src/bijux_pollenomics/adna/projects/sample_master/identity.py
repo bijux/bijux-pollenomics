@@ -79,9 +79,18 @@ def _merge_sample_row_group(
     first = group[0]
     locality_values = {row.locality_text for row in group if row.locality_text}
     chronology_values = {row.chronology_text for row in group if row.chronology_text}
+    chronology_mean_values = {
+        row.chronology_time_mean_bp
+        for row in group
+        if row.chronology_time_mean_bp is not None
+    }
     ambiguity_note = ""
     resolution = "final"
-    if len(locality_values) > 1 or len(chronology_values) > 1:
+    if (
+        len(locality_values) > 1
+        or len(chronology_values) > 1
+        or len(chronology_mean_values) > 1
+    ):
         resolution = "ambiguous"
         ambiguity_note = "Multiple source rows appear to reference the same sample label but disagree on locality or chronology fields."
     source_native_scientific_names = tuple(
@@ -151,6 +160,11 @@ def _merge_sample_row_group(
         ),
         source_native_identity_kind=_first_non_empty(
             *(row.source_native_identity_kind for row in group)
+        ),
+        chronology_time_mean_bp=(
+            next(iter(chronology_mean_values))
+            if len(chronology_mean_values) == 1
+            else None
         ),
     )
 

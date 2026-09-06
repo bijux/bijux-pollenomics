@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from ..atlas_evidence_rows import AnimalAtlasEvidenceRow
 from ...geography import NORDIC_COUNTRIES
-from .layers import _animal_scope_for
 
 
 def _build_point_feature(
@@ -20,7 +19,7 @@ def _build_point_feature(
         dataset_review=dataset_review,
         review=review,
     )
-    scope = _animal_scope_for(dataset_review)
+    scope = row.animal_scope
     temporal_semantics = _temporal_semantics_for(row)
     temporal_window_label = str(
         temporal_semantics.get("temporal_window_label", "")
@@ -171,9 +170,14 @@ def _warning_rows_for(
         warnings.append(
             f"Coordinates are {row.coordinate_confidence}, not excavation-grade exact points."
         )
-    if dataset_review.get("product_role") == "comparator":
+    if row.animal_scope == "comparator":
         warnings.append(
             "Comparator-only evidence: use for comparison, not domesticated-core claims."
+        )
+    if row.animal_scope == "wild_or_progenitor_context":
+        warnings.append(
+            "Wild or progenitor evidence: keep visible as evolutionary context, not "
+            "domesticated-core farming support."
         )
     if "project_species_mismatch" in row.taxon_alignment_statuses:
         warnings.append(

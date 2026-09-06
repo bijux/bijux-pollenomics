@@ -56,6 +56,17 @@ def build_warning_rows(
                     ),
                 }
             )
+        if str(species_row["animal_scope"]) == "wild_or_progenitor_context":
+            warnings.append(
+                {
+                    "severity": "warning",
+                    "warning_code": "wild_or_progenitor_scope",
+                    "message": (
+                        f"`{species_name}` is wild or progenitor context in `{country}` "
+                        "and must not be promoted into domesticated-core farming support."
+                    ),
+                }
+            )
         if _as_int(species_row.get("sample_row_count", 0) or 0) <= 2:
             warnings.append(
                 {

@@ -15,13 +15,18 @@ _SPECIES_STYLES = {
     "Equus asinus": {"fill": "#6d28d9", "stroke": "#4c1d95"},
 }
 
+_ANIMAL_SCOPE_GROUPS = {
+    "domesticated_core": "animal-domesticated-evidence",
+    "comparator": "animal-comparator-evidence",
+    "wild_or_progenitor_context": "animal-progenitor-evidence",
+}
+
 
 def _layer_group_for(product_role: object) -> str:
-    return (
-        "animal-comparator-evidence"
-        if str(product_role) == "comparator"
-        else "animal-domesticated-evidence"
-    )
+    role = str(product_role).strip()
+    if role not in _ANIMAL_SCOPE_GROUPS:
+        raise ValueError(f"unsupported animal scope: {role}")
+    return _ANIMAL_SCOPE_GROUPS[role]
 
 
 def _animal_scope_for(dataset_review: dict[str, object]) -> str:
@@ -33,9 +38,12 @@ def _animal_scope_for(dataset_review: dict[str, object]) -> str:
 
 
 def _layer_description_for(
-    *, species_common_name: str, dataset_review: dict[str, object]
+    *,
+    species_common_name: str,
+    dataset_review: dict[str, object],
+    animal_scope: str | None = None,
 ) -> str:
-    role = _animal_scope_for(dataset_review).replace("_", " ")
+    role = (animal_scope or _animal_scope_for(dataset_review)).replace("_", " ")
     return (
         f"Tracked {species_common_name} aDNA locality leads staged from sample-backed "
         f"or site-backed atlas evidence rows. Current role: {role}."

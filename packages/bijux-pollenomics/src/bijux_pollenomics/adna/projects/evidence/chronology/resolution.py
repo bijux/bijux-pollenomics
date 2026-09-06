@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from dataclasses import replace
+
 from bijux_pollenomics.adna.domain.models import AdnaChronology, AdnaSiteEvidenceRecord
 from bijux_pollenomics.adna.projects.sample_master import AdnaProjectSampleMasterRow
 
@@ -28,6 +30,7 @@ def _resolve_chronology_source(
     )
     if sample_text:
         chronology = normalize_chronology_text(sample_text, dating_basis=dating_basis)
+        chronology = _apply_explicit_sample_mean(master_row, chronology)
         conflict_note = _build_conflict_note(
             preferred_text=sample_text,
             preferred_chronology=chronology,
@@ -148,6 +151,26 @@ def _resolve_chronology_source(
         chronology_conflict_note="",
         review_note="No chronology claim has been recovered yet for this sample row.",
     )
+
+
+def _apply_explicit_sample_mean(
+    master_row: AdnaProjectSampleMasterRow,
+    chronology: AdnaChronology,
+) -> AdnaChronology:
+    mean_bp = getattr(master_row, "chronology_time_mean_bp", None)
+    if mean_bp is None:
+        return chronology
+    if isinstance(mean_bp, bool) or not isinstance(mean_bp, int) or mean_bp < 0:
+        raise ValueError("sample-owned chronology mean must be a nonnegative integer BP")
+    younger_bp = chronology.time_start_bp
+    older_bp = chronology.time_end_bp
+    if (
+        younger_bp is None
+        or older_bp is None
+        or not younger_bp <= mean_bp <= older_bp
+    ):
+        raise ValueError("sample-owned chronology mean must lie inside its BP interval")
+    return replace(chronology, time_mean_bp=mean_bp)
 
 
 def _site_chronology(

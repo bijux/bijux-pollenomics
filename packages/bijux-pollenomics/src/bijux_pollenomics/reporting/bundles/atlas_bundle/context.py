@@ -71,7 +71,11 @@ def build_animal_atlas_summary(
         layer
         for layer in point_layers
         if str(layer.get("group", "")).strip()
-        in {"animal-domesticated-evidence", "animal-comparator-evidence"}
+        in {
+            "animal-domesticated-evidence",
+            "animal-comparator-evidence",
+            "animal-progenitor-evidence",
+        }
     ]
     species_layers = [
         {
@@ -102,6 +106,7 @@ def build_animal_atlas_summary(
     visible_caveats = [
         "Approximate or inferred coordinates remain visible with explicit warnings.",
         "Comparator-only evidence remains visible without being counted as domesticated-core support.",
+        "Wild or progenitor evidence remains visible in its own scope and is not farming support.",
         "Weak or rejected support classes remain labeled in point popups instead of being silently hidden.",
         "Nordic relevance can remain regional rather than one exact named country.",
     ]
@@ -110,16 +115,22 @@ def build_animal_atlas_summary(
         "direct_coordinate_feature_count": animal_coordinate_review.direct_coordinate_feature_count,
         "named_site_geocoded_feature_count": animal_coordinate_review.named_site_geocoded_feature_count,
         "weaker_geography_feature_count": animal_coordinate_review.weaker_geography_feature_count,
-        "total_species": len(species_layers),
+        "total_species": len({row["latin_name"] for row in species_layers}),
         "domesticated_species_count": sum(
             1 for row in species_layers if row["animal_scope"] == "domesticated_core"
         ),
         "comparator_species_count": sum(
             1 for row in species_layers if row["animal_scope"] == "comparator"
         ),
+        "wild_or_progenitor_species_count": sum(
+            1
+            for row in species_layers
+            if row["animal_scope"] == "wild_or_progenitor_context"
+        ),
         "layer_groups": [
             "Domesticated-core animal evidence",
             "Comparator animal evidence",
+            "Wild and progenitor animal evidence",
         ]
         if species_layers
         else [],
@@ -164,6 +175,7 @@ def attach_traceability_surfaces(
         if str(layer.get("group", "")).strip() in {
             "animal-domesticated-evidence",
             "animal-comparator-evidence",
+            "animal-progenitor-evidence",
         }:
             layer["traceability_artifact"] = (
                 bundle_paths.animal_point_traceability_json_path.name

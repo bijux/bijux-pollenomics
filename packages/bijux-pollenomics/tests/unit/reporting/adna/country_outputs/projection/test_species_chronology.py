@@ -27,6 +27,27 @@ def test_species_extrema_use_younger_to_older_bp_interval_direction() -> None:
     assert rows[0]["youngest_signal_bp"] == 0
 
 
+def test_species_rows_keep_domesticated_and_progenitor_scopes_separate() -> None:
+    domesticated = _locality("domestic cattle", younger_bp=1000, older_bp=1200)
+    domesticated["species_latin_name"] = "Bos taurus"
+    domesticated["species_common_name"] = "cattle"
+    progenitor = _locality("aurochs", younger_bp=7000, older_bp=8000)
+    progenitor["species_latin_name"] = "Bos taurus"
+    progenitor["species_common_name"] = "cattle"
+    progenitor["animal_scope"] = "wild_or_progenitor_context"
+    progenitor["project_accession"] = "PRJEB75467"
+
+    rows = build_species_rows("Denmark", [domesticated, progenitor], [])
+
+    assert {
+        (row["animal_scope"], row["mapped_locality_count"], row["oldest_signal_bp"])
+        for row in rows
+    } == {
+        ("domesticated_core", 1, 1200),
+        ("wild_or_progenitor_context", 1, 8000),
+    }
+
+
 def _locality(
     locality: str,
     *,

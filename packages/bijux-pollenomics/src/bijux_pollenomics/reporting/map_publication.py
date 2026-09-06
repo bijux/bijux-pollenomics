@@ -460,6 +460,7 @@ def _publication_role_for(layer_key: str, *, layer_group: str) -> str:
     if layer_key in _SHARED_LAYER_KEYS or layer_group in {
         "animal-domesticated-evidence",
         "animal-comparator-evidence",
+        "animal-progenitor-evidence",
     }:
         return "shared_world_scale_layer"
     if layer_key in _REGION_FILTERED_LAYER_KEYS:
@@ -476,6 +477,7 @@ def _scope_caveat_for(
     if layer_key in _SHARED_LAYER_KEYS or layer_group in {
         "animal-domesticated-evidence",
         "animal-comparator-evidence",
+        "animal-progenitor-evidence",
     }:
         return "Shared evidence layer across every governed scope."
     if layer_key in _REGION_FILTERED_LAYER_KEYS:

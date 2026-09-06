@@ -5,6 +5,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import cast
 
+import pytest
+
 from bijux_pollenomics.core.repository import repository_data_root
 from bijux_pollenomics.reporting.adna import animal_localities
 
@@ -21,6 +23,11 @@ def test_role_policy_keeps_comparator_and_domesticated_products_separate() -> No
         "animal-domesticated-evidence"
     )
     assert animal_localities._animal_scope_for(domesticated) == "domesticated_core"
+    assert animal_localities._layer_group_for("wild_or_progenitor_context") == (
+        "animal-progenitor-evidence"
+    )
+    with pytest.raises(ValueError, match="unsupported animal scope"):
+        animal_localities._layer_group_for("unreviewed")
 
 
 def test_species_style_and_alpha_fallbacks_are_stable() -> None:
@@ -36,7 +43,7 @@ def test_species_style_and_alpha_fallbacks_are_stable() -> None:
     assert animal_localities._alpha("invalid", 0.1) == "invalid"
 
 
-def test_real_animal_layers_withhold_context_dates_from_numeric_playback(
+def test_real_animal_layers_publish_admitted_caveated_numeric_chronology(
     tmp_path: Path,
 ) -> None:
     bundle = animal_localities.build_tracked_animal_atlas_bundle(
@@ -48,7 +55,7 @@ def test_real_animal_layers_withhold_context_dates_from_numeric_playback(
     pig_layer = layers["Sus scrofa domesticus"]
     pig_features = cast(list[dict[str, object]], pig_layer["features"])
 
-    assert pig_layer["applies_time_filter"] is False
+    assert pig_layer["applies_time_filter"] is True
     assert {
         str(feature["title"]): (
             feature["time_start_bp"],
@@ -59,8 +66,8 @@ def test_real_animal_layers_withhold_context_dates_from_numeric_playback(
         )
         for feature in pig_features
     } == {
-        "Bundsø": (None, None, "contextual_label_only"),
-        "Trelleborg": (None, None, "contextual_label_only"),
+        "Bundsø": (4700, 4700, "numeric_interval_with_caveat"),
+        "Trelleborg": (1000, 1000, "numeric_interval_with_caveat"),
     }
 
     all_features = [
@@ -82,8 +89,15 @@ def test_real_animal_layers_withhold_context_dates_from_numeric_playback(
         if feature["time_start_bp"] is None and feature["time_end_bp"] is None
     ]
 
-    assert numeric_caveated == []
-    assert len(untimed) == 63
+    assert {feature["title"] for feature in pig_features} <= {
+        feature["title"] for feature in numeric_caveated
+    }
+    assert all(
+        isinstance(feature["time_start_bp"], int)
+        and isinstance(feature["time_end_bp"], int)
+        and feature["time_start_bp"] <= feature["time_end_bp"]
+        for feature in numeric_caveated
+    )
     assert {
         cast(dict[str, object], feature["temporal_semantics"])["comparability_posture"]
         for feature in untimed

@@ -131,6 +131,18 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
         self.assertEqual(reindeer.domestication_context, "comparator_context")
         self.assertEqual(donkey.domestication_context, "comparator_context")
 
+    def test_aurochs_sites_remain_wild_or_progenitor_context(self) -> None:
+        rows = resolve_project_site_evidence("PRJEB75467")
+
+        self.assertEqual(len(rows), 5)
+        self.assertTrue(
+            all(
+                row.domestication_context == "wild_or_progenitor_context"
+                and not row.comparator_context
+                for row in rows
+            )
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

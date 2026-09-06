@@ -35,9 +35,14 @@ def _build_farming_history_scenario(
     weak_support: list[str] = []
     non_support: list[str] = []
 
-    if first_rows:
+    domesticated_first_rows = [
+        row
+        for row in first_rows
+        if str(row.get("animal_scope")) == "domesticated_core"
+    ]
+    if domesticated_first_rows:
         earliest = max(
-            first_rows,
+            domesticated_first_rows,
             key=lambda row: int(cast(str, row["first_signal_bp"])),
         )
         support.append(
@@ -56,7 +61,16 @@ def _build_farming_history_scenario(
                 f"`{row['species_latin_name']}` remains comparator-only in `{row['country']}` "
                 "and cannot be promoted into domesticated-core farming support."
             )
-    represented_species = {str(row["species_latin_name"]) for row in coverage_rows}
+        if str(row.get("animal_scope")) == "wild_or_progenitor_context":
+            weak_support.append(
+                f"`{row['species_latin_name']}` contributes wild or progenitor context in "
+                f"`{row['country']}` and cannot be promoted into domesticated-core farming support."
+            )
+    represented_species = {
+        str(row["species_latin_name"])
+        for row in coverage_rows
+        if str(row.get("animal_scope")) == "domesticated_core"
+    }
     for species_name in (
         "Equus caballus",
         "Sus scrofa domesticus",

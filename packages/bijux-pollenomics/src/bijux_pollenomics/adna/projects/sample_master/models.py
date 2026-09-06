@@ -68,6 +68,7 @@ class AdnaProjectSampleMasterRow:
     taxon_alignment_status: str = "not_reported"
     archive_native_experiment_id: str = ""
     source_native_identity_kind: str = "biological_sample"
+    chronology_time_mean_bp: int | None = None
 
     def as_dict(self) -> dict[str, object]:
         return {
@@ -99,6 +100,7 @@ class AdnaProjectSampleMasterRow:
             "taxon_alignment_status": self.taxon_alignment_status,
             "archive_native_experiment_id": self.archive_native_experiment_id,
             "source_native_identity_kind": self.source_native_identity_kind,
+            "chronology_time_mean_bp": self.chronology_time_mean_bp,
         }
 
 

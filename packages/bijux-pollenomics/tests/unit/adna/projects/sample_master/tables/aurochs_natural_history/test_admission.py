@@ -43,6 +43,16 @@ def test_sample_master_enriches_only_five_archive_samples_and_keeps_fre1_refused
         and "wild/progenitor context" in by_label[label].sample_lineage_excerpt
         for label in ("Hjo1", "Ska1", "Ska3", "Zea1", "Zea2")
     )
+    assert {
+        label: by_label[label].chronology_time_mean_bp
+        for label in ("Hjo1", "Ska1", "Ska3", "Zea1", "Zea2")
+    } == {
+        "Hjo1": 8074,
+        "Ska1": 9334,
+        "Ska3": 9546,
+        "Zea1": 7302,
+        "Zea2": 7296,
+    }
 
     fre1 = by_label["Fre1"]
     assert fre1.archive_native_sample_id == ""

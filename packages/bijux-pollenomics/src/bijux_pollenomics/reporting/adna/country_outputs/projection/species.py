@@ -6,15 +6,17 @@ def build_species_rows(
     localities: list[dict[str, object]],
     sample_rows: list[dict[str, object]],
 ) -> list[dict[str, object]]:
-    grouped: dict[str, list[dict[str, object]]] = {}
+    grouped: dict[tuple[str, str], list[dict[str, object]]] = {}
     for row in localities:
-        grouped.setdefault(str(row["species_latin_name"]), []).append(row)
-    sample_grouped: dict[str, list[dict[str, object]]] = {}
+        key = (str(row["species_latin_name"]), str(row["animal_scope"]))
+        grouped.setdefault(key, []).append(row)
+    sample_grouped: dict[tuple[str, str], list[dict[str, object]]] = {}
     for row in sample_rows:
-        sample_grouped.setdefault(str(row["species_latin_name"]), []).append(row)
+        key = (str(row["species_latin_name"]), str(row["animal_scope"]))
+        sample_grouped.setdefault(key, []).append(row)
     species_rows: list[dict[str, object]] = []
-    for species_name, rows in sorted(grouped.items()):
-        species_sample_rows = sample_grouped.get(species_name, [])
+    for (species_name, animal_scope), rows in sorted(grouped.items()):
+        species_sample_rows = sample_grouped.get((species_name, animal_scope), [])
         project_accessions = sorted(
             {
                 str(row["project_accession"])
@@ -70,6 +72,8 @@ def build_species_rows(
             )
         if any(str(row.get("animal_scope")) == "comparator" for row in rows):
             caution_bits.append("comparator evidence only")
+        if animal_scope == "wild_or_progenitor_context":
+            caution_bits.append("wild or progenitor context; not domesticated-core support")
         if len(species_sample_rows) <= 2:
             caution_bits.append("sample support remains sparse")
         if coordinate_bases & {"named_site_geocoding", "named_site_geocoded"}:
@@ -83,7 +87,7 @@ def build_species_rows(
                 "country": country,
                 "species_latin_name": species_name,
                 "species_common_name": str(rows[0]["species_common_name"]),
-                "animal_scope": str(rows[0]["animal_scope"]),
+                "animal_scope": animal_scope,
                 "curated_project_count": len(project_accessions),
                 "mapped_locality_count": len(rows),
                 "mapped_sample_count": sum(

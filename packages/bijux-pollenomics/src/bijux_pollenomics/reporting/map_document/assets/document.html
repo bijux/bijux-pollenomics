@@ -2505,12 +2505,13 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         { key: 'primary-evidence', label: 'Human aDNA' },
         { key: 'animal-domesticated-evidence', label: 'Domesticated animal aDNA' },
         { key: 'animal-comparator-evidence', label: 'Comparator animal aDNA' },
+        { key: 'animal-progenitor-evidence', label: 'Wild and progenitor animal aDNA' },
         { key: 'candidate-ranking', label: 'Sweden lake ranking' },
         { key: 'environmental-context', label: 'Environmental context' },
         { key: 'archaeology-context', label: 'Archaeology context' },
         { key: 'orientation', label: 'Orientation layers' },
       ];
-      const ANIMAL_LAYER_GROUPS = new Set(['animal-domesticated-evidence', 'animal-comparator-evidence']);
+      const ANIMAL_LAYER_GROUPS = new Set(['animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence']);
       const ANIMAL_SPECIES = Array.from(
         new Map(
           POINT_LAYERS
@@ -4516,21 +4517,21 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (preset === 'evidence') {
           activeLayerKeys = new Set(
             ALL_LAYERS
-              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence'].includes(layer.group))
+              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence'].includes(layer.group))
               .map((layer) => layer.key)
           );
         }
         if (preset === 'context') {
           activeLayerKeys = new Set(
             ALL_LAYERS
-              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'environmental-context', 'archaeology-context'].includes(layer.group))
+              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence', 'environmental-context', 'archaeology-context'].includes(layer.group))
               .map((layer) => layer.key)
           );
         }
         if (preset === 'orientation') {
           activeLayerKeys = new Set(
             ALL_LAYERS
-              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'orientation'].includes(layer.group))
+              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence', 'orientation'].includes(layer.group))
               .map((layer) => layer.key)
           );
         }

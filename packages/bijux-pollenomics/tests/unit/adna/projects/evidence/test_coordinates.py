@@ -140,6 +140,19 @@ class AdnaCoordinateProvenanceUnitTests(unittest.TestCase):
         self.assertIn("mappable_point", ADNA_MAPPING_POSTURES)
         self.assertIn("refused_region_only", ADNA_MAPPING_POSTURES)
 
+    def test_aurochs_coordinates_remain_wild_or_progenitor_context(self) -> None:
+        rows = resolve_project_coordinate_provenance("PRJEB75467")
+
+        self.assertEqual(len(rows), 5)
+        self.assertTrue(all(row.mapping_posture == "mappable_point" for row in rows))
+        self.assertTrue(
+            all(
+                row.domestication_context == "wild_or_progenitor_context"
+                and not row.comparator_context
+                for row in rows
+            )
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

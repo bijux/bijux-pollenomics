@@ -17,12 +17,13 @@ def _build_first_appearance_by_country(
         localities = payload.get("localities", [])
         if not isinstance(localities, list):
             continue
-        grouped: dict[str, list[dict[str, object]]] = {}
+        grouped: dict[tuple[str, str], list[dict[str, object]]] = {}
         for row in localities:
             if not isinstance(row, dict):
                 continue
-            grouped.setdefault(str(row["species_latin_name"]), []).append(row)
-        for species_name, species_rows in sorted(grouped.items()):
+            key = (str(row["species_latin_name"]), str(row["animal_scope"]))
+            grouped.setdefault(key, []).append(row)
+        for (species_name, animal_scope), species_rows in sorted(grouped.items()):
             input_locality_count += len(species_rows)
             dated_rows = [
                 (row, first_signal)
@@ -39,7 +40,7 @@ def _build_first_appearance_by_country(
                     "country": country,
                     "species_latin_name": species_name,
                     "species_common_name": str(oldest_row["species_common_name"]),
-                    "animal_scope": str(oldest_row["animal_scope"]),
+                    "animal_scope": animal_scope,
                     "first_signal_bp": first_signal_bp,
                     "time_label": str(oldest_row["time_label"]),
                     "project_accession": str(oldest_row["project_accession"]),

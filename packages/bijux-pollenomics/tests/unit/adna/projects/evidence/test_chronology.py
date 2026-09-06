@@ -101,6 +101,27 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
             "1-s2.0-S0092867419303848-mmc1.xlsx", uppsala.chronology_provenance_path
         )
 
+    def test_aurochs_chronology_preserves_published_means_inside_bp_intervals(
+        self,
+    ) -> None:
+        rows = build_project_sample_chronology_rows(self.data_root, "PRJEB75467")
+        by_label = {row.preferred_sample_label: row for row in rows}
+
+        assert {
+            label: (
+                by_label[label].time_start_bp,
+                by_label[label].time_end_bp,
+                by_label[label].time_mean_bp,
+            )
+            for label in ("Hjo1", "Ska1", "Ska3", "Zea1", "Zea2")
+        } == {
+            "Hjo1": (7976, 8173, 8074),
+            "Ska1": (9133, 9536, 9334),
+            "Ska3": (9434, 9657, 9546),
+            "Zea1": (6754, 7744, 7302),
+            "Zea2": (6748, 7744, 7296),
+        }
+
     def test_experiment_only_archive_evidence_does_not_become_sample_chronology(
         self,
     ) -> None:
@@ -193,15 +214,15 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         )
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
-        self.assertEqual(audit["sample_row_count"], 1454)
-        self.assertEqual(audit["normalized_interval_count"], 332)
+        self.assertEqual(audit["sample_row_count"], 1455)
+        self.assertEqual(audit["normalized_interval_count"], 338)
         self.assertEqual(audit["normalized_point_count"], 533)
-        self.assertEqual(audit["unresolved_count"], 458)
+        self.assertEqual(audit["unresolved_count"], 453)
         self.assertEqual(audit["precision_counts"]["contextual_interval"], 16)
         self.assertEqual(
-            audit["precision_counts"]["sample_approximate_or_modeled"], 188
+            audit["precision_counts"]["sample_approximate_or_modeled"], 190
         )
-        self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 279)
+        self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 283)
         self.assertFalse(
             any(
                 row["project_accession"]
@@ -217,7 +238,7 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(conflict_rows, ())
         self.assertEqual(
             precision_audit["precision_counts"]["sample_approximate_or_modeled"],
-            188,
+            190,
         )
         sheep_species = next(
             row for row in species_rows if row["species_latin_name"] == "Ovis aries"
@@ -268,8 +289,8 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
                 for row in gap_queue
             )
         )
-        self.assertEqual(len(sample_review_rows), 1454)
-        self.assertEqual(len(provenance_rows), 1454)
+        self.assertEqual(len(sample_review_rows), 1455)
+        self.assertEqual(len(provenance_rows), 1455)
         horse_provenance = next(
             row
             for row in provenance_rows

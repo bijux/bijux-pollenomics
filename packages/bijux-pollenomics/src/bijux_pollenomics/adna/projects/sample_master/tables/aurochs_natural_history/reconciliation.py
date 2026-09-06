@@ -169,7 +169,7 @@ class AurochsNaturalHistoryReconciliationRow:
         chronology_class = (
             "direct_radiocarbon_date"
             if source.chronology_kind == "calibrated_radiocarbon_interval"
-            else "modeled_genetic_date"
+            else "modeled_sample_date"
         )
         chronology_precision = (
             "sample_precise_interval"
@@ -241,6 +241,7 @@ class AurochsNaturalHistoryReconciliationRow:
                 if archive is not None
                 else "supplementary_sample_label"
             ),
+            chronology_time_mean_bp=round(source.mean_bp),
         )
 
 

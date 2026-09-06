@@ -4,6 +4,7 @@ from pathlib import Path
 
 from ....core.repository import repository_data_root
 from bijux_pollenomics.adna.domain.models import AdnaSiteEvidenceRecord
+from ...sources.archive import build_archive_project_catalog
 from ...sources.library import build_project_registry
 from ..sample_master import AdnaProjectSampleMasterRow, build_project_sample_master_rows
 from ..sample_master.tables.pig_panel import (
@@ -352,16 +353,34 @@ def _default_data_root() -> Path:
     return repository_data_root(__file__)
 
 
-def _project_paper_lookup(project_accession: str) -> tuple[str, str]:
+def _project_evidence_context(
+    project_accession: str,
+) -> tuple[str, str, str, bool]:
     project_registry = {
         row.project_accession: row
         for row in build_project_registry(_default_data_root())
     }
     project_row = project_registry.get(project_accession)
-    if project_row is None or not project_row.primary_paper_doi:
-        return "", ""
-    doi = str(project_row.primary_paper_doi)
-    return doi, f"https://doi.org/{doi}"
+    if project_row is None:
+        return "", "", "unreviewed", False
+    doi = str(project_row.primary_paper_doi or "")
+    paper_url = f"https://doi.org/{doi}" if doi else ""
+    archive_project = next(
+        (
+            row
+            for row in build_archive_project_catalog()
+            if row.project_accession == project_accession
+        ),
+        None,
+    )
+    scope = (
+        archive_project.domestication_scope
+        if archive_project is not None
+        else "unreviewed"
+    )
+    if scope == "ancient_comparator":
+        return doi, paper_url, "comparator_context", True
+    return doi, paper_url, scope, False
 
 
 def _direct_sample_site_rows(
@@ -381,7 +400,9 @@ def _direct_sample_site_rows(
         grouped.setdefault(key, []).append(row)
     if not grouped:
         return ()
-    paper_doi, paper_url = _project_paper_lookup(project_accession)
+    paper_doi, paper_url, project_scope, comparator_context = (
+        _project_evidence_context(project_accession)
+    )
     pig_evidence = (
         {
             _normalized_group_key(row.locality_text, row.political_entity): row
@@ -464,11 +485,11 @@ def _direct_sample_site_rows(
                     if pig_chronology_bp is not None
                     else "unknown"
                 ),
-                comparator_context=False,
+                comparator_context=comparator_context,
                 domestication_context=(
                     "mixed_source_native_cat_taxa"
                     if project_accession == "PRJEB81815"
-                    else "domesticated_core"
+                    else project_scope
                 ),
                 interpretation_note=(
                     "The ENA sample XML supplies source-native coordinates at two "

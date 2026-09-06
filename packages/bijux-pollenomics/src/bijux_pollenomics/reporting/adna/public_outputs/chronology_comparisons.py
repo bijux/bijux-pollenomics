@@ -25,12 +25,13 @@ def _build_animal_human_chronology_overlap(
         localities = payload.get("localities", [])
         if not isinstance(localities, list):
             continue
-        grouped: dict[str, list[dict[str, object]]] = {}
+        grouped: dict[tuple[str, str], list[dict[str, object]]] = {}
         for row in localities:
             if not isinstance(row, dict):
                 continue
-            grouped.setdefault(str(row["species_latin_name"]), []).append(row)
-        for species_name, species_rows in sorted(grouped.items()):
+            key = (str(row["species_latin_name"]), str(row["animal_scope"]))
+            grouped.setdefault(key, []).append(row)
+        for (species_name, animal_scope), species_rows in sorted(grouped.items()):
             overlapping = 0
             non_overlapping = 0
             noncomparable = 0
@@ -57,7 +58,7 @@ def _build_animal_human_chronology_overlap(
                     "country": country,
                     "species_latin_name": species_name,
                     "species_common_name": str(species_rows[0]["species_common_name"]),
-                    "animal_scope": str(species_rows[0]["animal_scope"]),
+                    "animal_scope": animal_scope,
                     "animal_locality_count": len(species_rows),
                     "human_locality_count": len(report.localities),
                     "overlapping_human_localities": overlapping,
@@ -88,13 +89,14 @@ def _build_animal_pollen_chronology_overlap(
         localities = payload.get("localities", [])
         if not isinstance(localities, list):
             continue
-        grouped: dict[str, list[dict[str, object]]] = {}
+        grouped: dict[tuple[str, str], list[dict[str, object]]] = {}
         for row in localities:
             if not isinstance(row, dict):
                 continue
-            grouped.setdefault(str(row["species_latin_name"]), []).append(row)
+            key = (str(row["species_latin_name"]), str(row["animal_scope"]))
+            grouped.setdefault(key, []).append(row)
         country_pollen = [row for row in pollen_records if row["country"] == country]
-        for species_name, species_rows in sorted(grouped.items()):
+        for (species_name, animal_scope), species_rows in sorted(grouped.items()):
             overlapping = 0
             non_overlapping = 0
             noncomparable = 0
@@ -121,7 +123,7 @@ def _build_animal_pollen_chronology_overlap(
                     "country": country,
                     "species_latin_name": species_name,
                     "species_common_name": str(species_rows[0]["species_common_name"]),
-                    "animal_scope": str(species_rows[0]["animal_scope"]),
+                    "animal_scope": animal_scope,
                     "animal_locality_count": len(species_rows),
                     "pollen_record_count": len(country_pollen),
                     "overlapping_pollen_records": overlapping,
