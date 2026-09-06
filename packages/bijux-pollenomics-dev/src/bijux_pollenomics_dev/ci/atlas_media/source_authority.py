@@ -33,8 +33,11 @@ class SourceFacetAuthority:
 
     selector_kind: str
     selector_value: str
+    label: str | None
     node_count: int
     observation_denominator: int
+    time_min_bp: float | int
+    time_max_bp: float | int
     intervals: tuple[tuple[float | int, float | int], ...]
 
     def visible_count(self, younger_bp: float, older_bp: float) -> int:
@@ -151,8 +154,11 @@ def load_source_chronology_authority(
             {
                 "selector_kind": facet.selector_kind,
                 "selector_value": facet.selector_value,
+                "label": facet.label,
                 "node_count": facet.node_count,
                 "observation_denominator": facet.observation_denominator,
+                "time_min_bp": facet.time_min_bp,
+                "time_max_bp": facet.time_max_bp,
                 "intervals": facet.intervals,
             }
             for facet in facets.values()
@@ -183,11 +189,24 @@ def _facet(key: tuple[str, str], rows: list[dict[str, object]]) -> SourceFacetAu
             raise AtlasMediaError("static source observation denominator is invalid")
         intervals.append((younger, older))
         denominator += observation_count
+    labels = (
+        {
+            _text(row.get("source_reported_name"), "source-reported taxon name")
+            for row in rows
+        }
+        if key[0] == "source_taxon"
+        else set()
+    )
+    if len(labels) > 1:
+        raise AtlasMediaError("static source taxon has inconsistent labels")
     return SourceFacetAuthority(
         selector_kind=key[0],
         selector_value=key[1],
+        label=next(iter(labels), None),
         node_count=len(rows),
         observation_denominator=denominator,
+        time_min_bp=min(younger for younger, _older in intervals),
+        time_max_bp=max(older for _younger, older in intervals),
         intervals=tuple(intervals),
     )
 

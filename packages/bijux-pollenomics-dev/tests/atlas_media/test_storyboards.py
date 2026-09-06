@@ -238,6 +238,45 @@ def test_source_denominators_are_bound_to_governed_atlas_assets(
         )
 
 
+def test_exact_taxon_label_is_bound_to_governed_atlas_assets(
+    tmp_path: Path,
+) -> None:
+    manifest, media_plan = _manifest(tmp_path)
+    mutated = deepcopy(manifest)
+    facet = next(
+        row
+        for row in mutated["source_chronology"]["exact_taxon_discovery"]["facets"]
+        if row["feature_key"] == "source:neotoma:taxon:967"
+    )
+    facet["label"] = "Relabeled taxon"
+
+    with pytest.raises(AtlasMediaError, match="label differs"):
+        select_stories(
+            mutated, media_plan.selection, source_authority=source_authority()
+        )
+
+
+def test_source_temporal_envelope_is_bound_to_governed_atlas_assets(
+    tmp_path: Path,
+) -> None:
+    manifest, media_plan = _manifest(tmp_path)
+    mutated = deepcopy(manifest)
+    story = next(
+        row
+        for row in mutated["source_chronology"]["stories"]
+        if row["selector"]["value"] == "TRSH"
+    )
+    story["frames"].pop(0)
+    for ordinal, frame in enumerate(story["frames"]):
+        frame["ordinal"] = ordinal
+    story["frame_count"] = len(story["frames"])
+
+    with pytest.raises(AtlasMediaError, match="temporal envelope differs"):
+        select_stories(
+            mutated, media_plan.selection, source_authority=source_authority()
+        )
+
+
 def test_selection_is_bounded_and_only_one_exact_instant_story_is_allowed(
     tmp_path: Path,
 ) -> None:
@@ -261,6 +300,7 @@ def test_selection_is_bounded_and_only_one_exact_instant_story_is_allowed(
     authority.facets[("source_taxon", "source:neotoma:taxon:instant-two")] = replace(
         authority.facets[("source_taxon", "source:neotoma:taxon:instant")],
         selector_value="source:neotoma:taxon:instant-two",
+        label="Second instant",
     )
     with pytest.raises(AtlasMediaError, match="only one exact-instant"):
         select_stories(

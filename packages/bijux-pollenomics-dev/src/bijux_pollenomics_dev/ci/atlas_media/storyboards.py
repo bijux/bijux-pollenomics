@@ -274,6 +274,20 @@ def _selected_story(
         raise AtlasMediaError(
             "source story denominators differ from governed atlas assets"
         )
+    if authority_facet is not None and (
+        not normalized
+        or normalized[0]["time_end_bp"] != authority_facet.time_max_bp
+        or normalized[-1]["time_start_bp"] != authority_facet.time_min_bp
+    ):
+        raise AtlasMediaError(
+            "source story temporal envelope differs from governed atlas assets"
+        )
+    if authority_facet is not None and selector_kind == "source_taxon":
+        expected_title = f"Neotoma exact source taxon — {authority_facet.label}"
+        if authority_facet.label is None or story.get("title") != expected_title:
+            raise AtlasMediaError(
+                "source taxon story label differs from governed atlas assets"
+            )
     return SelectedStory(
         story_id=_text(story, "story_id"),
         title=_text(story, "title"),

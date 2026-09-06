@@ -335,8 +335,17 @@ def source_authority() -> SourceChronologyAuthority:
         facets[(kind, value)] = SourceFacetAuthority(
             selector_kind=kind,
             selector_value=value,
+            label=(
+                "Secale"
+                if value == "source:neotoma:taxon:967"
+                else "Exact instant"
+                if value == "source:neotoma:taxon:instant"
+                else None
+            ),
             node_count=count,
             observation_denominator=denominator,
+            time_min_bp=younger,
+            time_max_bp=older,
             intervals=tuple((younger, older) for _ in range(count)),
         )
     return SourceChronologyAuthority(

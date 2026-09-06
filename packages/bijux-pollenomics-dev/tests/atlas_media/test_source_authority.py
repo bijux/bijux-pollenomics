@@ -51,3 +51,7 @@ def test_published_nordic_source_totals_are_derived_from_static_assets() -> None
     }
     assert len(authority.asset_sha256) == 124
     assert len(authority.digest) == 64
+    secale = authority.require("source_taxon", "source:neotoma:taxon:967")
+    assert secale.label == "Secale"
+    assert secale.time_min_bp == 2
+    assert secale.time_max_bp == 4461
