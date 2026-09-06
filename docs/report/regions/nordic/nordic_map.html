@@ -50,6 +50,134 @@
         scroll-behavior: auto !important;
         transition: none !important;
       }
+      html.atlas-probe-motion-mode *,
+      html.atlas-probe-motion-mode *::before,
+      html.atlas-probe-motion-mode *::after {
+        animation: none !important;
+        caret-color: transparent !important;
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+      html.atlas-capture-mode .map-topbar,
+      html.atlas-capture-mode .floating-legend,
+      html.atlas-capture-mode .control-panel,
+      html.atlas-capture-mode .map-status,
+      html.atlas-capture-mode .focus-card,
+      html.atlas-capture-mode .empty-state,
+      html.atlas-capture-mode .mobile-panel-close,
+      html.atlas-capture-mode .mobile-scrim,
+      html.atlas-capture-mode .leaflet-control-zoom {
+        display: none !important;
+      }
+      .atlas-capture-overlay {
+        display: none;
+      }
+      html.atlas-capture-mode .atlas-capture-overlay {
+        position: absolute;
+        left: 22px;
+        bottom: 22px;
+        z-index: 1100;
+        display: grid;
+        width: min(650px, calc(100vw - 44px));
+        gap: 7px;
+        padding: 14px 16px;
+        border: 1px solid rgba(24, 37, 61, 0.16);
+        border-radius: 18px;
+        background: rgba(255, 253, 250, 0.94);
+        box-shadow: 0 12px 34px rgba(24, 37, 61, 0.14);
+        pointer-events: none;
+      }
+      @media (min-width: 1000px) {
+        html.atlas-capture-mode .map-stage {
+          padding-left: 330px;
+        }
+        html.atlas-capture-mode .atlas-capture-overlay {
+          top: 22px;
+          bottom: auto;
+          width: 286px;
+          max-height: calc(100vh - 44px);
+        }
+      }
+      .atlas-capture-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 14px;
+      }
+      .atlas-capture-role {
+        color: var(--blue);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+      }
+      .atlas-capture-time {
+        flex: 0 0 auto;
+        color: var(--ink-soft);
+        font-size: 12px;
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+      }
+      .atlas-capture-title {
+        margin: 0;
+        color: var(--ink);
+        font-family: var(--font-display);
+        font-size: 20px;
+        line-height: 1.08;
+      }
+      .atlas-capture-counts,
+      .atlas-capture-caveat {
+        margin: 0;
+        color: var(--ink-soft);
+        font-size: 11px;
+        line-height: 1.45;
+      }
+      .atlas-capture-key {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 7px 14px;
+      }
+      .atlas-capture-key-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--ink-soft);
+        font-size: 10px;
+        font-weight: 700;
+      }
+      .atlas-capture-swatch {
+        width: 14px;
+        height: 14px;
+        border: 1px solid #334155;
+        border-radius: 4px;
+        background: #cbd5e1;
+      }
+      .atlas-capture-swatch--point {
+        border-radius: 50%;
+      }
+      .atlas-capture-cluster-cue {
+        display: inline-grid;
+        width: 20px;
+        height: 20px;
+        place-items: center;
+        border: 1px solid rgba(24, 37, 61, 0.35);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--ink);
+        font-size: 8px;
+      }
+      .atlas-capture-boundary-cue {
+        display: inline-block;
+        width: 20px;
+        border-top: 2px solid #64748b;
+      }
+      .atlas-capture-caveat {
+        padding-top: 6px;
+        border-top: 1px solid rgba(24, 37, 61, 0.10);
+        color: #5b3340;
+        font-weight: 700;
+      }
       body.has-mobile-panel-open {
         overflow: hidden;
       }
@@ -407,9 +535,6 @@
         letter-spacing: 0.04em;
         text-transform: uppercase;
       }
-      .basemap-copy {
-        display: none;
-      }
       .topbar-context {
         display: grid;
         gap: 6px;
@@ -606,6 +731,9 @@
         gap: 8px;
         width: min(460px, 100%);
         min-width: 0;
+      }
+      .topbar-search[hidden] {
+        display: none;
       }
       .topbar-search-meta {
         margin: 0;
@@ -1639,10 +1767,11 @@
             </div>
             <div class="map-actions">
               <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
-              <button id="panel-toggle" class="toolbar-button" type="button">Hide controls →</button>
+              <button id="search-toggle" class="toolbar-button" type="button" aria-controls="topbar-search" aria-expanded="false">Search</button>
+              <button id="panel-toggle" class="toolbar-button" type="button" aria-controls="sidebar" aria-expanded="false">← Show controls</button>
             </div>
           </div>
-          <div class="topbar-search">
+          <div id="topbar-search" class="topbar-search" hidden>
             <label class="sr-only" for="search-input">Search points and sites</label>
             <div class="search-shell">
               <input id="search-input" class="search-input" type="search" placeholder="Search points and sites by sample, locality, source, or country" aria-describedby="search-count">
@@ -1659,6 +1788,16 @@
           </div>
         </div>
         <div id="map" aria-label="Nordic Evidence Surface"></div>
+        <section id="atlas-capture-overlay" class="atlas-capture-overlay" aria-label="Chronology frame evidence key">
+          <div class="atlas-capture-heading">
+            <span id="atlas-capture-role" class="atlas-capture-role">Preparing governed evidence</span>
+            <span id="atlas-capture-time" class="atlas-capture-time">[0, 0] BP</span>
+          </div>
+          <h1 id="atlas-capture-title" class="atlas-capture-title">Chronology evidence</h1>
+          <p id="atlas-capture-counts" class="atlas-capture-counts">Preparing governed denominators</p>
+          <div id="atlas-capture-key" class="atlas-capture-key"></div>
+          <p id="atlas-capture-caveat" class="atlas-capture-caveat">Evidence role is being resolved.</p>
+        </section>
         <div id="empty-state" class="empty-state" hidden>
           <strong>No visible records</strong>
           <span>Change the country filters, re-enable one or more layers, or restore the default map state.</span>
@@ -1666,9 +1805,9 @@
         <div id="floating-legend" class="floating-legend">
           <div class="legend-head">
             <div class="legend-title">Legend</div>
-            <button id="legend-toggle" class="legend-toggle" type="button">Collapse</button>
+            <button id="legend-toggle" class="legend-toggle" type="button" aria-controls="legend-body" aria-expanded="false">Expand</button>
           </div>
-          <div id="legend-body" class="legend-body">
+          <div id="legend-body" class="legend-body is-collapsed">
             <div id="legend-items" class="legend-list"></div>
             <div id="density-ramp" class="density-ramp">
               <div class="legend-item"><span class="legend-swatch" style="background: rgba(37, 99, 235, 0.10); border-color: rgba(37, 99, 235, 0.45);"></span><span>Acceptance circles use semi-transparent fills so overlap remains visible.</span></div>
@@ -1678,7 +1817,7 @@
             </div>
           </div>
         </div>
-        <aside id="sidebar" class="control-panel" aria-label="Map controls">
+        <aside id="sidebar" class="control-panel is-collapsed" aria-label="Map controls">
           <div class="control-panel-card">
             <div class="control-panel-head">
               <div>
@@ -2537,7 +2676,7 @@
       const COUNTRIES = ["Sweden","Norway","Finland","Denmark"];
       const POINT_LAYERS = hydrateStaticAtlasLayers('point');
       const POLYGON_LAYERS = hydrateStaticAtlasLayers('polygon');
-      const MODELED_CONTEXT = {"schema_version":"modeled-context-manifest.v3","status":"available","reason_code":null,"layer_key":"landclim-reveals-temporal-grid","dataset_id":"937075","dataset_doi":"https://doi.org/10.1594/PANGAEA.937075","method_citation":"Githumbi et al. (2022), European pollen-based REVEALS land-cover reconstructions for the Holocene","method_doi":"https://doi.org/10.5194/essd-14-1581-2022","metric_key":"OL","metric_label":"Open land","value_unit":"percentage_cover","default_metric_family_key":"source_land_cover_types","metric_family_count":3,"metric_count":47,"estimate_standard_error_pair_count":88125,"land_cover_pft_reconciliation_count":5625,"metric_families":[{"key":"exact_taxa","label":"Exact taxa / pollen-morphological types","metric_count":31,"default_metric_key":"Abies.alba","membership_evidence":["data/landclim/raw/landclim_ii_reveals_results.zip::LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv#header","data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"],"metrics":[{"key":"Abies.alba","label":"Abies alba","source_label":"Abies alba","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Alnus.glutinosa","label":"Alnus glutinosa","source_label":"Alnus glutinosa","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Amanranthaceae.Chenopodiaceae","label":"Amaranthaceae/Chenopodiaceae","source_label":"Amaranthaceae/Chenopodiaceae","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Artemisia","label":"Artemisia","source_label":"Artemisia","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Betula","label":"Betula","source_label":"Betula","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Buxus.sempervirens","label":"Buxus sempervirens","source_label":"Buxus sempervirens","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Calluna.vulgaris","label":"Calluna vulgaris","source_label":"Calluna vulgaris","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Carpinus.betulus","label":"Carpinus betulus","source_label":"Carpinus betulus","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Carpinus.orientalis","label":"Carpinus orientalis","source_label":"Carpinus orientalis","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Castanea","label":"Castanea sativa","source_label":"Castanea sativa","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Cerealia.t","label":"Cerealia-t","source_label":"Cerealia-t","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Corylus.avellana","label":"Corylus avellana","source_label":"Corylus avellana","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Cyperaceae","label":"Cyperaceae","source_label":"Cyperaceae","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Ericaceae","label":"Ericaceae**","source_label":"Ericaceae**","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Fagus.sylvatica","label":"Fagus sylvatica","source_label":"Fagus sylvatica","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Filipendula","label":"Filipendula","source_label":"Filipendula","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Fraxinus","label":"Fraxinus","source_label":"Fraxinus","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Juniperus","label":"Juniperus communis","source_label":"Juniperus communis","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Phillyrea","label":"Phillyrea","source_label":"Phillyrea","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Picea","label":"Picea abies","source_label":"Picea abies","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Pinus","label":"Pinus sylvestris","source_label":"Pinus sylvestris","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Pistacia","label":"Pistacia","source_label":"Pistacia","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Plantago.lanceolata.type","label":"Plantago lanceolata","source_label":"Plantago lanceolata","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Poaceae","label":"Poaceae","source_label":"Poaceae","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Quercus.deciduous","label":"Quercus deciduous t.","source_label":"Quercus deciduous t.","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Quercus.evergreen","label":"Quercus evergreen t.","source_label":"Quercus evergreen t.","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Rumex.acetosa.t","label":"Rumex acetosa-t","source_label":"Rumex acetosa-t","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Salix","label":"Salix","source_label":"Salix","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Secale","label":"Secale cereale","source_label":"Secale cereale","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Tilia","label":"Tilia","source_label":"Tilia","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Ulmus","label":"Ulmus","source_label":"Ulmus","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"}]},{"key":"source_pft_codes","label":"Source plant-functional-type codes","metric_count":13,"default_metric_key":"TBE1","membership_evidence":["data/landclim/raw/landclim_ii_reveals_results.zip::LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv#header","data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"],"metrics":[{"key":"TBE1","label":"TBE1","source_label":"TBE1","definition":"Shade-tolerant evergreen trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"TBE2","label":"TBE2","source_label":"TBE2","definition":"Shade-tolerant evergreen trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"IBE","label":"IBE","source_label":"IBE","definition":"Shade-intolerant evergreen trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"MTBE","label":"MTBE","source_label":"MTBE","definition":"Mediterranean shade-tolerant broadleaved evergreen trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"TSE","label":"TSE","source_label":"TSE","definition":"Tall shrub, evergreen","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"MTSE","label":"MTSE","source_label":"MTSE","definition":"Mediterranean broadleaved tall shrubs, evergreen","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"IBS","label":"IBS","source_label":"IBS","definition":"Shade-intolerant summer-green trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"ISTS","label":"ISTS","source_label":"ISTS","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_reveals_results.zip::LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv#header"},{"key":"TBS","label":"TBS","source_label":"TBS","definition":"Shade-tolerant summer-green trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"TSD","label":"TSD","source_label":"TSD","definition":"Tall shrub, summer-green","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"LSE","label":"LSE","source_label":"LSE","definition":"Low shrub, broadleaved evergreen","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"GL","label":"GL","source_label":"GL","definition":"Grassland - all herbs","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"AL","label":"AL","source_label":"AL","definition":"Agricultural land - cereals","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"}]},{"key":"source_land_cover_types","label":"Source land-cover types","metric_count":3,"default_metric_key":"OL","membership_evidence":["data/landclim/raw/landclim_ii_reveals_results.zip::LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv#header","data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"],"metrics":[{"key":"ET","label":"Evergreen trees (ET)","source_label":"Evergreen trees (ET)","definition":"Evergreen trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"ST","label":"Summer-green trees (ST)","source_label":"Summer-green trees (ST)","definition":"Summer-green trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"OL","label":"Open land (OL)","source_label":"Open land (OL)","definition":"Open land","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"}]}],"palette":[{"maximum":20,"color":"#1b4332","label":"0–20%"},{"maximum":40,"color":"#52796f","label":"\u003e20–40%"},{"maximum":60,"color":"#a7c957","label":"\u003e40–60%"},{"maximum":80,"color":"#f2cc8f","label":"\u003e60–80%"},{"maximum":100,"color":"#d97706","label":"\u003e80–100%"}],"evidence_role":"context_only","propagation_use_allowed":false,"interpolation_allowed":false,"cell_count":75,"feature_count":1875,"quality_classes":["high","low","no_pollen_data"],"quality_class_counts":{"high":628,"low":940,"no_pollen_data":307},"no_pollen_data_display_posture":"null_not_zero","country_cell_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26},"windows_oldest_to_present":[{"label":"11200-11700 BP","time_start_bp":11200,"time_end_bp":11700,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"10700-11200 BP","time_start_bp":10700,"time_end_bp":11200,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"10200-10700 BP","time_start_bp":10200,"time_end_bp":10700,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"9700-10200 BP","time_start_bp":9700,"time_end_bp":10200,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"9200-9700 BP","time_start_bp":9200,"time_end_bp":9700,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"8700-9200 BP","time_start_bp":8700,"time_end_bp":9200,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"8200-8700 BP","time_start_bp":8200,"time_end_bp":8700,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"7700-8200 BP","time_start_bp":7700,"time_end_bp":8200,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"7200-7700 BP","time_start_bp":7200,"time_end_bp":7700,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"6700-7200 BP","time_start_bp":6700,"time_end_bp":7200,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"6200-6700 BP","time_start_bp":6200,"time_end_bp":6700,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"5700-6200 BP","time_start_bp":5700,"time_end_bp":6200,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"5200-5700 BP","time_start_bp":5200,"time_end_bp":5700,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"4700-5200 BP","time_start_bp":4700,"time_end_bp":5200,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"4200-4700 BP","time_start_bp":4200,"time_end_bp":4700,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"3700-4200 BP","time_start_bp":3700,"time_end_bp":4200,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"3200-3700 BP","time_start_bp":3200,"time_end_bp":3700,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"2700-3200 BP","time_start_bp":2700,"time_end_bp":3200,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"2200-2700 BP","time_start_bp":2200,"time_end_bp":2700,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"1700-2200 BP","time_start_bp":1700,"time_end_bp":2200,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"1200-1700 BP","time_start_bp":1200,"time_end_bp":1700,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"700-1200 BP","time_start_bp":700,"time_end_bp":1200,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"350-700 BP","time_start_bp":350,"time_end_bp":700,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"100-350 BP","time_start_bp":100,"time_end_bp":350,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"0-100 BP","time_start_bp":0,"time_end_bp":100,"feature_count":75,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}}],"download_schema_version":"modeled-context-visible-frame.v3"};
+      const MODELED_CONTEXT = {"schema_version":"modeled-context-manifest.v3","status":"available","reason_code":null,"layer_key":"landclim-reveals-temporal-grid","dataset_id":"937075","dataset_doi":"https://doi.org/10.1594/PANGAEA.937075","method_citation":"Githumbi et al. (2022), European pollen-based REVEALS land-cover reconstructions for the Holocene","method_doi":"https://doi.org/10.5194/essd-14-1581-2022","metric_key":"OL","metric_label":"Open land","value_unit":"percentage_cover","default_metric_family_key":"source_land_cover_types","metric_family_count":3,"metric_count":47,"estimate_standard_error_pair_count":88125,"land_cover_pft_reconciliation_count":5625,"metric_families":[{"key":"exact_taxa","label":"Exact taxa / pollen-morphological types","metric_count":31,"default_metric_key":"Abies.alba","membership_evidence":["data/landclim/raw/landclim_ii_reveals_results.zip::LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv#header","data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"],"metrics":[{"key":"Abies.alba","label":"Abies alba","source_label":"Abies alba","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Alnus.glutinosa","label":"Alnus glutinosa","source_label":"Alnus glutinosa","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Amanranthaceae.Chenopodiaceae","label":"Amaranthaceae/Chenopodiaceae","source_label":"Amaranthaceae/Chenopodiaceae","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Artemisia","label":"Artemisia","source_label":"Artemisia","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Betula","label":"Betula","source_label":"Betula","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Buxus.sempervirens","label":"Buxus sempervirens","source_label":"Buxus sempervirens","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Calluna.vulgaris","label":"Calluna vulgaris","source_label":"Calluna vulgaris","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Carpinus.betulus","label":"Carpinus betulus","source_label":"Carpinus betulus","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Carpinus.orientalis","label":"Carpinus orientalis","source_label":"Carpinus orientalis","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Castanea","label":"Castanea sativa","source_label":"Castanea sativa","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Cerealia.t","label":"Cerealia-t","source_label":"Cerealia-t","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Corylus.avellana","label":"Corylus avellana","source_label":"Corylus avellana","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Cyperaceae","label":"Cyperaceae","source_label":"Cyperaceae","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Ericaceae","label":"Ericaceae**","source_label":"Ericaceae**","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Fagus.sylvatica","label":"Fagus sylvatica","source_label":"Fagus sylvatica","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Filipendula","label":"Filipendula","source_label":"Filipendula","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Fraxinus","label":"Fraxinus","source_label":"Fraxinus","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Juniperus","label":"Juniperus communis","source_label":"Juniperus communis","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Phillyrea","label":"Phillyrea","source_label":"Phillyrea","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Picea","label":"Picea abies","source_label":"Picea abies","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Pinus","label":"Pinus sylvestris","source_label":"Pinus sylvestris","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Pistacia","label":"Pistacia","source_label":"Pistacia","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Plantago.lanceolata.type","label":"Plantago lanceolata","source_label":"Plantago lanceolata","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Poaceae","label":"Poaceae","source_label":"Poaceae","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Quercus.deciduous","label":"Quercus deciduous t.","source_label":"Quercus deciduous t.","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Quercus.evergreen","label":"Quercus evergreen t.","source_label":"Quercus evergreen t.","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Rumex.acetosa.t","label":"Rumex acetosa-t","source_label":"Rumex acetosa-t","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Salix","label":"Salix","source_label":"Salix","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Secale","label":"Secale cereale","source_label":"Secale cereale","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Tilia","label":"Tilia","source_label":"Tilia","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"Ulmus","label":"Ulmus","source_label":"Ulmus","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"}]},{"key":"source_pft_codes","label":"Source plant-functional-type codes","metric_count":13,"default_metric_key":"TBE1","membership_evidence":["data/landclim/raw/landclim_ii_reveals_results.zip::LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv#header","data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"],"metrics":[{"key":"TBE1","label":"TBE1","source_label":"TBE1","definition":"Shade-tolerant evergreen trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"TBE2","label":"TBE2","source_label":"TBE2","definition":"Shade-tolerant evergreen trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"IBE","label":"IBE","source_label":"IBE","definition":"Shade-intolerant evergreen trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"MTBE","label":"MTBE","source_label":"MTBE","definition":"Mediterranean shade-tolerant broadleaved evergreen trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"TSE","label":"TSE","source_label":"TSE","definition":"Tall shrub, evergreen","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"MTSE","label":"MTSE","source_label":"MTSE","definition":"Mediterranean broadleaved tall shrubs, evergreen","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"IBS","label":"IBS","source_label":"IBS","definition":"Shade-intolerant summer-green trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"ISTS","label":"ISTS","source_label":"ISTS","definition":null,"membership_evidence":"data/landclim/raw/landclim_ii_reveals_results.zip::LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv#header"},{"key":"TBS","label":"TBS","source_label":"TBS","definition":"Shade-tolerant summer-green trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"TSD","label":"TSD","source_label":"TSD","definition":"Tall shrub, summer-green","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"LSE","label":"LSE","source_label":"LSE","definition":"Low shrub, broadleaved evergreen","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"GL","label":"GL","source_label":"GL","definition":"Grassland - all herbs","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"AL","label":"AL","source_label":"AL","definition":"Agricultural land - cereals","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"}]},{"key":"source_land_cover_types","label":"Source land-cover types","metric_count":3,"default_metric_key":"OL","membership_evidence":["data/landclim/raw/landclim_ii_reveals_results.zip::LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv#header","data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"],"metrics":[{"key":"ET","label":"Evergreen trees (ET)","source_label":"Evergreen trees (ET)","definition":"Evergreen trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"ST","label":"Summer-green trees (ST)","source_label":"Summer-green trees (ST)","definition":"Summer-green trees","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"},{"key":"OL","label":"Open land (OL)","source_label":"Open land (OL)","definition":"Open land","membership_evidence":"data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"}]}],"palette":[{"maximum":20,"color":"#1b4332","label":"0–20%"},{"maximum":40,"color":"#52796f","label":"\u003e20–40%"},{"maximum":60,"color":"#a7c957","label":"\u003e40–60%"},{"maximum":80,"color":"#f2cc8f","label":"\u003e60–80%"},{"maximum":100,"color":"#d97706","label":"\u003e80–100%"}],"evidence_role":"context_only","propagation_use_allowed":false,"interpolation_allowed":false,"cell_count":75,"feature_count":1875,"quality_classes":["high","low","no_pollen_data"],"quality_class_counts":{"high":628,"low":940,"no_pollen_data":307},"no_pollen_data_display_posture":"null_not_zero","country_cell_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26},"windows_oldest_to_present":[{"label":"11200-11700 BP","time_start_bp":11200,"time_end_bp":11700,"feature_count":75,"no_pollen_data_count":48,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"10700-11200 BP","time_start_bp":10700,"time_end_bp":11200,"feature_count":75,"no_pollen_data_count":37,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"10200-10700 BP","time_start_bp":10200,"time_end_bp":10700,"feature_count":75,"no_pollen_data_count":29,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"9700-10200 BP","time_start_bp":9700,"time_end_bp":10200,"feature_count":75,"no_pollen_data_count":22,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"9200-9700 BP","time_start_bp":9200,"time_end_bp":9700,"feature_count":75,"no_pollen_data_count":16,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"8700-9200 BP","time_start_bp":8700,"time_end_bp":9200,"feature_count":75,"no_pollen_data_count":16,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"8200-8700 BP","time_start_bp":8200,"time_end_bp":8700,"feature_count":75,"no_pollen_data_count":12,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"7700-8200 BP","time_start_bp":7700,"time_end_bp":8200,"feature_count":75,"no_pollen_data_count":10,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"7200-7700 BP","time_start_bp":7200,"time_end_bp":7700,"feature_count":75,"no_pollen_data_count":9,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"6700-7200 BP","time_start_bp":6700,"time_end_bp":7200,"feature_count":75,"no_pollen_data_count":9,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"6200-6700 BP","time_start_bp":6200,"time_end_bp":6700,"feature_count":75,"no_pollen_data_count":8,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"5700-6200 BP","time_start_bp":5700,"time_end_bp":6200,"feature_count":75,"no_pollen_data_count":9,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"5200-5700 BP","time_start_bp":5200,"time_end_bp":5700,"feature_count":75,"no_pollen_data_count":7,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"4700-5200 BP","time_start_bp":4700,"time_end_bp":5200,"feature_count":75,"no_pollen_data_count":6,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"4200-4700 BP","time_start_bp":4200,"time_end_bp":4700,"feature_count":75,"no_pollen_data_count":8,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"3700-4200 BP","time_start_bp":3700,"time_end_bp":4200,"feature_count":75,"no_pollen_data_count":5,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"3200-3700 BP","time_start_bp":3200,"time_end_bp":3700,"feature_count":75,"no_pollen_data_count":3,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"2700-3200 BP","time_start_bp":2700,"time_end_bp":3200,"feature_count":75,"no_pollen_data_count":5,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"2200-2700 BP","time_start_bp":2200,"time_end_bp":2700,"feature_count":75,"no_pollen_data_count":5,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"1700-2200 BP","time_start_bp":1700,"time_end_bp":2200,"feature_count":75,"no_pollen_data_count":6,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"1200-1700 BP","time_start_bp":1200,"time_end_bp":1700,"feature_count":75,"no_pollen_data_count":5,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"700-1200 BP","time_start_bp":700,"time_end_bp":1200,"feature_count":75,"no_pollen_data_count":8,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"350-700 BP","time_start_bp":350,"time_end_bp":700,"feature_count":75,"no_pollen_data_count":5,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"100-350 BP","time_start_bp":100,"time_end_bp":350,"feature_count":75,"no_pollen_data_count":9,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}},{"label":"0-100 BP","time_start_bp":0,"time_end_bp":100,"feature_count":75,"no_pollen_data_count":10,"country_counts":{"Denmark":6,"Finland":19,"Norway":24,"Sweden":26}}],"download_schema_version":"modeled-context-visible-frame.v3"};
       const INITIAL_BOUNDS = [[54.0,4.0],[72.0,35.0]];
       const ALL_LAYERS = [...POINT_LAYERS, ...POLYGON_LAYERS];
       const ATLAS_EVIDENCE = STATIC_ATLAS_INLINE
@@ -2669,6 +2808,8 @@
       const animalEvidenceConfidence = document.getElementById('animal-evidence-confidence');
       const animalEvidenceState = document.getElementById('animal-evidence-state');
       const legendItems = document.getElementById('legend-items');
+      const topbarSearch = document.getElementById('topbar-search');
+      const searchToggleButton = document.getElementById('search-toggle');
       const searchInput = document.getElementById('search-input');
       const searchClearButton = document.getElementById('search-clear');
       const searchResults = document.getElementById('search-results');
@@ -2716,6 +2857,12 @@
       const densityOpacitySlider = document.getElementById('density-opacity-slider');
       const densityOpacityValue = document.getElementById('density-opacity-value');
       const emptyState = document.getElementById('empty-state');
+      const atlasCaptureRole = document.getElementById('atlas-capture-role');
+      const atlasCaptureTime = document.getElementById('atlas-capture-time');
+      const atlasCaptureTitle = document.getElementById('atlas-capture-title');
+      const atlasCaptureCounts = document.getElementById('atlas-capture-counts');
+      const atlasCaptureKey = document.getElementById('atlas-capture-key');
+      const atlasCaptureCaveat = document.getElementById('atlas-capture-caveat');
       const densityRamp = document.getElementById('density-ramp');
       const countrySummary = document.getElementById('country-summary');
       const topbarStatePill = document.getElementById('topbar-state-pill');
@@ -2818,7 +2965,7 @@
         return Math.max(1, Math.min(TIME_INTERVAL_MAX, Math.round(selected)));
       }
       function defaultPanelCollapsed() {
-        return mobileLayoutQuery.matches;
+        return true;
       }
       function panelPreferenceFromHash() {
         const raw = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
@@ -3680,7 +3827,7 @@
       let activeBasemap = null;
       const failedBasemaps = new Set();
       const basemapErrorCounts = new Map();
-      let legendCollapsed = initialState.legend === 'collapsed';
+      let legendCollapsed = initialState.legend !== 'expanded';
       let focusState = null;
       let activeFocusTab = 'overview';
       const DETAIL_TABLE_PAGE_SIZE = 25;
@@ -3917,6 +4064,10 @@
         document.body.classList.toggle('has-mobile-panel-open', mobileOpen);
       }
       function setPanelCollapsed(collapsed, persist = true) {
+        if (!collapsed) {
+          if (!legendCollapsed) setLegendCollapsed(true, false);
+          if (!topbarSearch.hidden) setSearchOpen(false);
+        }
         sidebar.classList.toggle('is-collapsed', collapsed);
         updatePanelToggleLabel();
         syncMobilePanelState();
@@ -3931,10 +4082,32 @@
         }
       }
       function setLegendCollapsed(collapsed, persist = true) {
+        if (!collapsed) {
+          setPanelCollapsed(true, false);
+          setSearchOpen(false);
+          if (focusState) setFocusState(null);
+        }
         legendCollapsed = collapsed;
         legendBody.classList.toggle('is-collapsed', collapsed);
         legendToggleButton.textContent = collapsed ? 'Expand' : 'Collapse';
+        legendToggleButton.setAttribute('aria-expanded', String(!collapsed));
         if (persist) syncHashState();
+      }
+      function setSearchOpen(open, restoreFocus = false) {
+        if (open) {
+          setPanelCollapsed(true, false);
+          setLegendCollapsed(true, false);
+          if (focusState) setFocusState(null);
+        }
+        topbarSearch.hidden = !open;
+        searchToggleButton.setAttribute('aria-expanded', String(open));
+        if (open) {
+          searchInput.focus({ preventScroll: true });
+          buildSearchResults();
+          return;
+        }
+        searchResults.hidden = true;
+        if (restoreFocus) searchToggleButton.focus({ preventScroll: true });
       }
       function openHelpDialog() {
         if (!helpDialog.hidden) return;
@@ -3993,7 +4166,7 @@
         if (sidebar.classList.contains('is-collapsed') !== defaultPanelCollapsed()) {
           params.set('panel', sidebar.classList.contains('is-collapsed') ? 'collapsed' : 'open');
         }
-        if (legendCollapsed) params.set('legend', 'collapsed');
+        if (!legendCollapsed) params.set('legend', 'expanded');
         const nextHash = params.toString();
         const desiredHash = nextHash ? `#${nextHash}` : '';
         if (window.location.hash !== desiredHash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${desiredHash}`);
@@ -4031,6 +4204,10 @@
         highlightedPointEntry = entry;
       }
       function setFocusState(nextState) {
+        if (nextState) {
+          setLegendCollapsed(true, false);
+          setSearchOpen(false);
+        }
         focusState = nextState;
         activeFocusTab = 'overview';
         detailTablePages.clear();
@@ -5178,6 +5355,9 @@
               pane: 'boundaryPane',
               style(feature) {
                 const country = feature.properties.country || '';
+                if (document.documentElement.classList.contains('atlas-capture-mode')) {
+                  return { color: '#64748b', weight: 1.1, fillColor: '#f8fafc', fillOpacity: 0.025, opacity: 0.62 };
+                }
                 const style = countryStyle(country);
                 return { color: style.stroke, weight: activeCountries.has(country) ? 2.2 : 1.2, fillColor: style.fill, fillOpacity: activeCountries.has(country) ? 0.10 : 0.02, opacity: activeCountries.has(country) ? 0.95 : 0.45 };
               },
@@ -5338,7 +5518,7 @@
             focusPointAtVisibleIndex(visiblePointEntries.indexOf(match));
             map.flyTo([coordinates.latitude, coordinates.longitude], Math.max(map.getZoom(), 8), { duration: 0.7 });
             window.setTimeout(() => match.marker.openPopup(), 250);
-            searchResults.hidden = true;
+            setSearchOpen(false);
           });
         });
       }
@@ -5398,8 +5578,12 @@
         densityOpacityValue.textContent = `${Math.round(densityOpacity * 100)}%`;
         emptyState.hidden = visiblePointEntries.length > 0 || renderedPolygonLayers.length > 0;
         syncHashState();
+        if (document.documentElement.classList.contains('atlas-capture-mode') && atlasCapturePresentation !== null) {
+          renderAtlasCaptureOverlay(atlasCaptureSnapshot());
+        }
       }
       const ATLAS_CAPTURE_API_VERSION = 'atlas-capture.v1';
+      let atlasCapturePresentation = null;
       function captureFrameNumber(value, label) {
         if (typeof value !== 'number' || !Number.isFinite(value)) throw new Error(`${label} must be a finite number`);
         return value;
@@ -5466,6 +5650,10 @@
         const sourceWindowLabel = String(frameSpec.source_window_label || '');
         const sourceWindowIndex = MODELED_CONTEXT_WINDOWS.findIndex((sourceWindow) => sourceWindow.label === sourceWindowLabel);
         if (sourceWindowIndex < 0) throw new Error('capture modeled-context source window is unavailable');
+        const sourceWindow = MODELED_CONTEXT_WINDOWS[sourceWindowIndex];
+        if (!Number.isInteger(frameSpec.no_pollen_data_count) || frameSpec.no_pollen_data_count < 0 || frameSpec.no_pollen_data_count > sourceWindow.feature_count || frameSpec.no_pollen_data_count !== sourceWindow.no_pollen_data_count) {
+          throw new Error('capture modeled-context no-pollen denominator differs');
+        }
         const family = modeledContextFamilyByKey(String(frameSpec.metric_family_key || modeledContextFamilyKey));
         if (!family) throw new Error('capture modeled-context metric family is unavailable');
         const metricKey = String(frameSpec.metric_key || family.default_metric_key);
@@ -5499,7 +5687,22 @@
         const sourceFacet = sourceLayer
           ? sourceChronologyFacetForSelection(sourceLayer, activeSourceChronologyCode, activeSourceChronologyTaxon)
           : null;
+        const visibleSourceEntries = visiblePointEntries.filter(({ layer }) => layer.semantic_role === 'source_chronology_context');
+        const visibleSourceObservationValues = visibleSourceEntries.map(({ feature }) => sourceChronologyCount(feature.observation_denominator));
+        const visibleSourceObservationDenominator = visibleSourceObservationValues.every((value) => value !== null)
+          ? visibleSourceObservationValues.reduce((total, value) => total + value, 0)
+          : null;
         const sourceWindow = modeledContextActive ? currentModeledContextWindow() : null;
+        const orientationLayerKeys = atlasCaptureOrientationKeys();
+        const evidenceLayerKey = modeledContextActive ? MODELED_CONTEXT.layer_key : (sourceLayer?.key || null);
+        const mapBounds = document.getElementById('map').getBoundingClientRect();
+        const overlayBounds = document.getElementById('atlas-capture-overlay').getBoundingClientRect();
+        const overlayVisible = overlayBounds.width > 0 && overlayBounds.height > 0;
+        const overlayOverlapsMap = overlayVisible
+          && overlayBounds.left < mapBounds.right
+          && overlayBounds.right > mapBounds.left
+          && overlayBounds.top < mapBounds.bottom
+          && overlayBounds.bottom > mapBounds.top;
         return {
           capture_api_version: ATLAS_CAPTURE_API_VERSION,
           build_id: STATIC_ATLAS_BOOTSTRAP.build_id,
@@ -5515,11 +5718,14 @@
             source_taxon: activeSourceChronologyLevel === 'source_taxon' ? activeSourceChronologyTaxon : null,
             facet_node_count: sourceFacet ? sourceFacet.node_count : null,
             facet_observation_denominator: sourceFacet ? sourceFacet.observation_denominator : null,
+            visible_node_count: visibleSourceEntries.length,
+            visible_observation_denominator: visibleSourceObservationDenominator,
           },
           modeled_context: sourceWindow ? {
             window_index: modeledContextWindowIndex,
             window_label: sourceWindow.label,
             feature_count: sourceWindow.feature_count,
+            no_pollen_data_count: sourceWindow.no_pollen_data_count,
             metric_family_key: modeledContextFamilyKey,
             metric_key: modeledContextMetricKey,
             evidence_role: 'context_only',
@@ -5528,8 +5734,29 @@
           } : null,
           visible_point_count: visiblePointEntries.length,
           visible_polygon_layer_count: renderedPolygonLayers.length,
+          visible_polygon_feature_count: visiblePolygonFeatureEntries.length,
           visible_source_chronology_point_count: visiblePointEntries.filter(({ layer }) => layer.semantic_role === 'source_chronology_context').length,
           visible_modeled_context_feature_count: visiblePolygonFeatureEntries.filter(({ layer, feature }) => modeledContextActive && isModeledContextFeature(layer, feature.properties || {})).length,
+          visible_modeled_no_pollen_data_count: modeledContextActive ? modeledContextFrameQualitySummary().no_pollen_data : null,
+          capture_layers: {
+            active_keys: [...activeLayerKeys].sort(),
+            evidence_layer_key: evidenceLayerKey,
+            orientation_keys: [...orientationLayerKeys].sort(),
+          },
+          capture_presentation: atlasCapturePresentationSnapshot(),
+          capture_layout: {
+            overlay_visible: overlayVisible,
+            overlay_bounded: overlayVisible
+              && overlayBounds.left >= 0
+              && overlayBounds.right <= window.innerWidth
+              && overlayBounds.top >= 0
+              && overlayBounds.bottom <= window.innerHeight,
+            overlay_overlaps_map: overlayOverlapsMap,
+            map_width_px: Math.round(mapBounds.width),
+            map_height_px: Math.round(mapBounds.height),
+            viewport_width_px: window.innerWidth,
+            viewport_height_px: window.innerHeight,
+          },
           visible_governed_candidate_count: renderedEdgeLayers.length,
           scientific_posture: {
             classifications_status: ATLAS_EVIDENCE.classifications_status,
@@ -5538,16 +5765,135 @@
           },
         };
       }
+      function atlasCaptureOrientationKeys() {
+        return ALL_LAYERS.filter((layer) => layer.group === 'orientation').map((layer) => layer.key);
+      }
+      function atlasCaptureSourceTitle(sourceLayer) {
+        if (!sourceLayer) return 'Neotoma source chronology evidence';
+        if (sourceLayer.node_level === 'source_ecological_code') {
+          const row = sourceLayer.facet_metadata.source_ecological_codes.find((candidate) => candidate.value === activeSourceChronologyCode);
+          return row ? `Neotoma ${row.value} — ${row.label}` : `Neotoma ${activeSourceChronologyCode}`;
+        }
+        if (sourceLayer.node_level === 'source_taxon') {
+          const row = sourceLayer.facet_metadata.source_taxa.find((candidate) => candidate.value === activeSourceChronologyTaxon);
+          return row ? `Neotoma exact source-reported taxon — ${row.label}` : 'Neotoma exact source-reported taxon';
+        }
+        return 'Neotoma source sample presence';
+      }
+      function atlasCaptureKeyItemHtml(item) {
+        const label = `<span class="atlas-capture-key-label">${escapeHtml(item.label)}</span>`;
+        if (item.cue === 'point') {
+          return `<span class="atlas-capture-key-item" data-capture-cue="point"><span class="atlas-capture-swatch atlas-capture-swatch--point" style="background:${escapeHtml(item.fill)};border-color:${escapeHtml(item.stroke)};"></span>${label}</span>`;
+        }
+        if (item.cue === 'cluster-count') {
+          return `<span class="atlas-capture-key-item" data-capture-cue="cluster-count"><span class="atlas-capture-cluster-cue">12</span>${label}</span>`;
+        }
+        if (item.cue === 'line') {
+          return `<span class="atlas-capture-key-item" data-capture-cue="line"><span class="atlas-capture-boundary-cue"></span>${label}</span>`;
+        }
+        return `<span class="atlas-capture-key-item" data-capture-cue="area"><span class="atlas-capture-swatch" style="background:${escapeHtml(item.fill)};border-color:${escapeHtml(item.stroke)};"></span>${label}</span>`;
+      }
+      function atlasCapturePresentationSnapshot() {
+        if (atlasCapturePresentation === null) return null;
+        const keyItems = [...atlasCaptureKey.querySelectorAll('.atlas-capture-key-item')].map((item) => {
+          const cue = item.querySelector('.atlas-capture-swatch, .atlas-capture-cluster-cue, .atlas-capture-boundary-cue');
+          const style = cue ? window.getComputedStyle(cue) : null;
+          return {
+            label: item.querySelector('.atlas-capture-key-label')?.textContent || '',
+            cue: item.getAttribute('data-capture-cue') || '',
+            fill: style?.backgroundColor || '',
+            stroke: item.getAttribute('data-capture-cue') === 'line' ? (style?.borderTopColor || '') : (style?.borderColor || ''),
+          };
+        });
+        return {
+          schema_version: atlasCapturePresentation.schema_version,
+          null_handling: atlasCapturePresentation.null_handling,
+          interpolation_allowed: atlasCapturePresentation.interpolation_allowed,
+          propagation_use_allowed: atlasCapturePresentation.propagation_use_allowed,
+          evidence_role: atlasCapturePresentation.evidence_role,
+          role_label: atlasCaptureRole.textContent || '',
+          title: atlasCaptureTitle.textContent || '',
+          time_label: atlasCaptureTime.textContent || '',
+          counts_label: atlasCaptureCounts.textContent || '',
+          key_labels: keyItems.map((item) => item.label),
+          key_items: keyItems,
+          caveat: atlasCaptureCaveat.textContent || '',
+        };
+      }
+      function commitAtlasCapturePresentation(presentation, keyItems) {
+        atlasCapturePresentation = Object.freeze({
+          schema_version: 'atlas-capture-presentation.v1',
+          null_handling: 'null_not_zero',
+          interpolation_allowed: false,
+          propagation_use_allowed: false,
+          ...presentation,
+        });
+        atlasCaptureRole.textContent = atlasCapturePresentation.role_label;
+        atlasCaptureTime.textContent = atlasCapturePresentation.time_label;
+        atlasCaptureTitle.textContent = atlasCapturePresentation.title;
+        atlasCaptureCounts.textContent = atlasCapturePresentation.counts_label;
+        atlasCaptureKey.innerHTML = keyItems.map(atlasCaptureKeyItemHtml).join('');
+        atlasCaptureCaveat.textContent = atlasCapturePresentation.caveat;
+      }
+      function renderAtlasCaptureOverlay(snapshot) {
+        const { younger_bp: youngerBp, older_bp: olderBp } = snapshot.time_window_bp;
+        const timeLabel = `[${youngerBp}, ${olderBp}] BP · oldest → present`;
+        if (snapshot.source_chronology) {
+          const sourceLayer = sourceChronologyLayerForLevel(snapshot.source_chronology.level);
+          const layerFill = sourceLayer ? layerColor(sourceLayer) : '#1f5ed8';
+          const layerStroke = sourceLayer?.style?.stroke || layerFill;
+          const visibleObservations = snapshot.source_chronology.visible_observation_denominator;
+          const visibleObservationLabel = visibleObservations === null ? 'unavailable' : String(visibleObservations);
+          const keyItems = [
+            { label: 'source record', cue: 'point', fill: layerFill, stroke: layerStroke },
+            { label: 'records grouped at current zoom', cue: 'cluster-count', fill: null, stroke: null },
+            { label: 'country boundary', cue: 'line', fill: null, stroke: '#64748b' },
+          ];
+          commitAtlasCapturePresentation({
+            evidence_role: 'observation_chronology',
+            role_label: 'Observed source chronology',
+            title: atlasCaptureSourceTitle(sourceLayer),
+            time_label: timeLabel,
+            counts_label: `${snapshot.source_chronology.visible_node_count}/${snapshot.source_chronology.facet_node_count} governed source nodes in this interval · ${visibleObservationLabel}/${snapshot.source_chronology.facet_observation_denominator} contributing observations`,
+            caveat: 'Observed source records only · display clusters are not abundance · no interpolation, flow, or propagation inference.',
+          }, keyItems);
+          return;
+        }
+        const metric = currentModeledContextMetric();
+        const sourceWindow = currentModeledContextWindow();
+        const qualityCounts = modeledContextFrameQualitySummary();
+        const title = metric
+          ? `PANGAEA 937075 modeled context — ${metric.label}`
+          : 'PANGAEA 937075 modeled context';
+        const keyItems = [
+          ...(MODELED_CONTEXT.palette || []).map((entry) => ({ label: entry.label, cue: 'area', fill: entry.color, stroke: '#334155' })),
+          { label: 'no pollen data · N/A, not 0', cue: 'area', fill: '#cbd5e1', stroke: '#334155' },
+          { label: 'country boundary', cue: 'line', fill: null, stroke: '#64748b' },
+        ];
+        commitAtlasCapturePresentation({
+          evidence_role: 'modeled_context',
+          role_label: 'Modeled context · published source window',
+          title,
+          time_label: timeLabel,
+          counts_label: `${snapshot.visible_modeled_context_feature_count}/${snapshot.modeled_context?.feature_count ?? 0} published cells visible · ${qualityCounts.no_pollen_data} explicitly have no pollen data · ${sourceWindow?.label || 'source window unavailable'}`,
+          caveat: 'Published modeled cells are context only · no atlas interpolation, flow, or propagation inference.',
+        }, keyItems);
+      }
       async function applyAtlasCaptureFrame(frameSpec) {
         const captureFrame = normalizeAtlasCaptureFrame(frameSpec);
         stopTimePlayback();
         stopModeledContextPlayback();
+        atlasCapturePresentation = null;
         document.documentElement.classList.add('atlas-capture-mode');
+        map.invalidateSize({ animate: false });
         activeCountries = new Set(captureFrame.countries);
         setBasemap(captureFrame.basemap, { sync: false });
         if (captureFrame.storyKind === 'source_chronology') {
           deactivateModeledContext();
           selectSourceChronologyLevel(captureFrame.sourceLevel);
+          const sourceLayer = sourceChronologyLayerForLevel(captureFrame.sourceLevel);
+          activeLayerKeys = new Set(atlasCaptureOrientationKeys());
+          if (sourceLayer) activeLayerKeys.add(sourceLayer.key);
           if (captureFrame.sourceLevel === 'source_ecological_code') {
             activeSourceChronologyCode = captureFrame.sourceCode;
           } else if (captureFrame.sourceLevel === 'source_taxon') {
@@ -5557,9 +5903,8 @@
           timeStartBp = captureFrame.frameWindow.youngerBp;
           timeIntervalYears = captureFrame.frameWindow.olderBp - captureFrame.frameWindow.youngerBp;
         } else {
-          ALL_LAYERS
-            .filter((layer) => layer.semantic_role === 'source_chronology_context')
-            .forEach((layer) => activeLayerKeys.delete(layer.key));
+          activeLayerKeys = new Set(atlasCaptureOrientationKeys());
+          activeLayerKeys.add(MODELED_CONTEXT.layer_key);
           sourceRecordConcentrationActive = false;
           modeledContextFamilyKey = captureFrame.familyKey;
           modeledContextMetricKey = captureFrame.metricKey;
@@ -5571,6 +5916,7 @@
         setPanelCollapsed(true, false);
         setLegendCollapsed(true, false);
         await renderMapState();
+        renderAtlasCaptureOverlay(atlasCaptureSnapshot());
         return awaitAtlasCaptureReady();
       }
       globalThis.BijuxPollenomicsAtlasCapture = Object.freeze({
@@ -5670,6 +6016,7 @@
         densityOpacitySlider.value = '60';
         setPanelCollapsed(defaultPanelCollapsed(), false);
         searchInput.value = '';
+        setSearchOpen(false);
         if (currentBasemap !== DEFAULT_BASEMAP) setBasemap(DEFAULT_BASEMAP, { manual: true });
         renderCountryControls();
         renderLayerControls();
@@ -5733,6 +6080,9 @@
         renderMapState();
       });
       document.getElementById('fit-active').addEventListener('click', fitToActive);
+      searchToggleButton.addEventListener('click', () => {
+        setSearchOpen(topbarSearch.hidden, !topbarSearch.hidden);
+      });
       document.getElementById('reset-view').addEventListener('click', resetView);
       document.getElementById('restore-defaults').addEventListener('click', restoreDefaults);
       document.getElementById('copy-link').addEventListener('click', async () => {
@@ -5934,6 +6284,11 @@
       });
       searchInput.addEventListener('focus', buildSearchResults);
       searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          setSearchOpen(false, true);
+          return;
+        }
         if (event.key === 'Enter') {
           const firstResult = searchResults.querySelector('[data-search-index]');
           if (firstResult) firstResult.click();
@@ -6000,6 +6355,10 @@
         }
         if (event.key === 'Escape' && !helpDialog.hidden) {
           closeHelpDialog();
+          return;
+        }
+        if (event.key === 'Escape' && !topbarSearch.hidden) {
+          setSearchOpen(false, true);
           return;
         }
         if (event.key === 'Escape' && mobileLayoutQuery.matches && !sidebar.classList.contains('is-collapsed')) {
