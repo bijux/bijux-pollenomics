@@ -271,7 +271,7 @@ def _valid_visible_counts(
 ) -> bool:
     ordinal = frame.get("ordinal")
     expected_source_count = (
-        story.expected_visible_feature_counts[cast(int, ordinal)]
+        story.expected_visible_feature_counts[ordinal]
         if story.expected_visible_feature_counts is not None
         and isinstance(ordinal, int)
         else None
