@@ -103,7 +103,7 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
             "activeButton.focus({ preventScroll: true })", MAP_DOCUMENT_TEMPLATE
         )
         self.assertIn(
-            "grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));",
+            "grid-template-columns: minmax(0, 1fr);",
             MAP_DOCUMENT_TEMPLATE,
         )
         self.assertIn(
