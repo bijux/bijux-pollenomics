@@ -261,7 +261,8 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
         helpDialogPasses(layout.help_dialog)),
       source_slider_changes_visibility: Object.values(chronologyJourneys).every((journey) => journey.slider_values_applied
         && journey.visible_counts_within_denominator && journey.distinct_positive_visible_counts >= 2
-        && journey.time_readouts_match),
+        && journey.time_readouts_match
+        && renderedEvidenceChangesWithCounts(journey.frames, 'visible_source_chronology_point_count')),
       chronology_buttons_navigate: Object.values(chronologyJourneys).every((journey) => journey.newer_moves_toward_present
         && journey.older_restores_window) && chronologyJourneys.sample.playback_started_at_oldest
         && chronologyJourneys.sample.playback_stopped,
@@ -437,7 +438,8 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
         && (layout.viewport.width > 900 || layout.time_discoverability.close_restored_focus)),
       time_slider_changes_visibility: timeJourney.interval_is_1000_years
         && timeJourney.slider_values_applied && timeJourney.visible_counts_within_denominator
-        && timeJourney.distinct_visible_counts >= 2 && timeJourney.time_readouts_match,
+        && timeJourney.distinct_visible_counts >= 2 && timeJourney.time_readouts_match
+        && renderedEvidenceChangesWithCounts(timeJourney.frames, 'visible_point_count'),
       time_buttons_navigate: timeJourney.newer_moves_toward_present
         && timeJourney.older_restores_window && timeJourney.playback_started_at_oldest
         && timeJourney.playback_stopped,
@@ -613,6 +615,23 @@ function genericManifestFacts(manifest) {
 async function genericTimeJourney(cdp, pointDenominator) {
   return evaluate(cdp, `(async () => {
     const api = globalThis.BijuxPollenomicsAtlasCapture;
+    const renderedMapEvidenceSignature = () => JSON.stringify(
+      [...document.querySelectorAll([
+        '.leaflet-point-pane path',
+        '.leaflet-point-pane .leaflet-marker-icon',
+        '.leaflet-marker-pane .marker-cluster',
+        '.leaflet-marker-pane .atlas-scientific-marker',
+      ].join(', '))]
+        .map((element) => [
+          element.tagName.toLowerCase(),
+          element.getAttribute('class') || '',
+          element.getAttribute('d') || '',
+          element.getAttribute('style') || '',
+          element.getAttribute('transform') || '',
+          (element.textContent || '').trim(),
+        ])
+        .sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right))),
+    );
     const intervalPreset = [...document.querySelectorAll('[data-time-interval]')]
       .find((button) => button.dataset.timeInterval === '1000');
     if (!intervalPreset) throw new Error('1000-year interval preset is unavailable');
@@ -634,6 +653,7 @@ async function genericTimeJourney(cdp, pointDenominator) {
         requested_start_bp: requestedStart,
         snapshot,
         time_readout: document.getElementById('time-start-value')?.textContent || '',
+        rendered_evidence_signature: renderedMapEvidenceSignature(),
       });
     }
     slider.value = String(maximum);
@@ -1033,6 +1053,23 @@ async function cerealFinderFrame(cdp) {
 async function sliderChronologyJourney(cdp) {
   return evaluate(cdp, `(async () => {
     const api = globalThis.BijuxPollenomicsAtlasCapture;
+    const renderedMapEvidenceSignature = () => JSON.stringify(
+      [...document.querySelectorAll([
+        '.leaflet-point-pane path',
+        '.leaflet-point-pane .leaflet-marker-icon',
+        '.leaflet-marker-pane .marker-cluster',
+        '.leaflet-marker-pane .atlas-scientific-marker',
+      ].join(', '))]
+        .map((element) => [
+          element.tagName.toLowerCase(),
+          element.getAttribute('class') || '',
+          element.getAttribute('d') || '',
+          element.getAttribute('style') || '',
+          element.getAttribute('transform') || '',
+          (element.textContent || '').trim(),
+        ])
+        .sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right))),
+    );
     const slider = document.getElementById('time-start-slider');
     const older = document.getElementById('time-step-older');
     const newer = document.getElementById('time-step-newer');
@@ -1055,6 +1092,7 @@ async function sliderChronologyJourney(cdp) {
         requested_start_bp: requestedStart,
         snapshot,
         time_readout: document.getElementById('time-start-value')?.textContent || '',
+        rendered_evidence_signature: renderedMapEvidenceSignature(),
       });
     }
     slider.value = String(maximum);
@@ -1163,6 +1201,7 @@ async function responsiveFacts(cdp, width) {
     const mapElement = document.getElementById('map');
     const legendBody = document.getElementById('legend-body');
     const legendToggle = document.getElementById('legend-toggle');
+    const legendPanel = document.getElementById('floating-legend');
     const topbarSearch = document.getElementById('topbar-search');
     const searchToggle = document.getElementById('search-toggle');
     const searchInput = document.getElementById('search-input');
@@ -1177,22 +1216,62 @@ async function responsiveFacts(cdp, width) {
     if (!legendBody.classList.contains('is-collapsed')) legendToggle.click();
     if (!topbarSearch.hidden) searchToggle.click();
     await settle();
-    const samplePoints = [];
-    for (const xRatio of [0.15, 0.5, 0.85]) {
-      for (const yRatio of [0.15, 0.35, 0.55, 0.75, 0.9]) {
-        const hit = document.elementFromPoint(innerWidth * xRatio, innerHeight * yRatio);
-        samplePoints.push(Boolean(hit && mapElement.contains(hit)));
+    const sampleMapVisibility = () => {
+      const mapBox = mapElement.getBoundingClientRect();
+      const samplePoints = [];
+      for (const xRatio of [0.1, 0.3, 0.5, 0.7, 0.9]) {
+        for (const yRatio of [0.2, 0.35, 0.5, 0.65, 0.8]) {
+          const hit = document.elementFromPoint(
+            mapBox.left + (mapBox.width * xRatio),
+            mapBox.top + (mapBox.height * yRatio),
+          );
+          samplePoints.push(Boolean(hit && mapElement.contains(hit)));
+        }
       }
-    }
-    const mapCenterHit = document.elementFromPoint(innerWidth / 2, innerHeight / 2);
+      const mapCenterHit = document.elementFromPoint(
+        mapBox.left + (mapBox.width / 2),
+        mapBox.top + (mapBox.height / 2),
+      );
+      return {
+        center_uncovered: Boolean(mapCenterHit && mapElement.contains(mapCenterHit)),
+        uncovered_sample_count: samplePoints.filter(Boolean).length,
+        sample_count: samplePoints.length,
+      };
+    };
     const clearMap = {
       panel_collapsed: sidebar.classList.contains('is-collapsed'),
       legend_collapsed: legendBody.classList.contains('is-collapsed'),
       search_collapsed: topbarSearch.hidden && searchToggle.getAttribute('aria-expanded') === 'false',
-      center_uncovered: Boolean(mapCenterHit && mapElement.contains(mapCenterHit)),
-      uncovered_sample_count: samplePoints.filter(Boolean).length,
-      sample_count: samplePoints.length,
+      ...sampleMapVisibility(),
     };
+    legendToggle.focus();
+    legendToggle.click();
+    await settle();
+    const legendPanelBox = box(legendPanel);
+    const legendBodyBox = box(legendBody);
+    const legendBodyStyle = getComputedStyle(legendBody);
+    const legendPanelStyle = getComputedStyle(legendPanel);
+    const expandedLegend = {
+      expanded: !legendBody.classList.contains('is-collapsed'),
+      toggle_expanded: legendToggle.getAttribute('aria-expanded') === 'true',
+      toggle_uncovered: uncovered(legendToggle),
+      body_visible: visible(legendBody),
+      panel_bounded: legendPanelBox.left >= -1 && legendPanelBox.right <= innerWidth + 1
+        && legendPanelBox.top >= -1 && legendPanelBox.bottom <= innerHeight + 1,
+      body_bounded: legendBodyBox.left >= legendPanelBox.left - 1
+        && legendBodyBox.right <= legendPanelBox.right + 1
+        && legendBodyBox.top >= legendPanelBox.top - 1
+        && legendBodyBox.bottom <= legendPanelBox.bottom + 1,
+      content_accessible: legendBody.scrollHeight <= legendBody.clientHeight + 1
+        || ['auto', 'scroll'].includes(legendBodyStyle.overflowY)
+        || ['auto', 'scroll'].includes(legendPanelStyle.overflowY),
+      map_visibility: sampleMapVisibility(),
+      collapsed_after_journey: false,
+    };
+    legendToggle.click();
+    await settle();
+    expandedLegend.collapsed_after_journey = legendBody.classList.contains('is-collapsed')
+      && legendToggle.getAttribute('aria-expanded') === 'false';
     searchToggle.focus();
     searchToggle.click();
     await settle();
@@ -1209,6 +1288,7 @@ async function responsiveFacts(cdp, width) {
       input_uncovered: uncovered(searchInput),
       input_focused: document.activeElement === searchInput,
       toggle_expanded: searchToggle.getAttribute('aria-expanded') === 'true',
+      map_visibility: sampleMapVisibility(),
       escape_hides_region: false,
       escape_collapses_toggle: false,
       escape_restores_focus: false,
@@ -1273,6 +1353,7 @@ async function responsiveFacts(cdp, width) {
     });
     return {
       viewport: { width: innerWidth, height: innerHeight }, elements, mobile, clear_map: clearMap,
+      expanded_legend: expandedLegend,
       search_control: searchControl,
       chronology: chronologyBoxes,
       chronology_controls_visible: chronologyControlsVisible,
@@ -1564,6 +1645,55 @@ function exactTaxonState(result, expected, labelPattern) {
     && result.selected_value === expected.taxon;
 }
 
+function renderedEvidenceChangesWithCounts(frames, countField) {
+  if (!Array.isArray(frames) || frames.length < 2 || typeof countField !== 'string' || !countField) return false;
+  if (frames.some((frame) => typeof frame?.rendered_evidence_signature !== 'string'
+    || frame.rendered_evidence_signature.length === 0
+    || !Number.isInteger(frame?.snapshot?.[countField]))) return false;
+  return frames.every((frame, index) => frames.slice(index + 1).every((other) => (
+    frame.snapshot[countField] === other.snapshot[countField]
+      || frame.rendered_evidence_signature !== other.rendered_evidence_signature
+  )));
+}
+
+function captureColorIsVisible(value) {
+  if (typeof value !== 'string') return false;
+  const normalized = value.trim().toLowerCase().replace(/\s+/g, '');
+  return normalized.length > 0
+    && normalized !== 'transparent'
+    && !/^#[0-9a-f]{3}0$/.test(normalized)
+    && !/^#[0-9a-f]{6}00$/.test(normalized)
+    && !/^(?:rgba?|hsla?)\([^)]*(?:,|\/)0(?:\.0+)?%?\)$/.test(normalized)
+    && !/^color\([^/]+\/0(?:\.0+)?%?\)$/.test(normalized);
+}
+
+function captureKeyIsClear(presentation, evidenceRole) {
+  const expected = evidenceRole === 'observation_chronology'
+    ? [
+        ['source record', 'point'],
+        ['records grouped at current zoom', 'cluster-count'],
+        ['country boundary', 'line'],
+      ]
+    : evidenceRole === 'modeled_context'
+      ? [
+          ['0–20%', 'area'],
+          ['>20–40%', 'area'],
+          ['>40–60%', 'area'],
+          ['>60–80%', 'area'],
+          ['>80–100%', 'area'],
+          ['no pollen data · N/A, not 0', 'area'],
+          ['country boundary', 'line'],
+        ]
+      : null;
+  const items = presentation?.key_items;
+  if (!expected || !Array.isArray(items) || items.length !== expected.length) return false;
+  if (JSON.stringify(presentation.key_labels) !== JSON.stringify(expected.map(([label]) => label))) return false;
+  return items.every((item, index) => item?.label === expected[index][0]
+    && item.cue === expected[index][1]
+    && captureColorIsVisible(item.stroke)
+    && (item.cue === 'line' || captureColorIsVisible(item.fill)));
+}
+
 function captureFrameIsClear(snapshot, evidenceRole) {
   const layers = snapshot?.capture_layers;
   const presentation = snapshot?.capture_presentation;
@@ -1581,7 +1711,7 @@ function captureFrameIsClear(snapshot, evidenceRole) {
     && presentation.interpolation_allowed === false
     && presentation.propagation_use_allowed === false
     && typeof presentation.title === 'string' && presentation.title.length > 0
-    && Array.isArray(presentation.key_labels) && presentation.key_labels.length > 0
+    && captureKeyIsClear(presentation, evidenceRole)
     && /no .*propagation inference/i.test(presentation.caveat || '')
     && layout?.overlay_visible === true
     && layout.overlay_bounded === true
@@ -1598,6 +1728,26 @@ function captureFrameIsClear(snapshot, evidenceRole) {
     && snapshot.visible_polygon_feature_count >= snapshot.visible_polygon_layer_count;
 }
 
+function mapVisibilityPasses(facts) {
+  return facts?.center_uncovered === true
+    && Number.isInteger(facts.uncovered_sample_count)
+    && Number.isInteger(facts.sample_count)
+    && facts.sample_count >= 25
+    && facts.uncovered_sample_count >= Math.ceil(facts.sample_count * 0.7);
+}
+
+function expandedLegendPasses(facts) {
+  return facts?.expanded === true
+    && facts.toggle_expanded === true
+    && facts.toggle_uncovered === true
+    && facts.body_visible === true
+    && facts.panel_bounded === true
+    && facts.body_bounded === true
+    && facts.content_accessible === true
+    && facts.collapsed_after_journey === true
+    && mapVisibilityPasses(facts.map_visibility);
+}
+
 function desktopLayoutPasses(layout) {
   return layout.viewport.width >= 901
     && layout.horizontally_bounded
@@ -1605,8 +1755,8 @@ function desktopLayoutPasses(layout) {
     && layout.clear_map.panel_collapsed
     && layout.clear_map.legend_collapsed
     && layout.clear_map.search_collapsed
-    && layout.clear_map.center_uncovered
-    && layout.clear_map.uncovered_sample_count >= Math.ceil(layout.clear_map.sample_count * 0.4)
+    && mapVisibilityPasses(layout.clear_map)
+    && expandedLegendPasses(layout.expanded_legend)
     && searchControlPasses(layout.search_control)
     && layout.elements.topbar.width > 0
     && layout.elements.sidebar.width > 0;
@@ -1636,8 +1786,8 @@ function mobileLayoutPasses(layout) {
     && layout.clear_map.panel_collapsed
     && layout.clear_map.legend_collapsed
     && layout.clear_map.search_collapsed
-    && layout.clear_map.center_uncovered
-    && layout.clear_map.uncovered_sample_count >= Math.ceil(layout.clear_map.sample_count * 0.4)
+    && mapVisibilityPasses(layout.clear_map)
+    && expandedLegendPasses(layout.expanded_legend)
     && searchControlPasses(layout.search_control)
     && layout.mobile?.collapsed.sidebar_collapsed
     && layout.mobile.collapsed.toggle_visible
@@ -1662,6 +1812,7 @@ function searchControlPasses(facts) {
     && facts.input_uncovered
     && facts.input_focused
     && facts.toggle_expanded
+    && mapVisibilityPasses(facts.map_visibility)
     && facts.escape_hides_region
     && facts.escape_collapses_toggle
     && facts.escape_restores_focus;

@@ -52,7 +52,67 @@ def _run_capture_frame_clarity(
         Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
     )
     match = re.search(
-        r"function captureFrameIsClear.*?\n}\n\nfunction desktopLayoutPasses",
+        r"function captureColorIsVisible.*?\n}\n\nfunction mapVisibilityPasses",
+        probe,
+        re.DOTALL,
+    )
+    assert match is not None
+    function_source = match.group(0).removesuffix("\n\nfunction mapVisibilityPasses")
+    script = (
+        f"{function_source}\n"
+        f"const snapshots = {json.dumps(snapshots)};\n"
+        "const results = Object.fromEntries(Object.entries(snapshots).map("
+        "([name, snapshot]) => [name, captureFrameIsClear("
+        "snapshot, 'observation_chronology')]));\n"
+        "process.stdout.write(JSON.stringify(results));\n"
+    )
+    return subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+
+def _run_rendered_evidence_checks(
+    scenarios: dict[str, dict[str, object]],
+) -> subprocess.CompletedProcess[str]:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    match = re.search(
+        r"function renderedEvidenceChangesWithCounts.*?\n}\n\nfunction captureColorIsVisible",
+        probe,
+        re.DOTALL,
+    )
+    assert match is not None
+    function_source = match.group(0).removesuffix(
+        "\n\nfunction captureColorIsVisible"
+    )
+    script = (
+        f"{function_source}\n"
+        f"const scenarios = {json.dumps(scenarios)};\n"
+        "const results = Object.fromEntries(Object.entries(scenarios).map("
+        "([name, value]) => [name, renderedEvidenceChangesWithCounts("
+        "value.frames, value.count_field)]));\n"
+        "process.stdout.write(JSON.stringify(results));\n"
+    )
+    return subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+
+def _run_map_visibility_checks(
+    scenarios: dict[str, dict[str, object]],
+) -> subprocess.CompletedProcess[str]:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    match = re.search(
+        r"function mapVisibilityPasses.*?\n}\n\nfunction desktopLayoutPasses",
         probe,
         re.DOTALL,
     )
@@ -60,10 +120,10 @@ def _run_capture_frame_clarity(
     function_source = match.group(0).removesuffix("\n\nfunction desktopLayoutPasses")
     script = (
         f"{function_source}\n"
-        f"const snapshots = {json.dumps(snapshots)};\n"
-        "const results = Object.fromEntries(Object.entries(snapshots).map("
-        "([name, snapshot]) => [name, captureFrameIsClear("
-        "snapshot, 'observation_chronology')]));\n"
+        f"const scenarios = {json.dumps(scenarios)};\n"
+        "const results = Object.fromEntries(Object.entries(scenarios).map("
+        "([name, value]) => [name, value.legend "
+        "? expandedLegendPasses(value.facts) : mapVisibilityPasses(value.facts)]));\n"
         "process.stdout.write(JSON.stringify(results));\n"
     )
     return subprocess.run(
@@ -208,6 +268,72 @@ def test_generic_time_journey_counts_zero_as_a_real_visibility_state() -> None:
     assert "filter((count) => count > 0)" not in journey.group(0)
     assert "slider.value = slider.max" in probe
     assert "after.time_window_bp.younger_bp > before.time_window_bp.younger_bp" in probe
+
+
+def test_slider_journeys_bind_count_changes_to_rendered_map_evidence() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    assert probe.count("const renderedMapEvidenceSignature = () => JSON.stringify(") == 2
+    assert probe.count("rendered_evidence_signature: renderedMapEvidenceSignature()") == 2
+    assert ".leaflet-point-pane path" in probe
+    assert ".leaflet-marker-pane .marker-cluster" in probe
+    assert (
+        "renderedEvidenceChangesWithCounts(journey.frames, "
+        "'visible_source_chronology_point_count')"
+    ) in probe
+    assert (
+        "renderedEvidenceChangesWithCounts(timeJourney.frames, "
+        "'visible_point_count')"
+    ) in probe
+
+
+def test_rendered_evidence_check_fails_closed_on_stale_or_missing_rendering() -> None:
+    def frame(count: int, signature: str | None = None) -> dict[str, object]:
+        result: dict[str, object] = {"snapshot": {"visible_point_count": count}}
+        if signature is not None:
+            result["rendered_evidence_signature"] = signature
+        return result
+
+    scenarios = {
+        "valid": {
+            "count_field": "visible_point_count",
+            "frames": [frame(0, "[]"), frame(3, '[["path","three"]]')],
+        },
+        "equal_counts_may_share_rendering": {
+            "count_field": "visible_point_count",
+            "frames": [frame(3, "same"), frame(3, "same")],
+        },
+        "stale_rendering": {
+            "count_field": "visible_point_count",
+            "frames": [frame(0, "same"), frame(3, "same")],
+        },
+        "missing_signature": {
+            "count_field": "visible_point_count",
+            "frames": [frame(0, "[]"), frame(3)],
+        },
+        "blank_signature": {
+            "count_field": "visible_point_count",
+            "frames": [frame(0, "[]"), frame(3, "")],
+        },
+        "one_frame": {
+            "count_field": "visible_point_count",
+            "frames": [frame(0, "[]")],
+        },
+    }
+
+    completed = _run_rendered_evidence_checks(scenarios)
+
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        "valid": True,
+        "equal_counts_may_share_rendering": True,
+        "stale_rendering": False,
+        "missing_signature": False,
+        "blank_signature": False,
+        "one_frame": False,
+    }
 
 
 def test_generic_manifest_counts_fail_closed_instead_of_coercing_null() -> None:
@@ -376,11 +502,86 @@ def test_responsive_contract_proves_desktop_and_bottom_sheet_states() -> None:
     assert "layout.clear_map.panel_collapsed" in probe
     assert "layout.clear_map.legend_collapsed" in probe
     assert "layout.clear_map.search_collapsed" in probe
-    assert "layout.clear_map.center_uncovered" in probe
-    assert "layout.clear_map.uncovered_sample_count" in probe
+    assert "center_uncovered:" in probe
+    assert "uncovered_sample_count:" in probe
+    assert "legendToggle.click()" in probe
+    assert "expanded_legend: expandedLegend" in probe
+    assert "content_accessible:" in probe
+    assert "map_visibility: sampleMapVisibility()" in probe
+    assert "mapVisibilityPasses(layout.clear_map)" in probe
+    assert "expandedLegendPasses(layout.expanded_legend)" in probe
+    assert "facts.sample_count >= 25" in probe
+    assert "Math.ceil(facts.sample_count * 0.7)" in probe
     assert "document.getElementById('legend-body')" in probe
+    assert "document.getElementById('floating-legend')" in probe
     assert "document.getElementById('topbar-search')" in probe
     assert "mapElement.contains(mapCenterHit)" in probe
+
+
+def test_map_visibility_requires_clear_center_and_seventy_percent_sample() -> None:
+    valid_visibility = {
+        "center_uncovered": True,
+        "uncovered_sample_count": 18,
+        "sample_count": 25,
+    }
+    valid_legend = {
+        "expanded": True,
+        "toggle_expanded": True,
+        "toggle_uncovered": True,
+        "body_visible": True,
+        "panel_bounded": True,
+        "body_bounded": True,
+        "content_accessible": True,
+        "collapsed_after_journey": True,
+        "map_visibility": valid_visibility,
+    }
+    scenarios = {
+        "valid_map": {"legend": False, "facts": valid_visibility},
+        "covered_center": {
+            "legend": False,
+            "facts": {**valid_visibility, "center_uncovered": False},
+        },
+        "below_seventy_percent": {
+            "legend": False,
+            "facts": {**valid_visibility, "uncovered_sample_count": 17},
+        },
+        "weak_sample": {
+            "legend": False,
+            "facts": {
+                "center_uncovered": True,
+                "uncovered_sample_count": 7,
+                "sample_count": 10,
+            },
+        },
+        "valid_legend": {"legend": True, "facts": valid_legend},
+        "clipped_legend": {
+            "legend": True,
+            "facts": {**valid_legend, "content_accessible": False},
+        },
+        "legend_hides_map": {
+            "legend": True,
+            "facts": {
+                **valid_legend,
+                "map_visibility": {
+                    **valid_visibility,
+                    "uncovered_sample_count": 17,
+                },
+            },
+        },
+    }
+
+    completed = _run_map_visibility_checks(scenarios)
+
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        "valid_map": True,
+        "covered_center": False,
+        "below_seventy_percent": False,
+        "weak_sample": False,
+        "valid_legend": True,
+        "clipped_legend": False,
+        "legend_hides_map": False,
+    }
 
 
 def test_responsive_contract_proves_compact_search_keyboard_journey() -> None:
@@ -477,7 +678,31 @@ def test_capture_frame_clarity_rejects_obstruction_and_semantic_drift() -> None:
             "interpolation_allowed": False,
             "propagation_use_allowed": False,
             "title": "Neotoma TRSH",
-            "key_labels": ["source record", "country boundary"],
+            "key_labels": [
+                "source record",
+                "records grouped at current zoom",
+                "country boundary",
+            ],
+            "key_items": [
+                {
+                    "label": "source record",
+                    "cue": "point",
+                    "fill": "rgb(37, 99, 235)",
+                    "stroke": "rgb(30, 64, 175)",
+                },
+                {
+                    "label": "records grouped at current zoom",
+                    "cue": "cluster-count",
+                    "fill": "rgba(255, 255, 255, 0.9)",
+                    "stroke": "rgba(24, 37, 61, 0.35)",
+                },
+                {
+                    "label": "country boundary",
+                    "cue": "line",
+                    "fill": "rgba(0, 0, 0, 0)",
+                    "stroke": "rgb(100, 116, 139)",
+                },
+            ],
             "caveat": "Observed records only; no interpolation or propagation inference.",
         },
         "capture_layout": {
@@ -507,6 +732,37 @@ def test_capture_frame_clarity_rejects_obstruction_and_semantic_drift() -> None:
         ("capture_presentation.null_handling", "null_as_zero"),
         ("capture_presentation.interpolation_allowed", True),
         ("capture_presentation.propagation_use_allowed", True),
+        (
+            "capture_presentation.key_labels",
+            [
+                "records grouped at current zoom",
+                "source record",
+                "country boundary",
+            ],
+        ),
+        (
+            "capture_presentation.key_items",
+            [
+                {
+                    "label": "source record",
+                    "cue": "area",
+                    "fill": "rgb(37, 99, 235)",
+                    "stroke": "rgb(30, 64, 175)",
+                },
+                {
+                    "label": "records grouped at current zoom",
+                    "cue": "cluster-count",
+                    "fill": "rgba(255, 255, 255, 0.9)",
+                    "stroke": "rgba(24, 37, 61, 0.35)",
+                },
+                {
+                    "label": "country boundary",
+                    "cue": "line",
+                    "fill": "rgba(0, 0, 0, 0)",
+                    "stroke": "rgb(100, 116, 139)",
+                },
+            ],
+        ),
         ("capture_layout.overlay_visible", False),
         ("capture_layout.overlay_bounded", False),
         ("capture_layout.overlay_content_bounded", False),
@@ -530,6 +786,21 @@ def test_capture_frame_clarity_rejects_obstruction_and_semantic_drift() -> None:
             target = nested
         target[parts[-1]] = invalid_value
         snapshots[path] = mutated
+    for name, item_index, field, invalid_value in (
+        ("key_item_label_drift", 0, "label", "observation"),
+        ("transparent_point_fill", 0, "fill", "rgba(0, 0, 0, 0)"),
+        ("blank_cluster_stroke", 1, "stroke", ""),
+        ("transparent_line_stroke", 2, "stroke", "transparent"),
+    ):
+        mutated = deepcopy(baseline)
+        presentation = mutated["capture_presentation"]
+        assert isinstance(presentation, dict)
+        key_items = presentation["key_items"]
+        assert isinstance(key_items, list)
+        item = key_items[item_index]
+        assert isinstance(item, dict)
+        item[field] = invalid_value
+        snapshots[name] = mutated
 
     completed = _run_capture_frame_clarity(snapshots)
 
@@ -538,6 +809,10 @@ def test_capture_frame_clarity_rejects_obstruction_and_semantic_drift() -> None:
     assert results == {
         "valid": True,
         **{path: False for path, _invalid_value in mutations},
+        "key_item_label_drift": False,
+        "transparent_point_fill": False,
+        "blank_cluster_stroke": False,
+        "transparent_line_stroke": False,
     }
 
 
