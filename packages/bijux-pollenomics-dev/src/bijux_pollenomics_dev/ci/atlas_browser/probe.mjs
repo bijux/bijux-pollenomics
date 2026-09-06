@@ -765,10 +765,19 @@ async function basemapDiscoverabilityFacts(cdp, width) {
     for (const button of providerButtons) {
       button.focus();
       await settle();
-      providerVisibility.push(document.activeElement === button
-        && visible(button) && bounded(button) && uncovered(button));
+      const box = button.getBoundingClientRect();
+      const hit = document.elementFromPoint(box.left + (box.width / 2), box.top + (box.height / 2));
+      providerVisibility.push({
+        provider: button.dataset.basemap,
+        focused: document.activeElement === button,
+        visible: visible(button),
+        bounded: bounded(button),
+        uncovered: uncovered(button),
+        bounds: { left: box.left, right: box.right, top: box.top, bottom: box.bottom },
+        hit: hit ? hit.tagName.toLowerCase() + '#' + hit.id + '.' + [...hit.classList].join('.') : null,
+      });
     }
-    const visibleProviderDisclosure = providerVisibility.every(Boolean)
+    const visibleProviderDisclosure = providerVisibility.every((row) => row.focused && row.visible && row.bounded && row.uncovered)
       && providerDisclosure.some((text) => text.includes('OpenStreetMap · no key'))
       && providerDisclosure.some((text) => text.includes('OpenTopoMap · no key'))
       && providerDisclosure.some((text) => text.includes('Offline · no tiles'));
@@ -787,6 +796,7 @@ async function basemapDiscoverabilityFacts(cdp, width) {
       active_provider_focused: activeProviderFocused,
       close_restored_focus: document.activeElement === status,
       visible_provider_disclosure: visibleProviderDisclosure,
+      provider_visibility: providerVisibility,
     };
   })()`);
 }

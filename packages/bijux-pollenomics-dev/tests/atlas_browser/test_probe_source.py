@@ -245,4 +245,5 @@ def test_status_actions_prove_chronology_and_basemap_discoverability() -> None:
     assert "const statusUncovered = uncovered(status);" in probe
     assert "button.focus();" in probe
     assert "document.activeElement === button" in probe
-    assert "providerVisibility.every(Boolean)" in probe
+    assert "provider_visibility: providerVisibility" in probe
+    assert "row.focused && row.visible && row.bounded && row.uncovered" in probe
