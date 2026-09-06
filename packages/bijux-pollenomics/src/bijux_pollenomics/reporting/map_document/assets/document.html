@@ -4590,8 +4590,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return featureWindow.end >= activeWindow.start && featureWindow.start <= activeWindow.end;
       }
       function featureTimeLabel(feature) {
-        const window = featureTimeWindow(feature);
+        const admission = featureTimeAdmission(feature);
+        if (admission.status === 'invalid') return '';
         if (feature.time_label) return String(feature.time_label);
+        const window = admission.window;
         if (!window) return '';
         return window.start === window.end ? `${window.start} BP` : `${window.start}-${window.end} BP`;
       }

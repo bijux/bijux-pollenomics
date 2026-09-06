@@ -27,9 +27,12 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
             MAP_DOCUMENT_TEMPLATE,
         )
         self.assertIn("numeric >= 0", MAP_DOCUMENT_TEMPLATE)
-        self.assertIn("if (intervalDeclared)", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("if (startDeclared || endDeclared)", MAP_DOCUMENT_TEMPLATE)
         self.assertIn(
-            "start !== null && end !== null && start <= end", MAP_DOCUMENT_TEMPLATE
+            "start === null || end === null || start > end", MAP_DOCUMENT_TEMPLATE
+        )
+        self.assertIn(
+            "if (admission.status === 'invalid') return '';", MAP_DOCUMENT_TEMPLATE
         )
         self.assertNotIn(
             "const start = Number(feature.time_start_bp)", MAP_DOCUMENT_TEMPLATE
