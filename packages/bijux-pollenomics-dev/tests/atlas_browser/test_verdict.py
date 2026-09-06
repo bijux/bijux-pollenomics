@@ -1,0 +1,60 @@
+from __future__ import annotations
+
+import pytest
+
+from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasBrowserContractError
+from bijux_pollenomics_dev.ci.atlas_browser.verdict import (
+    REQUIRED_ASSERTIONS,
+    evaluate_browser_report,
+)
+
+from .fixtures import candidate
+
+
+def _report(*, failed: str | None = None) -> dict[str, object]:
+    assertions = {name: name != failed for name in REQUIRED_ASSERTIONS}
+    return {
+        "schema_version": "atlas-browser-runtime-report.v1",
+        "candidate": candidate().as_json(),
+        "assertions": assertions,
+        "scenarios": [{"name": "synthetic"}],
+        "receipts": ["synthetic.json"],
+    }
+
+
+def test_complete_true_evidence_passes() -> None:
+    summary = evaluate_browser_report(_report(), candidate=candidate())
+
+    assert summary["status"] == "PASS"
+    assert summary["failed_assertions"] == []
+
+
+def test_one_false_assertion_fails() -> None:
+    summary = evaluate_browser_report(
+        _report(failed="provider_failure_evidence_unchanged"),
+        candidate=candidate(),
+    )
+
+    assert summary["status"] == "FAIL"
+    assert summary["failed_assertions"] == ["provider_failure_evidence_unchanged"]
+
+
+def test_missing_or_extra_assertions_are_refused() -> None:
+    report = _report()
+    assertions = report["assertions"]
+    assert isinstance(assertions, dict)
+    assertions.pop("comparison_refusal")
+    assertions["looks_reasonable"] = True
+
+    with pytest.raises(AtlasBrowserContractError, match="not exact"):
+        evaluate_browser_report(report, candidate=candidate())
+
+
+def test_candidate_substitution_is_refused() -> None:
+    report = _report()
+    report_candidate = report["candidate"]
+    assert isinstance(report_candidate, dict)
+    report_candidate["repository_head"] = "f" * 64
+
+    with pytest.raises(AtlasBrowserContractError, match="identity differs"):
+        evaluate_browser_report(report, candidate=candidate())
