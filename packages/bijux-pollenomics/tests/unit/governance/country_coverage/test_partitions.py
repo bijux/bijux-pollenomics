@@ -314,9 +314,23 @@ def test_source_specific_absence_and_review_are_not_encoded_as_zero() -> None:
             "samples",
             countries=nordic_countries,
         )
-        == 5
+        == 12
     )
-    assert _counts(_cell(ledger, "animal_adna", "publication", "SE"))["samples"] == 1
-    assert _counts(_cell(ledger, "animal_adna", "publication", "DK"))["samples"] == 4
+    assert (
+        _measure_total(
+            ledger,
+            "animal_adna",
+            "publication",
+            "sites",
+            countries=nordic_countries,
+        )
+        == 8
+    )
+    assert _counts(_cell(ledger, "animal_adna", "publication", "SE"))["samples"] == 5
+    assert _counts(_cell(ledger, "animal_adna", "publication", "SE"))["sites"] == 3
+    assert _counts(_cell(ledger, "animal_adna", "publication", "DK"))["samples"] == 5
+    assert _counts(_cell(ledger, "animal_adna", "publication", "DK"))["sites"] == 4
     assert _counts(_cell(ledger, "animal_adna", "publication", "NO"))["samples"] == 0
-    assert _counts(_cell(ledger, "animal_adna", "publication", "FI"))["samples"] == 0
+    assert _counts(_cell(ledger, "animal_adna", "publication", "NO"))["sites"] == 0
+    assert _counts(_cell(ledger, "animal_adna", "publication", "FI"))["samples"] == 2
+    assert _counts(_cell(ledger, "animal_adna", "publication", "FI"))["sites"] == 1
