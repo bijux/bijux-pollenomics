@@ -15,8 +15,8 @@
 | supplementary_source_or_supporting_source_url | supporting file or source artifact behind location or sample detail |
 | locality_identity.locality_text | site or locality label attached to the sample |
 | chronology.original_text | raw chronology claim kept before normalization |
-| chronology.time_start_bp | older bound of the normalized BP interval when defensible |
-| chronology.time_end_bp | younger bound of the normalized BP interval when defensible |
+| chronology.time_start_bp | younger bound of the normalized BP interval when defensible |
+| chronology.time_end_bp | older bound of the normalized BP interval when defensible |
 | coordinates.latitude_text | latitude text retained from direct coordinates or later resolution |
 | coordinates.longitude_text | longitude text retained from direct coordinates or later resolution |
 | coordinate_basis | how the repository derived or withheld coordinates for the sample |
