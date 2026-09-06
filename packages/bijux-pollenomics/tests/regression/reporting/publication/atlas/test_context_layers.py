@@ -234,7 +234,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Copy link", map_html)
             self.assertIn("Country boundaries", atlas_payload_text)
             self.assertIn("dock-layer-chip", map_html)
-            self.assertIn('class="control-panel"', map_html)
+            self.assertIn('class="control-panel is-collapsed"', map_html)
             self.assertIn("width: min(288px, calc(100vw - 32px));", map_html)
             self.assertIn('details class="control-group"', map_html)
             self.assertIn("LandClim pollen sites", atlas_payload_text)

@@ -127,7 +127,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn(
                 "__TITLE__".replace("__TITLE__", "Nordic Evidence Atlas"), map_html
             )
-            self.assertIn('class="control-panel"', map_html)
+            self.assertIn('class="control-panel is-collapsed"', map_html)
             self.assertIn('details class="control-group">', map_html)
             self.assertNotIn('details class="control-group" open', map_html)
             self.assertIn('id="dock-layer-filters"', map_html)
