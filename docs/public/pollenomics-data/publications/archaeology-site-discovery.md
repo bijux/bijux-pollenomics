@@ -24,24 +24,26 @@ research urgency, or the historical significance of a place.
 | Discovery population | Count |
 | --- | ---: |
 | Swedish SEAD sites | 1,925 |
-| sites with linked numeric chronology | 371 |
-| sites with unresolved chronology | 1,554 |
+| sites with linked numeric chronology | 370 |
+| sites with unresolved chronology | 1,555 |
 | sites with linked bibliography | 1,074 |
-| linked numeric map features | 8,184 |
-| explicitly unresolved map features | 1,554 |
-| total map features | 9,738 |
+| linked numeric map features | 8,172 |
+| explicitly unresolved map features | 1,555 |
+| total map features | 9,727 |
 
 One site can contribute several numeric features because each feature keeps a
 real grouped SEAD chronology interval. A site without eligible numeric
 chronology contributes one unresolved feature. Thus the site denominator is
-1,925 while the map-feature denominator is 9,738.
+1,925 while the map-feature denominator is 9,727. Sixty source-native
+post-1950 BP claims remain traceable but are refused by the canonical
+nonnegative-BP comparison contract.
 
 ```mermaid
 flowchart TD
     Sweden["1,925 assigned Swedish SEAD sites"] --> Time{"linked numeric chronology?"}
-    Time -->|yes: 371 sites| Intervals["8,184 interval-preserving features"]
-    Time -->|no: 1,554 sites| Unresolved["1,554 explicitly unresolved features"]
-    Intervals --> Atlas["9,738-feature Swedish discovery layer"]
+    Time -->|yes: 370 sites| Intervals["8,172 interval-preserving features"]
+    Time -->|no: 1,555 sites| Unresolved["1,555 explicitly unresolved features"]
+    Intervals --> Atlas["9,727-feature Swedish discovery layer"]
     Unresolved --> Atlas
 ```
 

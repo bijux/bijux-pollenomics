@@ -37,8 +37,8 @@ The current governed full-evidence run is `sead-full-evidence-39bfff6a-ce80714e`
 | assigned four-country sites | 2,069 | SE 1,925, DK 59, NO 45, FI 40 |
 | sites requiring country review | 103 | retained outside assigned publication membership |
 | unassigned sites | 23 | retained without a governed country assignment |
-| atlas SEAD features | 11,807 | 2,069 four-country site features plus 9,738 Swedish chronology-discovery features; not a distinct-site count |
-| chronology claims | 25,109 | 14,324 comparable, 10,144 context-only, 641 unresolved |
+| atlas SEAD features | 11,796 | 2,069 four-country site features plus 9,727 Swedish chronology-discovery features; not a distinct-site count |
+| chronology claims | 25,109 | 14,264 comparable, 10,144 context-only, 60 refused by the numeric BP contract, 641 unresolved |
 | source-native observations | 177,763 | quantitative observation denominator |
 | source-native taxon relations | 1,974 | preserved source taxonomy, not accepted cross-source classification |
 | dimension relations | 2,639 | explicit source-native measurement dimensions |
@@ -128,8 +128,8 @@ flowchart TD
 ## How The Atlas Timeline Treats SEAD
 
 The Nordic Atlas exposes one governed Sweden archaeology discovery layer. It
-contains all 1,925 assigned Swedish SEAD sites as 8,184 linked numeric
-chronology features plus 1,554 explicitly unresolved site features. Once a reader narrows
+contains all 1,925 assigned Swedish SEAD sites as 8,172 linked numeric
+chronology features plus 1,555 explicitly unresolved site features. Once a reader narrows
 the time window:
 
 1. numeric features remain visible only when their own linked interval
@@ -175,8 +175,8 @@ flowchart LR
     Coordinate -->|review| Review["103 country-review rows"]
     Coordinate -->|unassigned| Retained["23 unassigned rows"]
     Capture --> Chronology["25,109 chronology claims"]
-    Chronology --> Comparable["14,324 comparable claims"]
-    Chronology --> Ineligible["10,144 context-only + 641 unresolved"]
+    Chronology --> Comparable["14,264 comparable claims"]
+    Chronology --> Ineligible["10,144 context-only + 60 refused + 641 unresolved"]
 ```
 
 This is not deduplication or evidence deletion. A boundary or publication
@@ -188,7 +188,7 @@ SEAD supports:
 
 - finding environmental-archaeology sites near a lake, pollen sequence, or
   aDNA locality under a declared distance rule;
-- navigating 14,324 comparable chronology claims through interval-preserving features;
+- navigating 14,264 comparable chronology claims through interval-preserving features;
 - retaining relative-period language for human interpretation without
   inventing numeric bounds;
 - identifying sites whose bibliography or deeper relational evidence merits

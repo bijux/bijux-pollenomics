@@ -67,10 +67,12 @@ archaeology context. Sampling fit and the blended score resolve later ties.
 Temporal credit is conditional. Neotoma, LandClim, and SEAD records gain
 stronger chronology contribution only when numeric BP intervals overlap nearby
 human locality windows. The current SEAD evidence contains 25,109 chronology
-claims, of which 14,324 are comparable. The Swedish discovery layer renders
-8,184 numeric interval features from 371 sites and retains 1,554 sites as
+claims, of which 14,264 are comparable. The Swedish discovery layer renders
+8,172 numeric interval features from 370 sites and retains 1,555 sites as
 explicitly unresolved features. Those unresolved sites contribute spatial
-archaeology context but receive no same-period credit.
+archaeology context but receive no same-period credit. Sixty source-native
+post-1950 BP claims are explicitly refused by the canonical nonnegative-BP
+contract rather than coerced into comparable intervals.
 
 ### Score And Rank Are Separate Contracts
 

@@ -24,6 +24,12 @@ show non-interpolated modeled cereal-taxon and open-land context from
 a modeled surface is not an observed pollen trajectory. Null ages remain
 unavailable and are never converted to zero.
 
+Each rendered frame keeps the map stage clear of search, navigation, and
+interactive control panels. A separate evidence key identifies the selected
+series, BP window, visible and total counts, scientific posture, and color
+meaning. The animations use the atlas's tile-free background so borders,
+labels, and provider failures cannot obscure or compete with the evidence.
+
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="../../../report/regions/nordic/nordic_map.html">Explore the interactive atlas</a>
   <a class="md-button" href="../../../report/regions/nordic/nordic_playback_storyboards.json">Inspect the storyboard contract</a>

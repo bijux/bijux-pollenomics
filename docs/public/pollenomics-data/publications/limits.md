@@ -72,7 +72,7 @@ The current governed state makes several limits measurable:
 | Animal locality | 1,021 direct sample-site assignments and 434 unresolved among 1,455 raw review rows | unresolved samples cannot be described as exact sample sites |
 | Animal publication points | 151 sample-backed locality features representing 288 samples; 116 domesticated-core and 35 wild/progenitor-context | the point subset is traceable but not a complete recovery census |
 | Neotoma time | 175 of 200 sites have numeric BP spans; chronology rows are not captured | site-span comparison requires the Neotoma temporal caveat |
-| SEAD time | 25,109 claims: 14,324 comparable, 10,144 context-only, and 641 unresolved | use comparable interval overlap as archaeology context; never infer same-period support from ineligible claims |
+| SEAD time | 25,109 claims: 14,264 comparable, 10,144 context-only, 60 explicitly refused, and 641 unresolved | use comparable interval overlap as archaeology context; never infer same-period support from ineligible claims |
 | RAÄ scope | Sweden-specific density source | do not generalize its coverage to the Nordic region |
 
 These numbers are a snapshot of the governed artifacts, not permanent project

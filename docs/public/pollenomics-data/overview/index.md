@@ -42,7 +42,7 @@ The Nordic publication illustrates why these counts must remain separate:
 | Published surface | Current members | Meaning |
 | --- | ---: | --- |
 | AADR human aDNA | 1,231 samples | release-pinned human sample metadata selected for four Nordic countries |
-| LandClim | 490 site sequences | primary pollen context; 480 sequences carry numeric BP bounds |
+| LandClim | 490 site sequences | primary pollen context; 368 sequences carry canonical numeric BP bounds and 122 retain explicit temporal refusals |
 | Neotoma | 200 sites | palaeoecological site context with explicit time postures |
 | SEAD | 2,069 assigned four-country sites | environmental-archaeology context; 103 additional rows require country review and 23 remain unassigned |
 | animal aDNA | 2 Nordic localities | admitted animal points in this regional product, not the size of the global animal evidence base |

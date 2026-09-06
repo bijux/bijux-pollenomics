@@ -169,7 +169,7 @@ It must not silently interpret missing time as outside the selected period.
 The Nordic LandClim layer demonstrates the distinction. Its filter operates on
 2,515 separate modeled grid-window features, not on 77 aggregate cells assigned
 one artificial full-Holocene interval. The Sweden archaeology discovery layer
-likewise filters 8,184 linked SEAD chronology features while retaining 1,554
+likewise filters 8,172 linked SEAD chronology features while retaining 1,555
 sites without comparable chronology as explicit unresolved spatial context at
 full extent.
 A time control is scientifically meaningful only when the published layer

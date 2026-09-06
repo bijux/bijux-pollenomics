@@ -73,7 +73,7 @@ contract publishes these governed layer populations:
 | Neotoma ecological-code nodes | 25,165 | literal source-code chronology, including TRSH, UPHE, and AQVP |
 | Neotoma exact-taxon nodes | 215,751 | source-native taxa without inferred equivalence |
 | SEAD sites | 2,069 | Nordic archaeology context |
-| Sweden archaeology discovery sites | 9,738 | Sweden-specific archaeology context |
+| Sweden archaeology discovery sites | 9,727 | Sweden-specific archaeology context |
 | Lyngsjön fieldwork | 1 | Nordic direct-visit evidence |
 | LandClim REVEALS time-window cells | 2,515 | vegetation-reconstruction context |
 | country boundaries | 4 | filtered geographic framing |

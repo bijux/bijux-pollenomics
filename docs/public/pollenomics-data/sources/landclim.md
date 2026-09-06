@@ -21,7 +21,8 @@ The current governed summary records:
 | Surface | Count | Meaning |
 | --- | ---: | --- |
 | normalized site sequences | 490 | pollen-context points retained after family-specific normalization |
-| sequences with numeric BP intervals | 480 | records eligible for bounded temporal comparison at site-sequence level |
+| sequences with numeric BP intervals | 368 | records eligible for bounded temporal comparison at site-sequence level |
+| sequences with refused BP intervals | 122 | 112 negative-BP and 10 partial source intervals retained without canonical numeric bounds |
 | aggregate REVEALS grid cells | 77 | discovery summaries across the captured reconstruction windows |
 | temporal REVEALS grid features | 2,515 | dataset-specific cell and modeled time-window combinations |
 | distinct modeled windows | 25 | explicit windows from `0–100 BP` through `11200–11700 BP` |

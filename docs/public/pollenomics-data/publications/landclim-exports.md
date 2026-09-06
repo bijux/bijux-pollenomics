@@ -21,7 +21,8 @@ The checked-in normalized state contains:
 | Surface | Count | Observation unit |
 | --- | ---: | --- |
 | pollen site-sequence rows | 490 | dataset-specific site sequence |
-| rows with supported numeric time bounds | 480 | site sequence with numeric BP posture |
+| rows with supported numeric time bounds | 368 | site sequence with canonical numeric BP posture |
+| rows with refused time bounds | 122 | 112 negative-BP and 10 partial source intervals retained without canonical numeric bounds |
 | aggregate REVEALS grid cells | 77 | discovery summary of reconstructed vegetation coverage |
 | temporal REVEALS grid features | 2,515 | one dataset, cell, and published window |
 | distinct modeled windows | 25 | explicit BP intervals available to the time filter |
@@ -52,7 +53,8 @@ its sequence identity or temporal posture.
 flowchart LR
     Datasets["3 cited PANGAEA datasets"] --> Sites["490 site-sequence rows"]
     Datasets --> Grids["2,515 dataset-cell-window features"]
-    Sites --> Time["480 rows with numeric BP bounds"]
+    Sites --> Time["368 rows with canonical numeric BP bounds"]
+    Sites --> Refused["122 rows with explicit temporal refusals"]
     Sites --> Context["pollen-site context layer"]
     Grids --> Filter["atlas time filter"]
     Filter --> Context
@@ -74,10 +76,11 @@ sequences by display label alone.
 ## Temporal Reading
 
 Numeric `time_start_bp` and `time_end_bp` values support interval-aware
-filtering for the 480 qualified rows. They do not guarantee equal dating
+filtering for the 368 qualified rows. They do not guarantee equal dating
 resolution, identical sampling intervals, or event-level contemporaneity with
-an aDNA sample. The remaining rows are not zero-dated; their numeric posture is
-unavailable under the normalized contract.
+an aDNA sample. The remaining 122 rows are not zero-dated: their source values
+remain inspectable while the canonical projection explicitly refuses 112
+negative-BP intervals and 10 partial intervals.
 
 REVEALS values are published as separate window features. The atlas selects
 them by their numeric BP bounds instead of filtering one aggregate cell that
@@ -128,7 +131,7 @@ flowchart LR
 Keep record identity, source DOI, geometry type, observation unit, dataset,
 time bounds and label, record count, and popup/source details with each row.
 When aggregating, keep site sequences, aggregate discovery cells, and temporal
-grid features separate. State whether the denominator is 490 site rows, 480
+grid features separate. State whether the denominator is 490 site rows, 368
 numerically qualified site rows, 77 aggregate cells, or 2,515
 dataset-cell-window features. Preserve `dataset_id`, `parent_grid_record_id`,
 numeric BP bounds, reconstruction values, uncertainty, and bibliography keys
