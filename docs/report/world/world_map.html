@@ -2631,6 +2631,7 @@
       const sidebar = document.getElementById('sidebar');
       const mobilePanelCloseButton = document.getElementById('mobile-panel-close');
       const mobileScrim = document.getElementById('mobile-scrim');
+      let mobilePanelReturnFocus = null;
       const mobileLayoutQuery = window.matchMedia('(max-width: 900px)');
       const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
       const panelToggleButton = document.getElementById('panel-toggle');
@@ -3911,6 +3912,13 @@
         syncMobilePanelState();
         window.setTimeout(() => map.invalidateSize(), 180);
         if (persist) syncHashState();
+      }
+      function closeMobilePanel() {
+        setPanelCollapsed(true);
+        if (mobilePanelReturnFocus) {
+          mobilePanelReturnFocus.focus({ preventScroll: true });
+          mobilePanelReturnFocus = null;
+        }
       }
       function setLegendCollapsed(collapsed, persist = true) {
         legendCollapsed = collapsed;
@@ -5715,31 +5723,34 @@
       document.querySelectorAll('.basemap-button').forEach((button) => button.addEventListener('click', () => setBasemap(button.dataset.basemap, { manual: true })));
       panelToggleButton.addEventListener('click', () => setPanelCollapsed(!sidebar.classList.contains('is-collapsed')));
       basemapReadout.addEventListener('click', () => {
+        if (mobileLayoutQuery.matches) mobilePanelReturnFocus = basemapReadout;
         setPanelCollapsed(false);
         viewControls.open = true;
         basemapSwitch.scrollIntoView({
           block: 'nearest',
-          behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
+          behavior: reducedMotionQuery.matches || document.documentElement.classList.contains('atlas-capture-mode') ? 'auto' : 'smooth',
         });
         const activeButton = basemapSwitch.querySelector('.basemap-button.is-active');
         if (activeButton) activeButton.focus({ preventScroll: true });
       });
       timeStepperStatus.addEventListener('click', () => {
         if (sourceChronologyLayers().length === 0) return;
+        if (mobileLayoutQuery.matches) mobilePanelReturnFocus = timeStepperStatus;
         setPanelCollapsed(false);
         sourceChronologyControls.open = true;
         sourceChronologyControls.scrollIntoView({
           block: 'nearest',
-          behavior: reducedMotionQuery.matches ? 'auto' : 'smooth',
+          behavior: reducedMotionQuery.matches || document.documentElement.classList.contains('atlas-capture-mode') ? 'auto' : 'smooth',
         });
+        sourceChronologyLevel.focus({ preventScroll: true });
       });
       helpToggleButton.addEventListener('click', openHelpDialog);
       helpCloseButton.addEventListener('click', closeHelpDialog);
       helpDialog.addEventListener('click', (event) => {
         if (event.target === helpDialog) closeHelpDialog();
       });
-      mobilePanelCloseButton.addEventListener('click', () => setPanelCollapsed(true));
-      mobileScrim.addEventListener('click', () => setPanelCollapsed(true));
+      mobilePanelCloseButton.addEventListener('click', closeMobilePanel);
+      mobileScrim.addEventListener('click', closeMobilePanel);
       slider.addEventListener('input', renderMapState);
       function applyGlobalTimeStartInput() {
         stopTimePlayback();
