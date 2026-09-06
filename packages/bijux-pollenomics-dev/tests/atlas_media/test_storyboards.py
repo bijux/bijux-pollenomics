@@ -43,6 +43,8 @@ def test_default_selection_covers_core_secale_and_open_land(tmp_path: Path) -> N
         "neotoma-source-code-uphe",
         "neotoma-source-code-aqvp",
         "neotoma-source-taxon-secale",
+        "pangaea-937075-metric-cerealia-t",
+        "pangaea-937075-metric-secale",
         "pangaea-937075-metric-ol",
     ]
     assert all(

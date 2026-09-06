@@ -9,17 +9,11 @@ import math
 from pathlib import Path
 from typing import cast
 
+from .catalog import CORE_SOURCE_STORIES
 from .contracts import AtlasMediaError, SelectedStory, StorySelection
 from .source_authority import SourceChronologyAuthority
 
-_CORE_SOURCE_SELECTORS = ("all", "TRSH", "UPHE", "AQVP")
 _EXPECTED_COUNTRIES = ("Denmark", "Finland", "Norway", "Sweden")
-_CORE_SOURCE_KINDS = {
-    "all": "source_sample_presence",
-    "TRSH": "source_ecological_code",
-    "UPHE": "source_ecological_code",
-    "AQVP": "source_ecological_code",
-}
 
 
 def _reject_duplicate_keys(pairs: list[tuple[str, object]]) -> dict[str, object]:
@@ -118,12 +112,13 @@ def select_stories(
     )
     selected: list[SelectedStory] = []
     if selection.include_core_source_stories:
-        for selector in _CORE_SOURCE_SELECTORS:
+        for specification in CORE_SOURCE_STORIES:
+            selector = specification.selector_value
             story = source_by_selector.get(selector)
             if story is None:
                 raise AtlasMediaError(f"core source story is absent: {selector}")
             story_selector = _mapping(story.get("selector"), "story.selector")
-            if story_selector.get("kind") != _CORE_SOURCE_KINDS[selector]:
+            if story_selector.get("kind") != specification.selector_kind:
                 raise AtlasMediaError(f"core source selector kind differs: {selector}")
             selected_story = _selected_story(
                 story,

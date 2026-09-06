@@ -10,6 +10,8 @@ from typing import cast
 
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasCandidate
 
+from .catalog import DEFAULT_EXACT_TAXA, DEFAULT_MODELED_METRICS
+
 _SAFE_SLUG = re.compile(r"[a-z][a-z0-9-]*")
 
 
@@ -34,8 +36,8 @@ class StorySelection:
     """Explicit story selectors with scientifically conservative defaults."""
 
     include_core_source_stories: bool = True
-    exact_taxa: tuple[str, ...] = ("source:neotoma:taxon:967",)
-    modeled_metrics: tuple[str, ...] = ("OL",)
+    exact_taxa: tuple[str, ...] = DEFAULT_EXACT_TAXA
+    modeled_metrics: tuple[str, ...] = DEFAULT_MODELED_METRICS
 
     def __post_init__(self) -> None:
         if not isinstance(self.include_core_source_stories, bool):

@@ -12,6 +12,12 @@ from bijux_pollenomics_dev.ci.atlas_media import (
     SelectedStory,
     StorySelection,
 )
+from bijux_pollenomics_dev.ci.atlas_media.catalog import (
+    DEFAULT_EXACT_TAXA,
+    DEFAULT_MODELED_METRICS,
+    PUBLICATION_ASSET_COUNT,
+    PUBLICATION_STORIES,
+)
 from tests.atlas_media.fixtures import COUNTRIES
 from tests.atlas_media.fixtures import plan
 
@@ -25,6 +31,23 @@ def test_plan_requires_dedicated_repository_artifact_output(tmp_path: Path) -> N
         media_plan.width = 10  # type: ignore[misc]
     with pytest.raises(AtlasMediaError, match="even"):
         replace(media_plan, width=641)
+
+
+def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
+    assert DEFAULT_EXACT_TAXA == ("source:neotoma:taxon:967",)
+    assert DEFAULT_MODELED_METRICS == ("Cerealia.t", "Secale", "OL")
+    assert len(PUBLICATION_STORIES) == 8
+    assert PUBLICATION_ASSET_COUNT == 16
+    assert len({story.story_id for story in PUBLICATION_STORIES}) == 8
+    assert (
+        len(
+            {
+                (story.selector_kind, story.selector_value, story.selector_family)
+                for story in PUBLICATION_STORIES
+            }
+        )
+        == 8
+    )
 
 
 def test_story_selection_refuses_empty_or_duplicate_requests() -> None:

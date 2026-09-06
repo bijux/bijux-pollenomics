@@ -48,6 +48,49 @@ def candidate() -> AtlasCandidate:
     return AtlasCandidate(SHA_A, SHA_B, SHA_C, BUILD_ID)
 
 
+def _time_density(
+    node_count: int,
+    observation_denominator: int,
+    time_min_bp: float | int,
+    time_max_bp: float | int,
+) -> dict[str, object]:
+    span = time_max_bp - time_min_bp
+    bins = (
+        [
+            {
+                "ordinal": 0,
+                "younger_bp": time_min_bp,
+                "older_bp": time_max_bp,
+                "node_count": node_count,
+                "observation_denominator": observation_denominator,
+            }
+        ]
+        if span == 0
+        else [
+            {
+                "ordinal": ordinal,
+                "younger_bp": time_min_bp + ((11 - ordinal) * span / 12),
+                "older_bp": time_min_bp + ((12 - ordinal) * span / 12),
+                "node_count": node_count,
+                "observation_denominator": observation_denominator,
+            }
+            for ordinal in range(12)
+        ]
+    )
+    return {
+        "schema_version": "source-chronology-time-density.v1",
+        "temporal_direction": "oldest_to_present",
+        "interval_semantics": "[younger_bp, older_bp]",
+        "bin_admission": "closed_interval_overlap",
+        "bins_are_additive": False,
+        "node_count": node_count,
+        "observation_denominator": observation_denominator,
+        "time_min_bp": time_min_bp,
+        "time_max_bp": time_max_bp,
+        "bins": bins,
+    }
+
+
 def _source_layers() -> list[dict[str, object]]:
     common = {
         "semantic_role": "source_chronology_context",
@@ -61,19 +104,20 @@ def _source_layers() -> list[dict[str, object]]:
             **common,
             "node_level": "source_sample_presence",
             "facet_metadata": {
-                "schema_version": "neotoma-source-chronology-facets.v2",
+                "schema_version": "neotoma-source-chronology-facets.v3",
                 "node_level": "source_sample_presence",
                 "node_count": 10,
                 "observation_denominator": 20,
                 "time_min_bp": 0,
                 "time_max_bp": 250,
+                "time_density": _time_density(10, 20, 0, 250),
             },
         },
         {
             **common,
             "node_level": "source_ecological_code",
             "facet_metadata": {
-                "schema_version": "neotoma-source-chronology-facets.v2",
+                "schema_version": "neotoma-source-chronology-facets.v3",
                 "node_level": "source_ecological_code",
                 "source_ecological_codes": [
                     {
@@ -83,6 +127,7 @@ def _source_layers() -> list[dict[str, object]]:
                         "observation_denominator": 8,
                         "time_min_bp": 0,
                         "time_max_bp": maximum,
+                        "time_density": _time_density(5, 8, 0, maximum),
                     }
                     for code, label, maximum in (
                         ("TRSH", "Trees and Shrubs", 250),
@@ -90,13 +135,18 @@ def _source_layers() -> list[dict[str, object]]:
                         ("AQVP", "Aquatic Vascular Plants", 190),
                     )
                 ],
+                "node_count": 15,
+                "observation_denominator": 24,
+                "time_min_bp": 0,
+                "time_max_bp": 250,
+                "time_density": _time_density(15, 24, 0, 250),
             },
         },
         {
             **common,
             "node_level": "source_taxon",
             "facet_metadata": {
-                "schema_version": "neotoma-source-chronology-facets.v2",
+                "schema_version": "neotoma-source-chronology-facets.v3",
                 "node_level": "source_taxon",
                 "source_taxa": [
                     {
@@ -107,6 +157,7 @@ def _source_layers() -> list[dict[str, object]]:
                         "observation_denominator": 4,
                         "time_min_bp": 36.16162,
                         "time_max_bp": 236.75,
+                        "time_density": _time_density(3, 4, 36.16162, 236.75),
                     },
                     {
                         "value": "source:neotoma:taxon:instant",
@@ -116,8 +167,14 @@ def _source_layers() -> list[dict[str, object]]:
                         "observation_denominator": 1,
                         "time_min_bp": 100.5,
                         "time_max_bp": 100.5,
+                        "time_density": _time_density(1, 1, 100.5, 100.5),
                     },
                 ],
+                "node_count": 4,
+                "observation_denominator": 5,
+                "time_min_bp": 36.16162,
+                "time_max_bp": 236.75,
+                "time_density": _time_density(4, 5, 36.16162, 236.75),
             },
         },
     ]

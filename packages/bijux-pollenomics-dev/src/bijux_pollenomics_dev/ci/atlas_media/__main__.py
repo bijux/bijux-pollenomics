@@ -10,6 +10,7 @@ import sys
 
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasCandidate
 
+from .catalog import DEFAULT_EXACT_TAXA, DEFAULT_MODELED_METRICS
 from .contracts import AtlasMediaError, AtlasMediaPlan, StorySelection
 from .runner import materialize_atlas_media
 
@@ -82,10 +83,10 @@ def main(argv: list[str] | None = None) -> int:
             ),
             selection=StorySelection(
                 include_core_source_stories=not arguments.no_core_source_stories,
-                exact_taxa=tuple(
-                    arguments.exact_taxon or ("source:neotoma:taxon:967",)
+                exact_taxa=tuple(arguments.exact_taxon or DEFAULT_EXACT_TAXA),
+                modeled_metrics=tuple(
+                    arguments.modeled_metric or DEFAULT_MODELED_METRICS
                 ),
-                modeled_metrics=tuple(arguments.modeled_metric or ("OL",)),
             ),
             width=arguments.width,
             height=arguments.height,

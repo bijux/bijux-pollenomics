@@ -14,6 +14,13 @@ import zlib
 import pytest
 
 from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError
+from bijux_pollenomics_dev.ci.atlas_media.catalog import (
+    PUBLICATION_ASSET_COUNT,
+    PUBLICATION_SCHEMA_VERSION,
+    PUBLICATION_STORIES,
+    PUBLICATION_STORY_TUPLES,
+    SUPPORTED_EXISTING_PUBLICATION_CONTRACTS,
+)
 from bijux_pollenomics_dev.ci.atlas_media.contracts import SelectedStory
 from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     build_gallery_manifest,
@@ -26,50 +33,7 @@ from bijux_pollenomics_dev.ci.atlas_media import publication
 from tests.atlas_media.fixtures import BUILD_ID, COUNTRIES, SUCCESSION, candidate
 
 StorySpec = tuple[str, str, str, str, str | None]
-STORIES: tuple[StorySpec, ...] = (
-    (
-        "neotoma-source-sample-presence",
-        "observation_chronology",
-        "source_sample_presence",
-        "all",
-        None,
-    ),
-    (
-        "neotoma-source-code-trsh",
-        "observation_chronology",
-        "source_ecological_code",
-        "TRSH",
-        None,
-    ),
-    (
-        "neotoma-source-code-uphe",
-        "observation_chronology",
-        "source_ecological_code",
-        "UPHE",
-        None,
-    ),
-    (
-        "neotoma-source-code-aqvp",
-        "observation_chronology",
-        "source_ecological_code",
-        "AQVP",
-        None,
-    ),
-    (
-        "neotoma-source-taxon-967",
-        "observation_chronology",
-        "source_taxon",
-        "source:neotoma:taxon:967",
-        None,
-    ),
-    (
-        "pangaea-937075-metric-ol",
-        "modeled_context",
-        "modeled_metric",
-        "OL",
-        "source_land_cover_types",
-    ),
-)
+STORIES: tuple[StorySpec, ...] = PUBLICATION_STORY_TUPLES
 
 _MINIMAL_MP4 = base64.b64decode(
     "AAAAJGZ0eXBpc29tAAACAGlzb21pc282aXNvMmF2YzFtcDQxAAAC7W1vb3YAAABs"
@@ -232,11 +196,11 @@ def _story(spec: StorySpec) -> SelectedStory:
     )
 
 
-def _gallery(tmp_path: Path) -> Path:
+def _gallery(tmp_path: Path, *, stories: tuple[StorySpec, ...] = STORIES) -> Path:
     root = tmp_path / "artifacts" / "media"
     media = root / "media"
     media.mkdir(parents=True)
-    selected = tuple(_story(spec) for spec in STORIES)
+    selected = tuple(_story(spec) for spec in stories)
     assets_by_story: dict[str, list[dict[str, object]]] = {}
     captures: dict[str, list[dict[str, object]]] = {}
     for story in selected:
@@ -390,8 +354,11 @@ def test_publication_is_deterministic_bounded_and_excludes_run_artifacts(
         for path in second.rglob("*")
         if path.is_file()
     }
-    assert manifest["schema_version"] == "atlas-media-publication.v1"
-    assert manifest["story_count"] == 6
+    assert manifest["schema_version"] == PUBLICATION_SCHEMA_VERSION
+    assert manifest["story_count"] == len(PUBLICATION_STORIES)
+    assert manifest["publication_budget"]["published_asset_count"] == (
+        PUBLICATION_ASSET_COUNT
+    )
     assert manifest["source_authority_sha256"] == "1" * 64
     assert manifest["scientific_posture"] == {
         "temporal_direction": "oldest_to_present",
@@ -482,7 +449,7 @@ def test_public_validator_reconciles_complete_existing_bundle_and_real_ffprobe(
         ),
         (
             lambda value: value["publication_budget"].update(
-                {"published_asset_count": 11}
+                {"published_asset_count": PUBLICATION_ASSET_COUNT - 1}
             ),
             "budget contract differs",
         ),
@@ -767,6 +734,34 @@ def test_publication_refuses_uncontrolled_existing_destination(
     with pytest.raises(AtlasMediaError, match="missing or extra files"):
         _publish(source, governed_destination)
     assert unexpected.read_text(encoding="utf-8") == "preserve me too\n"
+
+
+def test_publication_replaces_recognized_existing_inventory(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    legacy_schema, legacy_inventory = SUPPORTED_EXISTING_PUBLICATION_CONTRACTS[0]
+    destination = tmp_path / "published"
+    legacy_source = _gallery(tmp_path / "legacy", stories=legacy_inventory)
+
+    monkeypatch.setattr(publication, "_EXPECTED_STORIES", legacy_inventory)
+    monkeypatch.setattr(publication, "PUBLICATION_SCHEMA_VERSION", legacy_schema)
+    _publish(legacy_source, destination)
+    legacy_manifest = json.loads(
+        (destination / "publication-manifest.json").read_text(encoding="utf-8")
+    )
+    assert len(legacy_manifest["stories"]) == len(legacy_inventory)
+
+    monkeypatch.setattr(publication, "_EXPECTED_STORIES", STORIES)
+    monkeypatch.setattr(
+        publication, "PUBLICATION_SCHEMA_VERSION", PUBLICATION_SCHEMA_VERSION
+    )
+    current_source = _gallery(tmp_path / "current")
+    manifest = _publish(current_source, destination)
+
+    assert manifest["story_count"] == len(STORIES)
+    assert {story["story_id"] for story in manifest["stories"]} == {
+        story_id for story_id, *_ in STORIES
+    }
 
 
 def test_publication_rejects_duplicate_json_fields(tmp_path: Path) -> None:

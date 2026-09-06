@@ -17,6 +17,11 @@ import tempfile
 from typing import NoReturn, cast
 import zlib
 
+from .catalog import (
+    PUBLICATION_SCHEMA_VERSION,
+    PUBLICATION_STORY_TUPLES,
+    SUPPORTED_EXISTING_PUBLICATION_CONTRACTS,
+)
 from .contracts import AtlasMediaError
 from .gallery import canonical_json_bytes, sha256_file
 
@@ -35,50 +40,7 @@ _MODELED_INTERPRETATION = (
     "Non-interpolated modeled context; not an observed pollen trajectory or "
     "propagation."
 )
-_EXPECTED_STORIES = (
-    (
-        "neotoma-source-sample-presence",
-        "observation_chronology",
-        "source_sample_presence",
-        "all",
-        None,
-    ),
-    (
-        "neotoma-source-code-trsh",
-        "observation_chronology",
-        "source_ecological_code",
-        "TRSH",
-        None,
-    ),
-    (
-        "neotoma-source-code-uphe",
-        "observation_chronology",
-        "source_ecological_code",
-        "UPHE",
-        None,
-    ),
-    (
-        "neotoma-source-code-aqvp",
-        "observation_chronology",
-        "source_ecological_code",
-        "AQVP",
-        None,
-    ),
-    (
-        "neotoma-source-taxon-967",
-        "observation_chronology",
-        "source_taxon",
-        "source:neotoma:taxon:967",
-        None,
-    ),
-    (
-        "pangaea-937075-metric-ol",
-        "modeled_context",
-        "modeled_metric",
-        "OL",
-        "source_land_cover_types",
-    ),
-)
+_EXPECTED_STORIES = PUBLICATION_STORY_TUPLES
 _GALLERY_FIELDS = {
     "schema_version",
     "atlas_identity",
@@ -175,7 +137,7 @@ def publish_atlas_media(
     ffprobe_binary: Path | None = None,
     mp4_probe: Mp4Probe | None = None,
 ) -> dict[str, object]:
-    """Validate and atomically publish one exact six-story website bundle."""
+    """Validate and atomically publish the canonical website media bundle."""
     probe = _resolve_mp4_probe(ffprobe_binary=ffprobe_binary, mp4_probe=mp4_probe)
     source_root = _existing_directory(gallery_root, label="gallery_root")
     target = _publication_destination(destination)
@@ -264,7 +226,7 @@ def _build_publication(
     if gallery.get("story_count") != len(_EXPECTED_STORIES) or len(stories) != len(
         _EXPECTED_STORIES
     ):
-        raise AtlasMediaError("gallery must contain the exact six governed stories")
+        raise AtlasMediaError("gallery must contain the canonical governed stories")
 
     public_stories: list[dict[str, object]] = []
     transfers: list[dict[str, object]] = []
@@ -288,7 +250,7 @@ def _build_publication(
     if total_bytes > MAX_PUBLICATION_BYTES:
         raise AtlasMediaError("publication exceeds the 96 MiB total budget")
     content: dict[str, object] = {
-        "schema_version": "atlas-media-publication.v1",
+        "schema_version": PUBLICATION_SCHEMA_VERSION,
         "source_gallery": {
             "manifest_sha256": gallery_digest,
             "content_sha256": gallery["content_sha256"],
@@ -681,6 +643,23 @@ def validate_atlas_media_publication(
 ) -> dict[str, object]:
     """Validate every contract and media byte in one published website bundle."""
     probe = _resolve_mp4_probe(ffprobe_binary=ffprobe_binary, mp4_probe=mp4_probe)
+    return _validate_atlas_media_publication_inventory(
+        publication_root,
+        expected_schema_version=PUBLICATION_SCHEMA_VERSION,
+        expected_stories=_EXPECTED_STORIES,
+        mp4_probe=probe,
+    )
+
+
+def _validate_atlas_media_publication_inventory(
+    publication_root: Path,
+    *,
+    expected_schema_version: str,
+    expected_stories: tuple[tuple[str, str, str, str, str | None], ...],
+    mp4_probe: Mp4Probe,
+) -> dict[str, object]:
+    """Validate one publication against an explicitly recognized inventory."""
+    expected_asset_count = len(expected_stories) * 2
     root = _existing_directory(publication_root, label="publication_root")
     manifest_path = _direct_regular_file(root, "publication-manifest.json")
     checksum_path = _direct_regular_file(root, "publication-manifest.sha256")
@@ -693,7 +672,7 @@ def validate_atlas_media_publication(
     content = {key: value for key, value in manifest.items() if key != "content_sha256"}
     if (
         set(manifest) != _PUBLICATION_FIELDS
-        or manifest.get("schema_version") != "atlas-media-publication.v1"
+        or manifest.get("schema_version") != expected_schema_version
         or not _is_sha256(content_digest)
         or content_digest != hashlib.sha256(canonical_json_bytes(content)).hexdigest()
     ):
@@ -737,16 +716,18 @@ def validate_atlas_media_publication(
         or budget.get("maximum_mp4_bytes") != MAX_MP4_BYTES
         or budget.get("maximum_poster_bytes") != MAX_POSTER_BYTES
         or budget.get("maximum_total_bytes") != MAX_PUBLICATION_BYTES
-        or budget.get("published_asset_count") != 12
+        or budget.get("published_asset_count") != expected_asset_count
     ):
         raise AtlasMediaError("publication budget contract differs")
     stories = _object_list(manifest.get("stories"), "publication stories")
-    if manifest.get("story_count") != 6 or len(stories) != 6:
+    if manifest.get("story_count") != len(expected_stories) or len(stories) != len(
+        expected_stories
+    ):
         raise AtlasMediaError("publication story inventory differs")
     expected_files = {"publication-manifest.json", "publication-manifest.sha256"}
     published_bytes = 0
     published_assets = 0
-    for story, expected in zip(stories, _EXPECTED_STORIES, strict=True):
+    for story, expected in zip(stories, expected_stories, strict=True):
         _validate_published_story(
             story,
             expected=expected,
@@ -825,7 +806,7 @@ def validate_atlas_media_publication(
                 height=height,
                 frame_count=expected_frames,
                 duration_seconds=duration,
-                mp4_probe=probe,
+                mp4_probe=mp4_probe,
             )
             expected_files.add(path_text)
             published_bytes += byte_count
@@ -838,7 +819,7 @@ def validate_atlas_media_publication(
     if observed != expected_files:
         raise AtlasMediaError("publication contains missing or extra files")
     if (
-        published_assets != 12
+        published_assets != expected_asset_count
         or published_bytes > MAX_PUBLICATION_BYTES
         or budget.get("published_asset_count") != published_assets
         or budget.get("published_byte_count") != published_bytes
@@ -966,7 +947,29 @@ def _require_existing_destination_is_governed(
         return
     if not destination.is_dir():
         raise AtlasMediaError("publication destination must be a directory")
-    validate_atlas_media_publication(destination, mp4_probe=mp4_probe)
+    root = _existing_directory(destination, label="publication destination")
+    manifest_path = _direct_regular_file(root, "publication-manifest.json")
+    manifest = _load_json_object(
+        manifest_path.read_bytes(), label="existing publication manifest"
+    )
+    schema_version = manifest.get("schema_version")
+    contract = next(
+        (
+            (supported_schema, inventory)
+            for supported_schema, inventory in SUPPORTED_EXISTING_PUBLICATION_CONTRACTS
+            if supported_schema == schema_version
+        ),
+        None,
+    )
+    if contract is None:
+        raise AtlasMediaError("existing publication schema_version is unsupported")
+    supported_schema, inventory = contract
+    _validate_atlas_media_publication_inventory(
+        root,
+        expected_schema_version=supported_schema,
+        expected_stories=inventory,
+        mp4_probe=mp4_probe,
+    )
 
 
 def _install_stage(stage: Path, destination: Path) -> None:
