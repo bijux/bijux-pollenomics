@@ -12,6 +12,11 @@ JsonObject = dict[str, object]
 _GIT_OBJECT_ID = re.compile(r"(?:[0-9a-f]{40}|[0-9a-f]{64})")
 _BUILD_ID = re.compile(r"atlas-[0-9a-f]{64}")
 _SAFE_NAME = re.compile(r"[a-z][a-z0-9-]*")
+NORDIC_SOURCE_CHRONOLOGY_PROFILE = "nordic-source-chronology-v1"
+GENERIC_TIME_AWARE_PROFILE = "generic-time-aware-atlas-v1"
+VERIFICATION_PROFILES = frozenset(
+    {NORDIC_SOURCE_CHRONOLOGY_PROFILE, GENERIC_TIME_AWARE_PROFILE}
+)
 
 
 class AtlasBrowserContractError(ValueError):
@@ -101,6 +106,7 @@ class BrowserVerificationPlan:
     browser_binary: Path
     candidate: AtlasCandidate
     scopes: tuple[AtlasScope, ...]
+    verification_profile: str = NORDIC_SOURCE_CHRONOLOGY_PROFILE
     timeout_seconds: int = 45
 
     def __post_init__(self) -> None:
@@ -123,6 +129,22 @@ class BrowserVerificationPlan:
             self.scopes
         ):
             raise AtlasBrowserContractError("scopes must be non-empty and unique")
+        if self.verification_profile not in VERIFICATION_PROFILES:
+            raise AtlasBrowserContractError("verification_profile is unsupported")
+        scope_names = {scope.name for scope in self.scopes}
+        if self.verification_profile == NORDIC_SOURCE_CHRONOLOGY_PROFILE and (
+            len(self.scopes) != 1 or scope_names != {"nordic"}
+        ):
+            raise AtlasBrowserContractError(
+                "Nordic source-chronology verification requires only the nordic scope"
+            )
+        if (
+            self.verification_profile == GENERIC_TIME_AWARE_PROFILE
+            and "nordic" in scope_names
+        ):
+            raise AtlasBrowserContractError(
+                "generic time-aware verification cannot replace exact nordic verification"
+            )
         if self.timeout_seconds < 10 or self.timeout_seconds > 300:
             raise AtlasBrowserContractError("timeout_seconds must be in [10, 300]")
         for scope in self.scopes:
@@ -138,11 +160,12 @@ class BrowserVerificationPlan:
     def as_json(self) -> JsonObject:
         """Return the stable subprocess contract without host-specific inference."""
         return {
-            "schema_version": "atlas-browser-verification-plan.v1",
+            "schema_version": "atlas-browser-verification-plan.v2",
             "repository_root": str(self.repository_root.resolve()),
             "artifact_root": str(self.artifact_root.resolve()),
             "browser_binary": str(self.browser_binary.resolve()),
             "timeout_seconds": self.timeout_seconds,
+            "verification_profile": self.verification_profile,
             "candidate": self.candidate.as_json(),
             "scopes": [scope.as_json() for scope in self.scopes],
         }
@@ -159,12 +182,13 @@ class BrowserVerificationPlan:
             "artifact_root",
             "browser_binary",
             "timeout_seconds",
+            "verification_profile",
             "candidate",
             "scopes",
         }
         if set(raw) != required:
             raise AtlasBrowserContractError("plan fields must be exact")
-        if raw["schema_version"] != "atlas-browser-verification-plan.v1":
+        if raw["schema_version"] != "atlas-browser-verification-plan.v2":
             raise AtlasBrowserContractError("plan schema_version is unsupported")
         candidate = raw["candidate"]
         if not isinstance(candidate, dict) or set(candidate) != {
@@ -199,6 +223,8 @@ class BrowserVerificationPlan:
             )
         if not isinstance(raw["timeout_seconds"], int):
             raise AtlasBrowserContractError("timeout_seconds must be an integer")
+        if not isinstance(raw["verification_profile"], str):
+            raise AtlasBrowserContractError("verification_profile must be a string")
         if not all(
             isinstance(raw[field], str)
             for field in ("repository_root", "artifact_root", "browser_binary")
@@ -224,6 +250,7 @@ class BrowserVerificationPlan:
                 build_id=candidate["build_id"],
             ),
             scopes=tuple(scopes),
+            verification_profile=raw["verification_profile"],
             timeout_seconds=raw["timeout_seconds"],
         )
 

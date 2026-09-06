@@ -5,12 +5,16 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { extname, join, normalize, relative, resolve } from 'node:path';
 
 const plan = JSON.parse(await readFile(resolve(process.argv[2]), 'utf8'));
-if (plan.schema_version !== 'atlas-browser-verification-plan.v1') throw new Error('unsupported plan schema');
+if (plan.schema_version !== 'atlas-browser-verification-plan.v2') throw new Error('unsupported plan schema');
 const repositoryRoot = resolve(plan.repository_root);
 const artifactRoot = resolve(plan.artifact_root);
 const timeoutMs = Number(plan.timeout_seconds) * 1000;
 const candidate = plan.candidate;
 const scopes = plan.scopes;
+const verificationProfile = plan.verification_profile;
+if (!['nordic-source-chronology-v1', 'generic-time-aware-atlas-v1'].includes(verificationProfile)) {
+  throw new Error('unsupported verification profile');
+}
 const providerHosts = ['tile.openstreetmap.org', 'tile.opentopomap.org'];
 const expectedNordic = Object.freeze({
   sample: { level: 'source_sample_presence', code: null, taxon: null, nodes: 9988, observations: 215903, younger: 21911, older: 22911 },
@@ -93,7 +97,9 @@ try {
   debuggerOrigin.search = '';
   debuggerOrigin.hash = '';
   for (const scope of scopes) {
-    const scopeResult = await verifyScope(scope, debuggerOrigin.origin);
+    const scopeResult = verificationProfile === 'nordic-source-chronology-v1'
+      ? await verifyNordicSourceChronologyScope(scope, debuggerOrigin.origin)
+      : await verifyGenericTimeAwareScope(scope, debuggerOrigin.origin);
     scenarios.push(...scopeResult.scenarios);
     receipts.push(...scopeResult.receipts);
   }
@@ -103,21 +109,36 @@ try {
     name,
     assertionRows.filter(([candidateName]) => candidateName === name).every(([, passed]) => passed === true),
   ]));
-  const required = [
-    'capture_api_ready', 'candidate_identity', 'keyless_provider_policy',
-    'default_sample_window', 'default_denominators', 'trsh_exact_state',
-    'uphe_exact_state', 'aqvp_exact_state', 'secale_exact_state',
-    'cereal_finder_exact_state', 'chronology_buttons_navigate', 'chronology_controls_persistent',
-    'chronology_status_action', 'basemap_discoverability',
-    'comparison_refusal', 'capture_null_inputs_refused', 'responsive_1440',
-    'responsive_1024', 'responsive_768', 'responsive_390',
-    'reduced_motion_manual_navigation', 'no_basemap_zero_tile_requests',
-    'provider_failure_osm_terrain_none', 'provider_failure_evidence_unchanged',
-    'runtime_console_clean', 'source_slider_changes_visibility', 'receipt_inventory_complete',
-  ];
+  const requiredAssertionsByProfile = {
+    'nordic-source-chronology-v1': [
+      'capture_api_ready', 'candidate_identity', 'keyless_provider_policy',
+      'default_sample_window', 'default_denominators', 'trsh_exact_state',
+      'uphe_exact_state', 'aqvp_exact_state', 'secale_exact_state',
+      'cereal_finder_exact_state', 'chronology_buttons_navigate', 'chronology_controls_persistent',
+      'chronology_status_action', 'basemap_discoverability',
+      'comparison_refusal', 'capture_null_inputs_refused', 'responsive_1440',
+      'responsive_1024', 'responsive_768', 'responsive_390',
+      'reduced_motion_manual_navigation', 'no_basemap_zero_tile_requests',
+      'provider_failure_osm_terrain_none', 'provider_failure_evidence_unchanged',
+      'runtime_console_clean', 'source_slider_changes_visibility', 'receipt_inventory_complete',
+    ],
+    'generic-time-aware-atlas-v1': [
+      'capture_api_ready', 'candidate_identity', 'keyless_provider_policy',
+      'default_time_domain_matches_manifest', 'time_controls_persistent',
+      'time_slider_changes_visibility', 'time_buttons_navigate', 'basemap_discoverability',
+      'scientific_posture_matches_manifest', 'capture_invalid_inputs_refused',
+      'responsive_1440', 'responsive_1024', 'responsive_768', 'responsive_390',
+      'reduced_motion_manual_navigation', 'no_basemap_zero_tile_requests',
+      'provider_failure_osm_terrain_none', 'provider_failure_evidence_unchanged',
+      'runtime_console_clean', 'receipt_inventory_complete',
+    ],
+  };
+  const required = requiredAssertionsByProfile[verificationProfile];
+  if (!required) throw new Error('unsupported verification profile');
   for (const name of required) if (!(name in assertions)) assertions[name] = false;
   const report = {
-    schema_version: 'atlas-browser-runtime-report.v1',
+    schema_version: 'atlas-browser-runtime-report.v2',
+    verification_profile: verificationProfile,
     candidate,
     browser: { product: 'Brave Browser', binary: plan.browser_binary },
     assertions: Object.fromEntries(required.map((name) => [name, assertions[name] === true])),
@@ -142,7 +163,7 @@ try {
   await rm(profileRoot, { recursive: true, force: true });
 }
 
-async function verifyScope(scope, debuggerOrigin) {
+async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
   const scopeReceipts = [];
   const scopeScenarios = [];
   const normal = await openAtlas(scope, debuggerOrigin, { name: 'normal' });
@@ -342,6 +363,355 @@ async function verifyScope(scope, debuggerOrigin) {
     assertions: { receipt_inventory_complete: complete.every(Boolean) },
   });
   return { scenarios: scopeScenarios, receipts: expectedReceipts };
+}
+
+async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
+  const scopeReceipts = [];
+  const scopeScenarios = [];
+  const manifest = JSON.parse(await readFile(join(repositoryRoot, scope.manifest), 'utf8'));
+  const manifestFacts = genericManifestFacts(manifest);
+  const normal = await openAtlas(scope, debuggerOrigin, { name: 'normal' });
+  const defaultSnapshot = await captureReady(normal.cdp);
+  const defaultDom = await pageFacts(normal.cdp);
+  const defaultEvidence = evidenceIdentity(defaultSnapshot);
+  const responsive = {};
+  for (const { width, height } of [
+    { width: 1440, height: 900 }, { width: 1024, height: 1000 },
+    { width: 768, height: 1000 }, { width: 390, height: 844 },
+  ]) {
+    await normal.cdp.send('Emulation.setDeviceMetricsOverride', {
+      width, height, deviceScaleFactor: 1, mobile: width === 390,
+    });
+    responsive[width] = await responsiveFacts(normal.cdp, width);
+    responsive[width].basemap_discoverability = await basemapDiscoverabilityFacts(normal.cdp, width);
+    const path = `${scope.name}/responsive-${width}.png`;
+    await screenshot(normal.cdp, path);
+    scopeReceipts.push(path);
+  }
+  await normal.cdp.send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+  const timeJourney = await genericTimeJourney(normal.cdp, manifestFacts.point_record_count);
+  const invalidCaptureInputs = await captureInvalidCommonInputs(normal.cdp);
+  const normalResult = {
+    scope: scope.name,
+    name: 'generic-time-and-responsive',
+    default_snapshot: defaultSnapshot,
+    default_dom: defaultDom,
+    manifest_facts: manifestFacts,
+    time_journey: timeJourney,
+    invalid_capture_inputs: invalidCaptureInputs,
+    responsive,
+    runtime_failures: normal.runtimeFailures,
+    assertions: {
+      capture_api_ready: defaultSnapshot.capture_api_version === 'atlas-capture.v1' && defaultSnapshot.ready === true,
+      candidate_identity: defaultSnapshot.build_id === candidate.build_id && defaultSnapshot.scope_slug === scope.name,
+      keyless_provider_policy: defaultDom.api_key_sentinel_absent && defaultDom.carto_absent && defaultDom.osm_resource_present,
+      default_time_domain_matches_manifest: defaultSnapshot.time_window_bp?.younger_bp === manifestFacts.time_min_bp
+        && defaultSnapshot.time_window_bp?.older_bp === manifestFacts.time_max_bp,
+      time_controls_persistent: [responsive[1440], responsive[390]].every((layout) => layout.chronology_controls_visible
+        && layout.chronology_controls_bounded && layout.chronology_controls_uncovered
+        && layout.chronology_controls_non_overlapping && layout.body_scroll_width <= layout.viewport.width + 1),
+      time_slider_changes_visibility: timeJourney.interval_is_1000_years
+        && timeJourney.slider_values_applied && timeJourney.visible_counts_within_denominator
+        && timeJourney.distinct_positive_visible_counts >= 2 && timeJourney.time_readouts_match,
+      time_buttons_navigate: timeJourney.newer_moves_toward_present
+        && timeJourney.older_restores_window && timeJourney.playback_started_at_oldest
+        && timeJourney.playback_stopped,
+      basemap_discoverability: [responsive[1440], responsive[390]].every((layout) => layout.basemap_discoverability.status_visible
+        && layout.basemap_discoverability.status_bounded && layout.basemap_discoverability.status_uncovered
+        && layout.basemap_discoverability.controls_opened && layout.basemap_discoverability.active_provider_focused
+        && layout.basemap_discoverability.close_restored_focus && layout.basemap_discoverability.visible_provider_disclosure),
+      scientific_posture_matches_manifest: defaultSnapshot.scientific_posture?.classifications_status === manifestFacts.classifications_status
+        && defaultSnapshot.scientific_posture?.classifications_reason_code === manifestFacts.classifications_reason_code
+        && defaultSnapshot.scientific_posture?.observation_chronology_is_propagation === false
+        && defaultSnapshot.visible_governed_candidate_count === manifestFacts.edge_record_count,
+      capture_invalid_inputs_refused: invalidCaptureInputs.every((row) => row.refused && row.evidence_unchanged),
+      responsive_1440: desktopLayoutPasses(responsive[1440]),
+      responsive_1024: desktopLayoutPasses(responsive[1024]),
+      responsive_768: mobileLayoutPasses(responsive[768]),
+      responsive_390: mobileLayoutPasses(responsive[390]),
+      runtime_console_clean: normal.runtimeFailures.length === 0,
+    },
+  };
+  await closeAtlas(normal, debuggerOrigin);
+  await writeScenario(scope, normalResult, scopeReceipts);
+  scopeScenarios.push(normalResult);
+
+  const reduced = await openAtlas(scope, debuggerOrigin, { name: 'reduced-motion', reducedMotion: true });
+  await captureReady(reduced.cdp);
+  const reducedManual = await genericReducedMotionJourney(reduced.cdp);
+  await screenshot(reduced.cdp, `${scope.name}/reduced-motion-manual.png`);
+  scopeReceipts.push(`${scope.name}/reduced-motion-manual.png`);
+  const reducedResult = {
+    scope: scope.name,
+    name: 'reduced-motion',
+    journey: reducedManual,
+    runtime_failures: reduced.runtimeFailures,
+    assertions: {
+      reduced_motion_manual_navigation: reducedManual.preference_matches
+        && reducedManual.automatic_playback_disabled && reducedManual.manual_window_changed,
+      runtime_console_clean: reduced.runtimeFailures.length === 0,
+    },
+  };
+  await closeAtlas(reduced, debuggerOrigin);
+  await writeScenario(scope, reducedResult, scopeReceipts);
+  scopeScenarios.push(reducedResult);
+
+  const withoutBasemap = await openAtlas(scope, debuggerOrigin, { name: 'no-basemap', hash: '#basemap=none' });
+  const withoutBasemapSnapshot = await captureReady(withoutBasemap.cdp);
+  await screenshot(withoutBasemap.cdp, `${scope.name}/no-basemap.png`);
+  scopeReceipts.push(`${scope.name}/no-basemap.png`);
+  const withoutBasemapResult = {
+    scope: scope.name,
+    name: 'no-basemap',
+    snapshot: withoutBasemapSnapshot,
+    provider_requests: withoutBasemap.providerRequests,
+    runtime_failures: withoutBasemap.runtimeFailures,
+    assertions: {
+      no_basemap_zero_tile_requests: withoutBasemapSnapshot.basemap === 'none' && withoutBasemap.providerRequests.length === 0,
+      runtime_console_clean: withoutBasemap.runtimeFailures.length === 0,
+    },
+  };
+  await closeAtlas(withoutBasemap, debuggerOrigin);
+  await writeScenario(scope, withoutBasemapResult, scopeReceipts);
+  scopeScenarios.push(withoutBasemapResult);
+
+  const failure = await openAtlas(scope, debuggerOrigin, { name: 'provider-failure', blockProviders: true });
+  const failureObservation = await waitForProviderRefusal(failure.cdp);
+  const failureSnapshot = failureObservation.snapshot;
+  const failureDom = await pageFacts(failure.cdp);
+  await screenshot(failure.cdp, `${scope.name}/provider-failure.png`);
+  scopeReceipts.push(`${scope.name}/provider-failure.png`);
+  const failureResult = {
+    scope: scope.name,
+    name: 'provider-failure',
+    snapshot: failureSnapshot,
+    dom: failureDom,
+    provider_requests: failure.providerRequests,
+    refusal_observation: failureObservation,
+    runtime_failures: failure.runtimeFailures,
+    assertions: {
+      provider_failure_osm_terrain_none: !failureObservation.timed_out
+        && failureSnapshot.basemap === 'none'
+        && failure.providerRequests.some((row) => row.url.includes('tile.openstreetmap.org'))
+        && failure.providerRequests.some((row) => row.url.includes('tile.opentopomap.org'))
+        && /unavailable|no basemap/i.test(failureDom.basemap_readout),
+      provider_failure_evidence_unchanged: JSON.stringify(evidenceIdentity(failureSnapshot)) === JSON.stringify(defaultEvidence),
+      runtime_console_clean: failure.runtimeFailures.length === 0,
+    },
+  };
+  await closeAtlas(failure, debuggerOrigin);
+  await writeScenario(scope, failureResult, scopeReceipts);
+  scopeScenarios.push(failureResult);
+
+  const expectedReceipts = [
+    `${scope.name}/generic-time-and-responsive.json`, `${scope.name}/reduced-motion.json`,
+    `${scope.name}/no-basemap.json`, `${scope.name}/provider-failure.json`, ...scopeReceipts,
+  ];
+  const complete = await Promise.all(expectedReceipts.map(async (path) => {
+    try { return (await readFile(join(artifactRoot, path))).length > 0; } catch { return false; }
+  }));
+  scopeScenarios.push({
+    scope: scope.name,
+    name: 'receipt-inventory',
+    expected_receipts: expectedReceipts,
+    assertions: { receipt_inventory_complete: complete.every(Boolean) },
+  });
+  return { scenarios: scopeScenarios, receipts: expectedReceipts };
+}
+
+function genericManifestFacts(manifest) {
+  const fields = manifest.assets?.fields || [];
+  const rows = manifest.assets?.records || [];
+  const index = Object.fromEntries(fields.map((field, position) => [field, position]));
+  const pointRows = rows.filter((row) => row[index.domain] === 'nodes' && row[index.layer_kind] === 'point');
+  const finiteMinimums = pointRows.map((row) => row[index.time_min_bp]).filter(Number.isFinite);
+  const finiteMaximums = pointRows.map((row) => row[index.time_max_bp]).filter(Number.isFinite);
+  if (!pointRows.length || !finiteMinimums.length || !finiteMaximums.length) {
+    throw new Error('generic time-aware manifest has no timed point domain');
+  }
+  return {
+    point_record_count: pointRows.reduce((sum, row) => sum + Number(row[index.record_count] || 0), 0),
+    time_min_bp: Math.min(...finiteMinimums),
+    time_max_bp: Math.max(...finiteMaximums),
+    classifications_status: manifest.domains?.classifications?.status,
+    classifications_reason_code: manifest.domains?.classifications?.reason_code,
+    edge_record_count: Number(manifest.domains?.edges?.record_count || 0),
+  };
+}
+
+async function genericTimeJourney(cdp, pointDenominator) {
+  return evaluate(cdp, `(async () => {
+    const api = globalThis.BijuxPollenomicsAtlasCapture;
+    const intervalPreset = [...document.querySelectorAll('[data-time-interval]')]
+      .find((button) => button.dataset.timeInterval === '1000');
+    if (!intervalPreset) throw new Error('1000-year interval preset is unavailable');
+    intervalPreset.click();
+    await api.awaitReady();
+    const slider = document.getElementById('time-start-slider');
+    const older = document.getElementById('time-step-older');
+    const newer = document.getElementById('time-step-newer');
+    const playback = document.getElementById('time-playback-toggle');
+    const minimum = Number(slider.min);
+    const maximum = Number(slider.max);
+    const requestedStarts = [...new Set([maximum, Math.round((minimum + maximum) / 2), minimum])];
+    const frames = [];
+    for (const requestedStart of requestedStarts) {
+      slider.value = String(requestedStart);
+      slider.dispatchEvent(new Event('input', { bubbles: true }));
+      const snapshot = await api.awaitReady();
+      frames.push({
+        requested_start_bp: requestedStart,
+        snapshot,
+        time_readout: document.getElementById('time-start-value')?.textContent || '',
+      });
+    }
+    slider.value = String(maximum);
+    slider.dispatchEvent(new Event('input', { bubbles: true }));
+    const oldest = await api.awaitReady();
+    newer.click();
+    const afterNewer = await api.awaitReady();
+    older.click();
+    const afterOlder = await api.awaitReady();
+    let playbackStartedAtOldest = false;
+    let playbackStopped = false;
+    if (!playback.disabled) {
+      playback.click();
+      const playbackSnapshot = await api.awaitReady();
+      playbackStartedAtOldest = playback.getAttribute('aria-pressed') === 'true'
+        && playbackSnapshot.time_window_bp.younger_bp === maximum;
+      playback.click();
+      playbackStopped = playback.getAttribute('aria-pressed') === 'false';
+    }
+    const positiveCounts = new Set(frames.map((row) => row.snapshot.visible_point_count).filter((count) => count > 0));
+    return {
+      frames,
+      interval_is_1000_years: oldest.time_window_bp.older_bp - oldest.time_window_bp.younger_bp === 1000,
+      slider_values_applied: frames.every((row) => row.snapshot.time_window_bp.younger_bp === row.requested_start_bp),
+      visible_counts_within_denominator: frames.every((row) => Number.isInteger(row.snapshot.visible_point_count)
+        && row.snapshot.visible_point_count >= 0 && row.snapshot.visible_point_count <= ${pointDenominator}),
+      distinct_positive_visible_counts: positiveCounts.size,
+      time_readouts_match: frames.every((row) => row.time_readout.includes(String(row.snapshot.time_window_bp.younger_bp))
+        && row.time_readout.includes(String(row.snapshot.time_window_bp.older_bp))),
+      newer_moves_toward_present: afterNewer.time_window_bp.younger_bp < oldest.time_window_bp.younger_bp,
+      older_restores_window: JSON.stringify(afterOlder.time_window_bp) === JSON.stringify(oldest.time_window_bp),
+      playback_started_at_oldest: playbackStartedAtOldest,
+      playback_stopped: playbackStopped,
+    };
+  })()`);
+}
+
+async function genericReducedMotionJourney(cdp) {
+  return evaluate(cdp, `(async () => {
+    const api = globalThis.BijuxPollenomicsAtlasCapture;
+    const intervalPreset = [...document.querySelectorAll('[data-time-interval]')]
+      .find((button) => button.dataset.timeInterval === '1000');
+    intervalPreset.click();
+    await api.awaitReady();
+    const slider = document.getElementById('time-start-slider');
+    const playback = document.getElementById('time-playback-toggle');
+    const before = api.snapshot();
+    slider.value = slider.min;
+    slider.dispatchEvent(new Event('input', { bubbles: true }));
+    const after = await api.awaitReady();
+    return {
+      preference_matches: matchMedia('(prefers-reduced-motion: reduce)').matches,
+      automatic_playback_disabled: playback.disabled
+        && document.body.innerText.includes('disabled by the reduced-motion preference'),
+      manual_window_changed: JSON.stringify(before.time_window_bp) !== JSON.stringify(after.time_window_bp),
+      before: before.time_window_bp,
+      after: after.time_window_bp,
+    };
+  })()`);
+}
+
+async function captureInvalidCommonInputs(cdp) {
+  return evaluate(cdp, `(async () => {
+    const api = globalThis.BijuxPollenomicsAtlasCapture;
+    const state = api.snapshot();
+    const base = { story_kind: 'source_chronology', basemap: 'none', countries: state.countries };
+    const invalid = [
+      ['frame', null],
+      ['story_kind', { ...base, story_kind: 'candidate_succession' }],
+      ['basemap', { ...base, basemap: 'requires-api-key' }],
+      ['view', { ...base, view: null }],
+      ['view.latitude', { ...base, view: { latitude: null, longitude: 18, zoom: 5 } }],
+      ['view.longitude', { ...base, view: { latitude: 60, longitude: null, zoom: 5 } }],
+      ['view.zoom', { ...base, view: { latitude: 60, longitude: 18, zoom: null } }],
+    ];
+    const evidenceBefore = JSON.stringify(api.snapshot());
+    const results = [];
+    for (const [field, frame] of invalid) {
+      try {
+        await api.applyFrame(frame);
+        results.push({ field, refused: false, message: '', evidence_unchanged: false });
+      } catch (error) {
+        results.push({
+          field,
+          refused: true,
+          message: String(error && error.message ? error.message : error),
+          evidence_unchanged: JSON.stringify(api.snapshot()) === evidenceBefore,
+        });
+      }
+    }
+    return results;
+  })()`);
+}
+
+async function basemapDiscoverabilityFacts(cdp, width) {
+  return evaluate(cdp, `(async () => {
+    const settle = () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    const visible = (element) => {
+      const style = getComputedStyle(element);
+      const box = element.getBoundingClientRect();
+      return style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity) > 0
+        && box.width > 0 && box.height > 0 && box.right > 0 && box.left < innerWidth
+        && box.bottom > 0 && box.top < innerHeight;
+    };
+    const bounded = (element) => {
+      const box = element.getBoundingClientRect();
+      return box.left >= -1 && box.right <= innerWidth + 1 && box.top >= -1 && box.bottom <= innerHeight + 1;
+    };
+    const uncovered = (element) => {
+      const box = element.getBoundingClientRect();
+      const hit = document.elementFromPoint(box.left + (box.width / 2), box.top + (box.height / 2));
+      return hit === element || element.contains(hit);
+    };
+    const sidebar = document.getElementById('sidebar');
+    const toggle = document.getElementById('panel-toggle');
+    if (${width} <= 900 && sidebar.classList.contains('is-collapsed')) {
+      toggle.click();
+      await settle();
+    }
+    const status = document.getElementById('basemap-readout');
+    const controls = document.getElementById('view-controls');
+    status.focus();
+    status.click();
+    await settle();
+    const providerButtons = [...document.querySelectorAll('.basemap-button')];
+    const activeProvider = providerButtons.find((button) => button.classList.contains('is-active'));
+    const controlsOpened = controls.open && visible(controls);
+    const activeProviderFocused = document.activeElement === activeProvider;
+    const providerDisclosure = providerButtons.map((button) => button.textContent.trim());
+    controls.open = false;
+    status.focus();
+    await settle();
+    if (${width} <= 900 && !sidebar.classList.contains('is-collapsed')) {
+      document.getElementById('mobile-panel-close').click();
+      await settle();
+    }
+    return {
+      status_visible: visible(status),
+      status_bounded: bounded(status),
+      status_uncovered: uncovered(status),
+      controls_opened: controlsOpened,
+      active_provider_focused: activeProviderFocused,
+      close_restored_focus: document.activeElement === status,
+      visible_provider_disclosure: providerButtons.every((button) => visible(button) && bounded(button) && uncovered(button))
+        && providerDisclosure.includes('OpenStreetMap · no key')
+        && providerDisclosure.includes('OpenTopoMap · no key')
+        && providerDisclosure.includes('Offline · no tiles'),
+    };
+  })()`);
 }
 
 async function openAtlas(scope, debuggerOrigin, options) {

@@ -5,7 +5,7 @@ import subprocess
 from pathlib import Path
 
 from bijux_pollenomics_dev.ci import atlas_browser
-from bijux_pollenomics_dev.ci.atlas_browser.verdict import REQUIRED_ASSERTIONS
+from bijux_pollenomics_dev.ci.atlas_browser.verdict import PROFILE_REQUIRED_ASSERTIONS
 
 
 def test_dependency_free_probe_is_valid_node_module() -> None:
@@ -21,17 +21,40 @@ def test_dependency_free_probe_is_valid_node_module() -> None:
     assert completed.returncode == 0, completed.stderr
 
 
-def test_probe_emits_the_exact_independent_verdict_assertion_inventory() -> None:
+def test_probe_emits_the_exact_profile_assertion_inventories() -> None:
     probe = (
         Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
     )
 
-    match = re.search(r"const required = \[(?P<body>.*?)\n  \];", probe, re.DOTALL)
+    for profile, required in PROFILE_REQUIRED_ASSERTIONS.items():
+        match = re.search(
+            rf"'{re.escape(profile)}': \[(?P<body>.*?)\n    \]",
+            probe,
+            re.DOTALL,
+        )
+
+        assert match is not None
+        assert frozenset(re.findall(r"'([^']+)'", match.group("body"))) == required
+
+
+def test_generic_profile_does_not_reuse_nordic_source_journeys() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    match = re.search(
+        r"async function verifyGenericTimeAwareScope.*?\n}\n\nfunction genericManifestFacts",
+        probe,
+        re.DOTALL,
+    )
 
     assert match is not None
-    assert (
-        frozenset(re.findall(r"'([^']+)'", match.group("body"))) == REQUIRED_ASSERTIONS
-    )
+    generic = match.group(0)
+    assert "expectedNordic" not in generic
+    assert "shortcutFrame" not in generic
+    assert "visible_source_chronology_point_count" not in generic
+    assert "genericTimeJourney" in generic
+    assert "data-time-interval" in probe
+    assert "dataset.timeInterval === '1000'" in probe
 
 
 def test_page_readiness_uses_capture_api_and_mutation_observer() -> None:

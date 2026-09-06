@@ -1,19 +1,29 @@
 from __future__ import annotations
 
 import pytest
-from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasBrowserContractError
+from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
+    GENERIC_TIME_AWARE_PROFILE,
+    NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+    AtlasBrowserContractError,
+)
 from bijux_pollenomics_dev.ci.atlas_browser.verdict import (
-    REQUIRED_ASSERTIONS,
+    GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS,
+    PROFILE_REQUIRED_ASSERTIONS,
     evaluate_browser_report,
 )
 
 from .fixtures import candidate
 
 
-def _report(*, failed: str | None = None) -> dict[str, object]:
-    assertions = {name: name != failed for name in REQUIRED_ASSERTIONS}
+def _report(
+    *,
+    profile: str = NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+    failed: str | None = None,
+) -> dict[str, object]:
+    assertions = {name: name != failed for name in PROFILE_REQUIRED_ASSERTIONS[profile]}
     return {
-        "schema_version": "atlas-browser-runtime-report.v1",
+        "schema_version": "atlas-browser-runtime-report.v2",
+        "verification_profile": profile,
         "candidate": candidate().as_json(),
         "assertions": assertions,
         "scenarios": [{"name": "synthetic"}],
@@ -22,7 +32,11 @@ def _report(*, failed: str | None = None) -> dict[str, object]:
 
 
 def test_complete_true_evidence_passes() -> None:
-    summary = evaluate_browser_report(_report(), candidate=candidate())
+    summary = evaluate_browser_report(
+        _report(),
+        candidate=candidate(),
+        verification_profile=NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+    )
 
     assert summary["status"] == "PASS"
     assert summary["failed_assertions"] == []
@@ -32,6 +46,7 @@ def test_one_false_assertion_fails() -> None:
     summary = evaluate_browser_report(
         _report(failed="provider_failure_evidence_unchanged"),
         candidate=candidate(),
+        verification_profile=NORDIC_SOURCE_CHRONOLOGY_PROFILE,
     )
 
     assert summary["status"] == "FAIL"
@@ -50,7 +65,11 @@ def test_one_false_assertion_fails() -> None:
     ),
 )
 def test_chronology_and_null_assertions_fail_closed(failed: str) -> None:
-    summary = evaluate_browser_report(_report(failed=failed), candidate=candidate())
+    summary = evaluate_browser_report(
+        _report(failed=failed),
+        candidate=candidate(),
+        verification_profile=NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+    )
 
     assert summary["status"] == "FAIL"
     assert summary["failed_assertions"] == [failed]
@@ -64,7 +83,11 @@ def test_missing_or_extra_assertions_are_refused() -> None:
     assertions["looks_reasonable"] = True
 
     with pytest.raises(AtlasBrowserContractError, match="not exact"):
-        evaluate_browser_report(report, candidate=candidate())
+        evaluate_browser_report(
+            report,
+            candidate=candidate(),
+            verification_profile=NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+        )
 
 
 def test_candidate_substitution_is_refused() -> None:
@@ -74,4 +97,27 @@ def test_candidate_substitution_is_refused() -> None:
     report_candidate["repository_head"] = "f" * 64
 
     with pytest.raises(AtlasBrowserContractError, match="identity differs"):
-        evaluate_browser_report(report, candidate=candidate())
+        evaluate_browser_report(
+            report,
+            candidate=candidate(),
+            verification_profile=NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+        )
+
+
+def test_generic_profile_has_an_exact_independent_verdict() -> None:
+    report = _report(profile=GENERIC_TIME_AWARE_PROFILE)
+
+    summary = evaluate_browser_report(
+        report,
+        candidate=candidate(),
+        verification_profile=GENERIC_TIME_AWARE_PROFILE,
+    )
+
+    assert summary["status"] == "PASS"
+    assert set(summary["assertions"]) == GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS
+    with pytest.raises(AtlasBrowserContractError, match="profile differs"):
+        evaluate_browser_report(
+            report,
+            candidate=candidate(),
+            verification_profile=NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+        )

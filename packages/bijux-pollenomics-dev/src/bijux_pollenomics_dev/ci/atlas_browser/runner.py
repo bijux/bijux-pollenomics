@@ -110,7 +110,11 @@ def run_browser_verification(plan: BrowserVerificationPlan) -> JsonObject:
         report = json.loads(report_path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, json.JSONDecodeError) as error:
         raise AtlasBrowserContractError("browser report is unreadable") from error
-    summary = evaluate_browser_report(report, candidate=plan.candidate)
+    summary = evaluate_browser_report(
+        report,
+        candidate=plan.candidate,
+        verification_profile=plan.verification_profile,
+    )
     _require_candidate(plan)
     static_after = [
         audit_static_atlas(plan.repository_root, scope, plan.candidate)
