@@ -17,13 +17,13 @@ import tempfile
 from typing import NoReturn, cast
 import zlib
 
+from .capture_evidence import capture_frame_evidence_valid, expected_capture_layer_key
 from .catalog import (
     PUBLICATION_SCHEMA_VERSION,
     PUBLICATION_STORY_TUPLES,
     SUPPORTED_EXISTING_PUBLICATION_CONTRACTS,
 )
 from .contracts import AtlasMediaError
-from .capture_evidence import capture_frame_evidence_valid, expected_capture_layer_key
 from .gallery import canonical_json_bytes, sha256_file
 from .poster_selection import poster_frame_ordinal
 
