@@ -49,7 +49,10 @@ def add_aadr_evidence(
 def add_animal_adna_evidence(
     evidence: EvidenceMap, documents: Mapping[str, Mapping[str, object]]
 ) -> None:
-    animal_rows = _rows(documents[INPUT_PATHS[14]], "animal coverage")
+    animal_document = documents[INPUT_PATHS[14]]
+    if animal_document.get("schema_version") != "animal-country-species-coverage.v2":
+        raise CountryCoverageError("animal coverage schema version is unsupported")
+    animal_rows = _rows(animal_document, "animal coverage")
     animal_counts: Counter[str] = Counter()
     animal_sites: Counter[str] = Counter()
     animal_identities: set[tuple[str, str, str]] = set()
@@ -79,18 +82,25 @@ def add_animal_adna_evidence(
             row.get("approximate_coordinate_sample_count"),
             "animal approximate samples",
         )
-        direct_sites = _integer(
-            row.get("direct_coordinate_site_count"), "animal direct sites"
+        direct_coordinate_samples = _integer(
+            row.get("direct_coordinate_sample_count"),
+            "animal direct-coordinate samples",
         )
-        geocoded_sites = _integer(
-            row.get("geocoded_site_count"), "animal geocoded sites"
+        geocoded_coordinate_samples = _integer(
+            row.get("geocoded_coordinate_sample_count"),
+            "animal geocoded-coordinate samples",
+        )
+        mapped_localities = _integer(
+            row.get("mapped_locality_count"), "animal mapped localities"
         )
         if sample_rows != mapped_samples + unresolved_samples:
             raise CountryCoverageError("animal sample disposition does not reconcile")
         if mapped_samples != exact_samples + approximate_samples:
             raise CountryCoverageError("animal coordinate evidence does not reconcile")
-        if mapped_samples != direct_sites + geocoded_sites:
-            raise CountryCoverageError("animal mapped site evidence does not reconcile")
+        if mapped_samples != (direct_coordinate_samples + geocoded_coordinate_samples):
+            raise CountryCoverageError(
+                "animal mapped coordinate-basis evidence does not reconcile"
+            )
         for field in (
             "sample_lineage_backed_sample_count",
             "site_evidence_backed_sample_count",
@@ -100,7 +110,7 @@ def add_animal_adna_evidence(
             if _integer(row.get(field), f"animal {field}") != mapped_samples:
                 raise CountryCoverageError("animal provenance totals do not reconcile")
         animal_counts[country] += mapped_samples
-        animal_sites[country] += direct_sites
+        animal_sites[country] += mapped_localities
     animal_partitions = ("SE", "DK", "NO", "FI") + tuple(
         country
         for country in ("UNASSIGNED", "OUTSIDE")

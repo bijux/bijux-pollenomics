@@ -105,8 +105,12 @@ def _build_country_species_coverage(
                 {
                     **row,
                     "sample_row_count": sample_counts.get(species_name, 0),
-                    "direct_coordinate_site_count": direct_counts.get(species_name, 0),
-                    "geocoded_site_count": geocoded_counts.get(species_name, 0),
+                    "direct_coordinate_sample_count": direct_counts.get(
+                        species_name, 0
+                    ),
+                    "geocoded_coordinate_sample_count": geocoded_counts.get(
+                        species_name, 0
+                    ),
                     "unresolved_sample_count": unresolved_counts.get(species_name, 0),
                     "sample_lineage_backed_sample_count": sample_lineage_counts.get(
                         species_name, 0
@@ -130,6 +134,6 @@ def _build_country_species_coverage(
             )
     rows.sort(key=lambda row: (str(row["country"]), str(row["species_latin_name"])))
     return {
-        "schema_version": "animal-country-species-coverage.v1",
+        "schema_version": "animal-country-species-coverage.v2",
         "rows": rows,
     }

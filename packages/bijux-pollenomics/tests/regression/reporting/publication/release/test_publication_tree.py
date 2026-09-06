@@ -112,9 +112,7 @@ class CountryReportTests(unittest.TestCase):
                 (output / "animal_first_appearance_by_country.json").exists()
             )
             self.assertTrue((output / "nordic_farming_history_scenario.json").exists())
-            self.assertTrue(
-                (output / "world" / "nordic-atlas_map.html").exists()
-            )
+            self.assertTrue((output / "world" / "nordic-atlas_map.html").exists())
             self.assertTrue(
                 (output / "regions" / "nordic" / "nordic_map.html").exists()
             )
@@ -274,6 +272,18 @@ class CountryReportTests(unittest.TestCase):
                 if row["country"] == "Sweden"
                 and row["species_latin_name"] == "Ovis aries"
             )
+            self.assertEqual(
+                country_species_coverage["schema_version"],
+                "animal-country-species-coverage.v2",
+            )
+            for coverage_row in country_species_coverage["rows"]:
+                self.assertNotIn("direct_coordinate_site_count", coverage_row)
+                self.assertNotIn("geocoded_site_count", coverage_row)
+                self.assertEqual(
+                    coverage_row["mapped_sample_count"],
+                    coverage_row["direct_coordinate_sample_count"]
+                    + coverage_row["geocoded_coordinate_sample_count"],
+                )
             self.assertEqual(sheep_country_row["sample_row_count"], 1)
             self.assertEqual(sheep_country_row["sample_lineage_backed_sample_count"], 1)
             self.assertEqual(sheep_country_row["site_evidence_backed_sample_count"], 1)
@@ -283,8 +293,8 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(
                 sheep_country_row["coordinate_provenance_backed_sample_count"], 1
             )
-            self.assertEqual(sheep_country_row["geocoded_site_count"], 1)
-            self.assertEqual(sheep_country_row["direct_coordinate_site_count"], 0)
+            self.assertEqual(sheep_country_row["geocoded_coordinate_sample_count"], 1)
+            self.assertEqual(sheep_country_row["direct_coordinate_sample_count"], 0)
             sheep_readiness = next(
                 row
                 for row in atlas_readiness["rows"]
