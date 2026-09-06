@@ -22,7 +22,7 @@ def build_source_capability_audit_payload(
     source_blockers: Mapping[str, tuple[str, ...]],
 ) -> dict[str, object]:
     """Observe repository materialization without changing source capability."""
-    output_root = Path(output_root)
+    output_root = Path(output_root).resolve()
     rows: list[_CapabilityAuditRow] = []
     evidence_validity: dict[tuple[Path, str], bool] = {}
     for profile in build_source_capability_profiles():

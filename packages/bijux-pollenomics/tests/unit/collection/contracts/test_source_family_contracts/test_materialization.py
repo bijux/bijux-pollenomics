@@ -3,6 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 import tempfile
 
+import pytest
+
 from bijux_pollenomics.collection.contracts.capabilities import (
     NEOTOMA_CLASSIFICATION_EVIDENCE,
     NEOTOMA_PROPAGATION_EVIDENCE,
@@ -20,6 +22,26 @@ from bijux_pollenomics.collection.contracts.families import (
 )
 
 from .support import REPO_ROOT
+
+
+def test_relative_and_absolute_data_roots_produce_identical_capability_audits(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.chdir(REPO_ROOT)
+    absolute = build_source_capability_audit_payload(
+        REPO_ROOT / "data", coverage_metrics_by_source={}, source_blockers={}
+    )
+    relative = build_source_capability_audit_payload(
+        Path("data"), coverage_metrics_by_source={}, source_blockers={}
+    )
+
+    assert relative == absolute
+    for row in relative["rows"]:
+        if (
+            row["source_key"] == "sead"
+            and SEAD_NORMALIZED_EVIDENCE_MANIFEST in row["evidence_paths"]
+        ):
+            assert SEAD_NORMALIZED_EVIDENCE_MANIFEST in row["present_evidence_paths"]
 
 
 def test_sead_provenance_binds_admitted_acquisition_not_legacy_inventory() -> None:
