@@ -163,6 +163,54 @@ def test_static_atlas_rejects_non_node_time_selection_metadata(
 
 
 @pytest.mark.parametrize(
+    ("field_index", "invalid_value", "message"),
+    [
+        (6, True, "layer_index"),
+        (6, -1, "layer_index"),
+        (7, "", "layer_key"),
+        (8, "heat", "layer_kind"),
+        (9, None, "country_keys"),
+        (9, ["Sweden", ""], "country_keys"),
+        (10, [56, 11, 55, 10], "bounds"),
+        (10, [-91, 10, 56, 11], "bounds"),
+        (14, None, "scientific_signal_ids"),
+        (14, ["signal", ""], "scientific_signal_ids"),
+    ],
+)
+def test_static_atlas_rejects_invalid_node_selection_metadata(
+    tmp_path: Path,
+    field_index: int,
+    invalid_value: object,
+    message: str,
+) -> None:
+    scope = write_static_atlas(tmp_path)
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    row = manifest["assets"]["records"][0]
+    row[0] = "nodes"
+    row[6:15] = [0, "layer", "point", [], None, None, None, row[5], []]
+    row[field_index] = invalid_value
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(AtlasBrowserContractError, match=message):
+        audit_static_atlas(tmp_path, scope, candidate())
+
+
+@pytest.mark.parametrize("field_index", (6, 7, 8, 9, 10, 14))
+def test_static_atlas_rejects_non_node_selection_metadata(
+    tmp_path: Path, field_index: int
+) -> None:
+    scope = write_static_atlas(tmp_path)
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["assets"]["records"][0][field_index] = 0
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(AtlasBrowserContractError, match="non-node selection"):
+        audit_static_atlas(tmp_path, scope, candidate())
+
+
+@pytest.mark.parametrize(
     ("budget", "invalid_value"),
     [
         ("static_assets_max_files", True),

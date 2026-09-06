@@ -138,6 +138,53 @@ def _validate_asset_counts_and_time(asset: JsonObject, *, sequence: int) -> None
         )
 
 
+def _string_list(value: object, *, label: str) -> list[str]:
+    if not isinstance(value, list) or any(
+        not isinstance(item, str) or not item for item in value
+    ):
+        raise AtlasBrowserContractError(f"{label} must be an array of identifiers")
+    return value
+
+
+def _validate_asset_selection(asset: JsonObject, *, sequence: int) -> None:
+    label = f"manifest asset row {sequence}"
+    if asset["domain"] != "nodes":
+        if any(asset[field] is not None for field in _ASSET_FIELDS[6:]):
+            raise AtlasBrowserContractError(
+                f"{label} non-node selection metadata must be null"
+            )
+        return
+
+    _nonnegative_integer(asset["layer_index"], label=f"{label} layer_index")
+    layer_key = asset["layer_key"]
+    if not isinstance(layer_key, str) or not layer_key:
+        raise AtlasBrowserContractError(f"{label} layer_key must be non-empty")
+    if asset["layer_kind"] not in {"point", "polygon"}:
+        raise AtlasBrowserContractError(f"{label} layer_kind is invalid")
+    _string_list(asset["country_keys"], label=f"{label} country_keys")
+    _string_list(
+        asset["scientific_signal_ids"],
+        label=f"{label} scientific_signal_ids",
+    )
+    bounds = asset["bounds"]
+    if bounds is None:
+        return
+    if not isinstance(bounds, list) or len(bounds) != 4:
+        raise AtlasBrowserContractError(f"{label} bounds must contain four numbers")
+    south, west, north, east = (
+        _finite_number(value, label=f"{label} bounds") for value in bounds
+    )
+    if (
+        not -90 <= south <= 90
+        or not -90 <= north <= 90
+        or not -180 <= west <= 180
+        or not -180 <= east <= 180
+        or south > north
+        or west > east
+    ):
+        raise AtlasBrowserContractError(f"{label} bounds are invalid")
+
+
 def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
     table = _mapping(manifest.get("assets"), label="manifest.assets")
     if table.get("fields") != list(_ASSET_FIELDS):
@@ -164,6 +211,7 @@ def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
                 f"manifest asset row {sequence} identity is malformed"
             )
         _validate_asset_counts_and_time(asset, sequence=sequence)
+        _validate_asset_selection(asset, sequence=sequence)
         asset["path"] = (
             f"{manifest['scope_slug']}.atlas-{domain}.{sequence:04d}.{digest[:16]}.js"
         )
