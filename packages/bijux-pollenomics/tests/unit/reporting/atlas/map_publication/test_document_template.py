@@ -106,6 +106,12 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
             "grid-template-columns: minmax(0, 1fr);",
             MAP_DOCUMENT_TEMPLATE,
         )
+        self.assertIn("overflow-x: hidden;", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("overflow-wrap: anywhere;", MAP_DOCUMENT_TEMPLATE)
+        self.assertIn(
+            ".control-group-body {\n        display: grid;\n        gap: 10px;\n        min-width: 0;\n        width: 100%;",
+            MAP_DOCUMENT_TEMPLATE,
+        )
         self.assertIn(
             "basemapSwitch.scrollIntoView({\n          block: 'nearest',\n          behavior: 'auto',",
             MAP_DOCUMENT_TEMPLATE,

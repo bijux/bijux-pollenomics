@@ -792,6 +792,7 @@
         right: 16px;
         z-index: 1200;
         width: min(288px, calc(100vw - 32px));
+        min-width: 0;
         max-height: calc(100vh - 208px);
         transition: transform 180ms ease, opacity 180ms ease;
       }
@@ -814,6 +815,8 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        min-width: 0;
+        width: 100%;
         max-height: inherit;
         padding: 12px;
         border-radius: 24px;
@@ -865,12 +868,17 @@
       .control-panel-body {
         display: grid;
         gap: 8px;
-        overflow: auto;
+        min-width: 0;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
         padding-right: 2px;
       }
       .control-group {
         display: grid;
         gap: 0;
+        min-width: 0;
+        width: 100%;
         border: 1px solid rgba(24, 37, 61, 0.08);
         border-radius: 18px;
         background: rgba(255, 255, 255, 0.68);
@@ -880,6 +888,7 @@
         justify-content: space-between;
         gap: 10px;
         align-items: center;
+        min-width: 0;
         padding: 10px 12px;
         cursor: pointer;
         list-style: none;
@@ -889,6 +898,14 @@
       }
       .control-group-head::marker {
         content: "";
+      }
+      .control-group-head > div,
+      .control-group-summary {
+        min-width: 0;
+      }
+      .control-group-summary {
+        overflow-wrap: anywhere;
+        text-align: right;
       }
       .control-group-head::after {
         content: "+";
@@ -914,6 +931,8 @@
       .control-group-body {
         display: grid;
         gap: 10px;
+        min-width: 0;
+        width: 100%;
         padding: 0 12px 12px;
       }
       .dock-actions,
