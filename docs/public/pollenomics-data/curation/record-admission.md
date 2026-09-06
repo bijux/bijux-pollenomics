@@ -136,13 +136,13 @@ For a Direkli Cave goat sample, the point-product query can pass because the
 sample identity, sample-to-site relation, supplied coordinates, chronology
 posture, and source locator are connected. The same object still requires a
 different decision for a numeric temporal comparison. For the Wadi Halfa
-dromedary context, the map query can return a qualified context member while a
-sample-backed query must refuse it because no final sample identity was
-recovered.
+dromedary context, the current map query refuses publication because no
+admitted sample-backed locality candidate was recovered
+(`no_admitted_sample_backed_locality_candidate`).
 
 | Query | Direkli sample | Wadi Halfa context |
 | --- | --- | --- |
-| may appear on the animal point surface? | admitted as sample-backed evidence | qualified as project context |
+| may appear on the animal point surface? | admitted as sample-backed evidence | no; not materialized |
 | may count as a recovered sample? | yes, through the project sample master | no |
 | may be treated as source-supplied exact geometry? | only at the coordinate record's declared basis | no; named-place resolution is approximate |
 | may support numeric temporal comparison? | evaluate the sample chronology contract | unavailable without sample-owned chronology |
@@ -184,10 +184,10 @@ count without the reviewed and excluded populations cannot establish
 completeness.
 
 Population accounting also requires stable identities on the non-member side.
-A total such as “234 published” is reproducible only when the 233
-sample-backed members and one project-context member remain separately
-addressable. Otherwise the same total can survive a silent change in evidence
-class.
+The current publication denominator reconciles 285 mappable coordinate-
+provenance rows into 151 published locality features and 134 not-materialized
+rows. The published features represent 288 distinct admitted samples; the two
+units must remain separately addressable.
 
 ### Admission Reconciliation
 

@@ -110,14 +110,15 @@ The animal surfaces expose three counts that must not be collapsed:
 
 | Count | Governed population | Appropriate use |
 | ---: | --- | --- |
-| 894 | sample-foundation rows across 10 tracked species and 40 projects | grounding and blocker accounting |
-| 868 | recovered project sample-master identities | project recovery and stable sample identity |
-| 234 | published animal point features | map membership under the point contract |
+| 1,450 | final sample-foundation rows across 10 species and 21 contributing projects | grounding and blocker accounting |
+| 1,455 raw / 1,450 final | project sample-master rows within the 40-project registry | project recovery and stable sample identity |
+| 151 features / 288 samples | published animal locality features and the distinct admitted samples they represent | map membership under the point contract |
 
-The 234 features comprise 233 final sample-backed points and one provisional
-project-context point. The other two populations are not implied denominators
-for that layer. A rate or completeness claim is invalid unless its numerator,
-denominator, observation unit, and governing contract are all named.
+The 151 features comprise 116 domesticated-core and 35 wild/progenitor-context
+localities, all backed by admitted samples. The other populations are not
+implied denominators for that layer. A rate or completeness claim is invalid
+unless its numerator, denominator, observation unit, and governing contract are
+all named.
 
 ### One Point Layer, Two Claim Classes
 
@@ -125,20 +126,22 @@ The current animal point surface illustrates the repository boundary:
 
 | Class | Members | Supported statement | Unsupported promotion |
 | --- | ---: | --- | --- |
-| final sample-backed | 233 | these product members resolve to directly extracted final sample identities and supplementary coordinates | the tracked project or species collection is complete |
-| provisional project context | 1 | the Wadi Halfa feature retains paper-backed place context and an approximate geocode | a source-native sample row was recovered or the excavation coordinate is exact |
+| domesticated-core locality | 116 | these product members resolve to admitted final samples and governed locality evidence | the tracked project or species collection is complete |
+| wild or progenitor context locality | 35 | these product members retain admitted sample backing and an explicit context role | wild/progenitor context proves domestication |
+| Wadi Halfa retained context | 0 published | paper-backed place context remains in readiness accounting under `no_admitted_sample_backed_locality_candidate` | rendering a point without admitted sample backing |
 
-Both can be visible because visibility follows a declared point class. A
-sample-count analysis cannot treat them as the same observation unit. The
-stronger analysis uses only final samples or records a separate context class
-and its effect on the result.
+The two published scope classes can be visible because each satisfies the
+sample-backed point contract. A sample-count analysis still cannot treat
+locality features as sample rows. The stronger analysis uses the 288 distinct
+sample identities and preserves the domesticated versus wild/progenitor role.
 
 ```mermaid
 flowchart LR
-    Layer["animal point surface"] --> Samples["233 final sample-backed features"]
-    Layer --> Context["1 provisional project-context feature"]
-    Samples --> SampleClaim["sample-level qualified presence"]
-    Context --> ContextClaim["project-context spatial presence"]
+    Layer["151-feature animal locality surface"] --> Domestic["116 domesticated-core features"]
+    Layer --> Context["35 wild/progenitor-context features"]
+    Domestic --> Samples["288 distinct admitted samples across both roles"]
+    Context --> Samples
+    Wadi["Wadi Halfa retained context"] --> Excluded["not published"]
 ```
 
 ## Match The Claim To The Surface

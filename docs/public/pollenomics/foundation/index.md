@@ -177,9 +177,9 @@ not precise enough for scientific accounting:
 
 | Population | Count | Unit and purpose |
 | --- | ---: | --- |
-| sample-foundation truth | 894 | curated source rows classified by grounding and blocking posture |
-| recovered project sample master | 868 | stable sample identities recovered across 40 tracked projects |
-| animal point publication | 234 | 233 final sample-backed features plus one provisional project-context feature |
+| sample-foundation truth | 1,450 final sample rows | curated rows classified by grounding and blocking posture across 21 contributing projects |
+| recovered project sample master | 1,455 raw rows; 1,450 final rows | sample identities recovered within the 40-project registry |
+| animal point publication | 151 locality features; 288 samples | 116 domesticated-core and 35 wild/progenitor-context features, all sample-backed |
 
 These values answer different questions. They are not successive percentages
 of one denominator: foundation rows and recovered identities have distinct

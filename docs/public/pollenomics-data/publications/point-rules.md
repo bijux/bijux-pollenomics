@@ -16,18 +16,18 @@ curated collection, but it cannot borrow visual certainty from a map marker.
 
 ## Current Published Point Posture
 
-The animal point-evidence review contains 234 accepted rows. Of these, 233 use
-coordinates captured directly from supplementary tables and carry `exact`
-coordinate confidence. One uses documented named-site geocoding and carries
-`approximate` confidence. The public surface therefore contains qualified
-coordinate classes; it must not be described as entirely source-coordinate
-backed.
+The animal point-evidence review contains 151 accepted locality rows
+representing 288 distinct admitted samples. Their coordinate confidence classes
+are 143 `exact`, six `approximate`, and two
+`source_reported_two_decimal_degrees`. Their coordinate bases are 143
+supplementary-table rows, four supplementary proximal-site rows, two archive
+sample records, and two named-site geocodes. The public surface therefore must
+not be described as uniformly precise or as one feature per sample.
 
-Identity posture is mixed as well. The 233 supplementary-coordinate features
-contain final, directly extracted sample identities. The single Wadi Halfa
-dromedary feature contains a provisional project-anchored identity with
-`sample_evidence_status: not_yet_recoverable`. It is a qualified context point,
-not a recovered sample point.
+Every published feature contains at least one final admitted sample identity.
+Wadi Halfa is not a published feature: readiness accounting retains it as a
+not-materialized row with reason
+`no_admitted_sample_backed_locality_candidate`.
 
 Acceptance applies to the declared point product. It does not certify complete
 project recovery, equal coverage across species, or unrestricted analytical
@@ -68,9 +68,11 @@ flowchart TD
     F -->|yes| G[Match sample, site evidence, citation, and review]
     G --> H{Project-level flattening detected?}
     H -->|yes| X
-    H -->|no| I{Identity posture}
-    I -->|final sample| P[Publish sample-backed point]
-    I -->|qualified project context| Q[Publish visibly qualified context point]
+    H -->|no| I{Admitted sample IDs present?}
+    I -->|no| X
+    I -->|yes| J{Supported animal scope?}
+    J -->|domesticated core| P[Publish sample-backed point]
+    J -->|wild or progenitor context| Q[Publish context-role sample-backed point]
 ```
 
 The emitted row carries stable feature, evidence-row, and site identifiers;
@@ -78,22 +80,22 @@ species and support class; locality and coordinate provenance; project and
 sample identifiers; paper and supplement citations; site-evidence text; scope
 inclusion; and chronology at the precision allowed for publication.
 
-For the qualified project-context branch, “sample identifier” means the
-retained project-anchored token and must travel with its provisional resolution
-and unrecovered-sample status. It must not be presented as equivalent to a
-source-native sample identifier.
+The two scope branches use the same sample-accountability floor. Their role
+distinction limits biological interpretation; it does not permit an
+unrecovered project-context token to stand in for a sample identifier.
 
 ### Current Point Classes
 
 | Product class | Features | Minimum identity | Coordinate posture | Claim ceiling |
 | --- | ---: | --- | --- | --- |
-| sample-backed animal point | 233 | final extracted sample identity | supplementary-table coordinate | qualified sample presence at the reported point |
-| project-context animal point | 1 | paper-pinned project context; sample not yet recoverable | approximate Wadi Halfa named-place geocode | qualified spatial context for the tracked project |
+| domesticated-core locality | 116 | one or more final admitted sample identities | governed exact or qualified coordinate | qualified domesticated-animal presence at the reported locality |
+| wild or progenitor context locality | 35 | one or more final admitted sample identities | governed exact or qualified coordinate | context-role presence without promotion to domesticated evidence |
 
 The two classes share a point layer because both satisfy the current spatial
-product contract. They do not share analytical eligibility. Sample-level
-counts, recovery estimates, and independent-observation analyses must use the
-first class unless they declare and defend a different unit.
+and sample-accountability contract. They do not share biological role.
+Sample-level counts must use the 288 distinct sample identities rather than the
+151 aggregated localities, and domestication analyses must preserve the scope
+class.
 
 ### Compare Two Admission Packets
 
@@ -101,18 +103,18 @@ The distinction is visible in the evidence required to build each feature:
 
 | Packet member | Direkli goat sample | Wadi Halfa dromedary context |
 | --- | --- | --- |
-| governed identity | final sample `SAMEA4453841` in project `PRJEB90141` | provisional project-anchored token in `SRP073444` |
+| governed identity | final sample `SAMEA4453841` in project `PRJEB90141` | no admitted sample-backed locality candidate in `SRP073444` |
 | source locator | supplementary workbook, Table S2, row 2 | paper-backed named-place statement |
 | locality | sample-owned Direkli Cave | project-context Wadi Halfa |
 | coordinate | supplementary-table coordinate, `exact` source class | named-place geocode, `approximate` class |
-| sample evidence status | recovered final sample | `not_yet_recoverable` |
-| permitted point claim | qualified sample presence at the reported point | qualified project-context spatial presence |
-| forbidden promotion | complete project recovery or uniform ascertainment | recovered sample, exact excavation coordinate, or sample-level count |
+| sample evidence status | recovered final sample | no admitted sample for this locality candidate |
+| publication decision | admitted sample-backed locality | not materialized |
+| reason or restraint | do not infer complete project recovery or uniform ascertainment | `no_admitted_sample_backed_locality_candidate`; do not render a point |
 
 ```mermaid
 flowchart LR
     Direkli["final sample packet"] --> SamplePoint["sample-backed point"]
-    Wadi["provisional project packet"] --> ContextPoint["qualified context point"]
+    Wadi["project context without admitted sample"] --> Excluded["not materialized"]
     SamplePoint --> Layer["animal point layer"]
     ContextPoint --> Layer
     Layer --> Analysis{"declared analysis unit"}

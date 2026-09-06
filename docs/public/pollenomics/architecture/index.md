@@ -194,19 +194,19 @@ its marker appears.
 
 ### The Same Layer Can Carry Different Evidence Units
 
-The animal map demonstrates why ownership cannot be inferred from geometry.
-Two markers can share a layer while resolving through different evidence
-chains:
+The animal map demonstrates why ownership cannot be inferred from available
+geometry. Two evidence records can resolve through different chains and reach
+different publication dispositions:
 
-| Visible member | Evidence unit | Required reverse trace | Permitted claim |
+| Evidence record | Evidence unit | Required reverse trace | Publication disposition |
 | --- | --- | --- | --- |
 | final sample-backed feature | recovered sample | feature → evidence row → final sample identity → supplementary row and coordinate → project capture | qualified sample presence at the recorded locality |
-| Wadi Halfa provisional feature | project context | feature → evidence row → provisional identity → paper-backed named place → project capture | spatial project context at an approximate geocode |
+| Wadi Halfa retained context | project context | readiness row → paper-backed named place → project capture | not published: `no_admitted_sample_backed_locality_candidate` |
 
-`reporting/` is allowed to place both members because the point-class contract
-preserves their difference. It is not allowed to collapse them into one sample
-population. Recovering a source-native Wadi sample would begin in `adna/`, flow
-through `evidence/`, and only then change the published class.
+`reporting/` may place only the admitted sample-backed member. It preserves the
+Wadi context in exclusion and readiness reporting without turning it into map
+geometry. Recovering a source-native Wadi sample would begin in `adna/`, flow
+through `evidence/`, and only then permit reevaluation under the point contract.
 
 ```mermaid
 flowchart TB
@@ -214,8 +214,8 @@ flowchart TB
     SampleRecord --> SampleReview["evidence sample admission"]
     SampleReview --> SamplePoint["reporting final sample-backed feature"]
     PlaceSource["paper-backed named place"] --> ContextRecord["adna provisional project record"]
-    ContextRecord --> ContextReview["evidence context admission"]
-    ContextReview --> ContextPoint["reporting provisional context feature"]
+    ContextRecord --> ContextReview["evidence readiness review"]
+    ContextReview --> Excluded["not materialized without admitted sample-backed locality"]
 ```
 
 ## Architecture References

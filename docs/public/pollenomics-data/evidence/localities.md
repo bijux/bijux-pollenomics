@@ -20,12 +20,13 @@ resolution being published.
 
 ## Current Evidence Posture
 
-Of 868 governed animal sample rows, 820 carry a direct sample-site assignment.
-The remaining 48 do not: 32 have region-only context and 16 remain unresolved.
-No current row is promoted through a sample-group, project-only, or inferred
-named-place assignment. These counts describe locality linkage, not coordinate
-quality; even a direct site still needs independent coordinate provenance
-before it can become a point.
+Of 1,455 recovered raw sample-site review rows, 1,021 carry a direct
+sample-site assignment and 434 remain unresolved. No current row is promoted
+through a sample-group, project-only, region-only, or inferred named-place
+assignment. These counts describe locality linkage, not coordinate quality;
+even a direct site still needs independent coordinate provenance before it can
+become a point. The final sample-foundation population contains 1,450 rows, so
+the raw locality-review count must not be used as a final-identity denominator.
 
 The repository records three related but non-interchangeable dimensions:
 

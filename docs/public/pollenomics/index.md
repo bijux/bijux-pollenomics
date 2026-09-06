@@ -198,21 +198,23 @@ authority is refused because the governing normalized lake registry is absent.
 Their retained receipts and derived review material remain provenance, not
 admitted scientific evidence.
 
-Animal aDNA demonstrates the deeper evidence model. Forty tracked projects
-currently contribute 868 recovered sample rows. The public animal point review
-admits 234 rows: 233 backed by supplementary-table coordinates and one by a
-documented approximate named-site resolution. Only four projects have a
-trustworthy expected sample count, so identity recovery is auditable without
-being misrepresented as collection completeness.
+Animal aDNA demonstrates the deeper evidence model. The 40-project registry
+contains 1,455 recovered raw sample rows and 1,450 final sample rows from 21
+contributing projects. The public animal point review admits 151 locality
+features representing 288 distinct samples: 116 domesticated-core and 35
+wild/progenitor-context features. Only four projects have a trustworthy
+expected sample count, so identity recovery is auditable without being
+misrepresented as collection completeness.
 
 ```mermaid
 flowchart LR
-    Project["40 animal projects"] --> Sample["868 recovered sample rows"]
+    Project["40 tracked animal projects"] --> Raw["1,455 recovered raw rows"]
+    Raw --> Sample["1,450 final sample rows"]
     Sample --> Place["locality and coordinate review"]
     Sample --> Time["chronology review"]
     Place --> Admission{"point-product admission"}
     Time --> Admission
-    Admission -->|accepted| Point["234 reviewed point rows"]
+    Admission -->|accepted| Point["151 locality features<br/>288 distinct samples"]
     Admission -->|not supported| VisibleGap["exclusion, refusal, or recovery evidence"]
 ```
 

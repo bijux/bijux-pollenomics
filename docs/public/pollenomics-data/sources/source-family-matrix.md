@@ -62,13 +62,14 @@ The current stage matrix reports this materialized state:
 | boundaries | present | present | missing | present | four country geometries frame membership without scientific weight |
 | SVAR | present | missing | partial | refused | authority is refused; a source-reported summary and 99-member review registry exist, but the complete contracted normalized registry is absent |
 | AADR | present | missing | missing | present | three v66 capture files and retained products exist without governed Homo sapiens normalized and review members |
-| animal aDNA | present | present | present | present | 10 species, 40 projects, and 894 species-owned sample-foundation rows are materialized |
+| animal aDNA | present | present | present | present | 10 species and 1,450 final sample-foundation rows from 21 contributing projects are materialized within a 40-project registry |
 
-The animal lifecycle count is the population of species-owned foundation rows,
-not the 868 recovered project sample-master identities or the 234 admitted
-point-evidence rows. All three quantities are valid only with their governing
-unit. The corrected metric no longer reports zero merely because it was
-reading a field name that the foundation summary does not own.
+The animal lifecycle count is the population of final species-owned foundation
+rows, not the 1,455 recovered raw project sample-master rows or the 151
+published locality features representing 288 samples. Each quantity is valid
+only with its governing unit. The corrected metric no longer reports zero
+merely because it was reading a field name that the foundation summary does
+not own.
 
 ### Read The Matrix As An Evaluated Snapshot
 

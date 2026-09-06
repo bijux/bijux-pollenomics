@@ -94,11 +94,11 @@ required source, field, or decision.
 
 Some real capabilities carry narrower claims because the evidence is uneven:
 
-- animal source recovery tracks 40 projects and 868 recovered sample rows,
-  while expected-sample denominators remain incomplete;
-- animal point publication admits 233 final sample-backed features and one
-  provisional project-context feature without presenting the 234-row surface
-  as one homogeneous sample population;
+- animal source recovery tracks 40 projects, 1,455 recovered raw sample rows,
+  and 1,450 final rows, while expected-sample denominators remain incomplete;
+- animal point publication admits 151 sample-backed locality features
+  representing 288 distinct samples without presenting locality and sample
+  counts as one homogeneous population;
 - Neotoma provides 170 numerically comparable site spans alongside five
   contextual-only and 25 unresolved sites;
 - SEAD provides 2,172 mapped Nordic context features, while all 2,195 reviewed
@@ -106,11 +106,12 @@ Some real capabilities carry narrower claims because the evidence is uneven:
 - Sweden lake ranking supports prioritization, while field readiness remains
   dependent on bathymetry, access, permissions, and on-site verification.
 
-The animal database also contains different governed populations: 894
-sample-foundation rows, 868 recovered project sample-master identities, and
-234 point-publication members. These are distinct contracts rather than a
-single attrition funnel. The public layer contains 233 final sample-backed
-features and one provisional project-context feature.
+The animal database also contains different governed populations: 1,455
+recovered raw project sample-master rows, 1,450 final sample-foundation rows,
+288 distinct admitted samples, and 151 point-publication locality features.
+These are distinct contracts rather than a single attrition funnel. The public
+layer contains 116 domesticated-core and 35 wild/progenitor-context features,
+all with admitted sample backing.
 
 ```mermaid
 flowchart TB
@@ -133,8 +134,8 @@ one output, qualified for another, and outside scope for a stronger analysis.
 | Domain question | State | Governed result | Claim ceiling |
 | --- | --- | --- | --- |
 | Which AADR v66 rows belong to a country bundle? | operational | release-resolved members, manifest, table, and GeoJSON | geographic publication of metadata, not genotype analysis |
-| Which recovered animal samples meet the point contract? | operational for 233 features | final sample identity, locality, coordinate, chronology posture, and traceability | admitted subset, not complete project recovery |
-| May the Wadi Halfa dromedary context appear spatially? | qualified | one provisional project-context feature with approximate named-place geocode | context feature, not recovered sample evidence |
+| Which recovered animal samples meet the point contract? | operational for 288 samples represented by 151 locality features | final sample identity, locality, coordinate, chronology posture, and traceability | admitted subset, not complete project recovery |
+| May the Wadi Halfa dromedary context appear spatially? | not published | readiness evidence retained with `no_admitted_sample_backed_locality_candidate` | context remains outside the point product |
 | Are current SEAD sites contemporaneous with nearby aDNA? | refused | 2,195 unresolved temporal review rows | spatial context only until chronology is recovered |
 | Which Swedish lakes rank under declared scenarios? | qualified decision support | ranking, sensitivity, and fieldwork-preparation packets | prioritization, not sampling readiness |
 | What population-genetic process produced a pattern? | outside scope | no governed capability | requires a new analysis and evidence contract |

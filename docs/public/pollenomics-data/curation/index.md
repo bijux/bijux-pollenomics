@@ -117,7 +117,7 @@ separate records. That separation is visible in two animal cases:
 | Case | Captured evidence | Curated database state | Product consequence |
 | --- | --- | --- | --- |
 | Direkli Cave goat | supplementary workbook Table S2, row 2 names archive sample `SAMEA4453841`, locality, coordinates, and chronology | final project-owned sample identity with separate locality, coordinate, and chronology claims | admitted as a sample-backed point at the supported precision |
-| Wadi Halfa dromedary | paper-backed Site 1040 place context for project `SRP073444`; no recoverable sample-master row | provisional project-context identity and approximate named-place coordinate, with missing sample evidence retained | admitted only as a qualified context feature, not counted as a recovered sample |
+| Wadi Halfa dromedary | paper-backed Site 1040 place context for project `SRP073444`; no recoverable sample-master row | contextual named-place evidence retained with its approximate coordinate basis and missing sample evidence | not published; accounted as `no_admitted_sample_backed_locality_candidate` |
 
 ```mermaid
 flowchart LR
@@ -127,9 +127,10 @@ flowchart LR
     Capture -. "preserved, never rewritten by" .-> Projection
 ```
 
-Both cases produce useful public evidence, but they do not produce the same
-object or claim class. Flattening them into a common “curated point” row would
-erase the distinction that makes the 234-member animal surface defensible.
+Both cases produce useful evidence, but they do not produce the same object or
+claim class. The current point surface therefore publishes the admitted
+sample-backed locality and keeps Wadi Halfa outside the product with an
+explicit reason.
 
 ## Fact Ownership
 
@@ -213,10 +214,10 @@ Start from either the source or the public member and recover the same chain:
 
 For the final check, compare the public wording with the decision class. A
 sample-backed member may name the governed sample and source-supported point;
-a project-context member must retain its provisional identity and approximate
-spatial posture everywhere it appears. If presentation uses the stronger
-language for both, the defect is in the projection even when the underlying
-curation records are correct.
+retained project context without admitted sample backing must remain an
+accounted non-member everywhere it appears. If presentation turns that context
+into a point, the defect is in the projection even when the underlying curation
+records are correct.
 
 Continue with [evidence decision records](decision-records.md) for the durable
 connection between claim, rule, outcome, and product; [record

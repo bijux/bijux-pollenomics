@@ -114,11 +114,12 @@ the declared authorities that should support a rebuild. A missing earlier
 stage blocks the stronger rebuildability claim without deleting the retained
 product or pretending it never existed.
 
-Animal aDNA also demonstrates why metrics are typed. Its lifecycle row counts
-894 species-owned sample-foundation rows. Project recovery currently counts
-868 recovered sample-master identities, while point publication admits 234
-rows. These are foundation, recovery, and product populations—not three
-estimates of one interchangeable total.
+Animal aDNA also demonstrates why metrics are typed. Its lifecycle contains
+1,450 final sample-foundation rows across 21 contributing projects. The wider
+40-project registry contains 1,455 recovered raw sample-master rows and 1,450
+final rows, while point publication contains 151 locality features representing
+288 distinct admitted samples. These are recovery, foundation, sample, and
+product populations—not estimates of one interchangeable total.
 
 ### Readiness Has Independent Dimensions
 

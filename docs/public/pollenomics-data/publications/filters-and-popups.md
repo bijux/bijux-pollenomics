@@ -124,9 +124,9 @@ flowchart LR
 ```
 
 Visible counts are selection counts, not source-family denominators. Report
-both when coverage matters—for example, “12 of 234 admitted animal publication
-points are visible under this filter”—and keep the member IDs so equal counts
-with different membership remain distinguishable.
+both when coverage matters—for example, “8 of 151 published animal locality
+features are visible under this Nordic filter”—and keep the member IDs so equal
+counts with different membership remain distinguishable.
 
 ## Popup Contract
 
@@ -151,10 +151,9 @@ qualification whose absence would materially strengthen the apparent claim.
 ### Popup Claims For Mixed Animal Identity
 
 The goat feature for Direkli1-2 can name a final sample identifier,
-supplementary-table coordinate, and sample-owned chronology. The Wadi Halfa
-dromedary feature cannot use the same template: its identity is provisional,
-its coordinate is an approximate named-place geocode, and its sample row is not
-yet recoverable.
+supplementary-table coordinate, and sample-owned chronology. Wadi Halfa must
+not receive a point popup: it is retained only as a not-materialized readiness
+row with reason `no_admitted_sample_backed_locality_candidate`.
 
 The two features may share marker styling, but their popups must not share an
 unqualified “sample” assertion. Presentation that erases this difference

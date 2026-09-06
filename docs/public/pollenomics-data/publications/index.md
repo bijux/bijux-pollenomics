@@ -277,7 +277,7 @@ them into one product without making their observation units equivalent.
 flowchart LR
     Bundle["world_bundle.json / v66"] --> Contract["world map contract"]
     Contract --> AADR["1,231 human sample features"]
-    Contract --> Animal["234 animal evidence features"]
+    Contract --> Animal["151 animal locality features<br/>288 admitted samples"]
     Contract --> Boundaries["4 framing features"]
     AADR --> Trace["point traceability"]
     Animal --> Trace
@@ -293,9 +293,9 @@ distinguish a human sample, animal context feature, or boundary polygon.
 
 Animal publication checks currently enforce that:
 
-- published points retain the identity support declared by their point class:
-  final sample lineage or visibly provisional project context;
-- provisional project context does not become recovered sample evidence;
+- every published point retains final admitted sample lineage;
+- retained project context without an admitted sample-backed locality remains
+  a not-materialized readiness row rather than point evidence;
 - sample-site disagreement is not flattened into one project locality;
 - blocked sample-site rows do not publish as exact sites;
 - unresolved or conflicting chronology does not enter country or atlas output;
@@ -339,8 +339,9 @@ narrowest evidence member that supports the statement. If that member cannot
 be named, the statement is not yet traceable enough for scientific reuse.
 
 For a count, also retain the observation unit, numerator, eligible population,
-exclusions, and scope. “234 points” is a product-membership statement; it is
-not a recovery rate until a defensible denominator and recovery rule are named.
+exclusions, and scope. “151 locality features representing 288 samples” is a
+product-membership statement; it is not a recovery rate until a defensible
+denominator and recovery rule are named.
 
 The [revision and state model](../database/revision-and-state-model.md)
 defines the database snapshot from which a projection receives its authority.

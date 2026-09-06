@@ -24,22 +24,21 @@ Bijux Pollenomics therefore keeps three questions separate:
 
 ## Current Evidence Posture
 
-The governed chronology audit covers all 868 recovered animal samples:
+The governed chronology audit covers 1,455 recovered raw sample rows:
 
 | Normalization result | Samples | Interpretation |
 | --- | ---: | --- |
-| numeric point | 469 | one defensible BP value is available |
-| numeric interval | 296 | comparison must preserve interval width |
-| text only | 87 | wording is useful but is not safely parsed into BP bounds |
-| unresolved | 16 | no trustworthy chronology claim has been recovered |
+| numeric point | 528 | one defensible BP value is available |
+| numeric interval | 338 | comparison must preserve interval width |
+| text only | 136 | wording is useful but is not safely parsed into BP bounds |
+| unresolved | 453 | no trustworthy chronology claim has been recovered |
 
 Evidence class and comparison precision cut across those normalization counts.
-The collection includes 729 direct radiocarbon-date rows, 30 archaeological
-context dates, 93 historical or recent dates, and 16 unresolved rows. Its
-precision postures include 461 sample-precise points, 254 sample-precise
-intervals, 87 approximate or modeled sample claims, 50 contextual intervals,
-and 16 unresolved claims. Ten projects currently require manual chronology
-review.
+Its precision postures include 468 sample-precise points, 282 sample-precise
+intervals, 196 approximate or modeled sample claims, 16 contextual intervals,
+40 broad-period-only claims, and 453 unresolved claims. These chronology rows
+are the raw recovered review population; the final sample foundation contains
+1,450 rows after identity admission.
 
 These views are deliberately different. A row may contain numbers and still be
 contextual or approximate; numeric normalization does not confer sample-level

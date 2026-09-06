@@ -105,10 +105,12 @@ The `v66` summary records seven collector-managed families:
 | SEAD | `data/sead` | four-country membership and member-level numeric, label-only, or unresolved temporal posture |
 | SVAR | `data/svar` | lake identity and candidate-product eligibility |
 
-Animal aDNA is governed separately under `data/adna/`. Its 40-project intake,
-868 recovered rows, and 234 admitted point features must not be inferred from
-`collected_sources`. Conversely, the seven-family collection summary does not
-grant any member automatic map or report admission.
+Animal aDNA is governed separately under `data/adna/`. Its 40-project intake
+contains 1,455 recovered raw rows and 1,450 final sample rows; its publication
+surface contains 151 locality features representing 288 distinct admitted
+samples. None of these counts may be inferred from `collected_sources`.
+Conversely, the seven-family collection summary does not grant any member
+automatic map or report admission.
 
 ```mermaid
 flowchart LR

@@ -26,7 +26,7 @@ precision, publication member, and product scope.
 | SEAD | contextual archaeology | `data/sead/normalized/nordic_environmental_sites.geojson` | environmental archaeology context, not uniformly dated evidence |
 | RAÄ | contextual archaeology | `data/raa/normalized/sweden_archaeology_layer.json` | Sweden-scoped density context, not Nordic-wide site coverage |
 | Nordic boundaries | geographic framing | `data/boundaries/normalized/nordic_country_boundaries.geojson` | scope and clipping only; contributes no evidence score |
-| Animal aDNA | sample-backed evidence plus visibly qualified project context and explicit refusals | `data/adna/final/atlas/animal_atlas_point_candidates.json` | point classes must remain distinct within an incomplete recovery program |
+| Animal aDNA | sample-backed domesticated-core and wild/progenitor-context localities plus explicit non-member accounting | `data/adna/final/atlas/animal_atlas_point_candidates.json` | scope classes and excluded context must remain distinct within an incomplete recovery program |
 
 Summary files and raw captures remain important refresh and review anchors,
 but they do not replace the normalized or admitted surface that governs a
@@ -169,10 +169,11 @@ surface and then regenerates the scoped export and bundle.
 
 The current input scale is intentionally heterogeneous: 490 LandClim site
 sequences, 200 Neotoma sites, 2,172 normalized SEAD sites, four Nordic boundary
-polygons, and 234 reviewed animal publication points. RAÄ is withheld because
-its source authority is refused; retained density files are audit material,
-not governed map input. Available counts describe different units and roles
-and must never be summed into one evidence total.
+polygons, and 151 reviewed animal publication localities representing 288
+distinct admitted samples. RAÄ is withheld because its source authority is
+refused; retained density files are audit material, not governed map input.
+Available counts describe different units and roles and must never be summed
+into one evidence total.
 
 ## One Viewport, Different Scientific Objects
 

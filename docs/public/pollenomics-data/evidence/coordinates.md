@@ -20,9 +20,11 @@ equally precise on a map.
 
 ## Current Evidence Posture
 
-The cross-species map-readiness review currently reports 234 direct
-coordinate-backed entries, two indirectly geocoded entries, 21 unresolved
-entries, and seven entries refused from mapping. These are readiness units in
+The cross-species map-readiness review currently reports 281 direct
+coordinate-backed entries, four indirectly geocoded entries, 90 unresolved
+sample rows, and four coordinate-provenance entries refused from mapping. The
+289 coordinate-provenance rows therefore reconcile to 285 mappable and 4
+refused entries. These are readiness units in
 the governed species/site review, not a count of all recovered samples: many
 samples can share a reviewed locality, and samples without defensible linkage
 must not inherit it.

@@ -155,11 +155,12 @@ flowchart LR
 ```
 
 The checked-in animal-atlas accountability export makes this distinction
-visible. It contains 234 publication candidates and 233 fully accountable
-candidates. The Wadi Halfa dromedary candidate has a sample row, site evidence,
-chronology evidence, and coordinate provenance, but its sample-lineage edge is
-absent. The surrounding evidence remains useful; the candidate nevertheless
-cannot be described as fully traceable.
+visible. It contains 151 locality candidates, and all 151 pass the complete
+sample-accountability predicate; together they represent 288 distinct admitted
+samples. Wadi Halfa is not a publication candidate. Its surrounding evidence
+remains useful in readiness accounting, where it is not materialized because
+no admitted sample-backed locality candidate is available
+(`no_admitted_sample_backed_locality_candidate`).
 
 ## Fact Ownership
 

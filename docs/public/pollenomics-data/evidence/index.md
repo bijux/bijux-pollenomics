@@ -113,28 +113,30 @@ being ineligible for an exact point or time-aware comparison.
 
 ### Animal Evidence Has Several Governed Populations
 
-Three prominent animal counts describe different database contracts:
+The prominent animal counts describe different database contracts:
 
 | Population | Rows | Governing question |
 | --- | ---: | --- |
-| sample-foundation truth | 894 | which curated source rows are fully grounded, partly grounded, or blocked by metadata, locality, or chronology? |
-| recovered project sample master | 868 | which source rows resolve to stable project-owned sample identities? |
-| point publication | 234 | which sample-backed or explicitly qualified context members satisfy the spatial product contract? |
+| sample-foundation truth | 1,450 final sample rows | which curated source rows are fully grounded, partly grounded, or blocked by metadata, locality, or chronology? |
+| project sample master | 1,455 recovered raw rows; 1,450 final rows | which source rows resolve to stable project-owned sample identities? |
+| point publication | 151 locality features representing 288 samples | which admitted sample-backed localities satisfy the spatial product contract? |
+| coordinate publication accounting | 285 mappable rows: 151 published and 134 not materialized | which coordinate-ready localities also satisfy sample, locality, scope, and chronology admission? |
 
-The foundation contains 502 fully grounded rows, 256 partially grounded rows,
-29 blocked for missing metadata, four blocked for missing location detail, and
-103 blocked for weak chronology. Those classes measure evidence preparation;
-they are not publication decisions. Likewise, the 234-member point surface
-contains 233 final sample-backed features and one provisional project-context
-feature, so it is not a subset count that can be divided mechanically by 868
-or 894.
+The foundation contains 531 fully grounded rows, 333 partially grounded rows,
+11 blocked for missing metadata, 79 blocked for missing location detail, and
+496 blocked for weak chronology. Those classes measure evidence preparation;
+they are not publication decisions. The 151-member point surface is a locality
+projection over 288 distinct admitted samples, so neither number can be divided
+mechanically by the raw-recovery, final-foundation, or coordinate denominators.
 
 ```mermaid
 flowchart LR
-    Foundation["894 foundation rows<br/>grounding and blockers"] --> Identity["868 recovered sample identities"]
-    Identity --> Samples["233 sample-backed points"]
-    Context["1 qualified project-context feature"] --> Product["234 publication members"]
-    Samples --> Product
+    Inventory["40 tracked projects"] --> Raw["1,455 recovered raw rows"]
+    Raw --> Foundation["1,450 final foundation rows<br/>grounding and blockers"]
+    Foundation --> Samples["288 distinct admitted samples"]
+    Samples --> Product["151 published locality features"]
+    Mappable["285 mappable coordinate rows"] --> Product
+    Mappable --> Excluded["134 not materialized"]
 ```
 
 The arrows express governed relations, not guaranteed one-to-one attrition.
