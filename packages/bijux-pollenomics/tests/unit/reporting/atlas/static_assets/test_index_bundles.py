@@ -52,7 +52,7 @@ def test_multi_shard_bundle_reconstructs_exact_logical_v2_indexes() -> None:
     assert decoded["build_id"] == "atlas-" + "a" * 64
 
 
-def test_index_bundle_preserves_signed_post_1950_bp_intervals() -> None:
+def test_index_bundle_excludes_post_1950_bp_intervals() -> None:
     logical = {
         **build_indexes(
             [
@@ -78,7 +78,7 @@ def test_index_bundle_preserves_signed_post_1950_bp_intervals() -> None:
 
     decoded = decode_index_bundle(build_index_bundle(logical))
 
-    assert decoded["time_interval_feature_indexes"] == [[-54.0, -51.0, "sites", 0]]
+    assert decoded["time_interval_feature_indexes"] == []
 
 
 @pytest.mark.parametrize(

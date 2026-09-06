@@ -244,6 +244,7 @@ def test_generic_manifest_facts_accepts_paired_ordered_intervals() -> None:
     [
         [["nodes", "point", 1, 0, None, 0], ["nodes", "point", 1, 10, 20, 0]],
         [["nodes", "point", 1, 20, 10, 0], ["nodes", "point", 1, 10, 20, 0]],
+        [["nodes", "point", 1, -1, 10, 0], ["nodes", "point", 1, 10, 20, 0]],
         [["nodes", "point", 1, True, 10, 0], ["nodes", "point", 1, 10, 20, 0]],
     ],
 )

@@ -114,7 +114,7 @@ def test_null_interval_uses_valid_mean_age_across_state_and_static_metadata() ->
     assert selection["untimed_record_count"] == 0
 
 
-def test_post_1950_bp_interval_is_timed_across_state_and_static_metadata() -> None:
+def test_post_1950_bp_interval_is_refused_from_static_time_metadata() -> None:
     feature = {
         "latitude": 68,
         "longitude": 19,
@@ -138,11 +138,12 @@ def test_post_1950_bp_interval_is_timed_across_state_and_static_metadata() -> No
         }
     )
 
-    assert (state.time_min_bp, state.time_max_bp) == (-54, -51)
-    assert indexes["time_interval_feature_indexes"] == [[-54.0, -51.0, "sites", 0]]
-    assert selection["time_min_bp"] == -54
-    assert selection["time_max_bp"] == -51
-    assert selection["untimed_record_count"] == 0
+    assert not state.has_time_data
+    assert (state.time_min_bp, state.time_max_bp) == (0, 0)
+    assert indexes["time_interval_feature_indexes"] == []
+    assert selection["time_min_bp"] is None
+    assert selection["time_max_bp"] is None
+    assert selection["untimed_record_count"] == 1
 
 
 def test_invalid_declared_mean_does_not_fall_through_to_year_age() -> None:

@@ -56,7 +56,7 @@ def build_indexes(point_layers: Sequence[JsonObject]) -> dict[str, object]:
 
 
 def feature_interval(feature: dict[str, object]) -> tuple[float, float] | None:
-    """Return a valid signed-BP point or interval age for a feature."""
+    """Return a valid nonnegative point or interval age for a feature."""
     if "time_start_bp" in feature or "time_end_bp" in feature:
         raw_start = feature.get("time_start_bp")
         raw_end = feature.get("time_end_bp")
@@ -77,14 +77,14 @@ def feature_interval(feature: dict[str, object]) -> tuple[float, float] | None:
 
 
 def finite_number(value: object) -> float | None:
-    """Normalize a finite scalar without treating booleans as numbers."""
+    """Normalize a nonnegative finite scalar without treating booleans as numbers."""
     if value is None or isinstance(value, bool):
         return None
     try:
         number = float(value) if isinstance(value, (int, float, str)) else math.nan
     except (TypeError, ValueError, OverflowError):
         return None
-    return number if math.isfinite(number) else None
+    return number if math.isfinite(number) and number >= 0 else None
 
 
 def index_reference_count(payload: dict[str, object]) -> int:

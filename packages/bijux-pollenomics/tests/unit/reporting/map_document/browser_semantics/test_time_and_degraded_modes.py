@@ -77,7 +77,7 @@ console.log(JSON.stringify({
         "untimedNarrow": False,
         "genericUntimedFullExtent": True,
         "sourceUntimedFullExtent": False,
-        "negativeDeclaredFullExtent": True,
+        "negativeDeclaredFullExtent": False,
         "reversedDeclaredFullExtent": False,
         "blankDeclaredFullExtent": False,
         "partialDeclaredFullExtent": False,

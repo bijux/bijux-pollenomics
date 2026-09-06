@@ -30,7 +30,7 @@ def _finite_bp_value(value: object) -> float | None:
         numeric = float(value)
     except (TypeError, ValueError, OverflowError):
         return None
-    if not math.isfinite(numeric):
+    if not math.isfinite(numeric) or numeric < 0:
         return None
     return numeric
 

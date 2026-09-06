@@ -150,7 +150,8 @@ def _calendar_year_interval_to_bp(
 def _ce_year_to_bp(year_ce: int | None) -> int | None:
     if year_ce is None:
         return None
-    return BP_REFERENCE_YEAR - year_ce
+    value = BP_REFERENCE_YEAR - year_ce
+    return value if value >= 0 else None
 
 
 def _bce_year_to_bp(year_bce: int | None) -> int | None:

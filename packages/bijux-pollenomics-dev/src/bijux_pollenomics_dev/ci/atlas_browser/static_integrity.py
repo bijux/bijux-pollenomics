@@ -122,9 +122,9 @@ def _validate_asset_counts_and_time(asset: JsonObject, *, sequence: int) -> None
         older = _finite_number(
             maximum, label=f"manifest asset row {sequence} time_max_bp"
         )
-        if younger > older:
+        if younger < 0 or older < 0 or younger > older:
             raise AtlasBrowserContractError(
-                f"manifest asset row {sequence} BP bounds are reversed"
+                f"manifest asset row {sequence} BP bounds are negative or reversed"
             )
     if is_node_asset:
         all_records_are_untimed = untimed_count == record_count

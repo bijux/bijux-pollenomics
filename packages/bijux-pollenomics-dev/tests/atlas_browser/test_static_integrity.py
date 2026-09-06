@@ -241,7 +241,8 @@ def test_static_atlas_rejects_ambiguous_budgets(
         (None, 100.0, "asymmetric BP bounds"),
         (float("nan"), 100.0, "finite safe number"),
         (0.0, 1e300, "finite safe number"),
-        (200.0, 100.0, "BP bounds are reversed"),
+        (-1.0, 100.0, "BP bounds are negative or reversed"),
+        (200.0, 100.0, "BP bounds are negative or reversed"),
     ],
 )
 def test_static_atlas_rejects_invalid_time_bounds(

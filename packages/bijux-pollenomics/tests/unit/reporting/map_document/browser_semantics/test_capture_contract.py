@@ -188,7 +188,7 @@ function outcome(callback) {
   try { return {status:'accepted', value:callback()}; }
   catch (error) { return {status:'refused', message:error.message}; }
 }
-const invalidNumbers=[null,undefined,'','0',false,true,[],{}];
+const invalidNumbers=[null,undefined,'','0',-1,false,true,[],{}];
 const invalidViews=[
   null,
   [],
@@ -209,7 +209,7 @@ console.log(JSON.stringify({
 
     assert observed == {
         "zero": {"status": "accepted", "value": 0},
-        "invalidNumbers": ["refused"] * 8,
+        "invalidNumbers": ["refused"] * 9,
         "defaultView": {"status": "accepted", "value": None},
         "zeroView": {
             "status": "accepted",

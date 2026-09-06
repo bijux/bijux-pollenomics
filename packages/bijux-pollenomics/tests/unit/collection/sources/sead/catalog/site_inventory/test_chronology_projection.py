@@ -15,9 +15,9 @@ from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.temporal i
 
 
 class SeadChronologyAcquisitionTests(unittest.TestCase):
-    def test_common_era_conversion_preserves_post_1950_signed_bp(self) -> None:
+    def test_common_era_conversion_refuses_post_1950_numeric_bp(self) -> None:
         self.assertEqual(_ce_year_to_bp(1950), 0)
-        self.assertEqual(_ce_year_to_bp(2004), -54)
+        self.assertIsNone(_ce_year_to_bp(2004))
 
     def test_acquisition_preserves_the_entity_parent_chain_on_each_claim(self) -> None:
         site_rows = [

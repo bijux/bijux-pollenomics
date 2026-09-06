@@ -2376,8 +2376,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (row.domain === 'nodes') {
             const untimedCount = staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key || 'unknown asset'} untimed record count`);
             if (untimedCount > recordCount) staticAtlasFailure(`${row.asset_key || 'unknown asset'} untimed record count exceeds its record count`);
-            const timeMinimum = staticAtlasNullableFiniteNumber(row.time_min_bp, `${row.asset_key || 'unknown asset'} minimum BP`, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
-            const timeMaximum = staticAtlasNullableFiniteNumber(row.time_max_bp, `${row.asset_key || 'unknown asset'} maximum BP`, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER);
+            const timeMinimum = staticAtlasNullableFiniteNumber(row.time_min_bp, `${row.asset_key || 'unknown asset'} minimum BP`, 0, Number.MAX_SAFE_INTEGER);
+            const timeMaximum = staticAtlasNullableFiniteNumber(row.time_max_bp, `${row.asset_key || 'unknown asset'} maximum BP`, 0, Number.MAX_SAFE_INTEGER);
             if ((timeMinimum === null) !== (timeMaximum === null) || (timeMinimum !== null && timeMinimum > timeMaximum)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} BP interval is invalid`);
             if ((timeMinimum === null) !== (untimedCount === recordCount)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} BP interval contradicts its untimed record count`);
             if (row.bounds !== null) {
@@ -5057,7 +5057,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (value === null || value === undefined || typeof value === 'boolean') return null;
         if (typeof value === 'string' && !value.trim()) return null;
         const numeric = Number(value);
-        return Number.isFinite(numeric) ? numeric : null;
+        return Number.isFinite(numeric) && numeric >= 0 ? numeric : null;
       }
       function valueIsAvailable(value) {
         return value !== null && value !== undefined && !(typeof value === 'string' && !value.trim());
@@ -5619,7 +5619,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const ATLAS_CAPTURE_API_VERSION = 'atlas-capture.v1';
       let atlasCapturePresentation = null;
       function captureFrameNumber(value, label) {
-        if (typeof value !== 'number' || !Number.isFinite(value)) throw new Error(`${label} must be a finite number`);
+        if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) throw new Error(`${label} must be a finite non-negative number`);
         return value;
       }
       function captureFrameCountries(value) {

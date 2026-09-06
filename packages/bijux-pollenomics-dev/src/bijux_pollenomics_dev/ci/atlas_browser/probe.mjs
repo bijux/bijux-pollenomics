@@ -571,9 +571,9 @@ function genericManifestFacts(manifest) {
     }
     if (minimum === null) return;
     if (!Number.isFinite(minimum) || !Number.isFinite(maximum)
-      || minimum < Number.MIN_SAFE_INTEGER || minimum > Number.MAX_SAFE_INTEGER
-      || maximum < Number.MIN_SAFE_INTEGER || maximum > Number.MAX_SAFE_INTEGER) {
-      throw new Error(`point row ${position} BP bounds must be finite safe numbers`);
+      || minimum < 0 || minimum > Number.MAX_SAFE_INTEGER
+      || maximum < 0 || maximum > Number.MAX_SAFE_INTEGER) {
+      throw new Error(`point row ${position} BP bounds must be finite safe numbers and be non-negative`);
     }
     if (minimum > maximum) {
       throw new Error(`point row ${position} BP bounds are reversed`);
