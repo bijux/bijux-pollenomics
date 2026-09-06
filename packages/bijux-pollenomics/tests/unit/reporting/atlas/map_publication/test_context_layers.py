@@ -88,6 +88,7 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
                 layer_key="sead-temporal-evidence",
                 layer_label="SEAD temporal evidence",
                 time_start_bp=1000,
+                time_end_bp=1200,
             )
             self._write_point_geojson(
                 derived / "sweden_archaeology_site_discovery.geojson",
@@ -95,6 +96,7 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
                 layer_label="Sweden archaeology site discovery",
                 record_id="10:dating_range:7:discovery",
                 time_start_bp=1000,
+                time_end_bp=1200,
             )
             for name in (
                 "sweden_archaeology_site_discovery.json",

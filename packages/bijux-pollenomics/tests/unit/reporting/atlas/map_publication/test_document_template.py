@@ -77,14 +77,14 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
                 {"start": 0, "end": 100},
                 None,
                 None,
-                {"start": -1, "end": 50},
+                None,
                 {"start": 25, "end": 25},
-                {"start": -1, "end": -1},
+                None,
             ],
         )
         self.assertEqual(
             json.loads(result.stdout)["labels"],
-            ["source label", "", "", "source label", "source label", "source label"],
+            ["source label", "", "", "", "source label", ""],
         )
 
     def test_basemap_failure_has_bounded_failover_and_tile_free_mode(self) -> None:

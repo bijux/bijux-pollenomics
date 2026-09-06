@@ -14,6 +14,7 @@ class MapPublicationTestCase(unittest.TestCase):
         layer_label: str,
         record_id: str = "",
         time_start_bp: int | None = None,
+        time_end_bp: int | None = None,
     ) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(
@@ -36,6 +37,7 @@ class MapPublicationTestCase(unittest.TestCase):
                                 "country": "Sweden",
                                 "record_id": record_id,
                                 "time_start_bp": time_start_bp,
+                                "time_end_bp": time_end_bp,
                             },
                         }
                     ],
