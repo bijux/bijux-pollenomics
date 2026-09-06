@@ -360,11 +360,9 @@ async function openAtlas(scope, debuggerOrigin, options) {
     if (event.method === 'Fetch.requestPaused') {
       const url = event.params.request.url;
       providerRequests.push({ url, request_id: event.params.requestId, intercepted: true });
-      void cdp.send('Fetch.fulfillRequest', {
+      void cdp.send('Fetch.failRequest', {
         requestId: event.params.requestId,
-        responseCode: 503,
-        responseHeaders: [{ name: 'Content-Type', value: 'text/plain' }],
-        body: '',
+        errorReason: 'Failed',
       }).catch((error) => runtimeFailures.push({ kind: 'provider-interception', detail: String(error) }));
     }
   });
