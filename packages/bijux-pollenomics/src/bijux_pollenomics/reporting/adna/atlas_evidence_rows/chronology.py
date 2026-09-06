@@ -31,8 +31,28 @@ def _parse_chronology(payload: object) -> AdnaChronology:
 
 def _atlas_public_chronology(chronology: AdnaChronology) -> AdnaChronology:
     temporal_semantics = chronology.as_temporal_semantics(source_family="animal_adna")
-    if temporal_semantics["comparability_posture"] == "numeric_interval":
-        return chronology
+    if (
+        temporal_semantics["comparability_posture"]
+        in {"numeric_interval", "numeric_interval_with_caveat"}
+        and _atlas_chronology_supports_publication(chronology)
+    ):
+        time_start_bp = cast(int, temporal_semantics["time_start_bp"])
+        time_end_bp = cast(int, temporal_semantics["time_end_bp"])
+        time_mean_bp = chronology.time_mean_bp
+        if time_mean_bp is not None and not (
+            time_start_bp <= time_mean_bp <= time_end_bp
+        ):
+            time_mean_bp = None
+        return AdnaChronology(
+            original_text=chronology.original_text,
+            time_start_bp=time_start_bp,
+            time_end_bp=time_end_bp,
+            time_mean_bp=time_mean_bp,
+            date_stddev_bp=chronology.date_stddev_bp,
+            dating_basis=chronology.dating_basis,
+            evidence_class=chronology.evidence_class,
+            precision_posture=chronology.precision_posture,
+        )
     return AdnaChronology(
         original_text=chronology.original_text,
         time_start_bp=None,
@@ -66,6 +86,7 @@ def _atlas_chronology_supports_publication(chronology: AdnaChronology) -> bool:
         return comparability_posture == "numeric_interval"
     return comparability_posture in {
         "numeric_interval",
+        "numeric_interval_with_caveat",
         "contextual_label_only",
     }
 
