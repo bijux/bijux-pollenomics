@@ -21,10 +21,10 @@
       "availability_status": "available",
       "refusal_reasons": [],
       "record_count": 490,
-      "numeric_interval_record_count": 480,
+      "numeric_interval_record_count": 368,
       "detail_metrics": {
         "site_sequence_record_count": 490,
-        "numeric_interval_record_count": 480,
+        "numeric_interval_record_count": 368,
         "grid_cell_count": 77,
         "temporal_grid_feature_count": 2515
       },
@@ -84,12 +84,12 @@
       "availability_status": "available_with_limitations",
       "refusal_reasons": [],
       "record_count": 2069,
-      "numeric_interval_record_count": 8184,
+      "numeric_interval_record_count": 8172,
       "detail_metrics": {
-        "unresolved_site_count": 1216,
+        "unresolved_site_count": 1219,
         "captured_chronology_record_count": 25109,
-        "mapped_temporal_feature_count": 8184,
-        "mapped_chronology_record_count": 14324
+        "mapped_temporal_feature_count": 8172,
+        "mapped_chronology_record_count": 14264
       },
       "caveats": [],
       "capability_contract_path": "data/source_family_contracts.json",

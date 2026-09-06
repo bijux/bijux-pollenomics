@@ -84,10 +84,10 @@ def test_repository_posture_uses_governed_landclim_counts_and_refuses_missing_au
 
     assert first == second
     assert rows["landclim"]["record_count"] == 490
-    assert rows["landclim"]["numeric_interval_record_count"] == 480
+    assert rows["landclim"]["numeric_interval_record_count"] == 368
     assert rows["landclim"]["detail_metrics"] == {
         "site_sequence_record_count": 490,
-        "numeric_interval_record_count": 480,
+        "numeric_interval_record_count": 368,
         "grid_cell_count": 77,
         "temporal_grid_feature_count": 2515,
     }
