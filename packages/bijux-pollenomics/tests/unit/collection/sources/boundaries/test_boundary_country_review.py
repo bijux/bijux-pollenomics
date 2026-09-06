@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+import tempfile
 from typing import cast
 import unittest
 
@@ -13,6 +14,9 @@ from bijux_pollenomics.collection.sources.boundaries.review import (
     _decision_summary,
     _validate_country_geometry,
     build_point_country_decision,
+)
+from bijux_pollenomics.collection.sources.boundaries.review.loaders.animal_adna import (
+    _animal_source_lineage,
 )
 
 
@@ -238,6 +242,33 @@ class BoundaryCountryReviewTests(unittest.TestCase):
 
 
 class GovernedBoundaryCountryReviewBundleTests(unittest.TestCase):
+    def test_materializer_preserves_composite_animal_source_lineage(self) -> None:
+        with tempfile.TemporaryDirectory(dir="artifacts") as temporary_directory:
+            root = Path(temporary_directory)
+            archive_path = root / "data/archive_metadata.html.gz"
+            supplement_path = root / "data/supplement.xlsx"
+            archive_path.parent.mkdir(parents=True)
+            archive_path.write_bytes(b"archive")
+            supplement_path.write_bytes(b"supplement")
+            paths, lineage = _animal_source_lineage(
+                root,
+                source_path_text=("data/archive_metadata.html || data/supplement.xlsx"),
+                source_locator="sample_accession:SAMPLE1 || Sheet1!row2",
+                record_id="animal:sample1",
+            )
+
+        self.assertEqual(
+            paths,
+            (Path("data/archive_metadata.html.gz"), supplement_path.relative_to(root)),
+        )
+        self.assertEqual(
+            [(row["path"], row["locator"]) for row in lineage],
+            [
+                ("data/archive_metadata.html.gz", "sample_accession:SAMPLE1"),
+                ("data/supplement.xlsx", "Sheet1!row2"),
+            ],
+        )
+
     def test_materialized_bundle_reconciles_and_has_valid_digests(self) -> None:
         root = Path("data/boundaries/review")
         manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))

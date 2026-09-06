@@ -36,8 +36,8 @@
       },
       {
         "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-        "sha256": "2d800adcce1e069985bec5dbf1f734ced7c3322c4b3cd5ae4c69f676a1700c32",
-        "bytes": 775078
+        "sha256": "21c20db0766ea1391d13d6a851ff96255447256ab2655cccf7057194aa85184c",
+        "bytes": 925942
       },
       {
         "path": "data/neotoma/relational/surfaces/sites/part-00001.json",
@@ -72,8 +72,8 @@
     "animal_adna": [
       {
         "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-        "sha256": "dd683adcff59ea8a29c3ee3d834cd62e0007dc19d60cc802732ed00d09b867bd",
-        "bytes": 864867
+        "sha256": "ba13c79c336634f05f4522643c670e0674759a89179879f356b0184b2705f857",
+        "bytes": 1066312
       },
       {
         "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
@@ -91,14 +91,29 @@
         "bytes": 233005
       },
       {
+        "path": "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+        "sha256": "aaa7a6db334acdb81ac4c9f205a31e7dc746c40faa8bdd43e232425f4eb7f7a1",
+        "bytes": 511536
+      },
+      {
         "path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
         "sha256": "da5eeb7f8f63110b572621df8d66fa06ffbaa2291df018a01656c93350f5010f",
         "bytes": 2557869
       },
       {
+        "path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+        "sha256": "79e5fe0ba0bf86a217bb4d91dd8a350a27e89c976866c6ec067c700bb5eda0d2",
+        "bytes": 185895
+      },
+      {
         "path": "data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
         "sha256": "b0aded81cd60083c3e387dc8edebf3c3a5fd24bde06a5b55fd266bec8b85378f",
         "bytes": 42068
+      },
+      {
+        "path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html.gz",
+        "sha256": "cfaa4c900639c89d96bfc4096db90df964881c77d7434c045ad891dabddcd3b2",
+        "bytes": 24701
       }
     ]
   },
@@ -108,8 +123,8 @@
     "NO",
     "FI"
   ],
-  "point_count": 3118,
-  "point_review_count": 153,
+  "point_count": 3149,
+  "point_review_count": 146,
   "point_surface_scope": {
     "denominator_policy": "Enumerate each source-owned point once from its most complete governed local surface; do not recount publication derivatives.",
     "included_source_families": [
@@ -143,24 +158,24 @@
   },
   "source_summaries": {
     "animal_adna": {
-      "row_count": 233,
+      "row_count": 271,
       "country_counts": {
         "SE": 1,
-        "DK": 1,
+        "DK": 3,
         "NO": 0,
         "FI": 0,
-        "UNASSIGNED": 231
+        "UNASSIGNED": 267
       },
       "decision_status_counts": {
-        "assigned": 2,
-        "unassigned": 231
+        "assigned": 4,
+        "unassigned": 267
       },
       "decision_method_counts": {
-        "no_boundary_containment": 231,
-        "strict_boundary_containment": 2
+        "no_boundary_containment": 267,
+        "strict_boundary_containment": 4
       },
       "review_requirement_counts": {
-        "no_point_review_required": 233
+        "no_point_review_required": 271
       }
     },
     "landclim": {
@@ -188,25 +203,22 @@
       }
     },
     "neotoma": {
-      "row_count": 200,
+      "row_count": 193,
       "country_counts": {
         "SE": 98,
         "DK": 5,
-        "NO": 59,
+        "NO": 58,
         "FI": 32,
-        "UNASSIGNED": 6
+        "UNASSIGNED": 0
       },
       "decision_status_counts": {
-        "assigned": 193,
-        "review": 7
+        "assigned": 193
       },
       "decision_method_counts": {
-        "boundary_proximity": 6,
-        "strict_boundary_containment": 194
+        "strict_boundary_containment": 193
       },
       "review_requirement_counts": {
-        "no_point_review_required": 193,
-        "qualified_review_required": 7
+        "no_point_review_required": 193
       }
     },
     "sead": {
@@ -242,8 +254,8 @@
     },
     {
       "path": "data/boundaries/review/country-decisions/animal_adna.json",
-      "sha256": "ab7aa4c319b73b4a68fafad7f2ead41dd8aa218f26680c6cf11636fb8cf05c0d",
-      "bytes": 513076
+      "sha256": "7119a40eea922deb3e7011adb8f317edfa96be193d05776dffc8b2a40928805b",
+      "bytes": 600496
     },
     {
       "path": "data/boundaries/review/country-decisions/landclim.json",
@@ -252,8 +264,8 @@
     },
     {
       "path": "data/boundaries/review/country-decisions/neotoma.json",
-      "sha256": "2fdc93b679a06164af4b56229396b32a39c8f381938c80e4cff11e73b9b037cb",
-      "bytes": 445941
+      "sha256": "526f28320e98652d0ac7a807453a892ec62379086b5a362eb0f89e5f535b78e8",
+      "bytes": 429539
     },
     {
       "path": "data/boundaries/review/country-decisions/sead.json",
@@ -262,8 +274,8 @@
     },
     {
       "path": "data/boundaries/review/review_queue.json",
-      "sha256": "517c37e3a9f899d9bb9084885cd3fbada5d9aa6a87d741d6707d4d49654828c0",
-      "bytes": 67005
+      "sha256": "5c94f0a9a664b63a0f490d6be54ae75ab94fd6034d398c7e447d9fb12bf7215e",
+      "bytes": 64070
     }
   ],
   "release_posture": "blocked_pending_qualified_boundary_review",

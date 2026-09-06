@@ -4,6 +4,10 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from bijux_pollenomics.adna.workflow.source_artifacts import (
+    resolve_source_artifact_path,
+)
+
 from ..models import JsonObject, PointEvidence
 from ..serialization import (
     _object_rows,
@@ -28,8 +32,16 @@ def _load_animal_adna_points(
         source_path_text = _required_text(
             row.get("source_artifact_path"), "animal aDNA source path"
         )
-        source_path = _safe_relative_path(source_path_text)
-        source_paths.add(source_path)
+        source_locator = _required_text(
+            row.get("source_locator"), "animal source locator"
+        )
+        row_source_paths, source_lineage = _animal_source_lineage(
+            root,
+            source_path_text=source_path_text,
+            source_locator=source_locator,
+            record_id=record_id,
+        )
+        source_paths.update(row_source_paths)
         points.append(
             PointEvidence(
                 source_family="animal_adna",
@@ -43,13 +55,7 @@ def _load_animal_adna_points(
                 published_country=_optional_text(row.get("political_entity")),
                 lineage=(
                     _lineage(candidates_path, f"rows[{index}]", "point_record"),
-                    _lineage(
-                        source_path,
-                        _required_text(
-                            row.get("source_locator"), "animal source locator"
-                        ),
-                        "source_native_row",
-                    ),
+                    *source_lineage,
                 ),
             )
         )
@@ -57,4 +63,43 @@ def _load_animal_adna_points(
         "animal_adna",
         points,
         _artifact_records(root, (candidates_path, *sorted(source_paths))),
+    )
+
+
+def _stored_relative_path(root: Path, value: str) -> Path:
+    logical_path = _safe_relative_path(value)
+    stored_path = resolve_source_artifact_path(root / logical_path)
+    try:
+        return stored_path.relative_to(root)
+    except ValueError as error:
+        raise ValueError(
+            f"Animal aDNA source artifact escaped the repository: {value}"
+        ) from error
+
+
+def _animal_source_lineage(
+    root: Path,
+    *,
+    source_path_text: str,
+    source_locator: str,
+    record_id: str,
+) -> tuple[tuple[Path, ...], tuple[JsonObject, ...]]:
+    source_paths = tuple(
+        _stored_relative_path(root, value.strip())
+        for value in source_path_text.split(" || ")
+    )
+    if not source_paths:
+        raise ValueError("Animal aDNA source lineage is empty")
+    source_locators = tuple(value.strip() for value in source_locator.split(" || "))
+    if len(source_paths) == 1:
+        return source_paths, (
+            _lineage(source_paths[0], source_locator, "source_native_row"),
+        )
+    if len(source_paths) == len(source_locators):
+        return source_paths, tuple(
+            _lineage(path, locator, "source_native_row")
+            for path, locator in zip(source_paths, source_locators, strict=True)
+        )
+    raise ValueError(
+        f"Animal aDNA source paths and locators cannot be reconciled for {record_id}"
     )

@@ -47,7 +47,7 @@
       "qualified_reviewed_at": null
     }
   ],
-  "point_decision_count": 153,
+  "point_decision_count": 146,
   "point_decisions": [
     {
       "decision_id": "sha256:00b89425421428d096d4dff169a3806afeb0ec209c26649aeffadbb091c727ae",
@@ -146,18 +146,6 @@
       "qualified_reviewed_at": null
     },
     {
-      "decision_id": "sha256:1795f7cf2a2290b60bf7406a50fe5cbbbe4a2f1c07b16735b5c03fb82f2f45e3",
-      "source_family": "neotoma",
-      "source_record_id": "neotoma:site:26118",
-      "country_decision_status": "review",
-      "review_reason_codes": [
-        "raw_country_conflict"
-      ],
-      "review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null
-    },
-    {
       "decision_id": "sha256:186b0b64ba2175ddb16bc1f385c9fc12dd90275419586fdac23b5f5d32a60fe7",
       "source_family": "sead",
       "source_record_id": "sead:site:3719",
@@ -187,18 +175,6 @@
       "decision_id": "sha256:1b8b234bbdff0c257f638428d61e361ff620becd2010ecd72e814720690d0e0d",
       "source_family": "sead",
       "source_record_id": "sead:site:4430",
-      "country_decision_status": "review",
-      "review_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null
-    },
-    {
-      "decision_id": "sha256:1d8dabbc079ddf0629dae54b97ff688823e4d294959ddbb3b375ba1d0483fcfe",
-      "source_family": "neotoma",
-      "source_record_id": "neotoma:site:13395",
       "country_decision_status": "review",
       "review_reason_codes": [
         "near_boundary_without_containment"
@@ -744,18 +720,6 @@
       "qualified_reviewed_at": null
     },
     {
-      "decision_id": "sha256:7aa222b0170a9ae6bc8bbc328f5081acb1b881f83552c67258f2380b7cd1f521",
-      "source_family": "neotoma",
-      "source_record_id": "neotoma:site:700",
-      "country_decision_status": "review",
-      "review_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null
-    },
-    {
       "decision_id": "sha256:7ffc9f1bd5d9cfc3de38fe2461969cabf0b26ac2ed039a1ab8a52f74e45cd046",
       "source_family": "landclim",
       "source_record_id": "landclim:site-sequence:937075:Hall",
@@ -771,18 +735,6 @@
       "decision_id": "sha256:816090dd98cff7052db5911f5ea2f148c744da25695225da55d833f0abc70685",
       "source_family": "landclim",
       "source_record_id": "landclim:site-sequence:937075:ISO",
-      "country_decision_status": "review",
-      "review_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null
-    },
-    {
-      "decision_id": "sha256:81ba0a1bf04a6de0d6209e73158694dcb347f376d5da5145126526e9a85f31f2",
-      "source_family": "neotoma",
-      "source_record_id": "neotoma:site:3025",
       "country_decision_status": "review",
       "review_reason_codes": [
         "near_boundary_without_containment"
@@ -989,18 +941,6 @@
       "decision_id": "sha256:9948c97ab6d0de8f1661bc768484579701bdbd98905420f83f5f4bdfb332175f",
       "source_family": "sead",
       "source_record_id": "sead:site:320",
-      "country_decision_status": "review",
-      "review_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null
-    },
-    {
-      "decision_id": "sha256:9988c3cf94fadacefb68f741cfb9c1ad54cc546c15b2353dab8d522087ab609e",
-      "source_family": "neotoma",
-      "source_record_id": "neotoma:site:3311",
       "country_decision_status": "review",
       "review_reason_codes": [
         "near_boundary_without_containment"
@@ -1542,18 +1482,6 @@
       "qualified_reviewed_at": null
     },
     {
-      "decision_id": "sha256:d76f6cef3c4c33dbb10e20a5580e329e44ffcab4b932b17927fe3aa3e2aeaf50",
-      "source_family": "neotoma",
-      "source_record_id": "neotoma:site:3221",
-      "country_decision_status": "review",
-      "review_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null
-    },
-    {
       "decision_id": "sha256:d86a19c831be3bf3a6b5331f07ace3b7e32b2890b7f8ab648cfc22389f3c4d0f",
       "source_family": "sead",
       "source_record_id": "sead:site:5154",
@@ -1573,18 +1501,6 @@
       "country_decision_status": "review",
       "review_reason_codes": [
         "near_multiple_boundaries"
-      ],
-      "review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null
-    },
-    {
-      "decision_id": "sha256:d8b46fe45f37f83acf36b3670d41f49aa9a59dd8e7f9dfc9ca6fa2872ed45246",
-      "source_family": "neotoma",
-      "source_record_id": "neotoma:site:3138",
-      "country_decision_status": "review",
-      "review_reason_codes": [
-        "near_boundary_without_containment"
       ],
       "review_status": "pending",
       "qualified_reviewer": null,

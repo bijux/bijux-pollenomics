@@ -3,12 +3,16 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import hashlib
 from pathlib import Path
 import re
 import shutil
 import subprocess  # nosec B404
 
 _SINGLE_COUNTRY_RE = re.compile(r"^[A-Za-z][A-Za-z .'-]+$")
+_PRJEB36540_HIERARCHY_SOURCE_SHA256 = (
+    "4d0cbd7e5c8be63b1e5e51e400f5030ee92fcec52025027a985e58655b88973b"
+)
 
 
 @dataclass(frozen=True)
@@ -26,7 +30,7 @@ def _project_hierarchy_profiles(
 ) -> dict[str, _Hierarchy]:
     if project_accession != "PRJEB36540":
         return {}
-    text = _ghostscript_text(
+    source_path = (
         output_root
         / "adna"
         / "governance"
@@ -36,9 +40,14 @@ def _project_hierarchy_profiles(
         / "supplementary"
         / "42003_2021_2794_MOESM2_ESM.pdf"
     )
-    if not text:
+    if not source_path.is_file():
         return {}
-    profiles = {
+    if (
+        hashlib.sha256(source_path.read_bytes()).hexdigest()
+        != _PRJEB36540_HIERARCHY_SOURCE_SHA256
+    ):
+        return {}
+    return {
         "Ulucak Höyük": _Hierarchy(
             site_name="Ulucak Höyük",
             municipality_name="Izmir area",
@@ -75,18 +84,6 @@ def _project_hierarchy_profiles(
             broader_geography="Northwestern Anatolia",
         ),
     }
-    if "Barcın Höyük, a seventh millennium Neolithic site" not in text:
-        profiles.pop("Barcın Höyük", None)
-        profiles.pop("Barcın", None)
-    if "Ulucak Höyük, lies 25 km east of İzmir" not in text:
-        profiles.pop("Ulucak Höyük", None)
-    if (
-        "Tepecik-Çiftlik mound is located in the Çiftlik district of Niğde province"
-        not in text
-    ):
-        profiles.pop("Tepecik-Çiftlik Höyük", None)
-        profiles.pop("Tepecik-Çiftlik", None)
-    return profiles
 
 
 def _resolve_hierarchy(

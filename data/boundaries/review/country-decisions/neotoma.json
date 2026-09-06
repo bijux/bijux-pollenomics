@@ -33,8 +33,8 @@
     },
     {
       "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-      "sha256": "2d800adcce1e069985bec5dbf1f734ced7c3322c4b3cd5ae4c69f676a1700c32",
-      "bytes": 775078
+      "sha256": "21c20db0766ea1391d13d6a851ff96255447256ab2655cccf7057194aa85184c",
+      "bytes": 925942
     },
     {
       "path": "data/neotoma/relational/surfaces/sites/part-00001.json",
@@ -42,27 +42,24 @@
       "bytes": 307210
     }
   ],
-  "row_count": 200,
+  "row_count": 193,
   "summary": {
-    "row_count": 200,
+    "row_count": 193,
     "country_counts": {
       "SE": 98,
       "DK": 5,
-      "NO": 59,
+      "NO": 58,
       "FI": 32,
-      "UNASSIGNED": 6
+      "UNASSIGNED": 0
     },
     "decision_status_counts": {
-      "assigned": 193,
-      "review": 7
+      "assigned": 193
     },
     "decision_method_counts": {
-      "boundary_proximity": 6,
-      "strict_boundary_containment": 194
+      "strict_boundary_containment": 193
     },
     "review_requirement_counts": {
-      "no_point_review_required": 193,
-      "qualified_review_required": 7
+      "no_point_review_required": 193
     }
   },
   "decisions": [
@@ -81,7 +78,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[187]"
+          "locator": "features[181]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -136,7 +133,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[197]"
+          "locator": "features[190]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -191,7 +188,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[23]"
+          "locator": "features[22]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -246,7 +243,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[161]"
+          "locator": "features[156]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -356,7 +353,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[52]"
+          "locator": "features[50]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -411,7 +408,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[110]"
+          "locator": "features[106]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -466,7 +463,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[78]"
+          "locator": "features[75]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -521,7 +518,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[190]"
+          "locator": "features[183]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -576,7 +573,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[48]"
+          "locator": "features[46]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -631,7 +628,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[57]"
+          "locator": "features[55]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -686,7 +683,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[26]"
+          "locator": "features[25]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -796,7 +793,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[125]"
+          "locator": "features[121]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -851,7 +848,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[101]"
+          "locator": "features[98]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -961,7 +958,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[50]"
+          "locator": "features[48]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -1016,7 +1013,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[81]"
+          "locator": "features[78]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -1071,7 +1068,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[65]"
+          "locator": "features[62]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -1168,65 +1165,6 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
-      "decision_id": "sha256:1795f7cf2a2290b60bf7406a50fe5cbbbe4a2f1c07b16735b5c03fb82f2f45e3",
-      "source_family": "neotoma",
-      "source_scope": "four_country_expected",
-      "source_record_id": "neotoma:site:26118",
-      "source_native_lineage": [
-        {
-          "role": "source_native_row",
-          "path": "data/neotoma/raw/neotoma_pollen_sites.json",
-          "locator": "rows[siteid=26118]"
-        },
-        {
-          "role": "point_geometry",
-          "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[189]"
-        },
-        {
-          "role": "source_native_country_and_prior_decision",
-          "path": "data/neotoma/relational/surfaces/sites/part-00001.json",
-          "locator": "rows[source_site_id=26118]"
-        }
-      ],
-      "longitude": 18.16667,
-      "latitude": 68.16667,
-      "coordinate_reference_system": "EPSG:4326",
-      "coordinate_axis_order": "longitude,latitude",
-      "raw_country": "Sweden",
-      "published_country": "Norway",
-      "derived_boundary_membership": "Norway",
-      "derived_country_code": "NO",
-      "candidate_countries": [
-        "Norway"
-      ],
-      "candidate_country_codes": [
-        "NO"
-      ],
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "review",
-      "boundary_decision_status": "review",
-      "decision_method": "strict_boundary_containment",
-      "ambiguity_reason": "raw_country_conflict",
-      "ambiguity_reason_codes": [
-        "raw_country_conflict"
-      ],
-      "refusal_reason": null,
-      "raw_country_comparison": "conflicts",
-      "published_country_comparison": "agrees",
-      "prior_country_decision_comparison": "agrees",
-      "review_requirement": "qualified_review_required",
-      "review_reason_codes": [
-        "raw_country_conflict"
-      ],
-      "qualified_review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null,
-      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
-    },
-    {
-      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:182f35dedb23beb883136800ac670b8088d5d993806b71540b85c39c96d3f165",
       "source_family": "neotoma",
       "source_scope": "four_country_expected",
@@ -1240,7 +1178,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[31]"
+          "locator": "features[30]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -1295,7 +1233,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[46]"
+          "locator": "features[44]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -1350,7 +1288,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[95]"
+          "locator": "features[92]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -1405,7 +1343,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[126]"
+          "locator": "features[122]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -1515,7 +1453,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[112]"
+          "locator": "features[108]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -1570,7 +1508,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[49]"
+          "locator": "features[47]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -1612,65 +1550,6 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
-      "decision_id": "sha256:1d8dabbc079ddf0629dae54b97ff688823e4d294959ddbb3b375ba1d0483fcfe",
-      "source_family": "neotoma",
-      "source_scope": "four_country_expected",
-      "source_record_id": "neotoma:site:13395",
-      "source_native_lineage": [
-        {
-          "role": "source_native_row",
-          "path": "data/neotoma/raw/neotoma_pollen_sites.json",
-          "locator": "rows[siteid=13395]"
-        },
-        {
-          "role": "point_geometry",
-          "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[178]"
-        },
-        {
-          "role": "source_native_country_and_prior_decision",
-          "path": "data/neotoma/relational/surfaces/sites/part-00001.json",
-          "locator": "rows[source_site_id=13395]"
-        }
-      ],
-      "longitude": 10.19417,
-      "latitude": 63.47717,
-      "coordinate_reference_system": "EPSG:4326",
-      "coordinate_axis_order": "longitude,latitude",
-      "raw_country": "Norway",
-      "published_country": "Norway",
-      "derived_boundary_membership": null,
-      "derived_country_code": null,
-      "candidate_countries": [
-        "Norway"
-      ],
-      "candidate_country_codes": [
-        "NO"
-      ],
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "review",
-      "boundary_decision_status": "review",
-      "decision_method": "boundary_proximity",
-      "ambiguity_reason": "near_boundary_without_containment",
-      "ambiguity_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "refusal_reason": null,
-      "raw_country_comparison": "unresolved",
-      "published_country_comparison": "unresolved",
-      "prior_country_decision_comparison": "agrees",
-      "review_requirement": "qualified_review_required",
-      "review_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "qualified_review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null,
-      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
-    },
-    {
-      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:206e6dbe81020b302017312aa78b1cbc5ad0be288db247709dcba1555da7eb37",
       "source_family": "neotoma",
       "source_scope": "four_country_expected",
@@ -1684,7 +1563,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[85]"
+          "locator": "features[82]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -1794,7 +1673,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[91]"
+          "locator": "features[88]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -1849,7 +1728,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[144]"
+          "locator": "features[139]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -1904,7 +1783,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[108]"
+          "locator": "features[104]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -1959,7 +1838,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[73]"
+          "locator": "features[70]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2014,7 +1893,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[99]"
+          "locator": "features[96]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2069,7 +1948,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[102]"
+          "locator": "features[99]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2124,7 +2003,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[107]"
+          "locator": "features[103]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2179,7 +2058,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[156]"
+          "locator": "features[151]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2234,7 +2113,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[86]"
+          "locator": "features[83]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2289,7 +2168,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[42]"
+          "locator": "features[40]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2399,7 +2278,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[142]"
+          "locator": "features[137]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2454,7 +2333,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[96]"
+          "locator": "features[93]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2509,7 +2388,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[176]"
+          "locator": "features[171]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2564,7 +2443,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[146]"
+          "locator": "features[141]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2619,7 +2498,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[55]"
+          "locator": "features[53]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2674,7 +2553,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[165]"
+          "locator": "features[160]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2729,7 +2608,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[179]"
+          "locator": "features[173]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2784,7 +2663,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[171]"
+          "locator": "features[166]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2839,7 +2718,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[167]"
+          "locator": "features[162]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2894,7 +2773,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[34]"
+          "locator": "features[32]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -2949,7 +2828,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[20]"
+          "locator": "features[19]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3004,7 +2883,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[127]"
+          "locator": "features[123]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3059,7 +2938,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[195]"
+          "locator": "features[188]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3169,7 +3048,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[53]"
+          "locator": "features[51]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3224,7 +3103,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[51]"
+          "locator": "features[49]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3279,7 +3158,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[21]"
+          "locator": "features[20]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3334,7 +3213,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[196]"
+          "locator": "features[189]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3389,7 +3268,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[115]"
+          "locator": "features[111]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3499,7 +3378,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[122]"
+          "locator": "features[118]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3554,7 +3433,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[71]"
+          "locator": "features[68]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3664,7 +3543,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[121]"
+          "locator": "features[117]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3719,7 +3598,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[149]"
+          "locator": "features[144]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3774,7 +3653,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[188]"
+          "locator": "features[182]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3829,7 +3708,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[185]"
+          "locator": "features[179]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -3884,7 +3763,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[199]"
+          "locator": "features[192]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4049,7 +3928,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[75]"
+          "locator": "features[72]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4104,7 +3983,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[159]"
+          "locator": "features[154]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4159,7 +4038,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[155]"
+          "locator": "features[150]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4214,7 +4093,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[41]"
+          "locator": "features[39]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4269,7 +4148,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[61]"
+          "locator": "features[59]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4324,7 +4203,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[92]"
+          "locator": "features[89]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4379,7 +4258,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[166]"
+          "locator": "features[161]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4434,7 +4313,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[153]"
+          "locator": "features[148]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4489,7 +4368,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[172]"
+          "locator": "features[167]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4544,7 +4423,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[72]"
+          "locator": "features[69]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4599,7 +4478,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[35]"
+          "locator": "features[33]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4654,7 +4533,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[47]"
+          "locator": "features[45]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4709,7 +4588,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[162]"
+          "locator": "features[157]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4764,7 +4643,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[118]"
+          "locator": "features[114]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4819,7 +4698,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[83]"
+          "locator": "features[80]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4874,7 +4753,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[198]"
+          "locator": "features[191]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4929,7 +4808,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[103]"
+          "locator": "features[100]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -4984,7 +4863,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[152]"
+          "locator": "features[147]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5039,7 +4918,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[60]"
+          "locator": "features[58]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5094,7 +4973,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[128]"
+          "locator": "features[124]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5149,7 +5028,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[94]"
+          "locator": "features[91]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5204,7 +5083,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[22]"
+          "locator": "features[21]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5259,7 +5138,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[88]"
+          "locator": "features[85]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5314,7 +5193,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[192]"
+          "locator": "features[185]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5369,7 +5248,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[143]"
+          "locator": "features[138]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5424,7 +5303,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[98]"
+          "locator": "features[95]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5466,65 +5345,6 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
-      "decision_id": "sha256:7aa222b0170a9ae6bc8bbc328f5081acb1b881f83552c67258f2380b7cd1f521",
-      "source_family": "neotoma",
-      "source_scope": "four_country_expected",
-      "source_record_id": "neotoma:site:700",
-      "source_native_lineage": [
-        {
-          "role": "source_native_row",
-          "path": "data/neotoma/raw/neotoma_pollen_sites.json",
-          "locator": "rows[siteid=700]"
-        },
-        {
-          "role": "point_geometry",
-          "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[33]"
-        },
-        {
-          "role": "source_native_country_and_prior_decision",
-          "path": "data/neotoma/relational/surfaces/sites/part-00001.json",
-          "locator": "rows[source_site_id=700]"
-        }
-      ],
-      "longitude": 31.025864970930726,
-      "latitude": 70.32583493408067,
-      "coordinate_reference_system": "EPSG:4326",
-      "coordinate_axis_order": "longitude,latitude",
-      "raw_country": "Norway",
-      "published_country": "Norway",
-      "derived_boundary_membership": null,
-      "derived_country_code": null,
-      "candidate_countries": [
-        "Norway"
-      ],
-      "candidate_country_codes": [
-        "NO"
-      ],
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "review",
-      "boundary_decision_status": "review",
-      "decision_method": "boundary_proximity",
-      "ambiguity_reason": "near_boundary_without_containment",
-      "ambiguity_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "refusal_reason": null,
-      "raw_country_comparison": "unresolved",
-      "published_country_comparison": "unresolved",
-      "prior_country_decision_comparison": "agrees",
-      "review_requirement": "qualified_review_required",
-      "review_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "qualified_review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null,
-      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
-    },
-    {
-      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:7f28a12d16708b5a6d8409994f257a94844bb4836b2fd30bd3655a41c66ce065",
       "source_family": "neotoma",
       "source_scope": "four_country_expected",
@@ -5538,7 +5358,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[177]"
+          "locator": "features[172]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5593,7 +5413,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[64]"
+          "locator": "features[61]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5635,65 +5455,6 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
-      "decision_id": "sha256:81ba0a1bf04a6de0d6209e73158694dcb347f376d5da5145126526e9a85f31f2",
-      "source_family": "neotoma",
-      "source_scope": "four_country_expected",
-      "source_record_id": "neotoma:site:3025",
-      "source_native_lineage": [
-        {
-          "role": "source_native_row",
-          "path": "data/neotoma/raw/neotoma_pollen_sites.json",
-          "locator": "rows[siteid=3025]"
-        },
-        {
-          "role": "point_geometry",
-          "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[19]"
-        },
-        {
-          "role": "source_native_country_and_prior_decision",
-          "path": "data/neotoma/relational/surfaces/sites/part-00001.json",
-          "locator": "rows[source_site_id=3025]"
-        }
-      ],
-      "longitude": 4.88333,
-      "latitude": 60.53333,
-      "coordinate_reference_system": "EPSG:4326",
-      "coordinate_axis_order": "longitude,latitude",
-      "raw_country": "Norway",
-      "published_country": "Norway",
-      "derived_boundary_membership": null,
-      "derived_country_code": null,
-      "candidate_countries": [
-        "Norway"
-      ],
-      "candidate_country_codes": [
-        "NO"
-      ],
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "review",
-      "boundary_decision_status": "review",
-      "decision_method": "boundary_proximity",
-      "ambiguity_reason": "near_boundary_without_containment",
-      "ambiguity_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "refusal_reason": null,
-      "raw_country_comparison": "unresolved",
-      "published_country_comparison": "unresolved",
-      "prior_country_decision_comparison": "agrees",
-      "review_requirement": "qualified_review_required",
-      "review_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "qualified_review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null,
-      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
-    },
-    {
-      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:8204f814223ced002a322960c9680176bd1bff23baa79a73bc3a8011c2c51b8d",
       "source_family": "neotoma",
       "source_scope": "four_country_expected",
@@ -5707,7 +5468,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[24]"
+          "locator": "features[23]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5762,7 +5523,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[111]"
+          "locator": "features[107]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5817,7 +5578,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[186]"
+          "locator": "features[180]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5872,7 +5633,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[169]"
+          "locator": "features[164]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5927,7 +5688,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[113]"
+          "locator": "features[109]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -5982,7 +5743,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[89]"
+          "locator": "features[86]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6037,7 +5798,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[119]"
+          "locator": "features[115]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6092,7 +5853,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[76]"
+          "locator": "features[73]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6147,7 +5908,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[59]"
+          "locator": "features[57]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6202,7 +5963,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[151]"
+          "locator": "features[146]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6257,7 +6018,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[193]"
+          "locator": "features[186]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6312,7 +6073,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[104]"
+          "locator": "features[101]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6367,7 +6128,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[158]"
+          "locator": "features[153]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6422,7 +6183,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[145]"
+          "locator": "features[140]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6477,7 +6238,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[184]"
+          "locator": "features[178]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6519,65 +6280,6 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
-      "decision_id": "sha256:9988c3cf94fadacefb68f741cfb9c1ad54cc546c15b2353dab8d522087ab609e",
-      "source_family": "neotoma",
-      "source_scope": "four_country_expected",
-      "source_record_id": "neotoma:site:3311",
-      "source_native_lineage": [
-        {
-          "role": "source_native_row",
-          "path": "data/neotoma/raw/neotoma_pollen_sites.json",
-          "locator": "rows[siteid=3311]"
-        },
-        {
-          "role": "point_geometry",
-          "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[136]"
-        },
-        {
-          "role": "source_native_country_and_prior_decision",
-          "path": "data/neotoma/relational/surfaces/sites/part-00001.json",
-          "locator": "rows[source_site_id=3311]"
-        }
-      ],
-      "longitude": 16.06667,
-      "latitude": 69.13333,
-      "coordinate_reference_system": "EPSG:4326",
-      "coordinate_axis_order": "longitude,latitude",
-      "raw_country": "Sweden",
-      "published_country": "Norway",
-      "derived_boundary_membership": null,
-      "derived_country_code": null,
-      "candidate_countries": [
-        "Norway"
-      ],
-      "candidate_country_codes": [
-        "NO"
-      ],
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "review",
-      "boundary_decision_status": "review",
-      "decision_method": "boundary_proximity",
-      "ambiguity_reason": "near_boundary_without_containment",
-      "ambiguity_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "refusal_reason": null,
-      "raw_country_comparison": "unresolved",
-      "published_country_comparison": "unresolved",
-      "prior_country_decision_comparison": "agrees",
-      "review_requirement": "qualified_review_required",
-      "review_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "qualified_review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null,
-      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
-    },
-    {
-      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:99d194efed90d23222c3ac1008491dcbc035ccba1d2f0a46fff45a81484b37fa",
       "source_family": "neotoma",
       "source_scope": "four_country_expected",
@@ -6591,7 +6293,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[54]"
+          "locator": "features[52]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6646,7 +6348,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[32]"
+          "locator": "features[31]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6701,7 +6403,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[28]"
+          "locator": "features[27]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6756,7 +6458,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[132]"
+          "locator": "features[128]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6811,7 +6513,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[109]"
+          "locator": "features[105]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6866,7 +6568,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[120]"
+          "locator": "features[116]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6921,7 +6623,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[130]"
+          "locator": "features[126]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -6976,7 +6678,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[56]"
+          "locator": "features[54]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7031,7 +6733,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[43]"
+          "locator": "features[41]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7086,7 +6788,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[106]"
+          "locator": "features[102]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7141,7 +6843,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[141]"
+          "locator": "features[136]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7196,7 +6898,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[181]"
+          "locator": "features[175]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7251,7 +6953,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[29]"
+          "locator": "features[28]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7306,7 +7008,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[90]"
+          "locator": "features[87]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7361,7 +7063,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[39]"
+          "locator": "features[37]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7416,7 +7118,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[163]"
+          "locator": "features[158]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7471,7 +7173,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[147]"
+          "locator": "features[142]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7581,7 +7283,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[139]"
+          "locator": "features[134]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7636,7 +7338,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[44]"
+          "locator": "features[42]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7691,7 +7393,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[100]"
+          "locator": "features[97]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7746,7 +7448,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[114]"
+          "locator": "features[110]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7801,7 +7503,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[58]"
+          "locator": "features[56]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7856,7 +7558,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[70]"
+          "locator": "features[67]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7911,7 +7613,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[194]"
+          "locator": "features[187]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -7966,7 +7668,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[45]"
+          "locator": "features[43]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8021,7 +7723,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[80]"
+          "locator": "features[77]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8076,7 +7778,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[133]"
+          "locator": "features[129]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8131,7 +7833,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[30]"
+          "locator": "features[29]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8241,7 +7943,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[148]"
+          "locator": "features[143]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8296,7 +7998,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[173]"
+          "locator": "features[168]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8351,7 +8053,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[37]"
+          "locator": "features[35]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8406,7 +8108,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[140]"
+          "locator": "features[135]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8461,7 +8163,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[182]"
+          "locator": "features[176]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8516,7 +8218,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[116]"
+          "locator": "features[112]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8626,7 +8328,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[36]"
+          "locator": "features[34]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8736,7 +8438,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[129]"
+          "locator": "features[125]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8791,7 +8493,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[137]"
+          "locator": "features[132]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8846,7 +8548,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[150]"
+          "locator": "features[145]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8901,7 +8603,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[27]"
+          "locator": "features[26]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -8956,7 +8658,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[66]"
+          "locator": "features[63]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9011,7 +8713,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[67]"
+          "locator": "features[64]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9066,7 +8768,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[68]"
+          "locator": "features[65]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9121,7 +8823,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[154]"
+          "locator": "features[149]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9231,7 +8933,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[77]"
+          "locator": "features[74]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9286,7 +8988,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[160]"
+          "locator": "features[155]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9341,7 +9043,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[191]"
+          "locator": "features[184]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9396,7 +9098,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[135]"
+          "locator": "features[131]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9438,65 +9140,6 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
-      "decision_id": "sha256:d76f6cef3c4c33dbb10e20a5580e329e44ffcab4b932b17927fe3aa3e2aeaf50",
-      "source_family": "neotoma",
-      "source_scope": "four_country_expected",
-      "source_record_id": "neotoma:site:3221",
-      "source_native_lineage": [
-        {
-          "role": "source_native_row",
-          "path": "data/neotoma/raw/neotoma_pollen_sites.json",
-          "locator": "rows[siteid=3221]"
-        },
-        {
-          "role": "point_geometry",
-          "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[105]"
-        },
-        {
-          "role": "source_native_country_and_prior_decision",
-          "path": "data/neotoma/relational/surfaces/sites/part-00001.json",
-          "locator": "rows[source_site_id=3221]"
-        }
-      ],
-      "longitude": 21.8601349714,
-      "latitude": 60.14758992132913,
-      "coordinate_reference_system": "EPSG:4326",
-      "coordinate_axis_order": "longitude,latitude",
-      "raw_country": "Finland",
-      "published_country": "Finland",
-      "derived_boundary_membership": null,
-      "derived_country_code": null,
-      "candidate_countries": [
-        "Finland"
-      ],
-      "candidate_country_codes": [
-        "FI"
-      ],
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "review",
-      "boundary_decision_status": "review",
-      "decision_method": "boundary_proximity",
-      "ambiguity_reason": "near_boundary_without_containment",
-      "ambiguity_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "refusal_reason": null,
-      "raw_country_comparison": "unresolved",
-      "published_country_comparison": "unresolved",
-      "prior_country_decision_comparison": "agrees",
-      "review_requirement": "qualified_review_required",
-      "review_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "qualified_review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null,
-      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
-    },
-    {
-      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:d7be363c451228fe805dbc898e6f6ebcc28bae66d92d0c0f06cbcda6e7c0429a",
       "source_family": "neotoma",
       "source_scope": "four_country_expected",
@@ -9510,7 +9153,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[183]"
+          "locator": "features[177]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9565,7 +9208,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[38]"
+          "locator": "features[36]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9607,65 +9250,6 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
-      "decision_id": "sha256:d8b46fe45f37f83acf36b3670d41f49aa9a59dd8e7f9dfc9ca6fa2872ed45246",
-      "source_family": "neotoma",
-      "source_scope": "four_country_expected",
-      "source_record_id": "neotoma:site:3138",
-      "source_native_lineage": [
-        {
-          "role": "source_native_row",
-          "path": "data/neotoma/raw/neotoma_pollen_sites.json",
-          "locator": "rows[siteid=3138]"
-        },
-        {
-          "role": "point_geometry",
-          "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[62]"
-        },
-        {
-          "role": "source_native_country_and_prior_decision",
-          "path": "data/neotoma/relational/surfaces/sites/part-00001.json",
-          "locator": "rows[source_site_id=3138]"
-        }
-      ],
-      "longitude": 12.51947996348054,
-      "latitude": 56.28833483580915,
-      "coordinate_reference_system": "EPSG:4326",
-      "coordinate_axis_order": "longitude,latitude",
-      "raw_country": "Sweden",
-      "published_country": "Sweden",
-      "derived_boundary_membership": null,
-      "derived_country_code": null,
-      "candidate_countries": [
-        "Sweden"
-      ],
-      "candidate_country_codes": [
-        "SE"
-      ],
-      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
-      "boundary_version": "natural-earth:5.1.1",
-      "country_decision_status": "review",
-      "boundary_decision_status": "review",
-      "decision_method": "boundary_proximity",
-      "ambiguity_reason": "near_boundary_without_containment",
-      "ambiguity_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "refusal_reason": null,
-      "raw_country_comparison": "unresolved",
-      "published_country_comparison": "unresolved",
-      "prior_country_decision_comparison": "agrees",
-      "review_requirement": "qualified_review_required",
-      "review_reason_codes": [
-        "near_boundary_without_containment"
-      ],
-      "qualified_review_status": "pending",
-      "qualified_reviewer": null,
-      "qualified_reviewed_at": null,
-      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
-    },
-    {
-      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:d9a05f4060fcf62780cf1128534a226ff366f1d4d42aacb0f5c5b9e909598b00",
       "source_family": "neotoma",
       "source_scope": "four_country_expected",
@@ -9679,7 +9263,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[131]"
+          "locator": "features[127]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9734,7 +9318,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[79]"
+          "locator": "features[76]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9789,7 +9373,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[123]"
+          "locator": "features[119]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9844,7 +9428,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[168]"
+          "locator": "features[163]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9899,7 +9483,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[87]"
+          "locator": "features[84]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -9954,7 +9538,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[175]"
+          "locator": "features[170]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10009,7 +9593,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[180]"
+          "locator": "features[174]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10064,7 +9648,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[170]"
+          "locator": "features[165]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10119,7 +9703,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[82]"
+          "locator": "features[79]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10174,7 +9758,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[25]"
+          "locator": "features[24]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10284,7 +9868,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[63]"
+          "locator": "features[60]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10394,7 +9978,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[117]"
+          "locator": "features[113]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10449,7 +10033,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[174]"
+          "locator": "features[169]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10504,7 +10088,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[124]"
+          "locator": "features[120]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10559,7 +10143,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[157]"
+          "locator": "features[152]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10614,7 +10198,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[93]"
+          "locator": "features[90]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10669,7 +10253,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[138]"
+          "locator": "features[133]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10724,7 +10308,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[164]"
+          "locator": "features[159]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10779,7 +10363,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[69]"
+          "locator": "features[66]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10834,7 +10418,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[74]"
+          "locator": "features[71]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10889,7 +10473,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[40]"
+          "locator": "features[38]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10944,7 +10528,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[84]"
+          "locator": "features[81]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -10999,7 +10583,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[134]"
+          "locator": "features[130]"
         },
         {
           "role": "source_native_country_and_prior_decision",
@@ -11054,7 +10638,7 @@
         {
           "role": "point_geometry",
           "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
-          "locator": "features[97]"
+          "locator": "features[94]"
         },
         {
           "role": "source_native_country_and_prior_decision",
