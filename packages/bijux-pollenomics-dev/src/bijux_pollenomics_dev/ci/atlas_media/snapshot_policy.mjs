@@ -44,7 +44,9 @@ export function validateSnapshot(snapshot, frame, story, atlasIdentity) {
     if (snapshot.modeled_context?.metric_key !== frame.metric_key) throw new Error('captured modeled metric differs');
     if (snapshot.modeled_context?.feature_count !== frame.feature_count) throw new Error('captured modeled feature denominator differs');
     if (snapshot.visible_modeled_context_feature_count !== frame.feature_count) {
-      throw new Error('captured modeled selected-layer visibility differs');
+      throw new Error(
+        `captured modeled selected-layer visibility differs: expected ${frame.feature_count}, observed ${snapshot.visible_modeled_context_feature_count}`,
+      );
     }
     if (snapshot.visible_source_chronology_point_count !== 0) {
       throw new Error('modeled frame exposed source selected-layer visibility');

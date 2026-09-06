@@ -59,6 +59,11 @@ def test_capture_contract_validates_source_facets_context_metrics_and_view() -> 
     assert "const captureFrame = normalizeAtlasCaptureFrame(frameSpec)" in block
     assert "document.documentElement.classList.add('atlas-capture-mode')" in block
     assert "setBasemap(captureFrame.basemap, { sync: false })" in block
+    assert (
+        "sourceChronologyLayers().forEach((layer) => "
+        "activeLayerKeys.delete(layer.key))" in block
+    )
+    assert "sourceRecordConcentrationActive = false" in block
     assert "map.setView([captureFrame.view.latitude" in block
     assert "setPanelCollapsed(true, false)" in block
     assert "setLegendCollapsed(true, false)" in block
