@@ -50,6 +50,10 @@
         scroll-behavior: auto !important;
         transition: none !important;
       }
+      html.atlas-capture-mode,
+      html.atlas-capture-mode body {
+        overflow: hidden;
+      }
       html.atlas-probe-motion-mode *,
       html.atlas-probe-motion-mode *::before,
       html.atlas-probe-motion-mode *::after {
@@ -72,8 +76,14 @@
       .atlas-capture-overlay {
         display: none;
       }
+      html.atlas-capture-mode .map-stage {
+        position: fixed;
+        inset: 0;
+        min-height: 0;
+        height: 100vh;
+      }
       html.atlas-capture-mode .atlas-capture-overlay {
-        position: absolute;
+        position: fixed;
         left: 22px;
         bottom: 22px;
         z-index: 1100;
@@ -412,8 +422,8 @@
         gap: 10px;
       }
       .basemap-switch {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
         gap: 8px;
       }
       .inline-actions { margin-top: 12px; }
@@ -458,6 +468,8 @@
         display: inline-flex;
         align-items: center;
         gap: 8px;
+        min-width: 0;
+        width: 100%;
         padding: 8px 10px;
         border-radius: 999px;
         text-align: left;
@@ -5678,6 +5690,10 @@
           });
         }
         if (document.fonts && document.fonts.ready) await document.fonts.ready;
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        map.invalidateSize({ animate: false });
+        await new Promise((resolve) => window.requestAnimationFrame(() => window.requestAnimationFrame(resolve)));
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
         map.invalidateSize({ animate: false });
         await new Promise((resolve) => window.requestAnimationFrame(() => window.requestAnimationFrame(resolve)));
         return atlasCaptureSnapshot();
@@ -5696,8 +5712,16 @@
         const orientationLayerKeys = atlasCaptureOrientationKeys();
         const evidenceLayerKey = modeledContextActive ? MODELED_CONTEXT.layer_key : (sourceLayer?.key || null);
         const mapBounds = document.getElementById('map').getBoundingClientRect();
-        const overlayBounds = document.getElementById('atlas-capture-overlay').getBoundingClientRect();
+        const overlayElement = document.getElementById('atlas-capture-overlay');
+        const overlayBounds = overlayElement.getBoundingClientRect();
         const overlayVisible = overlayBounds.width > 0 && overlayBounds.height > 0;
+        const overlayContentBounded = [...overlayElement.children].every((child) => {
+          const bounds = child.getBoundingClientRect();
+          return bounds.left >= overlayBounds.left
+            && bounds.right <= overlayBounds.right
+            && bounds.top >= overlayBounds.top
+            && bounds.bottom <= overlayBounds.bottom;
+        });
         const overlayOverlapsMap = overlayVisible
           && overlayBounds.left < mapBounds.right
           && overlayBounds.right > mapBounds.left
@@ -5751,9 +5775,18 @@
               && overlayBounds.right <= window.innerWidth
               && overlayBounds.top >= 0
               && overlayBounds.bottom <= window.innerHeight,
+            overlay_content_bounded: overlayContentBounded,
+            overlay_content_overflow: overlayElement.scrollWidth > overlayElement.clientWidth
+              || overlayElement.scrollHeight > overlayElement.clientHeight,
             overlay_overlaps_map: overlayOverlapsMap,
+            map_bounded: mapBounds.left >= 0
+              && mapBounds.right <= window.innerWidth
+              && mapBounds.top >= 0
+              && mapBounds.bottom <= window.innerHeight,
             map_width_px: Math.round(mapBounds.width),
             map_height_px: Math.round(mapBounds.height),
+            scroll_x_px: Math.round(window.scrollX),
+            scroll_y_px: Math.round(window.scrollY),
             viewport_width_px: window.innerWidth,
             viewport_height_px: window.innerHeight,
           },
@@ -5885,6 +5918,7 @@
         stopModeledContextPlayback();
         atlasCapturePresentation = null;
         document.documentElement.classList.add('atlas-capture-mode');
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
         map.invalidateSize({ animate: false });
         activeCountries = new Set(captureFrame.countries);
         setBasemap(captureFrame.basemap, { sync: false });
@@ -6114,7 +6148,7 @@
         viewControls.open = true;
         basemapSwitch.scrollIntoView({
           block: 'nearest',
-          behavior: reducedMotionQuery.matches || document.documentElement.classList.contains('atlas-capture-mode') ? 'auto' : 'smooth',
+          behavior: 'auto',
         });
         const activeButton = basemapSwitch.querySelector('.basemap-button.is-active');
         if (activeButton) activeButton.focus({ preventScroll: true });
