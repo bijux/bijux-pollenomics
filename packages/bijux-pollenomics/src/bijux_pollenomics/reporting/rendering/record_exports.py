@@ -154,7 +154,11 @@ def build_samples_geojson(samples: Iterable[SampleRecord]) -> dict[str, object]:
 def write_samples_csv(path: Path, samples: Iterable[SampleRecord]) -> None:
     """Write the full sample inventory as CSV."""
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(SAMPLE_EXPORT_FIELDS))
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=list(SAMPLE_EXPORT_FIELDS),
+            lineterminator="\n",
+        )
         writer.writeheader()
         for sample in samples:
             payload = serialize_sample_record(sample)
@@ -166,7 +170,11 @@ def write_samples_csv(path: Path, samples: Iterable[SampleRecord]) -> None:
 def write_localities_csv(path: Path, localities: Iterable[LocalitySummary]) -> None:
     """Write the locality-level aggregation as CSV."""
     with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(LOCALITY_EXPORT_FIELDS))
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=list(LOCALITY_EXPORT_FIELDS),
+            lineterminator="\n",
+        )
         writer.writeheader()
         for locality in localities:
             payload = serialize_locality_summary(locality)
