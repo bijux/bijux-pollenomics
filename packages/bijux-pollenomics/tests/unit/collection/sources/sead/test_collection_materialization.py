@@ -190,8 +190,13 @@ class SeadMaterializationTests(NordicBoundaryTestCase):
                     "bijux_pollenomics.collection.sources.sead.collection."
                     "write_sead_chronology_claim_bundle_from_snapshot"
                 ),
+                patch(
+                    "bijux_pollenomics.collection.sources.sead.collection."
+                    "materialize_sead_scientific_classification_review"
+                ) as classification_review,
             ):
                 report = materialize_sead_repository_surfaces(data_root)
+                classification_review.assert_called_once_with(data_root)
 
             normalized_payload = json.loads(
                 report.normalized_geojson_path.read_text(encoding="utf-8")

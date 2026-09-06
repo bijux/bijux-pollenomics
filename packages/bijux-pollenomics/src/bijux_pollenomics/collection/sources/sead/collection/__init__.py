@@ -44,6 +44,9 @@ from bijux_pollenomics.collection.sources.sead.evidence.normalization import (
     normalize_sead_rows,
     normalize_sead_temporal_evidence,
 )
+from bijux_pollenomics.collection.sources.sead.evidence.review import (
+    materialize_sead_scientific_classification_review,
+)
 from bijux_pollenomics.core.http import fetch_json
 
 from . import archive as _archive
@@ -259,6 +262,7 @@ def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
         temporal_records=temporal_records,
         admission=dict(validated_snapshot.admission),
     )
+    materialize_sead_scientific_classification_review(data_root)
     return SeadDataReport(
         output_dir=output_root,
         point_count=len(records),
