@@ -154,7 +154,7 @@ coverage of the collection.
 | --- | ---: | ---: | --- |
 | LandClim | 490 site sequences | 480 | supporting pollen context at the sequence interval |
 | Neotoma | 200 sites | 175 | supporting pollen context where a site span exists |
-| SEAD | 2,172 normalized sites | 0 | archaeology context only in the current capture |
+| SEAD | 2,069 assigned four-country sites; 25,109 chronology claims | 14,324 claims | comparison is claim-specific; 10,144 context-only and 641 unresolved claims remain ineligible |
 | RAÄ | unavailable; authority refused | not applicable | retained density files are excluded from governed evidence |
 | SVAR | unavailable; authority refused | not applicable | source-reported receipt is provenance only until the normalized registry exists |
 | boundaries | 4 polygons | 0 | geographic framing only |

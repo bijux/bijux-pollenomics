@@ -242,7 +242,7 @@ distinct:
 | --- | --- | --- |
 | captured | What material did the repository acquire? | two AADR annotation panels or 2,195 SEAD inventory rows |
 | normalized and reviewed | Which records have a stable repository representation and evidence posture? | 200 Neotoma site records with temporal review |
-| published | Which records satisfy one named product contract? | 2,172 mapped Nordic SEAD features or 2 Nordic animal localities |
+| published | Which records satisfy one named product contract? | 2,069 assigned four-country SEAD sites or 2 Nordic animal localities |
 
 A smaller published population can be the honest result of stronger review,
 geographic scope, or missing evidence. It must not be described as failed

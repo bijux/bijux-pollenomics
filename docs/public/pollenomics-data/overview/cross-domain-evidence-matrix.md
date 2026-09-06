@@ -128,7 +128,7 @@ are declared. The checked-in collection contains several instructive cases:
 | Published quantity | Unit | What must not be inferred |
 | --- | --- | --- |
 | 2,195 SEAD inventory rows | captured inventory row | 2,195 distinct normalized map points |
-| 2,172 normalized SEAD records | published site point | complete or uniformly dated archaeology evidence |
+| 2,069 assigned SEAD site records | published site point | complete or uniformly dated archaeology evidence |
 | RAÄ source denominator unavailable | refused source authority | zero archaeology records or equivalent recording effort across space |
 | retained RAÄ density files excluded | unauthorised derived surface | current public archaeology evidence or archaeological-site coordinates |
 | two fieldwork pages | documentation surface | two independent visits |

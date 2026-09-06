@@ -27,29 +27,25 @@ chronology explicitly rather than as a static or timeless point.
 
 ## Current Evidence State
 
-The governed snapshot begins with 2,195 captured site rows. Spatial
-normalization admits 2,172 of them to the Sweden, Norway, Finland, and Denmark
-map layer.
+<!-- sead-evidence:generated:start -->
+The current governed full-evidence run is `sead-full-evidence-39bfff6a-ce80714e` (`sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725`). Its denominators are:
 
-| Evidence property | Count | What the count means |
+| Governed population | Count | Interpretation |
 | --- | ---: | --- |
-| captured site rows | 2,195 | denominator before map-country membership |
-| mapped Nordic features | 2,172 | sites inside the four governed country geometries |
-| captured sites with numeric interval material | 927 | sites with at least one linked chronology interval |
-| mapped sites with numeric intervals | 905 | mapped site summaries that can participate in coarse site-level filtering |
-| mapped sites with unresolved time | 1,267 | points retained for spatial discovery, not temporal comparison |
-| captured chronology source records | 27,002 | dating ranges, relative periods, modelled ages, geochronology, and dendrochronology rows with normalized BP intervals |
-| mapped temporal-evidence features | 9,380 | coincident chronology rows grouped only when site, kind, interval, label, and uncertainty agree |
-| mapped chronology source records represented | 26,556 | source records carried by the 9,380 time-filterable features |
-| captured sites linked to bibliography | 1,300 | sites with bibliography reached through site, dataset, sample-group, or relative-age relations |
-| captured sites without usable chronology | 1,268 | sites for which the captured upstream relations provide no numeric interval |
+| source tables | 61 | complete captured relational table set |
+| sites in the Nordic bounding-box review | 2,195 | country-decision denominator |
+| assigned four-country sites | 2,069 | SE 1,925, DK 59, NO 45, FI 40 |
+| sites requiring country review | 103 | retained outside assigned publication membership |
+| unassigned sites | 23 | retained without a governed country assignment |
+| atlas SEAD features | 11,807 | 2,069 four-country site features plus 9,738 Swedish chronology-discovery features; not a distinct-site count |
+| chronology claims | 25,109 | 14,324 comparable, 10,144 context-only, 641 unresolved |
+| source-native observations | 177,763 | quantitative observation denominator |
+| source-native taxon relations | 1,974 | preserved source taxonomy, not accepted cross-source classification |
+| dimension relations | 2,639 | explicit source-native measurement dimensions |
+| eligible / refused propagation events | 0 / 177,763 | `refused`: `source_classification_not_accepted` |
 
-These denominators answer different questions. A site count measures spatial
-coverage. A chronology-record count measures temporal evidence. A grouped
-feature count measures what the browser must render. They must not be used
-interchangeably. The 446 chronology records outside the mapped population are
-retained in the raw capture; their sites fall outside the four governed
-country geometries.
+Site, feature, claim, observation, relation, and event counts are different units. The atlas may display SEAD chronology and source-native detail, but it must not turn the refused event population into migration or propagation evidence.
+<!-- sead-evidence:generated:end -->
 
 ## From A Relational Database To A Map Point
 
@@ -132,8 +128,8 @@ flowchart TD
 ## How The Atlas Timeline Treats SEAD
 
 The Nordic Atlas exposes one governed Sweden archaeology discovery layer. It
-contains all 2,007 Swedish SEAD sites as 9,149 linked numeric chronology
-features plus 1,230 explicitly unresolved site features. Once a reader narrows
+contains all 1,925 assigned Swedish SEAD sites as 8,184 linked numeric
+chronology features plus 1,554 explicitly unresolved site features. Once a reader narrows
 the time window:
 
 1. numeric features remain visible only when their own linked interval
@@ -164,23 +160,23 @@ Temporal overlap is therefore a candidate relation for investigation, not a
 join key. Keep source identity, spatial distance, interval basis, and
 observation unit with any cross-source statement.
 
-## The 23 Captured Non-Members
+## The 126 Captured Non-Members
 
-The difference between 2,195 captured rows and 2,172 mapped points is a
-country-membership decision. The omitted rows retain source identities and
-coordinates but do not fall inside the four governed publication-country
-geometries. The set includes places east or south of the current scope and
-some island or boundary-edge cases.
+The difference between 2,195 bounding-box review rows and 2,069 assigned site
+points is a country-membership decision. The 126 non-members comprise 103 rows
+requiring country review and 23 unassigned rows. They retain source identities
+and coordinates without being silently promoted into one of the four governed
+publication countries.
 
 ```mermaid
 flowchart LR
     Capture["2,195 captured sites"] --> Coordinate{"inside a governed country geometry?"}
-    Coordinate -->|yes| Map["2,172 mapped features"]
-    Coordinate -->|no| Retained["23 retained non-members"]
-    Map --> Timed["905 dated site summaries"]
-    Map --> Context["1,267 unresolved site members"]
-    Capture --> Chronology["27,002 captured chronology records"]
-    Chronology --> Timeline["26,556 mapped records in 9,380 temporal features"]
+    Coordinate -->|assigned| Map["2,069 four-country site features"]
+    Coordinate -->|review| Review["103 country-review rows"]
+    Coordinate -->|unassigned| Retained["23 unassigned rows"]
+    Capture --> Chronology["25,109 chronology claims"]
+    Chronology --> Comparable["14,324 comparable claims"]
+    Chronology --> Ineligible["10,144 context-only + 641 unresolved"]
 ```
 
 This is not deduplication or evidence deletion. A boundary or publication
@@ -192,7 +188,7 @@ SEAD supports:
 
 - finding environmental-archaeology sites near a lake, pollen sequence, or
   aDNA locality under a declared distance rule;
-- navigating 26,556 mapped chronology records through 9,380 interval-preserving features;
+- navigating 14,324 comparable chronology claims through interval-preserving features;
 - retaining relative-period language for human interpretation without
   inventing numeric bounds;
 - identifying sites whose bibliography or deeper relational evidence merits

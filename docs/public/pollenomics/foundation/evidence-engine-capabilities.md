@@ -101,8 +101,9 @@ Some real capabilities carry narrower claims because the evidence is uneven:
   counts as one homogeneous population;
 - Neotoma provides 170 numerically comparable site spans alongside five
   contextual-only and 25 unresolved sites;
-- SEAD provides 2,172 mapped Nordic context features, while all 2,195 reviewed
-  inventory rows remain temporally unresolved in the current capture; and
+- SEAD provides 2,069 assigned four-country site features plus 9,738 Swedish
+  chronology-discovery features; its 25,109 claims partition into 14,324
+  comparable, 10,144 context-only, and 641 unresolved claims; and
 - Sweden lake ranking supports prioritization, while field readiness remains
   dependent on bathymetry, access, permissions, and on-site verification.
 
@@ -136,7 +137,7 @@ one output, qualified for another, and outside scope for a stronger analysis.
 | Which AADR v66 rows belong to a country bundle? | operational | release-resolved members, manifest, table, and GeoJSON | geographic publication of metadata, not genotype analysis |
 | Which recovered animal samples meet the point contract? | operational for 288 samples represented by 151 locality features | final sample identity, locality, coordinate, chronology posture, and traceability | admitted subset, not complete project recovery |
 | May the Wadi Halfa dromedary context appear spatially? | not published | readiness evidence retained with `no_admitted_sample_backed_locality_candidate` | context remains outside the point product |
-| Are current SEAD sites contemporaneous with nearby aDNA? | refused | 2,195 unresolved temporal review rows | spatial context only until chronology is recovered |
+| Are current SEAD sites contemporaneous with nearby aDNA? | qualified per record | 25,109 chronology claims include 14,324 comparable claims, while context-only and unresolved claims remain ineligible | interval overlap is contextual evidence, not proof of association |
 | Which Swedish lakes rank under declared scenarios? | qualified decision support | ranking, sensitivity, and fieldwork-preparation packets | prioritization, not sampling readiness |
 | What population-genetic process produced a pattern? | outside scope | no governed capability | requires a new analysis and evidence contract |
 

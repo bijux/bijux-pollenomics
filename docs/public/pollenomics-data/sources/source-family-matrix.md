@@ -57,7 +57,7 @@ The current stage matrix reports this materialized state:
 | --- | --- | --- | --- | --- | --- |
 | LandClim | present | present | present | present | 490 sequences, 77 model cells, and 2,515 temporal model features under source-specific review |
 | Neotoma | present | present | present | present | 200 normalized points; temporal capability remains member-specific |
-| SEAD | present | present | present | present | 2,172 normalized points; review supports a contextual, not uniformly dated, role |
+| SEAD | present | present | present | present | 2,069 assigned site points and 25,109 chronology claims; review supports a contextual, not uniformly dated, role |
 | RAÄ | present | present | missing | refused | authority is refused; source-scale counts and density files remain excluded until raw inventory, summary, and scientific review reconcile |
 | boundaries | present | present | missing | present | four country geometries frame membership without scientific weight |
 | SVAR | present | missing | partial | refused | authority is refused; a source-reported summary and 99-member review registry exist, but the complete contracted normalized registry is absent |

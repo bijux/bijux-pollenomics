@@ -18,27 +18,25 @@ database.
 
 ## Snapshot At A Glance
 
-| Population or relation | Count |
-| --- | ---: |
-| captured sites | 2,195 |
-| mapped Nordic features | 2,172 |
-| mapped sites with numeric summaries | 905 |
-| mapped sites with unresolved time | 1,267 |
-| captured chronology source records | 27,002 |
-| mapped chronology source records | 26,556 |
-| mapped temporal-evidence features | 9,380 |
-| captured sites linked to bibliography | 1,300 |
-| captured sites without usable chronology | 1,268 |
-| Swedish discovery-registry sites | 2,007 |
-| Swedish discovery sites with linked numeric chronology | 777 |
-| Swedish discovery sites with unresolved chronology | 1,230 |
-| Swedish discovery map features | 10,379 |
+<!-- sead-evidence:generated:start -->
+The current governed full-evidence run is `sead-full-evidence-39bfff6a-ce80714e` (`sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725`). Its denominators are:
 
-The difference between 27,002 captured and 26,556 mapped chronology records is
-deliberate. Capture and map-country membership are separate decisions. The
-difference between 26,556 source records and 9,380 rendered features is also
-deliberate: coincident rows are grouped only when site, chronology kind,
-interval, label, and uncertainty agree.
+| Governed population | Count | Interpretation |
+| --- | ---: | --- |
+| source tables | 61 | complete captured relational table set |
+| sites in the Nordic bounding-box review | 2,195 | country-decision denominator |
+| assigned four-country sites | 2,069 | SE 1,925, DK 59, NO 45, FI 40 |
+| sites requiring country review | 103 | retained outside assigned publication membership |
+| unassigned sites | 23 | retained without a governed country assignment |
+| atlas SEAD features | 11,807 | 2,069 four-country site features plus 9,738 Swedish chronology-discovery features; not a distinct-site count |
+| chronology claims | 25,109 | 14,324 comparable, 10,144 context-only, 641 unresolved |
+| source-native observations | 177,763 | quantitative observation denominator |
+| source-native taxon relations | 1,974 | preserved source taxonomy, not accepted cross-source classification |
+| dimension relations | 2,639 | explicit source-native measurement dimensions |
+| eligible / refused propagation events | 0 / 177,763 | `refused`: `source_classification_not_accepted` |
+
+Site, feature, claim, observation, relation, and event counts are different units. The atlas may display SEAD chronology and source-native detail, but it must not turn the refused event population into migration or propagation evidence.
+<!-- sead-evidence:generated:end -->
 
 ## Choose An Artifact
 
@@ -49,8 +47,8 @@ interval, label, and uncertainty agree.
 | tabular exchange | `data/sead/normalized/nordic_environmental_sites.csv` | represents the same normalized point population with serialized temporal semantics |
 | navigate chronology through time | `data/sead/normalized/nordic_temporal_evidence.geojson` | provides interval-preserving features for every mapped linked chronology group |
 | exchange record-level chronology | `data/sead/normalized/nordic_temporal_evidence.csv` | provides the same grouped temporal population in tabular form |
-| discover and prioritize Swedish sites | `data/sead/derived/sweden_archaeology_site_discovery.json` | preserves all 2,007 sites, a transparent evidence-readiness order, and the ranking contract |
-| navigate Swedish discovery through time | `data/sead/derived/sweden_archaeology_site_discovery.geojson` | carries 9,149 exact linked intervals and 1,230 explicitly unresolved site features |
+| discover and prioritize Swedish sites | `data/sead/derived/sweden_archaeology_site_discovery.json` | preserves all 1,925 assigned Swedish sites, a transparent evidence-readiness order, and the ranking contract |
+| navigate Swedish discovery through time | `data/sead/derived/sweden_archaeology_site_discovery.geojson` | carries 8,184 exact linked intervals and 1,554 explicitly unresolved site features |
 | exchange the one-row-per-site discovery registry | `data/sead/derived/sweden_archaeology_site_discovery.csv` | keeps chronology, bibliography, dataset, RAÄ-context, and activity-status fields together |
 | decide site-level temporal eligibility | `data/sead/review/temporal_review.json` | classifies each captured site as numeric-plus-context or unresolved |
 | inspect access limits | `data/sead/review/access_model.json` | distinguishes mirrored material from upstream browsing and references |
@@ -96,7 +94,7 @@ loading the two normalized SEAD layers beside it:
 
 | Atlas state | Numeric discovery features | Unresolved discovery features |
 | --- | --- | --- |
-| full temporal extent | all 9,149 linked interval features shown | all 1,230 unresolved Swedish sites shown |
+| full temporal extent | all 8,184 linked interval features shown | all 1,554 unresolved Swedish sites shown |
 | narrowed BP window | shown only on record-interval overlap | withheld because overlap is unknown |
 
 This makes the full view useful for spatial exploration while keeping a
@@ -130,16 +128,17 @@ flowchart TD
 
 ## Geographic Membership
 
-Twenty-three captured rows are not members of the four-country point layer.
-They retain their identities and coordinates in the raw and review surfaces.
-Their absence from GeoJSON means they did not satisfy the current Sweden,
-Norway, Finland, or Denmark geometry rule; it does not mean that the source
-row was invalid, deduplicated, or deleted.
+One hundred twenty-six bounding-box review rows are not assigned members of
+the four-country point layer: 103 require country review and 23 remain
+unassigned. They retain their identities and coordinates in the raw and review
+surfaces. Their absence from GeoJSON does not mean that the source row was
+invalid, deduplicated, or deleted.
 
-Use 2,195 as the capture denominator and 2,172 as the mapped denominator.
-Whenever temporal map coverage is discussed, use 9,380 as the grouped-feature
-denominator and 26,556 as the represented source-record denominator. For site
-coverage, report 905 dated and 1,267 unresolved mapped sites.
+Use 2,195 as the country-decision denominator and 2,069 as the assigned-site
+denominator. Whenever temporal evidence coverage is discussed, use 25,109 as
+the claim denominator, partitioned into 14,324 comparable, 10,144 context-only,
+and 641 unresolved claims. For Swedish discovery, report 8,184 numeric features
+and 1,554 unresolved-site features across 1,925 assigned sites.
 
 ## Reuse Checklist
 

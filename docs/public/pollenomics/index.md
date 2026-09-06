@@ -192,7 +192,7 @@ not have to infer product status from prose.
 The checked-in state demonstrates all four responsibilities at meaningful
 scale. Collection spans seven independently governed source families. The
 normalized context includes 490 LandClim site sequences, 200 Neotoma sites,
-and 2,172 SEAD sites. RAÄ authority is refused because its source inventory,
+and 2,069 assigned four-country SEAD sites. RAÄ authority is refused because its source inventory,
 summary, and scientific review do not reconcile in the repository. SVAR
 authority is refused because the governing normalized lake registry is absent.
 Their retained receipts and derived review material remain provenance, not

@@ -101,29 +101,31 @@ in this period.”
 
 | Population | Count |
 | --- | ---: |
-| captured site inventory | 2,195 |
-| mapped four-country population | 2,172 |
-| mapped sites with numeric summaries | 905 |
-| unresolved mapped sites | 1,267 |
-| mapped temporal-evidence features | 9,380 |
-| mapped chronology source records represented | 26,556 |
-| captured chronology source records | 27,002 |
-| captured rows outside mapped population | 23 |
+| sites in bounding-box review | 2,195 |
+| assigned four-country sites | 2,069 |
+| Swedish sites with comparable chronology | 371 |
+| Swedish sites without comparable chronology | 1,554 |
+| Swedish numeric chronology features | 8,184 |
+| chronology claims | 25,109 |
+| comparable chronology claims | 14,324 |
+| context-only chronology claims | 10,144 |
+| unresolved chronology claims | 641 |
+| country-review rows | 103 |
+| unassigned rows | 23 |
 
-The 27,002 chronology records comprise 7,775 dating ranges, 10,950 relative
-period rows, 852 modelled analysis-entity ages, 104 geochronology rows, and
-7,321 dendrochronology rows. All have normalized BP bounds in the governed
-capture. They become 9,380 mapped features because coincident records are
-grouped only when site, chronology kind, interval, label, and uncertainty
-agree. The raw archive also retains 40,981 site-linked bibliography relations.
+The 25,109 chronology claims comprise 7,377 dating ranges, 10,057 relative
+period rows, 641 analysis-entity ages, 87 geochronology rows, and 6,947
+dendrochronology rows. Exactly 14,324 claims are comparable; 10,144 remain
+context-only and 641 unresolved. The atlas renders the comparable Swedish
+relations as 8,184 interval features without promoting the other claims.
 
 ## Use The Timeline Correctly
 
 The temporal-evidence layer is the comparison mode and is enabled by default.
-All 9,380 of its mapped features are eligible for interval filtering. The
-site-inventory layer is optional: turn it on to inspect the full 2,172-site
-spatial population, including 1,267 sites that cannot enter a narrowed time
-window.
+All 8,184 of its Swedish features are eligible for interval filtering. The
+site-inventory layer is optional: turn it on to inspect the full 2,069-site
+four-country spatial population. Claims without comparable intervals remain
+context-only or unresolved and cannot enter a narrowed time window.
 
 ```mermaid
 stateDiagram-v2
@@ -142,7 +144,7 @@ present in every period.
 ## Use The Governed Sweden Discovery Surface
 
 For Sweden, the Nordic Atlas combines those two reading needs without erasing
-their distinction. Every one of the 2,007 Swedish SEAD sites appears through
+their distinction. Every one of the 1,925 assigned Swedish SEAD sites appears through
 either its linked numeric chronology features or one explicitly unresolved
 feature. The layer therefore supports both full-population spatial discovery
 and honest interval filtering.
@@ -154,7 +156,7 @@ density is displayed only as coarse context and cannot supply a site identity,
 date, or rank contribution.
 
 See [Sweden archaeology site discovery](../publications/archaeology-site-discovery.md)
-for the complete 2,007-site contract and its JSON, CSV, GeoJSON, and Markdown
+for the complete 1,925-site contract and its JSON, CSV, GeoJSON, and Markdown
 companions.
 
 ## Compare With Other Evidence Families

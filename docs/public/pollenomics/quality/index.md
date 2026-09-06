@@ -104,9 +104,9 @@ The order matters. Starting from a compelling map and reasoning backward can
 mistake symbol precision for evidence precision. Start with the observation
 unit and eligible population, then inspect role, time, place, and exclusions.
 
-For example, the Nordic bundle contains 2,172 mapped SEAD sites while its
-reviewed inventory contains 2,195 rows. The difference is accounted for by 23
-rows without country assignment. That is stronger quality evidence than
+For example, the Nordic bundle contains 2,069 assigned SEAD sites while its
+bounding-box review contains 2,195 rows. The difference is accounted for by
+103 review rows and 23 unassigned rows. That is stronger quality evidence than
 calling either number the unqualified “SEAD total.”
 
 ## Quality Is Not Uniformity
