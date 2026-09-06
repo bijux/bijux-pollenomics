@@ -107,11 +107,12 @@ try {
     'capture_api_ready', 'candidate_identity', 'keyless_provider_policy',
     'default_sample_window', 'default_denominators', 'trsh_exact_state',
     'uphe_exact_state', 'aqvp_exact_state', 'secale_exact_state',
-    'cereal_finder_exact_state', 'comparison_refusal', 'responsive_1440',
+    'cereal_finder_exact_state', 'chronology_buttons_navigate', 'chronology_controls_persistent',
+    'comparison_refusal', 'capture_null_inputs_refused', 'responsive_1440',
     'responsive_1024', 'responsive_768', 'responsive_390',
     'reduced_motion_manual_navigation', 'no_basemap_zero_tile_requests',
     'provider_failure_osm_terrain_none', 'provider_failure_evidence_unchanged',
-    'runtime_console_clean', 'receipt_inventory_complete',
+    'runtime_console_clean', 'source_slider_changes_visibility', 'receipt_inventory_complete',
   ];
   for (const name of required) if (!(name in assertions)) assertions[name] = false;
   const report = {
@@ -148,29 +149,38 @@ async function verifyScope(scope, debuggerOrigin) {
   const defaultDom = await pageFacts(normal.cdp);
   const defaultEvidence = evidenceIdentity(defaultSnapshot);
   const responsive = {};
-  for (const width of [1440, 1024, 768, 390]) {
+  for (const { width, height } of [
+    { width: 1440, height: 900 }, { width: 1024, height: 1000 },
+    { width: 768, height: 1000 }, { width: 390, height: 844 },
+  ]) {
     await normal.cdp.send('Emulation.setDeviceMetricsOverride', {
-      width, height: width === 390 ? 844 : 1000, deviceScaleFactor: 1, mobile: width === 390,
+      width, height, deviceScaleFactor: 1, mobile: width === 390,
     });
     responsive[width] = await responsiveFacts(normal.cdp, width);
     const path = `${scope.name}/responsive-${width}.png`;
     await screenshot(normal.cdp, path);
     scopeReceipts.push(path);
   }
-  await normal.cdp.send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 1000, deviceScaleFactor: 1, mobile: false });
+  await normal.cdp.send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+  const chronologyJourneys = {};
+  await shortcutFrame(normal.cdp, 'sample');
+  chronologyJourneys.sample = await sliderChronologyJourney(normal.cdp);
   const sourceStates = {};
   for (const code of ['TRSH', 'UPHE', 'AQVP']) {
     sourceStates[code] = await shortcutFrame(normal.cdp, code);
+    chronologyJourneys[code] = await sliderChronologyJourney(normal.cdp);
     const path = `${scope.name}/${code.toLowerCase()}.png`;
     await screenshot(normal.cdp, path);
     scopeReceipts.push(path);
   }
   const secale = await exactTaxonFrame(normal.cdp, expectedNordic.secale);
+  chronologyJourneys.secale = await sliderChronologyJourney(normal.cdp);
   await screenshot(normal.cdp, `${scope.name}/secale.png`);
   scopeReceipts.push(`${scope.name}/secale.png`);
   const cereal = await cerealFinderFrame(normal.cdp);
   await screenshot(normal.cdp, `${scope.name}/cereal-finder.png`);
   scopeReceipts.push(`${scope.name}/cereal-finder.png`);
+  const captureNullRefusals = await captureNullInputs(normal.cdp);
   const noBasemap = await applyCurrentFrame(normal.cdp, 'none');
   const normalResult = {
     scope: scope.name,
@@ -180,6 +190,8 @@ async function verifyScope(scope, debuggerOrigin) {
     source_states: sourceStates,
     secale,
     cereal_finder: cereal,
+    chronology_journeys: chronologyJourneys,
+    capture_null_refusals: captureNullRefusals,
     no_basemap: noBasemap,
     responsive,
     runtime_failures: normal.runtimeFailures,
@@ -196,10 +208,20 @@ async function verifyScope(scope, debuggerOrigin) {
       secale_exact_state: exactTaxonState(secale, expectedNordic.secale, /^Secale\b/i),
       cereal_finder_exact_state: exactTaxonState(cereal, expectedNordic.cereal, /Hordeum\/Secale/i)
         && cereal.query_before_capture === 'cereal|secale',
+      chronology_controls_persistent: [responsive[1440], responsive[390]].every((layout) => layout.chronology_controls_visible
+        && layout.chronology_controls_bounded && layout.chronology_controls_uncovered
+        && layout.chronology_controls_non_overlapping && layout.body_scroll_width <= layout.viewport.width + 1),
+      source_slider_changes_visibility: Object.values(chronologyJourneys).every((journey) => journey.slider_values_applied
+        && journey.visible_counts_within_denominator && journey.distinct_positive_visible_counts >= 2
+        && journey.time_readouts_match),
+      chronology_buttons_navigate: Object.values(chronologyJourneys).every((journey) => journey.newer_moves_toward_present
+        && journey.older_restores_window) && chronologyJourneys.sample.playback_started_at_oldest
+        && chronologyJourneys.sample.playback_stopped,
       comparison_refusal: defaultSnapshot.scientific_posture.classifications_status === 'unavailable'
         && defaultSnapshot.scientific_posture.classifications_reason_code === 'accepted_scientific_classifications_not_available'
         && defaultSnapshot.scientific_posture.observation_chronology_is_propagation === false
         && defaultSnapshot.visible_governed_candidate_count === 0,
+      capture_null_inputs_refused: captureNullRefusals.every((row) => row.refused && row.evidence_unchanged),
       responsive_1440: desktopLayoutPasses(responsive[1440]),
       responsive_1024: desktopLayoutPasses(responsive[1024]),
       responsive_768: mobileLayoutPasses(responsive[768]),
@@ -329,7 +351,7 @@ async function openAtlas(scope, debuggerOrigin, options) {
   await cdp.send('Runtime.enable');
   await cdp.send('Network.enable');
   await cdp.send('Network.setCacheDisabled', { cacheDisabled: true });
-  await cdp.send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 1000, deviceScaleFactor: 1, mobile: false });
+  await cdp.send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
   if (options.reducedMotion) await cdp.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
   if (options.blockProviders) await cdp.send('Fetch.enable', {
     patterns: providerHosts.map((host) => ({ urlPattern: `*${host}/*`, requestStage: 'Request' })),
@@ -442,6 +464,110 @@ async function cerealFinderFrame(cdp) {
   })()`);
 }
 
+async function sliderChronologyJourney(cdp) {
+  return evaluate(cdp, `(async () => {
+    const api = globalThis.BijuxPollenomicsAtlasCapture;
+    const slider = document.getElementById('time-start-slider');
+    const older = document.getElementById('time-step-older');
+    const newer = document.getElementById('time-step-newer');
+    const playback = document.getElementById('time-playback-toggle');
+    const minimum = Number(slider.min);
+    const maximum = Number(slider.max);
+    const requestedStarts = [...new Set([
+      maximum,
+      Math.round(minimum + ((maximum - minimum) * 0.75)),
+      Math.round(minimum + ((maximum - minimum) * 0.5)),
+      Math.round(minimum + ((maximum - minimum) * 0.25)),
+      minimum,
+    ])];
+    const frames = [];
+    for (const requestedStart of requestedStarts) {
+      slider.value = String(requestedStart);
+      slider.dispatchEvent(new Event('input', { bubbles: true }));
+      const snapshot = await api.awaitReady();
+      frames.push({
+        requested_start_bp: requestedStart,
+        snapshot,
+        time_readout: document.getElementById('time-start-value')?.textContent || '',
+      });
+    }
+    slider.value = String(maximum);
+    slider.dispatchEvent(new Event('input', { bubbles: true }));
+    const oldest = await api.awaitReady();
+    newer.click();
+    const afterNewer = await api.awaitReady();
+    older.click();
+    const afterOlder = await api.awaitReady();
+    let playbackStartedAtOldest = false;
+    let playbackStopped = false;
+    if (!playback.disabled) {
+      playback.click();
+      const playbackSnapshot = await api.awaitReady();
+      playbackStartedAtOldest = playback.getAttribute('aria-pressed') === 'true'
+        && playbackSnapshot.time_window_bp.younger_bp === maximum;
+      playback.click();
+      playbackStopped = playback.getAttribute('aria-pressed') === 'false';
+    }
+    const denominator = oldest.source_chronology.facet_node_count;
+    const positiveCounts = new Set(frames
+      .map((row) => row.snapshot.visible_source_chronology_point_count)
+      .filter((count) => count > 0));
+    return {
+      frames,
+      slider_values_applied: frames.every((row) => row.snapshot.time_window_bp.younger_bp === row.requested_start_bp),
+      visible_counts_within_denominator: frames.every((row) => Number.isInteger(row.snapshot.visible_source_chronology_point_count)
+        && row.snapshot.visible_source_chronology_point_count >= 0
+        && row.snapshot.visible_source_chronology_point_count <= denominator),
+      distinct_positive_visible_counts: positiveCounts.size,
+      time_readouts_match: frames.every((row) => row.time_readout.includes(String(row.snapshot.time_window_bp.younger_bp))
+        && row.time_readout.includes(String(row.snapshot.time_window_bp.older_bp))),
+      newer_moves_toward_present: afterNewer.time_window_bp.younger_bp < oldest.time_window_bp.younger_bp,
+      older_restores_window: JSON.stringify(afterOlder.time_window_bp) === JSON.stringify(oldest.time_window_bp),
+      playback_started_at_oldest: playbackStartedAtOldest,
+      playback_stopped: playbackStopped,
+    };
+  })()`);
+}
+
+async function captureNullInputs(cdp) {
+  return evaluate(cdp, `(async () => {
+    const api = globalThis.BijuxPollenomicsAtlasCapture;
+    const state = api.snapshot();
+    const valid = {
+        story_kind: 'source_chronology', basemap: 'none', countries: state.countries,
+        source_level: state.source_chronology.level,
+        source_code: state.source_chronology.source_code || undefined,
+        source_taxon: state.source_chronology.source_taxon || undefined,
+        time_start_bp: state.time_window_bp.younger_bp,
+        time_end_bp: state.time_window_bp.older_bp,
+    };
+    const invalid = [
+      ['time_start_bp', { ...valid, time_start_bp: null }],
+      ['time_end_bp', { ...valid, time_end_bp: null }],
+      ['view', { ...valid, view: null }],
+      ['view.latitude', { ...valid, view: { latitude: null, longitude: 18, zoom: 5 } }],
+      ['view.longitude', { ...valid, view: { latitude: 60, longitude: null, zoom: 5 } }],
+      ['view.zoom', { ...valid, view: { latitude: 60, longitude: 18, zoom: null } }],
+    ];
+    const evidenceBefore = JSON.stringify(api.snapshot());
+    const results = [];
+    for (const [field, frame] of invalid) {
+      try {
+        await api.applyFrame(frame);
+        results.push({ field, refused: false, message: '', evidence_unchanged: false });
+      } catch (error) {
+        results.push({
+          field,
+          refused: true,
+          message: String(error && error.message ? error.message : error),
+          evidence_unchanged: JSON.stringify(api.snapshot()) === evidenceBefore,
+        });
+      }
+    }
+    return results;
+  })()`);
+}
+
 async function responsiveFacts(cdp, width) {
   return evaluate(cdp, `(async () => {
     document.documentElement.classList.add('atlas-capture-mode');
@@ -461,6 +587,13 @@ async function responsiveFacts(cdp, width) {
       return { left: value.left, right: value.right, top: value.top, bottom: value.bottom, width: value.width, height: value.height };
     };
     const topbar = document.querySelector('.map-topbar');
+    const chronologyElements = {
+      chronology: document.querySelector('.topbar-time-stepper'),
+      older: document.getElementById('time-step-older'),
+      newer: document.getElementById('time-step-newer'),
+      status: document.getElementById('time-stepper-status'),
+      playback: document.getElementById('time-playback-toggle'),
+    };
     let mobile = null;
     if (${width} <= 900) {
       if (!sidebar.classList.contains('is-collapsed')) toggle.click();
@@ -493,10 +626,34 @@ async function responsiveFacts(cdp, width) {
     }
     const elements = { topbar: box(topbar), sidebar: box(sidebar), map: box(document.getElementById('map')) };
     const horizontallyBounded = Object.values(elements).every((value) => value.left >= -1 && value.right <= innerWidth + 1);
+    const chronologyBoxes = Object.fromEntries(Object.entries(chronologyElements).map(([name, element]) => [name, box(element)]));
+    const chronologyControlsVisible = Object.values(chronologyElements).every(visible);
+    const chronologyControlsBounded = Object.values(chronologyBoxes).every((value) => value.left >= -1
+      && value.right <= innerWidth + 1 && value.top >= -1 && value.bottom <= innerHeight + 1);
+    const directChronologyControls = Object.entries(chronologyElements).filter(([name]) => name !== 'chronology');
+    const chronologyControlsUncovered = directChronologyControls.every(([, element]) => {
+      const value = element.getBoundingClientRect();
+      const hit = document.elementFromPoint(value.left + (value.width / 2), value.top + (value.height / 2));
+      return hit === element || element.contains(hit);
+    });
+    const chronologyControlsNonOverlapping = directChronologyControls.every(([, element], index) => {
+      const first = element.getBoundingClientRect();
+      return directChronologyControls.slice(index + 1).every(([, other]) => {
+        const second = other.getBoundingClientRect();
+        return first.right <= second.left || second.right <= first.left || first.bottom <= second.top || second.bottom <= first.top;
+      });
+    });
     return {
       viewport: { width: innerWidth, height: innerHeight }, elements, mobile,
+      chronology: chronologyBoxes,
+      chronology_controls_visible: chronologyControlsVisible,
+      chronology_controls_bounded: chronologyControlsBounded,
+      chronology_controls_uncovered: chronologyControlsUncovered,
+      chronology_controls_non_overlapping: chronologyControlsNonOverlapping,
       document_scroll_width: document.documentElement.scrollWidth,
-      horizontally_bounded: horizontallyBounded && document.documentElement.scrollWidth <= innerWidth + 1,
+      body_scroll_width: document.body.scrollWidth,
+      horizontally_bounded: horizontallyBounded && document.documentElement.scrollWidth <= innerWidth + 1
+        && document.body.scrollWidth <= innerWidth + 1,
       desktop_non_overlap: ${width} >= 901 ? elements.topbar.right <= elements.sidebar.left - 1 : null,
     };
   })()`);

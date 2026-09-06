@@ -74,13 +74,37 @@ def test_responsive_contract_proves_desktop_and_bottom_sheet_states() -> None:
 
     for selector in (
         "document.querySelector('.map-topbar')",
+        "document.querySelector('.topbar-time-stepper')",
         "document.getElementById('sidebar')",
         "document.getElementById('panel-toggle')",
         "document.getElementById('mobile-scrim')",
         "document.getElementById('mobile-panel-close')",
+        "document.getElementById('time-step-older')",
+        "document.getElementById('time-step-newer')",
+        "document.getElementById('time-stepper-status')",
+        "document.getElementById('time-playback-toggle')",
     ):
         assert selector in probe
     assert "elements.topbar.right <= elements.sidebar.left - 1" in probe
     assert "layout.mobile.expanded.scrim_visible" in probe
     assert "layout.mobile.expanded.close_visible" in probe
     assert "layout.mobile.closed.scrim_hidden" in probe
+
+
+def test_chronology_contract_drives_real_controls_and_refuses_null() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    assert "{ width: 1440, height: 900 }" in probe
+    assert "{ width: 390, height: 844 }" in probe
+    assert "slider.dispatchEvent(new Event('input', { bubbles: true }))" in probe
+    assert "visible_source_chronology_point_count" in probe
+    assert "newer.click()" in probe
+    assert "older.click()" in probe
+    assert "playback.click()" in probe
+    assert "time_start_bp: null" in probe
+    assert "time_end_bp: null" in probe
+    assert "view: null" in probe
+    assert "evidence_unchanged" in probe
+    assert "document.elementFromPoint" in probe

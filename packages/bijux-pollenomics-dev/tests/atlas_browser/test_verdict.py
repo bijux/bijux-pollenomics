@@ -39,6 +39,22 @@ def test_one_false_assertion_fails() -> None:
     assert summary["failed_assertions"] == ["provider_failure_evidence_unchanged"]
 
 
+@pytest.mark.parametrize(
+    "failed",
+    (
+        "capture_null_inputs_refused",
+        "chronology_buttons_navigate",
+        "chronology_controls_persistent",
+        "source_slider_changes_visibility",
+    ),
+)
+def test_chronology_and_null_assertions_fail_closed(failed: str) -> None:
+    summary = evaluate_browser_report(_report(failed=failed), candidate=candidate())
+
+    assert summary["status"] == "FAIL"
+    assert summary["failed_assertions"] == [failed]
+
+
 def test_missing_or_extra_assertions_are_refused() -> None:
     report = _report()
     assertions = report["assertions"]

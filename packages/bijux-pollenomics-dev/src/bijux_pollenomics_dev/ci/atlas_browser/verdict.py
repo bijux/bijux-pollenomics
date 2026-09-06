@@ -18,7 +18,10 @@ REQUIRED_ASSERTIONS = frozenset(
         "aqvp_exact_state",
         "secale_exact_state",
         "cereal_finder_exact_state",
+        "chronology_buttons_navigate",
+        "chronology_controls_persistent",
         "comparison_refusal",
+        "capture_null_inputs_refused",
         "responsive_1440",
         "responsive_1024",
         "responsive_768",
@@ -28,6 +31,7 @@ REQUIRED_ASSERTIONS = frozenset(
         "provider_failure_osm_terrain_none",
         "provider_failure_evidence_unchanged",
         "runtime_console_clean",
+        "source_slider_changes_visibility",
         "receipt_inventory_complete",
     }
 )
