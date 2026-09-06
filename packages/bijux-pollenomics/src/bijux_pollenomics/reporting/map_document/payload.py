@@ -7,6 +7,7 @@ from typing import TYPE_CHECKING
 from ...core.geospatial.geojson import JsonObject
 from ..map_publication import MapScopePolicy
 from ..modeled_context import build_modeled_context_manifest
+from ..modeled_context.publication_projection import project_modeled_context_layers
 from .state import build_map_document_state
 from .static_assets.budgets import ATLAS_FILTER_MAIN_THREAD_MAX_MS
 
@@ -48,6 +49,7 @@ def build_map_document_payload(
         point_layers=point_layers,
         polygon_layers=polygon_layers,
     )
+    publication_polygon_layers = project_modeled_context_layers(polygon_layers)
     if static_assets is None:
         bootstrap_json = serialize_json_for_script(
             {
@@ -60,7 +62,7 @@ def build_map_document_payload(
         )
         chunk_script_tags = ""
         point_layers_json = serialize_json_for_script(point_layers)
-        polygon_layers_json = serialize_json_for_script(polygon_layers)
+        polygon_layers_json = serialize_json_for_script(publication_polygon_layers)
     else:
         bootstrap_json = serialize_json_for_script(static_assets.manifest)
         chunk_script_tags = static_assets.script_tags

@@ -5,6 +5,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from ...modeled_context.publication_projection import project_modeled_context_layers
+
 
 def prepare_layers(
     staging_output_dir: Path,
@@ -80,7 +82,7 @@ def prepare_layers(
         slug=report.slug,
         version=version,
         point_layers=point_layers,
-        polygon_layers=polygon_layers,
+        polygon_layers=project_modeled_context_layers(polygon_layers),
         detail_records=atlas_detail_records,
         scientific_signals=atlas_scientific_signals,
         edge_records=atlas_edge_records,
