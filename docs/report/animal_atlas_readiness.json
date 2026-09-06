@@ -2,24 +2,24 @@
   "schema_version": "animal-atlas-readiness.v2",
   "status_counts": {
     "publishable": 3,
-    "thin": 1,
-    "blocked": 6
+    "thin": 2,
+    "blocked": 5
   },
   "reconciled_denominators": {
     "coordinate_provenance": {
       "denominator": 284,
-      "mappable": 278,
-      "refused": 6
+      "mappable": 280,
+      "refused": 4
     },
     "publication": {
-      "denominator": 278,
-      "published": 271,
+      "denominator": 280,
+      "published": 273,
       "not_materialized": 7
     },
     "samples": {
       "denominator": 1450,
-      "mapped": 606,
-      "blocked": 844,
+      "mapped": 611,
+      "blocked": 839,
       "unresolved_subset_of_blocked": 95
     }
   },
@@ -82,27 +82,30 @@
     {
       "species_latin_name": "Ovis aries",
       "species_common_name": "sheep",
-      "direct_coordinate_backed": 0,
+      "direct_coordinate_backed": 2,
       "indirectly_geocoded": 0,
       "unresolved_sample_count": 5,
-      "refused_coordinate_provenance_count": 2,
+      "refused_coordinate_provenance_count": 0,
       "region_only_coordinate_refusal_count": 0,
-      "unresolved_location_coordinate_refusal_count": 2,
-      "coordinate_provenance_mappable_count": 0,
-      "publication_candidate_count": 0,
+      "unresolved_location_coordinate_refusal_count": 0,
+      "coordinate_provenance_mappable_count": 2,
+      "publication_candidate_count": 2,
       "not_materialized_count": 0,
-      "candidate_point_count": 0,
-      "mapped_sample_count": 0,
-      "blocked_sample_count": 200,
+      "candidate_point_count": 2,
+      "mapped_sample_count": 5,
+      "blocked_sample_count": 195,
       "tracked_sample_count": 200,
-      "coordinate_mappable_provenance_count": 0,
-      "coordinate_refused_provenance_count": 2,
+      "coordinate_mappable_provenance_count": 2,
+      "coordinate_refused_provenance_count": 0,
       "coordinate_provenance_denominator": 2,
-      "coordinate_mappable_share": 0.0,
-      "publication_share_of_mappable_coordinates": null,
-      "readiness_status": "blocked",
-      "status_reason": "200 blocked sample rows and 2 refused coordinate-provenance rows still prevent atlas publication.",
-      "country_mapped_locality_counts": {}
+      "coordinate_mappable_share": 1.0,
+      "publication_share_of_mappable_coordinates": 1.0,
+      "readiness_status": "thin",
+      "status_reason": "2 candidate point rows remain too thin for broad atlas claims.",
+      "country_mapped_locality_counts": {
+        "Sweden": 1,
+        "Finland": 1
+      }
     },
     {
       "species_latin_name": "Bos taurus",

@@ -1,6 +1,6 @@
 # Animal project publication gap review
 
-- Non-published project count: `33`
+- Non-published project count: `32`
 
 | Project | Species | Absence stage | Blockers |
 | --- | --- | --- | --- |
@@ -26,7 +26,6 @@
 | PRJNA1178732 | Felis catus | not_point_publishable |  |
 | PRJEB36540 | Ovis aries | not_point_publishable |  |
 | PRJEB41594 | Ovis aries | site_extraction | sample_context_blocked |
-| PRJEB59481 | Ovis aries | not_point_publishable |  |
 | PRJEB61808 | Ovis aries | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated |
 | PRJEB69690 | Ovis aries | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated |
 | PRJEB81145 | Ovis aries | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated |

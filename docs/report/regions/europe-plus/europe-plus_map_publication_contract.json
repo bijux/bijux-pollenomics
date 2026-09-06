@@ -51,7 +51,7 @@
     "point_traceability_json": "europe-plus_point_traceability.json"
   },
   "role_counts": {
-    "shared_world_scale_layer": 3,
+    "shared_world_scale_layer": 4,
     "region_filtered_layer": 1,
     "scope_specific_overlay": 0
   },
@@ -72,6 +72,19 @@
     {
       "key": "animal-equus-caballus",
       "label": "Horse aDNA site evidence",
+      "source_name": "Tracked animal aDNA localities",
+      "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+      "count": 2,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared evidence layer across every governed scope."
+    },
+    {
+      "key": "animal-ovis-aries",
+      "label": "Sheep aDNA site evidence",
       "source_name": "Tracked animal aDNA localities",
       "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
       "count": 2,
@@ -127,7 +140,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 1239
+        "record_count": 1241
       },
       "edges": {
         "status": "unavailable",
@@ -141,7 +154,7 @@
       },
       "provenance": {
         "status": "layer_metadata_only",
-        "record_count": 4,
+        "record_count": 5,
         "reason_code": "record_level_provenance_model_not_available"
       },
       "details": {
@@ -156,7 +169,7 @@
       },
       "indexes": {
         "status": "available",
-        "record_count": 1235
+        "record_count": 1237
       }
     }
   },

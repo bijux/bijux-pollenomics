@@ -96,7 +96,7 @@
       "profile_ranks": {
         "atlas_exploration": 5,
         "chronology_first": 5,
-        "context_first": 7,
+        "context_first": 8,
         "fieldwork_triage": 5
       },
       "profile_statuses": {
@@ -105,7 +105,7 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 2,
+      "max_rank_shift": 3,
       "recommendation_ready_profiles": []
     },
     {
@@ -116,7 +116,7 @@
       "profile_ranks": {
         "atlas_exploration": 6,
         "chronology_first": 15,
-        "context_first": 5,
+        "context_first": 6,
         "fieldwork_triage": 8
       },
       "profile_statuses": {
@@ -129,15 +129,55 @@
       "recommendation_ready_profiles": []
     },
     {
-      "locality": "Kopparsvik (Gotlands l\u00e4n, Gotland)",
-      "locality_token": "homo_sapiens:aadr:sweden:kopparsvik-gotlands-l-n-gotland:57-63-18-28",
+      "locality": "Frojel (Gotlands l\u00e4n, Gotland)",
+      "locality_token": "homo_sapiens:aadr:sweden:frojel-gotlands-l-n-gotland:57-34-18-19",
       "baseline_profile": "atlas_exploration",
       "baseline_rank": 7,
       "profile_ranks": {
         "atlas_exploration": 7,
+        "chronology_first": 17,
+        "context_first": 5,
+        "fieldwork_triage": 12
+      },
+      "profile_statuses": {
+        "atlas_exploration": "ranked",
+        "chronology_first": "ranked",
+        "context_first": "ranked",
+        "fieldwork_triage": "ranked"
+      },
+      "max_rank_shift": 10,
+      "recommendation_ready_profiles": []
+    },
+    {
+      "locality": "Kopparsvik (Gotlands l\u00e4n, Gotland)",
+      "locality_token": "homo_sapiens:aadr:sweden:kopparsvik-gotlands-l-n-gotland:57-63-18-28",
+      "baseline_profile": "atlas_exploration",
+      "baseline_rank": 8,
+      "profile_ranks": {
+        "atlas_exploration": 8,
         "chronology_first": 25,
-        "context_first": 6,
-        "fieldwork_triage": 16
+        "context_first": 7,
+        "fieldwork_triage": 17
+      },
+      "profile_statuses": {
+        "atlas_exploration": "ranked",
+        "chronology_first": "ranked",
+        "context_first": "ranked",
+        "fieldwork_triage": "ranked"
+      },
+      "max_rank_shift": 17,
+      "recommendation_ready_profiles": []
+    },
+    {
+      "locality": "Stora-Karlso\u0308 (Gotlands l\u00e4n, Gotland)",
+      "locality_token": "homo_sapiens:aadr:sweden:stora-karlso-gotlands-l-n-gotland:57-287-18-206",
+      "baseline_profile": "atlas_exploration",
+      "baseline_rank": 9,
+      "profile_ranks": {
+        "atlas_exploration": 9,
+        "chronology_first": 27,
+        "context_first": 9,
+        "fieldwork_triage": 18
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -152,12 +192,12 @@
       "locality": "Varnhem (V\u00e4stra G\u00f6talands l\u00e4n, Skara)",
       "locality_token": "homo_sapiens:aadr:sweden:varnhem-v-stra-g-talands-l-n-skara:58-38-13-65",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 8,
+      "baseline_rank": 10,
       "profile_ranks": {
-        "atlas_exploration": 8,
-        "chronology_first": 28,
-        "context_first": 8,
-        "fieldwork_triage": 19
+        "atlas_exploration": 10,
+        "chronology_first": 29,
+        "context_first": 10,
+        "fieldwork_triage": 20
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -165,18 +205,38 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 20,
+      "max_rank_shift": 19,
       "recommendation_ready_profiles": []
     },
     {
       "locality": "Oland",
       "locality_token": "homo_sapiens:aadr:sweden:oland:56-8792364-16-7212765",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 9,
+      "baseline_rank": 11,
       "profile_ranks": {
-        "atlas_exploration": 9,
-        "chronology_first": 18,
-        "context_first": 9,
+        "atlas_exploration": 11,
+        "chronology_first": 19,
+        "context_first": 11,
+        "fieldwork_triage": 16
+      },
+      "profile_statuses": {
+        "atlas_exploration": "ranked",
+        "chronology_first": "ranked",
+        "context_first": "ranked",
+        "fieldwork_triage": "ranked"
+      },
+      "max_rank_shift": 8,
+      "recommendation_ready_profiles": []
+    },
+    {
+      "locality": "Alb\u00e4cksbacken Maglarp (Southern Sweden/ Sk\u00e5ne)",
+      "locality_token": "homo_sapiens:aadr:sweden:alb-cksbacken-maglarp-southern-sweden-sk-ne:55-37774-13-095066",
+      "baseline_profile": "atlas_exploration",
+      "baseline_rank": 12,
+      "profile_ranks": {
+        "atlas_exploration": 12,
+        "chronology_first": 16,
+        "context_first": 12,
         "fieldwork_triage": 15
       },
       "profile_statuses": {
@@ -185,58 +245,18 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 9,
-      "recommendation_ready_profiles": []
-    },
-    {
-      "locality": "Alb\u00e4cksbacken Maglarp (Southern Sweden/ Sk\u00e5ne)",
-      "locality_token": "homo_sapiens:aadr:sweden:alb-cksbacken-maglarp-southern-sweden-sk-ne:55-37774-13-095066",
-      "baseline_profile": "atlas_exploration",
-      "baseline_rank": 10,
-      "profile_ranks": {
-        "atlas_exploration": 10,
-        "chronology_first": 16,
-        "context_first": 11,
-        "fieldwork_triage": 14
-      },
-      "profile_statuses": {
-        "atlas_exploration": "ranked",
-        "chronology_first": "ranked",
-        "context_first": "ranked",
-        "fieldwork_triage": "ranked"
-      },
-      "max_rank_shift": 6,
-      "recommendation_ready_profiles": []
-    },
-    {
-      "locality": "Frojel (Gotlands l\u00e4n, Gotland)",
-      "locality_token": "homo_sapiens:aadr:sweden:frojel-gotlands-l-n-gotland:57-34-18-19",
-      "baseline_profile": "atlas_exploration",
-      "baseline_rank": 11,
-      "profile_ranks": {
-        "atlas_exploration": 11,
-        "chronology_first": 23,
-        "context_first": 10,
-        "fieldwork_triage": 17
-      },
-      "profile_statuses": {
-        "atlas_exploration": "ranked",
-        "chronology_first": "ranked",
-        "context_first": "ranked",
-        "fieldwork_triage": "ranked"
-      },
-      "max_rank_shift": 12,
+      "max_rank_shift": 4,
       "recommendation_ready_profiles": []
     },
     {
       "locality": "Ahlgade 15-17 (Holb\u00e6k)",
       "locality_token": "homo_sapiens:aadr:denmark:ahlgade-15-17-holb-k:55-72-11-71",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 12,
+      "baseline_rank": 13,
       "profile_ranks": {
-        "atlas_exploration": 12,
+        "atlas_exploration": 13,
         "chronology_first": 8,
-        "context_first": 31,
+        "context_first": 32,
         "fieldwork_triage": 6
       },
       "profile_statuses": {
@@ -252,12 +272,12 @@
       "locality": "Kopenhagen (Zealand Region)",
       "locality_token": "homo_sapiens:aadr:denmark:kopenhagen-zealand-region:55-675268-12-568294",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 13,
+      "baseline_rank": 14,
       "profile_ranks": {
-        "atlas_exploration": 13,
+        "atlas_exploration": 14,
         "chronology_first": 14,
-        "context_first": 25,
-        "fieldwork_triage": 12
+        "context_first": 26,
+        "fieldwork_triage": 13
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -272,12 +292,12 @@
       "locality": "Sandby Borg (Kalmar l\u00e4n, M\u00f6rbyl\u00e5nga)",
       "locality_token": "homo_sapiens:aadr:sweden:sandby-borg-kalmar-l-n-m-rbyl-nga:56-55-16-63",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 14,
+      "baseline_rank": 15,
       "profile_ranks": {
-        "atlas_exploration": 14,
-        "chronology_first": 34,
+        "atlas_exploration": 15,
+        "chronology_first": 35,
         "context_first": 17,
-        "fieldwork_triage": 23
+        "fieldwork_triage": 24
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -291,26 +311,6 @@
     {
       "locality": "Ansarve (Gotland County, Tofta area)",
       "locality_token": "homo_sapiens:aadr:sweden:ansarve-gotland-county-tofta-area:57-509-18-14",
-      "baseline_profile": "atlas_exploration",
-      "baseline_rank": 15,
-      "profile_ranks": {
-        "atlas_exploration": 15,
-        "chronology_first": 36,
-        "context_first": 15,
-        "fieldwork_triage": 25
-      },
-      "profile_statuses": {
-        "atlas_exploration": "ranked",
-        "chronology_first": "ranked",
-        "context_first": "ranked",
-        "fieldwork_triage": "ranked"
-      },
-      "max_rank_shift": 21,
-      "recommendation_ready_profiles": []
-    },
-    {
-      "locality": "Stora-Karlso\u0308 (Gotlands l\u00e4n, Gotland)",
-      "locality_token": "homo_sapiens:aadr:sweden:stora-karlso-gotlands-l-n-gotland:57-287-18-206",
       "baseline_profile": "atlas_exploration",
       "baseline_rank": 16,
       "profile_ranks": {
@@ -335,9 +335,9 @@
       "baseline_rank": 17,
       "profile_ranks": {
         "atlas_exploration": 17,
-        "chronology_first": 32,
-        "context_first": 19,
-        "fieldwork_triage": 22
+        "chronology_first": 33,
+        "context_first": 20,
+        "fieldwork_triage": 23
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -345,7 +345,7 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 15,
+      "max_rank_shift": 16,
       "recommendation_ready_profiles": []
     },
     {
@@ -356,8 +356,8 @@
       "profile_ranks": {
         "atlas_exploration": 18,
         "chronology_first": 13,
-        "context_first": 33,
-        "fieldwork_triage": 13
+        "context_first": 34,
+        "fieldwork_triage": 14
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -365,7 +365,7 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 15,
+      "max_rank_shift": 16,
       "recommendation_ready_profiles": []
     },
     {
@@ -375,9 +375,9 @@
       "baseline_rank": 19,
       "profile_ranks": {
         "atlas_exploration": 19,
-        "chronology_first": 19,
-        "context_first": 26,
-        "fieldwork_triage": 18
+        "chronology_first": 20,
+        "context_first": 27,
+        "fieldwork_triage": 19
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -385,7 +385,7 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 7,
+      "max_rank_shift": 8,
       "recommendation_ready_profiles": []
     },
     {
@@ -396,8 +396,8 @@
       "profile_ranks": {
         "atlas_exploration": 20,
         "chronology_first": 26,
-        "context_first": 24,
-        "fieldwork_triage": 21
+        "context_first": 25,
+        "fieldwork_triage": 22
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -415,29 +415,9 @@
       "baseline_rank": 21,
       "profile_ranks": {
         "atlas_exploration": 21,
-        "chronology_first": 33,
-        "context_first": 22,
-        "fieldwork_triage": 24
-      },
-      "profile_statuses": {
-        "atlas_exploration": "ranked",
-        "chronology_first": "ranked",
-        "context_first": "ranked",
-        "fieldwork_triage": "ranked"
-      },
-      "max_rank_shift": 12,
-      "recommendation_ready_profiles": []
-    },
-    {
-      "locality": "Sigtuna, church 1 (St Gertrud)",
-      "locality_token": "homo_sapiens:aadr:sweden:sigtuna-church-1-st-gertrud:59-617314-17-72361",
-      "baseline_profile": "atlas_exploration",
-      "baseline_rank": 22,
-      "profile_ranks": {
-        "atlas_exploration": 22,
-        "chronology_first": 35,
-        "context_first": 29,
-        "fieldwork_triage": 29
+        "chronology_first": 34,
+        "context_first": 23,
+        "fieldwork_triage": 25
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -449,6 +429,26 @@
       "recommendation_ready_profiles": []
     },
     {
+      "locality": "Sigtuna, church 1 (St Gertrud)",
+      "locality_token": "homo_sapiens:aadr:sweden:sigtuna-church-1-st-gertrud:59-617314-17-72361",
+      "baseline_profile": "atlas_exploration",
+      "baseline_rank": 22,
+      "profile_ranks": {
+        "atlas_exploration": 22,
+        "chronology_first": 36,
+        "context_first": 30,
+        "fieldwork_triage": 29
+      },
+      "profile_statuses": {
+        "atlas_exploration": "ranked",
+        "chronology_first": "ranked",
+        "context_first": "ranked",
+        "fieldwork_triage": "ranked"
+      },
+      "max_rank_shift": 14,
+      "recommendation_ready_profiles": []
+    },
+    {
       "locality": "Hunnebostrand (V\u00e4stra G\u00f6taland County, Soten\u00e4s Municipality)",
       "locality_token": "homo_sapiens:aadr:sweden:hunnebostrand-v-stra-g-taland-county-soten-s-municipality:58-4384-11-3007",
       "baseline_profile": "atlas_exploration",
@@ -456,7 +456,7 @@
       "profile_ranks": {
         "atlas_exploration": 23,
         "chronology_first": 6,
-        "context_first": 13,
+        "context_first": 14,
         "fieldwork_triage": 7
       },
       "profile_statuses": {
@@ -496,7 +496,7 @@
       "profile_ranks": {
         "atlas_exploration": 25,
         "chronology_first": 42,
-        "context_first": 21,
+        "context_first": 22,
         "fieldwork_triage": 34
       },
       "profile_statuses": {
@@ -515,9 +515,9 @@
       "baseline_rank": 26,
       "profile_ranks": {
         "atlas_exploration": 26,
-        "chronology_first": 17,
+        "chronology_first": 18,
         "context_first": 53,
-        "fieldwork_triage": 20
+        "fieldwork_triage": 21
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -576,7 +576,7 @@
       "profile_ranks": {
         "atlas_exploration": 29,
         "chronology_first": 46,
-        "context_first": 23,
+        "context_first": 24,
         "fieldwork_triage": 42
       },
       "profile_statuses": {
@@ -595,7 +595,7 @@
       "baseline_rank": 30,
       "profile_ranks": {
         "atlas_exploration": 30,
-        "chronology_first": 29,
+        "chronology_first": 30,
         "context_first": 39,
         "fieldwork_triage": 30
       },
@@ -615,7 +615,7 @@
       "baseline_rank": 31,
       "profile_ranks": {
         "atlas_exploration": 31,
-        "chronology_first": 20,
+        "chronology_first": 21,
         "context_first": 54,
         "fieldwork_triage": 27
       },
@@ -636,7 +636,7 @@
       "profile_ranks": {
         "atlas_exploration": 32,
         "chronology_first": 65,
-        "context_first": 12,
+        "context_first": 13,
         "fieldwork_triage": 50
       },
       "profile_statuses": {
@@ -655,7 +655,7 @@
       "baseline_rank": 33,
       "profile_ranks": {
         "atlas_exploration": 33,
-        "chronology_first": 21,
+        "chronology_first": 22,
         "context_first": 56,
         "fieldwork_triage": 28
       },
@@ -676,7 +676,7 @@
       "profile_ranks": {
         "atlas_exploration": 34,
         "chronology_first": 60,
-        "context_first": 14,
+        "context_first": 15,
         "fieldwork_triage": 49
       },
       "profile_statuses": {
@@ -716,7 +716,7 @@
       "profile_ranks": {
         "atlas_exploration": 36,
         "chronology_first": 63,
-        "context_first": 27,
+        "context_first": 28,
         "fieldwork_triage": 48
       },
       "profile_statuses": {
@@ -769,13 +769,33 @@
       "recommendation_ready_profiles": []
     },
     {
-      "locality": "Regnemark (Zealand)",
-      "locality_token": "homo_sapiens:aadr:denmark:regnemark-zealand:55-4642932-11-9884963",
+      "locality": "Ajvide Settlement (Gotland, Eksta)",
+      "locality_token": "homo_sapiens:aadr:sweden:ajvide-settlement-gotland-eksta:57-281086-18-169117",
       "baseline_profile": "atlas_exploration",
       "baseline_rank": 39,
       "profile_ranks": {
         "atlas_exploration": 39,
-        "chronology_first": 22,
+        "chronology_first": 68,
+        "context_first": 19,
+        "fieldwork_triage": 56
+      },
+      "profile_statuses": {
+        "atlas_exploration": "ranked",
+        "chronology_first": "ranked",
+        "context_first": "ranked",
+        "fieldwork_triage": "ranked"
+      },
+      "max_rank_shift": 29,
+      "recommendation_ready_profiles": []
+    },
+    {
+      "locality": "Regnemark (Zealand)",
+      "locality_token": "homo_sapiens:aadr:denmark:regnemark-zealand:55-4642932-11-9884963",
+      "baseline_profile": "atlas_exploration",
+      "baseline_rank": 40,
+      "profile_ranks": {
+        "atlas_exploration": 40,
+        "chronology_first": 23,
         "context_first": 57,
         "fieldwork_triage": 33
       },
@@ -785,18 +805,18 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 18,
+      "max_rank_shift": 17,
       "recommendation_ready_profiles": []
     },
     {
       "locality": "Holma (V\u00e4stra G\u00f6talands l\u00e4n, Falk\u00f6ping, Falbygden)",
       "locality_token": "homo_sapiens:aadr:sweden:holma-v-stra-g-talands-l-n-falk-ping-falbygden:58-1498-13-6392",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 40,
+      "baseline_rank": 41,
       "profile_ranks": {
-        "atlas_exploration": 40,
+        "atlas_exploration": 41,
         "chronology_first": 9,
-        "context_first": 30,
+        "context_first": 31,
         "fieldwork_triage": 35
       },
       "profile_statuses": {
@@ -805,18 +825,18 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 31,
+      "max_rank_shift": 32,
       "recommendation_ready_profiles": []
     },
     {
       "locality": "Assler\u00f6d (Western Sweden/ Bohusl\u00e4n)",
       "locality_token": "homo_sapiens:aadr:sweden:assler-d-western-sweden-bohusl-n:58-4172-11-3251",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 41,
+      "baseline_rank": 42,
       "profile_ranks": {
-        "atlas_exploration": 41,
+        "atlas_exploration": 42,
         "chronology_first": 10,
-        "context_first": 32,
+        "context_first": 33,
         "fieldwork_triage": 37
       },
       "profile_statuses": {
@@ -825,18 +845,18 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 31,
+      "max_rank_shift": 32,
       "recommendation_ready_profiles": []
     },
     {
       "locality": "Abek\u00e5s I (Sk\u00e5ne County, Skurup Municipality)",
       "locality_token": "homo_sapiens:aadr:sweden:abek-s-i-sk-ne-county-skurup-municipality:55-397-13-6",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 42,
+      "baseline_rank": 43,
       "profile_ranks": {
-        "atlas_exploration": 42,
+        "atlas_exploration": 43,
         "chronology_first": 55,
-        "context_first": 20,
+        "context_first": 21,
         "fieldwork_triage": 54
       },
       "profile_statuses": {
@@ -852,9 +872,9 @@
       "locality": "Sigtuna, cemetery 1 (Nunnnan)",
       "locality_token": "homo_sapiens:aadr:sweden:sigtuna-cemetery-1-nunnnan:59-61731-17-72361",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 43,
+      "baseline_rank": 44,
       "profile_ranks": {
-        "atlas_exploration": 43,
+        "atlas_exploration": 44,
         "chronology_first": 66,
         "context_first": 48,
         "fieldwork_triage": 51
@@ -865,16 +885,16 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 23,
+      "max_rank_shift": 22,
       "recommendation_ready_profiles": []
     },
     {
       "locality": "Sigtuna, cemetery 4 (Bensinst )",
       "locality_token": "homo_sapiens:aadr:sweden:sigtuna-cemetery-4-bensinst:59-617313-17-72361",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 44,
+      "baseline_rank": 45,
       "profile_ranks": {
-        "atlas_exploration": 44,
+        "atlas_exploration": 45,
         "chronology_first": 67,
         "context_first": 49,
         "fieldwork_triage": 52
@@ -885,17 +905,17 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 23,
+      "max_rank_shift": 22,
       "recommendation_ready_profiles": []
     },
     {
       "locality": "Sanddal (Zealand)",
       "locality_token": "homo_sapiens:aadr:denmark:sanddal-zealand:55-813046-12-081075",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 45,
+      "baseline_rank": 46,
       "profile_ranks": {
-        "atlas_exploration": 45,
-        "chronology_first": 30,
+        "atlas_exploration": 46,
+        "chronology_first": 31,
         "context_first": 62,
         "fieldwork_triage": 39
       },
@@ -905,17 +925,17 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 17,
+      "max_rank_shift": 16,
       "recommendation_ready_profiles": []
     },
     {
       "locality": "St\u00e5lmoseg\u00e5rd (Zealand)",
       "locality_token": "homo_sapiens:aadr:denmark:st-lmoseg-rd-zealand:55-630533-12-137016",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 46,
+      "baseline_rank": 47,
       "profile_ranks": {
-        "atlas_exploration": 46,
-        "chronology_first": 31,
+        "atlas_exploration": 47,
+        "chronology_first": 32,
         "context_first": 61,
         "fieldwork_triage": 40
       },
@@ -932,12 +952,12 @@
       "locality": "Ljungbacka (Sk\u00e5ne l\u00e4n, Vellinge)",
       "locality_token": "homo_sapiens:aadr:sweden:ljungbacka-sk-ne-l-n-vellinge:55-54-13-05",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 47,
+      "baseline_rank": 48,
       "profile_ranks": {
-        "atlas_exploration": 47,
-        "chronology_first": 74,
+        "atlas_exploration": 48,
+        "chronology_first": 75,
         "context_first": 18,
-        "fieldwork_triage": 62
+        "fieldwork_triage": 63
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -945,19 +965,19 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 29,
+      "max_rank_shift": 30,
       "recommendation_ready_profiles": []
     },
     {
       "locality": "Hummervikholmen (Agder, S\u00f8gne nor)",
       "locality_token": "homo_sapiens:aadr:norway:hummervikholmen-agder-s-gne-nor:58-064-7-7437",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 48,
+      "baseline_rank": 49,
       "profile_ranks": {
-        "atlas_exploration": 48,
-        "chronology_first": 76,
-        "context_first": 34,
-        "fieldwork_triage": 59
+        "atlas_exploration": 49,
+        "chronology_first": 77,
+        "context_first": 35,
+        "fieldwork_triage": 60
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -972,9 +992,9 @@
       "locality": "Tollemosegard (Zealand Region)",
       "locality_token": "homo_sapiens:aadr:denmark:tollemosegard-zealand-region:55-87-12-08",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 49,
+      "baseline_rank": 50,
       "profile_ranks": {
-        "atlas_exploration": 49,
+        "atlas_exploration": 50,
         "chronology_first": 38,
         "context_first": 72,
         "fieldwork_triage": 44
@@ -985,18 +1005,18 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 23,
+      "max_rank_shift": 22,
       "recommendation_ready_profiles": []
     },
     {
       "locality": "Ringsaker nor (Nor South, Innlandet, Hedmark)",
       "locality_token": "homo_sapiens:aadr:norway:ringsaker-nor-nor-south-innlandet-hedmark:60-84-11",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 50,
+      "baseline_rank": 51,
       "profile_ranks": {
-        "atlas_exploration": 50,
-        "chronology_first": 73,
-        "context_first": 28,
+        "atlas_exploration": 51,
+        "chronology_first": 74,
+        "context_first": 29,
         "fieldwork_triage": 65
       },
       "profile_statuses": {
@@ -1012,9 +1032,9 @@
       "locality": "Dragsholm (Zealand Region)",
       "locality_token": "homo_sapiens:aadr:denmark:dragsholm-zealand-region:55-768-11-388",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 51,
+      "baseline_rank": 52,
       "profile_ranks": {
-        "atlas_exploration": 51,
+        "atlas_exploration": 52,
         "chronology_first": 52,
         "context_first": 71,
         "fieldwork_triage": 46
@@ -1025,27 +1045,7 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 20,
-      "recommendation_ready_profiles": []
-    },
-    {
-      "locality": "Ajvide Settlement (Gotland, Eksta)",
-      "locality_token": "homo_sapiens:aadr:sweden:ajvide-settlement-gotland-eksta:57-281086-18-169117",
-      "baseline_profile": "atlas_exploration",
-      "baseline_rank": 52,
-      "profile_ranks": {
-        "atlas_exploration": 52,
-        "chronology_first": 81,
-        "context_first": 37,
-        "fieldwork_triage": 63
-      },
-      "profile_statuses": {
-        "atlas_exploration": "ranked",
-        "chronology_first": "ranked",
-        "context_first": "ranked",
-        "fieldwork_triage": "ranked"
-      },
-      "max_rank_shift": 29,
+      "max_rank_shift": 19,
       "recommendation_ready_profiles": []
     },
     {
@@ -1095,8 +1095,8 @@
       "baseline_rank": 55,
       "profile_ranks": {
         "atlas_exploration": 55,
-        "chronology_first": 75,
-        "context_first": 36,
+        "chronology_first": 76,
+        "context_first": 37,
         "fieldwork_triage": 70
       },
       "profile_statuses": {
@@ -1105,7 +1105,7 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 20,
+      "max_rank_shift": 21,
       "recommendation_ready_profiles": []
     },
     {
@@ -1135,7 +1135,7 @@
       "baseline_rank": 57,
       "profile_ranks": {
         "atlas_exploration": 57,
-        "chronology_first": 77,
+        "chronology_first": 78,
         "context_first": 58,
         "fieldwork_triage": 68
       },
@@ -1145,7 +1145,7 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 20,
+      "max_rank_shift": 21,
       "recommendation_ready_profiles": []
     },
     {
@@ -1175,9 +1175,9 @@
       "baseline_rank": 59,
       "profile_ranks": {
         "atlas_exploration": 59,
-        "chronology_first": 68,
+        "chronology_first": 69,
         "context_first": 86,
-        "fieldwork_triage": 57
+        "fieldwork_triage": 58
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -1195,7 +1195,7 @@
       "baseline_rank": 60,
       "profile_ranks": {
         "atlas_exploration": 60,
-        "chronology_first": 27,
+        "chronology_first": 28,
         "context_first": 77,
         "fieldwork_triage": 45
       },
@@ -1205,7 +1205,7 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 33,
+      "max_rank_shift": 32,
       "recommendation_ready_profiles": []
     },
     {
@@ -1215,7 +1215,7 @@
       "baseline_rank": 61,
       "profile_ranks": {
         "atlas_exploration": 61,
-        "chronology_first": 80,
+        "chronology_first": 81,
         "context_first": 64,
         "fieldwork_triage": 69
       },
@@ -1225,7 +1225,7 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 19,
+      "max_rank_shift": 20,
       "recommendation_ready_profiles": []
     },
     {
@@ -1257,7 +1257,7 @@
         "atlas_exploration": 63,
         "chronology_first": 57,
         "context_first": 63,
-        "fieldwork_triage": 58
+        "fieldwork_triage": 59
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -1275,7 +1275,7 @@
       "baseline_rank": 64,
       "profile_ranks": {
         "atlas_exploration": 64,
-        "chronology_first": 78,
+        "chronology_first": 79,
         "context_first": 60,
         "fieldwork_triage": 72
       },
@@ -1285,7 +1285,7 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 14,
+      "max_rank_shift": 15,
       "recommendation_ready_profiles": []
     },
     {
@@ -1296,7 +1296,7 @@
       "profile_ranks": {
         "atlas_exploration": 65,
         "chronology_first": 117,
-        "context_first": 35,
+        "context_first": 36,
         "fieldwork_triage": 95
       },
       "profile_statuses": {
@@ -1317,7 +1317,7 @@
         "atlas_exploration": 66,
         "chronology_first": 58,
         "context_first": 101,
-        "fieldwork_triage": 56
+        "fieldwork_triage": 57
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -1455,7 +1455,7 @@
       "baseline_rank": 73,
       "profile_ranks": {
         "atlas_exploration": 73,
-        "chronology_first": 70,
+        "chronology_first": 71,
         "context_first": 90,
         "fieldwork_triage": 71
       },
@@ -1617,7 +1617,7 @@
         "atlas_exploration": 81,
         "chronology_first": 54,
         "context_first": 116,
-        "fieldwork_triage": 61
+        "fieldwork_triage": 62
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -1675,7 +1675,7 @@
       "baseline_rank": 84,
       "profile_ranks": {
         "atlas_exploration": 84,
-        "chronology_first": 72,
+        "chronology_first": 73,
         "context_first": 108,
         "fieldwork_triage": 74
       },
@@ -2057,7 +2057,7 @@
         "atlas_exploration": 103,
         "chronology_first": 51,
         "context_first": 197,
-        "fieldwork_triage": 60
+        "fieldwork_triage": 61
       },
       "profile_statuses": {
         "atlas_exploration": "ranked",
@@ -2795,7 +2795,7 @@
       "baseline_rank": 140,
       "profile_ranks": {
         "atlas_exploration": 140,
-        "chronology_first": 71,
+        "chronology_first": 72,
         "context_first": 180,
         "fieldwork_triage": 91
       },
@@ -2805,7 +2805,7 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 69,
+      "max_rank_shift": 68,
       "recommendation_ready_profiles": []
     },
     {
@@ -2975,7 +2975,7 @@
       "baseline_rank": 149,
       "profile_ranks": {
         "atlas_exploration": 149,
-        "chronology_first": 79,
+        "chronology_first": 80,
         "context_first": 235,
         "fieldwork_triage": 77
       },
@@ -5295,7 +5295,7 @@
       "baseline_rank": 265,
       "profile_ranks": {
         "atlas_exploration": 265,
-        "chronology_first": 69,
+        "chronology_first": 70,
         "context_first": 271,
         "fieldwork_triage": 151
       },
@@ -5305,7 +5305,7 @@
         "context_first": "ranked",
         "fieldwork_triage": "ranked"
       },
-      "max_rank_shift": 196,
+      "max_rank_shift": 195,
       "recommendation_ready_profiles": []
     },
     {
@@ -5576,7 +5576,7 @@
       "profile_ranks": {
         "atlas_exploration": 279,
         "chronology_first": 281,
-        "context_first": 279,
+        "context_first": 280,
         "fieldwork_triage": 279
       },
       "profile_statuses": {
@@ -5596,7 +5596,7 @@
       "profile_ranks": {
         "atlas_exploration": 280,
         "chronology_first": 278,
-        "context_first": 285,
+        "context_first": 286,
         "fieldwork_triage": 280
       },
       "profile_statuses": {
@@ -5605,7 +5605,7 @@
         "context_first": "downgraded",
         "fieldwork_triage": "downgraded"
       },
-      "max_rank_shift": 5,
+      "max_rank_shift": 6,
       "recommendation_ready_profiles": []
     },
     {
@@ -5616,7 +5616,7 @@
       "profile_ranks": {
         "atlas_exploration": 281,
         "chronology_first": 282,
-        "context_first": 280,
+        "context_first": 281,
         "fieldwork_triage": 281
       },
       "profile_statuses": {
@@ -5629,15 +5629,35 @@
       "recommendation_ready_profiles": []
     },
     {
-      "locality": "Vik, Klepp (Western Norway/ Rogaland)",
-      "locality_token": "homo_sapiens:aadr:norway:vik-klepp-western-norway-rogaland:58-712198-5-525827",
+      "locality": "Stora F\u00f6rvar (Gotland, Eksta socken, Stora Karls\u00f6)",
+      "locality_token": "homo_sapiens:aadr:sweden:stora-f-rvar-gotland-eksta-socken-stora-karls:57-285-17-971",
       "baseline_profile": "atlas_exploration",
       "baseline_rank": 282,
       "profile_ranks": {
         "atlas_exploration": 282,
-        "chronology_first": 286,
-        "context_first": 281,
-        "fieldwork_triage": 283
+        "chronology_first": 283,
+        "context_first": 279,
+        "fieldwork_triage": 282
+      },
+      "profile_statuses": {
+        "atlas_exploration": "downgraded",
+        "chronology_first": "downgraded",
+        "context_first": "downgraded",
+        "fieldwork_triage": "downgraded"
+      },
+      "max_rank_shift": 3,
+      "recommendation_ready_profiles": []
+    },
+    {
+      "locality": "Vik, Klepp (Western Norway/ Rogaland)",
+      "locality_token": "homo_sapiens:aadr:norway:vik-klepp-western-norway-rogaland:58-712198-5-525827",
+      "baseline_profile": "atlas_exploration",
+      "baseline_rank": 283,
+      "profile_ranks": {
+        "atlas_exploration": 283,
+        "chronology_first": 287,
+        "context_first": 282,
+        "fieldwork_triage": 284
       },
       "profile_statuses": {
         "atlas_exploration": "downgraded",
@@ -5652,12 +5672,12 @@
       "locality": "Hemmor (Gotland, N\u00e4r parish)",
       "locality_token": "homo_sapiens:aadr:sweden:hemmor-gotland-n-r-parish:57-22-18-57",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 283,
+      "baseline_rank": 284,
       "profile_ranks": {
-        "atlas_exploration": 283,
-        "chronology_first": 288,
-        "context_first": 282,
-        "fieldwork_triage": 284
+        "atlas_exploration": 284,
+        "chronology_first": 289,
+        "context_first": 283,
+        "fieldwork_triage": 285
       },
       "profile_statuses": {
         "atlas_exploration": "downgraded",
@@ -5672,11 +5692,11 @@
       "locality": "Skeie, Klepp (Western Norway/ Rogaland)",
       "locality_token": "homo_sapiens:aadr:norway:skeie-klepp-western-norway-rogaland:58-693992-5-547228",
       "baseline_profile": "atlas_exploration",
-      "baseline_rank": 284,
+      "baseline_rank": 285,
       "profile_ranks": {
-        "atlas_exploration": 284,
+        "atlas_exploration": 285,
         "chronology_first": 291,
-        "context_first": 283,
+        "context_first": 284,
         "fieldwork_triage": 288
       },
       "profile_statuses": {
@@ -5685,27 +5705,7 @@
         "context_first": "downgraded",
         "fieldwork_triage": "downgraded"
       },
-      "max_rank_shift": 7,
-      "recommendation_ready_profiles": []
-    },
-    {
-      "locality": "Stora F\u00f6rvar (Gotland, Eksta socken, Stora Karls\u00f6)",
-      "locality_token": "homo_sapiens:aadr:sweden:stora-f-rvar-gotland-eksta-socken-stora-karls:57-285-17-971",
-      "baseline_profile": "atlas_exploration",
-      "baseline_rank": 285,
-      "profile_ranks": {
-        "atlas_exploration": 285,
-        "chronology_first": 290,
-        "context_first": 286,
-        "fieldwork_triage": 287
-      },
-      "profile_statuses": {
-        "atlas_exploration": "downgraded",
-        "chronology_first": "downgraded",
-        "context_first": "downgraded",
-        "fieldwork_triage": "downgraded"
-      },
-      "max_rank_shift": 5,
+      "max_rank_shift": 6,
       "recommendation_ready_profiles": []
     },
     {
@@ -5715,9 +5715,9 @@
       "baseline_rank": 286,
       "profile_ranks": {
         "atlas_exploration": 286,
-        "chronology_first": 289,
+        "chronology_first": 290,
         "context_first": 301,
-        "fieldwork_triage": 282
+        "fieldwork_triage": 283
       },
       "profile_statuses": {
         "atlas_exploration": "downgraded",
@@ -5736,7 +5736,7 @@
       "profile_ranks": {
         "atlas_exploration": 287,
         "chronology_first": 298,
-        "context_first": 284,
+        "context_first": 285,
         "fieldwork_triage": 300
       },
       "profile_statuses": {
@@ -5777,7 +5777,7 @@
         "atlas_exploration": 289,
         "chronology_first": 292,
         "context_first": 314,
-        "fieldwork_triage": 285
+        "fieldwork_triage": 286
       },
       "profile_statuses": {
         "atlas_exploration": "downgraded",
@@ -5817,7 +5817,7 @@
         "atlas_exploration": 291,
         "chronology_first": 293,
         "context_first": 315,
-        "fieldwork_triage": 286
+        "fieldwork_triage": 287
       },
       "profile_statuses": {
         "atlas_exploration": "downgraded",
@@ -5975,7 +5975,7 @@
       "baseline_rank": 299,
       "profile_ranks": {
         "atlas_exploration": 299,
-        "chronology_first": 283,
+        "chronology_first": 284,
         "context_first": 298,
         "fieldwork_triage": 309
       },
@@ -5985,7 +5985,7 @@
         "context_first": "downgraded",
         "fieldwork_triage": "downgraded"
       },
-      "max_rank_shift": 16,
+      "max_rank_shift": 15,
       "recommendation_ready_profiles": []
     },
     {
@@ -6115,7 +6115,7 @@
       "baseline_rank": 306,
       "profile_ranks": {
         "atlas_exploration": 306,
-        "chronology_first": 284,
+        "chronology_first": 285,
         "context_first": 306,
         "fieldwork_triage": 313
       },
@@ -6125,7 +6125,7 @@
         "context_first": "downgraded",
         "fieldwork_triage": "downgraded"
       },
-      "max_rank_shift": 22,
+      "max_rank_shift": 21,
       "recommendation_ready_profiles": []
     },
     {
@@ -6135,7 +6135,7 @@
       "baseline_rank": 307,
       "profile_ranks": {
         "atlas_exploration": 307,
-        "chronology_first": 285,
+        "chronology_first": 286,
         "context_first": 305,
         "fieldwork_triage": 314
       },
@@ -6145,7 +6145,7 @@
         "context_first": "downgraded",
         "fieldwork_triage": "downgraded"
       },
-      "max_rank_shift": 22,
+      "max_rank_shift": 21,
       "recommendation_ready_profiles": []
     },
     {
@@ -6195,7 +6195,7 @@
       "baseline_rank": 310,
       "profile_ranks": {
         "atlas_exploration": 310,
-        "chronology_first": 287,
+        "chronology_first": 288,
         "context_first": 312,
         "fieldwork_triage": 320
       },
@@ -6205,7 +6205,7 @@
         "context_first": "downgraded",
         "fieldwork_triage": "downgraded"
       },
-      "max_rank_shift": 23,
+      "max_rank_shift": 22,
       "recommendation_ready_profiles": []
     },
     {

@@ -64,7 +64,7 @@
     "point_traceability_json": "nordic_point_traceability.json"
   },
   "role_counts": {
-    "shared_world_scale_layer": 3,
+    "shared_world_scale_layer": 4,
     "region_filtered_layer": 1,
     "scope_specific_overlay": 9
   },
@@ -150,6 +150,19 @@
     {
       "key": "animal-equus-caballus",
       "label": "Horse aDNA site evidence",
+      "source_name": "Tracked animal aDNA localities",
+      "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+      "count": 2,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared evidence layer across every governed scope."
+    },
+    {
+      "key": "animal-ovis-aries",
+      "label": "Sheep aDNA site evidence",
       "source_name": "Tracked animal aDNA localities",
       "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
       "count": 2,
@@ -257,7 +270,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 267149
+        "record_count": 267151
       },
       "edges": {
         "status": "unavailable",
@@ -286,7 +299,7 @@
       },
       "indexes": {
         "status": "available",
-        "record_count": 266892
+        "record_count": 266894
       }
     }
   },

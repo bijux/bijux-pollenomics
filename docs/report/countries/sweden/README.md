@@ -55,13 +55,13 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Animal aDNA Country Outputs
 
-- Tracked animal species represented: `1`
-- Country-resolved animal sample rows: `1`
-- Country-resolved animal locality rows: `1`
-- Supporting tracked projects: `1`
-- Sample evidence-backed rows: `1`
-- Chronology-provenance-backed rows: `1`
-- Coordinate-provenance-backed rows: `1`
+- Tracked animal species represented: `2`
+- Country-resolved animal sample rows: `4`
+- Country-resolved animal locality rows: `2`
+- Supporting tracked projects: `2`
+- Sample evidence-backed rows: `4`
+- Chronology-provenance-backed rows: `4`
+- Coordinate-provenance-backed rows: `4`
 
 ### Animal Output Files
 
@@ -78,6 +78,7 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 | Common name | Latin name | Animal scope | Locality rows | Assignment posture | Caution |
 | --- | --- | --- | ---: | --- | --- |
 | horse | Equus caballus | domesticated_core | 1 | exact_country | sample support remains sparse |
+| sheep | Ovis aries | domesticated_core | 1 | exact_country | current country assignment is direct and explicit |
 
 
 

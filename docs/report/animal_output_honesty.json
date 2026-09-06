@@ -2,10 +2,10 @@
   "schema_version": "animal-output-honesty.v2",
   "totals": {
     "tracked_sample_count": 1450,
-    "mapped_sample_count": 606,
-    "blocked_sample_count": 844,
+    "mapped_sample_count": 611,
+    "blocked_sample_count": 839,
     "unresolved_sample_count": 95,
-    "country_published_sample_count": 5
+    "country_published_sample_count": 10
   },
   "rows": [
     {
@@ -66,10 +66,10 @@
       "species_latin_name": "Ovis aries",
       "species_common_name": "sheep",
       "tracked_sample_count": 200,
-      "mapped_sample_count": 0,
-      "blocked_sample_count": 200,
+      "mapped_sample_count": 5,
+      "blocked_sample_count": 195,
       "unresolved_sample_count": 5,
-      "country_published_sample_count": 0
+      "country_published_sample_count": 5
     },
     {
       "species_latin_name": "Rangifer tarandus",

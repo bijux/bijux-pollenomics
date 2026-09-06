@@ -1,6 +1,6 @@
 # Animal point evidence review
 
-- Published point count: `271`
+- Published point count: `273`
 
 ## animal-atlas-feature:capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey
 
@@ -2422,6 +2422,24 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `4`
+
+## animal-atlas-feature:ovis-aries-locality-prjeb59481-kastelholm-finland
+
+- Species: `Ovis aries`
+- Project accession: `PRJEB59481`
+- Paper DOI: `10.1093/gbe/evae114`
+- Coordinate basis: `archive_coordinates`
+- Coordinate confidence: `source_reported_two_decimal_degrees`
+- Sample rows: `2`
+
+## animal-atlas-feature:ovis-aries-locality-prjeb59481-storafrvar-sweden
+
+- Species: `Ovis aries`
+- Project accession: `PRJEB59481`
+- Paper DOI: `10.1093/gbe/evae114`
+- Coordinate basis: `archive_coordinates`
+- Coordinate confidence: `source_reported_two_decimal_degrees`
+- Sample rows: `3`
 
 ## animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark
 

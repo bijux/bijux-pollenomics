@@ -15,6 +15,32 @@
       "overlap_status": "overlap_detected"
     },
     {
+      "country": "Sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "animal_locality_count": 1,
+      "human_locality_count": 77,
+      "overlapping_human_localities": 14,
+      "non_overlapping_human_localities": 63,
+      "noncomparable_human_localities": 0,
+      "assignment_confidence": "exact_country",
+      "overlap_status": "overlap_detected"
+    },
+    {
+      "country": "Finland",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "animal_locality_count": 1,
+      "human_locality_count": 6,
+      "overlapping_human_localities": 0,
+      "non_overlapping_human_localities": 6,
+      "noncomparable_human_localities": 0,
+      "assignment_confidence": "exact_country",
+      "overlap_status": "no_overlap_detected"
+    },
+    {
       "country": "Denmark",
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
@@ -89,8 +115,8 @@
     "reason_codes": [
       "qualified_comparison_review_missing"
     ],
-    "right_record_comparison_denominator": 667,
-    "comparable_right_record_comparison_denominator": 369,
+    "right_record_comparison_denominator": 750,
+    "comparable_right_record_comparison_denominator": 452,
     "qualified_scientific_review_required": true
   }
 }

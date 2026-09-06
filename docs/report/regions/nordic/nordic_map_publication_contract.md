@@ -27,6 +27,7 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 | SEAD sites | `scope_specific_overlay` | SEAD | Environmental archaeology sites staged from the SEAD normalization bundle. | `2069` |
 | Sweden archaeology site discovery | `scope_specific_overlay` | SEAD with RAÄ density context | Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record. | `9738` |
 | Horse aDNA site evidence | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
+| Sheep aDNA site evidence | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
 | Pig aDNA site evidence | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
 | Neotoma sample pollen-presence context | `scope_specific_overlay` | Neotoma | Dated source samples with positive reported pollen observations; not reviewed pollen-sum events. | `9988` |
 | Neotoma literal ecological codes | `scope_specific_overlay` | Neotoma | Literal source ecological codes without cross-source equivalence or propagation claims. | `25165` |

@@ -1,6 +1,6 @@
 # Animal atlas exclusion report
 
-- Excluded tracked sample rows: `844`
+- Excluded tracked sample rows: `839`
 
 | Species | Project | Sample record | Locality | Inclusion status | Mapping posture | Exclusion reason |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -482,11 +482,6 @@
 | Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022722 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022723 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022724 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960291 | Kastelholm | nordic_lead_site_curated | refused_unresolved_location | chronology remains unresolved enough that the sample stays out of the public map |
-| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960292 | Kastelholm | nordic_lead_site_curated | refused_unresolved_location | chronology remains unresolved enough that the sample stays out of the public map |
-| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960293 | Stora Förvar | nordic_lead_site_curated | refused_unresolved_location | chronology remains unresolved enough that the sample stays out of the public map |
-| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960294 | Stora Förvar | nordic_lead_site_curated | refused_unresolved_location | chronology remains unresolved enough that the sample stays out of the public map |
-| Ovis aries | PRJEB59481 | ovis_aries:sample:prjeb59481:samea112960295 | Stora Förvar | nordic_lead_site_curated | refused_unresolved_location | chronology remains unresolved enough that the sample stays out of the public map |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757323 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757324 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757325 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |

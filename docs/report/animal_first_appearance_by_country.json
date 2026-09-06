@@ -1,8 +1,8 @@
 {
   "schema_version": "animal-first-appearance-by-country.v1",
   "reconciliation": {
-    "input_locality_count": 4,
-    "dated_locality_count": 2,
+    "input_locality_count": 6,
+    "dated_locality_count": 4,
     "undated_locality_count": 2,
     "refusal_reason_counts": {
       "chronology_unavailable": 2
@@ -18,6 +18,28 @@
       "time_label": "4944-4961 BP",
       "project_accession": "PRJEB44430",
       "locality": "Ginnerup",
+      "assignment_confidence": "exact_country"
+    },
+    {
+      "country": "Finland",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "first_signal_bp": 527,
+      "time_label": "340-527 BP",
+      "project_accession": "PRJEB59481",
+      "locality": "Kastelholm",
+      "assignment_confidence": "exact_country"
+    },
+    {
+      "country": "Sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "first_signal_bp": 4151,
+      "time_label": "3699-4151 BP",
+      "project_accession": "PRJEB59481",
+      "locality": "Stora F\u00f6rvar",
       "assignment_confidence": "exact_country"
     },
     {

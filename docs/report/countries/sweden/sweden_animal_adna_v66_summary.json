@@ -3,38 +3,46 @@
   "country": "Sweden",
   "version": "v66",
   "generated_on": "2026-09-06",
-  "total_sample_rows": 1,
-  "total_species": 1,
-  "total_localities": 1,
-  "total_projects": 1,
+  "total_sample_rows": 4,
+  "total_species": 2,
+  "total_localities": 2,
+  "total_projects": 2,
   "evidence_quality_summary": {
-    "sample_row_count": 1,
-    "species_row_count": 1,
-    "sample_lineage_backed_sample_count": 1,
-    "site_evidence_backed_sample_count": 1,
-    "chronology_provenance_backed_sample_count": 1,
-    "coordinate_provenance_backed_sample_count": 1,
+    "sample_row_count": 4,
+    "species_row_count": 2,
+    "sample_lineage_backed_sample_count": 4,
+    "site_evidence_backed_sample_count": 4,
+    "chronology_provenance_backed_sample_count": 4,
+    "coordinate_provenance_backed_sample_count": 4,
     "exact_coordinate_sample_count": 1,
     "approximate_coordinate_sample_count": 0
   },
   "traceability_summary": {
     "sample_record_ids": [
-      "equus_caballus:sample:prjeb31613:cgg_1_018490"
+      "equus_caballus:sample:prjeb31613:cgg_1_018490",
+      "ovis_aries:sample:prjeb59481:samea112960293",
+      "ovis_aries:sample:prjeb59481:samea112960294",
+      "ovis_aries:sample:prjeb59481:samea112960295"
     ],
     "site_record_ids": [
-      "equus_caballus:locality:prjeb31613:uppsala:sweden"
+      "equus_caballus:locality:prjeb31613:uppsala:sweden",
+      "ovis_aries:locality:prjeb59481:storafrvar:sweden"
     ],
     "sample_lineage_paths": [
-      "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
+      "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx"
     ],
     "site_evidence_paths": [
-      "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
+      "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml"
     ],
     "chronology_provenance_paths": [
-      "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
+      "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml"
     ],
     "coordinate_provenance_paths": [
-      "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx"
+      "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+      "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml"
     ]
   },
   "sample_rows": [
@@ -86,6 +94,153 @@
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "coordinate_provenance_locator": "Sheet1!row226",
       "coordinate_provenance_note": ""
+    },
+    {
+      "country": "Sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_native_tax_id": "9940",
+      "source_native_scientific_name": "Ovis aries",
+      "taxon_alignment_status": "project_species_match",
+      "sample_record_id": "ovis_aries:sample:prjeb59481:samea112960293",
+      "sample_group_id": "PRJEB59481",
+      "sample_namespace": "ovis_aries:curated_sample",
+      "feature_id": "animal-atlas-feature:ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "site_record_id": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
+      "project_accession": "PRJEB59481",
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "supplementary_source": "",
+      "locality": "Stora F\u00f6rvar",
+      "country_assignment_confidence": "exact_country",
+      "country_assignment_reason": "The tracked locality lead is already labeled `Sweden`.",
+      "coordinate_basis": "archive_coordinates",
+      "coordinate_confidence": "source_reported_two_decimal_degrees",
+      "source_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+      "source_support_status": "archive_sample_record",
+      "sample_evidence_status": "direct_table_extracted",
+      "sample_lineage_path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+      "sample_lineage_locator": "STab 6 - Ancient remains!row3 || STab 4 - Continuity ASTF!rows1-2",
+      "sample_lineage_excerpt": "ASTF001 | 6198:4474 (26) | Section I, layer 4 | Right radius. Mid Part of diaphysis. | Bone is of adult size. | Stora F\u00f6rvar",
+      "site_evidence_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "site_evidence_kind": "ena_sample_xml",
+      "site_evidence_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+      "site_evidence_text": "Sheep humerus excavated in Stora F\u00f6rvar",
+      "time_label": "3699-3957 BP",
+      "chronology_evidence_class": "direct_radiocarbon_date",
+      "chronology_precision_posture": "sample_precise_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml",
+      "chronology_provenance_kind": "tracked_source_artifact",
+      "chronology_provenance_locator": ".//table-wrap[@id='evae114-T1']/table/tbody/tr[1]/td[6]",
+      "chronology_provenance_text": "ASTF001 | Stora F\u00f6rvar, Gotland | 3957 to 3699 cal BP (Ua-71140)",
+      "inclusion_status": "nordic_lead_site_curated",
+      "inclusion_note": "The official ENA sample record supplies a two-decimal-degree lat_lon pair; this supports map placement without implying an exact specimen findspot.",
+      "sample_basis": "supplementary_table_archive_identity_and_official_evidence_join",
+      "latitude_text": "57.29",
+      "longitude_text": "17.97",
+      "coordinate_provenance_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "coordinate_provenance_locator": "./SAMPLE[@accession='SAMEA112960293']/SAMPLE_ATTRIBUTES/SAMPLE_ATTRIBUTE[TAG='lat_lon']",
+      "coordinate_provenance_note": ""
+    },
+    {
+      "country": "Sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_native_tax_id": "9940",
+      "source_native_scientific_name": "Ovis aries",
+      "taxon_alignment_status": "project_species_match",
+      "sample_record_id": "ovis_aries:sample:prjeb59481:samea112960294",
+      "sample_group_id": "PRJEB59481",
+      "sample_namespace": "ovis_aries:curated_sample",
+      "feature_id": "animal-atlas-feature:ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "site_record_id": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
+      "project_accession": "PRJEB59481",
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "supplementary_source": "",
+      "locality": "Stora F\u00f6rvar",
+      "country_assignment_confidence": "exact_country",
+      "country_assignment_reason": "The tracked locality lead is already labeled `Sweden`.",
+      "coordinate_basis": "archive_coordinates",
+      "coordinate_confidence": "source_reported_two_decimal_degrees",
+      "source_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+      "source_support_status": "archive_sample_record",
+      "sample_evidence_status": "direct_table_extracted",
+      "sample_lineage_path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+      "sample_lineage_locator": "STab 6 - Ancient remains!row4 || STab 4 - Continuity ASTF!rows1-2",
+      "sample_lineage_excerpt": "ASTF002 | 6165:3863 (12) | Section I, layer 5 | Proximal part of the diaphysis of right radius. | Individual is older than 7 months. However, the bone is of adult size. | Stora F\u00f6rvar",
+      "site_evidence_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "site_evidence_kind": "ena_sample_xml",
+      "site_evidence_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+      "site_evidence_text": "Sheep humerus excavated in Stora F\u00f6rvar",
+      "time_label": "3936-4151 BP",
+      "chronology_evidence_class": "direct_radiocarbon_date",
+      "chronology_precision_posture": "sample_precise_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml",
+      "chronology_provenance_kind": "tracked_source_artifact",
+      "chronology_provenance_locator": ".//table-wrap[@id='evae114-T1']/table/tbody/tr[2]/td[6]",
+      "chronology_provenance_text": "ASTF002 | Stora F\u00f6rvar, Gotland | 4151 to 3936 cal BP (Ua-71139)",
+      "inclusion_status": "nordic_lead_site_curated",
+      "inclusion_note": "The official ENA sample record supplies a two-decimal-degree lat_lon pair; this supports map placement without implying an exact specimen findspot.",
+      "sample_basis": "supplementary_table_archive_identity_and_official_evidence_join",
+      "latitude_text": "57.29",
+      "longitude_text": "17.97",
+      "coordinate_provenance_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "coordinate_provenance_locator": "./SAMPLE[@accession='SAMEA112960293']/SAMPLE_ATTRIBUTES/SAMPLE_ATTRIBUTE[TAG='lat_lon']",
+      "coordinate_provenance_note": ""
+    },
+    {
+      "country": "Sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_native_tax_id": "9940",
+      "source_native_scientific_name": "Ovis aries",
+      "taxon_alignment_status": "project_species_match",
+      "sample_record_id": "ovis_aries:sample:prjeb59481:samea112960295",
+      "sample_group_id": "PRJEB59481",
+      "sample_namespace": "ovis_aries:curated_sample",
+      "feature_id": "animal-atlas-feature:ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "site_record_id": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
+      "project_accession": "PRJEB59481",
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "supplementary_source": "",
+      "locality": "Stora F\u00f6rvar",
+      "country_assignment_confidence": "exact_country",
+      "country_assignment_reason": "The tracked locality lead is already labeled `Sweden`.",
+      "coordinate_basis": "archive_coordinates",
+      "coordinate_confidence": "source_reported_two_decimal_degrees",
+      "source_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+      "source_support_status": "archive_sample_record",
+      "sample_evidence_status": "direct_table_extracted",
+      "sample_lineage_path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+      "sample_lineage_locator": "STab 6 - Ancient remains!row5 || STab 4 - Continuity ASTF!rows1-2",
+      "sample_lineage_excerpt": "ASTF003 | 6165:3641 (1) | Section I, layer 5 | Complete diaphysis of right radius, fused proximally but unfused distal part. | The age of the individual is between 7 and 36 months. Size of element close to adult size. | Stora F\u00f6rvar",
+      "site_evidence_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "site_evidence_kind": "ena_sample_xml",
+      "site_evidence_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+      "site_evidence_text": "Sheep humerus excavated in Stora F\u00f6rvar",
+      "time_label": "Late Neolithic",
+      "chronology_evidence_class": "broad_period_label",
+      "chronology_precision_posture": "broad_period_only",
+      "chronology_normalization_status": "text_only_unparsed",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml",
+      "chronology_provenance_kind": "tracked_source_artifact",
+      "chronology_provenance_locator": ".//table-wrap[@id='evae114-T1']/table/tbody/tr[3]/td[6]",
+      "chronology_provenance_text": "ASTF003 | Stora F\u00f6rvar, Gotland | Late Neolithic",
+      "inclusion_status": "nordic_lead_site_curated",
+      "inclusion_note": "The official ENA sample record supplies a two-decimal-degree lat_lon pair; this supports map placement without implying an exact specimen findspot.",
+      "sample_basis": "supplementary_table_archive_identity_and_official_evidence_join",
+      "latitude_text": "57.29",
+      "longitude_text": "17.97",
+      "coordinate_provenance_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "coordinate_provenance_locator": "./SAMPLE[@accession='SAMEA112960293']/SAMPLE_ATTRIBUTES/SAMPLE_ATTRIBUTE[TAG='lat_lon']",
+      "coordinate_provenance_note": ""
     }
   ],
   "species_rows": [
@@ -112,6 +267,30 @@
       "chronology_provenance_backed_sample_count": 1,
       "coordinate_provenance_backed_sample_count": 1,
       "caution_note": "sample support remains sparse"
+    },
+    {
+      "country": "Sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "curated_project_count": 1,
+      "mapped_locality_count": 1,
+      "mapped_sample_count": 3,
+      "assignment_confidence": "exact_country",
+      "coordinate_posture": "archive_coordinates;source_reported_two_decimal_degrees",
+      "oldest_signal_bp": 4151,
+      "youngest_signal_bp": 3699,
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "sample_row_count": 3,
+      "exact_coordinate_sample_count": 0,
+      "approximate_coordinate_sample_count": 0,
+      "sample_lineage_backed_sample_count": 3,
+      "site_evidence_backed_sample_count": 3,
+      "chronology_provenance_backed_sample_count": 3,
+      "coordinate_provenance_backed_sample_count": 3,
+      "caution_note": "current country assignment is direct and explicit"
     }
   ],
   "localities": [
@@ -215,6 +394,115 @@
       "source_locator": "Sheet1!row226",
       "source_support_status": "supplementary_table_row",
       "exact_source_text": "Uppsala_Upps02_1317 | CGG_1_018490 | Middle Ages | 1217-1417 | Uppsala | 59.860999999999997 | 17.638999999999999 | Sweden | horse | male | 50.41977232 | 4.19440491624E-2 | 0 | 0 | 0 | 0"
+    },
+    {
+      "country": "Sweden",
+      "feature_id": "animal-atlas-feature:ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "site_record_id": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "project_accession": "PRJEB59481",
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "support_class": "accepted",
+      "locality": "Stora F\u00f6rvar",
+      "political_entity": "Sweden",
+      "country_assignment_confidence": "exact_country",
+      "country_assignment_reason": "The tracked locality lead is already labeled `Sweden`.",
+      "latitude": 57.29,
+      "longitude": 17.97,
+      "latitude_text": "57.29",
+      "longitude_text": "17.97",
+      "coordinate_basis": "archive_coordinates",
+      "coordinate_confidence": "source_reported_two_decimal_degrees",
+      "geocoding_method": "direct_ena_sample_coordinate_capture",
+      "geocoder_or_gazetteer": "not required because the ENA sample record ships lat_lon",
+      "confidence_rationale": "The official ENA sample XML provides the source-native lat_lon pair at two decimal degrees; it is not claimed as an exact specimen findspot.",
+      "original_place_text": "Stora F\u00f6rvar",
+      "resolved_place_text": "Stora F\u00f6rvar",
+      "coordinate_source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "coordinate_source_locator": "./SAMPLE[@accession='SAMEA112960293']/SAMPLE_ATTRIBUTES/SAMPLE_ATTRIBUTE[TAG='lat_lon']",
+      "coordinate_supplementary_source": "",
+      "coordinate_support_gap_note": "",
+      "time_start_bp": 3699,
+      "time_end_bp": 4151,
+      "time_mean_bp": 3925,
+      "time_label": "3699-4151 BP",
+      "temporal_semantics": {
+        "schema_version": "temporal-semantics.v1",
+        "source_family": "animal_adna",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval",
+        "comparability_posture": "numeric_interval",
+        "summary_label": "3699-4151 BP",
+        "temporal_window_key": "mid_holocene",
+        "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+        "time_start_bp": 3699,
+        "time_end_bp": 4151,
+        "time_mean_bp": 3925,
+        "duration_years": 452,
+        "comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+        "provenance_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+        "provenance_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+        "provenance_excerpt": "Sheep humerus excavated in Stora F\u00f6rvar",
+        "original_labels": [
+          "3699-4151 BP"
+        ],
+        "normalized_labels": [],
+        "uncertainty_notes": []
+      },
+      "temporal_window_key": "mid_holocene",
+      "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+      "temporal_comparability_posture": "numeric_interval",
+      "temporal_comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+      "dating_basis": "radiocarbon",
+      "chronology_evidence_class": "direct_radiocarbon_date",
+      "chronology_precision_posture": "sample_precise_interval",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Sweden sample evidence.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row.",
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "publication_year": "2024",
+      "journal_title": "Genome Biology and Evolution",
+      "source_url": "https://doi.org/10.1093/gbe/evae114",
+      "sample_count": 3,
+      "sample_record_ids": [
+        "ovis_aries:sample:prjeb59481:samea112960293",
+        "ovis_aries:sample:prjeb59481:samea112960294",
+        "ovis_aries:sample:prjeb59481:samea112960295"
+      ],
+      "sample_group_ids": [
+        "PRJEB59481"
+      ],
+      "source_native_taxon_labels": [
+        "Ovis aries (tax_id 9940)"
+      ],
+      "source_native_tax_ids": [
+        "9940"
+      ],
+      "source_native_scientific_names": [
+        "Ovis aries"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_namespace": "ovis_aries:sample_locality",
+      "inclusion_statuses": [
+        "nordic_lead_site_curated"
+      ],
+      "inclusion_notes": [
+        "The official ENA sample record supplies a two-decimal-degree lat_lon pair; this supports map placement without implying an exact specimen findspot."
+      ],
+      "supplementary_sources": [],
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "source_artifact_kind": "ena_sample_xml",
+      "source_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+      "source_support_status": "archive_sample_record",
+      "exact_source_text": "Sheep humerus excavated in Stora F\u00f6rvar"
     }
   ],
   "citations": [
@@ -239,6 +527,30 @@
       "locality_row_count": 1,
       "supplementary_support": "",
       "source_posture": "supplementary_table_row"
+    },
+    {
+      "country": "Sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "project_accession": "PRJEB59481",
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "publication_year": "2024",
+      "journal_title": "Genome Biology and Evolution",
+      "country_assignment_confidence": "exact_country",
+      "sample_row_ids": [
+        "ovis_aries:sample:prjeb59481:samea112960293",
+        "ovis_aries:sample:prjeb59481:samea112960294",
+        "ovis_aries:sample:prjeb59481:samea112960295"
+      ],
+      "locality_row_ids": [
+        "ovis_aries:locality:prjeb59481:storafrvar:sweden"
+      ],
+      "sample_row_count": 3,
+      "locality_row_count": 1,
+      "supplementary_support": "",
+      "source_posture": "archive_sample_record"
     }
   ],
   "warnings": [
@@ -250,7 +562,7 @@
     {
       "severity": "caution",
       "warning_code": "thin_species_surface",
-      "message": "`Sweden` currently ships a thin animal surface with only `1` represented tracked species."
+      "message": "`Sweden` currently ships a thin animal surface with only `2` represented tracked species."
     }
   ]
 }

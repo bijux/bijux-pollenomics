@@ -33,7 +33,7 @@
       "scope": "Finland",
       "parent_scope": "Nordic",
       "country_subset_ok": true,
-      "animal_subset_ok": true,
+      "animal_subset_ok": false,
       "human_subset_ok": true
     },
     {

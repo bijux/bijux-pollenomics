@@ -6875,6 +6875,61 @@
       "supplementary_sources": []
     },
     {
+      "feature_id": "animal-atlas-feature:ovis-aries-locality-prjeb59481-kastelholm-finland",
+      "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-kastelholm-finland",
+      "site_record_id": "ovis_aries:locality:prjeb59481:kastelholm:finland",
+      "species_latin_name": "Ovis aries",
+      "primary_project_accession": "PRJEB59481",
+      "sample_record_ids": [
+        "ovis_aries:sample:prjeb59481:samea112960291",
+        "ovis_aries:sample:prjeb59481:samea112960292"
+      ],
+      "sample_group_ids": [
+        "PRJEB59481"
+      ],
+      "source_native_taxon_labels": [
+        "Ovis aries (tax_id 9940)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "archive_coordinates",
+      "coordinate_confidence": "source_reported_two_decimal_degrees",
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+      "source_locator": "./SAMPLE[@accession='SAMEA112960291']/DESCRIPTION",
+      "paper_doi": "10.1093/gbe/evae114",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "site_record_id": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
+      "species_latin_name": "Ovis aries",
+      "primary_project_accession": "PRJEB59481",
+      "sample_record_ids": [
+        "ovis_aries:sample:prjeb59481:samea112960293",
+        "ovis_aries:sample:prjeb59481:samea112960294",
+        "ovis_aries:sample:prjeb59481:samea112960295"
+      ],
+      "sample_group_ids": [
+        "PRJEB59481"
+      ],
+      "source_native_taxon_labels": [
+        "Ovis aries (tax_id 9940)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 3,
+      "coordinate_basis": "archive_coordinates",
+      "coordinate_confidence": "source_reported_two_decimal_degrees",
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "source_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+      "paper_doi": "10.1093/gbe/evae114",
+      "supplementary_sources": []
+    },
+    {
       "feature_id": "animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
       "evidence_row_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
       "site_record_id": "sus_scrofa_domesticus:locality:prjeb30282:bunds:denmark",

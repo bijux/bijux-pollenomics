@@ -23,13 +23,13 @@
     "sample_site_row_count": 1454,
     "chronology_row_count": 1454,
     "coordinate_row_count": 284,
-    "published_atlas_point_count": 271,
-    "mapped_sample_count": 606,
+    "published_atlas_point_count": 273,
+    "mapped_sample_count": 611,
     "published_country_bundle_count": 4,
-    "mapped_sample_share": 0.4179,
-    "locality_conflict_row_count": 574,
+    "mapped_sample_share": 0.4214,
+    "locality_conflict_row_count": 559,
     "locality_curation_row_count": 9,
-    "locality_substitution_project_count": 11,
+    "locality_substitution_project_count": 10,
     "locality_dictionary_row_count": 419
   },
   "locality_status_counts": {
@@ -46,22 +46,22 @@
     "unresolved_geography_count": 439
   },
   "chronology_status_counts": {
-    "normalized_interval": 328,
+    "normalized_interval": 332,
     "normalized_point": 533,
-    "text_only_unparsed": 130,
-    "unresolved": 463
+    "text_only_unparsed": 131,
+    "unresolved": 458
   },
   "chronology_precision_counts": {
     "sample_precise_point": 473,
-    "sample_precise_interval": 276,
+    "sample_precise_interval": 279,
     "sample_approximate_or_modeled": 188,
-    "contextual_interval": 15,
-    "broad_period_only": 39,
-    "unresolved": 463
+    "contextual_interval": 16,
+    "broad_period_only": 40,
+    "unresolved": 458
   },
   "intake_recovery_counts": {
-    "blocked_projects": 25,
-    "ready_for_publication_review": 9,
+    "blocked_projects": 24,
+    "ready_for_publication_review": 10,
     "implausibly_low_recovery_project_count": 0
   },
   "posture_findings": [],

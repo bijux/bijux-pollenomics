@@ -162,7 +162,7 @@
         line-height: 1.6;
       }
       .map-stage { position: relative; min-height: 100vh; }
-      #map { height: 100vh; width: 100%; }
+      #map { height: 100vh; height: 100dvh; width: 100%; }
       .eyebrow {
         display: inline-flex;
         align-items: center;
@@ -311,6 +311,18 @@
         font-weight: 700;
         line-height: 1.45;
         text-align: center;
+      }
+      .topbar-time-stepper {
+        grid-template-columns: auto minmax(190px, 1fr) auto auto;
+        align-items: center;
+        margin-top: 0;
+      }
+      .topbar-time-stepper .time-stepper-status {
+        grid-column: auto;
+        min-width: 0;
+      }
+      .topbar-time-stepper #time-playback-toggle {
+        min-height: 38px;
       }
       .basemap-button {
         display: inline-flex;
@@ -592,7 +604,7 @@
       @media (min-width: 901px) {
         .map-topbar {
           right: auto;
-          width: min(880px, calc(100vw - 352px));
+          width: min(720px, calc(100vw - 352px));
         }
         .topbar-note {
           max-width: 58ch;
@@ -1421,9 +1433,13 @@
           border-radius: 18px;
         }
         .map-topbar-main {
-          flex-direction: column;
-          align-items: stretch;
+          align-items: center;
           gap: 10px;
+        }
+        .map-topbar .eyebrow,
+        .map-topbar .topbar-note,
+        .topbar-search-meta {
+          display: none;
         }
         .topbar-row,
         .map-actions {
@@ -1461,16 +1477,18 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
           transition: opacity 160ms ease, transform 160ms ease;
         }
+        .map-status .status-pill:nth-child(-n + 3) {
+          display: none;
+        }
       }
       @media (max-width: 640px) {
         .map-topbar {
           left: 8px;
           right: 8px;
-          top: 8px;
+          top: max(8px, env(safe-area-inset-top));
         }
         .map-topbar-main {
-          flex-direction: column;
-          align-items: stretch;
+          align-items: center;
           gap: 10px;
         }
         .help-grid {
@@ -1491,7 +1509,7 @@
         .control-panel {
           left: 8px;
           right: 8px;
-          bottom: 8px;
+          bottom: max(8px, env(safe-area-inset-bottom));
         }
         .focus-card {
           left: 8px;
@@ -1541,8 +1559,15 @@
         .preset-button,
         .toolbar-button,
         .basemap-button {
+          min-height: 44px;
           padding: 9px 12px;
           font-size: 12px;
+        }
+        .topbar-time-stepper {
+          grid-template-columns: auto minmax(0, 1fr) auto;
+        }
+        .topbar-time-stepper #time-playback-toggle {
+          grid-column: 1 / -1;
         }
       }
     </style>
@@ -1561,20 +1586,9 @@
               </div>
               <p class="topbar-note">Europe-plus is a governed regional filter view. It keeps only Europe-plus countries from the broader publication surface and still withholds Nordic-only overlays that would overstate regional context coverage.</p>
             </div>
-            <div class="topbar-row">
-              <div class="basemap-switch">
-                <button class="basemap-button is-active" type="button" data-basemap="street" title="Keyless OpenStreetMap street and place context."><span class="basemap-preview basemap-preview--street"></span><span class="basemap-title">Street</span></button>
-                <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span></button>
-                <button class="basemap-button" type="button" data-basemap="none" title="Keep evidence and orientation controls usable without network tiles."><span class="basemap-preview"></span><span class="basemap-title">No basemap</span></button>
-              </div>
-              <div class="map-actions">
-                <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
-                <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
-                <button id="panel-toggle" class="toolbar-button" type="button">Hide controls →</button>
-                <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
-                <button id="help-toggle" class="toolbar-button" type="button">Help</button>
-                <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
-              </div>
+            <div class="map-actions">
+              <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
+              <button id="panel-toggle" class="toolbar-button" type="button">Hide controls →</button>
             </div>
           </div>
           <div class="topbar-search">
@@ -1585,6 +1599,12 @@
             </div>
             <div id="search-count" class="search-meta topbar-search-meta" aria-live="polite">Search points and sites</div>
             <div id="search-results" class="search-results search-results--floating" hidden></div>
+          </div>
+          <div class="time-stepper topbar-time-stepper" aria-label="Chronology navigation">
+            <button id="time-step-older" class="inline-button" type="button">← Older</button>
+            <div id="time-stepper-status" class="time-stepper-status" aria-live="polite">Preparing chronological navigation</div>
+            <button id="time-step-newer" class="inline-button" type="button">Newer →</button>
+            <button id="time-playback-toggle" class="inline-button is-primary" type="button" aria-pressed="false">Play oldest → present</button>
           </div>
         </div>
         <div id="map" aria-label="Europe-plus Evidence Surface"></div>
@@ -1620,7 +1640,29 @@
               </div>
             </div>
             <div class="control-panel-body">
-              <details class="control-group" open>
+              <details class="control-group">
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">View</span>
+                    <h3>Basemap and tools</h3>
+                  </div>
+                  <span class="control-group-summary">Keyless or no-basemap</span>
+                </summary>
+                <div class="control-group-body">
+                  <div class="basemap-switch" aria-label="Basemap selection">
+                    <button class="basemap-button is-active" type="button" data-basemap="street" title="Keyless OpenStreetMap street and place context."><span class="basemap-preview basemap-preview--street"></span><span class="basemap-title">Street</span></button>
+                    <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span></button>
+                    <button class="basemap-button" type="button" data-basemap="none" title="Keep evidence and orientation controls usable without network tiles."><span class="basemap-preview"></span><span class="basemap-title">No basemap</span></button>
+                  </div>
+                  <div class="map-actions">
+                    <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
+                    <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
+                    <button id="help-toggle" class="toolbar-button" type="button">Help</button>
+                    <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
+                  </div>
+                </div>
+              </details>
+              <details class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Countries</span>
@@ -1637,7 +1679,7 @@
                   </div>
                 </div>
               </details>
-              <details class="control-group" open>
+              <details class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Scientific resolution</span>
@@ -1683,6 +1725,7 @@
                     <input id="source-chronology-taxon-query" class="search-input" type="search" autocomplete="off" placeholder="Search source labels; use | for alternatives" aria-controls="source-chronology-taxon">
                     <label class="field-label" for="source-chronology-taxon"><span>Exact source label</span><span>all by default</span></label>
                     <select id="source-chronology-taxon" class="search-input" aria-label="Filter by exact source-reported Neotoma label"></select>
+                    <div id="source-chronology-taxon-shortcuts" class="source-shortcuts" aria-label="Matching exact source labels"></div>
                   </div>
                   <div class="inline-actions">
                     <button id="source-record-concentration-toggle" class="inline-button" type="button" aria-pressed="false" disabled>Show captured source-record concentration</button>
@@ -1736,7 +1779,7 @@
                   </label>
                 </div>
               </details>
-              <details class="control-group" open>
+              <details class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Evidence</span>
@@ -1754,7 +1797,7 @@
                   <div id="dock-layer-filters" class="dock-layer-grid"></div>
                 </div>
               </details>
-              <details class="control-group" open>
+              <details class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Animal aDNA</span>
@@ -1830,12 +1873,7 @@
                     <button class="preset-button" type="button" data-time-interval="50000">50000 years</button>
                     <button class="preset-button is-active" type="button" data-time-interval="full">Full span</button>
                   </div>
-                  <div class="time-stepper" aria-label="Chronology navigation">
-                    <button id="time-step-older" class="inline-button" type="button">← Older</button>
-                    <button id="time-step-newer" class="inline-button" type="button">Newer →</button>
-                    <div id="time-stepper-status" class="time-stepper-status" aria-live="polite">Preparing chronological navigation</div>
-                  </div>
-                  <button id="time-playback-toggle" class="inline-button" type="button" aria-pressed="false">Play oldest → present</button>
+                  <div class="search-meta">Use the persistent Older, Newer, and Play controls above the map while this panel is closed.</div>
                   <div class="search-meta">When a Neotoma source level is active, the slider, arrows, and playback use that exact sample, ecological-code, or taxon extent. Disable the source layer to navigate the complete atlas span.</div>
                   <div id="time-record-count" class="search-meta">Calculating time-aware records in the active BP window.</div>
                 </div>
@@ -1963,7 +2001,7 @@
         </div>
       </div>
     </div>
-    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"europe-plus","version":"v66","build_id":"atlas-5369adb891748e29ba3f4189e13ae87e38b42317aa585173896987ee52b66ee7","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3"},"budgets":{"bootstrap_max_bytes":65536,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1239},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":4,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1235}},"assets":{"schema_version":"atlas-static-asset-table.v2","scope_slug":"europe-plus","fields":["domain","sha256","payload_sha256","decoded_byte_count","byte_count","record_count","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","scientific_signal_ids"],"record_count":15,"records":[["provenance","1f0b1fccca81c7eee484459d262e3cd4299299e23848f1e49e8ceabcd8dbeb3e","35fd420bef1e823672816fd4decdac1328e10025d7684141839cf8fe600d0cde",4794,2196,4,null,null,null,null,null,null,null,null,null],["nodes","2906b46784d74821a7e05309ebde577f52545fcd605a6e029732210c9a3b2eee","310f641d348cbaa16c22127d00765091cce079e86720be73c594eaebd542cdca",1490382,80283,653,0,"aadr","point",["Denmark"],[54.623,8.728229,57.5065361,14.99854],73.0,10520.0,4,[]],["nodes","81e39c78ae8c128e0745d9c1d2287fc2e2dfe39275c5242c15aed68d8503cc3e","c19d385698a8d1bc9bff3b069ed95e494b659a419038389705fbab33c507d4c4",68081,3855,32,0,"aadr","point",["Finland"],[60.2,22.178,69.91,27.03],0.0,1688.0,0,[]],["nodes","24636824c6043f9ce18cd753b8c1e0d277704e9e59b4b2bce5316958006318d8","5113b9276c01145e129463029054af32d9329e5b9241ec8a674c775b6ecbf04c",296587,18191,130,0,"aadr","point",["Norway"],[58.064,5.126940543,70.117388,19.017706],0.0,9486.0,0,[]],["nodes","33a795d7454388ae7c93883e1eccb5f6b1812936b63c036102deb79dcea75fe0","dee4d223d723ffd37ebcd6a466daf9c1d6ff48072f8fd1b9c1fc7d2a9c5ee5ce",957983,45911,416,0,"aadr","point",["Sweden"],[55.37774,11.3007,63.2,18.7],274.0,10010.0,0,[]],["nodes","7f07b3d53d99cfe12861c890f2f9f74949cfdef5803bf59b94e3b4c69a3a18ce","dd778979445533e42829d519dca2d5e70e27a46e47c73c93a53b14a9cee047eb",7090,3107,1,1,"animal-equus-caballus","point",["Denmark"],[56.41134,10.74481,56.41134,10.74481],4944.0,4961.0,0,[]],["nodes","1dbaba2c2f05d788cbc0d21bbb841a96bf3fcbef4fd0f9e9a2a997b03a0115c3","de321e91023078d7be68e6b72ad3994ea4a8cf149c1f5d05def1f7924a294448",6673,2987,1,1,"animal-equus-caballus","point",["Sweden"],[59.861,17.639,59.861,17.639],1217.0,1417.0,0,[]],["nodes","e60351b7904fd162b110489664bb4b57046e25ccd765809fd636684da6e87cee","b297521b68fb280f4b8bcf303f981d2341fbdb97762549870d41dd0eb2467be5",16724,4271,2,2,"animal-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],null,null,2,[]],["nodes","635a35f9b4f841574d5168e66b86c5dec788e8afb54fc7dc0db3b4914bf8747b","f22b95fecfadacbd53f2626e29a6ef879faff8f49580425dabf72e1f00dcce77",47146,23427,1,3,"country-boundaries","polygon",["Denmark"],[54.56859,8.094005,57.751166,15.151378],null,null,1,[]],["nodes","c87e835666d51819bde53bb658b5d5bd6c80cac2ecded5af6d0279cd78481eae","115f68e33ba559d428406b633b406154fa88b54d06c42270fac863194bce62c3",70886,35303,1,3,"country-boundaries","polygon",["Finland"],[59.811225,20.623165,70.07531,31.569525],null,null,1,[]],["nodes","6dcfc5ffc4280a95543b27317867bf5de928e248a7aa43303d819598fe004aef","4051b84f17e3006e938de5a9e627491fc6506b722b84ac302665d34ec187596e",341282,165764,1,3,"country-boundaries","polygon",["Norway"],[-54.462498,-9.117421,80.770087,33.640391],null,null,1,[]],["nodes","927c45ba6d08b580579697527f692238b29410b85e1494d9f732260b13e0aae1","1fe1263c82e60527cbc6a900893c8ed0a41cb5941cef5fde14064f1fef6fe793",102306,50000,1,3,"country-boundaries","polygon",["Sweden"],[55.342678,11.108165,69.036356,24.163414],null,null,1,[]],["edges","53b45e30f751cdac59a929b68dffe79e5161d4411ce043d77b9aaf2b40a22feb","860413cf29da422601a5c2c0a740aebd8d0e1697fca7b580eee68f142249a5c3",281,589,0,null,null,null,null,null,null,null,null,null],["sequences","85ccaf48000b78b09cc23130ef6e9ff64e04f98d249fc0a0e5970523d2cd3539","7872110327a6cc9245f86154fc2e2b7e7fd6a9e918a5ae8874cb9edc3fb4856e",296,608,0,null,null,null,null,null,null,null,null,null],["indexes","98e1ec362a48bbbc5ce400d3dbb6cbc3fc1250094c7954eecacbd70785ad54bc","6cd1dd42414f87a793db8cf8a6fb88387cccf566c3b328e2fe5ca66b514807c0",18036,18456,1235,null,null,null,null,null,null,null,null,null]]}}</script>
+    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"europe-plus","version":"v66","build_id":"atlas-7353dfe1bd47bb81c83ccd5986652a0113c4e55a0ff57d01add14324a59c7c68","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3"},"budgets":{"bootstrap_max_bytes":65536,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1241},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":5,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1237}},"assets":{"schema_version":"atlas-static-asset-table.v2","scope_slug":"europe-plus","fields":["domain","sha256","payload_sha256","decoded_byte_count","byte_count","record_count","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","scientific_signal_ids"],"record_count":17,"records":[["provenance","cd603670a45ac5d7b21880df65528a20259acf8a0b0502953957bed5208e744d","44391b4788d7361da2578cbdb702dfe80d07708101b675d6ef08a2b60b9e1fc1",6083,2348,5,null,null,null,null,null,null,null,null,null],["nodes","dad98535cf18ce13352ff60e1d066a79240349da6612e0b02156bde93cbf7893","4b6e20590f83eb5faa4f22e777d64b7c4c62832af7e2ceb0f9dffad1bdbb9e35",1490382,80287,653,0,"aadr","point",["Denmark"],[54.623,8.728229,57.5065361,14.99854],73.0,10520.0,4,[]],["nodes","a8bed5c9ea21fd0cda90c9c7b4ef70aa93c251949a2350af932a7bf6614ccdcc","4ac1ce349413c6c449781c29964e2959361c2898010be3c88f78f57f825c5ead",68081,3855,32,0,"aadr","point",["Finland"],[60.2,22.178,69.91,27.03],0.0,1688.0,0,[]],["nodes","3b6f3a22100e336546c25d2c5dd094f11f072877f4ef1134ebe701301d00db35","dc403749cb75e4d935734399610cf5f2496962dcb4f4c33c5c2a4e27d3be7ae1",296587,18199,130,0,"aadr","point",["Norway"],[58.064,5.126940543,70.117388,19.017706],0.0,9486.0,0,[]],["nodes","d4651e9acb8f26585f529f6351efd58fe7bf77b8f1c923ba3ed0fa1216202dc9","78e8e73461078e6fc8b468ef55f66d5a0a928de91772b98d5c160b797fcbf481",957983,45915,416,0,"aadr","point",["Sweden"],[55.37774,11.3007,63.2,18.7],274.0,10010.0,0,[]],["nodes","a0278c74dad20c4c7b8a58abc2a82c6477b628032cceb6b2b406df5a3985c599","c0bd4d2b3c255dd970e44db7462d5a3bd19e47e316e097120b377e33117d2ee1",7090,3107,1,1,"animal-equus-caballus","point",["Denmark"],[56.41134,10.74481,56.41134,10.74481],4944.0,4961.0,0,[]],["nodes","7f8f5c276ff731a0bf1cfd081ce5ce986c8ed1836837a866fc254d0869f4e32b","4b0bafef6bc44dca91077c93bd3767d113f729fcd9bbc27dd30e4db04f6d654d",6673,2987,1,1,"animal-equus-caballus","point",["Sweden"],[59.861,17.639,59.861,17.639],1217.0,1417.0,0,[]],["nodes","8e34b39a32679f84a6ad6f06ed01869372c265ada85861ec59b3e3f288d28fbe","8d36792881934f2efe44e0116805f2cf8ab2ede21b1dbe0db03e67087a62b92e",6738,3123,1,2,"animal-ovis-aries","point",["Finland"],[60.23,20.08,60.23,20.08],340.0,527.0,0,[]],["nodes","41013216d9279b9eaa70724a9a787761d49d307a67f6a6291c579a304c522dd1","c888446886b293afc0ac3b8dc8f58de38fe29eb017b48253e12b292c40d12610",6865,3151,1,2,"animal-ovis-aries","point",["Sweden"],[57.29,17.97,57.29,17.97],3699.0,4151.0,0,[]],["nodes","85aacf6be98922fa6da7035be2a6e08cfb44b87070912c955c93438d4beacb41","e0e93f7e7cefdeddc9f9e1d4daadcd558c26ee22394ad8c87c0a252282117d87",16724,4271,2,3,"animal-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],null,null,2,[]],["nodes","184c29af98599695f602f894a206d0f11b57bbca99a640bf8f66a5c0bbf442e6","a577badbe8527728e3931d987049df5b741447729e2eb88997904dc37a10a980",47147,23436,1,4,"country-boundaries","polygon",["Denmark"],[54.56859,8.094005,57.751166,15.151378],null,null,1,[]],["nodes","6cf48b865cf557058b5baf7d604c765972c905d9a7ba896ebf69897069195f13","26b9e5262749278e38166332aad64f56e8b46c9a989f54996f6b78a599a6e198",70887,35312,1,4,"country-boundaries","polygon",["Finland"],[59.811225,20.623165,70.07531,31.569525],null,null,1,[]],["nodes","f5900fa053a35696fbfcf38eaa98212b3d306ab709ea33edee670d297aef2360","a041cb39fe38f36427d89f099ddd66126db308f85f7658f2d0d05abc66f51dbf",341282,165780,1,4,"country-boundaries","polygon",["Norway"],[-54.462498,-9.117421,80.770087,33.640391],null,null,1,[]],["nodes","323b39c6ce6a2c7262b2ec06da303d30bfd36621c4645b687e5fa44cd8710bb7","dc5be508e4976f7117fe7404a63049b97d935da0900f3c1314ca2f927c1fc16f",102306,50008,1,4,"country-boundaries","polygon",["Sweden"],[55.342678,11.108165,69.036356,24.163414],null,null,1,[]],["edges","3952fd1282b64d75b95a6e04f106f03b9100c907fc067de9622820b9e5b14fd4","b40107c78d4fe8b17b0ac576d7758e97b2602be1513948d95cb7cdafdc491bc4",281,589,0,null,null,null,null,null,null,null,null,null],["sequences","b0ef3b1cc58181e65116249d91c0ca6a74266e5c9f85e676ae41f71d8b602fff","ea3b65c23788a6e5cf5022ab25647275732b2023a60b6972cf81ecb8456ab302",296,608,0,null,null,null,null,null,null,null,null,null],["indexes","8779db0fce756f6edca3d20872e1d0b58445858d825e569f23ae57cb37c971e3","f6d0aaebd46c0ea70b3eed3cf28b8de9aeba2d1bd5d09812acf46f977d5642b9",18169,18589,1237,null,null,null,null,null,null,null,null,null]]}}</script>
     <script src="./_map_assets/leaflet/leaflet.js"></script>
     <script src="./_map_assets/markercluster/leaflet.markercluster.js"></script>
 
@@ -2530,6 +2568,7 @@
       let renderedEdgeLayers = [];
       let renderedPolygonLayers = [];
       let visiblePointEntries = [];
+      let visiblePolygonFeatureEntries = [];
       let highlightedPointEntry = null;
       const sidebar = document.getElementById('sidebar');
       const mobilePanelCloseButton = document.getElementById('mobile-panel-close');
@@ -2588,6 +2627,7 @@
       const sourceChronologyTaxonFields = document.getElementById('source-chronology-taxon-fields');
       const sourceChronologyTaxonQuery = document.getElementById('source-chronology-taxon-query');
       const sourceChronologyTaxon = document.getElementById('source-chronology-taxon');
+      const sourceChronologyTaxonShortcuts = document.getElementById('source-chronology-taxon-shortcuts');
       const sourceRecordConcentrationToggle = document.getElementById('source-record-concentration-toggle');
       const sourceChronologyState = document.getElementById('source-chronology-state');
       const sourceChronologyGlobalDenominator = document.getElementById('source-chronology-global-denominator');
@@ -4173,13 +4213,7 @@
         const pointCountsByCountry = Object.fromEntries(
           COUNTRIES.map((country) => [
             country,
-            STATIC_ATLAS_INLINE
-              ? POINT_LAYERS
-                  .filter((layer) => activeLayerKeys.has(layer.key))
-                  .reduce((count, layer) => count + layer.features.filter((feature) => pointFeatureVisible(layer, feature) && feature.country === country).length, 0)
-              : STATIC_ATLAS_BOOTSTRAP.assets
-                  .filter((row) => row.domain === 'nodes' && activeLayerKeys.has(row.layer_key) && Array.isArray(row.country_keys) && row.country_keys.includes(country))
-                  .reduce((count, row) => count + staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key} record count`), 0),
+            visiblePointEntries.filter(({ feature }) => feature.country === country).length,
           ])
         );
         countryFilters.innerHTML = COUNTRIES.map((country) => {
@@ -4199,7 +4233,7 @@
         scientificActions.hidden = !available;
         scientificStatus.textContent = available
           ? 'Only accepted, versioned classifications are selectable. Color is always paired with a shape cue.'
-          : 'Harmonized scientific classifications are awaiting qualified review. Source-native whole-pollen, ecological-code, and exact-label chronology remains available below without asserting equivalence.';
+          : 'Harmonized scientific classifications are awaiting qualified review. Source-native pollen-bearing sample presence, ecological-code, and exact-label chronology remains available below without asserting equivalence.';
         scientificFilters.innerHTML = available
           ? SCIENTIFIC_RESOLUTION_ORDER.map((resolution) => {
               const signals = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === resolution);
@@ -4300,6 +4334,22 @@
         ));
         sourceChronologyTaxonFields.hidden = selectedLayer.node_level !== 'source_taxon';
         sourceChronologyTaxon.innerHTML = `<option value="all">All source-reported labels · ${taxonRows.length} facets</option>` + visibleTaxa.map((row) => `<option value="${escapeHtml(row.value)}" ${row.value === activeSourceChronologyTaxon ? 'selected' : ''}>${escapeHtml(row.label)} · source taxon ${escapeHtml(row.source_taxon_id)} · ${row.node_count} nodes · ${row.observation_denominator} observations</option>`).join('');
+        sourceChronologyTaxonShortcuts.innerHTML = queryAlternatives.length
+          ? visibleTaxa.map((row) => `<button class="inline-button ${row.value === activeSourceChronologyTaxon ? 'is-primary' : ''}" type="button" data-source-taxon-facet="${escapeHtml(row.value)}">${escapeHtml(row.label)} · ${escapeHtml(row.source_taxon_id)}</button>`).join('')
+          : '';
+        sourceChronologyTaxonShortcuts.querySelectorAll('[data-source-taxon-facet]').forEach((button) => {
+          button.addEventListener('click', () => {
+            stopTimePlayback();
+            activeSourceChronologyTaxon = normalizedSingleValue(
+              button.dataset.sourceTaxonFacet,
+              validTaxa,
+              'all'
+            );
+            sourceRecordConcentrationActive = false;
+            focusSourceChronologyNavigation();
+            renderMapState();
+          });
+        });
         const selectedFacet = sourceChronologyFacetForSelection(selectedLayer, activeSourceChronologyCode, activeSourceChronologyTaxon);
         if (!selectedFacet) {
           sourceRecordConcentrationToggle.disabled = true;
@@ -4311,10 +4361,17 @@
         const unitCount = selectedLayer.facet_metadata.source_unit_counts.length;
         const untimedExclusion = sourceChronologyUntimedExclusion(selectedLayer);
         const extentLabel = `[${selectedFacet.time_min_bp}, ${selectedFacet.time_max_bp}] BP`;
+        const visibleSourceEntries = visiblePointEntries.filter(({ layer }) => layer.key === selectedLayer.key);
+        const visibleObservationCounts = visibleSourceEntries.map(({ feature }) => sourceChronologyCount(feature.observation_denominator));
+        const visibleObservationDenominator = visibleObservationCounts.every((count) => count !== null)
+          ? visibleObservationCounts.reduce((total, count) => total + count, 0)
+          : null;
+        const visibleObservationLabel = visibleObservationDenominator === null ? 'unavailable' : String(visibleObservationDenominator);
+        const activeWindowLabel = `[${timeStartBp}, ${timeWindowEndBp()}] BP`;
         const untimedLabel = untimedExclusion.status === 'available'
           ? `${untimedExclusion.count} untimed source nodes excluded before viewport filtering`
           : 'untimed source-node count unavailable for this exact filtered selection';
-        sourceChronologySummary.textContent = `${selectedFacet.node_count} nodes · ${selectedFacet.observation_denominator} observations · ${extentLabel}`;
+        sourceChronologySummary.textContent = `${visibleSourceEntries.length} of ${selectedFacet.node_count} nodes visible · ${activeWindowLabel}`;
         const concentrationEligible = sourceRecordConcentrationSelection(selectedLayer) !== null;
         sourceRecordConcentrationToggle.disabled = !concentrationEligible;
         sourceRecordConcentrationToggle.setAttribute('aria-pressed', String(sourceRecordConcentrationActive));
@@ -4332,7 +4389,7 @@
         } else if (sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'refused') {
           sourceChronologyState.textContent = `${sourceRecordConcentrationSnapshot.reason} No concentration symbols were rendered.`;
         } else {
-          sourceChronologyState.textContent = `${selectedFacet.node_count} source nodes · ${selectedFacet.observation_denominator} contributing observations · ${unitCount} literal source units · source playback extent ${extentLabel} · ${untimedLabel} · denominator before country and BP-window filters · chronology context only`;
+          sourceChronologyState.textContent = `${visibleSourceEntries.length} source nodes and ${visibleObservationLabel} contributing observations visible in ${activeWindowLabel} · ${selectedFacet.node_count} nodes and ${selectedFacet.observation_denominator} observations in the global selected-facet denominator before country and BP-window filters · ${unitCount} literal source units · source playback extent ${extentLabel} · ${untimedLabel} · chronology context only`;
         }
       }
       function renderLayerControls() {
@@ -4756,6 +4813,7 @@
         renderedPolygonLayers = [];
         circleLayerGroup.clearLayers();
         visiblePointEntries = [];
+        visiblePolygonFeatureEntries = [];
         highlightedPointEntry = null;
         sourceRecordConcentrationSnapshot = null;
       }
@@ -4925,6 +4983,7 @@
         POLYGON_LAYERS.forEach((layer) => {
           const visibleFeatures = (layer.geojson.features || []).filter((feature) => polygonGeometryIsAdmitted(feature) && polygonFeatureVisible(layer, feature.properties || {}));
           if (!visibleFeatures.length) return;
+          visibleFeatures.forEach((feature) => visiblePolygonFeatureEntries.push({ layer, feature }));
           let geoJsonLayer;
           if (layer.kind === 'country-boundaries') {
             geoJsonLayer = L.geoJSON({ type: 'FeatureCollection', features: visibleFeatures }, {
@@ -5114,11 +5173,9 @@
             ? loaded
             : ALL_LAYERS.reduce((total, layer) => total + staticAtlasNonnegativeInteger(layer.static_feature_count, `${layer.key} admitted feature count`), 0);
           selectionReadout.dataset.staticLoad = `${loaded}/${admitted}`;
-          if (duration > Number(STATIC_ATLAS_BOOTSTRAP.budgets.filter_main_thread_max_ms)) {
-            topbarStatePill.textContent = `${loaded} of ${admitted} admitted records loaded · filter render ${Math.round(duration)} ms`;
-          } else if (requested.length) {
-            topbarStatePill.textContent = `${loaded} of ${admitted} admitted records loaded`;
-          }
+          selectionReadout.dataset.staticLoadRequestedAssetCount = String(requested.length);
+          selectionReadout.dataset.filterRenderMs = String(Math.round(duration));
+          selectionReadout.dataset.filterRenderBudgetExceeded = String(duration > Number(STATIC_ATLAS_BOOTSTRAP.budgets.filter_main_thread_max_ms));
         } catch (error) {
           if (generation !== staticAtlasLoadGeneration) return;
           topbarStatePill.textContent = error instanceof Error ? error.message : 'Static atlas selection failed to load.';
@@ -5155,9 +5212,8 @@
       }
       const ATLAS_CAPTURE_API_VERSION = 'atlas-capture.v1';
       function captureFrameNumber(value, label) {
-        const number = Number(value);
-        if (!Number.isFinite(number) || number < 0) throw new Error(`${label} must be a finite non-negative number`);
-        return number;
+        if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) throw new Error(`${label} must be a finite non-negative number`);
+        return value;
       }
       function captureFrameCountries(value) {
         if (value === undefined) return [...activeCountries].sort();
@@ -5174,10 +5230,9 @@
       }
       function captureFrameView(value) {
         if (value === undefined) return null;
-        const latitude = Number(value && value.latitude);
-        const longitude = Number(value && value.longitude);
-        const zoom = Number(value && value.zoom);
-        if (!Number.isFinite(latitude) || latitude < -90 || latitude > 90 || !Number.isFinite(longitude) || longitude < -180 || longitude > 180 || !Number.isFinite(zoom) || zoom < 0 || zoom > 20) {
+        if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('capture view is invalid');
+        const { latitude, longitude, zoom } = value;
+        if (typeof latitude !== 'number' || !Number.isFinite(latitude) || latitude < -90 || latitude > 90 || typeof longitude !== 'number' || !Number.isFinite(longitude) || longitude < -180 || longitude > 180 || typeof zoom !== 'number' || !Number.isFinite(zoom) || zoom < 0 || zoom > 20) {
           throw new Error('capture view is invalid');
         }
         return { latitude, longitude, zoom };
@@ -5275,6 +5330,7 @@
           modeled_context: sourceWindow ? {
             window_index: modeledContextWindowIndex,
             window_label: sourceWindow.label,
+            feature_count: sourceWindow.feature_count,
             metric_family_key: modeledContextFamilyKey,
             metric_key: modeledContextMetricKey,
             evidence_role: 'context_only',
@@ -5283,6 +5339,8 @@
           } : null,
           visible_point_count: visiblePointEntries.length,
           visible_polygon_layer_count: renderedPolygonLayers.length,
+          visible_source_chronology_point_count: visiblePointEntries.filter(({ layer }) => layer.semantic_role === 'source_chronology_context').length,
+          visible_modeled_context_feature_count: visiblePolygonFeatureEntries.filter(({ layer, feature }) => modeledContextActive && isModeledContextFeature(layer, feature.properties || {})).length,
           visible_governed_candidate_count: renderedEdgeLayers.length,
           scientific_posture: {
             classifications_status: ATLAS_EVIDENCE.classifications_status,
@@ -5462,7 +5520,10 @@
           } else if (shortcut === 'cereals') {
             const layer = sourceChronologyLayerForLevel(targetLevel);
             const cerealFacets = layer.facet_metadata.source_taxa.filter((row) => /cereal|secale/i.test(row.label));
-            activeSourceChronologyTaxon = cerealFacets[0]?.value || 'all';
+            const preferredCerealFacet = cerealFacets.find((row) => row.label.trim().toLowerCase() === 'secale')
+              || cerealFacets.find((row) => row.source_taxon_id === '967')
+              || cerealFacets[0];
+            activeSourceChronologyTaxon = preferredCerealFacet?.value || 'all';
           }
           focusSourceChronologyNavigation();
           renderLayerControls();

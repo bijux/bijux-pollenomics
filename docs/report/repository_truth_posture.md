@@ -9,9 +9,9 @@
 
 - Tracked paper count: `18`
 - Papers with archived supplements: `18`
-- Published animal atlas points: `271`
+- Published animal atlas points: `273`
 - Unresolved animal samples: `95 of 1450`
-- Refused animal coordinate-provenance rows: `6 of 284`
+- Refused animal coordinate-provenance rows: `4 of 284`
 - Source-family explainer count: `15`
 
 ## Claim Freeze Reasons

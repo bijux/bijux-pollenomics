@@ -124,6 +124,140 @@
           }
         ]
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.97,
+          57.29
+        ]
+      },
+      "properties": {
+        "name": "Stora F\u00f6rvar",
+        "country": "Sweden",
+        "feature_id": "animal-atlas-feature:ovis-aries-locality-prjeb59481-storafrvar-sweden",
+        "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-storafrvar-sweden",
+        "site_record_id": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "animal_scope": "domesticated_core",
+        "project_accession": "PRJEB59481",
+        "project_accessions": [
+          "PRJEB59481"
+        ],
+        "support_class": "accepted",
+        "country_assignment_confidence": "exact_country",
+        "country_assignment_reason": "The tracked locality lead is already labeled `Sweden`.",
+        "coordinate_basis": "archive_coordinates",
+        "coordinate_confidence": "source_reported_two_decimal_degrees",
+        "sample_count": 3,
+        "sample_record_ids": [
+          "ovis_aries:sample:prjeb59481:samea112960293",
+          "ovis_aries:sample:prjeb59481:samea112960294",
+          "ovis_aries:sample:prjeb59481:samea112960295"
+        ],
+        "sample_group_ids": [
+          "PRJEB59481"
+        ],
+        "source_native_taxon_labels": [
+          "Ovis aries (tax_id 9940)"
+        ],
+        "source_native_tax_ids": [
+          "9940"
+        ],
+        "source_native_scientific_names": [
+          "Ovis aries"
+        ],
+        "taxon_alignment_statuses": [
+          "project_species_match"
+        ],
+        "sample_namespace": "ovis_aries:sample_locality",
+        "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+        "source_artifact_kind": "ena_sample_xml",
+        "source_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+        "source_support_status": "archive_sample_record",
+        "coordinate_source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+        "coordinate_source_locator": "./SAMPLE[@accession='SAMEA112960293']/SAMPLE_ATTRIBUTES/SAMPLE_ATTRIBUTE[TAG='lat_lon']",
+        "coordinate_supplementary_source": "",
+        "coordinate_support_gap_note": "",
+        "time_start_bp": 3699,
+        "time_end_bp": 4151,
+        "time_mean_bp": 3925,
+        "time_label": "3699-4151 BP",
+        "chronology_evidence_class": "direct_radiocarbon_date",
+        "chronology_precision_posture": "sample_precise_interval",
+        "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+        "paper_doi": "10.1093/gbe/evae114",
+        "source_url": "https://doi.org/10.1093/gbe/evae114",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Ovis aries"
+          },
+          {
+            "label": "Source-native taxa",
+            "value": "Ovis aries (tax_id 9940)"
+          },
+          {
+            "label": "Taxon alignment",
+            "value": "project species match"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB59481"
+          },
+          {
+            "label": "Country assignment",
+            "value": "exact_country"
+          },
+          {
+            "label": "Assignment note",
+            "value": "The tracked locality lead is already labeled `Sweden`."
+          },
+          {
+            "label": "Chronology",
+            "value": "3699-4151 BP"
+          },
+          {
+            "label": "Chronology class",
+            "value": "direct_radiocarbon_date"
+          },
+          {
+            "label": "Chronology posture",
+            "value": "sample_precise_interval"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "archive_coordinates"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "source_reported_two_decimal_degrees"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "ovis_aries:sample:prjeb59481:samea112960293, ovis_aries:sample:prjeb59481:samea112960294, ovis_aries:sample:prjeb59481:samea112960295"
+          },
+          {
+            "label": "Site evidence locator",
+            "value": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml#./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION"
+          },
+          {
+            "label": "Coordinate evidence locator",
+            "value": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml#./SAMPLE[@accession='SAMEA112960293']/SAMPLE_ATTRIBUTES/SAMPLE_ATTRIBUTE[TAG='lat_lon']"
+          },
+          {
+            "label": "Interpretation",
+            "value": "Sample-level locality comes directly from the recovered sample source row."
+          }
+        ]
+      }
     }
   ]
 }

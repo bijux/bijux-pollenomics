@@ -153,6 +153,171 @@
       "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     },
     {
+      "feature_id": "animal-atlas-feature:ovis-aries-locality-prjeb59481-kastelholm-finland",
+      "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-kastelholm-finland",
+      "site_record_id": "ovis_aries:locality:prjeb59481:kastelholm:finland",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "support_class": "accepted",
+      "support_note": "admissible_for_curated_support",
+      "locality": "Kastelholm",
+      "political_entity": "Finland",
+      "latitude": 60.23,
+      "longitude": 20.08,
+      "latitude_text": "60.23",
+      "longitude_text": "20.08",
+      "coordinate_basis": "archive_coordinates",
+      "coordinate_confidence": "source_reported_two_decimal_degrees",
+      "geocoding_method": "direct_ena_sample_coordinate_capture",
+      "geocoder_or_gazetteer": "not required because the ENA sample record ships lat_lon",
+      "confidence_rationale": "The official ENA sample XML provides the source-native lat_lon pair at two decimal degrees; it is not claimed as an exact specimen findspot.",
+      "original_place_text": "Kastelholm",
+      "resolved_place_text": "Kastelholm",
+      "coordinate_source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+      "coordinate_source_locator": "./SAMPLE[@accession='SAMEA112960291']/SAMPLE_ATTRIBUTES/SAMPLE_ATTRIBUTE[TAG='lat_lon']",
+      "coordinate_supplementary_source": "",
+      "coordinate_support_gap_note": "",
+      "chronology": {
+        "original_text": "340-527 BP",
+        "time_start_bp": 340,
+        "time_end_bp": 527,
+        "time_mean_bp": 434,
+        "date_stddev_bp": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "primary_project_accession": "PRJEB59481",
+      "sample_record_ids": [
+        "ovis_aries:sample:prjeb59481:samea112960291",
+        "ovis_aries:sample:prjeb59481:samea112960292"
+      ],
+      "sample_group_ids": [
+        "PRJEB59481"
+      ],
+      "source_native_taxon_labels": [
+        "Ovis aries (tax_id 9940)"
+      ],
+      "source_native_tax_ids": [
+        "9940"
+      ],
+      "source_native_scientific_names": [
+        "Ovis aries"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 2,
+      "sample_namespace": "ovis_aries:sample_locality",
+      "inclusion_statuses": [
+        "nordic_lead_site_curated"
+      ],
+      "inclusion_notes": [
+        "The official ENA sample record supplies a two-decimal-degree lat_lon pair; this supports map placement without implying an exact specimen findspot."
+      ],
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "publication_year": "2024",
+      "journal_title": "Genome Biology and Evolution",
+      "paper_url": "https://doi.org/10.1093/gbe/evae114",
+      "supplementary_sources": [],
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+      "source_artifact_kind": "ena_sample_xml",
+      "source_locator": "./SAMPLE[@accession='SAMEA112960291']/DESCRIPTION",
+      "source_support_status": "archive_sample_record",
+      "exact_source_text": "Sheep humerus excavated in Kastelholm",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Finland sample evidence.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "feature_id": "animal-atlas-feature:ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "site_record_id": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "support_class": "accepted",
+      "support_note": "admissible_for_curated_support",
+      "locality": "Stora F\u00f6rvar",
+      "political_entity": "Sweden",
+      "latitude": 57.29,
+      "longitude": 17.97,
+      "latitude_text": "57.29",
+      "longitude_text": "17.97",
+      "coordinate_basis": "archive_coordinates",
+      "coordinate_confidence": "source_reported_two_decimal_degrees",
+      "geocoding_method": "direct_ena_sample_coordinate_capture",
+      "geocoder_or_gazetteer": "not required because the ENA sample record ships lat_lon",
+      "confidence_rationale": "The official ENA sample XML provides the source-native lat_lon pair at two decimal degrees; it is not claimed as an exact specimen findspot.",
+      "original_place_text": "Stora F\u00f6rvar",
+      "resolved_place_text": "Stora F\u00f6rvar",
+      "coordinate_source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "coordinate_source_locator": "./SAMPLE[@accession='SAMEA112960293']/SAMPLE_ATTRIBUTES/SAMPLE_ATTRIBUTE[TAG='lat_lon']",
+      "coordinate_supplementary_source": "",
+      "coordinate_support_gap_note": "",
+      "chronology": {
+        "original_text": "3699-4151 BP",
+        "time_start_bp": 3699,
+        "time_end_bp": 4151,
+        "time_mean_bp": 3925,
+        "date_stddev_bp": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval"
+      },
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "primary_project_accession": "PRJEB59481",
+      "sample_record_ids": [
+        "ovis_aries:sample:prjeb59481:samea112960293",
+        "ovis_aries:sample:prjeb59481:samea112960294",
+        "ovis_aries:sample:prjeb59481:samea112960295"
+      ],
+      "sample_group_ids": [
+        "PRJEB59481"
+      ],
+      "source_native_taxon_labels": [
+        "Ovis aries (tax_id 9940)"
+      ],
+      "source_native_tax_ids": [
+        "9940"
+      ],
+      "source_native_scientific_names": [
+        "Ovis aries"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 3,
+      "sample_namespace": "ovis_aries:sample_locality",
+      "inclusion_statuses": [
+        "nordic_lead_site_curated"
+      ],
+      "inclusion_notes": [
+        "The official ENA sample record supplies a two-decimal-degree lat_lon pair; this supports map placement without implying an exact specimen findspot."
+      ],
+      "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+      "paper_doi": "10.1093/gbe/evae114",
+      "publication_year": "2024",
+      "journal_title": "Genome Biology and Evolution",
+      "paper_url": "https://doi.org/10.1093/gbe/evae114",
+      "supplementary_sources": [],
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "source_artifact_kind": "ena_sample_xml",
+      "source_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+      "source_support_status": "archive_sample_record",
+      "exact_source_text": "Sheep humerus excavated in Stora F\u00f6rvar",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Sweden sample evidence.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
       "feature_id": "animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
       "evidence_row_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
       "site_record_id": "sus_scrofa_domesticus:locality:prjeb30282:bunds:denmark",

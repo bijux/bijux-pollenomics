@@ -1,17 +1,17 @@
 # Animal sample chronology review
 
 - Sample chronology rows: `1454`
-- Normalized intervals: `328`
+- Normalized intervals: `332`
 - Normalized points: `533`
-- Text-only rows: `130`
-- Unresolved rows: `463`
-- Direct radiocarbon rows: `769`
+- Text-only rows: `131`
+- Unresolved rows: `458`
+- Direct radiocarbon rows: `772`
 - Modeled rows: `0`
-- Contextual rows: `100`
-- Broad period rows: `0`
-- Numeric interval rows: `749`
-- Numeric rows with caveat: `112`
-- Context-only rows: `130`
+- Contextual rows: `101`
+- Broad period rows: `1`
+- Numeric interval rows: `752`
+- Numeric rows with caveat: `113`
+- Context-only rows: `131`
 
 | Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -1101,11 +1101,11 @@
 | Ovis aries | PRJEB41594 | prjeb41594:samea8022722 | unresolved | unresolved | unresolved | unresolved |  |
 | Ovis aries | PRJEB41594 | prjeb41594:samea8022723 | unresolved | unresolved | unresolved | unresolved |  |
 | Ovis aries | PRJEB41594 | prjeb41594:samea8022724 | unresolved | unresolved | unresolved | unresolved |  |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960291 | unresolved | unresolved | unresolved | unresolved |  |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960292 | unresolved | unresolved | unresolved | unresolved |  |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960293 | unresolved | unresolved | unresolved | unresolved |  |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960294 | unresolved | unresolved | unresolved | unresolved |  |
-| Ovis aries | PRJEB59481 | prjeb59481:samea112960295 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960291 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 340-527 BP |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960292 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 400-450 BP |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960293 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3699-3957 BP |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960294 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3936-4151 BP |
+| Ovis aries | PRJEB59481 | prjeb59481:samea112960295 | sample_owned_text_only | broad_period_label | broad_period_only | text_only_unparsed | Late Neolithic |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757323 | unresolved | unresolved | unresolved | unresolved |  |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757324 | unresolved | unresolved | unresolved | unresolved |  |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757325 | unresolved | unresolved | unresolved | unresolved |  |

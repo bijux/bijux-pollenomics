@@ -13,7 +13,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
       "heading_count": 1,
-      "table_line_count": 846,
+      "table_line_count": 841,
       "quality_posture": "structured_reference",
       "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
@@ -33,7 +33,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
-      "table_line_count": 5,
+      "table_line_count": 7,
       "quality_posture": "structured_reference",
       "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
@@ -53,7 +53,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
-      "table_line_count": 4,
+      "table_line_count": 6,
       "quality_posture": "structured_reference",
       "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
@@ -83,7 +83,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
       "heading_count": 1,
-      "table_line_count": 5,
+      "table_line_count": 7,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },
@@ -119,10 +119,10 @@
     },
     {
       "repository_path": "docs/report/animal_point_evidence_review.md",
-      "prose_paragraph_count": 271,
+      "prose_paragraph_count": 273,
       "link_bullet_count": 0,
-      "bullet_sentence_count": 544,
-      "heading_count": 272,
+      "bullet_sentence_count": 548,
+      "heading_count": 274,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -133,7 +133,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
       "heading_count": 1,
-      "table_line_count": 5,
+      "table_line_count": 7,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },
@@ -143,7 +143,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 1,
       "heading_count": 1,
-      "table_line_count": 35,
+      "table_line_count": 34,
       "quality_posture": "structured_reference",
       "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
     },
@@ -249,11 +249,11 @@
     },
     {
       "repository_path": "docs/report/countries/finland/README.md",
-      "prose_paragraph_count": 6,
+      "prose_paragraph_count": 7,
       "link_bullet_count": 0,
-      "bullet_sentence_count": 7,
-      "heading_count": 6,
-      "table_line_count": 12,
+      "bullet_sentence_count": 21,
+      "heading_count": 8,
+      "table_line_count": 15,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -283,7 +283,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
-      "table_line_count": 3,
+      "table_line_count": 4,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },
@@ -353,7 +353,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 38,
       "heading_count": 12,
-      "table_line_count": 24,
+      "table_line_count": 25,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -373,7 +373,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
-      "table_line_count": 3,
+      "table_line_count": 4,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },
@@ -383,7 +383,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
-      "table_line_count": 3,
+      "table_line_count": 6,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },
@@ -481,9 +481,9 @@
       "repository_path": "docs/report/regions/europe-plus/README.md",
       "prose_paragraph_count": 8,
       "link_bullet_count": 0,
-      "bullet_sentence_count": 59,
+      "bullet_sentence_count": 61,
       "heading_count": 14,
-      "table_line_count": 20,
+      "table_line_count": 23,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -513,7 +513,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 4,
-      "table_line_count": 48,
+      "table_line_count": 47,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -523,7 +523,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 6,
       "heading_count": 7,
-      "table_line_count": 6,
+      "table_line_count": 7,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -543,7 +543,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 8,
       "heading_count": 10,
-      "table_line_count": 179,
+      "table_line_count": 196,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -551,9 +551,9 @@
       "repository_path": "docs/report/regions/nordic/README.md",
       "prose_paragraph_count": 9,
       "link_bullet_count": 0,
-      "bullet_sentence_count": 294,
+      "bullet_sentence_count": 296,
       "heading_count": 14,
-      "table_line_count": 29,
+      "table_line_count": 32,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -583,7 +583,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 4,
-      "table_line_count": 48,
+      "table_line_count": 47,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -593,7 +593,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 19,
       "heading_count": 7,
-      "table_line_count": 15,
+      "table_line_count": 16,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -613,7 +613,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 8,
       "heading_count": 10,
-      "table_line_count": 307,
+      "table_line_count": 324,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -851,9 +851,9 @@
       "repository_path": "docs/report/world/README.md",
       "prose_paragraph_count": 8,
       "link_bullet_count": 0,
-      "bullet_sentence_count": 113,
+      "bullet_sentence_count": 115,
       "heading_count": 14,
-      "table_line_count": 24,
+      "table_line_count": 27,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -883,7 +883,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 4,
-      "table_line_count": 46,
+      "table_line_count": 45,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -893,7 +893,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 6,
       "heading_count": 7,
-      "table_line_count": 8,
+      "table_line_count": 9,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -913,7 +913,7 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 8,
       "heading_count": 10,
-      "table_line_count": 215,
+      "table_line_count": 232,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },

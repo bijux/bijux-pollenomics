@@ -64281,6 +64281,493 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          20.08,
+          60.23
+        ]
+      },
+      "properties": {
+        "name": "Kastelholm",
+        "feature_id": "animal-atlas-feature:ovis-aries-locality-prjeb59481-kastelholm-finland",
+        "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-kastelholm-finland",
+        "site_record_id": "ovis_aries:locality:prjeb59481:kastelholm:finland",
+        "category": "Sheep atlas evidence row",
+        "country": "Finland",
+        "layer_key": "domesticated-animal-localities",
+        "layer_label": "Domesticated-core animal aDNA atlas evidence",
+        "source_url": "https://doi.org/10.1093/gbe/evae114",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Ovis aries"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Mapped sample count",
+            "value": "2"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "ovis_aries:sample:prjeb59481:samea112960291, ovis_aries:sample:prjeb59481:samea112960292"
+          },
+          {
+            "label": "Source-native taxa",
+            "value": "Ovis aries (tax_id 9940)"
+          },
+          {
+            "label": "Taxon alignment",
+            "value": "project species match"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB59481"
+          },
+          {
+            "label": "Paper title",
+            "value": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region"
+          },
+          {
+            "label": "Paper DOI",
+            "value": "10.1093/gbe/evae114"
+          },
+          {
+            "label": "Publication year",
+            "value": "2024"
+          },
+          {
+            "label": "Journal",
+            "value": "Genome Biology and Evolution"
+          },
+          {
+            "label": "Chronology",
+            "value": "340-527 BP"
+          },
+          {
+            "label": "Chronology evidence class",
+            "value": "direct radiocarbon date"
+          },
+          {
+            "label": "Chronology precision posture",
+            "value": "sample precise interval"
+          },
+          {
+            "label": "Temporal window",
+            "value": "Recent and historical (0-1000 BP)"
+          },
+          {
+            "label": "Temporal comparison posture",
+            "value": "numeric interval"
+          },
+          {
+            "label": "Temporal comparison note",
+            "value": "This chronology supports interval-based comparison without implying more than the published sample interval."
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "archive_coordinates"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "source_reported_two_decimal_degrees"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "direct_ena_sample_coordinate_capture"
+          },
+          {
+            "label": "Coordinate gazetteer",
+            "value": "not required because the ENA sample record ships lat_lon"
+          },
+          {
+            "label": "Original place text",
+            "value": "Kastelholm"
+          },
+          {
+            "label": "Resolved place text",
+            "value": "Kastelholm"
+          },
+          {
+            "label": "Coordinate rationale",
+            "value": "The official ENA sample XML provides the source-native lat_lon pair at two decimal degrees; it is not claimed as an exact specimen findspot."
+          },
+          {
+            "label": "Source locator",
+            "value": "./SAMPLE[@accession='SAMEA112960291']/DESCRIPTION"
+          },
+          {
+            "label": "Source support status",
+            "value": "archive_sample_record"
+          },
+          {
+            "label": "Source evidence text",
+            "value": "Sheep humerus excavated in Kastelholm"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "nordic_lead"
+          },
+          {
+            "label": "Nordic note",
+            "value": "This locality falls inside the Nordic publication footprint through direct Finland sample evidence."
+          },
+          {
+            "label": "Interpretation",
+            "value": "Sample-level locality comes directly from the recovered sample source row."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "animal_scope": "domesticated_core",
+        "support_class": "accepted",
+        "temporal_semantics": {
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "animal_adna",
+          "evidence_class": "direct_radiocarbon_date",
+          "precision_posture": "sample_precise_interval",
+          "comparability_posture": "numeric_interval",
+          "summary_label": "340-527 BP",
+          "temporal_window_key": "recent_historical",
+          "temporal_window_label": "Recent and historical (0-1000 BP)",
+          "time_start_bp": 340,
+          "time_end_bp": 527,
+          "time_mean_bp": 434,
+          "duration_years": 187,
+          "comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+          "provenance_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+          "provenance_locator": "./SAMPLE[@accession='SAMEA112960291']/DESCRIPTION",
+          "provenance_excerpt": "Sheep humerus excavated in Kastelholm",
+          "original_labels": [
+            "340-527 BP"
+          ],
+          "normalized_labels": [],
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "recent_historical",
+        "temporal_window_label": "Recent and historical (0-1000 BP)",
+        "temporal_comparability_posture": "numeric_interval",
+        "temporal_comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+        "nordic_inclusion": true,
+        "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Finland sample evidence.",
+        "coordinate_basis": "archive_coordinates",
+        "coordinate_confidence": "source_reported_two_decimal_degrees",
+        "sample_count": 2,
+        "sample_record_ids": [
+          "ovis_aries:sample:prjeb59481:samea112960291",
+          "ovis_aries:sample:prjeb59481:samea112960292"
+        ],
+        "sample_group_ids": [
+          "PRJEB59481"
+        ],
+        "source_native_taxon_labels": [
+          "Ovis aries (tax_id 9940)"
+        ],
+        "source_native_tax_ids": [
+          "9940"
+        ],
+        "source_native_scientific_names": [
+          "Ovis aries"
+        ],
+        "taxon_alignment_statuses": [
+          "project_species_match"
+        ],
+        "sample_namespace": "ovis_aries:sample_locality",
+        "inclusion_notes": [
+          "The official ENA sample record supplies a two-decimal-degree lat_lon pair; this supports map placement without implying an exact specimen findspot."
+        ],
+        "latitude_text": "60.23",
+        "longitude_text": "20.08",
+        "geocoding_method": "direct_ena_sample_coordinate_capture",
+        "geocoder_or_gazetteer": "not required because the ENA sample record ships lat_lon",
+        "confidence_rationale": "The official ENA sample XML provides the source-native lat_lon pair at two decimal degrees; it is not claimed as an exact specimen findspot.",
+        "original_place_text": "Kastelholm",
+        "resolved_place_text": "Kastelholm",
+        "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+        "paper_doi": "10.1093/gbe/evae114",
+        "journal_title": "Genome Biology and Evolution",
+        "publication_year": "2024",
+        "supplementary_sources": [],
+        "project_accessions": [
+          "PRJEB59481"
+        ],
+        "primary_project_accession": "PRJEB59481",
+        "inclusion_statuses": [
+          "nordic_lead_site_curated"
+        ],
+        "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+        "source_artifact_kind": "ena_sample_xml",
+        "source_locator": "./SAMPLE[@accession='SAMEA112960291']/DESCRIPTION",
+        "source_support_status": "archive_sample_record",
+        "exact_source_text": "Sheep humerus excavated in Kastelholm",
+        "time_start_bp": 340,
+        "time_end_bp": 527,
+        "time_mean_bp": 434,
+        "time_year_bp": 434,
+        "time_label": "340-527 BP"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.97,
+          57.29
+        ]
+      },
+      "properties": {
+        "name": "Stora F\u00f6rvar",
+        "feature_id": "animal-atlas-feature:ovis-aries-locality-prjeb59481-storafrvar-sweden",
+        "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-storafrvar-sweden",
+        "site_record_id": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
+        "category": "Sheep atlas evidence row",
+        "country": "Sweden",
+        "layer_key": "domesticated-animal-localities",
+        "layer_label": "Domesticated-core animal aDNA atlas evidence",
+        "source_url": "https://doi.org/10.1093/gbe/evae114",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Ovis aries"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Mapped sample count",
+            "value": "3"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "ovis_aries:sample:prjeb59481:samea112960293, ovis_aries:sample:prjeb59481:samea112960294, ovis_aries:sample:prjeb59481:samea112960295"
+          },
+          {
+            "label": "Source-native taxa",
+            "value": "Ovis aries (tax_id 9940)"
+          },
+          {
+            "label": "Taxon alignment",
+            "value": "project species match"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB59481"
+          },
+          {
+            "label": "Paper title",
+            "value": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region"
+          },
+          {
+            "label": "Paper DOI",
+            "value": "10.1093/gbe/evae114"
+          },
+          {
+            "label": "Publication year",
+            "value": "2024"
+          },
+          {
+            "label": "Journal",
+            "value": "Genome Biology and Evolution"
+          },
+          {
+            "label": "Chronology",
+            "value": "3699-4151 BP"
+          },
+          {
+            "label": "Chronology evidence class",
+            "value": "direct radiocarbon date"
+          },
+          {
+            "label": "Chronology precision posture",
+            "value": "sample precise interval"
+          },
+          {
+            "label": "Temporal window",
+            "value": "Mid-Holocene (3001-6000 BP)"
+          },
+          {
+            "label": "Temporal comparison posture",
+            "value": "numeric interval"
+          },
+          {
+            "label": "Temporal comparison note",
+            "value": "This chronology supports interval-based comparison without implying more than the published sample interval."
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "archive_coordinates"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "source_reported_two_decimal_degrees"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "direct_ena_sample_coordinate_capture"
+          },
+          {
+            "label": "Coordinate gazetteer",
+            "value": "not required because the ENA sample record ships lat_lon"
+          },
+          {
+            "label": "Original place text",
+            "value": "Stora F\u00f6rvar"
+          },
+          {
+            "label": "Resolved place text",
+            "value": "Stora F\u00f6rvar"
+          },
+          {
+            "label": "Coordinate rationale",
+            "value": "The official ENA sample XML provides the source-native lat_lon pair at two decimal degrees; it is not claimed as an exact specimen findspot."
+          },
+          {
+            "label": "Source locator",
+            "value": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION"
+          },
+          {
+            "label": "Source support status",
+            "value": "archive_sample_record"
+          },
+          {
+            "label": "Source evidence text",
+            "value": "Sheep humerus excavated in Stora F\u00f6rvar"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "nordic_lead"
+          },
+          {
+            "label": "Nordic note",
+            "value": "This locality falls inside the Nordic publication footprint through direct Sweden sample evidence."
+          },
+          {
+            "label": "Interpretation",
+            "value": "Sample-level locality comes directly from the recovered sample source row."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Ovis aries",
+        "species_common_name": "sheep",
+        "animal_scope": "domesticated_core",
+        "support_class": "accepted",
+        "temporal_semantics": {
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "animal_adna",
+          "evidence_class": "direct_radiocarbon_date",
+          "precision_posture": "sample_precise_interval",
+          "comparability_posture": "numeric_interval",
+          "summary_label": "3699-4151 BP",
+          "temporal_window_key": "mid_holocene",
+          "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+          "time_start_bp": 3699,
+          "time_end_bp": 4151,
+          "time_mean_bp": 3925,
+          "duration_years": 452,
+          "comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+          "provenance_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+          "provenance_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+          "provenance_excerpt": "Sheep humerus excavated in Stora F\u00f6rvar",
+          "original_labels": [
+            "3699-4151 BP"
+          ],
+          "normalized_labels": [],
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "mid_holocene",
+        "temporal_window_label": "Mid-Holocene (3001-6000 BP)",
+        "temporal_comparability_posture": "numeric_interval",
+        "temporal_comparison_note": "This chronology supports interval-based comparison without implying more than the published sample interval.",
+        "nordic_inclusion": true,
+        "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Sweden sample evidence.",
+        "coordinate_basis": "archive_coordinates",
+        "coordinate_confidence": "source_reported_two_decimal_degrees",
+        "sample_count": 3,
+        "sample_record_ids": [
+          "ovis_aries:sample:prjeb59481:samea112960293",
+          "ovis_aries:sample:prjeb59481:samea112960294",
+          "ovis_aries:sample:prjeb59481:samea112960295"
+        ],
+        "sample_group_ids": [
+          "PRJEB59481"
+        ],
+        "source_native_taxon_labels": [
+          "Ovis aries (tax_id 9940)"
+        ],
+        "source_native_tax_ids": [
+          "9940"
+        ],
+        "source_native_scientific_names": [
+          "Ovis aries"
+        ],
+        "taxon_alignment_statuses": [
+          "project_species_match"
+        ],
+        "sample_namespace": "ovis_aries:sample_locality",
+        "inclusion_notes": [
+          "The official ENA sample record supplies a two-decimal-degree lat_lon pair; this supports map placement without implying an exact specimen findspot."
+        ],
+        "latitude_text": "57.29",
+        "longitude_text": "17.97",
+        "geocoding_method": "direct_ena_sample_coordinate_capture",
+        "geocoder_or_gazetteer": "not required because the ENA sample record ships lat_lon",
+        "confidence_rationale": "The official ENA sample XML provides the source-native lat_lon pair at two decimal degrees; it is not claimed as an exact specimen findspot.",
+        "original_place_text": "Stora F\u00f6rvar",
+        "resolved_place_text": "Stora F\u00f6rvar",
+        "paper_title": "Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region",
+        "paper_doi": "10.1093/gbe/evae114",
+        "journal_title": "Genome Biology and Evolution",
+        "publication_year": "2024",
+        "supplementary_sources": [],
+        "project_accessions": [
+          "PRJEB59481"
+        ],
+        "primary_project_accession": "PRJEB59481",
+        "inclusion_statuses": [
+          "nordic_lead_site_curated"
+        ],
+        "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+        "source_artifact_kind": "ena_sample_xml",
+        "source_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+        "source_support_status": "archive_sample_record",
+        "exact_source_text": "Sheep humerus excavated in Stora F\u00f6rvar",
+        "time_start_bp": 3699,
+        "time_end_bp": 4151,
+        "time_mean_bp": 3925,
+        "time_year_bp": 3925,
+        "time_label": "3699-4151 BP"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           9.77344984,
           55.02158609
         ]

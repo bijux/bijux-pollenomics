@@ -14,9 +14,9 @@
     "The shipped Nordic country outputs still do not support a country-localized claim for `Equus asinus`."
   ],
   "evidence_anchors": {
-    "country_species_coverage_rows": 3,
-    "animal_human_overlap_rows": 3,
-    "animal_pollen_overlap_rows": 3,
-    "first_appearance_rows": 2
+    "country_species_coverage_rows": 5,
+    "animal_human_overlap_rows": 5,
+    "animal_pollen_overlap_rows": 5,
+    "first_appearance_rows": 4
   }
 }

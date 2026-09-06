@@ -2,16 +2,16 @@
 
 - Public posture: `sample_recovery_still_partial_and_project_gaps_explicit`
 - Tracked projects: `40`
-- Ready for publication review: `9`
-- Blocked projects: `25`
+- Ready for publication review: `10`
+- Blocked projects: `24`
 - Implausibly low recovery projects: `0`
 
 ## Sample Evidence Depth
 
 - sample identity only: `0`
-- sample with site: `590`
+- sample with site: `586`
 - sample with site and chronology: `333`
-- sample with site chronology and coordinates: `527`
+- sample with site chronology and coordinates: `531`
 
 ## Top Gap Projects
 
@@ -34,9 +34,9 @@
 | `PRJEB81815` | `Felis catus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
 | `PRJEB36540` | `Ovis aries` | `minimum_expected_floor_met` | `0` | `chronology_gap` |
 | `PRJEB41594` | `Ovis aries` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
-| `PRJEB59481` | `Ovis aries` | `minimum_expected_floor_met` | `0` | `chronology_gap` |
 | `PRJEB61808` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB69690` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
+| `PRJEB81145` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 
 ## Direct Links
 

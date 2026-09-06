@@ -162,7 +162,7 @@
         line-height: 1.6;
       }
       .map-stage { position: relative; min-height: 100vh; }
-      #map { height: 100vh; width: 100%; }
+      #map { height: 100vh; height: 100dvh; width: 100%; }
       .eyebrow {
         display: inline-flex;
         align-items: center;
@@ -311,6 +311,18 @@
         font-weight: 700;
         line-height: 1.45;
         text-align: center;
+      }
+      .topbar-time-stepper {
+        grid-template-columns: auto minmax(190px, 1fr) auto auto;
+        align-items: center;
+        margin-top: 0;
+      }
+      .topbar-time-stepper .time-stepper-status {
+        grid-column: auto;
+        min-width: 0;
+      }
+      .topbar-time-stepper #time-playback-toggle {
+        min-height: 38px;
       }
       .basemap-button {
         display: inline-flex;
@@ -592,7 +604,7 @@
       @media (min-width: 901px) {
         .map-topbar {
           right: auto;
-          width: min(880px, calc(100vw - 352px));
+          width: min(720px, calc(100vw - 352px));
         }
         .topbar-note {
           max-width: 58ch;
@@ -1421,9 +1433,13 @@
           border-radius: 18px;
         }
         .map-topbar-main {
-          flex-direction: column;
-          align-items: stretch;
+          align-items: center;
           gap: 10px;
+        }
+        .map-topbar .eyebrow,
+        .map-topbar .topbar-note,
+        .topbar-search-meta {
+          display: none;
         }
         .topbar-row,
         .map-actions {
@@ -1461,16 +1477,18 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
           transition: opacity 160ms ease, transform 160ms ease;
         }
+        .map-status .status-pill:nth-child(-n + 3) {
+          display: none;
+        }
       }
       @media (max-width: 640px) {
         .map-topbar {
           left: 8px;
           right: 8px;
-          top: 8px;
+          top: max(8px, env(safe-area-inset-top));
         }
         .map-topbar-main {
-          flex-direction: column;
-          align-items: stretch;
+          align-items: center;
           gap: 10px;
         }
         .help-grid {
@@ -1491,7 +1509,7 @@
         .control-panel {
           left: 8px;
           right: 8px;
-          bottom: 8px;
+          bottom: max(8px, env(safe-area-inset-bottom));
         }
         .focus-card {
           left: 8px;
@@ -1541,8 +1559,15 @@
         .preset-button,
         .toolbar-button,
         .basemap-button {
+          min-height: 44px;
           padding: 9px 12px;
           font-size: 12px;
+        }
+        .topbar-time-stepper {
+          grid-template-columns: auto minmax(0, 1fr) auto;
+        }
+        .topbar-time-stepper #time-playback-toggle {
+          grid-column: 1 / -1;
         }
       }
     </style>
@@ -1561,20 +1586,9 @@
               </div>
               <p class="topbar-note">World is the governing publication surface. It keeps every published country inside one shared map and excludes Nordic-only context overlays that would look more complete than they really are at broader scale.</p>
             </div>
-            <div class="topbar-row">
-              <div class="basemap-switch">
-                <button class="basemap-button is-active" type="button" data-basemap="street" title="Keyless OpenStreetMap street and place context."><span class="basemap-preview basemap-preview--street"></span><span class="basemap-title">Street</span></button>
-                <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span></button>
-                <button class="basemap-button" type="button" data-basemap="none" title="Keep evidence and orientation controls usable without network tiles."><span class="basemap-preview"></span><span class="basemap-title">No basemap</span></button>
-              </div>
-              <div class="map-actions">
-                <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
-                <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
-                <button id="panel-toggle" class="toolbar-button" type="button">Hide controls →</button>
-                <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
-                <button id="help-toggle" class="toolbar-button" type="button">Help</button>
-                <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
-              </div>
+            <div class="map-actions">
+              <button id="fit-active" class="toolbar-button is-primary" type="button">Fit active</button>
+              <button id="panel-toggle" class="toolbar-button" type="button">Hide controls →</button>
             </div>
           </div>
           <div class="topbar-search">
@@ -1585,6 +1599,12 @@
             </div>
             <div id="search-count" class="search-meta topbar-search-meta" aria-live="polite">Search points and sites</div>
             <div id="search-results" class="search-results search-results--floating" hidden></div>
+          </div>
+          <div class="time-stepper topbar-time-stepper" aria-label="Chronology navigation">
+            <button id="time-step-older" class="inline-button" type="button">← Older</button>
+            <div id="time-stepper-status" class="time-stepper-status" aria-live="polite">Preparing chronological navigation</div>
+            <button id="time-step-newer" class="inline-button" type="button">Newer →</button>
+            <button id="time-playback-toggle" class="inline-button is-primary" type="button" aria-pressed="false">Play oldest → present</button>
           </div>
         </div>
         <div id="map" aria-label="World Evidence Surface"></div>
@@ -1620,7 +1640,29 @@
               </div>
             </div>
             <div class="control-panel-body">
-              <details class="control-group" open>
+              <details class="control-group">
+                <summary class="control-group-head">
+                  <div>
+                    <span class="control-group-label">View</span>
+                    <h3>Basemap and tools</h3>
+                  </div>
+                  <span class="control-group-summary">Keyless or no-basemap</span>
+                </summary>
+                <div class="control-group-body">
+                  <div class="basemap-switch" aria-label="Basemap selection">
+                    <button class="basemap-button is-active" type="button" data-basemap="street" title="Keyless OpenStreetMap street and place context."><span class="basemap-preview basemap-preview--street"></span><span class="basemap-title">Street</span></button>
+                    <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span></button>
+                    <button class="basemap-button" type="button" data-basemap="none" title="Keep evidence and orientation controls usable without network tiles."><span class="basemap-preview"></span><span class="basemap-title">No basemap</span></button>
+                  </div>
+                  <div class="map-actions">
+                    <button id="reset-view" class="toolbar-button" type="button">Reset view</button>
+                    <button id="copy-link" class="toolbar-button" type="button">Copy link</button>
+                    <button id="help-toggle" class="toolbar-button" type="button">Help</button>
+                    <button id="fullscreen-toggle" class="toolbar-button" type="button">Fullscreen</button>
+                  </div>
+                </div>
+              </details>
+              <details class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Countries</span>
@@ -1637,7 +1679,7 @@
                   </div>
                 </div>
               </details>
-              <details class="control-group" open>
+              <details class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Scientific resolution</span>
@@ -1683,6 +1725,7 @@
                     <input id="source-chronology-taxon-query" class="search-input" type="search" autocomplete="off" placeholder="Search source labels; use | for alternatives" aria-controls="source-chronology-taxon">
                     <label class="field-label" for="source-chronology-taxon"><span>Exact source label</span><span>all by default</span></label>
                     <select id="source-chronology-taxon" class="search-input" aria-label="Filter by exact source-reported Neotoma label"></select>
+                    <div id="source-chronology-taxon-shortcuts" class="source-shortcuts" aria-label="Matching exact source labels"></div>
                   </div>
                   <div class="inline-actions">
                     <button id="source-record-concentration-toggle" class="inline-button" type="button" aria-pressed="false" disabled>Show captured source-record concentration</button>
@@ -1736,7 +1779,7 @@
                   </label>
                 </div>
               </details>
-              <details class="control-group" open>
+              <details class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Evidence</span>
@@ -1754,7 +1797,7 @@
                   <div id="dock-layer-filters" class="dock-layer-grid"></div>
                 </div>
               </details>
-              <details class="control-group" open>
+              <details class="control-group">
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Animal aDNA</span>
@@ -1830,12 +1873,7 @@
                     <button class="preset-button" type="button" data-time-interval="50000">50000 years</button>
                     <button class="preset-button is-active" type="button" data-time-interval="full">Full span</button>
                   </div>
-                  <div class="time-stepper" aria-label="Chronology navigation">
-                    <button id="time-step-older" class="inline-button" type="button">← Older</button>
-                    <button id="time-step-newer" class="inline-button" type="button">Newer →</button>
-                    <div id="time-stepper-status" class="time-stepper-status" aria-live="polite">Preparing chronological navigation</div>
-                  </div>
-                  <button id="time-playback-toggle" class="inline-button" type="button" aria-pressed="false">Play oldest → present</button>
+                  <div class="search-meta">Use the persistent Older, Newer, and Play controls above the map while this panel is closed.</div>
                   <div class="search-meta">When a Neotoma source level is active, the slider, arrows, and playback use that exact sample, ecological-code, or taxon extent. Disable the source layer to navigate the complete atlas span.</div>
                   <div id="time-record-count" class="search-meta">Calculating time-aware records in the active BP window.</div>
                 </div>
@@ -1963,7 +2001,7 @@
         </div>
       </div>
     </div>
-    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"world","version":"v66","build_id":"atlas-adc7bef4554f9a50e252a8f009ec62af44c671b1ead5920d8e9c5edc45e9f291","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3"},"budgets":{"bootstrap_max_bytes":65536,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1506},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":6,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1502}},"assets":{"schema_version":"atlas-static-asset-table.v2","scope_slug":"world","fields":["domain","sha256","payload_sha256","decoded_byte_count","byte_count","record_count","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","scientific_signal_ids"],"record_count":69,"records":[["provenance","6c4f1932ce5fadb510803129d6e60d8f6be9e4283216788b2b1c6f51dabcbad6","b70084588618b4bf24aae1e6eda88f1c27404757acc185f4a50c0c5f8f2c6b9e",7353,2448,6,null,null,null,null,null,null,null,null,null],["nodes","c38a9027f249545bfff2135854918cbe249692ed46c2e59eaed48fa637b8cceb","a09aea626c48f61ca34df700414deddcd6d0b15d9da8d6e8a4ad677c2d8a9da5",1490376,80283,653,0,"aadr","point",["Denmark"],[54.623,8.728229,57.5065361,14.99854],73.0,10520.0,4,[]],["nodes","85f3fbbe570ae9cff4ecd941437c45ca9698a54d2f3ef0f74b9507575f90e6fb","ea2d1230c7784b839f3ab752938d2801aead09fa7d480697972f7b1b59c871dd",68075,3851,32,0,"aadr","point",["Finland"],[60.2,22.178,69.91,27.03],0.0,1688.0,0,[]],["nodes","24c80320bb6650933f1170b920ddcc1aff193f4da710c49c277b2bf24b8c3e8c","e3e37812bf38863b3debfac7ff516d389760c832946d7f2e0bf7324ab9d7ec71",296581,18195,130,0,"aadr","point",["Norway"],[58.064,5.126940543,70.117388,19.017706],0.0,9486.0,0,[]],["nodes","2149ea07c3912836d5688fe73933fbc37bb5a650fd49a27b5c0f7faea4f9d152","d223ddfa336221da2931d19fd0ea9a85e42d8cd954c3fbcb5552e7e93b80101f",957977,45915,416,0,"aadr","point",["Sweden"],[55.37774,11.3007,63.2,18.7],274.0,10010.0,0,[]],["nodes","2a3d1a1ac723447d70e692f0e0e74720c221a73599fd1ff60c5ef537d8856ef3","40744720a948cecfe51bde3a7af996feeb18f761915fa3ca11b4bceeff95a661",7206,3151,1,1,"animal-capra-hircus","point",["Aksaray Plain, Turkey"],[38.540978,33.771234,38.540978,33.771234],3833.0,3984.0,0,[]],["nodes","53301de1ed4fe6b645bd6e661eadde29e03922199f6e91c4729cb20f24c7dd9e","29ffe57245d83b846234cda8ba35c839eed5bb90d1a29a8ba425827577cb5854",7285,3159,1,1,"animal-capra-hircus","point",["Burgos"],[42.2853,-3.8335,42.2853,-3.8335],null,null,1,[]],["nodes","118bf430e8d099baf9babb5a6a18f495d639a34f13f15afe4c9fbb506d56957d","b9bcb78f6ac4cb3deb213a08ecaca4e345cd142922335aedbef5945676fdb2b1",7531,3175,1,1,"animal-capra-hircus","point",["China"],[36.584302,100.502975,36.584302,100.502975],3480.0,3580.0,0,[]],["nodes","30d432c7b657160b73e1c0b1cf08554ed96eebab87e35408da80ec6f22cd35b2","5427af41ca9bbee13cb0ce185bec4e773f07b38c73c32eb3845700163c76fe12",7547,3219,1,1,"animal-capra-hircus","point",["El Hierro"],[27.640201,-17.989809,27.640201,-17.989809],null,null,1,[]],["nodes","f807089650f7ef777c77236ad6ed5217993fa51bb5b1b7eab2a82fee76afd517","a3cba2ea11acf57fcc73d153251f14246be8e1a9bb1ca7b2d883b680c4f08a26",22997,4215,3,1,"animal-capra-hircus","point",["Fuerteventura"],[28.408761,-14.125189,28.665573,-13.899854],null,null,3,[]],["nodes","e99a92c1437079a83b908c13ee0d8e42d8d2232045ee01d03304a5381b2535b8","c6dba8a9f5b8f4847e5f2d77571acce806340193729aa4a111df13f0313535cf",36196,4880,5,1,"animal-capra-hircus","point",["Gran Canaria"],[27.8812894086404,-15.813492,28.151167,-15.381412],null,null,5,[]],["nodes","b3439cac668472844bc1322cf38e14674ff45a5675d9b3580eee0f1bba7dee4d","c2ef6d466b0cfe2cdd728726c1801ccb9255feb602a98ba0950df19c7fa229e2",22024,4116,3,1,"animal-capra-hircus","point",["La Gomera"],[28.085573,-17.323679,28.178344,-17.149227],null,null,3,[]],["nodes","6f1d64744c30374eeb6f1d6354076c7dbee1159102af371b62fe608e272946db","e4f86211732dc6e0adaf330a3c0da198c101b2798ca54478947b742aca445ed3",28264,4396,4,1,"animal-capra-hircus","point",["La Palma"],[28.552055,-17.9765,28.7924,-17.765601],null,null,4,[]],["nodes","c2d6a8bfde37221ce006b7141e3c2c7ca78205f0f114a6c1a211708619ba3495","373b73287ad3d6f20bc7a0cb369f69123e91a9f02a47e103709e3ac3c12f5c38",7281,3180,1,1,"animal-capra-hircus","point",["Lanzarote"],[29.078038,-13.596783,29.078038,-13.596783],null,null,1,[]],["nodes","130439156ab12e45fcf2f47055429977571424303bbd38606b524895741d4add","a6bb11ed00f76e79edbefeefc4ee67b0b9114f4d61822e39dd4ef2b9e4f380d4",7159,3148,1,1,"animal-capra-hircus","point",["Semnan, Iran"],[36.504158,55.000786,36.504158,55.000786],7939.0,8170.0,0,[]],["nodes","92a3c850c308321431afc1458b6dffc1b53908a6b655db2be60e2786787b20f6","c816607d72acaf352f85965b541a749954eb4fcd49d29265e8f0218fa1484bdb",7265,3160,1,1,"animal-capra-hircus","point",["Taurus Mountains, Turkey"],[37.8578,36.653883,37.8578,36.653883],13169.0,13316.0,0,[]],["nodes","5aa9018c83fa6c25b9b62894027c0a68e4f6c2b75732c2c20024585ae313b903","6d60ed2acc77cae5e34c5692c5567a20e5d02067659e40b1f2ef1748d532b3ae",21259,4000,3,1,"animal-capra-hircus","point",["Tenerife"],[28.0842,-16.5289,28.422,-16.3133],null,null,3,[]],["nodes","80ea3be9c7c0578dc23af477219b2c9ea3913838768eca26c2206931c640f5c5","eb40d548e7d542e2d7665ecd4d6defd79fbb9cb4a80895592efe5f6bb399fc4b",7151,3152,1,1,"animal-capra-hircus","point",["Trstenik, Serbia"],[43.723286,21.099449,43.723286,21.099449],7840.0,8030.0,0,[]],["nodes","c54401ebb7d4c2d5f689105f74a32ff6fde2042693a5ffb2de920a3e9b6b9420","a4c10545fc36278eb78f407a1b3c9e8a55dbfeacc0bd3c427304383a5d24310b",7177,3156,1,2,"animal-equus-caballus","point",["Austria"],[48.451361,16.599992,48.451361,16.599992],2535.0,2535.0,0,[]],["nodes","dfdcbb9e59a9730396f20f4888d98df5020bbc01d4cf9f01cfee4cc466024fb4","b6f214264ebe134bb60ac60027f9657b7902b52d2dfdda41e8bf85d452d8fed4",7243,3152,1,2,"animal-equus-caballus","point",["Belgium"],[50.44667,5.00911,50.44667,5.00911],31750.0,35870.0,0,[]],["nodes","558ab8cd6afbd0ff5536fa140c780cf1a060a33b853275a3d4a6727f7712d606","e0b6e108174d452fd00cc7fbd28d2e4b3b0507b3e2433e02eb8d338fdd8d9ffd",6919,3088,1,2,"animal-equus-caballus","point",["China"],[36.8406667,101.9584722,36.8406667,101.9584722],2820.0,2820.0,0,[]],["nodes","d1c23159657b43277a1b06cd9cabf447b55baa85ce07e60f87179026c3cbb1d3","6047aecbc9dd36cf6aaca2505988482cfeb0b2cc2e1a7102adddce0642de560e",13846,3568,2,2,"animal-equus-caballus","point",["Croatia"],[45.1973255,18.8414917,45.3325281,19.2624907],1187.0,1305.0,0,[]],["nodes","3da5a799e421ebd2d79a36fae796f47ce5f902879585bba5ef03f93b2ca43c3e","8dd53442fb1700a689f460d515d71d0ceeb00eccc1df13dd964cb97bece03652",69784,7008,10,2,"animal-equus-caballus","point",["Czech Republic"],[49.19081,13.74354,50.36361,17.15314],2574.0,5186.0,0,[]],["nodes","bcaa262c61a33c2a45c5d57f0bf2ea75433b0a99dd5324d2cd327f3d2b7a237c","b47ff8048fb610f46c08966a0d8ec769c51e51035f30be4b9b9a342bd89ec218",7085,3104,1,2,"animal-equus-caballus","point",["Denmark"],[56.41134,10.74481,56.41134,10.74481],4944.0,4961.0,0,[]],["nodes","1ea49df4e92a492dc0d963a43f04ecb64f9d9e161c2c217ddc1bb9dbbe4e46c2","2cd0c16ab8e096ef8e29597484bc818e2dafe5d189f478218c3153078a2f4ee9",34086,5064,5,2,"animal-equus-caballus","point",["Estonia"],[58.058048,23.016137,58.5431999,26.6781],1017.0,2817.0,0,[]],["nodes","29899000225c6d4d45c595a01fede0d669a3fd95d08dc7261b272e341e8b0489","3444aa228199188db34a62c613fe704edd032e64f9671482788b6da6dbe840ca",132094,11396,19,2,"animal-equus-caballus","point",["France"],[43.3667,1.1589729,50.31503,6.172751],217.0,23605.0,0,[]],["nodes","b3fe2281618a457a4d6209c02d8a82a026d9b0c5f41df53f5e7c65e28f962559","a59e5c80d9ba7c605fddfaba59c5675d9ede510893a2bd57a26c586153b3a0d0",13592,3576,2,2,"animal-equus-caballus","point",["Georgia"],[41.466667,44.62016419,42.74016371,46.016667],17.0,3604.0,0,[]],["nodes","18552cad9e9c56fcda9fe8ef31cb2baab2fa18ee63a9daefb2a741e39b5d5908","646f48f563ea9291115fe8ccbb8f4a08dddb5c37735469d0492294be8880ef71",34241,5120,5,2,"animal-equus-caballus","point",["Germany"],[48.3079118,8.26,51.104,11.145],1373.0,4669.0,0,[]],["nodes","504bc8270d97bd34dc28840fee54e167d6b0f3279e61ba2f1879033227ce4423","c8006d76e9c5e02588ec9bb2d32538d556f30bc062bf9b12bf2f77f90613af01",7057,3124,1,2,"animal-equus-caballus","point",["Guadeloupe (France)"],[16.049578,-61.569156,16.049578,-61.569156],317.0,517.0,0,[]],["nodes","3c4bc90c7f3bf9617724c00a34ae35f4d5e0e6eec64337fb5c47da537f5ffc77","f645593e9c1f20ff83d3fb66ee194a49f6ae7acb9def3b2187814824f52f4b7d",13867,3848,2,2,"animal-equus-caballus","point",["Hungary"],[46.362,17.731,46.9619059,18.9355227],4077.0,4408.0,0,[]],["nodes","359a10ea1739f797bcc451454fcb2e8beb7e71568f182d319b040b6c76945a7d","77af21a180142ef78ff9d04c133ea70ca83c8e0673a5a73a940d5f704f0c0809",13159,3324,2,2,"animal-equus-caballus","point",["Iceland"],[65.268,-22.117,65.53,-18.24],917.0,1217.0,0,[]],["nodes","c139783911c9226b72e59daccd8e1ca93b1b9253a57346d09b31802c400f1525","6b297308b8530a43b3b5ee1506c6d51297872e3795867fdfd8da66652ac99e53",48346,5964,7,2,"animal-equus-caballus","point",["Iran"],[34.730428,45.458817,37.0424531,57.4715652],485.0,3117.0,0,[]],["nodes","84d7c52acac4b79ccae9ab5458817a5b1a914c43998e618dc6a547e010e8e193","dd998b6486538feb6648e2646c825d67ebadaf7ac2465089cde9c6bd48556ca2",7140,3144,1,2,"animal-equus-caballus","point",["Italy"],[42.249167,11.756111,42.249167,11.756111],2607.0,2607.0,0,[]],["nodes","ed8402f80823d70318082373b65329c0fc53622b155598bc84a1f0487d1eb381","5b6d1f60394008f9bf3d601aab7475e9e6accb84bac5094c106f74451b0f32f4",155424,13184,22,2,"animal-equus-caballus","point",["Kazakhstan"],[43.1836111,18.8838649,53.325935,86.4272922],1143.0,12408.0,0,[]],["nodes","014193a75e4292e69e73766c1f7c086de4759df9f78b1cda7604d86ce262f83b","e0be0fe3498c510ab85d4d7baf825c4c6d79612bafd489ede17ae1ccd548dec3",6957,3108,1,2,"animal-equus-caballus","point",["Kyrgyzstan"],[39.9983333,71.0733333,39.9983333,71.0733333],1217.0,1217.0,0,[]],["nodes","aa56c8227ab69073b8c2c538be008826df441c44a7244539288cf04d3ef2efe8","dec19dccb555eb97d91943f6d6c180ae28fcbeebc4072a1dd2212a9a07860a61",7773,3208,1,2,"animal-equus-caballus","point",["Lithuania"],[54.89674,23.87248,54.89674,23.87248],1087.0,1189.0,0,[]],["nodes","8f896f7cb0e5e3e3d7bd2c38d480a6b84d7f19f3cbc7a0e01a5e1749d66d7d30","19f0355a600c7db5a1259e225f1b258312e351a0b3297f1234e5960ddb9fee13",20630,4296,3,2,"animal-equus-caballus","point",["Moldova"],[47.986875,27.169232,48.159923,27.790131],3017.0,4013.0,0,[]],["nodes","388e8f13cf63ac4dee7b13205586872710b34ac47986c48b717aaafb289c942a","49d1e5ac8f4c402b659e906cf669041b10483d584965135ccdc6e793aa21f29b",138509,11348,20,2,"animal-equus-caballus","point",["Mongolia"],[45.0997222,88.3488611,51.421361,112.7196944],649.0,3130.0,0,[]],["nodes","c23505bc42d6d0c735b629e21dc415f874553e5d5df47de9bb234e637fa99501","58976dac87df2296924a19b0042ef9db20b8816da16fa2f5086826f4584406f5",34983,5244,5,2,"animal-equus-caballus","point",["Poland"],[50.143,16.562,52.007,20.51853],2599.0,5751.0,0,[]],["nodes","25456127d81541f51cdb002599fb60499a926954f70368069845b623d24d5f91","477f107dbdaf547f6591fbb13f3d82e7b2e2e4ab0d4fcddc788d3f0ed552f17d",13864,3892,2,2,"animal-equus-caballus","point",["Portugal"],[39.0744,-8.692,39.241,9.2857],817.0,4509.0,0,[]],["nodes","229d8f655eedd1c3e94700d471d34b77dd80f4749561945620c85fbb75f1ec2e","c1e20b5a9db88e82f4b11ff7ba08b814bcf1a052acc135e2b3469bbed5e625b0",27834,4880,4,2,"animal-equus-caballus","point",["Romania"],[44.067779,22.0079387,45.807945,26.4696],3574.0,36751.0,0,[]],["nodes","d88b56665148b781f87e2852a0cbdf36215081394f567c2028c5375db8f2a613","9283235ed9c42485418f168cbcb07bf1dabd82e767a44d3c755f5527885725a9",365279,26460,53,2,"animal-equus-caballus","point",["Russia"],[43.79028,8.85,73.046,142.821769],192.0,52200.0,0,[]],["nodes","2138c307579a08cf242ce599edd7f02ef692fa57bb6bbdda6352c15d9ce2ace3","bdf2dd7bd29cd769fce1a789486d3ea52de6ea6fda85fe5d7ac9b5c1f68a15d8",13887,3896,2,2,"animal-equus-caballus","point",["Slovakia"],[48.069502,18.200384,48.655,21.268],1217.0,3633.0,0,[]],["nodes","793192588b612662e6fbb5f3e6655359fea37532e244f9cff57a4e480bb81739","d86976f4b64d82bb240a50b5a4a85aed14f2cbf90c7c7fa5626e6d3aef17224f",67905,7312,10,2,"animal-equus-caballus","point",["Spain"],[38.0982811,-7.5592897,43.0092829,6.064916],1617.0,7130.0,0,[]],["nodes","b45b646b7a1b2a0d51ecd1d68d8afae1a6a97e2f4c58f6fc1f6a9ebb025be090","58ac00bdeb65efda2c53df138604ebf3c9a5466ff04ae5bedeffa907ff5f801c",6669,2988,1,2,"animal-equus-caballus","point",["Sweden"],[59.861,17.639,59.861,17.639],1217.0,1417.0,0,[]],["nodes","8b962bb8b7868d36256924a94eb6a8f6a355c556fd9c9b2fdfe408b0c1d79d4c","29baa5341864b404bf5d1663ce337ad241a545098f0da4c328a589f35befede6",27434,4260,4,2,"animal-equus-caballus","point",["Switzerland"],[47.2333,7.5167,47.65,8.85],1617.0,2017.0,0,[]],["nodes","3dcee439b00843d86305c044a060f8883f22cd3e96edd9fdef5816b320176dbc","46d777c8966061bb13e962b08177b95feab3c9d706d2b0756553349a5a547065",7363,3204,1,2,"animal-equus-caballus","point",["Tunisia"],[35.873429,8.78621,35.873429,8.78621],2531.0,2610.0,0,[]],["nodes","10c67264993f9f9cbed59111741268355f2f159896f285daf5fb63638ff538a4","e7b848b45b4564d39afc482fa93583166a19bb1d3492d7a329470cb8361c7050",36657,5652,5,2,"animal-equus-caballus","point",["Turkey"],[37.847803,27.225306,41.721357,35.1436],1156.0,8269.0,0,[]],["nodes","73ed71be02586907c9cc33d80a8dc265f50d55386e0f807c193f45152620061b","761c72d13c57e4bb64b89c0eb1db17cb6d4d924b73a5c60f750fd7eabf477204",7214,3156,1,2,"animal-equus-caballus","point",["Ukraine"],[46.86888889,35.43305556,46.86888889,35.43305556],6135.0,6135.0,0,[]],["nodes","88c49ec2f6cbedb4fbc5fcaac947e90020a960f903619f34ce2184f251bde34b","9d8c199ca582559688ba2b14bdd415ed06f31db02bc4766c3cb03484129bdf9c",48412,6124,7,2,"animal-equus-caballus","point",["United Kingdom"],[50.467709,-2.97,59.337156,3.502667],117.0,14616.0,0,[]],["nodes","ecd5a1589c6e6a8c344e57c1c6fbfb3469e240533e3ab9f72fc6b33ed569035c","924dfe8b92bd33a670e4e83348f24a9ad0efe1445820b63cc0b6148ab176cfd3",6875,3072,1,2,"animal-equus-caballus","point",["Uzbekistan"],[38.867278,65.800161,38.867278,65.800161],2853.0,2853.0,0,[]],["nodes","3d26ae7911a74dc9f562c41079b25b37e7c7aa137ed6e72f195c4c7f6495992b","5a780c0825450357814ccb785af3df77136c87c071f7ff398b298d57275a3e03",35195,4600,5,3,"animal-felis-catus","point",["Austria"],[47.8,13.05,48.69,16.87],null,null,5,[]],["nodes","2b230b63435a5635d23f6994f60101a074a14d721164aee269a000e39ba83365","128b038115f4d5f6244a06baec7c8ca8eff373cd0923629ea9c9e393b8cbd451",14630,3732,2,3,"animal-felis-catus","point",["Belgium"],[50.78,4.35,50.85,5.46],null,null,2,[]],["nodes","49be5272b65934690485bfb3dcc035a2d061652c728070e4343927695034f995","04c06b22b20355555ece4c7131862d5e8c79f8500c430c35a76b55b74b4e840d",14851,3624,2,3,"animal-felis-catus","point",["Bulgaria"],[43.41,25.88,43.7,28.54],null,null,2,[]],["nodes","04d7b58c2715595f179892f535100022ffdfbb1194143c14728ae0bba335c697","3f65ac5cd648ff37d7265264f74ba233502527fe12aaefdada8ca4b95572ca8d",14220,3496,2,3,"animal-felis-catus","point",["Germany"],[53.1,8.83,53.1,8.83],null,null,2,[]],["nodes","7039b8ebb84e4f851e728838a304e84b486635db2c59cfb0ba8881b14f481011","de34d34a0949ff5dfeaa080612538252aacb541b4799040ab8032dd1084a7abe",7582,3288,1,3,"animal-felis-catus","point",["Greece"],[39.15,20.67,39.15,20.67],null,null,1,[]],["nodes","10854d7bde84fd3dbd0458bbfa3a13f1290362d8865abc224d876d94d3c4cf81","ddb8eee3ff6613647dcd8928a8f7f5ce242d32e3dd3858ff553223a1d1cc13ef",99286,7560,14,3,"animal-felis-catus","point",["Italy"],[39.69,8.33,45.41,17.99],null,null,14,[]],["nodes","f1408b92b788809565e9918f14bad660a091d5154f162edd28147e81d6c1d2ef","90c28172b501a86abe5dcf7f9fd84bbbe86f1ab18d2fe4f3aab4c548937089cd",14317,3560,2,3,"animal-felis-catus","point",["Portugal"],[38.57,-9.14,38.71,-8.9],null,null,2,[]],["nodes","9b5ee9b8160b04dbc3594390d1b7ad2d3199ab6d28b723f8dc762d82b246ff26","7ed7d66345b866c806744b7f49eefeae0d97fa8adc23aa52170e8e958272c4cd",14704,3684,2,3,"animal-felis-catus","point",["Serbia"],[44.74,21.23,44.74,21.23],null,null,2,[]],["nodes","ecdf0213f74a37033264b566640ccc99c7508c7fe825850efc80bd24c5770803","b5e3de7513b6bfa951715998512f99f5bba909a8c26a74a40f175942c67041b7",21700,4100,3,3,"animal-felis-catus","point",["Spain"],[37.05,-2.78,42.58,0.53],null,null,3,[]],["nodes","bc31997a85448b0892b6ef005e8e738924a7bb9fc343b4e96589aab44d16d5ac","1c321b03b61c68f2fa9f99488250624bc43c2437913e842106e95f86802aac0c",49822,5272,7,3,"animal-felis-catus","point",["Turkey"],[37.21,28.95,41.0,34.23],null,null,7,[]],["nodes","0ab77e64ccd17b6f9c8085190cf2497888b65cfccdbcc81a09e0f707e6e5e68d","4717fe2741b8e44ca36379d4c90a9c21b77930ab47c1ab7d3dde36fe1595ad8f",16719,4268,2,4,"animal-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],null,null,2,[]],["nodes","649c2d4164004ed5a8172889056cd133b08f7920e77487443bef358f4d5e0834","c8277e13a6a311c15ffa392605fe8f543a12d1a1f213bb2f45ac67da514e2052",47141,23436,1,5,"country-boundaries","polygon",["Denmark"],[54.56859,8.094005,57.751166,15.151378],null,null,1,[]],["nodes","1af8e24c466a4e672fe9d76d272dbb8ad3a3684c1d290868c07bf7ff3baf336c","3628a92739d819807061ccabf03c7115f2249ccc9e2cd6e6209cd0e1237d2c71",70881,35308,1,5,"country-boundaries","polygon",["Finland"],[59.811225,20.623165,70.07531,31.569525],null,null,1,[]],["nodes","0036493a04125e2fed3e2f1f18ba5360d3558b924985e6811141ffcf1bf66f2d","77e6cbf01dd5968404f4631ff7a63f28ea2f530c0bf96e39f025c62dc80d37ad",341276,165780,1,5,"country-boundaries","polygon",["Norway"],[-54.462498,-9.117421,80.770087,33.640391],null,null,1,[]],["nodes","66745d320054002f074dfa9cd70dc39a15013e18a3ca7bf7db1bd3927df5b2d9","af97d85652c5ebcce95f2767a832e31c21c4be6116db68a4bad7a043a1b29141",102300,50008,1,5,"country-boundaries","polygon",["Sweden"],[55.342678,11.108165,69.036356,24.163414],null,null,1,[]],["edges","e2b671c81646d914cc714c498382bd60e9291cdecae85181a9404276fff226fe","eaf3155304d43227304b6d65d4a20ba4855a2d60178b3eda9cb19db6c196d65b",275,583,0,null,null,null,null,null,null,null,null,null],["sequences","f5fc3279827e80e06d4ad70bcdcef1f307c4e0536cebb0d0516fbf1e3aac1170","7f9e44e625e0603658268357e3ecfb0116fba113420c4eff7cdf54e345adac44",290,602,0,null,null,null,null,null,null,null,null,null],["indexes","ce31bd98858e792b31a78cd51e2060ec8ee33066a180c8b21eb9c8ac0d80fbc6","8a723181c6896b02b986aeb3e8daa5978bd3bed302ac2c92853fda0d5918d1ca",23470,23890,1502,null,null,null,null,null,null,null,null,null]]}}</script>
+    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"world","version":"v66","build_id":"atlas-35aa50cd64a148b15c90954748785691ccd4816c435fcf3bd29eed678eb71781","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3"},"budgets":{"bootstrap_max_bytes":65536,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1508},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":7,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1504}},"assets":{"schema_version":"atlas-static-asset-table.v2","scope_slug":"world","fields":["domain","sha256","payload_sha256","decoded_byte_count","byte_count","record_count","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","scientific_signal_ids"],"record_count":71,"records":[["provenance","8a54be9af6571af3e1580b2c6162a2b14e07fb39218be45ee27f8eadb97fb14c","7784bafbf4a5fde2d254845a8802141b0e446978a7ff046fb61282ae6502c46c",8636,2612,7,null,null,null,null,null,null,null,null,null],["nodes","7ef115c3783ea1fffd29d8a875b8b1ea5d08804f90ec4477a8a023688c57c3dc","d0b9a1654208b5d515b2581810e743f1beaa1d3c5a23f991071fb2d7f7e7c152",1490376,80283,653,0,"aadr","point",["Denmark"],[54.623,8.728229,57.5065361,14.99854],73.0,10520.0,4,[]],["nodes","a52500f199d3c263a973af16ce747202fc26d052dae5134a9f1c3a52b3c8e886","6461d77340477973de598ccad148f9c4d9c9cce24d46f4539b7461db0f921872",68075,3851,32,0,"aadr","point",["Finland"],[60.2,22.178,69.91,27.03],0.0,1688.0,0,[]],["nodes","c109ddc864efaad99cc587c4638c5b012294f61b37949f97c5fc5b0e83e185ac","7a0619345172b7285b139ae3c0e952420741558bee1dfdd6964692fec2757d07",296581,18195,130,0,"aadr","point",["Norway"],[58.064,5.126940543,70.117388,19.017706],0.0,9486.0,0,[]],["nodes","a367c3bcefbf44dc5ae60ca80de995230b5a4b41f9ca6c353fda2f4816a5d671","a82f844fcf0476d7676007a4bcd6c8cfa2e1fa8b79a3060e350ae4635e3d6fe2",957977,45907,416,0,"aadr","point",["Sweden"],[55.37774,11.3007,63.2,18.7],274.0,10010.0,0,[]],["nodes","ed5858e8858cd027ae92f8a0948bab8c3943b28729f982f03d477e7e6816f930","64b0560fc853847812d8b7d0c758fe4a456ea709690b014828b74a34c3cf116f",7206,3151,1,1,"animal-capra-hircus","point",["Aksaray Plain, Turkey"],[38.540978,33.771234,38.540978,33.771234],3833.0,3984.0,0,[]],["nodes","fb7372f91e5552471cceefea15e67015d62059eef9b651adb9103e70e47eb059","4ba0f26036150d0dd818bafa33527698fb99c4c0cd2bbbfbc068bf134b45f70e",7285,3159,1,1,"animal-capra-hircus","point",["Burgos"],[42.2853,-3.8335,42.2853,-3.8335],null,null,1,[]],["nodes","844efebcfc6b1e947d1db1d621a9209aa7b297d718ec5566d1f2fea8fe5676ec","c4be62d510454fec385f20440abd27037b4abcbbc5597b3d4806218e90d8f4cc",7531,3179,1,1,"animal-capra-hircus","point",["China"],[36.584302,100.502975,36.584302,100.502975],3480.0,3580.0,0,[]],["nodes","4a9fad1f755ffb1d57f376cc086f8dca40a56a9a78a5351322e9d7a3bdf6ea0d","91f55e1d16bde3af7cf74cd21c9f964fad1924edb20b629466e36bd35b3b0372",7547,3219,1,1,"animal-capra-hircus","point",["El Hierro"],[27.640201,-17.989809,27.640201,-17.989809],null,null,1,[]],["nodes","7d6fc760dd1fb09012ca55462de07a38269726be8955aa581d9acf0b9276e5ba","c43ea1a793816ee16bf9a7804525945f6c8824066db217e9314497fbdf6b5275",22997,4215,3,1,"animal-capra-hircus","point",["Fuerteventura"],[28.408761,-14.125189,28.665573,-13.899854],null,null,3,[]],["nodes","a8581aeed56612502ffc46a242c9c1a4b310cbbf89795733ddfa6c386fae2a09","633222a7cec69a450d5aa198e393614ca160623fb7a44fc18c6211367739522a",36196,4876,5,1,"animal-capra-hircus","point",["Gran Canaria"],[27.8812894086404,-15.813492,28.151167,-15.381412],null,null,5,[]],["nodes","e919e55425d09e3842c1030cfe20c3a3a39c3d8fa9289873fba9e2639a2e1ff3","fc4893a38869d7c7da840a7480a9782862df0f69ed0a8d42456847688e0bd6fc",22024,4116,3,1,"animal-capra-hircus","point",["La Gomera"],[28.085573,-17.323679,28.178344,-17.149227],null,null,3,[]],["nodes","47a5f928e4ac230141e764c8dd2e1059e2b40ff62e11cac4fc427329d0465b4a","51a88329a3f44c836079900964e1de31e35a68ac50e323e5551e1e7ae4458d08",28264,4396,4,1,"animal-capra-hircus","point",["La Palma"],[28.552055,-17.9765,28.7924,-17.765601],null,null,4,[]],["nodes","cb176135609a1af5fc4191049b80c7552f342c27fe2a71864bed3935044ed1f0","7c8d82b0bbabd6a98a0742e50e9cdd2d550a0bdfe2df3e183c4800b19ce65d43",7281,3180,1,1,"animal-capra-hircus","point",["Lanzarote"],[29.078038,-13.596783,29.078038,-13.596783],null,null,1,[]],["nodes","bd2ddb2a85f2b145854a47901f3e93949c1e0d36d1e5dcf7d12b346a8f181c15","b5558a673433074264b61cd3c2979c031737093b55841c9d87fed6bb1af2cc64",7159,3148,1,1,"animal-capra-hircus","point",["Semnan, Iran"],[36.504158,55.000786,36.504158,55.000786],7939.0,8170.0,0,[]],["nodes","9034c9b7019b547b8726cb121d10990833222204b70c16b6287d79e3b2571bf8","e1633860d5cc18eed70526f437cbeedbaf222de439282ea18c80f12572dfb911",7265,3160,1,1,"animal-capra-hircus","point",["Taurus Mountains, Turkey"],[37.8578,36.653883,37.8578,36.653883],13169.0,13316.0,0,[]],["nodes","f0302b89d66a59ea55bb5499989729e78bbe46cfe0f48b63529e707dcee7f82b","baccc91ac2558d044c6cf8cf77658deda90ffee1e15fe710e4935a85eea55873",21259,4000,3,1,"animal-capra-hircus","point",["Tenerife"],[28.0842,-16.5289,28.422,-16.3133],null,null,3,[]],["nodes","56bfa59cac2c01b5a03062b506baecdb121552d4e209ddc7188f5c704157f875","3228900ad09cd44288ad7294489605038e66099c97296a612cdecc4af14111c4",7151,3152,1,1,"animal-capra-hircus","point",["Trstenik, Serbia"],[43.723286,21.099449,43.723286,21.099449],7840.0,8030.0,0,[]],["nodes","175d42d6ba400f93f966b74aaf32794c8825cbfaad2218991fe5204c0be4df81","ea6555fde054209eaecbcd9968547449a274b739d55548996c92c7353fc47688",7177,3160,1,2,"animal-equus-caballus","point",["Austria"],[48.451361,16.599992,48.451361,16.599992],2535.0,2535.0,0,[]],["nodes","cc9d730dc89687cfdc69b8180037a8460b8f958bab28f92d3e0e57059e8302e1","e811ca86b412eea78a1a727dc83e040b0a2e89a9a386f41e696ea37f1b252c1e",7243,3152,1,2,"animal-equus-caballus","point",["Belgium"],[50.44667,5.00911,50.44667,5.00911],31750.0,35870.0,0,[]],["nodes","817a8310960e2fc893c038c526dafc3ce8dbd58c298b48b45e352c629514afa6","b7d27dae30c6e673e9aa046396ef69db46f1215aed6f9e7acfc32c39f86a62f9",6919,3088,1,2,"animal-equus-caballus","point",["China"],[36.8406667,101.9584722,36.8406667,101.9584722],2820.0,2820.0,0,[]],["nodes","580df92bc50036ee2593a39e10f0b34fd6f864694781c05ccf6cb2ea133e32ef","cbf70d0741fd7e276eb8ca84f806b4bcebde9f180f1126ac0a70b3e00d0909cb",13846,3568,2,2,"animal-equus-caballus","point",["Croatia"],[45.1973255,18.8414917,45.3325281,19.2624907],1187.0,1305.0,0,[]],["nodes","805d78a8fa20d146d3ec1e01edd8ef840c151647b7e6551fa6c88e4f3b368644","1357311759922b75aac1cc7332304349918b287b8879eaee87f1d7579f74e09a",69784,7008,10,2,"animal-equus-caballus","point",["Czech Republic"],[49.19081,13.74354,50.36361,17.15314],2574.0,5186.0,0,[]],["nodes","ae1f469062e3e99ceb4d1f8a7467f006dc91e310879df53b7a1d8ec9addff324","9fcc455fd512a25016f2b19516bad7fabf6b512a7e3605a78b7d697bf341ecbd",7085,3108,1,2,"animal-equus-caballus","point",["Denmark"],[56.41134,10.74481,56.41134,10.74481],4944.0,4961.0,0,[]],["nodes","a9420c0f4613854e796cc5f3b70e246d9a2fcb03002ebcacdb1413a6d4b887f6","0b28bf3d527321719f1114e07da605ce323ba2dd016f637c4ef93e7658dfef61",34086,5064,5,2,"animal-equus-caballus","point",["Estonia"],[58.058048,23.016137,58.5431999,26.6781],1017.0,2817.0,0,[]],["nodes","0e62aa2b8124f5502197dcf46cbca5a165651fdca9b2e1f070404514a1a9b9b3","94a2c0d46cfa13ea1385b8d7d0902e094e99fbdabf649a72c07f8a5c1aedba14",132094,11396,19,2,"animal-equus-caballus","point",["France"],[43.3667,1.1589729,50.31503,6.172751],217.0,23605.0,0,[]],["nodes","dfe23f8b900d59c70874c43399c82de16141ebc69d024bb653d9e7ece700dc99","eeee394e2d67003b64a4b41bf4df989342d88a76266b349ae62552915b945ec3",13592,3576,2,2,"animal-equus-caballus","point",["Georgia"],[41.466667,44.62016419,42.74016371,46.016667],17.0,3604.0,0,[]],["nodes","4e19d60b73ccd4f427bab29d5286797276eba5cc5841969c98a59b80e74f6115","b1edbe7d99c3c94192c8cd23e242713e5ed6ff53588b45282371ae1aca8e0f0c",34241,5116,5,2,"animal-equus-caballus","point",["Germany"],[48.3079118,8.26,51.104,11.145],1373.0,4669.0,0,[]],["nodes","1351914efd2d1256f21d32b89ebfb3e4942624991142279d22549b1c33559169","7e7c167203027c54a7d3954dc7c41b506219fd74fd274e5d263d24e59590fd09",7057,3124,1,2,"animal-equus-caballus","point",["Guadeloupe (France)"],[16.049578,-61.569156,16.049578,-61.569156],317.0,517.0,0,[]],["nodes","973f384f8f68072991a138e59a2a5eaa9182d865f8490329753fea8606d9b5fa","58e4a8b4bb10e9aca7b3e1d8f5643f2c65c378a0d2868d7dcc19d212cfde9006",13867,3852,2,2,"animal-equus-caballus","point",["Hungary"],[46.362,17.731,46.9619059,18.9355227],4077.0,4408.0,0,[]],["nodes","5871ea2a510bc7ad567e4c2bf85f3042df6affe77eba6b276194628ca3c6d4e2","33225d5419a8e676b0493303cc3a6b8685ad4de690bc3ce37995c8c3b47a67b7",13159,3324,2,2,"animal-equus-caballus","point",["Iceland"],[65.268,-22.117,65.53,-18.24],917.0,1217.0,0,[]],["nodes","a04d08615c4f9c416c9215d9c6ce3e9ee0c4ad81b12013085d08fce176d850ca","2970fc0473082b96c896d30de1b85764d4a574fed010bd3f6706089bf5ac6425",48346,5964,7,2,"animal-equus-caballus","point",["Iran"],[34.730428,45.458817,37.0424531,57.4715652],485.0,3117.0,0,[]],["nodes","d62fe163fd76dd0b9a2ff60b56198c4f558d07ec24156a1778c0a75b068f8579","091eb9ee372bcaf884a45f1be6a9b98357b28cdd32319a1f598a7ca29e81d040",7140,3148,1,2,"animal-equus-caballus","point",["Italy"],[42.249167,11.756111,42.249167,11.756111],2607.0,2607.0,0,[]],["nodes","3ce8a4056f4d5846db847845633d11824480fed668b0069f575f209f09f243c0","d0d6842de5df6884acf35945018b3853af65ed518600aa641cc20f944ed3809a",155424,13188,22,2,"animal-equus-caballus","point",["Kazakhstan"],[43.1836111,18.8838649,53.325935,86.4272922],1143.0,12408.0,0,[]],["nodes","ce607a0f0d49033fbbb736fbbf868cf30a576f9a9198f1c5fec83defe0922f90","45a6481a8c870b32f42d09d62f4b6b05c10de2294e72812d34901370e6d23a15",6957,3108,1,2,"animal-equus-caballus","point",["Kyrgyzstan"],[39.9983333,71.0733333,39.9983333,71.0733333],1217.0,1217.0,0,[]],["nodes","6867503e9c65913bc7e79548b1132af1c34d0c85b27f6e40d51466daf6cdc128","446ac28de1a38e6776bad6ca02cc268fe7055084adcc47670a8ada4d34735f0c",7773,3208,1,2,"animal-equus-caballus","point",["Lithuania"],[54.89674,23.87248,54.89674,23.87248],1087.0,1189.0,0,[]],["nodes","947e5a3f2e9b7fe8ce7a3b8eff53369aa460bb308aa89ed2ff36b23d7fc3ccc5","404574d5e90b65e920cba1cc8a3bd6d2a4c4d58a3d4743767ff6609c8bed391d",20630,4296,3,2,"animal-equus-caballus","point",["Moldova"],[47.986875,27.169232,48.159923,27.790131],3017.0,4013.0,0,[]],["nodes","b9ccaf9ec9cbd66e4d227ba304fedf404c912ced666bd193b1c1d66cccd50b21","3ceda6c21396dd85ece947cd4c90e2bff405f37e56a1839e51d3a5ccb5a7ff22",138509,11344,20,2,"animal-equus-caballus","point",["Mongolia"],[45.0997222,88.3488611,51.421361,112.7196944],649.0,3130.0,0,[]],["nodes","a4b88aeb360fa32b9b402b0ef7a543a7f3d0e2a0c7b4df7ff1792be4084e9b6c","d95220f0300274a7cab720911c04af2053e55956c7ab37394300bc812a626a02",34983,5244,5,2,"animal-equus-caballus","point",["Poland"],[50.143,16.562,52.007,20.51853],2599.0,5751.0,0,[]],["nodes","fea87bcb00b4c99f69719a19bbadc56bf8763730ca139fa232b317642ecf4d51","8367ebe40fd838fc243eaa3d88e091b3cc3b4114ce69093fff1a6b8ae9dd4bf8",13864,3892,2,2,"animal-equus-caballus","point",["Portugal"],[39.0744,-8.692,39.241,9.2857],817.0,4509.0,0,[]],["nodes","e9a6d1d0ce2ff3fc6ff5a398b58323a97827d1e138d12253fb0bf8400aa97c87","86970c4bf658979379d4155595ecdb454d7b922bbf39bbc64dd9ec8373bee8f7",27834,4876,4,2,"animal-equus-caballus","point",["Romania"],[44.067779,22.0079387,45.807945,26.4696],3574.0,36751.0,0,[]],["nodes","68895448ce513c50dc86a499158fb648362a4c1557767871861c9c0d63e9b373","c83ae9d4e5954f5828a9c027d137748b2e3a111be893836b505e7e92d52113fe",365279,26460,53,2,"animal-equus-caballus","point",["Russia"],[43.79028,8.85,73.046,142.821769],192.0,52200.0,0,[]],["nodes","c06d093a89103cb79cc873bc94463675836aaae125427bd19fef62a499b12b26","e6d3f9a76008e40c754d8fe7fa14b005a88d103610a53d683e05c88492d3147f",13887,3900,2,2,"animal-equus-caballus","point",["Slovakia"],[48.069502,18.200384,48.655,21.268],1217.0,3633.0,0,[]],["nodes","d6c6b3880f25efac72d8cfd4577b3f16dc3ae80abad0faa69174d572f1cdc390","6c22aa91a02511bd27309f34c22f8db6c03548ccc2b269da60b78da96c8b9bfd",67905,7312,10,2,"animal-equus-caballus","point",["Spain"],[38.0982811,-7.5592897,43.0092829,6.064916],1617.0,7130.0,0,[]],["nodes","0f99dad9789c34e961dccfbdd97485b6cd92bba5e2aae91560e3ac249bfbdbeb","bb0026ab76f43353ac3f822b593dc9092902532c18f99455dbbb64caa4dfad99",6669,2988,1,2,"animal-equus-caballus","point",["Sweden"],[59.861,17.639,59.861,17.639],1217.0,1417.0,0,[]],["nodes","8e249160adf1d71e4f2647c8712da03323399430e9b96f78c0bcddc4169b17a5","ade086a4faedf7f702fdf1cf3cf763dd798cb5ffd3b98fe4d951b589e9e54c34",27434,4256,4,2,"animal-equus-caballus","point",["Switzerland"],[47.2333,7.5167,47.65,8.85],1617.0,2017.0,0,[]],["nodes","efef951698a96f7c45dcf8e9f08ef585ef5497ca0630a6a5edc672387df63ae5","ff4a5ae3fcc4e6cdcf145c6f1390d5c81ba82431cffcf60de164f87b4dcdea61",7363,3204,1,2,"animal-equus-caballus","point",["Tunisia"],[35.873429,8.78621,35.873429,8.78621],2531.0,2610.0,0,[]],["nodes","03ffb482aa24400ffe7b1ae6b59f95707db39a24e70fbb23322246def15a9036","b50a0bd42c3a0ed1a8f7e1e1398c8b22120ebcfcde79de6ed668053c9e457c94",36657,5652,5,2,"animal-equus-caballus","point",["Turkey"],[37.847803,27.225306,41.721357,35.1436],1156.0,8269.0,0,[]],["nodes","a97a26731f65b0236dfbbb50590028033a3be120d52217266ac3f87cb1ef8d2c","0b997e73d998f514568d7b3ed880509480b25dcd47bca1041540e403a7c78cf8",7214,3156,1,2,"animal-equus-caballus","point",["Ukraine"],[46.86888889,35.43305556,46.86888889,35.43305556],6135.0,6135.0,0,[]],["nodes","37fcd3cb315d9c984b47ede4bb128a28fa28b06fae236cd1dcd9fdf6d75f9edd","8a4f32b2bfb3d0c37ab0363c789500d29a220062709b231e6c879fde9952b2a0",48412,6128,7,2,"animal-equus-caballus","point",["United Kingdom"],[50.467709,-2.97,59.337156,3.502667],117.0,14616.0,0,[]],["nodes","fe7cf6b48f094381b52ff29a327383f6866c54befadbe7129eb6f2b0f25bf07c","88a3fe6013a9e12ef47117a1bd5417ce6d0fe26001c07d3b30a025991d3a2b83",6875,3072,1,2,"animal-equus-caballus","point",["Uzbekistan"],[38.867278,65.800161,38.867278,65.800161],2853.0,2853.0,0,[]],["nodes","84da56156cd73b17fc36b6366eb4084d266e9ed7d6f9555d1e21570b0980672c","f1c1f19a0b0f758cf307a37cdd514e4f49c5ca74ba4d3df5626f0960c7c0f5ee",35195,4604,5,3,"animal-felis-catus","point",["Austria"],[47.8,13.05,48.69,16.87],null,null,5,[]],["nodes","c6e589487d04504b6e0102a4083542ce1649cee80e8e7ad8170e0a7115dd495a","26715fb04a11d235088f189585eba4ecebc90c4091efaeed652f73962c8b807b",14630,3732,2,3,"animal-felis-catus","point",["Belgium"],[50.78,4.35,50.85,5.46],null,null,2,[]],["nodes","5e3c6e5e729ef12fe68e5daa43e821eab2e3a3868202477d7d7449a825a84a2a","5fd1bfebbc4d7364a0ed7c9a0eea8355f74867e3082f9af5f7ec304cc5338f40",14851,3624,2,3,"animal-felis-catus","point",["Bulgaria"],[43.41,25.88,43.7,28.54],null,null,2,[]],["nodes","d1ad8993504505ceafac3b3e66c316df617085108166e6a08da81ffb95b5160c","ab6ab735618ff4532b9ffec5c0aaf70a6711a9d6f50ba71b9283521ad98d344d",14220,3500,2,3,"animal-felis-catus","point",["Germany"],[53.1,8.83,53.1,8.83],null,null,2,[]],["nodes","71b3f05772f3b4ea74b262c9e2c2f5b44bb65b890411ea71c1fd710b256f17c2","e8105d8c44104432eb05a430cb59106b7fb2074c07e54504b5bcaa912745ec4f",7582,3292,1,3,"animal-felis-catus","point",["Greece"],[39.15,20.67,39.15,20.67],null,null,1,[]],["nodes","5d90dd02ca5b4aca82827b6c5235eae9fa011ab409e1b7842b7fb4451895c7e4","d0dd95db4d5a2ea0d1e857cdd25eae336cc1ae533ba6afe6444a8ee18f10e303",99286,7564,14,3,"animal-felis-catus","point",["Italy"],[39.69,8.33,45.41,17.99],null,null,14,[]],["nodes","3bbf0514416fa3783a78ba0d60c7714c3305dcad0588c7e15704779a96105caf","87453973b4f5cfb938f60b008ecfd39c87e62c91f048f9584c38c91a4cb8df46",14317,3560,2,3,"animal-felis-catus","point",["Portugal"],[38.57,-9.14,38.71,-8.9],null,null,2,[]],["nodes","f9b3571a01ecf96d9ffac2139025c1bbb4df34c3d1c21f1c0df3747bc42ae278","10acbf548146853a8fcf885fa7ab7d12dacfd710e959fc5403bdba6ce044d4e1",14704,3684,2,3,"animal-felis-catus","point",["Serbia"],[44.74,21.23,44.74,21.23],null,null,2,[]],["nodes","6aa13d0540b332110361ffa958b98e1d882de31ac722db4ce4f0f00260706651","2db4c59c14807f40f8d66fddd64bd0fdd41cc3af7e0d9f496cf4e765ad1332c7",21700,4100,3,3,"animal-felis-catus","point",["Spain"],[37.05,-2.78,42.58,0.53],null,null,3,[]],["nodes","75d11eb5dd91e8d796b6b68713efde3141dabc6c36d3bed751679f1873415304","5b71e5d4eb860f815b9a804e2a097fda0b3353185151f448e72bae0db2e6bc6a",49822,5272,7,3,"animal-felis-catus","point",["Turkey"],[37.21,28.95,41.0,34.23],null,null,7,[]],["nodes","593e0fe5a00ad611cbecce772fe4009c8ce37090c5857d911e3e8db468487a1a","b908f217c957ab166cf55e402be8ac077fabcdfc2c92d13aa3bf47f7f0f30c06",6733,3120,1,4,"animal-ovis-aries","point",["Finland"],[60.23,20.08,60.23,20.08],340.0,527.0,0,[]],["nodes","a13cb9c421c975389aebefd1b8310aa8aec9cd3f32a4c1789a7fed15b439c1b2","1371b7fbde5d99f5f3db456243298154a628065e3607a1c1fc2e7b16df85bed1",6860,3148,1,4,"animal-ovis-aries","point",["Sweden"],[57.29,17.97,57.29,17.97],3699.0,4151.0,0,[]],["nodes","accb9638bfacdf019e084f78f67cba8f6a561465bafe7ddf93771ea3b458d0dd","be0120e647e978088f1c21bbdcc2f9692fdbae7ce44eed0142aaf13bcde31dfc",16719,4272,2,5,"animal-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],null,null,2,[]],["nodes","d00d8a001ddcff2a5e686b1ef688e1e80cd261136e16e58960669fc2c856d7e4","e07618729fd3faf8702032fd3582afa13a7bee039a7e20f68d86e7c3864fac3e",47141,23432,1,6,"country-boundaries","polygon",["Denmark"],[54.56859,8.094005,57.751166,15.151378],null,null,1,[]],["nodes","b6a2144c4a7c38c0ab5e9c3e2e1e2bc2ca1da4b9c499930b3d1eec2f87c58d06","b327a92747b66d1f8296b4c21b19dbda96eed2f3eed34010b8ebc24f02f0b2b3",70881,35304,1,6,"country-boundaries","polygon",["Finland"],[59.811225,20.623165,70.07531,31.569525],null,null,1,[]],["nodes","9b2639f9f928a774a7640467ca30996f051fa264cb0d41b29556502325e78c7b","e3608baccee231e6e740239316c80d7bdfec9082a669cf808ae67fb90d30210a",341276,165776,1,6,"country-boundaries","polygon",["Norway"],[-54.462498,-9.117421,80.770087,33.640391],null,null,1,[]],["nodes","4b1acb6b3d87a393dc2906cf8593db36a014779be793e80aa81cf159060b206a","a749e9e51ebd178777980691445a4b3b6871ade2423413ad1a91af4dfc0c0f9d",102300,49996,1,6,"country-boundaries","polygon",["Sweden"],[55.342678,11.108165,69.036356,24.163414],null,null,1,[]],["edges","40a0249aec9f5fcaac9e2143064bc3011700370c4cc995e1796e9e038cbd8627","630729ab6b888b261ab61608d52176b1cac49529b901eea600ebf76bedd4b74e",275,583,0,null,null,null,null,null,null,null,null,null],["sequences","eecb688c6cdfd485a8d64be9a117bd2405d0e9d717b8dc8c6bbfb660ab24f9c0","836a06812ecc5c892155192fe67d81e18e35602558bf3206d41a0215f76ed638",290,602,0,null,null,null,null,null,null,null,null,null],["indexes","77f9b06ce6f37d5ffd0572cce935d9cf44cd38af2cdfdb1092c50b051dec1dba","6acd0f7ace41ad9ab70d0c7e60f0057c1eed35c7d2e8f1bccba9cdd9fa139e82",23602,24022,1504,null,null,null,null,null,null,null,null,null]]}}</script>
     <script src="./_map_assets/leaflet/leaflet.js"></script>
     <script src="./_map_assets/markercluster/leaflet.markercluster.js"></script>
 
@@ -2530,6 +2568,7 @@
       let renderedEdgeLayers = [];
       let renderedPolygonLayers = [];
       let visiblePointEntries = [];
+      let visiblePolygonFeatureEntries = [];
       let highlightedPointEntry = null;
       const sidebar = document.getElementById('sidebar');
       const mobilePanelCloseButton = document.getElementById('mobile-panel-close');
@@ -2588,6 +2627,7 @@
       const sourceChronologyTaxonFields = document.getElementById('source-chronology-taxon-fields');
       const sourceChronologyTaxonQuery = document.getElementById('source-chronology-taxon-query');
       const sourceChronologyTaxon = document.getElementById('source-chronology-taxon');
+      const sourceChronologyTaxonShortcuts = document.getElementById('source-chronology-taxon-shortcuts');
       const sourceRecordConcentrationToggle = document.getElementById('source-record-concentration-toggle');
       const sourceChronologyState = document.getElementById('source-chronology-state');
       const sourceChronologyGlobalDenominator = document.getElementById('source-chronology-global-denominator');
@@ -4173,13 +4213,7 @@
         const pointCountsByCountry = Object.fromEntries(
           COUNTRIES.map((country) => [
             country,
-            STATIC_ATLAS_INLINE
-              ? POINT_LAYERS
-                  .filter((layer) => activeLayerKeys.has(layer.key))
-                  .reduce((count, layer) => count + layer.features.filter((feature) => pointFeatureVisible(layer, feature) && feature.country === country).length, 0)
-              : STATIC_ATLAS_BOOTSTRAP.assets
-                  .filter((row) => row.domain === 'nodes' && activeLayerKeys.has(row.layer_key) && Array.isArray(row.country_keys) && row.country_keys.includes(country))
-                  .reduce((count, row) => count + staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key} record count`), 0),
+            visiblePointEntries.filter(({ feature }) => feature.country === country).length,
           ])
         );
         countryFilters.innerHTML = COUNTRIES.map((country) => {
@@ -4199,7 +4233,7 @@
         scientificActions.hidden = !available;
         scientificStatus.textContent = available
           ? 'Only accepted, versioned classifications are selectable. Color is always paired with a shape cue.'
-          : 'Harmonized scientific classifications are awaiting qualified review. Source-native whole-pollen, ecological-code, and exact-label chronology remains available below without asserting equivalence.';
+          : 'Harmonized scientific classifications are awaiting qualified review. Source-native pollen-bearing sample presence, ecological-code, and exact-label chronology remains available below without asserting equivalence.';
         scientificFilters.innerHTML = available
           ? SCIENTIFIC_RESOLUTION_ORDER.map((resolution) => {
               const signals = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === resolution);
@@ -4300,6 +4334,22 @@
         ));
         sourceChronologyTaxonFields.hidden = selectedLayer.node_level !== 'source_taxon';
         sourceChronologyTaxon.innerHTML = `<option value="all">All source-reported labels · ${taxonRows.length} facets</option>` + visibleTaxa.map((row) => `<option value="${escapeHtml(row.value)}" ${row.value === activeSourceChronologyTaxon ? 'selected' : ''}>${escapeHtml(row.label)} · source taxon ${escapeHtml(row.source_taxon_id)} · ${row.node_count} nodes · ${row.observation_denominator} observations</option>`).join('');
+        sourceChronologyTaxonShortcuts.innerHTML = queryAlternatives.length
+          ? visibleTaxa.map((row) => `<button class="inline-button ${row.value === activeSourceChronologyTaxon ? 'is-primary' : ''}" type="button" data-source-taxon-facet="${escapeHtml(row.value)}">${escapeHtml(row.label)} · ${escapeHtml(row.source_taxon_id)}</button>`).join('')
+          : '';
+        sourceChronologyTaxonShortcuts.querySelectorAll('[data-source-taxon-facet]').forEach((button) => {
+          button.addEventListener('click', () => {
+            stopTimePlayback();
+            activeSourceChronologyTaxon = normalizedSingleValue(
+              button.dataset.sourceTaxonFacet,
+              validTaxa,
+              'all'
+            );
+            sourceRecordConcentrationActive = false;
+            focusSourceChronologyNavigation();
+            renderMapState();
+          });
+        });
         const selectedFacet = sourceChronologyFacetForSelection(selectedLayer, activeSourceChronologyCode, activeSourceChronologyTaxon);
         if (!selectedFacet) {
           sourceRecordConcentrationToggle.disabled = true;
@@ -4311,10 +4361,17 @@
         const unitCount = selectedLayer.facet_metadata.source_unit_counts.length;
         const untimedExclusion = sourceChronologyUntimedExclusion(selectedLayer);
         const extentLabel = `[${selectedFacet.time_min_bp}, ${selectedFacet.time_max_bp}] BP`;
+        const visibleSourceEntries = visiblePointEntries.filter(({ layer }) => layer.key === selectedLayer.key);
+        const visibleObservationCounts = visibleSourceEntries.map(({ feature }) => sourceChronologyCount(feature.observation_denominator));
+        const visibleObservationDenominator = visibleObservationCounts.every((count) => count !== null)
+          ? visibleObservationCounts.reduce((total, count) => total + count, 0)
+          : null;
+        const visibleObservationLabel = visibleObservationDenominator === null ? 'unavailable' : String(visibleObservationDenominator);
+        const activeWindowLabel = `[${timeStartBp}, ${timeWindowEndBp()}] BP`;
         const untimedLabel = untimedExclusion.status === 'available'
           ? `${untimedExclusion.count} untimed source nodes excluded before viewport filtering`
           : 'untimed source-node count unavailable for this exact filtered selection';
-        sourceChronologySummary.textContent = `${selectedFacet.node_count} nodes · ${selectedFacet.observation_denominator} observations · ${extentLabel}`;
+        sourceChronologySummary.textContent = `${visibleSourceEntries.length} of ${selectedFacet.node_count} nodes visible · ${activeWindowLabel}`;
         const concentrationEligible = sourceRecordConcentrationSelection(selectedLayer) !== null;
         sourceRecordConcentrationToggle.disabled = !concentrationEligible;
         sourceRecordConcentrationToggle.setAttribute('aria-pressed', String(sourceRecordConcentrationActive));
@@ -4332,7 +4389,7 @@
         } else if (sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'refused') {
           sourceChronologyState.textContent = `${sourceRecordConcentrationSnapshot.reason} No concentration symbols were rendered.`;
         } else {
-          sourceChronologyState.textContent = `${selectedFacet.node_count} source nodes · ${selectedFacet.observation_denominator} contributing observations · ${unitCount} literal source units · source playback extent ${extentLabel} · ${untimedLabel} · denominator before country and BP-window filters · chronology context only`;
+          sourceChronologyState.textContent = `${visibleSourceEntries.length} source nodes and ${visibleObservationLabel} contributing observations visible in ${activeWindowLabel} · ${selectedFacet.node_count} nodes and ${selectedFacet.observation_denominator} observations in the global selected-facet denominator before country and BP-window filters · ${unitCount} literal source units · source playback extent ${extentLabel} · ${untimedLabel} · chronology context only`;
         }
       }
       function renderLayerControls() {
@@ -4756,6 +4813,7 @@
         renderedPolygonLayers = [];
         circleLayerGroup.clearLayers();
         visiblePointEntries = [];
+        visiblePolygonFeatureEntries = [];
         highlightedPointEntry = null;
         sourceRecordConcentrationSnapshot = null;
       }
@@ -4925,6 +4983,7 @@
         POLYGON_LAYERS.forEach((layer) => {
           const visibleFeatures = (layer.geojson.features || []).filter((feature) => polygonGeometryIsAdmitted(feature) && polygonFeatureVisible(layer, feature.properties || {}));
           if (!visibleFeatures.length) return;
+          visibleFeatures.forEach((feature) => visiblePolygonFeatureEntries.push({ layer, feature }));
           let geoJsonLayer;
           if (layer.kind === 'country-boundaries') {
             geoJsonLayer = L.geoJSON({ type: 'FeatureCollection', features: visibleFeatures }, {
@@ -5114,11 +5173,9 @@
             ? loaded
             : ALL_LAYERS.reduce((total, layer) => total + staticAtlasNonnegativeInteger(layer.static_feature_count, `${layer.key} admitted feature count`), 0);
           selectionReadout.dataset.staticLoad = `${loaded}/${admitted}`;
-          if (duration > Number(STATIC_ATLAS_BOOTSTRAP.budgets.filter_main_thread_max_ms)) {
-            topbarStatePill.textContent = `${loaded} of ${admitted} admitted records loaded · filter render ${Math.round(duration)} ms`;
-          } else if (requested.length) {
-            topbarStatePill.textContent = `${loaded} of ${admitted} admitted records loaded`;
-          }
+          selectionReadout.dataset.staticLoadRequestedAssetCount = String(requested.length);
+          selectionReadout.dataset.filterRenderMs = String(Math.round(duration));
+          selectionReadout.dataset.filterRenderBudgetExceeded = String(duration > Number(STATIC_ATLAS_BOOTSTRAP.budgets.filter_main_thread_max_ms));
         } catch (error) {
           if (generation !== staticAtlasLoadGeneration) return;
           topbarStatePill.textContent = error instanceof Error ? error.message : 'Static atlas selection failed to load.';
@@ -5155,9 +5212,8 @@
       }
       const ATLAS_CAPTURE_API_VERSION = 'atlas-capture.v1';
       function captureFrameNumber(value, label) {
-        const number = Number(value);
-        if (!Number.isFinite(number) || number < 0) throw new Error(`${label} must be a finite non-negative number`);
-        return number;
+        if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) throw new Error(`${label} must be a finite non-negative number`);
+        return value;
       }
       function captureFrameCountries(value) {
         if (value === undefined) return [...activeCountries].sort();
@@ -5174,10 +5230,9 @@
       }
       function captureFrameView(value) {
         if (value === undefined) return null;
-        const latitude = Number(value && value.latitude);
-        const longitude = Number(value && value.longitude);
-        const zoom = Number(value && value.zoom);
-        if (!Number.isFinite(latitude) || latitude < -90 || latitude > 90 || !Number.isFinite(longitude) || longitude < -180 || longitude > 180 || !Number.isFinite(zoom) || zoom < 0 || zoom > 20) {
+        if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('capture view is invalid');
+        const { latitude, longitude, zoom } = value;
+        if (typeof latitude !== 'number' || !Number.isFinite(latitude) || latitude < -90 || latitude > 90 || typeof longitude !== 'number' || !Number.isFinite(longitude) || longitude < -180 || longitude > 180 || typeof zoom !== 'number' || !Number.isFinite(zoom) || zoom < 0 || zoom > 20) {
           throw new Error('capture view is invalid');
         }
         return { latitude, longitude, zoom };
@@ -5275,6 +5330,7 @@
           modeled_context: sourceWindow ? {
             window_index: modeledContextWindowIndex,
             window_label: sourceWindow.label,
+            feature_count: sourceWindow.feature_count,
             metric_family_key: modeledContextFamilyKey,
             metric_key: modeledContextMetricKey,
             evidence_role: 'context_only',
@@ -5283,6 +5339,8 @@
           } : null,
           visible_point_count: visiblePointEntries.length,
           visible_polygon_layer_count: renderedPolygonLayers.length,
+          visible_source_chronology_point_count: visiblePointEntries.filter(({ layer }) => layer.semantic_role === 'source_chronology_context').length,
+          visible_modeled_context_feature_count: visiblePolygonFeatureEntries.filter(({ layer, feature }) => modeledContextActive && isModeledContextFeature(layer, feature.properties || {})).length,
           visible_governed_candidate_count: renderedEdgeLayers.length,
           scientific_posture: {
             classifications_status: ATLAS_EVIDENCE.classifications_status,
@@ -5462,7 +5520,10 @@
           } else if (shortcut === 'cereals') {
             const layer = sourceChronologyLayerForLevel(targetLevel);
             const cerealFacets = layer.facet_metadata.source_taxa.filter((row) => /cereal|secale/i.test(row.label));
-            activeSourceChronologyTaxon = cerealFacets[0]?.value || 'all';
+            const preferredCerealFacet = cerealFacets.find((row) => row.label.trim().toLowerCase() === 'secale')
+              || cerealFacets.find((row) => row.source_taxon_id === '967')
+              || cerealFacets[0];
+            activeSourceChronologyTaxon = preferredCerealFacet?.value || 'all';
           }
           focusSourceChronologyNavigation();
           renderLayerControls();

@@ -16,12 +16,12 @@
 - Sample site rows: `1454`
 - Chronology rows: `1454`
 - Coordinate rows: `284`
-- Published atlas points: `271`
+- Published atlas points: `273`
 - Published country bundles: `4`
 - Papers with archived supplements: `18`
-- Mapped sample share: `0.4179`
-- Projects blocked in intake recovery: `25`
-- Projects ready for publication review: `9`
+- Mapped sample share: `0.4214`
+- Projects blocked in intake recovery: `24`
+- Projects ready for publication review: `10`
 - Implausibly low recovery projects: `0`
 
 ## Thresholds

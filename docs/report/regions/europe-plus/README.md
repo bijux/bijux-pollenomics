@@ -41,21 +41,23 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 - Animal atlas evidence JSON: [`europe-plus_animal_atlas_evidence.json`](./europe-plus_animal_atlas_evidence.json)
 - Animal point traceability JSON: [`europe-plus_animal_point_traceability.json`](./europe-plus_animal_point_traceability.json)
 - Static atlas bootstrap manifest: [`europe-plus_map_assets.json`](./europe-plus_map_assets.json)
-- Static atlas data chunk: [`europe-plus.atlas-provenance.0000.1f0b1fccca81c7ee.js`](./europe-plus.atlas-provenance.0000.1f0b1fccca81c7ee.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0001.2906b46784d74821.js`](./europe-plus.atlas-nodes.0001.2906b46784d74821.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0002.81e39c78ae8c128e.js`](./europe-plus.atlas-nodes.0002.81e39c78ae8c128e.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0003.24636824c6043f9c.js`](./europe-plus.atlas-nodes.0003.24636824c6043f9c.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0004.33a795d7454388ae.js`](./europe-plus.atlas-nodes.0004.33a795d7454388ae.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0005.7f07b3d53d99cfe1.js`](./europe-plus.atlas-nodes.0005.7f07b3d53d99cfe1.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0006.1dbaba2c2f05d788.js`](./europe-plus.atlas-nodes.0006.1dbaba2c2f05d788.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0007.e60351b7904fd162.js`](./europe-plus.atlas-nodes.0007.e60351b7904fd162.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0008.635a35f9b4f84157.js`](./europe-plus.atlas-nodes.0008.635a35f9b4f84157.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0009.c87e835666d51819.js`](./europe-plus.atlas-nodes.0009.c87e835666d51819.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0010.6dcfc5ffc4280a95.js`](./europe-plus.atlas-nodes.0010.6dcfc5ffc4280a95.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0011.927c45ba6d08b580.js`](./europe-plus.atlas-nodes.0011.927c45ba6d08b580.js)
-- Static atlas data chunk: [`europe-plus.atlas-edges.0012.53b45e30f751cdac.js`](./europe-plus.atlas-edges.0012.53b45e30f751cdac.js)
-- Static atlas data chunk: [`europe-plus.atlas-sequences.0013.85ccaf48000b78b0.js`](./europe-plus.atlas-sequences.0013.85ccaf48000b78b0.js)
-- Static atlas data chunk: [`europe-plus.atlas-indexes.0014.98e1ec362a48bbbc.js`](./europe-plus.atlas-indexes.0014.98e1ec362a48bbbc.js)
+- Static atlas data chunk: [`europe-plus.atlas-provenance.0000.cd603670a45ac5d7.js`](./europe-plus.atlas-provenance.0000.cd603670a45ac5d7.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0001.dad98535cf18ce13.js`](./europe-plus.atlas-nodes.0001.dad98535cf18ce13.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0002.a8bed5c9ea21fd0c.js`](./europe-plus.atlas-nodes.0002.a8bed5c9ea21fd0c.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0003.3b6f3a22100e3365.js`](./europe-plus.atlas-nodes.0003.3b6f3a22100e3365.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0004.d4651e9acb8f2658.js`](./europe-plus.atlas-nodes.0004.d4651e9acb8f2658.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0005.a0278c74dad20c4c.js`](./europe-plus.atlas-nodes.0005.a0278c74dad20c4c.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0006.7f8f5c276ff731a0.js`](./europe-plus.atlas-nodes.0006.7f8f5c276ff731a0.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0007.8e34b39a32679f84.js`](./europe-plus.atlas-nodes.0007.8e34b39a32679f84.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0008.41013216d9279b9e.js`](./europe-plus.atlas-nodes.0008.41013216d9279b9e.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0009.85aacf6be98922fa.js`](./europe-plus.atlas-nodes.0009.85aacf6be98922fa.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0010.184c29af98599695.js`](./europe-plus.atlas-nodes.0010.184c29af98599695.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0011.6cf48b865cf55705.js`](./europe-plus.atlas-nodes.0011.6cf48b865cf55705.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0012.f5900fa053a35696.js`](./europe-plus.atlas-nodes.0012.f5900fa053a35696.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0013.323b39c6ce6a2c72.js`](./europe-plus.atlas-nodes.0013.323b39c6ce6a2c72.js)
+- Static atlas data chunk: [`europe-plus.atlas-edges.0014.3952fd1282b64d75.js`](./europe-plus.atlas-edges.0014.3952fd1282b64d75.js)
+- Static atlas data chunk: [`europe-plus.atlas-sequences.0015.b0ef3b1cc58181e6.js`](./europe-plus.atlas-sequences.0015.b0ef3b1cc58181e6.js)
+- Static atlas data chunk: [`europe-plus.atlas-indexes.0016.8779db0fce756f6e.js`](./europe-plus.atlas-indexes.0016.8779db0fce756f6e.js)
 - Candidate site ranking CSV: [`europe-plus_candidate_sites.csv`](./europe-plus_candidate_sites.csv)
 - Candidate site ranking JSON: [`europe-plus_candidate_sites.json`](./europe-plus_candidate_sites.json)
 - Candidate site ranking markdown: [`europe-plus_candidate_sites.md`](./europe-plus_candidate_sites.md)
@@ -73,6 +75,7 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 | --- | --- | --- | ---: |
 | AADR-v66 aDNA samples | `shared_world_scale_layer` | Country assignment follows the AADR political entity field. | `1231` |
 | Horse aDNA site evidence | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
+| Sheep aDNA site evidence | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
 | Pig aDNA site evidence | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
 | Country boundaries | `region_filtered_layer` | Published country outlines used for framing and scope-aware map filtering. | `4` |
 
@@ -94,9 +97,9 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 
 ## Animal aDNA Layers
 
-- Total animal locality points: `4`
-- Shipped animal species: `2`
-- Domesticated-core species layers: `2`
+- Total animal locality points: `6`
+- Shipped animal species: `3`
+- Domesticated-core species layers: `3`
 - Comparator species layers: `0`
 
 ### Layer Groups
@@ -124,6 +127,7 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 | --- | ---: |
 | approximate | 2 |
 | exact | 2 |
+| source_reported_two_decimal_degrees | 2 |
 
 ### Visible Animal Caveats
 
@@ -137,5 +141,6 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 | Common name | Latin name | Animal scope | Mapped locality points |
 | --- | --- | --- | ---: |
 | horse | Equus caballus | domesticated_core | 2 |
+| sheep | Ovis aries | domesticated_core | 2 |
 | pig | Sus scrofa domesticus | domesticated_core | 2 |
 

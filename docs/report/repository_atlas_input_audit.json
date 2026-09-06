@@ -134,11 +134,11 @@
       "metrics": {
         "sample_accounting_available": true,
         "coordinate_accounting_available": true,
-        "published_point_count": 271,
+        "published_point_count": 273,
         "tracked_sample_count": 1450,
         "unresolved_sample_count": 95,
         "coordinate_provenance_count": 284,
-        "refused_coordinate_provenance_count": 6
+        "refused_coordinate_provenance_count": 4
       },
       "note": "Animal aDNA is still a partial recovery program whose public map surface depends on sample-owned support reviews and release gates."
     }

@@ -3,12 +3,13 @@
   "title": "World Evidence Surface",
   "scope_key": "world",
   "scope_label": "World",
-  "row_count": 1502,
+  "row_count": 1504,
   "layer_counts": {
     "aadr": 1231,
     "animal-capra-hircus": 26,
     "animal-equus-caballus": 203,
     "animal-felis-catus": 40,
+    "animal-ovis-aries": 2,
     "animal-sus-scrofa-domesticus": 2
   },
   "rows": [
@@ -25511,6 +25512,40 @@
       "species_latin_name": "Felis catus",
       "animal_scope": "domesticated_core",
       "coordinate_confidence": "exact"
+    },
+    {
+      "scope_key": "world",
+      "scope_label": "World",
+      "layer_key": "animal-ovis-aries",
+      "layer_label": "Sheep aDNA site evidence",
+      "group": "animal-domesticated-evidence",
+      "source_name": "Tracked animal aDNA localities",
+      "source_artifact": "world_animal_point_traceability.json",
+      "source_reference": "",
+      "record_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-kastelholm-finland",
+      "title": "Kastelholm",
+      "country": "Finland",
+      "source_url": "https://doi.org/10.1093/gbe/evae114",
+      "species_latin_name": "Ovis aries",
+      "animal_scope": "domesticated_core",
+      "coordinate_confidence": "source_reported_two_decimal_degrees"
+    },
+    {
+      "scope_key": "world",
+      "scope_label": "World",
+      "layer_key": "animal-ovis-aries",
+      "layer_label": "Sheep aDNA site evidence",
+      "group": "animal-domesticated-evidence",
+      "source_name": "Tracked animal aDNA localities",
+      "source_artifact": "world_animal_point_traceability.json",
+      "source_reference": "",
+      "record_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "title": "Stora F\u00f6rvar",
+      "country": "Sweden",
+      "source_url": "https://doi.org/10.1093/gbe/evae114",
+      "species_latin_name": "Ovis aries",
+      "animal_scope": "domesticated_core",
+      "coordinate_confidence": "source_reported_two_decimal_degrees"
     },
     {
       "scope_key": "world",
