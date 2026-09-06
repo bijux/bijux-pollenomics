@@ -91,11 +91,11 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
             "repository-source-explainer-audit.v1",
         )
         self.assertEqual(
-            atlas_payload["schema_version"], "repository-atlas-input-audit.v1"
+            atlas_payload["schema_version"], "repository-atlas-input-audit.v2"
         )
         self.assertEqual(
             matrix_payload["schema_version"],
-            "repository-cross-domain-evidence-matrix.v1",
+            "repository-cross-domain-evidence-matrix.v2",
         )
         self.assertEqual(explainer_payload["status_counts"]["present_useful_form"], 16)
         self.assertEqual(

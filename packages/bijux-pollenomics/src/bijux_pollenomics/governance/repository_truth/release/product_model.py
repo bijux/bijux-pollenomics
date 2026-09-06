@@ -17,7 +17,7 @@ def build_repository_product_model(
     """Describe the durable product shape from world scale to country scale."""
     counts = _build_core_counts(data_root, docs_root, report_root)
     return {
-        "schema_version": "repository-product-model.v1",
+        "schema_version": "repository-product-model.v2",
         "product_name": "bijux-pollenomics",
         "governing_model": "world_parent_with_filtered_regional_and_country_derivatives",
         "mission": (
@@ -65,6 +65,9 @@ def build_repository_product_model(
             "country bundles answer geography-first reader questions and must remain derivations of one broader evidence state",
         ],
         "current_state_counts": {
+            "animal_sample_accounting_available": counts[
+                "animal_sample_database_review_available"
+            ],
             "published_country_bundle_count": counts["published_country_bundle_count"],
             "published_world_animal_points": counts["published_atlas_point_count"],
             "source_explainer_count": counts["source_explainer_count"],

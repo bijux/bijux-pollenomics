@@ -48,7 +48,7 @@ def build_repository_truth_posture(
         report_root=report_root,
     )
     return {
-        "schema_version": "repository-truth-posture.v1",
+        "schema_version": "repository-truth-posture.v2",
         "repository": "bijux-pollenomics",
         "primary_domains": [
             "pollen_context",
@@ -92,6 +92,9 @@ def build_repository_truth_posture(
 
 
 def render_repository_truth_posture_markdown(payload: dict[str, object]) -> str:
+    counts = payload["counts"]
+    if not isinstance(counts, dict):
+        raise TypeError("Repository truth counts must be a mapping")
     lines = [
         "# Repository truth posture",
         "",
@@ -102,12 +105,12 @@ def render_repository_truth_posture_markdown(payload: dict[str, object]) -> str:
         "",
         "## Counts",
         "",
-        f"- Tracked paper count: `{payload['counts']['tracked_paper_count']}`",
-        f"- Papers with archived supplements: `{payload['counts']['papers_with_archived_supplements']}`",
-        f"- Published animal atlas points: `{payload['counts']['published_atlas_point_count']}`",
-        f"- Unresolved animal map rows: `{payload['counts']['animal_map_unresolved_rows']}`",
-        f"- Refused animal map rows: `{payload['counts']['animal_map_refused_rows']}`",
-        f"- Source-family explainer count: `{payload['counts']['source_explainer_count']}`",
+        f"- Tracked paper count: `{counts['tracked_paper_count']}`",
+        f"- Papers with archived supplements: `{counts['papers_with_archived_supplements']}`",
+        f"- Published animal atlas points: `{_available_count(counts, 'published_atlas_point_count', 'animal_sample_database_review_available')}`",
+        f"- Unresolved animal samples: `{_available_ratio(counts, 'animal_unresolved_sample_count', 'animal_tracked_sample_count', 'animal_map_readiness_available', 'animal_sample_database_review_available')}`",
+        f"- Refused animal coordinate-provenance rows: `{_available_ratio(counts, 'animal_coordinate_refused_provenance_count', 'animal_coordinate_provenance_count', 'animal_map_readiness_available', 'animal_map_readiness_available')}`",
+        f"- Source-family explainer count: `{counts['source_explainer_count']}`",
         "",
         "## Claim Freeze Reasons",
         "",
@@ -169,7 +172,7 @@ def build_repository_claim_audit(
         )
     ):
         return {
-            "schema_version": "repository-claim-audit.v1",
+            "schema_version": "repository-claim-audit.v2",
             "audit_scope": "partial_context",
             "overall_ok": True,
             "counts": counts,
@@ -245,14 +248,16 @@ def build_repository_claim_audit(
         _claim_check(
             "thin_animal_surface_stays_visible",
             (
-                counts["published_atlas_point_count"] >= 10
+                bool(counts["animal_sample_database_review_available"])
+                and counts["published_atlas_point_count"] >= 10
                 and str(sample_database_review.get("public_posture", "")).strip()
                 == "partial_sample_owned_animal_evidence_surface"
             ),
             "The public animal surfaces keep the current partial sample-owned posture visible instead of implying broad completion.",
             []
             if (
-                counts["published_atlas_point_count"] >= 10
+                bool(counts["animal_sample_database_review_available"])
+                and counts["published_atlas_point_count"] >= 10
                 and str(sample_database_review.get("public_posture", "")).strip()
                 == "partial_sample_owned_animal_evidence_surface"
             )
@@ -284,7 +289,7 @@ def build_repository_claim_audit(
         ),
     ]
     return {
-        "schema_version": "repository-claim-audit.v1",
+        "schema_version": "repository-claim-audit.v2",
         "audit_scope": "full_repository",
         "overall_ok": all(bool(row["passed"]) for row in checks),
         "counts": counts,
@@ -293,12 +298,15 @@ def build_repository_claim_audit(
 
 
 def render_repository_claim_audit_markdown(payload: dict[str, object]) -> str:
+    counts = payload["counts"]
+    if not isinstance(counts, dict):
+        raise TypeError("Repository claim-audit counts must be a mapping")
     lines = [
         "# Repository claim audit",
         "",
         f"- Overall ok: `{str(payload['overall_ok']).lower()}`",
-        f"- Published animal atlas points: `{payload['counts']['published_atlas_point_count']}`",
-        f"- Papers with archived supplements: `{payload['counts']['papers_with_archived_supplements']}`",
+        f"- Published animal atlas points: `{_available_count(counts, 'published_atlas_point_count', 'animal_sample_database_review_available')}`",
+        f"- Papers with archived supplements: `{counts['papers_with_archived_supplements']}`",
         "",
         "| Check | Passed | Finding count |",
         "| --- | --- | ---: |",
@@ -308,6 +316,37 @@ def render_repository_claim_audit_markdown(payload: dict[str, object]) -> str:
             f"| {row['check_id']} | `{str(row['passed']).lower()}` | {row['finding_count']} |"
         )
     return "\n".join(lines) + "\n"
+
+
+def _available_count(
+    counts: dict[str, object],
+    field: str,
+    availability_field: str,
+) -> str:
+    if not bool(counts.get(availability_field)):
+        return "unavailable"
+    value = counts.get(field)
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+        raise ValueError(f"Repository truth {field} must be a nonnegative integer")
+    return str(value)
+
+
+def _available_ratio(
+    counts: dict[str, object],
+    numerator_field: str,
+    denominator_field: str,
+    numerator_availability_field: str,
+    denominator_availability_field: str,
+) -> str:
+    if not bool(counts.get(numerator_availability_field)) or not bool(
+        counts.get(denominator_availability_field)
+    ):
+        return "unavailable"
+    numerator = _available_count(counts, numerator_field, numerator_availability_field)
+    denominator = _available_count(
+        counts, denominator_field, denominator_availability_field
+    )
+    return f"{numerator} of {denominator}"
 
 
 def build_repository_docs_recovery_review(

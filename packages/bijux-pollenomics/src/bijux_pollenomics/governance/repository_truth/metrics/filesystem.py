@@ -36,7 +36,17 @@ def _count_geojson_features(path: Path) -> int:
 
 
 def _format_metric_map(metrics: dict[str, object]) -> str:
-    return ", ".join(f"`{key}` {value}" for key, value in metrics.items())
+    return ", ".join(
+        f"`{key}` {_metric_value_label(value)}" for key, value in metrics.items()
+    )
+
+
+def _metric_value_label(value: object) -> str:
+    if value is None:
+        return "unavailable"
+    if isinstance(value, bool):
+        return str(value).lower()
+    return str(value)
 
 
 def _load_json(path: Path) -> dict[str, object]:

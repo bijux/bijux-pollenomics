@@ -65,7 +65,7 @@ class RepositoryGovernanceTests(RepositoryTruthTestCase):
         )
         markdown = render_repository_claim_audit_markdown(payload)
 
-        self.assertEqual(payload["schema_version"], "repository-claim-audit.v1")
+        self.assertEqual(payload["schema_version"], "repository-claim-audit.v2")
         self.assertTrue(payload["overall_ok"])
         self.assertTrue(all(row["passed"] for row in payload["checks"]))
         docs_breadth_row = next(

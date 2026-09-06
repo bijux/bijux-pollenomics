@@ -15,20 +15,32 @@ def _build_claim_freeze_reasons(counts: dict[str, object]) -> list[str]:
         cast(Any, counts["tracked_paper_count"])
     ):
         reasons.append("supplement recovery is still far below paper coverage")
-    if int(cast(Any, counts["published_atlas_point_count"])) <= 2:
+    sample_review_available = bool(counts["animal_sample_database_review_available"])
+    map_readiness_available = bool(counts["animal_map_readiness_available"])
+    if (
+        sample_review_available
+        and int(cast(Any, counts["published_atlas_point_count"])) <= 2
+    ):
         reasons.append(
             "the shipped animal atlas point surface is still effectively empty"
         )
-    if int(cast(Any, counts["animal_map_unresolved_rows"])) > int(
-        cast(Any, counts["animal_map_supported_rows"])
-    ):
-        reasons.append("unresolved animal geography still overwhelms mapped support")
+    if not sample_review_available:
+        reasons.append("animal sample publication accounting is unavailable")
+    if not map_readiness_available:
+        reasons.append("animal coordinate-provenance accounting is unavailable")
     if (
-        int(cast(Any, counts["animal_map_unresolved_rows"])) > 0
-        or int(cast(Any, counts["animal_map_refused_rows"])) > 0
+        map_readiness_available
+        and int(cast(Any, counts["animal_unresolved_sample_count"])) > 0
     ):
         reasons.append(
-            "tracked animal geography still leaves unresolved or refused rows outside the published surface"
+            "tracked animal samples still include unresolved locality assignments"
+        )
+    if map_readiness_available and (
+        int(cast(Any, counts["animal_coordinate_refused_provenance_count"])) > 0
+        or int(cast(Any, counts["animal_coordinate_not_materialized_count"])) > 0
+    ):
+        reasons.append(
+            "animal coordinate provenance still includes refused or unpublished rows"
         )
     if counts["zero_collection_summary_surfaces"]:
         reasons.append(

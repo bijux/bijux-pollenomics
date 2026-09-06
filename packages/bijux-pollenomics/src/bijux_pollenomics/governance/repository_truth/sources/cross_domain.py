@@ -137,9 +137,22 @@ def build_repository_cross_domain_evidence_matrix(
             "contextual_domain",
             ["animal_adna"],
             {
+                "sample_accounting_available": counts[
+                    "animal_sample_database_review_available"
+                ],
+                "coordinate_accounting_available": counts[
+                    "animal_map_readiness_available"
+                ],
                 "tracked_paper_count": counts["tracked_paper_count"],
                 "published_atlas_point_count": counts["published_atlas_point_count"],
-                "unresolved_map_rows": counts["animal_map_unresolved_rows"],
+                "tracked_sample_count": counts["animal_tracked_sample_count"],
+                "unresolved_sample_count": counts["animal_unresolved_sample_count"],
+                "coordinate_provenance_count": counts[
+                    "animal_coordinate_provenance_count"
+                ],
+                "refused_coordinate_provenance_count": counts[
+                    "animal_coordinate_refused_provenance_count"
+                ],
             },
             [
                 "docs/public/pollenomics-data/sources/animal-source-intake.md",
@@ -159,6 +172,9 @@ def build_repository_cross_domain_evidence_matrix(
             "downstream_surface",
             ["country_reports", "nordic_atlas"],
             {
+                "sample_accounting_available": counts[
+                    "animal_sample_database_review_available"
+                ],
                 "country_bundle_count": counts["published_country_bundle_count"],
                 "animal_point_count": counts["published_atlas_point_count"],
             },
@@ -176,7 +192,7 @@ def build_repository_cross_domain_evidence_matrix(
         ),
     ]
     return {
-        "schema_version": "repository-cross-domain-evidence-matrix.v1",
+        "schema_version": "repository-cross-domain-evidence-matrix.v2",
         "row_count": len(rows),
         "rows": rows,
     }

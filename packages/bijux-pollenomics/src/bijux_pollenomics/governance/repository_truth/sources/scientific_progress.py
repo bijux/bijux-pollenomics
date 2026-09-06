@@ -53,8 +53,17 @@ def build_repository_scientific_progress_audit(
                 >= counts["tracked_paper_count"]
                 else f"only {counts['papers_with_archived_supplements']} of {counts['tracked_paper_count']} tracked papers currently ship archived supplementary material"
             ),
-            f"the shipped animal atlas still exposes only {counts['published_atlas_point_count']} published animal point rows",
-            f"{counts['animal_map_unresolved_rows']} animal rows remain unresolved for mapping and {counts['animal_map_refused_rows']} are refused from mapping",
+            (
+                f"the shipped animal atlas exposes {counts['published_atlas_point_count']} published animal point rows"
+                if counts["animal_sample_database_review_available"]
+                else "animal sample publication accounting is unavailable"
+            ),
+            (
+                f"{counts['animal_unresolved_sample_count']} unresolved animal samples are a subset of {counts['animal_blocked_sample_count']} blocked samples among {counts['animal_tracked_sample_count']} tracked samples; {counts['animal_coordinate_refused_provenance_count']} of {counts['animal_coordinate_provenance_count']} coordinate-provenance rows are refused from mapping"
+                if counts["animal_sample_database_review_available"]
+                and counts["animal_map_readiness_available"]
+                else "animal sample and coordinate-provenance deficits cannot be quantified until both accounting surfaces are available"
+            ),
             (
                 "collection_summary still reports zero counts for "
                 + ", ".join(zero_collection_surfaces)

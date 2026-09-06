@@ -157,14 +157,27 @@ def build_repository_atlas_input_audit(
             ],
             "docs/report/animal_sample_database_review.json",
             {
+                "sample_accounting_available": counts[
+                    "animal_sample_database_review_available"
+                ],
+                "coordinate_accounting_available": counts[
+                    "animal_map_readiness_available"
+                ],
                 "published_point_count": counts["published_atlas_point_count"],
-                "unresolved_row_count": counts["animal_map_unresolved_rows"],
+                "tracked_sample_count": counts["animal_tracked_sample_count"],
+                "unresolved_sample_count": counts["animal_unresolved_sample_count"],
+                "coordinate_provenance_count": counts[
+                    "animal_coordinate_provenance_count"
+                ],
+                "refused_coordinate_provenance_count": counts[
+                    "animal_coordinate_refused_provenance_count"
+                ],
             },
             "Animal aDNA is still a partial recovery program whose public map surface depends on sample-owned support reviews and release gates.",
         ),
     ]
     return {
-        "schema_version": "repository-atlas-input-audit.v1",
+        "schema_version": "repository-atlas-input-audit.v2",
         "row_count": len(rows),
         "rows": rows,
     }

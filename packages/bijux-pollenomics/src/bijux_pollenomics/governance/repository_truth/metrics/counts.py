@@ -43,19 +43,23 @@ def _build_core_counts(
         / "reference_stash_doi_integrity_audit.json",
         {"reference_stash_doi_count": 0},
     )
+    map_readiness_path = (
+        data_root / "adna" / "governance" / "cross_species_map_readiness.json"
+    )
     map_readiness = _load_json_or_default(
-        data_root / "adna" / "governance" / "cross_species_map_readiness.json",
+        map_readiness_path,
         {
             "totals": {
                 "direct_coordinate_backed": 0,
                 "indirectly_geocoded": 0,
-                "unresolved": 0,
-                "refused_from_mapping": 0,
+                "unresolved_sample_count": 0,
+                "refused_coordinate_provenance_count": 0,
             }
         },
     )
+    sample_database_review_path = report_root / "animal_sample_database_review.json"
     sample_database_review = _load_json_or_default(
-        report_root / "animal_sample_database_review.json",
+        sample_database_review_path,
         {"counts": {}},
     )
     collection_summary = _load_json_or_default(
@@ -93,6 +97,92 @@ def _build_core_counts(
         )
         if int(cast(Any, collection_summary.get(key, 0))) == 0
     ]
+    sample_counts = cast(Mapping[str, object], sample_database_review.get("counts", {}))
+    map_readiness_available = map_readiness_path.is_file()
+    sample_database_review_available = sample_database_review_path.is_file()
+    tracked_sample_count = _surface_count(
+        sample_counts,
+        "sample_row_count",
+        available=sample_database_review_available,
+    )
+    mapped_sample_count = _surface_count(
+        sample_counts,
+        "mapped_sample_count",
+        available=sample_database_review_available,
+    )
+    if (
+        mapped_sample_count is not None
+        and tracked_sample_count is not None
+        and mapped_sample_count > tracked_sample_count
+    ):
+        raise ValueError("Animal mapped samples exceed tracked samples")
+    blocked_sample_count = (
+        tracked_sample_count - mapped_sample_count
+        if tracked_sample_count is not None and mapped_sample_count is not None
+        else None
+    )
+    unresolved_sample_count = _surface_count(
+        totals,
+        "unresolved_sample_count",
+        available=map_readiness_available,
+    )
+    coordinate_mappable_count = _surface_count(
+        totals,
+        "coordinate_provenance_mappable_count",
+        available=map_readiness_available,
+    )
+    coordinate_refused_count = _surface_count(
+        totals,
+        "refused_coordinate_provenance_count",
+        available=map_readiness_available,
+    )
+    coordinate_total = _surface_count(
+        totals,
+        "coordinate_provenance_row_count",
+        available=map_readiness_available,
+    )
+    coordinate_not_materialized_count = _surface_count(
+        totals,
+        "not_materialized_count",
+        available=map_readiness_available,
+    )
+    publication_candidate_count = _surface_count(
+        totals,
+        "publication_candidate_count",
+        available=map_readiness_available,
+    )
+    published_atlas_point_count = _surface_count(
+        sample_counts,
+        "published_atlas_point_count",
+        available=sample_database_review_available,
+    )
+    if map_readiness_available:
+        assert coordinate_mappable_count is not None
+        assert coordinate_refused_count is not None
+        assert coordinate_total is not None
+        assert coordinate_not_materialized_count is not None
+        assert publication_candidate_count is not None
+        assert unresolved_sample_count is not None
+        if coordinate_mappable_count + coordinate_refused_count != coordinate_total:
+            raise ValueError("Animal coordinate-provenance counts do not reconcile")
+        if (
+            publication_candidate_count + coordinate_not_materialized_count
+            != coordinate_mappable_count
+        ):
+            raise ValueError("Animal coordinate publication counts do not reconcile")
+        if (
+            blocked_sample_count is not None
+            and unresolved_sample_count > blocked_sample_count
+        ):
+            raise ValueError("Animal unresolved samples exceed blocked samples")
+    if (
+        sample_database_review_available
+        and map_readiness_available
+        and published_atlas_point_count != publication_candidate_count
+    ):
+        raise ValueError(
+            "Animal sample publication and coordinate readiness counts do not reconcile"
+        )
     return {
         "tracked_paper_count": len(paper_rows),
         "papers_with_archived_supplements": sum(
@@ -105,23 +195,11 @@ def _build_core_counts(
                 ),
             )
         ),
-        "published_atlas_point_count": int(
-            cast(
-                Any,
-                cast(
-                    Mapping[str, object],
-                    sample_database_review.get("counts", {}),
-                ).get("published_atlas_point_count", 0),
-            )
-        ),
-        "published_country_bundle_count": int(
-            cast(
-                Any,
-                cast(
-                    Mapping[str, object],
-                    sample_database_review.get("counts", {}),
-                ).get("published_country_bundle_count", 0),
-            )
+        "published_atlas_point_count": published_atlas_point_count,
+        "published_country_bundle_count": _surface_count(
+            sample_counts,
+            "published_country_bundle_count",
+            available=sample_database_review_available,
         ),
         "reference_stash_doi_count": int(
             cast(
@@ -141,23 +219,16 @@ def _build_core_counts(
             if bool(row.get("paper_registry_present"))
             and row.get("local_reference_supplement_status") == "local_reference_staged"
         ),
-        "animal_sample_row_count": int(
-            cast(
-                Any,
-                cast(
-                    Mapping[str, object],
-                    sample_database_review.get("counts", {}),
-                ).get("sample_row_count", 0),
-            )
-        ),
-        "animal_map_supported_rows": int(
-            cast(Any, totals.get("direct_coordinate_backed", 0))
-        )
-        + int(cast(Any, totals.get("indirectly_geocoded", 0))),
-        "animal_map_unresolved_rows": int(cast(Any, totals.get("unresolved", 0))),
-        "animal_map_refused_rows": int(
-            cast(Any, totals.get("refused_from_mapping", 0))
-        ),
+        "animal_sample_database_review_available": sample_database_review_available,
+        "animal_map_readiness_available": map_readiness_available,
+        "animal_tracked_sample_count": tracked_sample_count,
+        "animal_mapped_sample_count": mapped_sample_count,
+        "animal_blocked_sample_count": blocked_sample_count,
+        "animal_unresolved_sample_count": unresolved_sample_count,
+        "animal_coordinate_mappable_provenance_count": coordinate_mappable_count,
+        "animal_coordinate_refused_provenance_count": coordinate_refused_count,
+        "animal_coordinate_provenance_count": coordinate_total,
+        "animal_coordinate_not_materialized_count": coordinate_not_materialized_count,
         "tracked_landclim_site_count": int(
             cast(Any, landclim_summary.get("site_count", 0))
         ),
@@ -233,3 +304,17 @@ def _build_core_counts(
         ),
         "zero_collection_summary_surfaces": zero_collection_surfaces,
     }
+
+
+def _surface_count(
+    payload: Mapping[str, object],
+    field: str,
+    *,
+    available: bool,
+) -> int | None:
+    if not available:
+        return None
+    value = payload.get(field)
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+        raise ValueError(f"Repository truth {field} must be a nonnegative integer")
+    return value

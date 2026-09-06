@@ -53,7 +53,7 @@ class RepositoryProductPostureTests(RepositoryTruthTestCase):
         )
 
         self.assertEqual(
-            product_payload["schema_version"], "repository-product-model.v1"
+            product_payload["schema_version"], "repository-product-model.v2"
         )
         self.assertEqual(
             product_payload["governing_model"],
