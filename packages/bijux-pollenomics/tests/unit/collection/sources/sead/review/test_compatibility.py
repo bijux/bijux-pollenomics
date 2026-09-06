@@ -24,12 +24,14 @@ def test_review_import_path_is_a_package_facade() -> None:
 def test_public_signatures_remain_stable() -> None:
     assert str(inspect.signature(review.build_sead_temporal_review)) == (
         "(rows: 'list[dict[str, object]]', "
-        "records: 'list[ContextPointRecord]') -> 'dict[str, object]'"
+        "records: 'list[ContextPointRecord]', *, "
+        "generated_on: 'date | None' = None) -> 'dict[str, object]'"
     )
     assert str(inspect.signature(review.write_sead_review_outputs)) == (
         "(output_root: 'Path', *, rows: 'list[dict[str, object]]', "
         "records: 'list[ContextPointRecord]', lineage: "
-        "'Mapping[str, object] | None' = None) -> 'dict[str, str]'"
+        "'Mapping[str, object] | None' = None, generated_on: "
+        "'date | None' = None) -> 'dict[str, str]'"
     )
 
 

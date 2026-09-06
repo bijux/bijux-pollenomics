@@ -3,20 +3,66 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import tempfile
+from contextlib import chdir
+from pathlib import Path
 from types import SimpleNamespace
 from typing import cast
 from unittest.mock import patch
 
+import pytest
+from bijux_pollenomics.collection.sources.sead import collection as sead_collection
 from bijux_pollenomics.collection.sources.sead.collection import (
     collect_sead_data,
     materialize_sead_repository_surfaces,
 )
+
 from tests.support.context_data import NordicBoundaryTestCase
 
 
 class SeadMaterializationTests(NordicBoundaryTestCase):
+    def test_repository_materialization_root_refuses_missing_and_linked_paths(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp).resolve()
+            with pytest.raises(ValueError, match="must exist"):
+                sead_collection._validated_repository_data_root(root / "missing")
+            data_root = root / "data"
+            data_root.mkdir()
+            linked = root / "linked-data"
+            linked.symlink_to(data_root, target_is_directory=True)
+            with pytest.raises(ValueError, match="must not traverse a symlink"):
+                sead_collection._validated_repository_data_root(linked)
+
+            filesystem_root = Path(root.anchor)
+            non_linked_directory = next(
+                path
+                for path in filesystem_root.iterdir()
+                if path.is_dir() and not path.is_symlink()
+            )
+            root_alias = non_linked_directory / ".."
+            with pytest.raises(ValueError, match="must not resolve"):
+                sead_collection._validated_repository_data_root(root_alias)
+
+    def test_source_snapshot_date_requires_matching_zoned_receipt(self) -> None:
+        receipt = {"run_id": "sead-test-run", "started_at": "2026-05-08T23:59:59Z"}
+        copied = {"receipts/tbl_sites.json": json.dumps(receipt).encode()}
+        self.assertEqual(
+            sead_collection._source_snapshot_date(
+                copied, expected_run_id="sead-test-run"
+            ).isoformat(),
+            "2026-05-08",
+        )
+        receipt["started_at"] = "2026-05-08T23:59:59"
+        with pytest.raises(ValueError, match="timezone"):
+            sead_collection._source_snapshot_date(
+                {"receipts/tbl_sites.json": json.dumps(receipt).encode()},
+                expected_run_id="sead-test-run",
+            )
+        with pytest.raises(ValueError, match="run identity differs"):
+            sead_collection._source_snapshot_date(copied, expected_run_id="another-run")
+
     def test_collect_sead_data_writes_inventory_summary(self) -> None:
         rows = [
             {
@@ -161,9 +207,28 @@ class SeadMaterializationTests(NordicBoundaryTestCase):
                     encoding="utf-8"
                 )
             )["rows"]
+
+            def write_claim_summary(_: object, path: Path) -> None:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("{}\n", encoding="utf-8")
+
+            def write_classification_review(
+                review_root: Path, _: object
+            ) -> dict[str, Path]:
+                review_root.mkdir(parents=True, exist_ok=True)
+                paths = {
+                    "json": review_root / "scientific_classification_review.json",
+                    "markdown": review_root / "scientific_classification_review.md",
+                    "csv": review_root / "scientific_classification_candidates.csv",
+                }
+                paths["json"].write_text('{"candidates": []}\n', encoding="utf-8")
+                paths["markdown"].write_text("review\n", encoding="utf-8")
+                paths["csv"].write_text("candidate_id\n", encoding="utf-8")
+                return paths
+
             with (
                 patch(
-                    "bijux_pollenomics.collection.sources.sead.collection.validate_governed_sead_admission",
+                    "bijux_pollenomics.collection.sources.sead.collection.repository_materialization.validate_governed_sead_admission",
                     return_value=SimpleNamespace(
                         admission={
                             "run_id": "sead-test-run",
@@ -171,32 +236,51 @@ class SeadMaterializationTests(NordicBoundaryTestCase):
                             "acquisition_manifest_sha256": "a" * 64,
                             "parent_admission_sha256": "p" * 64,
                         },
-                        copied_files={},
+                        copied_files={
+                            "receipts/tbl_sites.json": json.dumps(
+                                {
+                                    "run_id": "sead-test-run",
+                                    "started_at": "2026-05-08T23:59:59Z",
+                                }
+                            ).encode()
+                        },
                     ),
                 ),
                 patch(
-                    "bijux_pollenomics.collection.sources.sead.collection._load_sead_acquisition_rows",
+                    "bijux_pollenomics.collection.sources.sead.collection.repository_materialization.load_sead_acquisition_rows",
                     return_value=[],
                 ),
                 patch(
-                    "bijux_pollenomics.collection.sources.sead.collection."
+                    "bijux_pollenomics.collection.sources.sead.collection.repository_materialization."
                     "build_sead_site_rows_from_acquisition_tables",
                     return_value=(fixture_rows, {}),
                 ),
                 patch(
-                    "bijux_pollenomics.collection.sources.sead.collection._attach_sead_country_decisions"
+                    "bijux_pollenomics.collection.sources.sead.collection.repository_materialization.attach_sead_country_decisions"
                 ),
                 patch(
-                    "bijux_pollenomics.collection.sources.sead.collection."
-                    "write_sead_chronology_claim_bundle_from_snapshot"
+                    "bijux_pollenomics.collection.sources.sead.collection.repository_materialization."
+                    "write_sead_chronology_claim_bundle_from_snapshot",
+                    side_effect=write_claim_summary,
                 ),
                 patch(
-                    "bijux_pollenomics.collection.sources.sead.collection."
-                    "materialize_sead_scientific_classification_review"
+                    "bijux_pollenomics.collection.sources.sead.collection.repository_materialization."
+                    "build_sead_scientific_classification_review",
+                    return_value={},
                 ) as classification_review,
+                patch(
+                    "bijux_pollenomics.collection.sources.sead.collection.repository_materialization."
+                    "write_sead_scientific_classification_review",
+                    side_effect=write_classification_review,
+                ),
+                patch(
+                    "bijux_pollenomics.collection.sources.sead.collection.repository_materialization."
+                    "require_source_snapshot_unchanged"
+                ),
             ):
-                report = materialize_sead_repository_surfaces(data_root)
-                classification_review.assert_called_once_with(data_root)
+                with chdir(Path(tmp)):
+                    report = materialize_sead_repository_surfaces(Path("data"))
+                classification_review.assert_called_once_with(data_root.resolve())
 
             normalized_payload = json.loads(
                 report.normalized_geojson_path.read_text(encoding="utf-8")
@@ -232,6 +316,10 @@ class SeadMaterializationTests(NordicBoundaryTestCase):
             )
 
         self.assertEqual(report.point_count, 1)
+        self.assertEqual(evidence_review["generated_on"], "2026-05-08")
+        self.assertEqual(access_model["generated_on"], "2026-05-08")
+        self.assertEqual(temporal_review["generated_on"], "2026-05-08")
+        self.assertEqual(recovery_requirements["generated_on"], "2026-05-08")
         self.assertEqual(temporal_geojson["features"], [])
         self.assertEqual(feature["properties"]["country"], "Sweden")
         self.assertEqual(

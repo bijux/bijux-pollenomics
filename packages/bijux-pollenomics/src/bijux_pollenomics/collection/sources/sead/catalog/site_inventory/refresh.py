@@ -17,6 +17,7 @@ from .temporal import (
     _uncertainty_labels,
     merge_sead_intervals,
     sead_dating_interval,
+    sead_interval_is_canonical,
 )
 from .values import parse_optional_int, parse_required_int
 
@@ -47,7 +48,7 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
             )
             dating_row["time_start_bp"] = interval[0] if interval is not None else None
             dating_row["time_end_bp"] = interval[1] if interval is not None else None
-            if interval is not None:
+            if interval is not None and sead_interval_is_canonical(interval):
                 numeric_intervals.append(interval)
         for entity_age_row in entity_age_rows:
             interval = _analysis_entity_age_interval(entity_age_row)
@@ -57,7 +58,7 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
             entity_age_row["time_end_bp"] = (
                 interval[1] if interval is not None else None
             )
-            if interval is not None:
+            if interval is not None and sead_interval_is_canonical(interval):
                 numeric_intervals.append(interval)
         for geochronology_row in geochronology_rows:
             interval = _geochronology_interval(geochronology_row)
@@ -67,7 +68,7 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
             geochronology_row["time_end_bp"] = (
                 interval[1] if interval is not None else None
             )
-            if interval is not None:
+            if interval is not None and sead_interval_is_canonical(interval):
                 numeric_intervals.append(interval)
         for dendro_date_row in dendro_date_rows:
             interval = _dendro_date_interval(
@@ -80,7 +81,7 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
             dendro_date_row["time_end_bp"] = (
                 interval[1] if interval is not None else None
             )
-            if interval is not None:
+            if interval is not None and sead_interval_is_canonical(interval):
                 numeric_intervals.append(interval)
         contextual_intervals: list[tuple[int, int]] = []
         for relative_row in relative_rows:
@@ -98,7 +99,7 @@ def refresh_sead_repository_rows(rows: list[dict[str, object]]) -> None:
                 interval[0] if interval is not None else None
             )
             relative_row["time_end_bp"] = interval[1] if interval is not None else None
-            if interval is not None:
+            if interval is not None and sead_interval_is_canonical(interval):
                 contextual_intervals.append(interval)
         numeric_time_interval = merge_sead_intervals(numeric_intervals)
         contextual_time_interval = merge_sead_intervals(contextual_intervals)

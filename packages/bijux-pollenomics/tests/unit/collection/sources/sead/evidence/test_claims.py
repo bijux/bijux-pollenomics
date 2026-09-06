@@ -1,20 +1,24 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.collection.sources.sead.collection import (
     SEAD_GOVERNED_ACQUISITION_ID,
 )
+from bijux_pollenomics.collection.sources.sead.evidence import claims as claims_module
 from bijux_pollenomics.collection.sources.sead.evidence.claims import (
     build_sead_chronology_claim_bundle,
+    write_sead_chronology_claim_bundle,
 )
 from bijux_pollenomics.evidence.sources.sead import (
     SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
     governed_sead_evidence_root,
     read_validated_sead_evidence_document,
 )
+
 from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts
@@ -24,6 +28,22 @@ _ACQUISITION_ROOT = (
     _REPOSITORY_ROOT / "data/sead/raw/acquisitions" / SEAD_GOVERNED_ACQUISITION_ID
 )
 _EVIDENCE_ROOT = governed_sead_evidence_root(_REPOSITORY_ROOT / "data")
+
+
+def test_claim_writer_owns_creation_of_the_destination_directory(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(
+        claims_module,
+        "build_sead_chronology_claim_bundle",
+        lambda _: {"claim_count": 0},
+    )
+    destination = tmp_path / "candidate" / "data" / "sead" / "claims.json"
+
+    written = write_sead_chronology_claim_bundle(tmp_path, destination)
+
+    assert written == destination
+    assert json.loads(destination.read_text(encoding="utf-8")) == {"claim_count": 0}
 
 
 def test_admitted_sead_claims_reconcile_and_match_the_generated_bundle() -> None:
@@ -50,13 +70,14 @@ def test_admitted_sead_claims_reconcile_and_match_the_generated_bundle() -> None
         "relative_period": 10_057,
     }
     assert bundle["comparability_counts"] == {
-        "comparable": 14_324,
+        "comparable": 14_264,
         "context_only": 10_144,
+        "refused": 60,
         "unresolved": 641,
     }
     assert bundle["chronology_eligibility_counts"] == {
-        "eligible": 14_324,
-        "refused": 10_785,
+        "eligible": 14_264,
+        "refused": 10_845,
     }
     assert bundle["propagation_status"] == "refused"
     assert bundle["propagation_reason_code"] == "source_classification_not_accepted"
@@ -97,6 +118,18 @@ def test_every_sead_claim_retains_subject_geography_and_raw_parent_identity() ->
     eligible = [
         claim for claim in claims if claim["chronology_eligibility"] == "eligible"
     ]
-    assert len(eligible) == 14_324
+    assert len(eligible) == 14_264
     assert all(isinstance(claim["younger_bp"], int) for claim in eligible)
     assert all(isinstance(claim["older_bp"], int) for claim in eligible)
+    refused_negative = [
+        claim
+        for claim in claims
+        if claim["comparability_status"] == "refused"
+        and "negative_bp" in claim["reason_codes"]
+    ]
+    assert len(refused_negative) == 60
+    assert all(
+        claim["chronology_eligibility"] == "refused" for claim in refused_negative
+    )
+    assert all(claim["younger_bp"] is None for claim in refused_negative)
+    assert all(claim["older_bp"] is None for claim in refused_negative)

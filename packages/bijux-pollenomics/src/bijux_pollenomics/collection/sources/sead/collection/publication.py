@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from datetime import date
 from pathlib import Path
 
 from bijux_pollenomics.collection.contracts.artifacts import (
@@ -41,27 +42,35 @@ def write_source_surfaces(
         records,
         temporal_records,
     )
-    _write_reviews_and_discovery(output_root, rows, records, temporal_records)
+    _write_reviews_and_discovery(
+        output_root,
+        rows,
+        records,
+        temporal_records,
+        context_data_root=output_root.parent,
+    )
     return normalized_csv_path, normalized_geojson_path
 
 
 def write_repository_surfaces(
-    data_root: Path,
+    output_data_root: Path,
     *,
+    context_data_root: Path,
     rows: list[dict[str, object]],
     records: list[ContextPointRecord],
     temporal_records: list[ContextPointRecord],
     admission: dict[str, object],
+    generated_on: date,
 ) -> tuple[Path, Path]:
-    output_root = data_root / "sead"
-    normalized_csv_path = SEAD_POINT_CSV.path_under(data_root)
-    normalized_geojson_path = SEAD_POINT_GEOJSON.path_under(data_root)
+    output_root = output_data_root / "sead"
+    normalized_csv_path = SEAD_POINT_CSV.path_under(output_data_root)
+    normalized_geojson_path = SEAD_POINT_GEOJSON.path_under(output_data_root)
     normalized_csv_path.parent.mkdir(parents=True, exist_ok=True)
     _write_context_surfaces(
         normalized_csv_path,
         normalized_geojson_path,
-        SEAD_TEMPORAL_EVIDENCE_CSV.path_under(data_root),
-        SEAD_TEMPORAL_EVIDENCE_GEOJSON.path_under(data_root),
+        SEAD_TEMPORAL_EVIDENCE_CSV.path_under(output_data_root),
+        SEAD_TEMPORAL_EVIDENCE_GEOJSON.path_under(output_data_root),
         records,
         temporal_records,
     )
@@ -70,7 +79,9 @@ def write_repository_surfaces(
         rows,
         records,
         temporal_records,
+        context_data_root=context_data_root,
         review_lineage=review_lineage_from_admission(admission),
+        generated_on=generated_on,
     )
     return normalized_csv_path, normalized_geojson_path
 
@@ -95,19 +106,24 @@ def _write_reviews_and_discovery(
     records: list[ContextPointRecord],
     temporal_records: list[ContextPointRecord],
     *,
+    context_data_root: Path,
     review_lineage: dict[str, str] | None = None,
+    generated_on: date | None = None,
 ) -> None:
     write_sead_review_outputs(
         output_root,
         rows=rows,
         records=records,
         lineage=review_lineage,
+        generated_on=generated_on,
     )
     write_archaeology_site_discovery(
         output_root=output_root,
         rows=rows,
         records=records,
         temporal_records=temporal_records,
+        context_data_root=context_data_root,
+        generated_on=generated_on,
     )
 
 
@@ -117,9 +133,11 @@ def write_archaeology_site_discovery(
     rows: list[dict[str, object]],
     records: list[ContextPointRecord],
     temporal_records: list[ContextPointRecord],
+    context_data_root: Path,
+    generated_on: date | None = None,
 ) -> None:
     raa_path = (
-        output_root.parent / "raa" / "normalized" / "sweden_archaeology_density.geojson"
+        context_data_root / "raa" / "normalized" / "sweden_archaeology_density.geojson"
     )
     raa_density: dict[str, object] | None = None
     if raa_path.is_file():
@@ -131,5 +149,6 @@ def write_archaeology_site_discovery(
         temporal_records=temporal_records,
         raw_rows=rows,
         raa_density_geojson=raa_density,
+        generated_on=generated_on,
     )
     write_sweden_archaeology_site_discovery(output_root, discovery)

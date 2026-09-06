@@ -25,10 +25,10 @@ _EXPECTED_LINEAGE = {
         "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1"
     ),
     "evidence_manifest_sha256": (
-        "6bb368348e702ec5903fe50ec428b03182e1d78e8dbc9369d057593e950f861c"
+        "c6c709ddcdadf736f157636874e0cebfb152f90d83d0b90a25e3cfd9dfed1510"
     ),
     "evidence_file_set_sha256": (
-        "b83f418e560502e1ccfc186a790ca9ceee98d02bd8b164c14bcdb2ca66981454"
+        "5bf783db87b9bb49ef4ffde39c940d80ace09eaf7723138cf6034e027591c621"
     ),
 }
 _EXPECTED_TAXONOMY_TABLE_COUNTS = {
@@ -352,20 +352,22 @@ def validate_sead_scientific_classification_review(packet: JsonObject) -> None:
     }:
         raise ValueError("SEAD chronology claim types changed")
     if chronology.get("comparability_counts") != {
-        "comparable": 14_324,
+        "comparable": 14_264,
         "context_only": 10_144,
+        "refused": 60,
         "unresolved": 641,
     }:
         raise ValueError("SEAD chronology comparability changed")
     if chronology.get("chronology_eligibility_counts") != {
-        "eligible": 14_324,
-        "refused": 10_785,
+        "eligible": 14_264,
+        "refused": 10_845,
     }:
         raise ValueError("SEAD chronology eligibility changed")
     if chronology.get("refusal_reason_counts") != {
         "analysis_entity_age_basis_unspecified": 641,
-        "chronology_not_comparable": 10_785,
+        "chronology_not_comparable": 10_845,
         "geochronology_calibration_posture_unknown": 87,
+        "negative_bp": 60,
         "relative_period_requires_governed_mapping": 10_057,
     }:
         raise ValueError("SEAD chronology authority gaps changed")
@@ -381,7 +383,7 @@ def validate_sead_scientific_classification_review(packet: JsonObject) -> None:
         raise ValueError("SEAD event refusal overlap semantics changed")
     reasons = _mapping(events.get("refusal_reason_counts"), "event refusal reasons")
     if dict(reasons) != {
-        "eligible_chronology_claim_unavailable_at_analysis_entity": 166_341,
+        "eligible_chronology_claim_unavailable_at_analysis_entity": 166_386,
         "source_classification_not_accepted": 177_763,
         "source_taxon_unavailable": 154_107,
         "source_unit_unavailable": 160_825,

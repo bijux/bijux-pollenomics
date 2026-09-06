@@ -20,7 +20,11 @@ from .chronology_records import (
 from .source_data.lookups import SeadLookupIndex
 from .source_data.relations import SeadRelationIndex
 from .source_data.source_tables import SeadInventorySourceRows
-from .temporal import _relative_interval_from_range, sead_dating_interval
+from .temporal import (
+    _relative_interval_from_range,
+    sead_dating_interval,
+    sead_interval_is_canonical,
+)
 from .values import parse_optional_int, parse_required_int
 
 Row = dict[str, object]
@@ -73,7 +77,7 @@ def project_site_chronology(
                 ),
             )
         )
-        if interval is not None:
+        if interval is not None and sead_interval_is_canonical(interval):
             numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
     for geochronology_row in source.geochronology_rows:
         analysis_entity_id = parse_required_int(
@@ -99,7 +103,7 @@ def project_site_chronology(
                 ),
             )
         )
-        if interval is not None:
+        if interval is not None and sead_interval_is_canonical(interval):
             numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
     for dendro_date in source.dendro_dates:
         analysis_entity_id = parse_required_int(dendro_date.get("analysis_entity_id"))
@@ -127,7 +131,7 @@ def project_site_chronology(
                 ),
             )
         )
-        if interval is not None:
+        if interval is not None and sead_interval_is_canonical(interval):
             numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
     for relative_date in source.relative_dates:
         analysis_entity_id = parse_required_int(relative_date.get("analysis_entity_id"))
@@ -199,7 +203,7 @@ def project_site_chronology(
                     ),
                 )
             )
-        if site_id and interval is not None:
+        if site_id and interval is not None and sead_interval_is_canonical(interval):
             numeric_dating_intervals_by_site.setdefault(site_id, []).append(interval)
         if site_id:
             dating_range_counts_by_site[site_id] = (
@@ -212,7 +216,11 @@ def project_site_chronology(
                 parse_optional_int(row.get("time_end_bp")),
             )
             site_id = parse_required_int(row.get("site_id"))
-            if site_id and interval is not None:
+            if (
+                site_id
+                and interval is not None
+                and sead_interval_is_canonical(interval)
+            ):
                 contextual_period_intervals_by_site.setdefault(site_id, []).append(
                     interval
                 )

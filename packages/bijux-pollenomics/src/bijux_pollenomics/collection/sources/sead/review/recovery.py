@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
-from datetime import date
+from datetime import UTC, date, datetime
 from typing import Any, cast
 
 
@@ -9,6 +9,7 @@ def build_sead_recovery_requirements(
     *,
     access_model_packet: dict[str, object],
     evidence_legibility_review: dict[str, object],
+    generated_on: date | None = None,
 ) -> dict[str, object]:
     """Turn current SEAD legibility gaps into governed evidence requirements."""
     inventory = _mapping_value(evidence_legibility_review, "inventory_summary")
@@ -29,7 +30,8 @@ def build_sead_recovery_requirements(
     unresolved_site_uuids = _affected_site_uuids(
         row
         for row in evidence_rows
-        if row.get("temporal_strength") == "inventory_only_or_unresolved"
+        if row.get("temporal_strength")
+        in {"inventory_only_or_unresolved", "period_label_only"}
     )
     site_page_only_uuids = _affected_site_uuids(
         row for row in access_rows if row.get("access_visibility") == "site_page_only"
@@ -79,7 +81,7 @@ def build_sead_recovery_requirements(
     ]
     return {
         "schema_version": "sead-recovery-requirements.v1",
-        "generated_on": str(date.today()),
+        "generated_on": str(generated_on or datetime.now(UTC).date()),
         "row_count": len(rows),
         "rows": rows,
     }
@@ -112,9 +114,7 @@ def _integer_value(value: object) -> int:
     return int(cast(Any, value))
 
 
-def _object_rows(
-    payload: dict[str, object], key: str
-) -> list[dict[str, object]]:
+def _object_rows(payload: dict[str, object], key: str) -> list[dict[str, object]]:
     value = payload.get(key)
     if not isinstance(value, list) or any(not isinstance(row, dict) for row in value):
         raise ValueError(f"SEAD review {key} must be object rows")

@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from collections import Counter
-from collections.abc import Mapping
 import hashlib
 import json
+from collections import Counter
+from collections.abc import Mapping
 from pathlib import Path
 from typing import Final, cast
 
@@ -194,6 +194,7 @@ def write_sead_chronology_claim_bundle(
 ) -> Path:
     """Write the deterministic claim bundle through the repository JSON writer."""
     destination = output_path.resolve()
+    destination.parent.mkdir(parents=True, exist_ok=True)
     write_json(destination, build_sead_chronology_claim_bundle(acquisition_root))
     return destination
 
@@ -203,6 +204,7 @@ def write_sead_chronology_claim_bundle_from_snapshot(
 ) -> Path:
     """Write a claim bundle without reopening admission-controlled inputs."""
     destination = output_path.resolve()
+    destination.parent.mkdir(parents=True, exist_ok=True)
     write_json(destination, build_sead_chronology_claim_bundle_from_snapshot(snapshot))
     return destination
 

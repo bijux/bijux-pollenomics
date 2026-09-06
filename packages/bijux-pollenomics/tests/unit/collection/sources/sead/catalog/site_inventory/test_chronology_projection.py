@@ -11,13 +11,18 @@ from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.source_dat
 )
 from bijux_pollenomics.collection.sources.sead.catalog.site_inventory.temporal import (
     _ce_year_to_bp,
+    merge_sead_intervals,
 )
 
 
 class SeadChronologyAcquisitionTests(unittest.TestCase):
-    def test_common_era_conversion_refuses_post_1950_numeric_bp(self) -> None:
+    def test_common_era_conversion_preserves_post_1950_source_value(self) -> None:
         self.assertEqual(_ce_year_to_bp(1950), 0)
-        self.assertIsNone(_ce_year_to_bp(2004))
+        self.assertEqual(_ce_year_to_bp(2004), -54)
+
+    def test_site_interval_merge_refuses_post_1950_source_values(self) -> None:
+        self.assertEqual(merge_sead_intervals([(-54, -51), (100, 200)]), (100, 200))
+        self.assertIsNone(merge_sead_intervals([(-54, -51)]))
 
     def test_acquisition_preserves_the_entity_parent_chain_on_each_claim(self) -> None:
         site_rows = [
@@ -49,7 +54,8 @@ class SeadChronologyAcquisitionTests(unittest.TestCase):
                     },
                 ],
                 "tbl_analysis_values": [
-                    {"analysis_value_id": 35, "analysis_entity_id": 30}
+                    {"analysis_value_id": 35, "analysis_entity_id": 30},
+                    {"analysis_value_id": 36, "analysis_entity_id": 31},
                 ],
                 "tbl_age_types": [
                     {"age_type_id": 2, "age_type": "AD", "description": ""}
@@ -106,7 +112,14 @@ class SeadChronologyAcquisitionTests(unittest.TestCase):
                         "low_value": 1754,
                         "high_value": None,
                         "age_type_id": 2,
-                    }
+                    },
+                    {
+                        "analysis_dating_range_id": 36,
+                        "analysis_value_id": 36,
+                        "low_value": 2004,
+                        "high_value": None,
+                        "age_type_id": 2,
+                    },
                 ],
                 "tbl_relative_dates": [
                     {
@@ -147,6 +160,11 @@ class SeadChronologyAcquisitionTests(unittest.TestCase):
         self.assertEqual(contextual_claim["dataset_id"], 41)
         self.assertEqual(site_rows[0]["dating_range_rows"][0]["age_type_id"], 2)
         self.assertEqual(site_rows[0]["dendro_date_rows"][0]["age_type_id"], 2)
+        post_1950_row = site_rows[1]["dating_range_rows"][0]
+        self.assertEqual(post_1950_row["time_start_bp"], -54)
+        self.assertEqual(post_1950_row["time_end_bp"], -54)
+        self.assertIsNone(site_rows[1]["numeric_time_start_bp"])
+        self.assertIsNone(site_rows[1]["numeric_time_end_bp"])
         self.assertEqual(summary["numeric_interval_row_count"], 1)
         self.assertEqual(summary["contextual_only_site_count"], 1)
         self.assertEqual(summary["unresolved_site_count"], 1)

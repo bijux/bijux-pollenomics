@@ -155263,8 +155263,8 @@
   ],
   "chronology_authority_gaps": {
     "chronology_eligibility_counts": {
-      "eligible": 14324,
-      "refused": 10785
+      "eligible": 14264,
+      "refused": 10845
     },
     "claim_count": 25109,
     "claim_type_counts": {
@@ -155275,15 +155275,17 @@
       "relative_period": 10057
     },
     "comparability_counts": {
-      "comparable": 14324,
+      "comparable": 14264,
       "context_only": 10144,
+      "refused": 60,
       "unresolved": 641
     },
     "reason_count_semantics": "chronology_not_comparable is an umbrella reason; specific authority reasons overlap it and must not be added to it",
     "refusal_reason_counts": {
       "analysis_entity_age_basis_unspecified": 641,
-      "chronology_not_comparable": 10785,
+      "chronology_not_comparable": 10845,
       "geochronology_calibration_posture_unknown": 87,
+      "negative_bp": 60,
       "relative_period_requires_governed_mapping": 10057
     }
   },
@@ -155365,7 +155367,7 @@
     "observation_denominator": 177763,
     "reason_count_semantics": "reason populations overlap",
     "refusal_reason_counts": {
-      "eligible_chronology_claim_unavailable_at_analysis_entity": 166341,
+      "eligible_chronology_claim_unavailable_at_analysis_entity": 166386,
       "source_classification_not_accepted": 177763,
       "source_taxon_unavailable": 154107,
       "source_unit_unavailable": 160825
@@ -155375,8 +155377,8 @@
   "lineage": {
     "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
     "build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
-    "evidence_file_set_sha256": "b83f418e560502e1ccfc186a790ca9ceee98d02bd8b164c14bcdb2ca66981454",
-    "evidence_manifest_sha256": "6bb368348e702ec5903fe50ec428b03182e1d78e8dbc9369d057593e950f861c",
+    "evidence_file_set_sha256": "5bf783db87b9bb49ef4ffde39c940d80ace09eaf7723138cf6034e027591c621",
+    "evidence_manifest_sha256": "c6c709ddcdadf736f157636874e0cebfb152f90d83d0b90a25e3cfd9dfed1510",
     "parent_admission_sha256": "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1",
     "source_run_id": "sead-full-evidence-39bfff6a-ce80714e"
   },

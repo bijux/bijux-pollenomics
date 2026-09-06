@@ -6,7 +6,6 @@ import json
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics_dev.docs.sead_evidence_sync import (
     DEFAULT_TARGETS,
     END_MARKER,
@@ -16,7 +15,6 @@ from bijux_pollenomics_dev.docs.sead_evidence_sync import (
     render_sead_evidence_block,
     synchronize_sead_evidence,
 )
-
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[3]
 
@@ -83,6 +81,7 @@ def _fixture_repository(root: Path) -> None:
             "comparability_counts": {
                 "comparable": 4,
                 "context_only": 3,
+                "refused": 0,
                 "unresolved": 2,
             },
         },

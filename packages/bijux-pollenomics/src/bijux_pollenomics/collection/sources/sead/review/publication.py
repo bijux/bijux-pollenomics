@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-from collections.abc import Mapping
 import json
+from collections.abc import Mapping
+from datetime import date
 from pathlib import Path
 from typing import cast
 
@@ -34,18 +35,24 @@ def write_sead_review_outputs(
     rows: list[dict[str, object]],
     records: list[ContextPointRecord],
     lineage: Mapping[str, object] | None = None,
+    generated_on: date | None = None,
 ) -> dict[str, str]:
     """Write SEAD review surfaces beside raw and normalized outputs."""
     validate_site_identities(rows)
     lineage_fields = _review_lineage_fields(lineage)
     review_root = Path(output_root) / "review"
     review_root.mkdir(parents=True, exist_ok=True)
-    temporal_review = build_sead_temporal_review(rows, records)
-    access_model = build_sead_access_model_packet(rows)
-    evidence_review = build_sead_evidence_legibility_review(rows, records)
+    temporal_review = build_sead_temporal_review(
+        rows, records, generated_on=generated_on
+    )
+    access_model = build_sead_access_model_packet(rows, generated_on=generated_on)
+    evidence_review = build_sead_evidence_legibility_review(
+        rows, records, generated_on=generated_on
+    )
     recovery_requirements = build_sead_recovery_requirements(
         access_model_packet=access_model,
         evidence_legibility_review=evidence_review,
+        generated_on=generated_on,
     )
     for payload in (
         temporal_review,

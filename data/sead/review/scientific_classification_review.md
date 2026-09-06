@@ -8,8 +8,8 @@ This packet prepares source-native SEAD taxonomy and ecocodes for qualified huma
 - Build: `sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725`
 - Acquisition manifest SHA-256: `6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14`
 - Parent admission SHA-256: `168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1`
-- Evidence manifest SHA-256: `6bb368348e702ec5903fe50ec428b03182e1d78e8dbc9369d057593e950f861c`
-- Evidence file-set SHA-256: `b83f418e560502e1ccfc186a790ca9ceee98d02bd8b164c14bcdb2ca66981454`
+- Evidence manifest SHA-256: `c6c709ddcdadf736f157636874e0cebfb152f90d83d0b90a25e3cfd9dfed1510`
+- Evidence file-set SHA-256: `5bf783db87b9bb49ef4ffde39c940d80ace09eaf7723138cf6034e027591c621`
 
 ## Review posture
 
@@ -55,11 +55,12 @@ The plant system references bibliography ID 5555, whose captured title concerns 
 ## Chronology authority gaps
 
 - Claims: `25109`
-- Comparable and eligible: `14,324`
-- Context-only: `10,144`
+- Comparable and eligible: `14264`
+- Context-only: `10144`
 - Unresolved: `641`
-- Refused: `10,785`
-- Relative periods requiring governed mapping: `10,057`
+- Refused: `10845`
+- Post-1950 BP values retained as source-native context and refused from numeric BP comparison: `60`
+- Relative periods requiring governed mapping: `10057`
 - Analysis-entity ages with unspecified basis: `641`
 - Geochronology rows with unknown calibration posture: `87`
 

@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
 import hashlib
 import json
+from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Final, cast
 
@@ -25,7 +25,7 @@ SEAD_GOVERNED_EVIDENCE_SCOPE_ID: Final = (
     "sha256:39bfff6abd80041dc01c554711b2a57daf6ee68e1757e3515668a18874ffb7d7"
 )
 SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256: Final = (
-    "6bb368348e702ec5903fe50ec428b03182e1d78e8dbc9369d057593e950f861c"
+    "c6c709ddcdadf736f157636874e0cebfb152f90d83d0b90a25e3cfd9dfed1510"
 )
 SEAD_GOVERNED_ADMISSION_SHA256: Final = (
     "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea"

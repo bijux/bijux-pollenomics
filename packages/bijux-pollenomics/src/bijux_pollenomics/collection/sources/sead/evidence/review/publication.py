@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
 import csv
 import io
 import json
 import os
+from collections.abc import Mapping
 from pathlib import Path
 from typing import cast
 
@@ -22,6 +22,16 @@ def materialize_sead_scientific_classification_review(
     review_root = root / "sead" / "review"
     review_root.mkdir(parents=True, exist_ok=True)
     packet = build_sead_scientific_classification_review(root)
+    return write_sead_scientific_classification_review(review_root, packet)
+
+
+def write_sead_scientific_classification_review(
+    review_root: Path,
+    packet: JsonObject,
+) -> dict[str, Path]:
+    """Write a prebuilt governed packet to an explicitly owned review root."""
+    review_root = Path(review_root)
+    review_root.mkdir(parents=True, exist_ok=True)
     validate_sead_scientific_classification_review(packet)
     paths = {
         "json": review_root / "scientific_classification_review.json",
@@ -103,6 +113,11 @@ def render_review_markdown(packet: JsonObject) -> str:
     ecology = cast(Mapping[str, object], packet["ecocode_inventory"])
     citations = cast(Mapping[str, object], packet["citation_audit"])
     chronology = cast(Mapping[str, object], packet["chronology_authority_gaps"])
+    comparability = cast(Mapping[str, object], chronology["comparability_counts"])
+    eligibility = cast(
+        Mapping[str, object], chronology["chronology_eligibility_counts"]
+    )
+    chronology_reasons = cast(Mapping[str, object], chronology["refusal_reason_counts"])
     events = cast(Mapping[str, object], packet["event_refusal_posture"])
     lines = [
         "# SEAD qualified scientific classification review",
@@ -173,13 +188,26 @@ def render_review_markdown(packet: JsonObject) -> str:
             "## Chronology authority gaps",
             "",
             f"- Claims: `{chronology['claim_count']}`",
-            "- Comparable and eligible: `14,324`",
-            "- Context-only: `10,144`",
-            "- Unresolved: `641`",
-            "- Refused: `10,785`",
-            "- Relative periods requiring governed mapping: `10,057`",
-            "- Analysis-entity ages with unspecified basis: `641`",
-            "- Geochronology rows with unknown calibration posture: `87`",
+            f"- Comparable and eligible: `{comparability['comparable']}`",
+            f"- Context-only: `{comparability['context_only']}`",
+            f"- Unresolved: `{comparability['unresolved']}`",
+            f"- Refused: `{eligibility['refused']}`",
+            (
+                "- Post-1950 BP values retained as source-native context and refused "
+                f"from numeric BP comparison: `{chronology_reasons['negative_bp']}`"
+            ),
+            (
+                "- Relative periods requiring governed mapping: "
+                f"`{chronology_reasons['relative_period_requires_governed_mapping']}`"
+            ),
+            (
+                "- Analysis-entity ages with unspecified basis: "
+                f"`{chronology_reasons['analysis_entity_age_basis_unspecified']}`"
+            ),
+            (
+                "- Geochronology rows with unknown calibration posture: "
+                f"`{chronology_reasons['geochronology_calibration_posture_unknown']}`"
+            ),
             "",
             "`chronology_not_comparable` is an umbrella reason over the refused population. The three specific authority-gap counts are nested within it and must not be added to it.",
             "",

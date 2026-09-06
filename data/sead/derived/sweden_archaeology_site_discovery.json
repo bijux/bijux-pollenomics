@@ -4,12 +4,12 @@
   "summary": {
     "country": "Sweden",
     "site_count": 1925,
-    "chronology_resolved_site_count": 371,
-    "chronology_unresolved_site_count": 1554,
+    "chronology_resolved_site_count": 370,
+    "chronology_unresolved_site_count": 1555,
     "bibliography_linked_site_count": 1074,
-    "map_feature_count": 9738,
-    "numeric_temporal_feature_count": 8184,
-    "unresolved_temporal_feature_count": 1554,
+    "map_feature_count": 9727,
+    "numeric_temporal_feature_count": 8172,
+    "unresolved_temporal_feature_count": 1555,
     "raa_density_context_available": true,
     "current_activity_status": "not_captured_by_repository_sources"
   },
@@ -347,32 +347,6 @@
       "discovery_rank": 12
     },
     {
-      "site_id": "4169",
-      "site_name": "Flöxhult säteri",
-      "country": "Sweden",
-      "latitude": 57.0616855739,
-      "longitude": 15.5916708875,
-      "source_url": "https://browser.sead.se/site/4169",
-      "discovery_readiness": "chronology_and_bibliography_ready",
-      "chronology_resolved": true,
-      "chronology_interval_count": 81,
-      "chronology_record_count": 156,
-      "chronology_kind_count": 2,
-      "chronology_kinds": [
-        "dating_range",
-        "dendrochronology"
-      ],
-      "bibliography_count": 319,
-      "dataset_count": 319,
-      "sample_group_count": 9,
-      "physical_sample_count": 49,
-      "analysis_entity_count": 319,
-      "raa_density_context_count": 4004,
-      "raa_context_role": "coarse_spatial_context_only",
-      "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 13
-    },
-    {
       "site_id": "4112",
       "site_name": "Härnevi kyrka",
       "country": "Sweden",
@@ -394,6 +368,32 @@
       "physical_sample_count": 49,
       "analysis_entity_count": 318,
       "raa_density_context_count": 27450,
+      "raa_context_role": "coarse_spatial_context_only",
+      "current_activity_status": "not_captured_by_repository_sources",
+      "discovery_rank": 13
+    },
+    {
+      "site_id": "4169",
+      "site_name": "Flöxhult säteri",
+      "country": "Sweden",
+      "latitude": 57.0616855739,
+      "longitude": 15.5916708875,
+      "source_url": "https://browser.sead.se/site/4169",
+      "discovery_readiness": "chronology_and_bibliography_ready",
+      "chronology_resolved": true,
+      "chronology_interval_count": 79,
+      "chronology_record_count": 152,
+      "chronology_kind_count": 2,
+      "chronology_kinds": [
+        "dating_range",
+        "dendrochronology"
+      ],
+      "bibliography_count": 319,
+      "dataset_count": 319,
+      "sample_group_count": 9,
+      "physical_sample_count": 49,
+      "analysis_entity_count": 319,
+      "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
       "discovery_rank": 14
@@ -1005,8 +1005,8 @@
       "source_url": "https://browser.sead.se/site/4130",
       "discovery_readiness": "chronology_and_bibliography_ready",
       "chronology_resolved": true,
-      "chronology_interval_count": 30,
-      "chronology_record_count": 76,
+      "chronology_interval_count": 29,
+      "chronology_record_count": 75,
       "chronology_kind_count": 2,
       "chronology_kinds": [
         "dating_range",
@@ -1699,32 +1699,6 @@
       "discovery_rank": 64
     },
     {
-      "site_id": "4178",
-      "site_name": "Etelhems kyrka",
-      "country": "Sweden",
-      "latitude": 57.337221976,
-      "longitude": 18.4958931378,
-      "source_url": "https://browser.sead.se/site/4178",
-      "discovery_readiness": "chronology_and_bibliography_ready",
-      "chronology_resolved": true,
-      "chronology_interval_count": 13,
-      "chronology_record_count": 57,
-      "chronology_kind_count": 2,
-      "chronology_kinds": [
-        "dating_range",
-        "dendrochronology"
-      ],
-      "bibliography_count": 126,
-      "dataset_count": 126,
-      "sample_group_count": 1,
-      "physical_sample_count": 21,
-      "analysis_entity_count": 126,
-      "raa_density_context_count": 13558,
-      "raa_context_role": "coarse_spatial_context_only",
-      "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 65
-    },
-    {
       "site_id": "4202",
       "site_name": "Bro kyrka",
       "country": "Sweden",
@@ -1745,6 +1719,32 @@
       "sample_group_count": 1,
       "physical_sample_count": 18,
       "analysis_entity_count": 113,
+      "raa_density_context_count": 13558,
+      "raa_context_role": "coarse_spatial_context_only",
+      "current_activity_status": "not_captured_by_repository_sources",
+      "discovery_rank": 65
+    },
+    {
+      "site_id": "4178",
+      "site_name": "Etelhems kyrka",
+      "country": "Sweden",
+      "latitude": 57.337221976,
+      "longitude": 18.4958931378,
+      "source_url": "https://browser.sead.se/site/4178",
+      "discovery_readiness": "chronology_and_bibliography_ready",
+      "chronology_resolved": true,
+      "chronology_interval_count": 12,
+      "chronology_record_count": 56,
+      "chronology_kind_count": 2,
+      "chronology_kinds": [
+        "dating_range",
+        "dendrochronology"
+      ],
+      "bibliography_count": 126,
+      "dataset_count": 126,
+      "sample_group_count": 1,
+      "physical_sample_count": 21,
+      "analysis_entity_count": 126,
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
@@ -2609,32 +2609,6 @@
       "discovery_rank": 99
     },
     {
-      "site_id": "3918",
-      "site_name": "Billsta",
-      "country": "Sweden",
-      "latitude": 59.0798667177,
-      "longitude": 17.5123126198,
-      "source_url": "https://browser.sead.se/site/3918",
-      "discovery_readiness": "chronology_and_bibliography_ready",
-      "chronology_resolved": true,
-      "chronology_interval_count": 2,
-      "chronology_record_count": 44,
-      "chronology_kind_count": 2,
-      "chronology_kinds": [
-        "dating_range",
-        "dendrochronology"
-      ],
-      "bibliography_count": 72,
-      "dataset_count": 72,
-      "sample_group_count": 1,
-      "physical_sample_count": 12,
-      "analysis_entity_count": 72,
-      "raa_density_context_count": 27450,
-      "raa_context_role": "coarse_spatial_context_only",
-      "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 100
-    },
-    {
       "site_id": "4220",
       "site_name": "Berkinge Herrgård",
       "country": "Sweden",
@@ -2658,7 +2632,7 @@
       "raa_density_context_count": 3238,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 101
+      "discovery_rank": 100
     },
     {
       "site_id": "4186",
@@ -2684,7 +2658,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 102
+      "discovery_rank": 101
     },
     {
       "site_id": "4127",
@@ -2710,7 +2684,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 103
+      "discovery_rank": 102
     },
     {
       "site_id": "4094",
@@ -2736,7 +2710,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 104
+      "discovery_rank": 103
     },
     {
       "site_id": "3964",
@@ -2762,7 +2736,7 @@
       "raa_density_context_count": null,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 105
+      "discovery_rank": 104
     },
     {
       "site_id": "3983",
@@ -2788,7 +2762,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 106
+      "discovery_rank": 105
     },
     {
       "site_id": "4199",
@@ -2814,7 +2788,7 @@
       "raa_density_context_count": 6333,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 107
+      "discovery_rank": 106
     },
     {
       "site_id": "3892",
@@ -2840,7 +2814,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 108
+      "discovery_rank": 107
     },
     {
       "site_id": "4140",
@@ -2866,7 +2840,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 109
+      "discovery_rank": 108
     },
     {
       "site_id": "4020",
@@ -2892,7 +2866,7 @@
       "raa_density_context_count": 12413,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 110
+      "discovery_rank": 109
     },
     {
       "site_id": "4001",
@@ -2918,7 +2892,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 111
+      "discovery_rank": 110
     },
     {
       "site_id": "4126",
@@ -2944,7 +2918,7 @@
       "raa_density_context_count": 3815,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 112
+      "discovery_rank": 111
     },
     {
       "site_id": "4132",
@@ -2970,7 +2944,7 @@
       "raa_density_context_count": 3815,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 113
+      "discovery_rank": 112
     },
     {
       "site_id": "4181",
@@ -2996,7 +2970,7 @@
       "raa_density_context_count": 8480,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 114
+      "discovery_rank": 113
     },
     {
       "site_id": "3919",
@@ -3022,7 +2996,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 115
+      "discovery_rank": 114
     },
     {
       "site_id": "3978",
@@ -3048,7 +3022,7 @@
       "raa_density_context_count": 4303,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 116
+      "discovery_rank": 115
     },
     {
       "site_id": "4040",
@@ -3074,7 +3048,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 117
+      "discovery_rank": 116
     },
     {
       "site_id": "4157",
@@ -3100,7 +3074,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 118
+      "discovery_rank": 117
     },
     {
       "site_id": "4154",
@@ -3126,7 +3100,7 @@
       "raa_density_context_count": 3238,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 119
+      "discovery_rank": 118
     },
     {
       "site_id": "4090",
@@ -3152,7 +3126,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 120
+      "discovery_rank": 119
     },
     {
       "site_id": "4021",
@@ -3178,7 +3152,7 @@
       "raa_density_context_count": 5060,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 121
+      "discovery_rank": 120
     },
     {
       "site_id": "3965",
@@ -3204,7 +3178,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 122
+      "discovery_rank": 121
     },
     {
       "site_id": "4048",
@@ -3230,7 +3204,7 @@
       "raa_density_context_count": 3238,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 123
+      "discovery_rank": 122
     },
     {
       "site_id": "4060",
@@ -3256,7 +3230,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 124
+      "discovery_rank": 123
     },
     {
       "site_id": "3838",
@@ -3282,7 +3256,7 @@
       "raa_density_context_count": 4239,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 125
+      "discovery_rank": 124
     },
     {
       "site_id": "4009",
@@ -3308,7 +3282,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 126
+      "discovery_rank": 125
     },
     {
       "site_id": "4089",
@@ -3334,7 +3308,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 127
+      "discovery_rank": 126
     },
     {
       "site_id": "4193",
@@ -3360,7 +3334,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 128
+      "discovery_rank": 127
     },
     {
       "site_id": "4012",
@@ -3386,7 +3360,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 129
+      "discovery_rank": 128
     },
     {
       "site_id": "4200",
@@ -3412,7 +3386,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 130
+      "discovery_rank": 129
     },
     {
       "site_id": "3825",
@@ -3438,7 +3412,7 @@
       "raa_density_context_count": 5849,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 131
+      "discovery_rank": 130
     },
     {
       "site_id": "4043",
@@ -3464,7 +3438,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 132
+      "discovery_rank": 131
     },
     {
       "site_id": "4227",
@@ -3490,7 +3464,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 133
+      "discovery_rank": 132
     },
     {
       "site_id": "4201",
@@ -3516,33 +3490,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 134
-    },
-    {
-      "site_id": "3902",
-      "site_name": "Högsjö gård",
-      "country": "Sweden",
-      "latitude": 59.0303156826,
-      "longitude": 15.6846029132,
-      "source_url": "https://browser.sead.se/site/3902",
-      "discovery_readiness": "chronology_and_bibliography_ready",
-      "chronology_resolved": true,
-      "chronology_interval_count": 4,
-      "chronology_record_count": 36,
-      "chronology_kind_count": 2,
-      "chronology_kinds": [
-        "dating_range",
-        "dendrochronology"
-      ],
-      "bibliography_count": 69,
-      "dataset_count": 69,
-      "sample_group_count": 2,
-      "physical_sample_count": 10,
-      "analysis_entity_count": 69,
-      "raa_density_context_count": 3873,
-      "raa_context_role": "coarse_spatial_context_only",
-      "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 135
+      "discovery_rank": 133
     },
     {
       "site_id": "3943",
@@ -3568,7 +3516,7 @@
       "raa_density_context_count": 1226,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 136
+      "discovery_rank": 134
     },
     {
       "site_id": "3925",
@@ -3594,7 +3542,7 @@
       "raa_density_context_count": 15126,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 137
+      "discovery_rank": 135
     },
     {
       "site_id": "3873",
@@ -3620,7 +3568,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 138
+      "discovery_rank": 136
     },
     {
       "site_id": "4035",
@@ -3646,7 +3594,7 @@
       "raa_density_context_count": 4303,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 139
+      "discovery_rank": 137
     },
     {
       "site_id": "3856",
@@ -3672,7 +3620,7 @@
       "raa_density_context_count": 12413,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 140
+      "discovery_rank": 138
     },
     {
       "site_id": "3980",
@@ -3698,7 +3646,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 141
+      "discovery_rank": 139
     },
     {
       "site_id": "4027",
@@ -3724,7 +3672,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 142
+      "discovery_rank": 140
     },
     {
       "site_id": "3935",
@@ -3750,7 +3698,7 @@
       "raa_density_context_count": 10817,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 143
+      "discovery_rank": 141
     },
     {
       "site_id": "4179",
@@ -3776,7 +3724,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 144
+      "discovery_rank": 142
     },
     {
       "site_id": "3846",
@@ -3802,7 +3750,7 @@
       "raa_density_context_count": 5849,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 145
+      "discovery_rank": 143
     },
     {
       "site_id": "4228",
@@ -3828,7 +3776,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 146
+      "discovery_rank": 144
     },
     {
       "site_id": "4037",
@@ -3854,7 +3802,7 @@
       "raa_density_context_count": 3205,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 147
+      "discovery_rank": 145
     },
     {
       "site_id": "3937",
@@ -3880,7 +3828,7 @@
       "raa_density_context_count": 5060,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 148
+      "discovery_rank": 146
     },
     {
       "site_id": "4041",
@@ -3906,7 +3854,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 149
+      "discovery_rank": 147
     },
     {
       "site_id": "4110",
@@ -3932,7 +3880,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 150
+      "discovery_rank": 148
     },
     {
       "site_id": "4051",
@@ -3958,7 +3906,7 @@
       "raa_density_context_count": 8912,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 151
+      "discovery_rank": 149
     },
     {
       "site_id": "3833",
@@ -3984,7 +3932,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 152
+      "discovery_rank": 150
     },
     {
       "site_id": "4170",
@@ -4010,7 +3958,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 153
+      "discovery_rank": 151
     },
     {
       "site_id": "3837",
@@ -4036,7 +3984,33 @@
       "raa_density_context_count": 10817,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 154
+      "discovery_rank": 152
+    },
+    {
+      "site_id": "3902",
+      "site_name": "Högsjö gård",
+      "country": "Sweden",
+      "latitude": 59.0303156826,
+      "longitude": 15.6846029132,
+      "source_url": "https://browser.sead.se/site/3902",
+      "discovery_readiness": "chronology_and_bibliography_ready",
+      "chronology_resolved": true,
+      "chronology_interval_count": 2,
+      "chronology_record_count": 32,
+      "chronology_kind_count": 2,
+      "chronology_kinds": [
+        "dating_range",
+        "dendrochronology"
+      ],
+      "bibliography_count": 69,
+      "dataset_count": 69,
+      "sample_group_count": 2,
+      "physical_sample_count": 10,
+      "analysis_entity_count": 69,
+      "raa_density_context_count": 3873,
+      "raa_context_role": "coarse_spatial_context_only",
+      "current_activity_status": "not_captured_by_repository_sources",
+      "discovery_rank": 153
     },
     {
       "site_id": "4120",
@@ -4062,7 +4036,7 @@
       "raa_density_context_count": 3815,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 155
+      "discovery_rank": 154
     },
     {
       "site_id": "3963",
@@ -4088,7 +4062,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 156
+      "discovery_rank": 155
     },
     {
       "site_id": "3977",
@@ -4114,7 +4088,7 @@
       "raa_density_context_count": 3815,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 157
+      "discovery_rank": 156
     },
     {
       "site_id": "4141",
@@ -4140,33 +4114,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 158
-    },
-    {
-      "site_id": "3898",
-      "site_name": "Karkebo",
-      "country": "Sweden",
-      "latitude": 60.2495692205,
-      "longitude": 17.8630769664,
-      "source_url": "https://browser.sead.se/site/3898",
-      "discovery_readiness": "chronology_and_bibliography_ready",
-      "chronology_resolved": true,
-      "chronology_interval_count": 8,
-      "chronology_record_count": 32,
-      "chronology_kind_count": 2,
-      "chronology_kinds": [
-        "dating_range",
-        "dendrochronology"
-      ],
-      "bibliography_count": 56,
-      "dataset_count": 56,
-      "sample_group_count": 1,
-      "physical_sample_count": 8,
-      "analysis_entity_count": 56,
-      "raa_density_context_count": 5060,
-      "raa_context_role": "coarse_spatial_context_only",
-      "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 159
+      "discovery_rank": 157
     },
     {
       "site_id": "3901",
@@ -4192,7 +4140,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 160
+      "discovery_rank": 158
     },
     {
       "site_id": "3949",
@@ -4218,7 +4166,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 161
+      "discovery_rank": 159
     },
     {
       "site_id": "4064",
@@ -4244,7 +4192,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 162
+      "discovery_rank": 160
     },
     {
       "site_id": "4102",
@@ -4270,7 +4218,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 163
+      "discovery_rank": 161
     },
     {
       "site_id": "3986",
@@ -4296,7 +4244,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 164
+      "discovery_rank": 162
     },
     {
       "site_id": "3921",
@@ -4322,7 +4270,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 165
+      "discovery_rank": 163
     },
     {
       "site_id": "4000",
@@ -4348,7 +4296,7 @@
       "raa_density_context_count": 1226,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 166
+      "discovery_rank": 164
     },
     {
       "site_id": "4147",
@@ -4374,7 +4322,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 167
+      "discovery_rank": 165
     },
     {
       "site_id": "3828",
@@ -4400,7 +4348,7 @@
       "raa_density_context_count": 5849,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 168
+      "discovery_rank": 166
     },
     {
       "site_id": "4105",
@@ -4426,7 +4374,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 169
+      "discovery_rank": 167
     },
     {
       "site_id": "3958",
@@ -4452,7 +4400,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 170
+      "discovery_rank": 168
     },
     {
       "site_id": "3922",
@@ -4478,7 +4426,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 171
+      "discovery_rank": 169
     },
     {
       "site_id": "4194",
@@ -4504,7 +4452,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 172
+      "discovery_rank": 170
     },
     {
       "site_id": "4071",
@@ -4530,7 +4478,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 173
+      "discovery_rank": 171
     },
     {
       "site_id": "3938",
@@ -4556,7 +4504,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 174
+      "discovery_rank": 172
     },
     {
       "site_id": "4125",
@@ -4582,7 +4530,7 @@
       "raa_density_context_count": 3815,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 175
+      "discovery_rank": 173
     },
     {
       "site_id": "4083",
@@ -4608,7 +4556,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 176
+      "discovery_rank": 174
     },
     {
       "site_id": "4230",
@@ -4634,7 +4582,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 177
+      "discovery_rank": 175
     },
     {
       "site_id": "4189",
@@ -4660,7 +4608,33 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 178
+      "discovery_rank": 176
+    },
+    {
+      "site_id": "3898",
+      "site_name": "Karkebo",
+      "country": "Sweden",
+      "latitude": 60.2495692205,
+      "longitude": 17.8630769664,
+      "source_url": "https://browser.sead.se/site/3898",
+      "discovery_readiness": "chronology_and_bibliography_ready",
+      "chronology_resolved": true,
+      "chronology_interval_count": 6,
+      "chronology_record_count": 28,
+      "chronology_kind_count": 2,
+      "chronology_kinds": [
+        "dating_range",
+        "dendrochronology"
+      ],
+      "bibliography_count": 56,
+      "dataset_count": 56,
+      "sample_group_count": 1,
+      "physical_sample_count": 8,
+      "analysis_entity_count": 56,
+      "raa_density_context_count": 5060,
+      "raa_context_role": "coarse_spatial_context_only",
+      "current_activity_status": "not_captured_by_repository_sources",
+      "discovery_rank": 177
     },
     {
       "site_id": "4070",
@@ -4686,7 +4660,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 179
+      "discovery_rank": 178
     },
     {
       "site_id": "3959",
@@ -4712,7 +4686,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 180
+      "discovery_rank": 179
     },
     {
       "site_id": "4206",
@@ -4738,7 +4712,7 @@
       "raa_density_context_count": 10817,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 181
+      "discovery_rank": 180
     },
     {
       "site_id": "3888",
@@ -4764,7 +4738,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 182
+      "discovery_rank": 181
     },
     {
       "site_id": "3997",
@@ -4790,7 +4764,7 @@
       "raa_density_context_count": 12413,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 183
+      "discovery_rank": 182
     },
     {
       "site_id": "4190",
@@ -4816,7 +4790,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 184
+      "discovery_rank": 183
     },
     {
       "site_id": "4067",
@@ -4842,7 +4816,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 185
+      "discovery_rank": 184
     },
     {
       "site_id": "3917",
@@ -4868,7 +4842,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 186
+      "discovery_rank": 185
     },
     {
       "site_id": "3896",
@@ -4894,7 +4868,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 187
+      "discovery_rank": 186
     },
     {
       "site_id": "4058",
@@ -4920,7 +4894,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 188
+      "discovery_rank": 187
     },
     {
       "site_id": "3967",
@@ -4946,7 +4920,7 @@
       "raa_density_context_count": 3815,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 189
+      "discovery_rank": 188
     },
     {
       "site_id": "3817",
@@ -4972,7 +4946,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 190
+      "discovery_rank": 189
     },
     {
       "site_id": "3884",
@@ -4998,7 +4972,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 191
+      "discovery_rank": 190
     },
     {
       "site_id": "4050",
@@ -5024,7 +4998,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 192
+      "discovery_rank": 191
     },
     {
       "site_id": "3975",
@@ -5050,7 +5024,7 @@
       "raa_density_context_count": 15126,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 193
+      "discovery_rank": 192
     },
     {
       "site_id": "3971",
@@ -5076,7 +5050,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 194
+      "discovery_rank": 193
     },
     {
       "site_id": "4101",
@@ -5102,7 +5076,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 195
+      "discovery_rank": 194
     },
     {
       "site_id": "4144",
@@ -5128,7 +5102,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 196
+      "discovery_rank": 195
     },
     {
       "site_id": "4123",
@@ -5154,7 +5128,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 197
+      "discovery_rank": 196
     },
     {
       "site_id": "4106",
@@ -5180,7 +5154,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 198
+      "discovery_rank": 197
     },
     {
       "site_id": "3894",
@@ -5206,7 +5180,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 199
+      "discovery_rank": 198
     },
     {
       "site_id": "3911",
@@ -5232,7 +5206,7 @@
       "raa_density_context_count": 8480,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 200
+      "discovery_rank": 199
     },
     {
       "site_id": "3995",
@@ -5258,7 +5232,7 @@
       "raa_density_context_count": 5849,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 201
+      "discovery_rank": 200
     },
     {
       "site_id": "4195",
@@ -5284,7 +5258,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 202
+      "discovery_rank": 201
     },
     {
       "site_id": "3831",
@@ -5310,7 +5284,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 203
+      "discovery_rank": 202
     },
     {
       "site_id": "3929",
@@ -5336,7 +5310,7 @@
       "raa_density_context_count": 10817,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 204
+      "discovery_rank": 203
     },
     {
       "site_id": "4107",
@@ -5362,7 +5336,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 205
+      "discovery_rank": 204
     },
     {
       "site_id": "3889",
@@ -5388,7 +5362,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 206
+      "discovery_rank": 205
     },
     {
       "site_id": "3848",
@@ -5414,7 +5388,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 207
+      "discovery_rank": 206
     },
     {
       "site_id": "3845",
@@ -5440,7 +5414,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 208
+      "discovery_rank": 207
     },
     {
       "site_id": "3927",
@@ -5466,7 +5440,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 209
+      "discovery_rank": 208
     },
     {
       "site_id": "3822",
@@ -5492,7 +5466,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 210
+      "discovery_rank": 209
     },
     {
       "site_id": "4024",
@@ -5518,7 +5492,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 211
+      "discovery_rank": 210
     },
     {
       "site_id": "3857",
@@ -5544,7 +5518,7 @@
       "raa_density_context_count": 12413,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 212
+      "discovery_rank": 211
     },
     {
       "site_id": "3866",
@@ -5570,7 +5544,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 213
+      "discovery_rank": 212
     },
     {
       "site_id": "4160",
@@ -5596,7 +5570,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 214
+      "discovery_rank": 213
     },
     {
       "site_id": "4185",
@@ -5622,7 +5596,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 215
+      "discovery_rank": 214
     },
     {
       "site_id": "4145",
@@ -5648,7 +5622,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 216
+      "discovery_rank": 215
     },
     {
       "site_id": "3985",
@@ -5674,7 +5648,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 217
+      "discovery_rank": 216
     },
     {
       "site_id": "3981",
@@ -5700,7 +5674,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 218
+      "discovery_rank": 217
     },
     {
       "site_id": "4023",
@@ -5726,7 +5700,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 219
+      "discovery_rank": 218
     },
     {
       "site_id": "3851",
@@ -5752,7 +5726,7 @@
       "raa_density_context_count": 12413,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 220
+      "discovery_rank": 219
     },
     {
       "site_id": "4096",
@@ -5778,7 +5752,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 221
+      "discovery_rank": 220
     },
     {
       "site_id": "3923",
@@ -5804,7 +5778,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 222
+      "discovery_rank": 221
     },
     {
       "site_id": "4002",
@@ -5830,7 +5804,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 223
+      "discovery_rank": 222
     },
     {
       "site_id": "4016",
@@ -5856,7 +5830,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 224
+      "discovery_rank": 223
     },
     {
       "site_id": "4167",
@@ -5882,7 +5856,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 225
+      "discovery_rank": 224
     },
     {
       "site_id": "3869",
@@ -5908,7 +5882,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 226
+      "discovery_rank": 225
     },
     {
       "site_id": "4111",
@@ -5934,7 +5908,7 @@
       "raa_density_context_count": 3238,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 227
+      "discovery_rank": 226
     },
     {
       "site_id": "3878",
@@ -5960,7 +5934,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 228
+      "discovery_rank": 227
     },
     {
       "site_id": "4166",
@@ -5986,7 +5960,7 @@
       "raa_density_context_count": 12413,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 229
+      "discovery_rank": 228
     },
     {
       "site_id": "4221",
@@ -6012,7 +5986,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 230
+      "discovery_rank": 229
     },
     {
       "site_id": "3930",
@@ -6038,7 +6012,7 @@
       "raa_density_context_count": 3205,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 231
+      "discovery_rank": 230
     },
     {
       "site_id": "4008",
@@ -6064,7 +6038,7 @@
       "raa_density_context_count": 5005,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 232
+      "discovery_rank": 231
     },
     {
       "site_id": "4092",
@@ -6090,7 +6064,7 @@
       "raa_density_context_count": 3815,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 233
+      "discovery_rank": 232
     },
     {
       "site_id": "3972",
@@ -6116,7 +6090,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 234
+      "discovery_rank": 233
     },
     {
       "site_id": "3872",
@@ -6142,7 +6116,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 235
+      "discovery_rank": 234
     },
     {
       "site_id": "3895",
@@ -6168,7 +6142,7 @@
       "raa_density_context_count": 10817,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 236
+      "discovery_rank": 235
     },
     {
       "site_id": "3863",
@@ -6194,7 +6168,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 237
+      "discovery_rank": 236
     },
     {
       "site_id": "4007",
@@ -6220,7 +6194,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 238
+      "discovery_rank": 237
     },
     {
       "site_id": "4136",
@@ -6246,7 +6220,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 239
+      "discovery_rank": 238
     },
     {
       "site_id": "4156",
@@ -6272,7 +6246,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 240
+      "discovery_rank": 239
     },
     {
       "site_id": "4180",
@@ -6298,7 +6272,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 241
+      "discovery_rank": 240
     },
     {
       "site_id": "3844",
@@ -6324,7 +6298,7 @@
       "raa_density_context_count": 8912,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 242
+      "discovery_rank": 241
     },
     {
       "site_id": "4119",
@@ -6350,7 +6324,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 243
+      "discovery_rank": 242
     },
     {
       "site_id": "3885",
@@ -6376,7 +6350,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 244
+      "discovery_rank": 243
     },
     {
       "site_id": "3976",
@@ -6402,7 +6376,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 245
+      "discovery_rank": 244
     },
     {
       "site_id": "3954",
@@ -6428,7 +6402,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 246
+      "discovery_rank": 245
     },
     {
       "site_id": "3826",
@@ -6454,7 +6428,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 247
+      "discovery_rank": 246
     },
     {
       "site_id": "3909",
@@ -6480,7 +6454,7 @@
       "raa_density_context_count": 3238,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 248
+      "discovery_rank": 247
     },
     {
       "site_id": "3847",
@@ -6506,7 +6480,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 249
+      "discovery_rank": 248
     },
     {
       "site_id": "4168",
@@ -6532,7 +6506,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 250
+      "discovery_rank": 249
     },
     {
       "site_id": "3952",
@@ -6558,7 +6532,7 @@
       "raa_density_context_count": 8587,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 251
+      "discovery_rank": 250
     },
     {
       "site_id": "3835",
@@ -6584,7 +6558,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 252
+      "discovery_rank": 251
     },
     {
       "site_id": "3914",
@@ -6610,7 +6584,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 253
+      "discovery_rank": 252
     },
     {
       "site_id": "4182",
@@ -6636,7 +6610,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 254
+      "discovery_rank": 253
     },
     {
       "site_id": "3905",
@@ -6662,7 +6636,7 @@
       "raa_density_context_count": 4303,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 255
+      "discovery_rank": 254
     },
     {
       "site_id": "4042",
@@ -6688,7 +6662,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 256
+      "discovery_rank": 255
     },
     {
       "site_id": "3854",
@@ -6714,7 +6688,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 257
+      "discovery_rank": 256
     },
     {
       "site_id": "4223",
@@ -6740,7 +6714,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 258
+      "discovery_rank": 257
     },
     {
       "site_id": "3881",
@@ -6766,7 +6740,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 259
+      "discovery_rank": 258
     },
     {
       "site_id": "4233",
@@ -6792,7 +6766,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 260
+      "discovery_rank": 259
     },
     {
       "site_id": "4229",
@@ -6818,7 +6792,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 261
+      "discovery_rank": 260
     },
     {
       "site_id": "3936",
@@ -6844,7 +6818,7 @@
       "raa_density_context_count": 3815,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 262
+      "discovery_rank": 261
     },
     {
       "site_id": "3966",
@@ -6870,7 +6844,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 263
+      "discovery_rank": 262
     },
     {
       "site_id": "4103",
@@ -6896,7 +6870,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 264
+      "discovery_rank": 263
     },
     {
       "site_id": "4187",
@@ -6922,7 +6896,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 265
+      "discovery_rank": 264
     },
     {
       "site_id": "4093",
@@ -6948,7 +6922,7 @@
       "raa_density_context_count": 12413,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 266
+      "discovery_rank": 265
     },
     {
       "site_id": "3849",
@@ -6974,7 +6948,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 267
+      "discovery_rank": 266
     },
     {
       "site_id": "4072",
@@ -7000,7 +6974,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 268
+      "discovery_rank": 267
     },
     {
       "site_id": "4068",
@@ -7026,7 +7000,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 269
+      "discovery_rank": 268
     },
     {
       "site_id": "4003",
@@ -7052,7 +7026,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 270
+      "discovery_rank": 269
     },
     {
       "site_id": "3992",
@@ -7078,7 +7052,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 271
+      "discovery_rank": 270
     },
     {
       "site_id": "4065",
@@ -7104,7 +7078,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 272
+      "discovery_rank": 271
     },
     {
       "site_id": "3962",
@@ -7130,7 +7104,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 273
+      "discovery_rank": 272
     },
     {
       "site_id": "3823",
@@ -7156,7 +7130,7 @@
       "raa_density_context_count": 3815,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 274
+      "discovery_rank": 273
     },
     {
       "site_id": "3830",
@@ -7182,7 +7156,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 275
+      "discovery_rank": 274
     },
     {
       "site_id": "4133",
@@ -7208,7 +7182,7 @@
       "raa_density_context_count": 15126,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 276
+      "discovery_rank": 275
     },
     {
       "site_id": "3904",
@@ -7234,7 +7208,7 @@
       "raa_density_context_count": 15126,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 277
+      "discovery_rank": 276
     },
     {
       "site_id": "3882",
@@ -7260,7 +7234,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 278
+      "discovery_rank": 277
     },
     {
       "site_id": "3861",
@@ -7286,7 +7260,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 279
+      "discovery_rank": 278
     },
     {
       "site_id": "4030",
@@ -7312,7 +7286,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 280
+      "discovery_rank": 279
     },
     {
       "site_id": "3855",
@@ -7338,7 +7312,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 281
+      "discovery_rank": 280
     },
     {
       "site_id": "3993",
@@ -7364,7 +7338,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 282
+      "discovery_rank": 281
     },
     {
       "site_id": "3842",
@@ -7390,7 +7364,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 283
+      "discovery_rank": 282
     },
     {
       "site_id": "3955",
@@ -7416,7 +7390,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 284
+      "discovery_rank": 283
     },
     {
       "site_id": "3951",
@@ -7442,7 +7416,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 285
+      "discovery_rank": 284
     },
     {
       "site_id": "4184",
@@ -7468,7 +7442,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 286
+      "discovery_rank": 285
     },
     {
       "site_id": "4128",
@@ -7494,7 +7468,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 287
+      "discovery_rank": 286
     },
     {
       "site_id": "3907",
@@ -7520,7 +7494,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 288
+      "discovery_rank": 287
     },
     {
       "site_id": "4062",
@@ -7546,7 +7520,7 @@
       "raa_density_context_count": 5849,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 289
+      "discovery_rank": 288
     },
     {
       "site_id": "4055",
@@ -7572,7 +7546,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 290
+      "discovery_rank": 289
     },
     {
       "site_id": "3853",
@@ -7598,7 +7572,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 291
+      "discovery_rank": 290
     },
     {
       "site_id": "3974",
@@ -7624,7 +7598,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 292
+      "discovery_rank": 291
     },
     {
       "site_id": "3839",
@@ -7650,7 +7624,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 293
+      "discovery_rank": 292
     },
     {
       "site_id": "4183",
@@ -7676,7 +7650,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 294
+      "discovery_rank": 293
     },
     {
       "site_id": "3824",
@@ -7702,7 +7676,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 295
+      "discovery_rank": 294
     },
     {
       "site_id": "4155",
@@ -7728,7 +7702,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 296
+      "discovery_rank": 295
     },
     {
       "site_id": "3887",
@@ -7754,7 +7728,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 297
+      "discovery_rank": 296
     },
     {
       "site_id": "3946",
@@ -7780,7 +7754,7 @@
       "raa_density_context_count": 1226,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 298
+      "discovery_rank": 297
     },
     {
       "site_id": "4115",
@@ -7806,7 +7780,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 299
+      "discovery_rank": 298
     },
     {
       "site_id": "4192",
@@ -7832,7 +7806,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 300
+      "discovery_rank": 299
     },
     {
       "site_id": "3915",
@@ -7858,7 +7832,7 @@
       "raa_density_context_count": 5060,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 301
+      "discovery_rank": 300
     },
     {
       "site_id": "4131",
@@ -7884,7 +7858,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 302
+      "discovery_rank": 301
     },
     {
       "site_id": "3928",
@@ -7910,7 +7884,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 303
+      "discovery_rank": 302
     },
     {
       "site_id": "4063",
@@ -7936,7 +7910,7 @@
       "raa_density_context_count": 8480,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 304
+      "discovery_rank": 303
     },
     {
       "site_id": "3961",
@@ -7962,7 +7936,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 305
+      "discovery_rank": 304
     },
     {
       "site_id": "3947",
@@ -7988,7 +7962,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 306
+      "discovery_rank": 305
     },
     {
       "site_id": "3871",
@@ -8014,7 +7988,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 307
+      "discovery_rank": 306
     },
     {
       "site_id": "4175",
@@ -8040,7 +8014,7 @@
       "raa_density_context_count": 8912,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 308
+      "discovery_rank": 307
     },
     {
       "site_id": "3908",
@@ -8066,7 +8040,7 @@
       "raa_density_context_count": 15126,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 309
+      "discovery_rank": 308
     },
     {
       "site_id": "3912",
@@ -8092,7 +8066,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 310
+      "discovery_rank": 309
     },
     {
       "site_id": "3926",
@@ -8118,7 +8092,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 311
+      "discovery_rank": 310
     },
     {
       "site_id": "4153",
@@ -8144,7 +8118,7 @@
       "raa_density_context_count": 12413,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 312
+      "discovery_rank": 311
     },
     {
       "site_id": "4151",
@@ -8170,7 +8144,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 313
+      "discovery_rank": 312
     },
     {
       "site_id": "4139",
@@ -8196,7 +8170,7 @@
       "raa_density_context_count": 12413,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 314
+      "discovery_rank": 313
     },
     {
       "site_id": "3903",
@@ -8222,7 +8196,7 @@
       "raa_density_context_count": 10817,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 315
+      "discovery_rank": 314
     },
     {
       "site_id": "3816",
@@ -8248,7 +8222,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 316
+      "discovery_rank": 315
     },
     {
       "site_id": "3836",
@@ -8274,7 +8248,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 317
+      "discovery_rank": 316
     },
     {
       "site_id": "4158",
@@ -8300,7 +8274,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 318
+      "discovery_rank": 317
     },
     {
       "site_id": "3827",
@@ -8326,7 +8300,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 319
+      "discovery_rank": 318
     },
     {
       "site_id": "4211",
@@ -8352,7 +8326,7 @@
       "raa_density_context_count": 12413,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 320
+      "discovery_rank": 319
     },
     {
       "site_id": "4150",
@@ -8378,7 +8352,7 @@
       "raa_density_context_count": 3873,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 321
+      "discovery_rank": 320
     },
     {
       "site_id": "3874",
@@ -8404,7 +8378,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 322
+      "discovery_rank": 321
     },
     {
       "site_id": "3865",
@@ -8430,33 +8404,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 323
-    },
-    {
-      "site_id": "4226",
-      "site_name": "Asby kyrka",
-      "country": "Sweden",
-      "latitude": 57.9039487107,
-      "longitude": 15.2051888625,
-      "source_url": "https://browser.sead.se/site/4226",
-      "discovery_readiness": "chronology_and_bibliography_ready",
-      "chronology_resolved": true,
-      "chronology_interval_count": 4,
-      "chronology_record_count": 6,
-      "chronology_kind_count": 2,
-      "chronology_kinds": [
-        "dating_range",
-        "dendrochronology"
-      ],
-      "bibliography_count": 31,
-      "dataset_count": 31,
-      "sample_group_count": 1,
-      "physical_sample_count": 5,
-      "analysis_entity_count": 31,
-      "raa_density_context_count": 4004,
-      "raa_context_role": "coarse_spatial_context_only",
-      "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 324
+      "discovery_rank": 322
     },
     {
       "site_id": "4217",
@@ -8482,7 +8430,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 325
+      "discovery_rank": 323
     },
     {
       "site_id": "4088",
@@ -8508,7 +8456,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 326
+      "discovery_rank": 324
     },
     {
       "site_id": "3941",
@@ -8534,7 +8482,7 @@
       "raa_density_context_count": 4303,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 327
+      "discovery_rank": 325
     },
     {
       "site_id": "4209",
@@ -8560,7 +8508,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 328
+      "discovery_rank": 326
     },
     {
       "site_id": "3984",
@@ -8586,7 +8534,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 329
+      "discovery_rank": 327
     },
     {
       "site_id": "3968",
@@ -8612,7 +8560,7 @@
       "raa_density_context_count": 12413,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 330
+      "discovery_rank": 328
     },
     {
       "site_id": "3944",
@@ -8638,7 +8586,7 @@
       "raa_density_context_count": 15126,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 331
+      "discovery_rank": 329
     },
     {
       "site_id": "4046",
@@ -8664,7 +8612,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 332
+      "discovery_rank": 330
     },
     {
       "site_id": "3931",
@@ -8690,7 +8638,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 333
+      "discovery_rank": 331
     },
     {
       "site_id": "3832",
@@ -8716,7 +8664,33 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 334
+      "discovery_rank": 332
+    },
+    {
+      "site_id": "4226",
+      "site_name": "Asby kyrka",
+      "country": "Sweden",
+      "latitude": 57.9039487107,
+      "longitude": 15.2051888625,
+      "source_url": "https://browser.sead.se/site/4226",
+      "discovery_readiness": "chronology_and_bibliography_ready",
+      "chronology_resolved": true,
+      "chronology_interval_count": 2,
+      "chronology_record_count": 4,
+      "chronology_kind_count": 2,
+      "chronology_kinds": [
+        "dating_range",
+        "dendrochronology"
+      ],
+      "bibliography_count": 31,
+      "dataset_count": 31,
+      "sample_group_count": 1,
+      "physical_sample_count": 5,
+      "analysis_entity_count": 31,
+      "raa_density_context_count": 4004,
+      "raa_context_role": "coarse_spatial_context_only",
+      "current_activity_status": "not_captured_by_repository_sources",
+      "discovery_rank": 333
     },
     {
       "site_id": "3880",
@@ -8742,7 +8716,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 335
+      "discovery_rank": 334
     },
     {
       "site_id": "4073",
@@ -8768,7 +8742,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 336
+      "discovery_rank": 335
     },
     {
       "site_id": "3991",
@@ -8794,7 +8768,7 @@
       "raa_density_context_count": 5849,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 337
+      "discovery_rank": 336
     },
     {
       "site_id": "4025",
@@ -8820,7 +8794,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 338
+      "discovery_rank": 337
     },
     {
       "site_id": "4104",
@@ -8846,7 +8820,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 339
+      "discovery_rank": 338
     },
     {
       "site_id": "4076",
@@ -8872,7 +8846,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 340
+      "discovery_rank": 339
     },
     {
       "site_id": "4047",
@@ -8898,7 +8872,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 341
+      "discovery_rank": 340
     },
     {
       "site_id": "4015",
@@ -8924,7 +8898,7 @@
       "raa_density_context_count": 15126,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 342
+      "discovery_rank": 341
     },
     {
       "site_id": "4019",
@@ -8950,7 +8924,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 343
+      "discovery_rank": 342
     },
     {
       "site_id": "4099",
@@ -8976,7 +8950,7 @@
       "raa_density_context_count": 5849,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 344
+      "discovery_rank": 343
     },
     {
       "site_id": "4018",
@@ -9002,7 +8976,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 345
+      "discovery_rank": 344
     },
     {
       "site_id": "3829",
@@ -9028,7 +9002,7 @@
       "raa_density_context_count": 15126,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 346
+      "discovery_rank": 345
     },
     {
       "site_id": "4216",
@@ -9054,7 +9028,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 347
+      "discovery_rank": 346
     },
     {
       "site_id": "4208",
@@ -9080,7 +9054,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 348
+      "discovery_rank": 347
     },
     {
       "site_id": "4204",
@@ -9106,7 +9080,7 @@
       "raa_density_context_count": 3815,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 349
+      "discovery_rank": 348
     },
     {
       "site_id": "4196",
@@ -9132,7 +9106,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 350
+      "discovery_rank": 349
     },
     {
       "site_id": "4134",
@@ -9158,7 +9132,7 @@
       "raa_density_context_count": 15126,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 351
+      "discovery_rank": 350
     },
     {
       "site_id": "4118",
@@ -9184,7 +9158,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 352
+      "discovery_rank": 351
     },
     {
       "site_id": "3879",
@@ -9210,7 +9184,7 @@
       "raa_density_context_count": 3815,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 353
+      "discovery_rank": 352
     },
     {
       "site_id": "3864",
@@ -9236,7 +9210,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 354
+      "discovery_rank": 353
     },
     {
       "site_id": "3860",
@@ -9262,7 +9236,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 355
+      "discovery_rank": 354
     },
     {
       "site_id": "4010",
@@ -9288,7 +9262,7 @@
       "raa_density_context_count": 12413,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 356
+      "discovery_rank": 355
     },
     {
       "site_id": "3948",
@@ -9314,7 +9288,7 @@
       "raa_density_context_count": 6333,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 357
+      "discovery_rank": 356
     },
     {
       "site_id": "4232",
@@ -9340,7 +9314,7 @@
       "raa_density_context_count": 10763,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 358
+      "discovery_rank": 357
     },
     {
       "site_id": "4163",
@@ -9366,7 +9340,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 359
+      "discovery_rank": 358
     },
     {
       "site_id": "4116",
@@ -9392,7 +9366,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 360
+      "discovery_rank": 359
     },
     {
       "site_id": "3897",
@@ -9418,7 +9392,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 361
+      "discovery_rank": 360
     },
     {
       "site_id": "3875",
@@ -9444,7 +9418,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 362
+      "discovery_rank": 361
     },
     {
       "site_id": "4056",
@@ -9470,7 +9444,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 363
+      "discovery_rank": 362
     },
     {
       "site_id": "3859",
@@ -9496,7 +9470,7 @@
       "raa_density_context_count": 4004,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 364
+      "discovery_rank": 363
     },
     {
       "site_id": "3841",
@@ -9522,7 +9496,7 @@
       "raa_density_context_count": 12413,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 365
+      "discovery_rank": 364
     },
     {
       "site_id": "3899",
@@ -9547,7 +9521,7 @@
       "raa_density_context_count": 10817,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 366
+      "discovery_rank": 365
     },
     {
       "site_id": "3870",
@@ -9572,7 +9546,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 367
+      "discovery_rank": 366
     },
     {
       "site_id": "4017",
@@ -9597,7 +9571,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 368
+      "discovery_rank": 367
     },
     {
       "site_id": "3910",
@@ -9622,7 +9596,7 @@
       "raa_density_context_count": 6159,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 369
+      "discovery_rank": 368
     },
     {
       "site_id": "4028",
@@ -9647,7 +9621,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 370
+      "discovery_rank": 369
     },
     {
       "site_id": "4053",
@@ -9672,7 +9646,7 @@
       "raa_density_context_count": 4239,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 371
+      "discovery_rank": 370
     },
     {
       "site_id": "3752",
@@ -9695,7 +9669,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 372
+      "discovery_rank": 371
     },
     {
       "site_id": "3790",
@@ -9718,7 +9692,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 373
+      "discovery_rank": 372
     },
     {
       "site_id": "3432",
@@ -9741,7 +9715,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 374
+      "discovery_rank": 373
     },
     {
       "site_id": "3805",
@@ -9764,7 +9738,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 375
+      "discovery_rank": 374
     },
     {
       "site_id": "3753",
@@ -9787,7 +9761,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 376
+      "discovery_rank": 375
     },
     {
       "site_id": "3617",
@@ -9810,7 +9784,7 @@
       "raa_density_context_count": 15126,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 377
+      "discovery_rank": 376
     },
     {
       "site_id": "3713",
@@ -9833,7 +9807,7 @@
       "raa_density_context_count": 10817,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 378
+      "discovery_rank": 377
     },
     {
       "site_id": "3640",
@@ -9856,7 +9830,7 @@
       "raa_density_context_count": 6654,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 379
+      "discovery_rank": 378
     },
     {
       "site_id": "3628",
@@ -9879,7 +9853,7 @@
       "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 380
+      "discovery_rank": 379
     },
     {
       "site_id": "3679",
@@ -9902,7 +9876,7 @@
       "raa_density_context_count": 1226,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 381
+      "discovery_rank": 380
     },
     {
       "site_id": "3625",
@@ -9925,7 +9899,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 382
+      "discovery_rank": 381
     },
     {
       "site_id": "3571",
@@ -9948,7 +9922,7 @@
       "raa_density_context_count": 3205,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 383
+      "discovery_rank": 382
     },
     {
       "site_id": "3567",
@@ -9971,7 +9945,7 @@
       "raa_density_context_count": 3205,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 384
+      "discovery_rank": 383
     },
     {
       "site_id": "4138",
@@ -9994,7 +9968,7 @@
       "raa_density_context_count": 13558,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 385
+      "discovery_rank": 384
     },
     {
       "site_id": "3501",
@@ -10017,7 +9991,7 @@
       "raa_density_context_count": 5060,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 386
+      "discovery_rank": 385
     },
     {
       "site_id": "3618",
@@ -10040,7 +10014,7 @@
       "raa_density_context_count": 6333,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 387
+      "discovery_rank": 386
     },
     {
       "site_id": "3627",
@@ -10063,7 +10037,7 @@
       "raa_density_context_count": 8067,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 388
+      "discovery_rank": 387
     },
     {
       "site_id": "4225",
@@ -10086,7 +10060,7 @@
       "raa_density_context_count": 9863,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
-      "discovery_rank": 389
+      "discovery_rank": 388
     },
     {
       "site_id": "3527",
@@ -10107,6 +10081,29 @@
       "physical_sample_count": 21,
       "analysis_entity_count": 75,
       "raa_density_context_count": 6654,
+      "raa_context_role": "coarse_spatial_context_only",
+      "current_activity_status": "not_captured_by_repository_sources",
+      "discovery_rank": 389
+    },
+    {
+      "site_id": "3918",
+      "site_name": "Billsta",
+      "country": "Sweden",
+      "latitude": 59.0798667177,
+      "longitude": 17.5123126198,
+      "source_url": "https://browser.sead.se/site/3918",
+      "discovery_readiness": "bibliography_ready",
+      "chronology_resolved": false,
+      "chronology_interval_count": 0,
+      "chronology_record_count": 0,
+      "chronology_kind_count": 0,
+      "chronology_kinds": [],
+      "bibliography_count": 72,
+      "dataset_count": 72,
+      "sample_group_count": 1,
+      "physical_sample_count": 12,
+      "analysis_entity_count": 72,
+      "raa_density_context_count": 27450,
       "raa_context_role": "coarse_spatial_context_only",
       "current_activity_status": "not_captured_by_repository_sources",
       "discovery_rank": 390

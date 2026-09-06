@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from typing import cast
 import unittest
+from typing import cast
 from unittest.mock import patch
 
 from bijux_pollenomics.collection.sources.sead.collection import (
@@ -70,6 +70,37 @@ class SeadChronologyTests(unittest.TestCase):
         relative_rows = cast(list[dict[str, object]], rows[0]["relative_period_rows"])
         relative_row = relative_rows[0]
         self.assertEqual(relative_row["interval_source"], "encoded_relative_age_label")
+
+    def test_sead_refresh_retains_but_does_not_admit_post_1950_source_dates(
+        self,
+    ) -> None:
+        rows = [
+            {
+                "site_id": 3816,
+                "relative_period_rows": [],
+                "dating_range_rows": [
+                    {
+                        "low_value": 2004,
+                        "high_value": None,
+                        "age_type": "AD",
+                    }
+                ],
+                "analysis_entity_age_rows": [],
+                "geochronology_rows": [],
+                "dendro_date_rows": [],
+                "bibliography_rows": [],
+            }
+        ]
+
+        refresh_sead_repository_rows(rows)
+
+        source_row = cast(list[dict[str, object]], rows[0]["dating_range_rows"])[0]
+        self.assertEqual(source_row["time_start_bp"], -54)
+        self.assertEqual(source_row["time_end_bp"], -54)
+        self.assertIsNone(rows[0]["numeric_time_start_bp"])
+        self.assertIsNone(rows[0]["numeric_time_end_bp"])
+        self.assertIsNone(rows[0]["time_start_bp"])
+        self.assertIsNone(rows[0]["time_end_bp"])
 
     def test_fetch_sead_site_rows_preserves_common_era_point_dates(self) -> None:
         def fake_fetch_json(

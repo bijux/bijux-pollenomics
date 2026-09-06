@@ -3,13 +3,12 @@
 from __future__ import annotations
 
 import argparse
-from dataclasses import dataclass
 import json
 import os
-from pathlib import Path
 import tempfile
+from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, cast
-
 
 START_MARKER = "<!-- sead-evidence:generated:start -->"
 END_MARKER = "<!-- sead-evidence:generated:end -->"
@@ -40,6 +39,7 @@ class SeadEvidenceFacts:
     chronology_claim_count: int
     comparable_claim_count: int
     context_only_claim_count: int
+    refused_claim_count: int
     unresolved_claim_count: int
     observation_count: int
     taxon_relation_count: int
@@ -199,7 +199,8 @@ def load_sead_evidence_facts(repository_root: Path) -> SeadEvidenceFacts:
         chronology_comparability, "context_only", "chronology"
     )
     unresolved = _required_count(chronology_comparability, "unresolved", "chronology")
-    if comparable + context_only + unresolved != claim_count:
+    refused_claims = _required_count(chronology_comparability, "refused", "chronology")
+    if comparable + context_only + refused_claims + unresolved != claim_count:
         raise SeadEvidenceSyncError("SEAD chronology comparability does not reconcile")
     if _required_count(manifest, "chronology_claim_count", "manifest") != claim_count:
         raise SeadEvidenceSyncError("SEAD manifest chronology count diverges")
@@ -281,6 +282,7 @@ def load_sead_evidence_facts(repository_root: Path) -> SeadEvidenceFacts:
         chronology_claim_count=claim_count,
         comparable_claim_count=comparable,
         context_only_claim_count=context_only,
+        refused_claim_count=refused_claims,
         unresolved_claim_count=unresolved,
         observation_count=observation_count,
         taxon_relation_count=_required_count(
@@ -306,8 +308,10 @@ def render_sead_evidence_block(facts: SeadEvidenceFacts) -> str:
     return "\n".join(
         (
             START_MARKER,
-            "The current governed full-evidence run is "
-            f"`{facts.source_run_id}` (`{facts.build_id}`). Its denominators are:",
+            (
+                "The current governed full-evidence run is "
+                f"`{facts.source_run_id}` (`{facts.build_id}`). Its denominators are:"
+            ),
             "",
             "| Governed population | Count | Interpretation |",
             "| --- | ---: | --- |",
@@ -317,15 +321,17 @@ def render_sead_evidence_block(facts: SeadEvidenceFacts) -> str:
             f"| sites requiring country review | {facts.review_site_count:,} | retained outside assigned publication membership |",
             f"| unassigned sites | {facts.unassigned_site_count:,} | retained without a governed country assignment |",
             f"| atlas SEAD features | {facts.map_feature_count:,} | {facts.assigned_site_count:,} four-country site features plus {facts.map_feature_count - facts.assigned_site_count:,} Swedish chronology-discovery features; not a distinct-site count |",
-            f"| chronology claims | {facts.chronology_claim_count:,} | {facts.comparable_claim_count:,} comparable, {facts.context_only_claim_count:,} context-only, {facts.unresolved_claim_count:,} unresolved |",
+            f"| chronology claims | {facts.chronology_claim_count:,} | {facts.comparable_claim_count:,} comparable, {facts.context_only_claim_count:,} context-only, {facts.refused_claim_count:,} refused by the numeric BP contract, {facts.unresolved_claim_count:,} unresolved |",
             f"| source-native observations | {facts.observation_count:,} | quantitative observation denominator |",
             f"| source-native taxon relations | {facts.taxon_relation_count:,} | preserved source taxonomy, not accepted cross-source classification |",
             f"| dimension relations | {facts.dimension_relation_count:,} | explicit source-native measurement dimensions |",
             f"| eligible / refused propagation events | {facts.eligible_event_count:,} / {facts.refused_event_count:,} | `{facts.propagation_status}`: `{facts.propagation_reason_code}` |",
             "",
-            "Site, feature, claim, observation, relation, and event counts are different units. "
-            "The atlas may display SEAD chronology and source-native detail, but it must not "
-            "turn the refused event population into migration or propagation evidence.",
+            (
+                "Site, feature, claim, observation, relation, and event counts are different units. "
+                "The atlas may display SEAD chronology and source-native detail, but it must not "
+                "turn the refused event population into migration or propagation evidence."
+            ),
             END_MARKER,
         )
     )

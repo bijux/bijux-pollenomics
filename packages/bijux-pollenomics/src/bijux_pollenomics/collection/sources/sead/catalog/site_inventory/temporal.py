@@ -59,10 +59,21 @@ def sead_dating_interval(
 
 
 def merge_sead_intervals(intervals: list[tuple[int, int]]) -> tuple[int, int] | None:
-    """Merge multiple SEAD BP intervals into one site span."""
-    if not intervals:
+    """Merge canonical SEAD BP intervals into one site span."""
+    canonical_intervals = [
+        interval for interval in intervals if sead_interval_is_canonical(interval)
+    ]
+    if not canonical_intervals:
         return None
-    return (min(start for start, _ in intervals), max(end for _, end in intervals))
+    return (
+        min(start for start, _ in canonical_intervals),
+        max(end for _, end in canonical_intervals),
+    )
+
+
+def sead_interval_is_canonical(interval: tuple[int, int]) -> bool:
+    """Return whether an interval can enter canonical BP site projections."""
+    return 0 <= interval[0] <= interval[1]
 
 
 def _relative_interval_from_range(
@@ -150,8 +161,7 @@ def _calendar_year_interval_to_bp(
 def _ce_year_to_bp(year_ce: int | None) -> int | None:
     if year_ce is None:
         return None
-    value = BP_REFERENCE_YEAR - year_ce
-    return value if value >= 0 else None
+    return BP_REFERENCE_YEAR - year_ce
 
 
 def _bce_year_to_bp(year_bce: int | None) -> int | None:
@@ -197,4 +207,8 @@ def _uncertainty_labels(
     return labels
 
 
-__all__ = ["merge_sead_intervals", "sead_dating_interval"]
+__all__ = [
+    "merge_sead_intervals",
+    "sead_dating_interval",
+    "sead_interval_is_canonical",
+]

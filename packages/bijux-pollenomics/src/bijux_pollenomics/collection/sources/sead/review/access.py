@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import date
+from datetime import UTC, date, datetime
 from typing import Any, cast
 
 from bijux_pollenomics.collection.sources.sead.acquisition.access import (
@@ -10,7 +10,9 @@ from bijux_pollenomics.collection.sources.sead.acquisition.access import (
 from .inventory import site_uuid_for
 
 
-def build_sead_access_model_packet(rows: list[dict[str, object]]) -> dict[str, object]:
+def build_sead_access_model_packet(
+    rows: list[dict[str, object]], *, generated_on: date | None = None
+) -> dict[str, object]:
     """Build one global explanation packet for SEAD access posture."""
     review_rows: list[dict[str, object]] = []
     access_visibility_counts: dict[str, int] = {}
@@ -50,7 +52,7 @@ def build_sead_access_model_packet(rows: list[dict[str, object]]) -> dict[str, o
     )
     return {
         "schema_version": "sead-access-model.v1",
-        "generated_on": str(date.today()),
+        "generated_on": str(generated_on or datetime.now(UTC).date()),
         "row_count": len(review_rows),
         "repository_posture": "mirrored_relational_inventory_and_temporal_context",
         "what_the_repository_mirrors": [

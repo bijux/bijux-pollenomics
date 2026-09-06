@@ -55,7 +55,7 @@ def sead_chronology_claim_values(
             return None
         if comparability == "comparable" and eligibility == "eligible":
             bucket = "accepted"
-        elif comparability == "context_only" and eligibility == "refused":
+        elif comparability in {"context_only", "refused"} and eligibility == "refused":
             bucket = "refused"
         elif comparability == "unresolved" and eligibility == "refused":
             bucket = "unresolved"

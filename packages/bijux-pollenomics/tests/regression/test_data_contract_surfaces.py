@@ -1,11 +1,10 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import unittest
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics.adna.governance.contracts import (
     validate_source_library_project_surfaces,
 )
@@ -102,14 +101,14 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
         self.assertEqual(
             rows["sead"]["temporal_support_posture"], "linked_chronology_captured"
         )
-        self.assertEqual(rows["sead"]["numeric_interval_record_count"], 8_184)
+        self.assertEqual(rows["sead"]["numeric_interval_record_count"], 8_172)
         self.assertEqual(
             rows["sead"]["detail_metrics"]["captured_chronology_record_count"],
             25_109,
         )
         self.assertEqual(
             rows["sead"]["detail_metrics"]["mapped_chronology_record_count"],
-            14_324,
+            14_264,
         )
         self.assertEqual(
             rows["svar"]["distance_scoring_posture"],

@@ -7,7 +7,6 @@ from pathlib import Path
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics.provenance import (
     ArtifactInput,
     CountReconciliation,
@@ -24,6 +23,7 @@ from bijux_pollenomics.provenance.release_evidence import embedded as release_em
 from bijux_pollenomics.provenance.release_evidence import models as release_models
 from bijux_pollenomics.provenance.release_evidence import policy as release_policy
 from bijux_pollenomics.provenance.release_evidence import service as release_service
+
 from tests.support.repository import REPOSITORY_ROOT
 
 from .support import (
@@ -79,7 +79,7 @@ def test_product_request_policy_has_exact_inventory_and_reconciliation_counts() 
         chronology_claims.unresolved_count,
         chronology_claims.excluded_count,
         chronology_claims.refused_count,
-    ) == (25_109, 24_468, 14_324, 641, 0, 10_144)
+    ) == (25_109, 24_468, 14_264, 641, 0, 10_204)
 
     observations = by_identity["neotoma.observations.country.unassigned"]
     assert observations.count_status == "reported"

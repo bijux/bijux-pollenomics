@@ -1,15 +1,9 @@
 from __future__ import annotations
 
+import time
 from collections.abc import Callable, Iterable, Mapping
 from pathlib import Path
-import time
 
-from bijux_pollenomics.collection.sources.boundaries.store import (
-    load_repository_country_boundaries,
-)
-from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
-    SEAD_LINKED_SOURCE_TABLES,
-)
 from bijux_pollenomics.collection.sources.sead.acquisition.fetch import (
     build_sead_in_filter as build_sead_in_filter_value,
 )
@@ -28,24 +22,12 @@ from bijux_pollenomics.collection.sources.sead.acquisition.fetch import (
 from bijux_pollenomics.collection.sources.sead.acquisition.fetch import (
     sead_dating_interval as sead_dating_interval_value,
 )
-from bijux_pollenomics.collection.sources.sead.acquisition.governed import (
-    validate_governed_sead_admission,
-)
 from bijux_pollenomics.collection.sources.sead.catalog.inventory import (
     SeadSiteFetchResult,
-)
-from bijux_pollenomics.collection.sources.sead.catalog.site_inventory import (
-    build_sead_site_rows_from_acquisition_tables,
-)
-from bijux_pollenomics.collection.sources.sead.evidence.claims import (
-    write_sead_chronology_claim_bundle_from_snapshot,
 )
 from bijux_pollenomics.collection.sources.sead.evidence.normalization import (
     normalize_sead_rows,
     normalize_sead_temporal_evidence,
-)
-from bijux_pollenomics.collection.sources.sead.evidence.review import (
-    materialize_sead_scientific_classification_review,
 )
 from bijux_pollenomics.core.http import fetch_json
 
@@ -53,7 +35,9 @@ from . import archive as _archive
 from . import model as _model
 from . import publication as _publication
 from . import repository as _repository
+from . import repository_materialization as _repository_materialization
 from . import validation as _validation
+from .repository_materialization import materialize_sead_repository_surfaces
 from .retrieval import retrieve_rows, retrieve_rows_by_ids
 
 SeadDataReport = _model.SeadDataReport
@@ -72,6 +56,10 @@ _attach_sead_country_decisions = _repository.attach_sead_country_decisions
 _build_repository_inventory_summary = _repository.build_repository_inventory_summary
 _load_sead_acquisition_rows = _repository.load_sead_acquisition_rows
 _validate_repository_site_archive = _repository.validate_repository_site_archive
+_source_snapshot_date = _repository_materialization.source_snapshot_date
+_validated_repository_data_root = (
+    _repository_materialization.validated_repository_data_root
+)
 StrictSeadPageFetcher = _validation.StrictSeadPageFetcher
 _primary_key_for_table = _validation.primary_key_for_table
 _required_positive_int = _validation.required_positive_int
@@ -218,51 +206,6 @@ def collect_sead_data(
         records=records,
         temporal_records=temporal_records,
     )
-    return SeadDataReport(
-        output_dir=output_root,
-        point_count=len(records),
-        raw_path=raw_path,
-        normalized_csv_path=normalized_csv_path,
-        normalized_geojson_path=normalized_geojson_path,
-    )
-
-
-def materialize_sead_repository_surfaces(data_root: Path) -> SeadDataReport:
-    """Refresh legacy public surfaces from the authoritative admitted acquisition."""
-    data_root = Path(data_root)
-    output_root = data_root / "sead"
-    raw_path = output_root / "raw" / "nordic_sites.json"
-    _validate_repository_site_archive(raw_path)
-    acquisition_root = (
-        output_root / "raw" / "acquisitions" / SEAD_GOVERNED_ACQUISITION_ID
-    )
-    validated_snapshot = validate_governed_sead_admission(
-        acquisition_root, data_root=data_root
-    )
-    rows_by_table = {
-        table: _load_sead_acquisition_rows(validated_snapshot.copied_files, table)
-        for table in SEAD_LINKED_SOURCE_TABLES
-    }
-    rows, _ = build_sead_site_rows_from_acquisition_tables(rows_by_table)
-    _attach_sead_country_decisions(validated_snapshot.copied_files, rows)
-    _validate_sead_rows("tbl_sites", rows)
-    write_sead_chronology_claim_bundle_from_snapshot(
-        validated_snapshot,
-        data_root / SEAD_LEGACY_CHRONOLOGY_SUMMARY_RELATIVE_PATH,
-    )
-    country_boundaries = load_repository_country_boundaries(data_root)
-    records = normalize_sead_rows(rows, country_boundaries=country_boundaries)
-    temporal_records = normalize_sead_temporal_evidence(
-        rows, country_boundaries=country_boundaries
-    )
-    normalized_csv_path, normalized_geojson_path = write_repository_surfaces(
-        data_root,
-        rows=rows,
-        records=records,
-        temporal_records=temporal_records,
-        admission=dict(validated_snapshot.admission),
-    )
-    materialize_sead_scientific_classification_review(data_root)
     return SeadDataReport(
         output_dir=output_root,
         point_count=len(records),

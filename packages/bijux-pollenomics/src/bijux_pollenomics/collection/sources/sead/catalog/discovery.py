@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
+import csv
+import json
 from collections import defaultdict
 from collections.abc import Iterable, Mapping, Sequence
-import csv
 from dataclasses import dataclass
-from datetime import date
-import json
+from datetime import UTC, date, datetime
 from pathlib import Path
 
 from .....core.files import write_json
@@ -38,11 +38,12 @@ class SwedenArchaeologySiteDiscovery:
     ranking_contract: dict[str, object]
     site_rows: tuple[dict[str, object], ...]
     map_records: tuple[ContextPointRecord, ...]
+    generated_on: date
 
     def as_dict(self) -> dict[str, object]:
         return {
             "schema_version": "sweden-archaeology-site-discovery.v1",
-            "generated_on": date.today().isoformat(),
+            "generated_on": self.generated_on.isoformat(),
             "summary": self.summary,
             "ranking_contract": self.ranking_contract,
             "sites": list(self.site_rows),
@@ -55,6 +56,7 @@ def build_sweden_archaeology_site_discovery(
     temporal_records: Iterable[ContextPointRecord],
     raw_rows: Iterable[Mapping[str, object]],
     raa_density_geojson: Mapping[str, object] | None = None,
+    generated_on: date | None = None,
 ) -> SwedenArchaeologySiteDiscovery:
     """Build a complete Sweden-only discovery registry without invented dates."""
     sweden_sites = {
@@ -185,6 +187,7 @@ def build_sweden_archaeology_site_discovery(
         ranking_contract=ranking_contract,
         site_rows=ranked,
         map_records=map_records,
+        generated_on=generated_on or datetime.now(UTC).date(),
     )
 
 

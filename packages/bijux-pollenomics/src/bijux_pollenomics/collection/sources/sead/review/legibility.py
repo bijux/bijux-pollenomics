@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import date
+from datetime import UTC, date, datetime
 from typing import Any, cast
 
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
@@ -14,6 +14,8 @@ from .inventory import inventory_summary, site_uuid_for
 def build_sead_evidence_legibility_review(
     rows: list[dict[str, object]],
     records: list[ContextPointRecord],
+    *,
+    generated_on: date | None = None,
 ) -> dict[str, object]:
     """Classify SEAD rows by temporal strength, duration weakness, access, and risk."""
     record_lookup = {record.record_id: record for record in records}
@@ -78,7 +80,7 @@ def build_sead_evidence_legibility_review(
     )
     return {
         "schema_version": "sead-evidence-legibility-review.v1",
-        "generated_on": str(date.today()),
+        "generated_on": str(generated_on or datetime.now(UTC).date()),
         "row_count": len(review_rows),
         "inventory_summary": inventory_summary(rows),
         "temporal_strength_counts": counts["temporal_strength"],

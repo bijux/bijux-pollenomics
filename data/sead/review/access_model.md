@@ -27,2074 +27,2074 @@ This packet states what the repository mirrors from SEAD, what it only reference
 - site page only: `2066`
 - site page with reference links: `3`
 
-| Site | Access visibility | Reference links | Stable site page |
-| --- | --- | ---: | --- |
-| 10412 Fjälkinge (`6468`) | site_page_only | 0 | https://browser.sead.se/site/6468 |
-| 10469 Kvistofta (`6469`) | site_page_only | 0 | https://browser.sead.se/site/6469 |
-| 10531 Örkelljunga (`6481`) | site_page_only | 0 | https://browser.sead.se/site/6481 |
-| 10535 Skåne (`6482`) | site_page_only | 0 | https://browser.sead.se/site/6482 |
-| 12051 Bro (`3833`) | site_page_only | 0 | https://browser.sead.se/site/3833 |
-| 12068 Gotland (`3824`) | site_page_only | 0 | https://browser.sead.se/site/3824 |
-| 12076 Ekeby (`3832`) | site_page_only | 0 | https://browser.sead.se/site/3832 |
-| 12590 Hall (`6478`) | site_page_only | 0 | https://browser.sead.se/site/6478 |
-| 12615 Stelor (`6466`) | site_page_only | 0 | https://browser.sead.se/site/6466 |
-| 12628 Länna (`6447`) | site_page_only | 0 | https://browser.sead.se/site/6447 |
-| 12673 Fröjel (`6479`) | site_page_only | 0 | https://browser.sead.se/site/6479 |
-| 12709 Stenkumla (`3827`) | site_page_only | 0 | https://browser.sead.se/site/3827 |
-| 12711 Othem (`6480`) | site_page_only | 0 | https://browser.sead.se/site/6480 |
-| 14295 Ringarum (`6453`) | site_page_only | 0 | https://browser.sead.se/site/6453 |
-| 14851 Norrköping (`6470`) | site_page_only | 0 | https://browser.sead.se/site/6470 |
-| 14885 Strömmen (`6456`) | site_page_only | 0 | https://browser.sead.se/site/6456 |
-| 14889 Östergötland (`6483`) | site_page_only | 0 | https://browser.sead.se/site/6483 |
-| 16014 Älgarås (`6330`) | site_page_only | 0 | https://browser.sead.se/site/6330 |
-| 16024 Finnerödja (`6332`) | site_page_only | 0 | https://browser.sead.se/site/6332 |
-| 16560 Hova (`6335`) | site_page_only | 0 | https://browser.sead.se/site/6335 |
-| 17118 Sörby (`6458`) | site_page_only | 0 | https://browser.sead.se/site/6458 |
-| 17200 Ödeshög (`3823`) | site_page_only | 0 | https://browser.sead.se/site/3823 |
-| 41093 Tranås (`5652`) | site_page_only | 0 | https://browser.sead.se/site/5652 |
-| 51840 Malung-Sälen (`6341`) | site_page_only | 0 | https://browser.sead.se/site/6341 |
-| 57333 Yttergran (`6471`) | site_page_only | 0 | https://browser.sead.se/site/6471 |
-| 58060 Ölands värdshus (`6445`) | site_page_only | 0 | https://browser.sead.se/site/6445 |
-| 58195 Böda (`5653`) | site_page_only | 0 | https://browser.sead.se/site/5653 |
-| 61779 Söderåkra (`5654`) | site_page_only | 0 | https://browser.sead.se/site/5654 |
-| 62771 Norra Vallby (`6450`) | site_page_only | 0 | https://browser.sead.se/site/6450 |
-| 62790 Uppsala (`6472`) | site_page_only | 0 | https://browser.sead.se/site/6472 |
-| 62858 Skånela (`3826`) | site_page_only | 0 | https://browser.sead.se/site/3826 |
-| 62928 Faringe (`3830`) | site_page_only | 0 | https://browser.sead.se/site/3830 |
-| 63118 Hovsta (`6336`) | site_page_only | 0 | https://browser.sead.se/site/6336 |
-| 66401 Västra Karaby (`6473`) | site_page_only | 0 | https://browser.sead.se/site/6473 |
-| 66501 Lyckeby (`6446`) | site_page_only | 0 | https://browser.sead.se/site/6446 |
-| 66601 Tommarp (`6460`) | site_page_only | 0 | https://browser.sead.se/site/6460 |
-| 66701 Önnerup (`6467`) | site_page_only | 0 | https://browser.sead.se/site/6467 |
-| 66863 Saxtorp (`6474`) | site_page_only | 0 | https://browser.sead.se/site/6474 |
-| 70500 Trollebergsvägen (`6461`) | site_page_only | 0 | https://browser.sead.se/site/6461 |
-| 71372 Alfta (`5671`) | site_page_only | 0 | https://browser.sead.se/site/5671 |
-| 71372 Arbrå (`5672`) | site_page_only | 0 | https://browser.sead.se/site/5672 |
-| 71409 Voxna (`5673`) | site_page_only | 0 | https://browser.sead.se/site/5673 |
-| 71410 Voxna (`5674`) | site_page_only | 0 | https://browser.sead.se/site/5674 |
-| 71502 Gammelbokskogen (`5675`) | site_page_only | 0 | https://browser.sead.se/site/5675 |
-| 72180 Mariefred (`6475`) | site_page_only | 0 | https://browser.sead.se/site/6475 |
-| 72257 Lilla Malma (`3829`) | site_page_only | 0 | https://browser.sead.se/site/3829 |
-| 72775 Nyköping (`6339`) | site_page_only | 0 | https://browser.sead.se/site/6339 |
-| 75246 Eksjö (`3831`) | site_page_only | 0 | https://browser.sead.se/site/3831 |
-| 75343 Kalmar (`6485`) | site_page_only | 0 | https://browser.sead.se/site/6485 |
-| 75437 Sjösås (`6476`) | site_page_only | 0 | https://browser.sead.se/site/6476 |
-| 75501 Kalmar (`5657`) | site_page_only | 0 | https://browser.sead.se/site/5657 |
-| 75515 Kalmar (`5658`) | site_page_only | 0 | https://browser.sead.se/site/5658 |
-| 75519 Småland (`3821`) | site_page_only | 0 | https://browser.sead.se/site/3821 |
-| 75521 Småland (`3820`) | site_page_only | 0 | https://browser.sead.se/site/3820 |
-| 75523 Småland (`3819`) | site_page_only | 0 | https://browser.sead.se/site/3819 |
-| 75524 Småland (`3818`) | site_page_only | 0 | https://browser.sead.se/site/3818 |
-| 75525 Småland (`3817`) | site_page_only | 0 | https://browser.sead.se/site/3817 |
-| 75533 Örsjö (`3825`) | site_page_only | 0 | https://browser.sead.se/site/3825 |
-| 75549 Nybro (`3828`) | site_page_only | 0 | https://browser.sead.se/site/3828 |
-| 75601 Hälleberga (`5659`) | site_page_only | 0 | https://browser.sead.se/site/5659 |
-| 75710 Jönköping (`3822`) | site_page_only | 0 | https://browser.sead.se/site/3822 |
-| 75847 Mörlunda (`6477`) | site_page_only | 0 | https://browser.sead.se/site/6477 |
-| 77249 Blekinge (`5661`) | site_page_only | 0 | https://browser.sead.se/site/5661 |
-| 77321 Blekinge (`5663`) | site_page_only | 0 | https://browser.sead.se/site/5663 |
-| 78183 Hässleholm (`6334`) | site_page_only | 0 | https://browser.sead.se/site/6334 |
-| 80033 Tvååker (`6340`) | site_page_only | 0 | https://browser.sead.se/site/6340 |
-| 80501 Värö (`5667`) | site_page_only | 0 | https://browser.sead.se/site/5667 |
-| 80848 Harplinge (`6333`) | site_page_only | 0 | https://browser.sead.se/site/6333 |
-| 82191 Falun (`6331`) | site_page_only | 0 | https://browser.sead.se/site/6331 |
-| 82864 Malung (`6338`) | site_page_only | 0 | https://browser.sead.se/site/6338 |
-| 93279 Österlövsta (`5669`) | site_page_only | 0 | https://browser.sead.se/site/5669 |
-| Abbotens hus (`4234`) | site_page_only | 0 | https://browser.sead.se/site/4234 |
-| Abilds kyrka (`5677`) | site_page_only | 0 | https://browser.sead.se/site/5677 |
-| Abisko 2004-5 (`5366`) | site_page_only | 0 | https://browser.sead.se/site/5366 |
-| Acksi (`5678`) | site_page_only | 0 | https://browser.sead.se/site/5678 |
-| Ada Blocks hus (`4233`) | site_page_only | 0 | https://browser.sead.se/site/4233 |
-| Adamsbergs gård (`4232`) | site_page_only | 0 | https://browser.sead.se/site/4232 |
-| Adelsö 119:1 (`6424`) | site_page_only | 0 | https://browser.sead.se/site/6424 |
-| Agerod V (`4237`) | site_page_only | 0 | https://browser.sead.se/site/4237 |
-| Agges i Flenarna (`5679`) | site_page_only | 0 | https://browser.sead.se/site/5679 |
-| Akademiska sjukhuset (`6427`) | site_page_only | 0 | https://browser.sead.se/site/6427 |
-| Alatornio (`5070`) | site_page_only | 0 | https://browser.sead.se/site/5070 |
-| Alavieska: Keinola (`5081`) | site_page_only | 0 | https://browser.sead.se/site/5081 |
-| Alavieska: Koiraneva (`5072`) | site_page_only | 0 | https://browser.sead.se/site/5072 |
-| Alavieska: Kotaräme (`5092`) | site_page_only | 0 | https://browser.sead.se/site/5092 |
-| Albertshög (`3813`) | site_page_only | 0 | https://browser.sead.se/site/3813 |
-| Albostugan (`5682`) | site_page_only | 0 | https://browser.sead.se/site/5682 |
-| Alby (`3812`) | site_page_only | 0 | https://browser.sead.se/site/3812 |
-| Algutsboda 79:1 (`6363`) | site_page_only | 0 | https://browser.sead.se/site/6363 |
-| Alhammar (`6276`) | site_page_only | 0 | https://browser.sead.se/site/6276 |
-| Allemora (`4231`) | site_page_only | 0 | https://browser.sead.se/site/4231 |
-| Almare-Stäket (`6428`) | site_page_only | 0 | https://browser.sead.se/site/6428 |
-| Almhov subarea 1 (`3811`) | site_page_only | 0 | https://browser.sead.se/site/3811 |
-| Alntorpsö (`5684`) | site_page_only | 0 | https://browser.sead.se/site/5684 |
-| Alskogs kyrka (`4230`) | site_page_only | 0 | https://browser.sead.se/site/4230 |
-| Alva kyrka (`4229`) | site_page_only | 0 | https://browser.sead.se/site/4229 |
-| Alvajarvi: Pihtipudas (`4890`) | site_page_only | 0 | https://browser.sead.se/site/4890 |
-| Alvastra (`3814`) | site_page_only | 0 | https://browser.sead.se/site/3814 |
-| Alvastra (`4999`) | site_page_only | 0 | https://browser.sead.se/site/4999 |
-| Alvastra Megalithic (`3810`) | site_page_only | 0 | https://browser.sead.se/site/3810 |
-| Alväng, Götlunda (`213`) | site_page_only | 0 | https://browser.sead.se/site/213 |
-| Amhult (`3809`) | site_page_only | 0 | https://browser.sead.se/site/3809 |
-| Andersson i Lund (`5685`) | site_page_only | 0 | https://browser.sead.se/site/5685 |
-| Andersson i Sjör (`5686`) | site_page_only | 0 | https://browser.sead.se/site/5686 |
-| Anderssons i Gäle (`5687`) | site_page_only | 0 | https://browser.sead.se/site/5687 |
-| Anderssons i Sidsjö (`5688`) | site_page_only | 0 | https://browser.sead.se/site/5688 |
-| Andoya Lakes (`5119`) | site_page_only | 0 | https://browser.sead.se/site/5119 |
-| Anfasterö (`3808`) | site_page_only | 0 | https://browser.sead.se/site/3808 |
-| Annelöv (`3807`) | site_page_only | 0 | https://browser.sead.se/site/3807 |
-| Annexhemmanet (`3806`) | site_page_only | 0 | https://browser.sead.se/site/3806 |
-| Apalle (`3805`) | site_page_only | 0 | https://browser.sead.se/site/3805 |
-| Appelbergska magasinet (`4228`) | site_page_only | 0 | https://browser.sead.se/site/4228 |
-| Arboga Raä 65 (`394`) | site_page_only | 0 | https://browser.sead.se/site/394 |
-| Arby kyrka (`4227`) | site_page_only | 0 | https://browser.sead.se/site/4227 |
-| Arendals stamgård (`5692`) | site_page_only | 0 | https://browser.sead.se/site/5692 |
-| Arnäs Raä 256 (`131`) | site_page_only | 0 | https://browser.sead.se/site/131 |
-| Arvidsjaur Raä 1877 (`281`) | site_page_only | 0 | https://browser.sead.se/site/281 |
-| Arvidsjaur Raä 3913 (`270`) | site_page_only | 0 | https://browser.sead.se/site/270 |
-| Arvidsjaur Raä 3941 (`263`) | site_page_only | 0 | https://browser.sead.se/site/263 |
-| Arvidsjaur Raä 633 (`265`) | site_page_only | 0 | https://browser.sead.se/site/265 |
-| Asby kyrka (`4226`) | site_page_only | 0 | https://browser.sead.se/site/4226 |
-| Aschanska gården (`5693`) | site_page_only | 0 | https://browser.sead.se/site/5693 |
-| Askeby 271 (`6405`) | site_page_only | 0 | https://browser.sead.se/site/6405 |
-| Askeby kyrka (`5694`) | site_page_only | 0 | https://browser.sead.se/site/5694 |
-| Askim Raä 281 (`87`) | site_page_only | 0 | https://browser.sead.se/site/87 |
-| Askim Raä 287 (`247`) | site_page_only | 0 | https://browser.sead.se/site/247 |
-| Askim Raä 290 (`245`) | site_page_only | 0 | https://browser.sead.se/site/245 |
-| Asks kyrka (`4225`) | site_page_only | 0 | https://browser.sead.se/site/4225 |
-| Askum raä 6 (`285`) | site_page_only | 0 | https://browser.sead.se/site/285 |
-| Askum Raä 67 (`267`) | site_page_only | 0 | https://browser.sead.se/site/267 |
-| Atteby gård (`5695`) | site_page_only | 0 | https://browser.sead.se/site/5695 |
-| Augerum (`3802`) | site_page_only | 0 | https://browser.sead.se/site/3802 |
-| Augerums kyrka (`5696`) | site_page_only | 0 | https://browser.sead.se/site/5696 |
-| Augland (`3801`) | site_page_only | 0 | https://browser.sead.se/site/3801 |
-| Axamo flygplats (`3800`) | site_page_only | 0 | https://browser.sead.se/site/3800 |
-| Backa (`3799`) | site_page_only | 0 | https://browser.sead.se/site/3799 |
-| Backarne (`3798`) | site_page_only | 0 | https://browser.sead.se/site/3798 |
-| Backollas i Risholn (`5699`) | site_page_only | 0 | https://browser.sead.se/site/5699 |
-| Badelunda kyrka (`5700`) | site_page_only | 0 | https://browser.sead.se/site/5700 |
-| Baldringe kyrka (`4224`) | site_page_only | 0 | https://browser.sead.se/site/4224 |
-| Balkåkra kyrkoruin (`4223`) | site_page_only | 0 | https://browser.sead.se/site/4223 |
-| Ballingstorp (`5701`) | site_page_only | 0 | https://browser.sead.se/site/5701 |
-| Bankekinds kyrka (`4222`) | site_page_only | 0 | https://browser.sead.se/site/4222 |
-| Bara (`5286`) | site_page_only | 0 | https://browser.sead.se/site/5286 |
-| Barmer (`3797`) | site_page_only | 0 | https://browser.sead.se/site/3797 |
-| Barrsjö (`3796`) | site_page_only | 0 | https://browser.sead.se/site/3796 |
-| Barsebäcks kyrka (`5702`) | site_page_only | 0 | https://browser.sead.se/site/5702 |
-| Barshaldershed (`3795`) | site_page_only | 0 | https://browser.sead.se/site/3795 |
-| Beckombergavägen (`6280`) | site_page_only | 0 | https://browser.sead.se/site/6280 |
-| Beddinge (`3794`) | site_page_only | 0 | https://browser.sead.se/site/3794 |
-| Bellmanhuset (`4221`) | site_page_only | 0 | https://browser.sead.se/site/4221 |
-| Bengtstorp (`3793`) | site_page_only | 0 | https://browser.sead.se/site/3793 |
-| Berg (`5707`) | site_page_only | 0 | https://browser.sead.se/site/5707 |
-| Berga (`3792`) | site_page_only | 0 | https://browser.sead.se/site/3792 |
-| Berghem Raä 10 (`190`) | site_page_only | 0 | https://browser.sead.se/site/190 |
-| Berghem Raä 100 (`151`) | site_page_only | 0 | https://browser.sead.se/site/151 |
-| Berglundsgården i Skålö (`5708`) | site_page_only | 0 | https://browser.sead.se/site/5708 |
-| Bergmanska gården (`5709`) | site_page_only | 0 | https://browser.sead.se/site/5709 |
-| Bergolas i kyrkbyn (`5710`) | site_page_only | 0 | https://browser.sead.se/site/5710 |
-| Bergsbyn (`5711`) | site_page_only | 0 | https://browser.sead.se/site/5711 |
-| Berkinge Herrgård (`4220`) | site_page_only | 0 | https://browser.sead.se/site/4220 |
-| Biby säteri (`3925`) | site_page_only | 0 | https://browser.sead.se/site/3925 |
-| Billsta (`3918`) | site_page_only | 0 | https://browser.sead.se/site/3918 |
-| Binga (`3791`) | site_page_only | 0 | https://browser.sead.se/site/3791 |
-| Birka (`5112`) | site_page_only | 0 | https://browser.sead.se/site/5112 |
-| Birka, Cemetery (`3790`) | site_page_only | 0 | https://browser.sead.se/site/3790 |
-| Birka, Settlement (`3789`) | site_page_only | 0 | https://browser.sead.se/site/3789 |
-| Biskops (`4219`) | site_page_only | 0 | https://browser.sead.se/site/4219 |
-| Biskopshuset (`4218`) | site_page_only | 0 | https://browser.sead.se/site/4218 |
-| Bisslinge gård (`4217`) | site_page_only | 0 | https://browser.sead.se/site/4217 |
-| Bjurholm Raä 295 (`210`) | site_page_only | 0 | https://browser.sead.se/site/210 |
-| Bjurselet (`3788`) | site_page_only | 0 | https://browser.sead.se/site/3788 |
-| Bjuröklubb (`3787`) | site_page_only | 0 | https://browser.sead.se/site/3787 |
-| Bjus i Ygsbo (`5716`) | site_page_only | 0 | https://browser.sead.se/site/5716 |
-| Bjälbo kyrka (`4216`) | site_page_only | 0 | https://browser.sead.se/site/4216 |
-| Bjälbo trädgård (`6429`) | site_page_only | 0 | https://browser.sead.se/site/6429 |
-| Bjäresjö (`3786`) | site_page_only | 0 | https://browser.sead.se/site/3786 |
-| Bjäresjö kyrka (`4215`) | site_page_only | 0 | https://browser.sead.se/site/4215 |
-| Bjärred (`3785`) | site_page_only | 0 | https://browser.sead.se/site/3785 |
-| Bjärsjöholms slott (`4214`) | site_page_only | 0 | https://browser.sead.se/site/4214 |
-| Bjärtrå stronghold (`3784`) | site_page_only | 0 | https://browser.sead.se/site/3784 |
-| Bjästamon (`3783`) | site_page_only | 0 | https://browser.sead.se/site/3783 |
-| Björka kyrka (`4213`) | site_page_only | 0 | https://browser.sead.se/site/4213 |
-| Björkekärr (`3782`) | site_page_only | 0 | https://browser.sead.se/site/3782 |
-| Björkeli (`91`) | site_page_only | 0 | https://browser.sead.se/site/91 |
-| Björken i Rälta (`5712`) | site_page_only | 0 | https://browser.sead.se/site/5712 |
-| Björkenäs (`3917`) | site_page_only | 0 | https://browser.sead.se/site/3917 |
-| Björkeröds Mosse (`4805`) | site_page_only | 0 | https://browser.sead.se/site/4805 |
-| Björklinge 67 (`3781`) | site_page_only | 0 | https://browser.sead.se/site/3781 |
-| Björkviks säteri (`5713`) | site_page_only | 0 | https://browser.sead.se/site/5713 |
-| Björkön (`3780`) | site_page_only | 0 | https://browser.sead.se/site/3780 |
-| Björlanda 348 (`372`) | site_page_only | 0 | https://browser.sead.se/site/372 |
-| Björlanda 459 (`261`) | site_page_only | 0 | https://browser.sead.se/site/261 |
-| Björlanda Raä 374 (`307`) | site_page_only | 0 | https://browser.sead.se/site/307 |
-| Björlings i Färnäs (`5714`) | site_page_only | 0 | https://browser.sead.se/site/5714 |
-| Björnstorp (`3779`) | site_page_only | 0 | https://browser.sead.se/site/3779 |
-| Björs i Stene (`5715`) | site_page_only | 0 | https://browser.sead.se/site/5715 |
-| Björsjöås (`4772`) | site_page_only | 0 | https://browser.sead.se/site/4772 |
-| Blankeberg (`6281`) | site_page_only | 0 | https://browser.sead.se/site/6281 |
-| Bleckos i Röjeråsen (`5717`) | site_page_only | 0 | https://browser.sead.se/site/5717 |
-| Bleckstuggu Danielsgården i Almbergsbjörken (`5718`) | site_page_only | 0 | https://browser.sead.se/site/5718 |
-| Blekingegården (`5719`) | site_page_only | 0 | https://browser.sead.se/site/5719 |
-| Blomstugan i Lindbodarna (`5720`) | site_page_only | 0 | https://browser.sead.se/site/5720 |
-| Blomtorpet i Hara (`5721`) | site_page_only | 0 | https://browser.sead.se/site/5721 |
-| BMR 3054 Vestre Indlæg (`128`) | site_page_only | 0 | https://browser.sead.se/site/128 |
-| Boarp (`5722`) | site_page_only | 0 | https://browser.sead.se/site/5722 |
-| Bobergs i Nyhyttan (`5723`) | site_page_only | 0 | https://browser.sead.se/site/5723 |
-| Bodarps kyrka (`5725`) | site_page_only | 0 | https://browser.sead.se/site/5725 |
-| Boddas bönhus (`5726`) | site_page_only | 0 | https://browser.sead.se/site/5726 |
-| Bois i Biskopsbyn (`5727`) | site_page_only | 0 | https://browser.sead.se/site/5727 |
-| Boliden (`4287`) | site_page_only | 0 | https://browser.sead.se/site/4287 |
-| Bollbacken (`3778`) | site_page_only | 0 | https://browser.sead.se/site/3778 |
-| Bollerups kyrka (`5728`) | site_page_only | 0 | https://browser.sead.se/site/5728 |
-| Bollnäs (`4775`) | site_page_only | 0 | https://browser.sead.se/site/4775 |
-| Bomsarvet (`6282`) | site_page_only | 0 | https://browser.sead.se/site/6282 |
-| Bond Hans i Tallhed (`5729`) | site_page_only | 0 | https://browser.sead.se/site/5729 |
-| Bonderups kyrka (`4212`) | site_page_only | 0 | https://browser.sead.se/site/4212 |
-| Bondes gård i Sundbornsbyn (`5730`) | site_page_only | 0 | https://browser.sead.se/site/5730 |
-| Bondoll i Ersholen (`5731`) | site_page_only | 0 | https://browser.sead.se/site/5731 |
-| Bondrumsgården (`5732`) | site_page_only | 0 | https://browser.sead.se/site/5732 |
-| Bonäs (`4211`) | site_page_only | 0 | https://browser.sead.se/site/4211 |
-| Borgarhuset (`4209`) | site_page_only | 0 | https://browser.sead.se/site/4209 |
-| Borgeby (`3777`) | site_page_only | 0 | https://browser.sead.se/site/3777 |
-| Borgeby kyrka (`5734`) | site_page_only | 0 | https://browser.sead.se/site/5734 |
-| Borgholm (`3776`) | site_page_only | 0 | https://browser.sead.se/site/3776 |
-| Borgholms stadsmuseum (`4208`) | site_page_only | 0 | https://browser.sead.se/site/4208 |
-| Borgmästargården (`4207`) | site_page_only | 0 | https://browser.sead.se/site/4207 |
-| Borgsjö 165:1 (`187`) | site_page_only | 0 | https://browser.sead.se/site/187 |
-| Borgsjö Raä 165 (`322`) | site_page_only | 0 | https://browser.sead.se/site/322 |
-| Borntorp (`3916`) | site_page_only | 0 | https://browser.sead.se/site/3916 |
-| Bosarp (`4206`) | site_page_only | 0 | https://browser.sead.se/site/4206 |
-| Bosebo kyrka (`4205`) | site_page_only | 0 | https://browser.sead.se/site/4205 |
-| Bothnia lina JP 62B/62:11 (`232`) | site_page_only | 0 | https://browser.sead.se/site/232 |
-| Bothnia line JP 22A (`129`) | site_page_only | 0 | https://browser.sead.se/site/129 |
-| Bothnia line JP 22C (`108`) | site_page_only | 0 | https://browser.sead.se/site/108 |
-| Bothnia line JP 22D (`237`) | site_page_only | 0 | https://browser.sead.se/site/237 |
-| Bothnia line JP 31A (`175`) | site_page_only | 0 | https://browser.sead.se/site/175 |
-| Bothnia line JP 31B (`236`) | site_page_only | 0 | https://browser.sead.se/site/236 |
-| Bothnia line JP 31D (`150`) | site_page_only | 0 | https://browser.sead.se/site/150 |
-| Bothnia line JP 31E (`101`) | site_page_only | 0 | https://browser.sead.se/site/101 |
-| Bothnia line JP 31F (`104`) | site_page_only | 0 | https://browser.sead.se/site/104 |
-| Bothnia line JP 31G (`200`) | site_page_only | 0 | https://browser.sead.se/site/200 |
-| Bothnia line JP 31H (`80`) | site_page_only | 0 | https://browser.sead.se/site/80 |
-| Bothnia line JP 31I (`217`) | site_page_only | 0 | https://browser.sead.se/site/217 |
-| Bothnia line jp 31J1 (`209`) | site_page_only | 0 | https://browser.sead.se/site/209 |
-| Bothnia line JP 31J2 (`117`) | site_page_only | 0 | https://browser.sead.se/site/117 |
-| Bothnia line JP 31J3 (`224`) | site_page_only | 0 | https://browser.sead.se/site/224 |
-| Bothnia line JP 31J4 (`194`) | site_page_only | 0 | https://browser.sead.se/site/194 |
-| Bothnia line JP 31K (`230`) | site_page_only | 0 | https://browser.sead.se/site/230 |
-| Bothnia line JP 32B (`162`) | site_page_only | 0 | https://browser.sead.se/site/162 |
-| Bothnia line JP 32C (`141`) | site_page_only | 0 | https://browser.sead.se/site/141 |
-| Bothnia line JP 32D (`145`) | site_page_only | 0 | https://browser.sead.se/site/145 |
-| Bothnia line JP 32E (`177`) | site_page_only | 0 | https://browser.sead.se/site/177 |
-| Bothnia line JP 32F (`201`) | site_page_only | 0 | https://browser.sead.se/site/201 |
-| Bothnia line JP 32G (`188`) | site_page_only | 0 | https://browser.sead.se/site/188 |
-| Bothnia line JP 32H (`180`) | site_page_only | 0 | https://browser.sead.se/site/180 |
-| Bothnia line JP 62A/62:17 (`130`) | site_page_only | 0 | https://browser.sead.se/site/130 |
-| Bothnia line JP 71A1/71:31 (`110`) | site_page_only | 0 | https://browser.sead.se/site/110 |
-| Bothnia line JP 71A2/71:29 (`137`) | site_page_only | 0 | https://browser.sead.se/site/137 |
-| Bothnia line JP 71B (`191`) | site_page_only | 0 | https://browser.sead.se/site/191 |
-| Bothnia line JP 71C1/71:24 (`176`) | site_page_only | 0 | https://browser.sead.se/site/176 |
-| Bothnia line JP 71D/71:17 (`98`) | site_page_only | 0 | https://browser.sead.se/site/98 |
-| Bothnia line JP 71E/71:14 (`86`) | site_page_only | 0 | https://browser.sead.se/site/86 |
-| Bothnia line JP 71F1 (`139`) | site_page_only | 0 | https://browser.sead.se/site/139 |
-| Bothnia line JP 71F2/71:12 (`179`) | site_page_only | 0 | https://browser.sead.se/site/179 |
-| Bothnia line JP 71G/71:1 (`147`) | site_page_only | 0 | https://browser.sead.se/site/147 |
-| Bothnia line JP 72A/72:1 (`142`) | site_page_only | 0 | https://browser.sead.se/site/142 |
-| Bothnia line JP 72B/73:26 (`95`) | site_page_only | 0 | https://browser.sead.se/site/95 |
-| Bothnia line JP 72C/72:2 (`114`) | site_page_only | 0 | https://browser.sead.se/site/114 |
-| Bothnia line JP 72E (`203`) | site_page_only | 0 | https://browser.sead.se/site/203 |
-| Bothnia line JP 72F1 (`206`) | site_page_only | 0 | https://browser.sead.se/site/206 |
-| Bothnia line JP 72G1 (`212`) | site_page_only | 0 | https://browser.sead.se/site/212 |
-| Bothnia line JP 72G2 (`208`) | site_page_only | 0 | https://browser.sead.se/site/208 |
-| Bothnia line JP 72H (`171`) | site_page_only | 0 | https://browser.sead.se/site/171 |
-| Bothnia line JP 72I (`183`) | site_page_only | 0 | https://browser.sead.se/site/183 |
-| Bothnia line JP 72J (`225`) | site_page_only | 0 | https://browser.sead.se/site/225 |
-| Bothnia line JP 73A (`199`) | site_page_only | 0 | https://browser.sead.se/site/199 |
-| Bothnia line JP 73B (`164`) | site_page_only | 0 | https://browser.sead.se/site/164 |
-| Bothnia line JP 73C (`226`) | site_page_only | 0 | https://browser.sead.se/site/226 |
-| Bothnia line JP 73D (`134`) | site_page_only | 0 | https://browser.sead.se/site/134 |
-| Bothnia line JP 73F (`220`) | site_page_only | 0 | https://browser.sead.se/site/220 |
-| Bothnia line JP 73G (`193`) | site_page_only | 0 | https://browser.sead.se/site/193 |
-| Bothnia line JP 73H (`221`) | site_page_only | 0 | https://browser.sead.se/site/221 |
-| Bothnia line JP 73J (`219`) | site_page_only | 0 | https://browser.sead.se/site/219 |
-| Bothnia line JP 73K (`238`) | site_page_only | 0 | https://browser.sead.se/site/238 |
-| Bothnia line JP 73L (`168`) | site_page_only | 0 | https://browser.sead.se/site/168 |
-| Bothnia line JP 75A/75:7 (`113`) | site_page_only | 0 | https://browser.sead.se/site/113 |
-| Bothnia line JP 75B1 (`197`) | site_page_only | 0 | https://browser.sead.se/site/197 |
-| Bothnia line JP 75B2 (`81`) | site_page_only | 0 | https://browser.sead.se/site/81 |
-| Bothnia line JP 75C1/75:2 (`120`) | site_page_only | 0 | https://browser.sead.se/site/120 |
-| Bothnia line JP 75C2 (`185`) | site_page_only | 0 | https://browser.sead.se/site/185 |
-| Bothnia line JP 75D/75:3 (`227`) | site_page_only | 0 | https://browser.sead.se/site/227 |
-| Bothnia line JP 75E (`251`) | site_page_only | 0 | https://browser.sead.se/site/251 |
-| Botkyrka kyrka (`5735`) | site_page_only | 0 | https://browser.sead.se/site/5735 |
-| Bottna kyrka (`5736`) | site_page_only | 0 | https://browser.sead.se/site/5736 |
-| Brahekyrkan (`4204`) | site_page_only | 0 | https://browser.sead.se/site/4204 |
-| Brandstorps kyrka (`5738`) | site_page_only | 0 | https://browser.sead.se/site/5738 |
-| Brattbergstorpet (`279`) | site_page_only | 0 | https://browser.sead.se/site/279 |
-| Breareds kyrka (`5739`) | site_page_only | 0 | https://browser.sead.se/site/5739 |
-| Bredsätra kyrka (`4203`) | site_page_only | 0 | https://browser.sead.se/site/4203 |
-| Bremerska gården (`5740`) | site_page_only | 0 | https://browser.sead.se/site/5740 |
-| Brevik kyrka (`5741`) | site_page_only | 0 | https://browser.sead.se/site/5741 |
-| Bricken (`6283`) | site_page_only | 0 | https://browser.sead.se/site/6283 |
-| Bringsvær (`3775`) | site_page_only | 0 | https://browser.sead.se/site/3775 |
-| Bro kyrka (`4202`) | site_page_only | 0 | https://browser.sead.se/site/4202 |
-| Bro Raä 195:1 (`317`) | site_page_only | 0 | https://browser.sead.se/site/317 |
-| Broarps gästgiveri (`4201`) | site_page_only | 0 | https://browser.sead.se/site/4201 |
-| Brogård (`3774`) | site_page_only | 0 | https://browser.sead.se/site/3774 |
-| Broläggning Rickeby (`6430`) | site_page_only | 0 | https://browser.sead.se/site/6430 |
-| Bromma kyrka (`4200`) | site_page_only | 0 | https://browser.sead.se/site/4200 |
-| Broåsen (`3773`) | site_page_only | 0 | https://browser.sead.se/site/3773 |
-| Brudager Cemetery (`3772`) | site_page_only | 0 | https://browser.sead.se/site/3772 |
-| Brudager Settlement (`3771`) | site_page_only | 0 | https://browser.sead.se/site/3771 |
-| Bruksgatan (`3915`) | site_page_only | 0 | https://browser.sead.se/site/3915 |
-| Brumunddal (`4301`) | site_page_only | 0 | https://browser.sead.se/site/4301 |
-| Brunflo kastal (`5742`) | site_page_only | 0 | https://browser.sead.se/site/5742 |
-| Brunnby kyrka (`4199`) | site_page_only | 0 | https://browser.sead.se/site/4199 |
-| Brunsta gård (`4198`) | site_page_only | 0 | https://browser.sead.se/site/4198 |
-| Bryggen (`3769`) | site_page_only | 0 | https://browser.sead.se/site/3769 |
-| Bryktgard i Axi (`5743`) | site_page_only | 0 | https://browser.sead.se/site/5743 |
-| Brynje (`5744`) | site_page_only | 0 | https://browser.sead.se/site/5744 |
-| Brönnestads kyrka (`4197`) | site_page_only | 0 | https://browser.sead.se/site/4197 |
-| Budasmyren Nusnäs (`5745`) | site_page_only | 0 | https://browser.sead.se/site/5745 |
-| Bullas i Östnor (`5746`) | site_page_only | 0 | https://browser.sead.se/site/5746 |
-| Bunkeflo 68 (`3768`) | site_page_only | 0 | https://browser.sead.se/site/3768 |
-| Bureå Raä 11 (`252`) | site_page_only | 0 | https://browser.sead.se/site/252 |
-| Bureå Raä 128 (`249`) | site_page_only | 0 | https://browser.sead.se/site/249 |
-| Burge (`4196`) | site_page_only | 0 | https://browser.sead.se/site/4196 |
-| Burlöv 20C (`3767`) | site_page_only | 0 | https://browser.sead.se/site/3767 |
-| Burlövs gamla kyrka (`4195`) | site_page_only | 0 | https://browser.sead.se/site/4195 |
-| Burmeisterska huset (`4194`) | site_page_only | 0 | https://browser.sead.se/site/4194 |
-| Burs kyrka (`4193`) | site_page_only | 0 | https://browser.sead.se/site/4193 |
-| Burträsk Raä 52 (`207`) | site_page_only | 0 | https://browser.sead.se/site/207 |
-| Byberget (`5747`) | site_page_only | 0 | https://browser.sead.se/site/5747 |
-| Bysjön (`4776`) | site_page_only | 0 | https://browser.sead.se/site/4776 |
-| Byss Hans i Oljonsbyn (`5748`) | site_page_only | 0 | https://browser.sead.se/site/5748 |
-| Bäckaby gamla kyrka (`5697`) | site_page_only | 0 | https://browser.sead.se/site/5697 |
-| Bäckby (`3765`) | site_page_only | 0 | https://browser.sead.se/site/3765 |
-| Bäckegården i Västra Utsjö (`5698`) | site_page_only | 0 | https://browser.sead.se/site/5698 |
-| Bäl kyrka (`4192`) | site_page_only | 0 | https://browser.sead.se/site/4192 |
-| Bälinge kyrka (`6431`) | site_page_only | 0 | https://browser.sead.se/site/6431 |
-| Bärsta (`5703`) | site_page_only | 0 | https://browser.sead.se/site/5703 |
-| Bårabygd (`6279`) | site_page_only | 0 | https://browser.sead.se/site/6279 |
-| Båthus Laknäs Zorns gammelgård (`5704`) | site_page_only | 0 | https://browser.sead.se/site/5704 |
-| Båthus Nusnäs Zorns gammelgård (`5705`) | site_page_only | 0 | https://browser.sead.se/site/5705 |
-| Båthus Öje Zorns gammelgård (`5706`) | site_page_only | 0 | https://browser.sead.se/site/5706 |
-| Båtsberg (`3766`) | site_page_only | 0 | https://browser.sead.se/site/3766 |
-| Böösgården i Åselby (`5733`) | site_page_only | 0 | https://browser.sead.se/site/5733 |
-| Carlshögen (`3764`) | site_page_only | 0 | https://browser.sead.se/site/3764 |
-| Charlottendal (`3760`) | site_page_only | 0 | https://browser.sead.se/site/3760 |
-| Citytunnelprojektet delområde 1 (`79`) | site_page_only | 0 | https://browser.sead.se/site/79 |
-| Citytunnelprojektet delområde 2 (`83`) | site_page_only | 0 | https://browser.sead.se/site/83 |
-| Citytunnelprojektet delområde 3 (`105`) | site_page_only | 0 | https://browser.sead.se/site/105 |
-| Citytunnelprojektet delområde 4 (`84`) | site_page_only | 0 | https://browser.sead.se/site/84 |
-| Citytunnelprojektet delområde 5 (`78`) | site_page_only | 0 | https://browser.sead.se/site/78 |
-| Citytunnelprojektet delområde 6 (`269`) | site_page_only | 0 | https://browser.sead.se/site/269 |
-| Citytunnelprojektet delområde 7 (`259`) | site_page_only | 0 | https://browser.sead.se/site/259 |
-| Citytunnelprojektet delområde 8 (`357`) | site_page_only | 0 | https://browser.sead.se/site/357 |
-| Citytunnelprojektet delområde Hotelltomten (`257`) | site_page_only | 0 | https://browser.sead.se/site/257 |
-| Citytunnelprojektet delområdet Vintrie IP (`260`) | site_page_only | 0 | https://browser.sead.se/site/260 |
-| Copenhagen (`5528`) | site_page_only | 0 | https://browser.sead.se/site/5528 |
-| Cramérska huset (`4191`) | site_page_only | 0 | https://browser.sead.se/site/4191 |
-| Dagstorp (SU 17) (`3754`) | site_page_only | 0 | https://browser.sead.se/site/3754 |
-| Dagstorp (SU 21) (`3753`) | site_page_only | 0 | https://browser.sead.se/site/3753 |
-| Dagstorp 16:1 (`6389`) | site_page_only | 0 | https://browser.sead.se/site/6389 |
-| Dahlbergsladan Skamhed (`5750`) | site_page_only | 0 | https://browser.sead.se/site/5750 |
-| Dahlgrens i Nedre Gärdsjö (`5751`) | site_page_only | 0 | https://browser.sead.se/site/5751 |
-| Dahlström i Sölvsved (`5752`) | site_page_only | 0 | https://browser.sead.se/site/5752 |
-| Dahlströms i Vallavallen (`5753`) | site_page_only | 0 | https://browser.sead.se/site/5753 |
-| Dahlströmska huset (`5754`) | site_page_only | 0 | https://browser.sead.se/site/5754 |
-| Dalby (`3752`) | site_page_only | 0 | https://browser.sead.se/site/3752 |
-| Dalby kungsgård (`4190`) | site_page_only | 0 | https://browser.sead.se/site/4190 |
-| Dalby kyrka (`4189`) | site_page_only | 0 | https://browser.sead.se/site/4189 |
-| Dalskarlstorp (`3751`) | site_page_only | 0 | https://browser.sead.se/site/3751 |
-| Dalänger i Öster-Svartåsen (`5755`) | site_page_only | 0 | https://browser.sead.se/site/5755 |
-| Dammen Raä 195:1 (`61`) | site_page_only | 0 | https://browser.sead.se/site/61 |
-| Daniel Pers i Nedre Gärdsjö (`5756`) | site_page_only | 0 | https://browser.sead.se/site/5756 |
-| Danielssons i Pålgård (`5757`) | site_page_only | 0 | https://browser.sead.se/site/5757 |
-| Danmarksby (`3750`) | site_page_only | 0 | https://browser.sead.se/site/3750 |
-| Danshyttan (`6284`) | site_page_only | 0 | https://browser.sead.se/site/6284 |
-| Danskladan i Södra Kättbo (`5758`) | site_page_only | 0 | https://browser.sead.se/site/5758 |
-| Darsgärde (`3749`) | site_page_only | 0 | https://browser.sead.se/site/3749 |
-| Deckers i Kyrkbyn (`5759`) | site_page_only | 0 | https://browser.sead.se/site/5759 |
-| Deset Knubben (`243`) | site_page_only | 0 | https://browser.sead.se/site/243 |
-| Dikmanska gården (`5760`) | site_page_only | 0 | https://browser.sead.se/site/5760 |
-| Dragby (`3747`) | site_page_only | 0 | https://browser.sead.se/site/3747 |
-| Drottningholm (`6286`) | site_page_only | 0 | https://browser.sead.se/site/6286 |
-| Drottningholms slott (`4187`) | site_page_only | 0 | https://browser.sead.se/site/4187 |
-| Drändj-gard i Färnäs (`5762`) | site_page_only | 0 | https://browser.sead.se/site/5762 |
-| Dubbelbod i Laxvadet (`5763`) | site_page_only | 0 | https://browser.sead.se/site/5763 |
-| Dubbelhärbre Kråkberg (`5764`) | site_page_only | 0 | https://browser.sead.se/site/5764 |
-| Dädesjö gamla kyrka (`5749`) | site_page_only | 0 | https://browser.sead.se/site/5749 |
-| Dörby kyrka (`4186`) | site_page_only | 0 | https://browser.sead.se/site/4186 |
-| Dösjebro (SU 19) (`3745`) | site_page_only | 0 | https://browser.sead.se/site/3745 |
-| Dössgården i Fudal (`5761`) | site_page_only | 0 | https://browser.sead.se/site/5761 |
-| Edestads kyrka (`5766`) | site_page_only | 0 | https://browser.sead.se/site/5766 |
-| Edshults herrgård (`5768`) | site_page_only | 0 | https://browser.sead.se/site/5768 |
-| Edsåsen (`5767`) | site_page_only | 0 | https://browser.sead.se/site/5767 |
-| Edvin Jannes i Kyrkbyn Boda (`5769`) | site_page_only | 0 | https://browser.sead.se/site/5769 |
-| Edåsa kyrka (`5765`) | site_page_only | 0 | https://browser.sead.se/site/5765 |
-| Eftra Raä 110 (`28`) | site_page_only | 0 | https://browser.sead.se/site/28 |
-| Egelygård (`3744`) | site_page_only | 0 | https://browser.sead.se/site/3744 |
-| Eggeby bytomt (`5770`) | site_page_only | 0 | https://browser.sead.se/site/5770 |
-| Egnelius i Östra Pålgård (`5771`) | site_page_only | 0 | https://browser.sead.se/site/5771 |
-| Egtved (`5461`) | site_page_only | 0 | https://browser.sead.se/site/5461 |
-| Eidanger Prestegård (`3743`) | site_page_only | 0 | https://browser.sead.se/site/3743 |
-| Eigebakken (`4378`) | site_page_only | 0 | https://browser.sead.se/site/4378 |
-| Ejby Brickworks (`5300`) | site_page_only | 0 | https://browser.sead.se/site/5300 |
-| Eke kyrka (`4185`) | site_page_only | 0 | https://browser.sead.se/site/4185 |
-| Ekebo (`6287`) | site_page_only | 0 | https://browser.sead.se/site/6287 |
-| Ekeby (`3742`) | site_page_only | 0 | https://browser.sead.se/site/3742 |
-| Ekeby (`3914`) | site_page_only | 0 | https://browser.sead.se/site/3914 |
-| Ekeby kyrka (`4184`) | site_page_only | 0 | https://browser.sead.se/site/4184 |
-| Ekelunda (`4183`) | site_page_only | 0 | https://browser.sead.se/site/4183 |
-| Eklundshov (`3741`) | site_page_only | 0 | https://browser.sead.se/site/3741 |
-| Eknäs (`3740`) | site_page_only | 0 | https://browser.sead.se/site/3740 |
-| Ektorpet (`4182`) | site_page_only | 0 | https://browser.sead.se/site/4182 |
-| Eldhus Fageråsen (`5772`) | site_page_only | 0 | https://browser.sead.se/site/5772 |
-| Eldhus Selja (`5773`) | site_page_only | 0 | https://browser.sead.se/site/5773 |
-| Eliasgården i Tasbäck (`5774`) | site_page_only | 0 | https://browser.sead.se/site/5774 |
-| Elinelund (`5289`) | site_page_only | 0 | https://browser.sead.se/site/5289 |
-| Em's herrgård (`4181`) | site_page_only | 0 | https://browser.sead.se/site/4181 |
-| Emilsson i Tand (`5775`) | site_page_only | 0 | https://browser.sead.se/site/5775 |
-| Empohultet (`4856`) | site_page_only | 0 | https://browser.sead.se/site/4856 |
-| Engelsbergs herrgård (`5777`) | site_page_only | 0 | https://browser.sead.se/site/5777 |
-| Enköping 26:1 (`6349`) | site_page_only | 0 | https://browser.sead.se/site/6349 |
-| Enån Färnäs (`5776`) | site_page_only | 0 | https://browser.sead.se/site/5776 |
-| Enånger Raä 145 (`333`) | site_page_only | 0 | https://browser.sead.se/site/333 |
-| Enånger Raä 146 (`319`) | site_page_only | 0 | https://browser.sead.se/site/319 |
-| Erik Hanssons i Sanna (`5778`) | site_page_only | 0 | https://browser.sead.se/site/5778 |
-| Erik Ingels i Ovanmyra (`5779`) | site_page_only | 0 | https://browser.sead.se/site/5779 |
-| Erik Karlströms i Nedre Gärdsjö (`5780`) | site_page_only | 0 | https://browser.sead.se/site/5780 |
-| Erik Laggar i Änderåsen (`5781`) | site_page_only | 0 | https://browser.sead.se/site/5781 |
-| Erik-Anders i Vallsbo (`5782`) | site_page_only | 0 | https://browser.sead.se/site/5782 |
-| Eriksbergs gamla kyrka (`5783`) | site_page_only | 0 | https://browser.sead.se/site/5783 |
-| Erikskulle (`4180`) | site_page_only | 0 | https://browser.sead.se/site/4180 |
-| Erikssons i Bräcke (`5784`) | site_page_only | 0 | https://browser.sead.se/site/5784 |
-| Erikssons i Norrböle (`5785`) | site_page_only | 0 | https://browser.sead.se/site/5785 |
-| Erikssons i Orrviken (`5786`) | site_page_only | 0 | https://browser.sead.se/site/5786 |
-| Eriksöre (`4179`) | site_page_only | 0 | https://browser.sead.se/site/4179 |
-| Erskpers i Vängsbo (`5787`) | site_page_only | 0 | https://browser.sead.se/site/5787 |
-| Erstavik (`6433`) | site_page_only | 0 | https://browser.sead.se/site/6433 |
-| Esbjerg (`5076`) | site_page_only | 0 | https://browser.sead.se/site/5076 |
-| Eskilstuna 554:1 (`6378`) | site_page_only | 0 | https://browser.sead.se/site/6378 |
-| Eslövs Mosse (`4897`) | site_page_only | 0 | https://browser.sead.se/site/4897 |
-| Etelhems kyrka (`4178`) | site_page_only | 0 | https://browser.sead.se/site/4178 |
-| Eura Ä Karäjämäki (`3738`) | site_page_only | 0 | https://browser.sead.se/site/3738 |
-| Evertsberg (`5064`) | site_page_only | 0 | https://browser.sead.se/site/5064 |
-| Fagervik (`3737`) | site_page_only | 0 | https://browser.sead.se/site/3737 |
-| Fahlströmsta loftboden (`5788`) | site_page_only | 0 | https://browser.sead.se/site/5788 |
-| Falköping Raä 3 (`202`) | site_page_only | 0 | https://browser.sead.se/site/202 |
-| Fallebo gård (`4177`) | site_page_only | 0 | https://browser.sead.se/site/4177 |
-| Falsterbo 15:1 (`6390`) | site_page_only | 0 | https://browser.sead.se/site/6390 |
-| Falsterbo kyrka (`5790`) | site_page_only | 0 | https://browser.sead.se/site/5790 |
-| Falun (`4394`) | site_page_only | 0 | https://browser.sead.se/site/4394 |
-| Falun Raä 68 (`170`) | site_page_only | 0 | https://browser.sead.se/site/170 |
-| Farhults kyrka (`4176`) | site_page_only | 0 | https://browser.sead.se/site/4176 |
-| Farstorp (`6288`) | site_page_only | 0 | https://browser.sead.se/site/6288 |
-| Farstorps församlingshem (`4175`) | site_page_only | 0 | https://browser.sead.se/site/4175 |
-| Femsølyng (`4398`) | site_page_only | 0 | https://browser.sead.se/site/4398 |
-| Finja kyrka (`5792`) | site_page_only | 0 | https://browser.sead.se/site/5792 |
-| Finntorp (`4174`) | site_page_only | 0 | https://browser.sead.se/site/4174 |
-| Fiskgårdarna i Noret (`5793`) | site_page_only | 0 | https://browser.sead.se/site/5793 |
-| Fivelstad kyrka (`4173`) | site_page_only | 0 | https://browser.sead.se/site/4173 |
-| Fjellskäfte säteri (`4172`) | site_page_only | 0 | https://browser.sead.se/site/4172 |
-| Fjällsta (`5794`) | site_page_only | 0 | https://browser.sead.se/site/5794 |
-| Fjärdmans i Övre Gärdsjö (`5795`) | site_page_only | 0 | https://browser.sead.se/site/5795 |
-| Fjärås 486 (`3736`) | site_page_only | 0 | https://browser.sead.se/site/3736 |
-| Fjärås Raä 499 (`21`) | site_page_only | 0 | https://browser.sead.se/site/21 |
-| Fjärås Raä 504 (`13`) | site_page_only | 0 | https://browser.sead.se/site/13 |
-| Fleninge 75:2 (`6381`) | site_page_only | 0 | https://browser.sead.se/site/6381 |
-| Flensburgska gården (`5796`) | site_page_only | 0 | https://browser.sead.se/site/5796 |
-| Fleringe kyrka (`4171`) | site_page_only | 0 | https://browser.sead.se/site/4171 |
-| Flint Johans i Gruddbo (`5797`) | site_page_only | 0 | https://browser.sead.se/site/5797 |
-| Flistads kyrka (`4170`) | site_page_only | 0 | https://browser.sead.se/site/4170 |
-| Flivik (`5798`) | site_page_only | 0 | https://browser.sead.se/site/5798 |
-| Flyndehage (`3735`) | site_page_only | 0 | https://browser.sead.se/site/3735 |
-| Flädie 9:4 (`6388`) | site_page_only | 0 | https://browser.sead.se/site/6388 |
-| Flöxhult säteri (`4169`) | site_page_only | 0 | https://browser.sead.se/site/4169 |
-| Foderbod Fudal Zorns gammelgård (`5799`) | site_page_only | 0 | https://browser.sead.se/site/5799 |
-| Foderbod i Selbäck (`5800`) | site_page_only | 0 | https://browser.sead.se/site/5800 |
-| Foderbod Kansbol (`5801`) | site_page_only | 0 | https://browser.sead.se/site/5801 |
-| Follingbo kyrka (`4168`) | site_page_only | 0 | https://browser.sead.se/site/4168 |
-| Fornminnesgården (`4167`) | site_page_only | 0 | https://browser.sead.se/site/4167 |
-| Fors Raä 125 (`88`) | site_page_only | 0 | https://browser.sead.se/site/88 |
-| Fors Raä 143 (`118`) | site_page_only | 0 | https://browser.sead.se/site/118 |
-| Forsa (`318`) | site_page_only | 0 | https://browser.sead.se/site/318 |
-| Forshems kyrka (`5803`) | site_page_only | 0 | https://browser.sead.se/site/5803 |
-| Forshälla Raä 140 (`64`) | site_page_only | 0 | https://browser.sead.se/site/64 |
-| Forshälla Raä 360 (`282`) | site_page_only | 0 | https://browser.sead.se/site/282 |
-| Forskningsparken, Huddinge (`347`) | site_page_only | 0 | https://browser.sead.se/site/347 |
-| Forssa kyrka (`5804`) | site_page_only | 0 | https://browser.sead.se/site/5804 |
-| Forsvik (`5649`) | site_page_only | 0 | https://browser.sead.se/site/5649 |
-| Fosie (`3734`) | site_page_only | 0 | https://browser.sead.se/site/3734 |
-| Foss 173 (`376`) | site_page_only | 0 | https://browser.sead.se/site/376 |
-| Foss 217 (`287`) | site_page_only | 0 | https://browser.sead.se/site/287 |
-| Foss 438:1 (`324`) | site_page_only | 0 | https://browser.sead.se/site/324 |
-| Foss Raä 166 (`382`) | site_page_only | 0 | https://browser.sead.se/site/382 |
-| Foss Raä 440 (`323`) | site_page_only | 0 | https://browser.sead.se/site/323 |
-| Framgården i Nederhögen (`5805`) | site_page_only | 0 | https://browser.sead.se/site/5805 |
-| Fredriksberg 13D (`3732`) | site_page_only | 0 | https://browser.sead.se/site/3732 |
-| Fredriksberg 13E (`3731`) | site_page_only | 0 | https://browser.sead.se/site/3731 |
-| Fresta 87:3 (`393`) | site_page_only | 0 | https://browser.sead.se/site/393 |
-| Friggestad (`3913`) | site_page_only | 0 | https://browser.sead.se/site/3913 |
-| Fristad (`3730`) | site_page_only | 0 | https://browser.sead.se/site/3730 |
-| Fröjden (`4166`) | site_page_only | 0 | https://browser.sead.se/site/4166 |
-| Fröjel 380 (`6369`) | site_page_only | 0 | https://browser.sead.se/site/6369 |
-| Fröken Löfgrens gård (`4165`) | site_page_only | 0 | https://browser.sead.se/site/4165 |
-| Frösö kyrka (`5806`) | site_page_only | 0 | https://browser.sead.se/site/5806 |
-| Frövifors bruksherrgård (`5807`) | site_page_only | 0 | https://browser.sead.se/site/5807 |
-| Fudalboden Zorns gammelgård (`5808`) | site_page_only | 0 | https://browser.sead.se/site/5808 |
-| Fudalfähus Zorns gammelgård (`5809`) | site_page_only | 0 | https://browser.sead.se/site/5809 |
-| Fulltofta (`5664`) | site_page_only | 0 | https://browser.sead.se/site/5664 |
-| Fulltofta kyrka (`5811`) | site_page_only | 0 | https://browser.sead.se/site/5811 |
-| Fullösa kyrka (`5810`) | site_page_only | 0 | https://browser.sead.se/site/5810 |
-| Furingstads kyrka (`4164`) | site_page_only | 0 | https://browser.sead.se/site/4164 |
-| Fäbohagen (`4163`) | site_page_only | 0 | https://browser.sead.se/site/4163 |
-| Fähus Bomansberg (`5789`) | site_page_only | 0 | https://browser.sead.se/site/5789 |
-| Färjolles i Måga (`5791`) | site_page_only | 0 | https://browser.sead.se/site/5791 |
-| Färlöv (`6434`) | site_page_only | 0 | https://browser.sead.se/site/6434 |
-| Färlövs kyrka (`4162`) | site_page_only | 0 | https://browser.sead.se/site/4162 |
-| Fågelsjö (`3729`) | site_page_only | 0 | https://browser.sead.se/site/3729 |
-| Fåglarp (`3912`) | site_page_only | 0 | https://browser.sead.se/site/3912 |
-| Föllingsö säteri (`4161`) | site_page_only | 0 | https://browser.sead.se/site/4161 |
-| Föra (`3911`) | site_page_only | 0 | https://browser.sead.se/site/3911 |
-| Församlingshemmet (`5802`) | site_page_only | 0 | https://browser.sead.se/site/5802 |
-| Gagnef gamla prästgård (`5812`) | site_page_only | 0 | https://browser.sead.se/site/5812 |
-| Gamla Apoteket (`4160`) | site_page_only | 0 | https://browser.sead.se/site/4160 |
-| Gamla byvägen (`6289`) | site_page_only | 0 | https://browser.sead.se/site/6289 |
-| Gamla Linköping (`5813`) | site_page_only | 0 | https://browser.sead.se/site/5813 |
-| Gamla prästgården (`4159`) | site_page_only | 0 | https://browser.sead.se/site/4159 |
-| Gamla rådhuset (`5814`) | site_page_only | 0 | https://browser.sead.se/site/5814 |
-| Gamla Uppsala (`3728`) | site_page_only | 0 | https://browser.sead.se/site/3728 |
-| Gamla Viker (`6290`) | site_page_only | 0 | https://browser.sead.se/site/6290 |
-| Gamleby 450:1 (`6360`) | site_page_only | 0 | https://browser.sead.se/site/6360 |
-| Gammelgarn kastal (`4158`) | site_page_only | 0 | https://browser.sead.se/site/4158 |
-| Gammelgarn kyrka (`4157`) | site_page_only | 0 | https://browser.sead.se/site/4157 |
-| Gammelgården i Fluren (`5815`) | site_page_only | 0 | https://browser.sead.se/site/5815 |
-| Gammelhemmet (`5378`) | site_page_only | 0 | https://browser.sead.se/site/5378 |
-| Gammelstad, Luleå (`364`) | site_page_only | 0 | https://browser.sead.se/site/364 |
-| Garde kyrka (`4156`) | site_page_only | 0 | https://browser.sead.se/site/4156 |
-| Gathenhielmska huset (`5820`) | site_page_only | 0 | https://browser.sead.se/site/5820 |
-| Genarps kyrka (`4155`) | site_page_only | 0 | https://browser.sead.se/site/4155 |
-| Gene (`3727`) | site_page_only | 0 | https://browser.sead.se/site/3727 |
-| Getinge Raä 93 (`10`) | site_page_only | 0 | https://browser.sead.se/site/10 |
-| Getladan i Östanhol (`5821`) | site_page_only | 0 | https://browser.sead.se/site/5821 |
-| Gimo Herrgård (`4154`) | site_page_only | 0 | https://browser.sead.se/site/4154 |
-| Gisselås (`5822`) | site_page_only | 0 | https://browser.sead.se/site/5822 |
-| Glabro (`4153`) | site_page_only | 0 | https://browser.sead.se/site/4153 |
-| Gladhammar 155:1 (`6359`) | site_page_only | 0 | https://browser.sead.se/site/6359 |
-| Gladhammar 277:1 (`6358`) | site_page_only | 0 | https://browser.sead.se/site/6358 |
-| Glemminge (`3726`) | site_page_only | 0 | https://browser.sead.se/site/3726 |
-| Glimmingehus (`4152`) | site_page_only | 0 | https://browser.sead.se/site/4152 |
-| Glädjen (`3725`) | site_page_only | 0 | https://browser.sead.se/site/3725 |
-| Gläntan (`3724`) | site_page_only | 0 | https://browser.sead.se/site/3724 |
-| Glömminge prästgård (`3910`) | site_page_only | 0 | https://browser.sead.se/site/3910 |
-| Goteborg (`4420`) | site_page_only | 0 | https://browser.sead.se/site/4420 |
-| Gothem kyrka (`4151`) | site_page_only | 0 | https://browser.sead.se/site/4151 |
-| Gothenburg (`4421`) | site_page_only | 0 | https://browser.sead.se/site/4421 |
-| Granbacken i Bagghyttan (`5830`) | site_page_only | 0 | https://browser.sead.se/site/5830 |
-| Grangärdes-Hästberg (`5831`) | site_page_only | 0 | https://browser.sead.se/site/5831 |
-| Granhults kyrka (`5832`) | site_page_only | 0 | https://browser.sead.se/site/5832 |
-| Grannas i Färnäs (`5833`) | site_page_only | 0 | https://browser.sead.se/site/5833 |
-| Grevbäcks kyrka (`5834`) | site_page_only | 0 | https://browser.sead.se/site/5834 |
-| Grevie 363 (`3722`) | site_page_only | 0 | https://browser.sead.se/site/3722 |
-| Grevie 365 (`3721`) | site_page_only | 0 | https://browser.sead.se/site/3721 |
-| Grimeton k:a (`3720`) | site_page_only | 0 | https://browser.sead.se/site/3720 |
-| Grimmatorpet (`5835`) | site_page_only | 0 | https://browser.sead.se/site/5835 |
-| Grimsta (`6291`) | site_page_only | 0 | https://browser.sead.se/site/6291 |
-| Grindstu (`4150`) | site_page_only | 0 | https://browser.sead.se/site/4150 |
-| Grisslehamn (`3909`) | site_page_only | 0 | https://browser.sead.se/site/3909 |
-| Grums Raä 41:1 (`167`) | site_page_only | 0 | https://browser.sead.se/site/167 |
-| Grundsunda Raä 121 (`196`) | site_page_only | 0 | https://browser.sead.se/site/196 |
-| Grundsunda Raä 126 (`218`) | site_page_only | 0 | https://browser.sead.se/site/218 |
-| Grundsunda Raä 30 (`254`) | site_page_only | 0 | https://browser.sead.se/site/254 |
-| Grundsunda Raä 345 (`92`) | site_page_only | 0 | https://browser.sead.se/site/92 |
-| Grundsunda Raä 364 (`82`) | site_page_only | 0 | https://browser.sead.se/site/82 |
-| Gruvris i Gulleråsen (`5838`) | site_page_only | 0 | https://browser.sead.se/site/5838 |
-| Gryagervej (`3716`) | site_page_only | 0 | https://browser.sead.se/site/3716 |
-| Gräne (`3714`) | site_page_only | 0 | https://browser.sead.se/site/3714 |
-| Grävsten herrgård (`4149`) | site_page_only | 0 | https://browser.sead.se/site/4149 |
-| Gråfjell lokal Jfp. (`3715`) | site_page_only | 0 | https://browser.sead.se/site/3715 |
-| Grönhult (`5648`) | site_page_only | 0 | https://browser.sead.se/site/5648 |
-| Grönås (`5837`) | site_page_only | 0 | https://browser.sead.se/site/5837 |
-| Grötlingbo 258:1 (`6373`) | site_page_only | 0 | https://browser.sead.se/site/6373 |
-| Gualöv (`3713`) | site_page_only | 0 | https://browser.sead.se/site/3713 |
-| Gualöv 24 (`3712`) | site_page_only | 0 | https://browser.sead.se/site/3712 |
-| Gubbänget i Delsbo (`5839`) | site_page_only | 0 | https://browser.sead.se/site/5839 |
-| Gudme (`3711`) | site_page_only | 0 | https://browser.sead.se/site/3711 |
-| Gudme great hall (`3710`) | site_page_only | 0 | https://browser.sead.se/site/3710 |
-| Guldrupe kyrka (`4147`) | site_page_only | 0 | https://browser.sead.se/site/4147 |
-| Gullo Lars i Höjen (`5840`) | site_page_only | 0 | https://browser.sead.se/site/5840 |
-| Gumdes i Näset (`5841`) | site_page_only | 0 | https://browser.sead.se/site/5841 |
-| Gunnarskog Raä 595 (`250`) | site_page_only | 0 | https://browser.sead.se/site/250 |
-| Gunnarsrød 6 (`136`) | site_page_only | 0 | https://browser.sead.se/site/136 |
-| Guomojávrrit (`85`) | site_page_only | 0 | https://browser.sead.se/site/85 |
-| Gustavs Torg (`5842`) | site_page_only | 0 | https://browser.sead.se/site/5842 |
-| Gällstaö Gård (`4145`) | site_page_only | 0 | https://browser.sead.se/site/4145 |
-| Gärdsjölindorna i Nedre Gärdsjö (`5818`) | site_page_only | 0 | https://browser.sead.se/site/5818 |
-| Gärdslösa kyrka (`4144`) | site_page_only | 0 | https://browser.sead.se/site/4144 |
-| Gärdslöv (`5287`) | site_page_only | 0 | https://browser.sead.se/site/5287 |
-| Gärdås (`5816`) | site_page_only | 0 | https://browser.sead.se/site/5816 |
-| Gästgivaregården i Grådö (`5819`) | site_page_only | 0 | https://browser.sead.se/site/5819 |
-| Gävle Raä 303 (`223`) | site_page_only | 0 | https://browser.sead.se/site/223 |
-| Gålarmora (`4146`) | site_page_only | 0 | https://browser.sead.se/site/4146 |
-| Gårdby 81 (`6353`) | site_page_only | 0 | https://browser.sead.se/site/6353 |
-| Gården Berget i Backen (`5817`) | site_page_only | 0 | https://browser.sead.se/site/5817 |
-| Gåsinge-Dillnäs Raä 94 (`264`) | site_page_only | 0 | https://browser.sead.se/site/264 |
-| Gödelövs kyrka (`5823`) | site_page_only | 0 | https://browser.sead.se/site/5823 |
-| Gödåker (`3709`) | site_page_only | 0 | https://browser.sead.se/site/3709 |
-| Gökhem 71 (`3708`) | site_page_only | 0 | https://browser.sead.se/site/3708 |
-| Gökhem 78 (`3707`) | site_page_only | 0 | https://browser.sead.se/site/3707 |
-| Gökhems kyrka (`5824`) | site_page_only | 0 | https://browser.sead.se/site/5824 |
-| Göran Nygårds i Nedre Gärdsjö (`5825`) | site_page_only | 0 | https://browser.sead.se/site/5825 |
-| Göranstorp (`5826`) | site_page_only | 0 | https://browser.sead.se/site/5826 |
-| Göras i Ede (`5827`) | site_page_only | 0 | https://browser.sead.se/site/5827 |
-| Göta kanal, hamnen (`6436`) | site_page_only | 0 | https://browser.sead.se/site/6436 |
-| Göteborg Raä 218 (`146`) | site_page_only | 0 | https://browser.sead.se/site/146 |
-| Göteborg Raä 365 (`152`) | site_page_only | 0 | https://browser.sead.se/site/152 |
-| Göteborg Raä 66 (`173`) | site_page_only | 0 | https://browser.sead.se/site/173 |
-| Götene kyrka (`5828`) | site_page_only | 0 | https://browser.sead.se/site/5828 |
-| Götene Raä 52 (`228`) | site_page_only | 0 | https://browser.sead.se/site/228 |
-| Göteve kyrka (`5829`) | site_page_only | 0 | https://browser.sead.se/site/5829 |
-| Haapajärvi: Haga (`5079`) | site_page_only | 0 | https://browser.sead.se/site/5079 |
-| Haapajärvi: Piipsanneva (`5090`) | site_page_only | 0 | https://browser.sead.se/site/5090 |
-| Hackås kyrka (`5843`) | site_page_only | 0 | https://browser.sead.se/site/5843 |
-| Hagaloftet i Rissätra (`5844`) | site_page_only | 0 | https://browser.sead.se/site/5844 |
-| Hagalund (`5845`) | site_page_only | 0 | https://browser.sead.se/site/5845 |
-| Hagaparken (`5670`) | site_page_only | 0 | https://browser.sead.se/site/5670 |
-| Hagby kyrka (`4143`) | site_page_only | 0 | https://browser.sead.se/site/4143 |
-| Hagebyhöga kyrka (`4142`) | site_page_only | 0 | https://browser.sead.se/site/4142 |
-| Hagen i Gällö (`5846`) | site_page_only | 0 | https://browser.sead.se/site/5846 |
-| Hagen, Bäve (`316`) | site_page_only | 0 | https://browser.sead.se/site/316 |
-| Hagshult 29:1 (`6368`) | site_page_only | 0 | https://browser.sead.se/site/6368 |
-| Hagshult kyrka (`5847`) | site_page_only | 0 | https://browser.sead.se/site/5847 |
-| Hagströms i Norrböle (`5848`) | site_page_only | 0 | https://browser.sead.se/site/5848 |
-| Hagverksmo (`6292`) | site_page_only | 0 | https://browser.sead.se/site/6292 |
-| Hakarps kyrka (`4141`) | site_page_only | 0 | https://browser.sead.se/site/4141 |
-| Hall i Byom (`5849`) | site_page_only | 0 | https://browser.sead.se/site/5849 |
-| Hall kyrka (`4140`) | site_page_only | 0 | https://browser.sead.se/site/4140 |
-| Halla kyrka, Gotland (`4138`) | site_page_only | 0 | https://browser.sead.se/site/4138 |
-| Halla kyrka, Nyköping (`4139`) | site_page_only | 0 | https://browser.sead.se/site/4139 |
-| Hallagård, Stomma kulle (`24`) | site_page_only | 0 | https://browser.sead.se/site/24 |
-| Hallarum (`6293`) | site_page_only | 0 | https://browser.sead.se/site/6293 |
-| Hallen (`5851`) | site_page_only | 0 | https://browser.sead.se/site/5851 |
-| Hallens kyrka (`5852`) | site_page_only | 0 | https://browser.sead.se/site/5852 |
-| Hallingebergs kyrka (`5854`) | site_page_only | 0 | https://browser.sead.se/site/5854 |
-| Hallstorps kyrka (`4136`) | site_page_only | 0 | https://browser.sead.se/site/4136 |
-| Hallunda (`3706`) | site_page_only | 0 | https://browser.sead.se/site/3706 |
-| Halmstad (`4431`) | site_page_only | 0 | https://browser.sead.se/site/4431 |
-| Halmstad Raä 44 (`15`) | site_page_only | 0 | https://browser.sead.se/site/15 |
-| Halmstads slott (`5855`) | site_page_only | 0 | https://browser.sead.se/site/5855 |
-| Halvarssons i Hammarbyn (`5856`) | site_page_only | 0 | https://browser.sead.se/site/5856 |
-| Hammarlunda kyrka (`4135`) | site_page_only | 0 | https://browser.sead.se/site/4135 |
-| Hamnparken (`3705`) | site_page_only | 0 | https://browser.sead.se/site/3705 |
-| Hamre (`3704`) | site_page_only | 0 | https://browser.sead.se/site/3704 |
-| Handog (`5857`) | site_page_only | 0 | https://browser.sead.se/site/5857 |
-| Haneberg (`5858`) | site_page_only | 0 | https://browser.sead.se/site/5858 |
-| Haneberg säteri (`4134`) | site_page_only | 0 | https://browser.sead.se/site/4134 |
-| Hanmora gård (`5859`) | site_page_only | 0 | https://browser.sead.se/site/5859 |
-| Hansanders i Sundsjöåsen (`5860`) | site_page_only | 0 | https://browser.sead.se/site/5860 |
-| Hansbacks i Näset (`5861`) | site_page_only | 0 | https://browser.sead.se/site/5861 |
-| Hareskoven (`4867`) | site_page_only | 0 | https://browser.sead.se/site/4867 |
-| Harnosand (`4433`) | site_page_only | 0 | https://browser.sead.se/site/4433 |
-| Harplinge 151 (`3702`) | site_page_only | 0 | https://browser.sead.se/site/3702 |
-| Harplinge 155 (`3701`) | site_page_only | 0 | https://browser.sead.se/site/3701 |
-| Harpsund (`4133`) | site_page_only | 0 | https://browser.sead.se/site/4133 |
-| Hassle Bösarp (`5292`) | site_page_only | 0 | https://browser.sead.se/site/5292 |
-| Hasslösa (`3700`) | site_page_only | 0 | https://browser.sead.se/site/3700 |
-| Hasslöv Raä 86 (`23`) | site_page_only | 0 | https://browser.sead.se/site/23 |
-| Havor Cemetery (`3699`) | site_page_only | 0 | https://browser.sead.se/site/3699 |
-| Havor Fort (`3698`) | site_page_only | 0 | https://browser.sead.se/site/3698 |
-| Hebbeska huset (`5873`) | site_page_only | 0 | https://browser.sead.se/site/5873 |
-| Heda hembygdsgård (`4132`) | site_page_only | 0 | https://browser.sead.se/site/4132 |
-| Hedeskoga kyrka (`4131`) | site_page_only | 0 | https://browser.sead.se/site/4131 |
-| Hedesunda Raä 113 (`205`) | site_page_only | 0 | https://browser.sead.se/site/205 |
-| Hedningaladan Perlars i Ribbåsen (`5874`) | site_page_only | 0 | https://browser.sead.se/site/5874 |
-| Hedninghuset Erkasjers i Idbäck (`5875`) | site_page_only | 0 | https://browser.sead.se/site/5875 |
-| Hedningsgärdet (`373`) | site_page_only | 0 | https://browser.sead.se/site/373 |
-| Hejde kyrka (`4130`) | site_page_only | 0 | https://browser.sead.se/site/4130 |
-| Helgeandsholmen (`3696`) | site_page_only | 0 | https://browser.sead.se/site/3696 |
-| Helgelsens gård (`4129`) | site_page_only | 0 | https://browser.sead.se/site/4129 |
-| Helgö (`3695`) | site_page_only | 0 | https://browser.sead.se/site/3695 |
-| Heliga Kors Kyrka (`5876`) | site_page_only | 0 | https://browser.sead.se/site/5876 |
-| Hellerö (`3694`) | site_page_only | 0 | https://browser.sead.se/site/3694 |
-| Hellum (`3693`) | site_page_only | 0 | https://browser.sead.se/site/3693 |
-| Hellvi kyrka (`4128`) | site_page_only | 0 | https://browser.sead.se/site/4128 |
-| Helsingborg 226:1 (`6392`) | site_page_only | 0 | https://browser.sead.se/site/6392 |
-| Helsinge (`3692`) | site_page_only | 0 | https://browser.sead.se/site/3692 |
-| Hemavan (`4917`) | site_page_only | 0 | https://browser.sead.se/site/4917 |
-| Hembygdsgården (`5877`) | site_page_only | 0 | https://browser.sead.se/site/5877 |
-| Hemse kyrka (`4127`) | site_page_only | 0 | https://browser.sead.se/site/4127 |
-| Henriksson i Tångeråsen (`5878`) | site_page_only | 0 | https://browser.sead.se/site/5878 |
-| Herning (`5083`) | site_page_only | 0 | https://browser.sead.se/site/5083 |
-| Herrestad kyrka (`4126`) | site_page_only | 0 | https://browser.sead.se/site/4126 |
-| Herrestad Raä 14 (`286`) | site_page_only | 0 | https://browser.sead.se/site/286 |
-| Herrökna gård (`3908`) | site_page_only | 0 | https://browser.sead.se/site/3908 |
-| Hessensteinska huset (`3921`) | site_page_only | 0 | https://browser.sead.se/site/3921 |
-| Hester gamla gästgiveri (`4125`) | site_page_only | 0 | https://browser.sead.se/site/4125 |
-| Hill (`6295`) | site_page_only | 0 | https://browser.sead.se/site/6295 |
-| Hilleröd NFH A2039 (`122`) | site_page_only | 0 | https://browser.sead.se/site/122 |
-| Himlingöje (`3691`) | site_page_only | 0 | https://browser.sead.se/site/3691 |
-| Hirvijärvi (`4857`) | site_page_only | 0 | https://browser.sead.se/site/4857 |
-| Hjelms bod (`5880`) | site_page_only | 0 | https://browser.sead.se/site/5880 |
-| Hjortgården i Lenåsen (`5881`) | site_page_only | 0 | https://browser.sead.se/site/5881 |
-| Hjortsberga kyrka (`5882`) | site_page_only | 0 | https://browser.sead.se/site/5882 |
-| Hjulberga 1 (`3690`) | site_page_only | 0 | https://browser.sead.se/site/3690 |
-| Hjulberga 2 (`3689`) | site_page_only | 0 | https://browser.sead.se/site/3689 |
-| Hjältanstorp (`5879`) | site_page_only | 0 | https://browser.sead.se/site/5879 |
-| Hofterups kyrka (`4124`) | site_page_only | 0 | https://browser.sead.se/site/4124 |
-| Hogdal 443 (`54`) | site_page_only | 0 | https://browser.sead.se/site/54 |
-| Hogdal 444 + 445 (`71`) | site_page_only | 0 | https://browser.sead.se/site/71 |
-| Hogstorp (`334`) | site_page_only | 0 | https://browser.sead.se/site/334 |
-| Hogstorp 327:1 (`60`) | site_page_only | 0 | https://browser.sead.se/site/60 |
-| Holländarhuset (`5884`) | site_page_only | 0 | https://browser.sead.se/site/5884 |
-| Holmen (`6437`) | site_page_only | 0 | https://browser.sead.se/site/6437 |
-| Horns kyrka (`4123`) | site_page_only | 0 | https://browser.sead.se/site/4123 |
-| Hossmo kyrka (`4122`) | site_page_only | 0 | https://browser.sead.se/site/4122 |
-| Hovdala slott (`4121`) | site_page_only | 0 | https://browser.sead.se/site/4121 |
-| Hovs kyrka (`4120`) | site_page_only | 0 | https://browser.sead.se/site/4120 |
-| Hubbo (`3687`) | site_page_only | 0 | https://browser.sead.se/site/3687 |
-| Hucksjöåsen (`6296`) | site_page_only | 0 | https://browser.sead.se/site/6296 |
-| Huddunge 252 (`6342`) | site_page_only | 0 | https://browser.sead.se/site/6342 |
-| Hulevik (`6297`) | site_page_only | 0 | https://browser.sead.se/site/6297 |
-| Hulterstads kyrka (`4119`) | site_page_only | 0 | https://browser.sead.se/site/4119 |
-| Hults gård (`5886`) | site_page_only | 0 | https://browser.sead.se/site/5886 |
-| Hults kulla (`3907`) | site_page_only | 0 | https://browser.sead.se/site/3907 |
-| Hults kyrka (`4118`) | site_page_only | 0 | https://browser.sead.se/site/4118 |
-| Hune hall/Arlösa (`3685`) | site_page_only | 0 | https://browser.sead.se/site/3685 |
-| Hunneberget (`3684`) | site_page_only | 0 | https://browser.sead.se/site/3684 |
-| Hunnebergsgatan (`3906`) | site_page_only | 0 | https://browser.sead.se/site/3906 |
-| Hunnebergsgatan 30A (`4117`) | site_page_only | 0 | https://browser.sead.se/site/4117 |
-| Husby (`3683`) | site_page_only | 0 | https://browser.sead.se/site/3683 |
-| Husby (`3905`) | site_page_only | 0 | https://browser.sead.se/site/3905 |
-| Husby, Ingjaldshögen (`3682`) | site_page_only | 0 | https://browser.sead.se/site/3682 |
-| Husie bog (`6454`) | site_page_only | 0 | https://browser.sead.se/site/6454 |
-| Hyggby (`3681`) | site_page_only | 0 | https://browser.sead.se/site/3681 |
-| Hyllie 106 (`3680`) | site_page_only | 0 | https://browser.sead.se/site/3680 |
-| Hyllie 149 (`3679`) | site_page_only | 0 | https://browser.sead.se/site/3679 |
-| Hyllie 155 (`262`) | site_page_only | 0 | https://browser.sead.se/site/262 |
-| Hylteberga (`5291`) | site_page_only | 0 | https://browser.sead.se/site/5291 |
-| Häglinge (`4116`) | site_page_only | 0 | https://browser.sead.se/site/4116 |
-| Häglinge kyrka (`4115`) | site_page_only | 0 | https://browser.sead.se/site/4115 |
-| Häljaryd (`3903`) | site_page_only | 0 | https://browser.sead.se/site/3903 |
-| Hällby (`3677`) | site_page_only | 0 | https://browser.sead.se/site/3677 |
-| Hälleberget A (`6294`) | site_page_only | 0 | https://browser.sead.se/site/6294 |
-| Hällekind 1636 (`321`) | site_page_only | 0 | https://browser.sead.se/site/321 |
-| Hällekind 1639 (`327`) | site_page_only | 0 | https://browser.sead.se/site/327 |
-| Härads kyrka (`4114`) | site_page_only | 0 | https://browser.sead.se/site/4114 |
-| Härbre Färnästjärn (`5862`) | site_page_only | 0 | https://browser.sead.se/site/5862 |
-| Härbre Gopshus (`5863`) | site_page_only | 0 | https://browser.sead.se/site/5863 |
-| Härbre Gopsmorsgård (`5864`) | site_page_only | 0 | https://browser.sead.se/site/5864 |
-| Härbre i Färnäs (`5865`) | site_page_only | 0 | https://browser.sead.se/site/5865 |
-| Härbre i Kallmora (`5866`) | site_page_only | 0 | https://browser.sead.se/site/5866 |
-| Härbre i Öna (`5867`) | site_page_only | 0 | https://browser.sead.se/site/5867 |
-| Härbre i Östäng (`5868`) | site_page_only | 0 | https://browser.sead.se/site/5868 |
-| Härbre Nusnäs (`5869`) | site_page_only | 0 | https://browser.sead.se/site/5869 |
-| Härbre Vika (`5871`) | site_page_only | 0 | https://browser.sead.se/site/5871 |
-| Härbre Västerberg (`5870`) | site_page_only | 0 | https://browser.sead.se/site/5870 |
-| Härlarsloftet från Idbäck (`5872`) | site_page_only | 0 | https://browser.sead.se/site/5872 |
-| Härlövs kyrka (`4113`) | site_page_only | 0 | https://browser.sead.se/site/4113 |
-| Härnevi kyrka (`4112`) | site_page_only | 0 | https://browser.sead.se/site/4112 |
-| Härnösand Raä 1 (`211`) | site_page_only | 0 | https://browser.sead.se/site/211 |
-| Härnösand Raä 119 (`166`) | site_page_only | 0 | https://browser.sead.se/site/166 |
-| Hässeldala Port (`5484`) | site_page_only | 0 | https://browser.sead.se/site/5484 |
-| Hästholmen (`3676`) | site_page_only | 0 | https://browser.sead.se/site/3676 |
-| Häverö kyrka (`4111`) | site_page_only | 0 | https://browser.sead.se/site/4111 |
-| Håby 6:1 (`63`) | site_page_only | 0 | https://browser.sead.se/site/63 |
-| Håby Raä 4:1 (`391`) | site_page_only | 0 | https://browser.sead.se/site/391 |
-| Håga (`3678`) | site_page_only | 0 | https://browser.sead.se/site/3678 |
-| Hållbus i Selbäck (`5850`) | site_page_only | 0 | https://browser.sead.se/site/5850 |
-| Hållgården Kulåra (`5853`) | site_page_only | 0 | https://browser.sead.se/site/5853 |
-| Hålta Raä 130 (`65`) | site_page_only | 0 | https://browser.sead.se/site/65 |
-| Hårsbäck Sör (`3904`) | site_page_only | 0 | https://browser.sead.se/site/3904 |
-| Högom (`3675`) | site_page_only | 0 | https://browser.sead.se/site/3675 |
-| Högom grav 4? (`348`) | site_page_only | 0 | https://browser.sead.se/site/348 |
-| Högs kyrka (`5883`) | site_page_only | 0 | https://browser.sead.se/site/5883 |
-| Högsjö gård (`3902`) | site_page_only | 0 | https://browser.sead.se/site/3902 |
-| Höje (`5645`) | site_page_only | 0 | https://browser.sead.se/site/5645 |
-| Hönstorp (`4110`) | site_page_only | 0 | https://browser.sead.se/site/4110 |
-| Hörja kyrka (`4109`) | site_page_only | 0 | https://browser.sead.se/site/4109 |
-| Hörnsjöfors (`5885`) | site_page_only | 0 | https://browser.sead.se/site/5885 |
-| Hörsne kyrka (`4108`) | site_page_only | 0 | https://browser.sead.se/site/4108 |
-| Hötofta (`3674`) | site_page_only | 0 | https://browser.sead.se/site/3674 |
-| Idre Raä 14 (`214`) | site_page_only | 0 | https://browser.sead.se/site/214 |
-| Igelsfors (`6438`) | site_page_only | 0 | https://browser.sead.se/site/6438 |
-| Ignaberga gamla kyrka (`5887`) | site_page_only | 0 | https://browser.sead.se/site/5887 |
-| Ii Hamina (`5564`) | site_page_only | 0 | https://browser.sead.se/site/5564 |
-| Ilnestorp (`3901`) | site_page_only | 0 | https://browser.sead.se/site/3901 |
-| Ingatorp (`3900`) | site_page_only | 0 | https://browser.sead.se/site/3900 |
-| Ingbergs i Laknäs (`5888`) | site_page_only | 0 | https://browser.sead.se/site/5888 |
-| Ingelsta (`6299`) | site_page_only | 0 | https://browser.sead.se/site/6299 |
-| Ingelstorp 14 (`3673`) | site_page_only | 0 | https://browser.sead.se/site/3673 |
-| Ingelstorp 8 (`3672`) | site_page_only | 0 | https://browser.sead.se/site/3672 |
-| Ingelstorp: Cemetery 2 (`3671`) | site_page_only | 0 | https://browser.sead.se/site/3671 |
-| Ingelstorp: Cemetery 4 (`3670`) | site_page_only | 0 | https://browser.sead.se/site/3670 |
-| Ingelstorp: Granhill (`3669`) | site_page_only | 0 | https://browser.sead.se/site/3669 |
-| Ingestorp övre (`6300`) | site_page_only | 0 | https://browser.sead.se/site/6300 |
-| Ivarshärbret från Utsälje (`5889`) | site_page_only | 0 | https://browser.sead.se/site/5889 |
-| Ivetofta (`3667`) | site_page_only | 0 | https://browser.sead.se/site/3667 |
-| Jacob Nickelsens hus (`5890`) | site_page_only | 0 | https://browser.sead.se/site/5890 |
-| Jan-Mats i Åsmundshyttan (`5892`) | site_page_only | 0 | https://browser.sead.se/site/5892 |
-| Janngården Änderåsen (`5893`) | site_page_only | 0 | https://browser.sead.se/site/5893 |
-| Janssongården (`4107`) | site_page_only | 0 | https://browser.sead.se/site/4107 |
-| Jedeurska huset (`5895`) | site_page_only | 0 | https://browser.sead.se/site/5895 |
-| John Bixbo i Bye (`5896`) | site_page_only | 0 | https://browser.sead.se/site/5896 |
-| Johnssons i Bergsbyn (`5897`) | site_page_only | 0 | https://browser.sead.se/site/5897 |
-| Jon Backs i Nedre Gärdsjö (`5898`) | site_page_only | 0 | https://browser.sead.se/site/5898 |
-| Jon-Lars i Långhed (`5902`) | site_page_only | 0 | https://browser.sead.se/site/5902 |
-| Jon-Svens i Ygsbo (`5909`) | site_page_only | 0 | https://browser.sead.se/site/5909 |
-| Jonasson i Haga (`5899`) | site_page_only | 0 | https://browser.sead.se/site/5899 |
-| Joners i Homnabo (`5900`) | site_page_only | 0 | https://browser.sead.se/site/5900 |
-| Jones i Ovanmyra (`5901`) | site_page_only | 0 | https://browser.sead.se/site/5901 |
-| Jonsson i Skickja (`5906`) | site_page_only | 0 | https://browser.sead.se/site/5906 |
-| Jontes i Gäle (`5910`) | site_page_only | 0 | https://browser.sead.se/site/5910 |
-| Jugasgården (`5911`) | site_page_only | 0 | https://browser.sead.se/site/5911 |
-| Juleboda (`6439`) | site_page_only | 0 | https://browser.sead.se/site/6439 |
-| Julita gård (`6440`) | site_page_only | 0 | https://browser.sead.se/site/6440 |
-| Juomajärvi (`4467`) | site_page_only | 0 | https://browser.sead.se/site/4467 |
-| Juomajärvi 1 (`4852`) | site_page_only | 0 | https://browser.sead.se/site/4852 |
-| Juteboda (`3899`) | site_page_only | 0 | https://browser.sead.se/site/3899 |
-| Juurikorpi (`3665`) | site_page_only | 0 | https://browser.sead.se/site/3665 |
-| Jyderup (`5299`) | site_page_only | 0 | https://browser.sead.se/site/5299 |
-| Jäder (`3664`) | site_page_only | 0 | https://browser.sead.se/site/3664 |
-| Jäla kyrka (`5891`) | site_page_only | 0 | https://browser.sead.se/site/5891 |
-| Järavallen 1 (`4465`) | site_page_only | 0 | https://browser.sead.se/site/4465 |
-| Järavallen 2 (Skateholm) (`4466`) | site_page_only | 0 | https://browser.sead.se/site/4466 |
-| Järna kyrka (`5894`) | site_page_only | 0 | https://browser.sead.se/site/5894 |
-| Järrestad (`3663`) | site_page_only | 0 | https://browser.sead.se/site/3663 |
-| Järrestad 45:1 (`6393`) | site_page_only | 0 | https://browser.sead.se/site/6393 |
-| Järrestad SU1 (`3662`) | site_page_only | 0 | https://browser.sead.se/site/3662 |
-| Järrestad SU2 (`3661`) | site_page_only | 0 | https://browser.sead.se/site/3661 |
-| Jönköping 137:1 (`6367`) | site_page_only | 0 | https://browser.sead.se/site/6367 |
-| Jönköping 50:1 (`6366`) | site_page_only | 0 | https://browser.sead.se/site/6366 |
-| Jönköpings regemente (`4106`) | site_page_only | 0 | https://browser.sead.se/site/4106 |
-| Jönses i Vreta (`5903`) | site_page_only | 0 | https://browser.sead.se/site/5903 |
-| Jönsson i Dille (`5904`) | site_page_only | 0 | https://browser.sead.se/site/5904 |
-| Jönsson i Fanbyn (`5905`) | site_page_only | 0 | https://browser.sead.se/site/5905 |
-| Jönsson i Smedsta (`5907`) | site_page_only | 0 | https://browser.sead.se/site/5907 |
-| Jönssons i Hara (`5908`) | site_page_only | 0 | https://browser.sead.se/site/5908 |
-| Jörlanda Raä 184 (`74`) | site_page_only | 0 | https://browser.sead.se/site/74 |
-| Kaga kyrka (`4105`) | site_page_only | 0 | https://browser.sead.se/site/4105 |
-| Kainulasjärvi (`4850`) | site_page_only | 0 | https://browser.sead.se/site/4850 |
-| Kall Raä 599 (`335`) | site_page_only | 0 | https://browser.sead.se/site/335 |
-| Kalles i Persbo (`5912`) | site_page_only | 0 | https://browser.sead.se/site/5912 |
-| Kallsjö (`5288`) | site_page_only | 0 | https://browser.sead.se/site/5288 |
-| Kallsås 426:1 (`69`) | site_page_only | 0 | https://browser.sead.se/site/69 |
-| Kallsås 430:1 (`70`) | site_page_only | 0 | https://browser.sead.se/site/70 |
-| Kallurgården (`5913`) | site_page_only | 0 | https://browser.sead.se/site/5913 |
-| Kalmar 93:1 (`6362`) | site_page_only | 0 | https://browser.sead.se/site/6362 |
-| Kalmar 94:1 (`6361`) | site_page_only | 0 | https://browser.sead.se/site/6361 |
-| Kalmar slottsfjärd (`3660`) | site_page_only | 0 | https://browser.sead.se/site/3660 |
-| Kanaljorden, Söderköping (`6441`) | site_page_only | 0 | https://browser.sead.se/site/6441 |
-| Kandestederne (`5313`) | site_page_only | 0 | https://browser.sead.se/site/5313 |
-| Kansakoulunmäki (`3658`) | site_page_only | 0 | https://browser.sead.se/site/3658 |
-| Kapellbacken i Amundsböle (`5915`) | site_page_only | 0 | https://browser.sead.se/site/5915 |
-| Kapitelhuset (`4104`) | site_page_only | 0 | https://browser.sead.se/site/4104 |
-| Kares, Peres och Sandins i Vikarbyn (`5916`) | site_page_only | 0 | https://browser.sead.se/site/5916 |
-| Karin Nyréns i Hulån (`5917`) | site_page_only | 0 | https://browser.sead.se/site/5917 |
-| Karins i Gärde (`5918`) | site_page_only | 0 | https://browser.sead.se/site/5918 |
-| Karkebo (`3898`) | site_page_only | 0 | https://browser.sead.se/site/3898 |
-| Karl Pettersson i Röjeråsen (`5919`) | site_page_only | 0 | https://browser.sead.se/site/5919 |
-| Karleby 57 (`3656`) | site_page_only | 0 | https://browser.sead.se/site/3656 |
-| Karleby Raä 105 (`235`) | site_page_only | 0 | https://browser.sead.se/site/235 |
-| Karlquist i Nybo (`5920`) | site_page_only | 0 | https://browser.sead.se/site/5920 |
-| Karlsfält (`3655`) | site_page_only | 0 | https://browser.sead.se/site/3655 |
-| Karlsson i Börön (`5921`) | site_page_only | 0 | https://browser.sead.se/site/5921 |
-| Karlsson i Edsäng (`5922`) | site_page_only | 0 | https://browser.sead.se/site/5922 |
-| Karlssons i Hara (`5923`) | site_page_only | 0 | https://browser.sead.se/site/5923 |
-| Kasin/Ørvik (`3653`) | site_page_only | 0 | https://browser.sead.se/site/3653 |
-| Kastalen vid Fellingsbro kyrka (`5925`) | site_page_only | 0 | https://browser.sead.se/site/5925 |
-| Katarina (`3651`) | site_page_only | 0 | https://browser.sead.se/site/3651 |
-| Katthamra (`4103`) | site_page_only | 0 | https://browser.sead.se/site/4103 |
-| Kaupang (`4922`) | site_page_only | 0 | https://browser.sead.se/site/4922 |
-| Kaustinen (`5093`) | site_page_only | 0 | https://browser.sead.se/site/5093 |
-| Kerola (`3650`) | site_page_only | 0 | https://browser.sead.se/site/3650 |
-| Kestads kyrka (`5926`) | site_page_only | 0 | https://browser.sead.se/site/5926 |
-| Killebäckstorp (`3648`) | site_page_only | 0 | https://browser.sead.se/site/3648 |
-| Kimsundets fiskarvall (`5927`) | site_page_only | 0 | https://browser.sead.se/site/5927 |
-| Kinnareds kyrka (`5928`) | site_page_only | 0 | https://browser.sead.se/site/5928 |
-| Kinne-Vedums kyrka (`5929`) | site_page_only | 0 | https://browser.sead.se/site/5929 |
-| Kisa hotell och konferens (`4102`) | site_page_only | 0 | https://browser.sead.se/site/4102 |
-| Kista hembygdsgård (`4101`) | site_page_only | 0 | https://browser.sead.se/site/4101 |
-| Kiukais: Panelia (`5095`) | site_page_only | 0 | https://browser.sead.se/site/5095 |
-| Kivisillanmäki (`3646`) | site_page_only | 0 | https://browser.sead.se/site/3646 |
-| Kjerringneset (`93`) | site_page_only | 0 | https://browser.sead.se/site/93 |
-| Kjulaås (`3645`) | site_page_only | 0 | https://browser.sead.se/site/3645 |
-| Klasgården i Laknäs (`5930`) | site_page_only | 0 | https://browser.sead.se/site/5930 |
-| Klaus Mortensens hus (`5931`) | site_page_only | 0 | https://browser.sead.se/site/5931 |
-| Kleva gård (`4100`) | site_page_only | 0 | https://browser.sead.se/site/4100 |
-| Klintholm (`5479`) | site_page_only | 0 | https://browser.sead.se/site/5479 |
-| Klitten (`5933`) | site_page_only | 0 | https://browser.sead.se/site/5933 |
-| Klockars i Loka (`5934`) | site_page_only | 0 | https://browser.sead.se/site/5934 |
-| Klörup-Aggarp (`3644`) | site_page_only | 0 | https://browser.sead.se/site/3644 |
-| Klösta (`5935`) | site_page_only | 0 | https://browser.sead.se/site/5935 |
-| Knabstrup Brickworks (`5298`) | site_page_only | 0 | https://browser.sead.se/site/5298 |
-| Knappsmåla (`4099`) | site_page_only | 0 | https://browser.sead.se/site/4099 |
-| Knivsta Raä 16 (`312`) | site_page_only | 0 | https://browser.sead.se/site/312 |
-| Knubba (`153`) | site_page_only | 0 | https://browser.sead.se/site/153 |
-| Knubbetjern (`143`) | site_page_only | 0 | https://browser.sead.se/site/143 |
-| Knutssons i Nederhögen (`5936`) | site_page_only | 0 | https://browser.sead.se/site/5936 |
-| Koivula et al (`4916`) | site_page_only | 0 | https://browser.sead.se/site/4916 |
-| Koivusilta (`4882`) | site_page_only | 0 | https://browser.sead.se/site/4882 |
-| Kolbäck Raä 355 (`356`) | site_page_only | 0 | https://browser.sead.se/site/356 |
-| Kolstad (`3897`) | site_page_only | 0 | https://browser.sead.se/site/3897 |
-| Konga kyrka (`5937`) | site_page_only | 0 | https://browser.sead.se/site/5937 |
-| Kopparbergs tingshus (`5938`) | site_page_only | 0 | https://browser.sead.se/site/5938 |
-| Korsnäsgården (`5939`) | site_page_only | 0 | https://browser.sead.se/site/5939 |
-| Kosjärv (`291`) | site_page_only | 0 | https://browser.sead.se/site/291 |
-| Kragelund (`3643`) | site_page_only | 0 | https://browser.sead.se/site/3643 |
-| Krapperups borg (`4098`) | site_page_only | 0 | https://browser.sead.se/site/4098 |
-| Kriminalvårdsanstalten (`3642`) | site_page_only | 0 | https://browser.sead.se/site/3642 |
-| Kristiansand (`3641`) | site_page_only | 0 | https://browser.sead.se/site/3641 |
-| Kristianstad 215:1 (`6395`) | site_page_only | 0 | https://browser.sead.se/site/6395 |
-| Kristianstad 217:1 (`6396`) | site_page_only | 0 | https://browser.sead.se/site/6396 |
-| Kristianstad 93:1 (`6401`) | site_page_only | 0 | https://browser.sead.se/site/6401 |
-| Kristineberg (Oxie 15:1) (`3640`) | site_page_only | 0 | https://browser.sead.se/site/3640 |
-| Kristoffersson i Mälgåsen (`5941`) | site_page_only | 0 | https://browser.sead.se/site/5941 |
-| Kroa (`5942`) | site_page_only | 0 | https://browser.sead.se/site/5942 |
-| Krogsfall (`3896`) | site_page_only | 0 | https://browser.sead.se/site/3896 |
-| Kropp kyrka (`5943`) | site_page_only | 0 | https://browser.sead.se/site/5943 |
-| Krusenbergs herrgård (`4097`) | site_page_only | 0 | https://browser.sead.se/site/4097 |
-| Kruttornet (`4096`) | site_page_only | 0 | https://browser.sead.se/site/4096 |
-| Kråkenes (`4482`) | site_page_only | 0 | https://browser.sead.se/site/4482 |
-| Kråkeslätt (`3639`) | site_page_only | 0 | https://browser.sead.se/site/3639 |
-| Kråkgården i södra Bomansberg (`5940`) | site_page_only | 0 | https://browser.sead.se/site/5940 |
-| Kråkvik (`4095`) | site_page_only | 0 | https://browser.sead.se/site/4095 |
-| Kullen (`5944`) | site_page_only | 0 | https://browser.sead.se/site/5944 |
-| Kullerstads kyrka (`4094`) | site_page_only | 0 | https://browser.sead.se/site/4094 |
-| Kulltorps gård (`4093`) | site_page_only | 0 | https://browser.sead.se/site/4093 |
-| Kumla kyrka (`4092`) | site_page_only | 0 | https://browser.sead.se/site/4092 |
-| Kumlaby kyrka (`4091`) | site_page_only | 0 | https://browser.sead.se/site/4091 |
-| Kummelnäs gård (`4090`) | site_page_only | 0 | https://browser.sead.se/site/4090 |
-| Kungsbro Motorcykel (`3638`) | site_page_only | 0 | https://browser.sead.se/site/3638 |
-| Kungsholms kyrka/Ulrika Eleonora kyrka (`4089`) | site_page_only | 0 | https://browser.sead.se/site/4089 |
-| Kungslena kyrka (`5945`) | site_page_only | 0 | https://browser.sead.se/site/5945 |
-| Kungsnäs (`3637`) | site_page_only | 0 | https://browser.sead.se/site/3637 |
-| Kunsta (`3636`) | site_page_only | 0 | https://browser.sead.se/site/3636 |
-| Kurujärvi (`4483`) | site_page_only | 0 | https://browser.sead.se/site/4483 |
-| Kusens i Österstråsjö (`5946`) | site_page_only | 0 | https://browser.sead.se/site/5946 |
-| kv Apotekaren (`3635`) | site_page_only | 0 | https://browser.sead.se/site/3635 |
-| kv Gröningen (`3634`) | site_page_only | 0 | https://browser.sead.se/site/3634 |
-| kv Kastanjegården (`3633`) | site_page_only | 0 | https://browser.sead.se/site/3633 |
-| kv Katten (`3632`) | site_page_only | 0 | https://browser.sead.se/site/3632 |
-| kv Kråkvinkeln (`3631`) | site_page_only | 0 | https://browser.sead.se/site/3631 |
-| kv Tankbåten (`3630`) | site_page_only | 0 | https://browser.sead.se/site/3630 |
-| kv Transval (`3629`) | site_page_only | 0 | https://browser.sead.se/site/3629 |
-| kv Trädgårdsmästaren (`3628`) | site_page_only | 0 | https://browser.sead.se/site/3628 |
-| kv. Apeln (`3627`) | site_page_only | 0 | https://browser.sead.se/site/3627 |
-| kv. Bronsyxan (`3626`) | site_page_only | 0 | https://browser.sead.se/site/3626 |
-| kv. Diplomaten (`3625`) | site_page_only | 0 | https://browser.sead.se/site/3625 |
-| kv. Dromedaren (`3624`) | site_page_only | 0 | https://browser.sead.se/site/3624 |
-| kv. Elektronen (`3623`) | site_page_only | 0 | https://browser.sead.se/site/3623 |
-| kv. Galeasen (`3622`) | site_page_only | 0 | https://browser.sead.se/site/3622 |
-| kv. Gladan (`3621`) | site_page_only | 0 | https://browser.sead.se/site/3621 |
-| kv. Havren, Djurängen (`3620`) | site_page_only | 0 | https://browser.sead.se/site/3620 |
-| kv. Hemmet (`3619`) | site_page_only | 0 | https://browser.sead.se/site/3619 |
-| Kv. Hjärtat (`3618`) | site_page_only | 0 | https://browser.sead.se/site/3618 |
-| Kv. Kleopatra (`3617`) | site_page_only | 0 | https://browser.sead.se/site/3617 |
-| kv. Specksrum (`3616`) | site_page_only | 0 | https://browser.sead.se/site/3616 |
-| kv. Trädgårdsmästaren (`3615`) | site_page_only | 0 | https://browser.sead.se/site/3615 |
-| Kvarnbacken i Sundborn (`5947`) | site_page_only | 0 | https://browser.sead.se/site/5947 |
-| Kvarnbacken/kv. Cisternen/Galgegärdsbacken (`3614`) | site_page_only | 0 | https://browser.sead.se/site/3614 |
-| Kvarnfallet, Uppsala (`6426`) | site_page_only | 0 | https://browser.sead.se/site/6426 |
-| Kvarntorp (`4088`) | site_page_only | 0 | https://browser.sead.se/site/4088 |
-| Kvarter General Ulfeldt (`6303`) | site_page_only | 0 | https://browser.sead.se/site/6303 |
-| Kvarteret Allön (`3895`) | site_page_only | 0 | https://browser.sead.se/site/3895 |
-| Kvarteret Almen (`3894`) | site_page_only | 0 | https://browser.sead.se/site/3894 |
-| Kvarteret Boktryckaren (`3893`) | site_page_only | 0 | https://browser.sead.se/site/3893 |
-| Kvarteret Borgmästaren (`3892`) | site_page_only | 0 | https://browser.sead.se/site/3892 |
-| Kvarteret Ciselören (`3890`) | site_page_only | 0 | https://browser.sead.se/site/3890 |
-| Kvarteret Fältskären (`3889`) | site_page_only | 0 | https://browser.sead.se/site/3889 |
-| Kvarteret Färgaren (`3888`) | site_page_only | 0 | https://browser.sead.se/site/3888 |
-| Kvarteret Gamla Holmarna (`6463`) | site_page_only | 0 | https://browser.sead.se/site/6463 |
-| Kvarteret Garvaren (`3887`) | site_page_only | 0 | https://browser.sead.se/site/3887 |
-| Kvarteret Guldsmeden (`3886`) | site_page_only | 0 | https://browser.sead.se/site/3886 |
-| Kvarteret Hattmakaren (`3885`) | site_page_only | 0 | https://browser.sead.se/site/3885 |
-| Kvarteret Iphigenia (`6304`) | site_page_only | 0 | https://browser.sead.se/site/6304 |
-| Kvarteret Kassamannen (`3884`) | site_page_only | 0 | https://browser.sead.se/site/3884 |
-| Kvarteret Kommendanten (`3883`) | site_page_only | 0 | https://browser.sead.se/site/3883 |
-| Kvarteret Krögaren (`3882`) | site_page_only | 0 | https://browser.sead.se/site/3882 |
-| Kvarteret Mercurius (`6305`) | site_page_only | 0 | https://browser.sead.se/site/6305 |
-| Kvarteret Museet (`3881`) | site_page_only | 0 | https://browser.sead.se/site/3881 |
-| Kvarteret Ormen (`3880`) | site_page_only | 0 | https://browser.sead.se/site/3880 |
-| Kvarteret Prelaten (`3879`) | site_page_only | 0 | https://browser.sead.se/site/3879 |
-| Kvarteret Repslagaren (`3878`) | site_page_only | 0 | https://browser.sead.se/site/3878 |
-| Kvarteret Specksrum (`3875`) | site_page_only | 0 | https://browser.sead.se/site/3875 |
-| Kvarteret Spinnrocken (`6464`) | site_page_only | 0 | https://browser.sead.se/site/6464 |
-| Kvarteret Svartbrodern (`3874`) | site_page_only | 0 | https://browser.sead.se/site/3874 |
-| Kvarteret Vaxblekaren (`3873`) | site_page_only | 0 | https://browser.sead.se/site/3873 |
-| Kvarteret Vinskänken (`3872`) | site_page_only | 0 | https://browser.sead.se/site/3872 |
-| Kvarteret Örtedalen (`308`) | site_page_only | 0 | https://browser.sead.se/site/308 |
-| Kvarteret Örtedalen (`6465`) | site_page_only | 0 | https://browser.sead.se/site/6465 |
-| Kvarteret Östergötland (`3871`) | site_page_only | 0 | https://browser.sead.se/site/3871 |
-| Kvedesta (`3613`) | site_page_only | 0 | https://browser.sead.se/site/3613 |
-| Kvibergsnäs landeri (`5948`) | site_page_only | 0 | https://browser.sead.se/site/5948 |
-| Kvibille Raä 131 (`27`) | site_page_only | 0 | https://browser.sead.se/site/27 |
-| Kvie (`3612`) | site_page_only | 0 | https://browser.sead.se/site/3612 |
-| Kvinnsgröta (`3611`) | site_page_only | 0 | https://browser.sead.se/site/3611 |
-| Kvistgården i Lenåsen (`5949`) | site_page_only | 0 | https://browser.sead.se/site/5949 |
-| Kyrkbåthus i Laknäs (`5951`) | site_page_only | 0 | https://browser.sead.se/site/5951 |
-| Kyrkebo (`3610`) | site_page_only | 0 | https://browser.sead.se/site/3610 |
-| Kyrkheddinge (`3609`) | site_page_only | 0 | https://browser.sead.se/site/3609 |
-| Kyrkheddinge 6:1 (`6400`) | site_page_only | 0 | https://browser.sead.se/site/6400 |
-| Kyrkhärbret Älvdalen (`5952`) | site_page_only | 0 | https://browser.sead.se/site/5952 |
-| Kyrkladan Bur Mats i Tiberget (`5953`) | site_page_only | 0 | https://browser.sead.se/site/5953 |
-| Kyrkladan från Haverö (`5954`) | site_page_only | 0 | https://browser.sead.se/site/5954 |
-| Kyrkvärdsgården (`4087`) | site_page_only | 0 | https://browser.sead.se/site/4087 |
-| Kyrkås gamla kyrka (`5950`) | site_page_only | 0 | https://browser.sead.se/site/5950 |
-| Kyrsta (`3608`) | site_page_only | 0 | https://browser.sead.se/site/3608 |
-| Källingemöre (`3607`) | site_page_only | 0 | https://browser.sead.se/site/3607 |
-| Källunge kyrka (`4085`) | site_page_only | 0 | https://browser.sead.se/site/4085 |
-| Kärringsjön (`3606`) | site_page_only | 0 | https://browser.sead.se/site/3606 |
-| Kärsämäki: Kintasahonräme (`5086`) | site_page_only | 0 | https://browser.sead.se/site/5086 |
-| Kärsämäki: Kärsämenneva (`5087`) | site_page_only | 0 | https://browser.sead.se/site/5087 |
-| Kättsta (`3605`) | site_page_only | 0 | https://browser.sead.se/site/3605 |
-| Kävlinge gamla kyrka (`4083`) | site_page_only | 0 | https://browser.sead.se/site/4083 |
-| Kågbo (`6301`) | site_page_only | 0 | https://browser.sead.se/site/6301 |
-| Kånna kyrka (`5914`) | site_page_only | 0 | https://browser.sead.se/site/5914 |
-| Kåseholms slott (`5924`) | site_page_only | 0 | https://browser.sead.se/site/5924 |
-| Köping 148:1 (`6403`) | site_page_only | 0 | https://browser.sead.se/site/6403 |
-| Köpingsvik (`3603`) | site_page_only | 0 | https://browser.sead.se/site/3603 |
-| Körslättamossen (`4481`) | site_page_only | 0 | https://browser.sead.se/site/4481 |
-| Labbgård (`5955`) | site_page_only | 0 | https://browser.sead.se/site/5955 |
-| Lada Mellan-Selbäck (`5956`) | site_page_only | 0 | https://browser.sead.se/site/5956 |
-| Laforsen (`256`) | site_page_only | 0 | https://browser.sead.se/site/256 |
-| Laholm Raä 205 (`17`) | site_page_only | 0 | https://browser.sead.se/site/17 |
-| Landa Raä 35 (`11`) | site_page_only | 0 | https://browser.sead.se/site/11 |
-| Landbybon Vänjan (`5957`) | site_page_only | 0 | https://browser.sead.se/site/5957 |
-| Landgren i Bye (`5959`) | site_page_only | 0 | https://browser.sead.se/site/5959 |
-| Landgården i Mon (`5958`) | site_page_only | 0 | https://browser.sead.se/site/5958 |
-| Landsnora kvarn (`4082`) | site_page_only | 0 | https://browser.sead.se/site/4082 |
-| Langagergård TAK 1402 (`75`) | site_page_only | 0 | https://browser.sead.se/site/75 |
-| Lantbruksstyrelsen i Ede (`5963`) | site_page_only | 0 | https://browser.sead.se/site/5963 |
-| Lappvallen (`3599`) | site_page_only | 0 | https://browser.sead.se/site/3599 |
-| Lappviken (`3598`) | site_page_only | 0 | https://browser.sead.se/site/3598 |
-| Lappäjärvi: Kärnä (`5069`) | site_page_only | 0 | https://browser.sead.se/site/5069 |
-| Lars Jonnsson i Fudal (`5964`) | site_page_only | 0 | https://browser.sead.se/site/5964 |
-| Lars-Danielsgården i Persbo (`5965`) | site_page_only | 0 | https://browser.sead.se/site/5965 |
-| Larsgården i nedre Gärdsjö (`5966`) | site_page_only | 0 | https://browser.sead.se/site/5966 |
-| Larspers i Nusnäs (`5967`) | site_page_only | 0 | https://browser.sead.se/site/5967 |
-| Larssimilis i Persbo (`5968`) | site_page_only | 0 | https://browser.sead.se/site/5968 |
-| Larsson i Smedsbo (`5969`) | site_page_only | 0 | https://browser.sead.se/site/5969 |
-| Larsson i Tångeråsen (`5970`) | site_page_only | 0 | https://browser.sead.se/site/5970 |
-| Larssons i By (`5971`) | site_page_only | 0 | https://browser.sead.se/site/5971 |
-| Lassor (`4081`) | site_page_only | 0 | https://browser.sead.se/site/4081 |
-| Lathman i Bodal (`5972`) | site_page_only | 0 | https://browser.sead.se/site/5972 |
-| Lau Kyrka (`4080`) | site_page_only | 0 | https://browser.sead.se/site/4080 |
-| Ledsjö Raä 148 (`160`) | site_page_only | 0 | https://browser.sead.se/site/160 |
-| Ledsjö Raä 149 (`106`) | site_page_only | 0 | https://browser.sead.se/site/106 |
-| Ledsjö Raä 153 (`124`) | site_page_only | 0 | https://browser.sead.se/site/124 |
-| Ledsjö Raä 73 (`158`) | site_page_only | 0 | https://browser.sead.se/site/158 |
-| Leksands kyrka (`5973`) | site_page_only | 0 | https://browser.sead.se/site/5973 |
-| Leksberg Raä 69 (`154`) | site_page_only | 0 | https://browser.sead.se/site/154 |
-| Lena 7:1 (`6364`) | site_page_only | 0 | https://browser.sead.se/site/6364 |
-| Leonardsberg (`3597`) | site_page_only | 0 | https://browser.sead.se/site/3597 |
-| Lerstadvatnet (`4497`) | site_page_only | 0 | https://browser.sead.se/site/4497 |
-| Lerstang (`3596`) | site_page_only | 0 | https://browser.sead.se/site/3596 |
-| Lesjön (`3595`) | site_page_only | 0 | https://browser.sead.se/site/3595 |
-| Leveaniemi (`4499`) | site_page_only | 0 | https://browser.sead.se/site/4499 |
-| Levene kyrka (`5974`) | site_page_only | 0 | https://browser.sead.se/site/5974 |
-| Lexby (`3594`) | site_page_only | 0 | https://browser.sead.se/site/3594 |
-| Liden under Storegården (`3593`) | site_page_only | 0 | https://browser.sead.se/site/3593 |
-| Lids kyrka (`5975`) | site_page_only | 0 | https://browser.sead.se/site/5975 |
-| Lilla Beddinge (`3592`) | site_page_only | 0 | https://browser.sead.se/site/3592 |
-| Lilla Björkudden (`3870`) | site_page_only | 0 | https://browser.sead.se/site/3870 |
-| Lilla Främsbacka (`5976`) | site_page_only | 0 | https://browser.sead.se/site/5976 |
-| Lilla Korpebo (`6306`) | site_page_only | 0 | https://browser.sead.se/site/6306 |
-| Lilla Pålsjö (`5666`) | site_page_only | 0 | https://browser.sead.se/site/5666 |
-| Lilla Rotsunda (`4078`) | site_page_only | 0 | https://browser.sead.se/site/4078 |
-| Lilla Tvären (`3591`) | site_page_only | 0 | https://browser.sead.se/site/3591 |
-| Lilla Ulvgryt (`3590`) | site_page_only | 0 | https://browser.sead.se/site/3590 |
-| Lillanäs (`6307`) | site_page_only | 0 | https://browser.sead.se/site/6307 |
-| Lillberget (`390`) | site_page_only | 0 | https://browser.sead.se/site/390 |
-| Limensgård (`3588`) | site_page_only | 0 | https://browser.sead.se/site/3588 |
-| Limkläloftet från Hallosbacken (`5977`) | site_page_only | 0 | https://browser.sead.se/site/5977 |
-| Lina bog (`6444`) | site_page_only | 0 | https://browser.sead.se/site/6444 |
-| Lindab området (`3587`) | site_page_only | 0 | https://browser.sead.se/site/3587 |
-| Lindborg i Långsillremon (`5979`) | site_page_only | 0 | https://browser.sead.se/site/5979 |
-| Linde kyrka (`4076`) | site_page_only | 0 | https://browser.sead.se/site/4076 |
-| Linderöds kyrka (`4075`) | site_page_only | 0 | https://browser.sead.se/site/4075 |
-| Lindgren i Tunvågen (`5980`) | site_page_only | 0 | https://browser.sead.se/site/5980 |
-| Lindmansgården i Eggen (`5981`) | site_page_only | 0 | https://browser.sead.se/site/5981 |
-| Lindved (`4504`) | site_page_only | 0 | https://browser.sead.se/site/4504 |
-| Lindås (`5978`) | site_page_only | 0 | https://browser.sead.se/site/5978 |
-| Linga (`3586`) | site_page_only | 0 | https://browser.sead.se/site/3586 |
-| Linköping 153:1 (`6413`) | site_page_only | 0 | https://browser.sead.se/site/6413 |
-| Linköping 188 (`3585`) | site_page_only | 0 | https://browser.sead.se/site/3585 |
-| Linköping 503 (`6406`) | site_page_only | 0 | https://browser.sead.se/site/6406 |
-| Linköpings domkyrka (`4074`) | site_page_only | 0 | https://browser.sead.se/site/4074 |
-| Linköpings slott (`4073`) | site_page_only | 0 | https://browser.sead.se/site/4073 |
-| Lisseläng (`3584`) | site_page_only | 0 | https://browser.sead.se/site/3584 |
-| Lisskvarngården i Malmsta (`5982`) | site_page_only | 0 | https://browser.sead.se/site/5982 |
-| Lithströms i Österuppland (`5983`) | site_page_only | 0 | https://browser.sead.se/site/5983 |
-| Litslena 561 (`3583`) | site_page_only | 0 | https://browser.sead.se/site/3583 |
-| Ljungsarps kyrka (`5984`) | site_page_only | 0 | https://browser.sead.se/site/5984 |
-| Ljusträdet i Lundagård (`5655`) | site_page_only | 0 | https://browser.sead.se/site/5655 |
-| Lockarp (`3582`) | site_page_only | 0 | https://browser.sead.se/site/3582 |
-| Lockarp 7A (`3581`) | site_page_only | 0 | https://browser.sead.se/site/3581 |
-| Lockarp 7B (`3815`) | site_page_only | 0 | https://browser.sead.se/site/3815 |
-| Lockarp 7B (`4915`) | site_page_only | 0 | https://browser.sead.se/site/4915 |
-| Lockarp 8:4 (`278`) | site_page_only | 0 | https://browser.sead.se/site/278 |
-| Loft i Ytterocke (`5985`) | site_page_only | 0 | https://browser.sead.se/site/5985 |
-| Lohärad Raä 167:1 (`395`) | site_page_only | 0 | https://browser.sead.se/site/395 |
-| Lohärads Prästgård (`3869`) | site_page_only | 0 | https://browser.sead.se/site/3869 |
-| Lojsta kyrka (`4072`) | site_page_only | 0 | https://browser.sead.se/site/4072 |
-| Lopperstad (`4071`) | site_page_only | 0 | https://browser.sead.se/site/4071 |
-| Losgården i Gråda (`5990`) | site_page_only | 0 | https://browser.sead.se/site/5990 |
-| Lovö prästgård (`6308`) | site_page_only | 0 | https://browser.sead.se/site/6308 |
-| Lund (`4518`) | site_page_only | 0 | https://browser.sead.se/site/4518 |
-| Lund 73:1 (`6385`) | site_page_only | 0 | https://browser.sead.se/site/6385 |
-| Lund i Hov (`5991`) | site_page_only | 0 | https://browser.sead.se/site/5991 |
-| Lund Minster (`5554`) | site_page_only | 0 | https://browser.sead.se/site/5554 |
-| Lunda omr. B (`3580`) | site_page_only | 0 | https://browser.sead.se/site/3580 |
-| Lundbacken, Tillinge (`4519`) | site_page_only | 0 | https://browser.sead.se/site/4519 |
-| Lundby Raä 8 (`169`) | site_page_only | 0 | https://browser.sead.se/site/169 |
-| Lundbæk Mose (`5304`) | site_page_only | 0 | https://browser.sead.se/site/5304 |
-| Lundeborg I (`3579`) | site_page_only | 0 | https://browser.sead.se/site/3579 |
-| Lundeborg II (`3578`) | site_page_only | 0 | https://browser.sead.se/site/3578 |
-| Lundehöj 26 (`3577`) | site_page_only | 0 | https://browser.sead.se/site/3577 |
-| Lundfors (`5048`) | site_page_only | 0 | https://browser.sead.se/site/5048 |
-| Lundins i Norrskog (`5992`) | site_page_only | 0 | https://browser.sead.se/site/5992 |
-| Lunds domkyrka (`4070`) | site_page_only | 0 | https://browser.sead.se/site/4070 |
-| Lundströms plats (`3576`) | site_page_only | 0 | https://browser.sead.se/site/3576 |
-| Lunnahöje (`5993`) | site_page_only | 0 | https://browser.sead.se/site/5993 |
-| Lyckås (`5646`) | site_page_only | 0 | https://browser.sead.se/site/5646 |
-| Lye kyrka (`4069`) | site_page_only | 0 | https://browser.sead.se/site/4069 |
-| Lyngsjö kyrka (`5994`) | site_page_only | 0 | https://browser.sead.se/site/5994 |
-| Lyngåkra (`3574`) | site_page_only | 0 | https://browser.sead.se/site/3574 |
-| Láksjohka (`159`) | site_page_only | 0 | https://browser.sead.se/site/159 |
-| Lännavägen (`5961`) | site_page_only | 0 | https://browser.sead.se/site/5961 |
-| Länsmansgården (`4067`) | site_page_only | 0 | https://browser.sead.se/site/4067 |
-| Länsmansgården i Klösta (`5962`) | site_page_only | 0 | https://browser.sead.se/site/5962 |
-| Lärbro 579:1 (`6372`) | site_page_only | 0 | https://browser.sead.se/site/6372 |
-| Lärbro kyrka (`4066`) | site_page_only | 0 | https://browser.sead.se/site/4066 |
-| Låga längan (`3816`) | site_page_only | 0 | https://browser.sead.se/site/3816 |
-| Långlöts kyrka (`4068`) | site_page_only | 0 | https://browser.sead.se/site/4068 |
-| Långsele (`4489`) | site_page_only | 0 | https://browser.sead.se/site/4489 |
-| Långsved (`5960`) | site_page_only | 0 | https://browser.sead.se/site/5960 |
-| Löddeköpinge (`3573`) | site_page_only | 0 | https://browser.sead.se/site/3573 |
-| Löddeköpinge kyrka (`4065`) | site_page_only | 0 | https://browser.sead.se/site/4065 |
-| Löddesborg (`3572`) | site_page_only | 0 | https://browser.sead.se/site/3572 |
-| Löderup (`3571`) | site_page_only | 0 | https://browser.sead.se/site/3571 |
-| Löderup 103 (`3570`) | site_page_only | 0 | https://browser.sead.se/site/3570 |
-| Löderup 21 (`3569`) | site_page_only | 0 | https://browser.sead.se/site/3569 |
-| Löderup 27 (`3568`) | site_page_only | 0 | https://browser.sead.se/site/3568 |
-| Löderup 3 (`3567`) | site_page_only | 0 | https://browser.sead.se/site/3567 |
-| Löderup 36 (`3566`) | site_page_only | 0 | https://browser.sead.se/site/3566 |
-| Lökes i Skästra (`5986`) | site_page_only | 0 | https://browser.sead.se/site/5986 |
-| Lönneberga kyrka (`5987`) | site_page_only | 0 | https://browser.sead.se/site/5987 |
-| Lösens kyrka (`5989`) | site_page_only | 0 | https://browser.sead.se/site/5989 |
-| Löts kyrka (`4064`) | site_page_only | 0 | https://browser.sead.se/site/4064 |
-| Lövleforsen (`361`) | site_page_only | 0 | https://browser.sead.se/site/361 |
-| Lövstaholm (`3564`) | site_page_only | 0 | https://browser.sead.se/site/3564 |
-| Løgtved (`5306`) | site_page_only | 0 | https://browser.sead.se/site/5306 |
-| Løkkebjerggård (`3565`) | site_page_only | 0 | https://browser.sead.se/site/3565 |
-| Maglehem (`6309`) | site_page_only | 0 | https://browser.sead.se/site/6309 |
-| Maglö borg (`5995`) | site_page_only | 0 | https://browser.sead.se/site/5995 |
-| Maksjön (`3563`) | site_page_only | 0 | https://browser.sead.se/site/3563 |
-| Malmahed (`3562`) | site_page_only | 0 | https://browser.sead.se/site/3562 |
-| Malmstorp (`3866`) | site_page_only | 0 | https://browser.sead.se/site/3866 |
-| Malmö 32 (`3561`) | site_page_only | 0 | https://browser.sead.se/site/3561 |
-| Malungs kyrka (`5996`) | site_page_only | 0 | https://browser.sead.se/site/5996 |
-| Manberg i Sjör (`5997`) | site_page_only | 0 | https://browser.sead.se/site/5997 |
-| Mangsarve (`3560`) | site_page_only | 0 | https://browser.sead.se/site/3560 |
-| Mankas i Torsgård (`5998`) | site_page_only | 0 | https://browser.sead.se/site/5998 |
-| Marby gamla kyrka (`6000`) | site_page_only | 0 | https://browser.sead.se/site/6000 |
-| Mariannelund (`3865`) | site_page_only | 0 | https://browser.sead.se/site/3865 |
-| Marieberg (Heby herrgård, Uppland) (`3558`) | site_page_only | 0 | https://browser.sead.se/site/3558 |
-| Mariefred 21:1 (`6377`) | site_page_only | 0 | https://browser.sead.se/site/6377 |
-| Marjsö (`4063`) | site_page_only | 0 | https://browser.sead.se/site/4063 |
-| Mark (`3557`) | site_page_only | 0 | https://browser.sead.se/site/3557 |
-| Marka kyrka (`6001`) | site_page_only | 0 | https://browser.sead.se/site/6001 |
-| Marmaverken (`6002`) | site_page_only | 0 | https://browser.sead.se/site/6002 |
-| Martebomyr (`6448`) | site_page_only | 0 | https://browser.sead.se/site/6448 |
-| Martin Bränd i Nedre Gärdsjö (`6004`) | site_page_only | 0 | https://browser.sead.se/site/6004 |
-| Marums kyrka (`6005`) | site_page_only | 0 | https://browser.sead.se/site/6005 |
-| Masmo (`3556`) | site_page_only | 0 | https://browser.sead.se/site/3556 |
-| Matspers i Fåsås (`6006`) | site_page_only | 0 | https://browser.sead.se/site/6006 |
-| Mattemåla (`4062`) | site_page_only | 0 | https://browser.sead.se/site/4062 |
-| Mattmars kyrka (`6007`) | site_page_only | 0 | https://browser.sead.se/site/6007 |
-| Mattson i Stora Snöån (`6008`) | site_page_only | 0 | https://browser.sead.se/site/6008 |
-| Medåker Raä 176 (`362`) | site_page_only | 0 | https://browser.sead.se/site/362 |
-| Melins härbre (`6009`) | site_page_only | 0 | https://browser.sead.se/site/6009 |
-| Mellanhärbret från kyrkvallen (`6010`) | site_page_only | 0 | https://browser.sead.se/site/6010 |
-| Mellanköpinge (`3864`) | site_page_only | 0 | https://browser.sead.se/site/3864 |
-| Mellby kyrka (`4061`) | site_page_only | 0 | https://browser.sead.se/site/4061 |
-| Mellerud (`5061`) | site_page_only | 0 | https://browser.sead.se/site/5061 |
-| Melvold (`111`) | site_page_only | 0 | https://browser.sead.se/site/111 |
-| Merikarvia (`5091`) | site_page_only | 0 | https://browser.sead.se/site/5091 |
-| Mickelsmossen (`4531`) | site_page_only | 0 | https://browser.sead.se/site/4531 |
-| Millingsmossen 1 (`3553`) | site_page_only | 0 | https://browser.sead.se/site/3553 |
-| Missesberget (`4853`) | site_page_only | 0 | https://browser.sead.se/site/4853 |
-| Mjellrumsgården (`6012`) | site_page_only | 0 | https://browser.sead.se/site/6012 |
-| Mjäla (`3551`) | site_page_only | 0 | https://browser.sead.se/site/3551 |
-| Mjäldrunga kyrka (`6011`) | site_page_only | 0 | https://browser.sead.se/site/6011 |
-| Mjölnargården (`3919`) | site_page_only | 0 | https://browser.sead.se/site/3919 |
-| Moarna (`5606`) | site_page_only | 0 | https://browser.sead.se/site/5606 |
-| Modigs i Ingärdningsbodarna (`6013`) | site_page_only | 0 | https://browser.sead.se/site/6013 |
-| Morbygden (`6312`) | site_page_only | 0 | https://browser.sead.se/site/6312 |
-| Morlanda 367 (`388`) | site_page_only | 0 | https://browser.sead.se/site/388 |
-| Morlinggården i Utby (`6016`) | site_page_only | 0 | https://browser.sead.se/site/6016 |
-| Mortorps kyrka (`4060`) | site_page_only | 0 | https://browser.sead.se/site/4060 |
-| Motala 173:1 (`6412`) | site_page_only | 0 | https://browser.sead.se/site/6412 |
-| Muréns i Ope (`6018`) | site_page_only | 0 | https://browser.sead.se/site/6018 |
-| Musikskolan (`4059`) | site_page_only | 0 | https://browser.sead.se/site/4059 |
-| Mustalampi (`4883`) | site_page_only | 0 | https://browser.sead.se/site/4883 |
-| Myhrs i Selja (`6019`) | site_page_only | 0 | https://browser.sead.se/site/6019 |
-| Myrby trask, Tunåsen (`4544`) | site_page_only | 0 | https://browser.sead.se/site/4544 |
-| Mysinge (`3549`) | site_page_only | 0 | https://browser.sead.se/site/3549 |
-| Myssjö kyrka (`6020`) | site_page_only | 0 | https://browser.sead.se/site/6020 |
-| Måcketorpsboden (`4058`) | site_page_only | 0 | https://browser.sead.se/site/4058 |
-| Målen (`6310`) | site_page_only | 0 | https://browser.sead.se/site/6310 |
-| Målilla 381 (`6352`) | site_page_only | 0 | https://browser.sead.se/site/6352 |
-| Månstad Raä 81 (`233`) | site_page_only | 0 | https://browser.sead.se/site/233 |
-| Månstads kyrka (`5999`) | site_page_only | 0 | https://browser.sead.se/site/5999 |
-| Mårtens i Bäck (`6003`) | site_page_only | 0 | https://browser.sead.se/site/6003 |
-| Mölleberga kyrka (`6014`) | site_page_only | 0 | https://browser.sead.se/site/6014 |
-| Mölltorps kyrka (`6015`) | site_page_only | 0 | https://browser.sead.se/site/6015 |
-| Mölndal Raä 79 (`116`) | site_page_only | 0 | https://browser.sead.se/site/116 |
-| Mönsterås 376:1 (`6357`) | site_page_only | 0 | https://browser.sead.se/site/6357 |
-| Mörbylånga kyrka (`4056`) | site_page_only | 0 | https://browser.sead.se/site/4056 |
-| Mören (`3547`) | site_page_only | 0 | https://browser.sead.se/site/3547 |
-| Mötesstation Kosjärv (`3546`) | site_page_only | 0 | https://browser.sead.se/site/3546 |
-| Møllegårdsmarken (`3548`) | site_page_only | 0 | https://browser.sead.se/site/3548 |
-| Møn unlocated 1896 (`5303`) | site_page_only | 0 | https://browser.sead.se/site/5303 |
-| Naverstad 373 (`339`) | site_page_only | 0 | https://browser.sead.se/site/339 |
-| Naverstads kyrka (`6025`) | site_page_only | 0 | https://browser.sead.se/site/6025 |
-| Nederkalix Raä 722 (`336`) | site_page_only | 0 | https://browser.sead.se/site/336 |
-| Nederluleå Raä 330 (`266`) | site_page_only | 0 | https://browser.sead.se/site/266 |
-| Nederluleå Raä 601 (`271`) | site_page_only | 0 | https://browser.sead.se/site/271 |
-| Nedervetil (`5073`) | site_page_only | 0 | https://browser.sead.se/site/5073 |
-| Nedre Hervavatnet (`5122`) | site_page_only | 0 | https://browser.sead.se/site/5122 |
-| Nedre Hävla bruk (`4055`) | site_page_only | 0 | https://browser.sead.se/site/4055 |
-| Nibble (`3543`) | site_page_only | 0 | https://browser.sead.se/site/3543 |
-| Nicklasson i Järpen (`6026`) | site_page_only | 0 | https://browser.sead.se/site/6026 |
-| Nils Erik Olssons i Noret (`6027`) | site_page_only | 0 | https://browser.sead.se/site/6027 |
-| Niskanperä (`3542`) | site_page_only | 0 | https://browser.sead.se/site/3542 |
-| Njurunda 838 (`398`) | site_page_only | 0 | https://browser.sead.se/site/398 |
-| Njurunda Raä 125 (`380`) | site_page_only | 0 | https://browser.sead.se/site/380 |
-| Njurunda Raä 837 (`371`) | site_page_only | 0 | https://browser.sead.se/site/371 |
-| Noatun Neset (`3541`) | site_page_only | 0 | https://browser.sead.se/site/3541 |
-| Noors Herrgård (`4054`) | site_page_only | 0 | https://browser.sead.se/site/4054 |
-| Nora 416 (`6343`) | site_page_only | 0 | https://browser.sead.se/site/6343 |
-| Nora Kyrka (`4053`) | site_page_only | 0 | https://browser.sead.se/site/4053 |
-| Nora Raä 5 (`96`) | site_page_only | 0 | https://browser.sead.se/site/96 |
-| Norbergsby (`6313`) | site_page_only | 0 | https://browser.sead.se/site/6313 |
-| Nordanå gård (`6028`) | site_page_only | 0 | https://browser.sead.se/site/6028 |
-| Norderö kyrka (`6029`) | site_page_only | 0 | https://browser.sead.se/site/6029 |
-| Nordvästra härbret Zorns gammelgård (`6030`) | site_page_only | 0 | https://browser.sead.se/site/6030 |
-| Noring i Sanne (`6032`) | site_page_only | 0 | https://browser.sead.se/site/6032 |
-| Norra Björke Raä 57 (`102`) | site_page_only | 0 | https://browser.sead.se/site/102 |
-| Norra Fågelås kyrka (`6033`) | site_page_only | 0 | https://browser.sead.se/site/6033 |
-| Norra Mellby kyrka (`4052`) | site_page_only | 0 | https://browser.sead.se/site/4052 |
-| Norra Nöbbelöv (`3540`) | site_page_only | 0 | https://browser.sead.se/site/3540 |
-| Norra Ryssmasterna (`351`) | site_page_only | 0 | https://browser.sead.se/site/351 |
-| Norra Rörums kyrka (`4051`) | site_page_only | 0 | https://browser.sead.se/site/4051 |
-| Norra Solberga gamla kyrka (`4050`) | site_page_only | 0 | https://browser.sead.se/site/4050 |
-| Norra Strö kyrka (`6034`) | site_page_only | 0 | https://browser.sead.se/site/6034 |
-| Norra Åsums kyrka (`4049`) | site_page_only | 0 | https://browser.sead.se/site/4049 |
-| Norrala Raä 177 (`280`) | site_page_only | 0 | https://browser.sead.se/site/280 |
-| Norrby (`4048`) | site_page_only | 0 | https://browser.sead.se/site/4048 |
-| Norrgården i Östansjö (`6035`) | site_page_only | 0 | https://browser.sead.se/site/6035 |
-| Norrkvie (`3539`) | site_page_only | 0 | https://browser.sead.se/site/3539 |
-| Norrlanda kyrka (`4047`) | site_page_only | 0 | https://browser.sead.se/site/4047 |
-| Norrsunda 167 (`3538`) | site_page_only | 0 | https://browser.sead.se/site/3538 |
-| Norrsunda Raä 185 (`272`) | site_page_only | 0 | https://browser.sead.se/site/272 |
-| Norrvidinge (`3537`) | site_page_only | 0 | https://browser.sead.se/site/3537 |
-| Norrvidinge kyrka (`4046`) | site_page_only | 0 | https://browser.sead.se/site/4046 |
-| Norsminde (`3536`) | site_page_only | 0 | https://browser.sead.se/site/3536 |
-| Norum 291 (`359`) | site_page_only | 0 | https://browser.sead.se/site/359 |
-| Norum Raä 285 (`66`) | site_page_only | 0 | https://browser.sead.se/site/66 |
-| Norum Raä 5 (`399`) | site_page_only | 0 | https://browser.sead.se/site/399 |
-| Norup (`6036`) | site_page_only | 0 | https://browser.sead.se/site/6036 |
-| Norén i Trusta (`6031`) | site_page_only | 0 | https://browser.sead.se/site/6031 |
-| Nurmo: Paukaneva (`5094`) | site_page_only | 0 | https://browser.sead.se/site/5094 |
-| Nybygget (`5379`) | site_page_only | 0 | https://browser.sead.se/site/5379 |
-| Nybölle 4 (`3535`) | site_page_only | 0 | https://browser.sead.se/site/3535 |
-| Nygårds i Nedre Gärdsjö (`6039`) | site_page_only | 0 | https://browser.sead.se/site/6039 |
-| Nygårds i Ovanmyra (`6040`) | site_page_only | 0 | https://browser.sead.se/site/6040 |
-| Nykyrka kyrka (`4045`) | site_page_only | 0 | https://browser.sead.se/site/4045 |
-| Nyköping 231 (`283`) | site_page_only | 0 | https://browser.sead.se/site/283 |
-| Nyköping 661 (`6374`) | site_page_only | 0 | https://browser.sead.se/site/6374 |
-| Nyköpingshus (`360`) | site_page_only | 0 | https://browser.sead.se/site/360 |
-| När 219 (`6370`) | site_page_only | 0 | https://browser.sead.se/site/6370 |
-| Näs (`3863`) | site_page_only | 0 | https://browser.sead.se/site/3863 |
-| Näs gård i Persbo (`6021`) | site_page_only | 0 | https://browser.sead.se/site/6021 |
-| Näs Herrgård (`6022`) | site_page_only | 0 | https://browser.sead.se/site/6022 |
-| Näs kyrka (`4044`) | site_page_only | 0 | https://browser.sead.se/site/4044 |
-| Näsan (Sandbro) (`3534`) | site_page_only | 0 | https://browser.sead.se/site/3534 |
-| Näsjonases i Andtjärabo (`6023`) | site_page_only | 0 | https://browser.sead.se/site/6023 |
-| Näsjons i Åberga (`6024`) | site_page_only | 0 | https://browser.sead.se/site/6024 |
-| Nätra Raä 306 (`89`) | site_page_only | 0 | https://browser.sead.se/site/89 |
-| Nätra Raä 307 (`76`) | site_page_only | 0 | https://browser.sead.se/site/76 |
-| Nätra Raä 359 (`155`) | site_page_only | 0 | https://browser.sead.se/site/155 |
-| Nääs gård (`4043`) | site_page_only | 0 | https://browser.sead.se/site/4043 |
-| Nöbbelöv (`3533`) | site_page_only | 0 | https://browser.sead.se/site/3533 |
-| Nösslinge kyrka (`6037`) | site_page_only | 0 | https://browser.sead.se/site/6037 |
-| Nöttja kyrka (`6038`) | site_page_only | 0 | https://browser.sead.se/site/6038 |
-| Nørre Lyngby (`4554`) | site_page_only | 0 | https://browser.sead.se/site/4554 |
-| Oarddojávri (`97`) | site_page_only | 0 | https://browser.sead.se/site/97 |
-| Odelbergs Ön (`6041`) | site_page_only | 0 | https://browser.sead.se/site/6041 |
-| Odensala 6 (386) (`329`) | site_page_only | 0 | https://browser.sead.se/site/329 |
-| Odensala Raä 402 (`328`) | site_page_only | 0 | https://browser.sead.se/site/328 |
-| Odense (`5617`) | site_page_only | 0 | https://browser.sead.se/site/5617 |
-| Odlaren 1:1 (`387`) | site_page_only | 0 | https://browser.sead.se/site/387 |
-| Ods kyrka (`6042`) | site_page_only | 0 | https://browser.sead.se/site/6042 |
-| Offerdals kyrka (`6043`) | site_page_only | 0 | https://browser.sead.se/site/6043 |
-| Olaloftet från norra Mon (`6045`) | site_page_only | 0 | https://browser.sead.se/site/6045 |
-| Olars i Holen Västra Öje (`6046`) | site_page_only | 0 | https://browser.sead.se/site/6046 |
-| Olars i Knåda (`6047`) | site_page_only | 0 | https://browser.sead.se/site/6047 |
-| Olers-gården i Stenshyttan (`6048`) | site_page_only | 0 | https://browser.sead.se/site/6048 |
-| Oljonsgården i Hara (`6049`) | site_page_only | 0 | https://browser.sead.se/site/6049 |
-| Ollars i Orsbleck (`6050`) | site_page_only | 0 | https://browser.sead.se/site/6050 |
-| Ollas i Ovanmyra (`6051`) | site_page_only | 0 | https://browser.sead.se/site/6051 |
-| Olmats i Noret (`6053`) | site_page_only | 0 | https://browser.sead.se/site/6053 |
-| Olmårs i Vik (`6052`) | site_page_only | 0 | https://browser.sead.se/site/6052 |
-| Olofsson i Gärde (`6054`) | site_page_only | 0 | https://browser.sead.se/site/6054 |
-| Olols vallstuga (`6055`) | site_page_only | 0 | https://browser.sead.se/site/6055 |
-| Olovsson i Hölje (`6056`) | site_page_only | 0 | https://browser.sead.se/site/6056 |
-| Olperås i Färnäs (`6057`) | site_page_only | 0 | https://browser.sead.se/site/6057 |
-| Olsson i Medvigge (`6058`) | site_page_only | 0 | https://browser.sead.se/site/6058 |
-| Olsson i Sjör (`6059`) | site_page_only | 0 | https://browser.sead.se/site/6059 |
-| Olssons i Harabygden (`6060`) | site_page_only | 0 | https://browser.sead.se/site/6060 |
-| Olssons i Ringsta (`6061`) | site_page_only | 0 | https://browser.sead.se/site/6061 |
-| Olvarberget (`6062`) | site_page_only | 0 | https://browser.sead.se/site/6062 |
-| Onsjöstugan (`5665`) | site_page_only | 0 | https://browser.sead.se/site/5665 |
-| Onttoharjut (`4848`) | site_page_only | 0 | https://browser.sead.se/site/4848 |
-| Onttovaara (`4566`) | site_page_only | 0 | https://browser.sead.se/site/4566 |
-| Orkesta kyrka (`4042`) | site_page_only | 0 | https://browser.sead.se/site/4042 |
-| Ornässtugan (`6063`) | site_page_only | 0 | https://browser.sead.se/site/6063 |
-| Orraryd (`3531`) | site_page_only | 0 | https://browser.sead.se/site/3531 |
-| Orsa kyrka (`6064`) | site_page_only | 0 | https://browser.sead.se/site/6064 |
-| Oslo: Gamlebyen (`4570`) | site_page_only | 0 | https://browser.sead.se/site/4570 |
-| Oslo: Oslogate 3 & 7 (`4571`) | site_page_only | 0 | https://browser.sead.se/site/4571 |
-| Ottenby kungsgård (`4041`) | site_page_only | 0 | https://browser.sead.se/site/4041 |
-| Outojärvi (`4847`) | site_page_only | 0 | https://browser.sead.se/site/4847 |
-| Ovansjö Raä 307 (`181`) | site_page_only | 0 | https://browser.sead.se/site/181 |
-| Oxiegården (`3527`) | site_page_only | 0 | https://browser.sead.se/site/3527 |
-| Oxsjön (`6074`) | site_page_only | 0 | https://browser.sead.se/site/6074 |
-| Oxsätra, Anneberg (`3526`) | site_page_only | 0 | https://browser.sead.se/site/3526 |
-| Pappilanmäki (`3524`) | site_page_only | 0 | https://browser.sead.se/site/3524 |
-| Parboäng (`3523`) | site_page_only | 0 | https://browser.sead.se/site/3523 |
-| Parhäbre i Mon (`6076`) | site_page_only | 0 | https://browser.sead.se/site/6076 |
-| Pedersborg (`4040`) | site_page_only | 0 | https://browser.sead.se/site/4040 |
-| Pedersens i Berget (`6077`) | site_page_only | 0 | https://browser.sead.se/site/6077 |
-| Pellas i Färnäs (`6078`) | site_page_only | 0 | https://browser.sead.se/site/6078 |
-| Pellas i Östra Björken (`6079`) | site_page_only | 0 | https://browser.sead.se/site/6079 |
-| Pellebergs i Älgberget (`6080`) | site_page_only | 0 | https://browser.sead.se/site/6080 |
-| Pellgården i Västanå (`6081`) | site_page_only | 0 | https://browser.sead.se/site/6081 |
-| Pelso (`5085`) | site_page_only | 0 | https://browser.sead.se/site/5085 |
-| Peres i Blecket (`6082`) | site_page_only | 0 | https://browser.sead.se/site/6082 |
-| Peres i Vikarbyn (`6083`) | site_page_only | 0 | https://browser.sead.se/site/6083 |
-| Perho (`5074`) | site_page_only | 0 | https://browser.sead.se/site/5074 |
-| PerJons i Vik (`6084`) | site_page_only | 0 | https://browser.sead.se/site/6084 |
-| Perkiö (`3522`) | site_page_only | 0 | https://browser.sead.se/site/3522 |
-| Perols i Nedre Gärdsjö (`6085`) | site_page_only | 0 | https://browser.sead.se/site/6085 |
-| Perols i Övre Gärdsjö (`6086`) | site_page_only | 0 | https://browser.sead.se/site/6086 |
-| Persgården (`6087`) | site_page_only | 0 | https://browser.sead.se/site/6087 |
-| Persson i Böle (`6088`) | site_page_only | 0 | https://browser.sead.se/site/6088 |
-| Persson i Lungre (`6089`) | site_page_only | 0 | https://browser.sead.se/site/6089 |
-| Perssons i Borr (`6090`) | site_page_only | 0 | https://browser.sead.se/site/6090 |
-| Perstorp kyrka (`6091`) | site_page_only | 0 | https://browser.sead.se/site/6091 |
-| Perstorps kyrka (`4039`) | site_page_only | 0 | https://browser.sead.se/site/4039 |
-| Petersenska huset (`6092`) | site_page_only | 0 | https://browser.sead.se/site/6092 |
-| Petter Pers i Flatenberg (`6093`) | site_page_only | 0 | https://browser.sead.se/site/6093 |
-| Petterssons i Norrböle (`6094`) | site_page_only | 0 | https://browser.sead.se/site/6094 |
-| Pihtipudas: Lake Alvajärvi (`5067`) | site_page_only | 0 | https://browser.sead.se/site/5067 |
-| Piilonsuo (`4586`) | site_page_only | 0 | https://browser.sead.se/site/4586 |
-| Pileskoven (`3521`) | site_page_only | 0 | https://browser.sead.se/site/3521 |
-| Pilgrimstad (`4795`) | site_page_only | 0 | https://browser.sead.se/site/4795 |
-| Pinnekulla (`3520`) | site_page_only | 0 | https://browser.sead.se/site/3520 |
-| Piper Pers i Vålberg (`6095`) | site_page_only | 0 | https://browser.sead.se/site/6095 |
-| Piteå: Borgsfors (`5066`) | site_page_only | 0 | https://browser.sead.se/site/5066 |
-| Plintsberg (`6096`) | site_page_only | 0 | https://browser.sead.se/site/6096 |
-| Pomarrku (`5096`) | site_page_only | 0 | https://browser.sead.se/site/5096 |
-| Prans i Västbjörka (`6098`) | site_page_only | 0 | https://browser.sead.se/site/6098 |
-| Prostgården (`6100`) | site_page_only | 0 | https://browser.sead.se/site/6100 |
-| Pryssgården (`3517`) | site_page_only | 0 | https://browser.sead.se/site/3517 |
-| Prästgården (`3516`) | site_page_only | 0 | https://browser.sead.se/site/3516 |
-| Prästgårdsloftet Älvdalen (`6099`) | site_page_only | 0 | https://browser.sead.se/site/6099 |
-| Prästsjödiket Umeå (`186`) | site_page_only | 0 | https://browser.sead.se/site/186 |
-| Prästtorp (`3862`) | site_page_only | 0 | https://browser.sead.se/site/3862 |
-| Purasharju (`4851`) | site_page_only | 0 | https://browser.sead.se/site/4851 |
-| Pyhäjärvi: Hoikkaneva (`5088`) | site_page_only | 0 | https://browser.sead.se/site/5088 |
-| Päbul i Östnor (`6075`) | site_page_only | 0 | https://browser.sead.se/site/6075 |
-| Pörte i Burängsberget (`6097`) | site_page_only | 0 | https://browser.sead.se/site/6097 |
-| Pöytä: Pinomaesuo (`5068`) | site_page_only | 0 | https://browser.sead.se/site/5068 |
-| Qvarnarp (`3861`) | site_page_only | 0 | https://browser.sead.se/site/3861 |
-| Raabjerg (`5312`) | site_page_only | 0 | https://browser.sead.se/site/5312 |
-| Radio Gotland (`4038`) | site_page_only | 0 | https://browser.sead.se/site/4038 |
-| Ragunda gamla kyrka (`6101`) | site_page_only | 0 | https://browser.sead.se/site/6101 |
-| Ramsele Raä 160 (`109`) | site_page_only | 0 | https://browser.sead.se/site/109 |
-| Ramshög (`3513`) | site_page_only | 0 | https://browser.sead.se/site/3513 |
-| Ramsättra (`3512`) | site_page_only | 0 | https://browser.sead.se/site/3512 |
-| Ramså (`5631`) | site_page_only | 0 | https://browser.sead.se/site/5631 |
-| Rankhyttan (`6102`) | site_page_only | 0 | https://browser.sead.se/site/6102 |
-| Ransbergs kyrka (`6103`) | site_page_only | 0 | https://browser.sead.se/site/6103 |
-| Ranstad (`4598`) | site_page_only | 0 | https://browser.sead.se/site/4598 |
-| Rappasundet (`3511`) | site_page_only | 0 | https://browser.sead.se/site/3511 |
-| Rapptorpen (`6104`) | site_page_only | 0 | https://browser.sead.se/site/6104 |
-| Rautio: Kärkiskylä (`5071`) | site_page_only | 0 | https://browser.sead.se/site/5071 |
-| Rautio: Osmina (`5075`) | site_page_only | 0 | https://browser.sead.se/site/5075 |
-| Rautu (`4887`) | site_page_only | 0 | https://browser.sead.se/site/4887 |
-| Ravlunda kyrka (`4037`) | site_page_only | 0 | https://browser.sead.se/site/4037 |
-| Reisjärvi (`5089`) | site_page_only | 0 | https://browser.sead.se/site/5089 |
-| Renbergs i Öje (`6107`) | site_page_only | 0 | https://browser.sead.se/site/6107 |
-| Resare-Olssons i Västberg (`6108`) | site_page_only | 0 | https://browser.sead.se/site/6108 |
-| Resmo kyrka (`4036`) | site_page_only | 0 | https://browser.sead.se/site/4036 |
-| Reutersberg (`6316`) | site_page_only | 0 | https://browser.sead.se/site/6316 |
-| Ribe: Posthustorvet (`5638`) | site_page_only | 0 | https://browser.sead.se/site/5638 |
-| Ribetua gård (`6109`) | site_page_only | 0 | https://browser.sead.se/site/6109 |
-| Riipiharju (`4844`) | site_page_only | 0 | https://browser.sead.se/site/4844 |
-| Ringeby (`3509`) | site_page_only | 0 | https://browser.sead.se/site/3509 |
-| Ringestena (`6317`) | site_page_only | 0 | https://browser.sead.se/site/6317 |
-| Ringkloster (`3508`) | site_page_only | 0 | https://browser.sead.se/site/3508 |
-| Ringsta (`6110`) | site_page_only | 0 | https://browser.sead.se/site/6110 |
-| Ripkallhögen (`343`) | site_page_only | 0 | https://browser.sead.se/site/343 |
-| Ripsa kyrka (`6111`) | site_page_only | 0 | https://browser.sead.se/site/6111 |
-| Risaloftet (`6112`) | site_page_only | 0 | https://browser.sead.se/site/6112 |
-| Ristomta gård (`4035`) | site_page_only | 0 | https://browser.sead.se/site/4035 |
-| Roes (`3507`) | site_page_only | 0 | https://browser.sead.se/site/3507 |
-| Rognlien IV/Langangen (`3506`) | site_page_only | 0 | https://browser.sead.se/site/3506 |
-| Rogslösa kyrka (`4034`) | site_page_only | 0 | https://browser.sead.se/site/4034 |
-| Rombins i Östnor (`6113`) | site_page_only | 0 | https://browser.sead.se/site/6113 |
-| Romson-gården i Noret (`6114`) | site_page_only | 0 | https://browser.sead.se/site/6114 |
-| Rosenvingeska huset (`6115`) | site_page_only | 0 | https://browser.sead.se/site/6115 |
-| Roslättsgård (`5656`) | site_page_only | 0 | https://browser.sead.se/site/5656 |
-| Roth i Sterte (`6116`) | site_page_only | 0 | https://browser.sead.se/site/6116 |
-| Rotheden (`4855`) | site_page_only | 0 | https://browser.sead.se/site/4855 |
-| RTM Buxabygd (`5676`) | site_page_only | 0 | https://browser.sead.se/site/5676 |
-| Rudersdal Kro Mose (`5296`) | site_page_only | 0 | https://browser.sead.se/site/5296 |
-| Ruksesbákti, Indre Sandvik (`100`) | site_page_only | 0 | https://browser.sead.se/site/100 |
-| Rumskulla 234:1 (`6354`) | site_page_only | 0 | https://browser.sead.se/site/6354 |
-| Runtuna kyrka (`6117`) | site_page_only | 0 | https://browser.sead.se/site/6117 |
-| Rusthållargården (`4033`) | site_page_only | 0 | https://browser.sead.se/site/4033 |
-| Rutå Lars Rutån (`6118`) | site_page_only | 0 | https://browser.sead.se/site/6118 |
-| Rya (`3502`) | site_page_only | 0 | https://browser.sead.se/site/3502 |
-| Ryds herrgård (`6119`) | site_page_only | 0 | https://browser.sead.se/site/6119 |
-| Ryssby kyrka (`4031`) | site_page_only | 0 | https://browser.sead.se/site/4031 |
-| Ryssebo (`3860`) | site_page_only | 0 | https://browser.sead.se/site/3860 |
-| Ryssgärdet (`3501`) | site_page_only | 0 | https://browser.sead.se/site/3501 |
-| Ryttartorpet (`6120`) | site_page_only | 0 | https://browser.sead.se/site/6120 |
-| Ryttartorpet bod (`6121`) | site_page_only | 0 | https://browser.sead.se/site/6121 |
-| Ryttartorpet fähus (`6122`) | site_page_only | 0 | https://browser.sead.se/site/6122 |
-| Ryttartorpet tröskloge (`6123`) | site_page_only | 0 | https://browser.sead.se/site/6123 |
-| Ränneslätt (`4030`) | site_page_only | 0 | https://browser.sead.se/site/4030 |
-| Rättviks kyrka (`6105`) | site_page_only | 0 | https://browser.sead.se/site/6105 |
-| Rävinge kyrka (`6106`) | site_page_only | 0 | https://browser.sead.se/site/6106 |
-| Råda Raä 101 (`184`) | site_page_only | 0 | https://browser.sead.se/site/184 |
-| Råga Hörstad (`3499`) | site_page_only | 0 | https://browser.sead.se/site/3499 |
-| Råinget (`3498`) | site_page_only | 0 | https://browser.sead.se/site/3498 |
-| Råneå 414 (`370`) | site_page_only | 0 | https://browser.sead.se/site/370 |
-| Röetved II (`3496`) | site_page_only | 0 | https://browser.sead.se/site/3496 |
-| Rönnby-Skultuna (`369`) | site_page_only | 0 | https://browser.sead.se/site/369 |
-| Rörstrand, Bottna Herrgård (`3494`) | site_page_only | 0 | https://browser.sead.se/site/3494 |
-| Rössberga Megalithic (`3493`) | site_page_only | 0 | https://browser.sead.se/site/3493 |
-| Rød Terrasse (`126`) | site_page_only | 0 | https://browser.sead.se/site/126 |
-| Rødskjær/Halvarp (`3497`) | site_page_only | 0 | https://browser.sead.se/site/3497 |
-| Rødstranda (`165`) | site_page_only | 0 | https://browser.sead.se/site/165 |
-| Rønbro (`5307`) | site_page_only | 0 | https://browser.sead.se/site/5307 |
-| Rørarød (`3495`) | site_page_only | 0 | https://browser.sead.se/site/3495 |
-| S'Ers-gården i Österby (`6137`) | site_page_only | 0 | https://browser.sead.se/site/6137 |
-| Sahréns i Färnäs (`6124`) | site_page_only | 0 | https://browser.sead.se/site/6124 |
-| Sala sockenkyrka (`6125`) | site_page_only | 0 | https://browser.sead.se/site/6125 |
-| Saltosas i Klappsta (`6127`) | site_page_only | 0 | https://browser.sead.se/site/6127 |
-| Salvarp (`3859`) | site_page_only | 0 | https://browser.sead.se/site/3859 |
-| Samlängan Hjältanstorp (`6128`) | site_page_only | 0 | https://browser.sead.se/site/6128 |
-| Samnan (`4617`) | site_page_only | 0 | https://browser.sead.se/site/4617 |
-| Sanda (`3491`) | site_page_only | 0 | https://browser.sead.se/site/3491 |
-| Sanda kyrka (`4028`) | site_page_only | 0 | https://browser.sead.se/site/4028 |
-| Sandby prästgård (`4027`) | site_page_only | 0 | https://browser.sead.se/site/4027 |
-| Sandvikshärbret (`6129`) | site_page_only | 0 | https://browser.sead.se/site/6129 |
-| Sandåkra (`5290`) | site_page_only | 0 | https://browser.sead.se/site/5290 |
-| Sankt Clemens kyrkoruin (`4025`) | site_page_only | 0 | https://browser.sead.se/site/4025 |
-| Sankt Johannes 96:1 (`6408`) | site_page_only | 0 | https://browser.sead.se/site/6408 |
-| Sankt Lars kyrka (`4024`) | site_page_only | 0 | https://browser.sead.se/site/4024 |
-| Sankt Peters klosters kyrka (`4023`) | site_page_only | 0 | https://browser.sead.se/site/4023 |
-| Sankt Petri Kyrka (`6130`) | site_page_only | 0 | https://browser.sead.se/site/6130 |
-| Sankta Karins kapell (`6131`) | site_page_only | 0 | https://browser.sead.se/site/6131 |
-| Sannagård i Sillerbo (`6132`) | site_page_only | 0 | https://browser.sead.se/site/6132 |
-| Santa Maria (`3490`) | site_page_only | 0 | https://browser.sead.se/site/3490 |
-| Sarasgården Isala (`6133`) | site_page_only | 0 | https://browser.sead.se/site/6133 |
-| Sarkasvaara (`4846`) | site_page_only | 0 | https://browser.sead.se/site/4846 |
-| Saxtorp (SU 8) (`3489`) | site_page_only | 0 | https://browser.sead.se/site/3489 |
-| Schweitzergränd (`3488`) | site_page_only | 0 | https://browser.sead.se/site/3488 |
-| Selens fäbod (`6136`) | site_page_only | 0 | https://browser.sead.se/site/6136 |
-| Selånger Raä 136 (`325`) | site_page_only | 0 | https://browser.sead.se/site/325 |
-| Sibbo (`4021`) | site_page_only | 0 | https://browser.sead.se/site/4021 |
-| Sibbolängena i Nedre Gärdsjö (`6138`) | site_page_only | 0 | https://browser.sead.se/site/6138 |
-| Sigfridsgården (`4020`) | site_page_only | 0 | https://browser.sead.se/site/4020 |
-| Sigtuna (`5049`) | site_page_only | 0 | https://browser.sead.se/site/5049 |
-| Sigtuna 195:1 (`6421`) | site_page_only | 0 | https://browser.sead.se/site/6421 |
-| Silje (`6321`) | site_page_only | 0 | https://browser.sead.se/site/6321 |
-| Silte kyrka (`4019`) | site_page_only | 0 | https://browser.sead.se/site/4019 |
-| Silvåkra 10:1 (`6386`) | site_page_only | 0 | https://browser.sead.se/site/6386 |
-| Sisshammar (`4018`) | site_page_only | 0 | https://browser.sead.se/site/4018 |
-| Sivakkojärvi (`4845`) | site_page_only | 0 | https://browser.sead.se/site/4845 |
-| Sjonhem kyrka (`4017`) | site_page_only | 0 | https://browser.sead.se/site/4017 |
-| Själstuga (`345`) | site_page_only | 0 | https://browser.sead.se/site/345 |
-| Sjöbloms i Gärde (`6139`) | site_page_only | 0 | https://browser.sead.se/site/6139 |
-| Sjörups gamla kyrka (`4016`) | site_page_only | 0 | https://browser.sead.se/site/4016 |
-| Sjöstugan (`4015`) | site_page_only | 0 | https://browser.sead.se/site/4015 |
-| Sjösås gamla kyrka (`6140`) | site_page_only | 0 | https://browser.sead.se/site/6140 |
-| Sjørup (`5305`) | site_page_only | 0 | https://browser.sead.se/site/5305 |
-| Skabersjö slott (`4014`) | site_page_only | 0 | https://browser.sead.se/site/4014 |
-| Skagen (`5077`) | site_page_only | 0 | https://browser.sead.se/site/5077 |
-| Skagerholms gård (`6141`) | site_page_only | 0 | https://browser.sead.se/site/6141 |
-| Skalunda kyrka (`6144`) | site_page_only | 0 | https://browser.sead.se/site/6144 |
-| Skanör Stubbamölla (`6146`) | site_page_only | 0 | https://browser.sead.se/site/6146 |
-| Skarp-Ösby (`4013`) | site_page_only | 0 | https://browser.sead.se/site/4013 |
-| Skattmansö (`5062`) | site_page_only | 0 | https://browser.sead.se/site/5062 |
-| Skeby Raä 46 (`182`) | site_page_only | 0 | https://browser.sead.se/site/182 |
-| Skedemosse (`3485`) | site_page_only | 0 | https://browser.sead.se/site/3485 |
-| Skederid 106 (`381`) | site_page_only | 0 | https://browser.sead.se/site/381 |
-| Skederid Raä 190 (`337`) | site_page_only | 0 | https://browser.sead.se/site/337 |
-| Skedshult (`3857`) | site_page_only | 0 | https://browser.sead.se/site/3857 |
-| Skee 1593:1 (`67`) | site_page_only | 0 | https://browser.sead.se/site/67 |
-| Skellefteå socken Raä 198 (`204`) | site_page_only | 0 | https://browser.sead.se/site/204 |
-| Skellefteå stad Raä 632 (`255`) | site_page_only | 0 | https://browser.sead.se/site/255 |
-| Skeppsås kyrka (`4012`) | site_page_only | 0 | https://browser.sead.se/site/4012 |
-| Skjaervika (`5171`) | site_page_only | 0 | https://browser.sead.se/site/5171 |
-| Skog Raä 7 (`125`) | site_page_only | 0 | https://browser.sead.se/site/125 |
-| Skog-gard i Nusnäs (`6147`) | site_page_only | 0 | https://browser.sead.se/site/6147 |
-| Skogsmossen (`3484`) | site_page_only | 0 | https://browser.sead.se/site/3484 |
-| Skom Lars i Tällberg (`6148`) | site_page_only | 0 | https://browser.sead.se/site/6148 |
-| Skommars i Heden (`6149`) | site_page_only | 0 | https://browser.sead.se/site/6149 |
-| Skottsbergska gården (`6151`) | site_page_only | 0 | https://browser.sead.se/site/6151 |
-| Skraders i Ribbåsen (`6153`) | site_page_only | 0 | https://browser.sead.se/site/6153 |
-| Skrea 106 (`3483`) | site_page_only | 0 | https://browser.sead.se/site/3483 |
-| Skrea Raä 106 (`29`) | site_page_only | 0 | https://browser.sead.se/site/29 |
-| Skrea Raä 162 (`57`) | site_page_only | 0 | https://browser.sead.se/site/57 |
-| Skrea Raä 177 (`3`) | site_page_only | 0 | https://browser.sead.se/site/3 |
-| Skrea Raä 191 (`22`) | site_page_only | 0 | https://browser.sead.se/site/22 |
-| Skrea Raä 193 (`77`) | site_page_only | 0 | https://browser.sead.se/site/77 |
-| Skrea Raä 195 (`115`) | site_page_only | 0 | https://browser.sead.se/site/115 |
-| Skrea Raä 77 (`19`) | site_page_only | 0 | https://browser.sead.se/site/19 |
-| Skrickerum (`3856`) | site_page_only | 0 | https://browser.sead.se/site/3856 |
-| Skräddars (`6152`) | site_page_only | 0 | https://browser.sead.se/site/6152 |
-| Skummeslöv (`3482`) | site_page_only | 0 | https://browser.sead.se/site/3482 |
-| Skumparberget (`3481`) | site_page_only | 0 | https://browser.sead.se/site/3481 |
-| Skurup (`5084`) | site_page_only | 0 | https://browser.sead.se/site/5084 |
-| Skurup: Saritslöv (`5078`) | site_page_only | 0 | https://browser.sead.se/site/5078 |
-| Skäggalösa Norregård (`6142`) | site_page_only | 0 | https://browser.sead.se/site/6142 |
-| Skälby (`3479`) | site_page_only | 0 | https://browser.sead.se/site/3479 |
-| Skälvums kyrka (`6145`) | site_page_only | 0 | https://browser.sead.se/site/6145 |
-| Skänninge 52 (`6404`) | site_page_only | 0 | https://browser.sead.se/site/6404 |
-| Skänninge 5:1 (`6411`) | site_page_only | 0 | https://browser.sead.se/site/6411 |
-| Skålsta (`3855`) | site_page_only | 0 | https://browser.sead.se/site/3855 |
-| Skålö (`6143`) | site_page_only | 0 | https://browser.sead.se/site/6143 |
-| Skånes-Fagerhult 125 (`3480`) | site_page_only | 0 | https://browser.sead.se/site/3480 |
-| Skårby kyrka (`4011`) | site_page_only | 0 | https://browser.sead.se/site/4011 |
-| Sköldsborg (`3854`) | site_page_only | 0 | https://browser.sead.se/site/3854 |
-| Skön Raä 164 (`352`) | site_page_only | 0 | https://browser.sead.se/site/352 |
-| Skönberga kyrka (`4010`) | site_page_only | 0 | https://browser.sead.se/site/4010 |
-| Skörstorps kyrka (`6150`) | site_page_only | 0 | https://browser.sead.se/site/6150 |
-| Skövde Raä 158 (`241`) | site_page_only | 0 | https://browser.sead.se/site/241 |
-| Slevringe gård (`4009`) | site_page_only | 0 | https://browser.sead.se/site/4009 |
-| Slotseng (`5402`) | site_page_only | 0 | https://browser.sead.se/site/5402 |
-| Slottsskogen (`4008`) | site_page_only | 0 | https://browser.sead.se/site/4008 |
-| Sluppen/Sluppan (`3478`) | site_page_only | 0 | https://browser.sead.se/site/3478 |
-| Slästorp (`4007`) | site_page_only | 0 | https://browser.sead.se/site/4007 |
-| Slättåkra (`5660`) | site_page_only | 0 | https://browser.sead.se/site/5660 |
-| Slättåkra lillegård (`4006`) | site_page_only | 0 | https://browser.sead.se/site/4006 |
-| Slöinge Raä 114 (`1`) | site_page_only | 0 | https://browser.sead.se/site/1 |
-| Slöinge Raä 115 (`16`) | site_page_only | 0 | https://browser.sead.se/site/16 |
-| Smalogava (`3477`) | site_page_only | 0 | https://browser.sead.se/site/3477 |
-| Smedja Nusnäs Zorns gammelgård (`6155`) | site_page_only | 0 | https://browser.sead.se/site/6155 |
-| Smedjan i Läde (`6156`) | site_page_only | 0 | https://browser.sead.se/site/6156 |
-| Smedjegatan 22 (`6157`) | site_page_only | 0 | https://browser.sead.se/site/6157 |
-| Smedsbo (`3476`) | site_page_only | 0 | https://browser.sead.se/site/3476 |
-| Smedstorp (`4005`) | site_page_only | 0 | https://browser.sead.se/site/4005 |
-| Smedstorps slott (`4004`) | site_page_only | 0 | https://browser.sead.se/site/4004 |
-| Smens i Yg (`6158`) | site_page_only | 0 | https://browser.sead.se/site/6158 |
-| Smensgård i Torrbergsbo (`6159`) | site_page_only | 0 | https://browser.sead.se/site/6159 |
-| Smissarve (`3475`) | site_page_only | 0 | https://browser.sead.se/site/3475 |
-| Smälingsgården (`6154`) | site_page_only | 0 | https://browser.sead.se/site/6154 |
-| Smällan (`3474`) | site_page_only | 0 | https://browser.sead.se/site/3474 |
-| Snotterholmen (`3473`) | site_page_only | 0 | https://browser.sead.se/site/3473 |
-| Snårberget (`4854`) | site_page_only | 0 | https://browser.sead.se/site/4854 |
-| Snårestad (`5097`) | site_page_only | 0 | https://browser.sead.se/site/5097 |
-| Snåret (`3472`) | site_page_only | 0 | https://browser.sead.se/site/3472 |
-| Snåret (`4003`) | site_page_only | 0 | https://browser.sead.se/site/4003 |
-| Snöstorp 106 (`3471`) | site_page_only | 0 | https://browser.sead.se/site/3471 |
-| Snöstorp Raä 106 (`26`) | site_page_only | 0 | https://browser.sead.se/site/26 |
-| Sockengränsen (`3470`) | site_page_only | 0 | https://browser.sead.se/site/3470 |
-| Solbaddet (`4002`) | site_page_only | 0 | https://browser.sead.se/site/4002 |
-| Solberg 1:15 (`378`) | site_page_only | 0 | https://browser.sead.se/site/378 |
-| Solberga (`299`) | site_page_only | 0 | https://browser.sead.se/site/299 |
-| Solberga, Linköping (`3469`) | site_page_only | 0 | https://browser.sead.se/site/3469 |
-| Solheim (`3467`) | site_page_only | 0 | https://browser.sead.se/site/3467 |
-| Solna kyrka (`6164`) | site_page_only | 0 | https://browser.sead.se/site/6164 |
-| Solna kyrka ladan (`6165`) | site_page_only | 0 | https://browser.sead.se/site/6165 |
-| Solviks i kyrkbyn Boda (`6167`) | site_page_only | 0 | https://browser.sead.se/site/6167 |
-| Sommarlagård Hjältanstorp (`6169`) | site_page_only | 0 | https://browser.sead.se/site/6169 |
-| Sommaränge Skog (`3466`) | site_page_only | 0 | https://browser.sead.se/site/3466 |
-| Sonaboda (`6170`) | site_page_only | 0 | https://browser.sead.se/site/6170 |
-| Sondre Tunåsen (`4615`) | site_page_only | 0 | https://browser.sead.se/site/4615 |
-| Sonnorps frälsegård (`4001`) | site_page_only | 0 | https://browser.sead.se/site/4001 |
-| Sorsele Raä 277 (`240`) | site_page_only | 0 | https://browser.sead.se/site/240 |
-| Sosserladan Fåsås (`6173`) | site_page_only | 0 | https://browser.sead.se/site/6173 |
-| Sotarskärsviken i Ältebo (`6174`) | site_page_only | 0 | https://browser.sead.se/site/6174 |
-| Sote Mosse (`5293`) | site_page_only | 0 | https://browser.sead.se/site/5293 |
-| Sotmyra (`3464`) | site_page_only | 0 | https://browser.sead.se/site/3464 |
-| Spargott (`4000`) | site_page_only | 0 | https://browser.sead.se/site/4000 |
-| Sparreska palatset (`6176`) | site_page_only | 0 | https://browser.sead.se/site/6176 |
-| Sparrgården i Indor (`6177`) | site_page_only | 0 | https://browser.sead.se/site/6177 |
-| Sparvgården i Backa (`6178`) | site_page_only | 0 | https://browser.sead.se/site/6178 |
-| Spinkarp (`5651`) | site_page_only | 0 | https://browser.sead.se/site/5651 |
-| Spinkarps gård (`6179`) | site_page_only | 0 | https://browser.sead.se/site/6179 |
-| Spjalko (`4645`) | site_page_only | 0 | https://browser.sead.se/site/4645 |
-| Sporrakulla (`6180`) | site_page_only | 0 | https://browser.sead.se/site/6180 |
-| Sproge gamla stavkyrka (`3999`) | site_page_only | 0 | https://browser.sead.se/site/3999 |
-| Sproge: Snoder (`5099`) | site_page_only | 0 | https://browser.sead.se/site/5099 |
-| St. Gatan. Kv. Handelsmannen 8-9 (`3463`) | site_page_only | 0 | https://browser.sead.se/site/3463 |
-| Staffans i Åsen (`6181`) | site_page_only | 0 | https://browser.sead.se/site/6181 |
-| Staffas i Nedre Gärdsjö (`6182`) | site_page_only | 0 | https://browser.sead.se/site/6182 |
-| Staffas i Ovanmyra (`6183`) | site_page_only | 0 | https://browser.sead.se/site/6183 |
-| Stafsinge 118 (`56`) | site_page_only | 0 | https://browser.sead.se/site/56 |
-| Stafsinge Raä 116 (`6`) | site_page_only | 0 | https://browser.sead.se/site/6 |
-| Stafsinge Raä 120 (`9`) | site_page_only | 0 | https://browser.sead.se/site/9 |
-| Stafsinge Raä 122 (`20`) | site_page_only | 0 | https://browser.sead.se/site/20 |
-| Stall Fudal Zorns gammelgård (`6185`) | site_page_only | 0 | https://browser.sead.se/site/6185 |
-| Stall i Grönlokshol (`6186`) | site_page_only | 0 | https://browser.sead.se/site/6186 |
-| Stall i Noret (`6187`) | site_page_only | 0 | https://browser.sead.se/site/6187 |
-| Stall Sturhans i Fåsås (`6188`) | site_page_only | 0 | https://browser.sead.se/site/6188 |
-| Stallbacksvägen (`3853`) | site_page_only | 0 | https://browser.sead.se/site/3853 |
-| Stare 1:13 (`62`) | site_page_only | 0 | https://browser.sead.se/site/62 |
-| Stavsholmen (`6189`) | site_page_only | 0 | https://browser.sead.se/site/6189 |
-| Stavsjöbodarna (`6190`) | site_page_only | 0 | https://browser.sead.se/site/6190 |
-| Stenbockska palatset (`3923`) | site_page_only | 0 | https://browser.sead.se/site/3923 |
-| Steninge kyrka (`6191`) | site_page_only | 0 | https://browser.sead.se/site/6191 |
-| Steninge slott (`3998`) | site_page_only | 0 | https://browser.sead.se/site/3998 |
-| Stensjö (`3997`) | site_page_only | 0 | https://browser.sead.se/site/3997 |
-| Stensmålen (`6323`) | site_page_only | 0 | https://browser.sead.se/site/6323 |
-| Stenstrup Teglværk (`5301`) | site_page_only | 0 | https://browser.sead.se/site/5301 |
-| Stevningen Mose (`5302`) | site_page_only | 0 | https://browser.sead.se/site/5302 |
-| Sticko Erik Perssons gård i Färnäs (`6192`) | site_page_only | 0 | https://browser.sead.se/site/6192 |
-| Stockholm 103:1 (`6422`) | site_page_only | 0 | https://browser.sead.se/site/6422 |
-| Stockholm 704 (`6416`) | site_page_only | 0 | https://browser.sead.se/site/6416 |
-| Stockholm 705 (`6417`) | site_page_only | 0 | https://browser.sead.se/site/6417 |
-| Stockholm 706 (`6418`) | site_page_only | 0 | https://browser.sead.se/site/6418 |
-| Stockholm 707 (`6420`) | site_page_only | 0 | https://browser.sead.se/site/6420 |
-| Stockholm 709 (`6419`) | site_page_only | 0 | https://browser.sead.se/site/6419 |
-| Stockholm 710 (`6415`) | site_page_only | 0 | https://browser.sead.se/site/6415 |
-| Stockholms Slott (`3920`) | site_page_only | 0 | https://browser.sead.se/site/3920 |
-| Stockholmsgården i Gåda (`6193`) | site_page_only | 0 | https://browser.sead.se/site/6193 |
-| Stora Bråmåmyr i Nusnäs (`6194`) | site_page_only | 0 | https://browser.sead.se/site/6194 |
-| Stora Gårda Herrgård (`6195`) | site_page_only | 0 | https://browser.sead.se/site/6195 |
-| Stora Harrie (`3852`) | site_page_only | 0 | https://browser.sead.se/site/3852 |
-| Stora Herrestads kyrka (`3996`) | site_page_only | 0 | https://browser.sead.se/site/3996 |
-| Stora Hulterska (`3851`) | site_page_only | 0 | https://browser.sead.se/site/3851 |
-| Stora Kolfly (`3995`) | site_page_only | 0 | https://browser.sead.se/site/3995 |
-| Stora Köpinge kyrka (`3994`) | site_page_only | 0 | https://browser.sead.se/site/3994 |
-| Stora Lund (`3993`) | site_page_only | 0 | https://browser.sead.se/site/3993 |
-| Stora Malm 229:1 (`6375`) | site_page_only | 0 | https://browser.sead.se/site/6375 |
-| Stora Rickby (`3992`) | site_page_only | 0 | https://browser.sead.se/site/3992 |
-| Stora Skedelid (`6196`) | site_page_only | 0 | https://browser.sead.se/site/6196 |
-| Stora skedvi kyrka (`6197`) | site_page_only | 0 | https://browser.sead.se/site/6197 |
-| Stora Tuna Skärsjö (`5065`) | site_page_only | 0 | https://browser.sead.se/site/5065 |
-| Storasjö (`5519`) | site_page_only | 0 | https://browser.sead.se/site/5519 |
-| Storpers i Södra Kättbo (`6198`) | site_page_only | 0 | https://browser.sead.se/site/6198 |
-| Storsved i Berge (`6199`) | site_page_only | 0 | https://browser.sead.se/site/6199 |
-| Strängnäs Raä 443 (`311`) | site_page_only | 0 | https://browser.sead.se/site/311 |
-| Stråvalla kyrka (`6201`) | site_page_only | 0 | https://browser.sead.se/site/6201 |
-| Stræten (`140`) | site_page_only | 0 | https://browser.sead.se/site/140 |
-| Stræten terasse (`132`) | site_page_only | 0 | https://browser.sead.se/site/132 |
-| Strö kyrka (`6202`) | site_page_only | 0 | https://browser.sead.se/site/6202 |
-| Strömby (`3991`) | site_page_only | 0 | https://browser.sead.se/site/3991 |
-| Strömmen (`6324`) | site_page_only | 0 | https://browser.sead.se/site/6324 |
-| Strömsholms slott (`6203`) | site_page_only | 0 | https://browser.sead.se/site/6203 |
-| Stubbamöllan (`6204`) | site_page_only | 0 | https://browser.sead.se/site/6204 |
-| Stuga Fudal Zorns gammelgård (`6205`) | site_page_only | 0 | https://browser.sead.se/site/6205 |
-| Stuga i Nybingsbo (`6206`) | site_page_only | 0 | https://browser.sead.se/site/6206 |
-| Stuga Selja (`6207`) | site_page_only | 0 | https://browser.sead.se/site/6207 |
-| Stuga Skålö by (`6208`) | site_page_only | 0 | https://browser.sead.se/site/6208 |
-| Sturhanslars Olovs i Fåsås (`6209`) | site_page_only | 0 | https://browser.sead.se/site/6209 |
-| Stäket (`6184`) | site_page_only | 0 | https://browser.sead.se/site/6184 |
-| Ställverksboplatsen (`3462`) | site_page_only | 0 | https://browser.sead.se/site/3462 |
-| Stämmeryd (`3849`) | site_page_only | 0 | https://browser.sead.se/site/3849 |
-| Stävie 3:1 (`3461`) | site_page_only | 0 | https://browser.sead.se/site/3461 |
-| Stångsmåla (`3850`) | site_page_only | 0 | https://browser.sead.se/site/3850 |
-| Stötollas i Lenåsen (`6200`) | site_page_only | 0 | https://browser.sead.se/site/6200 |
-| Sulbæk Huse (`5308`) | site_page_only | 0 | https://browser.sead.se/site/5308 |
-| Sundbergs i Heden (`6210`) | site_page_only | 0 | https://browser.sead.se/site/6210 |
-| Sundbyviks gård (`3990`) | site_page_only | 0 | https://browser.sead.se/site/3990 |
-| Sundkvists i Söderhögen (`6211`) | site_page_only | 0 | https://browser.sead.se/site/6211 |
-| Sundre kyrka (`3989`) | site_page_only | 0 | https://browser.sead.se/site/3989 |
-| Sundsaasen 2 (`119`) | site_page_only | 0 | https://browser.sead.se/site/119 |
-| Sundsvall stad (`342`) | site_page_only | 0 | https://browser.sead.se/site/342 |
-| Sunnanås (`6212`) | site_page_only | 0 | https://browser.sead.se/site/6212 |
-| Svaneberg (`3848`) | site_page_only | 0 | https://browser.sead.se/site/3848 |
-| Svarteborg 585 (`304`) | site_page_only | 0 | https://browser.sead.se/site/304 |
-| Svarteborg 592 (`315`) | site_page_only | 0 | https://browser.sead.se/site/315 |
-| Svarteborg 593 (`276`) | site_page_only | 0 | https://browser.sead.se/site/276 |
-| Svarteborg 88 (`365`) | site_page_only | 0 | https://browser.sead.se/site/365 |
-| Svarteborg Raä 116 (`309`) | site_page_only | 0 | https://browser.sead.se/site/309 |
-| Svarteborg Raä 403 (`346`) | site_page_only | 0 | https://browser.sead.se/site/346 |
-| Svarteborg Raä 589 (`293`) | site_page_only | 0 | https://browser.sead.se/site/293 |
-| Svarteborg Raä 590 (`338`) | site_page_only | 0 | https://browser.sead.se/site/338 |
-| Svartemosse (`5024`) | site_page_only | 0 | https://browser.sead.se/site/5024 |
-| Svarv Jöns i Utanmyra (`6214`) | site_page_only | 0 | https://browser.sead.se/site/6214 |
-| Svedala (`5284`) | site_page_only | 0 | https://browser.sead.se/site/5284 |
-| Svedala 7:1 (`6391`) | site_page_only | 0 | https://browser.sead.se/site/6391 |
-| Svedvi kyrka (`6215`) | site_page_only | 0 | https://browser.sead.se/site/6215 |
-| Sven Bogg i Bonäs (`6216`) | site_page_only | 0 | https://browser.sead.se/site/6216 |
-| Sven Frimodigs i Sör Lindberg (`6217`) | site_page_only | 0 | https://browser.sead.se/site/6217 |
-| Sven Mårs i Born (`6218`) | site_page_only | 0 | https://browser.sead.se/site/6218 |
-| Sven Ollén i Näsbyggebyn (`6219`) | site_page_only | 0 | https://browser.sead.se/site/6219 |
-| Svendborg: Møllergade 6 (`4667`) | site_page_only | 0 | https://browser.sead.se/site/4667 |
-| Svensåsen (`6220`) | site_page_only | 0 | https://browser.sead.se/site/6220 |
-| Svälinge, Tåkern (`3458`) | site_page_only | 0 | https://browser.sead.se/site/3458 |
-| Svågertorp 8B-C (`3459`) | site_page_only | 0 | https://browser.sead.se/site/3459 |
-| Sydöstra härbret Zorns gammelgård (`6221`) | site_page_only | 0 | https://browser.sead.se/site/6221 |
-| Sysslomansgården (`6222`) | site_page_only | 0 | https://browser.sead.se/site/6222 |
-| Säby 5 (`3456`) | site_page_only | 0 | https://browser.sead.se/site/3456 |
-| Säbyholm (`3455`) | site_page_only | 0 | https://browser.sead.se/site/3455 |
-| Sälja (`3988`) | site_page_only | 0 | https://browser.sead.se/site/3988 |
-| Sällstorps kyrka (`6126`) | site_page_only | 0 | https://browser.sead.se/site/6126 |
-| Särdal (`6319`) | site_page_only | 0 | https://browser.sead.se/site/6319 |
-| Särkivuoma (`4858`) | site_page_only | 0 | https://browser.sead.se/site/4858 |
-| Särslöv (`3454`) | site_page_only | 0 | https://browser.sead.se/site/3454 |
-| Särslövs kyrka (`3987`) | site_page_only | 0 | https://browser.sead.se/site/3987 |
-| Säternybodarna (`6134`) | site_page_only | 0 | https://browser.sead.se/site/6134 |
-| Sätersfors (`6135`) | site_page_only | 0 | https://browser.sead.se/site/6135 |
-| Sätila Strömma (`6320`) | site_page_only | 0 | https://browser.sead.se/site/6320 |
-| Sävar Raä 56 (`229`) | site_page_only | 0 | https://browser.sead.se/site/229 |
-| Sånga Raä 8 (`149`) | site_page_only | 0 | https://browser.sead.se/site/149 |
-| Söderala kyrka (`6160`) | site_page_only | 0 | https://browser.sead.se/site/6160 |
-| Söderbackan i Västerbor (`6161`) | site_page_only | 0 | https://browser.sead.se/site/6161 |
-| Söderby (`3452`) | site_page_only | 0 | https://browser.sead.se/site/3452 |
-| Söderholm i Grötom (`6162`) | site_page_only | 0 | https://browser.sead.se/site/6162 |
-| Söderköping 14:1 (`6410`) | site_page_only | 0 | https://browser.sead.se/site/6410 |
-| Söderlundska gården (`6163`) | site_page_only | 0 | https://browser.sead.se/site/6163 |
-| Södermanland-Nerikes nation (`3986`) | site_page_only | 0 | https://browser.sead.se/site/3986 |
-| Söderåkra (`3451`) | site_page_only | 0 | https://browser.sead.se/site/3451 |
-| Söderåkra (Eket) (`3450`) | site_page_only | 0 | https://browser.sead.se/site/3450 |
-| Södra Hee (`296`) | site_page_only | 0 | https://browser.sead.se/site/296 |
-| Södra Möckleby kyrka (`3985`) | site_page_only | 0 | https://browser.sead.se/site/3985 |
-| Södra Vi 6:1 (`6355`) | site_page_only | 0 | https://browser.sead.se/site/6355 |
-| Sölvsved (`6168`) | site_page_only | 0 | https://browser.sead.se/site/6168 |
-| Söndrum Raä 100 (`14`) | site_page_only | 0 | https://browser.sead.se/site/14 |
-| Söne kyrka (`6171`) | site_page_only | 0 | https://browser.sead.se/site/6171 |
-| Sörgården i Tornäs (`6172`) | site_page_only | 0 | https://browser.sead.se/site/6172 |
-| Sörsylta (`6322`) | site_page_only | 0 | https://browser.sead.se/site/6322 |
-| Sövestads kyrka (`6175`) | site_page_only | 0 | https://browser.sead.se/site/6175 |
-| Taastrup Brickworks (`5297`) | site_page_only | 0 | https://browser.sead.se/site/5297 |
-| Takkanenmännikö (`4849`) | site_page_only | 0 | https://browser.sead.se/site/4849 |
-| Tand (`6223`) | site_page_only | 0 | https://browser.sead.se/site/6223 |
-| Tannefors (`3449`) | site_page_only | 0 | https://browser.sead.se/site/3449 |
-| Tanum 1209 (`392`) | site_page_only | 0 | https://browser.sead.se/site/392 |
-| Tanum 1229 (`297`) | site_page_only | 0 | https://browser.sead.se/site/297 |
-| Tanum 1892 (`290`) | site_page_only | 0 | https://browser.sead.se/site/290 |
-| Tanum 544 (`367`) | site_page_only | 0 | https://browser.sead.se/site/367 |
-| Tanum Raä 1840 (`377`) | site_page_only | 0 | https://browser.sead.se/site/377 |
-| Tanum Raä 539 (`389`) | site_page_only | 0 | https://browser.sead.se/site/389 |
-| Tanum Raä 544 (`363`) | site_page_only | 0 | https://browser.sead.se/site/363 |
-| Tanum Raä 546 (`366`) | site_page_only | 0 | https://browser.sead.se/site/366 |
-| Tanum Raä 59 (`314`) | site_page_only | 0 | https://browser.sead.se/site/314 |
-| The Police Station park (`6451`) | site_page_only | 0 | https://browser.sead.se/site/6451 |
-| The Prince house (`6452`) | site_page_only | 0 | https://browser.sead.se/site/6452 |
-| Thodéns i Gruvriset (`6227`) | site_page_only | 0 | https://browser.sead.se/site/6227 |
-| Thomsén i Östergrav (`6228`) | site_page_only | 0 | https://browser.sead.se/site/6228 |
-| Tidersrums kyrka (`3984`) | site_page_only | 0 | https://browser.sead.se/site/3984 |
-| Tierp 458 (`6449`) | site_page_only | 0 | https://browser.sead.se/site/6449 |
-| Tiertjern (`121`) | site_page_only | 0 | https://browser.sead.se/site/121 |
-| Tillinge Raä 314 (`295`) | site_page_only | 0 | https://browser.sead.se/site/295 |
-| Tingstäde kyrka (`3983`) | site_page_only | 0 | https://browser.sead.se/site/3983 |
-| Tingstäde träsk (`6459`) | site_page_only | 0 | https://browser.sead.se/site/6459 |
-| Tittolles i Stavsätra (`6229`) | site_page_only | 0 | https://browser.sead.se/site/6229 |
-| Tjustgöls gård (`6230`) | site_page_only | 0 | https://browser.sead.se/site/6230 |
-| Tjärby Raä 59 (`8`) | site_page_only | 0 | https://browser.sead.se/site/8 |
-| Tobaksladan (`6231`) | site_page_only | 0 | https://browser.sead.se/site/6231 |
-| Tofta (`3847`) | site_page_only | 0 | https://browser.sead.se/site/3847 |
-| Tofta 19 (`3446`) | site_page_only | 0 | https://browser.sead.se/site/3446 |
-| Tofta 39 (`3445`) | site_page_only | 0 | https://browser.sead.se/site/3445 |
-| Toppeladugård (`4801`) | site_page_only | 0 | https://browser.sead.se/site/4801 |
-| Torbjörntorp Raä 86 (`242`) | site_page_only | 0 | https://browser.sead.se/site/242 |
-| Toresbo (`3982`) | site_page_only | 0 | https://browser.sead.se/site/3982 |
-| Torhult (`3846`) | site_page_only | 0 | https://browser.sead.se/site/3846 |
-| Torkelsbo (`6233`) | site_page_only | 0 | https://browser.sead.se/site/6233 |
-| Torkelsrud (`6325`) | site_page_only | 0 | https://browser.sead.se/site/6325 |
-| Torkstuga Nusnäs Zorns gammelgård (`6234`) | site_page_only | 0 | https://browser.sead.se/site/6234 |
-| Torpa kyrka (`3981`) | site_page_only | 0 | https://browser.sead.se/site/3981 |
-| Torpa prästgård (`3980`) | site_page_only | 0 | https://browser.sead.se/site/3980 |
-| Torpa stenhus (`5647`) | site_page_only | 0 | https://browser.sead.se/site/5647 |
-| Torsby Raä 100 (`275`) | site_page_only | 0 | https://browser.sead.se/site/275 |
-| Torsklok-härbret i Västra Lillmon (`6236`) | site_page_only | 0 | https://browser.sead.se/site/6236 |
-| Torslanda 108:1 (`53`) | site_page_only | 0 | https://browser.sead.se/site/53 |
-| Torslanda 110:1 (`55`) | site_page_only | 0 | https://browser.sead.se/site/55 |
-| Torslanda 220 (`331`) | site_page_only | 0 | https://browser.sead.se/site/331 |
-| Torslanda 99:1 (`68`) | site_page_only | 0 | https://browser.sead.se/site/68 |
-| Torslanda Raä 96 (`73`) | site_page_only | 0 | https://browser.sead.se/site/73 |
-| Torslunda (`3444`) | site_page_only | 0 | https://browser.sead.se/site/3444 |
-| Torsåker Raä 1589 (`156`) | site_page_only | 0 | https://browser.sead.se/site/156 |
-| Torsångs kyrka (`6235`) | site_page_only | 0 | https://browser.sead.se/site/6235 |
-| Torup slott (`6237`) | site_page_only | 0 | https://browser.sead.se/site/6237 |
-| Tossene 446 (`375`) | site_page_only | 0 | https://browser.sead.se/site/375 |
-| Tossene Raä 446 (`310`) | site_page_only | 0 | https://browser.sead.se/site/310 |
-| Tosterup 32:2 (`3834`) | site_page_only | 0 | https://browser.sead.se/site/3834 |
-| Tovastugan (`3978`) | site_page_only | 0 | https://browser.sead.se/site/3978 |
-| Transtorpsvägen (`6326`) | site_page_only | 0 | https://browser.sead.se/site/6326 |
-| Trappgården i Mångberg (`6239`) | site_page_only | 0 | https://browser.sead.se/site/6239 |
-| Trehörna säteri (`3977`) | site_page_only | 0 | https://browser.sead.se/site/3977 |
-| Trelleborg 19 (`3443`) | site_page_only | 0 | https://browser.sead.se/site/3443 |
-| Trelleborg 19:1 (`6387`) | site_page_only | 0 | https://browser.sead.se/site/6387 |
-| Trelleborg 48 (`6379`) | site_page_only | 0 | https://browser.sead.se/site/6379 |
-| Trelleborg: brick pit (`5285`) | site_page_only | 0 | https://browser.sead.se/site/5285 |
-| Trogsta 71 (`284`) | site_page_only | 0 | https://browser.sead.se/site/284 |
-| Trollasten (`3440`) | site_page_only | 0 | https://browser.sead.se/site/3440 |
-| Trulsatorpet (`6242`) | site_page_only | 0 | https://browser.sead.se/site/6242 |
-| Trädgårdsmästarbostaden (`6238`) | site_page_only | 0 | https://browser.sead.se/site/6238 |
-| Träne kyrka (`3976`) | site_page_only | 0 | https://browser.sead.se/site/3976 |
-| Tröinge 4:9 (`25`) | site_page_only | 0 | https://browser.sead.se/site/25 |
-| Trösklada Bergkarlås (`6240`) | site_page_only | 0 | https://browser.sead.se/site/6240 |
-| Trösklada Östnor (`6241`) | site_page_only | 0 | https://browser.sead.se/site/6241 |
-| Tullinge gård (`6243`) | site_page_only | 0 | https://browser.sead.se/site/6243 |
-| Tullsåkra (`6244`) | site_page_only | 0 | https://browser.sead.se/site/6244 |
-| Tumbo kyrka (`3975`) | site_page_only | 0 | https://browser.sead.se/site/3975 |
-| Tuna Raä 328:1 (`273`) | site_page_only | 0 | https://browser.sead.se/site/273 |
-| Tuna Raä 330 (`353`) | site_page_only | 0 | https://browser.sead.se/site/353 |
-| Tuntorps gård (`3974`) | site_page_only | 0 | https://browser.sead.se/site/3974 |
-| Turinge 415 (`396`) | site_page_only | 0 | https://browser.sead.se/site/396 |
-| Tvartorps gård (`3973`) | site_page_only | 0 | https://browser.sead.se/site/3973 |
-| Tvartorps gård (`5650`) | site_page_only | 0 | https://browser.sead.se/site/5650 |
-| Tvärgränd (`6328`) | site_page_only | 0 | https://browser.sead.se/site/6328 |
-| Tvåan, Röda kvarn (`6245`) | site_page_only | 0 | https://browser.sead.se/site/6245 |
-| Tvååker Raä 193 (`30`) | site_page_only | 0 | https://browser.sead.se/site/30 |
-| Tygapil (`3439`) | site_page_only | 0 | https://browser.sead.se/site/3439 |
-| Tynderö 27 (`400`) | site_page_only | 0 | https://browser.sead.se/site/400 |
-| Tyresö kyrka (`3972`) | site_page_only | 0 | https://browser.sead.se/site/3972 |
-| Tysk Karin Olsson i Kärvsåsen (`6247`) | site_page_only | 0 | https://browser.sead.se/site/6247 |
-| Tysk Sven i Västra Stumsnäs (`6248`) | site_page_only | 0 | https://browser.sead.se/site/6248 |
-| Tystberga kyrka (`6249`) | site_page_only | 0 | https://browser.sead.se/site/6249 |
-| Täby (`3438`) | site_page_only | 0 | https://browser.sead.se/site/3438 |
-| Täpp Kerstin i Nedre Gärdsjö (`6224`) | site_page_only | 0 | https://browser.sead.se/site/6224 |
-| Tärna hembygdsgård (`6225`) | site_page_only | 0 | https://browser.sead.se/site/6225 |
-| Tåme (`386`) | site_page_only | 0 | https://browser.sead.se/site/386 |
-| Tångerda gård (`3971`) | site_page_only | 0 | https://browser.sead.se/site/3971 |
-| Tåsjö (`5527`) | site_page_only | 0 | https://browser.sead.se/site/5527 |
-| Tåstarps kyrka (`6226`) | site_page_only | 0 | https://browser.sead.se/site/6226 |
-| Tölö Raä 173 (`161`) | site_page_only | 0 | https://browser.sead.se/site/161 |
-| Tönnersjö kyrka (`6232`) | site_page_only | 0 | https://browser.sead.se/site/6232 |
-| Töre 318:1 (`277`) | site_page_only | 0 | https://browser.sead.se/site/277 |
-| Töre 341:1 (`274`) | site_page_only | 0 | https://browser.sead.se/site/274 |
-| Töre 405:2 (`288`) | site_page_only | 0 | https://browser.sead.se/site/288 |
-| Töre 408:1 (`292`) | site_page_only | 0 | https://browser.sead.se/site/292 |
-| Töre 422 (`384`) | site_page_only | 0 | https://browser.sead.se/site/384 |
-| Töre Raä 320 (`298`) | site_page_only | 0 | https://browser.sead.se/site/298 |
-| Törnbotten (`3970`) | site_page_only | 0 | https://browser.sead.se/site/3970 |
-| Tønsberg, Peterskirken (`3436`) | site_page_only | 0 | https://browser.sead.se/site/3436 |
-| Tønsberg, Teglhagen (`3435`) | site_page_only | 0 | https://browser.sead.se/site/3435 |
-| Tønsnes (`5632`) | site_page_only | 0 | https://browser.sead.se/site/5632 |
-| Uddevalla Raä 133:1 (`58`) | site_page_only | 0 | https://browser.sead.se/site/58 |
-| Uddvide (`3434`) | site_page_only | 0 | https://browser.sead.se/site/3434 |
-| Uggelbo (`3845`) | site_page_only | 0 | https://browser.sead.se/site/3845 |
-| Uggerby Aa (`5311`) | site_page_only | 0 | https://browser.sead.se/site/5311 |
-| Ulfsparregatan 2 (`6250`) | site_page_only | 0 | https://browser.sead.se/site/6250 |
-| Ullbergs i Kall (`6251`) | site_page_only | 0 | https://browser.sead.se/site/6251 |
-| Ullisjaur (`3433`) | site_page_only | 0 | https://browser.sead.se/site/3433 |
-| Ulriksdals slott (`3969`) | site_page_only | 0 | https://browser.sead.se/site/3969 |
-| Ulvängen (`6252`) | site_page_only | 0 | https://browser.sead.se/site/6252 |
-| Umeå socken Raä 225 (`244`) | site_page_only | 0 | https://browser.sead.se/site/244 |
-| Umeå socken Raä 227 (`133`) | site_page_only | 0 | https://browser.sead.se/site/133 |
-| Umeå socken Raä 318 (`192`) | site_page_only | 0 | https://browser.sead.se/site/192 |
-| Umeå socken Raä 586 (`253`) | site_page_only | 0 | https://browser.sead.se/site/253 |
-| Umeå socken Raä 590 (`248`) | site_page_only | 0 | https://browser.sead.se/site/248 |
-| Umeå stad Raä 15 (`216`) | site_page_only | 0 | https://browser.sead.se/site/216 |
-| Umeå Stadsliden 6:6 (`148`) | site_page_only | 0 | https://browser.sead.se/site/148 |
-| Undersåker Raä 204 (`301`) | site_page_only | 0 | https://browser.sead.se/site/301 |
-| Uppsala 262:1 (`6347`) | site_page_only | 0 | https://browser.sead.se/site/6347 |
-| Uppsala 670 (`6344`) | site_page_only | 0 | https://browser.sead.se/site/6344 |
-| Uppsala 88:1 (`6346`) | site_page_only | 0 | https://browser.sead.se/site/6346 |
-| Uppsala Raä 499 (`303`) | site_page_only | 0 | https://browser.sead.se/site/303 |
-| Uppsala: Bryggaren 1 (`4700`) | site_page_only | 0 | https://browser.sead.se/site/4700 |
-| Uppsala: Bryggaren 2 (`4701`) | site_page_only | 0 | https://browser.sead.se/site/4701 |
-| Uppsala: Centrum (`4702`) | site_page_only | 0 | https://browser.sead.se/site/4702 |
-| Uppåkra (`3432`) | site_page_only | 0 | https://browser.sead.se/site/3432 |
-| Utatgården på Öhn (`6253`) | site_page_only | 0 | https://browser.sead.se/site/6253 |
-| Utmelanda (`6254`) | site_page_only | 0 | https://browser.sead.se/site/6254 |
-| V Sandudden (`3431`) | site_page_only | 0 | https://browser.sead.se/site/3431 |
-| Vadsbro kyrka (`3968`) | site_page_only | 0 | https://browser.sead.se/site/3968 |
-| Vadstena 21:1 (`6409`) | site_page_only | 0 | https://browser.sead.se/site/6409 |
-| Vadstena 35 (`6442`) | site_page_only | 0 | https://browser.sead.se/site/6442 |
-| Vadstena rådhus (`3967`) | site_page_only | 0 | https://browser.sead.se/site/3967 |
-| Vaksala Raä 300 (`341`) | site_page_only | 0 | https://browser.sead.se/site/341 |
-| Valbo kyrka (`6257`) | site_page_only | 0 | https://browser.sead.se/site/6257 |
-| Valbo Raä 399 (`246`) | site_page_only | 0 | https://browser.sead.se/site/246 |
-| Valboön (`3430`) | site_page_only | 0 | https://browser.sead.se/site/3430 |
-| Valby (`3429`) | site_page_only | 0 | https://browser.sead.se/site/3429 |
-| Valje (`3428`) | site_page_only | 0 | https://browser.sead.se/site/3428 |
-| Vall kyrka (`3966`) | site_page_only | 0 | https://browser.sead.se/site/3966 |
-| Valla (`3965`) | site_page_only | 0 | https://browser.sead.se/site/3965 |
-| Vallby (`3427`) | site_page_only | 0 | https://browser.sead.se/site/3427 |
-| Vallby kyrka (`6258`) | site_page_only | 0 | https://browser.sead.se/site/6258 |
-| Vallby, Tillberga (`4707`) | site_page_only | 0 | https://browser.sead.se/site/4707 |
-| Vallda Raä 293 (`5`) | site_page_only | 0 | https://browser.sead.se/site/5 |
-| Vallen i Gammelsträng (`6259`) | site_page_only | 0 | https://browser.sead.se/site/6259 |
-| Vallentuna 495:1 (`6423`) | site_page_only | 0 | https://browser.sead.se/site/6423 |
-| Valleröds Mosse (`5135`) | site_page_only | 0 | https://browser.sead.se/site/5135 |
-| Vallins i Östansjö (`6260`) | site_page_only | 0 | https://browser.sead.se/site/6260 |
-| Vallsnäs (`3844`) | site_page_only | 0 | https://browser.sead.se/site/3844 |
-| Vallviksvallen (`3426`) | site_page_only | 0 | https://browser.sead.se/site/3426 |
-| Valsgarde (`4708`) | site_page_only | 0 | https://browser.sead.se/site/4708 |
-| Valtersberg (`3425`) | site_page_only | 0 | https://browser.sead.se/site/3425 |
-| Valtorps kyrka (`6261`) | site_page_only | 0 | https://browser.sead.se/site/6261 |
-| Valö 123:1 (`6345`) | site_page_only | 0 | https://browser.sead.se/site/6345 |
-| Vamlingbo prästgård (`3964`) | site_page_only | 0 | https://browser.sead.se/site/3964 |
-| Vanneberga (`3424`) | site_page_only | 0 | https://browser.sead.se/site/3424 |
-| Vanserum (`3963`) | site_page_only | 0 | https://browser.sead.se/site/3963 |
-| Varbergs fästning (`6263`) | site_page_only | 0 | https://browser.sead.se/site/6263 |
-| Varras i Råsjön (`6264`) | site_page_only | 0 | https://browser.sead.se/site/6264 |
-| Vaterland 1, Oslo (`138`) | site_page_only | 0 | https://browser.sead.se/site/138 |
-| Vaxmyra (`3423`) | site_page_only | 0 | https://browser.sead.se/site/3423 |
-| Veinge kyrka (`6267`) | site_page_only | 0 | https://browser.sead.se/site/6267 |
-| Verksgatan (`3843`) | site_page_only | 0 | https://browser.sead.se/site/3843 |
-| Verkstadsstuga Östnor (`6268`) | site_page_only | 0 | https://browser.sead.se/site/6268 |
-| Verum 4:2 (`6397`) | site_page_only | 0 | https://browser.sead.se/site/6397 |
-| Veta 45 (`3422`) | site_page_only | 0 | https://browser.sead.se/site/3422 |
-| Vettsta (`3421`) | site_page_only | 0 | https://browser.sead.se/site/3421 |
-| Viborg Sonderso (`4997`) | site_page_only | 0 | https://browser.sead.se/site/4997 |
-| Viby gård (`3962`) | site_page_only | 0 | https://browser.sead.se/site/3962 |
-| Viby Raä 220 (`172`) | site_page_only | 0 | https://browser.sead.se/site/172 |
-| Viby Raä 222 (`215`) | site_page_only | 0 | https://browser.sead.se/site/215 |
-| Viby Raä 225 (`234`) | site_page_only | 0 | https://browser.sead.se/site/234 |
-| Vickleby kyrka (`3961`) | site_page_only | 0 | https://browser.sead.se/site/3961 |
-| Vieremä: Kallolampi (`5080`) | site_page_only | 0 | https://browser.sead.se/site/5080 |
-| Viggeby (`3842`) | site_page_only | 0 | https://browser.sead.se/site/3842 |
-| Viggesbo säteri (`3960`) | site_page_only | 0 | https://browser.sead.se/site/3960 |
-| Vik (`3420`) | site_page_only | 0 | https://browser.sead.se/site/3420 |
-| Vika Raä 260 (`99`) | site_page_only | 0 | https://browser.sead.se/site/99 |
-| Vikenhärbret (`6269`) | site_page_only | 0 | https://browser.sead.se/site/6269 |
-| Vikström i Bodsjö (`6270`) | site_page_only | 0 | https://browser.sead.se/site/6270 |
-| Vilhelmina Raä 1647 (`313`) | site_page_only | 0 | https://browser.sead.se/site/313 |
-| Villie kyrka (`3959`) | site_page_only | 0 | https://browser.sead.se/site/3959 |
-| Vinberg Raä 97 (`231`) | site_page_only | 0 | https://browser.sead.se/site/231 |
-| Vingåker-Kvarngölet (`3841`) | site_page_only | 0 | https://browser.sead.se/site/3841 |
-| Vintappermosen (`5063`) | site_page_only | 0 | https://browser.sead.se/site/5063 |
-| Vintriediket (`3419`) | site_page_only | 0 | https://browser.sead.se/site/3419 |
-| Vippröste (`3840`) | site_page_only | 0 | https://browser.sead.se/site/3840 |
-| Vireda kyrka (`3958`) | site_page_only | 0 | https://browser.sead.se/site/3958 |
-| Visby 107:1 (`6371`) | site_page_only | 0 | https://browser.sead.se/site/6371 |
-| Visby domkyrka (`3957`) | site_page_only | 0 | https://browser.sead.se/site/3957 |
-| Visingsö 182 (`6365`) | site_page_only | 0 | https://browser.sead.se/site/6365 |
-| Visseltofta kyrka (`3956`) | site_page_only | 0 | https://browser.sead.se/site/3956 |
-| Vistad (`3418`) | site_page_only | 0 | https://browser.sead.se/site/3418 |
-| Vita Holmen, Löwenströmska sjukhusområdet (`3955`) | site_page_only | 0 | https://browser.sead.se/site/3955 |
-| Vittsjö 24:1 (`6394`) | site_page_only | 0 | https://browser.sead.se/site/6394 |
-| Vittskövle 1:1 (`6399`) | site_page_only | 0 | https://browser.sead.se/site/6399 |
-| Vives (`3954`) | site_page_only | 0 | https://browser.sead.se/site/3954 |
-| Vojmsjön (`3417`) | site_page_only | 0 | https://browser.sead.se/site/3417 |
-| Vojmsjöns utlopp (`3416`) | site_page_only | 0 | https://browser.sead.se/site/3416 |
-| Voxtorps kyrka (`3953`) | site_page_only | 0 | https://browser.sead.se/site/3953 |
-| Vretarne Bergmans gård (`6271`) | site_page_only | 0 | https://browser.sead.se/site/6271 |
-| Vä kyrka (`6255`) | site_page_only | 0 | https://browser.sead.se/site/6255 |
-| Vähusen (`6256`) | site_page_only | 0 | https://browser.sead.se/site/6256 |
-| Vänersborg Raä 149 (`144`) | site_page_only | 0 | https://browser.sead.se/site/144 |
-| Vänge Raä 88:1 (`306`) | site_page_only | 0 | https://browser.sead.se/site/306 |
-| Värdshusbacken (`3839`) | site_page_only | 0 | https://browser.sead.se/site/3839 |
-| Värmdö kyrka (`3951`) | site_page_only | 0 | https://browser.sead.se/site/3951 |
-| Värna kyrka (`3950`) | site_page_only | 0 | https://browser.sead.se/site/3950 |
-| Värö Raä 323 (`18`) | site_page_only | 0 | https://browser.sead.se/site/18 |
-| Väsby kvarn (`3949`) | site_page_only | 0 | https://browser.sead.se/site/3949 |
-| Väsby kyrka (`3948`) | site_page_only | 0 | https://browser.sead.se/site/3948 |
-| Väster Lakbäck (`3838`) | site_page_only | 0 | https://browser.sead.se/site/3838 |
-| Västerbitterna 3:17 (`163`) | site_page_only | 0 | https://browser.sead.se/site/163 |
-| Västerbitterna Raä 34 (`198`) | site_page_only | 0 | https://browser.sead.se/site/198 |
-| Västergarn kyrka (`3947`) | site_page_only | 0 | https://browser.sead.se/site/3947 |
-| Västergård (`3946`) | site_page_only | 0 | https://browser.sead.se/site/3946 |
-| Västerhaninge Raä 201 (`383`) | site_page_only | 0 | https://browser.sead.se/site/383 |
-| Västerhaninge Raä 479 (`344`) | site_page_only | 0 | https://browser.sead.se/site/344 |
-| Västerljung Grav (`3414`) | site_page_only | 0 | https://browser.sead.se/site/3414 |
-| Västerlövsta 395:1 (`6350`) | site_page_only | 0 | https://browser.sead.se/site/6350 |
-| Västermo kyrka (`3945`) | site_page_only | 0 | https://browser.sead.se/site/3945 |
-| Västerplana kyrka (`6265`) | site_page_only | 0 | https://browser.sead.se/site/6265 |
-| Västervång (`3413`) | site_page_only | 0 | https://browser.sead.se/site/3413 |
-| Västerås 232:1 (`6402`) | site_page_only | 0 | https://browser.sead.se/site/6402 |
-| Västerås domkyrka (`3944`) | site_page_only | 0 | https://browser.sead.se/site/3944 |
-| Västra Eds kyrkoruin (`6266`) | site_page_only | 0 | https://browser.sead.se/site/6266 |
-| Västra Frölunda Raä 411 (`222`) | site_page_only | 0 | https://browser.sead.se/site/222 |
-| Västra Klagstorps kyrka (`3943`) | site_page_only | 0 | https://browser.sead.se/site/3943 |
-| Västra Nöbbelövs kyrka (`3942`) | site_page_only | 0 | https://browser.sead.se/site/3942 |
-| Västra Skälby (`268`) | site_page_only | 0 | https://browser.sead.se/site/268 |
-| Västra trädgårdsgatan 13 (`3941`) | site_page_only | 0 | https://browser.sead.se/site/3941 |
-| Vättlösa Raä 158 (`107`) | site_page_only | 0 | https://browser.sead.se/site/107 |
-| Väversunda kyrka (`3940`) | site_page_only | 0 | https://browser.sead.se/site/3940 |
-| Växjö 61:1 (`6351`) | site_page_only | 0 | https://browser.sead.se/site/6351 |
-| Våmb Raä 59 (`174`) | site_page_only | 0 | https://browser.sead.se/site/174 |
-| Våmhusvägen Bonäs (`6262`) | site_page_only | 0 | https://browser.sead.se/site/6262 |
-| Våthults kyrka (`3952`) | site_page_only | 0 | https://browser.sead.se/site/3952 |
-| Wahléns i Oxberg (`6272`) | site_page_only | 0 | https://browser.sead.se/site/6272 |
-| Waxängs gård (`6273`) | site_page_only | 0 | https://browser.sead.se/site/6273 |
-| Westööska huset (`3939`) | site_page_only | 0 | https://browser.sead.se/site/3939 |
-| Wrangelska palatset (`3922`) | site_page_only | 0 | https://browser.sead.se/site/3922 |
-| Ysby kyrka (`6274`) | site_page_only | 0 | https://browser.sead.se/site/6274 |
-| Ystad 50:1 (`6383`) | site_page_only | 0 | https://browser.sead.se/site/6383 |
-| Ytterby (`3412`) | site_page_only | 0 | https://browser.sead.se/site/3412 |
-| Ytterby Raä 22 (`302`) | site_page_only | 0 | https://browser.sead.se/site/302 |
-| Ytterselö kyrka (`6275`) | site_page_only | 0 | https://browser.sead.se/site/6275 |
-| Yttre Medväga (`178`) | site_page_only | 0 | https://browser.sead.se/site/178 |
-| Älgtjärn (`379`) | site_page_only | 0 | https://browser.sead.se/site/379 |
-| Älgtjärn, Jovan ekopark (`157`) | site_page_only | 0 | https://browser.sead.se/site/157 |
-| Älvestads kyrka (`3938`) | site_page_only | 0 | https://browser.sead.se/site/3938 |
-| Älvsbyn Raä 958 (`326`) | site_page_only | 0 | https://browser.sead.se/site/326 |
-| Ängdala (`4249`) | site_page_only | 0 | https://browser.sead.se/site/4249 |
-| Ängstigen (`3835`) | site_page_only | 0 | https://browser.sead.se/site/3835 |
-| Äskhult (`5668`) | site_page_only | 0 | https://browser.sead.se/site/5668 |
-| Åby (`3411`) | site_page_only | 0 | https://browser.sead.se/site/3411 |
-| Åby (`3837`) | site_page_only | 0 | https://browser.sead.se/site/3837 |
-| Ågren i Rännberg (`5680`) | site_page_only | 0 | https://browser.sead.se/site/5680 |
-| Åhus 23:1 (`6398`) | site_page_only | 0 | https://browser.sead.se/site/6398 |
-| Åkarp (`3836`) | site_page_only | 0 | https://browser.sead.se/site/3836 |
-| Åker 270:1 (`6376`) | site_page_only | 0 | https://browser.sead.se/site/6376 |
-| Åker 303:1 (`6443`) | site_page_only | 0 | https://browser.sead.se/site/6443 |
-| Åkerblads pensionat (`5681`) | site_page_only | 0 | https://browser.sead.se/site/5681 |
-| Åkroken (`354`) | site_page_only | 0 | https://browser.sead.se/site/354 |
-| Ål 291 (`3410`) | site_page_only | 0 | https://browser.sead.se/site/3410 |
-| Årdala kyrka (`5689`) | site_page_only | 0 | https://browser.sead.se/site/5689 |
-| Åre gamla kyrka (`5690`) | site_page_only | 0 | https://browser.sead.se/site/5690 |
-| Årebergs gård (`5691`) | site_page_only | 0 | https://browser.sead.se/site/5691 |
-| Årstad Raä 3 (`7`) | site_page_only | 0 | https://browser.sead.se/site/7 |
-| Årup (Skräbeån) (`3408`) | site_page_only | 0 | https://browser.sead.se/site/3408 |
-| Årups norre vång (`3407`) | site_page_only | 0 | https://browser.sead.se/site/3407 |
-| Ås-Husby (`3406`) | site_page_only | 0 | https://browser.sead.se/site/3406 |
-| Åsen (`6277`) | site_page_only | 0 | https://browser.sead.se/site/6277 |
-| Åssjiejávrátje (`294`) | site_page_only | 0 | https://browser.sead.se/site/294 |
-| Åsögatan (`6278`) | site_page_only | 0 | https://browser.sead.se/site/6278 |
-| Ödeshög 215:1 (`6407`) | site_page_only | 0 | https://browser.sead.se/site/6407 |
-| Ödskölt Raä 122 (`189`) | site_page_only | 0 | https://browser.sead.se/site/189 |
-| Öggestorp (`3405`) | site_page_only | 0 | https://browser.sead.se/site/3405 |
-| Öhlanders (`6044`) | site_page_only | 0 | https://browser.sead.se/site/6044 |
-| Önsbo (`3937`) | site_page_only | 0 | https://browser.sead.se/site/3937 |
-| Örberga kyrka (`3936`) | site_page_only | 0 | https://browser.sead.se/site/3936 |
-| Örby Raä 98 (`90`) | site_page_only | 0 | https://browser.sead.se/site/90 |
-| Örs kyrka (`3935`) | site_page_only | 0 | https://browser.sead.se/site/3935 |
-| Örsaskögle (`6314`) | site_page_only | 0 | https://browser.sead.se/site/6314 |
-| Örsås Raä 291 (`112`) | site_page_only | 0 | https://browser.sead.se/site/112 |
-| Örtofta slott (`6065`) | site_page_only | 0 | https://browser.sead.se/site/6065 |
-| Örup Stenhus (`6066`) | site_page_only | 0 | https://browser.sead.se/site/6066 |
-| Ösjöfors handpappersbruk (`3924`) | site_page_only | 0 | https://browser.sead.se/site/3924 |
-| Ösmo gamla prästgård (`3934`) | site_page_only | 0 | https://browser.sead.se/site/3934 |
-| Östboda (`6067`) | site_page_only | 0 | https://browser.sead.se/site/6067 |
-| Östbyhärbret (`6068`) | site_page_only | 0 | https://browser.sead.se/site/6068 |
-| Östbyvägen (`6315`) | site_page_only | 0 | https://browser.sead.se/site/6315 |
-| Östensbo (`3933`) | site_page_only | 0 | https://browser.sead.se/site/3933 |
-| Österhaninge Raä 230 (`385`) | site_page_only | 0 | https://browser.sead.se/site/385 |
-| Österhaninge Raä 238 (`340`) | site_page_only | 0 | https://browser.sead.se/site/340 |
-| Österhaninge Raä 239 (`355`) | site_page_only | 0 | https://browser.sead.se/site/355 |
-| Österhaninge Raä 72 (`368`) | site_page_only | 0 | https://browser.sead.se/site/368 |
-| Österslövs gamla prästgård (`6069`) | site_page_only | 0 | https://browser.sead.se/site/6069 |
-| Östnorsstugan (`6070`) | site_page_only | 0 | https://browser.sead.se/site/6070 |
-| Östnorsstugan stall och lider (`6071`) | site_page_only | 0 | https://browser.sead.se/site/6071 |
-| Östra Sallerups kyrka (`6072`) | site_page_only | 0 | https://browser.sead.se/site/6072 |
-| Östra Skrukeby kyrka (`3931`) | site_page_only | 0 | https://browser.sead.se/site/3931 |
-| Östra Spång (`3404`) | site_page_only | 0 | https://browser.sead.se/site/3404 |
-| Östra Söderåsen (`6073`) | site_page_only | 0 | https://browser.sead.se/site/6073 |
-| Östra Ve (`3403`) | site_page_only | 0 | https://browser.sead.se/site/3403 |
-| Östra Vrams kyrka (`3930`) | site_page_only | 0 | https://browser.sead.se/site/3930 |
-| Östrabo biskopsgård (`3929`) | site_page_only | 0 | https://browser.sead.se/site/3929 |
-| Övergran 280:1 (`6348`) | site_page_only | 0 | https://browser.sead.se/site/6348 |
-| Överlännäs Raä 20 (`94`) | site_page_only | 0 | https://browser.sead.se/site/94 |
-| Överselö kyrka (`3928`) | site_page_only | 0 | https://browser.sead.se/site/3928 |
-| Övertorneå 427 (`397`) | site_page_only | 0 | https://browser.sead.se/site/397 |
-| Övraby kyrka (`3927`) | site_page_only | 0 | https://browser.sead.se/site/3927 |
-| Övraby Raä 70 (`195`) | site_page_only | 0 | https://browser.sead.se/site/195 |
-| Övre Häfla bruk (`3926`) | site_page_only | 0 | https://browser.sead.se/site/3926 |
-| Præstelyngen i Åmosen (`4910`) | site_page_with_reference_links | 1 | https://browser.sead.se/site/4910 |
-| Skänninge Abbey (`6486`) | site_page_with_reference_links | 11 | https://browser.sead.se/site/6486 |
-| Stavsåkra (`4905`) | site_page_with_reference_links | 1 | https://browser.sead.se/site/4905 |
+| Site | Site UUID | Access visibility | Reference links | Stable site page |
+| --- | --- | --- | ---: | --- |
+| 10412 Fjälkinge (`6468`) | `e1036946-7de7-4176-b99a-fee2da820ff5` | site_page_only | 0 | https://browser.sead.se/site/6468 |
+| 10469 Kvistofta (`6469`) | `020c2aad-6e3d-40bc-b093-ce622cbda709` | site_page_only | 0 | https://browser.sead.se/site/6469 |
+| 10531 Örkelljunga (`6481`) | `65f959bc-1c25-4f2f-b114-7a6a728cbf8f` | site_page_only | 0 | https://browser.sead.se/site/6481 |
+| 10535 Skåne (`6482`) | `13af7b0f-03b7-41b1-9b57-28e71abc6274` | site_page_only | 0 | https://browser.sead.se/site/6482 |
+| 12051 Bro (`3833`) | `d80ee0d3-1156-4535-8741-752d87565743` | site_page_only | 0 | https://browser.sead.se/site/3833 |
+| 12068 Gotland (`3824`) | `5636f80d-8b9d-4970-b1de-ee914ec0041c` | site_page_only | 0 | https://browser.sead.se/site/3824 |
+| 12076 Ekeby (`3832`) | `1b0d1600-834f-46c9-a986-693e8335fc18` | site_page_only | 0 | https://browser.sead.se/site/3832 |
+| 12590 Hall (`6478`) | `b63f71db-528a-4049-b7a6-0f190ef5f042` | site_page_only | 0 | https://browser.sead.se/site/6478 |
+| 12615 Stelor (`6466`) | `930fa0c0-fa2d-4d2b-983a-2775cbd10c90` | site_page_only | 0 | https://browser.sead.se/site/6466 |
+| 12628 Länna (`6447`) | `30fdfe38-1232-4618-b25f-29cf3dc5e0e5` | site_page_only | 0 | https://browser.sead.se/site/6447 |
+| 12673 Fröjel (`6479`) | `1af2ac35-dbbe-440c-92bb-a815563b3738` | site_page_only | 0 | https://browser.sead.se/site/6479 |
+| 12709 Stenkumla (`3827`) | `f847fbd0-2dae-4a1b-a617-998c988dbec2` | site_page_only | 0 | https://browser.sead.se/site/3827 |
+| 12711 Othem (`6480`) | `6a3481f7-f8cc-43b3-ab53-5262e6cdc93b` | site_page_only | 0 | https://browser.sead.se/site/6480 |
+| 14295 Ringarum (`6453`) | `a7b5d795-4502-427d-b659-4bd26ab6a6ca` | site_page_only | 0 | https://browser.sead.se/site/6453 |
+| 14851 Norrköping (`6470`) | `370c849a-5a21-40e1-b78b-1b236834e186` | site_page_only | 0 | https://browser.sead.se/site/6470 |
+| 14885 Strömmen (`6456`) | `c1aab822-5cfc-431f-b4fc-ab4993eddaf0` | site_page_only | 0 | https://browser.sead.se/site/6456 |
+| 14889 Östergötland (`6483`) | `7c8e7d0d-2a85-41e5-881d-b4f2f0eba44b` | site_page_only | 0 | https://browser.sead.se/site/6483 |
+| 16014 Älgarås (`6330`) | `170f36bb-ecb3-4914-8900-16b66343924d` | site_page_only | 0 | https://browser.sead.se/site/6330 |
+| 16024 Finnerödja (`6332`) | `ac5c683e-c668-442a-9dc7-fcb12c625ccd` | site_page_only | 0 | https://browser.sead.se/site/6332 |
+| 16560 Hova (`6335`) | `9fa5d557-6b80-47e8-b92d-0fd0a4581367` | site_page_only | 0 | https://browser.sead.se/site/6335 |
+| 17118 Sörby (`6458`) | `68edf6a6-aae1-4d09-9495-ac2a258f36f9` | site_page_only | 0 | https://browser.sead.se/site/6458 |
+| 17200 Ödeshög (`3823`) | `26af438c-b49c-42f0-aaf5-baa55429c809` | site_page_only | 0 | https://browser.sead.se/site/3823 |
+| 41093 Tranås (`5652`) | `19d28dd7-ac23-44ab-bff0-e67c6772ccdb` | site_page_only | 0 | https://browser.sead.se/site/5652 |
+| 51840 Malung-Sälen (`6341`) | `fd845b21-fb0b-4386-b020-29cf9c1f005a` | site_page_only | 0 | https://browser.sead.se/site/6341 |
+| 57333 Yttergran (`6471`) | `f6fc2c85-68e7-46c7-912b-fc5ac9106962` | site_page_only | 0 | https://browser.sead.se/site/6471 |
+| 58060 Ölands värdshus (`6445`) | `b3dff443-7c2a-4ccd-8d98-5c980afd31cc` | site_page_only | 0 | https://browser.sead.se/site/6445 |
+| 58195 Böda (`5653`) | `cd7d3c57-c944-4c36-bd68-19e14d06a422` | site_page_only | 0 | https://browser.sead.se/site/5653 |
+| 61779 Söderåkra (`5654`) | `26fdf326-f5e6-4c48-8282-dafb9980647f` | site_page_only | 0 | https://browser.sead.se/site/5654 |
+| 62771 Norra Vallby (`6450`) | `c9982deb-8c2d-4afb-89f1-5c4229720247` | site_page_only | 0 | https://browser.sead.se/site/6450 |
+| 62790 Uppsala (`6472`) | `07869daf-f00c-47ea-aae9-a1d8abdeac0f` | site_page_only | 0 | https://browser.sead.se/site/6472 |
+| 62858 Skånela (`3826`) | `7bf79726-b25a-4b8b-b7bb-c3bdf37d80e3` | site_page_only | 0 | https://browser.sead.se/site/3826 |
+| 62928 Faringe (`3830`) | `53ff4e91-5606-47d0-b10f-1cfcd05eea4b` | site_page_only | 0 | https://browser.sead.se/site/3830 |
+| 63118 Hovsta (`6336`) | `c57522ea-0925-4871-bbd6-8fc6cac27dae` | site_page_only | 0 | https://browser.sead.se/site/6336 |
+| 66401 Västra Karaby (`6473`) | `ce8675e6-48de-4767-81a9-82ba088a86b2` | site_page_only | 0 | https://browser.sead.se/site/6473 |
+| 66501 Lyckeby (`6446`) | `34600c81-7c74-4d28-a741-ecc9866f074e` | site_page_only | 0 | https://browser.sead.se/site/6446 |
+| 66601 Tommarp (`6460`) | `adff8ada-1eaf-4d9a-9dfe-76c2a23d2b09` | site_page_only | 0 | https://browser.sead.se/site/6460 |
+| 66701 Önnerup (`6467`) | `47f8bf41-60d7-47f3-afc9-e83deb146960` | site_page_only | 0 | https://browser.sead.se/site/6467 |
+| 66863 Saxtorp (`6474`) | `65aada53-5edc-4a56-9e1a-daf5d27abbd1` | site_page_only | 0 | https://browser.sead.se/site/6474 |
+| 70500 Trollebergsvägen (`6461`) | `c30c41e5-3462-4a83-841c-f070a8e1c57c` | site_page_only | 0 | https://browser.sead.se/site/6461 |
+| 71372 Alfta (`5671`) | `6b6c4044-def4-4872-a755-8df042acdb0b` | site_page_only | 0 | https://browser.sead.se/site/5671 |
+| 71372 Arbrå (`5672`) | `8fdd1c8f-7ef5-4aac-b688-bca5ac7760c3` | site_page_only | 0 | https://browser.sead.se/site/5672 |
+| 71409 Voxna (`5673`) | `d0194ec8-944a-4890-97b5-bae4048ea3fd` | site_page_only | 0 | https://browser.sead.se/site/5673 |
+| 71410 Voxna (`5674`) | `94255f8f-3bde-452f-b622-9906b1140441` | site_page_only | 0 | https://browser.sead.se/site/5674 |
+| 71502 Gammelbokskogen (`5675`) | `2a18d5dc-ba33-4e1f-aa4f-3b9a18efd18d` | site_page_only | 0 | https://browser.sead.se/site/5675 |
+| 72180 Mariefred (`6475`) | `d939a87b-8db4-49e7-b305-ed8d1004875d` | site_page_only | 0 | https://browser.sead.se/site/6475 |
+| 72257 Lilla Malma (`3829`) | `075c5d8a-a673-4e08-acda-f8176ac68c03` | site_page_only | 0 | https://browser.sead.se/site/3829 |
+| 72775 Nyköping (`6339`) | `e5235926-d345-467d-b78e-90cd1ef14ca0` | site_page_only | 0 | https://browser.sead.se/site/6339 |
+| 75246 Eksjö (`3831`) | `b129354a-3fe2-4f28-9b20-56f33e0629b8` | site_page_only | 0 | https://browser.sead.se/site/3831 |
+| 75343 Kalmar (`6485`) | `02d4d927-c1ec-4711-a144-d4d08c76b482` | site_page_only | 0 | https://browser.sead.se/site/6485 |
+| 75437 Sjösås (`6476`) | `5ee686bf-8fc9-4227-a391-8f74c3e6ea63` | site_page_only | 0 | https://browser.sead.se/site/6476 |
+| 75501 Kalmar (`5657`) | `c853e529-ab3e-460b-bd3f-c70538a2b5c3` | site_page_only | 0 | https://browser.sead.se/site/5657 |
+| 75515 Kalmar (`5658`) | `8dac6555-30cd-4aef-837e-1ba1d472831f` | site_page_only | 0 | https://browser.sead.se/site/5658 |
+| 75519 Småland (`3821`) | `02001113-0e14-4c59-8909-602f3f3448f8` | site_page_only | 0 | https://browser.sead.se/site/3821 |
+| 75521 Småland (`3820`) | `4d201bbe-ff94-4019-bcb8-7aa31b842cd2` | site_page_only | 0 | https://browser.sead.se/site/3820 |
+| 75523 Småland (`3819`) | `bc412103-0e56-4b8d-890b-3c3b1bcdc6b4` | site_page_only | 0 | https://browser.sead.se/site/3819 |
+| 75524 Småland (`3818`) | `61e04242-ad25-43e9-80e5-eba1c6c745f3` | site_page_only | 0 | https://browser.sead.se/site/3818 |
+| 75525 Småland (`3817`) | `afd94e40-dee9-49dc-a976-3b8f950b3dcf` | site_page_only | 0 | https://browser.sead.se/site/3817 |
+| 75533 Örsjö (`3825`) | `a4bd3d00-fcbf-4232-9213-f6eaae8a3726` | site_page_only | 0 | https://browser.sead.se/site/3825 |
+| 75549 Nybro (`3828`) | `c31f6056-e97c-441c-bbda-d636eb36a079` | site_page_only | 0 | https://browser.sead.se/site/3828 |
+| 75601 Hälleberga (`5659`) | `9a214d8a-0b3b-4c32-a96d-5af13840382f` | site_page_only | 0 | https://browser.sead.se/site/5659 |
+| 75710 Jönköping (`3822`) | `05a5990a-c32b-403c-9e5a-5ca69c4e2072` | site_page_only | 0 | https://browser.sead.se/site/3822 |
+| 75847 Mörlunda (`6477`) | `b7389dcb-2a14-439a-8b26-e834d8cc4dbf` | site_page_only | 0 | https://browser.sead.se/site/6477 |
+| 77249 Blekinge (`5661`) | `b547681d-7512-4e72-994b-9080caace52d` | site_page_only | 0 | https://browser.sead.se/site/5661 |
+| 77321 Blekinge (`5663`) | `59d63ab6-0a57-43e1-bda6-e948bebb23f6` | site_page_only | 0 | https://browser.sead.se/site/5663 |
+| 78183 Hässleholm (`6334`) | `734e0a48-6ebf-4416-bd27-23f92e6a1bce` | site_page_only | 0 | https://browser.sead.se/site/6334 |
+| 80033 Tvååker (`6340`) | `af4f5011-3a76-4ce2-b690-5043c5e47aa8` | site_page_only | 0 | https://browser.sead.se/site/6340 |
+| 80501 Värö (`5667`) | `4a029e10-87af-4082-a903-85b73a562905` | site_page_only | 0 | https://browser.sead.se/site/5667 |
+| 80848 Harplinge (`6333`) | `9d3dabf3-de3e-4629-ac9f-4d43cc74a191` | site_page_only | 0 | https://browser.sead.se/site/6333 |
+| 82191 Falun (`6331`) | `2523f25b-5d23-446a-98f4-7efd896876c0` | site_page_only | 0 | https://browser.sead.se/site/6331 |
+| 82864 Malung (`6338`) | `cc544aa0-a08b-4b62-a3a9-5d944875cd3d` | site_page_only | 0 | https://browser.sead.se/site/6338 |
+| 93279 Österlövsta (`5669`) | `86459ff5-f453-432d-9767-aa9db2e2af7a` | site_page_only | 0 | https://browser.sead.se/site/5669 |
+| Abbotens hus (`4234`) | `7242043c-abdd-48ba-9176-ec8a747d1a4d` | site_page_only | 0 | https://browser.sead.se/site/4234 |
+| Abilds kyrka (`5677`) | `36f82eaf-2d6e-48f8-935f-dbeaefdd8ab8` | site_page_only | 0 | https://browser.sead.se/site/5677 |
+| Abisko 2004-5 (`5366`) | `117f6492-d1cc-4d49-bfad-be423f104b3e` | site_page_only | 0 | https://browser.sead.se/site/5366 |
+| Acksi (`5678`) | `cd9a5a8b-d5bd-4b6a-ab59-d86335e38791` | site_page_only | 0 | https://browser.sead.se/site/5678 |
+| Ada Blocks hus (`4233`) | `c444161c-fac7-45e8-80f6-5ee923ca7db8` | site_page_only | 0 | https://browser.sead.se/site/4233 |
+| Adamsbergs gård (`4232`) | `0bce5bdd-f531-42c6-8ce3-f98f30816358` | site_page_only | 0 | https://browser.sead.se/site/4232 |
+| Adelsö 119:1 (`6424`) | `6265b53b-2838-40e7-b04f-4f8f6e4ab056` | site_page_only | 0 | https://browser.sead.se/site/6424 |
+| Agerod V (`4237`) | `e908d254-1576-4f10-b3ab-c1e46c963e93` | site_page_only | 0 | https://browser.sead.se/site/4237 |
+| Agges i Flenarna (`5679`) | `9607dfcf-b33e-474f-bb10-dad032dcec55` | site_page_only | 0 | https://browser.sead.se/site/5679 |
+| Akademiska sjukhuset (`6427`) | `bcad286b-035c-409f-8d11-cb35df97d413` | site_page_only | 0 | https://browser.sead.se/site/6427 |
+| Alatornio (`5070`) | `20c942e9-37a6-4b96-bd8d-4f576543748d` | site_page_only | 0 | https://browser.sead.se/site/5070 |
+| Alavieska: Keinola (`5081`) | `44d6a9f0-04df-4b42-b3ab-8c0f2eb54619` | site_page_only | 0 | https://browser.sead.se/site/5081 |
+| Alavieska: Koiraneva (`5072`) | `06b9b2e8-4de0-4917-9234-a4ec1e6cb5d6` | site_page_only | 0 | https://browser.sead.se/site/5072 |
+| Alavieska: Kotaräme (`5092`) | `b30ab21c-377a-40b5-81d3-484cb56db926` | site_page_only | 0 | https://browser.sead.se/site/5092 |
+| Albertshög (`3813`) | `9958466e-91e8-414d-a964-816e6c69f3c6` | site_page_only | 0 | https://browser.sead.se/site/3813 |
+| Albostugan (`5682`) | `e225a9b5-459a-4c59-b0a6-3aa26ef16af9` | site_page_only | 0 | https://browser.sead.se/site/5682 |
+| Alby (`3812`) | `9467eea7-fd37-4efe-80c4-a0a3d8df125b` | site_page_only | 0 | https://browser.sead.se/site/3812 |
+| Algutsboda 79:1 (`6363`) | `3d42c3d2-ef89-40a3-8d89-15b3e7714f11` | site_page_only | 0 | https://browser.sead.se/site/6363 |
+| Alhammar (`6276`) | `942da5d1-c382-4166-b4e8-8c234974ee88` | site_page_only | 0 | https://browser.sead.se/site/6276 |
+| Allemora (`4231`) | `32741661-fd2a-41be-bde4-d7f9c1bc8c1c` | site_page_only | 0 | https://browser.sead.se/site/4231 |
+| Almare-Stäket (`6428`) | `f9916a2b-f7c4-4c06-9981-205949feda38` | site_page_only | 0 | https://browser.sead.se/site/6428 |
+| Almhov subarea 1 (`3811`) | `40fd2af3-3800-430a-ae31-ee8971ec0418` | site_page_only | 0 | https://browser.sead.se/site/3811 |
+| Alntorpsö (`5684`) | `6f5330d9-38b5-4712-85ac-9aa36fdaa18a` | site_page_only | 0 | https://browser.sead.se/site/5684 |
+| Alskogs kyrka (`4230`) | `9303be83-59e6-464c-aff2-5fd0456b4e49` | site_page_only | 0 | https://browser.sead.se/site/4230 |
+| Alva kyrka (`4229`) | `18b1c00b-b6b4-406e-8994-4a49e9676527` | site_page_only | 0 | https://browser.sead.se/site/4229 |
+| Alvajarvi: Pihtipudas (`4890`) | `94a56304-b8cb-4a76-ac40-7a7dd9dbca35` | site_page_only | 0 | https://browser.sead.se/site/4890 |
+| Alvastra (`4999`) | `0f090bc3-d4d0-4671-bbde-47512d64b5ed` | site_page_only | 0 | https://browser.sead.se/site/4999 |
+| Alvastra (`3814`) | `7bf94d2a-cd25-4b12-aecb-2d57e3374b6f` | site_page_only | 0 | https://browser.sead.se/site/3814 |
+| Alvastra Megalithic (`3810`) | `40dac98e-0697-4fc1-b56f-cc05dba36194` | site_page_only | 0 | https://browser.sead.se/site/3810 |
+| Alväng, Götlunda (`213`) | `254b72f0-c533-49de-b603-fa1df54761ff` | site_page_only | 0 | https://browser.sead.se/site/213 |
+| Amhult (`3809`) | `1569a12e-c193-4c94-b837-e8a394f90f45` | site_page_only | 0 | https://browser.sead.se/site/3809 |
+| Andersson i Lund (`5685`) | `79e44a2a-5e67-4d2f-ac57-93e91309fee5` | site_page_only | 0 | https://browser.sead.se/site/5685 |
+| Andersson i Sjör (`5686`) | `66ff3207-b8e5-488f-b0ec-3a996daf7395` | site_page_only | 0 | https://browser.sead.se/site/5686 |
+| Anderssons i Gäle (`5687`) | `b623bac0-5d81-49ea-9d2a-242478ea1ab0` | site_page_only | 0 | https://browser.sead.se/site/5687 |
+| Anderssons i Sidsjö (`5688`) | `ca59e330-00df-45de-a19d-16c686da051b` | site_page_only | 0 | https://browser.sead.se/site/5688 |
+| Andoya Lakes (`5119`) | `57acea9c-41bc-440f-80c4-db8a9f749920` | site_page_only | 0 | https://browser.sead.se/site/5119 |
+| Anfasterö (`3808`) | `2cc4e56a-1c20-41df-b0b9-6e219336490d` | site_page_only | 0 | https://browser.sead.se/site/3808 |
+| Annelöv (`3807`) | `4c2f345a-693d-42d8-aa5e-8cff9318fd14` | site_page_only | 0 | https://browser.sead.se/site/3807 |
+| Annexhemmanet (`3806`) | `4f9ba1f7-cf20-490f-bead-b15cce8a2bc0` | site_page_only | 0 | https://browser.sead.se/site/3806 |
+| Apalle (`3805`) | `d0171c4f-b332-451c-b756-675c78e6c614` | site_page_only | 0 | https://browser.sead.se/site/3805 |
+| Appelbergska magasinet (`4228`) | `bb622ba1-e9b4-454c-b8c6-c7a4ca973df0` | site_page_only | 0 | https://browser.sead.se/site/4228 |
+| Arboga Raä 65 (`394`) | `96c48f07-ebc0-4a44-bde8-5300ddde8ae6` | site_page_only | 0 | https://browser.sead.se/site/394 |
+| Arby kyrka (`4227`) | `4ed54c8d-baff-4a3d-92e0-09cb273db600` | site_page_only | 0 | https://browser.sead.se/site/4227 |
+| Arendals stamgård (`5692`) | `6d678d0a-f27e-44f3-b07e-a942b4444424` | site_page_only | 0 | https://browser.sead.se/site/5692 |
+| Arnäs Raä 256 (`131`) | `0c9dd6ac-2293-4984-99ab-a8e75e8a9ef5` | site_page_only | 0 | https://browser.sead.se/site/131 |
+| Arvidsjaur Raä 1877 (`281`) | `8055a51e-418f-4b11-8067-983bba85a413` | site_page_only | 0 | https://browser.sead.se/site/281 |
+| Arvidsjaur Raä 3913 (`270`) | `4a31321d-6215-49a8-ab1b-185532bc0986` | site_page_only | 0 | https://browser.sead.se/site/270 |
+| Arvidsjaur Raä 3941 (`263`) | `1ec22310-cde2-4478-b228-ec5d3fefde3d` | site_page_only | 0 | https://browser.sead.se/site/263 |
+| Arvidsjaur Raä 633 (`265`) | `36f1e921-6619-4ff4-bae4-c7288b878168` | site_page_only | 0 | https://browser.sead.se/site/265 |
+| Asby kyrka (`4226`) | `8022613e-f8b2-4b72-ad20-f021c9c91df4` | site_page_only | 0 | https://browser.sead.se/site/4226 |
+| Aschanska gården (`5693`) | `29e2dcff-3536-4cd3-ab63-ef8c8fcabec7` | site_page_only | 0 | https://browser.sead.se/site/5693 |
+| Askeby 271 (`6405`) | `744b57d8-cf44-46fa-a10d-272ed4b83f63` | site_page_only | 0 | https://browser.sead.se/site/6405 |
+| Askeby kyrka (`5694`) | `a2095c63-e2f4-4b28-9d70-68381a4ceca3` | site_page_only | 0 | https://browser.sead.se/site/5694 |
+| Askim Raä 281 (`87`) | `6d888e86-74b0-4b7f-9b54-1fee81e76b77` | site_page_only | 0 | https://browser.sead.se/site/87 |
+| Askim Raä 287 (`247`) | `c846062c-8b02-4a22-9b0e-8b51184e2721` | site_page_only | 0 | https://browser.sead.se/site/247 |
+| Askim Raä 290 (`245`) | `095be394-4ef5-43f9-baac-fa9b37b8d04b` | site_page_only | 0 | https://browser.sead.se/site/245 |
+| Asks kyrka (`4225`) | `968a069d-57ae-4aee-9dce-29d5ad555ac2` | site_page_only | 0 | https://browser.sead.se/site/4225 |
+| Askum raä 6 (`285`) | `6a7ff022-dfab-4952-a5de-3caf8b7d7712` | site_page_only | 0 | https://browser.sead.se/site/285 |
+| Askum Raä 67 (`267`) | `ee8352d0-8c8f-4870-9d85-e5fab0f4a8f0` | site_page_only | 0 | https://browser.sead.se/site/267 |
+| Atteby gård (`5695`) | `17249491-8081-45b7-8a46-607215ebce57` | site_page_only | 0 | https://browser.sead.se/site/5695 |
+| Augerum (`3802`) | `90bc37eb-3b85-4234-b822-a24504d9693f` | site_page_only | 0 | https://browser.sead.se/site/3802 |
+| Augerums kyrka (`5696`) | `d796e394-8e19-424a-ad9c-0983ca95e6be` | site_page_only | 0 | https://browser.sead.se/site/5696 |
+| Augland (`3801`) | `97096bb2-d004-4172-a2fd-8faddc8eecf3` | site_page_only | 0 | https://browser.sead.se/site/3801 |
+| Axamo flygplats (`3800`) | `9f7880cb-905b-4bd0-b885-2a0a08fe469d` | site_page_only | 0 | https://browser.sead.se/site/3800 |
+| Backa (`3799`) | `14a55111-a121-4649-8c36-f07046130c87` | site_page_only | 0 | https://browser.sead.se/site/3799 |
+| Backarne (`3798`) | `7eb5b74c-b512-42fe-81c9-881332f66751` | site_page_only | 0 | https://browser.sead.se/site/3798 |
+| Backollas i Risholn (`5699`) | `99bcfaa5-9b4f-4965-b4ad-44df85d4e099` | site_page_only | 0 | https://browser.sead.se/site/5699 |
+| Badelunda kyrka (`5700`) | `c1db2310-857e-4bfc-a83a-f05e5e53add0` | site_page_only | 0 | https://browser.sead.se/site/5700 |
+| Baldringe kyrka (`4224`) | `881fae1e-f63c-4a2a-8f20-e15681223332` | site_page_only | 0 | https://browser.sead.se/site/4224 |
+| Balkåkra kyrkoruin (`4223`) | `aaba223c-d5f0-47ef-a48a-d31b9f6bec0a` | site_page_only | 0 | https://browser.sead.se/site/4223 |
+| Ballingstorp (`5701`) | `95293039-0d15-4e12-b2f7-c5d068d7ccf7` | site_page_only | 0 | https://browser.sead.se/site/5701 |
+| Bankekinds kyrka (`4222`) | `573b0593-a046-42f8-9a7d-d0fd00ec7494` | site_page_only | 0 | https://browser.sead.se/site/4222 |
+| Bara (`5286`) | `4beb7051-77e2-451c-b9c5-dfed98b14468` | site_page_only | 0 | https://browser.sead.se/site/5286 |
+| Barmer (`3797`) | `0c317044-48c9-48fc-bc2d-cc2599f8660a` | site_page_only | 0 | https://browser.sead.se/site/3797 |
+| Barrsjö (`3796`) | `de9187f2-d15b-4bf3-8038-360f0f7913d7` | site_page_only | 0 | https://browser.sead.se/site/3796 |
+| Barsebäcks kyrka (`5702`) | `839fdbb4-e393-4648-9092-81c385c41cd4` | site_page_only | 0 | https://browser.sead.se/site/5702 |
+| Barshaldershed (`3795`) | `fe36e744-f27a-4379-bf9b-5cf5e9815e19` | site_page_only | 0 | https://browser.sead.se/site/3795 |
+| Beckombergavägen (`6280`) | `fc6aa63e-b376-42bd-8b8c-a83826dca393` | site_page_only | 0 | https://browser.sead.se/site/6280 |
+| Beddinge (`3794`) | `5a7032e6-3f7a-4550-94b3-d4d6c7390bc9` | site_page_only | 0 | https://browser.sead.se/site/3794 |
+| Bellmanhuset (`4221`) | `4a744ffd-924b-4b39-b592-9881e266ae2d` | site_page_only | 0 | https://browser.sead.se/site/4221 |
+| Bengtstorp (`3793`) | `6a4df8c0-b215-4655-a7e3-698416f708c8` | site_page_only | 0 | https://browser.sead.se/site/3793 |
+| Berg (`5707`) | `4daacf23-737c-4656-9114-666fafa46516` | site_page_only | 0 | https://browser.sead.se/site/5707 |
+| Berga (`3792`) | `db3250aa-218f-45b1-a919-05d521cd37d6` | site_page_only | 0 | https://browser.sead.se/site/3792 |
+| Berghem Raä 10 (`190`) | `964870fd-e622-48d1-b23a-3d6016d6b71d` | site_page_only | 0 | https://browser.sead.se/site/190 |
+| Berghem Raä 100 (`151`) | `b236f68d-3da3-40c9-a379-f26dfed3c774` | site_page_only | 0 | https://browser.sead.se/site/151 |
+| Berglundsgården i Skålö (`5708`) | `29484869-e249-43bb-8ca5-a746ce4a59ac` | site_page_only | 0 | https://browser.sead.se/site/5708 |
+| Bergmanska gården (`5709`) | `35a7ab60-a36c-4aed-b672-8340facde5d2` | site_page_only | 0 | https://browser.sead.se/site/5709 |
+| Bergolas i kyrkbyn (`5710`) | `46a4ebd6-b9e8-435b-8d39-6ce6eb217928` | site_page_only | 0 | https://browser.sead.se/site/5710 |
+| Bergsbyn (`5711`) | `24b9eab3-59f9-4046-8454-a311deaaae38` | site_page_only | 0 | https://browser.sead.se/site/5711 |
+| Berkinge Herrgård (`4220`) | `473faead-b102-415a-92e4-d4add569d7b1` | site_page_only | 0 | https://browser.sead.se/site/4220 |
+| Biby säteri (`3925`) | `da68aeab-a2cb-4b21-b82a-9d363db35bde` | site_page_only | 0 | https://browser.sead.se/site/3925 |
+| Billsta (`3918`) | `767172cd-7cf1-457c-834d-5aa3c8011880` | site_page_only | 0 | https://browser.sead.se/site/3918 |
+| Binga (`3791`) | `669cef2f-aab9-4928-ba12-792a67045829` | site_page_only | 0 | https://browser.sead.se/site/3791 |
+| Birka (`5112`) | `cde9e433-6eb5-4c79-921c-08d96cf98e50` | site_page_only | 0 | https://browser.sead.se/site/5112 |
+| Birka, Cemetery (`3790`) | `02d1710a-a08b-4f95-8914-c0dd2b20f32d` | site_page_only | 0 | https://browser.sead.se/site/3790 |
+| Birka, Settlement (`3789`) | `534ec9b4-4dfc-411e-9ac0-4d3ed88e578a` | site_page_only | 0 | https://browser.sead.se/site/3789 |
+| Biskops (`4219`) | `c95e0b67-3a85-48bc-b378-cf1cbf59aeb0` | site_page_only | 0 | https://browser.sead.se/site/4219 |
+| Biskopshuset (`4218`) | `4f273447-35f7-43cc-8284-0ee3b4c9dc56` | site_page_only | 0 | https://browser.sead.se/site/4218 |
+| Bisslinge gård (`4217`) | `53220fc7-7217-49d2-8ebe-223be0d20c2c` | site_page_only | 0 | https://browser.sead.se/site/4217 |
+| Bjurholm Raä 295 (`210`) | `c266b5ce-fdbf-42fa-8609-69925956f359` | site_page_only | 0 | https://browser.sead.se/site/210 |
+| Bjurselet (`3788`) | `388527b8-3aea-4dcd-84b2-baac66d90fa1` | site_page_only | 0 | https://browser.sead.se/site/3788 |
+| Bjuröklubb (`3787`) | `5f5686e6-7d03-46b6-8a43-e1fb8946ccd1` | site_page_only | 0 | https://browser.sead.se/site/3787 |
+| Bjus i Ygsbo (`5716`) | `9406c750-9211-40cb-aa35-79357890d90c` | site_page_only | 0 | https://browser.sead.se/site/5716 |
+| Bjälbo kyrka (`4216`) | `663dc6d5-c6af-4880-8310-32b557487654` | site_page_only | 0 | https://browser.sead.se/site/4216 |
+| Bjälbo trädgård (`6429`) | `95c2c4cb-06a4-46cb-89b7-41d045b0eb7b` | site_page_only | 0 | https://browser.sead.se/site/6429 |
+| Bjäresjö (`3786`) | `d8836fde-8c65-4fab-8c36-416c68af6cfa` | site_page_only | 0 | https://browser.sead.se/site/3786 |
+| Bjäresjö kyrka (`4215`) | `1ee2d7e1-017a-4d8c-88de-1b21a277b2b6` | site_page_only | 0 | https://browser.sead.se/site/4215 |
+| Bjärred (`3785`) | `68b5ac1a-2e2e-4db6-8152-548c1e9e620c` | site_page_only | 0 | https://browser.sead.se/site/3785 |
+| Bjärsjöholms slott (`4214`) | `551a6e4d-9b19-4892-91a1-978b53696281` | site_page_only | 0 | https://browser.sead.se/site/4214 |
+| Bjärtrå stronghold (`3784`) | `9cd52d8c-2536-409d-9c5f-e55add5d81ec` | site_page_only | 0 | https://browser.sead.se/site/3784 |
+| Bjästamon (`3783`) | `1250662f-b6f6-4016-9cfb-ead644403b11` | site_page_only | 0 | https://browser.sead.se/site/3783 |
+| Björka kyrka (`4213`) | `32bbd3a2-412c-4987-a47c-6a3e2e6ee0d1` | site_page_only | 0 | https://browser.sead.se/site/4213 |
+| Björkekärr (`3782`) | `cfe9e1b2-4fb9-4bc3-ae9e-8cba4a42f201` | site_page_only | 0 | https://browser.sead.se/site/3782 |
+| Björkeli (`91`) | `aceb3a68-80fa-4aae-ac36-dd153153e4c9` | site_page_only | 0 | https://browser.sead.se/site/91 |
+| Björken i Rälta (`5712`) | `3b93efb2-eec3-4d34-bf8c-1b0ceaf1be2c` | site_page_only | 0 | https://browser.sead.se/site/5712 |
+| Björkenäs (`3917`) | `3482932d-2bfc-4a58-ae62-f241f1179556` | site_page_only | 0 | https://browser.sead.se/site/3917 |
+| Björkeröds Mosse (`4805`) | `c02c98e1-7b70-4ea2-ab28-f3c3b41881ce` | site_page_only | 0 | https://browser.sead.se/site/4805 |
+| Björklinge 67 (`3781`) | `2dec8fcf-25cf-4652-920c-1fb3d78eb6c1` | site_page_only | 0 | https://browser.sead.se/site/3781 |
+| Björkviks säteri (`5713`) | `555b560b-5251-425f-8d92-930054721e24` | site_page_only | 0 | https://browser.sead.se/site/5713 |
+| Björkön (`3780`) | `6784d08a-4971-4d92-952c-69fd8235a25e` | site_page_only | 0 | https://browser.sead.se/site/3780 |
+| Björlanda 348 (`372`) | `aea66957-3377-47aa-af5e-de9e5c286fa2` | site_page_only | 0 | https://browser.sead.se/site/372 |
+| Björlanda 459 (`261`) | `9e19138b-dcf0-4193-b1d9-36d63b1009fd` | site_page_only | 0 | https://browser.sead.se/site/261 |
+| Björlanda Raä 374 (`307`) | `be610f9f-62f2-477e-aad0-95b7b0c3ce01` | site_page_only | 0 | https://browser.sead.se/site/307 |
+| Björlings i Färnäs (`5714`) | `8dbcbae1-2778-4ef1-8479-263c2e06bdb6` | site_page_only | 0 | https://browser.sead.se/site/5714 |
+| Björnstorp (`3779`) | `4d45fa45-b96e-4c49-a90a-325102412bd9` | site_page_only | 0 | https://browser.sead.se/site/3779 |
+| Björs i Stene (`5715`) | `c9d7099c-855d-4f4a-a404-872bc2328fbd` | site_page_only | 0 | https://browser.sead.se/site/5715 |
+| Björsjöås (`4772`) | `3d572923-fc44-4dd0-a3f0-2586703896f8` | site_page_only | 0 | https://browser.sead.se/site/4772 |
+| Blankeberg (`6281`) | `69941248-6c60-4b62-bf73-efa97c871882` | site_page_only | 0 | https://browser.sead.se/site/6281 |
+| Bleckos i Röjeråsen (`5717`) | `42de7f5d-3542-46dc-af9d-4d587b69cd75` | site_page_only | 0 | https://browser.sead.se/site/5717 |
+| Bleckstuggu Danielsgården i Almbergsbjörken (`5718`) | `27ed46fe-5bb3-42e9-8ba5-b7c3de15a70a` | site_page_only | 0 | https://browser.sead.se/site/5718 |
+| Blekingegården (`5719`) | `50df66a3-bfb4-4f3c-9277-ce70419a44b6` | site_page_only | 0 | https://browser.sead.se/site/5719 |
+| Blomstugan i Lindbodarna (`5720`) | `318ee7dc-959a-48cc-8dd8-8c012876fe2e` | site_page_only | 0 | https://browser.sead.se/site/5720 |
+| Blomtorpet i Hara (`5721`) | `da6bd0ed-abdd-4181-a360-e9acbc0e9409` | site_page_only | 0 | https://browser.sead.se/site/5721 |
+| BMR 3054 Vestre Indlæg (`128`) | `0be87dc0-5fe6-483a-9949-3f7a31e6ae59` | site_page_only | 0 | https://browser.sead.se/site/128 |
+| Boarp (`5722`) | `2efb1fb0-5d52-4876-b035-9516f9072792` | site_page_only | 0 | https://browser.sead.se/site/5722 |
+| Bobergs i Nyhyttan (`5723`) | `263891f4-6624-4742-9941-6023426d8b09` | site_page_only | 0 | https://browser.sead.se/site/5723 |
+| Bodarps kyrka (`5725`) | `2fe27bac-0580-4e97-b318-7d943f7b2e2f` | site_page_only | 0 | https://browser.sead.se/site/5725 |
+| Boddas bönhus (`5726`) | `21590010-734d-49f6-970b-2b1ba77efcac` | site_page_only | 0 | https://browser.sead.se/site/5726 |
+| Bois i Biskopsbyn (`5727`) | `ef95ac3d-c947-4c2d-9ba7-ab5961b8d05a` | site_page_only | 0 | https://browser.sead.se/site/5727 |
+| Boliden (`4287`) | `be232b3f-41ee-484e-8a61-47611786ff66` | site_page_only | 0 | https://browser.sead.se/site/4287 |
+| Bollbacken (`3778`) | `d763156a-6f7b-49db-9aa0-560be6ad2d56` | site_page_only | 0 | https://browser.sead.se/site/3778 |
+| Bollerups kyrka (`5728`) | `4ebd0dbd-0200-464d-822c-ef831388f6e8` | site_page_only | 0 | https://browser.sead.se/site/5728 |
+| Bollnäs (`4775`) | `399d5419-6e5c-4614-932e-1a0b752c36db` | site_page_only | 0 | https://browser.sead.se/site/4775 |
+| Bomsarvet (`6282`) | `99df6510-0c23-45c9-9562-df80052a4a65` | site_page_only | 0 | https://browser.sead.se/site/6282 |
+| Bond Hans i Tallhed (`5729`) | `63b8c763-e32a-4a02-997c-f65172ab93b8` | site_page_only | 0 | https://browser.sead.se/site/5729 |
+| Bonderups kyrka (`4212`) | `3fe83a56-9d5a-4477-8d85-ffdab003e52d` | site_page_only | 0 | https://browser.sead.se/site/4212 |
+| Bondes gård i Sundbornsbyn (`5730`) | `bff7fa38-2982-4b69-8c78-aaf1f856f5f0` | site_page_only | 0 | https://browser.sead.se/site/5730 |
+| Bondoll i Ersholen (`5731`) | `1c580704-c311-4800-85e5-773c30ffd896` | site_page_only | 0 | https://browser.sead.se/site/5731 |
+| Bondrumsgården (`5732`) | `7c709781-40e5-4cb5-9cc4-7f05de9a2044` | site_page_only | 0 | https://browser.sead.se/site/5732 |
+| Bonäs (`4211`) | `dacec980-b94b-4fdc-9fc9-aa46927cf497` | site_page_only | 0 | https://browser.sead.se/site/4211 |
+| Borgarhuset (`4209`) | `831806e3-4b50-4f2f-95a1-74929f9dfd21` | site_page_only | 0 | https://browser.sead.se/site/4209 |
+| Borgeby (`3777`) | `47d19ba9-928c-44cd-b1cb-1d62aa55a8ce` | site_page_only | 0 | https://browser.sead.se/site/3777 |
+| Borgeby kyrka (`5734`) | `eb0e8747-ec9b-4d8b-b59c-3cca27e96f48` | site_page_only | 0 | https://browser.sead.se/site/5734 |
+| Borgholm (`3776`) | `0c559b4a-053d-4d21-9c1d-6c3fecf19bd0` | site_page_only | 0 | https://browser.sead.se/site/3776 |
+| Borgholms stadsmuseum (`4208`) | `0f965535-9e81-4976-a99b-ef2cb9615a3d` | site_page_only | 0 | https://browser.sead.se/site/4208 |
+| Borgmästargården (`4207`) | `5fe96935-0dac-4559-88e7-fbcadddf0f9a` | site_page_only | 0 | https://browser.sead.se/site/4207 |
+| Borgsjö 165:1 (`187`) | `c1833714-d2d5-4895-a982-abcdb7e51296` | site_page_only | 0 | https://browser.sead.se/site/187 |
+| Borgsjö Raä 165 (`322`) | `3e323bf6-0dd3-4194-8f11-16d5731a09ee` | site_page_only | 0 | https://browser.sead.se/site/322 |
+| Borntorp (`3916`) | `4b11319b-6831-45d4-8b6b-b1d02b5f80eb` | site_page_only | 0 | https://browser.sead.se/site/3916 |
+| Bosarp (`4206`) | `b1a30c8d-743b-4c3b-95ec-53ddfeb62fa0` | site_page_only | 0 | https://browser.sead.se/site/4206 |
+| Bosebo kyrka (`4205`) | `758ce4dc-facb-49b0-96a4-a5be2d68fdaa` | site_page_only | 0 | https://browser.sead.se/site/4205 |
+| Bothnia lina JP 62B/62:11 (`232`) | `dd998c6b-18ab-4cf3-982a-64b09a6ec8da` | site_page_only | 0 | https://browser.sead.se/site/232 |
+| Bothnia line JP 22A (`129`) | `75f06d91-c964-484d-b90c-489f93e1c067` | site_page_only | 0 | https://browser.sead.se/site/129 |
+| Bothnia line JP 22C (`108`) | `46e7be06-183e-4477-abec-c3e8207069bf` | site_page_only | 0 | https://browser.sead.se/site/108 |
+| Bothnia line JP 22D (`237`) | `9d61b03f-0ef3-4da5-bca2-269e79fb72fb` | site_page_only | 0 | https://browser.sead.se/site/237 |
+| Bothnia line JP 31A (`175`) | `744f98a1-99f3-4801-8878-a981377ca1ee` | site_page_only | 0 | https://browser.sead.se/site/175 |
+| Bothnia line JP 31B (`236`) | `49f0c018-0b38-40d5-a339-f238c6e8ccdb` | site_page_only | 0 | https://browser.sead.se/site/236 |
+| Bothnia line JP 31D (`150`) | `a0e574f0-bacd-4e59-8bde-b413d85addf2` | site_page_only | 0 | https://browser.sead.se/site/150 |
+| Bothnia line JP 31E (`101`) | `c1f952d2-398b-4e1d-b9b6-3949e897fca9` | site_page_only | 0 | https://browser.sead.se/site/101 |
+| Bothnia line JP 31F (`104`) | `c7cb1265-36cc-4817-9fcc-112b59e23846` | site_page_only | 0 | https://browser.sead.se/site/104 |
+| Bothnia line JP 31G (`200`) | `b53ad62a-9d93-4413-b084-13c3e5e20d14` | site_page_only | 0 | https://browser.sead.se/site/200 |
+| Bothnia line JP 31H (`80`) | `6d5e5493-3c24-479c-8d82-1784ed29d3dc` | site_page_only | 0 | https://browser.sead.se/site/80 |
+| Bothnia line JP 31I (`217`) | `39063c65-2481-4425-ba9b-7303d70af546` | site_page_only | 0 | https://browser.sead.se/site/217 |
+| Bothnia line jp 31J1 (`209`) | `f36a9744-b20b-4237-abe2-7bba755b295b` | site_page_only | 0 | https://browser.sead.se/site/209 |
+| Bothnia line JP 31J2 (`117`) | `969dd5ec-ca9e-428e-9e21-4eb56810c14b` | site_page_only | 0 | https://browser.sead.se/site/117 |
+| Bothnia line JP 31J3 (`224`) | `5323f55e-a70d-45fa-94f1-3cfe4ae833ae` | site_page_only | 0 | https://browser.sead.se/site/224 |
+| Bothnia line JP 31J4 (`194`) | `2df6b061-8088-4f35-b702-56ce3959d928` | site_page_only | 0 | https://browser.sead.se/site/194 |
+| Bothnia line JP 31K (`230`) | `db97cd03-4684-4a2e-a551-06235950e26e` | site_page_only | 0 | https://browser.sead.se/site/230 |
+| Bothnia line JP 32B (`162`) | `989cb1a5-673b-43a1-b024-40d403953952` | site_page_only | 0 | https://browser.sead.se/site/162 |
+| Bothnia line JP 32C (`141`) | `d98063b6-47ac-45f4-aa90-c82183d43ab9` | site_page_only | 0 | https://browser.sead.se/site/141 |
+| Bothnia line JP 32D (`145`) | `9ff524b8-3426-46bf-9c59-225336ce5b6d` | site_page_only | 0 | https://browser.sead.se/site/145 |
+| Bothnia line JP 32E (`177`) | `288511fa-5f25-4c41-8774-82f9f46480cb` | site_page_only | 0 | https://browser.sead.se/site/177 |
+| Bothnia line JP 32F (`201`) | `dcbfd391-78c4-49ee-a0cf-e320373e25a0` | site_page_only | 0 | https://browser.sead.se/site/201 |
+| Bothnia line JP 32G (`188`) | `ec4af5ad-8056-4cde-b12c-d517363a0ef4` | site_page_only | 0 | https://browser.sead.se/site/188 |
+| Bothnia line JP 32H (`180`) | `e3a3843e-1af0-465a-869c-fad134672646` | site_page_only | 0 | https://browser.sead.se/site/180 |
+| Bothnia line JP 62A/62:17 (`130`) | `7eacff42-83a3-4df1-acdb-f3b9386d95e3` | site_page_only | 0 | https://browser.sead.se/site/130 |
+| Bothnia line JP 71A1/71:31 (`110`) | `24390676-f9c3-4023-bbf4-01589a12e890` | site_page_only | 0 | https://browser.sead.se/site/110 |
+| Bothnia line JP 71A2/71:29 (`137`) | `8abfc01e-9d9a-4102-a50a-f6df10b558e3` | site_page_only | 0 | https://browser.sead.se/site/137 |
+| Bothnia line JP 71B (`191`) | `c31cf02c-ac25-4fbb-bf15-f34ffda49f17` | site_page_only | 0 | https://browser.sead.se/site/191 |
+| Bothnia line JP 71C1/71:24 (`176`) | `b0a92f8a-b531-4adb-a74b-5d696dfe5741` | site_page_only | 0 | https://browser.sead.se/site/176 |
+| Bothnia line JP 71D/71:17 (`98`) | `bc4b4183-1559-437f-960f-24b43500d0e0` | site_page_only | 0 | https://browser.sead.se/site/98 |
+| Bothnia line JP 71E/71:14 (`86`) | `d8b205af-6cb9-4d65-9583-990220858e7e` | site_page_only | 0 | https://browser.sead.se/site/86 |
+| Bothnia line JP 71F1 (`139`) | `d5b612c2-96ea-4122-bc84-f3bd0a948d0c` | site_page_only | 0 | https://browser.sead.se/site/139 |
+| Bothnia line JP 71F2/71:12 (`179`) | `7cddaf44-27f6-4d64-b68f-0b0dc7edcb4c` | site_page_only | 0 | https://browser.sead.se/site/179 |
+| Bothnia line JP 71G/71:1 (`147`) | `c309a647-6c1e-4970-9e2c-0af4daeb88e8` | site_page_only | 0 | https://browser.sead.se/site/147 |
+| Bothnia line JP 72A/72:1 (`142`) | `e4db607a-b2d7-43f2-a26f-d77fb5fd93bc` | site_page_only | 0 | https://browser.sead.se/site/142 |
+| Bothnia line JP 72B/73:26 (`95`) | `4df5d4fb-4357-49d9-928f-32a67e6f0095` | site_page_only | 0 | https://browser.sead.se/site/95 |
+| Bothnia line JP 72C/72:2 (`114`) | `1af3c42f-f21e-459e-8b29-37a9ea655c0a` | site_page_only | 0 | https://browser.sead.se/site/114 |
+| Bothnia line JP 72E (`203`) | `bf78cf36-d13d-483a-bdb1-a0ad1a922716` | site_page_only | 0 | https://browser.sead.se/site/203 |
+| Bothnia line JP 72F1 (`206`) | `fb9a6684-2905-4d2a-95f9-6a9af73e287c` | site_page_only | 0 | https://browser.sead.se/site/206 |
+| Bothnia line JP 72G1 (`212`) | `e384d727-f050-412c-8eb8-b713bfd6421c` | site_page_only | 0 | https://browser.sead.se/site/212 |
+| Bothnia line JP 72G2 (`208`) | `9f7ea15a-d36b-4798-8d06-5f0ac84a9f4b` | site_page_only | 0 | https://browser.sead.se/site/208 |
+| Bothnia line JP 72H (`171`) | `b5b46994-f0e0-4b2a-a122-2a42bce23dab` | site_page_only | 0 | https://browser.sead.se/site/171 |
+| Bothnia line JP 72I (`183`) | `14f609f4-98bc-4a07-8d59-fb848df872b8` | site_page_only | 0 | https://browser.sead.se/site/183 |
+| Bothnia line JP 72J (`225`) | `12d880aa-857b-4961-8555-74183d485879` | site_page_only | 0 | https://browser.sead.se/site/225 |
+| Bothnia line JP 73A (`199`) | `b3ca756d-528a-42d0-ab01-f04e1099351e` | site_page_only | 0 | https://browser.sead.se/site/199 |
+| Bothnia line JP 73B (`164`) | `1bd225a9-b8fc-45a5-8747-63444c276ca8` | site_page_only | 0 | https://browser.sead.se/site/164 |
+| Bothnia line JP 73C (`226`) | `27690cd5-f763-4610-9e3a-3fb29972d07f` | site_page_only | 0 | https://browser.sead.se/site/226 |
+| Bothnia line JP 73D (`134`) | `73b6eb4d-ff03-4b56-ba0d-e1e7984e6d1a` | site_page_only | 0 | https://browser.sead.se/site/134 |
+| Bothnia line JP 73F (`220`) | `93aa892c-cdd3-48e1-b6ee-8be96332ed1d` | site_page_only | 0 | https://browser.sead.se/site/220 |
+| Bothnia line JP 73G (`193`) | `2c10187a-f6bb-40d7-bec9-c8fddde2643c` | site_page_only | 0 | https://browser.sead.se/site/193 |
+| Bothnia line JP 73H (`221`) | `9fd3121d-b71d-43b0-b77f-901ff0f31e3a` | site_page_only | 0 | https://browser.sead.se/site/221 |
+| Bothnia line JP 73J (`219`) | `78cedcc9-bfe0-4da1-8ebb-02e269d537e6` | site_page_only | 0 | https://browser.sead.se/site/219 |
+| Bothnia line JP 73K (`238`) | `c8aa2173-0184-46bf-970c-00abbc73f2ec` | site_page_only | 0 | https://browser.sead.se/site/238 |
+| Bothnia line JP 73L (`168`) | `72a46232-1141-4255-9290-8a25430d5797` | site_page_only | 0 | https://browser.sead.se/site/168 |
+| Bothnia line JP 75A/75:7 (`113`) | `369ecd30-113d-4113-9afc-f5481be80327` | site_page_only | 0 | https://browser.sead.se/site/113 |
+| Bothnia line JP 75B1 (`197`) | `2b8b6bd3-7def-4ce7-b1bb-9542fee2c138` | site_page_only | 0 | https://browser.sead.se/site/197 |
+| Bothnia line JP 75B2 (`81`) | `300e750f-d091-452f-a1f1-e2a8e8c49df5` | site_page_only | 0 | https://browser.sead.se/site/81 |
+| Bothnia line JP 75C1/75:2 (`120`) | `bcd88c31-f99b-4eb4-b73b-c9d74710793b` | site_page_only | 0 | https://browser.sead.se/site/120 |
+| Bothnia line JP 75C2 (`185`) | `9698412d-e4bc-479c-b8dc-9176163f5b4b` | site_page_only | 0 | https://browser.sead.se/site/185 |
+| Bothnia line JP 75D/75:3 (`227`) | `99534e8d-fdae-4227-847e-8620af0279fc` | site_page_only | 0 | https://browser.sead.se/site/227 |
+| Bothnia line JP 75E (`251`) | `12e799a5-67a3-4c86-80b6-16319b936357` | site_page_only | 0 | https://browser.sead.se/site/251 |
+| Botkyrka kyrka (`5735`) | `a4d9ea6f-a964-46d8-a280-e84c5b9b57d6` | site_page_only | 0 | https://browser.sead.se/site/5735 |
+| Bottna kyrka (`5736`) | `9fa1d627-3207-464c-bc00-ce7d94e97c16` | site_page_only | 0 | https://browser.sead.se/site/5736 |
+| Brahekyrkan (`4204`) | `4644e20d-95da-4877-bd06-05e5684daf3f` | site_page_only | 0 | https://browser.sead.se/site/4204 |
+| Brandstorps kyrka (`5738`) | `05094c3f-f4b8-45c8-8801-737de8ce0fe5` | site_page_only | 0 | https://browser.sead.se/site/5738 |
+| Brattbergstorpet (`279`) | `c57d5810-080e-4943-aede-b980c5e52894` | site_page_only | 0 | https://browser.sead.se/site/279 |
+| Breareds kyrka (`5739`) | `49ae2e8a-4b3d-4afd-a084-fd7c10e20c9d` | site_page_only | 0 | https://browser.sead.se/site/5739 |
+| Bredsätra kyrka (`4203`) | `82796ec0-1b8a-4667-b62c-927baca7d274` | site_page_only | 0 | https://browser.sead.se/site/4203 |
+| Bremerska gården (`5740`) | `dc2a6515-8619-430e-9a4f-4547229b73bd` | site_page_only | 0 | https://browser.sead.se/site/5740 |
+| Brevik kyrka (`5741`) | `eb4cc274-61c1-4164-8229-51c50703bfea` | site_page_only | 0 | https://browser.sead.se/site/5741 |
+| Bricken (`6283`) | `46f8d0d3-f53a-4379-a7b1-4d6ded8c49bf` | site_page_only | 0 | https://browser.sead.se/site/6283 |
+| Bringsvær (`3775`) | `0d6b197d-de35-4b9c-bdda-b1607e601dc0` | site_page_only | 0 | https://browser.sead.se/site/3775 |
+| Bro kyrka (`4202`) | `875ab058-0fcf-4081-9e09-24bb92e6227c` | site_page_only | 0 | https://browser.sead.se/site/4202 |
+| Bro Raä 195:1 (`317`) | `6dac55a6-e9d5-42c7-80aa-84324ac0f714` | site_page_only | 0 | https://browser.sead.se/site/317 |
+| Broarps gästgiveri (`4201`) | `aba6d419-15dd-4763-9179-94a8e10a9ac4` | site_page_only | 0 | https://browser.sead.se/site/4201 |
+| Brogård (`3774`) | `6c06f2c5-92be-4879-925f-47c924216b0a` | site_page_only | 0 | https://browser.sead.se/site/3774 |
+| Broläggning Rickeby (`6430`) | `7921a5d3-ee45-4082-bf95-7025733aea24` | site_page_only | 0 | https://browser.sead.se/site/6430 |
+| Bromma kyrka (`4200`) | `f41fe4eb-55e4-4f59-83f7-8dc826dea5de` | site_page_only | 0 | https://browser.sead.se/site/4200 |
+| Broåsen (`3773`) | `5a27411a-e4fb-4ae1-8d36-f3bf0b0b9c7b` | site_page_only | 0 | https://browser.sead.se/site/3773 |
+| Brudager Cemetery (`3772`) | `0d77ea8d-04ca-4403-a857-b1ff67bc65b1` | site_page_only | 0 | https://browser.sead.se/site/3772 |
+| Brudager Settlement (`3771`) | `98350a53-061d-4b34-bb9a-dd18e01e2f97` | site_page_only | 0 | https://browser.sead.se/site/3771 |
+| Bruksgatan (`3915`) | `15769e13-a5b6-46cd-b196-f58b16ba86b6` | site_page_only | 0 | https://browser.sead.se/site/3915 |
+| Brumunddal (`4301`) | `1aa3763b-bf7b-4ebb-816e-67d7ac52f217` | site_page_only | 0 | https://browser.sead.se/site/4301 |
+| Brunflo kastal (`5742`) | `85c808c3-6d76-41cc-8484-b7b30bbf30ce` | site_page_only | 0 | https://browser.sead.se/site/5742 |
+| Brunnby kyrka (`4199`) | `98b70bb3-9279-45dc-91c5-d82ca9ec6dfb` | site_page_only | 0 | https://browser.sead.se/site/4199 |
+| Brunsta gård (`4198`) | `08a231ea-e01c-4b06-9765-20b511490242` | site_page_only | 0 | https://browser.sead.se/site/4198 |
+| Bryggen (`3769`) | `14686f0f-2911-4eba-ab81-795c24172e46` | site_page_only | 0 | https://browser.sead.se/site/3769 |
+| Bryktgard i Axi (`5743`) | `8fdc1ccc-ee86-4c0d-a470-e68d3a6c41b3` | site_page_only | 0 | https://browser.sead.se/site/5743 |
+| Brynje (`5744`) | `7d47cbb9-1008-4154-acec-83f6b6660fa6` | site_page_only | 0 | https://browser.sead.se/site/5744 |
+| Brönnestads kyrka (`4197`) | `a72ce5b4-cdc7-48c2-af8c-f6baa8ea71ce` | site_page_only | 0 | https://browser.sead.se/site/4197 |
+| Budasmyren Nusnäs (`5745`) | `d4a83908-917d-46a0-bda8-b43caf5e462a` | site_page_only | 0 | https://browser.sead.se/site/5745 |
+| Bullas i Östnor (`5746`) | `59883d22-14ff-4c99-8026-c4dbe3a709f1` | site_page_only | 0 | https://browser.sead.se/site/5746 |
+| Bunkeflo 68 (`3768`) | `3c3692c3-b17e-4683-82d4-612bcc4a6471` | site_page_only | 0 | https://browser.sead.se/site/3768 |
+| Bureå Raä 11 (`252`) | `3ab301bc-5271-448f-acf2-0a0a58f07a95` | site_page_only | 0 | https://browser.sead.se/site/252 |
+| Bureå Raä 128 (`249`) | `09d9aeeb-ce57-4946-86d8-dee01ee9830b` | site_page_only | 0 | https://browser.sead.se/site/249 |
+| Burge (`4196`) | `3787c148-908c-4139-9b74-8805c95eb8f2` | site_page_only | 0 | https://browser.sead.se/site/4196 |
+| Burlöv 20C (`3767`) | `b31131a2-77c7-4aac-b1b6-0f7170ea7432` | site_page_only | 0 | https://browser.sead.se/site/3767 |
+| Burlövs gamla kyrka (`4195`) | `4f944a6e-ac52-451a-bba9-6e7afe5ee11a` | site_page_only | 0 | https://browser.sead.se/site/4195 |
+| Burmeisterska huset (`4194`) | `18f2eb6f-2efc-464f-93dc-2c7196533fa0` | site_page_only | 0 | https://browser.sead.se/site/4194 |
+| Burs kyrka (`4193`) | `496ffd25-4b83-475a-9e88-0a0815b8b8c7` | site_page_only | 0 | https://browser.sead.se/site/4193 |
+| Burträsk Raä 52 (`207`) | `ded7f271-1c0c-48ad-bddd-8ef386748f7e` | site_page_only | 0 | https://browser.sead.se/site/207 |
+| Byberget (`5747`) | `fb19a32b-526b-468e-b90e-b2261951de19` | site_page_only | 0 | https://browser.sead.se/site/5747 |
+| Bysjön (`4776`) | `2a1059cd-6206-4b1c-a8c2-a2f5c42c9ee8` | site_page_only | 0 | https://browser.sead.se/site/4776 |
+| Byss Hans i Oljonsbyn (`5748`) | `c47a5950-10e1-4276-beb0-03511b54e3fb` | site_page_only | 0 | https://browser.sead.se/site/5748 |
+| Bäckaby gamla kyrka (`5697`) | `0d8c89d5-2555-46d7-bf1c-948e1b8fbb76` | site_page_only | 0 | https://browser.sead.se/site/5697 |
+| Bäckby (`3765`) | `1dd23afe-301d-4ed9-8ddc-64c5353911d2` | site_page_only | 0 | https://browser.sead.se/site/3765 |
+| Bäckegården i Västra Utsjö (`5698`) | `99f2281f-8a3e-4a20-97ce-d0f324000060` | site_page_only | 0 | https://browser.sead.se/site/5698 |
+| Bäl kyrka (`4192`) | `0513bcc9-d134-405e-9efe-244005bfca26` | site_page_only | 0 | https://browser.sead.se/site/4192 |
+| Bälinge kyrka (`6431`) | `e02efb0f-8dd6-4cfc-a5b1-f3bc87374283` | site_page_only | 0 | https://browser.sead.se/site/6431 |
+| Bärsta (`5703`) | `766933de-9d54-4fd0-b372-fb28992f66d9` | site_page_only | 0 | https://browser.sead.se/site/5703 |
+| Bårabygd (`6279`) | `38eef92f-cb7b-4213-8099-112d9bd2c726` | site_page_only | 0 | https://browser.sead.se/site/6279 |
+| Båthus Laknäs Zorns gammelgård (`5704`) | `6a7b596b-8d84-4bdc-9872-d55bdf773ebf` | site_page_only | 0 | https://browser.sead.se/site/5704 |
+| Båthus Nusnäs Zorns gammelgård (`5705`) | `83ac71cd-36b3-4707-900b-aadbf3deae8b` | site_page_only | 0 | https://browser.sead.se/site/5705 |
+| Båthus Öje Zorns gammelgård (`5706`) | `ec6fe505-03b5-4d98-b179-b328afe89dda` | site_page_only | 0 | https://browser.sead.se/site/5706 |
+| Båtsberg (`3766`) | `26981435-75d4-4862-a7d6-796795ae05c4` | site_page_only | 0 | https://browser.sead.se/site/3766 |
+| Böösgården i Åselby (`5733`) | `937db8d8-124a-4323-b561-9d996d02e851` | site_page_only | 0 | https://browser.sead.se/site/5733 |
+| Carlshögen (`3764`) | `62981055-1366-4ca5-b266-ad16688a409f` | site_page_only | 0 | https://browser.sead.se/site/3764 |
+| Charlottendal (`3760`) | `7eb82680-0171-4539-b809-1e03031b6a2d` | site_page_only | 0 | https://browser.sead.se/site/3760 |
+| Citytunnelprojektet delområde 1 (`79`) | `20182d6a-2a34-477f-9308-56d46f670a22` | site_page_only | 0 | https://browser.sead.se/site/79 |
+| Citytunnelprojektet delområde 2 (`83`) | `c8d6beda-2167-4f81-839c-89337781fb6c` | site_page_only | 0 | https://browser.sead.se/site/83 |
+| Citytunnelprojektet delområde 3 (`105`) | `ebb48271-63c1-4e47-b419-9a4fb63fdd1e` | site_page_only | 0 | https://browser.sead.se/site/105 |
+| Citytunnelprojektet delområde 4 (`84`) | `ed3b711e-7176-49e4-85f9-9d204062e183` | site_page_only | 0 | https://browser.sead.se/site/84 |
+| Citytunnelprojektet delområde 5 (`78`) | `5b852827-324c-4645-8afd-8354915c98f5` | site_page_only | 0 | https://browser.sead.se/site/78 |
+| Citytunnelprojektet delområde 6 (`269`) | `10772750-daca-44f9-b1a6-1f12e55a1646` | site_page_only | 0 | https://browser.sead.se/site/269 |
+| Citytunnelprojektet delområde 7 (`259`) | `723bd81b-bf34-4486-890c-da31cf4d5d62` | site_page_only | 0 | https://browser.sead.se/site/259 |
+| Citytunnelprojektet delområde 8 (`357`) | `182e586e-0586-48d6-8ccb-8fb4185fa3d6` | site_page_only | 0 | https://browser.sead.se/site/357 |
+| Citytunnelprojektet delområde Hotelltomten (`257`) | `e9c2e763-8b46-4f3c-81cf-f4f01e907ae7` | site_page_only | 0 | https://browser.sead.se/site/257 |
+| Citytunnelprojektet delområdet Vintrie IP (`260`) | `bfd29055-7c4d-41f2-9c4b-e5e55a818b6e` | site_page_only | 0 | https://browser.sead.se/site/260 |
+| Copenhagen (`5528`) | `58f439e7-4ace-4385-8dc9-5185472e4af9` | site_page_only | 0 | https://browser.sead.se/site/5528 |
+| Cramérska huset (`4191`) | `1c94061f-62b9-4493-9375-5796254d3078` | site_page_only | 0 | https://browser.sead.se/site/4191 |
+| Dagstorp (SU 17) (`3754`) | `81f169ba-729c-4086-9111-2158a0c76f71` | site_page_only | 0 | https://browser.sead.se/site/3754 |
+| Dagstorp (SU 21) (`3753`) | `119ea3f0-9849-452a-9b6a-d134943778bf` | site_page_only | 0 | https://browser.sead.se/site/3753 |
+| Dagstorp 16:1 (`6389`) | `3225de14-8c88-4797-afa6-9837d13a2068` | site_page_only | 0 | https://browser.sead.se/site/6389 |
+| Dahlbergsladan Skamhed (`5750`) | `8228c92d-3c5a-41f0-8cf8-1346c3c85042` | site_page_only | 0 | https://browser.sead.se/site/5750 |
+| Dahlgrens i Nedre Gärdsjö (`5751`) | `b046a989-d943-4bbf-89f6-7dce917059ff` | site_page_only | 0 | https://browser.sead.se/site/5751 |
+| Dahlström i Sölvsved (`5752`) | `45b1f6a0-9af5-442f-85e9-98782749a274` | site_page_only | 0 | https://browser.sead.se/site/5752 |
+| Dahlströms i Vallavallen (`5753`) | `db10e0db-48af-4e80-a9be-0340bdcd40a0` | site_page_only | 0 | https://browser.sead.se/site/5753 |
+| Dahlströmska huset (`5754`) | `61f4c5dc-0993-47aa-8942-8453ea3f4bef` | site_page_only | 0 | https://browser.sead.se/site/5754 |
+| Dalby (`3752`) | `7f1eaf13-5c2c-4745-b3f4-43f63d6a6282` | site_page_only | 0 | https://browser.sead.se/site/3752 |
+| Dalby kungsgård (`4190`) | `deef55ed-34e7-4571-b95c-1de65c3cd887` | site_page_only | 0 | https://browser.sead.se/site/4190 |
+| Dalby kyrka (`4189`) | `983bbd4d-be11-49a9-81c8-1dd51523322c` | site_page_only | 0 | https://browser.sead.se/site/4189 |
+| Dalskarlstorp (`3751`) | `1a5dbca8-0eb7-497c-8835-4056b28066b6` | site_page_only | 0 | https://browser.sead.se/site/3751 |
+| Dalänger i Öster-Svartåsen (`5755`) | `4cedaa9e-c96b-427e-94a3-79880d6de5d1` | site_page_only | 0 | https://browser.sead.se/site/5755 |
+| Dammen Raä 195:1 (`61`) | `635ac2aa-056f-4180-9a88-ecb6e9dfea61` | site_page_only | 0 | https://browser.sead.se/site/61 |
+| Daniel Pers i Nedre Gärdsjö (`5756`) | `a1ffec91-b7d3-4802-9db5-437f25b67acc` | site_page_only | 0 | https://browser.sead.se/site/5756 |
+| Danielssons i Pålgård (`5757`) | `193dcc5f-be64-4225-a9a7-869b52d1c23b` | site_page_only | 0 | https://browser.sead.se/site/5757 |
+| Danmarksby (`3750`) | `33b2f482-2c86-4353-8a2d-ed52c8c39ea7` | site_page_only | 0 | https://browser.sead.se/site/3750 |
+| Danshyttan (`6284`) | `e5855b1a-93ec-4122-9a45-5d20f8edc27d` | site_page_only | 0 | https://browser.sead.se/site/6284 |
+| Danskladan i Södra Kättbo (`5758`) | `0b9d431b-18b2-4b7a-a2bf-f1a31b8a689e` | site_page_only | 0 | https://browser.sead.se/site/5758 |
+| Darsgärde (`3749`) | `50931c95-a9f8-4456-add9-f22a9e3acd8b` | site_page_only | 0 | https://browser.sead.se/site/3749 |
+| Deckers i Kyrkbyn (`5759`) | `a408ca0c-a487-4c9a-8bf9-023bb7e2ee3c` | site_page_only | 0 | https://browser.sead.se/site/5759 |
+| Deset Knubben (`243`) | `50574d48-ff58-45d9-bb87-9d51c8677ed8` | site_page_only | 0 | https://browser.sead.se/site/243 |
+| Dikmanska gården (`5760`) | `480df6e4-fd25-4425-a127-b4b38302ae0c` | site_page_only | 0 | https://browser.sead.se/site/5760 |
+| Dragby (`3747`) | `bbc7e1c4-fa87-4f67-8d7f-b3510381d23c` | site_page_only | 0 | https://browser.sead.se/site/3747 |
+| Drottningholm (`6286`) | `d85393a7-2874-4a86-adaa-b3c823ed117e` | site_page_only | 0 | https://browser.sead.se/site/6286 |
+| Drottningholms slott (`4187`) | `ab292446-9a2f-4f03-ad4e-d50700eb9b1d` | site_page_only | 0 | https://browser.sead.se/site/4187 |
+| Drändj-gard i Färnäs (`5762`) | `216d2708-70e8-4f77-a500-acc11e04dca1` | site_page_only | 0 | https://browser.sead.se/site/5762 |
+| Dubbelbod i Laxvadet (`5763`) | `e90942f1-f45e-416b-b418-f46a2cb2c157` | site_page_only | 0 | https://browser.sead.se/site/5763 |
+| Dubbelhärbre Kråkberg (`5764`) | `a1bfb618-74d0-41b5-96a3-e7b9f6746e18` | site_page_only | 0 | https://browser.sead.se/site/5764 |
+| Dädesjö gamla kyrka (`5749`) | `a2fa2d26-bc8e-499b-a67f-98647c8c2e9d` | site_page_only | 0 | https://browser.sead.se/site/5749 |
+| Dörby kyrka (`4186`) | `797bac68-f764-41c3-a6b6-b4ec527959f4` | site_page_only | 0 | https://browser.sead.se/site/4186 |
+| Dösjebro (SU 19) (`3745`) | `3d25e294-3fdd-4827-a7b8-91fdd460039c` | site_page_only | 0 | https://browser.sead.se/site/3745 |
+| Dössgården i Fudal (`5761`) | `4f3f7347-cc57-4adb-be1c-91dae2622c2a` | site_page_only | 0 | https://browser.sead.se/site/5761 |
+| Edestads kyrka (`5766`) | `bc2f009d-4faf-4c8b-8253-b2ab2d90b561` | site_page_only | 0 | https://browser.sead.se/site/5766 |
+| Edshults herrgård (`5768`) | `277f264b-c691-4b38-ac7d-5ca984630c48` | site_page_only | 0 | https://browser.sead.se/site/5768 |
+| Edsåsen (`5767`) | `a988ea61-ddf1-423e-a167-d2e0e642dfc2` | site_page_only | 0 | https://browser.sead.se/site/5767 |
+| Edvin Jannes i Kyrkbyn Boda (`5769`) | `febd8409-9e9f-4330-a3db-c6459f2c74a2` | site_page_only | 0 | https://browser.sead.se/site/5769 |
+| Edåsa kyrka (`5765`) | `5fb541ce-0913-4164-ae30-3abab5ce7dcd` | site_page_only | 0 | https://browser.sead.se/site/5765 |
+| Eftra Raä 110 (`28`) | `f3a3cecc-2c85-4b70-af1d-53722950b6e8` | site_page_only | 0 | https://browser.sead.se/site/28 |
+| Egelygård (`3744`) | `0f5fe3f8-11b6-46be-a022-4787521a8aed` | site_page_only | 0 | https://browser.sead.se/site/3744 |
+| Eggeby bytomt (`5770`) | `a987126b-2b13-4205-ad48-63be7415b120` | site_page_only | 0 | https://browser.sead.se/site/5770 |
+| Egnelius i Östra Pålgård (`5771`) | `b0dc1428-853e-40f1-a632-2a8f8c832b27` | site_page_only | 0 | https://browser.sead.se/site/5771 |
+| Egtved (`5461`) | `bdf86e16-b501-4bc6-b5b7-357cba5b3548` | site_page_only | 0 | https://browser.sead.se/site/5461 |
+| Eidanger Prestegård (`3743`) | `c832b0b7-5502-4aa8-ae58-172efe7f01e5` | site_page_only | 0 | https://browser.sead.se/site/3743 |
+| Eigebakken (`4378`) | `b1fe58d7-a162-4f16-bdab-acf4265e7e31` | site_page_only | 0 | https://browser.sead.se/site/4378 |
+| Ejby Brickworks (`5300`) | `e7d91624-e370-4f2f-a935-f32932ca9ea8` | site_page_only | 0 | https://browser.sead.se/site/5300 |
+| Eke kyrka (`4185`) | `6bc3c0a8-8dcd-450d-8c45-be104649d26e` | site_page_only | 0 | https://browser.sead.se/site/4185 |
+| Ekebo (`6287`) | `a82e242a-5b67-49ee-8136-2d082e6a3060` | site_page_only | 0 | https://browser.sead.se/site/6287 |
+| Ekeby (`3914`) | `ddbaa08d-95b9-4313-9638-dff0eb5d9e54` | site_page_only | 0 | https://browser.sead.se/site/3914 |
+| Ekeby (`3742`) | `e8465a5d-8203-4168-8f79-d9d286edff21` | site_page_only | 0 | https://browser.sead.se/site/3742 |
+| Ekeby kyrka (`4184`) | `14daead5-c8b3-416d-bb23-2af4bf41ccdb` | site_page_only | 0 | https://browser.sead.se/site/4184 |
+| Ekelunda (`4183`) | `9deb8f9d-02e5-4e65-af8b-536145211414` | site_page_only | 0 | https://browser.sead.se/site/4183 |
+| Eklundshov (`3741`) | `c540a4de-94c3-49cc-ba43-523cd994959a` | site_page_only | 0 | https://browser.sead.se/site/3741 |
+| Eknäs (`3740`) | `7d6d51d3-6b33-4ed9-aa9a-7b1d78bbff6a` | site_page_only | 0 | https://browser.sead.se/site/3740 |
+| Ektorpet (`4182`) | `6531f69e-6de4-41c8-9db8-2a4470f2e956` | site_page_only | 0 | https://browser.sead.se/site/4182 |
+| Eldhus Fageråsen (`5772`) | `78626cae-45b8-4b50-8582-893479c7c034` | site_page_only | 0 | https://browser.sead.se/site/5772 |
+| Eldhus Selja (`5773`) | `50becc05-e687-4ec9-a4f1-a59902d10852` | site_page_only | 0 | https://browser.sead.se/site/5773 |
+| Eliasgården i Tasbäck (`5774`) | `ffc5894e-d3e0-4047-83cc-79e4f428dac6` | site_page_only | 0 | https://browser.sead.se/site/5774 |
+| Elinelund (`5289`) | `7675de21-657e-4cfb-8bf8-1be17aa546fc` | site_page_only | 0 | https://browser.sead.se/site/5289 |
+| Em's herrgård (`4181`) | `c2deb3ed-0db4-4908-a2db-b1cf6c558924` | site_page_only | 0 | https://browser.sead.se/site/4181 |
+| Emilsson i Tand (`5775`) | `8edac5aa-33d1-4846-b278-be337c216a7a` | site_page_only | 0 | https://browser.sead.se/site/5775 |
+| Empohultet (`4856`) | `5f72e516-3b17-4179-8784-0e999ecacbaf` | site_page_only | 0 | https://browser.sead.se/site/4856 |
+| Engelsbergs herrgård (`5777`) | `a9c74079-364f-4cc4-b15b-4b65edaa5722` | site_page_only | 0 | https://browser.sead.se/site/5777 |
+| Enköping 26:1 (`6349`) | `ef7d0e71-1bf5-4d77-bc88-83eee873344f` | site_page_only | 0 | https://browser.sead.se/site/6349 |
+| Enån Färnäs (`5776`) | `a66de173-30a9-4644-bf2b-15e4bfa2b1a8` | site_page_only | 0 | https://browser.sead.se/site/5776 |
+| Enånger Raä 145 (`333`) | `a42ecc47-f7a6-4434-b31c-0ae28bb4bd5c` | site_page_only | 0 | https://browser.sead.se/site/333 |
+| Enånger Raä 146 (`319`) | `62486758-a224-4a84-a215-a9b55ad3701e` | site_page_only | 0 | https://browser.sead.se/site/319 |
+| Erik Hanssons i Sanna (`5778`) | `44217349-b90c-4ac4-9436-5681069b084b` | site_page_only | 0 | https://browser.sead.se/site/5778 |
+| Erik Ingels i Ovanmyra (`5779`) | `cb893474-bf8c-44bb-b0ef-42d4cdc11729` | site_page_only | 0 | https://browser.sead.se/site/5779 |
+| Erik Karlströms i Nedre Gärdsjö (`5780`) | `b2cc39d0-e22e-438f-83bb-2e9e2f5bbe24` | site_page_only | 0 | https://browser.sead.se/site/5780 |
+| Erik Laggar i Änderåsen (`5781`) | `9075b32b-2a01-4718-87ae-1c2ab11db263` | site_page_only | 0 | https://browser.sead.se/site/5781 |
+| Erik-Anders i Vallsbo (`5782`) | `33114ff6-55fe-4da3-8aa2-d8a5fc031171` | site_page_only | 0 | https://browser.sead.se/site/5782 |
+| Eriksbergs gamla kyrka (`5783`) | `0d7ff24f-99c4-4137-b1e8-838093105815` | site_page_only | 0 | https://browser.sead.se/site/5783 |
+| Erikskulle (`4180`) | `b6147543-f1f9-42c1-bd67-a90c41e0aba8` | site_page_only | 0 | https://browser.sead.se/site/4180 |
+| Erikssons i Bräcke (`5784`) | `22299dbc-1046-4f6e-8ba3-386c9ffb2416` | site_page_only | 0 | https://browser.sead.se/site/5784 |
+| Erikssons i Norrböle (`5785`) | `ee9a9f44-0ffb-4b3b-806e-279fb219537e` | site_page_only | 0 | https://browser.sead.se/site/5785 |
+| Erikssons i Orrviken (`5786`) | `f916c6d6-627b-458e-bfbd-b6de78e173e9` | site_page_only | 0 | https://browser.sead.se/site/5786 |
+| Eriksöre (`4179`) | `01fc30e4-8a8a-493b-b42a-a4080d408738` | site_page_only | 0 | https://browser.sead.se/site/4179 |
+| Erskpers i Vängsbo (`5787`) | `463ff3b8-ee48-4fde-b4d4-1a01d08ea903` | site_page_only | 0 | https://browser.sead.se/site/5787 |
+| Erstavik (`6433`) | `eea63100-3a8c-4d40-9186-42c4dfd3365d` | site_page_only | 0 | https://browser.sead.se/site/6433 |
+| Esbjerg (`5076`) | `0d6a2719-138e-4393-b1cb-b2a9adb6b8d8` | site_page_only | 0 | https://browser.sead.se/site/5076 |
+| Eskilstuna 554:1 (`6378`) | `79250e8a-2313-41a0-b8bb-a46991c88b25` | site_page_only | 0 | https://browser.sead.se/site/6378 |
+| Eslövs Mosse (`4897`) | `125622ab-22ad-49eb-b2ee-7968990aef01` | site_page_only | 0 | https://browser.sead.se/site/4897 |
+| Etelhems kyrka (`4178`) | `3be79edd-3302-4567-bfa8-e9184037ac44` | site_page_only | 0 | https://browser.sead.se/site/4178 |
+| Eura Ä Karäjämäki (`3738`) | `87e26e9f-da7e-46bd-ad87-535e40990aa3` | site_page_only | 0 | https://browser.sead.se/site/3738 |
+| Evertsberg (`5064`) | `c244509a-9b8f-45f4-ba47-4f7d85252104` | site_page_only | 0 | https://browser.sead.se/site/5064 |
+| Fagervik (`3737`) | `f4602695-a6a7-4400-98c5-2dcd7d9ad3fe` | site_page_only | 0 | https://browser.sead.se/site/3737 |
+| Fahlströmsta loftboden (`5788`) | `e488f229-71c1-48d2-b94e-ec36584886b0` | site_page_only | 0 | https://browser.sead.se/site/5788 |
+| Falköping Raä 3 (`202`) | `0b6e6c28-acc9-4584-8f6b-14b01e876cdc` | site_page_only | 0 | https://browser.sead.se/site/202 |
+| Fallebo gård (`4177`) | `d2b579a2-b1b7-4fa9-ae49-42611894798b` | site_page_only | 0 | https://browser.sead.se/site/4177 |
+| Falsterbo 15:1 (`6390`) | `14918c94-6372-4c59-bd33-f42b7d170191` | site_page_only | 0 | https://browser.sead.se/site/6390 |
+| Falsterbo kyrka (`5790`) | `ebce8e67-c08a-4c02-b04d-415a9a9dbd42` | site_page_only | 0 | https://browser.sead.se/site/5790 |
+| Falun (`4394`) | `fd0f7189-c759-4332-a724-6cb22976ac71` | site_page_only | 0 | https://browser.sead.se/site/4394 |
+| Falun Raä 68 (`170`) | `d471f18b-7fcc-4b9b-9c5e-ffe58c098b2e` | site_page_only | 0 | https://browser.sead.se/site/170 |
+| Farhults kyrka (`4176`) | `80e960a9-7d2f-4c08-a913-4b94fb5dd801` | site_page_only | 0 | https://browser.sead.se/site/4176 |
+| Farstorp (`6288`) | `2b040779-5539-4b1f-aaf5-b4c98e07e415` | site_page_only | 0 | https://browser.sead.se/site/6288 |
+| Farstorps församlingshem (`4175`) | `a64d91c4-1408-4cdb-9074-13962d6e0b2a` | site_page_only | 0 | https://browser.sead.se/site/4175 |
+| Femsølyng (`4398`) | `513a9e95-5b61-4708-9e98-bf00fce466ca` | site_page_only | 0 | https://browser.sead.se/site/4398 |
+| Finja kyrka (`5792`) | `1b4e5cda-eb27-42c2-9595-7305ff4099d3` | site_page_only | 0 | https://browser.sead.se/site/5792 |
+| Finntorp (`4174`) | `5e3a3d5c-0bd1-4832-bdc2-69f717de8a2f` | site_page_only | 0 | https://browser.sead.se/site/4174 |
+| Fiskgårdarna i Noret (`5793`) | `6dadc065-a3fc-4768-b87d-bb91e7e95009` | site_page_only | 0 | https://browser.sead.se/site/5793 |
+| Fivelstad kyrka (`4173`) | `7e013126-2705-43a6-b109-bdd755ae2e28` | site_page_only | 0 | https://browser.sead.se/site/4173 |
+| Fjellskäfte säteri (`4172`) | `0d6f9784-e765-4355-b65a-65278e132025` | site_page_only | 0 | https://browser.sead.se/site/4172 |
+| Fjällsta (`5794`) | `928bcd06-6395-4d6e-9794-65ff94ca068e` | site_page_only | 0 | https://browser.sead.se/site/5794 |
+| Fjärdmans i Övre Gärdsjö (`5795`) | `fbb4680a-f3a8-4f61-96a9-b3742eb0fbfa` | site_page_only | 0 | https://browser.sead.se/site/5795 |
+| Fjärås 486 (`3736`) | `c5f8b144-d6c1-4c1f-96d0-ba1e47f864af` | site_page_only | 0 | https://browser.sead.se/site/3736 |
+| Fjärås Raä 499 (`21`) | `ea357f3c-14a6-441c-a758-9461169af5c5` | site_page_only | 0 | https://browser.sead.se/site/21 |
+| Fjärås Raä 504 (`13`) | `fa61b1fd-32a0-46df-8742-d6ca00998849` | site_page_only | 0 | https://browser.sead.se/site/13 |
+| Fleninge 75:2 (`6381`) | `6d746e68-6ba0-485f-81f4-62338e41d3e3` | site_page_only | 0 | https://browser.sead.se/site/6381 |
+| Flensburgska gården (`5796`) | `0011aae5-761a-4438-bf4f-5384ea64893d` | site_page_only | 0 | https://browser.sead.se/site/5796 |
+| Fleringe kyrka (`4171`) | `1959c373-a8f4-4abb-bb26-06fe461f7392` | site_page_only | 0 | https://browser.sead.se/site/4171 |
+| Flint Johans i Gruddbo (`5797`) | `b4b797f4-fc63-40ec-a21c-d5e02486d30c` | site_page_only | 0 | https://browser.sead.se/site/5797 |
+| Flistads kyrka (`4170`) | `a815d7e7-0283-43f1-b155-4229b60bd5fd` | site_page_only | 0 | https://browser.sead.se/site/4170 |
+| Flivik (`5798`) | `133665e6-d44a-4d07-9a17-f8dedf6e8ea3` | site_page_only | 0 | https://browser.sead.se/site/5798 |
+| Flyndehage (`3735`) | `eeb4e5b5-8c1c-460d-806b-8f79f9951f3d` | site_page_only | 0 | https://browser.sead.se/site/3735 |
+| Flädie 9:4 (`6388`) | `5b3a8e36-b449-497d-9c83-5ae4cc675c5d` | site_page_only | 0 | https://browser.sead.se/site/6388 |
+| Flöxhult säteri (`4169`) | `129e9553-eda6-460c-bed3-02db461fac44` | site_page_only | 0 | https://browser.sead.se/site/4169 |
+| Foderbod Fudal Zorns gammelgård (`5799`) | `41037177-463f-42cf-a5ab-e3efabde43d1` | site_page_only | 0 | https://browser.sead.se/site/5799 |
+| Foderbod i Selbäck (`5800`) | `8e7c760e-ff82-4901-b163-f434dcafd67e` | site_page_only | 0 | https://browser.sead.se/site/5800 |
+| Foderbod Kansbol (`5801`) | `03049a2e-a7a8-41f8-bfe2-88b5e905c7fc` | site_page_only | 0 | https://browser.sead.se/site/5801 |
+| Follingbo kyrka (`4168`) | `22d864a6-45ba-44bb-8fe5-4b1c54c72ea0` | site_page_only | 0 | https://browser.sead.se/site/4168 |
+| Fornminnesgården (`4167`) | `e37f250a-7cd3-4d99-a654-448f0197a597` | site_page_only | 0 | https://browser.sead.se/site/4167 |
+| Fors Raä 125 (`88`) | `123f4bfd-6a33-416f-8d0d-36a01fd71412` | site_page_only | 0 | https://browser.sead.se/site/88 |
+| Fors Raä 143 (`118`) | `9f49bcf2-97f8-450f-9385-c5368273d62b` | site_page_only | 0 | https://browser.sead.se/site/118 |
+| Forsa (`318`) | `b5d80a26-b54b-44c4-9fe5-7c87d63c6775` | site_page_only | 0 | https://browser.sead.se/site/318 |
+| Forshems kyrka (`5803`) | `4443d0c1-24c5-4aeb-9944-5de138da8914` | site_page_only | 0 | https://browser.sead.se/site/5803 |
+| Forshälla Raä 140 (`64`) | `a8780bef-59c0-4def-ba80-3af0fadce15c` | site_page_only | 0 | https://browser.sead.se/site/64 |
+| Forshälla Raä 360 (`282`) | `5deca6d2-575b-4d8a-add5-ffde91b1e803` | site_page_only | 0 | https://browser.sead.se/site/282 |
+| Forskningsparken, Huddinge (`347`) | `f3d44aec-974f-41ef-80cc-d2ee13cd1830` | site_page_only | 0 | https://browser.sead.se/site/347 |
+| Forssa kyrka (`5804`) | `c5ec94d1-36c9-4004-89e0-34797031e66f` | site_page_only | 0 | https://browser.sead.se/site/5804 |
+| Forsvik (`5649`) | `2f52f911-e498-4002-988e-79f1c02eff92` | site_page_only | 0 | https://browser.sead.se/site/5649 |
+| Fosie (`3734`) | `b61aa975-a083-4bbb-b068-e55ae66a1817` | site_page_only | 0 | https://browser.sead.se/site/3734 |
+| Foss 173 (`376`) | `9ce1fe9f-410a-4bc6-9872-93daae6958ac` | site_page_only | 0 | https://browser.sead.se/site/376 |
+| Foss 217 (`287`) | `980f6002-785d-40f6-a7f7-f6243fe6b4f5` | site_page_only | 0 | https://browser.sead.se/site/287 |
+| Foss 438:1 (`324`) | `78edec9b-d93a-4761-8365-00758c1b4e8d` | site_page_only | 0 | https://browser.sead.se/site/324 |
+| Foss Raä 166 (`382`) | `2d4694fb-e09f-45c3-8238-6a6c202ad247` | site_page_only | 0 | https://browser.sead.se/site/382 |
+| Foss Raä 440 (`323`) | `479b8e20-c9b9-4d4a-bb4e-e8d18297195d` | site_page_only | 0 | https://browser.sead.se/site/323 |
+| Framgården i Nederhögen (`5805`) | `6796520c-9bd1-4b95-aea9-e5b91997cb2f` | site_page_only | 0 | https://browser.sead.se/site/5805 |
+| Fredriksberg 13D (`3732`) | `a5dfb626-e083-434f-b165-a9bbaae87474` | site_page_only | 0 | https://browser.sead.se/site/3732 |
+| Fredriksberg 13E (`3731`) | `9eff1f43-bf8e-4802-8dc2-585de6de6ed8` | site_page_only | 0 | https://browser.sead.se/site/3731 |
+| Fresta 87:3 (`393`) | `832ca06b-d5f9-4351-96e8-4b442898b08e` | site_page_only | 0 | https://browser.sead.se/site/393 |
+| Friggestad (`3913`) | `526acab1-74bc-434e-864e-e9582973c596` | site_page_only | 0 | https://browser.sead.se/site/3913 |
+| Fristad (`3730`) | `d2ee75a3-82f9-493f-a23c-3a44fa8ad4c4` | site_page_only | 0 | https://browser.sead.se/site/3730 |
+| Fröjden (`4166`) | `a3d9c052-267f-4234-8549-d744acc36477` | site_page_only | 0 | https://browser.sead.se/site/4166 |
+| Fröjel 380 (`6369`) | `e99a23ba-6b36-406b-b12b-7c766f1ed89b` | site_page_only | 0 | https://browser.sead.se/site/6369 |
+| Fröken Löfgrens gård (`4165`) | `e52feb52-2468-4640-b24a-9b372e626bf4` | site_page_only | 0 | https://browser.sead.se/site/4165 |
+| Frösö kyrka (`5806`) | `19653672-df30-4d18-847b-2bbef6155ad9` | site_page_only | 0 | https://browser.sead.se/site/5806 |
+| Frövifors bruksherrgård (`5807`) | `033bf4d7-a068-4a9c-85a6-046634a97a9b` | site_page_only | 0 | https://browser.sead.se/site/5807 |
+| Fudalboden Zorns gammelgård (`5808`) | `e7306539-d100-4452-979a-751b456c72de` | site_page_only | 0 | https://browser.sead.se/site/5808 |
+| Fudalfähus Zorns gammelgård (`5809`) | `a199083f-dc7b-4198-9469-cfb44e25312d` | site_page_only | 0 | https://browser.sead.se/site/5809 |
+| Fulltofta (`5664`) | `ff737e5f-038c-4fa5-9c75-09701c77b0ab` | site_page_only | 0 | https://browser.sead.se/site/5664 |
+| Fulltofta kyrka (`5811`) | `f3a8c77f-0f7f-4bd0-9309-80d88adfdc2f` | site_page_only | 0 | https://browser.sead.se/site/5811 |
+| Fullösa kyrka (`5810`) | `b505e7cf-07c4-4daa-baca-ab632b4647b7` | site_page_only | 0 | https://browser.sead.se/site/5810 |
+| Furingstads kyrka (`4164`) | `9c6dbdb8-e169-4bb8-b912-2aa948cd8f92` | site_page_only | 0 | https://browser.sead.se/site/4164 |
+| Fäbohagen (`4163`) | `75f58201-0334-4a17-8db0-81157a4e4867` | site_page_only | 0 | https://browser.sead.se/site/4163 |
+| Fähus Bomansberg (`5789`) | `e0e7d30f-73b3-4bbd-8e9d-df5b3d77a761` | site_page_only | 0 | https://browser.sead.se/site/5789 |
+| Färjolles i Måga (`5791`) | `2e80ec4d-4cef-45c8-baa2-0677228fcfc7` | site_page_only | 0 | https://browser.sead.se/site/5791 |
+| Färlöv (`6434`) | `288a9cea-a6fc-4b73-a76b-cf5c517ebe2c` | site_page_only | 0 | https://browser.sead.se/site/6434 |
+| Färlövs kyrka (`4162`) | `074373e7-f168-4eb8-9611-49402e600028` | site_page_only | 0 | https://browser.sead.se/site/4162 |
+| Fågelsjö (`3729`) | `134c8839-c9e7-45ec-b0df-2e920c2fc579` | site_page_only | 0 | https://browser.sead.se/site/3729 |
+| Fåglarp (`3912`) | `51304647-9903-4f6b-b6c2-b8e94be543d2` | site_page_only | 0 | https://browser.sead.se/site/3912 |
+| Föllingsö säteri (`4161`) | `1cbb1bae-963b-4c37-99bd-643d270f607a` | site_page_only | 0 | https://browser.sead.se/site/4161 |
+| Föra (`3911`) | `5a0c2c7e-4998-4c24-a6d8-a0bb8e9264e6` | site_page_only | 0 | https://browser.sead.se/site/3911 |
+| Församlingshemmet (`5802`) | `cb325228-5bee-4020-b563-73579112a3af` | site_page_only | 0 | https://browser.sead.se/site/5802 |
+| Gagnef gamla prästgård (`5812`) | `de3c7d47-447c-4a3d-b90d-0010726acd13` | site_page_only | 0 | https://browser.sead.se/site/5812 |
+| Gamla Apoteket (`4160`) | `44efd566-7878-4b09-91ed-4702f751b688` | site_page_only | 0 | https://browser.sead.se/site/4160 |
+| Gamla byvägen (`6289`) | `68e2ae7e-f449-4abf-965a-2e97d1f1bc4e` | site_page_only | 0 | https://browser.sead.se/site/6289 |
+| Gamla Linköping (`5813`) | `ce74e9b0-716d-4cc1-9aba-2e606c8d9184` | site_page_only | 0 | https://browser.sead.se/site/5813 |
+| Gamla prästgården (`4159`) | `ee98c7c2-668c-4051-b03d-e5a1adc5802c` | site_page_only | 0 | https://browser.sead.se/site/4159 |
+| Gamla rådhuset (`5814`) | `db4fa815-1e56-40ff-b10e-77cf4b31e0bd` | site_page_only | 0 | https://browser.sead.se/site/5814 |
+| Gamla Uppsala (`3728`) | `50be5ee6-51a8-46a7-99c1-129bac7b6173` | site_page_only | 0 | https://browser.sead.se/site/3728 |
+| Gamla Viker (`6290`) | `1479fe08-6436-4e81-9ad3-e66dabbdcf3d` | site_page_only | 0 | https://browser.sead.se/site/6290 |
+| Gamleby 450:1 (`6360`) | `7ecc5488-ab98-4b2b-8650-3bdcf2a0e920` | site_page_only | 0 | https://browser.sead.se/site/6360 |
+| Gammelgarn kastal (`4158`) | `d18b620b-9466-4358-af7f-1892574ef1c6` | site_page_only | 0 | https://browser.sead.se/site/4158 |
+| Gammelgarn kyrka (`4157`) | `9e536895-2053-47cc-be8c-d30ac202d9a0` | site_page_only | 0 | https://browser.sead.se/site/4157 |
+| Gammelgården i Fluren (`5815`) | `9f596bad-a7b6-4512-8696-25ad6f8af28a` | site_page_only | 0 | https://browser.sead.se/site/5815 |
+| Gammelhemmet (`5378`) | `f9966b1f-b96d-47fa-a328-22d954ce7f03` | site_page_only | 0 | https://browser.sead.se/site/5378 |
+| Gammelstad, Luleå (`364`) | `5902e5f1-13df-454b-a5a9-66cff97da7c6` | site_page_only | 0 | https://browser.sead.se/site/364 |
+| Garde kyrka (`4156`) | `b8620883-ec7a-40ce-803e-0a09d08d5f4e` | site_page_only | 0 | https://browser.sead.se/site/4156 |
+| Gathenhielmska huset (`5820`) | `68c63897-cf60-4d89-96f6-9f0e964c623f` | site_page_only | 0 | https://browser.sead.se/site/5820 |
+| Genarps kyrka (`4155`) | `951fe508-2932-4a4b-9853-7d2d7c4a0c25` | site_page_only | 0 | https://browser.sead.se/site/4155 |
+| Gene (`3727`) | `81923858-d183-48a1-8e61-f6a681d23bef` | site_page_only | 0 | https://browser.sead.se/site/3727 |
+| Getinge Raä 93 (`10`) | `7528f567-a730-4453-bf48-3895e442c4b3` | site_page_only | 0 | https://browser.sead.se/site/10 |
+| Getladan i Östanhol (`5821`) | `1d489aae-c765-49e0-ab46-9d2bef3015aa` | site_page_only | 0 | https://browser.sead.se/site/5821 |
+| Gimo Herrgård (`4154`) | `1278c0ec-330c-4f46-937f-d11137f3bfe7` | site_page_only | 0 | https://browser.sead.se/site/4154 |
+| Gisselås (`5822`) | `594e82ed-badf-4083-b9b4-f0079c506df4` | site_page_only | 0 | https://browser.sead.se/site/5822 |
+| Glabro (`4153`) | `9d3c9d5f-6f38-49e6-aaf4-c32dbb811147` | site_page_only | 0 | https://browser.sead.se/site/4153 |
+| Gladhammar 155:1 (`6359`) | `1477f046-5349-4fe6-86e3-88e43340cddc` | site_page_only | 0 | https://browser.sead.se/site/6359 |
+| Gladhammar 277:1 (`6358`) | `87e016d7-1b74-476d-b2fd-0d845dd6743d` | site_page_only | 0 | https://browser.sead.se/site/6358 |
+| Glemminge (`3726`) | `528e9f12-491e-4781-8f9d-2c7ef4601aad` | site_page_only | 0 | https://browser.sead.se/site/3726 |
+| Glimmingehus (`4152`) | `e6b74e68-d8ef-4b50-a458-2c2e55943c1c` | site_page_only | 0 | https://browser.sead.se/site/4152 |
+| Glädjen (`3725`) | `878b7c72-ed29-41ee-a93d-3bcbbd524f54` | site_page_only | 0 | https://browser.sead.se/site/3725 |
+| Gläntan (`3724`) | `dc8ad673-e9c8-4764-a10e-da53112aced3` | site_page_only | 0 | https://browser.sead.se/site/3724 |
+| Glömminge prästgård (`3910`) | `da44a54e-0495-4c12-90a2-098ca9c7a127` | site_page_only | 0 | https://browser.sead.se/site/3910 |
+| Goteborg (`4420`) | `13280be3-caca-4a83-9d8f-004e999255ec` | site_page_only | 0 | https://browser.sead.se/site/4420 |
+| Gothem kyrka (`4151`) | `89dbfb79-bd72-4e90-8d01-e4d24c9d7ee4` | site_page_only | 0 | https://browser.sead.se/site/4151 |
+| Gothenburg (`4421`) | `9655010c-2eaf-4bec-9956-dee4bc608834` | site_page_only | 0 | https://browser.sead.se/site/4421 |
+| Granbacken i Bagghyttan (`5830`) | `50bd949e-ed19-4158-b877-cbaec1d64c05` | site_page_only | 0 | https://browser.sead.se/site/5830 |
+| Grangärdes-Hästberg (`5831`) | `618d1a94-c010-4f95-b6fd-a72f9e4344fe` | site_page_only | 0 | https://browser.sead.se/site/5831 |
+| Granhults kyrka (`5832`) | `b81dd238-2e17-489c-92df-ec4db358e7ba` | site_page_only | 0 | https://browser.sead.se/site/5832 |
+| Grannas i Färnäs (`5833`) | `27473ed9-b885-42f9-95a9-a85516fe8198` | site_page_only | 0 | https://browser.sead.se/site/5833 |
+| Grevbäcks kyrka (`5834`) | `3ae54f06-4857-43ba-a571-2786d62f4834` | site_page_only | 0 | https://browser.sead.se/site/5834 |
+| Grevie 363 (`3722`) | `5e122059-532b-4c60-8a1e-b256ed2a3af9` | site_page_only | 0 | https://browser.sead.se/site/3722 |
+| Grevie 365 (`3721`) | `ef37c082-5a7c-468d-86ee-a66e08b8004a` | site_page_only | 0 | https://browser.sead.se/site/3721 |
+| Grimeton k:a (`3720`) | `a074dd4d-91b8-460b-8acc-b4f065244fe3` | site_page_only | 0 | https://browser.sead.se/site/3720 |
+| Grimmatorpet (`5835`) | `f80f4bf7-f2b8-4d99-898a-b9bcc6a47f53` | site_page_only | 0 | https://browser.sead.se/site/5835 |
+| Grimsta (`6291`) | `77a7b878-14ac-4db9-9e8c-b3d652e1c278` | site_page_only | 0 | https://browser.sead.se/site/6291 |
+| Grindstu (`4150`) | `78b44825-6381-4c09-a8fa-a2c60d84a1f7` | site_page_only | 0 | https://browser.sead.se/site/4150 |
+| Grisslehamn (`3909`) | `be6194e7-d8a3-4857-b2c3-020d33cfd231` | site_page_only | 0 | https://browser.sead.se/site/3909 |
+| Grums Raä 41:1 (`167`) | `cda1af38-b4c3-4542-b158-42c2e3af12ca` | site_page_only | 0 | https://browser.sead.se/site/167 |
+| Grundsunda Raä 121 (`196`) | `b7e71c4e-b161-4e6a-b5c6-9b12e9b1f878` | site_page_only | 0 | https://browser.sead.se/site/196 |
+| Grundsunda Raä 126 (`218`) | `03b7d694-2cab-4ee6-a08b-c4c4e46e2be6` | site_page_only | 0 | https://browser.sead.se/site/218 |
+| Grundsunda Raä 30 (`254`) | `b4ad59bd-d22c-4e65-9f46-cec8d23cf16a` | site_page_only | 0 | https://browser.sead.se/site/254 |
+| Grundsunda Raä 345 (`92`) | `d2db548a-0926-4629-beee-da5a27bece78` | site_page_only | 0 | https://browser.sead.se/site/92 |
+| Grundsunda Raä 364 (`82`) | `b5a22b84-567b-485e-859a-bfc044fb76db` | site_page_only | 0 | https://browser.sead.se/site/82 |
+| Gruvris i Gulleråsen (`5838`) | `58cf49c0-d2f8-41a0-a2f4-de205626f240` | site_page_only | 0 | https://browser.sead.se/site/5838 |
+| Gryagervej (`3716`) | `7cbb30f1-661c-48e7-a69c-22d5452188d5` | site_page_only | 0 | https://browser.sead.se/site/3716 |
+| Gräne (`3714`) | `7520b3a8-19f8-464a-9d2e-3fe8820b72b4` | site_page_only | 0 | https://browser.sead.se/site/3714 |
+| Grävsten herrgård (`4149`) | `bb77097a-0593-4699-861e-4715bf18e27a` | site_page_only | 0 | https://browser.sead.se/site/4149 |
+| Gråfjell lokal Jfp. (`3715`) | `6eac38f6-49d1-4298-a27a-4bbcff1ca323` | site_page_only | 0 | https://browser.sead.se/site/3715 |
+| Grönhult (`5648`) | `a85bf6ea-807a-4742-ae08-49cd9a82de7b` | site_page_only | 0 | https://browser.sead.se/site/5648 |
+| Grönås (`5837`) | `f098dfaf-add0-4e4a-8f39-8445c89a9d01` | site_page_only | 0 | https://browser.sead.se/site/5837 |
+| Grötlingbo 258:1 (`6373`) | `ce4bf6c9-13d3-48fb-9e46-3030ad62ffd4` | site_page_only | 0 | https://browser.sead.se/site/6373 |
+| Gualöv (`3713`) | `a6051ea5-f926-4abb-bf16-ce26cdc92f73` | site_page_only | 0 | https://browser.sead.se/site/3713 |
+| Gualöv 24 (`3712`) | `ddc92d5a-7f7a-4d5d-908e-8b0f7fe02578` | site_page_only | 0 | https://browser.sead.se/site/3712 |
+| Gubbänget i Delsbo (`5839`) | `ff4278ef-d04a-4063-adaf-d251022d724e` | site_page_only | 0 | https://browser.sead.se/site/5839 |
+| Gudme (`3711`) | `6e444157-1700-4337-9be0-732dbaf027fb` | site_page_only | 0 | https://browser.sead.se/site/3711 |
+| Gudme great hall (`3710`) | `179d8f28-110a-4727-9420-fee18666cfa4` | site_page_only | 0 | https://browser.sead.se/site/3710 |
+| Guldrupe kyrka (`4147`) | `487f255a-f21b-4fa5-8693-f8900ce106b4` | site_page_only | 0 | https://browser.sead.se/site/4147 |
+| Gullo Lars i Höjen (`5840`) | `eda4f224-0ad1-4f0c-b95d-ab8c98ab3cff` | site_page_only | 0 | https://browser.sead.se/site/5840 |
+| Gumdes i Näset (`5841`) | `29d1e3d7-9fce-40df-be49-7ca36204227b` | site_page_only | 0 | https://browser.sead.se/site/5841 |
+| Gunnarskog Raä 595 (`250`) | `72d2229f-b611-490f-bb55-e7d7b10313d4` | site_page_only | 0 | https://browser.sead.se/site/250 |
+| Gunnarsrød 6 (`136`) | `71ea6d68-f85b-497c-8236-89ed7abb81a1` | site_page_only | 0 | https://browser.sead.se/site/136 |
+| Guomojávrrit (`85`) | `6efce950-149d-4aa5-9f01-528a3ec9738b` | site_page_only | 0 | https://browser.sead.se/site/85 |
+| Gustavs Torg (`5842`) | `ff595a51-ac74-400e-9457-b3598c087453` | site_page_only | 0 | https://browser.sead.se/site/5842 |
+| Gällstaö Gård (`4145`) | `a90d8fd8-735b-4ebf-9412-8440222f5659` | site_page_only | 0 | https://browser.sead.se/site/4145 |
+| Gärdsjölindorna i Nedre Gärdsjö (`5818`) | `d6131a29-e3ac-452c-886d-febfd1e4eb18` | site_page_only | 0 | https://browser.sead.se/site/5818 |
+| Gärdslösa kyrka (`4144`) | `64f55eb6-8259-4fd7-a71d-9e34d87deee3` | site_page_only | 0 | https://browser.sead.se/site/4144 |
+| Gärdslöv (`5287`) | `808bd1d0-1b60-437a-ae83-1cab92eee55f` | site_page_only | 0 | https://browser.sead.se/site/5287 |
+| Gärdås (`5816`) | `02940ee5-6b85-4e87-b04b-4d3e688fa6ff` | site_page_only | 0 | https://browser.sead.se/site/5816 |
+| Gästgivaregården i Grådö (`5819`) | `2b25e2fc-0723-4c75-a31c-4900daac5295` | site_page_only | 0 | https://browser.sead.se/site/5819 |
+| Gävle Raä 303 (`223`) | `71f4d951-995b-4b0b-816a-c4d420db0bf1` | site_page_only | 0 | https://browser.sead.se/site/223 |
+| Gålarmora (`4146`) | `e7bbda67-61e2-4b09-80c0-7bbdf869b082` | site_page_only | 0 | https://browser.sead.se/site/4146 |
+| Gårdby 81 (`6353`) | `38953716-8937-4d32-af12-12b12ca0bffd` | site_page_only | 0 | https://browser.sead.se/site/6353 |
+| Gården Berget i Backen (`5817`) | `5433abed-d35a-4999-8453-afb44afe4ad2` | site_page_only | 0 | https://browser.sead.se/site/5817 |
+| Gåsinge-Dillnäs Raä 94 (`264`) | `ff3b8167-9461-4fe1-96ad-84816dfbba7a` | site_page_only | 0 | https://browser.sead.se/site/264 |
+| Gödelövs kyrka (`5823`) | `c14aae47-7f36-436a-87a9-339b2066fee1` | site_page_only | 0 | https://browser.sead.se/site/5823 |
+| Gödåker (`3709`) | `742e27d3-b61d-481b-866c-f8adc40fa71d` | site_page_only | 0 | https://browser.sead.se/site/3709 |
+| Gökhem 71 (`3708`) | `f4cfc3ef-a0c1-4d77-82ae-5341f1389384` | site_page_only | 0 | https://browser.sead.se/site/3708 |
+| Gökhem 78 (`3707`) | `ed9761e8-e9e5-4d48-be85-d71ac9f188bd` | site_page_only | 0 | https://browser.sead.se/site/3707 |
+| Gökhems kyrka (`5824`) | `69e20547-56a4-476e-ac26-44dc7190a0b3` | site_page_only | 0 | https://browser.sead.se/site/5824 |
+| Göran Nygårds i Nedre Gärdsjö (`5825`) | `97040d13-d1ae-43cf-bb05-62b20533a4f7` | site_page_only | 0 | https://browser.sead.se/site/5825 |
+| Göranstorp (`5826`) | `166509f3-21b5-4fe8-a5a6-6bf134fa3e18` | site_page_only | 0 | https://browser.sead.se/site/5826 |
+| Göras i Ede (`5827`) | `b4913d88-a94d-490e-b772-46f77ca4d681` | site_page_only | 0 | https://browser.sead.se/site/5827 |
+| Göta kanal, hamnen (`6436`) | `21af0ff7-06f4-4fc8-b8ea-364605002b4c` | site_page_only | 0 | https://browser.sead.se/site/6436 |
+| Göteborg Raä 218 (`146`) | `bb55a128-eeaf-4b06-bd6c-0f752f8c5223` | site_page_only | 0 | https://browser.sead.se/site/146 |
+| Göteborg Raä 365 (`152`) | `438338ac-4476-4cb6-a903-ecd288ed01e1` | site_page_only | 0 | https://browser.sead.se/site/152 |
+| Göteborg Raä 66 (`173`) | `6d02641f-6b8c-429c-8b14-151f91d4e8db` | site_page_only | 0 | https://browser.sead.se/site/173 |
+| Götene kyrka (`5828`) | `574656f3-a834-4a81-985c-164b5ce6ec7e` | site_page_only | 0 | https://browser.sead.se/site/5828 |
+| Götene Raä 52 (`228`) | `f93023ed-7623-48ba-ae09-cb63d0252ade` | site_page_only | 0 | https://browser.sead.se/site/228 |
+| Göteve kyrka (`5829`) | `1ad1aec7-a650-4453-9f1d-ace4093bca08` | site_page_only | 0 | https://browser.sead.se/site/5829 |
+| Haapajärvi: Haga (`5079`) | `9ffa3297-ff5d-490e-9f40-bc6b36dc37b2` | site_page_only | 0 | https://browser.sead.se/site/5079 |
+| Haapajärvi: Piipsanneva (`5090`) | `bd8ff794-1862-4975-badf-be4ad391d7d3` | site_page_only | 0 | https://browser.sead.se/site/5090 |
+| Hackås kyrka (`5843`) | `2d167383-4064-4ea8-b567-230b6d319608` | site_page_only | 0 | https://browser.sead.se/site/5843 |
+| Hagaloftet i Rissätra (`5844`) | `1585af5f-781a-41a7-8fac-d4cdc0703558` | site_page_only | 0 | https://browser.sead.se/site/5844 |
+| Hagalund (`5845`) | `4154912f-93a2-400d-add8-1b3a6bd3ec88` | site_page_only | 0 | https://browser.sead.se/site/5845 |
+| Hagaparken (`5670`) | `793eb188-f90f-45ac-9fb1-35268da852be` | site_page_only | 0 | https://browser.sead.se/site/5670 |
+| Hagby kyrka (`4143`) | `47772855-7860-4774-bd8c-3698cd842914` | site_page_only | 0 | https://browser.sead.se/site/4143 |
+| Hagebyhöga kyrka (`4142`) | `ebbaa6f2-770c-45c5-b8e7-a150ce8ac49a` | site_page_only | 0 | https://browser.sead.se/site/4142 |
+| Hagen i Gällö (`5846`) | `5130d185-d25b-4c01-9f00-8758fd4a22ab` | site_page_only | 0 | https://browser.sead.se/site/5846 |
+| Hagen, Bäve (`316`) | `4fae1ad7-ff63-4304-a44e-8f001913c1e0` | site_page_only | 0 | https://browser.sead.se/site/316 |
+| Hagshult 29:1 (`6368`) | `533caf84-cab1-4dd4-8663-bec6c9862c10` | site_page_only | 0 | https://browser.sead.se/site/6368 |
+| Hagshult kyrka (`5847`) | `cea7483d-53e3-4a9c-ae82-a43d41bc819f` | site_page_only | 0 | https://browser.sead.se/site/5847 |
+| Hagströms i Norrböle (`5848`) | `e0daa87f-56bc-4848-83ba-d28caea51fa5` | site_page_only | 0 | https://browser.sead.se/site/5848 |
+| Hagverksmo (`6292`) | `ab093e13-d740-448b-bcff-d12b138c85cc` | site_page_only | 0 | https://browser.sead.se/site/6292 |
+| Hakarps kyrka (`4141`) | `bf87896b-d996-40b9-a86e-f6adface5134` | site_page_only | 0 | https://browser.sead.se/site/4141 |
+| Hall i Byom (`5849`) | `9dc5b138-ce5c-4882-b76e-bc993ccf2bf9` | site_page_only | 0 | https://browser.sead.se/site/5849 |
+| Hall kyrka (`4140`) | `fb1ab8fa-fb86-4827-8c08-5b6aa0fa26dd` | site_page_only | 0 | https://browser.sead.se/site/4140 |
+| Halla kyrka, Gotland (`4138`) | `55082ea6-a9f0-4292-9f85-e667ee3a9ebb` | site_page_only | 0 | https://browser.sead.se/site/4138 |
+| Halla kyrka, Nyköping (`4139`) | `fbb27bc5-30e8-4b1a-8cf1-4e1382e055cf` | site_page_only | 0 | https://browser.sead.se/site/4139 |
+| Hallagård, Stomma kulle (`24`) | `c651e1ad-1953-4f2a-951f-1f6c5d2ab4e1` | site_page_only | 0 | https://browser.sead.se/site/24 |
+| Hallarum (`6293`) | `eafdb2b1-3968-4abf-a76b-07b2e6974243` | site_page_only | 0 | https://browser.sead.se/site/6293 |
+| Hallen (`5851`) | `d4f6ef18-1494-48c6-ac43-6e996fb21998` | site_page_only | 0 | https://browser.sead.se/site/5851 |
+| Hallens kyrka (`5852`) | `bfea4a89-6741-4796-9b3c-9a1ec1823410` | site_page_only | 0 | https://browser.sead.se/site/5852 |
+| Hallingebergs kyrka (`5854`) | `a17e362a-af5f-4679-8481-ea4a86142487` | site_page_only | 0 | https://browser.sead.se/site/5854 |
+| Hallstorps kyrka (`4136`) | `6b851070-803f-4a4a-aa2d-b33e40849d1c` | site_page_only | 0 | https://browser.sead.se/site/4136 |
+| Hallunda (`3706`) | `9b996617-7fa2-4d50-92a9-9efc4d1a5c36` | site_page_only | 0 | https://browser.sead.se/site/3706 |
+| Halmstad (`4431`) | `9afd620e-b595-44d2-a7c7-a3bd60180909` | site_page_only | 0 | https://browser.sead.se/site/4431 |
+| Halmstad Raä 44 (`15`) | `2dcd85e1-03bc-4c9e-b45b-bfb4149250b2` | site_page_only | 0 | https://browser.sead.se/site/15 |
+| Halmstads slott (`5855`) | `d833d9d8-fe39-407d-8b25-6fddd1558372` | site_page_only | 0 | https://browser.sead.se/site/5855 |
+| Halvarssons i Hammarbyn (`5856`) | `b5038435-2fc1-4bbc-ba6f-971775ec5c08` | site_page_only | 0 | https://browser.sead.se/site/5856 |
+| Hammarlunda kyrka (`4135`) | `80e1fded-df2d-4c15-98bd-de9219f4a6e0` | site_page_only | 0 | https://browser.sead.se/site/4135 |
+| Hamnparken (`3705`) | `48859fe0-1706-423c-a5b8-9638b8ab458e` | site_page_only | 0 | https://browser.sead.se/site/3705 |
+| Hamre (`3704`) | `4b7beda2-3481-4e14-80e1-4dfe4f725f49` | site_page_only | 0 | https://browser.sead.se/site/3704 |
+| Handog (`5857`) | `819c717a-81e8-429a-b908-5a78a64fbf23` | site_page_only | 0 | https://browser.sead.se/site/5857 |
+| Haneberg (`5858`) | `7d29cdbe-3ed2-494a-abe6-21170eaa1518` | site_page_only | 0 | https://browser.sead.se/site/5858 |
+| Haneberg säteri (`4134`) | `b814a095-551d-444d-9eed-026cfce56dbd` | site_page_only | 0 | https://browser.sead.se/site/4134 |
+| Hanmora gård (`5859`) | `208b849b-5ec8-4f0a-baee-72da776ab8b4` | site_page_only | 0 | https://browser.sead.se/site/5859 |
+| Hansanders i Sundsjöåsen (`5860`) | `0428644f-5f5f-4c01-be08-8db577d4402d` | site_page_only | 0 | https://browser.sead.se/site/5860 |
+| Hansbacks i Näset (`5861`) | `ff859b3f-ada3-4d65-8ce5-94536625957e` | site_page_only | 0 | https://browser.sead.se/site/5861 |
+| Hareskoven (`4867`) | `aec72599-9425-4b12-9ad6-ede8c8374daa` | site_page_only | 0 | https://browser.sead.se/site/4867 |
+| Harnosand (`4433`) | `673f92d6-5f9b-45df-a955-c17ef8efdc1f` | site_page_only | 0 | https://browser.sead.se/site/4433 |
+| Harplinge 151 (`3702`) | `3862da40-68bd-425d-bbfa-e769c927a352` | site_page_only | 0 | https://browser.sead.se/site/3702 |
+| Harplinge 155 (`3701`) | `2ebdd161-7a5a-4025-9b85-596715e16f81` | site_page_only | 0 | https://browser.sead.se/site/3701 |
+| Harpsund (`4133`) | `86f02c12-962c-433c-809e-fdbbc100e5e2` | site_page_only | 0 | https://browser.sead.se/site/4133 |
+| Hassle Bösarp (`5292`) | `a764b3c8-5890-44f2-8d46-2a77dffda2d8` | site_page_only | 0 | https://browser.sead.se/site/5292 |
+| Hasslösa (`3700`) | `60de20ae-1ec9-43ef-bb0c-d9fd3d92b380` | site_page_only | 0 | https://browser.sead.se/site/3700 |
+| Hasslöv Raä 86 (`23`) | `73d40d0d-2d4a-440b-9e4c-41bc957015bb` | site_page_only | 0 | https://browser.sead.se/site/23 |
+| Havor Cemetery (`3699`) | `59cb20fa-4abc-4175-9079-67eff07608ef` | site_page_only | 0 | https://browser.sead.se/site/3699 |
+| Havor Fort (`3698`) | `62a5d6c5-2d38-4792-b813-7cf8f14abfde` | site_page_only | 0 | https://browser.sead.se/site/3698 |
+| Hebbeska huset (`5873`) | `e8fa28eb-d325-4bd6-8c2d-505dacc85c32` | site_page_only | 0 | https://browser.sead.se/site/5873 |
+| Heda hembygdsgård (`4132`) | `b1ff405a-ce44-4399-8539-65468a71d985` | site_page_only | 0 | https://browser.sead.se/site/4132 |
+| Hedeskoga kyrka (`4131`) | `f1f2948d-d48e-4fe8-85e7-7397bb807252` | site_page_only | 0 | https://browser.sead.se/site/4131 |
+| Hedesunda Raä 113 (`205`) | `0d0d15ab-b0a7-46f1-980b-84de3359774e` | site_page_only | 0 | https://browser.sead.se/site/205 |
+| Hedningaladan Perlars i Ribbåsen (`5874`) | `71b6e472-52d8-48f0-898d-9389671f0ba5` | site_page_only | 0 | https://browser.sead.se/site/5874 |
+| Hedninghuset Erkasjers i Idbäck (`5875`) | `21f8bb6e-b0b0-4d3e-bff8-4031a1f0dc38` | site_page_only | 0 | https://browser.sead.se/site/5875 |
+| Hedningsgärdet (`373`) | `504113ab-67b9-48f6-8ba2-74083a449435` | site_page_only | 0 | https://browser.sead.se/site/373 |
+| Hejde kyrka (`4130`) | `90f62ffb-b8d5-402b-8db7-64ddce26859f` | site_page_only | 0 | https://browser.sead.se/site/4130 |
+| Helgeandsholmen (`3696`) | `fe85ec42-aeca-4702-a093-3facccb56fa7` | site_page_only | 0 | https://browser.sead.se/site/3696 |
+| Helgelsens gård (`4129`) | `69fa3ab5-6eff-432d-886a-95dc43cfe7d7` | site_page_only | 0 | https://browser.sead.se/site/4129 |
+| Helgö (`3695`) | `eac85f70-61aa-451c-bb31-d838c11025b3` | site_page_only | 0 | https://browser.sead.se/site/3695 |
+| Heliga Kors Kyrka (`5876`) | `3d1f5888-5828-4cbe-90e0-33b32e574ed9` | site_page_only | 0 | https://browser.sead.se/site/5876 |
+| Hellerö (`3694`) | `46ad0c09-8183-4881-89d6-6e1a9f53d70e` | site_page_only | 0 | https://browser.sead.se/site/3694 |
+| Hellum (`3693`) | `d3d7e409-8be6-443a-9f39-5994a16b7f09` | site_page_only | 0 | https://browser.sead.se/site/3693 |
+| Hellvi kyrka (`4128`) | `1f2b3597-a23a-4b64-8633-1fc1a3a4ae18` | site_page_only | 0 | https://browser.sead.se/site/4128 |
+| Helsingborg 226:1 (`6392`) | `4556d939-2081-4a0c-9cb9-1ce4c655d1c1` | site_page_only | 0 | https://browser.sead.se/site/6392 |
+| Helsinge (`3692`) | `0c5e1e88-8f0d-46c1-95b0-96ca0145e64e` | site_page_only | 0 | https://browser.sead.se/site/3692 |
+| Hemavan (`4917`) | `5b492871-6316-4dee-ae53-50b37320dd50` | site_page_only | 0 | https://browser.sead.se/site/4917 |
+| Hembygdsgården (`5877`) | `7c099a43-ee77-4f47-a82d-cdedde3650dd` | site_page_only | 0 | https://browser.sead.se/site/5877 |
+| Hemse kyrka (`4127`) | `6792528c-2179-4556-b984-23595d863177` | site_page_only | 0 | https://browser.sead.se/site/4127 |
+| Henriksson i Tångeråsen (`5878`) | `70e11b0c-76e0-495d-9462-0ecd9460e89a` | site_page_only | 0 | https://browser.sead.se/site/5878 |
+| Herning (`5083`) | `98ce6015-6394-444b-aa9b-f035727781d9` | site_page_only | 0 | https://browser.sead.se/site/5083 |
+| Herrestad kyrka (`4126`) | `5bd00aa3-2a7c-4978-a1f9-bd227fc818f3` | site_page_only | 0 | https://browser.sead.se/site/4126 |
+| Herrestad Raä 14 (`286`) | `76284f06-a6e1-453c-a547-4437460d12fc` | site_page_only | 0 | https://browser.sead.se/site/286 |
+| Herrökna gård (`3908`) | `302aa600-4851-44f1-bf4b-8fcadc72ea8e` | site_page_only | 0 | https://browser.sead.se/site/3908 |
+| Hessensteinska huset (`3921`) | `66d3f1b0-e339-421d-8553-8a7c897376f0` | site_page_only | 0 | https://browser.sead.se/site/3921 |
+| Hester gamla gästgiveri (`4125`) | `b460ce53-469e-4b0a-b345-239880d32475` | site_page_only | 0 | https://browser.sead.se/site/4125 |
+| Hill (`6295`) | `7f9d009f-f97c-4a3e-a35c-992b1bf9b71a` | site_page_only | 0 | https://browser.sead.se/site/6295 |
+| Hilleröd NFH A2039 (`122`) | `33e7cc9b-afa9-46a6-b601-8767aee68e67` | site_page_only | 0 | https://browser.sead.se/site/122 |
+| Himlingöje (`3691`) | `5a147c93-6a74-4f10-8c84-77f7abd50421` | site_page_only | 0 | https://browser.sead.se/site/3691 |
+| Hirvijärvi (`4857`) | `77dfccdc-eb02-4e3a-8bfd-ba4f4e6599b4` | site_page_only | 0 | https://browser.sead.se/site/4857 |
+| Hjelms bod (`5880`) | `4809f768-ce7c-4607-997d-23f3951e3176` | site_page_only | 0 | https://browser.sead.se/site/5880 |
+| Hjortgården i Lenåsen (`5881`) | `46b42de1-5f5b-4979-80ed-c3344a77cfe0` | site_page_only | 0 | https://browser.sead.se/site/5881 |
+| Hjortsberga kyrka (`5882`) | `67dab675-8b78-402e-9fa7-7339a344cadc` | site_page_only | 0 | https://browser.sead.se/site/5882 |
+| Hjulberga 1 (`3690`) | `c205a792-b323-4d91-8845-03fac4b72542` | site_page_only | 0 | https://browser.sead.se/site/3690 |
+| Hjulberga 2 (`3689`) | `49354112-e282-4644-ad9d-cee9452bc9ab` | site_page_only | 0 | https://browser.sead.se/site/3689 |
+| Hjältanstorp (`5879`) | `ab5aa559-7855-49c5-bb12-89c8a50369b9` | site_page_only | 0 | https://browser.sead.se/site/5879 |
+| Hofterups kyrka (`4124`) | `48d3c9e8-1a67-4320-9cfd-0f264725fddc` | site_page_only | 0 | https://browser.sead.se/site/4124 |
+| Hogdal 443 (`54`) | `05e19820-3ff5-4156-8066-930879c50c4d` | site_page_only | 0 | https://browser.sead.se/site/54 |
+| Hogdal 444 + 445 (`71`) | `25ee58a1-0ca5-41e6-a8d7-8a8d8af837c0` | site_page_only | 0 | https://browser.sead.se/site/71 |
+| Hogstorp (`334`) | `fd0433c5-4dda-4025-8903-6931f66fc105` | site_page_only | 0 | https://browser.sead.se/site/334 |
+| Hogstorp 327:1 (`60`) | `b407e3ca-7f6c-43e7-bc24-99550d83a7be` | site_page_only | 0 | https://browser.sead.se/site/60 |
+| Holländarhuset (`5884`) | `84256ab6-0121-4f9f-8f5e-0efc39ac9c31` | site_page_only | 0 | https://browser.sead.se/site/5884 |
+| Holmen (`6437`) | `49405b88-d89d-472d-8864-6e9180381aa5` | site_page_only | 0 | https://browser.sead.se/site/6437 |
+| Horns kyrka (`4123`) | `124fe8a8-438b-44b4-b2e2-30d87e130ee3` | site_page_only | 0 | https://browser.sead.se/site/4123 |
+| Hossmo kyrka (`4122`) | `043cd6a7-6ccf-408b-b68a-92ce62be8c56` | site_page_only | 0 | https://browser.sead.se/site/4122 |
+| Hovdala slott (`4121`) | `c9a36da6-d86c-48e6-9da5-e0c443c53c93` | site_page_only | 0 | https://browser.sead.se/site/4121 |
+| Hovs kyrka (`4120`) | `c8f0d201-46cc-4623-bce8-e0ab8cc2e371` | site_page_only | 0 | https://browser.sead.se/site/4120 |
+| Hubbo (`3687`) | `528a1a26-cae4-45cb-a590-796e84be3c78` | site_page_only | 0 | https://browser.sead.se/site/3687 |
+| Hucksjöåsen (`6296`) | `606cfd49-ead2-48eb-9388-19b09f0a0d66` | site_page_only | 0 | https://browser.sead.se/site/6296 |
+| Huddunge 252 (`6342`) | `77daedcf-d5dd-44cc-a778-b82170f26c66` | site_page_only | 0 | https://browser.sead.se/site/6342 |
+| Hulevik (`6297`) | `6356bfab-ceed-456e-910a-045db816104a` | site_page_only | 0 | https://browser.sead.se/site/6297 |
+| Hulterstads kyrka (`4119`) | `8d16cd64-4f52-47b1-ad6d-ae6c74f5fbcb` | site_page_only | 0 | https://browser.sead.se/site/4119 |
+| Hults gård (`5886`) | `a1622c4f-d4b0-4be7-8df0-b36723676e4b` | site_page_only | 0 | https://browser.sead.se/site/5886 |
+| Hults kulla (`3907`) | `e134e033-976f-4ff7-8b98-5046f2e095a4` | site_page_only | 0 | https://browser.sead.se/site/3907 |
+| Hults kyrka (`4118`) | `b0adac24-00cc-4e92-817b-595f8e272378` | site_page_only | 0 | https://browser.sead.se/site/4118 |
+| Hune hall/Arlösa (`3685`) | `d2577cca-004a-48d8-b588-894925b215ea` | site_page_only | 0 | https://browser.sead.se/site/3685 |
+| Hunneberget (`3684`) | `79da55cb-5303-496d-8918-8ec83297e5fc` | site_page_only | 0 | https://browser.sead.se/site/3684 |
+| Hunnebergsgatan (`3906`) | `ca39e951-7745-4e4c-8e84-7627921796b3` | site_page_only | 0 | https://browser.sead.se/site/3906 |
+| Hunnebergsgatan 30A (`4117`) | `673287d2-df18-4435-9b1c-fb6167fde8a6` | site_page_only | 0 | https://browser.sead.se/site/4117 |
+| Husby (`3683`) | `38f8cc03-f28e-49d4-81f5-368a98a3e73d` | site_page_only | 0 | https://browser.sead.se/site/3683 |
+| Husby (`3905`) | `67390b0c-0c5a-4f19-b674-a1e4d79ae301` | site_page_only | 0 | https://browser.sead.se/site/3905 |
+| Husby, Ingjaldshögen (`3682`) | `f7899102-f67b-4b50-8048-4d1639d7af53` | site_page_only | 0 | https://browser.sead.se/site/3682 |
+| Husie bog (`6454`) | `ad52550b-28fc-4525-a6cb-639ea9c77450` | site_page_only | 0 | https://browser.sead.se/site/6454 |
+| Hyggby (`3681`) | `8127cbde-12b9-42a5-a0f6-8e625c9715e6` | site_page_only | 0 | https://browser.sead.se/site/3681 |
+| Hyllie 106 (`3680`) | `1fe9c412-0c1e-4811-a349-18ec61c64833` | site_page_only | 0 | https://browser.sead.se/site/3680 |
+| Hyllie 149 (`3679`) | `008c5275-9d6b-4e19-9edb-d293f2f773d2` | site_page_only | 0 | https://browser.sead.se/site/3679 |
+| Hyllie 155 (`262`) | `b6a15e63-653e-4427-becf-e2fd462c1c21` | site_page_only | 0 | https://browser.sead.se/site/262 |
+| Hylteberga (`5291`) | `ba294f91-80c5-44f6-b72a-991d4863dc47` | site_page_only | 0 | https://browser.sead.se/site/5291 |
+| Häglinge (`4116`) | `3e3ba562-1ca7-4ae9-81cb-90f1445ebed8` | site_page_only | 0 | https://browser.sead.se/site/4116 |
+| Häglinge kyrka (`4115`) | `cb26b3e9-b363-40d8-b353-8bab3fd193b4` | site_page_only | 0 | https://browser.sead.se/site/4115 |
+| Häljaryd (`3903`) | `eb54bd94-3e22-41f9-8ebd-cbe58c1ae9ab` | site_page_only | 0 | https://browser.sead.se/site/3903 |
+| Hällby (`3677`) | `d1f96144-38de-451f-b916-ac4f006144ef` | site_page_only | 0 | https://browser.sead.se/site/3677 |
+| Hälleberget A (`6294`) | `1a0a8fea-3918-41ba-946c-d322b10ee7b8` | site_page_only | 0 | https://browser.sead.se/site/6294 |
+| Hällekind 1636 (`321`) | `15212549-7f27-4b04-9062-8e9d891326a7` | site_page_only | 0 | https://browser.sead.se/site/321 |
+| Hällekind 1639 (`327`) | `2c9b0e10-e392-483d-a5f1-36e499c9c9bd` | site_page_only | 0 | https://browser.sead.se/site/327 |
+| Härads kyrka (`4114`) | `96e048bb-1dd5-4e9b-b5d7-7f105600ff82` | site_page_only | 0 | https://browser.sead.se/site/4114 |
+| Härbre Färnästjärn (`5862`) | `b39f18cd-67dc-413d-920e-a44183157af1` | site_page_only | 0 | https://browser.sead.se/site/5862 |
+| Härbre Gopshus (`5863`) | `292055d8-9834-4abc-9114-6f7390eadc94` | site_page_only | 0 | https://browser.sead.se/site/5863 |
+| Härbre Gopsmorsgård (`5864`) | `4e2fbe0f-a002-4d60-8178-0a748e7917c9` | site_page_only | 0 | https://browser.sead.se/site/5864 |
+| Härbre i Färnäs (`5865`) | `e554d629-ff31-4f16-b71b-e438f3c88856` | site_page_only | 0 | https://browser.sead.se/site/5865 |
+| Härbre i Kallmora (`5866`) | `32dd8f1b-fab9-476c-895d-375baf14c6a2` | site_page_only | 0 | https://browser.sead.se/site/5866 |
+| Härbre i Öna (`5867`) | `39fcdbda-8d31-47c4-bc58-54632e9e98c6` | site_page_only | 0 | https://browser.sead.se/site/5867 |
+| Härbre i Östäng (`5868`) | `72ce5e3a-448a-4253-b426-3d2e53246282` | site_page_only | 0 | https://browser.sead.se/site/5868 |
+| Härbre Nusnäs (`5869`) | `04bb3e9e-7a88-46a6-941e-1578561dbb72` | site_page_only | 0 | https://browser.sead.se/site/5869 |
+| Härbre Vika (`5871`) | `806c6529-4947-4752-856e-968e2e2555dc` | site_page_only | 0 | https://browser.sead.se/site/5871 |
+| Härbre Västerberg (`5870`) | `6adce3a1-6d62-4f19-ae6f-3ea4675148fc` | site_page_only | 0 | https://browser.sead.se/site/5870 |
+| Härlarsloftet från Idbäck (`5872`) | `f5a7311f-44fc-4bcc-85d8-37c0494811b4` | site_page_only | 0 | https://browser.sead.se/site/5872 |
+| Härlövs kyrka (`4113`) | `ed9112d6-8a18-4b96-9bbc-8c1bc31520d2` | site_page_only | 0 | https://browser.sead.se/site/4113 |
+| Härnevi kyrka (`4112`) | `16c0f92e-091f-4e10-a646-2a16df15c14a` | site_page_only | 0 | https://browser.sead.se/site/4112 |
+| Härnösand Raä 1 (`211`) | `ba1d047d-46ae-4099-951f-e23c05c33c1c` | site_page_only | 0 | https://browser.sead.se/site/211 |
+| Härnösand Raä 119 (`166`) | `8909b15a-b2f3-40e5-8a55-4e70429333fb` | site_page_only | 0 | https://browser.sead.se/site/166 |
+| Hässeldala Port (`5484`) | `66b10d69-4df9-4804-844b-accc83e8a671` | site_page_only | 0 | https://browser.sead.se/site/5484 |
+| Hästholmen (`3676`) | `de91d3cc-1831-4cea-b562-b6341a38f370` | site_page_only | 0 | https://browser.sead.se/site/3676 |
+| Häverö kyrka (`4111`) | `a363c80e-a607-464d-a59f-2c0f66c4c542` | site_page_only | 0 | https://browser.sead.se/site/4111 |
+| Håby 6:1 (`63`) | `62ce0968-ad59-4ef9-85c5-5701b0f77a63` | site_page_only | 0 | https://browser.sead.se/site/63 |
+| Håby Raä 4:1 (`391`) | `564b2008-e97b-4cf0-ae24-e0c876cfc6b1` | site_page_only | 0 | https://browser.sead.se/site/391 |
+| Håga (`3678`) | `f3bfe4c2-cf55-40fa-907c-dc25107c5249` | site_page_only | 0 | https://browser.sead.se/site/3678 |
+| Hållbus i Selbäck (`5850`) | `29c1be72-0745-4626-8919-68c693c37911` | site_page_only | 0 | https://browser.sead.se/site/5850 |
+| Hållgården Kulåra (`5853`) | `def0d9a5-3deb-4328-9e74-ad9afb750c40` | site_page_only | 0 | https://browser.sead.se/site/5853 |
+| Hålta Raä 130 (`65`) | `01170961-73ba-4422-a768-195435105481` | site_page_only | 0 | https://browser.sead.se/site/65 |
+| Hårsbäck Sör (`3904`) | `fb0a5c78-8f63-4a4f-b656-c083d32a4d60` | site_page_only | 0 | https://browser.sead.se/site/3904 |
+| Högom (`3675`) | `b8dd297b-319b-456a-8cff-f4fa786c9750` | site_page_only | 0 | https://browser.sead.se/site/3675 |
+| Högom grav 4? (`348`) | `7306236a-11a9-4e26-8235-2b09254c7d3d` | site_page_only | 0 | https://browser.sead.se/site/348 |
+| Högs kyrka (`5883`) | `4b39510a-9cd1-4bd8-9c8d-33b7a624b0a3` | site_page_only | 0 | https://browser.sead.se/site/5883 |
+| Högsjö gård (`3902`) | `081e40a9-39d9-4d3a-af1e-50cea2df6491` | site_page_only | 0 | https://browser.sead.se/site/3902 |
+| Höje (`5645`) | `381a2fd1-4646-4583-8606-9215f4619e93` | site_page_only | 0 | https://browser.sead.se/site/5645 |
+| Hönstorp (`4110`) | `697e9b13-75f4-43e7-8dc2-4962ca60823a` | site_page_only | 0 | https://browser.sead.se/site/4110 |
+| Hörja kyrka (`4109`) | `3323adeb-a682-4769-b3c4-72fccfff7d84` | site_page_only | 0 | https://browser.sead.se/site/4109 |
+| Hörnsjöfors (`5885`) | `7de5bfdb-2960-46ac-bcfb-19d40251ffec` | site_page_only | 0 | https://browser.sead.se/site/5885 |
+| Hörsne kyrka (`4108`) | `3e64700b-3a49-4e01-9d0d-ca2da518236b` | site_page_only | 0 | https://browser.sead.se/site/4108 |
+| Hötofta (`3674`) | `bc5863c9-cbd3-46ae-ae6b-4353b5ec2a80` | site_page_only | 0 | https://browser.sead.se/site/3674 |
+| Idre Raä 14 (`214`) | `0bc3fc3e-a810-4562-aa46-c8dac0f5b9ee` | site_page_only | 0 | https://browser.sead.se/site/214 |
+| Igelsfors (`6438`) | `fa8476e5-cece-4237-b359-f8a4952dd825` | site_page_only | 0 | https://browser.sead.se/site/6438 |
+| Ignaberga gamla kyrka (`5887`) | `f1edc9b7-6809-4afa-bf8e-efa879fb3c14` | site_page_only | 0 | https://browser.sead.se/site/5887 |
+| Ii Hamina (`5564`) | `95d9e5b0-80df-4912-80b8-c2f931cb3763` | site_page_only | 0 | https://browser.sead.se/site/5564 |
+| Ilnestorp (`3901`) | `5d9aee3a-470b-416e-9967-79df72ae454d` | site_page_only | 0 | https://browser.sead.se/site/3901 |
+| Ingatorp (`3900`) | `05c7d809-4d43-4217-aa30-73f0228ca31c` | site_page_only | 0 | https://browser.sead.se/site/3900 |
+| Ingbergs i Laknäs (`5888`) | `f4765328-1b83-48da-b54c-7e0f19e1c146` | site_page_only | 0 | https://browser.sead.se/site/5888 |
+| Ingelsta (`6299`) | `7aadc032-434d-4c47-a8ff-43c578a2324a` | site_page_only | 0 | https://browser.sead.se/site/6299 |
+| Ingelstorp 14 (`3673`) | `fec0e57e-260d-4f57-9d21-786593903a5e` | site_page_only | 0 | https://browser.sead.se/site/3673 |
+| Ingelstorp 8 (`3672`) | `6255d353-1054-4021-861a-76887993c74b` | site_page_only | 0 | https://browser.sead.se/site/3672 |
+| Ingelstorp: Cemetery 2 (`3671`) | `22641039-f424-4951-9bd2-649a19447f05` | site_page_only | 0 | https://browser.sead.se/site/3671 |
+| Ingelstorp: Cemetery 4 (`3670`) | `ec3a5f94-a224-444a-acc4-0bf026f1d1d1` | site_page_only | 0 | https://browser.sead.se/site/3670 |
+| Ingelstorp: Granhill (`3669`) | `7187fe1a-d78c-478b-8049-dcaa7deb1748` | site_page_only | 0 | https://browser.sead.se/site/3669 |
+| Ingestorp övre (`6300`) | `9133bb40-3c4d-404b-bce2-9d338c22c510` | site_page_only | 0 | https://browser.sead.se/site/6300 |
+| Ivarshärbret från Utsälje (`5889`) | `d6087870-0b1a-4046-ac86-e754f25717d6` | site_page_only | 0 | https://browser.sead.se/site/5889 |
+| Ivetofta (`3667`) | `e5c7ac78-ef14-4abf-a96c-9f7f5927b90e` | site_page_only | 0 | https://browser.sead.se/site/3667 |
+| Jacob Nickelsens hus (`5890`) | `8b360795-b443-4301-a7e4-da272bac36e7` | site_page_only | 0 | https://browser.sead.se/site/5890 |
+| Jan-Mats i Åsmundshyttan (`5892`) | `a1bb4b03-cfea-4d34-bcf6-5160c97657c2` | site_page_only | 0 | https://browser.sead.se/site/5892 |
+| Janngården Änderåsen (`5893`) | `ae78ab52-8beb-45e4-892b-0edac905ea70` | site_page_only | 0 | https://browser.sead.se/site/5893 |
+| Janssongården (`4107`) | `d140c11e-c773-4227-8b63-6603bf71f4c8` | site_page_only | 0 | https://browser.sead.se/site/4107 |
+| Jedeurska huset (`5895`) | `2b2ebd9d-05b2-4c2c-a8d5-f94962718457` | site_page_only | 0 | https://browser.sead.se/site/5895 |
+| John Bixbo i Bye (`5896`) | `0e1d50e2-b01f-4625-85ac-70c9d8554ded` | site_page_only | 0 | https://browser.sead.se/site/5896 |
+| Johnssons i Bergsbyn (`5897`) | `80b9bf16-d508-43b2-a296-33326ca65774` | site_page_only | 0 | https://browser.sead.se/site/5897 |
+| Jon Backs i Nedre Gärdsjö (`5898`) | `a71155d8-50ed-43d4-8e44-3686816b806d` | site_page_only | 0 | https://browser.sead.se/site/5898 |
+| Jon-Lars i Långhed (`5902`) | `dd4267e6-b4a3-42ad-abcc-ff58e601e1e2` | site_page_only | 0 | https://browser.sead.se/site/5902 |
+| Jon-Svens i Ygsbo (`5909`) | `b0c4142e-ac03-4cbb-9b69-81f095b113b2` | site_page_only | 0 | https://browser.sead.se/site/5909 |
+| Jonasson i Haga (`5899`) | `a519deb3-fb7e-48bd-9c77-772ec2970867` | site_page_only | 0 | https://browser.sead.se/site/5899 |
+| Joners i Homnabo (`5900`) | `1a6e6b74-b91a-4411-8733-1a2858303750` | site_page_only | 0 | https://browser.sead.se/site/5900 |
+| Jones i Ovanmyra (`5901`) | `da56b7cb-cdd9-45d6-9599-573359b5a892` | site_page_only | 0 | https://browser.sead.se/site/5901 |
+| Jonsson i Skickja (`5906`) | `ba31b38f-ac1c-47e9-935b-59e721bcd43b` | site_page_only | 0 | https://browser.sead.se/site/5906 |
+| Jontes i Gäle (`5910`) | `52eaeffe-89c7-4183-a134-60e9e0c4d1f6` | site_page_only | 0 | https://browser.sead.se/site/5910 |
+| Jugasgården (`5911`) | `f8ff65c8-8c87-4b75-97a9-2ea93e8ba279` | site_page_only | 0 | https://browser.sead.se/site/5911 |
+| Juleboda (`6439`) | `b65a7d3f-9a83-4692-8de3-adeabb98daa9` | site_page_only | 0 | https://browser.sead.se/site/6439 |
+| Julita gård (`6440`) | `918a2952-4ae2-43fc-b61f-43f854f0de3c` | site_page_only | 0 | https://browser.sead.se/site/6440 |
+| Juomajärvi (`4467`) | `c9214c10-5207-48e7-b9a6-6962dece94bb` | site_page_only | 0 | https://browser.sead.se/site/4467 |
+| Juomajärvi 1 (`4852`) | `1323d3d2-9d30-465e-b29f-0b8942b4d83f` | site_page_only | 0 | https://browser.sead.se/site/4852 |
+| Juteboda (`3899`) | `c8e52c18-d51f-4381-8733-18d348b1ade2` | site_page_only | 0 | https://browser.sead.se/site/3899 |
+| Juurikorpi (`3665`) | `592c9341-9f7a-4aa3-9e18-a29f73f28976` | site_page_only | 0 | https://browser.sead.se/site/3665 |
+| Jyderup (`5299`) | `21ba411d-e1b0-4300-bf0e-46384d78290f` | site_page_only | 0 | https://browser.sead.se/site/5299 |
+| Jäder (`3664`) | `2b1c6291-3673-48f1-a99f-7375bd9bbb9d` | site_page_only | 0 | https://browser.sead.se/site/3664 |
+| Jäla kyrka (`5891`) | `0f880586-1877-4490-93a1-270aa530718b` | site_page_only | 0 | https://browser.sead.se/site/5891 |
+| Järavallen 1 (`4465`) | `52e0e378-2737-430f-bdef-1e7c4030c0c6` | site_page_only | 0 | https://browser.sead.se/site/4465 |
+| Järavallen 2 (Skateholm) (`4466`) | `89a2ebe3-2205-42a4-8ad7-3cf0347cac3f` | site_page_only | 0 | https://browser.sead.se/site/4466 |
+| Järna kyrka (`5894`) | `94fce7fd-e73b-4695-902f-1ddd0bb654ce` | site_page_only | 0 | https://browser.sead.se/site/5894 |
+| Järrestad (`3663`) | `26277770-2d21-46c9-b37d-eea82c105911` | site_page_only | 0 | https://browser.sead.se/site/3663 |
+| Järrestad 45:1 (`6393`) | `1a0db2ab-b9ab-4bfd-afe7-c5838aaa5012` | site_page_only | 0 | https://browser.sead.se/site/6393 |
+| Järrestad SU1 (`3662`) | `50b4f246-4af8-465e-93c2-edc64eabb52c` | site_page_only | 0 | https://browser.sead.se/site/3662 |
+| Järrestad SU2 (`3661`) | `f1fbe1f4-1d7b-45b3-a419-b18bf82110a2` | site_page_only | 0 | https://browser.sead.se/site/3661 |
+| Jönköping 137:1 (`6367`) | `23463814-0a14-4da7-827b-e1f49fc71d3a` | site_page_only | 0 | https://browser.sead.se/site/6367 |
+| Jönköping 50:1 (`6366`) | `2788fe1f-2af1-4d24-a69e-9c883f7569cf` | site_page_only | 0 | https://browser.sead.se/site/6366 |
+| Jönköpings regemente (`4106`) | `4e238c39-2fc0-43f6-821f-9cd22bfadfa2` | site_page_only | 0 | https://browser.sead.se/site/4106 |
+| Jönses i Vreta (`5903`) | `6dfe8035-91b8-47e7-a0e9-6f01dd876a58` | site_page_only | 0 | https://browser.sead.se/site/5903 |
+| Jönsson i Dille (`5904`) | `a981cdb3-c729-49ff-8783-a24e7e701189` | site_page_only | 0 | https://browser.sead.se/site/5904 |
+| Jönsson i Fanbyn (`5905`) | `7a562237-6a16-4add-9d17-a663a7720a1d` | site_page_only | 0 | https://browser.sead.se/site/5905 |
+| Jönsson i Smedsta (`5907`) | `5ac8282b-22c2-48b7-a73c-738958afc3e4` | site_page_only | 0 | https://browser.sead.se/site/5907 |
+| Jönssons i Hara (`5908`) | `9b2ef243-085f-46ea-b678-bfd2685027ec` | site_page_only | 0 | https://browser.sead.se/site/5908 |
+| Jörlanda Raä 184 (`74`) | `143190a9-8381-4d8e-ae65-71ada1a86c16` | site_page_only | 0 | https://browser.sead.se/site/74 |
+| Kaga kyrka (`4105`) | `b749b09f-6eb0-48bc-87c1-76d19df27cc0` | site_page_only | 0 | https://browser.sead.se/site/4105 |
+| Kainulasjärvi (`4850`) | `93ab6f1c-c5b5-49b7-bf4d-7a0025a19c66` | site_page_only | 0 | https://browser.sead.se/site/4850 |
+| Kall Raä 599 (`335`) | `8e784a19-22d6-42a9-80ef-1782ca030f1d` | site_page_only | 0 | https://browser.sead.se/site/335 |
+| Kalles i Persbo (`5912`) | `e1ff1c87-d263-487e-b0dc-74b76f305fcf` | site_page_only | 0 | https://browser.sead.se/site/5912 |
+| Kallsjö (`5288`) | `ccd56e6f-6602-470d-b38e-5a8d53ede7c1` | site_page_only | 0 | https://browser.sead.se/site/5288 |
+| Kallsås 426:1 (`69`) | `36bc8617-5625-4e1f-8425-447b322b48c4` | site_page_only | 0 | https://browser.sead.se/site/69 |
+| Kallsås 430:1 (`70`) | `a53b1273-84d5-4f06-b42b-aa589e3b9e81` | site_page_only | 0 | https://browser.sead.se/site/70 |
+| Kallurgården (`5913`) | `e395e231-e9bc-4dc9-94b3-55fccf733b6e` | site_page_only | 0 | https://browser.sead.se/site/5913 |
+| Kalmar 93:1 (`6362`) | `f69b95d2-5580-4457-bb83-4e8c07970ef2` | site_page_only | 0 | https://browser.sead.se/site/6362 |
+| Kalmar 94:1 (`6361`) | `c5de6a6f-75e6-48b5-8717-a7bd3de0efde` | site_page_only | 0 | https://browser.sead.se/site/6361 |
+| Kalmar slottsfjärd (`3660`) | `adda9464-1955-45c3-93a4-fa4d1d5f910f` | site_page_only | 0 | https://browser.sead.se/site/3660 |
+| Kanaljorden, Söderköping (`6441`) | `1c8b26cb-e1df-4e5f-ac21-746ace004e72` | site_page_only | 0 | https://browser.sead.se/site/6441 |
+| Kandestederne (`5313`) | `33f79e9d-edc7-49f4-b19f-cb49a1c2618a` | site_page_only | 0 | https://browser.sead.se/site/5313 |
+| Kansakoulunmäki (`3658`) | `e7ba80a0-f7ae-4aff-8de9-9e22d4464bee` | site_page_only | 0 | https://browser.sead.se/site/3658 |
+| Kapellbacken i Amundsböle (`5915`) | `73a55d62-c388-446b-82ad-b2926dea7092` | site_page_only | 0 | https://browser.sead.se/site/5915 |
+| Kapitelhuset (`4104`) | `54b88cae-0ed5-488d-9e4e-2c7915945245` | site_page_only | 0 | https://browser.sead.se/site/4104 |
+| Kares, Peres och Sandins i Vikarbyn (`5916`) | `511ee6b9-a084-43ad-b189-7d678757919b` | site_page_only | 0 | https://browser.sead.se/site/5916 |
+| Karin Nyréns i Hulån (`5917`) | `310903c1-ffa3-45fb-8f56-e93482d829b3` | site_page_only | 0 | https://browser.sead.se/site/5917 |
+| Karins i Gärde (`5918`) | `1ef5999e-f0a3-46ce-860d-dc1bf6bfda85` | site_page_only | 0 | https://browser.sead.se/site/5918 |
+| Karkebo (`3898`) | `90e8a709-fc5a-4ded-8fd0-b2eaf1b13e7e` | site_page_only | 0 | https://browser.sead.se/site/3898 |
+| Karl Pettersson i Röjeråsen (`5919`) | `7492aff0-200d-4c56-81cd-724461f49ed5` | site_page_only | 0 | https://browser.sead.se/site/5919 |
+| Karleby 57 (`3656`) | `cfc2d717-8923-449a-b078-75da5bd33caf` | site_page_only | 0 | https://browser.sead.se/site/3656 |
+| Karleby Raä 105 (`235`) | `6e9bb417-92fd-475c-8e78-5929a74c49d1` | site_page_only | 0 | https://browser.sead.se/site/235 |
+| Karlquist i Nybo (`5920`) | `4225b9e7-96e6-41ee-a5b0-080ff6b7a297` | site_page_only | 0 | https://browser.sead.se/site/5920 |
+| Karlsfält (`3655`) | `d31b62d9-b8db-4ec5-8c1a-d7163c2b569f` | site_page_only | 0 | https://browser.sead.se/site/3655 |
+| Karlsson i Börön (`5921`) | `faadad00-da6a-4a47-ae03-275e2ba6f956` | site_page_only | 0 | https://browser.sead.se/site/5921 |
+| Karlsson i Edsäng (`5922`) | `fa47c7b2-9ca5-4af3-85b6-46af8561bce8` | site_page_only | 0 | https://browser.sead.se/site/5922 |
+| Karlssons i Hara (`5923`) | `4fb855cd-026e-489a-9878-63d4bad125fa` | site_page_only | 0 | https://browser.sead.se/site/5923 |
+| Kasin/Ørvik (`3653`) | `350401f4-6e77-473d-a42d-5eab41a0c307` | site_page_only | 0 | https://browser.sead.se/site/3653 |
+| Kastalen vid Fellingsbro kyrka (`5925`) | `98dfbbf1-fa27-4341-9e85-88f4d8c62023` | site_page_only | 0 | https://browser.sead.se/site/5925 |
+| Katarina (`3651`) | `c05884d7-2cd0-4673-83bd-783d5ecb7e9e` | site_page_only | 0 | https://browser.sead.se/site/3651 |
+| Katthamra (`4103`) | `149ee35d-3b12-47d2-b6d9-c3e67b2a0a20` | site_page_only | 0 | https://browser.sead.se/site/4103 |
+| Kaupang (`4922`) | `df12217f-eb31-44e1-a84b-c51c8a188c63` | site_page_only | 0 | https://browser.sead.se/site/4922 |
+| Kaustinen (`5093`) | `0a183921-002e-4551-b1ee-f29aa051d920` | site_page_only | 0 | https://browser.sead.se/site/5093 |
+| Kerola (`3650`) | `15217e78-6fc1-4dba-a626-9b7a775c39bf` | site_page_only | 0 | https://browser.sead.se/site/3650 |
+| Kestads kyrka (`5926`) | `f6cec895-d5ce-448f-bcc1-40fc211d3d8c` | site_page_only | 0 | https://browser.sead.se/site/5926 |
+| Killebäckstorp (`3648`) | `e916df97-b0fe-42c0-b0f3-5d777fcc0f90` | site_page_only | 0 | https://browser.sead.se/site/3648 |
+| Kimsundets fiskarvall (`5927`) | `755e227e-94f6-4edb-abd6-f4d688640723` | site_page_only | 0 | https://browser.sead.se/site/5927 |
+| Kinnareds kyrka (`5928`) | `74c66141-a58d-419f-ac57-81c25454069e` | site_page_only | 0 | https://browser.sead.se/site/5928 |
+| Kinne-Vedums kyrka (`5929`) | `2a3bcb76-940e-4b60-b579-c1eaf0b77b8b` | site_page_only | 0 | https://browser.sead.se/site/5929 |
+| Kisa hotell och konferens (`4102`) | `8ef81840-0a53-4ebf-8e3e-1f0f796956c0` | site_page_only | 0 | https://browser.sead.se/site/4102 |
+| Kista hembygdsgård (`4101`) | `ffb32248-d1fc-4f61-8c6d-84f54930f225` | site_page_only | 0 | https://browser.sead.se/site/4101 |
+| Kiukais: Panelia (`5095`) | `aef0f6a1-b94c-4a4f-83ae-24abcb5ed04a` | site_page_only | 0 | https://browser.sead.se/site/5095 |
+| Kivisillanmäki (`3646`) | `0c407e1f-d95f-4d1d-bce2-b22dde482c27` | site_page_only | 0 | https://browser.sead.se/site/3646 |
+| Kjerringneset (`93`) | `00e65675-12ef-4492-8261-f276f6422883` | site_page_only | 0 | https://browser.sead.se/site/93 |
+| Kjulaås (`3645`) | `a42f0563-2f4c-4bbf-99ea-29385b247a03` | site_page_only | 0 | https://browser.sead.se/site/3645 |
+| Klasgården i Laknäs (`5930`) | `cd197322-30d0-4e65-9628-64bab8f388a3` | site_page_only | 0 | https://browser.sead.se/site/5930 |
+| Klaus Mortensens hus (`5931`) | `0a549256-161a-4c11-bb9f-42cedfdbd87f` | site_page_only | 0 | https://browser.sead.se/site/5931 |
+| Kleva gård (`4100`) | `098ae136-6ec7-4a3c-835f-0e5e1ee48da6` | site_page_only | 0 | https://browser.sead.se/site/4100 |
+| Klintholm (`5479`) | `b2d5279e-6028-464b-a236-5f204f0d4c45` | site_page_only | 0 | https://browser.sead.se/site/5479 |
+| Klitten (`5933`) | `9b5ba321-d9be-4caa-b8a6-fb3d2949e5ff` | site_page_only | 0 | https://browser.sead.se/site/5933 |
+| Klockars i Loka (`5934`) | `268a73f4-acbe-4908-999e-a7e81e40f13f` | site_page_only | 0 | https://browser.sead.se/site/5934 |
+| Klörup-Aggarp (`3644`) | `a6a10e3e-b0ab-4848-9c46-94b62d9f2ed2` | site_page_only | 0 | https://browser.sead.se/site/3644 |
+| Klösta (`5935`) | `2ea6e179-754b-4e8a-97a5-92196d565f4f` | site_page_only | 0 | https://browser.sead.se/site/5935 |
+| Knabstrup Brickworks (`5298`) | `88973f3b-483f-487c-906e-46fedabfe15b` | site_page_only | 0 | https://browser.sead.se/site/5298 |
+| Knappsmåla (`4099`) | `5261a1a5-ab2c-45de-a944-dee82bcfddda` | site_page_only | 0 | https://browser.sead.se/site/4099 |
+| Knivsta Raä 16 (`312`) | `5bfb665a-ae78-4e05-8624-9d91ee9a6f23` | site_page_only | 0 | https://browser.sead.se/site/312 |
+| Knubba (`153`) | `98d20dd1-11b4-47bf-ba94-19bd26e383db` | site_page_only | 0 | https://browser.sead.se/site/153 |
+| Knubbetjern (`143`) | `79b9d8bd-8a34-4ef2-9ca5-c00142315d6e` | site_page_only | 0 | https://browser.sead.se/site/143 |
+| Knutssons i Nederhögen (`5936`) | `0e1974fb-f2eb-4de5-8e02-8f856a4a5cdd` | site_page_only | 0 | https://browser.sead.se/site/5936 |
+| Koivula et al (`4916`) | `81904662-96a6-4787-8d89-7f1731381d95` | site_page_only | 0 | https://browser.sead.se/site/4916 |
+| Koivusilta (`4882`) | `0ae2fb6c-9306-4e8b-8916-4fc38fe72dd7` | site_page_only | 0 | https://browser.sead.se/site/4882 |
+| Kolbäck Raä 355 (`356`) | `c4ea6085-cd6e-4007-9484-f026cb06cf86` | site_page_only | 0 | https://browser.sead.se/site/356 |
+| Kolstad (`3897`) | `072da069-e70c-4355-bc4a-b66cab8f333c` | site_page_only | 0 | https://browser.sead.se/site/3897 |
+| Konga kyrka (`5937`) | `17a0b0c6-bbc4-456d-83d6-b04a863b88af` | site_page_only | 0 | https://browser.sead.se/site/5937 |
+| Kopparbergs tingshus (`5938`) | `97745ccc-3f17-4f19-8f57-e6635da3cf1f` | site_page_only | 0 | https://browser.sead.se/site/5938 |
+| Korsnäsgården (`5939`) | `8d715974-8045-49e7-a466-44001b2d53b6` | site_page_only | 0 | https://browser.sead.se/site/5939 |
+| Kosjärv (`291`) | `1fca2e39-5ff2-4be1-938b-832481d79791` | site_page_only | 0 | https://browser.sead.se/site/291 |
+| Kragelund (`3643`) | `ea8760dd-d258-4d5e-a927-a91c28958573` | site_page_only | 0 | https://browser.sead.se/site/3643 |
+| Krapperups borg (`4098`) | `49780734-0a7e-495c-9a3e-9af5382cd4f1` | site_page_only | 0 | https://browser.sead.se/site/4098 |
+| Kriminalvårdsanstalten (`3642`) | `1f4eeee4-c927-44f4-a23d-58c0628641dd` | site_page_only | 0 | https://browser.sead.se/site/3642 |
+| Kristiansand (`3641`) | `e4778f57-6580-448d-954e-38c19522d68b` | site_page_only | 0 | https://browser.sead.se/site/3641 |
+| Kristianstad 215:1 (`6395`) | `e1cf4df6-849c-4625-a6cc-69c2b3177932` | site_page_only | 0 | https://browser.sead.se/site/6395 |
+| Kristianstad 217:1 (`6396`) | `dc75d042-ac97-43c8-b4dd-b513230ecd81` | site_page_only | 0 | https://browser.sead.se/site/6396 |
+| Kristianstad 93:1 (`6401`) | `5b317e6e-7ed2-4500-acc3-bb149d738629` | site_page_only | 0 | https://browser.sead.se/site/6401 |
+| Kristineberg (Oxie 15:1) (`3640`) | `ae642d29-2149-49b3-af24-99bdeb85a80e` | site_page_only | 0 | https://browser.sead.se/site/3640 |
+| Kristoffersson i Mälgåsen (`5941`) | `b100e493-ed90-479d-8826-effa42e38f78` | site_page_only | 0 | https://browser.sead.se/site/5941 |
+| Kroa (`5942`) | `2c91c13f-ebd3-4e84-b0ec-4e2aac4a6d21` | site_page_only | 0 | https://browser.sead.se/site/5942 |
+| Krogsfall (`3896`) | `d6b7597c-de03-4837-ad4c-c33287f034d4` | site_page_only | 0 | https://browser.sead.se/site/3896 |
+| Kropp kyrka (`5943`) | `e8887d4b-8dc4-453a-87e8-a28d5b02323a` | site_page_only | 0 | https://browser.sead.se/site/5943 |
+| Krusenbergs herrgård (`4097`) | `65da3dff-cd22-452d-ac14-4a1f0fecd8fc` | site_page_only | 0 | https://browser.sead.se/site/4097 |
+| Kruttornet (`4096`) | `1efabc32-520b-46bf-9c5d-6a7cffcafe40` | site_page_only | 0 | https://browser.sead.se/site/4096 |
+| Kråkenes (`4482`) | `3aecca49-0935-4f09-8f44-cfaabf54d37f` | site_page_only | 0 | https://browser.sead.se/site/4482 |
+| Kråkeslätt (`3639`) | `c34583c7-6473-4b23-9066-6b66bf3a0d26` | site_page_only | 0 | https://browser.sead.se/site/3639 |
+| Kråkgården i södra Bomansberg (`5940`) | `9e6ab09b-bba7-41d2-8a62-66585bd65651` | site_page_only | 0 | https://browser.sead.se/site/5940 |
+| Kråkvik (`4095`) | `f21fc5a8-603c-41b7-bf68-a3542d0e1779` | site_page_only | 0 | https://browser.sead.se/site/4095 |
+| Kullen (`5944`) | `8f773bbd-1f4c-4cd0-b8d8-27b2f78f450f` | site_page_only | 0 | https://browser.sead.se/site/5944 |
+| Kullerstads kyrka (`4094`) | `da6ced10-f01f-4702-a1bf-9d0fd8408818` | site_page_only | 0 | https://browser.sead.se/site/4094 |
+| Kulltorps gård (`4093`) | `e2d3faa4-c272-456f-8fd6-69c8feadc3c6` | site_page_only | 0 | https://browser.sead.se/site/4093 |
+| Kumla kyrka (`4092`) | `a738b610-6182-414a-a9d9-c192463f07a4` | site_page_only | 0 | https://browser.sead.se/site/4092 |
+| Kumlaby kyrka (`4091`) | `d689de2b-d047-4b90-96c5-1301552b176f` | site_page_only | 0 | https://browser.sead.se/site/4091 |
+| Kummelnäs gård (`4090`) | `ba46855b-97b8-4f4b-b944-ae181637df37` | site_page_only | 0 | https://browser.sead.se/site/4090 |
+| Kungsbro Motorcykel (`3638`) | `642dd006-d7fe-4e60-b37d-9ce1a9a68ade` | site_page_only | 0 | https://browser.sead.se/site/3638 |
+| Kungsholms kyrka/Ulrika Eleonora kyrka (`4089`) | `2e00f295-bd5c-411b-afba-779e52a503f8` | site_page_only | 0 | https://browser.sead.se/site/4089 |
+| Kungslena kyrka (`5945`) | `2d1087aa-c5a9-4191-948e-5bf8153ef1e2` | site_page_only | 0 | https://browser.sead.se/site/5945 |
+| Kungsnäs (`3637`) | `2628ff0d-23ba-4112-9755-70dc15c6247d` | site_page_only | 0 | https://browser.sead.se/site/3637 |
+| Kunsta (`3636`) | `22bc5118-122c-46cd-bece-76e4d5672d97` | site_page_only | 0 | https://browser.sead.se/site/3636 |
+| Kurujärvi (`4483`) | `51e02b41-b2f6-4fdd-b472-2fafc471afc6` | site_page_only | 0 | https://browser.sead.se/site/4483 |
+| Kusens i Österstråsjö (`5946`) | `3de0a501-319f-4124-982e-926aca6e68f2` | site_page_only | 0 | https://browser.sead.se/site/5946 |
+| kv Apotekaren (`3635`) | `0131f4f9-ce85-420f-9cac-0a35d383e71f` | site_page_only | 0 | https://browser.sead.se/site/3635 |
+| kv Gröningen (`3634`) | `507342ad-036a-4551-8f93-369645b0d1ff` | site_page_only | 0 | https://browser.sead.se/site/3634 |
+| kv Kastanjegården (`3633`) | `cd8cf6b3-f82b-49f2-bb8d-c4171a3aed1d` | site_page_only | 0 | https://browser.sead.se/site/3633 |
+| kv Katten (`3632`) | `973189fe-8aa3-4acb-ac71-ffa23dc2c4c1` | site_page_only | 0 | https://browser.sead.se/site/3632 |
+| kv Kråkvinkeln (`3631`) | `ae4af69d-5c41-4b83-942c-cf6dd73028de` | site_page_only | 0 | https://browser.sead.se/site/3631 |
+| kv Tankbåten (`3630`) | `16fa589f-d0a7-4da9-9577-1343ba75730a` | site_page_only | 0 | https://browser.sead.se/site/3630 |
+| kv Transval (`3629`) | `e24f3cc7-eadc-4f7b-920f-9152c56795bc` | site_page_only | 0 | https://browser.sead.se/site/3629 |
+| kv Trädgårdsmästaren (`3628`) | `a4b4fbf2-bdb6-4c57-8279-f3c0d2d3c95b` | site_page_only | 0 | https://browser.sead.se/site/3628 |
+| kv. Apeln (`3627`) | `b34efe2d-60b4-49db-b69a-be0f592c1ccc` | site_page_only | 0 | https://browser.sead.se/site/3627 |
+| kv. Bronsyxan (`3626`) | `d29aac29-f9e7-4b9e-b3d2-4001a5a35da0` | site_page_only | 0 | https://browser.sead.se/site/3626 |
+| kv. Diplomaten (`3625`) | `02357e63-1f27-40d1-8228-e731fc5ad22d` | site_page_only | 0 | https://browser.sead.se/site/3625 |
+| kv. Dromedaren (`3624`) | `5d3ae0d5-f250-4f0f-8468-41593e9e3b77` | site_page_only | 0 | https://browser.sead.se/site/3624 |
+| kv. Elektronen (`3623`) | `51dc3bf7-ab13-4f3d-b84b-b46e8d0edd0b` | site_page_only | 0 | https://browser.sead.se/site/3623 |
+| kv. Galeasen (`3622`) | `e89453ce-29c5-4f74-a822-a9fd18701698` | site_page_only | 0 | https://browser.sead.se/site/3622 |
+| kv. Gladan (`3621`) | `0c30af04-95b8-45b3-a53e-13dcc072cf7f` | site_page_only | 0 | https://browser.sead.se/site/3621 |
+| kv. Havren, Djurängen (`3620`) | `571e3bf2-b686-42d5-a1d2-a7b95cfa3fa5` | site_page_only | 0 | https://browser.sead.se/site/3620 |
+| kv. Hemmet (`3619`) | `30010f4c-2cbd-4e2b-876b-eb7bddac0715` | site_page_only | 0 | https://browser.sead.se/site/3619 |
+| Kv. Hjärtat (`3618`) | `aed23a71-a5c9-4d7d-9ab9-a9e2d8ff1382` | site_page_only | 0 | https://browser.sead.se/site/3618 |
+| Kv. Kleopatra (`3617`) | `744e6aca-7cdf-4768-89e1-d49c778bd2e6` | site_page_only | 0 | https://browser.sead.se/site/3617 |
+| kv. Specksrum (`3616`) | `dbb12903-364a-48cf-a0dd-3c2be04bd5e9` | site_page_only | 0 | https://browser.sead.se/site/3616 |
+| kv. Trädgårdsmästaren (`3615`) | `444fd43e-10e2-4c5d-a38e-92abef11302b` | site_page_only | 0 | https://browser.sead.se/site/3615 |
+| Kvarnbacken i Sundborn (`5947`) | `5aff200b-6fb6-4015-89fd-eb436b0287a3` | site_page_only | 0 | https://browser.sead.se/site/5947 |
+| Kvarnbacken/kv. Cisternen/Galgegärdsbacken (`3614`) | `130bcce0-e8b1-4cab-871e-a0071a6b0c02` | site_page_only | 0 | https://browser.sead.se/site/3614 |
+| Kvarnfallet, Uppsala (`6426`) | `356f87bd-aae2-4ee7-b661-f249e1f124ac` | site_page_only | 0 | https://browser.sead.se/site/6426 |
+| Kvarntorp (`4088`) | `f02c38e5-e31a-47bf-8691-45f75a30454c` | site_page_only | 0 | https://browser.sead.se/site/4088 |
+| Kvarter General Ulfeldt (`6303`) | `831a12f5-ec25-43f7-80b6-4813df4ff31f` | site_page_only | 0 | https://browser.sead.se/site/6303 |
+| Kvarteret Allön (`3895`) | `ca4623b0-ee81-4e15-8f09-d5022eadf2d3` | site_page_only | 0 | https://browser.sead.se/site/3895 |
+| Kvarteret Almen (`3894`) | `a39893ac-3ba3-4ae1-96fc-ab52f51bb6bf` | site_page_only | 0 | https://browser.sead.se/site/3894 |
+| Kvarteret Boktryckaren (`3893`) | `0f31d67c-544d-452b-ab1f-b19a26e6bde3` | site_page_only | 0 | https://browser.sead.se/site/3893 |
+| Kvarteret Borgmästaren (`3892`) | `208a2ae6-a589-481f-950d-298659582249` | site_page_only | 0 | https://browser.sead.se/site/3892 |
+| Kvarteret Ciselören (`3890`) | `d7e8b031-ce90-44d8-9637-a0fffce70368` | site_page_only | 0 | https://browser.sead.se/site/3890 |
+| Kvarteret Fältskären (`3889`) | `ef98e833-3aaa-4ae7-aeb3-d152dc4cf759` | site_page_only | 0 | https://browser.sead.se/site/3889 |
+| Kvarteret Färgaren (`3888`) | `df69106f-ab50-49c5-84d0-b0a15ac1e1cf` | site_page_only | 0 | https://browser.sead.se/site/3888 |
+| Kvarteret Gamla Holmarna (`6463`) | `e66beb92-4fcd-46cc-8f95-035591f776a3` | site_page_only | 0 | https://browser.sead.se/site/6463 |
+| Kvarteret Garvaren (`3887`) | `d5a49216-b975-44d1-a19f-5d799bc3cf05` | site_page_only | 0 | https://browser.sead.se/site/3887 |
+| Kvarteret Guldsmeden (`3886`) | `039da16a-89ad-40dd-af30-6bd7f1363fb5` | site_page_only | 0 | https://browser.sead.se/site/3886 |
+| Kvarteret Hattmakaren (`3885`) | `ed5a8908-85bf-4bd5-9c5c-447d154fe3d6` | site_page_only | 0 | https://browser.sead.se/site/3885 |
+| Kvarteret Iphigenia (`6304`) | `d9acab50-e2ac-45b5-a83d-cf8dc5d952ac` | site_page_only | 0 | https://browser.sead.se/site/6304 |
+| Kvarteret Kassamannen (`3884`) | `4fe59139-fa69-4a7e-b426-d9eeb41763ee` | site_page_only | 0 | https://browser.sead.se/site/3884 |
+| Kvarteret Kommendanten (`3883`) | `0cf610f9-a6dd-48d4-9d78-60da25eabdb4` | site_page_only | 0 | https://browser.sead.se/site/3883 |
+| Kvarteret Krögaren (`3882`) | `572b8e0f-d8e9-4b16-ad93-35c6818a1fd5` | site_page_only | 0 | https://browser.sead.se/site/3882 |
+| Kvarteret Mercurius (`6305`) | `5bf34c3b-22f5-424f-95e8-6f0180cc7ebf` | site_page_only | 0 | https://browser.sead.se/site/6305 |
+| Kvarteret Museet (`3881`) | `e7335202-6b37-40ac-8d32-6d7d8e727b8a` | site_page_only | 0 | https://browser.sead.se/site/3881 |
+| Kvarteret Ormen (`3880`) | `731052d9-5e45-4104-8b39-7f069db4a1d0` | site_page_only | 0 | https://browser.sead.se/site/3880 |
+| Kvarteret Prelaten (`3879`) | `f7c65516-c43a-4b33-82cd-3145775a1ab7` | site_page_only | 0 | https://browser.sead.se/site/3879 |
+| Kvarteret Repslagaren (`3878`) | `b93f0069-6a95-4f4f-8a33-102bd9735d68` | site_page_only | 0 | https://browser.sead.se/site/3878 |
+| Kvarteret Specksrum (`3875`) | `f9d9647b-679c-4353-8b5d-7f36e0343c85` | site_page_only | 0 | https://browser.sead.se/site/3875 |
+| Kvarteret Spinnrocken (`6464`) | `2c57c5f7-0d38-4dba-8e67-a21ecdea3a7b` | site_page_only | 0 | https://browser.sead.se/site/6464 |
+| Kvarteret Svartbrodern (`3874`) | `4f9aa2d6-bf76-443c-bac6-4b739533c7ad` | site_page_only | 0 | https://browser.sead.se/site/3874 |
+| Kvarteret Vaxblekaren (`3873`) | `00882a56-74f2-4329-9e1b-4b505bfbe8c1` | site_page_only | 0 | https://browser.sead.se/site/3873 |
+| Kvarteret Vinskänken (`3872`) | `ad3ec518-6a23-485d-861c-9c854a53f3e8` | site_page_only | 0 | https://browser.sead.se/site/3872 |
+| Kvarteret Örtedalen (`308`) | `03792ffc-6e69-4bca-97f3-5ee27662882e` | site_page_only | 0 | https://browser.sead.se/site/308 |
+| Kvarteret Örtedalen (`6465`) | `34f98be1-5b5d-4e54-afbf-9dbb1ccab904` | site_page_only | 0 | https://browser.sead.se/site/6465 |
+| Kvarteret Östergötland (`3871`) | `0a5f999a-774d-4aec-9aaa-41f46696f691` | site_page_only | 0 | https://browser.sead.se/site/3871 |
+| Kvedesta (`3613`) | `2f200317-8b56-4281-bba9-f7a59128fbe6` | site_page_only | 0 | https://browser.sead.se/site/3613 |
+| Kvibergsnäs landeri (`5948`) | `8070eb0c-c042-4865-9cff-2eb2fd360e44` | site_page_only | 0 | https://browser.sead.se/site/5948 |
+| Kvibille Raä 131 (`27`) | `f47122aa-bca8-4450-983b-4af8a6b89969` | site_page_only | 0 | https://browser.sead.se/site/27 |
+| Kvie (`3612`) | `869ce439-cd96-4da5-875c-ea6245336edf` | site_page_only | 0 | https://browser.sead.se/site/3612 |
+| Kvinnsgröta (`3611`) | `c806e800-7dec-465c-8f51-6a67e46bdede` | site_page_only | 0 | https://browser.sead.se/site/3611 |
+| Kvistgården i Lenåsen (`5949`) | `85cb403b-4edd-4a11-b0a8-c5ea5e3ccfd4` | site_page_only | 0 | https://browser.sead.se/site/5949 |
+| Kyrkbåthus i Laknäs (`5951`) | `897fa42b-d2b1-4b67-be0e-e568063d7013` | site_page_only | 0 | https://browser.sead.se/site/5951 |
+| Kyrkebo (`3610`) | `7f70647b-7bcd-4a7a-8d82-834690e47ab5` | site_page_only | 0 | https://browser.sead.se/site/3610 |
+| Kyrkheddinge (`3609`) | `68b5e883-b978-4049-a220-d746fd1aebf7` | site_page_only | 0 | https://browser.sead.se/site/3609 |
+| Kyrkheddinge 6:1 (`6400`) | `fca5a6fb-82b5-4a30-9ce3-1f23b4dc5dec` | site_page_only | 0 | https://browser.sead.se/site/6400 |
+| Kyrkhärbret Älvdalen (`5952`) | `b82a000c-d744-4800-a38f-167237544b45` | site_page_only | 0 | https://browser.sead.se/site/5952 |
+| Kyrkladan Bur Mats i Tiberget (`5953`) | `3cc7ef8d-0e55-4cf8-a8e6-a5f34d16a1f5` | site_page_only | 0 | https://browser.sead.se/site/5953 |
+| Kyrkladan från Haverö (`5954`) | `a3b4c4d3-7528-4d06-a328-508d3bea9e91` | site_page_only | 0 | https://browser.sead.se/site/5954 |
+| Kyrkvärdsgården (`4087`) | `bd9e6c2a-875f-49e3-bbd7-9fa723abca4d` | site_page_only | 0 | https://browser.sead.se/site/4087 |
+| Kyrkås gamla kyrka (`5950`) | `b26e97f7-d6a3-4deb-a9d9-01d0ad2fa33a` | site_page_only | 0 | https://browser.sead.se/site/5950 |
+| Kyrsta (`3608`) | `0248dec5-b57a-47df-85b7-af225aef6abf` | site_page_only | 0 | https://browser.sead.se/site/3608 |
+| Källingemöre (`3607`) | `52836638-392e-4ee4-9862-dd74a98b1d9c` | site_page_only | 0 | https://browser.sead.se/site/3607 |
+| Källunge kyrka (`4085`) | `122cc469-f952-4bf8-b7ff-5f7333b0e0b5` | site_page_only | 0 | https://browser.sead.se/site/4085 |
+| Kärringsjön (`3606`) | `1432e5a9-e129-4f24-9e5f-55e224a0b9fd` | site_page_only | 0 | https://browser.sead.se/site/3606 |
+| Kärsämäki: Kintasahonräme (`5086`) | `403b5e6b-1eb2-43a4-ad65-c3f712fa1a28` | site_page_only | 0 | https://browser.sead.se/site/5086 |
+| Kärsämäki: Kärsämenneva (`5087`) | `44a60229-5294-4df1-b04a-dbc35a7d32c7` | site_page_only | 0 | https://browser.sead.se/site/5087 |
+| Kättsta (`3605`) | `5d20df9b-77e4-40f9-ba01-e14702e10090` | site_page_only | 0 | https://browser.sead.se/site/3605 |
+| Kävlinge gamla kyrka (`4083`) | `9f5fe79a-7358-4c61-96c1-556380529c78` | site_page_only | 0 | https://browser.sead.se/site/4083 |
+| Kågbo (`6301`) | `7680430d-7565-4e3c-aba0-d64f2da7f926` | site_page_only | 0 | https://browser.sead.se/site/6301 |
+| Kånna kyrka (`5914`) | `520dd222-29d1-43d3-b489-c2ffdfff16d0` | site_page_only | 0 | https://browser.sead.se/site/5914 |
+| Kåseholms slott (`5924`) | `039dabbf-726d-4d0a-bfd7-4bf4f153e84b` | site_page_only | 0 | https://browser.sead.se/site/5924 |
+| Köping 148:1 (`6403`) | `62e5f14f-e846-47e9-a34f-d845d2fd69f6` | site_page_only | 0 | https://browser.sead.se/site/6403 |
+| Köpingsvik (`3603`) | `785d2d62-d26f-4323-a232-de1eec6463c7` | site_page_only | 0 | https://browser.sead.se/site/3603 |
+| Körslättamossen (`4481`) | `e3ab8f30-9bc0-4519-8ca0-a196cebef249` | site_page_only | 0 | https://browser.sead.se/site/4481 |
+| Labbgård (`5955`) | `e4d482a3-0133-4b3f-904e-ce76915ac834` | site_page_only | 0 | https://browser.sead.se/site/5955 |
+| Lada Mellan-Selbäck (`5956`) | `70c5807c-e9c7-4a8f-9733-3506bcf3137d` | site_page_only | 0 | https://browser.sead.se/site/5956 |
+| Laforsen (`256`) | `615bee5f-cad2-4d56-8eca-49577cf7d5e4` | site_page_only | 0 | https://browser.sead.se/site/256 |
+| Laholm Raä 205 (`17`) | `2e4b75dc-9f02-430f-b8d9-e5e715585392` | site_page_only | 0 | https://browser.sead.se/site/17 |
+| Landa Raä 35 (`11`) | `72b3483a-ba56-49e6-bae3-1c6b55297759` | site_page_only | 0 | https://browser.sead.se/site/11 |
+| Landbybon Vänjan (`5957`) | `e04c006e-2052-43fc-ad7a-0e3926b9731c` | site_page_only | 0 | https://browser.sead.se/site/5957 |
+| Landgren i Bye (`5959`) | `8ad4dfb0-338f-4db0-93d8-5bdb714efa62` | site_page_only | 0 | https://browser.sead.se/site/5959 |
+| Landgården i Mon (`5958`) | `976e86d6-7920-4ef7-a5a0-640c764b3335` | site_page_only | 0 | https://browser.sead.se/site/5958 |
+| Landsnora kvarn (`4082`) | `e63e3adc-3193-4839-ad68-49b59227c597` | site_page_only | 0 | https://browser.sead.se/site/4082 |
+| Langagergård TAK 1402 (`75`) | `ff5ef022-7911-424c-aefd-d9c20de3e578` | site_page_only | 0 | https://browser.sead.se/site/75 |
+| Lantbruksstyrelsen i Ede (`5963`) | `0494a68b-019a-4445-906c-3c35f452e438` | site_page_only | 0 | https://browser.sead.se/site/5963 |
+| Lappvallen (`3599`) | `d8f40c9e-0c12-4e83-932d-0aa60c949b5c` | site_page_only | 0 | https://browser.sead.se/site/3599 |
+| Lappviken (`3598`) | `20c4d074-ffd4-44d8-9564-4ff9fe7590ed` | site_page_only | 0 | https://browser.sead.se/site/3598 |
+| Lappäjärvi: Kärnä (`5069`) | `c17d128c-089d-49d8-af56-09d39d8114d2` | site_page_only | 0 | https://browser.sead.se/site/5069 |
+| Lars Jonnsson i Fudal (`5964`) | `ed264851-8e6e-4308-9c51-31a41e70f626` | site_page_only | 0 | https://browser.sead.se/site/5964 |
+| Lars-Danielsgården i Persbo (`5965`) | `6fd40bb9-0bc7-4426-bf1e-3072a6e77000` | site_page_only | 0 | https://browser.sead.se/site/5965 |
+| Larsgården i nedre Gärdsjö (`5966`) | `ab8c1677-1c82-47d0-9f3e-7a0595eb6085` | site_page_only | 0 | https://browser.sead.se/site/5966 |
+| Larspers i Nusnäs (`5967`) | `a486e86c-dd9b-4cdd-8102-7bc06f11517b` | site_page_only | 0 | https://browser.sead.se/site/5967 |
+| Larssimilis i Persbo (`5968`) | `b80e52a9-1867-43ff-aa55-f7edafb59c9a` | site_page_only | 0 | https://browser.sead.se/site/5968 |
+| Larsson i Smedsbo (`5969`) | `dbddb958-be7a-4110-90bb-158beb14e2c2` | site_page_only | 0 | https://browser.sead.se/site/5969 |
+| Larsson i Tångeråsen (`5970`) | `e3e1e743-2811-47a0-be69-ccc388a9110a` | site_page_only | 0 | https://browser.sead.se/site/5970 |
+| Larssons i By (`5971`) | `29a7191f-70e6-4237-86c8-6d661e171f86` | site_page_only | 0 | https://browser.sead.se/site/5971 |
+| Lassor (`4081`) | `84cb8b7c-0aa4-4c93-b9e8-6c0af51e22dd` | site_page_only | 0 | https://browser.sead.se/site/4081 |
+| Lathman i Bodal (`5972`) | `0b0509da-44bb-4670-93ec-f60be11d89e2` | site_page_only | 0 | https://browser.sead.se/site/5972 |
+| Lau Kyrka (`4080`) | `369c946e-5ff5-4aa5-be6a-56ccead2300e` | site_page_only | 0 | https://browser.sead.se/site/4080 |
+| Ledsjö Raä 148 (`160`) | `b6eef59a-8dce-4acb-86ca-5402e3b21e3f` | site_page_only | 0 | https://browser.sead.se/site/160 |
+| Ledsjö Raä 149 (`106`) | `7b6b5e92-b49c-4554-ad63-017933597c68` | site_page_only | 0 | https://browser.sead.se/site/106 |
+| Ledsjö Raä 153 (`124`) | `f708972a-ef8b-42c0-b95a-dffc348cb2ea` | site_page_only | 0 | https://browser.sead.se/site/124 |
+| Ledsjö Raä 73 (`158`) | `d024a3c2-dc51-4108-a7b4-47d397dd72b9` | site_page_only | 0 | https://browser.sead.se/site/158 |
+| Leksands kyrka (`5973`) | `5f10db48-76fc-4248-813b-3838f8b8847b` | site_page_only | 0 | https://browser.sead.se/site/5973 |
+| Leksberg Raä 69 (`154`) | `1e11f22a-afcb-4198-a860-b0a8b3ad8791` | site_page_only | 0 | https://browser.sead.se/site/154 |
+| Lena 7:1 (`6364`) | `7a2f4d7d-d312-4228-8cfc-a9bc7c8ec9db` | site_page_only | 0 | https://browser.sead.se/site/6364 |
+| Leonardsberg (`3597`) | `8a797eb8-ed30-4cb0-901b-3d3bbbed0d21` | site_page_only | 0 | https://browser.sead.se/site/3597 |
+| Lerstadvatnet (`4497`) | `a06c1e49-935d-47e9-86f8-ff878807e9d6` | site_page_only | 0 | https://browser.sead.se/site/4497 |
+| Lerstang (`3596`) | `dd605825-1229-4bca-bbbe-f1970f79087b` | site_page_only | 0 | https://browser.sead.se/site/3596 |
+| Lesjön (`3595`) | `27a40ed4-ff7a-4e77-ace1-5af811cb2585` | site_page_only | 0 | https://browser.sead.se/site/3595 |
+| Leveaniemi (`4499`) | `9f3b8d4d-59fe-438a-989e-684c01a83322` | site_page_only | 0 | https://browser.sead.se/site/4499 |
+| Levene kyrka (`5974`) | `ed06a094-42bf-4aac-bc47-cef32f894db4` | site_page_only | 0 | https://browser.sead.se/site/5974 |
+| Lexby (`3594`) | `3efd7d8e-df2c-45fb-b916-69b646a10fa5` | site_page_only | 0 | https://browser.sead.se/site/3594 |
+| Liden under Storegården (`3593`) | `5579b842-961a-4454-81cf-39883aa1aee2` | site_page_only | 0 | https://browser.sead.se/site/3593 |
+| Lids kyrka (`5975`) | `31856b3f-5962-4fcd-808a-84fa8eb36b3e` | site_page_only | 0 | https://browser.sead.se/site/5975 |
+| Lilla Beddinge (`3592`) | `7e48f365-7b6f-4482-84d9-518e0d3173b2` | site_page_only | 0 | https://browser.sead.se/site/3592 |
+| Lilla Björkudden (`3870`) | `5d276533-06d6-4738-b68b-cee076a60328` | site_page_only | 0 | https://browser.sead.se/site/3870 |
+| Lilla Främsbacka (`5976`) | `e13654db-137d-47ec-b447-691a04844696` | site_page_only | 0 | https://browser.sead.se/site/5976 |
+| Lilla Korpebo (`6306`) | `5a5ffd97-91de-40fc-ab76-e4bc74fa393f` | site_page_only | 0 | https://browser.sead.se/site/6306 |
+| Lilla Pålsjö (`5666`) | `00cbaffc-d52e-43c7-95b2-08bfaff7b566` | site_page_only | 0 | https://browser.sead.se/site/5666 |
+| Lilla Rotsunda (`4078`) | `9d635daf-cd52-43a1-97c1-f97401cd683c` | site_page_only | 0 | https://browser.sead.se/site/4078 |
+| Lilla Tvären (`3591`) | `a2316a0e-b720-4f1f-a051-d8b99e6aa6bb` | site_page_only | 0 | https://browser.sead.se/site/3591 |
+| Lilla Ulvgryt (`3590`) | `3ee67251-7091-4ac8-8c4d-531a4d3b61b6` | site_page_only | 0 | https://browser.sead.se/site/3590 |
+| Lillanäs (`6307`) | `692b82fa-8f13-4583-baae-7794bbe00db4` | site_page_only | 0 | https://browser.sead.se/site/6307 |
+| Lillberget (`390`) | `27f209e2-c47e-46d8-bbcf-b620b6f705d4` | site_page_only | 0 | https://browser.sead.se/site/390 |
+| Limensgård (`3588`) | `20317705-18b6-4d18-ba1e-8d4553adbd14` | site_page_only | 0 | https://browser.sead.se/site/3588 |
+| Limkläloftet från Hallosbacken (`5977`) | `dec0d7a8-19bb-4821-b562-b7badbc8658b` | site_page_only | 0 | https://browser.sead.se/site/5977 |
+| Lina bog (`6444`) | `88ec142c-f043-49ee-b1c9-1c9003725da2` | site_page_only | 0 | https://browser.sead.se/site/6444 |
+| Lindab området (`3587`) | `148733ba-74a3-4a2b-8ea1-65ad31960a8a` | site_page_only | 0 | https://browser.sead.se/site/3587 |
+| Lindborg i Långsillremon (`5979`) | `3c3878f8-beb9-4401-b3cd-67683622abe2` | site_page_only | 0 | https://browser.sead.se/site/5979 |
+| Linde kyrka (`4076`) | `9f7321ae-1cbe-44e1-bfc1-0e3da0364970` | site_page_only | 0 | https://browser.sead.se/site/4076 |
+| Linderöds kyrka (`4075`) | `597195db-7e87-495d-a0dd-c8573f65b336` | site_page_only | 0 | https://browser.sead.se/site/4075 |
+| Lindgren i Tunvågen (`5980`) | `f367fd34-55d5-412d-a19d-0d8bc019fac5` | site_page_only | 0 | https://browser.sead.se/site/5980 |
+| Lindmansgården i Eggen (`5981`) | `cc68ca44-cdde-4528-b768-73f63f719019` | site_page_only | 0 | https://browser.sead.se/site/5981 |
+| Lindved (`4504`) | `e19c86b8-db8b-4f9e-8dd7-c6b1c0e1c40c` | site_page_only | 0 | https://browser.sead.se/site/4504 |
+| Lindås (`5978`) | `b991208d-d70c-4dcd-bf99-09c9397be054` | site_page_only | 0 | https://browser.sead.se/site/5978 |
+| Linga (`3586`) | `acbe5c1f-10e3-4a08-96ef-2bd259ef17cb` | site_page_only | 0 | https://browser.sead.se/site/3586 |
+| Linköping 153:1 (`6413`) | `9157ed1b-4bca-4e74-b7ae-5fc6236b6271` | site_page_only | 0 | https://browser.sead.se/site/6413 |
+| Linköping 188 (`3585`) | `b62f1bc5-ebf7-483f-bd85-0c1e06b55fdc` | site_page_only | 0 | https://browser.sead.se/site/3585 |
+| Linköping 503 (`6406`) | `7af67c4d-85aa-4c1a-9860-97f19b3f2af5` | site_page_only | 0 | https://browser.sead.se/site/6406 |
+| Linköpings domkyrka (`4074`) | `fd1c8ceb-28f9-4e60-a5b4-bc14fe9f5833` | site_page_only | 0 | https://browser.sead.se/site/4074 |
+| Linköpings slott (`4073`) | `abaf21d3-1f84-4db4-b0f7-d49314e00c14` | site_page_only | 0 | https://browser.sead.se/site/4073 |
+| Lisseläng (`3584`) | `a1673897-18ef-4ff8-9704-3b46154f1a79` | site_page_only | 0 | https://browser.sead.se/site/3584 |
+| Lisskvarngården i Malmsta (`5982`) | `8036d445-171e-44f5-81b4-4d37be8e4ced` | site_page_only | 0 | https://browser.sead.se/site/5982 |
+| Lithströms i Österuppland (`5983`) | `0c6da898-54d9-4ead-a46e-1d6bc87a6cb1` | site_page_only | 0 | https://browser.sead.se/site/5983 |
+| Litslena 561 (`3583`) | `22c66d4b-5418-4a27-86c7-2523a909543c` | site_page_only | 0 | https://browser.sead.se/site/3583 |
+| Ljungsarps kyrka (`5984`) | `1a5fdbde-e2bf-47d1-9166-f3ee3f6e4078` | site_page_only | 0 | https://browser.sead.se/site/5984 |
+| Ljusträdet i Lundagård (`5655`) | `907d2d6f-9530-4c66-bfd2-544e723042b6` | site_page_only | 0 | https://browser.sead.se/site/5655 |
+| Lockarp (`3582`) | `5bcef9b1-123d-4448-8104-6b62941c86b1` | site_page_only | 0 | https://browser.sead.se/site/3582 |
+| Lockarp 7A (`3581`) | `5847c7da-0664-4b94-b5c9-85ec884b21dd` | site_page_only | 0 | https://browser.sead.se/site/3581 |
+| Lockarp 7B (`3815`) | `24e3118e-40f3-41fd-95f0-aabd3e43aaaa` | site_page_only | 0 | https://browser.sead.se/site/3815 |
+| Lockarp 7B (`4915`) | `4ce088db-824f-4fc1-a1fb-0b88f191e399` | site_page_only | 0 | https://browser.sead.se/site/4915 |
+| Lockarp 8:4 (`278`) | `51d76c77-5cd4-459c-aa5e-5110fb65f92e` | site_page_only | 0 | https://browser.sead.se/site/278 |
+| Loft i Ytterocke (`5985`) | `867424cd-eee1-48fe-9954-d121889ae424` | site_page_only | 0 | https://browser.sead.se/site/5985 |
+| Lohärad Raä 167:1 (`395`) | `9a4d0227-40a0-4210-9732-7b52abf068e2` | site_page_only | 0 | https://browser.sead.se/site/395 |
+| Lohärads Prästgård (`3869`) | `fa80d56b-3ea1-4d7d-9971-6faf2f4336f4` | site_page_only | 0 | https://browser.sead.se/site/3869 |
+| Lojsta kyrka (`4072`) | `9c908d8a-9f6e-4667-a52f-2d26a22ac204` | site_page_only | 0 | https://browser.sead.se/site/4072 |
+| Lopperstad (`4071`) | `211fbeaa-bc89-4ed5-bf1d-521085156b27` | site_page_only | 0 | https://browser.sead.se/site/4071 |
+| Losgården i Gråda (`5990`) | `4d3b8037-9f35-4348-ab61-03d2ad46f3a6` | site_page_only | 0 | https://browser.sead.se/site/5990 |
+| Lovö prästgård (`6308`) | `969b1c67-355a-4694-b1f9-54573bab2003` | site_page_only | 0 | https://browser.sead.se/site/6308 |
+| Lund (`4518`) | `6aee710c-db9d-4bbb-b47d-100b93f10810` | site_page_only | 0 | https://browser.sead.se/site/4518 |
+| Lund 73:1 (`6385`) | `9ede6a83-dc73-494a-a40c-bbcd0dbd4b6c` | site_page_only | 0 | https://browser.sead.se/site/6385 |
+| Lund i Hov (`5991`) | `70e06cce-c913-43f6-aadf-eedf9a1f91ad` | site_page_only | 0 | https://browser.sead.se/site/5991 |
+| Lund Minster (`5554`) | `8a4e4910-064a-4038-8f98-a023349262c4` | site_page_only | 0 | https://browser.sead.se/site/5554 |
+| Lunda omr. B (`3580`) | `1c754781-e6a4-410a-a93e-5190d822ccbd` | site_page_only | 0 | https://browser.sead.se/site/3580 |
+| Lundbacken, Tillinge (`4519`) | `26710a58-b053-401e-b55d-83078cbcae62` | site_page_only | 0 | https://browser.sead.se/site/4519 |
+| Lundby Raä 8 (`169`) | `1c173c2d-1cc1-4137-b4eb-6dc18b1ad063` | site_page_only | 0 | https://browser.sead.se/site/169 |
+| Lundbæk Mose (`5304`) | `d4dcf26b-b506-4120-8078-0830134e57c9` | site_page_only | 0 | https://browser.sead.se/site/5304 |
+| Lundeborg I (`3579`) | `d597706d-dd2a-4401-a1b6-5d46d56a3398` | site_page_only | 0 | https://browser.sead.se/site/3579 |
+| Lundeborg II (`3578`) | `77a740d0-200c-4b1d-96b7-8191e9e1b2ea` | site_page_only | 0 | https://browser.sead.se/site/3578 |
+| Lundehöj 26 (`3577`) | `ee07f3b9-576c-410f-b9df-19f0e464641a` | site_page_only | 0 | https://browser.sead.se/site/3577 |
+| Lundfors (`5048`) | `b12cd130-dcdc-475f-b180-3d19072983f0` | site_page_only | 0 | https://browser.sead.se/site/5048 |
+| Lundins i Norrskog (`5992`) | `aa03b043-3e9b-4383-ae64-be203e08b3c1` | site_page_only | 0 | https://browser.sead.se/site/5992 |
+| Lunds domkyrka (`4070`) | `7c776184-2f9f-4e3a-a7b6-888e0a3c1b9a` | site_page_only | 0 | https://browser.sead.se/site/4070 |
+| Lundströms plats (`3576`) | `23d6868f-f95b-46fb-a44a-8ac0445fdbe7` | site_page_only | 0 | https://browser.sead.se/site/3576 |
+| Lunnahöje (`5993`) | `bcae93b5-6721-4c6b-9730-28cf2d6ed76e` | site_page_only | 0 | https://browser.sead.se/site/5993 |
+| Lyckås (`5646`) | `cfae5f83-faaa-406b-9ee2-131e7bbc0b03` | site_page_only | 0 | https://browser.sead.se/site/5646 |
+| Lye kyrka (`4069`) | `0c63f912-9257-4493-8088-123e7294e683` | site_page_only | 0 | https://browser.sead.se/site/4069 |
+| Lyngsjö kyrka (`5994`) | `377c0ed3-d9b7-4d06-bca3-1ddb9cb7b9b0` | site_page_only | 0 | https://browser.sead.se/site/5994 |
+| Lyngåkra (`3574`) | `37d95fc7-ab5e-4cd1-93c2-cb76265f9e0b` | site_page_only | 0 | https://browser.sead.se/site/3574 |
+| Láksjohka (`159`) | `2778a01a-333d-4c7b-aa36-fa0112147dde` | site_page_only | 0 | https://browser.sead.se/site/159 |
+| Lännavägen (`5961`) | `30dc385d-20e7-417f-9e42-4a6c326a5f0d` | site_page_only | 0 | https://browser.sead.se/site/5961 |
+| Länsmansgården (`4067`) | `630520cd-232f-4e34-ae75-ac00e6befae1` | site_page_only | 0 | https://browser.sead.se/site/4067 |
+| Länsmansgården i Klösta (`5962`) | `c3bf4bb7-f657-4610-a25b-9a83c618ac16` | site_page_only | 0 | https://browser.sead.se/site/5962 |
+| Lärbro 579:1 (`6372`) | `db09a00d-3480-4e74-85af-820f63b9a80e` | site_page_only | 0 | https://browser.sead.se/site/6372 |
+| Lärbro kyrka (`4066`) | `157aaed0-c5d8-4cf4-aef5-e1a9652ce37f` | site_page_only | 0 | https://browser.sead.se/site/4066 |
+| Låga längan (`3816`) | `8c12f90b-851d-42c2-b855-f48bbd16b24d` | site_page_only | 0 | https://browser.sead.se/site/3816 |
+| Långlöts kyrka (`4068`) | `509b288f-9d3b-4c88-a91d-bc5c6afbad36` | site_page_only | 0 | https://browser.sead.se/site/4068 |
+| Långsele (`4489`) | `1a70ebe6-2fae-47bf-9da6-47d0e5d3c143` | site_page_only | 0 | https://browser.sead.se/site/4489 |
+| Långsved (`5960`) | `f43003c6-77b3-4056-98ad-bf257205a91a` | site_page_only | 0 | https://browser.sead.se/site/5960 |
+| Löddeköpinge (`3573`) | `6fd85690-dc78-42ee-aa0b-0bfca63108bf` | site_page_only | 0 | https://browser.sead.se/site/3573 |
+| Löddeköpinge kyrka (`4065`) | `5008f1af-7591-4cab-a891-06e583f5d808` | site_page_only | 0 | https://browser.sead.se/site/4065 |
+| Löddesborg (`3572`) | `3629e6bc-9e4d-4ec8-9e1f-3bdf9b4e31ad` | site_page_only | 0 | https://browser.sead.se/site/3572 |
+| Löderup (`3571`) | `3352b510-97e5-4cba-82c5-a567dce8d10c` | site_page_only | 0 | https://browser.sead.se/site/3571 |
+| Löderup 103 (`3570`) | `5c0595cb-c607-4d3a-9058-865d1e39069d` | site_page_only | 0 | https://browser.sead.se/site/3570 |
+| Löderup 21 (`3569`) | `bcafbf54-2761-4843-84aa-6a791bcc2db8` | site_page_only | 0 | https://browser.sead.se/site/3569 |
+| Löderup 27 (`3568`) | `64aa9ca5-0002-43e4-a00d-af76c36cb6b4` | site_page_only | 0 | https://browser.sead.se/site/3568 |
+| Löderup 3 (`3567`) | `438cb6a1-de16-48e0-b11e-8aea9b2e49e6` | site_page_only | 0 | https://browser.sead.se/site/3567 |
+| Löderup 36 (`3566`) | `0174d81f-817f-4d1b-8b28-4b7608038543` | site_page_only | 0 | https://browser.sead.se/site/3566 |
+| Lökes i Skästra (`5986`) | `3c800e75-787d-4a06-be0a-fcec034a1d65` | site_page_only | 0 | https://browser.sead.se/site/5986 |
+| Lönneberga kyrka (`5987`) | `1e53747f-6bc0-42ea-99f9-8c40a18fcacf` | site_page_only | 0 | https://browser.sead.se/site/5987 |
+| Lösens kyrka (`5989`) | `aa908f9a-5ed3-4d79-96b8-346be8b91fbf` | site_page_only | 0 | https://browser.sead.se/site/5989 |
+| Löts kyrka (`4064`) | `b253ef95-e28f-45ca-b71c-623c0480a352` | site_page_only | 0 | https://browser.sead.se/site/4064 |
+| Lövleforsen (`361`) | `0ccba506-d54f-43cc-b077-ac838c293425` | site_page_only | 0 | https://browser.sead.se/site/361 |
+| Lövstaholm (`3564`) | `f0c82143-5f6f-4e8f-bfce-eb69530213ed` | site_page_only | 0 | https://browser.sead.se/site/3564 |
+| Løgtved (`5306`) | `ad82ffb1-ae0c-4c21-b50e-87c4d81881a7` | site_page_only | 0 | https://browser.sead.se/site/5306 |
+| Løkkebjerggård (`3565`) | `09604deb-5cfc-4ee8-bcd7-7789de1b6b7a` | site_page_only | 0 | https://browser.sead.se/site/3565 |
+| Maglehem (`6309`) | `3419be82-5157-4a9d-b434-980926239798` | site_page_only | 0 | https://browser.sead.se/site/6309 |
+| Maglö borg (`5995`) | `eb8e4d9d-5af9-41d7-ac4b-8450bcd46df1` | site_page_only | 0 | https://browser.sead.se/site/5995 |
+| Maksjön (`3563`) | `81c4da51-e12d-4cd1-bcf4-f3e85bb30c32` | site_page_only | 0 | https://browser.sead.se/site/3563 |
+| Malmahed (`3562`) | `082a43b7-3bef-4dd4-b450-9c174a65b95b` | site_page_only | 0 | https://browser.sead.se/site/3562 |
+| Malmstorp (`3866`) | `890d2673-5a5b-427f-ab8e-f65060bb18f6` | site_page_only | 0 | https://browser.sead.se/site/3866 |
+| Malmö 32 (`3561`) | `3da441f7-2d74-4f07-920d-88a3af9e6434` | site_page_only | 0 | https://browser.sead.se/site/3561 |
+| Malungs kyrka (`5996`) | `a0ddc230-6eb5-4a4a-8246-191bd4ce6f94` | site_page_only | 0 | https://browser.sead.se/site/5996 |
+| Manberg i Sjör (`5997`) | `a22c71c9-ebcf-4138-8681-00c676f9c207` | site_page_only | 0 | https://browser.sead.se/site/5997 |
+| Mangsarve (`3560`) | `978c7b2f-ee78-482c-b172-cb9fd759469f` | site_page_only | 0 | https://browser.sead.se/site/3560 |
+| Mankas i Torsgård (`5998`) | `72593b80-5605-45aa-9c4f-80bcd801fcec` | site_page_only | 0 | https://browser.sead.se/site/5998 |
+| Marby gamla kyrka (`6000`) | `06238284-5761-4062-8d51-b504aa41c805` | site_page_only | 0 | https://browser.sead.se/site/6000 |
+| Mariannelund (`3865`) | `6a2680ec-425a-4ef3-8801-15c34623b1f3` | site_page_only | 0 | https://browser.sead.se/site/3865 |
+| Marieberg (Heby herrgård, Uppland) (`3558`) | `48dbb82c-998b-4b41-9049-fa66edfe7beb` | site_page_only | 0 | https://browser.sead.se/site/3558 |
+| Mariefred 21:1 (`6377`) | `8b3f5bf2-4864-41ca-a477-b4354ffae7af` | site_page_only | 0 | https://browser.sead.se/site/6377 |
+| Marjsö (`4063`) | `3f855224-d439-4972-ae5d-1f1acd3224e2` | site_page_only | 0 | https://browser.sead.se/site/4063 |
+| Mark (`3557`) | `30c71b6f-b6e9-403d-8486-8ea9e197c7d7` | site_page_only | 0 | https://browser.sead.se/site/3557 |
+| Marka kyrka (`6001`) | `01937376-db7e-4c77-9039-746ad0fb9f75` | site_page_only | 0 | https://browser.sead.se/site/6001 |
+| Marmaverken (`6002`) | `3b3763ee-8850-43cb-8e1b-4f76a151494e` | site_page_only | 0 | https://browser.sead.se/site/6002 |
+| Martebomyr (`6448`) | `e3a61e61-3f7f-4b78-9f88-95ac42e6cb34` | site_page_only | 0 | https://browser.sead.se/site/6448 |
+| Martin Bränd i Nedre Gärdsjö (`6004`) | `c6e8c70e-a199-450c-980b-3d922d7f1daa` | site_page_only | 0 | https://browser.sead.se/site/6004 |
+| Marums kyrka (`6005`) | `fd1b4cf6-7169-49b4-986c-1358939c4ff2` | site_page_only | 0 | https://browser.sead.se/site/6005 |
+| Masmo (`3556`) | `b1fb6b48-b738-48f4-895f-8e7500cabda0` | site_page_only | 0 | https://browser.sead.se/site/3556 |
+| Matspers i Fåsås (`6006`) | `ac4e8159-dd90-4f8d-b05c-cb77f94b6a22` | site_page_only | 0 | https://browser.sead.se/site/6006 |
+| Mattemåla (`4062`) | `0ef35d99-93b1-4e2e-b656-a574e0125ba1` | site_page_only | 0 | https://browser.sead.se/site/4062 |
+| Mattmars kyrka (`6007`) | `6b8c33a0-b18b-472c-9942-e5401351b41b` | site_page_only | 0 | https://browser.sead.se/site/6007 |
+| Mattson i Stora Snöån (`6008`) | `74136227-1c30-452d-86f8-c69404697a9a` | site_page_only | 0 | https://browser.sead.se/site/6008 |
+| Medåker Raä 176 (`362`) | `38b8dd35-201d-43ed-9138-a10116be094f` | site_page_only | 0 | https://browser.sead.se/site/362 |
+| Melins härbre (`6009`) | `923d1b3d-74af-4edf-9049-ae5e12fd956a` | site_page_only | 0 | https://browser.sead.se/site/6009 |
+| Mellanhärbret från kyrkvallen (`6010`) | `2985a248-3928-45af-9972-a868987b4530` | site_page_only | 0 | https://browser.sead.se/site/6010 |
+| Mellanköpinge (`3864`) | `fd7236ca-431b-4d26-ae1e-12636545de88` | site_page_only | 0 | https://browser.sead.se/site/3864 |
+| Mellby kyrka (`4061`) | `6049e35b-132d-41ac-85ed-ee04415b81af` | site_page_only | 0 | https://browser.sead.se/site/4061 |
+| Mellerud (`5061`) | `c55abc23-cf77-4519-b74a-ba6ae815fb1d` | site_page_only | 0 | https://browser.sead.se/site/5061 |
+| Melvold (`111`) | `2f95d11b-c715-4fd7-8f68-d286c869bb8c` | site_page_only | 0 | https://browser.sead.se/site/111 |
+| Merikarvia (`5091`) | `72b4ad2f-5f0a-4093-98b6-cd4a471ec4ab` | site_page_only | 0 | https://browser.sead.se/site/5091 |
+| Mickelsmossen (`4531`) | `c003a17f-cc1b-4ca2-80ce-f0bfaa60be9b` | site_page_only | 0 | https://browser.sead.se/site/4531 |
+| Millingsmossen 1 (`3553`) | `49440952-f60f-43d4-b49f-15b1f23b6a25` | site_page_only | 0 | https://browser.sead.se/site/3553 |
+| Missesberget (`4853`) | `52a589ac-8b68-41af-a4f8-3b19ca899065` | site_page_only | 0 | https://browser.sead.se/site/4853 |
+| Mjellrumsgården (`6012`) | `3dfbcdba-3f39-4869-9485-5c74b9a498c7` | site_page_only | 0 | https://browser.sead.se/site/6012 |
+| Mjäla (`3551`) | `97e100ae-1ad5-4215-acf4-977acf4e6d14` | site_page_only | 0 | https://browser.sead.se/site/3551 |
+| Mjäldrunga kyrka (`6011`) | `6aff7f64-205f-4f40-a0ed-4e105d4917ab` | site_page_only | 0 | https://browser.sead.se/site/6011 |
+| Mjölnargården (`3919`) | `f78b8c0a-11e2-4675-95fa-208e26436053` | site_page_only | 0 | https://browser.sead.se/site/3919 |
+| Moarna (`5606`) | `03bd840c-7bb9-4771-ba1d-f90749d4fbdd` | site_page_only | 0 | https://browser.sead.se/site/5606 |
+| Modigs i Ingärdningsbodarna (`6013`) | `b7155095-9826-4151-8394-2e36ceb81b38` | site_page_only | 0 | https://browser.sead.se/site/6013 |
+| Morbygden (`6312`) | `f41de016-13c4-44e1-9b3e-86b22539a9f3` | site_page_only | 0 | https://browser.sead.se/site/6312 |
+| Morlanda 367 (`388`) | `0a938f2a-ea68-449c-976c-71d667ffa5ed` | site_page_only | 0 | https://browser.sead.se/site/388 |
+| Morlinggården i Utby (`6016`) | `888690a4-aed1-4b26-b7e9-266166dc77a4` | site_page_only | 0 | https://browser.sead.se/site/6016 |
+| Mortorps kyrka (`4060`) | `8a3badb2-aa93-4b1e-bffe-da2ab4867357` | site_page_only | 0 | https://browser.sead.se/site/4060 |
+| Motala 173:1 (`6412`) | `15523431-fc89-46bb-afe0-ff13fd20bfe5` | site_page_only | 0 | https://browser.sead.se/site/6412 |
+| Muréns i Ope (`6018`) | `7e39dccb-b812-45f7-b57b-193aa48ed8aa` | site_page_only | 0 | https://browser.sead.se/site/6018 |
+| Musikskolan (`4059`) | `5dc42ac7-39a1-4344-a863-832b63625fd3` | site_page_only | 0 | https://browser.sead.se/site/4059 |
+| Mustalampi (`4883`) | `61c2f9c8-3f84-4b44-923a-9cf22f4edf21` | site_page_only | 0 | https://browser.sead.se/site/4883 |
+| Myhrs i Selja (`6019`) | `ce9951ae-30ac-4163-8dd2-b19bb2f7e2ed` | site_page_only | 0 | https://browser.sead.se/site/6019 |
+| Myrby trask, Tunåsen (`4544`) | `fda6f420-303f-48c5-862d-10902dcd3f01` | site_page_only | 0 | https://browser.sead.se/site/4544 |
+| Mysinge (`3549`) | `a135be7e-1a3a-4835-bf0d-64a06b366b3a` | site_page_only | 0 | https://browser.sead.se/site/3549 |
+| Myssjö kyrka (`6020`) | `27727061-7bcc-4307-bf68-c7c04e1ff8a4` | site_page_only | 0 | https://browser.sead.se/site/6020 |
+| Måcketorpsboden (`4058`) | `e29127a4-50d6-4036-899c-4b8198d87943` | site_page_only | 0 | https://browser.sead.se/site/4058 |
+| Målen (`6310`) | `ea805b46-15c0-4fa8-82a9-e810c17c5b76` | site_page_only | 0 | https://browser.sead.se/site/6310 |
+| Målilla 381 (`6352`) | `2410a125-e333-4511-b903-123e4131f3aa` | site_page_only | 0 | https://browser.sead.se/site/6352 |
+| Månstad Raä 81 (`233`) | `934d6f60-f47a-44c0-bd56-42469b700500` | site_page_only | 0 | https://browser.sead.se/site/233 |
+| Månstads kyrka (`5999`) | `b1b8e0a9-1a13-44b1-9ab5-c2e5a712d235` | site_page_only | 0 | https://browser.sead.se/site/5999 |
+| Mårtens i Bäck (`6003`) | `5de77fc0-182d-438c-bc82-b3670166a23e` | site_page_only | 0 | https://browser.sead.se/site/6003 |
+| Mölleberga kyrka (`6014`) | `3d6d8f43-5e37-4b0c-a11d-14b6eb7ed984` | site_page_only | 0 | https://browser.sead.se/site/6014 |
+| Mölltorps kyrka (`6015`) | `ba3e9fdf-0d59-4d93-88e6-bdd107e74cae` | site_page_only | 0 | https://browser.sead.se/site/6015 |
+| Mölndal Raä 79 (`116`) | `a8099b93-1f94-4a4b-9322-36761f4406ef` | site_page_only | 0 | https://browser.sead.se/site/116 |
+| Mönsterås 376:1 (`6357`) | `a1d2930d-c056-41b2-93bf-f9f71f77df55` | site_page_only | 0 | https://browser.sead.se/site/6357 |
+| Mörbylånga kyrka (`4056`) | `764f0a9e-c363-4eef-86c6-858734b1482b` | site_page_only | 0 | https://browser.sead.se/site/4056 |
+| Mören (`3547`) | `4f49105f-5ec7-4f04-8af0-91742d2313d5` | site_page_only | 0 | https://browser.sead.se/site/3547 |
+| Mötesstation Kosjärv (`3546`) | `8d399650-f9ec-4264-9aa2-cd100176401d` | site_page_only | 0 | https://browser.sead.se/site/3546 |
+| Møllegårdsmarken (`3548`) | `db3fd801-7e11-44b0-8da4-95dfb4c00eb6` | site_page_only | 0 | https://browser.sead.se/site/3548 |
+| Møn unlocated 1896 (`5303`) | `ae8631bf-1665-42e7-bade-466dd4f0aac3` | site_page_only | 0 | https://browser.sead.se/site/5303 |
+| Naverstad 373 (`339`) | `e407307e-6dc2-4d1d-acaa-f10a9cc01399` | site_page_only | 0 | https://browser.sead.se/site/339 |
+| Naverstads kyrka (`6025`) | `3ec01b0f-d0ff-49a5-86fa-e4d1df5bdf2a` | site_page_only | 0 | https://browser.sead.se/site/6025 |
+| Nederkalix Raä 722 (`336`) | `35bc33be-3edf-4070-afc0-180444d33289` | site_page_only | 0 | https://browser.sead.se/site/336 |
+| Nederluleå Raä 330 (`266`) | `c112e20a-3ece-4069-a9fe-f98f99e1b3e3` | site_page_only | 0 | https://browser.sead.se/site/266 |
+| Nederluleå Raä 601 (`271`) | `0b2bf811-607b-4de8-9dc6-3a87c8c7bb59` | site_page_only | 0 | https://browser.sead.se/site/271 |
+| Nedervetil (`5073`) | `93da1aa3-630d-40cb-85b5-7e04dd839965` | site_page_only | 0 | https://browser.sead.se/site/5073 |
+| Nedre Hervavatnet (`5122`) | `894a2e05-320c-44b8-9ad5-ea2a945918b9` | site_page_only | 0 | https://browser.sead.se/site/5122 |
+| Nedre Hävla bruk (`4055`) | `42b49772-f08f-483e-a6c4-ec39be864e0a` | site_page_only | 0 | https://browser.sead.se/site/4055 |
+| Nibble (`3543`) | `e290a849-935d-4fe9-88cf-eeae2972dbce` | site_page_only | 0 | https://browser.sead.se/site/3543 |
+| Nicklasson i Järpen (`6026`) | `76612165-fb56-4446-b404-c97814975089` | site_page_only | 0 | https://browser.sead.se/site/6026 |
+| Nils Erik Olssons i Noret (`6027`) | `b6f0302a-3cd9-4a21-9fac-19322d35b1c1` | site_page_only | 0 | https://browser.sead.se/site/6027 |
+| Niskanperä (`3542`) | `c4f5d48a-f5a8-46b2-92dd-bd5119b5bc26` | site_page_only | 0 | https://browser.sead.se/site/3542 |
+| Njurunda 838 (`398`) | `d85218cc-de15-42b5-93ba-e85c0effa291` | site_page_only | 0 | https://browser.sead.se/site/398 |
+| Njurunda Raä 125 (`380`) | `1a5b88ed-16a9-44e8-b160-847cbd7d0df2` | site_page_only | 0 | https://browser.sead.se/site/380 |
+| Njurunda Raä 837 (`371`) | `70391573-ce97-45e2-83c2-76d015765ef2` | site_page_only | 0 | https://browser.sead.se/site/371 |
+| Noatun Neset (`3541`) | `4a483f64-741e-49b6-bbb7-f1315f2f0e42` | site_page_only | 0 | https://browser.sead.se/site/3541 |
+| Noors Herrgård (`4054`) | `bc85ede6-a2b8-4382-87ec-e7547f619c15` | site_page_only | 0 | https://browser.sead.se/site/4054 |
+| Nora 416 (`6343`) | `233b547f-6c2c-450f-9f0b-949348931b80` | site_page_only | 0 | https://browser.sead.se/site/6343 |
+| Nora Kyrka (`4053`) | `a65dced3-fbd4-444f-8997-7d5a8d97669a` | site_page_only | 0 | https://browser.sead.se/site/4053 |
+| Nora Raä 5 (`96`) | `a1d4e9a9-59e8-4663-92fd-8b87c26d2d1b` | site_page_only | 0 | https://browser.sead.se/site/96 |
+| Norbergsby (`6313`) | `46872c5f-8642-4fe2-9a93-dfadabb07edc` | site_page_only | 0 | https://browser.sead.se/site/6313 |
+| Nordanå gård (`6028`) | `3f859b9c-16c7-41fc-a593-b6f265b54a0f` | site_page_only | 0 | https://browser.sead.se/site/6028 |
+| Norderö kyrka (`6029`) | `50256c3a-5bcc-46de-b045-e1e02ecaad3d` | site_page_only | 0 | https://browser.sead.se/site/6029 |
+| Nordvästra härbret Zorns gammelgård (`6030`) | `3e956d21-8bdf-4687-82d5-36f1b781c83d` | site_page_only | 0 | https://browser.sead.se/site/6030 |
+| Noring i Sanne (`6032`) | `5d007adf-4183-46e4-8558-ff834c5a55b2` | site_page_only | 0 | https://browser.sead.se/site/6032 |
+| Norra Björke Raä 57 (`102`) | `c55c9c22-8d0a-4bb5-99b9-ef8ad3b565f4` | site_page_only | 0 | https://browser.sead.se/site/102 |
+| Norra Fågelås kyrka (`6033`) | `e9e6e003-7423-4c7a-8c67-4a879a1ecc86` | site_page_only | 0 | https://browser.sead.se/site/6033 |
+| Norra Mellby kyrka (`4052`) | `52de9e4d-d13e-459a-9ccf-0702b6d5588a` | site_page_only | 0 | https://browser.sead.se/site/4052 |
+| Norra Nöbbelöv (`3540`) | `61ae19ac-5784-4376-b1c1-6c2f3912249a` | site_page_only | 0 | https://browser.sead.se/site/3540 |
+| Norra Ryssmasterna (`351`) | `4c53a899-0520-4e2d-b259-f80b9eeaabdd` | site_page_only | 0 | https://browser.sead.se/site/351 |
+| Norra Rörums kyrka (`4051`) | `caf27a5d-ed46-47fa-8a93-7c869b3e5638` | site_page_only | 0 | https://browser.sead.se/site/4051 |
+| Norra Solberga gamla kyrka (`4050`) | `86761f3e-a3eb-437b-8095-f2aae4bd5ab9` | site_page_only | 0 | https://browser.sead.se/site/4050 |
+| Norra Strö kyrka (`6034`) | `4ddc756c-936f-4d9c-97bd-56069d02b36a` | site_page_only | 0 | https://browser.sead.se/site/6034 |
+| Norra Åsums kyrka (`4049`) | `906279cf-1297-4b6c-a6ef-6f60fb2d621f` | site_page_only | 0 | https://browser.sead.se/site/4049 |
+| Norrala Raä 177 (`280`) | `898e4d62-7ece-4801-8afc-243f3091ce74` | site_page_only | 0 | https://browser.sead.se/site/280 |
+| Norrby (`4048`) | `c9c2a8e5-49a5-4637-8ca1-b37dcbb03127` | site_page_only | 0 | https://browser.sead.se/site/4048 |
+| Norrgården i Östansjö (`6035`) | `aa8dab71-d40a-45e3-97be-da41413137d0` | site_page_only | 0 | https://browser.sead.se/site/6035 |
+| Norrkvie (`3539`) | `40597752-bc95-44a1-abe1-0ff6566c6e9d` | site_page_only | 0 | https://browser.sead.se/site/3539 |
+| Norrlanda kyrka (`4047`) | `5a9936a7-3114-435e-b919-29d069847416` | site_page_only | 0 | https://browser.sead.se/site/4047 |
+| Norrsunda 167 (`3538`) | `3d5370d2-d539-48bf-b3c6-a9488ca5a68d` | site_page_only | 0 | https://browser.sead.se/site/3538 |
+| Norrsunda Raä 185 (`272`) | `b928c8c6-e02d-4482-8916-97de742e8dd3` | site_page_only | 0 | https://browser.sead.se/site/272 |
+| Norrvidinge (`3537`) | `ce8d54e0-5465-4f48-9c0d-99a6f13fd46a` | site_page_only | 0 | https://browser.sead.se/site/3537 |
+| Norrvidinge kyrka (`4046`) | `36c084b9-406a-4a28-992e-0bf733e4c77f` | site_page_only | 0 | https://browser.sead.se/site/4046 |
+| Norsminde (`3536`) | `c2a4272c-5895-40d5-8578-4f2960843b6e` | site_page_only | 0 | https://browser.sead.se/site/3536 |
+| Norum 291 (`359`) | `a79bc4cb-e1d7-4f05-a133-ae9ee672ba92` | site_page_only | 0 | https://browser.sead.se/site/359 |
+| Norum Raä 285 (`66`) | `7fb32e40-5fda-4d06-883b-85161bbc6a84` | site_page_only | 0 | https://browser.sead.se/site/66 |
+| Norum Raä 5 (`399`) | `f98ffaf8-f85a-4ac0-bea0-12c6a3b339cf` | site_page_only | 0 | https://browser.sead.se/site/399 |
+| Norup (`6036`) | `04074647-658e-4505-9dcf-b8c48d32d216` | site_page_only | 0 | https://browser.sead.se/site/6036 |
+| Norén i Trusta (`6031`) | `f191de0b-be38-4c5c-983b-4273910ccbde` | site_page_only | 0 | https://browser.sead.se/site/6031 |
+| Nurmo: Paukaneva (`5094`) | `18c5d346-b03b-4974-bc96-9833bbe94a99` | site_page_only | 0 | https://browser.sead.se/site/5094 |
+| Nybygget (`5379`) | `7824c82a-b586-429c-80db-bb63fe702064` | site_page_only | 0 | https://browser.sead.se/site/5379 |
+| Nybölle 4 (`3535`) | `ec3e9c91-0855-44dc-878f-10974cc3a981` | site_page_only | 0 | https://browser.sead.se/site/3535 |
+| Nygårds i Nedre Gärdsjö (`6039`) | `32ad3bae-7efe-4613-8a54-72da11cbbf65` | site_page_only | 0 | https://browser.sead.se/site/6039 |
+| Nygårds i Ovanmyra (`6040`) | `f4c94db5-e528-411f-b926-abc4abebce44` | site_page_only | 0 | https://browser.sead.se/site/6040 |
+| Nykyrka kyrka (`4045`) | `343c188a-12b1-49f6-9b10-fd8841ecd865` | site_page_only | 0 | https://browser.sead.se/site/4045 |
+| Nyköping 231 (`283`) | `b90eb2ac-ca55-42aa-8a0a-801b9d1e5dff` | site_page_only | 0 | https://browser.sead.se/site/283 |
+| Nyköping 661 (`6374`) | `b7dfba16-67a8-41f6-ae8f-62736ebd9b10` | site_page_only | 0 | https://browser.sead.se/site/6374 |
+| Nyköpingshus (`360`) | `66eb2d7a-8467-4a06-a68d-63035c78b8fb` | site_page_only | 0 | https://browser.sead.se/site/360 |
+| När 219 (`6370`) | `f55135c6-9bde-45a4-8959-78415a60e4c7` | site_page_only | 0 | https://browser.sead.se/site/6370 |
+| Näs (`3863`) | `b21ac530-812f-44cd-bbe0-bfd7d4b88926` | site_page_only | 0 | https://browser.sead.se/site/3863 |
+| Näs gård i Persbo (`6021`) | `bbcfc6e2-67c5-4cf4-8842-5deecd5b1afb` | site_page_only | 0 | https://browser.sead.se/site/6021 |
+| Näs Herrgård (`6022`) | `1b4e5722-754b-454d-baf1-68a3301bd931` | site_page_only | 0 | https://browser.sead.se/site/6022 |
+| Näs kyrka (`4044`) | `1a9ab94c-2ffb-4f03-accd-f0fa5e6c6adb` | site_page_only | 0 | https://browser.sead.se/site/4044 |
+| Näsan (Sandbro) (`3534`) | `b22407e3-09cc-4613-8f13-13042c1db44c` | site_page_only | 0 | https://browser.sead.se/site/3534 |
+| Näsjonases i Andtjärabo (`6023`) | `7fdd63dc-eb58-41c4-bfc2-c6bb53bb9a82` | site_page_only | 0 | https://browser.sead.se/site/6023 |
+| Näsjons i Åberga (`6024`) | `1ff05d55-3c21-4328-9113-49fb2f49b9d5` | site_page_only | 0 | https://browser.sead.se/site/6024 |
+| Nätra Raä 306 (`89`) | `f1679bb6-a3e5-4cf4-af2c-2187288d508a` | site_page_only | 0 | https://browser.sead.se/site/89 |
+| Nätra Raä 307 (`76`) | `5bc40fc5-795b-4130-85cc-add8a6ecc261` | site_page_only | 0 | https://browser.sead.se/site/76 |
+| Nätra Raä 359 (`155`) | `6be170c6-eb64-400c-9238-deeaa80de3b0` | site_page_only | 0 | https://browser.sead.se/site/155 |
+| Nääs gård (`4043`) | `99071a8a-ec45-4b26-b71b-596d2f1608ec` | site_page_only | 0 | https://browser.sead.se/site/4043 |
+| Nöbbelöv (`3533`) | `b904cc35-0f36-4b47-90a9-5b5d7a2b33d0` | site_page_only | 0 | https://browser.sead.se/site/3533 |
+| Nösslinge kyrka (`6037`) | `b5df6de2-341f-49be-a71a-bd799a3df65f` | site_page_only | 0 | https://browser.sead.se/site/6037 |
+| Nöttja kyrka (`6038`) | `0345dc2e-a29a-4e88-a47a-5ca29594c392` | site_page_only | 0 | https://browser.sead.se/site/6038 |
+| Nørre Lyngby (`4554`) | `6dff5152-3a5a-4ad6-a134-69b70a5212de` | site_page_only | 0 | https://browser.sead.se/site/4554 |
+| Oarddojávri (`97`) | `a083404b-0a02-46fd-8ca3-944316808c28` | site_page_only | 0 | https://browser.sead.se/site/97 |
+| Odelbergs Ön (`6041`) | `159cfaae-4775-4796-9fa3-0f6b01e56b6a` | site_page_only | 0 | https://browser.sead.se/site/6041 |
+| Odensala 6 (386) (`329`) | `5ca1dff7-4e27-4e69-8351-b93ecb8cd9da` | site_page_only | 0 | https://browser.sead.se/site/329 |
+| Odensala Raä 402 (`328`) | `380919d6-9f66-4beb-b446-6be8b57c9ac8` | site_page_only | 0 | https://browser.sead.se/site/328 |
+| Odense (`5617`) | `2bd642cc-7975-4278-8e30-b7fb4ca4f653` | site_page_only | 0 | https://browser.sead.se/site/5617 |
+| Odlaren 1:1 (`387`) | `a4b57bc7-2b2a-489a-b001-6a84fb7a134c` | site_page_only | 0 | https://browser.sead.se/site/387 |
+| Ods kyrka (`6042`) | `0f4535dd-1faa-403e-8b76-dd25ef3119c9` | site_page_only | 0 | https://browser.sead.se/site/6042 |
+| Offerdals kyrka (`6043`) | `c8640eae-ac7a-49bd-a182-7f2d7cd0a3f3` | site_page_only | 0 | https://browser.sead.se/site/6043 |
+| Olaloftet från norra Mon (`6045`) | `b50e2b5d-3c30-424b-bb47-2da0c0bce12a` | site_page_only | 0 | https://browser.sead.se/site/6045 |
+| Olars i Holen Västra Öje (`6046`) | `fa2413a5-ec6c-42ce-be84-dd75aba79997` | site_page_only | 0 | https://browser.sead.se/site/6046 |
+| Olars i Knåda (`6047`) | `6adbdcf4-2893-4dc1-b9fa-28557aff3487` | site_page_only | 0 | https://browser.sead.se/site/6047 |
+| Olers-gården i Stenshyttan (`6048`) | `aeb21eac-1cb2-4dcd-a793-524a6e264154` | site_page_only | 0 | https://browser.sead.se/site/6048 |
+| Oljonsgården i Hara (`6049`) | `a0036f28-e92b-4d4c-8144-cdcb3e4b98b5` | site_page_only | 0 | https://browser.sead.se/site/6049 |
+| Ollars i Orsbleck (`6050`) | `8bb579a2-f92d-4e49-960c-568072bc8edb` | site_page_only | 0 | https://browser.sead.se/site/6050 |
+| Ollas i Ovanmyra (`6051`) | `1d7eccc8-3b6a-447a-a8c4-6fcdc56fc6a0` | site_page_only | 0 | https://browser.sead.se/site/6051 |
+| Olmats i Noret (`6053`) | `43e1e579-8cdb-4c7f-96c9-8b81980757ba` | site_page_only | 0 | https://browser.sead.se/site/6053 |
+| Olmårs i Vik (`6052`) | `45c7a1cd-4fbb-4772-920a-f9de96f21caa` | site_page_only | 0 | https://browser.sead.se/site/6052 |
+| Olofsson i Gärde (`6054`) | `4e714739-eb65-46cc-99ad-ad3d7999b9e2` | site_page_only | 0 | https://browser.sead.se/site/6054 |
+| Olols vallstuga (`6055`) | `ee19f143-8af1-4942-a644-fb7b2deaf59d` | site_page_only | 0 | https://browser.sead.se/site/6055 |
+| Olovsson i Hölje (`6056`) | `27bd21cf-cc6b-443b-8152-7b5a1257a23e` | site_page_only | 0 | https://browser.sead.se/site/6056 |
+| Olperås i Färnäs (`6057`) | `95b791ba-f9dd-4249-9a01-129ced3c7462` | site_page_only | 0 | https://browser.sead.se/site/6057 |
+| Olsson i Medvigge (`6058`) | `bb6df8e7-e6f2-4d0f-87e1-184b0c2a52ad` | site_page_only | 0 | https://browser.sead.se/site/6058 |
+| Olsson i Sjör (`6059`) | `12fab61f-0b7e-4887-aac3-e450e441dec3` | site_page_only | 0 | https://browser.sead.se/site/6059 |
+| Olssons i Harabygden (`6060`) | `2aae7095-ce63-4c71-ac26-0324fb41e34d` | site_page_only | 0 | https://browser.sead.se/site/6060 |
+| Olssons i Ringsta (`6061`) | `23f3ba46-2bc2-4724-84bf-d9ae59e22e87` | site_page_only | 0 | https://browser.sead.se/site/6061 |
+| Olvarberget (`6062`) | `0edbb91c-c368-414c-988e-2c2a81a59883` | site_page_only | 0 | https://browser.sead.se/site/6062 |
+| Onsjöstugan (`5665`) | `8b0ef45f-8a2d-4d77-a335-56202f88c9c9` | site_page_only | 0 | https://browser.sead.se/site/5665 |
+| Onttoharjut (`4848`) | `d0493ef8-a852-464c-9a2a-e63a0d090c39` | site_page_only | 0 | https://browser.sead.se/site/4848 |
+| Onttovaara (`4566`) | `d360f0d4-2ade-45d7-afa7-6f5c68594b51` | site_page_only | 0 | https://browser.sead.se/site/4566 |
+| Orkesta kyrka (`4042`) | `3cee1ae6-eff5-42f9-be4e-0590d34028c8` | site_page_only | 0 | https://browser.sead.se/site/4042 |
+| Ornässtugan (`6063`) | `b10c3333-f86c-4a13-b833-ec5335c37c7c` | site_page_only | 0 | https://browser.sead.se/site/6063 |
+| Orraryd (`3531`) | `89da521f-3066-4d7f-80a8-33937b0dc1b0` | site_page_only | 0 | https://browser.sead.se/site/3531 |
+| Orsa kyrka (`6064`) | `763568e3-6162-498c-ae20-34b04dcdc62d` | site_page_only | 0 | https://browser.sead.se/site/6064 |
+| Oslo: Gamlebyen (`4570`) | `4582e713-a5e9-4a56-aeda-cb285e9aafb9` | site_page_only | 0 | https://browser.sead.se/site/4570 |
+| Oslo: Oslogate 3 & 7 (`4571`) | `b1522d87-5ce9-4530-927d-65c7e1ad2e14` | site_page_only | 0 | https://browser.sead.se/site/4571 |
+| Ottenby kungsgård (`4041`) | `8a4d9002-e9d7-40bb-b392-f504b3c4e3a8` | site_page_only | 0 | https://browser.sead.se/site/4041 |
+| Outojärvi (`4847`) | `af82521a-d245-45a1-be3f-7acb21481254` | site_page_only | 0 | https://browser.sead.se/site/4847 |
+| Ovansjö Raä 307 (`181`) | `ccede40e-18ab-4471-8d45-7e3726c7fd28` | site_page_only | 0 | https://browser.sead.se/site/181 |
+| Oxiegården (`3527`) | `c887f1a3-73eb-4e74-807a-dc891b4870e3` | site_page_only | 0 | https://browser.sead.se/site/3527 |
+| Oxsjön (`6074`) | `3f0c13f0-8928-4f94-b49b-64c27d016a10` | site_page_only | 0 | https://browser.sead.se/site/6074 |
+| Oxsätra, Anneberg (`3526`) | `7132ebf4-0d8b-4951-b2fc-95238e294b32` | site_page_only | 0 | https://browser.sead.se/site/3526 |
+| Pappilanmäki (`3524`) | `e76582c3-acb1-4864-b80e-ce6e77621f46` | site_page_only | 0 | https://browser.sead.se/site/3524 |
+| Parboäng (`3523`) | `6067dd82-a25f-4647-8f8e-5b7403ddde37` | site_page_only | 0 | https://browser.sead.se/site/3523 |
+| Parhäbre i Mon (`6076`) | `018a137c-c100-49c3-802d-ffb0f1222f44` | site_page_only | 0 | https://browser.sead.se/site/6076 |
+| Pedersborg (`4040`) | `3ef5f4ae-9afd-49f8-bda0-9d213e4456a6` | site_page_only | 0 | https://browser.sead.se/site/4040 |
+| Pedersens i Berget (`6077`) | `0daf86e2-9109-43e7-acd3-65af89eb5cf4` | site_page_only | 0 | https://browser.sead.se/site/6077 |
+| Pellas i Färnäs (`6078`) | `fdc76bf6-df7b-4bc2-ab91-457d4a3d3e46` | site_page_only | 0 | https://browser.sead.se/site/6078 |
+| Pellas i Östra Björken (`6079`) | `ca7aa0da-86ee-412b-8921-68f3a8d1c82f` | site_page_only | 0 | https://browser.sead.se/site/6079 |
+| Pellebergs i Älgberget (`6080`) | `814af23a-bf6c-4493-8b17-2627531ba13d` | site_page_only | 0 | https://browser.sead.se/site/6080 |
+| Pellgården i Västanå (`6081`) | `0bcc36b7-1b88-49e5-a160-339bd300dbce` | site_page_only | 0 | https://browser.sead.se/site/6081 |
+| Pelso (`5085`) | `db697f85-78e3-401a-a59b-9578ca17b3a1` | site_page_only | 0 | https://browser.sead.se/site/5085 |
+| Peres i Blecket (`6082`) | `162dd0fd-98aa-42b7-a783-8fda25c8dcef` | site_page_only | 0 | https://browser.sead.se/site/6082 |
+| Peres i Vikarbyn (`6083`) | `ecf0d201-4218-4088-b8a5-683232ecb044` | site_page_only | 0 | https://browser.sead.se/site/6083 |
+| Perho (`5074`) | `f31c13f6-5f84-4f70-b0aa-0384ae3538e3` | site_page_only | 0 | https://browser.sead.se/site/5074 |
+| PerJons i Vik (`6084`) | `066be32a-6c11-4eb8-8845-5705be043bd5` | site_page_only | 0 | https://browser.sead.se/site/6084 |
+| Perkiö (`3522`) | `7b2fef76-7b26-418f-87bd-5cb48e4af747` | site_page_only | 0 | https://browser.sead.se/site/3522 |
+| Perols i Nedre Gärdsjö (`6085`) | `40df4016-ffb0-4a25-a8ab-9bc4ca7145d7` | site_page_only | 0 | https://browser.sead.se/site/6085 |
+| Perols i Övre Gärdsjö (`6086`) | `a3ee56bf-a458-4923-bab1-3a268ebabba3` | site_page_only | 0 | https://browser.sead.se/site/6086 |
+| Persgården (`6087`) | `85a29348-d264-4130-9590-c54f7ab8b761` | site_page_only | 0 | https://browser.sead.se/site/6087 |
+| Persson i Böle (`6088`) | `ff17156e-9359-4ac2-8e9a-2aec8f0dbe3c` | site_page_only | 0 | https://browser.sead.se/site/6088 |
+| Persson i Lungre (`6089`) | `7cc27454-779d-4b09-9c06-44e52509ef63` | site_page_only | 0 | https://browser.sead.se/site/6089 |
+| Perssons i Borr (`6090`) | `2d1e602e-a45d-4a4d-b9fa-eaa5ea475b61` | site_page_only | 0 | https://browser.sead.se/site/6090 |
+| Perstorp kyrka (`6091`) | `29c6e1a6-9e2d-47fc-9389-a656b65de144` | site_page_only | 0 | https://browser.sead.se/site/6091 |
+| Perstorps kyrka (`4039`) | `c32f2531-a19e-41fa-876a-f3f10c53700e` | site_page_only | 0 | https://browser.sead.se/site/4039 |
+| Petersenska huset (`6092`) | `4cb61800-4862-416c-8c29-50386e84e5d4` | site_page_only | 0 | https://browser.sead.se/site/6092 |
+| Petter Pers i Flatenberg (`6093`) | `50bedef1-628e-44e1-9f46-82fa44b3267c` | site_page_only | 0 | https://browser.sead.se/site/6093 |
+| Petterssons i Norrböle (`6094`) | `82d95d4a-701c-4469-8fa3-0ad8b83fca15` | site_page_only | 0 | https://browser.sead.se/site/6094 |
+| Pihtipudas: Lake Alvajärvi (`5067`) | `e9cf6b7d-8168-44c1-bcdb-f75f347b7ef6` | site_page_only | 0 | https://browser.sead.se/site/5067 |
+| Piilonsuo (`4586`) | `47460d7d-dbe2-4f3d-8fa8-d7eeb5fd6da3` | site_page_only | 0 | https://browser.sead.se/site/4586 |
+| Pileskoven (`3521`) | `29f0554d-0318-4ca3-bb0c-a8eb0c81e121` | site_page_only | 0 | https://browser.sead.se/site/3521 |
+| Pilgrimstad (`4795`) | `40a7fcdf-26cc-4aff-9728-891a95eb7463` | site_page_only | 0 | https://browser.sead.se/site/4795 |
+| Pinnekulla (`3520`) | `4676dd8a-7b15-475f-88bb-1625ec897ebf` | site_page_only | 0 | https://browser.sead.se/site/3520 |
+| Piper Pers i Vålberg (`6095`) | `04cb2ddd-f64a-498b-ab31-8ff4531a5f0b` | site_page_only | 0 | https://browser.sead.se/site/6095 |
+| Piteå: Borgsfors (`5066`) | `8465f0f8-4033-4e9a-8812-6fa0a8679b91` | site_page_only | 0 | https://browser.sead.se/site/5066 |
+| Plintsberg (`6096`) | `a0f8e4f4-4143-47bc-9831-441ccc76e36e` | site_page_only | 0 | https://browser.sead.se/site/6096 |
+| Pomarrku (`5096`) | `3ad553fd-dbde-4baf-b594-0ced4a60cfc9` | site_page_only | 0 | https://browser.sead.se/site/5096 |
+| Prans i Västbjörka (`6098`) | `c2c73f23-a67b-4536-a9af-763e92bcbd51` | site_page_only | 0 | https://browser.sead.se/site/6098 |
+| Prostgården (`6100`) | `bc65e2a9-fe5a-41f1-8461-73b3db195c61` | site_page_only | 0 | https://browser.sead.se/site/6100 |
+| Pryssgården (`3517`) | `1478833d-846a-4a04-9147-9b4aa67626a3` | site_page_only | 0 | https://browser.sead.se/site/3517 |
+| Prästgården (`3516`) | `3acbf52f-c8dc-4f52-8492-c36e9d30efe5` | site_page_only | 0 | https://browser.sead.se/site/3516 |
+| Prästgårdsloftet Älvdalen (`6099`) | `884a844d-ca65-4b4d-a53d-542b419d642e` | site_page_only | 0 | https://browser.sead.se/site/6099 |
+| Prästsjödiket Umeå (`186`) | `8134a29c-7e77-467b-8358-1c734d740b95` | site_page_only | 0 | https://browser.sead.se/site/186 |
+| Prästtorp (`3862`) | `637c83bc-d692-4ed5-a9a3-c67e0b317774` | site_page_only | 0 | https://browser.sead.se/site/3862 |
+| Purasharju (`4851`) | `7df15064-f01d-45be-a21f-2e77b031c493` | site_page_only | 0 | https://browser.sead.se/site/4851 |
+| Pyhäjärvi: Hoikkaneva (`5088`) | `a6678066-87e5-4610-8839-0d3f07e8efdf` | site_page_only | 0 | https://browser.sead.se/site/5088 |
+| Päbul i Östnor (`6075`) | `0756a434-3074-405c-8666-1b15e618cdce` | site_page_only | 0 | https://browser.sead.se/site/6075 |
+| Pörte i Burängsberget (`6097`) | `d2b735ab-5fef-4e6f-80de-72144df35b71` | site_page_only | 0 | https://browser.sead.se/site/6097 |
+| Pöytä: Pinomaesuo (`5068`) | `cadab97d-1f0a-42af-a5c1-dc1822c3ec6f` | site_page_only | 0 | https://browser.sead.se/site/5068 |
+| Qvarnarp (`3861`) | `e03197c5-84b7-497e-bf51-5f35ea7eda47` | site_page_only | 0 | https://browser.sead.se/site/3861 |
+| Raabjerg (`5312`) | `d2964f43-f7e0-4afd-b74c-e9c5be0fd766` | site_page_only | 0 | https://browser.sead.se/site/5312 |
+| Radio Gotland (`4038`) | `5f37a446-eb58-40df-b0eb-01e74e923581` | site_page_only | 0 | https://browser.sead.se/site/4038 |
+| Ragunda gamla kyrka (`6101`) | `00e278c6-df56-4a6b-8903-dc00696f4988` | site_page_only | 0 | https://browser.sead.se/site/6101 |
+| Ramsele Raä 160 (`109`) | `e0d64b4b-f230-448e-a485-8542ef85881c` | site_page_only | 0 | https://browser.sead.se/site/109 |
+| Ramshög (`3513`) | `0efa1c52-3402-4ca0-9cd2-3bda55e0a3c5` | site_page_only | 0 | https://browser.sead.se/site/3513 |
+| Ramsättra (`3512`) | `d94f6558-78cb-472d-b6e8-6b8780843504` | site_page_only | 0 | https://browser.sead.se/site/3512 |
+| Ramså (`5631`) | `87fa5bc0-f827-4f64-94d0-767d9ac0c909` | site_page_only | 0 | https://browser.sead.se/site/5631 |
+| Rankhyttan (`6102`) | `604f99fe-290a-4229-a2b6-0f64b00d30bd` | site_page_only | 0 | https://browser.sead.se/site/6102 |
+| Ransbergs kyrka (`6103`) | `3cb4c933-e138-4216-bf83-63f2fefa1302` | site_page_only | 0 | https://browser.sead.se/site/6103 |
+| Ranstad (`4598`) | `87d9aca6-48e4-4f56-b482-a0b60429094b` | site_page_only | 0 | https://browser.sead.se/site/4598 |
+| Rappasundet (`3511`) | `54b8d970-b84a-492b-b5e4-047382ac3a51` | site_page_only | 0 | https://browser.sead.se/site/3511 |
+| Rapptorpen (`6104`) | `b8434760-6e57-48b9-94f0-fa917468b540` | site_page_only | 0 | https://browser.sead.se/site/6104 |
+| Rautio: Kärkiskylä (`5071`) | `0981f2a3-5e81-4a43-8a41-1eb24dab1efe` | site_page_only | 0 | https://browser.sead.se/site/5071 |
+| Rautio: Osmina (`5075`) | `161547e2-7651-42b3-aadc-69a1176ca6ea` | site_page_only | 0 | https://browser.sead.se/site/5075 |
+| Rautu (`4887`) | `7b62aac5-304e-4f8b-b3b3-5a780d080b8a` | site_page_only | 0 | https://browser.sead.se/site/4887 |
+| Ravlunda kyrka (`4037`) | `102db86f-ac90-4e45-a9eb-27ba2e24eeca` | site_page_only | 0 | https://browser.sead.se/site/4037 |
+| Reisjärvi (`5089`) | `1ffd2c41-4ee6-4914-8dcd-51a21103fc06` | site_page_only | 0 | https://browser.sead.se/site/5089 |
+| Renbergs i Öje (`6107`) | `8c153846-4272-4e40-ad9f-596e1ee26276` | site_page_only | 0 | https://browser.sead.se/site/6107 |
+| Resare-Olssons i Västberg (`6108`) | `2233ecde-18e7-4cd9-a9ea-8b878d54ab12` | site_page_only | 0 | https://browser.sead.se/site/6108 |
+| Resmo kyrka (`4036`) | `731fec52-0950-4e13-b50c-571c4d91b988` | site_page_only | 0 | https://browser.sead.se/site/4036 |
+| Reutersberg (`6316`) | `d5da1327-9698-4917-92ed-a15dce094039` | site_page_only | 0 | https://browser.sead.se/site/6316 |
+| Ribe: Posthustorvet (`5638`) | `da99e7af-c2a5-466a-ac72-e25d0985fd44` | site_page_only | 0 | https://browser.sead.se/site/5638 |
+| Ribetua gård (`6109`) | `9a2b4f44-f709-4eeb-b99d-e9b1cc2996d1` | site_page_only | 0 | https://browser.sead.se/site/6109 |
+| Riipiharju (`4844`) | `15a25fc8-d3d2-4fe0-b965-73fbb3ac659a` | site_page_only | 0 | https://browser.sead.se/site/4844 |
+| Ringeby (`3509`) | `792da3d0-b66e-43c2-9f54-abd3b126f2b2` | site_page_only | 0 | https://browser.sead.se/site/3509 |
+| Ringestena (`6317`) | `3db455e1-589f-4c24-a880-bc981e7fcd2e` | site_page_only | 0 | https://browser.sead.se/site/6317 |
+| Ringkloster (`3508`) | `6501f668-4c53-4ecd-8f97-97d3e985cad6` | site_page_only | 0 | https://browser.sead.se/site/3508 |
+| Ringsta (`6110`) | `bc7fb87d-f483-450f-9e77-7d648d52e6c2` | site_page_only | 0 | https://browser.sead.se/site/6110 |
+| Ripkallhögen (`343`) | `0685fd41-c4bb-4e09-8199-ae8939da5427` | site_page_only | 0 | https://browser.sead.se/site/343 |
+| Ripsa kyrka (`6111`) | `06a58d37-f6fd-4e31-8467-3563ad967738` | site_page_only | 0 | https://browser.sead.se/site/6111 |
+| Risaloftet (`6112`) | `c1b087b5-f16d-4c18-bc81-4c1ca71e9ab3` | site_page_only | 0 | https://browser.sead.se/site/6112 |
+| Ristomta gård (`4035`) | `fffe40bf-1e66-40d2-a0b7-d623e385c03c` | site_page_only | 0 | https://browser.sead.se/site/4035 |
+| Roes (`3507`) | `27d3ee11-a5cd-43b0-a545-38a515a2884c` | site_page_only | 0 | https://browser.sead.se/site/3507 |
+| Rognlien IV/Langangen (`3506`) | `bd11531e-800d-48dc-a9f6-79762bbd66ed` | site_page_only | 0 | https://browser.sead.se/site/3506 |
+| Rogslösa kyrka (`4034`) | `6ea8dd44-eb50-4fc2-8688-cf5e0eb24dd7` | site_page_only | 0 | https://browser.sead.se/site/4034 |
+| Rombins i Östnor (`6113`) | `0bf037ec-9acf-40e1-bec5-1823b7bccb57` | site_page_only | 0 | https://browser.sead.se/site/6113 |
+| Romson-gården i Noret (`6114`) | `9dd20c42-cd38-4a7e-8e47-822729f23329` | site_page_only | 0 | https://browser.sead.se/site/6114 |
+| Rosenvingeska huset (`6115`) | `ebfcc38a-c303-4a95-a941-c72becbd0f6c` | site_page_only | 0 | https://browser.sead.se/site/6115 |
+| Roslättsgård (`5656`) | `76948bd8-733f-4836-aea5-aea71f05ddf4` | site_page_only | 0 | https://browser.sead.se/site/5656 |
+| Roth i Sterte (`6116`) | `3dc8c73a-2049-4939-bcf5-f6875e348196` | site_page_only | 0 | https://browser.sead.se/site/6116 |
+| Rotheden (`4855`) | `cebacd4d-702a-4933-af16-6d6f3149b6d1` | site_page_only | 0 | https://browser.sead.se/site/4855 |
+| RTM Buxabygd (`5676`) | `b8afe85d-ceeb-4412-929e-a528bffdc75f` | site_page_only | 0 | https://browser.sead.se/site/5676 |
+| Rudersdal Kro Mose (`5296`) | `8a34bd23-099a-4f7f-aad8-fd2423e062d6` | site_page_only | 0 | https://browser.sead.se/site/5296 |
+| Ruksesbákti, Indre Sandvik (`100`) | `c9ed2bde-ca41-43fa-879e-e15dcca465c2` | site_page_only | 0 | https://browser.sead.se/site/100 |
+| Rumskulla 234:1 (`6354`) | `16b3fa3f-c885-4407-aca3-acc8b0cb5b54` | site_page_only | 0 | https://browser.sead.se/site/6354 |
+| Runtuna kyrka (`6117`) | `b8ad8bb6-5773-4a73-9aa2-f24ab7c866c6` | site_page_only | 0 | https://browser.sead.se/site/6117 |
+| Rusthållargården (`4033`) | `6d7c3da7-ad99-4e7c-ade2-266d21889285` | site_page_only | 0 | https://browser.sead.se/site/4033 |
+| Rutå Lars Rutån (`6118`) | `9ac0413d-5476-4dfd-b7c3-be31c1d79bc5` | site_page_only | 0 | https://browser.sead.se/site/6118 |
+| Rya (`3502`) | `3cfaf8c7-09b1-4a02-a8a5-4d25b0e43f19` | site_page_only | 0 | https://browser.sead.se/site/3502 |
+| Ryds herrgård (`6119`) | `5b52b6f4-3828-45ba-aee0-6a32700e52c4` | site_page_only | 0 | https://browser.sead.se/site/6119 |
+| Ryssby kyrka (`4031`) | `d1a37bf4-f2ff-49eb-b810-18ac9314a9e4` | site_page_only | 0 | https://browser.sead.se/site/4031 |
+| Ryssebo (`3860`) | `fdade72d-ccb3-45d8-81dd-0da835dea164` | site_page_only | 0 | https://browser.sead.se/site/3860 |
+| Ryssgärdet (`3501`) | `bd5a0788-bd0e-44c7-b04c-6a3deccaf66d` | site_page_only | 0 | https://browser.sead.se/site/3501 |
+| Ryttartorpet (`6120`) | `71b0117e-e11f-44d0-8fb8-790eba0eaa7b` | site_page_only | 0 | https://browser.sead.se/site/6120 |
+| Ryttartorpet bod (`6121`) | `161c4015-a11e-4c60-b6df-815f3ac65ade` | site_page_only | 0 | https://browser.sead.se/site/6121 |
+| Ryttartorpet fähus (`6122`) | `685d6f44-bbdd-4ee1-9c81-cd466013e369` | site_page_only | 0 | https://browser.sead.se/site/6122 |
+| Ryttartorpet tröskloge (`6123`) | `a8c631df-3438-4690-8fb7-8481e788936c` | site_page_only | 0 | https://browser.sead.se/site/6123 |
+| Ränneslätt (`4030`) | `b10261a5-3efe-4b97-b3af-4d361f765588` | site_page_only | 0 | https://browser.sead.se/site/4030 |
+| Rättviks kyrka (`6105`) | `6835b26a-9660-415e-a76e-d5ee4022a5a3` | site_page_only | 0 | https://browser.sead.se/site/6105 |
+| Rävinge kyrka (`6106`) | `641c5e02-862c-462d-87da-ccb1855cb86a` | site_page_only | 0 | https://browser.sead.se/site/6106 |
+| Råda Raä 101 (`184`) | `82f22d02-4f2d-4716-86d4-0b202caf1779` | site_page_only | 0 | https://browser.sead.se/site/184 |
+| Råga Hörstad (`3499`) | `0d51b822-86ea-496e-96b8-0ec2e2e71334` | site_page_only | 0 | https://browser.sead.se/site/3499 |
+| Råinget (`3498`) | `b5a78e13-b2bb-47d2-9aec-e1eb6198259e` | site_page_only | 0 | https://browser.sead.se/site/3498 |
+| Råneå 414 (`370`) | `65bc5ef1-765f-40aa-90ad-742e9c8ee657` | site_page_only | 0 | https://browser.sead.se/site/370 |
+| Röetved II (`3496`) | `1993fca1-6a37-439b-971f-ac154eb1beae` | site_page_only | 0 | https://browser.sead.se/site/3496 |
+| Rönnby-Skultuna (`369`) | `aac1c8ff-4104-4aab-a98a-20b6590d1ca3` | site_page_only | 0 | https://browser.sead.se/site/369 |
+| Rörstrand, Bottna Herrgård (`3494`) | `61dd7669-8064-4828-8172-bb804d00ab61` | site_page_only | 0 | https://browser.sead.se/site/3494 |
+| Rössberga Megalithic (`3493`) | `e80755c8-d406-414f-afc7-cf5d5d4984b9` | site_page_only | 0 | https://browser.sead.se/site/3493 |
+| Rød Terrasse (`126`) | `54294ab9-5909-4121-bbf0-f6adea2d4933` | site_page_only | 0 | https://browser.sead.se/site/126 |
+| Rødskjær/Halvarp (`3497`) | `e10a5ed8-4fe7-4218-9ee6-8632b5f8f650` | site_page_only | 0 | https://browser.sead.se/site/3497 |
+| Rødstranda (`165`) | `cd632b15-0aa5-4576-ae54-619eca529e5b` | site_page_only | 0 | https://browser.sead.se/site/165 |
+| Rønbro (`5307`) | `38b31ec0-2b09-4dde-8183-bc44bd73723a` | site_page_only | 0 | https://browser.sead.se/site/5307 |
+| Rørarød (`3495`) | `d737f3ff-0644-4818-9be1-dc25df51139f` | site_page_only | 0 | https://browser.sead.se/site/3495 |
+| S'Ers-gården i Österby (`6137`) | `f2d9acde-432c-4114-958e-c229a5a7ff2e` | site_page_only | 0 | https://browser.sead.se/site/6137 |
+| Sahréns i Färnäs (`6124`) | `f77287c3-e76c-4236-aa11-b4d4cdf701a6` | site_page_only | 0 | https://browser.sead.se/site/6124 |
+| Sala sockenkyrka (`6125`) | `84023560-c881-4abe-8773-df056901e8a9` | site_page_only | 0 | https://browser.sead.se/site/6125 |
+| Saltosas i Klappsta (`6127`) | `cf6e6b1f-8493-47d4-9f9f-186cfe3d25f6` | site_page_only | 0 | https://browser.sead.se/site/6127 |
+| Salvarp (`3859`) | `4bcedb0b-c43b-4558-902f-59d84208bf72` | site_page_only | 0 | https://browser.sead.se/site/3859 |
+| Samlängan Hjältanstorp (`6128`) | `4fb64898-6d65-45a1-9065-9959747c6ca6` | site_page_only | 0 | https://browser.sead.se/site/6128 |
+| Samnan (`4617`) | `498a8111-507e-43ea-9e78-c6b3514239cd` | site_page_only | 0 | https://browser.sead.se/site/4617 |
+| Sanda (`3491`) | `5d993fd8-ca49-44f4-9cb3-67e4bcfac55b` | site_page_only | 0 | https://browser.sead.se/site/3491 |
+| Sanda kyrka (`4028`) | `0c40ca46-859b-45a0-8398-b731f6388fe5` | site_page_only | 0 | https://browser.sead.se/site/4028 |
+| Sandby prästgård (`4027`) | `c791762e-fd71-4467-a379-35b30c9c4727` | site_page_only | 0 | https://browser.sead.se/site/4027 |
+| Sandvikshärbret (`6129`) | `e58a16ef-96cf-4234-b814-64ef5fa7d78e` | site_page_only | 0 | https://browser.sead.se/site/6129 |
+| Sandåkra (`5290`) | `adc030de-cab9-4e5f-a048-15443662d973` | site_page_only | 0 | https://browser.sead.se/site/5290 |
+| Sankt Clemens kyrkoruin (`4025`) | `87123615-86bf-4366-917d-5d2eeb682820` | site_page_only | 0 | https://browser.sead.se/site/4025 |
+| Sankt Johannes 96:1 (`6408`) | `d707a76b-6383-402c-9428-66d2a78a6c49` | site_page_only | 0 | https://browser.sead.se/site/6408 |
+| Sankt Lars kyrka (`4024`) | `a0eab3e7-70b4-470e-a2d8-e2421acaae37` | site_page_only | 0 | https://browser.sead.se/site/4024 |
+| Sankt Peters klosters kyrka (`4023`) | `6ff2b577-dcd7-4ec2-a607-549d8024eebc` | site_page_only | 0 | https://browser.sead.se/site/4023 |
+| Sankt Petri Kyrka (`6130`) | `655218c3-b0b5-4cbe-9832-b11d2571a96a` | site_page_only | 0 | https://browser.sead.se/site/6130 |
+| Sankta Karins kapell (`6131`) | `662861dc-e2d0-46a0-b8ab-665f4b96e7cf` | site_page_only | 0 | https://browser.sead.se/site/6131 |
+| Sannagård i Sillerbo (`6132`) | `73653884-1495-470f-a87e-8f4c8b1e09dc` | site_page_only | 0 | https://browser.sead.se/site/6132 |
+| Santa Maria (`3490`) | `f3cf1030-d360-482a-9156-bcdcc6506b4a` | site_page_only | 0 | https://browser.sead.se/site/3490 |
+| Sarasgården Isala (`6133`) | `eb4c904f-7e3d-4e08-8755-bda6d1b9d184` | site_page_only | 0 | https://browser.sead.se/site/6133 |
+| Sarkasvaara (`4846`) | `0d7569ae-5363-4d4e-80f2-f8ec3ca29027` | site_page_only | 0 | https://browser.sead.se/site/4846 |
+| Saxtorp (SU 8) (`3489`) | `96622d06-bfce-4da7-96c2-c3e81bb94aca` | site_page_only | 0 | https://browser.sead.se/site/3489 |
+| Schweitzergränd (`3488`) | `e5e4619f-4f7f-4bf4-9f1b-dc8d7edc1d9f` | site_page_only | 0 | https://browser.sead.se/site/3488 |
+| Selens fäbod (`6136`) | `d0b4e603-62e9-427f-b53d-d170a091e9c8` | site_page_only | 0 | https://browser.sead.se/site/6136 |
+| Selånger Raä 136 (`325`) | `c0adc5fe-8244-4285-8a40-4599fdc8f64c` | site_page_only | 0 | https://browser.sead.se/site/325 |
+| Sibbo (`4021`) | `73617ef9-801b-4278-9135-8cd051e6a843` | site_page_only | 0 | https://browser.sead.se/site/4021 |
+| Sibbolängena i Nedre Gärdsjö (`6138`) | `b563a93c-8876-4908-8f2d-6cacf3b9b189` | site_page_only | 0 | https://browser.sead.se/site/6138 |
+| Sigfridsgården (`4020`) | `fdaf2412-b39c-456f-81fe-bce22144303a` | site_page_only | 0 | https://browser.sead.se/site/4020 |
+| Sigtuna (`5049`) | `d27bef87-4b82-4743-944d-bab79c698899` | site_page_only | 0 | https://browser.sead.se/site/5049 |
+| Sigtuna 195:1 (`6421`) | `e0ce44a8-2a86-43bc-ab10-1250a94bdf5d` | site_page_only | 0 | https://browser.sead.se/site/6421 |
+| Silje (`6321`) | `55559b00-acd5-4597-b930-d805fb5bc5a1` | site_page_only | 0 | https://browser.sead.se/site/6321 |
+| Silte kyrka (`4019`) | `5b9a039d-ddef-4e5f-9bca-aa8c581a5f70` | site_page_only | 0 | https://browser.sead.se/site/4019 |
+| Silvåkra 10:1 (`6386`) | `d0611e38-fbb8-440c-b29d-977ffd846abb` | site_page_only | 0 | https://browser.sead.se/site/6386 |
+| Sisshammar (`4018`) | `31155a1e-3214-499e-904e-1dee5a28b9bd` | site_page_only | 0 | https://browser.sead.se/site/4018 |
+| Sivakkojärvi (`4845`) | `7ba0dbd1-55ec-4aea-86f6-b61830ede029` | site_page_only | 0 | https://browser.sead.se/site/4845 |
+| Sjonhem kyrka (`4017`) | `ec2bfd2d-34ef-46f5-9137-a0843abc2d19` | site_page_only | 0 | https://browser.sead.se/site/4017 |
+| Själstuga (`345`) | `a488cea3-037d-40b5-a122-adde62bc4b8a` | site_page_only | 0 | https://browser.sead.se/site/345 |
+| Sjöbloms i Gärde (`6139`) | `60a2ea9a-7b2b-49ab-9f80-958649378256` | site_page_only | 0 | https://browser.sead.se/site/6139 |
+| Sjörups gamla kyrka (`4016`) | `a0f6cff2-a283-49b1-9349-b1b491cd6aea` | site_page_only | 0 | https://browser.sead.se/site/4016 |
+| Sjöstugan (`4015`) | `3bfcacfd-0069-40ca-b4e3-d57d8fcbf84c` | site_page_only | 0 | https://browser.sead.se/site/4015 |
+| Sjösås gamla kyrka (`6140`) | `939c8c38-7c86-40e5-b1de-5bdb1477d751` | site_page_only | 0 | https://browser.sead.se/site/6140 |
+| Sjørup (`5305`) | `16809691-8ca4-44cd-9af3-c662a2101e90` | site_page_only | 0 | https://browser.sead.se/site/5305 |
+| Skabersjö slott (`4014`) | `8eb636b3-b7d1-436c-8e09-cda8c69ee0de` | site_page_only | 0 | https://browser.sead.se/site/4014 |
+| Skagen (`5077`) | `badb78d9-26c0-4bf1-80ed-318769646580` | site_page_only | 0 | https://browser.sead.se/site/5077 |
+| Skagerholms gård (`6141`) | `39ee94ac-905a-44a3-b1b4-881394ba3368` | site_page_only | 0 | https://browser.sead.se/site/6141 |
+| Skalunda kyrka (`6144`) | `dcfc3b5a-0d75-47ab-87b5-723413fa99cd` | site_page_only | 0 | https://browser.sead.se/site/6144 |
+| Skanör Stubbamölla (`6146`) | `8d17c2ec-e1fd-4db4-b227-f7fae1ad4e41` | site_page_only | 0 | https://browser.sead.se/site/6146 |
+| Skarp-Ösby (`4013`) | `ff4fb238-e084-4246-a8a7-c773f39abd28` | site_page_only | 0 | https://browser.sead.se/site/4013 |
+| Skattmansö (`5062`) | `7e58a564-228c-446c-aeaa-375b421716be` | site_page_only | 0 | https://browser.sead.se/site/5062 |
+| Skeby Raä 46 (`182`) | `c42eb116-9ba4-4d84-8aee-d6a40ca76c33` | site_page_only | 0 | https://browser.sead.se/site/182 |
+| Skedemosse (`3485`) | `62d6a859-0a72-4463-89c7-1f0657a0924c` | site_page_only | 0 | https://browser.sead.se/site/3485 |
+| Skederid 106 (`381`) | `6452c74b-7f46-4187-9d43-40c91e3c58b5` | site_page_only | 0 | https://browser.sead.se/site/381 |
+| Skederid Raä 190 (`337`) | `5df274a4-cca1-4d28-b5e7-fa6799d24c56` | site_page_only | 0 | https://browser.sead.se/site/337 |
+| Skedshult (`3857`) | `351819c8-663c-41b1-8c54-2a80cc612894` | site_page_only | 0 | https://browser.sead.se/site/3857 |
+| Skee 1593:1 (`67`) | `c6a6e2de-9711-4179-b03b-45b1a9be199d` | site_page_only | 0 | https://browser.sead.se/site/67 |
+| Skellefteå socken Raä 198 (`204`) | `9344fe7c-3d8c-410f-901e-1ea682f60427` | site_page_only | 0 | https://browser.sead.se/site/204 |
+| Skellefteå stad Raä 632 (`255`) | `6c2051fd-932b-405b-889e-0baa08b370f8` | site_page_only | 0 | https://browser.sead.se/site/255 |
+| Skeppsås kyrka (`4012`) | `e0cc8565-946d-40d6-b6cc-05968d4d37c6` | site_page_only | 0 | https://browser.sead.se/site/4012 |
+| Skjaervika (`5171`) | `8876e534-0b65-42fd-8225-07d9f5bc990c` | site_page_only | 0 | https://browser.sead.se/site/5171 |
+| Skog Raä 7 (`125`) | `6494e7a2-e4bc-4719-b482-f18b21345246` | site_page_only | 0 | https://browser.sead.se/site/125 |
+| Skog-gard i Nusnäs (`6147`) | `128fd763-c0ae-4411-beda-b0fe6696c675` | site_page_only | 0 | https://browser.sead.se/site/6147 |
+| Skogsmossen (`3484`) | `4acf91d0-d979-4ef1-ac25-3328d617037c` | site_page_only | 0 | https://browser.sead.se/site/3484 |
+| Skom Lars i Tällberg (`6148`) | `37bb8f79-fb1a-4968-a0ec-12b275da35ca` | site_page_only | 0 | https://browser.sead.se/site/6148 |
+| Skommars i Heden (`6149`) | `50a079d0-ae52-40bb-81bf-d4d94a1be668` | site_page_only | 0 | https://browser.sead.se/site/6149 |
+| Skottsbergska gården (`6151`) | `bf9a94c8-9bf0-4d3d-9ae8-79ab66f1d21e` | site_page_only | 0 | https://browser.sead.se/site/6151 |
+| Skraders i Ribbåsen (`6153`) | `f671bd7f-c91f-4a0c-b256-3f54a7fe63fb` | site_page_only | 0 | https://browser.sead.se/site/6153 |
+| Skrea 106 (`3483`) | `1617c691-1c7e-4eae-bae6-357c95958a71` | site_page_only | 0 | https://browser.sead.se/site/3483 |
+| Skrea Raä 106 (`29`) | `a4e07e33-2307-40c5-85df-1cb217136f4c` | site_page_only | 0 | https://browser.sead.se/site/29 |
+| Skrea Raä 162 (`57`) | `9b56ca2f-ab04-48e6-a536-63664e09ccda` | site_page_only | 0 | https://browser.sead.se/site/57 |
+| Skrea Raä 177 (`3`) | `3523ba37-9813-4df1-a8b3-4782b7dd49b1` | site_page_only | 0 | https://browser.sead.se/site/3 |
+| Skrea Raä 191 (`22`) | `49743106-3e8c-411d-a019-23d6745b22f4` | site_page_only | 0 | https://browser.sead.se/site/22 |
+| Skrea Raä 193 (`77`) | `8eb438a9-c1cf-46b8-8fd5-bde1b6e6256f` | site_page_only | 0 | https://browser.sead.se/site/77 |
+| Skrea Raä 195 (`115`) | `8ff24243-9328-4165-9449-438212ad1bb3` | site_page_only | 0 | https://browser.sead.se/site/115 |
+| Skrea Raä 77 (`19`) | `b4e899f1-795e-4ef2-9a42-56b0450e4e2c` | site_page_only | 0 | https://browser.sead.se/site/19 |
+| Skrickerum (`3856`) | `329f63a5-eb14-4081-b078-1b8a679287d4` | site_page_only | 0 | https://browser.sead.se/site/3856 |
+| Skräddars (`6152`) | `6eb7d8dc-93f3-42ff-b679-a42204266d55` | site_page_only | 0 | https://browser.sead.se/site/6152 |
+| Skummeslöv (`3482`) | `6ff5fd36-e06e-4be5-ab3b-71acf96959b5` | site_page_only | 0 | https://browser.sead.se/site/3482 |
+| Skumparberget (`3481`) | `4fbbdf24-166c-43a8-868e-02d92603a8ff` | site_page_only | 0 | https://browser.sead.se/site/3481 |
+| Skurup (`5084`) | `4f8b3a94-f627-4cce-810e-f37f9fcd7f0f` | site_page_only | 0 | https://browser.sead.se/site/5084 |
+| Skurup: Saritslöv (`5078`) | `73585261-8102-4350-a5d4-0c61fec42862` | site_page_only | 0 | https://browser.sead.se/site/5078 |
+| Skäggalösa Norregård (`6142`) | `0691b7b7-1fad-45dc-ac38-edfb43c55480` | site_page_only | 0 | https://browser.sead.se/site/6142 |
+| Skälby (`3479`) | `c80acaac-fa4f-4b94-9638-8dd7a717e771` | site_page_only | 0 | https://browser.sead.se/site/3479 |
+| Skälvums kyrka (`6145`) | `a909b02f-2e0b-482e-b6e4-f522cb32b7ad` | site_page_only | 0 | https://browser.sead.se/site/6145 |
+| Skänninge 52 (`6404`) | `ddf1833b-036e-423c-916e-39ecc7311831` | site_page_only | 0 | https://browser.sead.se/site/6404 |
+| Skänninge 5:1 (`6411`) | `0521c7b7-ad10-4673-b281-2f6ba27567c3` | site_page_only | 0 | https://browser.sead.se/site/6411 |
+| Skålsta (`3855`) | `0617b1b4-83e5-47df-9687-5808ec055f8a` | site_page_only | 0 | https://browser.sead.se/site/3855 |
+| Skålö (`6143`) | `c5f88706-f1db-4334-b1f3-cb2e9627b7ff` | site_page_only | 0 | https://browser.sead.se/site/6143 |
+| Skånes-Fagerhult 125 (`3480`) | `14636d61-58b3-4f67-99e3-fbd5086b43e9` | site_page_only | 0 | https://browser.sead.se/site/3480 |
+| Skårby kyrka (`4011`) | `394114d2-d915-486b-a42c-87c034b4c61a` | site_page_only | 0 | https://browser.sead.se/site/4011 |
+| Sköldsborg (`3854`) | `2e94ced2-ab59-4490-8177-5bf4d8be4e25` | site_page_only | 0 | https://browser.sead.se/site/3854 |
+| Skön Raä 164 (`352`) | `0018b96c-6fb9-43b3-aab0-348b6debe3ce` | site_page_only | 0 | https://browser.sead.se/site/352 |
+| Skönberga kyrka (`4010`) | `5689ad1d-022b-48e3-927b-651e6a89ba5b` | site_page_only | 0 | https://browser.sead.se/site/4010 |
+| Skörstorps kyrka (`6150`) | `3c665242-d58b-4e84-ab0d-43e6bd884f1c` | site_page_only | 0 | https://browser.sead.se/site/6150 |
+| Skövde Raä 158 (`241`) | `c9d546f7-1b6e-4926-b9d6-81d30b570201` | site_page_only | 0 | https://browser.sead.se/site/241 |
+| Slevringe gård (`4009`) | `062dd47f-595e-4e24-902a-c691aec4f06a` | site_page_only | 0 | https://browser.sead.se/site/4009 |
+| Slotseng (`5402`) | `ab7449b8-e9f2-4093-a6d0-feeaadd1505b` | site_page_only | 0 | https://browser.sead.se/site/5402 |
+| Slottsskogen (`4008`) | `8e1abeea-6cfc-4cf7-b64b-d64313eee84d` | site_page_only | 0 | https://browser.sead.se/site/4008 |
+| Sluppen/Sluppan (`3478`) | `0aaefd26-1400-429b-b068-b5d7f7cfd254` | site_page_only | 0 | https://browser.sead.se/site/3478 |
+| Slästorp (`4007`) | `3a042bd3-b8b6-4f5a-ab35-55d8f973c2f4` | site_page_only | 0 | https://browser.sead.se/site/4007 |
+| Slättåkra (`5660`) | `129bce3c-5fd6-46f5-b7d6-9eb84468f778` | site_page_only | 0 | https://browser.sead.se/site/5660 |
+| Slättåkra lillegård (`4006`) | `c2fb7eb7-d0bd-4e5e-aca1-d5294b4d1760` | site_page_only | 0 | https://browser.sead.se/site/4006 |
+| Slöinge Raä 114 (`1`) | `3d50fd2b-c1b1-4a45-b8ad-70ed033919a0` | site_page_only | 0 | https://browser.sead.se/site/1 |
+| Slöinge Raä 115 (`16`) | `bdc04b46-0460-4025-9ab6-7aead415db36` | site_page_only | 0 | https://browser.sead.se/site/16 |
+| Smalogava (`3477`) | `2fa45992-fb04-404c-bff6-fd74d2638f90` | site_page_only | 0 | https://browser.sead.se/site/3477 |
+| Smedja Nusnäs Zorns gammelgård (`6155`) | `51f9a96f-086f-47e6-9c64-6dec10fe57ab` | site_page_only | 0 | https://browser.sead.se/site/6155 |
+| Smedjan i Läde (`6156`) | `5bfda838-0761-471f-bedb-3dded5124443` | site_page_only | 0 | https://browser.sead.se/site/6156 |
+| Smedjegatan 22 (`6157`) | `b443546f-e8b9-46d8-87e8-a68223bc9070` | site_page_only | 0 | https://browser.sead.se/site/6157 |
+| Smedsbo (`3476`) | `a43b7bf9-33ae-446e-9b5d-a7c3ffcf63ca` | site_page_only | 0 | https://browser.sead.se/site/3476 |
+| Smedstorp (`4005`) | `faaf84bc-385f-4ffc-8528-f250e5483ca1` | site_page_only | 0 | https://browser.sead.se/site/4005 |
+| Smedstorps slott (`4004`) | `fdc6e022-b4fe-4ad2-9dfb-425ff197b0a5` | site_page_only | 0 | https://browser.sead.se/site/4004 |
+| Smens i Yg (`6158`) | `d1edffe4-bceb-4ea0-b7a2-6ce88c76648d` | site_page_only | 0 | https://browser.sead.se/site/6158 |
+| Smensgård i Torrbergsbo (`6159`) | `1b9016fa-56f3-4b8b-9fd6-e6e844a901f6` | site_page_only | 0 | https://browser.sead.se/site/6159 |
+| Smissarve (`3475`) | `43cfb7ed-acc4-408f-b627-e253f50e1706` | site_page_only | 0 | https://browser.sead.se/site/3475 |
+| Smälingsgården (`6154`) | `869942df-cfc7-4b9a-af5c-2c9cd0093f91` | site_page_only | 0 | https://browser.sead.se/site/6154 |
+| Smällan (`3474`) | `36c9cadd-878e-4d8d-a971-ed7f7e8dd203` | site_page_only | 0 | https://browser.sead.se/site/3474 |
+| Snotterholmen (`3473`) | `383c11b7-1669-457e-9fb4-d8cbf8a21e22` | site_page_only | 0 | https://browser.sead.se/site/3473 |
+| Snårberget (`4854`) | `3fe45d0e-bd16-4794-93a4-79bc85d2dd53` | site_page_only | 0 | https://browser.sead.se/site/4854 |
+| Snårestad (`5097`) | `8f291dd1-926c-4843-aff1-bda802e0cffc` | site_page_only | 0 | https://browser.sead.se/site/5097 |
+| Snåret (`3472`) | `29ae3c18-79eb-4d8f-806d-0e0f75c96683` | site_page_only | 0 | https://browser.sead.se/site/3472 |
+| Snåret (`4003`) | `71f2d18b-745d-43e8-b2c7-4b26e338a52b` | site_page_only | 0 | https://browser.sead.se/site/4003 |
+| Snöstorp 106 (`3471`) | `252cfe53-7f2a-4358-8e17-77c829985adb` | site_page_only | 0 | https://browser.sead.se/site/3471 |
+| Snöstorp Raä 106 (`26`) | `3de0c80d-d8be-4c9a-b012-a64918807eb2` | site_page_only | 0 | https://browser.sead.se/site/26 |
+| Sockengränsen (`3470`) | `8103fb9f-75fc-4a5d-b4e3-09af8e79bfd5` | site_page_only | 0 | https://browser.sead.se/site/3470 |
+| Solbaddet (`4002`) | `852f80b1-05fe-49a4-8552-abc4a880daaf` | site_page_only | 0 | https://browser.sead.se/site/4002 |
+| Solberg 1:15 (`378`) | `435f3316-a246-4856-90c9-f33d8725d383` | site_page_only | 0 | https://browser.sead.se/site/378 |
+| Solberga (`299`) | `b72cf3b9-b36a-43a2-bbd7-5b13a183c4d2` | site_page_only | 0 | https://browser.sead.se/site/299 |
+| Solberga, Linköping (`3469`) | `3ec20bb2-213d-454c-a37c-3aa192fb95a9` | site_page_only | 0 | https://browser.sead.se/site/3469 |
+| Solheim (`3467`) | `e64fe5cd-7ceb-4e58-b6bc-13d255a04f9f` | site_page_only | 0 | https://browser.sead.se/site/3467 |
+| Solna kyrka (`6164`) | `a8842b3b-653b-4855-8829-9f23afdf86b5` | site_page_only | 0 | https://browser.sead.se/site/6164 |
+| Solna kyrka ladan (`6165`) | `34854a3e-59be-487b-b417-42df652a2a15` | site_page_only | 0 | https://browser.sead.se/site/6165 |
+| Solviks i kyrkbyn Boda (`6167`) | `53d86902-4e1f-4d83-9684-685a0c301e51` | site_page_only | 0 | https://browser.sead.se/site/6167 |
+| Sommarlagård Hjältanstorp (`6169`) | `0dd440fa-42cf-4ebf-8b0f-a7fdbd5432d2` | site_page_only | 0 | https://browser.sead.se/site/6169 |
+| Sommaränge Skog (`3466`) | `2ec16934-7dd4-4e41-903c-e7dc8c7aa572` | site_page_only | 0 | https://browser.sead.se/site/3466 |
+| Sonaboda (`6170`) | `ef7388c3-38a4-4b5e-92a2-367b74287c5a` | site_page_only | 0 | https://browser.sead.se/site/6170 |
+| Sondre Tunåsen (`4615`) | `d580038e-ffd7-4893-bede-814c66a0a0f2` | site_page_only | 0 | https://browser.sead.se/site/4615 |
+| Sonnorps frälsegård (`4001`) | `97f10926-df6f-45aa-85f2-666d9e42c7f4` | site_page_only | 0 | https://browser.sead.se/site/4001 |
+| Sorsele Raä 277 (`240`) | `cc00e946-9cad-46dd-bced-07e155d82104` | site_page_only | 0 | https://browser.sead.se/site/240 |
+| Sosserladan Fåsås (`6173`) | `0ddbdb09-efbd-4148-a59a-f11f4b8ff1fa` | site_page_only | 0 | https://browser.sead.se/site/6173 |
+| Sotarskärsviken i Ältebo (`6174`) | `fa9b059a-970b-4258-8d3b-d58b4e313e64` | site_page_only | 0 | https://browser.sead.se/site/6174 |
+| Sote Mosse (`5293`) | `c6cfdacf-961d-419c-9c43-17907828b1f2` | site_page_only | 0 | https://browser.sead.se/site/5293 |
+| Sotmyra (`3464`) | `27e07d2a-0aa6-45bc-be98-648a98c8259b` | site_page_only | 0 | https://browser.sead.se/site/3464 |
+| Spargott (`4000`) | `1613da3b-a71e-44da-9899-648183c66e46` | site_page_only | 0 | https://browser.sead.se/site/4000 |
+| Sparreska palatset (`6176`) | `674f9c0f-08f2-411e-8c0e-d49eb62ead6d` | site_page_only | 0 | https://browser.sead.se/site/6176 |
+| Sparrgården i Indor (`6177`) | `cc242c88-97e4-4b99-96d6-d3bd9f5db260` | site_page_only | 0 | https://browser.sead.se/site/6177 |
+| Sparvgården i Backa (`6178`) | `91419638-c9f8-428c-912c-0e1f8126e513` | site_page_only | 0 | https://browser.sead.se/site/6178 |
+| Spinkarp (`5651`) | `08163fb3-b3a3-41f5-a21c-a554af2d4749` | site_page_only | 0 | https://browser.sead.se/site/5651 |
+| Spinkarps gård (`6179`) | `95ff2093-b38f-438f-aea6-fb3bf01b47ea` | site_page_only | 0 | https://browser.sead.se/site/6179 |
+| Spjalko (`4645`) | `d53dfcdc-e408-4a87-a6c0-fc1650447dfa` | site_page_only | 0 | https://browser.sead.se/site/4645 |
+| Sporrakulla (`6180`) | `52d8d7d6-4ea8-456a-9bca-d9a45208c9b6` | site_page_only | 0 | https://browser.sead.se/site/6180 |
+| Sproge gamla stavkyrka (`3999`) | `79553ea8-a9dd-4830-90bb-2ebb56736998` | site_page_only | 0 | https://browser.sead.se/site/3999 |
+| Sproge: Snoder (`5099`) | `55aa7729-b856-4437-961c-a8f895d01b39` | site_page_only | 0 | https://browser.sead.se/site/5099 |
+| St. Gatan. Kv. Handelsmannen 8-9 (`3463`) | `6eff8b9a-dc97-40ba-9b21-78ec508edd54` | site_page_only | 0 | https://browser.sead.se/site/3463 |
+| Staffans i Åsen (`6181`) | `249dfaae-6b2e-4921-9682-07a2255342dd` | site_page_only | 0 | https://browser.sead.se/site/6181 |
+| Staffas i Nedre Gärdsjö (`6182`) | `36e373ac-1b7c-4f02-9f6c-ac86753e4cd8` | site_page_only | 0 | https://browser.sead.se/site/6182 |
+| Staffas i Ovanmyra (`6183`) | `db2bdd9b-7c9e-45c4-b7ba-3a0e4bd788d6` | site_page_only | 0 | https://browser.sead.se/site/6183 |
+| Stafsinge 118 (`56`) | `edbf0d6e-bd03-48ef-9478-d561af057e9a` | site_page_only | 0 | https://browser.sead.se/site/56 |
+| Stafsinge Raä 116 (`6`) | `b147c93f-2b6f-4bb8-876f-50fb9a847f63` | site_page_only | 0 | https://browser.sead.se/site/6 |
+| Stafsinge Raä 120 (`9`) | `26e15313-617a-4a6c-a023-dcb71424d764` | site_page_only | 0 | https://browser.sead.se/site/9 |
+| Stafsinge Raä 122 (`20`) | `195709d7-b1dc-428b-89a5-e9be95012206` | site_page_only | 0 | https://browser.sead.se/site/20 |
+| Stall Fudal Zorns gammelgård (`6185`) | `d557a2e5-41a4-40f8-950c-f435d955e1a1` | site_page_only | 0 | https://browser.sead.se/site/6185 |
+| Stall i Grönlokshol (`6186`) | `e697f8ba-dc10-44cf-8e2c-bce27120f5e2` | site_page_only | 0 | https://browser.sead.se/site/6186 |
+| Stall i Noret (`6187`) | `66546363-ccf2-4b41-83af-6707eeedb8a2` | site_page_only | 0 | https://browser.sead.se/site/6187 |
+| Stall Sturhans i Fåsås (`6188`) | `94c172b8-8155-443f-9c0a-693265287406` | site_page_only | 0 | https://browser.sead.se/site/6188 |
+| Stallbacksvägen (`3853`) | `5d70fc04-b91e-44ae-b179-61e856043c6d` | site_page_only | 0 | https://browser.sead.se/site/3853 |
+| Stare 1:13 (`62`) | `8390762a-aed7-411a-8cea-8d792e2c6889` | site_page_only | 0 | https://browser.sead.se/site/62 |
+| Stavsholmen (`6189`) | `22e8d815-51e7-468d-a833-ff5846d39764` | site_page_only | 0 | https://browser.sead.se/site/6189 |
+| Stavsjöbodarna (`6190`) | `da932b90-0a72-40bb-be7c-8e469527a662` | site_page_only | 0 | https://browser.sead.se/site/6190 |
+| Stenbockska palatset (`3923`) | `ae127299-1ab2-4b2e-b14c-fe919e2d705e` | site_page_only | 0 | https://browser.sead.se/site/3923 |
+| Steninge kyrka (`6191`) | `5e069f67-09ab-44f1-b97a-4a9e4d6feba2` | site_page_only | 0 | https://browser.sead.se/site/6191 |
+| Steninge slott (`3998`) | `4a655515-7fcc-4b8a-a90c-61095c27722d` | site_page_only | 0 | https://browser.sead.se/site/3998 |
+| Stensjö (`3997`) | `b696526b-e13f-4a89-a0b6-0436c14407c3` | site_page_only | 0 | https://browser.sead.se/site/3997 |
+| Stensmålen (`6323`) | `c308f1cb-53e5-43ab-be94-2bcb7b88cb69` | site_page_only | 0 | https://browser.sead.se/site/6323 |
+| Stenstrup Teglværk (`5301`) | `804bbc85-4bcd-4d2e-b602-cadba7e23e23` | site_page_only | 0 | https://browser.sead.se/site/5301 |
+| Stevningen Mose (`5302`) | `2ee1a649-60a7-46c1-8d32-d84e052f8b42` | site_page_only | 0 | https://browser.sead.se/site/5302 |
+| Sticko Erik Perssons gård i Färnäs (`6192`) | `41f40445-71ac-495b-93d8-e3f79e9250db` | site_page_only | 0 | https://browser.sead.se/site/6192 |
+| Stockholm 103:1 (`6422`) | `5eea65b3-bb48-43dd-a580-adbbac533f05` | site_page_only | 0 | https://browser.sead.se/site/6422 |
+| Stockholm 704 (`6416`) | `5f191b2f-2788-4169-aeb9-f4a877dc2d72` | site_page_only | 0 | https://browser.sead.se/site/6416 |
+| Stockholm 705 (`6417`) | `5b2b6675-2c6c-4228-a8d4-4d06a3500bd9` | site_page_only | 0 | https://browser.sead.se/site/6417 |
+| Stockholm 706 (`6418`) | `1e956b22-4b22-48cb-91be-c47856582e06` | site_page_only | 0 | https://browser.sead.se/site/6418 |
+| Stockholm 707 (`6420`) | `649d6512-2acc-4e97-a354-4f31566f495f` | site_page_only | 0 | https://browser.sead.se/site/6420 |
+| Stockholm 709 (`6419`) | `4f111220-dd30-40fa-99b5-a48c37423e62` | site_page_only | 0 | https://browser.sead.se/site/6419 |
+| Stockholm 710 (`6415`) | `05e6faef-bd40-4489-8229-6b442d2eb6bb` | site_page_only | 0 | https://browser.sead.se/site/6415 |
+| Stockholms Slott (`3920`) | `675d9b53-e0e7-4aec-bfcf-004244dbf35d` | site_page_only | 0 | https://browser.sead.se/site/3920 |
+| Stockholmsgården i Gåda (`6193`) | `4c3ef707-02d7-4ad7-8425-e287b4e3b8bf` | site_page_only | 0 | https://browser.sead.se/site/6193 |
+| Stora Bråmåmyr i Nusnäs (`6194`) | `bf2b451b-2464-44bd-ad2c-e4f202c477ec` | site_page_only | 0 | https://browser.sead.se/site/6194 |
+| Stora Gårda Herrgård (`6195`) | `926448a6-0126-4dca-a801-abdee8e6153c` | site_page_only | 0 | https://browser.sead.se/site/6195 |
+| Stora Harrie (`3852`) | `1749abac-f01d-4300-ac3f-74ac26c1f338` | site_page_only | 0 | https://browser.sead.se/site/3852 |
+| Stora Herrestads kyrka (`3996`) | `e6e71145-e3a0-4ddc-b27a-7422bda551d1` | site_page_only | 0 | https://browser.sead.se/site/3996 |
+| Stora Hulterska (`3851`) | `99c030e5-d7cc-40d5-9a45-03e3c1e91a66` | site_page_only | 0 | https://browser.sead.se/site/3851 |
+| Stora Kolfly (`3995`) | `95e88e61-3efd-487d-af96-da75c183db40` | site_page_only | 0 | https://browser.sead.se/site/3995 |
+| Stora Köpinge kyrka (`3994`) | `fd107efc-6115-41cd-8d8b-55fe53fa786d` | site_page_only | 0 | https://browser.sead.se/site/3994 |
+| Stora Lund (`3993`) | `40d48b37-f56c-42d5-8fc1-59e0ad35c3d3` | site_page_only | 0 | https://browser.sead.se/site/3993 |
+| Stora Malm 229:1 (`6375`) | `30781db3-62b9-4d65-b038-0476b8fbc834` | site_page_only | 0 | https://browser.sead.se/site/6375 |
+| Stora Rickby (`3992`) | `b6bc684c-6eb8-4ff9-8ac2-c4b202f732eb` | site_page_only | 0 | https://browser.sead.se/site/3992 |
+| Stora Skedelid (`6196`) | `f52c0cc1-05bc-4c82-8fba-ad6f5b496e71` | site_page_only | 0 | https://browser.sead.se/site/6196 |
+| Stora skedvi kyrka (`6197`) | `b5cab77b-8052-4ad1-a350-4764cddc3edc` | site_page_only | 0 | https://browser.sead.se/site/6197 |
+| Stora Tuna Skärsjö (`5065`) | `734ced03-0df0-42db-87dd-a19258a798e0` | site_page_only | 0 | https://browser.sead.se/site/5065 |
+| Storasjö (`5519`) | `87540860-e16d-4a03-848c-1598b160cba7` | site_page_only | 0 | https://browser.sead.se/site/5519 |
+| Storpers i Södra Kättbo (`6198`) | `a832d5d7-48e8-4df9-85e0-86058d297d9f` | site_page_only | 0 | https://browser.sead.se/site/6198 |
+| Storsved i Berge (`6199`) | `68587e3c-1808-4cb6-80ce-4c57e424976d` | site_page_only | 0 | https://browser.sead.se/site/6199 |
+| Strängnäs Raä 443 (`311`) | `5a77351c-aa2c-4a8e-b6b6-02a87a6c6e76` | site_page_only | 0 | https://browser.sead.se/site/311 |
+| Stråvalla kyrka (`6201`) | `48db1d0a-21f8-4151-83d7-e04b64bfd694` | site_page_only | 0 | https://browser.sead.se/site/6201 |
+| Stræten (`140`) | `7ee14a56-b3d4-4e87-ab61-6c2aae04ab9c` | site_page_only | 0 | https://browser.sead.se/site/140 |
+| Stræten terasse (`132`) | `db3b28bc-3461-45df-a0b9-dbc97773a671` | site_page_only | 0 | https://browser.sead.se/site/132 |
+| Strö kyrka (`6202`) | `356404f7-6ac6-4794-aa12-df4039f766f6` | site_page_only | 0 | https://browser.sead.se/site/6202 |
+| Strömby (`3991`) | `683b811d-f525-4dd6-b8b1-9e3bc854d710` | site_page_only | 0 | https://browser.sead.se/site/3991 |
+| Strömmen (`6324`) | `19e15f23-f875-48c0-90f7-75c8f00c2af7` | site_page_only | 0 | https://browser.sead.se/site/6324 |
+| Strömsholms slott (`6203`) | `51b3c5a7-c213-4990-90e7-d0967d7b8521` | site_page_only | 0 | https://browser.sead.se/site/6203 |
+| Stubbamöllan (`6204`) | `4518d800-29d6-4bd1-adad-39b2292f492a` | site_page_only | 0 | https://browser.sead.se/site/6204 |
+| Stuga Fudal Zorns gammelgård (`6205`) | `b5391e97-13c8-442a-bb28-07020fe3b717` | site_page_only | 0 | https://browser.sead.se/site/6205 |
+| Stuga i Nybingsbo (`6206`) | `7b675e0b-980d-48b1-8376-77a841303236` | site_page_only | 0 | https://browser.sead.se/site/6206 |
+| Stuga Selja (`6207`) | `15104c42-50b2-4ecf-86fe-61ff525c9676` | site_page_only | 0 | https://browser.sead.se/site/6207 |
+| Stuga Skålö by (`6208`) | `32cc4ce1-8180-454f-9f3c-f1b35ed4865f` | site_page_only | 0 | https://browser.sead.se/site/6208 |
+| Sturhanslars Olovs i Fåsås (`6209`) | `dc4fd290-9776-46e2-9137-d347979409d1` | site_page_only | 0 | https://browser.sead.se/site/6209 |
+| Stäket (`6184`) | `7c016e3f-a940-4deb-aa48-bc85ab6e1635` | site_page_only | 0 | https://browser.sead.se/site/6184 |
+| Ställverksboplatsen (`3462`) | `b81f7b6f-f01b-486a-a82f-c55e48555e11` | site_page_only | 0 | https://browser.sead.se/site/3462 |
+| Stämmeryd (`3849`) | `30ca544b-efe2-4a58-ac5a-279bfd0c7bee` | site_page_only | 0 | https://browser.sead.se/site/3849 |
+| Stävie 3:1 (`3461`) | `e1d42555-e87c-46cc-9283-4a92880d0da5` | site_page_only | 0 | https://browser.sead.se/site/3461 |
+| Stångsmåla (`3850`) | `1be62a62-f559-4b86-8252-f5988ab856ef` | site_page_only | 0 | https://browser.sead.se/site/3850 |
+| Stötollas i Lenåsen (`6200`) | `b60643da-71ea-4467-b39a-7fe465cd79d5` | site_page_only | 0 | https://browser.sead.se/site/6200 |
+| Sulbæk Huse (`5308`) | `f3a4fcd3-77c8-422c-bdde-ce817ea178de` | site_page_only | 0 | https://browser.sead.se/site/5308 |
+| Sundbergs i Heden (`6210`) | `7834b4de-aacb-444b-9d15-8ae813c132a8` | site_page_only | 0 | https://browser.sead.se/site/6210 |
+| Sundbyviks gård (`3990`) | `304d2e4d-1f39-491c-88eb-e5d1049a8e7e` | site_page_only | 0 | https://browser.sead.se/site/3990 |
+| Sundkvists i Söderhögen (`6211`) | `8410a116-240d-4b0b-bd44-e60df545859b` | site_page_only | 0 | https://browser.sead.se/site/6211 |
+| Sundre kyrka (`3989`) | `ef066d23-538b-4229-8506-32f7cd66fccd` | site_page_only | 0 | https://browser.sead.se/site/3989 |
+| Sundsaasen 2 (`119`) | `0d752e77-aca0-40aa-960b-ee3ff50dc0ed` | site_page_only | 0 | https://browser.sead.se/site/119 |
+| Sundsvall stad (`342`) | `007e9787-fcfd-40fd-bda9-0440b3b9d3cc` | site_page_only | 0 | https://browser.sead.se/site/342 |
+| Sunnanås (`6212`) | `f2a6829c-71c1-4208-bfa0-34067c717c71` | site_page_only | 0 | https://browser.sead.se/site/6212 |
+| Svaneberg (`3848`) | `f8425ddb-1d3d-4565-ba20-bb2aa30e550f` | site_page_only | 0 | https://browser.sead.se/site/3848 |
+| Svarteborg 585 (`304`) | `c72e02f5-43ec-4223-81c3-7e2b1fd7e11e` | site_page_only | 0 | https://browser.sead.se/site/304 |
+| Svarteborg 592 (`315`) | `e126c1d6-0efa-467e-a462-f314e646ba10` | site_page_only | 0 | https://browser.sead.se/site/315 |
+| Svarteborg 593 (`276`) | `29bea057-2421-4295-82aa-3aa00222a072` | site_page_only | 0 | https://browser.sead.se/site/276 |
+| Svarteborg 88 (`365`) | `aab4509e-3040-4470-8db5-da650fdc9c14` | site_page_only | 0 | https://browser.sead.se/site/365 |
+| Svarteborg Raä 116 (`309`) | `bfdfe7fc-1c5d-40b8-833c-2adde1c599a0` | site_page_only | 0 | https://browser.sead.se/site/309 |
+| Svarteborg Raä 403 (`346`) | `d613abc3-edf8-437a-89a9-ed64bbb9e3c6` | site_page_only | 0 | https://browser.sead.se/site/346 |
+| Svarteborg Raä 589 (`293`) | `e8ac6fb6-f8b0-437a-8edd-72ad4e91d033` | site_page_only | 0 | https://browser.sead.se/site/293 |
+| Svarteborg Raä 590 (`338`) | `fc0d3d44-abe9-4069-9630-d14fa72a6005` | site_page_only | 0 | https://browser.sead.se/site/338 |
+| Svartemosse (`5024`) | `3a85ecf7-1960-4592-a3cd-c7c61742696a` | site_page_only | 0 | https://browser.sead.se/site/5024 |
+| Svarv Jöns i Utanmyra (`6214`) | `03f4deb6-df92-4583-bd58-76a1623cc52f` | site_page_only | 0 | https://browser.sead.se/site/6214 |
+| Svedala (`5284`) | `4983f363-1f3b-4345-9fc4-664659762b15` | site_page_only | 0 | https://browser.sead.se/site/5284 |
+| Svedala 7:1 (`6391`) | `ea257034-0812-47e7-b6bc-d765674cf610` | site_page_only | 0 | https://browser.sead.se/site/6391 |
+| Svedvi kyrka (`6215`) | `fc604faf-0bf7-4553-8099-e32462752e5d` | site_page_only | 0 | https://browser.sead.se/site/6215 |
+| Sven Bogg i Bonäs (`6216`) | `d6ec5c9c-d0be-4346-92c4-5665acfa8856` | site_page_only | 0 | https://browser.sead.se/site/6216 |
+| Sven Frimodigs i Sör Lindberg (`6217`) | `5d5f2e57-7dfa-4343-a2ea-5b4d33219156` | site_page_only | 0 | https://browser.sead.se/site/6217 |
+| Sven Mårs i Born (`6218`) | `7ed33849-deb3-4401-9eb9-36b82c73b9a9` | site_page_only | 0 | https://browser.sead.se/site/6218 |
+| Sven Ollén i Näsbyggebyn (`6219`) | `ded30cbe-92b5-4824-8493-7a508ff40fdd` | site_page_only | 0 | https://browser.sead.se/site/6219 |
+| Svendborg: Møllergade 6 (`4667`) | `18e06649-01b9-4070-ba8f-42278cd3b8b9` | site_page_only | 0 | https://browser.sead.se/site/4667 |
+| Svensåsen (`6220`) | `9c1679ed-a38a-4db4-9974-fc3197f2588f` | site_page_only | 0 | https://browser.sead.se/site/6220 |
+| Svälinge, Tåkern (`3458`) | `20e87f36-936d-467f-9003-54b13285031d` | site_page_only | 0 | https://browser.sead.se/site/3458 |
+| Svågertorp 8B-C (`3459`) | `e46eafa4-258d-44e9-bf00-d3682d4518fe` | site_page_only | 0 | https://browser.sead.se/site/3459 |
+| Sydöstra härbret Zorns gammelgård (`6221`) | `e2d5cb19-8c25-4925-9ae8-c2fb3951f2aa` | site_page_only | 0 | https://browser.sead.se/site/6221 |
+| Sysslomansgården (`6222`) | `e36797c5-c070-4b69-89e2-740bbda233ae` | site_page_only | 0 | https://browser.sead.se/site/6222 |
+| Säby 5 (`3456`) | `d5573c2c-5686-4d33-899f-08d086303734` | site_page_only | 0 | https://browser.sead.se/site/3456 |
+| Säbyholm (`3455`) | `6f6ff713-d8ac-4158-9931-40049a1cc734` | site_page_only | 0 | https://browser.sead.se/site/3455 |
+| Sälja (`3988`) | `4f2962d0-a8cb-4272-8d27-7e43a973c46e` | site_page_only | 0 | https://browser.sead.se/site/3988 |
+| Sällstorps kyrka (`6126`) | `4c7cf8a9-477c-4506-9a37-b6891ea4bf22` | site_page_only | 0 | https://browser.sead.se/site/6126 |
+| Särdal (`6319`) | `a4a8bfd2-9a9a-49b0-9487-fc5733471014` | site_page_only | 0 | https://browser.sead.se/site/6319 |
+| Särkivuoma (`4858`) | `e2a02b71-0c18-4a4f-9316-cc60eaf5a2eb` | site_page_only | 0 | https://browser.sead.se/site/4858 |
+| Särslöv (`3454`) | `f563db92-3dea-4d08-bfb9-ca7cf0a25850` | site_page_only | 0 | https://browser.sead.se/site/3454 |
+| Särslövs kyrka (`3987`) | `bcea0173-10dc-44ef-be45-2ec0ca1439a3` | site_page_only | 0 | https://browser.sead.se/site/3987 |
+| Säternybodarna (`6134`) | `2ec6bb82-270c-4224-af85-68273b2adf44` | site_page_only | 0 | https://browser.sead.se/site/6134 |
+| Sätersfors (`6135`) | `0e542827-6995-499c-bddf-4452bba855a0` | site_page_only | 0 | https://browser.sead.se/site/6135 |
+| Sätila Strömma (`6320`) | `f9a91924-8237-4f2f-b0a8-ba974af54b8b` | site_page_only | 0 | https://browser.sead.se/site/6320 |
+| Sävar Raä 56 (`229`) | `27ddd78d-d9bb-495f-ab57-974aed22d283` | site_page_only | 0 | https://browser.sead.se/site/229 |
+| Sånga Raä 8 (`149`) | `2f61959b-a297-4437-ab2c-b7ed880490d4` | site_page_only | 0 | https://browser.sead.se/site/149 |
+| Söderala kyrka (`6160`) | `aa1e7d3e-b81b-4517-bff9-ac1e45614288` | site_page_only | 0 | https://browser.sead.se/site/6160 |
+| Söderbackan i Västerbor (`6161`) | `ce081455-b402-464a-ae1e-b16c1c4ea644` | site_page_only | 0 | https://browser.sead.se/site/6161 |
+| Söderby (`3452`) | `e38889b6-46de-4d1c-bce1-de46a2df4075` | site_page_only | 0 | https://browser.sead.se/site/3452 |
+| Söderholm i Grötom (`6162`) | `757756c1-9d01-4ed3-b72e-51a7899c5a07` | site_page_only | 0 | https://browser.sead.se/site/6162 |
+| Söderköping 14:1 (`6410`) | `b6cb0ae4-4736-4dce-b69b-ec7edfc06378` | site_page_only | 0 | https://browser.sead.se/site/6410 |
+| Söderlundska gården (`6163`) | `68f05fb4-5984-4e46-8d4d-2ec9dd279fd5` | site_page_only | 0 | https://browser.sead.se/site/6163 |
+| Södermanland-Nerikes nation (`3986`) | `e0370c95-6366-4b2a-b866-f749b0e0b3ae` | site_page_only | 0 | https://browser.sead.se/site/3986 |
+| Söderåkra (`3451`) | `ee812345-b7da-4cf4-b416-9dc498ddde6d` | site_page_only | 0 | https://browser.sead.se/site/3451 |
+| Söderåkra (Eket) (`3450`) | `cd7d154e-9408-46e6-905f-0a1af1badac2` | site_page_only | 0 | https://browser.sead.se/site/3450 |
+| Södra Hee (`296`) | `ae1ca84e-19c2-4bbf-b2cc-faa74f137c76` | site_page_only | 0 | https://browser.sead.se/site/296 |
+| Södra Möckleby kyrka (`3985`) | `902fad00-9f78-47dc-9e4f-b85a9f8d98f5` | site_page_only | 0 | https://browser.sead.se/site/3985 |
+| Södra Vi 6:1 (`6355`) | `8a3d845e-af79-4351-97d6-be4c9f62198f` | site_page_only | 0 | https://browser.sead.se/site/6355 |
+| Sölvsved (`6168`) | `c18612f6-f8e4-4abc-90c7-2c184ebbc5e6` | site_page_only | 0 | https://browser.sead.se/site/6168 |
+| Söndrum Raä 100 (`14`) | `681940fc-e8e9-4701-bafe-ec221e518bf2` | site_page_only | 0 | https://browser.sead.se/site/14 |
+| Söne kyrka (`6171`) | `bcc9c769-3535-42df-8409-0e025fbf589a` | site_page_only | 0 | https://browser.sead.se/site/6171 |
+| Sörgården i Tornäs (`6172`) | `76fa7ad0-4808-48e6-9a72-b2e18abcc7c3` | site_page_only | 0 | https://browser.sead.se/site/6172 |
+| Sörsylta (`6322`) | `5bb4695f-d481-4991-9fa5-f15fbac7b6bb` | site_page_only | 0 | https://browser.sead.se/site/6322 |
+| Sövestads kyrka (`6175`) | `0849a1df-667c-421e-a02e-9dbc09506aa1` | site_page_only | 0 | https://browser.sead.se/site/6175 |
+| Taastrup Brickworks (`5297`) | `30a87924-2a24-48de-a854-6b4c3124a04c` | site_page_only | 0 | https://browser.sead.se/site/5297 |
+| Takkanenmännikö (`4849`) | `2ca36f68-8eba-4549-9f35-979fcac67c98` | site_page_only | 0 | https://browser.sead.se/site/4849 |
+| Tand (`6223`) | `0a5cc1e4-b1db-485d-9c70-6c311f6f783d` | site_page_only | 0 | https://browser.sead.se/site/6223 |
+| Tannefors (`3449`) | `b62095d4-9160-466d-887e-6de38a3414ee` | site_page_only | 0 | https://browser.sead.se/site/3449 |
+| Tanum 1209 (`392`) | `bbf6678a-3df5-4100-a901-eda38f7a8036` | site_page_only | 0 | https://browser.sead.se/site/392 |
+| Tanum 1229 (`297`) | `2c583ba4-ee85-49ac-bf51-626b338ec7ec` | site_page_only | 0 | https://browser.sead.se/site/297 |
+| Tanum 1892 (`290`) | `379d4aae-9a15-4f07-a563-77fdda7b5587` | site_page_only | 0 | https://browser.sead.se/site/290 |
+| Tanum 544 (`367`) | `b4b2399d-a8b1-4bc6-8a8a-4ba46cb03415` | site_page_only | 0 | https://browser.sead.se/site/367 |
+| Tanum Raä 1840 (`377`) | `7c3ce257-daca-4202-85a5-3ed2743ac68b` | site_page_only | 0 | https://browser.sead.se/site/377 |
+| Tanum Raä 539 (`389`) | `9185a2ed-1330-4c58-8a8b-84965fdae952` | site_page_only | 0 | https://browser.sead.se/site/389 |
+| Tanum Raä 544 (`363`) | `4ef2b7d9-c47f-46c3-a9ac-1eac68c11a60` | site_page_only | 0 | https://browser.sead.se/site/363 |
+| Tanum Raä 546 (`366`) | `b7d1a10f-a7a2-48ae-9a16-1fc5d0fb3a2e` | site_page_only | 0 | https://browser.sead.se/site/366 |
+| Tanum Raä 59 (`314`) | `91cf7e8a-23ed-4bdd-8957-4111aded31ef` | site_page_only | 0 | https://browser.sead.se/site/314 |
+| The Police Station park (`6451`) | `1186750a-8fd2-47f5-898b-0642acf0c283` | site_page_only | 0 | https://browser.sead.se/site/6451 |
+| The Prince house (`6452`) | `a5323771-ceb6-4d7f-9963-4a8d9e721e10` | site_page_only | 0 | https://browser.sead.se/site/6452 |
+| Thodéns i Gruvriset (`6227`) | `a6b35c93-4b43-4f71-b7f9-e18db121abfc` | site_page_only | 0 | https://browser.sead.se/site/6227 |
+| Thomsén i Östergrav (`6228`) | `3412f27d-184b-49d6-a3f5-a9e4edcc3b45` | site_page_only | 0 | https://browser.sead.se/site/6228 |
+| Tidersrums kyrka (`3984`) | `30b29926-1464-4bdb-99fc-0fee4708971b` | site_page_only | 0 | https://browser.sead.se/site/3984 |
+| Tierp 458 (`6449`) | `dbbe84d6-7204-4e74-a0ce-fc8462d99703` | site_page_only | 0 | https://browser.sead.se/site/6449 |
+| Tiertjern (`121`) | `0bcf2ef3-f827-4bf7-86b3-af6e37057845` | site_page_only | 0 | https://browser.sead.se/site/121 |
+| Tillinge Raä 314 (`295`) | `8d0f9ddf-53ad-4fd2-bc70-8b8c1c5e8746` | site_page_only | 0 | https://browser.sead.se/site/295 |
+| Tingstäde kyrka (`3983`) | `47de0eb5-1ab8-4765-acb7-eb447f7d1e6d` | site_page_only | 0 | https://browser.sead.se/site/3983 |
+| Tingstäde träsk (`6459`) | `5a93447a-0b10-4f35-bff0-1c1c61d7fc78` | site_page_only | 0 | https://browser.sead.se/site/6459 |
+| Tittolles i Stavsätra (`6229`) | `9f84ccf4-772a-43d8-bc36-b675cbff899c` | site_page_only | 0 | https://browser.sead.se/site/6229 |
+| Tjustgöls gård (`6230`) | `c2a30965-dba1-403b-8673-9a1e1a881ea1` | site_page_only | 0 | https://browser.sead.se/site/6230 |
+| Tjärby Raä 59 (`8`) | `b8c1ff77-1d3d-4adb-8621-1acfa8abed4a` | site_page_only | 0 | https://browser.sead.se/site/8 |
+| Tobaksladan (`6231`) | `2997dd77-4b63-499b-a3b3-ba437a9b7d45` | site_page_only | 0 | https://browser.sead.se/site/6231 |
+| Tofta (`3847`) | `878933aa-7969-487f-903f-edf7a7c4d5dd` | site_page_only | 0 | https://browser.sead.se/site/3847 |
+| Tofta 19 (`3446`) | `d663f105-6c32-490d-af32-e9419e55c7e6` | site_page_only | 0 | https://browser.sead.se/site/3446 |
+| Tofta 39 (`3445`) | `15214598-152c-4618-bd29-57dd0744c234` | site_page_only | 0 | https://browser.sead.se/site/3445 |
+| Toppeladugård (`4801`) | `95af5d4a-cfab-400d-8327-95b373804144` | site_page_only | 0 | https://browser.sead.se/site/4801 |
+| Torbjörntorp Raä 86 (`242`) | `4a158d65-bf3a-4443-94cd-e12ea78e8cb2` | site_page_only | 0 | https://browser.sead.se/site/242 |
+| Toresbo (`3982`) | `29fc07b9-556d-4e0c-b62a-07b85f1eeb1a` | site_page_only | 0 | https://browser.sead.se/site/3982 |
+| Torhult (`3846`) | `6d52aaad-b8c1-4959-bffd-f972212b36bc` | site_page_only | 0 | https://browser.sead.se/site/3846 |
+| Torkelsbo (`6233`) | `9b2bce6f-e85d-44df-866f-80ca90a1d35f` | site_page_only | 0 | https://browser.sead.se/site/6233 |
+| Torkelsrud (`6325`) | `a55a241c-c384-4572-b046-cdb4360da8d2` | site_page_only | 0 | https://browser.sead.se/site/6325 |
+| Torkstuga Nusnäs Zorns gammelgård (`6234`) | `e8c7fa2a-2f25-4d80-8bcc-8eec5e0ebb50` | site_page_only | 0 | https://browser.sead.se/site/6234 |
+| Torpa kyrka (`3981`) | `f8b653c9-183a-4e74-8397-dc83c487921c` | site_page_only | 0 | https://browser.sead.se/site/3981 |
+| Torpa prästgård (`3980`) | `4c17d90b-7510-4d85-8452-9e968991db42` | site_page_only | 0 | https://browser.sead.se/site/3980 |
+| Torpa stenhus (`5647`) | `0b937f4f-f04b-4534-9e1c-a2274b493541` | site_page_only | 0 | https://browser.sead.se/site/5647 |
+| Torsby Raä 100 (`275`) | `e44ef683-a971-43a0-bd9a-5224a457378f` | site_page_only | 0 | https://browser.sead.se/site/275 |
+| Torsklok-härbret i Västra Lillmon (`6236`) | `e936692b-1698-4726-b402-10b7c0cb657f` | site_page_only | 0 | https://browser.sead.se/site/6236 |
+| Torslanda 108:1 (`53`) | `43a0a167-cd46-49d5-9299-d7f2e802ff2e` | site_page_only | 0 | https://browser.sead.se/site/53 |
+| Torslanda 110:1 (`55`) | `138614a4-66c2-449e-88cd-1e9cf4dc98eb` | site_page_only | 0 | https://browser.sead.se/site/55 |
+| Torslanda 220 (`331`) | `f3433b51-10fc-457b-97a0-c16fec287bf3` | site_page_only | 0 | https://browser.sead.se/site/331 |
+| Torslanda 99:1 (`68`) | `7170abb4-bac3-420b-9a1c-3123b1c8683c` | site_page_only | 0 | https://browser.sead.se/site/68 |
+| Torslanda Raä 96 (`73`) | `816c2c1d-afb0-44af-87ce-fbba362a6a2e` | site_page_only | 0 | https://browser.sead.se/site/73 |
+| Torslunda (`3444`) | `108c982c-9076-4e05-85bd-90787776a602` | site_page_only | 0 | https://browser.sead.se/site/3444 |
+| Torsåker Raä 1589 (`156`) | `9bc5a2cb-7a55-494c-ad49-6e454131e0d6` | site_page_only | 0 | https://browser.sead.se/site/156 |
+| Torsångs kyrka (`6235`) | `1f636843-ebdd-404a-97d0-f2cfae1fa139` | site_page_only | 0 | https://browser.sead.se/site/6235 |
+| Torup slott (`6237`) | `9aebdbdf-64d2-4438-aceb-f5f2a3b7e942` | site_page_only | 0 | https://browser.sead.se/site/6237 |
+| Tossene 446 (`375`) | `c841f857-192e-46c8-bc30-85fd335fff49` | site_page_only | 0 | https://browser.sead.se/site/375 |
+| Tossene Raä 446 (`310`) | `a6bdd636-9aba-46cc-8d23-e5b364f27385` | site_page_only | 0 | https://browser.sead.se/site/310 |
+| Tosterup 32:2 (`3834`) | `49398c8f-8c82-417e-9c56-c39c9aa15d3f` | site_page_only | 0 | https://browser.sead.se/site/3834 |
+| Tovastugan (`3978`) | `d35e11a4-4373-436f-a96c-2f6b95d6a287` | site_page_only | 0 | https://browser.sead.se/site/3978 |
+| Transtorpsvägen (`6326`) | `86a3ca43-83ec-43b1-b3a4-a9e469fcd00e` | site_page_only | 0 | https://browser.sead.se/site/6326 |
+| Trappgården i Mångberg (`6239`) | `63ea444f-9c5c-40be-8a90-8e0ecb035396` | site_page_only | 0 | https://browser.sead.se/site/6239 |
+| Trehörna säteri (`3977`) | `2d3b3100-3d1d-4a84-a09c-51ae9fd932be` | site_page_only | 0 | https://browser.sead.se/site/3977 |
+| Trelleborg 19 (`3443`) | `92cdff2f-e418-46bf-aad8-c5d30551c694` | site_page_only | 0 | https://browser.sead.se/site/3443 |
+| Trelleborg 19:1 (`6387`) | `1500e97d-e59b-41a7-a9fe-22a8ee522681` | site_page_only | 0 | https://browser.sead.se/site/6387 |
+| Trelleborg 48 (`6379`) | `e0a5bad5-0285-4785-9f6d-804d8ebd0196` | site_page_only | 0 | https://browser.sead.se/site/6379 |
+| Trelleborg: brick pit (`5285`) | `c5daeeb9-ac99-4bb5-a971-3c86dbd7b021` | site_page_only | 0 | https://browser.sead.se/site/5285 |
+| Trogsta 71 (`284`) | `190c78af-b2ee-41c2-aba2-f05e4bd58e01` | site_page_only | 0 | https://browser.sead.se/site/284 |
+| Trollasten (`3440`) | `6e4dc9bd-87a2-446d-a61b-dca8e02d195d` | site_page_only | 0 | https://browser.sead.se/site/3440 |
+| Trulsatorpet (`6242`) | `74557e51-47dc-4777-a9d4-3d7e6d8333ca` | site_page_only | 0 | https://browser.sead.se/site/6242 |
+| Trädgårdsmästarbostaden (`6238`) | `93a8bb79-d619-4b70-84a8-be41b9f8fdd6` | site_page_only | 0 | https://browser.sead.se/site/6238 |
+| Träne kyrka (`3976`) | `7e6bbf9d-b01c-4f9f-8cec-e978d0901f82` | site_page_only | 0 | https://browser.sead.se/site/3976 |
+| Tröinge 4:9 (`25`) | `8c39fa5c-4840-4841-85b5-8b30f9e5431f` | site_page_only | 0 | https://browser.sead.se/site/25 |
+| Trösklada Bergkarlås (`6240`) | `0bfca22a-78e5-472f-a0cd-f603ef449a6d` | site_page_only | 0 | https://browser.sead.se/site/6240 |
+| Trösklada Östnor (`6241`) | `b0443c0c-7685-47b7-ab68-14120334ee33` | site_page_only | 0 | https://browser.sead.se/site/6241 |
+| Tullinge gård (`6243`) | `da325542-d4b2-4d3d-bfe9-09a32471b6ec` | site_page_only | 0 | https://browser.sead.se/site/6243 |
+| Tullsåkra (`6244`) | `f38ef41a-5115-48cf-866c-93e1b6bdc573` | site_page_only | 0 | https://browser.sead.se/site/6244 |
+| Tumbo kyrka (`3975`) | `627d80a7-a74c-460b-90b1-1400bee61383` | site_page_only | 0 | https://browser.sead.se/site/3975 |
+| Tuna Raä 328:1 (`273`) | `6a08ba29-3d83-48ab-8553-058125c72947` | site_page_only | 0 | https://browser.sead.se/site/273 |
+| Tuna Raä 330 (`353`) | `56899c59-e686-4110-be94-9a218a1ada96` | site_page_only | 0 | https://browser.sead.se/site/353 |
+| Tuntorps gård (`3974`) | `46374ae8-17c4-4352-a6e0-8225673e3b36` | site_page_only | 0 | https://browser.sead.se/site/3974 |
+| Turinge 415 (`396`) | `35dfea93-36b1-4396-b370-c8f08b3fdc68` | site_page_only | 0 | https://browser.sead.se/site/396 |
+| Tvartorps gård (`5650`) | `981d2cb9-85f3-405d-bb0c-efd56185c84b` | site_page_only | 0 | https://browser.sead.se/site/5650 |
+| Tvartorps gård (`3973`) | `d4efb75a-b957-44b5-9c24-e42adb7a56a5` | site_page_only | 0 | https://browser.sead.se/site/3973 |
+| Tvärgränd (`6328`) | `42ce5a66-1afa-470d-beae-ded585c63628` | site_page_only | 0 | https://browser.sead.se/site/6328 |
+| Tvåan, Röda kvarn (`6245`) | `c2bfc93f-e0d4-44c1-b848-95c77151e9d4` | site_page_only | 0 | https://browser.sead.se/site/6245 |
+| Tvååker Raä 193 (`30`) | `aeb9cae9-43b2-4565-bb79-67e7811da890` | site_page_only | 0 | https://browser.sead.se/site/30 |
+| Tygapil (`3439`) | `9a28aae2-22d6-4e35-87db-a433e1152403` | site_page_only | 0 | https://browser.sead.se/site/3439 |
+| Tynderö 27 (`400`) | `eff8d9ab-3902-4633-b493-e72d7da886ee` | site_page_only | 0 | https://browser.sead.se/site/400 |
+| Tyresö kyrka (`3972`) | `1258a9f8-57c3-466a-8523-30d9690ee7dd` | site_page_only | 0 | https://browser.sead.se/site/3972 |
+| Tysk Karin Olsson i Kärvsåsen (`6247`) | `131907d2-fa83-491e-aeea-bdd2847614bf` | site_page_only | 0 | https://browser.sead.se/site/6247 |
+| Tysk Sven i Västra Stumsnäs (`6248`) | `3916c471-571d-438e-970c-b2a4db44b484` | site_page_only | 0 | https://browser.sead.se/site/6248 |
+| Tystberga kyrka (`6249`) | `33ae3eef-5e85-47b9-9653-87513a89ad40` | site_page_only | 0 | https://browser.sead.se/site/6249 |
+| Täby (`3438`) | `9fbf076d-5c59-4152-a474-a1b400ca76be` | site_page_only | 0 | https://browser.sead.se/site/3438 |
+| Täpp Kerstin i Nedre Gärdsjö (`6224`) | `f6d9b40f-d496-467e-ac90-98475645c6d7` | site_page_only | 0 | https://browser.sead.se/site/6224 |
+| Tärna hembygdsgård (`6225`) | `f0a7bcc1-05ea-420b-aab7-cc1fa82872b8` | site_page_only | 0 | https://browser.sead.se/site/6225 |
+| Tåme (`386`) | `d6de6ea2-b1b0-46b6-9f19-85a270b9289c` | site_page_only | 0 | https://browser.sead.se/site/386 |
+| Tångerda gård (`3971`) | `7b45cbf7-2a2c-4e44-964a-e27914a7ad84` | site_page_only | 0 | https://browser.sead.se/site/3971 |
+| Tåsjö (`5527`) | `7e29b71a-bdf3-4af0-9ab4-39e98ab5208f` | site_page_only | 0 | https://browser.sead.se/site/5527 |
+| Tåstarps kyrka (`6226`) | `ec7df2b6-d6bd-4ce6-b4b4-c4ae6b379705` | site_page_only | 0 | https://browser.sead.se/site/6226 |
+| Tölö Raä 173 (`161`) | `1bc321fa-7a79-4bfa-a77f-946a6c701dee` | site_page_only | 0 | https://browser.sead.se/site/161 |
+| Tönnersjö kyrka (`6232`) | `5cfa3a5c-a1d2-4230-a0ad-cce0b09d9401` | site_page_only | 0 | https://browser.sead.se/site/6232 |
+| Töre 318:1 (`277`) | `aec2ccef-6e17-4646-a196-b640f60b464f` | site_page_only | 0 | https://browser.sead.se/site/277 |
+| Töre 341:1 (`274`) | `3a5dd59e-0ee7-4d56-8a83-0d71e3ff6d86` | site_page_only | 0 | https://browser.sead.se/site/274 |
+| Töre 405:2 (`288`) | `296b2e40-1be5-43bb-b10f-50b91740afca` | site_page_only | 0 | https://browser.sead.se/site/288 |
+| Töre 408:1 (`292`) | `dfe021bc-c713-478e-85b2-d2af3be48eb2` | site_page_only | 0 | https://browser.sead.se/site/292 |
+| Töre 422 (`384`) | `dc36da4d-ec8c-455b-9e2c-35a442519ce8` | site_page_only | 0 | https://browser.sead.se/site/384 |
+| Töre Raä 320 (`298`) | `1b84b8d2-dcd9-4c68-90e4-9ad764b49b35` | site_page_only | 0 | https://browser.sead.se/site/298 |
+| Törnbotten (`3970`) | `af23ab28-64f6-4bb7-8376-a2fe1e13d305` | site_page_only | 0 | https://browser.sead.se/site/3970 |
+| Tønsberg, Peterskirken (`3436`) | `35cea343-f3e0-45fe-b184-48a885159d35` | site_page_only | 0 | https://browser.sead.se/site/3436 |
+| Tønsberg, Teglhagen (`3435`) | `733200dc-c48b-4b34-8d83-073a987bc4b2` | site_page_only | 0 | https://browser.sead.se/site/3435 |
+| Tønsnes (`5632`) | `4b0ff1bc-6cae-421f-8bc2-a9ca8a619d8a` | site_page_only | 0 | https://browser.sead.se/site/5632 |
+| Uddevalla Raä 133:1 (`58`) | `2a25d5a6-63fe-43ad-ad43-fc51e61ff231` | site_page_only | 0 | https://browser.sead.se/site/58 |
+| Uddvide (`3434`) | `6d81c558-2383-4772-ba64-7dc55f0811cb` | site_page_only | 0 | https://browser.sead.se/site/3434 |
+| Uggelbo (`3845`) | `eba65fd7-da1b-433b-a22e-cf1b18eb7b63` | site_page_only | 0 | https://browser.sead.se/site/3845 |
+| Uggerby Aa (`5311`) | `6e6a0c82-717a-4348-ab6d-b28c419e8530` | site_page_only | 0 | https://browser.sead.se/site/5311 |
+| Ulfsparregatan 2 (`6250`) | `c1d35c10-d08a-4ce1-8d7e-3fbacbd9ff07` | site_page_only | 0 | https://browser.sead.se/site/6250 |
+| Ullbergs i Kall (`6251`) | `63f9951d-9e08-48da-98b8-5586e95e4360` | site_page_only | 0 | https://browser.sead.se/site/6251 |
+| Ullisjaur (`3433`) | `abd1fc1b-6b1f-4494-b689-abaae47dce05` | site_page_only | 0 | https://browser.sead.se/site/3433 |
+| Ulriksdals slott (`3969`) | `3b1b0019-5dbd-4529-8cd0-6830f3ed43b5` | site_page_only | 0 | https://browser.sead.se/site/3969 |
+| Ulvängen (`6252`) | `f44c571c-f34c-48ea-ba8f-a5861666f622` | site_page_only | 0 | https://browser.sead.se/site/6252 |
+| Umeå socken Raä 225 (`244`) | `5f1f242b-b510-4810-b795-d0e1fdb25529` | site_page_only | 0 | https://browser.sead.se/site/244 |
+| Umeå socken Raä 227 (`133`) | `f37fb1c8-8f1a-4ae3-a211-4fbcc5f2b17c` | site_page_only | 0 | https://browser.sead.se/site/133 |
+| Umeå socken Raä 318 (`192`) | `4850df47-9d04-40e5-b643-1d8bc59c5147` | site_page_only | 0 | https://browser.sead.se/site/192 |
+| Umeå socken Raä 586 (`253`) | `2744c611-b272-4379-b55e-6c1b146422fe` | site_page_only | 0 | https://browser.sead.se/site/253 |
+| Umeå socken Raä 590 (`248`) | `7878d47a-af5d-47ac-8111-7653cf5ef522` | site_page_only | 0 | https://browser.sead.se/site/248 |
+| Umeå stad Raä 15 (`216`) | `76949a32-e290-4be2-b660-6551aa2fe7ee` | site_page_only | 0 | https://browser.sead.se/site/216 |
+| Umeå Stadsliden 6:6 (`148`) | `2b6f8177-1fff-4542-8eec-0ee87756dc02` | site_page_only | 0 | https://browser.sead.se/site/148 |
+| Undersåker Raä 204 (`301`) | `7783e02e-e153-495a-8b87-11112058ef56` | site_page_only | 0 | https://browser.sead.se/site/301 |
+| Uppsala 262:1 (`6347`) | `b4610f6c-6ed2-4889-bef5-89bf91142a0e` | site_page_only | 0 | https://browser.sead.se/site/6347 |
+| Uppsala 670 (`6344`) | `94e313bc-45d2-475c-950e-78dd216617be` | site_page_only | 0 | https://browser.sead.se/site/6344 |
+| Uppsala 88:1 (`6346`) | `bd5ea6c1-28fa-444f-a997-d4d9a5be333c` | site_page_only | 0 | https://browser.sead.se/site/6346 |
+| Uppsala Raä 499 (`303`) | `71802322-85c1-42a3-984e-b4996b3d0fcc` | site_page_only | 0 | https://browser.sead.se/site/303 |
+| Uppsala: Bryggaren 1 (`4700`) | `17452989-0139-4d4a-a8a1-41665c17c9b7` | site_page_only | 0 | https://browser.sead.se/site/4700 |
+| Uppsala: Bryggaren 2 (`4701`) | `bd9bec97-22e2-4e5b-b8d6-86370bcf4091` | site_page_only | 0 | https://browser.sead.se/site/4701 |
+| Uppsala: Centrum (`4702`) | `ceee8e05-6561-4a7d-bc72-de4de2d1b9ef` | site_page_only | 0 | https://browser.sead.se/site/4702 |
+| Uppåkra (`3432`) | `67c23e8c-9e33-41fc-9a2c-9e146d2dd5b4` | site_page_only | 0 | https://browser.sead.se/site/3432 |
+| Utatgården på Öhn (`6253`) | `f87a195b-34c6-4d82-b814-6405d575a903` | site_page_only | 0 | https://browser.sead.se/site/6253 |
+| Utmelanda (`6254`) | `4554bc87-4851-4707-a0bc-862839afd952` | site_page_only | 0 | https://browser.sead.se/site/6254 |
+| V Sandudden (`3431`) | `0e655876-eb76-4d7e-a69e-44d88f2aefa2` | site_page_only | 0 | https://browser.sead.se/site/3431 |
+| Vadsbro kyrka (`3968`) | `11083008-a9a6-4dd0-b268-ce07e47e12b4` | site_page_only | 0 | https://browser.sead.se/site/3968 |
+| Vadstena 21:1 (`6409`) | `27fcd7a5-9440-47f8-97d3-7cb71fc1c624` | site_page_only | 0 | https://browser.sead.se/site/6409 |
+| Vadstena 35 (`6442`) | `965f66d0-fb26-48c9-bc62-cc97860ba41b` | site_page_only | 0 | https://browser.sead.se/site/6442 |
+| Vadstena rådhus (`3967`) | `1cc41986-68be-46de-88b4-a5414fa9cd98` | site_page_only | 0 | https://browser.sead.se/site/3967 |
+| Vaksala Raä 300 (`341`) | `3c3f4e7c-ef8e-4e2f-b37c-3cb89dcaa225` | site_page_only | 0 | https://browser.sead.se/site/341 |
+| Valbo kyrka (`6257`) | `b3179740-8d87-4b13-b1f5-bbb0cee32935` | site_page_only | 0 | https://browser.sead.se/site/6257 |
+| Valbo Raä 399 (`246`) | `4958d781-956d-4fa5-9e43-9f48ce079744` | site_page_only | 0 | https://browser.sead.se/site/246 |
+| Valboön (`3430`) | `e52fba0a-a10a-4af3-b82f-323a13e5d7ff` | site_page_only | 0 | https://browser.sead.se/site/3430 |
+| Valby (`3429`) | `89ee5b9d-0fd2-4a01-856b-597193bfd901` | site_page_only | 0 | https://browser.sead.se/site/3429 |
+| Valje (`3428`) | `99fc8c87-0751-443d-b141-c79590242a6c` | site_page_only | 0 | https://browser.sead.se/site/3428 |
+| Vall kyrka (`3966`) | `3bdf2c38-060b-424a-9417-30838ae372f1` | site_page_only | 0 | https://browser.sead.se/site/3966 |
+| Valla (`3965`) | `7759a038-ed0a-4216-ac41-c9878ad33dc0` | site_page_only | 0 | https://browser.sead.se/site/3965 |
+| Vallby (`3427`) | `16bacd11-0e6f-42ff-82ba-00e9c274a65d` | site_page_only | 0 | https://browser.sead.se/site/3427 |
+| Vallby kyrka (`6258`) | `f8434c84-0f28-4145-a7c8-7d7e1e20b81f` | site_page_only | 0 | https://browser.sead.se/site/6258 |
+| Vallby, Tillberga (`4707`) | `450cf563-e916-4b99-964d-115ab3b6ff58` | site_page_only | 0 | https://browser.sead.se/site/4707 |
+| Vallda Raä 293 (`5`) | `8cc5c06a-ce4b-4bc8-ae58-e84ee31d2bd5` | site_page_only | 0 | https://browser.sead.se/site/5 |
+| Vallen i Gammelsträng (`6259`) | `90b1438c-6696-46a2-b478-d16586ebd45e` | site_page_only | 0 | https://browser.sead.se/site/6259 |
+| Vallentuna 495:1 (`6423`) | `f6f86a24-350f-40fd-978f-e55425312eeb` | site_page_only | 0 | https://browser.sead.se/site/6423 |
+| Valleröds Mosse (`5135`) | `3997e73c-6f2b-4c6e-9579-5fdae3c458fc` | site_page_only | 0 | https://browser.sead.se/site/5135 |
+| Vallins i Östansjö (`6260`) | `7d7a46d4-b8db-4d1b-96c8-6b598a3caa60` | site_page_only | 0 | https://browser.sead.se/site/6260 |
+| Vallsnäs (`3844`) | `edde89f4-ea4c-4b26-8ad4-b8a2d29e9bec` | site_page_only | 0 | https://browser.sead.se/site/3844 |
+| Vallviksvallen (`3426`) | `e947347f-8d4e-49ca-b112-3ed005cf937f` | site_page_only | 0 | https://browser.sead.se/site/3426 |
+| Valsgarde (`4708`) | `96c78fcb-98a4-45af-8f6b-eaeac8feb3db` | site_page_only | 0 | https://browser.sead.se/site/4708 |
+| Valtersberg (`3425`) | `7a4a1e76-3f36-4174-b668-5cacecedaebc` | site_page_only | 0 | https://browser.sead.se/site/3425 |
+| Valtorps kyrka (`6261`) | `e874df48-9107-4b56-9470-1910dba0ed92` | site_page_only | 0 | https://browser.sead.se/site/6261 |
+| Valö 123:1 (`6345`) | `cc3967aa-3961-4aa8-9295-2e79a76a56d9` | site_page_only | 0 | https://browser.sead.se/site/6345 |
+| Vamlingbo prästgård (`3964`) | `2f922108-5c21-44b1-90b5-cd155c63ce04` | site_page_only | 0 | https://browser.sead.se/site/3964 |
+| Vanneberga (`3424`) | `f691f5db-33b4-40d0-b2b5-ea7390e38d82` | site_page_only | 0 | https://browser.sead.se/site/3424 |
+| Vanserum (`3963`) | `1e5bba73-2281-44f0-a165-83d66d023ded` | site_page_only | 0 | https://browser.sead.se/site/3963 |
+| Varbergs fästning (`6263`) | `ee3560b5-3548-4a64-a7da-4a44ef52b1a2` | site_page_only | 0 | https://browser.sead.se/site/6263 |
+| Varras i Råsjön (`6264`) | `81ec3341-fb4d-47f6-9ca6-1387c502fb67` | site_page_only | 0 | https://browser.sead.se/site/6264 |
+| Vaterland 1, Oslo (`138`) | `369a1cca-f5b1-4f94-b492-ac7d17befcb7` | site_page_only | 0 | https://browser.sead.se/site/138 |
+| Vaxmyra (`3423`) | `b0932d31-51d4-49d4-815d-49a1bfd5f4cf` | site_page_only | 0 | https://browser.sead.se/site/3423 |
+| Veinge kyrka (`6267`) | `818a0c73-4f21-41b5-b4ee-c01f55e95bda` | site_page_only | 0 | https://browser.sead.se/site/6267 |
+| Verksgatan (`3843`) | `af14f744-8d00-4b7b-899e-d6a3fba5a098` | site_page_only | 0 | https://browser.sead.se/site/3843 |
+| Verkstadsstuga Östnor (`6268`) | `6b92e4c5-dce3-462f-b934-d156c244c777` | site_page_only | 0 | https://browser.sead.se/site/6268 |
+| Verum 4:2 (`6397`) | `a6f11529-0305-436d-9b0d-518bc67ba471` | site_page_only | 0 | https://browser.sead.se/site/6397 |
+| Veta 45 (`3422`) | `f7bf5ce9-473f-4f87-a7c2-a6c79a07059b` | site_page_only | 0 | https://browser.sead.se/site/3422 |
+| Vettsta (`3421`) | `7a4bd363-f6ef-4052-a7b0-d5e6bf8e66f4` | site_page_only | 0 | https://browser.sead.se/site/3421 |
+| Viborg Sonderso (`4997`) | `d0731f64-a6bd-4e00-bb61-91b633910a03` | site_page_only | 0 | https://browser.sead.se/site/4997 |
+| Viby gård (`3962`) | `93c58c6f-3e46-4c91-bc90-d0e65aed26c9` | site_page_only | 0 | https://browser.sead.se/site/3962 |
+| Viby Raä 220 (`172`) | `a625836c-4ddf-4978-90a7-bc09d2e772e1` | site_page_only | 0 | https://browser.sead.se/site/172 |
+| Viby Raä 222 (`215`) | `3ed0b5e3-1b7c-4712-9408-7788d28488b0` | site_page_only | 0 | https://browser.sead.se/site/215 |
+| Viby Raä 225 (`234`) | `f10de040-d66f-4b99-a472-6c0d9c2987e9` | site_page_only | 0 | https://browser.sead.se/site/234 |
+| Vickleby kyrka (`3961`) | `73f7670b-f248-445c-a41b-4b80d5cad976` | site_page_only | 0 | https://browser.sead.se/site/3961 |
+| Vieremä: Kallolampi (`5080`) | `8d02c244-75bb-473a-b8e7-ace5e96339e5` | site_page_only | 0 | https://browser.sead.se/site/5080 |
+| Viggeby (`3842`) | `92590597-8f13-4701-91e6-bd4e8863f210` | site_page_only | 0 | https://browser.sead.se/site/3842 |
+| Viggesbo säteri (`3960`) | `68ae9c5a-f388-4c2a-bb68-a39f836bf1c4` | site_page_only | 0 | https://browser.sead.se/site/3960 |
+| Vik (`3420`) | `50016ebc-316f-4a25-9682-79070b3035c0` | site_page_only | 0 | https://browser.sead.se/site/3420 |
+| Vika Raä 260 (`99`) | `9d4da2e5-6bd0-4027-93ba-696d89abeff6` | site_page_only | 0 | https://browser.sead.se/site/99 |
+| Vikenhärbret (`6269`) | `c073cca8-d90e-4c93-b55a-03f549bb8c14` | site_page_only | 0 | https://browser.sead.se/site/6269 |
+| Vikström i Bodsjö (`6270`) | `32a811b6-5f67-439a-afb7-f1ef4bc0178e` | site_page_only | 0 | https://browser.sead.se/site/6270 |
+| Vilhelmina Raä 1647 (`313`) | `a7d91677-4f98-4938-b6a1-ea494aabcbbf` | site_page_only | 0 | https://browser.sead.se/site/313 |
+| Villie kyrka (`3959`) | `83d1b3c1-cf8d-45ab-bb38-255ec2c3c6b2` | site_page_only | 0 | https://browser.sead.se/site/3959 |
+| Vinberg Raä 97 (`231`) | `dc76d450-1d19-4120-b63b-72a2d85920f9` | site_page_only | 0 | https://browser.sead.se/site/231 |
+| Vingåker-Kvarngölet (`3841`) | `2ae1f90a-e8ec-4600-a36b-c40148ab2c8e` | site_page_only | 0 | https://browser.sead.se/site/3841 |
+| Vintappermosen (`5063`) | `4d977cc6-6e32-44c2-b5ff-fafcfbfb26bf` | site_page_only | 0 | https://browser.sead.se/site/5063 |
+| Vintriediket (`3419`) | `3c3b3206-a8c7-47a1-a2ca-2874f786368e` | site_page_only | 0 | https://browser.sead.se/site/3419 |
+| Vippröste (`3840`) | `000ef3d9-389f-46cd-8cf9-a9c49507f5cd` | site_page_only | 0 | https://browser.sead.se/site/3840 |
+| Vireda kyrka (`3958`) | `34eafd56-b9d4-4f7f-8d2c-97c6ab61025d` | site_page_only | 0 | https://browser.sead.se/site/3958 |
+| Visby 107:1 (`6371`) | `d18ee2d7-7dee-49d2-bec3-14bbe0966a4c` | site_page_only | 0 | https://browser.sead.se/site/6371 |
+| Visby domkyrka (`3957`) | `247f1c5e-f70e-49a1-83cd-c521179e90a2` | site_page_only | 0 | https://browser.sead.se/site/3957 |
+| Visingsö 182 (`6365`) | `d0bd71a4-c9ac-4482-8775-a4be401883f8` | site_page_only | 0 | https://browser.sead.se/site/6365 |
+| Visseltofta kyrka (`3956`) | `7a032551-0a4d-458b-9d28-9c44622ea736` | site_page_only | 0 | https://browser.sead.se/site/3956 |
+| Vistad (`3418`) | `e41ec9f7-33b4-4ee8-8074-f7f8cbea28b7` | site_page_only | 0 | https://browser.sead.se/site/3418 |
+| Vita Holmen, Löwenströmska sjukhusområdet (`3955`) | `ffefa603-dbcd-4692-af6d-e64f99981049` | site_page_only | 0 | https://browser.sead.se/site/3955 |
+| Vittsjö 24:1 (`6394`) | `5907f0c2-6416-4f5c-89b5-1828078873a4` | site_page_only | 0 | https://browser.sead.se/site/6394 |
+| Vittskövle 1:1 (`6399`) | `8c7700e8-73ad-451f-8303-9119263fe02c` | site_page_only | 0 | https://browser.sead.se/site/6399 |
+| Vives (`3954`) | `08f0cfc1-3639-487d-9ee5-f21a027de0c7` | site_page_only | 0 | https://browser.sead.se/site/3954 |
+| Vojmsjön (`3417`) | `4f22a489-b60b-43f2-a558-1a7c35ebb54c` | site_page_only | 0 | https://browser.sead.se/site/3417 |
+| Vojmsjöns utlopp (`3416`) | `6fb7abb2-2826-4863-80dd-18bcb0251423` | site_page_only | 0 | https://browser.sead.se/site/3416 |
+| Voxtorps kyrka (`3953`) | `63c21cf2-0ebd-4ef6-8886-dbabca394d0a` | site_page_only | 0 | https://browser.sead.se/site/3953 |
+| Vretarne Bergmans gård (`6271`) | `f2e297f5-f95a-491c-a45c-463a6131b0f7` | site_page_only | 0 | https://browser.sead.se/site/6271 |
+| Vä kyrka (`6255`) | `c63ccfd4-8ec8-4b5d-935e-4cf4e776f874` | site_page_only | 0 | https://browser.sead.se/site/6255 |
+| Vähusen (`6256`) | `2f9bbefa-724a-4684-b540-9b93367d6588` | site_page_only | 0 | https://browser.sead.se/site/6256 |
+| Vänersborg Raä 149 (`144`) | `0a477862-c564-4056-97dd-f4c99b50a0ed` | site_page_only | 0 | https://browser.sead.se/site/144 |
+| Vänge Raä 88:1 (`306`) | `1c7381d9-1b62-4c80-a89e-03125da7f43b` | site_page_only | 0 | https://browser.sead.se/site/306 |
+| Värdshusbacken (`3839`) | `571286ae-7ebf-4e4b-8013-878289c8dcab` | site_page_only | 0 | https://browser.sead.se/site/3839 |
+| Värmdö kyrka (`3951`) | `ce180370-d1cc-4303-a32b-d2e6e69a2b14` | site_page_only | 0 | https://browser.sead.se/site/3951 |
+| Värna kyrka (`3950`) | `a95c7790-bfbb-4db0-960f-16d1d226cd4e` | site_page_only | 0 | https://browser.sead.se/site/3950 |
+| Värö Raä 323 (`18`) | `6a14b2e2-ec58-46a8-9dde-49da1d728ded` | site_page_only | 0 | https://browser.sead.se/site/18 |
+| Väsby kvarn (`3949`) | `96661daf-0d5b-486b-ab8e-1e3f88a2d77d` | site_page_only | 0 | https://browser.sead.se/site/3949 |
+| Väsby kyrka (`3948`) | `9d0858c0-5f67-45e6-b0bf-da97142873d9` | site_page_only | 0 | https://browser.sead.se/site/3948 |
+| Väster Lakbäck (`3838`) | `304ed2f0-a334-4196-80d2-2074b1008805` | site_page_only | 0 | https://browser.sead.se/site/3838 |
+| Västerbitterna 3:17 (`163`) | `438f0d28-3a10-4423-80bc-84c918895940` | site_page_only | 0 | https://browser.sead.se/site/163 |
+| Västerbitterna Raä 34 (`198`) | `1f751825-a3fc-4112-95bb-5de17e4cee59` | site_page_only | 0 | https://browser.sead.se/site/198 |
+| Västergarn kyrka (`3947`) | `43a52990-c3db-4e87-afe2-938a117793aa` | site_page_only | 0 | https://browser.sead.se/site/3947 |
+| Västergård (`3946`) | `bea78d54-9d70-4444-9a60-90f4fc28349e` | site_page_only | 0 | https://browser.sead.se/site/3946 |
+| Västerhaninge Raä 201 (`383`) | `5fdc117d-f766-4abd-90c9-9261d5fcf468` | site_page_only | 0 | https://browser.sead.se/site/383 |
+| Västerhaninge Raä 479 (`344`) | `dad4f254-7e10-4537-bcd3-0c5e183df0f9` | site_page_only | 0 | https://browser.sead.se/site/344 |
+| Västerljung Grav (`3414`) | `03912aa3-475f-4fb6-90d8-c912fe33c73a` | site_page_only | 0 | https://browser.sead.se/site/3414 |
+| Västerlövsta 395:1 (`6350`) | `381e2490-683f-4ebf-b369-7809a3e7edae` | site_page_only | 0 | https://browser.sead.se/site/6350 |
+| Västermo kyrka (`3945`) | `0d075656-de95-4d71-9222-90021d78c92c` | site_page_only | 0 | https://browser.sead.se/site/3945 |
+| Västerplana kyrka (`6265`) | `8e7b64d3-07ed-4dc6-bc90-58fc66fe306b` | site_page_only | 0 | https://browser.sead.se/site/6265 |
+| Västervång (`3413`) | `b441bec6-9805-453c-b5cf-04e877d3171b` | site_page_only | 0 | https://browser.sead.se/site/3413 |
+| Västerås 232:1 (`6402`) | `9dc0ea35-b1cf-4740-8219-3384b99228c8` | site_page_only | 0 | https://browser.sead.se/site/6402 |
+| Västerås domkyrka (`3944`) | `ffb67d88-a8cf-486b-9d7f-6a7ab685981e` | site_page_only | 0 | https://browser.sead.se/site/3944 |
+| Västra Eds kyrkoruin (`6266`) | `7e6dca85-f224-43e9-8829-3c15cd6273b0` | site_page_only | 0 | https://browser.sead.se/site/6266 |
+| Västra Frölunda Raä 411 (`222`) | `b2ea581c-2e12-4e12-bb82-0fadea3384f8` | site_page_only | 0 | https://browser.sead.se/site/222 |
+| Västra Klagstorps kyrka (`3943`) | `96ffb3bb-bf01-4278-92b2-e0880ab0a2b0` | site_page_only | 0 | https://browser.sead.se/site/3943 |
+| Västra Nöbbelövs kyrka (`3942`) | `386b74e7-a4e3-4b06-8e59-eb77f854486f` | site_page_only | 0 | https://browser.sead.se/site/3942 |
+| Västra Skälby (`268`) | `5d937294-1e40-40cc-b0fa-fe97dfd71200` | site_page_only | 0 | https://browser.sead.se/site/268 |
+| Västra trädgårdsgatan 13 (`3941`) | `f6de3d09-1fc5-4de3-8107-e6fbf97ecd6c` | site_page_only | 0 | https://browser.sead.se/site/3941 |
+| Vättlösa Raä 158 (`107`) | `c7c7e0f0-a15c-432d-a7c2-b3054cc12f72` | site_page_only | 0 | https://browser.sead.se/site/107 |
+| Väversunda kyrka (`3940`) | `3750934a-75d0-4271-935f-873dd8a8404f` | site_page_only | 0 | https://browser.sead.se/site/3940 |
+| Växjö 61:1 (`6351`) | `bd067f0d-9b6f-45fa-84b5-c3b27ef84430` | site_page_only | 0 | https://browser.sead.se/site/6351 |
+| Våmb Raä 59 (`174`) | `32b48054-c8d4-4964-b764-f26cfffb71bc` | site_page_only | 0 | https://browser.sead.se/site/174 |
+| Våmhusvägen Bonäs (`6262`) | `35fbbcf6-180d-46d3-b537-67258bbd1ef5` | site_page_only | 0 | https://browser.sead.se/site/6262 |
+| Våthults kyrka (`3952`) | `71778b67-6696-48fb-914e-8058209c6a2a` | site_page_only | 0 | https://browser.sead.se/site/3952 |
+| Wahléns i Oxberg (`6272`) | `6548a274-bf7d-47a3-8e20-45b474a3a212` | site_page_only | 0 | https://browser.sead.se/site/6272 |
+| Waxängs gård (`6273`) | `843738d8-1606-454d-b939-1c1b37e8e5f9` | site_page_only | 0 | https://browser.sead.se/site/6273 |
+| Westööska huset (`3939`) | `09a3ee98-d5ba-4c65-94cf-9bfe1a3f3462` | site_page_only | 0 | https://browser.sead.se/site/3939 |
+| Wrangelska palatset (`3922`) | `efd03f8a-07c5-49af-8bb5-27bcdbec72ff` | site_page_only | 0 | https://browser.sead.se/site/3922 |
+| Ysby kyrka (`6274`) | `9b6ebcd4-bb02-42ee-ae24-991e32bcf697` | site_page_only | 0 | https://browser.sead.se/site/6274 |
+| Ystad 50:1 (`6383`) | `8da4884c-edb9-4894-ac13-33c519c272e3` | site_page_only | 0 | https://browser.sead.se/site/6383 |
+| Ytterby (`3412`) | `4517b3dd-99bd-4a40-af23-0e672d30308e` | site_page_only | 0 | https://browser.sead.se/site/3412 |
+| Ytterby Raä 22 (`302`) | `82c3dcbf-2825-4b0c-b4c2-8bd6ba6c0b36` | site_page_only | 0 | https://browser.sead.se/site/302 |
+| Ytterselö kyrka (`6275`) | `7d939335-a610-4afb-8d1e-ed5041fbb830` | site_page_only | 0 | https://browser.sead.se/site/6275 |
+| Yttre Medväga (`178`) | `a584b097-a9e8-4cd1-937e-d7858deae64d` | site_page_only | 0 | https://browser.sead.se/site/178 |
+| Älgtjärn (`379`) | `d3310e81-888c-47cd-85d9-a2b23479f0c4` | site_page_only | 0 | https://browser.sead.se/site/379 |
+| Älgtjärn, Jovan ekopark (`157`) | `3face69d-d27c-4b69-b18e-a09c6d8fa409` | site_page_only | 0 | https://browser.sead.se/site/157 |
+| Älvestads kyrka (`3938`) | `334b1146-34b1-43bb-a688-45d350cf559c` | site_page_only | 0 | https://browser.sead.se/site/3938 |
+| Älvsbyn Raä 958 (`326`) | `d1cc79b5-3d1e-4834-973a-3658615b787e` | site_page_only | 0 | https://browser.sead.se/site/326 |
+| Ängdala (`4249`) | `fa453fb5-0801-428a-b664-2b160b9ea18e` | site_page_only | 0 | https://browser.sead.se/site/4249 |
+| Ängstigen (`3835`) | `9f8f7e6c-d20a-4a82-8d78-c258d3e30ed9` | site_page_only | 0 | https://browser.sead.se/site/3835 |
+| Äskhult (`5668`) | `089bcd44-5fc8-448a-ac7c-2d44f92d5094` | site_page_only | 0 | https://browser.sead.se/site/5668 |
+| Åby (`3837`) | `2029c1ce-a9dc-4b00-af3c-4f0493e69659` | site_page_only | 0 | https://browser.sead.se/site/3837 |
+| Åby (`3411`) | `beb511a1-9feb-4b37-9e93-e8ab60baed4c` | site_page_only | 0 | https://browser.sead.se/site/3411 |
+| Ågren i Rännberg (`5680`) | `eddb885d-c824-474f-9542-1c258dc8aaed` | site_page_only | 0 | https://browser.sead.se/site/5680 |
+| Åhus 23:1 (`6398`) | `950bc65f-36c1-48b0-a3da-3bf90b2b3b34` | site_page_only | 0 | https://browser.sead.se/site/6398 |
+| Åkarp (`3836`) | `c1407cc0-5049-4859-b7e6-99c2a0bbaf8a` | site_page_only | 0 | https://browser.sead.se/site/3836 |
+| Åker 270:1 (`6376`) | `cdbc6160-d452-4a94-98c7-aee1c55fa9d5` | site_page_only | 0 | https://browser.sead.se/site/6376 |
+| Åker 303:1 (`6443`) | `c2602d98-83ba-4a9c-b108-57c6285af52d` | site_page_only | 0 | https://browser.sead.se/site/6443 |
+| Åkerblads pensionat (`5681`) | `dad11e59-4f29-498b-9630-1f41c36026e4` | site_page_only | 0 | https://browser.sead.se/site/5681 |
+| Åkroken (`354`) | `79a588a7-1693-444b-9ed2-9fb34dcd746f` | site_page_only | 0 | https://browser.sead.se/site/354 |
+| Ål 291 (`3410`) | `3fcf63aa-6680-492b-8b96-db2b1703f8de` | site_page_only | 0 | https://browser.sead.se/site/3410 |
+| Årdala kyrka (`5689`) | `437705f2-95b7-4183-a760-7a2011927475` | site_page_only | 0 | https://browser.sead.se/site/5689 |
+| Åre gamla kyrka (`5690`) | `a80890b5-6d79-4857-9d28-58ec2a72767a` | site_page_only | 0 | https://browser.sead.se/site/5690 |
+| Årebergs gård (`5691`) | `717abbeb-6caa-4fac-b83f-63adfc40177e` | site_page_only | 0 | https://browser.sead.se/site/5691 |
+| Årstad Raä 3 (`7`) | `4716b8bf-676a-4bc1-880d-1c6e18a6de14` | site_page_only | 0 | https://browser.sead.se/site/7 |
+| Årup (Skräbeån) (`3408`) | `96e302c7-7972-4448-82d4-d2d0dbd6d8ba` | site_page_only | 0 | https://browser.sead.se/site/3408 |
+| Årups norre vång (`3407`) | `daffb053-815a-4f6a-973c-c29fcefbb3ce` | site_page_only | 0 | https://browser.sead.se/site/3407 |
+| Ås-Husby (`3406`) | `e1830549-4d52-4593-a55e-27676f6b28aa` | site_page_only | 0 | https://browser.sead.se/site/3406 |
+| Åsen (`6277`) | `024cbe8f-be11-42bf-aa70-dd37af1dfc9e` | site_page_only | 0 | https://browser.sead.se/site/6277 |
+| Åssjiejávrátje (`294`) | `a6dd5c58-6c5e-403e-9748-3dc1912a7150` | site_page_only | 0 | https://browser.sead.se/site/294 |
+| Åsögatan (`6278`) | `b5d6d8ac-e097-4e84-9334-b119326f53f9` | site_page_only | 0 | https://browser.sead.se/site/6278 |
+| Ödeshög 215:1 (`6407`) | `9f9664b6-7e56-42ab-ae39-254a7de9b856` | site_page_only | 0 | https://browser.sead.se/site/6407 |
+| Ödskölt Raä 122 (`189`) | `edaa57f8-f52a-473f-be6d-104cd6a5017d` | site_page_only | 0 | https://browser.sead.se/site/189 |
+| Öggestorp (`3405`) | `3a9083bb-aa55-42a2-8d57-60e2ac0b6a36` | site_page_only | 0 | https://browser.sead.se/site/3405 |
+| Öhlanders (`6044`) | `d6e3c8b7-3601-4469-a0a0-26ae936913a0` | site_page_only | 0 | https://browser.sead.se/site/6044 |
+| Önsbo (`3937`) | `875f059e-2a2a-476e-b4d7-c76dbd5f5ac9` | site_page_only | 0 | https://browser.sead.se/site/3937 |
+| Örberga kyrka (`3936`) | `d2f3e214-f552-496e-8bd0-2951144e0753` | site_page_only | 0 | https://browser.sead.se/site/3936 |
+| Örby Raä 98 (`90`) | `180e0d8e-d510-4d0a-bc76-11b7b9b231ef` | site_page_only | 0 | https://browser.sead.se/site/90 |
+| Örs kyrka (`3935`) | `9b831ee6-ce65-4015-9002-1a4e66065118` | site_page_only | 0 | https://browser.sead.se/site/3935 |
+| Örsaskögle (`6314`) | `af0f8da5-c4f0-4091-a32f-375af9b55b12` | site_page_only | 0 | https://browser.sead.se/site/6314 |
+| Örsås Raä 291 (`112`) | `6e51d85e-654c-4647-a23c-7cfb214abe66` | site_page_only | 0 | https://browser.sead.se/site/112 |
+| Örtofta slott (`6065`) | `9e582fbb-c411-42c2-a77e-32711e3507dc` | site_page_only | 0 | https://browser.sead.se/site/6065 |
+| Örup Stenhus (`6066`) | `4d7143ed-bd5e-4082-8158-e8aab278e525` | site_page_only | 0 | https://browser.sead.se/site/6066 |
+| Ösjöfors handpappersbruk (`3924`) | `bebb6adb-fefb-461e-80bd-779e7d799ac3` | site_page_only | 0 | https://browser.sead.se/site/3924 |
+| Ösmo gamla prästgård (`3934`) | `522a9c71-d7d1-474b-85ae-7d4b064e07f9` | site_page_only | 0 | https://browser.sead.se/site/3934 |
+| Östboda (`6067`) | `83ed22a7-f678-47fa-a398-ba44305a2fa9` | site_page_only | 0 | https://browser.sead.se/site/6067 |
+| Östbyhärbret (`6068`) | `259c9df1-b260-4c07-ac1a-2b912ca2f6c4` | site_page_only | 0 | https://browser.sead.se/site/6068 |
+| Östbyvägen (`6315`) | `59ed21b1-94b9-4f04-a9ad-03b3a9d4efd6` | site_page_only | 0 | https://browser.sead.se/site/6315 |
+| Östensbo (`3933`) | `ec13d6d4-f977-4392-8257-cb5f4eeb0723` | site_page_only | 0 | https://browser.sead.se/site/3933 |
+| Österhaninge Raä 230 (`385`) | `f0816b77-c5b9-40ac-96b7-2a57223a524b` | site_page_only | 0 | https://browser.sead.se/site/385 |
+| Österhaninge Raä 238 (`340`) | `e4110966-8efc-4c93-96ab-741b90e859cd` | site_page_only | 0 | https://browser.sead.se/site/340 |
+| Österhaninge Raä 239 (`355`) | `043e1936-be11-4b58-a6c6-eeae70be9ec8` | site_page_only | 0 | https://browser.sead.se/site/355 |
+| Österhaninge Raä 72 (`368`) | `1a8d54a6-7c30-41ef-b11c-f4f5c6ae4f67` | site_page_only | 0 | https://browser.sead.se/site/368 |
+| Österslövs gamla prästgård (`6069`) | `b9148f47-ca3f-48c5-aabd-2c3211e241e1` | site_page_only | 0 | https://browser.sead.se/site/6069 |
+| Östnorsstugan (`6070`) | `d8c65424-effe-4574-8e49-3ef550c43bf7` | site_page_only | 0 | https://browser.sead.se/site/6070 |
+| Östnorsstugan stall och lider (`6071`) | `7ca0cd57-1b24-43e6-81d2-eb5ea18d43fd` | site_page_only | 0 | https://browser.sead.se/site/6071 |
+| Östra Sallerups kyrka (`6072`) | `93831519-f55d-482c-bf77-33722f0a82a8` | site_page_only | 0 | https://browser.sead.se/site/6072 |
+| Östra Skrukeby kyrka (`3931`) | `bb425d08-01aa-4274-a9cf-41058d56efe7` | site_page_only | 0 | https://browser.sead.se/site/3931 |
+| Östra Spång (`3404`) | `fce5f651-830f-438e-9ff5-6d5495ef5f42` | site_page_only | 0 | https://browser.sead.se/site/3404 |
+| Östra Söderåsen (`6073`) | `1a6efca7-2794-4787-b2e7-a2c9f9e74a5b` | site_page_only | 0 | https://browser.sead.se/site/6073 |
+| Östra Ve (`3403`) | `7ec89b6e-516a-49c4-b354-c95aad51649c` | site_page_only | 0 | https://browser.sead.se/site/3403 |
+| Östra Vrams kyrka (`3930`) | `cc41d50c-917f-4db6-b91e-14da73fc86d9` | site_page_only | 0 | https://browser.sead.se/site/3930 |
+| Östrabo biskopsgård (`3929`) | `02967f42-44c3-4af3-b832-8608a3468f16` | site_page_only | 0 | https://browser.sead.se/site/3929 |
+| Övergran 280:1 (`6348`) | `69b7fd77-96d9-4261-acb5-5f7d2b353bfc` | site_page_only | 0 | https://browser.sead.se/site/6348 |
+| Överlännäs Raä 20 (`94`) | `b86adacd-953c-4250-b7f3-8ad6b74bc79a` | site_page_only | 0 | https://browser.sead.se/site/94 |
+| Överselö kyrka (`3928`) | `635e6e72-13bb-4b35-bfb4-9060dcc137c7` | site_page_only | 0 | https://browser.sead.se/site/3928 |
+| Övertorneå 427 (`397`) | `bf8edced-5ff1-4ce2-ad4a-263f60b6e7f7` | site_page_only | 0 | https://browser.sead.se/site/397 |
+| Övraby kyrka (`3927`) | `563468ad-f85d-450a-bc8f-5822e4860765` | site_page_only | 0 | https://browser.sead.se/site/3927 |
+| Övraby Raä 70 (`195`) | `013a6475-10ab-49c6-a6c7-8a51afc2d924` | site_page_only | 0 | https://browser.sead.se/site/195 |
+| Övre Häfla bruk (`3926`) | `f2d9bf9f-1ee2-4d7b-b78a-0163abf10a97` | site_page_only | 0 | https://browser.sead.se/site/3926 |
+| Præstelyngen i Åmosen (`4910`) | `31dadbee-efb2-42a4-bddc-e52c91671d14` | site_page_with_reference_links | 1 | https://browser.sead.se/site/4910 |
+| Skänninge Abbey (`6486`) | `ff88efde-ce68-4532-b49a-7b0a33d516ac` | site_page_with_reference_links | 11 | https://browser.sead.se/site/6486 |
+| Stavsåkra (`4905`) | `2632eab3-3437-4a57-9009-0ec47fb71173` | site_page_with_reference_links | 1 | https://browser.sead.se/site/4905 |
