@@ -215,6 +215,7 @@ def test_overlays_yield_to_the_surface_the_user_opened() -> None:
     focus_state = template_block(
         "function setFocusState", "function unavailableDetailTabs"
     )
+    search_state = template_block("function setSearchOpen", "function openHelpDialog")
     assert "setLegendCollapsed(true, false)" in panel_collapse
     assert "setPanelCollapsed(true, false)" in legend_collapse
     assert "setSearchOpen(false)" in legend_collapse
@@ -224,6 +225,28 @@ def test_overlays_yield_to_the_surface_the_user_opened() -> None:
     assert "mobilePanelReturnFocus = null;" in focus_state
     assert "setLegendCollapsed(true, false);" in focus_state
     assert "setSearchOpen(false);" in focus_state
+    assert "classList.toggle('has-legend-open', !collapsed)" in legend_collapse
+    assert "classList.toggle('has-search-open', open)" in search_state
+
+
+def test_focused_point_identity_survives_rendered_entry_replacement() -> None:
+    focus_identity = template_block(
+        "function visiblePointEntryForFocus", "function unavailableDetailTabs"
+    )
+    focus_render = template_block("function renderFocusCard", "function countActiveOverrides")
+    focus_navigation = template_block(
+        "focusPreviousButton.addEventListener", "focusZoomButton.addEventListener"
+    )
+
+    assert "layer.key === state.layerKey" in focus_identity
+    assert "String(feature.record_id ?? '') === state.recordId" in focus_identity
+    assert "if (!recordId) return;" in focus_render
+    assert "highlightPointEntry(visiblePointEntryForFocus(focusState))" in focus_identity
+    assert "const pointEntry = visiblePointEntryForFocus();" in focus_render
+    assert "focusState.layerKey === nextFocus.layerKey" in focus_render
+    assert "focusState.recordId === nextFocus.recordId" in focus_render
+    assert "visiblePointEntryForFocus(focusState)" in focus_navigation
+    assert "visiblePointIndex" not in MAP_DOCUMENT_TEMPLATE
 
 
 def test_search_results_are_explicit_and_close_on_escape() -> None:

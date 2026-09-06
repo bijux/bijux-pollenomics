@@ -145,6 +145,12 @@ def test_capture_overlay_keeps_map_clear_and_labels_evidence_in_every_frame() ->
     )
     assert "padding-left: 330px" in MAP_DOCUMENT_TEMPLATE
     assert "width: 286px" in MAP_DOCUMENT_TEMPLATE
+    assert "html.atlas-capture-mode .atlas-capture-heading" in MAP_DOCUMENT_TEMPLATE
+    assert "justify-items: start" in MAP_DOCUMENT_TEMPLATE
+    assert ".atlas-capture-time {\n        flex: 0 1 auto;" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert MAP_DOCUMENT_TEMPLATE.count("overflow-wrap: anywhere;") >= 4
     assert "Observed source chronology" in block
     assert "Modeled context · published source window" in block
     assert "Neotoma ${row.value} — ${row.label}" in block
@@ -180,6 +186,16 @@ def test_capture_country_framing_is_quiet_without_changing_interactive_style() -
     assert "color: '#64748b', weight: 1.1" in block
     assert "fillOpacity: 0.025, opacity: 0.62" in block
     assert "const style = countryStyle(country)" in block
+
+
+def test_capture_omits_source_chronology_without_an_active_governed_facet() -> None:
+    block = template_block("function atlasCaptureSnapshot", "function atlasCaptureOrientationKeys")
+
+    assert "const sourceChronologyAvailable = Boolean(" in block
+    assert "activeLayerKeys.has(sourceLayer.key)" in block
+    assert "&& sourceFacet" in block
+    assert "source_chronology: sourceChronologyAvailable ? {" in block
+    assert "} : null," in block
 
 
 def test_capture_frame_numbers_refuse_coercion_but_preserve_numeric_zero() -> None:

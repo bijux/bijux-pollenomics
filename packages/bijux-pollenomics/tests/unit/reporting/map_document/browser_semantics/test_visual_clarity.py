@@ -19,6 +19,39 @@ def test_interactive_framing_preserves_records_with_quiet_visual_density() -> No
     assert "fillOpacity: 0.04" in boundary_block
     assert "opacity: 0.72" in boundary_block
     assert "activeCountries.has(country) ? 2.2" not in boundary_block
+    assert "const boundaryRenderer = L.svg({ pane: 'boundaryPane' });" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "renderer: boundaryRenderer" in boundary_block
+    assert "preferCanvas: true" in MAP_DOCUMENT_TEMPLATE
+
+
+def test_viewport_chrome_is_compact_clipped_and_non_overlapping() -> None:
+    assert ".map-stage {\n        position: relative;" in MAP_DOCUMENT_TEMPLATE
+    assert "min-height: 100vh;\n        overflow: hidden;" in MAP_DOCUMENT_TEMPLATE
+    assert (
+        ".map-topbar .eyebrow,\n      .map-topbar .topbar-note {\n"
+        "        display: none;"
+    ) in MAP_DOCUMENT_TEMPLATE
+    assert (
+        ".map-topbar .topbar-state-pill {\n          display: none;"
+        in MAP_DOCUMENT_TEMPLATE
+    )
+    assert "max-height: min(60vh, calc(100dvh - 188px));" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "body.has-legend-open .map-status" in MAP_DOCUMENT_TEMPLATE
+    assert "body.has-search-open .map-topbar-main" in MAP_DOCUMENT_TEMPLATE
+
+
+def test_expanded_legend_scrolls_inside_its_bounded_surface() -> None:
+    assert "--legend-max-height: min(42vh, 360px);" in MAP_DOCUMENT_TEMPLATE
+    assert "max-height: var(--legend-max-height);" in MAP_DOCUMENT_TEMPLATE
+    assert ".legend-body {" in MAP_DOCUMENT_TEMPLATE
+    assert "max-height: calc(var(--legend-max-height) - 54px);" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "overflow-y: auto;" in MAP_DOCUMENT_TEMPLATE
 
 
 def test_legend_uses_rendered_layer_and_country_colors() -> None:
