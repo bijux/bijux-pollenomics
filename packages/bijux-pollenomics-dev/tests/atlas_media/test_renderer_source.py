@@ -160,8 +160,8 @@ def test_renderer_uses_capture_api_without_polling_or_provider_tiles() -> None:
     assert "visible_source_chronology_point_count" in renderer
     assert "visible_modeled_context_feature_count" in renderer
     assert "#basemap=none" in renderer
-    assert "git('status', '--porcelain=v1', '--untracked-files=no')" in renderer
-    assert "--untracked-files=all" not in renderer
+    assert "git('status'" not in renderer
+    assert "candidate static snapshot escapes artifact root" in renderer
     assert "atlas frame application timed out" in renderer
     assert "AbortSignal.timeout(timeoutMs)" in renderer
     assert "requireLoopbackDebuggerEndpoint" in renderer

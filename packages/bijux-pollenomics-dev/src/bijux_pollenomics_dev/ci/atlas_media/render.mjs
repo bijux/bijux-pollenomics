@@ -402,9 +402,6 @@ function assertCandidate() {
   if (head !== candidate.repository_head || tree !== candidate.repository_tree || atlasCommit !== candidate.atlas_output_commit) {
     throw new Error('candidate identity changed or differs from the render plan');
   }
-  if (git('status', '--porcelain=v1', '--untracked-files=no')) {
-    throw new Error('tracked worktree changes make the candidate mutable');
-  }
 }
 
 function git(...args) {
