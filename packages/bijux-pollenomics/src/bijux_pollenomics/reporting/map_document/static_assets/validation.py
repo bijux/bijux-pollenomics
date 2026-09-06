@@ -82,7 +82,9 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
             "indexes",
         }:
             raise ValueError("static atlas asset domain is invalid")
-        if row.get("initial_load") is not (domain not in {"nodes", "details"}):
+        if row.get("initial_load") is not (
+            domain not in {"nodes", "details", "indexes"}
+        ):
             raise ValueError("static atlas initial-load declaration is invalid")
         expected_payload_encodings = (
             {"gzip_base64", "json"}

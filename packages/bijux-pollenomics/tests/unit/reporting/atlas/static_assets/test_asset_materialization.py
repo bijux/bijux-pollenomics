@@ -103,7 +103,15 @@ def test_static_assets_are_deterministic_hashed_and_domain_accounted(
         ("Sweden",),
     }
     assert all(row["initial_load"] is False for row in node_assets)
+    index_assets = [row for row in assets if row["domain"] == "indexes"]
+    assert len(index_assets) == 1
+    assert index_assets[0]["initial_load"] is False
     initial_assets = [row for row in assets if row["initial_load"] is True]
+    assert {row["domain"] for row in initial_assets} == {
+        "provenance",
+        "edges",
+        "sequences",
+    }
     assert len(initial_assets) <= ATLAS_INITIAL_MAX_REQUESTS
     assert sum(row["byte_count"] for row in initial_assets) <= ATLAS_INITIAL_MAX_BYTES
     budgets = first.manifest["budgets"]

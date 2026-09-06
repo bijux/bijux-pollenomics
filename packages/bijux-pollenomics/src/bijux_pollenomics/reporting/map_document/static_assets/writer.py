@@ -241,7 +241,7 @@ def write_static_atlas_assets(
             "decoded_byte_count": len(payload_json.encode("utf-8")),
             "byte_count": len(script_bytes),
             "record_count": record_count,
-            "initial_load": domain not in {"nodes", "details"},
+            "initial_load": domain not in {"nodes", "details", "indexes"},
         }
         if domain == "nodes":
             row.update(node_asset_selection(payload))

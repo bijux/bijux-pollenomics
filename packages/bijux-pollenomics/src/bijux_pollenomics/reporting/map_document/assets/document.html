@@ -2322,7 +2322,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         for (const row of STATIC_ATLAS_BOOTSTRAP.assets.filter((candidate) => candidate.initial_load === true)) {
           await loadStaticAtlasAsset(row);
         }
-        if (!STATIC_ATLAS_CHUNKS.provenance || !STATIC_ATLAS_CHUNKS.indexes || !STATIC_ATLAS_CHUNKS.edges || !STATIC_ATLAS_CHUNKS.sequences) staticAtlasFailure('required metadata domains are incomplete');
+        if (!STATIC_ATLAS_CHUNKS.provenance || !STATIC_ATLAS_CHUNKS.edges || !STATIC_ATLAS_CHUNKS.sequences) staticAtlasFailure('required startup metadata domains are incomplete');
         for (const domain of ['edges', 'sequences']) {
           const payload = STATIC_ATLAS_CHUNKS[domain];
           if (!['available', 'unavailable'].includes(payload.status) || !Array.isArray(payload.records)) staticAtlasFailure(`${domain} availability declaration is invalid`);
@@ -2331,7 +2331,6 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         }
         if (!Array.isArray(STATIC_ATLAS_CHUNKS.provenance.scientific_signals)) staticAtlasFailure('evidence metadata domains are incomplete');
         if (STATIC_ATLAS_CHUNKS.provenance.schema_version === 'atlas-provenance-chunk.v2' && !Array.isArray(STATIC_ATLAS_CHUNKS.provenance.detail_records)) staticAtlasFailure('legacy detail metadata is incomplete');
-        if (STATIC_ATLAS_CHUNKS.provenance.schema_version === 'atlas-provenance-chunk.v3' && (!STATIC_ATLAS_CHUNKS.indexes.detail_record_asset_keys || typeof STATIC_ATLAS_CHUNKS.indexes.detail_record_asset_keys !== 'object')) staticAtlasFailure('lazy detail index is incomplete');
       }
       function hydrateStaticAtlasLayers(layerKind) {
         const partsByLayer = new Map();
@@ -3585,6 +3584,20 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function unavailableDetailTabs(reasonCode) {
         return Object.fromEntries(DETAIL_TAB_DEFINITIONS.map(([key]) => [key, { status: 'unavailable', reason_code: reasonCode }]));
       }
+      async function ensureStaticAtlasIndexesLoaded() {
+        if (STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.indexes) return true;
+        const candidates = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.domain === 'indexes');
+        if (candidates.length !== 1) return false;
+        const row = candidates[0];
+        const interactionBudget = staticAtlasNonnegativeInteger(STATIC_ATLAS_BOOTSTRAP.budgets.interaction_max_bytes, 'interaction byte budget');
+        if (staticAtlasNonnegativeInteger(row.byte_count, `${row.asset_key} byte count`) > interactionBudget) return false;
+        try {
+          await loadStaticAtlasAsset(row);
+        } catch (error) {
+          return false;
+        }
+        return Boolean(STATIC_ATLAS_CHUNKS.indexes && typeof STATIC_ATLAS_CHUNKS.indexes.detail_record_asset_keys === 'object');
+      }
       async function detailTabsForRecordId(recordId) {
         if (!recordId) return unavailableDetailTabs('feature_record_id_not_available');
         const stored = DETAIL_RECORDS.get(recordId);
@@ -3592,6 +3605,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (STATIC_ATLAS_INLINE || ATLAS_EVIDENCE.details_status !== 'available') {
           return unavailableDetailTabs(ATLAS_EVIDENCE.details_reason_code || 'record_level_evidence_not_available');
         }
+        if (!(await ensureStaticAtlasIndexesLoaded())) return unavailableDetailTabs('detail_index_load_failed');
         const assetKey = STATIC_ATLAS_CHUNKS.indexes.detail_record_asset_keys?.[recordId];
         if (!assetKey) return unavailableDetailTabs('detail_record_not_indexed');
         const candidates = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.asset_key === assetKey && row.domain === 'details');
@@ -3865,9 +3879,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
               ? POINT_LAYERS
                   .filter((layer) => activeLayerKeys.has(layer.key))
                   .reduce((count, layer) => count + layer.features.filter((feature) => pointFeatureVisible(layer, feature) && feature.country === country).length, 0)
-              : Object.entries(STATIC_ATLAS_CHUNKS.indexes.country_feature_indexes[country] || {})
-                  .filter(([layerKey]) => activeLayerKeys.has(layerKey))
-                  .reduce((count, [, featureIndexes]) => count + featureIndexes.length, 0),
+              : STATIC_ATLAS_BOOTSTRAP.assets
+                  .filter((row) => row.domain === 'nodes' && activeLayerKeys.has(row.layer_key) && Array.isArray(row.country_keys) && row.country_keys.includes(country))
+                  .reduce((count, row) => count + staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key} record count`), 0),
           ])
         );
         countryFilters.innerHTML = COUNTRIES.map((country) => {

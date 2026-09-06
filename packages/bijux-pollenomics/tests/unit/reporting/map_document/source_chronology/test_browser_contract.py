@@ -433,6 +433,84 @@ def test_index_runtime_retains_single_payload_compatibility() -> None:
     assert "STATIC_ATLAS_CHUNKS[row.domain] = acceptedPayload" in consume
 
 
+def test_large_static_indexes_are_lazy_without_losing_detail_or_country_support() -> (
+    None
+):
+    startup = template_block(
+        "if (!STATIC_ATLAS_INLINE)", "function hydrateStaticAtlasLayers"
+    )
+    assert "candidate.initial_load === true" in startup
+    assert "STATIC_ATLAS_CHUNKS.provenance" in startup
+    assert "STATIC_ATLAS_CHUNKS.edges" in startup
+    assert "STATIC_ATLAS_CHUNKS.sequences" in startup
+    assert "STATIC_ATLAS_CHUNKS.indexes" not in startup
+
+    detail_lookup = template_block(
+        "async function detailTabsForRecordId", "async function detailTabsForFeature"
+    )
+    assert "await ensureStaticAtlasIndexesLoaded()" in detail_lookup
+    assert "detail_index_load_failed" in detail_lookup
+
+    country_controls = template_block(
+        "function renderCountryControls", "function renderScientificControls"
+    )
+    assert "row.domain === 'nodes'" in country_controls
+    assert "row.country_keys.includes(country)" in country_controls
+    assert "row.record_count" in country_controls
+    assert "STATIC_ATLAS_CHUNKS.indexes" not in country_controls
+
+
+def test_lazy_index_loader_is_one_time_and_refuses_invalid_inventory() -> None:
+    loader = template_block(
+        "async function ensureStaticAtlasIndexesLoaded",
+        "async function detailTabsForRecordId",
+    )
+    observed = run_node_json(
+        f"""
+function staticAtlasNonnegativeInteger(value,label){{
+  const numeric=Number(value);
+  if(!Number.isSafeInteger(numeric)||numeric<0) throw new Error(`${{label}} is invalid`);
+  return numeric;
+}}
+async function probe(assets, existingIndexes, interactionBytes, loadOutcome){{
+  const STATIC_ATLAS_INLINE=false;
+  const STATIC_ATLAS_BOOTSTRAP={{assets,budgets:{{interaction_max_bytes:interactionBytes}}}};
+  const STATIC_ATLAS_CHUNKS={{indexes:existingIndexes}};
+  let loadCount=0;
+  async function loadStaticAtlasAsset(row){{
+    loadCount+=1;
+    if(loadOutcome==='failure') throw new Error('request failed');
+    STATIC_ATLAS_CHUNKS.indexes={{detail_record_asset_keys:{{'site:1':'details:2'}}}};
+  }}
+  {loader}
+  const first=await ensureStaticAtlasIndexesLoaded();
+  const second=loadOutcome==='valid' ? await ensureStaticAtlasIndexesLoaded() : null;
+  return {{first,second,loadCount}};
+}}
+const indexRow={{asset_key:'indexes:1',domain:'indexes',byte_count:512}};
+(async()=>{{
+  console.log(JSON.stringify({{
+    already:await probe([indexRow],{{detail_record_asset_keys:{{}}}},1024,'valid'),
+    valid:await probe([indexRow],null,1024,'valid'),
+    missing:await probe([],null,1024,'valid'),
+    duplicate:await probe([indexRow,{{...indexRow,asset_key:'indexes:2'}}],null,1024,'valid'),
+    oversized:await probe([indexRow],null,511,'valid'),
+    loadFailure:await probe([indexRow],null,1024,'failure'),
+  }}));
+}})();
+"""
+    )
+
+    assert observed == {
+        "already": {"first": True, "second": True, "loadCount": 0},
+        "valid": {"first": True, "second": True, "loadCount": 1},
+        "missing": {"first": False, "second": False, "loadCount": 0},
+        "duplicate": {"first": False, "second": False, "loadCount": 0},
+        "oversized": {"first": False, "second": False, "loadCount": 0},
+        "loadFailure": {"first": False, "second": None, "loadCount": 1},
+    }
+
+
 def test_compressed_node_transport_is_bounded_authenticated_and_counted() -> None:
     valid_row, valid_envelope = compressed_node_asset("nodes:valid")
     drift_row, drift_envelope = compressed_node_asset("nodes:drift")

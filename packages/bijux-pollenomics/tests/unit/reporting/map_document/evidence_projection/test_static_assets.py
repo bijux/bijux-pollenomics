@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import base64
+from collections import defaultdict
 import gzip
 import json
 from pathlib import Path
@@ -110,6 +111,79 @@ def test_high_volume_details_are_lazy_partitioned_and_exactly_indexed(
     }
     assert detail_index == reconstructed
     initial = [row for row in asset_rows if row["initial_load"] is True]
-    assert all(row["domain"] != "details" for row in initial)
+    assert {row["domain"] for row in initial} == {
+        "provenance",
+        "edges",
+        "sequences",
+    }
+    assert index_row["initial_load"] is False
     assert "detail_chunk_load_failed" in MAP_DOCUMENT_TEMPLATE
     assert "detail_record_asset_keys" in MAP_DOCUMENT_TEMPLATE
+
+
+def test_node_asset_metadata_reconciles_exact_country_layer_counts(
+    tmp_path: Path,
+) -> None:
+    point_layers: list[JsonObject] = [
+        {
+            "key": "source-sample",
+            "features": [
+                {"country": "Sweden", "latitude": 59.0, "longitude": 18.0},
+                {"country": "Sweden", "latitude": 60.0, "longitude": 17.0},
+                {"country": "Norway", "latitude": 60.0, "longitude": 10.0},
+            ],
+        },
+        {
+            "key": "source-taxon",
+            "features": [
+                {"country": "Sweden", "latitude": 59.0, "longitude": 18.0},
+                {"country": "Denmark", "latitude": 56.0, "longitude": 10.0},
+                {"country": "Denmark", "latitude": 57.0, "longitude": 9.0},
+            ],
+        },
+    ]
+    assets = write_static_atlas_assets(
+        tmp_path,
+        slug="country-counts",
+        version="fixed-point",
+        point_layers=point_layers,
+        polygon_layers=[],
+    )
+    rows = normalize_asset_inventory(assets.manifest["assets"])
+    paths_by_key = {
+        str(row["asset_key"]): path
+        for row, path in zip(rows, assets.asset_paths, strict=True)
+    }
+    index_row = next(row for row in rows if row["domain"] == "indexes")
+    indexes = decode_index_bundle(_payload(paths_by_key[str(index_row["asset_key"])]))
+    country_indexes = cast(
+        dict[str, dict[str, list[int]]], indexes["country_feature_indexes"]
+    )
+    indexed_counts = {
+        country: {
+            layer: len(feature_indexes) for layer, feature_indexes in layers.items()
+        }
+        for country, layers in country_indexes.items()
+    }
+    asset_counts: defaultdict[str, defaultdict[str, int]] = defaultdict(
+        lambda: defaultdict(int)
+    )
+    for row in rows:
+        if row["domain"] != "nodes":
+            continue
+        country_keys = cast(list[str], row["country_keys"])
+        assert len(country_keys) == 1
+        asset_counts[country_keys[0]][str(row["layer_key"])] += cast(
+            int, row["record_count"]
+        )
+
+    assert (
+        {country: dict(layer_counts) for country, layer_counts in asset_counts.items()}
+        == indexed_counts
+        == {
+            "Denmark": {"source-taxon": 2},
+            "Norway": {"source-sample": 1},
+            "Sweden": {"source-sample": 2, "source-taxon": 1},
+        }
+    )
+    assert index_row["initial_load"] is False
