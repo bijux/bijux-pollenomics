@@ -22,14 +22,15 @@ from .sample_support import (
     _sample_record_ids_for,
 )
 from .source_records import (
-    _animal_scope_for,
     _load_citation_lookup,
     _load_coordinate_provenance_lookup,
     _load_locality_rows,
+    _load_project_animal_scope_lookup,
     _load_review_lookup,
     _load_sample_rows,
     _load_site_evidence_lookup,
     _lookup_project_locality_row,
+    _project_sample_animal_scope_for,
 )
 from .validation import _assert_no_project_level_flattening
 
@@ -52,7 +53,7 @@ def build_tracked_animal_atlas_evidence_rows(
         site_evidence_lookup = _load_site_evidence_lookup(species_root)
         citation_lookup = _load_citation_lookup(species_root)
         review_lookup = _load_review_lookup(species_root)
-        animal_scope = _animal_scope_for(species_root)
+        project_scope_lookup = _load_project_animal_scope_lookup(species_root)
         for locality in locality_rows:
             project_accessions = tuple(
                 str(item)
@@ -104,6 +105,14 @@ def build_tracked_animal_atlas_evidence_rows(
                 sample_rows=matched_sample_rows,
             )
             if not _sample_record_ids_for(matched_sample_rows):
+                continue
+            animal_scope = _project_sample_animal_scope_for(
+                species_root,
+                project_scope_lookup,
+                project_accessions=project_accessions,
+                sample_rows=matched_sample_rows,
+            )
+            if animal_scope is None:
                 continue
             public_chronology = _atlas_public_chronology(
                 _parse_chronology(locality.get("chronology", {}))

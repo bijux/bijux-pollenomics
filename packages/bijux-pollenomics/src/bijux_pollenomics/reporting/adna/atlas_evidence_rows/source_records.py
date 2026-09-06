@@ -6,6 +6,26 @@ import csv
 import json
 from pathlib import Path
 
+_PROJECT_SCOPE_RULES = {
+    (
+        "domesticated_core_curated",
+        "domesticated_core",
+        False,
+    ): "domesticated_core",
+    (
+        "archive_pending_paper_linkage",
+        "domesticated_core",
+        False,
+    ): "domesticated_core",
+    (
+        "wild_or_progenitor_context",
+        "wild_or_progenitor_context",
+        False,
+    ): "wild_or_progenitor_context",
+    ("comparator_only", "domesticated_core", True): "comparator",
+    ("comparator_only", "ancient_comparator", True): "comparator",
+}
+
 
 def _load_locality_rows(species_root: Path) -> list[dict[str, object]]:
     path = species_root / "normalized" / "locality_summaries.json"
@@ -122,6 +142,66 @@ def _load_review_lookup(species_root: Path) -> dict[str, dict[str, str]]:
                     "paper_doi": str(row.get("paper_doi", "")),
                 }
     return lookup
+
+
+def _load_project_animal_scope_lookup(species_root: Path) -> dict[str, str] | None:
+    path = species_root / "normalized" / "project_summaries.json"
+    if not path.is_file():
+        return None
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        return {}
+    rows = payload.get("projects", [])
+    if not isinstance(rows, list):
+        return {}
+    lookup: dict[str, str] = {}
+    seen_accessions: set[str] = set()
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        accession = str(row.get("project_accession", "")).strip()
+        if not accession:
+            continue
+        if accession in seen_accessions:
+            lookup.pop(accession, None)
+            continue
+        seen_accessions.add(accession)
+        comparator_status = row.get("comparator_status")
+        if not isinstance(comparator_status, bool):
+            continue
+        rule = (
+            str(row.get("support_class", "")).strip(),
+            str(row.get("domestication_scope", "")).strip(),
+            comparator_status,
+        )
+        scope = _PROJECT_SCOPE_RULES.get(rule)
+        if scope is not None:
+            lookup[accession] = scope
+    return lookup
+
+
+def _project_sample_animal_scope_for(
+    species_root: Path,
+    project_scope_lookup: dict[str, str] | None,
+    *,
+    project_accessions: tuple[str, ...],
+    sample_rows: tuple[dict[str, object], ...],
+) -> str | None:
+    declared_projects = tuple(accession.strip() for accession in project_accessions)
+    sample_projects = tuple(
+        str(row.get("project_accession", "")).strip() for row in sample_rows
+    )
+    if (
+        len(declared_projects) != 1
+        or any(not accession for accession in declared_projects)
+        or not sample_projects
+        or any(not accession for accession in sample_projects)
+        or set(sample_projects) != set(declared_projects)
+    ):
+        return None
+    if project_scope_lookup is None:
+        return _animal_scope_for(species_root)
+    return project_scope_lookup.get(declared_projects[0])
 
 
 def _animal_scope_for(species_root: Path) -> str:
