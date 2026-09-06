@@ -17,7 +17,7 @@ __all__ = [
     "write_neotoma_compact_lineage",
 ]
 
-LINEAGE_SCHEMA_VERSION = "neotoma-compact-relational-lineage.v1"
+LINEAGE_SCHEMA_VERSION = "neotoma-compact-relational-lineage.v2"
 _DETAIL_SURFACES = (
     "collection_units",
     "datasets",
@@ -171,14 +171,29 @@ def build_neotoma_compact_lineage(
 
     reverse_rows: list[dict[str, object]] = []
     missing_compact: list[str] = []
+    governed_compact_exclusions: list[str] = []
+    unexplained_missing_compact: list[str] = []
     for site_id, entry in sorted(relational_sites.items()):
         if entry["row_count"] != 1:
             raise ValueError(f"Relational site index is not unique: {site_id}")
         compact_record_id = site_id.removeprefix("neotoma:site:")
         reverse_compact_record = compact_records.get(compact_record_id)
+        country_decision = _mapping(
+            entry.get("country_decision"), f"relational site country decision {site_id}"
+        )
         if reverse_compact_record is None:
             missing_compact.append(site_id)
             compact_locator = None
+            if _governed_compact_exclusion(country_decision):
+                governed_compact_exclusions.append(site_id)
+                compact_publication_status = "excluded_from_compact_publication"
+                compact_publication_reason_code = "country_assignment_not_accepted"
+            else:
+                unexplained_missing_compact.append(site_id)
+                compact_publication_status = "missing_without_governed_exclusion"
+                compact_publication_reason_code = (
+                    "relational_site_missing_from_compact_without_governed_exclusion"
+                )
         else:
             compact_locator = {
                 "path": compact_public_path,
@@ -188,22 +203,33 @@ def build_neotoma_compact_lineage(
                 "identity_field": "record_id",
                 "identity_value": compact_record_id,
             }
+            compact_publication_status = "published_in_compact"
+            compact_publication_reason_code = None
         reverse_rows.append(
             {
                 "relational_site_id": site_id,
                 "relational_site_locator": entry["first_locator"],
                 "compact_record_id": compact_record_id,
                 "compact_locator": compact_locator,
+                "compact_publication_status": compact_publication_status,
+                "compact_publication_reason_code": compact_publication_reason_code,
+                "country_decision": dict(country_decision),
             }
         )
 
     linked_count = len(rows) - len(missing_relational)
-    status = "complete" if not missing_relational and not missing_compact else "refused"
+    status = (
+        "complete"
+        if not missing_relational and not unexplained_missing_compact
+        else "refused"
+    )
     refusal_reasons = []
     if missing_relational:
         refusal_reasons.append("compact_records_without_relational_site")
-    if missing_compact:
-        refusal_reasons.append("relational_sites_without_compact_record")
+    if unexplained_missing_compact:
+        refusal_reasons.append(
+            "relational_sites_without_compact_or_governed_exclusion"
+        )
     detail_totals: Counter[str] = Counter()
     for row in rows:
         counts_mapping = _mapping(row["detail_row_counts"], "detail_row_counts")
@@ -249,6 +275,13 @@ def build_neotoma_compact_lineage(
             "linked_compact_record_count": linked_count,
             "compact_without_relational_count": len(missing_relational),
             "relational_without_compact_count": len(missing_compact),
+            "governed_compact_exclusion_count": len(governed_compact_exclusions),
+            "unexplained_relational_without_compact_count": len(
+                unexplained_missing_compact
+            ),
+            "accounted_relational_site_count": (
+                linked_count + len(governed_compact_exclusions)
+            ),
             "sites_with_sample_evidence_count": sum(
                 _index_count(surface_indexes["samples"], f"neotoma:site:{record_id}")
                 > 0
@@ -259,6 +292,10 @@ def build_neotoma_compact_lineage(
         },
         "compact_without_relational_record_ids": missing_relational,
         "relational_without_compact_site_ids": missing_compact,
+        "governed_compact_exclusion_site_ids": governed_compact_exclusions,
+        "unexplained_relational_without_compact_site_ids": (
+            unexplained_missing_compact
+        ),
         "compact_to_relational": rows,
         "relational_to_compact": reverse_rows,
         "representative_sample_to_compact": sample_reverse_rows,
@@ -316,6 +353,14 @@ def _index_surface(
             row_id = _required_text(row.get(id_field), f"{surface} {id_field}")
             entry = indexed.setdefault(site_id, {"row_count": 0, "first_locator": None})
             entry["row_count"] = _integer(entry["row_count"], "row_count") + 1
+            if surface == "sites" and entry.get("country_decision") is None:
+                entry["country_decision"] = {
+                    "country_code": row.get("country_code"),
+                    "country_decision_status": row.get("country_decision_status"),
+                    "country_propagation_eligible": row.get(
+                        "country_propagation_eligible"
+                    ),
+                }
             if entry["first_locator"] is None:
                 entry["first_locator"] = {
                     "path": f"{public_root}/{relative_path}",
@@ -335,6 +380,15 @@ def _index_surface(
                     },
                 }
     return indexed
+
+
+def _governed_compact_exclusion(country_decision: Mapping[str, object]) -> bool:
+    """Accept omission only when country governance explicitly blocks publication."""
+    return (
+        country_decision.get("country_code") == "UNASSIGNED"
+        and country_decision.get("country_decision_status") == "review"
+        and country_decision.get("country_propagation_eligible") is False
+    )
 
 
 def _index_count(index: Mapping[str, Mapping[str, object]], site_id: str) -> int:
@@ -370,12 +424,17 @@ def _refusal_payload(
             "linked_compact_record_count": 0,
             "compact_without_relational_count": 0,
             "relational_without_compact_count": 0,
+            "governed_compact_exclusion_count": 0,
+            "unexplained_relational_without_compact_count": 0,
+            "accounted_relational_site_count": 0,
             "sites_with_sample_evidence_count": 0,
             "representative_sample_reverse_trace_count": 0,
             "detail_row_totals": {},
         },
         "compact_without_relational_record_ids": [],
         "relational_without_compact_site_ids": [],
+        "governed_compact_exclusion_site_ids": [],
+        "unexplained_relational_without_compact_site_ids": [],
         "compact_to_relational": [],
         "relational_to_compact": [],
         "representative_sample_to_compact": [],

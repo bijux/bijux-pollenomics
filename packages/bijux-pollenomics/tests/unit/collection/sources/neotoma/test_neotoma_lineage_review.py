@@ -28,6 +28,7 @@ from bijux_pollenomics.collection.sources.neotoma.refresh_review import (
 from bijux_pollenomics.collection.sources.neotoma.relational import (
     build_neotoma_relational_snapshot,
 )
+from bijux_pollenomics.collection.spatial import CountryAttributionDecision
 
 
 def _write_json(path: Path, payload: object) -> bytes:
@@ -136,7 +137,12 @@ def _raw_archive(root: Path) -> None:
     )
 
 
-def _fixture(root: Path) -> tuple[Path, Path, Path, Path]:
+def _fixture(
+    root: Path,
+    *,
+    compact_site_ids: tuple[int, ...] = tuple(range(1, 10)),
+    country_by_site_id: dict[int, CountryAttributionDecision | str] | None = None,
+) -> tuple[Path, Path, Path, Path]:
     raw_root = root / "raw"
     relational_root = root / "relational"
     compact_path = root / "compact.geojson"
@@ -147,7 +153,11 @@ def _fixture(root: Path) -> tuple[Path, Path, Path, Path]:
         raw_rows,
         source_snapshot_id=source_snapshot_id,
         build_id="fixture-build",
-        country_by_site_id=dict.fromkeys(range(1, 10), "Sweden"),
+        country_by_site_id=(
+            country_by_site_id
+            if country_by_site_id is not None
+            else dict.fromkeys(range(1, 10), "Sweden")
+        ),
     )
     materialize_neotoma_relational_snapshot(
         relational_root.resolve(), snapshot, rows_per_part=3
@@ -166,7 +176,7 @@ def _fixture(root: Path) -> tuple[Path, Path, Path, Path]:
                         "name": f"Site {index}",
                     },
                 }
-                for index in range(1, 10)
+                for index in compact_site_ids
             ],
         },
     )
@@ -255,6 +265,91 @@ def test_compact_lineage_refuses_absent_or_unmatched_inputs(tmp_path: Path) -> N
     assert isinstance(unmatched_summary, dict)
     assert unmatched_summary["compact_without_relational_count"] == 1
     assert unmatched_summary["relational_without_compact_count"] == 1
+
+
+def test_compact_lineage_accounts_for_governed_country_exclusions(
+    tmp_path: Path,
+) -> None:
+    _, _, _, lineage_path = _fixture(
+        tmp_path,
+        compact_site_ids=tuple(range(1, 9)),
+    )
+
+    lineage = json.loads(lineage_path.read_text(encoding="utf-8"))
+    assert lineage["status"] == "complete"
+    assert lineage["refusal_reasons"] == []
+    expected_summary = {
+        "compact_record_count": 8,
+        "relational_site_count": 9,
+        "linked_compact_record_count": 8,
+        "relational_without_compact_count": 1,
+        "governed_compact_exclusion_count": 1,
+        "unexplained_relational_without_compact_count": 0,
+        "accounted_relational_site_count": 9,
+    }
+    assert {
+        key: lineage["summary"][key] for key in expected_summary
+    } == expected_summary
+    assert lineage["relational_without_compact_site_ids"] == ["neotoma:site:9"]
+    assert lineage["governed_compact_exclusion_site_ids"] == ["neotoma:site:9"]
+    assert lineage["unexplained_relational_without_compact_site_ids"] == []
+    excluded = next(
+        row
+        for row in lineage["relational_to_compact"]
+        if row["relational_site_id"] == "neotoma:site:9"
+    )
+    assert excluded["compact_locator"] is None
+    assert excluded["relational_site_locator"]["identity_value"] == "neotoma:site:9"
+    assert excluded["compact_publication_status"] == (
+        "excluded_from_compact_publication"
+    )
+    assert excluded["compact_publication_reason_code"] == (
+        "country_assignment_not_accepted"
+    )
+    assert excluded["country_decision"] == {
+        "country_code": "UNASSIGNED",
+        "country_decision_status": "review",
+        "country_propagation_eligible": False,
+    }
+
+
+@pytest.mark.parametrize("country_input", [None, "assigned"], ids=["unassigned", "assigned"])
+def test_compact_lineage_refuses_missing_site_without_exact_governed_exclusion(
+    tmp_path: Path,
+    country_input: str | None,
+) -> None:
+    countries: dict[int, CountryAttributionDecision | str] = dict.fromkeys(
+        range(1, 9), "Sweden"
+    )
+    if country_input == "assigned":
+        countries[9] = CountryAttributionDecision(
+            derived_country="Sweden",
+            decision_status="assigned",
+            decision_method="strict_boundary_containment",
+            ambiguity_reason=None,
+            refusal_reason=None,
+            raw_country="Sweden",
+            raw_country_comparison="agrees",
+            candidate_countries=("Sweden",),
+            boundary_artifact_digest="sha256:boundary-fixture",
+            boundary_version="boundary-fixture-v1",
+        )
+    _, _, _, lineage_path = _fixture(
+        tmp_path,
+        compact_site_ids=tuple(range(1, 9)),
+        country_by_site_id=countries,
+    )
+
+    lineage = json.loads(lineage_path.read_text(encoding="utf-8"))
+    assert lineage["status"] == "refused"
+    assert lineage["refusal_reasons"] == [
+        "relational_sites_without_compact_or_governed_exclusion"
+    ]
+    assert lineage["summary"]["governed_compact_exclusion_count"] == 0
+    assert lineage["summary"]["unexplained_relational_without_compact_count"] == 1
+    assert lineage["unexplained_relational_without_compact_site_ids"] == [
+        "neotoma:site:9"
+    ]
 
 
 def test_refresh_baseline_is_immutable_and_fixed_point_is_zero_diff(
