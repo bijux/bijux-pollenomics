@@ -11,7 +11,7 @@ One shared map document engine serves every published scope. Scope differences m
 - Scope key: `nordic`
 - Scope kind: `region`
 - Parent scope: `europe_plus`
-- Default basemap: `voyager`
+- Default basemap: `street`
 - Default distance circle diameter: `20 km`
 
 The opening extent stays tight on Nordic countries so lake, site, and archaeology context reads as map content rather than background noise.

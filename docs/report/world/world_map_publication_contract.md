@@ -11,7 +11,7 @@ One shared map document engine serves every published scope. Scope differences m
 - Scope key: `world`
 - Scope kind: `world`
 - Parent scope: `-`
-- Default basemap: `voyager`
+- Default basemap: `street`
 - Default distance circle diameter: `40 km`
 
 The opening extent keeps a broad trans-Atlantic and Eurasian frame so the root publication surface reads as a parent scope rather than a Nordic detail page with a bigger title.

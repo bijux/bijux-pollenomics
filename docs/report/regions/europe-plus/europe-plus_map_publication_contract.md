@@ -11,7 +11,7 @@ One shared map document engine serves every published scope. Scope differences m
 - Scope key: `europe_plus`
 - Scope kind: `region`
 - Parent scope: `world`
-- Default basemap: `light`
+- Default basemap: `street`
 - Default distance circle diameter: `30 km`
 
 The opening extent centers the European frame while keeping enough margin for future expansion into non-Nordic Europe-plus countries.

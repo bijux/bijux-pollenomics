@@ -11,7 +11,7 @@
     "Finland",
     "Denmark"
   ],
-  "default_basemap": "light",
+  "default_basemap": "street",
   "initial_diameter_km": 30,
   "minimum_bounds": [
     [

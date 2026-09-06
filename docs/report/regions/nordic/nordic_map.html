@@ -281,6 +281,29 @@
         gap: 8px;
       }
       .inline-actions { margin-top: 12px; }
+      .source-shortcuts,
+      .time-stepper {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .source-shortcuts .inline-button,
+      .time-stepper .inline-button {
+        min-width: 0;
+        white-space: normal;
+      }
+      .time-stepper-status {
+        grid-column: 1 / -1;
+        padding: 8px 10px;
+        border-radius: 12px;
+        background: rgba(20, 33, 61, 0.06);
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1.45;
+        text-align: center;
+      }
       .basemap-button {
         display: inline-flex;
         align-items: center;
@@ -296,15 +319,10 @@
         border: 1px solid rgba(24, 37, 61, 0.10);
         flex: 0 0 auto;
       }
-      .basemap-preview--voyager {
+      .basemap-preview--street {
         background:
           linear-gradient(135deg, rgba(196, 228, 248, 0.96), rgba(210, 236, 214, 0.88)),
           linear-gradient(90deg, transparent 0 22%, rgba(255, 255, 255, 0.28) 22% 25%, transparent 25% 100%);
-      }
-      .basemap-preview--light {
-        background:
-          linear-gradient(135deg, rgba(246, 244, 239, 0.96), rgba(231, 232, 234, 0.94)),
-          linear-gradient(90deg, transparent 0 20%, rgba(196, 200, 207, 0.32) 20% 23%, transparent 23% 100%);
       }
       .basemap-preview--terrain {
         background:
@@ -1528,8 +1546,7 @@
             </div>
             <div class="topbar-row">
               <div class="basemap-switch">
-                <button class="basemap-button is-active" type="button" data-basemap="voyager" title="Balanced roads, labels, and water detail."><span class="basemap-preview basemap-preview--voyager"></span><span class="basemap-title">Voyager</span></button>
-                <button class="basemap-button" type="button" data-basemap="light" title="Minimal contrast for evidence-first inspection."><span class="basemap-preview basemap-preview--light"></span><span class="basemap-title">Light</span></button>
+                <button class="basemap-button is-active" type="button" data-basemap="street" title="Keyless OpenStreetMap street and place context."><span class="basemap-preview basemap-preview--street"></span><span class="basemap-title">Street</span></button>
                 <button class="basemap-button" type="button" data-basemap="terrain" title="Relief-focused context for landform reading."><span class="basemap-preview basemap-preview--terrain"></span><span class="basemap-title">Terrain</span></button>
                 <button class="basemap-button" type="button" data-basemap="none" title="Keep evidence and orientation controls usable without network tiles."><span class="basemap-preview"></span><span class="basemap-title">No basemap</span></button>
               </div>
@@ -1607,16 +1624,24 @@
                 <summary class="control-group-head">
                   <div>
                     <span class="control-group-label">Scientific resolution</span>
-                    <h3>Signal Comparison</h3>
+                    <h3>Evidence Resolution</h3>
                   </div>
                   <span id="scientific-summary" class="control-group-summary" aria-live="polite">Checking accepted classifications</span>
                 </summary>
                 <div class="control-group-body">
                   <div id="scientific-status" class="scientific-status"></div>
                   <div id="scientific-filters" class="dock-layer-grid" aria-label="Accepted scientific signal comparison"></div>
-                  <div class="inline-actions">
+                  <div id="scientific-actions" class="inline-actions">
                     <button id="scientific-whole" class="inline-button is-primary" type="button">Whole pollen</button>
                     <button id="scientific-clear" class="inline-button" type="button">Clear comparison</button>
+                  </div>
+                  <div class="source-shortcuts" aria-label="Open source-native pollen views">
+                    <button class="inline-button is-primary" type="button" data-source-shortcut="sample">Whole pollen sites</button>
+                    <button class="inline-button" type="button" data-source-shortcut="TRSH">TRSH</button>
+                    <button class="inline-button" type="button" data-source-shortcut="UPHE">UPHE</button>
+                    <button class="inline-button" type="button" data-source-shortcut="AQVP">AQVP</button>
+                    <button class="inline-button" type="button" data-source-shortcut="taxa">All exact labels</button>
+                    <button class="inline-button" type="button" data-source-shortcut="cereals">Cerealia / Secale</button>
                   </div>
                 </div>
               </details>
@@ -1638,7 +1663,7 @@
                   </div>
                   <div id="source-chronology-taxon-fields" hidden>
                     <label class="field-label" for="source-chronology-taxon-query"><span>Find source-reported taxon or pollen type</span><span>not a species assertion</span></label>
-                    <input id="source-chronology-taxon-query" class="search-input" type="search" autocomplete="off" placeholder="Search source labels" aria-controls="source-chronology-taxon">
+                    <input id="source-chronology-taxon-query" class="search-input" type="search" autocomplete="off" placeholder="Search source labels; use | for alternatives" aria-controls="source-chronology-taxon">
                     <label class="field-label" for="source-chronology-taxon"><span>Exact source label</span><span>all by default</span></label>
                     <select id="source-chronology-taxon" class="search-input" aria-label="Filter by exact source-reported Neotoma label"></select>
                   </div>
@@ -1788,8 +1813,13 @@
                     <button class="preset-button" type="button" data-time-interval="50000">50000 years</button>
                     <button class="preset-button is-active" type="button" data-time-interval="full">Full span</button>
                   </div>
+                  <div class="time-stepper" aria-label="Chronology navigation">
+                    <button id="time-step-older" class="inline-button" type="button">← Older</button>
+                    <button id="time-step-newer" class="inline-button" type="button">Newer →</button>
+                    <div id="time-stepper-status" class="time-stepper-status" aria-live="polite">Preparing chronological navigation</div>
+                  </div>
                   <button id="time-playback-toggle" class="inline-button" type="button" aria-pressed="false">Play oldest → present</button>
-                  <div class="search-meta">With one Neotoma source level active, automatic playback uses the exact selected sample, ecological-code, or taxon BP extent. Manual sliders retain the global atlas range.</div>
+                  <div class="search-meta">When a Neotoma source level is active, the slider, arrows, and playback use that exact sample, ecological-code, or taxon extent. Disable the source layer to navigate the complete atlas span.</div>
                   <div id="time-record-count" class="search-meta">Calculating time-aware records in the active BP window.</div>
                 </div>
               </details>
@@ -2464,13 +2494,12 @@
       const TIME_INTERVAL_MAX = 2700000;
       const map = L.map('map', { preferCanvas: true, zoomControl: false, maxZoom: 20 });
       const basemaps = {
-        voyager: L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20 }),
-        light: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20 }),
+        street: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors', maxZoom: 19 }),
         terrain: L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', { attribution: '&copy; OpenStreetMap contributors, SRTM &copy; OpenTopoMap', maxZoom: 17 })
       };
       const BASEMAP_NAMES = [...Object.keys(basemaps), 'none'];
-      const BASEMAP_FALLBACK_ORDER = ['voyager', 'light', 'terrain', 'none'];
-      const DEFAULT_BASEMAP = 'voyager';
+      const BASEMAP_FALLBACK_ORDER = ['street', 'terrain', 'none'];
+      const DEFAULT_BASEMAP = 'street';
       const MAX_PROVIDER_TILE_ERRORS = 3;
       L.control.zoom({ position: 'bottomright' }).addTo(map);
       L.control.scale({ imperial: false }).addTo(map);
@@ -2498,6 +2527,7 @@
       const legendToggleButton = document.getElementById('legend-toggle');
       const countryFilters = document.getElementById('country-filters');
       const scientificFilters = document.getElementById('scientific-filters');
+      const scientificActions = document.getElementById('scientific-actions');
       const scientificStatus = document.getElementById('scientific-status');
       const scientificSummary = document.getElementById('scientific-summary');
       const countryPairFilter = document.getElementById('country-pair-filter');
@@ -2529,6 +2559,9 @@
       const timeIntervalSlider = document.getElementById('time-interval-slider');
       const timeIntervalValue = document.getElementById('time-interval-value');
       const timePlaybackToggle = document.getElementById('time-playback-toggle');
+      const timeStepOlder = document.getElementById('time-step-older');
+      const timeStepNewer = document.getElementById('time-step-newer');
+      const timeStepperStatus = document.getElementById('time-stepper-status');
       const timeRecordCount = document.getElementById('time-record-count');
       const sourceChronologyControls = document.getElementById('source-chronology-controls');
       const sourceChronologySummary = document.getElementById('source-chronology-summary');
@@ -2698,6 +2731,10 @@
         const start = clampPlaybackTimeStart(currentStart, intervalYears, extent);
         return Math.max(extent.time_min_bp, start - clampTimeInterval(intervalYears));
       }
+      function previousPlaybackTimeStart(currentStart, intervalYears, extent = selectedTimePlaybackExtent()) {
+        const start = clampPlaybackTimeStart(currentStart, intervalYears, extent);
+        return Math.min(oldestPlaybackStart(intervalYears, extent), start + clampTimeInterval(intervalYears));
+      }
       const MAX_AUTOMATIC_PLAYBACK_FRAMES = 1000;
       function automaticPlaybackFrameCount(intervalYears, extent = selectedTimePlaybackExtent()) {
         if (!TIME_HAS_DATA) return 0;
@@ -2793,9 +2830,10 @@
           return;
         }
         timeIntervalYears = clampTimeInterval(timeIntervalYears);
-        timeStartBp = clampTimeStart(timeStartBp, timeIntervalYears);
-        timeStartSlider.min = String(TIME_MIN_BP);
-        timeStartSlider.max = String(Math.max(TIME_MIN_BP, TIME_MAX_BP - timeIntervalYears));
+        const navigationExtent = selectedTimePlaybackExtent();
+        timeStartBp = clampPlaybackTimeStart(timeStartBp, timeIntervalYears, navigationExtent);
+        timeStartSlider.min = String(navigationExtent.time_min_bp);
+        timeStartSlider.max = String(Math.max(navigationExtent.time_min_bp, navigationExtent.time_max_bp - timeIntervalYears));
         timeStartSlider.value = String(timeStartBp);
         timeIntervalSlider.min = '1';
         timeIntervalSlider.max = String(TIME_INTERVAL_MAX);
@@ -2804,6 +2842,11 @@
         dockTimeSummary.textContent = `[${timeStartBp}, ${endBp}] BP`;
         timeStartValue.textContent = `[${timeStartBp}, ${endBp}] BP`;
         timeIntervalValue.textContent = `${timeIntervalYears} years`;
+        const sourceSelection = sourceChronologyPlaybackSelection();
+        const navigationLabel = sourceSelection ? 'selected Neotoma source extent' : 'complete atlas extent';
+        timeStepOlder.disabled = timeStartBp >= oldestPlaybackStart(timeIntervalYears, navigationExtent);
+        timeStepNewer.disabled = timeStartBp <= navigationExtent.time_min_bp;
+        timeStepperStatus.textContent = `${navigationLabel} · ${automaticPlaybackFrameCount(timeIntervalYears, navigationExtent)} frames · oldest to present`;
         refreshTimePlaybackControl();
       }
       const initialState = parseHashState();
@@ -4122,9 +4165,10 @@
       }
       function renderScientificControls() {
         const available = ATLAS_EVIDENCE.classifications_status === 'available' && SCIENTIFIC_SIGNALS.length > 0;
+        scientificActions.hidden = !available;
         scientificStatus.textContent = available
           ? 'Only accepted, versioned classifications are selectable. Color is always paired with a shape cue.'
-          : `Scientific comparison unavailable: ${ATLAS_EVIDENCE.classifications_reason_code || 'accepted_scientific_classifications_not_available'}. Source layers remain inspectable.`;
+          : 'Harmonized scientific classifications are awaiting qualified review. Source-native whole-pollen, ecological-code, and exact-label chronology remains available below without asserting equivalence.';
         scientificFilters.innerHTML = available
           ? SCIENTIFIC_RESOLUTION_ORDER.map((resolution) => {
               const signals = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === resolution);
@@ -4134,7 +4178,7 @@
           : '';
         scientificSummary.textContent = available
           ? `${activeScientificSignalIds.size} of ${SCIENTIFIC_SIGNALS.length} accepted signals selected`
-          : 'No accepted classifications';
+          : 'Source-native views available';
         document.querySelectorAll('.scientific-checkbox').forEach((checkbox) => {
           checkbox.addEventListener('change', () => {
             if (checkbox.checked) activeScientificSignalIds.add(checkbox.value); else activeScientificSignalIds.delete(checkbox.value);
@@ -4167,6 +4211,14 @@
         activeSourceChronologyLevel = layer.node_level;
         sourceChronologyLayers().forEach((candidate) => activeLayerKeys.delete(candidate.key));
         activeLayerKeys.add(layer.key);
+        return true;
+      }
+      function focusSourceChronologyNavigation() {
+        const sourceExtent = sourceChronologyPlaybackSelection();
+        if (!sourceExtent) return false;
+        const sourceSpan = Math.max(1, sourceExtent.time_max_bp - sourceExtent.time_min_bp);
+        timeIntervalYears = Math.min(sourceSpan, sourceSpan <= 2500 ? 100 : (sourceSpan <= 10000 ? 500 : 1000));
+        timeStartBp = oldestPlaybackStart(timeIntervalYears, sourceExtent);
         return true;
       }
       function toggleLayerSelection(layerKey, enabled) {
@@ -4203,10 +4255,17 @@
         const validTaxa = ['all', ...taxonRows.map((row) => row.value)];
         activeSourceChronologyTaxon = normalizedSingleValue(activeSourceChronologyTaxon, validTaxa, 'all');
         const query = sourceChronologyTaxonSearch.trim().toLowerCase();
+        const queryAlternatives = query
+          .split('|')
+          .map((alternative) => alternative.trim().split(/\s+/).filter(Boolean))
+          .filter((alternative) => alternative.length);
         const visibleTaxa = taxonRows.filter((row) => (
           row.value === activeSourceChronologyTaxon
-          || !query
-          || `${row.label} ${row.source_taxon_id}`.toLowerCase().includes(query)
+          || !queryAlternatives.length
+          || queryAlternatives.some((alternative) => {
+            const searchable = `${row.label} ${row.source_taxon_id}`.toLowerCase();
+            return alternative.every((token) => searchable.includes(token));
+          })
         ));
         sourceChronologyTaxonFields.hidden = selectedLayer.node_level !== 'source_taxon';
         sourceChronologyTaxon.innerHTML = `<option value="all">All source-reported labels · ${taxonRows.length} facets</option>` + visibleTaxa.map((row) => `<option value="${escapeHtml(row.value)}" ${row.value === activeSourceChronologyTaxon ? 'selected' : ''}>${escapeHtml(row.label)} · source taxon ${escapeHtml(row.source_taxon_id)} · ${row.node_count} nodes · ${row.observation_denominator} observations</option>`).join('');
@@ -5175,6 +5234,32 @@
         activeScientificSignalIds = new Set();
         renderMapState();
       });
+      document.querySelectorAll('[data-source-shortcut]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const shortcut = button.dataset.sourceShortcut;
+          const targetLevel = shortcut === 'sample'
+            ? 'source_sample_presence'
+            : (shortcut === 'taxa' || shortcut === 'cereals' ? 'source_taxon' : 'source_ecological_code');
+          if (!selectSourceChronologyLevel(targetLevel)) return;
+          sourceChronologyTaxonSearch = shortcut === 'cereals' ? 'cereal|secale' : '';
+          if (targetLevel === 'source_ecological_code') {
+            const layer = sourceChronologyLayerForLevel(targetLevel);
+            activeSourceChronologyCode = normalizedSingleValue(
+              shortcut,
+              ['all', ...layer.facet_metadata.source_ecological_codes.map((row) => row.value)],
+              'all'
+            );
+          } else if (shortcut === 'cereals') {
+            const layer = sourceChronologyLayerForLevel(targetLevel);
+            const cerealFacets = layer.facet_metadata.source_taxa.filter((row) => /cereal|secale/i.test(row.label));
+            activeSourceChronologyTaxon = cerealFacets[0]?.value || 'all';
+          }
+          focusSourceChronologyNavigation();
+          renderLayerControls();
+          renderMapState();
+          sourceChronologyControls.open = true;
+        });
+      });
       countryPairFilter.addEventListener('change', () => {
         activeCountryPair = normalizedSingleValue(countryPairFilter.value, ['all', ...COUNTRY_PAIR_KEYS], 'all');
         renderMapState();
@@ -5229,6 +5314,18 @@
       timePlaybackToggle.addEventListener('click', () => {
         if (timePlaybackTimer === null) startTimePlayback(); else stopTimePlayback();
       });
+      timeStepOlder.addEventListener('click', () => {
+        stopTimePlayback();
+        deactivateModeledContext();
+        timeStartBp = previousPlaybackTimeStart(timeStartBp, timeIntervalYears);
+        renderMapState();
+      });
+      timeStepNewer.addEventListener('click', () => {
+        stopTimePlayback();
+        deactivateModeledContext();
+        timeStartBp = nextPlaybackTimeStart(timeStartBp, timeIntervalYears);
+        renderMapState();
+      });
       modeledContextFamily.addEventListener('change', () => {
         const family = modeledContextFamilyByKey(modeledContextFamily.value);
         if (!family) return;
@@ -5261,6 +5358,7 @@
       modeledContextDownload.addEventListener('click', downloadModeledContextFrame);
       sourceChronologyLevel.addEventListener('change', () => {
         if (!selectSourceChronologyLevel(sourceChronologyLevel.value)) return;
+        focusSourceChronologyNavigation();
         renderLayerControls();
         renderMapState();
       });
@@ -5274,6 +5372,7 @@
           'all'
         );
         sourceRecordConcentrationActive = false;
+        focusSourceChronologyNavigation();
         renderMapState();
       });
       sourceChronologyTaxonQuery.addEventListener('input', () => {
@@ -5290,6 +5389,7 @@
           'all'
         );
         sourceRecordConcentrationActive = false;
+        focusSourceChronologyNavigation();
         renderMapState();
       });
       sourceRecordConcentrationToggle.addEventListener('click', () => {

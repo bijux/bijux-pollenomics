@@ -1087,7 +1087,7 @@
       "Finland",
       "Denmark"
     ],
-    "default_basemap": "voyager",
+    "default_basemap": "street",
     "initial_diameter_km": 20,
     "minimum_bounds": [
       [

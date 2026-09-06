@@ -21,7 +21,7 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 - Local leaflet assets are copied into `./_map_assets` so the HTML does not depend on CDN-hosted library files.
 - Basemap tiles are still requested from the active cartographic provider at runtime, so an offline browser session will not display background tiles.
 - The interactive map presents the records and overlays that were generated into this bundle. Ranking artifacts are published alongside it and carry stricter evidence boundaries than the map view itself.
-- Default basemap: `voyager`
+- Default basemap: `street`
 - The opening extent stays tight on Nordic countries so lake, site, and archaeology context reads as map content rather than background noise.
 
 ## Output Files

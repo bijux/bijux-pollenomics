@@ -21,7 +21,7 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 - Local leaflet assets are copied into `./_map_assets` so the HTML does not depend on CDN-hosted library files.
 - Basemap tiles are still requested from the active cartographic provider at runtime, so an offline browser session will not display background tiles.
 - The interactive map presents the records and overlays that were generated into this bundle. Ranking artifacts are published alongside it and carry stricter evidence boundaries than the map view itself.
-- Default basemap: `light`
+- Default basemap: `street`
 - The opening extent centers the European frame while keeping enough margin for future expansion into non-Nordic Europe-plus countries.
 
 ## Output Files
