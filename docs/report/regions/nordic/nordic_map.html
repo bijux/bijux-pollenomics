@@ -423,7 +423,9 @@
       }
       .basemap-switch {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+        grid-template-columns: minmax(0, 1fr);
+        min-width: 0;
+        width: 100%;
         gap: 8px;
       }
       .inline-actions { margin-top: 12px; }
@@ -477,6 +479,7 @@
       .basemap-copy {
         display: grid;
         gap: 1px;
+        min-width: 0;
       }
       .basemap-subtitle {
         color: var(--muted);
