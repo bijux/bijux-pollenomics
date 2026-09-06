@@ -31,7 +31,19 @@ def test_page_readiness_uses_capture_api_and_mutation_observer() -> None:
     assert "observer.observe(document.documentElement" in probe
     assert "exact source taxon readiness timed out" in probe
     assert "observer.observe(select, { childList: true })" in probe
+    assert "row.value === ${JSON.stringify(expected.taxon)}" in probe
     assert "setInterval(" not in probe
+
+
+def test_provider_failure_uses_request_interception() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    assert "Fetch.enable" in probe
+    assert "Fetch.requestPaused" in probe
+    assert "Fetch.failRequest" in probe
+    assert "errorReason: 'Failed'" in probe
 
 
 def test_nordic_source_states_are_literal_release_requirements() -> None:

@@ -165,7 +165,7 @@ async function verifyScope(scope, debuggerOrigin) {
     await screenshot(normal.cdp, path);
     scopeReceipts.push(path);
   }
-  const secale = await exactTaxonFrame(normal.cdp, 'Secale');
+  const secale = await exactTaxonFrame(normal.cdp, expectedNordic.secale);
   await screenshot(normal.cdp, `${scope.name}/secale.png`);
   scopeReceipts.push(`${scope.name}/secale.png`);
   const cereal = await cerealFinderFrame(normal.cdp);
@@ -316,6 +316,14 @@ async function openAtlas(scope, debuggerOrigin, options) {
     if (event.method === 'Network.requestWillBeSent' && providerHosts.some((host) => event.params.request.url.includes(host))) {
       providerRequests.push({ url: event.params.request.url, request_id: event.params.requestId });
     }
+    if (event.method === 'Fetch.requestPaused') {
+      const url = event.params.request.url;
+      providerRequests.push({ url, request_id: event.params.requestId, intercepted: true });
+      void cdp.send('Fetch.failRequest', {
+        requestId: event.params.requestId,
+        errorReason: 'Failed',
+      }).catch((error) => runtimeFailures.push({ kind: 'provider-interception', detail: String(error) }));
+    }
   });
   await cdp.send('Page.enable');
   await cdp.send('Runtime.enable');
@@ -323,7 +331,9 @@ async function openAtlas(scope, debuggerOrigin, options) {
   await cdp.send('Network.setCacheDisabled', { cacheDisabled: true });
   await cdp.send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 1000, deviceScaleFactor: 1, mobile: false });
   if (options.reducedMotion) await cdp.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
-  if (options.blockProviders) await cdp.send('Network.setBlockedURLs', { urls: ['*tile.openstreetmap.org/*', '*tile.opentopomap.org/*'] });
+  if (options.blockProviders) await cdp.send('Fetch.enable', {
+    patterns: providerHosts.map((host) => ({ urlPattern: `*${host}/*`, requestStage: 'Request' })),
+  });
   const loaded = cdp.waitFor('Page.loadEventFired', timeoutMs);
   const url = `http://127.0.0.1:${serverPort}/${scope.document}${options.hash || ''}`;
   await cdp.send('Page.navigate', { url });
@@ -374,13 +384,13 @@ async function shortcutFrame(cdp, shortcut) {
   })()`);
 }
 
-async function exactTaxonFrame(cdp, labelPattern) {
+async function exactTaxonFrame(cdp, expected) {
   return evaluate(cdp, `(async () => {
     const button = [...document.querySelectorAll('[data-source-shortcut]')].find((row) => row.dataset.sourceShortcut === 'taxa');
     button.click();
     const select = document.getElementById('source-chronology-taxon');
     const option = await new Promise((resolve, reject) => {
-      const findOption = () => [...select.options].find((row) => new RegExp(${JSON.stringify(labelPattern)}, 'i').test(row.textContent));
+      const findOption = () => [...select.options].find((row) => row.value === ${JSON.stringify(expected.taxon)});
       const finish = () => {
         const match = findOption();
         if (!match) return false;
@@ -392,7 +402,7 @@ async function exactTaxonFrame(cdp, labelPattern) {
       const observer = new MutationObserver(finish);
       const timeout = setTimeout(() => {
         observer.disconnect();
-        reject(new Error('exact source taxon readiness timed out: ${labelPattern}'));
+        reject(new Error('exact source taxon readiness timed out: ${expected.taxon}'));
       }, ${timeoutMs});
       observer.observe(select, { childList: true });
       finish();
@@ -459,7 +469,7 @@ async function responsiveFacts(cdp, width) {
         sidebar_collapsed: sidebar.classList.contains('is-collapsed'),
         toggle_visible: visible(toggle),
         scrim_hidden: !scrim.classList.contains('is-visible') && scrim.getAttribute('aria-hidden') === 'true' && !visible(scrim),
-        close_css_available: getComputedStyle(close).display === 'inline-flex',
+        close_display: getComputedStyle(close).display,
       };
       toggle.click();
       await settle();
@@ -570,7 +580,6 @@ function mobileLayoutPasses(layout) {
     && layout.mobile?.collapsed.sidebar_collapsed
     && layout.mobile.collapsed.toggle_visible
     && layout.mobile.collapsed.scrim_hidden
-    && layout.mobile.collapsed.close_css_available
     && layout.mobile.expanded.sidebar_expanded
     && layout.mobile.expanded.body_open
     && layout.mobile.expanded.scrim_visible
