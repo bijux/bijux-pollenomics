@@ -4,9 +4,11 @@ from __future__ import annotations
 
 import csv
 from decimal import Decimal, InvalidOperation
+import hashlib
 import io
 from pathlib import Path
 from collections.abc import Iterator
+from zipfile import ZipFile
 
 from ..quarantine import (
     ArchiveInventory,
@@ -21,6 +23,9 @@ from .authority import (
     ARCHIVE_SHA256,
     CSV_HEADERS,
     MODELED_CELL_COUNT,
+    SOURCE_GRID_SHA256_BY_SLICE_BP,
+    SOURCE_INTERVAL_BY_SLICE_BP,
+    SOURCE_ROW_COUNT_BY_SLICE_BP,
     SOURCE_TIME_SLICES_BP,
     csv_member_path,
 )
@@ -48,8 +53,16 @@ def _inspect(inventory: ArchiveInventory) -> None:
         )
     paths = {member.path for member in inventory.members}
     missing = sorted(set(ADMITTED_CSV_MEMBERS) - paths)
-    if missing:
-        raise IntakeRefusal("open_land_csv_inventory_mismatch", ", ".join(missing))
+    unexpected = sorted(
+        path
+        for path in paths
+        if path.casefold().endswith(".csv") and path not in ADMITTED_CSV_MEMBERS
+    )
+    if missing or unexpected:
+        raise IntakeRefusal(
+            "open_land_csv_inventory_mismatch",
+            f"missing={missing} unexpected={unexpected}",
+        )
 
 
 def _decimal(value: str | None, *, field: str, locator: str) -> Decimal:
@@ -71,6 +84,8 @@ def _normalize_row(
     member_sha256: str,
     row_number: int,
     age_bp: int,
+    younger_bp: int,
+    older_bp: int,
 ) -> ModeledLandCoverCell:
     locator = f"{member}:{row_number}"
     raw = tuple(row.get(header) for header in CSV_HEADERS)
@@ -95,19 +110,88 @@ def _normalize_row(
         source_member_sha256=member_sha256,
         source_row_number=row_number,
         time_slice_bp=age_bp,
+        younger_bp=younger_bp,
+        older_bp=older_bp,
         longitude_claim=longitude,
         latitude_claim=latitude,
         coniferous_proportion=coniferous,
         broadleaved_proportion=broadleaved,
         unforested_open_proportion=open_land,
         source_values=(values[0], values[1], values[2], values[3], values[4]),
+        source_archive_sha256=ARCHIVE_SHA256,
     )
+
+
+def _coordinate_grid_sha256(cells: list[ModeledLandCoverCell]) -> str:
+    coordinates = sorted((cell.longitude_claim, cell.latitude_claim) for cell in cells)
+    content = "".join(
+        f"{longitude.normalize()}\t{latitude.normalize()}\n"
+        for longitude, latitude in coordinates
+    ).encode("ascii")
+    return hashlib.sha256(content).hexdigest()
+
+
+def _validated_slice(
+    archive: ZipFile,
+    *,
+    member: str,
+    member_sha256: str,
+    age_bp: int,
+) -> tuple[ModeledLandCoverCell, ...]:
+    younger_bp, older_bp = SOURCE_INTERVAL_BY_SLICE_BP[age_bp]
+    with archive.open(member) as binary:
+        text = io.TextIOWrapper(binary, encoding="utf-8-sig", newline="")
+        reader = csv.DictReader(text)
+        if tuple(reader.fieldnames or ()) != CSV_HEADERS:
+            raise IntakeRefusal("open_land_header_mismatch", member)
+        cells: list[ModeledLandCoverCell] = []
+        coordinates: set[tuple[Decimal, Decimal]] = set()
+        for row_number, row in enumerate(reader, start=2):
+            if None in row:
+                raise IntakeRefusal(
+                    "open_land_row_width_mismatch", f"{member}:{row_number}"
+                )
+            cell = _normalize_row(
+                row,
+                member=member,
+                member_sha256=member_sha256,
+                row_number=row_number,
+                age_bp=age_bp,
+                younger_bp=younger_bp,
+                older_bp=older_bp,
+            )
+            coordinate = (cell.longitude_claim, cell.latitude_claim)
+            if coordinate in coordinates:
+                raise IntakeRefusal(
+                    "duplicate_open_land_coordinate", f"{member}:{row_number}"
+                )
+            coordinates.add(coordinate)
+            cells.append(cell)
+    expected_count = SOURCE_ROW_COUNT_BY_SLICE_BP[age_bp]
+    if len(cells) != expected_count:
+        raise IntakeRefusal(
+            "open_land_slice_row_count_mismatch",
+            f"{member} expected={expected_count} observed={len(cells)}",
+        )
+    expected_grid_sha256 = SOURCE_GRID_SHA256_BY_SLICE_BP[age_bp]
+    observed_grid_sha256 = _coordinate_grid_sha256(cells)
+    if observed_grid_sha256 != expected_grid_sha256:
+        raise IntakeRefusal(
+            "open_land_coordinate_grid_mismatch",
+            f"{member} expected={expected_grid_sha256} observed={observed_grid_sha256}",
+        )
+    return tuple(cells)
 
 
 def iter_modeled_land_cover(path: Path) -> Iterator[ModeledLandCoverCell]:
     """Yield only exact source slices; never interpolate or assign countries."""
+    archive_path = Path(path)
+    if archive_path.is_symlink():
+        raise IntakeRefusal("open_land_archive_symlink", str(archive_path))
+    if not archive_path.is_file():
+        raise IntakeRefusal("open_land_archive_not_regular_file", str(archive_path))
     with inspected_zip_archive(
-        path, expected_sha256=ARCHIVE_SHA256, limits=_ARCHIVE_LIMITS
+        archive_path, expected_sha256=ARCHIVE_SHA256, limits=_ARCHIVE_LIMITS
     ) as (inventory, archive):
         _inspect(inventory)
         members = {member.path: member for member in inventory.members}
@@ -116,19 +200,12 @@ def iter_modeled_land_cover(path: Path) -> Iterator[ModeledLandCoverCell]:
             member_sha256 = members[member].content_sha256
             if member_sha256 is None:
                 raise IntakeRefusal("open_land_member_digest_missing", member)
-            with archive.open(member) as binary:
-                text = io.TextIOWrapper(binary, encoding="utf-8-sig", newline="")
-                reader = csv.DictReader(text)
-                if tuple(reader.fieldnames or ()) != CSV_HEADERS:
-                    raise IntakeRefusal("open_land_header_mismatch", member)
-                for row_number, row in enumerate(reader, start=2):
-                    yield _normalize_row(
-                        row,
-                        member=member,
-                        member_sha256=member_sha256,
-                        row_number=row_number,
-                        age_bp=age_bp,
-                    )
+            yield from _validated_slice(
+                archive,
+                member=member,
+                member_sha256=member_sha256,
+                age_bp=age_bp,
+            )
 
 
 def summarize_open_land(path: Path) -> OpenLandSummary:
