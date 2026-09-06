@@ -2,6 +2,81 @@
   "schema_version": "animal-sample-chronology-ambiguity-ledger.v1",
   "rows": [
     {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "repo_stable_sample_id": "prjeb44430:samea9533291",
+      "preferred_sample_label": "Logx1_Rus_INF",
+      "chronology_strength": "sample_owned_text_only",
+      "chronology_evidence_class": "direct_radiocarbon_date",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
+      "chronology_normalization_status": "text_only_unparsed",
+      "chronology_text": ">49900 BP",
+      "chronology_conflict_note": "",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "chronology_provenance_locator": "SI Table 1!row145",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "repo_stable_sample_id": "prjeb44430:samea9533292",
+      "preferred_sample_label": "Logx3_Rus_INF",
+      "chronology_strength": "sample_owned_text_only",
+      "chronology_evidence_class": "direct_radiocarbon_date",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
+      "chronology_normalization_status": "text_only_unparsed",
+      "chronology_text": ">52200 BP",
+      "chronology_conflict_note": "",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "chronology_provenance_locator": "SI Table 1!row146",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "repo_stable_sample_id": "prjeb44430:samea9533361",
+      "preferred_sample_label": "R17x2_Rus_INF",
+      "chronology_strength": "sample_owned_text_only",
+      "chronology_evidence_class": "direct_radiocarbon_date",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
+      "chronology_normalization_status": "text_only_unparsed",
+      "chronology_text": ">51700 BP",
+      "chronology_conflict_note": "",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "chronology_provenance_locator": "SI Table 1!row272",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "repo_stable_sample_id": "prjeb44430:samea9533362",
+      "preferred_sample_label": "R17x3_Rus_INF",
+      "chronology_strength": "sample_owned_text_only",
+      "chronology_evidence_class": "direct_radiocarbon_date",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
+      "chronology_normalization_status": "text_only_unparsed",
+      "chronology_text": ">51700 BP",
+      "chronology_conflict_note": "",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "chronology_provenance_locator": "SI Table 1!row273",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
+    },
+    {
+      "project_accession": "PRJEB44430",
+      "species_latin_name": "Equus caballus",
+      "repo_stable_sample_id": "prjeb44430:samea9533363",
+      "preferred_sample_label": "R17x5_Rus_INF",
+      "chronology_strength": "sample_owned_text_only",
+      "chronology_evidence_class": "direct_radiocarbon_date",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
+      "chronology_normalization_status": "text_only_unparsed",
+      "chronology_text": ">51700 BP",
+      "chronology_conflict_note": "",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+      "chronology_provenance_locator": "SI Table 1!row274",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
+    },
+    {
       "project_accession": "PRJEB31613",
       "species_latin_name": "Equus caballus",
       "repo_stable_sample_id": "prjeb31613:cgg_1_016994",
@@ -5908,7 +5983,7 @@
       "chronology_text": "7949-9449 BP",
       "chronology_conflict_note": "",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
-      "chronology_provenance_locator": "sample_accession:SAMEA5577344 || Table S1 sample ID:Abu1 || Archaeological sites and context section 1 \"Abu Gosh, Israel\" (PDF page 2) || Archaeological sites and context section 1 \"Abu Gosh, Israel\" (PDF page 2)",
+      "chronology_provenance_locator": "sample_accession:SAMEA5577344 || Table S1 sample ID:Abu1 || Archaeological sites and context section 1 \"Abu Gosh, Israel\" (PDF page 2)",
       "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
@@ -5923,7 +5998,7 @@
       "chronology_text": "7949-9449 BP",
       "chronology_conflict_note": "",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
-      "chronology_provenance_locator": "sample_accession:SAMEA5577345 || Table S1 sample ID:Abu2 || Archaeological sites and context section 1 \"Abu Gosh, Israel\" (PDF page 2) || Archaeological sites and context section 1 \"Abu Gosh, Israel\" (PDF page 2)",
+      "chronology_provenance_locator": "sample_accession:SAMEA5577345 || Table S1 sample ID:Abu2 || Archaeological sites and context section 1 \"Abu Gosh, Israel\" (PDF page 2)",
       "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
@@ -6133,7 +6208,7 @@
       "chronology_text": "4949-5449 BP",
       "chronology_conflict_note": "",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
-      "chronology_provenance_locator": "sample_accession:SAMEA5577359 || Table S1 sample ID:Dan1 || Archaeological sites and context section 29 \"Tel Dan, Israel\" (PDF page 18) || Archaeological sites and context section 29 \"Tel Dan, Israel\" (PDF page 18)",
+      "chronology_provenance_locator": "sample_accession:SAMEA5577359 || Table S1 sample ID:Dan1 || Archaeological sites and context section 29 \"Tel Dan, Israel\" (PDF page 18)",
       "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
@@ -6163,7 +6238,7 @@
       "chronology_text": "5249-6249 BP",
       "chronology_conflict_note": "",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
-      "chronology_provenance_locator": "sample_accession:SAMEA5577361 || Table S1 sample ID:Gil1 || Archaeological sites and context section 9 \"Gilat, Israel\" (PDF page 6) || Archaeological sites and context section 9 \"Gilat, Israel\" (PDF page 6)",
+      "chronology_provenance_locator": "sample_accession:SAMEA5577361 || Table S1 sample ID:Gil1 || Archaeological sites and context section 9 \"Gilat, Israel\" (PDF page 6)",
       "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
@@ -6433,7 +6508,7 @@
       "chronology_text": "4999-5249 BP",
       "chronology_conflict_note": "",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
-      "chronology_provenance_locator": "sample_accession:SAMEA5577379 || Table S1 sample ID:Nah1 || Archaeological sites and context section 19 \"Nahal Tillah, Israel\" (PDF page 11) || Archaeological sites and context section 19 \"Nahal Tillah, Israel\" (PDF page 11)",
+      "chronology_provenance_locator": "sample_accession:SAMEA5577379 || Table S1 sample ID:Nah1 || Archaeological sites and context section 19 \"Nahal Tillah, Israel\" (PDF page 11)",
       "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
@@ -6568,7 +6643,7 @@
       "chronology_text": "7019-7269 BP",
       "chronology_conflict_note": "",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
-      "chronology_provenance_locator": "sample_accession:SAMEA5577388 || Table S1 sample ID:Pro1 || Archaeological sites and context section 22 \"Promachon, Serres, Greece\" (PDF page 13) || Archaeological sites and context section 22 \"Promachon, Serres, Greece\" (PDF page 13)",
+      "chronology_provenance_locator": "sample_accession:SAMEA5577388 || Table S1 sample ID:Pro1 || Archaeological sites and context section 22 \"Promachon, Serres, Greece\" (PDF page 13)",
       "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
@@ -6613,7 +6688,7 @@
       "chronology_text": "7549-7699 BP",
       "chronology_conflict_note": "",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
-      "chronology_provenance_locator": "sample_accession:SAMEA5577391 || Table S1 sample ID:Sar38 || Archaeological sites and context section 23 \"Sarakenos Cave, Boeotia, Greece\" (PDF page 14) || Archaeological sites and context section 23 \"Sarakenos Cave, Boeotia, Greece\" (PDF page 14)",
+      "chronology_provenance_locator": "sample_accession:SAMEA5577391 || Table S1 sample ID:Sar38 || Archaeological sites and context section 23 \"Sarakenos Cave, Boeotia, Greece\" (PDF page 14)",
       "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
@@ -7099,21 +7174,6 @@
     {
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
-      "repo_stable_sample_id": "prjeb75467:samea115574419",
-      "preferred_sample_label": "SAMEA115574419",
-      "chronology_strength": "unresolved",
-      "chronology_evidence_class": "unresolved",
-      "chronology_precision_posture": "unresolved",
-      "chronology_normalization_status": "unresolved",
-      "chronology_text": "",
-      "chronology_conflict_note": "",
-      "chronology_provenance_path": "",
-      "chronology_provenance_locator": "",
-      "review_note": "No chronology claim has been recovered yet for this sample row."
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "species_latin_name": "Bos taurus",
       "repo_stable_sample_id": "prjeb75467:samea115574420",
       "preferred_sample_label": "SAMEA115574420",
       "chronology_strength": "unresolved",
@@ -7354,36 +7414,6 @@
     {
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
-      "repo_stable_sample_id": "prjeb75467:samea115574441",
-      "preferred_sample_label": "SAMEA115574441",
-      "chronology_strength": "unresolved",
-      "chronology_evidence_class": "unresolved",
-      "chronology_precision_posture": "unresolved",
-      "chronology_normalization_status": "unresolved",
-      "chronology_text": "",
-      "chronology_conflict_note": "",
-      "chronology_provenance_path": "",
-      "chronology_provenance_locator": "",
-      "review_note": "No chronology claim has been recovered yet for this sample row."
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "species_latin_name": "Bos taurus",
-      "repo_stable_sample_id": "prjeb75467:samea115574442",
-      "preferred_sample_label": "SAMEA115574442",
-      "chronology_strength": "unresolved",
-      "chronology_evidence_class": "unresolved",
-      "chronology_precision_posture": "unresolved",
-      "chronology_normalization_status": "unresolved",
-      "chronology_text": "",
-      "chronology_conflict_note": "",
-      "chronology_provenance_path": "",
-      "chronology_provenance_locator": "",
-      "review_note": "No chronology claim has been recovered yet for this sample row."
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "species_latin_name": "Bos taurus",
       "repo_stable_sample_id": "prjeb75467:samea115574443",
       "preferred_sample_label": "SAMEA115574443",
       "chronology_strength": "unresolved",
@@ -7550,31 +7580,31 @@
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
       "repo_stable_sample_id": "prjeb75467:samea115574456",
-      "preferred_sample_label": "SAMEA115574456",
-      "chronology_strength": "unresolved",
-      "chronology_evidence_class": "unresolved",
-      "chronology_precision_posture": "unresolved",
-      "chronology_normalization_status": "unresolved",
-      "chronology_text": "",
+      "preferred_sample_label": "Zea1",
+      "chronology_strength": "sample_owned_interval",
+      "chronology_evidence_class": "modeled_sample_date",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_text": "6754-7744 BP",
       "chronology_conflict_note": "",
-      "chronology_provenance_path": "",
-      "chronology_provenance_locator": "",
-      "review_note": "No chronology claim has been recovered yet for this sample row."
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html",
+      "chronology_provenance_locator": "Supplementary Data 1!A36:Y36 || sample_accession:SAMEA115574456;submitted_filename_prefix:Zea1;tsv_lines:337,364,414,631,632 || sample_accession:SAMEA115574456",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
       "repo_stable_sample_id": "prjeb75467:samea115574457",
-      "preferred_sample_label": "SAMEA115574457",
-      "chronology_strength": "unresolved",
-      "chronology_evidence_class": "unresolved",
-      "chronology_precision_posture": "unresolved",
-      "chronology_normalization_status": "unresolved",
-      "chronology_text": "",
+      "preferred_sample_label": "Zea2",
+      "chronology_strength": "sample_owned_interval",
+      "chronology_evidence_class": "modeled_sample_date",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_text": "6748-7744 BP",
       "chronology_conflict_note": "",
-      "chronology_provenance_path": "",
-      "chronology_provenance_locator": "",
-      "review_note": "No chronology claim has been recovered yet for this sample row."
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html",
+      "chronology_provenance_locator": "Supplementary Data 1!A41:Y41 || sample_accession:SAMEA115574457;submitted_filename_prefix:Zea2;tsv_lines:367,415,416 || sample_accession:SAMEA115574457",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "project_accession": "PRJNA705960",
@@ -10169,6 +10199,21 @@
       "chronology_conflict_note": "",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx",
       "chronology_provenance_locator": "A!row14",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
+    },
+    {
+      "project_accession": "PRJNA1178732",
+      "species_latin_name": "Felis catus",
+      "repo_stable_sample_id": "prjna1178732:fs14",
+      "preferred_sample_label": "FS14",
+      "chronology_strength": "sample_owned_interval",
+      "chronology_evidence_class": "historical_or_recent_date",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
+      "chronology_normalization_status": "normalized_interval",
+      "chronology_text": "~3500 - 1800 BCE",
+      "chronology_conflict_note": "",
+      "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx",
+      "chronology_provenance_locator": "A!row15",
       "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {

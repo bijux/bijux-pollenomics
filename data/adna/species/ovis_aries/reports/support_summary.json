@@ -18444,71 +18444,6 @@
       {
         "identity": {
           "namespace": "ovis_aries:project_locality",
-          "stable_token": "ovis_aries:locality:prjeb41594:unresolved",
-          "locality_text": "",
-          "political_entity": "",
-          "source_anchor_tokens": [
-            "PRJEB41594",
-            "",
-            ""
-          ]
-        },
-        "species_latin_name": "Ovis aries",
-        "species_common_name": "sheep",
-        "source_family": "ENA",
-        "source_releases": [
-          "PRJEB41594"
-        ],
-        "record_modalities": [
-          "archive_reads"
-        ],
-        "review_strengths": [
-          "primary_paper_pinned"
-        ],
-        "provenance_qualities": [
-          "primary_paper_pinned"
-        ],
-        "locality": "",
-        "coordinates": {
-          "latitude": null,
-          "longitude": null,
-          "latitude_text": "",
-          "longitude_text": "",
-          "confidence": "unknown"
-        },
-        "sample_count": 5,
-        "sample_ids": [
-          "prjeb41594:samea8022720",
-          "prjeb41594:samea8022721",
-          "prjeb41594:samea8022722",
-          "prjeb41594:samea8022723",
-          "prjeb41594:samea8022724"
-        ],
-        "datasets": [
-          "ovis_aries:project:PRJEB41594"
-        ],
-        "chronology": {
-          "original_text": "",
-          "time_start_bp": null,
-          "time_end_bp": null,
-          "time_mean_bp": null,
-          "date_stddev_bp": "",
-          "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-          "evidence_class": "unresolved",
-          "precision_posture": "unresolved"
-        },
-        "sample_namespace": "ovis_aries:sample_locality",
-        "project_accessions": [
-          "PRJEB41594"
-        ],
-        "original_location_text": "",
-        "nordic_inclusion": false,
-        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
-        "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
-      },
-      {
-        "identity": {
-          "namespace": "ovis_aries:project_locality",
           "stable_token": "ovis_aries:locality:prjeb59481:kastelholm:finland",
           "locality_text": "Kastelholm",
           "political_entity": "Finland",
@@ -19238,6 +19173,14 @@
         "record_kind": "sample_record",
         "reason": "sample_evidence_not_yet_recoverable",
         "detail": "Source-native identity evidence remains available, but this placeholder is refused from normalized biological-sample artifacts: inclusion_status=sample_context_blocked; sample_evidence_status=not_yet_recoverable; sample_identity_resolution=provisional."
+      },
+      {
+        "schema_version": "adna-normalization-refusal.v1",
+        "species_latin_name": "Ovis aries",
+        "source_token": "PRJEB41594:unresolved",
+        "record_kind": "locality_records",
+        "reason": "locality_text_not_evidenced",
+        "detail": "The project evidence does not identify a locality for this lead, so no normalized locality or sample membership is emitted."
       },
       {
         "schema_version": "adna-normalization-refusal.v1",

@@ -5,6 +5,9 @@ from __future__ import annotations
 from bijux_pollenomics.reporting.adna.country_outputs.projection.species import (
     build_species_rows,
 )
+from bijux_pollenomics.reporting.adna.country_outputs.projection.summaries import (
+    published_chronology_value,
+)
 
 
 def test_species_extrema_use_younger_to_older_bp_interval_direction() -> None:
@@ -46,6 +49,14 @@ def test_species_rows_keep_domesticated_and_progenitor_scopes_separate() -> None
         ("domesticated_core", 1, 1200),
         ("wild_or_progenitor_context", 1, 8000),
     }
+
+
+def test_country_outputs_publish_admitted_caveated_numeric_chronology() -> None:
+    assert published_chronology_value(7296, "sample_approximate_or_modeled") == 7296
+    assert published_chronology_value(4700, "contextual_interval") == 4700
+    assert published_chronology_value(0, "sample_precise_point") == 0
+    assert published_chronology_value(5000, "broad_period_only") is None
+    assert published_chronology_value(None, "sample_approximate_or_modeled") is None
 
 
 def _locality(

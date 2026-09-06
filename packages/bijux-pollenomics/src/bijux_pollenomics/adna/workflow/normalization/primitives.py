@@ -86,6 +86,8 @@ def _coordinate_confidence_for(geographic_basis: str) -> str:
     basis = geographic_basis.casefold()
     if "exact" in basis:
         return "exact"
+    if "supplementary_proximal_site_coordinates" in basis:
+        return "approximate"
     if "named_site_geocoding" in basis:
         return "approximate"
     if any(

@@ -7,7 +7,7 @@
 | Project | Species | Recovery status | Next required stage | Blocking stages |
 | --- | --- | --- | --- | --- |
 | `PRJEB31621` | `Bos taurus` | `blocked_projects` | `site_recovery` | `coordinate_derivation; publication_readiness` |
-| `PRJEB75467` | `Bos taurus` | `blocked_projects` | `site_recovery` | `coordinate_derivation; publication_readiness` |
+| `PRJEB75467` | `Bos taurus` | `blocked_projects` | `site_recovery` | `publication_readiness` |
 | `PRJNA705960` | `Bos taurus` | `blocked_projects` | `paper_capture` | `paper_capture; coordinate_derivation; publication_readiness` |
 | `KU605068-KU605080` | `Camelus dromedarius` | `ready_for_publication_review` | `coordinate_derivation` | `none` |
 | `SRP073444` | `Camelus dromedarius` | `blocked_projects` | `sample_identity_recovery` | `sample_identity_recovery; site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |

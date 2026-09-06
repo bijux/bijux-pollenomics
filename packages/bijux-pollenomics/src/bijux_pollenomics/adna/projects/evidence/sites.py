@@ -15,6 +15,10 @@ from ..sample_master.tables.baltic_sheep import (
     baltic_sheep_official_evidence_available,
     load_baltic_sheep_official_evidence,
 )
+from ..sample_master.tables.aurochs_natural_history.evidence import (
+    AUROCHS_NATURAL_HISTORY_SHEET,
+    AUROCHS_NATURAL_HISTORY_WORKBOOK_PATH,
+)
 
 __all__ = [
     "build_species_site_evidence_rows",
@@ -25,6 +29,35 @@ __all__ = [
 
 def _doi_url(doi: str) -> str:
     return f"https://doi.org/{doi}" if doi else ""
+
+
+def _join_source_components(values: list[str]) -> str:
+    components: list[str] = []
+    for value in values:
+        for component in value.split(" || "):
+            component = component.strip()
+            if component and component not in components:
+                components.append(component)
+    return " || ".join(components)
+
+
+def _aurochs_workbook_locators(
+    rows: list[AdnaProjectSampleMasterRow],
+) -> str:
+    return _join_source_components(
+        [
+            component
+            for row in rows
+            for component in row.sample_lineage_locator.split(" || ")
+            if component.startswith(f"{AUROCHS_NATURAL_HISTORY_SHEET}!")
+        ]
+    )
+
+
+def _aurochs_workbook_excerpts(rows: list[AdnaProjectSampleMasterRow]) -> str:
+    return _join_source_components(
+        [row.sample_lineage_excerpt.split(" || ", 1)[0] for row in rows]
+    )
 
 
 _PROJECT_SITE_EVIDENCE: dict[str, tuple[AdnaSiteEvidenceRecord, ...]] = {
@@ -400,8 +433,8 @@ def _direct_sample_site_rows(
         grouped.setdefault(key, []).append(row)
     if not grouped:
         return ()
-    paper_doi, paper_url, project_scope, comparator_context = (
-        _project_evidence_context(project_accession)
+    paper_doi, paper_url, project_scope, comparator_context = _project_evidence_context(
+        project_accession
     )
     pig_evidence = (
         {
@@ -439,6 +472,8 @@ def _direct_sample_site_rows(
                 source_artifact_path=(
                     baltic_sheep_sample.archive.source_path
                     if baltic_sheep_sample is not None
+                    else AUROCHS_NATURAL_HISTORY_WORKBOOK_PATH
+                    if project_accession == "PRJEB75467"
                     else first.sample_lineage_path
                 ),
                 source_artifact_kind=(
@@ -449,11 +484,15 @@ def _direct_sample_site_rows(
                 source_locator=(
                     baltic_sheep_sample.archive.description_source_locator
                     if baltic_sheep_sample is not None
+                    else _aurochs_workbook_locators(group)
+                    if project_accession == "PRJEB75467"
                     else first.sample_lineage_locator
                 ),
                 exact_source_text=(
                     baltic_sheep_sample.archive.description
                     if baltic_sheep_sample is not None
+                    else _aurochs_workbook_excerpts(group)
+                    if project_accession == "PRJEB75467"
                     else first.sample_lineage_excerpt
                 ),
                 source_support_status=(
@@ -469,6 +508,8 @@ def _direct_sample_site_rows(
                 coordinate_basis=(
                     "archive_coordinates"
                     if baltic_sheep_sample is not None
+                    else "supplementary_proximal_site_coordinates"
+                    if project_accession == "PRJEB75467"
                     else "supplementary_table_coordinates"
                     if first.latitude_text and first.longitude_text and pig_site is None
                     else pig_site.coordinate_basis

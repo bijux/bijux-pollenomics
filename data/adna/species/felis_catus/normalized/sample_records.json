@@ -7625,7 +7625,7 @@
         "date_stddev_bp": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_approximate_or_modeled"
       },
       "data_type": "supplementary_table_sample_context",
       "molecular_sex": "",

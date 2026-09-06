@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+
 import pytest
 
 from bijux_pollenomics.adna.projects.registry.archive_samples import (
@@ -23,6 +25,31 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
+    def test_materialized_lineage_components_are_unique(self) -> None:
+        projects_root = (
+            self.data_root / "adna/governance/source_library/projects"
+        )
+        duplicates = []
+        for path in sorted(projects_root.glob("*/sample_master.json")):
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            for row in payload["rows"]:
+                for field in (
+                    "sample_lineage_path",
+                    "sample_lineage_locator",
+                    "sample_lineage_excerpt",
+                ):
+                    components = [
+                        component.strip()
+                        for component in row[field].split(" || ")
+                        if component.strip()
+                    ]
+                    if len(components) != len(set(components)):
+                        duplicates.append(
+                            (path.parent.name, row["repo_stable_sample_id"], field)
+                        )
+
+        self.assertFalse(duplicates)
+
     def test_recovery_target_raw_identity_taxonomy_and_receipts_close_exactly(
         self,
     ) -> None:
@@ -103,10 +130,9 @@ class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
                 or row.supplementary_table_sample_label,
             ): row
             for row in master_rows
-            if not (
-                row.project_accession == "PRJEB31621"
-                and row.sample_identity_resolution == "provisional"
-            )
+            if row.archive_native_sample_id
+            or row.archive_native_experiment_id
+            or row.sample_identity_resolution == "final"
         }
         self.assertEqual(len(raw_expected), 634)
         self.assertEqual(set(master_by_source_identity), set(raw_expected))
@@ -161,7 +187,7 @@ class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
             if row.sample_identity_resolution == "final"
             and row.sample_evidence_status != "experiment_level_only"
         }
-        self.assertEqual(len(all_master_rows), 1474)
+        self.assertEqual(len(all_master_rows), 1475)
         self.assertEqual(len(admitted_master_by_identity), 1450)
         self.assertEqual(set(normalized_by_master), set(admitted_master_by_identity))
         for key, normalized in normalized_by_master.items():

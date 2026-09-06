@@ -42,7 +42,8 @@
       "source_native_scientific_name": "",
       "taxon_alignment_status": "not_reported",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample"
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Capra hircus",
@@ -72,7 +73,8 @@
       "source_native_scientific_name": "",
       "taxon_alignment_status": "not_reported",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample"
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Capra hircus",
@@ -102,7 +104,8 @@
       "source_native_scientific_name": "",
       "taxon_alignment_status": "not_reported",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample"
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Capra hircus",
@@ -132,7 +135,8 @@
       "source_native_scientific_name": "",
       "taxon_alignment_status": "not_reported",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample"
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Capra hircus",
@@ -162,7 +166,8 @@
       "source_native_scientific_name": "",
       "taxon_alignment_status": "not_reported",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample"
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     }
   ]
 }

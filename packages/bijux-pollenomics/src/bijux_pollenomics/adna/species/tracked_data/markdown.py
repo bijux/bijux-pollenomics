@@ -31,6 +31,7 @@ def _render_species_root_readme(output_root: Path, species_name: str) -> str:
         and row.coordinate_basis
         in {
             "direct_published_coordinates",
+            "supplementary_proximal_site_coordinates",
             "supplementary_table_coordinates",
             "archive_coordinates",
         }

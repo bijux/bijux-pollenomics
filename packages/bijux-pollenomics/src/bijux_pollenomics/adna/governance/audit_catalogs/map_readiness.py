@@ -147,6 +147,7 @@ def _build_species_map_readiness_row(
         "archive_coordinates",
         "direct_published_coordinates",
         "named_site_geocoding",
+        "supplementary_proximal_site_coordinates",
         "supplementary_table_coordinates",
     }
     unknown_mappable_bases = sorted(
@@ -170,6 +171,7 @@ def _build_species_map_readiness_row(
         and str(row.get("coordinate_basis", ""))
         in {
             "direct_published_coordinates",
+            "supplementary_proximal_site_coordinates",
             "supplementary_table_coordinates",
             "archive_coordinates",
         }
@@ -250,6 +252,7 @@ def _map_publication_accounting(
                 "archive_coordinates",
                 "direct_published_coordinates",
                 "named_site_geocoding",
+                "supplementary_proximal_site_coordinates",
                 "supplementary_table_coordinates",
             }:
                 raise ValueError(
@@ -273,6 +276,7 @@ def _map_publication_accounting(
                     "source_artifact_path": provenance.get("source_artifact_path", ""),
                     "source_locator": provenance.get("source_locator", ""),
                     "reason_code": _not_materialized_reason_code(
+                        species_root=species_root,
                         provenance=provenance,
                         sample_rows=sample_rows,
                         locality_rows=locality_rows,
@@ -295,6 +299,7 @@ def _map_publication_accounting(
 
 def _not_materialized_reason_code(
     *,
+    species_root: Path,
     provenance: dict[str, object],
     sample_rows: list[dict[str, object]],
     locality_rows: list[dict[str, object]],
@@ -306,6 +311,12 @@ def _not_materialized_reason_code(
     )
     from bijux_pollenomics.reporting.adna.atlas_evidence_rows.sample_support import (
         _atlas_admitted_sample_rows,
+    )
+    from bijux_pollenomics.reporting.adna.atlas_evidence_rows.source_records import (
+        _load_project_animal_scope_lookup,
+    )
+    from bijux_pollenomics.reporting.adna.atlas_evidence_rows.validation import (
+        _project_sample_animal_scope_resolution_for,
     )
 
     project_accession = str(provenance.get("project_accession", "")).strip()
@@ -338,6 +349,14 @@ def _not_materialized_reason_code(
         _sample_stable_token(row) for row in locality_samples
     ):
         return "no_admitted_sample_backed_locality_candidate"
+    animal_scope, scope_refusal = _project_sample_animal_scope_resolution_for(
+        species_root,
+        _load_project_animal_scope_lookup(species_root),
+        project_accessions=tuple(sorted(project_accessions)),
+        sample_rows=locality_samples,
+    )
+    if animal_scope is None:
+        return scope_refusal or "sample_scope_not_evidenced"
     chronology = locality.get("chronology")
     if not _atlas_chronology_supports_publication(
         _atlas_public_chronology(

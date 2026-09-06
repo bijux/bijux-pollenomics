@@ -124,6 +124,19 @@ def test_animal_atlas_evidence_rows_keep_traceability_fields_and_point_filter() 
                 ],
             },
         )
+        _write_json(
+            species_root / "normalized" / "project_summaries.json",
+            {
+                "projects": [
+                    {
+                        "project_accession": "PRJEB59481",
+                        "support_class": "domesticated_core_curated",
+                        "domestication_scope": "domesticated_core",
+                        "comparator_status": False,
+                    }
+                ]
+            },
+        )
         sample_path = species_root / "normalized" / "sample_records.json"
         sample_payload = json.loads(sample_path.read_text(encoding="utf-8"))
         blocked_sample = copy.deepcopy(sample_payload["samples"][0])

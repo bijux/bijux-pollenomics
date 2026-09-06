@@ -275,7 +275,7 @@
       "expected_sample_count_status": "not_yet_curated",
       "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
       "expected_sample_count_artifact_path": "",
-      "recovered_sample_count": 44,
+      "recovered_sample_count": 45,
       "unresolved_sample_count": null,
       "final_sample_count": 44,
       "ambiguity_row_count": 0,

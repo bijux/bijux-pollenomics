@@ -27,7 +27,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertTrue(bundle.lineage_records)
         self.assertTrue(bundle.refusals)
         self.assertEqual(len(bundle.sample_records), 550)
-        self.assertEqual(len(bundle.locality_records), 240)
+        self.assertEqual(len(bundle.locality_records), 239)
         self.assertEqual(len(bundle.coordinate_provenance_records), 208)
         project = next(
             item

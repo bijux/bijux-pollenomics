@@ -130,8 +130,21 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
                 if row.coordinate_basis == "withheld_sample_coordinate"
             )
         )
-        self.assertTrue(all(row.time_start_bp is None for row in rows))
-        self.assertTrue(all(row.time_end_bp is None for row in rows))
+        numeric_rows = tuple(
+            row
+            for row in rows
+            if row.time_start_bp is not None and row.time_end_bp is not None
+        )
+        self.assertEqual(len(numeric_rows), 45)
+        self.assertTrue(
+            all(row.time_start_bp <= row.time_end_bp for row in numeric_rows)
+        )
+        self.assertEqual(
+            sum(
+                row.time_start_bp is None and row.time_end_bp is None for row in rows
+            ),
+            42,
+        )
         self.assertTrue(
             all("transect" not in row.site_label.casefold() for row in rows)
         )

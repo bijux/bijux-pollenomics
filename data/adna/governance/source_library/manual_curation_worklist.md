@@ -7,9 +7,9 @@
 | `PRJEB31621` | `Bos taurus` | `chronology_recovery` | `pending_source_recovery` | `91` | blocks chronology honesty and publication precision |
 | `PRJEB31621` | `Bos taurus` | `locality_string_resolution` | `pending_manual_curation` | `12` | blocks coordinate derivation and exact locality publication |
 | `PRJEB31621` | `Bos taurus` | `site_resolution` | `pending_manual_curation` | `12` | blocks exact site, coordinate, and publication recovery |
-| `PRJEB75467` | `Bos taurus` | `chronology_recovery` | `pending_source_recovery` | `88` | blocks chronology honesty and publication precision |
-| `PRJEB75467` | `Bos taurus` | `locality_string_resolution` | `pending_manual_curation` | `44` | blocks coordinate derivation and exact locality publication |
-| `PRJEB75467` | `Bos taurus` | `site_resolution` | `pending_manual_curation` | `44` | blocks exact site, coordinate, and publication recovery |
+| `PRJEB75467` | `Bos taurus` | `chronology_recovery` | `pending_source_recovery` | `80` | blocks chronology honesty and publication precision |
+| `PRJEB75467` | `Bos taurus` | `locality_string_resolution` | `pending_manual_curation` | `39` | blocks coordinate derivation and exact locality publication |
+| `PRJEB75467` | `Bos taurus` | `site_resolution` | `pending_manual_curation` | `39` | blocks exact site, coordinate, and publication recovery |
 | `PRJNA705960` | `Bos taurus` | `chronology_recovery` | `pending_source_recovery` | `22` | blocks chronology honesty and publication precision |
 | `PRJNA705960` | `Bos taurus` | `locality_string_resolution` | `pending_manual_curation` | `11` | blocks coordinate derivation and exact locality publication |
 | `PRJNA705960` | `Bos taurus` | `site_resolution` | `pending_manual_curation` | `11` | blocks exact site, coordinate, and publication recovery |

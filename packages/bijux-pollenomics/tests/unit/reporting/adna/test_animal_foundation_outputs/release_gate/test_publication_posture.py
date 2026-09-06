@@ -13,6 +13,7 @@ from bijux_pollenomics.reporting.adna.foundation_outputs.recovery import (
     build_animal_sample_database_review,
 )
 from bijux_pollenomics.reporting.adna.foundation_outputs.release import (
+    _unsupported_numeric_chronology_exposed,
     build_animal_publication_release_gate,
 )
 from bijux_pollenomics.reporting.adna.foundation_outputs.review import (
@@ -31,6 +32,37 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class AnimalPublicationPostureTests(AnimalFoundationOutputsTestCase):
+    def test_release_gate_accepts_only_governed_numeric_precision_postures(
+        self,
+    ) -> None:
+        assert not _unsupported_numeric_chronology_exposed(
+            {
+                "precision_posture": "contextual_interval",
+                "time_start_bp": 100,
+                "time_end_bp": 200,
+            }
+        )
+        assert not _unsupported_numeric_chronology_exposed(
+            {
+                "precision_posture": "sample_approximate_or_modeled",
+                "time_start_bp": 100,
+                "time_end_bp": 200,
+            }
+        )
+        assert _unsupported_numeric_chronology_exposed(
+            {
+                "precision_posture": "broad_period_only",
+                "time_start_bp": 100,
+                "time_end_bp": 200,
+            }
+        )
+        assert _unsupported_numeric_chronology_exposed(
+            {"time_start_bp": 100, "time_end_bp": 200}
+        )
+        assert not _unsupported_numeric_chronology_exposed(
+            {"precision_posture": "broad_period_only"}
+        )
+
     def test_foundation_review_and_release_gate_keep_public_posture_honest(
         self,
     ) -> None:

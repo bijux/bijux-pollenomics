@@ -4,8 +4,8 @@
   "species_with_source_snapshots": 10,
   "species_with_coordinate_provenance": 10,
   "species_with_locality_artifacts": 10,
-  "species_with_country_outputs": 2,
-  "species_with_atlas_localities": 5,
+  "species_with_country_outputs": 3,
+  "species_with_atlas_localities": 6,
   "rows": [
     {
       "species_latin_name": "Equus caballus",
@@ -19,7 +19,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 2,
-      "atlas_locality_count": 203,
+      "atlas_locality_count": 78,
       "mappable_coordinate_count": 208,
       "region_refused_coordinate_count": 0,
       "unresolved_sample_count": 2,
@@ -54,7 +54,7 @@
       "normalized_locality_artifact_present": true,
       "review_markdown_present": true,
       "review_json_present": true,
-      "country_output_count": 0,
+      "country_output_count": 2,
       "atlas_locality_count": 2,
       "mappable_coordinate_count": 2,
       "region_refused_coordinate_count": 0,
@@ -73,10 +73,10 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_locality_count": 0,
-      "mappable_coordinate_count": 0,
+      "atlas_locality_count": 4,
+      "mappable_coordinate_count": 5,
       "region_refused_coordinate_count": 1,
-      "unresolved_sample_count": 67,
+      "unresolved_sample_count": 62,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -127,7 +127,7 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_locality_count": 40,
+      "atlas_locality_count": 39,
       "mappable_coordinate_count": 40,
       "region_refused_coordinate_count": 0,
       "unresolved_sample_count": 0,
@@ -189,7 +189,6 @@
     }
   ],
   "missing_public_outputs": [
-    "Bos taurus",
     "Canis lupus familiaris",
     "Camelus dromedarius",
     "Rangifer tarandus",

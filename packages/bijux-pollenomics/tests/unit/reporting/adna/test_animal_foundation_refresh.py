@@ -8,8 +8,12 @@ from unittest.mock import patch
 import pytest
 
 from bijux_pollenomics.config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
+from bijux_pollenomics.adna.workflow.source_artifacts import (
+    read_source_artifact_bytes,
+)
 from bijux_pollenomics.reporting.models import PublishedReportsReport
 from bijux_pollenomics.reporting.service import refresh_animal_adna_foundation
+from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts
 
@@ -25,6 +29,20 @@ class AnimalFoundationRefreshUnitTests(unittest.TestCase):
             report_root = tmp_root / "docs" / "report"
 
             def fake_downloader(url: str) -> tuple[bytes, str]:
+                if "/ena/browser/api/xml/SAMEA11296029" in url:
+                    accession = url.rsplit("/", 1)[-1]
+                    path = (
+                        REPOSITORY_ROOT
+                        / "data/adna/governance/source_library/projects/PRJEB59481/ena_samples"
+                        / f"{accession}.xml"
+                    )
+                    return (read_source_artifact_bytes(path), "application/xml")
+                if url.endswith("/PMC11162877/fullTextXML"):
+                    path = REPOSITORY_ROOT / (
+                        "data/adna/governance/source_library/papers/"
+                        "10.1093-gbe-evae114/article_full_text.xml"
+                    )
+                    return (read_source_artifact_bytes(path), "application/xml")
                 if url.endswith(".pdf"):
                     return (b"%PDF-1.4\n", "application/pdf")
                 if url.endswith(".zip"):

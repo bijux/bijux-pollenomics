@@ -374,19 +374,29 @@ def _resolve_row_context(
                     "lat_lon pair; this supports map placement without implying an "
                     "exact specimen findspot."
                 )
+            elif project.project_accession == "PRJEB75467":
+                coordinate_basis = "supplementary_proximal_site_coordinates"
+                inclusion_note = (
+                    "The supplementary workbook identifies this coordinate as "
+                    "proximal to the site; it supports approximate locality "
+                    "placement without implying an exact specimen findspot."
+                )
             elif not coordinate_basis:
                 coordinate_basis = "supplementary_table_coordinates"
         if getattr(master_row, "chronology_text", ""):
             chronology_text = master_row.chronology_text
-            if project.project_accession == "PRJEB59481":
-                from ...workflow.normalization import normalize_chronology_text
+            from ...workflow.normalization import normalize_chronology_text
 
-                chronology = normalize_chronology_text(
-                    chronology_text,
-                    dating_basis=master_row.chronology_dating_basis,
-                )
-                time_start_bp = chronology.time_start_bp
-                time_end_bp = chronology.time_end_bp
+            chronology = normalize_chronology_text(
+                chronology_text,
+                dating_basis=(
+                    master_row.chronology_dating_basis
+                    or project.dating_basis
+                    or "unknown"
+                ),
+            )
+            time_start_bp = chronology.time_start_bp
+            time_end_bp = chronology.time_end_bp
             if lead is None:
                 inclusion_note = (
                     "This sample row keeps chronology recovered from the sample-owned source row, "

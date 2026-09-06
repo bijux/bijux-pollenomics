@@ -94,7 +94,12 @@ def published_chronology_value(
     value: int | None,
     precision_posture: str,
 ) -> int | None:
-    """Suppress chronology values that lack sample-precise evidence."""
-    if precision_posture not in {"sample_precise_point", "sample_precise_interval"}:
+    """Publish admitted numeric chronology without hiding its caveat posture."""
+    if precision_posture not in {
+        "sample_precise_point",
+        "sample_precise_interval",
+        "sample_approximate_or_modeled",
+        "contextual_interval",
+    }:
         return None
     return value

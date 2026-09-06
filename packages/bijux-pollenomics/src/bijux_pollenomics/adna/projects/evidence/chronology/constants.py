@@ -37,7 +37,7 @@ _MODELED_DATE_RE = re.compile(
 
 
 _APPROXIMATE_DATE_RE = re.compile(
-    r"\b(ca\.?|circa|around|approx(?:\.|imately)?|c\.)\b",
+    r"(?:~|\b(?:ca\.?|circa|around|approx(?:\.|imately)?|c\.)\b)",
     re.IGNORECASE,
 )
 

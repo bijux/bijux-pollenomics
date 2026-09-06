@@ -6,6 +6,7 @@ from .models import AnimalAtlasCoordinateReview, AnimalAtlasEvidenceRow
 
 _DIRECT_COORDINATE_BASES = {
     "direct_published_coordinates",
+    "supplementary_proximal_site_coordinates",
     "supplementary_table_coordinates",
     "archive_coordinates",
 }

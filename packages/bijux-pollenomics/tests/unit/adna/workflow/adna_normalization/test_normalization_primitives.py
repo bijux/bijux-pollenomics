@@ -88,6 +88,25 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertIsNone(vague.time_start_bp)
         self.assertEqual(vague.dating_basis, "archaeological_period")
 
+    def test_normalize_chronology_text_refuses_censored_bounds(self) -> None:
+        for source_text in (
+            ">49900 BP",
+            ">=49900 BP",
+            "≥49900 BP",
+            "<1200 BP",
+            "<=1200 BP",
+            "≤1200 BP",
+        ):
+            with self.subTest(source_text=source_text):
+                chronology = normalize_chronology_text(
+                    source_text,
+                    dating_basis="radiocarbon",
+                )
+                self.assertEqual(chronology.original_text, source_text)
+                self.assertIsNone(chronology.time_start_bp)
+                self.assertIsNone(chronology.time_end_bp)
+                self.assertIsNone(chronology.time_mean_bp)
+
     def test_normalize_explicit_bp_window_refuses_inverted_ranges(self) -> None:
         chronology = normalize_explicit_bp_window(
             1200,

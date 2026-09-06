@@ -121,7 +121,7 @@
       "chronology_text": "~3500 - 1800 BCE",
       "chronology_strength": "sample_owned_interval",
       "chronology_evidence_class": "historical_or_recent_date",
-      "chronology_precision_posture": "sample_precise_interval",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "A!row15",

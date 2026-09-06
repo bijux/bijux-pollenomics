@@ -6,6 +6,7 @@ from collections import Counter
 
 import pytest
 
+from bijux_pollenomics.adna import ADNA_DATING_BASES
 from bijux_pollenomics.adna.projects.sample_master import (
     build_project_sample_master_rows,
 )
@@ -53,6 +54,29 @@ def test_sample_master_enriches_only_five_archive_samples_and_keeps_fre1_refused
         "Zea1": 7302,
         "Zea2": 7296,
     }
+    assert {
+        label: by_label[label].chronology_dating_basis
+        for label in ("Hjo1", "Ska1", "Ska3", "Zea1", "Zea2")
+    } == {
+        "Hjo1": "radiocarbon",
+        "Ska1": "radiocarbon",
+        "Ska3": "radiocarbon",
+        "Zea1": "mitochondrial_phylogenetic_model",
+        "Zea2": "mitochondrial_phylogenetic_model",
+    }
+    assert all(
+        by_label[label].chronology_dating_basis in ADNA_DATING_BASES
+        for label in ("Hjo1", "Ska1", "Ska3", "Zea1", "Zea2")
+    )
+    for label in ("Hjo1", "Ska1", "Ska3", "Zea1", "Zea2"):
+        row = by_label[label]
+        for lineage_value in (
+            row.sample_lineage_path,
+            row.sample_lineage_locator,
+            row.sample_lineage_excerpt,
+        ):
+            components = lineage_value.split(" || ")
+            assert len(components) == len(set(components))
 
     fre1 = by_label["Fre1"]
     assert fre1.archive_native_sample_id == ""

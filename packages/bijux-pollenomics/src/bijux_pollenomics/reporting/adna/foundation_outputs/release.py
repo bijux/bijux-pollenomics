@@ -145,19 +145,19 @@ def build_animal_publication_release_gate(
             in substitution_blocked_projects
         }
     )
-    imprecise_country_chronology_rows = sorted(
+    unsupported_numeric_country_chronology_rows = sorted(
         {
             str(locality.get("feature_id", "")).strip()
             for payload in country_payloads
             for locality in payload.get("localities", [])
-            if _public_chronology_window_exposed(locality)
+            if _unsupported_numeric_chronology_exposed(locality)
         }
     )
-    imprecise_atlas_chronology_rows = sorted(
+    unsupported_numeric_atlas_chronology_rows = sorted(
         {
             str(row.get("feature_id", "")).strip()
             for row in atlas_rows
-            if _public_chronology_window_exposed(row.get("chronology", {}))
+            if _unsupported_numeric_chronology_exposed(row.get("chronology", {}))
         }
     )
     point_row_count = int(
@@ -237,10 +237,14 @@ def build_animal_publication_release_gate(
             substitution_blocked_country_rows + substitution_blocked_atlas_rows,
         ),
         _check_row(
-            "broad_or_contextual_chronology_does_not_publish_numeric_windows",
-            not (imprecise_country_chronology_rows or imprecise_atlas_chronology_rows),
-            "Public country and atlas outputs do not expose numeric chronology windows when the underlying chronology posture is broad, contextual, or approximate.",
-            imprecise_country_chronology_rows + imprecise_atlas_chronology_rows,
+            "numeric_chronology_keeps_supported_precision_posture",
+            not (
+                unsupported_numeric_country_chronology_rows
+                or unsupported_numeric_atlas_chronology_rows
+            ),
+            "Public numeric chronology is limited to precise or explicitly caveated intervals; broad, unresolved, missing, and unknown precision postures remain nonnumeric.",
+            unsupported_numeric_country_chronology_rows
+            + unsupported_numeric_atlas_chronology_rows,
         ),
         _check_row(
             "temporal_semantics_keep_contextual_rows_from_looking_numeric",
@@ -308,11 +312,16 @@ def _sample_row_has_numeric_chronology(row: dict[str, Any]) -> bool:
     )
 
 
-def _public_chronology_window_exposed(payload: dict[str, Any]) -> bool:
+def _unsupported_numeric_chronology_exposed(payload: dict[str, Any]) -> bool:
     precision_posture = str(payload.get("chronology_precision_posture", "")).strip()
     if not precision_posture and isinstance(payload.get("precision_posture"), str):
         precision_posture = str(payload.get("precision_posture", "")).strip()
-    if precision_posture in {"sample_precise_point", "sample_precise_interval", ""}:
+    if precision_posture in {
+        "sample_precise_point",
+        "sample_precise_interval",
+        "sample_approximate_or_modeled",
+        "contextual_interval",
+    }:
         return False
     return any(
         payload.get(field) is not None

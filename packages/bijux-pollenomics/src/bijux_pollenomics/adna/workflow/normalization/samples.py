@@ -1,10 +1,12 @@
 """Sample-level evidence normalization and refusal accounting."""
 
 from __future__ import annotations
+from dataclasses import replace
 from pathlib import Path
 import re
 from ....core.repository import repository_data_root
 from bijux_pollenomics.adna.domain.models import (
+    AdnaChronology,
     AdnaCoordinate,
     AdnaLocalityIdentity,
     AdnaSampleIdentity,
@@ -120,7 +122,10 @@ def _build_sample_records(
             )
         )
         chronology = _apply_chronology_semantics(
-            normalized_chronology,
+            _chronology_with_source_mean(
+                normalized_chronology,
+                None if chronology_row is None else chronology_row.time_mean_bp,
+            ),
             evidence_class=(
                 chronology_row.chronology_evidence_class
                 if chronology_row is not None
@@ -273,6 +278,31 @@ def _build_sample_records(
     sample_records.sort(key=lambda item: (item.project_accession, item.genetic_id))
     refusals.sort(key=lambda item: item.source_token)
     return tuple(sample_records), tuple(refusals)
+
+
+def _chronology_with_source_mean(
+    chronology: AdnaChronology,
+    source_mean_bp: int | None,
+) -> AdnaChronology:
+    if source_mean_bp is None:
+        return chronology
+    if (
+        isinstance(source_mean_bp, bool)
+        or not isinstance(source_mean_bp, int)
+        or source_mean_bp < 0
+    ):
+        raise ValueError(
+            "sample-owned chronology mean must be a nonnegative integer BP"
+        )
+    younger_bp = chronology.time_start_bp
+    older_bp = chronology.time_end_bp
+    if (
+        younger_bp is None
+        or older_bp is None
+        or not younger_bp <= source_mean_bp <= older_bp
+    ):
+        raise ValueError("sample-owned chronology mean must lie inside its BP interval")
+    return replace(chronology, time_mean_bp=source_mean_bp)
 
 
 RECOVERED_SAMPLE_EVIDENCE_STATUSES = frozenset(

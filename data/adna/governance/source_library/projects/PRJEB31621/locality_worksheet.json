@@ -21,7 +21,7 @@
       "geocoding_safe_token": "abugosh",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
       "source_artifact_kind": "supplementary_pdf_text",
-      "source_locator": "sample_accession:SAMEA5577344 || Table S1 sample ID:Abu1 || Archaeological sites and context section 1 \"Abu Gosh, Israel\" (PDF page 2) || Archaeological sites and context section 1 \"Abu Gosh, Israel\" (PDF page 2)",
+      "source_locator": "sample_accession:SAMEA5577344 || Table S1 sample ID:Abu1 || Archaeological sites and context section 1 \"Abu Gosh, Israel\" (PDF page 2)",
       "source_excerpt": "Archive taxonomy Bos primigenius (tax_id 9909) | supplement sample Abu1 | Abu Gosh | 7500-6000 BCE"
     },
     {
@@ -161,7 +161,7 @@
       "geocoding_safe_token": "gilat",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
       "source_artifact_kind": "supplementary_pdf_text",
-      "source_locator": "sample_accession:SAMEA5577361 || Table S1 sample ID:Gil1 || Archaeological sites and context section 9 \"Gilat, Israel\" (PDF page 6) || Archaeological sites and context section 9 \"Gilat, Israel\" (PDF page 6)",
+      "source_locator": "sample_accession:SAMEA5577361 || Table S1 sample ID:Gil1 || Archaeological sites and context section 9 \"Gilat, Israel\" (PDF page 6)",
       "source_excerpt": "Archive taxonomy Bos taurus (tax_id 9913) | supplement sample Gil1 | Gilat | c.4300–3300 BC"
     },
     {
@@ -361,7 +361,7 @@
       "geocoding_safe_token": "nahaltillah",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
       "source_artifact_kind": "supplementary_pdf_text",
-      "source_locator": "sample_accession:SAMEA5577379 || Table S1 sample ID:Nah1 || Archaeological sites and context section 19 \"Nahal Tillah, Israel\" (PDF page 11) || Archaeological sites and context section 19 \"Nahal Tillah, Israel\" (PDF page 11)",
+      "source_locator": "sample_accession:SAMEA5577379 || Table S1 sample ID:Nah1 || Archaeological sites and context section 19 \"Nahal Tillah, Israel\" (PDF page 11)",
       "source_excerpt": "Archive taxonomy Bos taurus (tax_id 9913) | supplement sample Nah1 | Nahal Tillah | 3300-3050 BC"
     },
     {
@@ -421,7 +421,7 @@
       "geocoding_safe_token": "promachonserres",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
       "source_artifact_kind": "supplementary_pdf_text",
-      "source_locator": "sample_accession:SAMEA5577388 || Table S1 sample ID:Pro1 || Archaeological sites and context section 22 \"Promachon, Serres, Greece\" (PDF page 13) || Archaeological sites and context section 22 \"Promachon, Serres, Greece\" (PDF page 13)",
+      "source_locator": "sample_accession:SAMEA5577388 || Table S1 sample ID:Pro1 || Archaeological sites and context section 22 \"Promachon, Serres, Greece\" (PDF page 13)",
       "source_excerpt": "Archive taxonomy Bos taurus (tax_id 9913) | supplement sample Pro1 | Promachon, Serres | 5320-5070 Cal. BC"
     },
     {
@@ -441,7 +441,7 @@
       "geocoding_safe_token": "sarakenoscaveboeotia",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
       "source_artifact_kind": "supplementary_pdf_text",
-      "source_locator": "sample_accession:SAMEA5577391 || Table S1 sample ID:Sar38 || Archaeological sites and context section 23 \"Sarakenos Cave, Boeotia, Greece\" (PDF page 14) || Archaeological sites and context section 23 \"Sarakenos Cave, Boeotia, Greece\" (PDF page 14)",
+      "source_locator": "sample_accession:SAMEA5577391 || Table S1 sample ID:Sar38 || Archaeological sites and context section 23 \"Sarakenos Cave, Boeotia, Greece\" (PDF page 14)",
       "source_excerpt": "Archive taxonomy Bos taurus (tax_id 9913) | supplement sample Sar38 | Sarakenos Cave, Boeotia | 5750-5600 BC"
     },
     {
@@ -481,7 +481,7 @@
       "geocoding_safe_token": "suberdeanderbaba",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
       "source_artifact_kind": "supplementary_pdf_text",
-      "source_locator": "sample_accession:SAMEA5577393 || Table S1 sample ID:Sub1 || Archaeological sites and context section 25 \"Suberde and Erbaba, Turkey\" (PDF page 15) || Archaeological sites and context section 25 \"Suberde and Erbaba, Turkey\" (PDF page 15)",
+      "source_locator": "sample_accession:SAMEA5577393 || Table S1 sample ID:Sub1 || Archaeological sites and context section 25 \"Suberde and Erbaba, Turkey\" (PDF page 15)",
       "source_excerpt": "Archive taxonomy Bos taurus (tax_id 9913) | supplement sample Sub1 | Suberde and Erbaba | 6020-6140 cal BC in the section narrative; 6221-6024 cal. BC in the section table | The primary supplement gives two non-identical calibrated intervals and retains Suberde-versus-Erbaba curation history; numeric chronology and an exact single-site claim must remain withheld."
     },
     {
@@ -561,7 +561,7 @@
       "geocoding_safe_token": "teldan",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf",
       "source_artifact_kind": "supplementary_pdf_text",
-      "source_locator": "sample_accession:SAMEA5577359 || Table S1 sample ID:Dan1 || Archaeological sites and context section 29 \"Tel Dan, Israel\" (PDF page 18) || Archaeological sites and context section 29 \"Tel Dan, Israel\" (PDF page 18)",
+      "source_locator": "sample_accession:SAMEA5577359 || Table S1 sample ID:Dan1 || Archaeological sites and context section 29 \"Tel Dan, Israel\" (PDF page 18)",
       "source_excerpt": "Archive taxonomy Bos taurus (tax_id 9913) | supplement sample Dan1 | Tel Dan | 3500-3000 BC"
     },
     {

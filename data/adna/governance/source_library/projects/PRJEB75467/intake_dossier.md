@@ -16,11 +16,11 @@
 
 - `project_admission`: `complete`
 - `paper_capture`: `complete`
-- `supplement_capture`: `not_required`
+- `supplement_capture`: `complete`
 - `sample_identity_recovery`: `complete`
 - `site_recovery`: `in_progress`
 - `chronology_recovery`: `in_progress`
-- `coordinate_derivation`: `blocked`
+- `coordinate_derivation`: `in_progress`
 - `publication_readiness`: `blocked`
 
 ## Expected Contributions
@@ -50,12 +50,8 @@
 - Some recovered sample rows still lack a defensible site assignment.
 - Some recovered sample rows still lack sample-level chronology.
 
-## Contradictory Evidence
-
-- Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence.
-
 ## Manual Curation Work Units
 
-- `chronology_recovery`: 88 item(s), blocks chronology honesty and publication precision
-- `locality_string_resolution`: 44 item(s), blocks coordinate derivation and exact locality publication
-- `site_resolution`: 44 item(s), blocks exact site, coordinate, and publication recovery
+- `chronology_recovery`: 80 item(s), blocks chronology honesty and publication precision
+- `locality_string_resolution`: 39 item(s), blocks coordinate derivation and exact locality publication
+- `site_resolution`: 39 item(s), blocks exact site, coordinate, and publication recovery

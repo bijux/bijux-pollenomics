@@ -42,7 +42,8 @@
       "source_native_scientific_name": "Ovis aries",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Ovis aries",
@@ -72,7 +73,8 @@
       "source_native_scientific_name": "Ovis aries",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Ovis aries",
@@ -102,7 +104,8 @@
       "source_native_scientific_name": "Ovis aries",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Ovis aries",
@@ -132,7 +135,8 @@
       "source_native_scientific_name": "Ovis aries",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Ovis aries",
@@ -162,7 +166,8 @@
       "source_native_scientific_name": "Ovis aries",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     }
   ]
 }

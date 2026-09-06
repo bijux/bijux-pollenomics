@@ -18,15 +18,14 @@
     {
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
-      "recovered_sample_row_count": 44,
-      "sample_owned_date_row_count": 0,
-      "exact_sample_date_count": 0,
-      "modeled_or_approximate_sample_date_count": 0,
+      "recovered_sample_row_count": 45,
+      "sample_owned_date_row_count": 6,
+      "exact_sample_date_count": 4,
+      "modeled_or_approximate_sample_date_count": 2,
       "contextual_date_count": 0,
       "broad_label_count": 0,
-      "missing_date_count": 44,
+      "missing_date_count": 39,
       "gap_reasons": [
-        "no_sample_owned_chronology_recovered",
         "missing_sample_level_date_evidence"
       ]
     },

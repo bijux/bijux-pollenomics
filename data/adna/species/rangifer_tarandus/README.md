@@ -28,7 +28,7 @@ flowchart LR
 - Direct-coordinate rows: `0`
 - Geocoded rows: `0`
 - Unresolved sample rows: `20`
-- Mapped Nordic rows: `1`
+- Mapped Nordic rows: `0`
 - Tracked intake projects: `4`
 - Projects with sample recovery gaps: `0`
 - Projects with site-recovery gaps: `1`

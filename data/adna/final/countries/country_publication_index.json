@@ -3,11 +3,11 @@
   "rows": [
     {
       "country": "Sweden",
-      "sample_row_count": 4,
+      "sample_row_count": 5,
       "species_count": 2,
-      "locality_count": 2,
+      "locality_count": 3,
       "citation_count": 2,
-      "warning_count": 2
+      "warning_count": 4
     },
     {
       "country": "Norway",
@@ -27,11 +27,11 @@
     },
     {
       "country": "Denmark",
-      "sample_row_count": 4,
+      "sample_row_count": 5,
       "species_count": 2,
-      "locality_count": 3,
+      "locality_count": 4,
       "citation_count": 2,
-      "warning_count": 4
+      "warning_count": 5
     }
   ]
 }

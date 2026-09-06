@@ -26,6 +26,7 @@ from .samples import (
     _default_data_root,
     _locality_identity_token,
     _normalize_sample_label,
+    _sample_record_is_admissible,
 )
 
 
@@ -83,7 +84,18 @@ def build_species_project_locality_records(
         project.project_accession: project
         for project in build_species_archive_projects(species_name)
     }
-    curated_sample_rows = build_species_curated_sample_rows(species_name)
+    all_curated_sample_rows = build_species_curated_sample_rows(species_name)
+    curated_sample_rows = tuple(
+        row
+        for row in all_curated_sample_rows
+        if _sample_record_is_admissible(row)
+    )
+    nonfinal_locality_labels_by_project: dict[str, set[str]] = defaultdict(set)
+    for row in all_curated_sample_rows:
+        if not _sample_record_is_admissible(row) and row.site_label.strip():
+            nonfinal_locality_labels_by_project[row.project_accession].add(
+                _normalize_sample_label(row.site_label)
+            )
     sample_rows_by_project: dict[str, list[AdnaCuratedSampleRow]] = defaultdict(list)
     for row in curated_sample_rows:
         sample_rows_by_project[row.project_accession].append(row)
@@ -107,6 +119,21 @@ def build_species_project_locality_records(
         project = project_index.get(lead.project_accession)
         if project is None:
             continue
+        if not lead.locality_text.strip():
+            refusals.append(
+                AdnaNormalizationRefusal(
+                    schema_version="adna-normalization-refusal.v1",
+                    species_latin_name=species.latin_name,
+                    source_token=f"{lead.project_accession}:unresolved",
+                    record_kind="locality_records",
+                    reason="locality_text_not_evidenced",
+                    detail=(
+                        "The project evidence does not identify a locality for this "
+                        "lead, so no normalized locality or sample membership is emitted."
+                    ),
+                )
+            )
+            continue
         project_context = resolve_project_context(archive_index[lead.project_accession])
         matched_sample_rows = [
             row
@@ -115,9 +142,39 @@ def build_species_project_locality_records(
             == _normalize_sample_label(lead.locality_text)
         ]
         if not matched_sample_rows:
-            matched_sample_rows = list(
-                sample_rows_by_project.get(lead.project_accession, [])
+            if _normalize_sample_label(
+                lead.locality_text
+            ) in nonfinal_locality_labels_by_project.get(lead.project_accession, set()):
+                refusals.append(
+                    AdnaNormalizationRefusal(
+                        schema_version="adna-normalization-refusal.v1",
+                        species_latin_name=species.latin_name,
+                        source_token=f"{lead.project_accession}:{lead.locality_text}",
+                        record_kind="locality_records",
+                        reason="locality_depends_on_nonfinal_sample_identity",
+                        detail=(
+                            "This source-backed locality is retained in project evidence, "
+                            "but it is refused from normalized locality summaries because "
+                            "its only linked sample identity is not final."
+                        ),
+                    )
+                )
+                continue
+            refusals.append(
+                AdnaNormalizationRefusal(
+                    schema_version="adna-normalization-refusal.v1",
+                    species_latin_name=species.latin_name,
+                    source_token=f"{lead.project_accession}:{lead.locality_text}",
+                    record_kind="locality_records",
+                    reason="locality_has_no_admitted_sample_identity",
+                    detail=(
+                        "The source-backed locality has no admitted sample identity "
+                        "with the same locality, so project-wide sample membership is "
+                        "not inferred."
+                    ),
+                )
             )
+            continue
         coordinate_resolution = normalize_coordinate_resolution(
             latitude_text=lead.latitude_text,
             longitude_text=lead.longitude_text,
@@ -174,9 +231,8 @@ def build_species_project_locality_records(
                     longitude_text=lead.longitude_text,
                     confidence=coordinate_resolution.confidence,
                 ),
-                sample_count=max(len(matched_sample_rows), 1),
-                sample_ids=tuple(row.stable_sample_id for row in matched_sample_rows)
-                or (lead.project_accession,),
+                sample_count=len(matched_sample_rows),
+                sample_ids=tuple(row.stable_sample_id for row in matched_sample_rows),
                 datasets=(project.summary_token,),
                 chronology=chronology,
                 sample_namespace=f"{species.slug}:sample_locality",
@@ -239,6 +295,8 @@ def _locality_dating_basis(
     }
     if len(admitted_bases) == 1:
         return next(iter(admitted_bases))
+    if admitted_bases == {"archaeological_context", "radiocarbon"}:
+        return "mixed_radiocarbon_and_archaeological_context"
     if len(admitted_bases) > 1:
         return fallback if fallback.startswith("mixed_") else "mixed_dating_basis"
     return fallback

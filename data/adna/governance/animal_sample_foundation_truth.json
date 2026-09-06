@@ -7,19 +7,19 @@
     "fully_grounded_count": 531,
     "partially_grounded_count": 333,
     "blocked_missing_metadata_count": 11,
-    "blocked_missing_location_detail_count": 84,
-    "blocked_weak_chronology_count": 491
+    "blocked_missing_location_detail_count": 79,
+    "blocked_weak_chronology_count": 496
   },
   "species_rows": [
     {
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
       "sample_row_count": 550,
-      "fully_grounded_count": 481,
+      "fully_grounded_count": 476,
       "partially_grounded_count": 59,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 2,
-      "blocked_weak_chronology_count": 8,
+      "blocked_weak_chronology_count": 13,
       "project_count": 4,
       "reported_curated_sample_count": 550,
       "uses_project_level_sample_anchor": false
@@ -54,10 +54,10 @@
       "species_latin_name": "Bos taurus",
       "species_common_name": "cattle",
       "sample_row_count": 132,
-      "fully_grounded_count": 0,
+      "fully_grounded_count": 5,
       "partially_grounded_count": 64,
       "blocked_missing_metadata_count": 11,
-      "blocked_missing_location_detail_count": 56,
+      "blocked_missing_location_detail_count": 51,
       "blocked_weak_chronology_count": 1,
       "project_count": 3,
       "reported_curated_sample_count": 132,
@@ -154,7 +154,7 @@
       "blocked_missing_location_detail_count": 2,
       "blocked_weak_chronology_count": 0,
       "sample_backed_site_count": 3,
-      "project_locality_summary_count": 4,
+      "project_locality_summary_count": 3,
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "supplementary_table_sample_label_anchor"
@@ -199,11 +199,11 @@
       "species_common_name": "horse",
       "project_accession": "PRJEB44430",
       "sample_row_count": 248,
-      "fully_grounded_count": 247,
+      "fully_grounded_count": 242,
       "partially_grounded_count": 1,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 0,
-      "blocked_weak_chronology_count": 0,
+      "blocked_weak_chronology_count": 5,
       "sample_backed_site_count": 114,
       "project_locality_summary_count": 114,
       "uses_project_level_sample_anchor": false,
@@ -256,7 +256,7 @@
       "blocked_missing_location_detail_count": 5,
       "blocked_weak_chronology_count": 0,
       "sample_backed_site_count": 0,
-      "project_locality_summary_count": 1,
+      "project_locality_summary_count": 0,
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "archive_project_sample_accession_anchor"
@@ -290,7 +290,7 @@
       "blocked_missing_location_detail_count": 12,
       "blocked_weak_chronology_count": 1,
       "sample_backed_site_count": 40,
-      "project_locality_summary_count": 41,
+      "project_locality_summary_count": 40,
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "archive_project_sample_accession_anchor",
@@ -302,16 +302,17 @@
       "species_common_name": "cattle",
       "project_accession": "PRJEB75467",
       "sample_row_count": 44,
-      "fully_grounded_count": 0,
+      "fully_grounded_count": 5,
       "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
-      "blocked_missing_location_detail_count": 44,
+      "blocked_missing_location_detail_count": 39,
       "blocked_weak_chronology_count": 0,
-      "sample_backed_site_count": 0,
-      "project_locality_summary_count": 1,
+      "sample_backed_site_count": 4,
+      "project_locality_summary_count": 4,
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
-        "archive_project_sample_accession_anchor"
+        "archive_project_sample_accession_anchor",
+        "supplementary_table_archive_primary_source_join"
       ]
     },
     {
@@ -325,7 +326,7 @@
       "blocked_missing_location_detail_count": 0,
       "blocked_weak_chronology_count": 0,
       "sample_backed_site_count": 0,
-      "project_locality_summary_count": 1,
+      "project_locality_summary_count": 0,
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "archive_project_sample_accession_anchor"
@@ -410,7 +411,7 @@
       "blocked_missing_location_detail_count": 1,
       "blocked_weak_chronology_count": 0,
       "sample_backed_site_count": 0,
-      "project_locality_summary_count": 1,
+      "project_locality_summary_count": 0,
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "sample_accession_anchor"
@@ -444,7 +445,7 @@
       "blocked_missing_location_detail_count": 0,
       "blocked_weak_chronology_count": 39,
       "sample_backed_site_count": 61,
-      "project_locality_summary_count": 62,
+      "project_locality_summary_count": 61,
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "archive_supplement_exact_join"
@@ -495,7 +496,7 @@
       "blocked_missing_location_detail_count": 20,
       "blocked_weak_chronology_count": 0,
       "sample_backed_site_count": 0,
-      "project_locality_summary_count": 1,
+      "project_locality_summary_count": 0,
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "archive_project_sample_accession_anchor"

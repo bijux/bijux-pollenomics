@@ -1,6 +1,6 @@
 # Sample chronology review
 
-- Sample chronology rows: `1454`
+- Sample chronology rows: `1455`
 
 | Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology | Provenance |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -94,7 +94,7 @@
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574416 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574417 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574418 | unresolved | unresolved | unresolved | unresolved |  |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574419 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574419 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7976-8173 BP | data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574420 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574421 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574422 | unresolved | unresolved | unresolved | unresolved |  |  |
@@ -111,8 +111,8 @@
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574436 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574437 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574440 | unresolved | unresolved | unresolved | unresolved |  |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574441 | unresolved | unresolved | unresolved | unresolved |  |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574442 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574441 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 9133-9536 BP | data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574442 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 9434-9657 BP | data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574443 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574444 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574445 | unresolved | unresolved | unresolved | unresolved |  |  |
@@ -124,8 +124,9 @@
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574452 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574454 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574455 | unresolved | unresolved | unresolved | unresolved |  |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574456 | unresolved | unresolved | unresolved | unresolved |  |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574457 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574456 | sample_owned_interval | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6754-7744 BP | data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574457 | sample_owned_interval | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6748-7744 BP | data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html |
+| Bos taurus | PRJEB75467 | prjeb75467:supplement:fre1 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 10422-10751 BP | data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx |
 | Bos taurus | PRJNA705960 | prjna705960:samn18106827 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Bos taurus | PRJNA705960 | prjna705960:samn18106828 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Bos taurus | PRJNA705960 | prjna705960:samn18106829 | unresolved | unresolved | unresolved | unresolved |  |  |
@@ -644,8 +645,8 @@
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533288 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2530 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533289 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5194 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533290 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2243 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
-| Equus caballus | PRJEB44430 | prjeb44430:samea9533291 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | >49900 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
-| Equus caballus | PRJEB44430 | prjeb44430:samea9533292 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | >52200 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533291 | sample_owned_text_only | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >49900 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533292 | sample_owned_text_only | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >52200 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533293 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5039 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533294 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4945 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533295 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 4713 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
@@ -714,9 +715,9 @@
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533358 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2574 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533359 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 5186 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533360 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 3795 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
-| Equus caballus | PRJEB44430 | prjeb44430:samea9533361 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | >51700 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
-| Equus caballus | PRJEB44430 | prjeb44430:samea9533362 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | >51700 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
-| Equus caballus | PRJEB44430 | prjeb44430:samea9533363 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | >51700 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533361 | sample_owned_text_only | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >51700 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533362 | sample_owned_text_only | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >51700 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
+| Equus caballus | PRJEB44430 | prjeb44430:samea9533363 | sample_owned_text_only | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >51700 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533364 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 30517 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533365 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2650 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
 | Equus caballus | PRJEB44430 | prjeb44430:samea9533366 | sample_owned_interval | direct_radiocarbon_date | sample_precise_point | normalized_point | 2650 BP | data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx |
@@ -877,7 +878,7 @@
 | Felis catus | PRJNA1178732 | prjna1178732:fs10 | sample_owned_interval | historical_or_recent_date | sample_precise_point | normalized_point | 1200 BCE | data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx |
 | Felis catus | PRJNA1178732 | prjna1178732:fs12 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 706 - 883 cal. CE | data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx |
 | Felis catus | PRJNA1178732 | prjna1178732:fs13 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 168 - 48 cal. BCE | data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx |
-| Felis catus | PRJNA1178732 | prjna1178732:fs14 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | ~3500 - 1800 BCE | data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx |
+| Felis catus | PRJNA1178732 | prjna1178732:fs14 | sample_owned_interval | historical_or_recent_date | sample_approximate_or_modeled | normalized_interval | ~3500 - 1800 BCE | data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx |
 | Felis catus | PRJNA1178732 | prjna1178732:fs15 | sample_owned_interval | historical_or_recent_date | sample_precise_interval | normalized_interval | 4000 - 2700 BCE | data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx |
 | Felis catus | PRJNA1178732 | prjna1178732:fs16 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 1413 - 1480 cal. CE | data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx |
 | Felis catus | PRJNA1178732 | prjna1178732:fs17 | sample_owned_text_only | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 1797 - 1944 cal. CE | data/adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc3.xlsx |

@@ -30,9 +30,11 @@ from .source_records import (
     _load_sample_rows,
     _load_site_evidence_lookup,
     _lookup_project_locality_row,
+)
+from .validation import (
+    _assert_no_project_level_flattening,
     _project_sample_animal_scope_for,
 )
-from .validation import _assert_no_project_level_flattening
 
 
 def build_tracked_animal_atlas_evidence_rows(

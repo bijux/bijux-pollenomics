@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from pathlib import Path
 import re
 from bijux_pollenomics.adna.workflow.source_artifacts import (
@@ -75,7 +76,13 @@ def _merge_sample_row_group(
     group: list[AdnaProjectSampleMasterRow],
 ) -> AdnaProjectSampleMasterRow:
     if len(group) == 1:
-        return group[0]
+        row = group[0]
+        return replace(
+            row,
+            sample_lineage_path=_join_distinct(row.sample_lineage_path),
+            sample_lineage_locator=_join_distinct(row.sample_lineage_locator),
+            sample_lineage_excerpt=_join_distinct(row.sample_lineage_excerpt),
+        )
     first = group[0]
     locality_values = {row.locality_text for row in group if row.locality_text}
     chronology_values = {row.chronology_text for row in group if row.chronology_text}
@@ -172,8 +179,10 @@ def _merge_sample_row_group(
 def _join_distinct(*values: str) -> str:
     seen: list[str] = []
     for value in values:
-        if value and value not in seen:
-            seen.append(value)
+        for component in value.split(" || "):
+            component = component.strip()
+            if component and component not in seen:
+                seen.append(component)
     return " || ".join(seen)
 
 

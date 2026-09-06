@@ -1,17 +1,18 @@
 # Sample chronology normalization audit
 
-- Sample rows: `1454`
-- Normalized intervals: `332`
-- Normalized points: `533`
-- Text-only rows: `131`
-- Unresolved rows: `458`
-- Direct radiocarbon rows: `772`
-- Modeled sample-date rows: `0`
+- Sample rows: `1455`
+- Normalized intervals: `338`
+- Normalized points: `528`
+- Text-only rows: `136`
+- Unresolved rows: `453`
+- Direct radiocarbon rows: `776`
+- Modeled sample-date rows: `2`
 - Archaeological-context rows: `101`
 - Broad period rows: `1`
 
 ## Projects requiring manual chronology review
 
+- `PRJEB44430`
 - `PRJEB31613`
 - `PRJEB19970`
 - `PRJEB36540`
@@ -30,7 +31,7 @@
 | Project accession | Sample rows | Interval rows | Point rows | Text-only rows | Unresolved rows | Conflicts |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | PRJEB22390 | 42 | 0 | 42 | 0 | 0 | 0 |
-| PRJEB44430 | 248 | 0 | 248 | 0 | 0 | 0 |
+| PRJEB44430 | 248 | 0 | 243 | 5 | 0 | 0 |
 | PRJEB31613 | 245 | 90 | 147 | 0 | 8 | 0 |
 | PRJEB19970 | 15 | 0 | 13 | 0 | 2 | 0 |
 | PRJEB56293 | 0 | 0 | 0 | 0 | 0 | 0 |
@@ -48,7 +49,7 @@
 | PRJNA878488 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJNA421430 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJEB31621 | 78 | 7 | 58 | 0 | 13 | 0 |
-| PRJEB75467 | 44 | 0 | 0 | 0 | 44 | 0 |
+| PRJEB75467 | 45 | 6 | 0 | 0 | 39 | 0 |
 | PRJNA705960 | 11 | 0 | 0 | 0 | 11 | 0 |
 | PRJEB90141 | 4 | 4 | 0 | 0 | 0 | 0 |
 | PRJEB90261 | 73 | 0 | 0 | 73 | 0 | 0 |

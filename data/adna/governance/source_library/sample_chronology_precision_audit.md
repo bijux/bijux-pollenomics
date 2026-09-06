@@ -1,15 +1,20 @@
 # Sample chronology precision audit
 
-- Rows audited: `1454`
-- Precise point rows: `473`
-- Precise interval rows: `279`
-- Approximate or modeled rows: `188`
+- Rows audited: `1455`
+- Precise point rows: `468`
+- Precise interval rows: `282`
+- Approximate or modeled rows: `196`
 - Contextual rows: `16`
 - Broad period rows: `40`
-- Unresolved rows: `458`
+- Unresolved rows: `453`
 
 | Project accession | Sample id | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- |
+| PRJEB44430 | prjeb44430:samea9533291 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >49900 BP |
+| PRJEB44430 | prjeb44430:samea9533292 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >52200 BP |
+| PRJEB44430 | prjeb44430:samea9533361 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >51700 BP |
+| PRJEB44430 | prjeb44430:samea9533362 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >51700 BP |
+| PRJEB44430 | prjeb44430:samea9533363 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >51700 BP |
 | PRJEB31613 | prjeb31613:cgg_1_016994 | unresolved | unresolved | unresolved |  |
 | PRJEB31613 | prjeb31613:cgg_1_016996 | unresolved | unresolved | unresolved |  |
 | PRJEB31613 | prjeb31613:cgg_1_017005 | unresolved | unresolved | unresolved |  |
@@ -483,7 +488,6 @@
 | PRJEB75467 | prjeb75467:samea115574416 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574417 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574418 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574419 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574420 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574421 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574422 | unresolved | unresolved | unresolved |  |
@@ -500,8 +504,6 @@
 | PRJEB75467 | prjeb75467:samea115574436 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574437 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574440 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574441 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574442 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574443 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574444 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574445 | unresolved | unresolved | unresolved |  |
@@ -513,8 +515,8 @@
 | PRJEB75467 | prjeb75467:samea115574452 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574454 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574455 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574456 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574457 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574456 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6754-7744 BP |
+| PRJEB75467 | prjeb75467:samea115574457 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6748-7744 BP |
 | PRJNA705960 | prjna705960:samn18106827 | unresolved | unresolved | unresolved |  |
 | PRJNA705960 | prjna705960:samn18106828 | unresolved | unresolved | unresolved |  |
 | PRJNA705960 | prjna705960:samn18106829 | unresolved | unresolved | unresolved |  |
@@ -688,6 +690,7 @@
 | PRJEB81815 | prjeb81815:samea120246601 | historical_or_recent_date | broad_period_only | text_only_unparsed | 20th century |
 | PRJNA1178732 | prjna1178732:fs12 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 706 - 883 cal. CE |
 | PRJNA1178732 | prjna1178732:fs13 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 168 - 48 cal. BCE |
+| PRJNA1178732 | prjna1178732:fs14 | historical_or_recent_date | sample_approximate_or_modeled | normalized_interval | ~3500 - 1800 BCE |
 | PRJNA1178732 | prjna1178732:fs16 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 1413 - 1480 cal. CE |
 | PRJNA1178732 | prjna1178732:fs17 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 1797 - 1944 cal. CE |
 | PRJNA1178732 | prjna1178732:fs24 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 44 cal. BCE - 76 cal. CE |

@@ -4944,6 +4944,86 @@
       ]
     },
     {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Frederiksborg, Alsønderup",
+      "geocoding_safe_token": "frederiksborgalsønderup",
+      "original_source_spellings": [
+        "Frederiksborg, Alsønderup"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Hjørring, Tofte Bæk",
+      "geocoding_safe_token": "hjørringtoftebæk",
+      "original_source_spellings": [
+        "Hjørring, Tofte Bæk"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Lundby I",
+      "geocoding_safe_token": "lundbyi",
+      "original_source_spellings": [
+        "Lundby I"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Nevishög",
+      "geocoding_safe_token": "nevishög",
+      "original_source_spellings": [
+        "Nevishög"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Skåne",
+      "geocoding_safe_token": "skåne",
+      "original_source_spellings": [
+        "Skåne"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
       "project_accession": "PRJEB81815",
       "species_latin_name": "Felis catus",
       "normalized_display_spelling": "Alba Fucens -Cisterna (Fucino, Abruzzi)",

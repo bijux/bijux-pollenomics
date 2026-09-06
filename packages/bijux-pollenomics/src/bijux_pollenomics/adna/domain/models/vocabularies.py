@@ -29,6 +29,7 @@ ADNA_CHRONOLOGY_PRECISION_POSTURES = (
 ADNA_COORDINATE_PROVENANCE_CLASSES = (
     "direct_published_coordinates",
     "supplementary_table_coordinates",
+    "supplementary_proximal_site_coordinates",
     "archive_coordinates",
     "named_site_geocoding",
     "region_centroid_fallback",
@@ -43,6 +44,7 @@ ADNA_DATING_BASES = (
     "historical_and_archaeological_context",
     "historical_attribution",
     "mixed_radiocarbon_and_archaeological_context",
+    "mitochondrial_phylogenetic_model",
     "modern_sampling",
     "not_yet_curated",
     "population_history_context",

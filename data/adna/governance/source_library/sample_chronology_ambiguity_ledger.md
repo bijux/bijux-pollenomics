@@ -1,9 +1,14 @@
 # Sample chronology ambiguity ledger
 
-- Rows requiring chronology review: `702`
+- Rows requiring chronology review: `705`
 
 | Project accession | Sample id | Strength | Normalization | Chronology | Note |
 | --- | --- | --- | --- | --- | --- |
+| PRJEB44430 | prjeb44430:samea9533291 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | >49900 BP | Chronology comes from the recovered sample-owned source row. |
+| PRJEB44430 | prjeb44430:samea9533292 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | >52200 BP | Chronology comes from the recovered sample-owned source row. |
+| PRJEB44430 | prjeb44430:samea9533361 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | >51700 BP | Chronology comes from the recovered sample-owned source row. |
+| PRJEB44430 | prjeb44430:samea9533362 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | >51700 BP | Chronology comes from the recovered sample-owned source row. |
+| PRJEB44430 | prjeb44430:samea9533363 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | >51700 BP | Chronology comes from the recovered sample-owned source row. |
 | PRJEB31613 | prjeb31613:cgg_1_016994 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB31613 | prjeb31613:cgg_1_016996 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB31613 | prjeb31613:cgg_1_017005 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
@@ -477,7 +482,6 @@
 | PRJEB75467 | prjeb75467:samea115574416 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB75467 | prjeb75467:samea115574417 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB75467 | prjeb75467:samea115574418 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB75467 | prjeb75467:samea115574419 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB75467 | prjeb75467:samea115574420 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB75467 | prjeb75467:samea115574421 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB75467 | prjeb75467:samea115574422 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
@@ -494,8 +498,6 @@
 | PRJEB75467 | prjeb75467:samea115574436 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB75467 | prjeb75467:samea115574437 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB75467 | prjeb75467:samea115574440 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB75467 | prjeb75467:samea115574441 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB75467 | prjeb75467:samea115574442 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB75467 | prjeb75467:samea115574443 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB75467 | prjeb75467:samea115574444 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB75467 | prjeb75467:samea115574445 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
@@ -507,8 +509,8 @@
 | PRJEB75467 | prjeb75467:samea115574452 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB75467 | prjeb75467:samea115574454 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB75467 | prjeb75467:samea115574455 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB75467 | prjeb75467:samea115574456 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB75467 | prjeb75467:samea115574457 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| PRJEB75467 | prjeb75467:samea115574456 | sample_owned_interval / sample_approximate_or_modeled | normalized_interval | 6754-7744 BP | Chronology comes from the recovered sample-owned source row. |
+| PRJEB75467 | prjeb75467:samea115574457 | sample_owned_interval / sample_approximate_or_modeled | normalized_interval | 6748-7744 BP | Chronology comes from the recovered sample-owned source row. |
 | PRJNA705960 | prjna705960:samn18106827 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJNA705960 | prjna705960:samn18106828 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJNA705960 | prjna705960:samn18106829 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
@@ -682,6 +684,7 @@
 | PRJEB81815 | prjeb81815:samea120246601 | sample_owned_text_only / broad_period_only | text_only_unparsed | 20th century | Chronology comes from the recovered sample-owned source row. |
 | PRJNA1178732 | prjna1178732:fs12 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | 706 - 883 cal. CE | Chronology comes from the recovered sample-owned source row. |
 | PRJNA1178732 | prjna1178732:fs13 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | 168 - 48 cal. BCE | Chronology comes from the recovered sample-owned source row. |
+| PRJNA1178732 | prjna1178732:fs14 | sample_owned_interval / sample_approximate_or_modeled | normalized_interval | ~3500 - 1800 BCE | Chronology comes from the recovered sample-owned source row. |
 | PRJNA1178732 | prjna1178732:fs16 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | 1413 - 1480 cal. CE | Chronology comes from the recovered sample-owned source row. |
 | PRJNA1178732 | prjna1178732:fs17 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | 1797 - 1944 cal. CE | Chronology comes from the recovered sample-owned source row. |
 | PRJNA1178732 | prjna1178732:fs24 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | 44 cal. BCE - 76 cal. CE | Chronology comes from the recovered sample-owned source row. |

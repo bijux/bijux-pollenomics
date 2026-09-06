@@ -102,6 +102,7 @@ def build_coordinate_caveat_surface(data_root: Path) -> CoordinateCaveatSurface:
             if str(provenance.get("mapping_posture", "")) == "mappable_point":
                 if str(provenance.get("coordinate_basis", "")) in {
                     "direct_published_coordinates",
+                    "supplementary_proximal_site_coordinates",
                     "supplementary_table_coordinates",
                     "archive_coordinates",
                 }:

@@ -119,6 +119,23 @@ class AdnaSourceRecoveryUnitTests(unittest.TestCase):
         self.assertIn("expected_contribution_surfaces", payload)
         self.assertIn("major_deficit_reasons", payload)
 
+    def test_aurochs_partial_coordinates_do_not_overstate_project_completion(
+        self,
+    ) -> None:
+        payload = build_project_recovery_dossier(self.data_root, "PRJEB75467")
+
+        self.assertEqual(payload["stage_statuses"]["supplement_capture"], "complete")
+        self.assertEqual(payload["stage_statuses"]["site_recovery"], "in_progress")
+        self.assertEqual(
+            payload["stage_statuses"]["coordinate_derivation"], "in_progress"
+        )
+        coordinate_blockers = [
+            row
+            for row in payload["manual_curation_work_units"]
+            if "coordinate" in row["downstream_impact"]
+        ]
+        self.assertEqual(sum(row["open_item_count"] for row in coordinate_blockers), 78)
+
     def test_generated_markdown_has_one_terminal_newline(self) -> None:
         paths = (
             self.data_root

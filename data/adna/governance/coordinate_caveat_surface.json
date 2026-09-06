@@ -2510,6 +2510,66 @@
       "confidence_rationale": "The official ENA sample XML provides the source-native lat_lon pair at two decimal degrees; it is not claimed as an exact specimen findspot."
     },
     {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJEB75467",
+      "site_label": "Frederiksborg, Alsønderup",
+      "original_place_text": "Frederiksborg, Alsønderup",
+      "resolved_place_text": "Frederiksborg, Alsønderup",
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "mapping_posture": "mappable_point",
+      "confidence_rationale": "The published supplementary table describes this coordinate as proximal to the site, so it is suitable for approximate locality placement but not an exact specimen findspot."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJEB75467",
+      "site_label": "Hjørring, Tofte Bæk",
+      "original_place_text": "Hjørring, Tofte Bæk",
+      "resolved_place_text": "Hjørring, Tofte Bæk",
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "mapping_posture": "mappable_point",
+      "confidence_rationale": "The published supplementary table describes this coordinate as proximal to the site, so it is suitable for approximate locality placement but not an exact specimen findspot."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJEB75467",
+      "site_label": "Lundby I",
+      "original_place_text": "Lundby I",
+      "resolved_place_text": "Lundby I",
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "mapping_posture": "mappable_point",
+      "confidence_rationale": "The published supplementary table describes this coordinate as proximal to the site, so it is suitable for approximate locality placement but not an exact specimen findspot."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJEB75467",
+      "site_label": "Nevishög",
+      "original_place_text": "Nevishög",
+      "resolved_place_text": "Nevishög",
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "mapping_posture": "mappable_point",
+      "confidence_rationale": "The published supplementary table describes this coordinate as proximal to the site, so it is suitable for approximate locality placement but not an exact specimen findspot."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJEB75467",
+      "site_label": "Skåne",
+      "original_place_text": "Skåne",
+      "resolved_place_text": "Skåne",
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "mapping_posture": "mappable_point",
+      "confidence_rationale": "The published supplementary table describes this coordinate as proximal to the site, so it is suitable for approximate locality placement but not an exact specimen findspot."
+    },
+    {
       "species_latin_name": "Capra hircus",
       "species_common_name": "goat",
       "project_accession": "PRJEB90141",

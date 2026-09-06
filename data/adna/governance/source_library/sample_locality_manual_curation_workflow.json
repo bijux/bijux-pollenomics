@@ -523,10 +523,16 @@
       "decision_status": "pending_manual_curation",
       "locality_resolution_status": "unresolved",
       "unresolved_place_string": "",
-      "candidate_matches": [],
+      "candidate_matches": [
+        "Frederiksborg, Alsønderup",
+        "Hjørring, Tofte Bæk",
+        "Lundby I",
+        "Nevishög",
+        "Skåne"
+      ],
       "final_decision": "",
       "decision_rationale": "",
-      "queued_sample_count": 44,
+      "queued_sample_count": 39,
       "queued_sample_ids": [
         "prjeb75467:samea115574404",
         "prjeb75467:samea115574405",
@@ -540,7 +546,6 @@
         "prjeb75467:samea115574416",
         "prjeb75467:samea115574417",
         "prjeb75467:samea115574418",
-        "prjeb75467:samea115574419",
         "prjeb75467:samea115574420",
         "prjeb75467:samea115574421",
         "prjeb75467:samea115574422",
@@ -557,8 +562,6 @@
         "prjeb75467:samea115574436",
         "prjeb75467:samea115574437",
         "prjeb75467:samea115574440",
-        "prjeb75467:samea115574441",
-        "prjeb75467:samea115574442",
         "prjeb75467:samea115574443",
         "prjeb75467:samea115574444",
         "prjeb75467:samea115574445",
@@ -569,9 +572,7 @@
         "prjeb75467:samea115574450",
         "prjeb75467:samea115574452",
         "prjeb75467:samea115574454",
-        "prjeb75467:samea115574455",
-        "prjeb75467:samea115574456",
-        "prjeb75467:samea115574457"
+        "prjeb75467:samea115574455"
       ],
       "recommended_source_surfaces": [
         "tracked_source_artifact"

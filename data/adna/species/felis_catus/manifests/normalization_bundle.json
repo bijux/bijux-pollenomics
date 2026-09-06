@@ -7657,7 +7657,7 @@
         "date_stddev_bp": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_approximate_or_modeled"
       },
       "data_type": "supplementary_table_sample_context",
       "molecular_sex": "",
@@ -12359,7 +12359,7 @@
         "time_end_bp": 9899,
         "time_mean_bp": 9729,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -12420,7 +12420,7 @@
         "time_end_bp": 1740,
         "time_mean_bp": 1675,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -12543,7 +12543,7 @@
         "time_end_bp": 8379,
         "time_mean_bp": 8209,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -12606,7 +12606,7 @@
         "time_end_bp": 1060,
         "time_mean_bp": 985,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -12668,7 +12668,7 @@
         "time_end_bp": 1180,
         "time_mean_bp": 1075,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -12729,7 +12729,7 @@
         "time_end_bp": 510,
         "time_mean_bp": 415,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -12912,7 +12912,7 @@
         "time_end_bp": 7249,
         "time_mean_bp": 7119,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -12973,7 +12973,7 @@
         "time_end_bp": 650,
         "time_mean_bp": 600,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -13037,7 +13037,7 @@
         "time_end_bp": 6399,
         "time_mean_bp": 6224,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -13098,7 +13098,7 @@
         "time_end_bp": 1930,
         "time_mean_bp": 1835,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -13160,7 +13160,7 @@
         "time_end_bp": 10449,
         "time_mean_bp": 9949,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -13221,7 +13221,7 @@
         "time_end_bp": 2289,
         "time_mean_bp": 2144,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -13282,7 +13282,7 @@
         "time_end_bp": 5583,
         "time_mean_bp": 5529,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -13404,7 +13404,7 @@
         "time_end_bp": 7319,
         "time_mean_bp": 7239,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -13467,7 +13467,7 @@
         "time_end_bp": 1150,
         "time_mean_bp": 1025,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "archaeological_context",
         "evidence_class": "archaeological_context_date",
         "precision_posture": "contextual_interval"
       },
@@ -13528,7 +13528,7 @@
         "time_end_bp": 1375,
         "time_mean_bp": 1338,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -13590,7 +13590,7 @@
         "time_end_bp": 2349,
         "time_mean_bp": 2249,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -13651,7 +13651,7 @@
         "time_end_bp": 7429,
         "time_mean_bp": 7369,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -13835,7 +13835,7 @@
         "time_end_bp": 1999,
         "time_mean_bp": 1934,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -13896,7 +13896,7 @@
         "time_end_bp": 8024,
         "time_mean_bp": 7976,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -13957,7 +13957,7 @@
         "time_end_bp": 1590,
         "time_mean_bp": 1500,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -14079,7 +14079,7 @@
         "time_end_bp": 1350,
         "time_mean_bp": 1260,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -14140,7 +14140,7 @@
         "time_end_bp": 550,
         "time_mean_bp": 530,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -14202,7 +14202,7 @@
         "time_end_bp": 1720,
         "time_mean_bp": 1650,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -14510,7 +14510,7 @@
         "time_end_bp": 1930,
         "time_mean_bp": 1780,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -14695,7 +14695,7 @@
         "time_end_bp": 3449,
         "time_mean_bp": 3309,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -15367,7 +15367,7 @@
         "time_end_bp": 4649,
         "time_mean_bp": 4499,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "archaeological_context",
         "evidence_class": "archaeological_context_date",
         "precision_posture": "contextual_interval"
       },
@@ -15489,7 +15489,7 @@
         "time_end_bp": 1989,
         "time_mean_bp": 1904,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -15550,7 +15550,7 @@
         "time_end_bp": 1890,
         "time_mean_bp": 1810,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -15810,153 +15810,6 @@
     {
       "identity": {
         "namespace": "felis_catus:project_locality",
-        "stable_token": "felis_catus:locality:prjeb81815:unresolved",
-        "locality_text": "",
-        "political_entity": "",
-        "source_anchor_tokens": [
-          "PRJEB81815",
-          "",
-          ""
-        ]
-      },
-      "species_latin_name": "Felis catus",
-      "species_common_name": "cat",
-      "source_family": "ENA",
-      "source_releases": [
-        "PRJEB81815"
-      ],
-      "record_modalities": [
-        "archive_reads"
-      ],
-      "review_strengths": [
-        "primary_paper_pinned"
-      ],
-      "provenance_qualities": [
-        "primary_paper_pinned"
-      ],
-      "locality": "",
-      "coordinates": {
-        "latitude": null,
-        "longitude": null,
-        "latitude_text": "",
-        "longitude_text": "",
-        "confidence": "unknown"
-      },
-      "sample_count": 87,
-      "sample_ids": [
-        "prjeb81815:samea120246515",
-        "prjeb81815:samea120246516",
-        "prjeb81815:samea120246517",
-        "prjeb81815:samea120246518",
-        "prjeb81815:samea120246519",
-        "prjeb81815:samea120246520",
-        "prjeb81815:samea120246521",
-        "prjeb81815:samea120246522",
-        "prjeb81815:samea120246523",
-        "prjeb81815:samea120246524",
-        "prjeb81815:samea120246525",
-        "prjeb81815:samea120246526",
-        "prjeb81815:samea120246527",
-        "prjeb81815:samea120246528",
-        "prjeb81815:samea120246529",
-        "prjeb81815:samea120246530",
-        "prjeb81815:samea120246531",
-        "prjeb81815:samea120246532",
-        "prjeb81815:samea120246533",
-        "prjeb81815:samea120246534",
-        "prjeb81815:samea120246535",
-        "prjeb81815:samea120246536",
-        "prjeb81815:samea120246537",
-        "prjeb81815:samea120246538",
-        "prjeb81815:samea120246539",
-        "prjeb81815:samea120246540",
-        "prjeb81815:samea120246541",
-        "prjeb81815:samea120246542",
-        "prjeb81815:samea120246543",
-        "prjeb81815:samea120246544",
-        "prjeb81815:samea120246545",
-        "prjeb81815:samea120246546",
-        "prjeb81815:samea120246547",
-        "prjeb81815:samea120246548",
-        "prjeb81815:samea120246549",
-        "prjeb81815:samea120246550",
-        "prjeb81815:samea120246551",
-        "prjeb81815:samea120246552",
-        "prjeb81815:samea120246553",
-        "prjeb81815:samea120246554",
-        "prjeb81815:samea120246555",
-        "prjeb81815:samea120246556",
-        "prjeb81815:samea120246557",
-        "prjeb81815:samea120246558",
-        "prjeb81815:samea120246559",
-        "prjeb81815:samea120246560",
-        "prjeb81815:samea120246561",
-        "prjeb81815:samea120246562",
-        "prjeb81815:samea120246563",
-        "prjeb81815:samea120246564",
-        "prjeb81815:samea120246565",
-        "prjeb81815:samea120246566",
-        "prjeb81815:samea120246567",
-        "prjeb81815:samea120246568",
-        "prjeb81815:samea120246569",
-        "prjeb81815:samea120246570",
-        "prjeb81815:samea120246571",
-        "prjeb81815:samea120246572",
-        "prjeb81815:samea120246573",
-        "prjeb81815:samea120246574",
-        "prjeb81815:samea120246575",
-        "prjeb81815:samea120246576",
-        "prjeb81815:samea120246577",
-        "prjeb81815:samea120246578",
-        "prjeb81815:samea120246579",
-        "prjeb81815:samea120246580",
-        "prjeb81815:samea120246581",
-        "prjeb81815:samea120246582",
-        "prjeb81815:samea120246583",
-        "prjeb81815:samea120246584",
-        "prjeb81815:samea120246585",
-        "prjeb81815:samea120246586",
-        "prjeb81815:samea120246587",
-        "prjeb81815:samea120246588",
-        "prjeb81815:samea120246589",
-        "prjeb81815:samea120246590",
-        "prjeb81815:samea120246591",
-        "prjeb81815:samea120246592",
-        "prjeb81815:samea120246593",
-        "prjeb81815:samea120246594",
-        "prjeb81815:samea120246595",
-        "prjeb81815:samea120246596",
-        "prjeb81815:samea120246597",
-        "prjeb81815:samea120246598",
-        "prjeb81815:samea120246599",
-        "prjeb81815:samea120246600",
-        "prjeb81815:samea120246601"
-      ],
-      "datasets": [
-        "felis_catus:project:PRJEB81815"
-      ],
-      "chronology": {
-        "original_text": "320-10449 BP",
-        "time_start_bp": 320,
-        "time_end_bp": 10449,
-        "time_mean_bp": 5384,
-        "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
-      },
-      "sample_namespace": "felis_catus:sample_locality",
-      "project_accessions": [
-        "PRJEB81815"
-      ],
-      "original_location_text": "",
-      "nordic_inclusion": false,
-      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
-      "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
-    },
-    {
-      "identity": {
-        "namespace": "felis_catus:project_locality",
         "stable_token": "felis_catus:locality:prjeb81815:villagebelenesvishtovdistrict:bulgaria",
         "locality_text": "village Belene, Svishtov district (с. Белене, Свищовско)",
         "political_entity": "Bulgaria",
@@ -16064,7 +15917,7 @@
         "time_end_bp": 1930,
         "time_mean_bp": 1730,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -16125,7 +15978,7 @@
         "time_end_bp": 960,
         "time_mean_bp": 875,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -16189,7 +16042,7 @@
         "time_end_bp": 1310,
         "time_mean_bp": 1240,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
+        "dating_basis": "radiocarbon",
         "evidence_class": "direct_radiocarbon_date",
         "precision_posture": "sample_approximate_or_modeled"
       },
@@ -16740,7 +16593,7 @@
         "date_stddev_bp": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_approximate_or_modeled"
       },
       "sample_namespace": "felis_catus:sample_locality",
       "project_accessions": [
@@ -17287,6 +17140,14 @@
       "record_kind": "sample_record",
       "reason": "sample_evidence_not_yet_recoverable",
       "detail": "Source-native identity evidence remains available, but this placeholder is refused from normalized biological-sample artifacts: inclusion_status=sample_context_blocked; sample_evidence_status=manual_curation_required; sample_identity_resolution=ambiguous."
+    },
+    {
+      "schema_version": "adna-normalization-refusal.v1",
+      "species_latin_name": "Felis catus",
+      "source_token": "PRJEB81815:unresolved",
+      "record_kind": "locality_records",
+      "reason": "locality_text_not_evidenced",
+      "detail": "The project evidence does not identify a locality for this lead, so no normalized locality or sample membership is emitted."
     }
   ],
   "normalization_scope": "Non-human normalization admits only recovered, final sample identities, plus project summaries, study summaries, and curated locality summaries. Pending and rejected placeholder rows remain source-native accounting and reasoned refusals; they are not normalized sample evidence."

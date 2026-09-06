@@ -16,6 +16,10 @@ from ..sample_master.tables.baltic_sheep import (
     baltic_sheep_official_evidence_available,
     load_baltic_sheep_official_evidence,
 )
+from ..sample_master.tables.aurochs_natural_history.evidence import (
+    AUROCHS_NATURAL_HISTORY_SHEET,
+    AUROCHS_NATURAL_HISTORY_WORKBOOK_PATH,
+)
 
 __all__ = [
     "build_species_coordinate_provenance_rows",
@@ -26,6 +30,29 @@ __all__ = [
 
 def _doi_url(doi: str) -> str:
     return f"https://doi.org/{doi}" if doi else ""
+
+
+def _join_source_components(values: list[str]) -> str:
+    components: list[str] = []
+    for value in values:
+        for component in value.split(" || "):
+            component = component.strip()
+            if component and component not in components:
+                components.append(component)
+    return " || ".join(components)
+
+
+def _aurochs_workbook_locators(
+    rows: list[AdnaProjectSampleMasterRow],
+) -> str:
+    return _join_source_components(
+        [
+            component
+            for row in rows
+            for component in row.sample_lineage_locator.split(" || ")
+            if component.startswith(f"{AUROCHS_NATURAL_HISTORY_SHEET}!")
+        ]
+    )
 
 
 _PROJECT_COORDINATE_PROVENANCE: dict[
@@ -392,8 +419,8 @@ def _direct_sample_coordinate_rows(
         grouped.setdefault(key, []).append(row)
     if not grouped:
         return ()
-    paper_doi, paper_url, project_scope, comparator_context = (
-        _project_evidence_context(project_accession)
+    paper_doi, paper_url, project_scope, comparator_context = _project_evidence_context(
+        project_accession
     )
     pig_evidence = (
         {
@@ -431,6 +458,8 @@ def _direct_sample_coordinate_rows(
                 source_artifact_path=(
                     baltic_sheep_sample.archive.source_path
                     if baltic_sheep_sample is not None
+                    else AUROCHS_NATURAL_HISTORY_WORKBOOK_PATH
+                    if project_accession == "PRJEB75467"
                     else first.sample_lineage_path
                     if pig_site is None
                     else PIG_SITE_COORDINATE_EVIDENCE_PATH
@@ -438,6 +467,8 @@ def _direct_sample_coordinate_rows(
                 source_locator=(
                     baltic_sheep_sample.archive.source_locator
                     if baltic_sheep_sample is not None
+                    else _aurochs_workbook_locators(rows)
+                    if project_accession == "PRJEB75467"
                     else first.sample_lineage_locator
                     if pig_site is None
                     else pig_site.coordinate_source_locator
@@ -445,6 +476,8 @@ def _direct_sample_coordinate_rows(
                 coordinate_basis=(
                     "archive_coordinates"
                     if baltic_sheep_sample is not None
+                    else "supplementary_proximal_site_coordinates"
+                    if project_accession == "PRJEB75467" and pig_site is None
                     else "supplementary_table_coordinates"
                     if pig_site is None
                     else pig_site.coordinate_basis
@@ -471,13 +504,21 @@ def _direct_sample_coordinate_rows(
                     "pair at two decimal degrees; it is not claimed as an exact "
                     "specimen findspot."
                     if baltic_sheep_sample is not None
-                    else "The published supplementary table provides direct coordinates for this locality."
+                    else (
+                        "The published supplementary table describes this coordinate "
+                        "as proximal to the site, so it is suitable for approximate "
+                        "locality placement but not an exact specimen findspot."
+                        if project_accession == "PRJEB75467"
+                        else "The published supplementary table provides direct coordinates for this locality."
+                    )
                     if pig_site is None
                     else pig_site.confidence_rationale
                 ),
                 coordinate_confidence=(
                     "source_reported_two_decimal_degrees"
                     if baltic_sheep_sample is not None
+                    else "approximate"
+                    if project_accession == "PRJEB75467" and pig_site is None
                     else "exact"
                     if pig_site is None
                     else pig_site.coordinate_confidence

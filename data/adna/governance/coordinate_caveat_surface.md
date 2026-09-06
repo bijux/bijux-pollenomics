@@ -1,6 +1,6 @@
 # Coordinate caveat surface
 
-- Direct-coordinate points: `276`
+- Direct-coordinate points: `281`
 - Place-name resolved points: `4`
 - Still-weak geography rows: `4`
 
@@ -217,6 +217,11 @@
 | Equus caballus | PRJEB44430 | Černý Vůl | supplementary_table_coordinates | exact |
 | Ovis aries | PRJEB59481 | Kastelholm | archive_coordinates | source_reported_two_decimal_degrees |
 | Ovis aries | PRJEB59481 | Stora Förvar | archive_coordinates | source_reported_two_decimal_degrees |
+| Bos taurus | PRJEB75467 | Frederiksborg, Alsønderup | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Hjørring, Tofte Bæk | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Lundby I | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Nevishög | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Skåne | supplementary_proximal_site_coordinates | approximate |
 | Capra hircus | PRJEB90141 | Acemhöyük | supplementary_table_coordinates | exact |
 | Capra hircus | PRJEB90141 | Blagotin-Poljna | supplementary_table_coordinates | exact |
 | Capra hircus | PRJEB90141 | Direkli Cave | supplementary_table_coordinates | exact |

@@ -1,22 +1,22 @@
 species_latin_name,species_common_name,project_accession,sample_row_count,fully_grounded_count,partially_grounded_count,blocked_missing_metadata_count,blocked_missing_location_detail_count,blocked_weak_chronology_count,sample_backed_site_count,project_locality_summary_count,uses_project_level_sample_anchor,sample_basis_values
-Equus caballus,horse,PRJEB19970,15,0,13,0,2,0,3,4,false,supplementary_table_sample_label_anchor
+Equus caballus,horse,PRJEB19970,15,0,13,0,2,0,3,3,false,supplementary_table_sample_label_anchor
 Equus caballus,horse,PRJEB22390,42,0,42,0,0,0,27,27,false,supplementary_table_sample_label_anchor
 Equus caballus,horse,PRJEB31613,245,234,3,0,0,8,95,95,false,supplementary_table_sample_label_anchor
-Equus caballus,horse,PRJEB44430,248,247,1,0,0,0,114,114,false,supplementary_table_sample_label_anchor
+Equus caballus,horse,PRJEB44430,248,242,1,0,0,5,114,114,false,supplementary_table_sample_label_anchor
 Sus scrofa domesticus,pig,PRJEB30282,343,2,0,0,0,341,2,2,false,archive_project_sample_accession_anchor
 Ovis aries,sheep,PRJEB36540,190,0,167,0,0,23,6,6,false,supplementary_table_sample_label_anchor
-Ovis aries,sheep,PRJEB41594,5,0,0,0,5,0,0,1,false,archive_project_sample_accession_anchor
+Ovis aries,sheep,PRJEB41594,5,0,0,0,5,0,0,0,false,archive_project_sample_accession_anchor
 Ovis aries,sheep,PRJEB59481,5,4,0,0,0,1,2,2,false,supplementary_table_archive_identity_and_official_evidence_join
-Bos taurus,cattle,PRJEB31621,77,0,64,0,12,1,40,41,false,archive_project_sample_accession_anchor;archive_supplement_primary_source_join
-Bos taurus,cattle,PRJEB75467,44,0,0,0,44,0,0,1,false,archive_project_sample_accession_anchor
-Bos taurus,cattle,PRJNA705960,11,0,0,11,0,0,0,1,false,archive_project_sample_accession_anchor
+Bos taurus,cattle,PRJEB31621,77,0,64,0,12,1,40,40,false,archive_project_sample_accession_anchor;archive_supplement_primary_source_join
+Bos taurus,cattle,PRJEB75467,44,5,0,0,39,0,4,4,false,archive_project_sample_accession_anchor;supplementary_table_archive_primary_source_join
+Bos taurus,cattle,PRJNA705960,11,0,0,11,0,0,0,0,false,archive_project_sample_accession_anchor
 Capra hircus,goat,PRJEB90141,4,4,0,0,0,0,4,4,false,supplementary_table_sample_label_anchor
 Capra hircus,goat,PRJEB90261,73,0,0,0,0,73,22,22,false,supplementary_table_sample_label_anchor
 Capra hircus,goat,PRJNA1328209,5,5,0,0,0,0,1,1,false,supplementary_table_sample_label_anchor
 Canis lupus familiaris,dog,KX379528-KX379529,2,0,2,0,0,0,2,2,false,primary_article_accession_mapping
-Canis lupus familiaris,dog,SRS1407451,1,0,0,0,1,0,0,1,false,sample_accession_anchor
+Canis lupus familiaris,dog,SRS1407451,1,0,0,0,1,0,0,0,false,sample_accession_anchor
 Canis lupus familiaris,dog,SRS1407453,1,0,1,0,0,0,1,1,false,primary_article_accession_mapping
-Felis catus,cat,PRJEB81815,84,35,10,0,0,39,61,62,false,archive_supplement_exact_join
+Felis catus,cat,PRJEB81815,84,35,10,0,0,39,61,61,false,archive_supplement_exact_join
 Felis catus,cat,PRJNA1178732,22,0,17,0,0,5,14,14,false,supplementary_table_sample_label_anchor
 Camelus dromedarius,dromedary camel,KU605068-KU605080,13,0,13,0,0,0,9,9,false,primary_article_accession_mapping
-Rangifer tarandus,reindeer,PRJEB60484,20,0,0,0,20,0,0,1,false,archive_project_sample_accession_anchor
+Rangifer tarandus,reindeer,PRJEB60484,20,0,0,0,20,0,0,0,false,archive_project_sample_accession_anchor

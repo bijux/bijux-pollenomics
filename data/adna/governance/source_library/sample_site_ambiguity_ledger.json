@@ -4096,17 +4096,6 @@
     {
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
-      "repo_stable_sample_id": "prjeb75467:samea115574419",
-      "preferred_sample_label": "SAMEA115574419",
-      "locality_resolution_status": "unresolved",
-      "locality_text": "",
-      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
-      "location_evidence_artifact_path": "",
-      "location_evidence_locator": ""
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "species_latin_name": "Bos taurus",
       "repo_stable_sample_id": "prjeb75467:samea115574420",
       "preferred_sample_label": "SAMEA115574420",
       "locality_resolution_status": "unresolved",
@@ -4283,28 +4272,6 @@
     {
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
-      "repo_stable_sample_id": "prjeb75467:samea115574441",
-      "preferred_sample_label": "SAMEA115574441",
-      "locality_resolution_status": "unresolved",
-      "locality_text": "",
-      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
-      "location_evidence_artifact_path": "",
-      "location_evidence_locator": ""
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "species_latin_name": "Bos taurus",
-      "repo_stable_sample_id": "prjeb75467:samea115574442",
-      "preferred_sample_label": "SAMEA115574442",
-      "locality_resolution_status": "unresolved",
-      "locality_text": "",
-      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
-      "location_evidence_artifact_path": "",
-      "location_evidence_locator": ""
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "species_latin_name": "Bos taurus",
       "repo_stable_sample_id": "prjeb75467:samea115574443",
       "preferred_sample_label": "SAMEA115574443",
       "locality_resolution_status": "unresolved",
@@ -4417,28 +4384,6 @@
       "species_latin_name": "Bos taurus",
       "repo_stable_sample_id": "prjeb75467:samea115574455",
       "preferred_sample_label": "SAMEA115574455",
-      "locality_resolution_status": "unresolved",
-      "locality_text": "",
-      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
-      "location_evidence_artifact_path": "",
-      "location_evidence_locator": ""
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "species_latin_name": "Bos taurus",
-      "repo_stable_sample_id": "prjeb75467:samea115574456",
-      "preferred_sample_label": "SAMEA115574456",
-      "locality_resolution_status": "unresolved",
-      "locality_text": "",
-      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
-      "location_evidence_artifact_path": "",
-      "location_evidence_locator": ""
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "species_latin_name": "Bos taurus",
-      "repo_stable_sample_id": "prjeb75467:samea115574457",
-      "preferred_sample_label": "SAMEA115574457",
       "locality_resolution_status": "unresolved",
       "locality_text": "",
       "review_note": "No location evidence has been extracted yet for this recovered sample row.",

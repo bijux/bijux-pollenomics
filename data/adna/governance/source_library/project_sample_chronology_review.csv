@@ -1,6 +1,6 @@
 project_accession,species_latin_name,recovered_sample_row_count,sample_owned_interval_count,sample_owned_text_only_count,project_context_interval_count,project_context_text_only_count,unresolved_count,direct_radiocarbon_date_count,modeled_sample_date_count,archaeological_context_date_count,broad_period_label_count,historical_or_recent_date_count,evidence_class_unresolved_count,sample_precise_point_count,sample_precise_interval_count,sample_approximate_or_modeled_count,contextual_interval_count,broad_period_only_count,precision_unresolved_count,normalized_interval_count,normalized_point_count,text_only_unparsed_count,normalization_unresolved_count,conflicting_context_count
 PRJEB22390,Equus caballus,42,42,0,0,0,0,42,0,0,0,0,0,42,0,0,0,0,0,0,42,0,0,0
-PRJEB44430,Equus caballus,248,248,0,0,0,0,248,0,0,0,0,0,248,0,0,0,0,0,0,248,0,0,0
+PRJEB44430,Equus caballus,248,243,5,0,0,0,248,0,0,0,0,0,243,0,5,0,0,0,0,243,5,0,0
 PRJEB31613,Equus caballus,245,237,0,0,0,8,237,0,0,0,0,8,147,90,0,0,0,8,90,147,0,8,0
 PRJEB19970,Equus caballus,15,13,0,0,0,2,13,0,0,0,0,2,13,0,0,0,0,2,0,13,0,2,0
 PRJEB56293,Equus caballus,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -18,13 +18,13 @@ PRJNA788987,Sus scrofa domesticus,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 PRJNA878488,Sus scrofa domesticus,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 PRJNA421430,Sus scrofa domesticus,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 PRJEB31621,Bos taurus,78,65,0,0,0,13,0,0,65,0,0,13,0,0,58,7,0,13,7,58,0,13,0
-PRJEB75467,Bos taurus,44,0,0,0,0,44,0,0,0,0,0,44,0,0,0,0,0,44,0,0,0,44,0
+PRJEB75467,Bos taurus,45,6,0,0,0,39,4,2,0,0,0,39,0,4,2,0,0,39,6,0,0,39,0
 PRJNA705960,Bos taurus,11,0,0,0,0,11,0,0,0,0,0,11,0,0,0,0,0,11,0,0,0,11,0
 PRJEB90141,Capra hircus,4,4,0,0,0,0,4,0,0,0,0,0,0,4,0,0,0,0,4,0,0,0,0
 PRJEB90261,Capra hircus,73,0,73,0,0,0,0,0,0,0,73,0,0,0,73,0,0,0,0,0,73,0,0
 PRJNA1328209,Capra hircus,5,5,0,0,0,0,5,0,0,0,0,0,0,5,0,0,0,0,5,0,0,0,0
 PRJEB81815,Felis catus,87,45,39,0,0,3,37,0,33,0,14,3,0,0,37,8,39,3,45,0,39,3,0
-PRJNA1178732,Felis catus,22,17,5,0,0,0,0,0,0,0,22,0,2,15,5,0,0,0,15,2,5,0,0
+PRJNA1178732,Felis catus,22,17,5,0,0,0,0,0,0,0,22,0,2,14,6,0,0,0,15,2,5,0,0
 SRS1407451,Canis lupus familiaris,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,1,0
 SRS1407453,Canis lupus familiaris,1,1,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0
 KX379528-KX379529,Canis lupus familiaris,2,2,0,0,0,0,2,0,0,0,0,0,0,2,0,0,0,0,2,0,0,0,0

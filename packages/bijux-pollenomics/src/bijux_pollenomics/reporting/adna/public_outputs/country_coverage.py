@@ -73,6 +73,7 @@ def _build_country_species_coverage(
             coordinate_basis = str(sample_row.get("coordinate_basis", ""))
             if coordinate_basis in {
                 "direct_published_coordinates",
+                "supplementary_proximal_site_coordinates",
                 "supplementary_table_coordinates",
                 "archive_coordinates",
             }:

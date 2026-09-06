@@ -307,6 +307,11 @@ PRJEB59481,Ovis aries,Kastelholm,kastelholm,Kastelholm,,supplementary_table,exca
 PRJEB59481,Ovis aries,Stora Förvar,storaförvar,Stora Förvar,,supplementary_table,excavation_site
 PRJEB60484,Rangifer tarandus,Svalbard ancient reindeer context,svalbardancientreindeercontext,Svalbard ancient reindeer context;Svalbard archipelago,Svalbard archipelago,archive_metadata;coordinate_resolution,broader_locality
 PRJEB60484,Rangifer tarandus,Svalbard archipelago reindeer context,svalbardarchipelagoreindeercontext,Svalbard archipelago reindeer context,,archive_metadata,broader_locality
+PRJEB75467,Bos taurus,"Frederiksborg, Alsønderup",frederiksborgalsønderup,"Frederiksborg, Alsønderup",,supplementary_table,excavation_site
+PRJEB75467,Bos taurus,"Hjørring, Tofte Bæk",hjørringtoftebæk,"Hjørring, Tofte Bæk",,supplementary_table,excavation_site
+PRJEB75467,Bos taurus,Lundby I,lundbyi,Lundby I,,supplementary_table,excavation_site
+PRJEB75467,Bos taurus,Nevishög,nevishög,Nevishög,,supplementary_table,excavation_site
+PRJEB75467,Bos taurus,Skåne,skåne,Skåne,,supplementary_table,excavation_site
 PRJEB81815,Felis catus,"Alba Fucens -Cisterna (Fucino, Abruzzi)",albafucenscisternafucinoabruzzi,"Alba Fucens -Cisterna (Fucino, Abruzzi)",,supplementary_table,excavation_site
 PRJEB81815,Felis catus,"Arene Candide (Finale Ligure, Savona, Liguria)",arenecandidefinaleliguresavonaliguria,"Arene Candide (Finale Ligure, Savona, Liguria)",,supplementary_table,excavation_site
 PRJEB81815,Felis catus,Aşıklı Höyük,aşıklıhöyük,Aşıklı Höyük,,supplementary_table,excavation_site

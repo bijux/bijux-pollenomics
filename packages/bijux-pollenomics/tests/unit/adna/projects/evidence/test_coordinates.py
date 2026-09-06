@@ -152,6 +152,21 @@ class AdnaCoordinateProvenanceUnitTests(unittest.TestCase):
                 for row in rows
             )
         )
+        self.assertTrue(all(row.coordinate_confidence == "approximate" for row in rows))
+        self.assertTrue(
+            all(
+                row.coordinate_basis == "supplementary_proximal_site_coordinates"
+                for row in rows
+            )
+        )
+        self.assertTrue(
+            all("proximal to the site" in row.confidence_rationale for row in rows)
+        )
+        lundby = next(row for row in rows if row.site_label == "Lundby I")
+        self.assertTrue(lundby.source_artifact_path.endswith("MOESM3_ESM.xlsx"))
+        self.assertIn("A36:Y36", lundby.source_locator)
+        self.assertIn("A41:Y41", lundby.source_locator)
+        self.assertNotIn("sample_accession", lundby.source_locator)
 
 
 if __name__ == "__main__":

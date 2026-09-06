@@ -58,8 +58,8 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertEqual(summary["fully_grounded_count"], 531)
         self.assertEqual(summary["partially_grounded_count"], 333)
         self.assertEqual(summary["blocked_missing_metadata_count"], 11)
-        self.assertEqual(summary["blocked_missing_location_detail_count"], 84)
-        self.assertEqual(summary["blocked_weak_chronology_count"], 491)
+        self.assertEqual(summary["blocked_missing_location_detail_count"], 79)
+        self.assertEqual(summary["blocked_weak_chronology_count"], 496)
         self.assertEqual(
             sum(
                 int(summary[field])

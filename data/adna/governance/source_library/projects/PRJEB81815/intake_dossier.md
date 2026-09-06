@@ -20,7 +20,7 @@
 - `sample_identity_recovery`: `complete`
 - `site_recovery`: `in_progress`
 - `chronology_recovery`: `in_progress`
-- `coordinate_derivation`: `complete`
+- `coordinate_derivation`: `in_progress`
 - `publication_readiness`: `blocked`
 
 ## Expected Contributions

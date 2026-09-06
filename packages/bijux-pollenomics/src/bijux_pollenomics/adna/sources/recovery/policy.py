@@ -42,10 +42,16 @@ def _project_stage_statuses(
     else:
         stage_statuses["paper_capture"] = "blocked"
 
-    if not bundle.supplement_required:
-        stage_statuses["supplement_capture"] = "not_required"
-    elif project_row.supplement_download_status == "archived":
+    if (
+        project_row.supplement_download_status == "archived"
+        or (
+            paper_row is not None
+            and paper_row.supplementary_download_status == "archived"
+        )
+    ):
         stage_statuses["supplement_capture"] = "complete"
+    elif not bundle.supplement_required:
+        stage_statuses["supplement_capture"] = "not_required"
     else:
         stage_statuses["supplement_capture"] = "blocked"
 
@@ -78,11 +84,15 @@ def _project_stage_statuses(
         stage_statuses["chronology_recovery"] = "in_progress"
 
     if (
-        _int_value(coord_counts.get("mappable_point", 0)) > 0
+        stage_statuses["site_recovery"] == "complete"
+        and _int_value(coord_counts.get("mappable_point", 0)) > 0
         and _int_value(coord_counts.get("refused_region_only", 0)) == 0
     ):
         stage_statuses["coordinate_derivation"] = "complete"
-    elif stage_statuses["site_recovery"] == "complete":
+    elif (
+        stage_statuses["site_recovery"] == "complete"
+        or _int_value(coord_counts.get("mappable_point", 0)) > 0
+    ):
         stage_statuses["coordinate_derivation"] = "in_progress"
     else:
         stage_statuses["coordinate_derivation"] = "blocked"

@@ -210,7 +210,7 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
             "PRJEB31621": 78,
             "PRJEB41594": 5,
             "PRJEB59481": 5,
-            "PRJEB75467": 44,
+            "PRJEB75467": 45,
             "PRJEB81815": 87,
         }
 
@@ -229,6 +229,11 @@ class SourceRecoveryTests(SampleMasterRecoveryTestCase):
                     self.assertEqual(
                         Counter(row.sample_identity_resolution for row in rows),
                         {"final": 77, "provisional": 1},
+                    )
+                elif project_accession == "PRJEB75467":
+                    self.assertEqual(
+                        Counter(row.sample_identity_resolution for row in rows),
+                        {"final": 44, "provisional": 1},
                     )
                 else:
                     self.assertTrue(

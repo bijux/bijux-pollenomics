@@ -1,6 +1,6 @@
 # Sample locality conflict ledger
 
-- Conflicting rows: `559`
+- Conflicting rows: `565`
 
 | Project accession | Sample id | Sample locality | Conflicting surface | Conflicting locality | Reason |
 | --- | --- | --- | --- | --- | --- |
@@ -217,6 +217,12 @@
 | PRJEB31621 | prjeb31621:samea5577408 | Tel es-Safi | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB31621 | prjeb31621:samea5577409 | Tel es-Safi | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB31621 | prjeb31621:supplement:men1 | Menteşe | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB75467 | prjeb75467:samea115574419 | Hjørring, Tofte Bæk | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB75467 | prjeb75467:samea115574441 | Nevishög | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB75467 | prjeb75467:samea115574442 | Skåne | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB75467 | prjeb75467:samea115574456 | Lundby I | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB75467 | prjeb75467:samea115574457 | Lundby I | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB75467 | prjeb75467:supplement:fre1 | Frederiksborg, Alsønderup | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB81815 | prjeb81815:samea120246515 | Arene Candide (Finale Ligure, Savona, Liguria) | article_text | North Africa to Europe cat population context | project_context_disagrees_with_sample_owned_site |
 | PRJEB81815 | prjeb81815:samea120246515 | Arene Candide (Finale Ligure, Savona, Liguria) | article_text | North Africa to Europe cat population context | project_context_disagrees_with_sample_owned_site |
 | PRJEB81815 | prjeb81815:samea120246515 | Arene Candide (Finale Ligure, Savona, Liguria) | coordinate_resolution | North Africa to Europe cat population context | project_context_disagrees_with_sample_owned_site |

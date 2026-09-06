@@ -62,7 +62,9 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
                 for row in rows
             )
         )
-        self.assertTrue(all(row.source_locator.endswith("/DESCRIPTION") for row in rows))
+        self.assertTrue(
+            all(row.source_locator.endswith("/DESCRIPTION") for row in rows)
+        )
         self.assertTrue(
             all("Sheep humerus excavated in" in row.exact_source_text for row in rows)
         )
@@ -142,6 +144,16 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
                 for row in rows
             )
         )
+        lundby = next(row for row in rows if row.site_label == "Lundby I")
+        self.assertEqual(
+            lundby.coordinate_basis, "supplementary_proximal_site_coordinates"
+        )
+        self.assertTrue(lundby.source_artifact_path.endswith("MOESM3_ESM.xlsx"))
+        self.assertIn("A36:Y36", lundby.source_locator)
+        self.assertIn("A41:Y41", lundby.source_locator)
+        self.assertNotIn("sample_accession", lundby.source_locator)
+        self.assertIn("workbook sample Zea1", lundby.exact_source_text)
+        self.assertIn("workbook sample Zea2", lundby.exact_source_text)
 
 
 if __name__ == "__main__":

@@ -11,16 +11,16 @@
     "projects_with_sample_identity_rows": 21,
     "projects_with_defensible_site_rows": 12,
     "projects_with_sample_owned_chronology": 10,
-    "projects_with_mappable_coordinates": 10,
+    "projects_with_mappable_coordinates": 11,
     "projects_ready_for_publication_review": 10
   },
   "rows": [
     {
       "project_accession": "PRJEB31621",
       "species_latin_name": "Bos taurus",
-      "completed_stage_count": 3,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.4286,
+      "completed_stage_count": 4,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.5,
       "final_sample_count": 77,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"
@@ -28,9 +28,9 @@
     {
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
-      "completed_stage_count": 3,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.4286,
+      "completed_stage_count": 4,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.5,
       "final_sample_count": 44,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"
@@ -48,9 +48,9 @@
     {
       "project_accession": "KU605068-KU605080",
       "species_latin_name": "Camelus dromedarius",
-      "completed_stage_count": 6,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.8571,
+      "completed_stage_count": 7,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.875,
       "final_sample_count": 13,
       "minimum_gap_count": 0,
       "publication_readiness_status": "complete"
@@ -58,9 +58,9 @@
     {
       "project_accession": "SRP073444",
       "species_latin_name": "Camelus dromedarius",
-      "completed_stage_count": 2,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.2857,
+      "completed_stage_count": 3,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.375,
       "final_sample_count": 0,
       "minimum_gap_count": 1,
       "publication_readiness_status": "blocked"
@@ -68,9 +68,9 @@
     {
       "project_accession": "KX379528-KX379529",
       "species_latin_name": "Canis lupus familiaris",
-      "completed_stage_count": 6,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.8571,
+      "completed_stage_count": 7,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.875,
       "final_sample_count": 2,
       "minimum_gap_count": 0,
       "publication_readiness_status": "complete"
@@ -78,9 +78,9 @@
     {
       "project_accession": "SRS1407451",
       "species_latin_name": "Canis lupus familiaris",
-      "completed_stage_count": 3,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.4286,
+      "completed_stage_count": 4,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.5,
       "final_sample_count": 1,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"
@@ -88,9 +88,9 @@
     {
       "project_accession": "SRS1407453",
       "species_latin_name": "Canis lupus familiaris",
-      "completed_stage_count": 6,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.8571,
+      "completed_stage_count": 7,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.875,
       "final_sample_count": 1,
       "minimum_gap_count": 0,
       "publication_readiness_status": "complete"
@@ -98,8 +98,8 @@
     {
       "project_accession": "PRJEB90141",
       "species_latin_name": "Capra hircus",
-      "completed_stage_count": 7,
-      "required_stage_count": 7,
+      "completed_stage_count": 8,
+      "required_stage_count": 8,
       "recovery_depth_score": 1.0,
       "final_sample_count": 4,
       "minimum_gap_count": 0,
@@ -108,8 +108,8 @@
     {
       "project_accession": "PRJEB90261",
       "species_latin_name": "Capra hircus",
-      "completed_stage_count": 7,
-      "required_stage_count": 7,
+      "completed_stage_count": 8,
+      "required_stage_count": 8,
       "recovery_depth_score": 1.0,
       "final_sample_count": 73,
       "minimum_gap_count": 0,
@@ -118,8 +118,8 @@
     {
       "project_accession": "PRJNA1328209",
       "species_latin_name": "Capra hircus",
-      "completed_stage_count": 7,
-      "required_stage_count": 7,
+      "completed_stage_count": 8,
+      "required_stage_count": 8,
       "recovery_depth_score": 1.0,
       "final_sample_count": 5,
       "minimum_gap_count": 0,
@@ -188,9 +188,9 @@
     {
       "project_accession": "PRJEB19970",
       "species_latin_name": "Equus caballus",
-      "completed_stage_count": 3,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.4286,
+      "completed_stage_count": 4,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.5,
       "final_sample_count": 15,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"
@@ -198,8 +198,8 @@
     {
       "project_accession": "PRJEB22390",
       "species_latin_name": "Equus caballus",
-      "completed_stage_count": 7,
-      "required_stage_count": 7,
+      "completed_stage_count": 8,
+      "required_stage_count": 8,
       "recovery_depth_score": 1.0,
       "final_sample_count": 42,
       "minimum_gap_count": 0,
@@ -208,9 +208,9 @@
     {
       "project_accession": "PRJEB31613",
       "species_latin_name": "Equus caballus",
-      "completed_stage_count": 5,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.7143,
+      "completed_stage_count": 6,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.75,
       "final_sample_count": 245,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"
@@ -218,8 +218,8 @@
     {
       "project_accession": "PRJEB44430",
       "species_latin_name": "Equus caballus",
-      "completed_stage_count": 7,
-      "required_stage_count": 7,
+      "completed_stage_count": 8,
+      "required_stage_count": 8,
       "recovery_depth_score": 1.0,
       "final_sample_count": 248,
       "minimum_gap_count": 0,
@@ -258,9 +258,9 @@
     {
       "project_accession": "PRJEB81815",
       "species_latin_name": "Felis catus",
-      "completed_stage_count": 5,
+      "completed_stage_count": 4,
       "required_stage_count": 8,
-      "recovery_depth_score": 0.625,
+      "recovery_depth_score": 0.5,
       "final_sample_count": 84,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"
@@ -268,9 +268,9 @@
     {
       "project_accession": "PRJNA1178732",
       "species_latin_name": "Felis catus",
-      "completed_stage_count": 6,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.8571,
+      "completed_stage_count": 7,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.875,
       "final_sample_count": 22,
       "minimum_gap_count": 0,
       "publication_readiness_status": "complete"
@@ -288,9 +288,9 @@
     {
       "project_accession": "PRJEB41594",
       "species_latin_name": "Ovis aries",
-      "completed_stage_count": 3,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.4286,
+      "completed_stage_count": 4,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.5,
       "final_sample_count": 5,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"
@@ -298,8 +298,8 @@
     {
       "project_accession": "PRJEB59481",
       "species_latin_name": "Ovis aries",
-      "completed_stage_count": 7,
-      "required_stage_count": 7,
+      "completed_stage_count": 8,
+      "required_stage_count": 8,
       "recovery_depth_score": 1.0,
       "final_sample_count": 5,
       "minimum_gap_count": 0,
@@ -348,9 +348,9 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "completed_stage_count": 3,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.4286,
+      "completed_stage_count": 4,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.5,
       "final_sample_count": 20,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"
@@ -379,8 +379,8 @@
       "project_accession": "PRJEB30282",
       "species_latin_name": "Sus scrofa domesticus",
       "completed_stage_count": 4,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.5714,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.5,
       "final_sample_count": 343,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"

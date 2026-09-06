@@ -24,11 +24,11 @@ flowchart LR
 - Curation class: `paper_pinned_core`
 - Curated sample rows: `132`
 - Curated projects: `2`
-- Curated site rows: `41`
-- Direct-coordinate rows: `0`
+- Curated site rows: `46`
+- Direct-coordinate rows: `5`
 - Geocoded rows: `0`
-- Unresolved sample rows: `67`
-- Mapped Nordic rows: `0`
+- Unresolved sample rows: `62`
+- Mapped Nordic rows: `4`
 - Tracked intake projects: `3`
 - Projects with sample recovery gaps: `0`
 - Projects with site-recovery gaps: `3`

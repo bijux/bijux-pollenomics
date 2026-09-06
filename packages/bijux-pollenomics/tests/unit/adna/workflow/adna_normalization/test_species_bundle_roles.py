@@ -85,19 +85,24 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertIsNone(galician_sample.coordinates.latitude)
         self.assertIsNone(galician_sample.coordinates.longitude)
 
-    def test_species_normalization_bundle_marks_reindeer_locality_as_comparator_context(
+    def test_species_normalization_bundle_refuses_unlocated_reindeer_locality(
         self,
     ) -> None:
         bundle = build_species_normalization_bundle("reindeer")
-        locality = next(
+        project = next(
             item
-            for item in bundle.locality_records
-            if "PRJEB60484" in item.project_accessions
+            for item in bundle.project_summaries
+            if item.project_accession == "PRJEB60484"
         )
 
-        self.assertTrue(locality.nordic_inclusion)
-        self.assertIn(
-            "No location evidence has been extracted", locality.interpretation_note
+        self.assertEqual(project.domestication_status, "comparator_only")
+        self.assertFalse(bundle.locality_records)
+        self.assertTrue(
+            any(
+                refusal.reason == "locality_text_not_evidenced"
+                and refusal.source_token == "PRJEB60484:unresolved"
+                for refusal in bundle.refusals
+            )
         )
         sample = next(
             item

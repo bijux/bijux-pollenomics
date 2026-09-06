@@ -2061,88 +2061,7 @@
         "support_gap_note": ""
       }
     ],
-    "locality_records": [
-      {
-        "identity": {
-          "namespace": "rangifer_tarandus:project_locality",
-          "stable_token": "rangifer_tarandus:locality:prjeb60484:unresolved",
-          "locality_text": "",
-          "political_entity": "",
-          "source_anchor_tokens": [
-            "PRJEB60484",
-            "",
-            ""
-          ]
-        },
-        "species_latin_name": "Rangifer tarandus",
-        "species_common_name": "reindeer",
-        "source_family": "ENA",
-        "source_releases": [
-          "PRJEB60484"
-        ],
-        "record_modalities": [
-          "mitogenome_only"
-        ],
-        "review_strengths": [
-          "comparator_only"
-        ],
-        "provenance_qualities": [
-          "primary_paper_pinned"
-        ],
-        "locality": "",
-        "coordinates": {
-          "latitude": null,
-          "longitude": null,
-          "latitude_text": "",
-          "longitude_text": "",
-          "confidence": "unknown"
-        },
-        "sample_count": 20,
-        "sample_ids": [
-          "prjeb60484:samea112757323",
-          "prjeb60484:samea112757324",
-          "prjeb60484:samea112757325",
-          "prjeb60484:samea112757326",
-          "prjeb60484:samea112757327",
-          "prjeb60484:samea112757328",
-          "prjeb60484:samea112757329",
-          "prjeb60484:samea112757330",
-          "prjeb60484:samea112757331",
-          "prjeb60484:samea112757332",
-          "prjeb60484:samea112757333",
-          "prjeb60484:samea112757334",
-          "prjeb60484:samea112757335",
-          "prjeb60484:samea112757336",
-          "prjeb60484:samea112757337",
-          "prjeb60484:samea112757338",
-          "prjeb60484:samea112757339",
-          "prjeb60484:samea112757340",
-          "prjeb60484:samea114857470",
-          "prjeb60484:samea114857471"
-        ],
-        "datasets": [
-          "rangifer_tarandus:project:PRJEB60484"
-        ],
-        "chronology": {
-          "original_text": "",
-          "time_start_bp": null,
-          "time_end_bp": null,
-          "time_mean_bp": null,
-          "date_stddev_bp": "",
-          "dating_basis": "historical_and_archaeological_context",
-          "evidence_class": "unresolved",
-          "precision_posture": "unresolved"
-        },
-        "sample_namespace": "rangifer_tarandus:sample_locality",
-        "project_accessions": [
-          "PRJEB60484"
-        ],
-        "original_location_text": "",
-        "nordic_inclusion": true,
-        "nordic_inclusion_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
-        "interpretation_note": "No location evidence has been extracted yet for this recovered sample row."
-      }
-    ],
+    "locality_records": [],
     "project_summaries": [
       {
         "schema_version": "adna-project-summary.v1",
@@ -2565,6 +2484,14 @@
         "record_kind": "locality_records",
         "reason": "locality_lead_not_yet_curated",
         "detail": "This project already ships project-level interpretation, but a defensible locality lead has not yet been curated into the species-owned locality artifact."
+      },
+      {
+        "schema_version": "adna-normalization-refusal.v1",
+        "species_latin_name": "Rangifer tarandus",
+        "source_token": "PRJEB60484:unresolved",
+        "record_kind": "locality_records",
+        "reason": "locality_text_not_evidenced",
+        "detail": "The project evidence does not identify a locality for this lead, so no normalized locality or sample membership is emitted."
       },
       {
         "schema_version": "adna-normalization-refusal.v1",

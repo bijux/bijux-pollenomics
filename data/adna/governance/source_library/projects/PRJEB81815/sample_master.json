@@ -42,7 +42,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -72,7 +73,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -102,7 +104,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -132,7 +135,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -162,7 +166,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -192,7 +197,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -222,7 +228,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -252,7 +259,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -282,7 +290,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -312,7 +321,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -342,7 +352,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -372,7 +383,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -402,7 +414,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -432,7 +445,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -462,7 +476,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -492,7 +507,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -522,7 +538,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -552,7 +569,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -582,7 +600,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -612,7 +631,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -642,7 +662,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -672,7 +693,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -702,7 +724,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -732,7 +755,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -762,7 +786,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -792,7 +817,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -822,7 +848,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -852,7 +879,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -882,7 +910,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -912,7 +941,8 @@
       "source_native_scientific_name": "Felis silvestris lybica",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -942,7 +972,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -972,7 +1003,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1002,7 +1034,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1032,7 +1065,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1062,7 +1096,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1092,7 +1127,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1122,7 +1158,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1152,7 +1189,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1182,7 +1220,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1212,7 +1251,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1242,7 +1282,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1272,7 +1313,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1302,7 +1344,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1332,7 +1375,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1362,7 +1406,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1392,7 +1437,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1422,7 +1468,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1452,7 +1499,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1482,7 +1530,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1512,7 +1561,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1542,7 +1592,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1572,7 +1623,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1602,7 +1654,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1632,7 +1685,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1662,7 +1716,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1692,7 +1747,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1722,7 +1778,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1752,7 +1809,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1782,7 +1840,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1812,7 +1871,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1842,7 +1902,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1872,7 +1933,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1902,7 +1964,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1932,7 +1995,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1962,7 +2026,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -1992,7 +2057,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2022,7 +2088,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2052,7 +2119,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2082,7 +2150,8 @@
       "source_native_scientific_name": "Felis catus",
       "taxon_alignment_status": "project_species_match",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2112,7 +2181,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2142,7 +2212,8 @@
       "source_native_scientific_name": "Felis silvestris lybica",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2172,7 +2243,8 @@
       "source_native_scientific_name": "Felis silvestris lybica",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2202,7 +2274,8 @@
       "source_native_scientific_name": "Felis silvestris lybica",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2232,7 +2305,8 @@
       "source_native_scientific_name": "Felis silvestris lybica",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2262,7 +2336,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2292,7 +2367,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2322,7 +2398,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2352,7 +2429,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2382,7 +2460,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2412,7 +2491,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2442,7 +2522,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2472,7 +2553,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2502,7 +2584,8 @@
       "source_native_scientific_name": "Felis silvestris lybica",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2532,7 +2615,8 @@
       "source_native_scientific_name": "Felis silvestris lybica",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2562,7 +2646,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2592,7 +2677,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Felis catus",
@@ -2622,7 +2708,8 @@
       "source_native_scientific_name": "Felis silvestris silvestris",
       "taxon_alignment_status": "project_species_mismatch",
       "archive_native_experiment_id": "",
-      "source_native_identity_kind": "biological_sample_accession"
+      "source_native_identity_kind": "biological_sample_accession",
+      "chronology_time_mean_bp": null
     }
   ]
 }

@@ -1,10 +1,10 @@
 species_latin_name,recovered_sample_row_count,normalized_row_count,exact_sample_date_count,modeled_or_approximate_sample_date_count,contextual_date_count,broad_label_count,text_only_unparsed_count,unresolved_count,chronology_completeness_ratio
-Bos taurus,133,65,0,58,7,0,0,68,0.4887
+Bos taurus,134,71,4,60,7,0,0,63,0.5299
 Camelus dromedarius,13,13,13,0,0,0,0,0,1.0
 Canis lupus familiaris,4,3,3,0,0,0,0,1,0.75
 Capra hircus,82,82,9,73,0,0,73,0,1.0
-Equus caballus,550,540,540,0,0,0,0,10,0.9818
-Felis catus,109,67,17,42,8,39,44,3,0.6147
+Equus caballus,550,540,535,5,0,0,5,10,0.9818
+Felis catus,109,67,16,43,8,39,44,3,0.6147
 Ovis aries,200,184,170,13,1,1,14,15,0.92
 Rangifer tarandus,20,0,0,0,0,0,0,20,0.0
 Sus scrofa domesticus,343,2,0,2,0,0,0,341,0.0058

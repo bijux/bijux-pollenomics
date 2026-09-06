@@ -26,6 +26,12 @@ _BP_MEAN_STDDEV_RE = re.compile(
 _BP_SINGLE_RE = re.compile(r"(?P<mean>\d{1,5})\s*BP", re.IGNORECASE)
 
 
+_CENSORED_CHRONOLOGY_RE = re.compile(
+    r"^\s*(?:<=|>=|<|>|≤|≥)\s*\d",
+    re.IGNORECASE,
+)
+
+
 _BCE_RANGE_RE = re.compile(
     r"(?P<start>\d{1,5})\s*-\s*(?P<end>\d{1,5})\s*(?:cal\s*)?BCE",
     re.IGNORECASE,
@@ -55,6 +61,14 @@ def normalize_chronology_text(
     if not text:
         return AdnaChronology(
             original_text="",
+            time_start_bp=None,
+            time_end_bp=None,
+            time_mean_bp=None,
+            dating_basis=basis,
+        )
+    if _CENSORED_CHRONOLOGY_RE.search(text):
+        return AdnaChronology(
+            original_text=text,
             time_start_bp=None,
             time_end_bp=None,
             time_mean_bp=None,
@@ -181,6 +195,31 @@ def _aggregate_locality_chronology(
         for row in chronology_rows
         if row.time_start_bp is not None and row.time_end_bp is not None
     ]
+    censored_rows = [
+        row
+        for row in chronology_rows
+        if _CENSORED_CHRONOLOGY_RE.search(row.chronology_text.strip())
+    ]
+    if interval_rows and censored_rows:
+        source_claims = tuple(
+            dict.fromkeys(
+                row.chronology_text.strip()
+                for row in chronology_rows
+                if row.chronology_text.strip()
+            )
+        )
+        chronology = AdnaChronology(
+            original_text="; ".join(source_claims),
+            time_start_bp=None,
+            time_end_bp=None,
+            time_mean_bp=None,
+            dating_basis=dating_basis,
+        )
+        return _apply_chronology_semantics(
+            chronology,
+            evidence_class="unresolved",
+            precision_posture="sample_approximate_or_modeled",
+        )
     if interval_rows:
         start_bp = min(cast(int, row.time_start_bp) for row in interval_rows)
         end_bp = max(cast(int, row.time_end_bp) for row in interval_rows)
@@ -303,6 +342,7 @@ def _fallback_chronology_precision_posture(chronology: AdnaChronology) -> str:
             "bayesian",
             "modeled",
             "modelled",
+            "~",
             "calibrated",
             "2σ",
             "1σ",
@@ -350,7 +390,11 @@ def _aggregate_locality_precision_posture(
     }
     if postures & {"sample_approximate_or_modeled"}:
         return "sample_approximate_or_modeled"
-    if postures <= {"sample_precise_point"} and postures:
+    if (
+        postures <= {"sample_precise_point"}
+        and postures
+        and chronology.time_start_bp == chronology.time_end_bp
+    ):
         return "sample_precise_point"
     if postures & {"sample_precise_interval", "sample_precise_point"}:
         return "sample_precise_interval"

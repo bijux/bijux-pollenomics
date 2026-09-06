@@ -1,6 +1,6 @@
 # Sample site ambiguity ledger
 
-- Ambiguous or weak site rows: `439`
+- Ambiguous or weak site rows: `434`
 
 | Project accession | Sample id | Status | Locality | Note |
 | --- | --- | --- | --- | --- |
@@ -376,7 +376,6 @@
 | PRJEB75467 | prjeb75467:samea115574416 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574417 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574418 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB75467 | prjeb75467:samea115574419 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574420 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574421 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574422 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
@@ -393,8 +392,6 @@
 | PRJEB75467 | prjeb75467:samea115574436 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574437 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574440 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB75467 | prjeb75467:samea115574441 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB75467 | prjeb75467:samea115574442 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574443 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574444 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574445 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
@@ -406,8 +403,6 @@
 | PRJEB75467 | prjeb75467:samea115574452 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574454 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB75467 | prjeb75467:samea115574455 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB75467 | prjeb75467:samea115574456 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB75467 | prjeb75467:samea115574457 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJNA705960 | prjna705960:samn18106827 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJNA705960 | prjna705960:samn18106828 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJNA705960 | prjna705960:samn18106829 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |

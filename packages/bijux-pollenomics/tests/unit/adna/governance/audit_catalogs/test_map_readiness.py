@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections import Counter
 from pathlib import Path
 
 import pytest
@@ -122,61 +123,41 @@ def test_map_readiness_reconciles_point_ready_and_unpublished_counts(
         for row in readiness["rows"]
         if row["species_latin_name"] == "Sus scrofa domesticus"
     )
-    assert readiness["totals"]["direct_coordinate_backed"] == 276
+    assert readiness["totals"]["direct_coordinate_backed"] == 281
     assert readiness["totals"]["indirectly_geocoded"] == 4
-    assert readiness["totals"]["coordinate_provenance_mappable_count"] == 280
-    assert readiness["totals"]["coordinate_provenance_row_count"] == 284
-    assert readiness["totals"]["publication_candidate_count"] == 273
-    assert readiness["totals"]["not_materialized_count"] == 7
+    assert readiness["totals"]["coordinate_provenance_mappable_count"] == 285
+    assert readiness["totals"]["coordinate_provenance_row_count"] == 289
+    assert readiness["totals"]["publication_candidate_count"] == 151
+    assert readiness["totals"]["not_materialized_count"] == 134
     assert readiness["totals"]["refused_coordinate_provenance_count"] == 4
     assert readiness["totals"]["region_only_coordinate_refusal_count"] == 4
     assert readiness["totals"]["unresolved_location_coordinate_refusal_count"] == 0
-    assert readiness["totals"]["unresolved_sample_count"] == 95
+    assert readiness["totals"]["unresolved_sample_count"] == 90
     assert readiness["publication_accounting"]["overall_ok"]
-    assert {
-        (row["project_accession"], row["site_label"])
-        for row in readiness["not_materialized_rows"]
-    } == {
-        ("PRJEB22390", "Botai archaeological site horse context"),
-        ("PRJEB90261", "Lobos"),
-        ("SRP073444", "Site 1040 near Wadi Halfa dromedary context"),
-        ("PRJEB31613", "Altata"),
-        ("PRJEB31613", "Belkaragay"),
-        ("PRJEB31613", "Derkul"),
-        ("PRJEB31613", "Lebyazhinka IV"),
-    }
-    assert {
+    refusal_lookup = {
         (row["project_accession"], row["site_label"]): row["reason_code"]
         for row in readiness["not_materialized_rows"]
-    } == {
-        (
-            "PRJEB22390",
-            "Botai archaeological site horse context",
-        ): "no_admitted_sample_backed_locality_candidate",
-        ("PRJEB90261", "Lobos"): "no_admitted_sample_backed_locality_candidate",
-        (
-            "SRP073444",
-            "Site 1040 near Wadi Halfa dromedary context",
-        ): "no_admitted_sample_backed_locality_candidate",
-        (
-            "PRJEB31613",
-            "Altata",
-        ): "chronology_not_supported_for_atlas_publication",
-        (
-            "PRJEB31613",
-            "Belkaragay",
-        ): "chronology_not_supported_for_atlas_publication",
-        (
-            "PRJEB31613",
-            "Derkul",
-        ): "chronology_not_supported_for_atlas_publication",
-        (
-            "PRJEB31613",
-            "Lebyazhinka IV",
-        ): "chronology_not_supported_for_atlas_publication",
     }
+    assert Counter(refusal_lookup.values()) == {
+        "sample_scope_not_evidenced": 127,
+        "no_admitted_sample_backed_locality_candidate": 4,
+        "chronology_not_supported_for_atlas_publication": 2,
+        "mixed_sample_scope": 1,
+    }
+    assert refusal_lookup[("PRJEB31613", "Berel'")] == "sample_scope_not_evidenced"
+    assert (
+        refusal_lookup[("PRJEB44430", "Hyena's Lair")]
+        == "chronology_not_supported_for_atlas_publication"
+    )
+    assert (
+        refusal_lookup[("PRJEB44430", "Yana")]
+        == "chronology_not_supported_for_atlas_publication"
+    )
+    assert refusal_lookup[("PRJEB81815", "Bernhardsthal")] == "mixed_sample_scope"
     assert horse_row["direct_coordinate_backed"] == 207
     assert horse_row["indirectly_geocoded"] == 1
+    assert horse_row["publication_candidate_count"] == 78
+    assert horse_row["not_materialized_count"] == 130
     assert pig_row["indirectly_geocoded"] == 2
     assert pig_row["coordinate_provenance_mappable_count"] == 2
     assert pig_row["publication_candidate_count"] == 2
@@ -187,6 +168,12 @@ def test_map_readiness_reconciles_point_ready_and_unpublished_counts(
     assert sheep_row["unresolved_location_coordinate_refusal_count"] == 0
     assert sheep_row["coordinate_provenance_mappable_count"] == 2
     assert sheep_row["publication_candidate_count"] == 2
+    cattle_row = next(
+        row for row in readiness["rows"] if row["species_latin_name"] == "Bos taurus"
+    )
+    assert cattle_row["direct_coordinate_backed"] == 5
+    assert cattle_row["publication_candidate_count"] == 4
+    assert cattle_row["not_materialized_count"] == 1
 
 
 def test_map_accounting_refuses_duplicate_publication_identity(

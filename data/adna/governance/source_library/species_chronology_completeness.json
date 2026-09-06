@@ -3,15 +3,15 @@
   "rows": [
     {
       "species_latin_name": "Bos taurus",
-      "recovered_sample_row_count": 133,
-      "normalized_row_count": 65,
-      "exact_sample_date_count": 0,
-      "modeled_or_approximate_sample_date_count": 58,
+      "recovered_sample_row_count": 134,
+      "normalized_row_count": 71,
+      "exact_sample_date_count": 4,
+      "modeled_or_approximate_sample_date_count": 60,
       "contextual_date_count": 7,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 68,
-      "chronology_completeness_ratio": 0.4887
+      "unresolved_count": 63,
+      "chronology_completeness_ratio": 0.5299
     },
     {
       "species_latin_name": "Camelus dromedarius",
@@ -53,11 +53,11 @@
       "species_latin_name": "Equus caballus",
       "recovered_sample_row_count": 550,
       "normalized_row_count": 540,
-      "exact_sample_date_count": 540,
-      "modeled_or_approximate_sample_date_count": 0,
+      "exact_sample_date_count": 535,
+      "modeled_or_approximate_sample_date_count": 5,
       "contextual_date_count": 0,
       "broad_label_count": 0,
-      "text_only_unparsed_count": 0,
+      "text_only_unparsed_count": 5,
       "unresolved_count": 10,
       "chronology_completeness_ratio": 0.9818
     },
@@ -65,8 +65,8 @@
       "species_latin_name": "Felis catus",
       "recovered_sample_row_count": 109,
       "normalized_row_count": 67,
-      "exact_sample_date_count": 17,
-      "modeled_or_approximate_sample_date_count": 42,
+      "exact_sample_date_count": 16,
+      "modeled_or_approximate_sample_date_count": 43,
       "contextual_date_count": 8,
       "broad_label_count": 39,
       "text_only_unparsed_count": 44,
