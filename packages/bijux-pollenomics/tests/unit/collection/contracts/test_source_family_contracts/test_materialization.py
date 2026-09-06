@@ -64,6 +64,12 @@ def test_family_layers_bind_admitted_sead_and_governed_boundary_review() -> None
     )
     assert "data/sead/raw/nordic_sites.json" not in sead_raw
 
+    sead_published = contracts["sead"].published_layer.example_artifacts
+    assert sead_published == (
+        "docs/report/regions/nordic/nordic_environmental_sites.geojson",
+    )
+    assert all("nordic_temporal_evidence" not in path for path in sead_published)
+
     boundary_review = contracts["boundaries"].reviewed_layer.example_artifacts
     assert boundary_review == (
         "data/boundaries/review/boundary_review.json",

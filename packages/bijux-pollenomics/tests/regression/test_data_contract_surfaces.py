@@ -70,6 +70,15 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
         self.assertEqual(rows["svar"]["authority_status"], "refused")
         self.assertIsNone(rows["svar"]["coverage_metrics"]["svar_lake_count"])
         self.assertEqual(rows["boundaries"]["authority_status"], "review_required")
+        self.assertEqual(rows["sead"]["published_status"], "present")
+        self.assertEqual(
+            rows["sead"]["publication_posture"],
+            "published_with_review_support",
+        )
+        self.assertNotIn(
+            "missing_published_surface",
+            rows["sead"]["blocking_reasons"],
+        )
 
     def test_checked_in_spatiotemporal_registry_keeps_source_limits_explicit(
         self,

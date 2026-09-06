@@ -128,6 +128,36 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
             rows["svar"]["blocking_reasons"],
         )
 
+    def test_sead_publication_requires_only_the_invariant_site_layer(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            workspace = Path(tmp)
+            output_root = workspace / "data"
+            contract = next(
+                contract
+                for contract in build_source_family_contracts()
+                if contract.source_key == "sead"
+            )
+            for layer in (
+                contract.raw_layer,
+                contract.normalized_layer,
+                contract.reviewed_layer,
+                contract.published_layer,
+            ):
+                for relative_path in layer.example_artifacts:
+                    path = workspace / relative_path
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_text("{}", encoding="utf-8")
+
+            payload = build_source_family_state_matrix_payload(
+                output_root,
+                counts={"sead_point_count": 4},
+            )
+
+        row = next(row for row in payload["rows"] if row["source_key"] == "sead")
+        self.assertEqual(row["published_status"], "present")
+        self.assertEqual(row["publication_posture"], "published_with_review_support")
+        self.assertNotIn("missing_published_surface", row["blocking_reasons"])
+
     def test_stale_raa_and_boundary_files_do_not_admit_publication(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             workspace = Path(tmp)
