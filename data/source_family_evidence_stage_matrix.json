@@ -38,7 +38,7 @@
       "authority_status": "not_required",
       "authority_reasons": [],
       "coverage_metrics": {
-        "neotoma_point_count": 200
+        "neotoma_point_count": 193
       },
       "blocking_reasons": []
     },
@@ -186,7 +186,7 @@
       "coverage_metrics": {
         "animal_species_count": 10,
         "animal_project_count": 40,
-        "animal_sample_count": 1451
+        "animal_sample_count": 1450
       },
       "blocking_reasons": [
         "source_authority_review_required",
@@ -649,7 +649,7 @@
         "evidence_file_count": 1,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -672,7 +672,7 @@
         "evidence_file_count": 1,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -695,7 +695,7 @@
         "evidence_file_count": 1,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -720,7 +720,7 @@
         "evidence_file_count": 2,
         "required_evidence_count": 2,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -743,7 +743,7 @@
         "evidence_file_count": 1,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -766,7 +766,7 @@
         "evidence_file_count": 1,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -789,7 +789,7 @@
         "evidence_file_count": 0,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -812,7 +812,7 @@
         "evidence_file_count": 1,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -835,7 +835,7 @@
         "evidence_file_count": 0,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -858,7 +858,7 @@
         "evidence_file_count": 0,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -881,7 +881,7 @@
         "evidence_file_count": 0,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -904,7 +904,7 @@
         "evidence_file_count": 0,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -941,7 +941,7 @@
         "evidence_file_count": 8,
         "required_evidence_count": 8,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -980,7 +980,7 @@
         "evidence_file_count": 9,
         "required_evidence_count": 9,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -1003,7 +1003,7 @@
         "evidence_file_count": 1,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -1026,7 +1026,7 @@
         "evidence_file_count": 0,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -1049,7 +1049,7 @@
         "evidence_file_count": 0,
         "required_evidence_count": 1,
         "coverage_metrics": {
-          "neotoma_point_count": 200
+          "neotoma_point_count": 193
         },
         "human_review_required": true,
         "reason_codes": [
@@ -1113,7 +1113,7 @@
         "source_key": "sead",
         "dimension": "four_country_coverage",
         "support": "partial",
-        "materialization": "complete",
+        "materialization": "partial",
         "evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/country_dimension_coverage.json",
@@ -1123,18 +1123,19 @@
         "present_evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/country_dimension_coverage.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
         ],
-        "missing_evidence_paths": [],
-        "evidence_file_count": 4,
+        "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
+        ],
+        "evidence_file_count": 3,
         "required_evidence_count": 4,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
         "human_review_required": true,
         "reason_codes": [
-          "governed_dimension_evidence_complete",
+          "governed_dimension_evidence_incomplete",
           "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
@@ -1143,7 +1144,7 @@
         "source_key": "sead",
         "dimension": "within_site_hierarchy",
         "support": "supported",
-        "materialization": "complete",
+        "materialization": "partial",
         "evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_groups.json",
@@ -1155,18 +1156,19 @@
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_groups.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_physical_samples.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
         ],
-        "missing_evidence_paths": [],
-        "evidence_file_count": 5,
+        "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
+        ],
+        "evidence_file_count": 4,
         "required_evidence_count": 5,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
         "human_review_required": true,
         "reason_codes": [
-          "governed_dimension_evidence_complete",
+          "governed_dimension_evidence_incomplete",
           "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
@@ -1175,7 +1177,7 @@
         "source_key": "sead",
         "dimension": "numeric_chronology",
         "support": "supported",
-        "materialization": "complete",
+        "materialization": "partial",
         "evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json",
@@ -1187,18 +1189,19 @@
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entity_ages.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
         ],
-        "missing_evidence_paths": [],
-        "evidence_file_count": 5,
+        "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
+        ],
+        "evidence_file_count": 4,
         "required_evidence_count": 5,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
         "human_review_required": true,
         "reason_codes": [
-          "governed_dimension_evidence_complete",
+          "governed_dimension_evidence_incomplete",
           "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
@@ -1207,7 +1210,7 @@
         "source_key": "sead",
         "dimension": "chronology_uncertainty",
         "support": "partial",
-        "materialization": "complete",
+        "materialization": "partial",
         "evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dating_uncertainty.json",
@@ -1217,18 +1220,19 @@
         "present_evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dating_uncertainty.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
         ],
-        "missing_evidence_paths": [],
-        "evidence_file_count": 4,
+        "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
+        ],
+        "evidence_file_count": 3,
         "required_evidence_count": 4,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
         "human_review_required": true,
         "reason_codes": [
-          "governed_dimension_evidence_complete",
+          "governed_dimension_evidence_incomplete",
           "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
@@ -1237,7 +1241,7 @@
         "source_key": "sead",
         "dimension": "relative_chronology",
         "support": "supported",
-        "materialization": "complete",
+        "materialization": "partial",
         "evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_ages.json",
@@ -1249,18 +1253,19 @@
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_ages.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_dates.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
         ],
-        "missing_evidence_paths": [],
-        "evidence_file_count": 5,
+        "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
+        ],
+        "evidence_file_count": 4,
         "required_evidence_count": 5,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
         "human_review_required": true,
         "reason_codes": [
-          "governed_dimension_evidence_complete",
+          "governed_dimension_evidence_incomplete",
           "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
@@ -1269,7 +1274,7 @@
         "source_key": "sead",
         "dimension": "taxon_identity",
         "support": "supported",
-        "materialization": "complete",
+        "materialization": "partial",
         "evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json",
@@ -1281,18 +1286,19 @@
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_master.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
         ],
-        "missing_evidence_paths": [],
-        "evidence_file_count": 5,
+        "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
+        ],
+        "evidence_file_count": 4,
         "required_evidence_count": 5,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
         "human_review_required": true,
         "reason_codes": [
-          "governed_dimension_evidence_complete",
+          "governed_dimension_evidence_incomplete",
           "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
@@ -1301,7 +1307,7 @@
         "source_key": "sead",
         "dimension": "native_ecological_class",
         "support": "supported",
-        "materialization": "complete",
+        "materialization": "partial",
         "evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocodes.json",
@@ -1317,18 +1323,19 @@
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_definitions.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_groups.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_systems.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
         ],
-        "missing_evidence_paths": [],
-        "evidence_file_count": 7,
+        "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
+        ],
+        "evidence_file_count": 6,
         "required_evidence_count": 7,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
         "human_review_required": true,
         "reason_codes": [
-          "governed_dimension_evidence_complete",
+          "governed_dimension_evidence_incomplete",
           "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
@@ -1346,13 +1353,13 @@
         ],
         "present_evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
         ],
         "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/derived/pollen_groups.json"
         ],
-        "evidence_file_count": 3,
+        "evidence_file_count": 2,
         "required_evidence_count": 4,
         "coverage_metrics": {
           "sead_point_count": 2069
@@ -1377,13 +1384,13 @@
         ],
         "present_evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
         ],
         "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/derived/ecological_roles.json"
         ],
-        "evidence_file_count": 3,
+        "evidence_file_count": 2,
         "required_evidence_count": 4,
         "coverage_metrics": {
           "sead_point_count": 2069
@@ -1408,13 +1415,13 @@
         ],
         "present_evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
         ],
         "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/derived/crop_cereal_resolution.json"
         ],
-        "evidence_file_count": 3,
+        "evidence_file_count": 2,
         "required_evidence_count": 4,
         "coverage_metrics": {
           "sead_point_count": 2069
@@ -1430,7 +1437,7 @@
         "source_key": "sead",
         "dimension": "quantitative_observation",
         "support": "supported",
-        "materialization": "complete",
+        "materialization": "partial",
         "evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json",
@@ -1450,18 +1457,19 @@
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_categorical_values.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_boolean_values.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_measured_values.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
         ],
-        "missing_evidence_paths": [],
-        "evidence_file_count": 9,
+        "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
+        ],
+        "evidence_file_count": 8,
         "required_evidence_count": 9,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
         "human_review_required": true,
         "reason_codes": [
-          "governed_dimension_evidence_complete",
+          "governed_dimension_evidence_incomplete",
           "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
@@ -1470,7 +1478,7 @@
         "source_key": "sead",
         "dimension": "observation_unit",
         "support": "supported",
-        "materialization": "complete",
+        "materialization": "partial",
         "evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_types.json",
@@ -1485,19 +1493,20 @@
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_types.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dimensions.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_units.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
         ],
-        "missing_evidence_paths": [],
-        "evidence_file_count": 7,
+        "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
+        ],
+        "evidence_file_count": 6,
         "required_evidence_count": 7,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
         "human_review_required": true,
         "reason_codes": [
-          "governed_dimension_evidence_complete",
+          "governed_dimension_evidence_incomplete",
           "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
@@ -1506,24 +1515,25 @@
         "source_key": "sead",
         "dimension": "dataset_provenance",
         "support": "supported",
-        "materialization": "complete",
+        "materialization": "partial",
         "evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
         ],
         "present_evidence_paths": [
-          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json"
+        ],
+        "missing_evidence_paths": [
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
         ],
-        "missing_evidence_paths": [],
-        "evidence_file_count": 2,
+        "evidence_file_count": 1,
         "required_evidence_count": 2,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
         "human_review_required": true,
         "reason_codes": [
-          "governed_dimension_evidence_complete",
+          "governed_dimension_evidence_incomplete",
           "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
@@ -1541,13 +1551,13 @@
         ],
         "present_evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events.json"
         ],
         "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/derived/pollen_propagation_events.json"
         ],
-        "evidence_file_count": 3,
+        "evidence_file_count": 2,
         "required_evidence_count": 4,
         "coverage_metrics": {
           "sead_point_count": 2069
@@ -1563,7 +1573,7 @@
         "source_key": "sead",
         "dimension": "non_pollen_context",
         "support": "supported",
-        "materialization": "complete",
+        "materialization": "partial",
         "evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json",
@@ -1573,18 +1583,19 @@
         "present_evidence_paths": [
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
           "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json",
-          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
           "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
         ],
-        "missing_evidence_paths": [],
-        "evidence_file_count": 4,
+        "missing_evidence_paths": [
+          "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
+        ],
+        "evidence_file_count": 3,
         "required_evidence_count": 4,
         "coverage_metrics": {
           "sead_point_count": 2069
         },
         "human_review_required": true,
         "reason_codes": [
-          "governed_dimension_evidence_complete",
+          "governed_dimension_evidence_incomplete",
           "missing_published_surface",
           "qualified_sead_ecological_classification_review_missing"
         ]
@@ -2798,7 +2809,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": true,
         "reason_codes": [
@@ -2826,7 +2837,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": true,
         "reason_codes": [
@@ -2854,7 +2865,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": true,
         "reason_codes": [
@@ -2882,7 +2893,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": true,
         "reason_codes": [
@@ -2910,7 +2921,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": true,
         "reason_codes": [
@@ -2938,7 +2949,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": true,
         "reason_codes": [
@@ -2966,7 +2977,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": true,
         "reason_codes": [
@@ -2994,7 +3005,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": true,
         "reason_codes": [
@@ -3022,7 +3033,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": true,
         "reason_codes": [
@@ -3046,7 +3057,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": false,
         "reason_codes": [
@@ -3066,7 +3077,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": false,
         "reason_codes": [
@@ -3086,7 +3097,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": false,
         "reason_codes": [
@@ -3110,7 +3121,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": true,
         "reason_codes": [
@@ -3138,7 +3149,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": true,
         "reason_codes": [
@@ -3166,7 +3177,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": true,
         "reason_codes": [
@@ -3190,7 +3201,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": false,
         "reason_codes": [
@@ -3214,7 +3225,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1451
+          "animal_sample_count": 1450
         },
         "human_review_required": true,
         "reason_codes": [
