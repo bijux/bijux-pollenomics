@@ -184,6 +184,7 @@ def test_chronology_page_embeds_the_exact_governed_media_inventory() -> None:
     ) == len(EXPECTED_STORIES)
     assert "autoplay" not in page
     assert 'href="./chronology-playback/"' in atlas_index
+    assert "provides 15 pre-rendered views" in " ".join(atlas_index.split())
     for story in manifest["stories"]:
         expected = EXPECTED_PUBLIC_ROWS[story["story_id"]]
         assert story["node_count"] == expected["node_count"]
