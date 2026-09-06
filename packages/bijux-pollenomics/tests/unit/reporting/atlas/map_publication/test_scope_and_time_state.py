@@ -18,9 +18,9 @@ class ScopeAndTimeStateTests(MapPublicationTestCase):
             next(scope for scope in plan.regional_scopes if scope.key == "nordic")
         )
 
-        self.assertEqual(world_policy.default_basemap, "voyager")
-        self.assertEqual(europe_plus_policy.default_basemap, "light")
-        self.assertEqual(nordic_policy.default_basemap, "voyager")
+        self.assertEqual(world_policy.default_basemap, "street")
+        self.assertEqual(europe_plus_policy.default_basemap, "street")
+        self.assertEqual(nordic_policy.default_basemap, "street")
         self.assertLess(
             world_policy.minimum_bounds[0][1], europe_plus_policy.minimum_bounds[0][1]
         )

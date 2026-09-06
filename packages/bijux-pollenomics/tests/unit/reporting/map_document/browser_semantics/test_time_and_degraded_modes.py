@@ -138,6 +138,8 @@ console.log(JSON.stringify({label:featureTimeLabel(feature),descriptor:featureTi
 
 def test_time_controls_expose_canonical_interval_and_playback_direction() -> None:
     assert 'id="time-playback-toggle"' in MAP_DOCUMENT_TEMPLATE
+    assert 'id="time-step-older"' in MAP_DOCUMENT_TEMPLATE
+    assert 'id="time-step-newer"' in MAP_DOCUMENT_TEMPLATE
     assert "Play oldest → present" in MAP_DOCUMENT_TEMPLATE
     assert "direction: rtl" in MAP_DOCUMENT_TEMPLATE
     assert "dockTimeSummary.textContent = `[${timeStartBp}, ${endBp}] BP`" in (
@@ -341,9 +343,9 @@ def test_provider_failure_reaches_no_basemap_without_mutating_evidence() -> None
     )
     observed = run_node_json(
         """
-const BASEMAP_FALLBACK_ORDER=['voyager','light','terrain','none'];
+const BASEMAP_FALLBACK_ORDER=['street','terrain','none'];
 const BASEMAP_NAMES=[...BASEMAP_FALLBACK_ORDER];
-const failedBasemaps=new Set(['voyager','light','terrain']);
+const failedBasemaps=new Set(['street','terrain']);
 const basemapErrorCounts=new Map();
 const evidence=[{record_id:'site:1',latitude:0,longitude:0}];
 let currentBasemap='terrain', activeBasemap='terrain', readout='';
@@ -405,6 +407,7 @@ const SCIENTIFIC_SIGNALS=[
 const activeScientificSignalIds=new Set(['subgroup:cereals']);
 const ATLAS_EVIDENCE={classifications_status:'available'};
 const scientificStatus={textContent:''}, scientificFilters={innerHTML:''};
+const scientificActions={hidden:false};
 const scientificSummary={textContent:''};
 const document={querySelectorAll(){return []}};
 function escapeHtml(value){return String(value)}

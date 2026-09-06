@@ -87,6 +87,8 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
 
     def test_basemap_failure_has_bounded_failover_and_tile_free_mode(self) -> None:
         self.assertIn('data-basemap="none"', MAP_DOCUMENT_TEMPLATE)
+        self.assertIn("https://tile.openstreetmap.org/{z}/{x}/{y}.png", MAP_DOCUMENT_TEMPLATE)
+        self.assertNotIn("basemaps.cartocdn.com", MAP_DOCUMENT_TEMPLATE)
         self.assertIn("zoomControl: false, maxZoom: 20", MAP_DOCUMENT_TEMPLATE)
         self.assertIn("const MAX_PROVIDER_TILE_ERRORS = 3", MAP_DOCUMENT_TEMPLATE)
         self.assertIn("layer.on('tileerror'", MAP_DOCUMENT_TEMPLATE)
@@ -118,9 +120,9 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
             "../../../assets",
         )
 
-        self.assertIn("const DEFAULT_BASEMAP = 'light';", html)
+        self.assertIn("const DEFAULT_BASEMAP = 'street';", html)
         self.assertIn("currentBasemap !== DEFAULT_BASEMAP", html)
         self.assertIn("setBasemap(DEFAULT_BASEMAP, { manual: true })", html)
-        self.assertNotIn("currentBasemap !== 'voyager'", html)
+        self.assertNotIn("currentBasemap !== 'street'", html)
         self.assertIn("for (const candidate of BASEMAP_FALLBACK_ORDER)", html)
         self.assertIn("if (candidate === name) continue;", html)

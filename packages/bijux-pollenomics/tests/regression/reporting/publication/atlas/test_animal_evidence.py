@@ -187,7 +187,7 @@ class CountryReportTests(unittest.TestCase):
                 summary["artifacts"]["animal_point_traceability_json"],
                 "nordic-atlas_animal_point_traceability.json",
             )
-            self.assertEqual(map_contract["default_basemap"], "voyager")
+            self.assertEqual(map_contract["default_basemap"], "street")
             self.assertIn("Species focus", summary["animal_atlas"]["filter_surfaces"])
             self.assertIn(
                 "Coordinate confidence",

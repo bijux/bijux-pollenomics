@@ -115,7 +115,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("Move over map", map_html)
             self.assertIn("No selection", map_html)
             self.assertNotIn("4 countries · 0 layers · 0 visible points", map_html)
-            self.assertIn("basemap-preview--voyager", map_html)
+            self.assertIn("basemap-preview--street", map_html)
             self.assertIn("Minimal contrast for evidence-first inspection.", map_html)
             self.assertIn(
                 "__TITLE__".replace("__TITLE__", "Nordic Evidence Atlas"), map_html

@@ -71,7 +71,7 @@ _MAP_SCOPE_POLICIES: dict[str, MapScopePolicy] = {
             "root publication surface reads as a parent scope rather than a Nordic "
             "detail page with a bigger title."
         ),
-        default_basemap="voyager",
+        default_basemap="street",
         initial_diameter_km=40,
         minimum_bounds=((-20.0, -165.0), (82.0, 180.0)),
         filter_surfaces=_COMMON_FILTER_SURFACES,
@@ -96,7 +96,7 @@ _MAP_SCOPE_POLICIES: dict[str, MapScopePolicy] = {
             "The opening extent centers the European frame while keeping enough margin "
             "for future expansion into non-Nordic Europe-plus countries."
         ),
-        default_basemap="light",
+        default_basemap="street",
         initial_diameter_km=30,
         minimum_bounds=((34.0, -16.0), (72.0, 42.0)),
         filter_surfaces=_COMMON_FILTER_SURFACES,
@@ -121,7 +121,7 @@ _MAP_SCOPE_POLICIES: dict[str, MapScopePolicy] = {
             "The opening extent stays tight on Nordic countries so lake, site, and "
             "archaeology context reads as map content rather than background noise."
         ),
-        default_basemap="voyager",
+        default_basemap="street",
         initial_diameter_km=20,
         minimum_bounds=((54.0, 4.0), (72.0, 35.0)),
         filter_surfaces=(
@@ -157,7 +157,7 @@ _MAP_SCOPE_POLICIES: dict[str, MapScopePolicy] = {
             "The opening extent follows the visible points because no governed scope "
             "bounds were supplied."
         ),
-        default_basemap="voyager",
+        default_basemap="street",
         initial_diameter_km=20,
         minimum_bounds=((54.0, 4.0), (72.0, 35.0)),
         filter_surfaces=_COMMON_FILTER_SURFACES,

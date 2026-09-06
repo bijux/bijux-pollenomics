@@ -203,8 +203,16 @@ def test_hash_filters_are_distinct_and_source_selection_drives_playback() -> Non
     assert "direction: rtl" in MAP_DOCUMENT_TEMPLATE
     assert "sourceChronologyPlaybackSelection()" in MAP_DOCUMENT_TEMPLATE
     assert "source playback extent ${extentLabel}" in MAP_DOCUMENT_TEMPLATE
-    assert "automatic playback uses the exact selected sample" in MAP_DOCUMENT_TEMPLATE
-    assert "Manual sliders retain the global atlas range" in MAP_DOCUMENT_TEMPLATE
+    assert "slider, arrows, and playback use that exact sample" in MAP_DOCUMENT_TEMPLATE
+    assert "Disable the source layer to navigate the complete atlas span" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "timeStartSlider.min = String(navigationExtent.time_min_bp)" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "timeStartSlider.max = String(Math.max(navigationExtent.time_min_bp" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
     assert "untimed source nodes excluded before viewport filtering" in (
         MAP_DOCUMENT_TEMPLATE
     )
@@ -256,6 +264,50 @@ console.log(JSON.stringify({extent,frames:automaticPlaybackFrameCount(100),start
         "frames": 8,
         "starts": [800, 700, 600, 500, 400, 300, 200, 100],
     }
+
+
+def test_source_shortcuts_open_real_chronology_levels_and_cereal_labels() -> None:
+    assert 'data-source-shortcut="sample"' in MAP_DOCUMENT_TEMPLATE
+    for source_code in ("TRSH", "UPHE", "AQVP"):
+        assert f'data-source-shortcut="{source_code}"' in MAP_DOCUMENT_TEMPLATE
+    assert 'data-source-shortcut="cereals"' in MAP_DOCUMENT_TEMPLATE
+    assert "sourceChronologyTaxonSearch = shortcut === 'cereals' ? 'cereal|secale'" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "/cereal|secale/i.test(row.label)" in MAP_DOCUMENT_TEMPLATE
+    assert "focusSourceChronologyNavigation();" in MAP_DOCUMENT_TEMPLATE
+
+
+def test_manual_chronology_arrows_move_exactly_one_window() -> None:
+    controls = template_block("function finiteControlNumber", "const initialState")
+    observed = run_node_json(
+        """
+const TIME_MIN_BP=0, TIME_MAX_BP=1000, TIME_HAS_DATA=true;
+const DEFAULT_TIME_START_BP=0, DEFAULT_TIME_INTERVAL_YEARS=1000;
+const TIME_INTERVAL_MAX=1000;
+const reducedMotionQuery={matches:false};
+const timePlaybackToggle={setAttribute(){},textContent:'',disabled:false,title:''};
+const timeStartSlider={},timeIntervalSlider={},dockTimeSummary={};
+const timeStartValue={},timeIntervalValue={};
+const timeStepOlder={},timeStepNewer={},timeStepperStatus={};
+const window={clearTimeout(){},setTimeout(){return 1},location:{hash:''}};
+const mobileLayoutQuery={matches:false};
+let timeStartBp=400,timeIntervalYears=100;
+function sourceChronologyPlaybackSelection(){return {time_min_bp:100,time_max_bp:900,selection_key:'TRSH'}}
+async function renderMapState(){}
+"""
+        + controls
+        + """
+console.log(JSON.stringify({
+  older:previousPlaybackTimeStart(timeStartBp,timeIntervalYears),
+  newer:nextPlaybackTimeStart(timeStartBp,timeIntervalYears),
+  oldest:previousPlaybackTimeStart(800,timeIntervalYears),
+  present:nextPlaybackTimeStart(100,timeIntervalYears),
+}));
+"""
+    )
+
+    assert observed == {"older": 500, "newer": 300, "oldest": 800, "present": 100}
 
 
 def test_playback_rechecks_restored_interval_after_leaving_modeled_context() -> None:
