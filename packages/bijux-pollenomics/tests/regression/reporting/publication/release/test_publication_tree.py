@@ -112,7 +112,9 @@ class CountryReportTests(unittest.TestCase):
                 (output / "animal_first_appearance_by_country.json").exists()
             )
             self.assertTrue((output / "nordic_farming_history_scenario.json").exists())
-            self.assertTrue((output / "world" / "world_map.html").exists())
+            self.assertTrue(
+                (output / "world" / "nordic-atlas_map.html").exists()
+            )
             self.assertTrue(
                 (output / "regions" / "nordic" / "nordic_map.html").exists()
             )
@@ -201,11 +203,12 @@ class CountryReportTests(unittest.TestCase):
             self.assertEqual(report.shared_map_dir, output / "world")
             self.assertIn(output / "countries" / "sweden", report.country_output_dirs)
             self.assertEqual(
-                published_summary["artifacts"]["world_bundle"]["slug"], "world"
+                published_summary["artifacts"]["world_bundle"]["slug"],
+                "nordic-atlas",
             )
             self.assertEqual(
                 published_summary["artifacts"]["world_bundle"]["bundle_manifest"],
-                "world_bundle.json",
+                "nordic-atlas_bundle.json",
             )
             self.assertEqual(
                 published_summary["artifacts"]["animal_output_audit_json"],
@@ -287,7 +290,10 @@ class CountryReportTests(unittest.TestCase):
                 for row in atlas_readiness["rows"]
                 if row["species_latin_name"] == "Ovis aries"
             )
-            self.assertGreaterEqual(sheep_readiness["map_ready_count"], 1)
+            self.assertGreaterEqual(
+                sheep_readiness["publication_candidate_count"],
+                1,
+            )
             self.assertGreaterEqual(
                 sheep_readiness["country_mapped_locality_counts"]["Sweden"],
                 1,
