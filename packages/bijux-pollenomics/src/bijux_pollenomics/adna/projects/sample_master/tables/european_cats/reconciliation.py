@@ -2,11 +2,7 @@
 
 from __future__ import annotations
 
-import csv
 from dataclasses import dataclass
-from decimal import ROUND_HALF_UP, Decimal
-from io import StringIO
-from pathlib import Path
 from typing import Final
 
 from bijux_pollenomics.adna.projects.sample_master.models import (
@@ -19,6 +15,14 @@ from .chronology import (
     _calendar_union_bp,
     _calendar_union_label,
 )
+from .reconciliation_validation import validate_reconciliation
+from .source_tables import ArchiveRow as _ArchiveRow
+from .source_tables import TableRow as _TableRow
+from .source_tables import collapse_deep_sequence_rows as _collapse_deep_sequence_rows
+from .source_tables import display_coordinate as _display_coordinate
+from .source_tables import read_archive_rows as _read_archive_rows
+from .source_tables import table_rows as _table_rows
+from .source_tables import unique_index as _unique_index
 
 EUROPEAN_CAT_PROJECT_ACCESSION: Final = "PRJEB81815"
 EUROPEAN_CAT_WORKBOOK_MEMBER: Final = "science.adt2642_tables s1_to_s8.xlsx"
@@ -195,21 +199,6 @@ class EuropeanCatReconciliationRow:
         )
 
 
-@dataclass(frozen=True)
-class _TableRow:
-    row_number: int
-    values: dict[str, str]
-
-
-@dataclass(frozen=True)
-class _ArchiveRow:
-    sample_accession: str
-    experiment_accession: str
-    tax_id: str
-    scientific_name: str
-    submitted_basenames: tuple[str, ...]
-
-
 def _reconcile_european_cat_panel(
     *,
     archive_text: str,
@@ -305,7 +294,11 @@ def _reconcile_european_cat_panel(
             )
 
     rows.sort(key=lambda row: row.archive_native_sample_id)
-    _validate_reconciliation(tuple(rows))
+    validate_reconciliation(
+        tuple(rows),
+        expected_ancient_countries=_EXPECTED_ANCIENT_COUNTRIES,
+        expected_unresolved=frozenset(_EXPECTED_UNRESOLVED),
+    )
     return tuple(rows)
 
 
@@ -522,184 +515,6 @@ def _unresolved_row(archive_row: _ArchiveRow) -> EuropeanCatReconciliationRow:
         chronology_precision_posture="unresolved",
         workbook_locator="",
         conflict_note=f"{reason}: archive {basename}; workbook {workbook_id}",
-    )
-
-
-def _read_archive_rows(archive_text: str) -> tuple[_ArchiveRow, ...]:
-    reader = csv.DictReader(StringIO(archive_text), delimiter="\t")
-    required = {
-        "sample_accession",
-        "experiment_accession",
-        "tax_id",
-        "scientific_name",
-        "submitted_ftp",
-    }
-    _require(
-        reader.fieldnames is not None and required <= set(reader.fieldnames),
-        "ENA archive columns required by the cat reconciliation are missing",
-    )
-    rows: list[_ArchiveRow] = []
-    for source in reader:
-        accession = source["sample_accession"].strip()
-        if not accession:
-            continue
-        basenames = tuple(
-            Path(item.strip()).name
-            for item in source["submitted_ftp"].split(";")
-            if item.strip()
-        )
-        rows.append(
-            _ArchiveRow(
-                sample_accession=accession,
-                experiment_accession=source["experiment_accession"].strip(),
-                tax_id=source["tax_id"].strip(),
-                scientific_name=source["scientific_name"].strip(),
-                submitted_basenames=basenames,
-            )
-        )
-    _require(
-        len({row.sample_accession for row in rows}) == len(rows),
-        "duplicate ENA sample accession",
-    )
-    return tuple(rows)
-
-
-def _table_rows(
-    rows: tuple[tuple[str, ...], ...],
-    *,
-    required_headers: tuple[str, ...],
-    primary_key: str,
-) -> tuple[_TableRow, ...]:
-    _require(len(rows) >= 2, "supplementary table has no header row")
-    header = {
-        value.strip(): index for index, value in enumerate(rows[1]) if value.strip()
-    }
-    _require(
-        set(required_headers) <= set(header),
-        f"supplementary table headers missing for {primary_key}",
-    )
-    built: list[_TableRow] = []
-    for row_number, row in enumerate(rows[2:], start=3):
-        values = {key: _cell_value(row, header[key]) for key in required_headers}
-        if not values[primary_key]:
-            continue
-        built.append(_TableRow(row_number=row_number, values=values))
-    return tuple(built)
-
-
-def _collapse_deep_sequence_rows(
-    rows: tuple[tuple[str, ...], ...],
-) -> dict[str, _TableRow]:
-    required = ("Sample ID", "Cat ID", "Individual", "Country", "Site", "element")
-    parsed = _table_rows(rows, required_headers=required, primary_key="Sample ID")
-    grouped: dict[str, list[_TableRow]] = {}
-    for row in parsed:
-        sample_id = row.values["Sample ID"].removesuffix("*")
-        grouped.setdefault(sample_id, []).append(row)
-    collapsed: dict[str, _TableRow] = {}
-    for sample_id, group in grouped.items():
-        signatures = {
-            tuple(row.values[field] for field in required[1:]) for row in group
-        }
-        _require(
-            len(signatures) == 1,
-            f"repeated Table S3 rows disagree for {sample_id}",
-        )
-        first = group[0]
-        collapsed[sample_id] = _TableRow(
-            row_number=first.row_number,
-            values={**first.values, "Sample ID": sample_id},
-        )
-    return collapsed
-
-
-def _unique_index(
-    rows: tuple[_TableRow, ...], key: str, label: str
-) -> dict[str, _TableRow]:
-    index: dict[str, _TableRow] = {}
-    for row in rows:
-        value = row.values[key]
-        _require(value not in index, f"duplicate {label}: {value}")
-        index[value] = row
-    return index
-
-
-def _display_coordinate(value: str) -> str:
-    number = Decimal(value).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
-    return f"{number:.2f}"
-
-
-def _cell_value(row: tuple[str, ...], index: int) -> str:
-    return "" if index >= len(row) else str(row[index]).strip()
-
-
-def _validate_reconciliation(
-    rows: tuple[EuropeanCatReconciliationRow, ...],
-) -> None:
-    status_counts: dict[str, int] = {}
-    for row in rows:
-        status_counts[row.reconciliation_status] = (
-            status_counts.get(row.reconciliation_status, 0) + 1
-        )
-    _require(
-        status_counts
-        == {
-            "exact_ancient": 70,
-            "exact_modern_context": 14,
-            "unresolved_identifier_conflict": 3,
-        },
-        "European cat reconciliation denominator drift",
-    )
-    ancient = tuple(row for row in rows if row.reconciliation_status == "exact_ancient")
-    country_counts: dict[str, int] = {}
-    for row in ancient:
-        country_counts[row.political_entity] = (
-            country_counts.get(row.political_entity, 0) + 1
-        )
-    _require(
-        country_counts == _EXPECTED_ANCIENT_COUNTRIES,
-        "ancient country denominator drift",
-    )
-    _require(
-        sum(
-            row.chronology_evidence_class == "direct_radiocarbon_date"
-            for row in ancient
-        )
-        == 37,
-        "radiocarbon chronology denominator drift",
-    )
-    _require(
-        sum(
-            row.chronology_evidence_class == "archaeological_context_date"
-            for row in ancient
-        )
-        == 33,
-        "archaeological chronology denominator drift",
-    )
-    _require(
-        sum(
-            row.coordinate_admission_status == "source_reported_pair_admitted"
-            for row in ancient
-        )
-        == 56,
-        "admitted coordinate denominator drift",
-    )
-    _require(
-        sum(
-            row.coordinate_admission_status == "withheld_coordinate_order_anomaly"
-            for row in ancient
-        )
-        == 14,
-        "coordinate-order refusal denominator drift",
-    )
-    _require(
-        {
-            row.archive_native_sample_id
-            for row in rows
-            if row.reconciliation_status.startswith("unresolved")
-        }
-        == set(_EXPECTED_UNRESOLVED),
-        "identifier-conflict set drift",
     )
 
 
