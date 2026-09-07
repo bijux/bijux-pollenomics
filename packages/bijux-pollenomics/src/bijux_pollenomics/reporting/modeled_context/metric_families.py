@@ -54,17 +54,24 @@ class MetricFamily:
 def _metric(
     key: str,
     *,
+    label: str | None = None,
     source_label: str | None = None,
     definition: str | None = None,
     evidence: str = MAPPING_TABLE_EVIDENCE,
 ) -> MetricDefinition:
     return MetricDefinition(
         key=key,
-        label=source_label or key,
+        label=label or source_label or key,
         source_label=source_label or key,
         definition=definition,
         membership_evidence=evidence,
     )
+
+
+def _pft_label(key: str, definition: str | None) -> str:
+    if definition is None:
+        return f"{key} (definition unavailable)"
+    return f"{definition} ({key})"
 
 
 EXACT_TAXA: Final = (
@@ -146,6 +153,8 @@ METRIC_FAMILIES: Final = (
         metrics=tuple(
             _metric(
                 key,
+                label=_pft_label(key, definition),
+                source_label=key,
                 definition=definition,
                 evidence=(
                     MAPPING_TABLE_EVIDENCE

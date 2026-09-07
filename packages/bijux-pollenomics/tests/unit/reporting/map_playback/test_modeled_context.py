@@ -54,6 +54,48 @@ def test_every_modeled_metric_keeps_all_exact_source_windows() -> None:
     assert frames[0]["countries"] == list(NORDIC_COUNTRIES)
 
 
+def test_pft_story_titles_preserve_authoritative_definitions_and_codes() -> None:
+    stories = build_modeled_context_storyboards(
+        modeled_manifest(), countries=NORDIC_COUNTRIES
+    )
+    pft_stories = {story.selector_value: story for story in stories}
+
+    expected_titles = {
+        "LSE": (
+            "PANGAEA 937075 modeled context — Low shrub, broadleaved evergreen (LSE)"
+        ),
+        "GL": "PANGAEA 937075 modeled context — Grassland - all herbs (GL)",
+        "AL": "PANGAEA 937075 modeled context — Agricultural land - cereals (AL)",
+        "ISTS": "PANGAEA 937075 modeled context — ISTS (definition unavailable)",
+    }
+    assert {
+        key: (pft_stories[key].title, pft_stories[key].selector_family)
+        for key in expected_titles
+    } == {key: (title, "source_pft_codes") for key, title in expected_titles.items()}
+
+
+def test_missing_pft_presentation_label_fails_closed() -> None:
+    manifest = deepcopy(modeled_manifest())
+    families = manifest["metric_families"]
+    assert isinstance(families, list)
+    pft_family = next(
+        family
+        for family in families
+        if isinstance(family, dict) and family.get("key") == "source_pft_codes"
+    )
+    metrics = pft_family["metrics"]
+    assert isinstance(metrics, list)
+    lse = next(
+        metric
+        for metric in metrics
+        if isinstance(metric, dict) and metric.get("key") == "LSE"
+    )
+    lse["label"] = ""
+
+    with pytest.raises(PlaybackContractError, match="label must not be empty"):
+        build_modeled_context_storyboards(manifest, countries=NORDIC_COUNTRIES)
+
+
 @pytest.mark.parametrize(
     "mutation",
     [

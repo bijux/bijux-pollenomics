@@ -8,6 +8,7 @@ from zipfile import ZipFile
 from bijux_pollenomics.reporting.modeled_context.metric_families import (
     METRIC_FAMILIES,
     PANGAEA_METRIC_KEYS,
+    PFT_DEFINITIONS,
 )
 from tests.support.repository import REPOSITORY_ROOT
 
@@ -63,7 +64,29 @@ def test_companion_mapping_preserves_source_labels_and_family_denominators() -> 
     assert [metric["key"] for metric in pfts if metric["key"] != "ISTS"] == (
         mapped_pft_codes
     )
+    pfts_by_key = {str(metric["key"]): metric for metric in pfts}
+    assert {
+        key: (
+            pfts_by_key[key]["label"],
+            pfts_by_key[key]["source_label"],
+            pfts_by_key[key]["definition"],
+        )
+        for key, _definition in PFT_DEFINITIONS
+    } == {
+        key: (
+            (
+                f"{definition} ({key})"
+                if definition is not None
+                else f"{key} (definition unavailable)"
+            ),
+            key,
+            definition,
+        )
+        for key, definition in PFT_DEFINITIONS
+    }
     ists = next(metric for metric in pfts if metric["key"] == "ISTS")
+    assert ists["label"] == "ISTS (definition unavailable)"
+    assert ists["source_label"] == "ISTS"
     assert ists["definition"] is None
     assert str(ists["membership_evidence"]).endswith(
         "TW1.RV.estimates.jun21.csv#header"
