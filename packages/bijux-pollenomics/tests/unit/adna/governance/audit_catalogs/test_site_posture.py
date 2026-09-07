@@ -21,7 +21,21 @@ def test_site_ledgers_retain_unresolved_and_region_refused_denominators(
     unresolved = build_unresolved_site_ledger(catalog_data_root)
     overbroad = build_overbroad_site_ledger(catalog_data_root)
 
-    assert len(unresolved) == 90
+    assert len(unresolved) == 402
+    pig_context = [
+        row for row in unresolved if row["project_accession"] == "PRJEB30282"
+    ]
+    assert len(pig_context) == 341
+    # A recovered locality is not sufficient for a publication-context admission.
+    assert (
+        sum(
+            row["site_label"]
+            != "site detail not yet extracted from tracked source support"
+            for row in pig_context
+        )
+        == 318
+    )
+    assert sum(row["project_accession"] != "PRJEB30282" for row in unresolved) == 61
     assert len(overbroad) == 4
     assert "PRJEB30282" not in {row["project_accession"] for row in overbroad}
 
@@ -31,7 +45,7 @@ def test_coordinate_caveat_surface_groups_point_and_refused_rows(
 ) -> None:
     caveat_surface = build_coordinate_caveat_surface(catalog_data_root)
 
-    assert len(caveat_surface["direct_coordinates"]) == 281
+    assert len(caveat_surface["direct_coordinates"]) == 300
     assert len(caveat_surface["place_name_resolution"]) == 4
     assert len(caveat_surface["still_weak_geography"]) == 4
     assert {
@@ -54,7 +68,7 @@ def test_coordinate_caveat_surface_groups_point_and_refused_rows(
         for row in caveat_surface["direct_coordinates"]
         if row["project_accession"] == "PRJEB75467"
     ]
-    assert len(aurochs) == 5
+    assert len(aurochs) == 24
     assert {
         (row["coordinate_basis"], row["coordinate_confidence"]) for row in aurochs
     } == {("supplementary_proximal_site_coordinates", "approximate")}
