@@ -200,6 +200,8 @@ def test_projection_does_not_invent_scientific_classification_or_animal_scope(
         "animal_scope",
         "classification_id",
         "classification_status",
+        "scientific_signal_ids",
+        "species_common_name",
         "species_latin_name",
         "taxon_alignment_status",
         "taxon_alignment_statuses",

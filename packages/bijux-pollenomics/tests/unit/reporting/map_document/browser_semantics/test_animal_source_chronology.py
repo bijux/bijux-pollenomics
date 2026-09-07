@@ -152,6 +152,39 @@ def test_animal_source_chronology_does_not_enter_neotoma_playback() -> None:
     assert "animal_source_chronology_context" not in layers
 
 
+def test_world_animal_chronology_bypasses_four_country_human_filter() -> None:
+    country_filter = template_block(
+        "function animalSourceChronologyCountryFilterBypassed",
+        "function staticAtlasTimeNeeded",
+    )
+    visibility = template_block(
+        "function pointFeatureVisible", "function polygonFeatureVisible"
+    )
+    observed = run_node_json(
+        """
+function isAnimalSourceChronologyLayer(layer) {
+  return layer.group === 'animal-chronology-context';
+}
+"""
+        + country_filter.split("function staticAtlasCountryNeeded", maxsplit=1)[0]
+        + """
+const layer={group:'animal-chronology-context'};
+console.log(JSON.stringify({
+  world:animalSourceChronologyCountryFilterBypassed(layer,'world'),
+  nordic:animalSourceChronologyCountryFilterBypassed(layer,'nordic'),
+  unrelated:animalSourceChronologyCountryFilterBypassed({group:'primary-evidence'},'world'),
+}));
+"""
+    )
+
+    assert observed == {"world": True, "nordic": False, "unrelated": False}
+    assert (
+        "!layer.applies_country_filter || "
+        "animalSourceChronologyCountryFilterBypassed(layer)"
+    ) in country_filter
+    assert "animalSourceChronologyCountryFilterBypassed(layer)" in visibility
+
+
 def test_context_preset_explicitly_enables_animal_source_chronology() -> None:
     presets = template_block("function applyLayerPreset", "function renderLegend")
 

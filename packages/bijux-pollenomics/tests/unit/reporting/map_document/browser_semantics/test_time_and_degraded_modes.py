@@ -360,10 +360,8 @@ def test_populated_search_and_mobile_focus_preserve_map_space() -> None:
     assert "width: min(360px, 100%);" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: min(18vh, 140px);" in MAP_DOCUMENT_TEMPLATE
     assert "width: min(240px, 46vw);" in MAP_DOCUMENT_TEMPLATE
-    assert ".topbar-search {\n          width: min(188px, 46vw);" in (
-        MAP_DOCUMENT_TEMPLATE
-    )
-    assert "justify-self: end;" in MAP_DOCUMENT_TEMPLATE
+    assert "width: min(220px, calc(100vw - 16px));" in MAP_DOCUMENT_TEMPLATE
+    assert "max-height: min(14vh, 96px);" in MAP_DOCUMENT_TEMPLATE
     assert "width: min(340px, 46vw);" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: min(32vh, 320px);" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: min(22vh, 220px);" in MAP_DOCUMENT_TEMPLATE
@@ -475,6 +473,7 @@ def test_country_filtered_assets_require_a_governed_active_country() -> None:
         """
 const activeCountries=new Set(['Sweden']);
 const layer={applies_country_filter:true};
+function animalSourceChronologyCountryFilterBypassed(){return false}
 """
         + helper
         + """
@@ -508,6 +507,9 @@ function pointFeatureInTimeWindow(){return true}
 function sourceChronologyFeatureMatches(){return true}
 function featureMatchesAnimalFilters(){return true}
 function featureMatchesScientificSelection(){return true}
+function animalSourceChronologyCountryFilterBypassed(){return false}
+function animalSourceChronologyLayerIsValid(){return true}
+function animalSourceChronologyFeatureIsValid(){return true}
 function modeledContextFeatureVisible(){return true}
 function featureInTimeWindow(){return true}
 const points={key:'points',applies_country_filter:true};

@@ -702,7 +702,10 @@ def test_point_visibility_applies_source_filter_without_touching_other_layers() 
 
 
 def test_popup_keeps_source_identity_and_interpretation_posture_visible() -> None:
-    popup = template_block("function sourceChronologyPopupHtml", "function popupHtml")
+    popup = template_block(
+        "function sourceChronologyPopupHtml",
+        "function animalSourceChronologyPopupHtml",
+    )
     assert "Source-native chronology context" in popup
     assert "Literal ecological code" in popup
     assert "Source-reported label" in popup

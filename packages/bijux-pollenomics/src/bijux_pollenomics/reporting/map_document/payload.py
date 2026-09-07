@@ -71,6 +71,7 @@ def build_map_document_payload(
     return {
         "__TITLE__": escape_html_fn(title),
         "__SCOPE_BADGE__": escape_html_fn(policy.eyebrow_label),
+        "__SCOPE_KEY_JSON__": serialize_json_for_script(policy.key),
         "__SCOPE_NOTE__": escape_html_fn(policy.summary),
         "__CHRONOLOGY_PLAYBACK_ACTION__": (
             '<div class="inline-actions">'

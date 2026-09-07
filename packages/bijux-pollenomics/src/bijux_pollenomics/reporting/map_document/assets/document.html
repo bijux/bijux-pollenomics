@@ -2895,6 +2895,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             return { ...layer, geojson: { ...(entry.layer.geojson || {}), features } };
           });
       }
+      const SCOPE_KEY = __SCOPE_KEY_JSON__;
       const COUNTRIES = __COUNTRIES_JSON__;
       const POINT_LAYERS = __POINT_LAYERS_JSON__;
       const POLYGON_LAYERS = __POLYGON_LAYERS_JSON__;
@@ -4469,8 +4470,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function staticAtlasLayerForRow(row) {
         return ALL_LAYERS.find((layer) => layer.key === row.layer_key) || null;
       }
+      function animalSourceChronologyCountryFilterBypassed(layer, scopeKey = SCOPE_KEY) {
+        return scopeKey === 'world' && isAnimalSourceChronologyLayer(layer);
+      }
       function staticAtlasCountryNeeded(row, layer) {
-        if (!layer.applies_country_filter) return true;
+        if (!layer.applies_country_filter || animalSourceChronologyCountryFilterBypassed(layer)) return true;
         if (!activeCountries.size) return false;
         const countryKeys = Array.isArray(row.country_keys) ? row.country_keys : [];
         return countryKeys.some((country) => activeCountries.has(country));
@@ -5987,7 +5991,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           activeLayerKeys.has(layer.key)
           && (!((layer.semantic_role === 'animal_source_chronology_context' || layer.group === 'animal-chronology-context')) || (animalSourceChronologyLayerIsValid(layer) && animalSourceChronologyFeatureIsValid(feature)))
           && featureCoordinatePair(feature) !== null
-          && (!layer.applies_country_filter || activeCountries.has(feature.country))
+          && (!layer.applies_country_filter || animalSourceChronologyCountryFilterBypassed(layer) || activeCountries.has(feature.country))
           && pointFeatureInTimeWindow(layer, feature)
           && sourceChronologyFeatureMatches(layer, feature)
           && featureMatchesAnimalFilters(layer, feature)
