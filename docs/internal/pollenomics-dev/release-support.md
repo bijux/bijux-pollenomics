@@ -107,6 +107,58 @@ explicit classification or propagation refusal reasons in its decision. Missing
 or malformed release posture fails validation; an unrelated reduced-scope
 blocker cannot waive an explicit refusal.
 
+## v0.1.8 Publication Preparation
+
+The planned release identifier is `v0.1.8`, with changelog date `2026-09-08`.
+The dated entries in the root and three package changelogs are prepared release
+notes, not evidence that a tag, registry upload, or deployment exists. The
+actual publication timestamps must remain those recorded by each destination;
+do not backdate them to match the changelog.
+
+Before executing the post-merge publication sequence:
+
+1. Confirm PR #199 is merged and record its accepted `main` commit. Reconcile
+   that commit with the reviewed local candidate and its passing required
+   checks; a green run for an earlier PR head is insufficient.
+2. Retain the exact report-rebuild, test-partition, documentation, browser,
+   artifact, and scientific-refusal evidence for the accepted revision. A
+   ten-minute timeout is a ceiling, not a passing performance measurement.
+3. Confirm authority for each intended external write. Merging, creating and
+   publishing the tag, deploying documentation, and publishing the selected
+   release surfaces are separate actions.
+4. Verify `v0.1.8` does not already identify another commit or immutable
+   published distribution. Create the release tag only on the accepted commit;
+   never move an existing release tag or substitute different artifact bytes.
+5. Build and verify distributions from that tag. All three packages derive
+   their versions from Git through `hatch-vcs`; no handwritten version bump is
+   required. A pre-tag `0.1.8.devN` build is diagnostic only and must not be
+   renamed or uploaded as `0.1.8`.
+
+After those conditions are met, the release operator can dispatch the existing
+workflows. Dispatch release workflows **from `v0.1.8`**, not from a later moving
+`main`, and supply `release_tag=v0.1.8` and `enabled=true`. The current release
+matrices select `bijux-pollenomics` and `pollenomics`; keep
+`bijux-pollenomics-dev` out of the public package set. The individual dispatches
+are `release-pypi.yml` (with `mode=artifact`), `release-ghcr.yml`, and
+`release-github.yml`. Record each
+run and its built wheel, source distribution, SBOM, and destination identities.
+Do not enable replacement of an existing GitHub release as a routine retry.
+
+Documentation deployment is separately dispatched through `deploy-docs.yml`
+after the merge. Record its source SHA, strict-build result, Pages artifact,
+deployment URL, and observed atlas build identity. If using `main`, confirm its
+resolved SHA still matches the intended publication revision. A local preview
+or package release does not establish deployed documentation parity.
+
+Use the prepared changelog entry as the release-note authority and retain its
+qualifications. The current manual GitHub release dispatch exposes only tag,
+enabled state, and build matrix; a custom release-notes path is available to
+reusable callers or configuration, not as an undeclared dispatch input. Review
+the resulting notes before claiming that the prepared narrative was published.
+Do not describe ecological classifications, migration/causation, unavailable
+sources, or independent scientific approval more strongly than their bound
+release evidence permits.
+
 ## Partial Publication And Recovery
 
 A release can be partial because package and documentation surfaces publish
