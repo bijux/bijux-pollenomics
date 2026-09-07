@@ -135,6 +135,72 @@ def _run_signed_capture_view_checks(
     )
 
 
+def _run_probe_boundary_parsers() -> subprocess.CompletedProcess[str]:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    sources = []
+    for name in (
+        "parseNonnegativeIntegerText",
+        "parseSliderBounds",
+    ):
+        match = re.search(
+            rf"function {name}\([^)]*\) \{{.*?^\}}",
+            probe,
+            re.DOTALL | re.MULTILINE,
+        )
+        assert match is not None
+        sources.append(match.group(0))
+    script = "\n".join(
+        [
+            *sources,
+            """
+const sliderCases = {
+  valid_zero: { min: '0', max: '100' },
+  both_zero: { min: '0', max: '0' },
+  missing_minimum: { max: '100' },
+  blank_maximum: { min: '0', max: ' ' },
+  malformed_minimum: { min: 'zero', max: '100' },
+  fractional_minimum: { min: '0.5', max: '100' },
+  negative_minimum: { min: '-1', max: '100' },
+  nonscalar_maximum: { min: '0', max: ['100'] },
+  reversed: { min: '100', max: '0' },
+};
+const sliderResults = Object.fromEntries(Object.entries(sliderCases).map(([name, values]) => {
+  try {
+    return [name, parseSliderBounds({ getAttribute: (attribute) => values[attribute] })];
+  } catch (error) {
+    return [name, { refused: true, message: error.message }];
+  }
+}));
+const countCases = {
+  zero: '0',
+  positive: '42',
+  padded: ' 7 ',
+  missing: undefined,
+  blank: '',
+  whitespace: '   ',
+  decimal: '1.5',
+  negative: '-1',
+  malformed: 'four',
+  nonscalar: ['4'],
+  unsafe: '9007199254740992',
+};
+const countResults = Object.fromEntries(Object.entries(countCases).map(
+  ([name, value]) => [name, parseNonnegativeIntegerText(value)],
+));
+process.stdout.write(JSON.stringify({ sliderResults, countResults }));
+""",
+        ]
+    )
+    return subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+
 def _run_map_visibility_checks(
     scenarios: dict[str, dict[str, object]],
 ) -> subprocess.CompletedProcess[str]:
@@ -402,6 +468,79 @@ def test_generic_time_journey_counts_zero_as_a_real_visibility_state() -> None:
     assert "filter((count) => count > 0)" not in journey.group(0)
     assert "slider.value = slider.max" in probe
     assert "after.time_window_bp.younger_bp > before.time_window_bp.younger_bp" in probe
+
+
+def test_probe_numeric_boundaries_refuse_coercion_without_losing_zero() -> None:
+    completed = _run_probe_boundary_parsers()
+
+    assert completed.returncode == 0, completed.stderr
+    result = json.loads(completed.stdout)
+    assert result["sliderResults"] == {
+        "valid_zero": {"minimum": 0, "maximum": 100},
+        "both_zero": {"minimum": 0, "maximum": 0},
+        "missing_minimum": {
+            "refused": True,
+            "message": "time slider bounds are invalid",
+        },
+        "blank_maximum": {
+            "refused": True,
+            "message": "time slider bounds are invalid",
+        },
+        "malformed_minimum": {
+            "refused": True,
+            "message": "time slider bounds are invalid",
+        },
+        "fractional_minimum": {
+            "refused": True,
+            "message": "time slider bounds are invalid",
+        },
+        "negative_minimum": {
+            "refused": True,
+            "message": "time slider bounds are invalid",
+        },
+        "nonscalar_maximum": {
+            "refused": True,
+            "message": "time slider bounds are invalid",
+        },
+        "reversed": {
+            "refused": True,
+            "message": "time slider bounds are invalid",
+        },
+    }
+    assert result["countResults"] == {
+        "zero": 0,
+        "positive": 42,
+        "padded": 7,
+        "missing": None,
+        "blank": None,
+        "whitespace": None,
+        "decimal": None,
+        "negative": None,
+        "malformed": None,
+        "nonscalar": None,
+        "unsafe": None,
+    }
+
+
+def test_probe_journeys_and_status_use_strict_boundary_parsers() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    assert probe.count(
+        "const parseNonnegativeIntegerText = "
+        "${parseNonnegativeIntegerText.toString()};"
+    ) == 3
+    assert probe.count(
+        "const parseSliderBounds = ${parseSliderBounds.toString()};"
+    ) == 2
+    assert probe.count("const { minimum, maximum } = parseSliderBounds(slider);") == 2
+    assert "Number(slider.min)" not in probe
+    assert "Number(slider.max)" not in probe
+    assert "Number(nodeParts[0])" not in probe
+    assert "Number(visibleObservationValue)" not in probe
+    assert "? parseNonnegativeIntegerText(nodeParts[0])" in probe
+    assert "? parseNonnegativeIntegerText(visibleObservationValue)" in probe
 
 
 def test_slider_journeys_bind_count_changes_to_rendered_map_evidence() -> None:

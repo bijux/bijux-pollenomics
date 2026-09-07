@@ -24,6 +24,27 @@ const expectedNordic = Object.freeze({
   secale: { level: 'source_taxon', code: null, taxon: 'source:neotoma:taxon:967', nodes: 469, observations: 469, younger: 3961, older: 4461 },
   cereal: { level: 'source_taxon', code: null, taxon: 'source:neotoma:taxon:3924', nodes: 2, observations: 2, younger: 1651, older: 1751 },
 });
+
+function parseNonnegativeIntegerText(value) {
+  if (typeof value !== 'string') return null;
+  const text = value.trim();
+  if (!/^\d+$/.test(text)) return null;
+  const parsed = Number(text);
+  return Number.isSafeInteger(parsed) ? parsed : null;
+}
+
+function parseSliderBounds(slider) {
+  if (!slider || typeof slider.getAttribute !== 'function') {
+    throw new Error('time slider is unavailable');
+  }
+  const minimum = parseNonnegativeIntegerText(slider.getAttribute('min'));
+  const maximum = parseNonnegativeIntegerText(slider.getAttribute('max'));
+  if (minimum === null || maximum === null || minimum > maximum) {
+    throw new Error('time slider bounds are invalid');
+  }
+  return { minimum, maximum };
+}
+
 const requests = [];
 let activeScenario = 'server-startup';
 
@@ -605,6 +626,8 @@ function genericManifestFacts(manifest) {
 
 async function genericTimeJourney(cdp, pointDenominator) {
   return evaluate(cdp, `(async () => {
+    const parseNonnegativeIntegerText = ${parseNonnegativeIntegerText.toString()};
+    const parseSliderBounds = ${parseSliderBounds.toString()};
     const api = globalThis.BijuxPollenomicsAtlasCapture;
     const renderedMapEvidenceSignature = async () => {
       const markerDom = [...document.querySelectorAll([
@@ -643,8 +666,7 @@ async function genericTimeJourney(cdp, pointDenominator) {
     const older = document.getElementById('time-step-older');
     const newer = document.getElementById('time-step-newer');
     const playback = document.getElementById('time-playback-toggle');
-    const minimum = Number(slider.min);
-    const maximum = Number(slider.max);
+    const { minimum, maximum } = parseSliderBounds(slider);
     const requestedStarts = [...new Set([maximum, Math.round((minimum + maximum) / 2), minimum])];
     const frames = [];
     for (const requestedStart of requestedStarts) {
@@ -1049,6 +1071,8 @@ async function cerealFinderFrame(cdp) {
 
 async function sliderChronologyJourney(cdp) {
   return evaluate(cdp, `(async () => {
+    const parseNonnegativeIntegerText = ${parseNonnegativeIntegerText.toString()};
+    const parseSliderBounds = ${parseSliderBounds.toString()};
     const api = globalThis.BijuxPollenomicsAtlasCapture;
     const renderedMapEvidenceSignature = async () => {
       const markerDom = [...document.querySelectorAll([
@@ -1082,8 +1106,7 @@ async function sliderChronologyJourney(cdp) {
     const older = document.getElementById('time-step-older');
     const newer = document.getElementById('time-step-newer');
     const playback = document.getElementById('time-playback-toggle');
-    const minimum = Number(slider.min);
-    const maximum = Number(slider.max);
+    const { minimum, maximum } = parseSliderBounds(slider);
     const requestedStarts = [...new Set([
       maximum,
       Math.round(minimum + ((maximum - minimum) * 0.75)),
@@ -1650,6 +1673,7 @@ async function helpDialogFacts(cdp, width) {
 
 async function discoverabilityFacts(cdp, width) {
   return evaluate(cdp, `(async () => {
+    const parseNonnegativeIntegerText = ${parseNonnegativeIntegerText.toString()};
     const settle = () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     const visible = (element) => {
       const style = getComputedStyle(element);
@@ -1689,10 +1713,12 @@ async function discoverabilityFacts(cdp, width) {
     const chronologySegments = chronologyStatusText.split(' · ');
     const nodeParts = (chronologySegments[1] || '').replace(' nodes', '').split('/');
     const observationParts = (chronologySegments[2] || '').replace(' observations', '').split('/');
-    const visibleNodeCount = nodeParts.length === 2 ? Number(nodeParts[0]) : null;
+    const visibleNodeCount = nodeParts.length === 2
+      ? parseNonnegativeIntegerText(nodeParts[0])
+      : null;
     const visibleObservationValue = observationParts.length === 2 ? observationParts[0] : null;
     const visibleObservationCount = visibleObservationValue !== null && visibleObservationValue !== 'unavailable'
-      ? Number(visibleObservationValue)
+      ? parseNonnegativeIntegerText(visibleObservationValue)
       : null;
     const chronologyMatch = chronologySegments.length === 4
       && chronologySegments[0] === facetLabel
