@@ -15,6 +15,33 @@ from .support import MapPublicationTestCase
 
 
 class PublicationContractTests(MapPublicationTestCase):
+    @staticmethod
+    def _animal_chronology_layer() -> dict[str, object]:
+        return {
+            "key": "animal-source-chronology-equus-caballus",
+            "label": "Horse source-sample chronology",
+            "source_name": "Governed animal project sample chronology",
+            "coverage_label": "Exact project and sample joins.",
+            "count": 0,
+            "features": [],
+            "group": "animal-chronology-context",
+            "semantic_role": "animal_source_chronology_context",
+            "contribution_role": "display_only",
+            "default_enabled": False,
+            "applies_country_filter": True,
+            "applies_time_filter": True,
+            "candidate_ranking_eligible": False,
+            "scientific_classification_eligible": False,
+            "scientific_selection_enabled": False,
+            "propagation_status": "refused",
+            "propagation_reason_code": "display_only_source_chronology",
+            "edge_count": 0,
+            "circle_enabled": False,
+            "project_species_latin_name": "Equus caballus",
+            "project_species_common_name": "horse",
+            "species_attribution_basis": "governed_project_registry",
+        }
+
     def test_layer_contract_preserves_zero_and_derives_only_absent_legacy_count(
         self,
     ) -> None:
@@ -128,3 +155,124 @@ class PublicationContractTests(MapPublicationTestCase):
             contract["role_counts"]["scope_specific_overlay"],  # type: ignore[index]
             1,
         )
+
+    def test_animal_chronology_is_shared_and_never_described_as_withheld(self) -> None:
+        for scope_key in ("world", "europe_plus", "nordic"):
+            with self.subTest(scope_key=scope_key):
+                row = _serialize_layer_contract_row(
+                    self._animal_chronology_layer(),
+                    policy=resolve_map_scope_policy(
+                        build_published_geography_plan(("Sweden",)).world_scope
+                    )
+                    if scope_key == "world"
+                    else resolve_map_scope_policy(
+                        next(
+                            scope
+                            for scope in build_published_geography_plan(
+                                ("Sweden",)
+                            ).regional_scopes
+                            if scope.key == scope_key
+                        )
+                    ),
+                )
+
+                self.assertEqual(row["publication_role"], "shared_world_scale_layer")
+                self.assertNotIn("withheld", str(row["scope_caveat"]).casefold())
+                self.assertIn("display-only source chronology", row["scope_caveat"])
+                self.assertEqual(row["group"], "animal-chronology-context")
+                self.assertEqual(
+                    row["semantic_role"], "animal_source_chronology_context"
+                )
+                self.assertIs(row["default_enabled"], False)
+                self.assertIs(row["candidate_ranking_eligible"], False)
+                self.assertIs(row["scientific_classification_eligible"], False)
+                self.assertIs(row["scientific_selection_enabled"], False)
+                self.assertEqual(row["propagation_status"], "refused")
+                self.assertEqual(
+                    row["propagation_reason_code"],
+                    "display_only_source_chronology",
+                )
+                self.assertEqual(row["edge_count"], 0)
+                self.assertIs(row["circle_enabled"], False)
+                self.assertEqual(row["project_species_latin_name"], "Equus caballus")
+                self.assertEqual(row["project_species_common_name"], "horse")
+                self.assertEqual(
+                    row["species_attribution_basis"], "governed_project_registry"
+                )
+
+    def test_animal_chronology_publication_posture_fails_closed(self) -> None:
+        policy = resolve_map_scope_policy(None)
+        expected_fields = (
+            "group",
+            "semantic_role",
+            "contribution_role",
+            "default_enabled",
+            "applies_country_filter",
+            "applies_time_filter",
+            "candidate_ranking_eligible",
+            "scientific_classification_eligible",
+            "scientific_selection_enabled",
+            "propagation_status",
+            "propagation_reason_code",
+            "edge_count",
+            "circle_enabled",
+        )
+        for field in expected_fields:
+            layer = self._animal_chronology_layer()
+            layer.pop(field)
+            with self.subTest(field=field):
+                with self.assertRaisesRegex(
+                    ValueError, "animal source chronology context posture differs"
+                ):
+                    _serialize_layer_contract_row(layer, policy=policy)
+
+        contradictory = self._animal_chronology_layer()
+        contradictory["semantic_role"] = "accepted_scientific_classification"
+        with self.assertRaisesRegex(ValueError, "semantic_role"):
+            _serialize_layer_contract_row(contradictory, policy=policy)
+
+    def test_animal_chronology_feature_posture_and_identity_fail_closed(self) -> None:
+        policy = resolve_map_scope_policy(None)
+        feature = {
+            "feature_id": "animal-sample:PRJEB31613:horse-1",
+            "project_accession": "PRJEB31613",
+            "repo_stable_sample_id": "horse-1",
+            "project_species_latin_name": "Equus caballus",
+            "project_species_common_name": "horse",
+            "species_attribution_basis": "governed_project_registry",
+            "semantic_role": "animal_source_chronology_context",
+            "contribution_role": "display_only",
+            "candidate_ranking_eligible": False,
+            "scientific_classification_eligible": False,
+            "scientific_selection_enabled": False,
+            "propagation_status": "refused",
+            "propagation_reason_code": "display_only_source_chronology",
+            "edge_count": 0,
+        }
+        layer = self._animal_chronology_layer()
+        layer.update({"count": 1, "features": [feature]})
+        row = _serialize_layer_contract_row(layer, policy=policy)
+        self.assertEqual(row["count"], 1)
+
+        for field in (
+            "semantic_role",
+            "contribution_role",
+            "candidate_ranking_eligible",
+            "scientific_classification_eligible",
+            "scientific_selection_enabled",
+            "propagation_status",
+            "propagation_reason_code",
+            "edge_count",
+        ):
+            invalid = self._animal_chronology_layer()
+            invalid_feature = dict(feature)
+            invalid_feature.pop(field)
+            invalid.update({"count": 1, "features": [invalid_feature]})
+            with self.subTest(field=field):
+                with self.assertRaisesRegex(ValueError, "feature posture differs"):
+                    _serialize_layer_contract_row(invalid, policy=policy)
+
+        duplicate = self._animal_chronology_layer()
+        duplicate.update({"count": 2, "features": [feature, dict(feature)]})
+        with self.assertRaisesRegex(ValueError, "identity is duplicated"):
+            _serialize_layer_contract_row(duplicate, policy=policy)

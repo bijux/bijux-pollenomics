@@ -196,6 +196,40 @@ _LAYER_SCOPE_RULES = {
 
 _SHARED_LAYER_KEYS = {"aadr"}
 _REGION_FILTERED_LAYER_KEYS = {"country-boundaries"}
+_SHARED_ANIMAL_LAYER_GROUPS = {
+    "animal-domesticated-evidence",
+    "animal-comparator-evidence",
+    "animal-progenitor-evidence",
+    "animal-chronology-context",
+}
+_ANIMAL_CHRONOLOGY_CONTEXT_POSTURE: dict[str, object] = {
+    "group": "animal-chronology-context",
+    "semantic_role": "animal_source_chronology_context",
+    "contribution_role": "display_only",
+    "default_enabled": False,
+    "applies_country_filter": True,
+    "applies_time_filter": True,
+    "candidate_ranking_eligible": False,
+    "scientific_classification_eligible": False,
+    "scientific_selection_enabled": False,
+    "propagation_status": "refused",
+    "propagation_reason_code": "display_only_source_chronology",
+    "edge_count": 0,
+    "circle_enabled": False,
+}
+_ANIMAL_CHRONOLOGY_FEATURE_POSTURE = {
+    field: _ANIMAL_CHRONOLOGY_CONTEXT_POSTURE[field]
+    for field in (
+        "semantic_role",
+        "contribution_role",
+        "candidate_ranking_eligible",
+        "scientific_classification_eligible",
+        "scientific_selection_enabled",
+        "propagation_status",
+        "propagation_reason_code",
+        "edge_count",
+    )
+}
 
 
 def resolve_map_scope_policy(
@@ -438,6 +472,7 @@ def _serialize_layer_contract_row(
 ) -> dict[str, object]:
     layer_key = str(layer.get("key", "")).strip()
     layer_group = str(layer.get("group", "")).strip()
+    animal_chronology_context = _animal_chronology_context_posture(layer)
     features = layer.get("features")
     feature_count = len(features) if isinstance(features, list) else 0
     count = resolve_declared_count(
@@ -450,7 +485,7 @@ def _serialize_layer_contract_row(
         raise ValueError(
             f"map layer {layer_key or '<unknown>'} count does not match its features"
         )
-    return {
+    row: dict[str, object] = {
         "key": layer_key,
         "label": str(layer.get("label", "")).strip(),
         "source_name": str(layer.get("source_name", "")).strip(),
@@ -469,14 +504,88 @@ def _serialize_layer_contract_row(
             policy=policy,
         ),
     }
+    if animal_chronology_context is not None:
+        row.update(animal_chronology_context)
+    return row
+
+
+def _animal_chronology_context_posture(
+    layer: dict[str, object],
+) -> dict[str, object] | None:
+    """Return the exact display-only posture or reject a contradictory layer."""
+    identified = (
+        layer.get("group") == "animal-chronology-context"
+        or layer.get("semantic_role") == "animal_source_chronology_context"
+    )
+    if not identified:
+        return None
+    differing = sorted(
+        field
+        for field, expected in _ANIMAL_CHRONOLOGY_CONTEXT_POSTURE.items()
+        if layer.get(field) != expected
+    )
+    if differing:
+        raise ValueError(
+            "animal source chronology context posture differs: "
+            + ", ".join(differing)
+        )
+    species_fields = (
+        "project_species_latin_name",
+        "project_species_common_name",
+        "species_attribution_basis",
+    )
+    if any(
+        not isinstance(layer.get(field), str) or not str(layer[field]).strip()
+        for field in species_fields
+    ):
+        raise ValueError("animal source chronology project species posture differs")
+    if layer["species_attribution_basis"] != "governed_project_registry":
+        raise ValueError("animal source chronology project species posture differs")
+    features = layer.get("features")
+    if not isinstance(features, list):
+        raise ValueError("animal source chronology features are invalid")
+    seen_feature_ids: set[str] = set()
+    seen_sample_identities: set[tuple[str, str]] = set()
+    for feature in features:
+        if not isinstance(feature, dict):
+            raise ValueError("animal source chronology feature is invalid")
+        feature_differences = sorted(
+            field
+            for field, expected in _ANIMAL_CHRONOLOGY_FEATURE_POSTURE.items()
+            if feature.get(field) != expected
+        )
+        if feature_differences:
+            raise ValueError(
+                "animal source chronology feature posture differs: "
+                + ", ".join(feature_differences)
+            )
+        if any(feature.get(field) != layer.get(field) for field in species_fields):
+            raise ValueError("animal source chronology feature species differs")
+        feature_id = feature.get("feature_id")
+        project_accession = feature.get("project_accession")
+        sample_id = feature.get("repo_stable_sample_id")
+        if (
+            not isinstance(feature_id, str)
+            or not feature_id.strip()
+            or not isinstance(project_accession, str)
+            or not project_accession.strip()
+            or not isinstance(sample_id, str)
+            or not sample_id.strip()
+        ):
+            raise ValueError("animal source chronology feature identity is invalid")
+        sample_identity = (project_accession, sample_id)
+        if feature_id in seen_feature_ids or sample_identity in seen_sample_identities:
+            raise ValueError("animal source chronology feature identity is duplicated")
+        seen_feature_ids.add(feature_id)
+        seen_sample_identities.add(sample_identity)
+    return {
+        **_ANIMAL_CHRONOLOGY_CONTEXT_POSTURE,
+        **{field: layer[field] for field in species_fields},
+    }
 
 
 def _publication_role_for(layer_key: str, *, layer_group: str) -> str:
-    if layer_key in _SHARED_LAYER_KEYS or layer_group in {
-        "animal-domesticated-evidence",
-        "animal-comparator-evidence",
-        "animal-progenitor-evidence",
-    }:
+    if layer_key in _SHARED_LAYER_KEYS or layer_group in _SHARED_ANIMAL_LAYER_GROUPS:
         return "shared_world_scale_layer"
     if layer_key in _REGION_FILTERED_LAYER_KEYS:
         return "region_filtered_layer"
@@ -489,11 +598,12 @@ def _scope_caveat_for(
     layer_group: str,
     policy: MapScopePolicy,
 ) -> str:
-    if layer_key in _SHARED_LAYER_KEYS or layer_group in {
-        "animal-domesticated-evidence",
-        "animal-comparator-evidence",
-        "animal-progenitor-evidence",
-    }:
+    if layer_group == "animal-chronology-context":
+        return (
+            "Shared display-only source chronology across governed scopes; excluded "
+            "from candidate ranking, accepted classification, and propagation."
+        )
+    if layer_key in _SHARED_LAYER_KEYS or layer_group in _SHARED_ANIMAL_LAYER_GROUPS:
         return "Shared evidence layer across every governed scope."
     if layer_key in _REGION_FILTERED_LAYER_KEYS:
         return (

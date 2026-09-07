@@ -1,5 +1,8 @@
 """Multi-country atlas bundle publication."""
 
+# Imports in this facade intentionally form the workflow's injected dependency surface.
+# ruff: noqa: F401
+
 from __future__ import annotations
 
 from collections.abc import Callable, Iterable, Sequence
@@ -29,7 +32,10 @@ from ....evidence import (
     write_scientific_review_surface_json,
 )
 from ...aadr import summarize_localities
-from ...adna import build_tracked_animal_atlas_bundle
+from ...adna import (
+    build_animal_sample_chronology_context as build_animal_sample_chronology_context,
+    build_tracked_animal_atlas_bundle,
+)
 from ...geography import GeographicScope
 from ...map_document.evidence_projection import build_map_evidence_projection
 from ...map_document.static_assets import write_static_atlas_assets

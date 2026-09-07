@@ -2909,21 +2909,28 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         { key: 'animal-domesticated-evidence', label: 'Domesticated animal aDNA' },
         { key: 'animal-comparator-evidence', label: 'Comparator animal aDNA' },
         { key: 'animal-progenitor-evidence', label: 'Wild and progenitor animal aDNA' },
+        { key: 'animal-chronology-context', label: 'Animal source chronology' },
         { key: 'candidate-ranking', label: 'Sweden lake ranking' },
         { key: 'environmental-context', label: 'Environmental context' },
         { key: 'archaeology-context', label: 'Archaeology context' },
         { key: 'orientation', label: 'Orientation layers' },
       ];
-      const ANIMAL_LAYER_GROUPS = new Set(['animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence']);
+      const ANIMAL_EVIDENCE_LAYER_GROUPS = new Set(['animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence']);
+      const ANIMAL_CHRONOLOGY_LAYER_GROUP = 'animal-chronology-context';
+      const ANIMAL_LAYER_GROUPS = new Set([...ANIMAL_EVIDENCE_LAYER_GROUPS, ANIMAL_CHRONOLOGY_LAYER_GROUP]);
       const ANIMAL_SPECIES = Array.from(
         new Map(
           POINT_LAYERS
-            .filter((layer) => ANIMAL_LAYER_GROUPS.has(layer.group) && layer.species_latin_name)
+            .filter((layer) => (
+              ANIMAL_LAYER_GROUPS.has(layer.group)
+              && (!isAnimalSourceChronologyLayer(layer) || animalSourceChronologyLayerIsValid(layer))
+              && (layer.species_latin_name || layer.project_species_latin_name)
+            ))
             .map((layer) => [
-              layer.species_latin_name,
+              layer.species_latin_name || layer.project_species_latin_name,
               {
-                latinName: layer.species_latin_name,
-                commonName: layer.species_common_name || layer.label || layer.species_latin_name,
+                latinName: layer.species_latin_name || layer.project_species_latin_name,
+                commonName: layer.species_common_name || layer.project_species_common_name || layer.label || layer.project_species_latin_name,
                 fill: layer.style && layer.style.fill ? layer.style.fill : '#475569',
                 stroke: layer.style && layer.style.stroke ? layer.style.stroke : '#1e293b',
                 animalScope: layer.animal_scope || '',
@@ -4582,6 +4589,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const entries = [];
         POINT_LAYERS.forEach((layer) => {
           if (!isAnimalLayer(layer) || !activeLayerKeys.has(layer.key)) return;
+          if ((layer.semantic_role === 'animal_source_chronology_context' || layer.group === 'animal-chronology-context') && !animalSourceChronologyLayerIsValid(layer)) return;
           (layer.features || []).forEach((feature) => {
             if (layer.applies_country_filter && !activeCountries.has(feature.country)) return;
             if (!pointFeatureInTimeWindow(layer, feature)) return;
@@ -4593,7 +4601,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function animalEntryMatchesFilters(entry, overrides = {}) {
         const state = animalFilterState(overrides);
         const feature = entry.feature;
-        if (state.species !== 'all' && String(feature.species_latin_name || '') !== state.species) return false;
+        const species = String(feature.species_latin_name || feature.project_species_latin_name || '');
+        if (state.species !== 'all' && species !== state.species) return false;
         if (state.scope !== 'all' && String(feature.animal_scope || '') !== state.scope) return false;
         if (state.confidence !== 'all' && String(feature.coordinate_confidence || '') !== state.confidence) return false;
         if (state.temporalWindow !== 'all' && String(feature.temporal_window_label || '') !== state.temporalWindow) return false;
@@ -4606,9 +4615,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function summarizeAnimalMetrics() {
         const candidateEntries = animalCandidateEntries();
         const visibleEntries = candidateEntries.filter((entry) => animalEntryMatchesFilters(entry));
+        const visibleSourceChronologyEntries = visibleEntries.filter(({ layer }) => isAnimalSourceChronologyLayer(layer));
+        const visibleAtlasEvidenceEntries = visibleEntries.filter(({ layer }) => !isAnimalSourceChronologyLayer(layer));
         const visibleSpecies = new Set(
           visibleEntries
-            .map(({ feature }) => String(feature.species_latin_name || '').trim())
+            .map(({ feature }) => String(feature.species_latin_name || feature.project_species_latin_name || '').trim())
             .filter(Boolean)
         );
         const confidenceCounts = {};
@@ -4626,6 +4637,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return {
           candidateEntries,
           visibleEntries,
+          visibleSourceChronologyEntries,
+          visibleAtlasEvidenceEntries,
           visibleSpecies,
           confidenceCounts,
           activeFilters,
@@ -4635,6 +4648,56 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function layerColor(layer) { return layer.style && layer.style.fill ? layer.style.fill : (layer.style && layer.style.stroke ? layer.style.stroke : '#475569'); }
       function isAnimalLayer(layer) {
         return ANIMAL_LAYER_GROUPS.has(layer.group);
+      }
+      function isAnimalSourceChronologyLayer(layer) {
+        return Boolean(
+          layer
+          && (
+            layer.group === ANIMAL_CHRONOLOGY_LAYER_GROUP
+            || layer.semantic_role === 'animal_source_chronology_context'
+          )
+        );
+      }
+      function animalSourceChronologyPostureIsValid(value) {
+        return Boolean(
+          value
+          && value.semantic_role === 'animal_source_chronology_context'
+          && value.contribution_role === 'display_only'
+          && value.candidate_ranking_eligible === false
+          && value.scientific_classification_eligible === false
+          && value.scientific_selection_enabled === false
+          && value.propagation_status === 'refused'
+          && value.propagation_reason_code === 'display_only_source_chronology'
+          && value.edge_count === 0
+        );
+      }
+      function animalSourceChronologyLayerIsValid(layer) {
+        if (!isAnimalSourceChronologyLayer(layer)) return false;
+        return (
+          layer.group === ANIMAL_CHRONOLOGY_LAYER_GROUP
+          && layer.default_enabled === false
+          && layer.applies_country_filter === true
+          && layer.applies_time_filter === true
+          && layer.circle_enabled === false
+          && typeof layer.project_species_latin_name === 'string'
+          && Boolean(layer.project_species_latin_name.trim())
+          && layer.species_attribution_basis === 'governed_project_registry'
+          && !Object.prototype.hasOwnProperty.call(layer, 'species_latin_name')
+          && !Object.prototype.hasOwnProperty.call(layer, 'animal_scope')
+          && animalSourceChronologyPostureIsValid(layer)
+        );
+      }
+      function animalSourceChronologyFeatureIsValid(feature) {
+        if (!feature || feature.semantic_role !== 'animal_source_chronology_context') return false;
+        return (
+          typeof feature.project_species_latin_name === 'string'
+          && Boolean(feature.project_species_latin_name.trim())
+          && feature.species_attribution_basis === 'governed_project_registry'
+          && !Object.prototype.hasOwnProperty.call(feature, 'species_latin_name')
+          && !Object.prototype.hasOwnProperty.call(feature, 'animal_scope')
+          && !Object.prototype.hasOwnProperty.call(feature, 'classification_id')
+          && animalSourceChronologyPostureIsValid(feature)
+        );
       }
       function featureMatchesAnimalFilters(layer, feature) {
         if (!isAnimalLayer(layer)) return true;
@@ -5463,9 +5526,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             const cards = layers.map((layer) => {
               const checked = activeLayerKeys.has(layer.key) ? 'checked' : '';
               const sourceChronologyInvalid = layer.semantic_role === 'source_chronology_context' && !sourceChronologyLayerIsValid(layer);
+              const animalChronologyInvalid = isAnimalSourceChronologyLayer(layer) && !animalSourceChronologyLayerIsValid(layer);
               const swatchColor = layerColor(layer);
               const swatchBorder = layer.style && layer.style.stroke ? layer.style.stroke : swatchColor;
-              return `<label class="dock-layer-chip"><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} ${sourceChronologyInvalid ? 'disabled' : ''} aria-label="Toggle ${escapeHtml(layer.label)}"><span class="chip-swatch" style="background:${escapeHtml(swatchColor)};border-color:${escapeHtml(swatchBorder)};"></span><span>${escapeHtml(layer.label)}</span></label>`;
+              return `<label class="dock-layer-chip"><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} ${sourceChronologyInvalid || animalChronologyInvalid ? 'disabled' : ''} aria-label="Toggle ${escapeHtml(layer.label)}"><span class="chip-swatch" style="background:${escapeHtml(swatchColor)};border-color:${escapeHtml(swatchBorder)};"></span><span>${escapeHtml(layer.label)}</span></label>`;
             }).join('');
             return `<div class="legend-group"><div class="legend-group-label">${escapeHtml(group.label)}</div><div class="dock-layer-grid">${cards}</div></div>`;
           })
@@ -5484,7 +5548,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (!animalEvidenceMetrics || !animalEvidenceConfidence || !animalEvidenceState) return;
         const confidenceEntries = Object.entries(metrics.confidenceCounts).sort((left, right) => right[1] - left[1]);
         animalEvidenceMetrics.innerHTML = [
-          { value: metrics.visibleEntries.length, label: 'Visible atlas points' },
+          { value: metrics.visibleAtlasEvidenceEntries.length, label: 'Visible atlas evidence points' },
+          { value: metrics.visibleSourceChronologyEntries.length, label: 'Visible source chronology points' },
           { value: metrics.visibleSpecies.size, label: 'Visible species' },
           { value: metrics.candidateEntries.length - metrics.visibleEntries.length, label: 'Filtered out by current posture' },
         ]
@@ -5516,7 +5581,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const metrics = summarizeAnimalMetrics();
         animalNordicOnlyCheckbox.disabled = false;
         const scopeOptions = [
-          { value: 'all', label: 'All animal evidence' },
+          { value: 'all', label: 'All animal records' },
           { value: 'domesticated_core', label: 'Domesticated-core only' },
           { value: 'comparator', label: 'Comparator only' },
         ];
@@ -5548,7 +5613,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         ];
         animalTemporalWindowFilters.innerHTML = temporalWindowButtons.join('');
         animalNordicOnlyCheckbox.checked = animalNordicOnly;
-        animalFilterSummary.textContent = `${metrics.visibleEntries.length} animal points · ${metrics.visibleSpecies.size} species visible`;
+        animalFilterSummary.textContent = `${metrics.visibleAtlasEvidenceEntries.length} atlas evidence · ${metrics.visibleSourceChronologyEntries.length} source chronology · ${metrics.visibleSpecies.size} species visible`;
         renderAnimalEvidencePanel(metrics);
         document.querySelectorAll('[data-animal-scope]').forEach((button) => {
           button.addEventListener('click', () => {
@@ -5586,7 +5651,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (preset === 'context') {
           activeLayerKeys = new Set(
             ALL_LAYERS
-              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence', 'environmental-context', 'archaeology-context'].includes(layer.group))
+              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence', 'animal-chronology-context', 'environmental-context', 'archaeology-context'].includes(layer.group))
               .map((layer) => layer.key)
           );
         }
@@ -5671,7 +5736,32 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const rows = values.map(([label, value]) => `<div class="popup-row"><span class="popup-row-label">${escapeHtml(label)}</span><span class="popup-row-value">${escapeHtml(value)}</span></div>`).join('');
         return `<div class="popup-section"><span class="popup-section-title">Source-native chronology context</span>${rows}<div class="popup-row"><span class="popup-row-label">Interpretation posture</span><span class="popup-row-value">Chronology context only; propagation use refused.</span></div></div>`;
       }
-      function popupHtml(feature) {
+      function animalSourceChronologyPopupHtml(feature, layer = null) {
+        if (!animalSourceChronologyFeatureIsValid(feature)) return '';
+        const sourceRows = availablePopupRows(Array.isArray(feature.popup_rows) ? feature.popup_rows : []);
+        const identityRows = [
+          { label: 'Project accession', value: feature.project_accession },
+          { label: 'Repository sample', value: feature.repo_stable_sample_id },
+          { label: 'Project-registry species attribution', value: feature.project_species_latin_name },
+          { label: 'Source-native identity kind', value: feature.source_native_identity_kind },
+          { label: 'Source-native taxon ID', value: feature.source_native_tax_id },
+          { label: 'Source-native scientific name', value: feature.source_native_scientific_name },
+          { label: 'Source-native taxonomy status', value: feature.source_native_taxonomy_status },
+          { label: 'Chronology', value: featureTimeLabel(feature) },
+          { label: 'Coordinate basis', value: formatCoordinateBasis(feature.coordinate_basis || '') },
+          { label: 'Coordinate confidence', value: formatCoordinateConfidence(feature.coordinate_confidence || '') },
+        ].filter((row) => valueIsAvailable(row.value));
+        const seenLabels = new Set(identityRows.map((row) => row.label));
+        const rows = identityRows.concat(sourceRows.filter((row) => !seenLabels.has(row.label)));
+        const rowHtml = rows.map((row) => `<div class="popup-row"><span class="popup-row-label">${escapeHtml(row.label || '')}</span><span class="popup-row-value">${escapeHtml(row.value)}</span></div>`).join('');
+        const traceabilityArtifact = typeof layer?.traceability_artifact === 'string' ? layer.traceability_artifact.trim() : '';
+        const traceabilityHtml = traceabilityArtifact ? `<div class="popup-row"><span class="popup-row-label">Accountability</span><span class="popup-row-value"><a href="./${escapeHtml(traceabilityArtifact)}" target="_blank" rel="noreferrer">Open chronology accountability and refusals</a></span></div>` : '';
+        return `<div class="popup-card"><div class="popup-headline"><span class="popup-kicker">Animal source chronology</span><div class="popup-title">${escapeHtml(feature.title || feature.repo_stable_sample_id || '')}</div><div class="popup-subtitle">${escapeHtml(feature.project_species_common_name || feature.project_species_latin_name || '')}</div></div><div class="popup-badges"><span class="popup-badge">Display-only chronology</span><span class="popup-badge">Project-registry species attribution</span></div><div class="popup-section"><span class="popup-section-title">Source sample and chronology</span>${rowHtml}<div class="popup-row"><span class="popup-row-label">Scientific posture</span><span class="popup-row-value">Project species attribution is not an accepted source-native taxonomic classification. This layer is excluded from candidate ranking, accepted scientific comparison, sequences, edges, propagation, migration, and causal claims.</span></div><div class="popup-row"><span class="popup-row-label">Coordinates</span><span class="popup-row-value">${escapeHtml(coordinateLabel(feature, 6))}</span></div>${traceabilityHtml}${mediaLinksHtml(feature.media_links)}</div>${feature.source_url ? `<div class="popup-section"><span class="popup-section-title">Source link</span><div class="popup-row"><span class="popup-row-value"><a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open source record</a></span></div></div>` : ''}</div>`;
+      }
+      function popupHtml(feature, layer = null) {
+        if (feature.semantic_role === 'animal_source_chronology_context') {
+          return animalSourceChronologyPopupHtml(feature, layer);
+        }
         const rows = Array.isArray(feature.popup_rows) ? feature.popup_rows : [];
         const scientificRows = scientificSignalsForFeature(feature);
         const sourceChronologyHtml = typeof sourceChronologyPopupHtml === 'function'
@@ -5862,6 +5952,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function pointFeatureVisible(layer, feature) {
         return (
           activeLayerKeys.has(layer.key)
+          && (!((layer.semantic_role === 'animal_source_chronology_context' || layer.group === 'animal-chronology-context')) || (animalSourceChronologyLayerIsValid(layer) && animalSourceChronologyFeatureIsValid(feature)))
           && featureCoordinatePair(feature) !== null
           && (!layer.applies_country_filter || activeCountries.has(feature.country))
           && pointFeatureInTimeWindow(layer, feature)
@@ -5999,7 +6090,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
                   }),
                 })
               : L.circleMarker(latLng, { pane: 'pointPane', radius: layer.key === 'aadr' ? 4.5 : 6, color: layer.style.stroke, weight: 1.3, fillColor: layer.style.fill, fillOpacity: 0.92 });
-            marker.bindPopup(popupHtml(feature), { maxWidth: 360 });
+            marker.bindPopup(popupHtml(feature, layer), { maxWidth: 360 });
             const entry = { layer, feature, marker };
             marker.on('click', () => {
               focusPointAtVisibleIndex(visiblePointEntries.indexOf(entry));

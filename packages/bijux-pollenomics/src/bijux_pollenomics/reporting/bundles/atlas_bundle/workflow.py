@@ -46,6 +46,7 @@ def publish_bundle(
         extra_artifacts,
         animal_localities,
         animal_coordinate_review,
+        animal_chronology_context,
         detail_projection_reconciliation,
         static_assets,
     ) = prepare_layers(
@@ -78,6 +79,8 @@ def publish_bundle(
         bundle_paths=bundle_paths,
         detail_projection_reconciliation=detail_projection_reconciliation,
         static_assets=static_assets,
+        animal_chronology_context=animal_chronology_context,
+        extra_artifacts=extra_artifacts,
         write_summary_json_fn=write_summary_json_fn,
         surface=surface,
     )

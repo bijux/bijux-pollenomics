@@ -83,6 +83,7 @@ class AtlasBundlePaths:
     animal_atlas_evidence_csv_path: Path
     animal_atlas_evidence_json_path: Path
     animal_point_traceability_json_path: Path
+    animal_sample_chronology_context_json_path: Path
     map_point_traceability_json_path: Path
     map_point_traceability_markdown_path: Path
     map_publication_contract_json_path: Path
@@ -197,6 +198,8 @@ def build_atlas_bundle_paths(
         / f"{atlas_slug}_animal_atlas_evidence.json",
         animal_point_traceability_json_path=output_dir
         / f"{atlas_slug}_animal_point_traceability.json",
+        animal_sample_chronology_context_json_path=output_dir
+        / f"{atlas_slug}_animal_sample_chronology_context.json",
         map_point_traceability_json_path=output_dir
         / f"{atlas_slug}_point_traceability.json",
         map_point_traceability_markdown_path=output_dir

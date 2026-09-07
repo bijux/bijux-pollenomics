@@ -180,6 +180,9 @@ def test_package_refusals_are_explicit_and_bounded() -> None:
         if node.exc is not None
     ]
     assert sorted(messages) == [
+        "ValueError('animal chronology accountability input identity differs')",
+        "ValueError('animal chronology accountability refusal count differs')",
+        "ValueError('animal source chronology context posture differs')",
         "ValueError('candidate-succession playback cannot ignore governed atlas edges')",
         "ValueError('candidate-succession playback requires explicit unavailable classification evidence')",
         "ValueError('static atlas manifest path does not match bundle ownership')",

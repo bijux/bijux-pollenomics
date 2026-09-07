@@ -6,6 +6,7 @@ from typing import Any
 
 from ....collection.contracts.cardinality import resolve_declared_count
 from ...context.time import feature_time_payload
+from .layers import is_animal_chronology_context
 
 
 def extract_context_points(
@@ -13,6 +14,8 @@ def extract_context_points(
 ) -> tuple[Any, ...]:
     records = []
     for layer in point_layers:
+        if is_animal_chronology_context(layer):
+            continue
         if str(layer.get("group", "")).strip() == "primary-evidence":
             continue
         raw_points = layer.get("features")
@@ -80,9 +83,7 @@ def extract_context_points(
 
 
 def as_optional_int(value: object) -> int | None:
-    if isinstance(value, int) and not isinstance(value, bool):
-        return value
-    return None
+    return value if isinstance(value, int) and not isinstance(value, bool) else None
 
 
 def build_animal_atlas_summary(
@@ -202,6 +203,10 @@ def attach_traceability_surfaces(
 ) -> None:
     for layer in point_layers:
         layer_key = str(layer.get("key", "")).strip()
+        if is_animal_chronology_context(layer):
+            artifact_path = bundle_paths.animal_sample_chronology_context_json_path
+            layer["traceability_artifact"] = artifact_path.name
+            continue
         if layer_key == "aadr":
             layer["traceability_artifact"] = bundle_paths.samples_geojson_path.name
             continue

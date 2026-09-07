@@ -8,6 +8,36 @@ from typing import Any
 from ...modeled_context.publication_projection import project_modeled_context_layers
 
 
+_ANIMAL_CHRONOLOGY_CONTEXT = {
+    "semantic_role": "animal_source_chronology_context",
+    "group": "animal-chronology-context",
+    "contribution_role": "display_only",
+    "default_enabled": False,
+    "applies_time_filter": True,
+    "candidate_ranking_eligible": False,
+    "scientific_classification_eligible": False,
+    "scientific_selection_enabled": False,
+    "propagation_status": "refused",
+    "propagation_reason_code": "display_only_source_chronology",
+    "edge_count": 0,
+}
+
+
+def is_animal_chronology_context(layer: dict[str, object]) -> bool:
+    """Identify the display-only animal layer or refuse contradictory posture."""
+    if (
+        layer.get("semantic_role") != "animal_source_chronology_context"
+        and layer.get("group") != "animal-chronology-context"
+    ):
+        return False
+    if any(
+        layer.get(field) != expected
+        for field, expected in _ANIMAL_CHRONOLOGY_CONTEXT.items()
+    ):
+        raise ValueError("animal source chronology context posture differs")
+    return True
+
+
 def prepare_layers(
     staging_output_dir: Path,
     *,
@@ -46,6 +76,7 @@ def prepare_layers(
         named_site_geocoded_feature_count=0,
         weaker_geography_feature_count=0,
     )
+    animal_chronology_context = None
     if context_root is not None:
         animal_bundle = surface.build_tracked_animal_atlas_bundle(
             data_root=context_root,
@@ -55,6 +86,11 @@ def prepare_layers(
         )
         point_layers.extend(animal_bundle.point_layers)
         extra_artifacts.extend(animal_bundle.extra_artifacts)
+        animal_chronology_context = surface.build_animal_sample_chronology_context(
+            data_root=context_root,
+            geography_scope=geography_scope,
+        )
+        point_layers.extend(animal_chronology_context.point_layers)
         animal_localities = animal_bundle.localities
         animal_coordinate_review = surface.AnimalCoordinateVisibilityReview(
             direct_coordinate_feature_count=animal_bundle.coordinate_review.direct_coordinate_feature_count,
@@ -103,6 +139,7 @@ def prepare_layers(
         extra_artifacts,
         animal_localities,
         animal_coordinate_review,
+        animal_chronology_context,
         detail_projection_reconciliation,
         static_assets,
     )
