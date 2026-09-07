@@ -122,6 +122,20 @@ def test_controlled_source_vocabulary_tampering_fails_closed(
         load_animal_sample_chronology_corpus(tmp_path)
 
 
+def test_missing_source_native_identity_kind_fails_closed(tmp_path: Path) -> None:
+    master, chronology, site = (deepcopy(row) for row in base_rows())
+    master.pop("source_native_identity_kind")
+    write_source_repository(
+        tmp_path,
+        masters=[master],
+        chronologies=[chronology],
+        sites=[site],
+    )
+
+    with pytest.raises(ValueError, match="source_native_identity_kind must be nonempty"):
+        load_animal_sample_chronology_corpus(tmp_path)
+
+
 def test_valid_content_change_changes_path_and_byte_identity(tmp_path: Path) -> None:
     write_source_repository(tmp_path)
     before = load_animal_sample_chronology_corpus(tmp_path).input_identity

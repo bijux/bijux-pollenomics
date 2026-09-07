@@ -264,7 +264,7 @@ def _validate_row_identity(
         key=(accession, sample_id),
     )
     if filename == "sample_master.json":
-        _optional_vocabulary(
+        _required_vocabulary(
             row,
             "source_native_identity_kind",
             ADNA_SOURCE_NATIVE_IDENTITY_KINDS,
