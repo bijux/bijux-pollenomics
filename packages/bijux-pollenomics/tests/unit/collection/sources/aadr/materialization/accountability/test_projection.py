@@ -97,9 +97,7 @@ def test_receipt_embeds_exact_sorted_input_artifact_identities(tmp_path: Path) -
     panel = reconciliation(tmp_path)
     manifest = release_manifest_identity()
 
-    receipt = build_aadr_source_accountability_receipt(
-        panel, release_manifest=manifest
-    )
+    receipt = build_aadr_source_accountability_receipt(panel, release_manifest=manifest)
 
     assert receipt["input_artifacts"] == sorted(
         [

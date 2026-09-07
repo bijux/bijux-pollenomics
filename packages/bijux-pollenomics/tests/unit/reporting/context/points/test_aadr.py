@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-import unittest
 from dataclasses import replace
 from typing import cast
+import unittest
 
 from bijux_pollenomics.adna import (
     AdnaChronology,
@@ -80,9 +80,7 @@ class AadrLayerTests(unittest.TestCase):
 
         self.assertEqual(layer["atlas_layer_key"], "homo_sapiens_direct")
         self.assertEqual(layer["contribution_role"], "direct")
-        self.assertEqual(
-            feature["record_id"], "homo_sapiens:aadr_genetic_id:SE1"
-        )
+        self.assertEqual(feature["record_id"], "homo_sapiens:aadr_genetic_id:SE1")
         self.assertEqual(feature["species_latin_name"], "Homo sapiens")
         self.assertEqual(feature["evidence_role"], "direct")
         self.assertEqual(popup["Source release"], "v66")

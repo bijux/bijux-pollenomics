@@ -236,9 +236,7 @@ class SelectedStory:
                 raise AtlasMediaError("source story selector kind is unsupported")
             if self.selector_kind == "source_label_preset":
                 if self.selector_family != "literal_source_label_membership":
-                    raise AtlasMediaError(
-                        "source-label preset selector family differs"
-                    )
+                    raise AtlasMediaError("source-label preset selector family differs")
                 if (
                     not isinstance(self.source_preset_member_taxon_ids, tuple)
                     or not self.source_preset_member_taxon_ids
@@ -251,9 +249,7 @@ class SelectedStory:
                         for value in self.source_preset_member_taxon_ids
                     )
                 ):
-                    raise AtlasMediaError(
-                        "source-label preset member IDs are invalid"
-                    )
+                    raise AtlasMediaError("source-label preset member IDs are invalid")
                 _sha256(
                     self.source_preset_catalog_sha256,
                     "source_preset_catalog_sha256",
@@ -324,7 +320,8 @@ class SelectedStory:
                     or not isinstance(value, int)
                     or value < 0
                     or value > cast(int, self.observation_denominator)
-                    or (self.expected_visible_feature_counts[index] == 0) != (value == 0)
+                    or (self.expected_visible_feature_counts[index] == 0)
+                    != (value == 0)
                     for index, value in enumerate(
                         self.expected_visible_observation_counts
                     )
@@ -483,9 +480,7 @@ def _validate_capture_frame(
         raise AtlasMediaError("story frame has a reversed BP interval")
     if evidence_role == "observation_chronology":
         expected_level = (
-            "source_taxon"
-            if selector_kind == "source_label_preset"
-            else selector_kind
+            "source_taxon" if selector_kind == "source_label_preset" else selector_kind
         )
         if (
             frame.get("story_kind") != "source_chronology"

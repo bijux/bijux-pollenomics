@@ -105,9 +105,7 @@ def bind_source_label_preset_authority(
 ) -> SourceChronologyAuthority:
     """Bind governed literal-label definitions to asset-derived source facts."""
     catalog_row = _object(catalog, "source-label preset catalog")
-    accountability_row = _object(
-        accountability, "source-label preset accountability"
-    )
+    accountability_row = _object(accountability, "source-label preset accountability")
     expected_catalog = build_neotoma_source_label_preset_catalog(
         source_snapshot_id=_text(
             catalog_row.get("source_snapshot_id"), "preset source snapshot identity"
@@ -127,13 +125,9 @@ def bind_source_label_preset_authority(
         or accountability_row.get("membership_semantics") != MEMBERSHIP_SEMANTICS
         or accountability_row.get("source_taxon_count")
         != len(NEOTOMA_SOURCE_LABEL_TAXA)
-        or accountability_row.get("preset_count")
-        != len(NEOTOMA_SOURCE_LABEL_PRESETS)
+        or accountability_row.get("preset_count") != len(NEOTOMA_SOURCE_LABEL_PRESETS)
         or accountability_row.get("membership_count")
-        != sum(
-            len(preset.member_taxon_ids)
-            for preset in NEOTOMA_SOURCE_LABEL_PRESETS
-        )
+        != sum(len(preset.member_taxon_ids) for preset in NEOTOMA_SOURCE_LABEL_PRESETS)
     ):
         raise AtlasMediaError("source-label preset accountability differs")
     _require_literal_refusal(accountability_row)
@@ -179,9 +173,7 @@ def bind_source_label_preset_authority(
             interval for member in members for interval in member.site_intervals
         )
         observation_intervals = tuple(
-            interval
-            for member in members
-            for interval in member.observation_intervals
+            interval for member in members for interval in member.observation_intervals
         )
         derived = SourceFacetAuthority(
             selector_kind="source_label_preset",

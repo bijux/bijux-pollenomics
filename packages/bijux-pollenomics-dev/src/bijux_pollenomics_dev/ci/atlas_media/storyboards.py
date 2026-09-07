@@ -160,8 +160,7 @@ def select_stories(
             story_selector = _mapping(story.get("selector"), "story.selector")
             if (
                 story_selector.get("kind") != preset_specification.selector_kind
-                or story_selector.get("family")
-                != preset_specification.selector_family
+                or story_selector.get("family") != preset_specification.selector_family
             ):
                 raise AtlasMediaError(
                     f"source-label preset selector differs: {preset_key}"
@@ -340,9 +339,7 @@ def _selected_story(
                 "source taxon story label differs from governed atlas assets"
             )
     if authority_facet is not None and selector_kind == "source_label_preset":
-        expected_title = (
-            f"Neotoma literal exact-ID union — {authority_facet.label}"
-        )
+        expected_title = f"Neotoma literal exact-ID union — {authority_facet.label}"
         if authority_facet.label is None or story.get("title") != expected_title:
             raise AtlasMediaError(
                 "source-label preset title differs from governed contract"
@@ -419,14 +416,12 @@ def _selected_story(
         ),
         source_preset_member_taxon_ids=(
             authority_facet.member_taxon_ids
-            if authority_facet is not None
-            and selector_kind == "source_label_preset"
+            if authority_facet is not None and selector_kind == "source_label_preset"
             else None
         ),
         source_preset_catalog_sha256=(
             authority_facet.source_preset_catalog_sha256
-            if authority_facet is not None
-            and selector_kind == "source_label_preset"
+            if authority_facet is not None and selector_kind == "source_label_preset"
             else None
         ),
         frames=tuple(normalized),
@@ -456,9 +451,7 @@ def _validate_frame_selector(frame: Mapping[str, object], *, story_kind: str) ->
     elif level == "source_taxon":
         _text(frame, "source_taxon")
         preset = frame.get("source_preset")
-        if preset is not None and (
-            not isinstance(preset, str) or not preset.strip()
-        ):
+        if preset is not None and (not isinstance(preset, str) or not preset.strip()):
             raise AtlasMediaError("source_preset must be null or non-empty")
 
 

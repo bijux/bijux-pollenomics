@@ -157,14 +157,14 @@ def test_capture_receipt_binds_frame_selector_build_and_png(tmp_path: Path) -> N
                     "kind": story.selector_kind,
                     "value": story.selector_value,
                     "family": story.selector_family,
-                    },
-                    "site_count": story.site_count,
-                    "node_count": story.node_count,
+                },
+                "site_count": story.site_count,
+                "node_count": story.node_count,
                 "observation_denominator": story.observation_denominator,
                 "frame_feature_denominators": None,
-                    "expected_visible_feature_counts": [1],
-                    "expected_visible_site_counts": [1],
-                    "expected_visible_observation_counts": [2],
+                "expected_visible_feature_counts": [1],
+                "expected_visible_site_counts": [1],
+                "expected_visible_observation_counts": [2],
                 "source_authority_sha256": "1" * 64,
                 "frame_count": 1,
                 "frames": [
@@ -292,9 +292,9 @@ def test_capture_receipt_binds_frame_selector_build_and_png(tmp_path: Path) -> N
         )
 
     wrong_cluster_key = deepcopy(receipt)
-    wrong_cluster_key["stories"][0]["frames"][0]["capture_presentation"][
-        "key_items"
-    ][1]["fill"] = "rgb(255, 255, 255)"
+    wrong_cluster_key["stories"][0]["frames"][0]["capture_presentation"]["key_items"][
+        1
+    ]["fill"] = "rgb(255, 255, 255)"
     with pytest.raises(AtlasMediaError, match="frame identity"):
         capture._validate_capture_receipt(
             wrong_cluster_key,

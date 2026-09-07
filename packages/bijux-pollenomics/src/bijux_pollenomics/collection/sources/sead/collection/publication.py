@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import json
 from datetime import date
+import json
 from pathlib import Path
 
 from bijux_pollenomics.collection.contracts.artifacts import (

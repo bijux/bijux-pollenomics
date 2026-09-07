@@ -54,9 +54,7 @@ def validate_source_preset_catalog(value: object) -> tuple[dict[str, object], st
             build_id=build_id,
         )
     except ValueError as error:
-        raise AtlasMediaError(
-            "source-label preset catalog identity differs"
-        ) from error
+        raise AtlasMediaError("source-label preset catalog identity differs") from error
     if catalog != expected:
         raise AtlasMediaError("source-label preset catalog differs")
     content_sha256 = expected["content_sha256"]
@@ -392,8 +390,7 @@ def _capture_frame_identity(
         or isinstance(byte_count, bool)
         or not isinstance(byte_count, int)
         or byte_count <= 0
-        or value.get("source_preset")
-        != story.frames[ordinal].get("source_preset")
+        or value.get("source_preset") != story.frames[ordinal].get("source_preset")
         or value.get("source_preset_member_taxon_ids")
         != (
             list(story.source_preset_member_taxon_ids)

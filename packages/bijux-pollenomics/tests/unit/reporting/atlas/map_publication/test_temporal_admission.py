@@ -18,12 +18,14 @@ def test_static_index_exports_share_the_canonical_temporal_admission() -> None:
 
 
 def test_temporal_admission_preserves_zero_and_refuses_invalid_intervals() -> None:
-    assert feature_temporal_admission(
-        {"time_start_bp": 0, "time_end_bp": 100}
-    ) == ("admitted", (0.0, 100.0))
-    assert feature_temporal_admission(
-        {"time_start_bp": None, "time_end_bp": None}
-    ) == ("absent", None)
+    assert feature_temporal_admission({"time_start_bp": 0, "time_end_bp": 100}) == (
+        "admitted",
+        (0.0, 100.0),
+    )
+    assert feature_temporal_admission({"time_start_bp": None, "time_end_bp": None}) == (
+        "absent",
+        None,
+    )
     for feature in (
         {"time_start_bp": 100, "time_end_bp": None},
         {"time_start_bp": -1, "time_end_bp": 100},

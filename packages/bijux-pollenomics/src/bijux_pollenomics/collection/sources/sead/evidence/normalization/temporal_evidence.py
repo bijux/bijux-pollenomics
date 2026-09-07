@@ -52,7 +52,9 @@ def normalize_sead_temporal_evidence(
         site_id = str(site_row.get("site_id", "")).strip()
         site_uuid = clean_optional_text(site_row.get("site_uuid"))
         if not site_uuid:
-            raise ValueError(f"SEAD site {site_id or 'without ID'} is missing site_uuid")
+            raise ValueError(
+                f"SEAD site {site_id or 'without ID'} is missing site_uuid"
+            )
         country_assignment_method = clean_optional_text(
             site_row.get("country_assignment_method")
         )

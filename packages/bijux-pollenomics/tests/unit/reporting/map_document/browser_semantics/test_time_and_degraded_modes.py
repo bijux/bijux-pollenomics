@@ -245,7 +245,9 @@ def test_focused_point_identity_survives_rendered_entry_replacement() -> None:
     focus_identity = template_block(
         "function stableFeatureRecordId", "function unavailableDetailTabs"
     )
-    focus_render = template_block("function renderFocusCard", "function countActiveOverrides")
+    focus_render = template_block(
+        "function renderFocusCard", "function countActiveOverrides"
+    )
     focus_navigation = template_block(
         "focusPreviousButton.addEventListener", "focusZoomButton.addEventListener"
     )
@@ -328,10 +330,15 @@ console.log(JSON.stringify({
         "missingRecord": None,
         "duplicateRefused": True,
     }
-    assert "const identity = pointFocusIdentity(entry.layer, entry.feature);" in focus_render
+    assert (
+        "const identity = pointFocusIdentity(entry.layer, entry.feature);"
+        in focus_render
+    )
     assert "if (!identity) return;" in focus_render
     assert "...identity," in focus_render
-    assert "highlightPointEntry(visiblePointEntryForFocus(focusState))" in focus_identity
+    assert (
+        "highlightPointEntry(visiblePointEntryForFocus(focusState))" in focus_identity
+    )
     assert "const pointEntry = visiblePointEntryForFocus();" in focus_render
     assert "focusState.layerKey === nextFocus.layerKey" in focus_render
     assert "focusState.featureKey === nextFocus.featureKey" in focus_render
@@ -596,9 +603,30 @@ console.log(JSON.stringify({all,sweden,inline}));
     )
 
     assert observed == {
-        "all": {"status": "available", "count": 7, "split_status": "available", "absent_count": 2, "refused_count": 3, "contextual_count": 2},
-        "sweden": {"status": "unavailable", "count": None, "split_status": "unavailable", "absent_count": None, "refused_count": None, "contextual_count": None},
-        "inline": {"status": "available", "count": 2, "split_status": "available", "absent_count": 1, "refused_count": 1, "contextual_count": 0},
+        "all": {
+            "status": "available",
+            "count": 7,
+            "split_status": "available",
+            "absent_count": 2,
+            "refused_count": 3,
+            "contextual_count": 2,
+        },
+        "sweden": {
+            "status": "unavailable",
+            "count": None,
+            "split_status": "unavailable",
+            "absent_count": None,
+            "refused_count": None,
+            "contextual_count": None,
+        },
+        "inline": {
+            "status": "available",
+            "count": 2,
+            "split_status": "available",
+            "absent_count": 1,
+            "refused_count": 1,
+            "contextual_count": 0,
+        },
     }
 
 

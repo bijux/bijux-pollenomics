@@ -5,6 +5,7 @@ from __future__ import annotations
 from types import SimpleNamespace
 
 import pytest
+
 from bijux_pollenomics.analysis.fieldwork.evidence_richness.temporal import (
     _context_point_evidence,
     _context_point_has_numeric_interval,
@@ -43,9 +44,7 @@ def _point(
 
 
 def test_context_analysis_preserves_zero_cardinality() -> None:
-    evidence = _context_point_evidence(
-        _point(record_count=0, temporal_semantics=None)
-    )
+    evidence = _context_point_evidence(_point(record_count=0, temporal_semantics=None))
 
     assert evidence.sample_count == 0
 

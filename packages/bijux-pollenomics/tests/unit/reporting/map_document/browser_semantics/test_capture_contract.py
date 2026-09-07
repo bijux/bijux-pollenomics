@@ -224,9 +224,7 @@ def test_capture_overlay_keeps_map_clear_and_labels_evidence_in_every_frame() ->
     assert "width: 286px" in MAP_DOCUMENT_TEMPLATE
     assert "html.atlas-capture-mode .atlas-capture-heading" in MAP_DOCUMENT_TEMPLATE
     assert "justify-items: start" in MAP_DOCUMENT_TEMPLATE
-    assert ".atlas-capture-time {\n        flex: 0 1 auto;" in (
-        MAP_DOCUMENT_TEMPLATE
-    )
+    assert ".atlas-capture-time {\n        flex: 0 1 auto;" in (MAP_DOCUMENT_TEMPLATE)
     assert MAP_DOCUMENT_TEMPLATE.count("overflow-wrap: anywhere;") >= 4
     assert "Observed source chronology" in block
     assert "Modeled context · published source window" in block
@@ -250,7 +248,10 @@ def test_capture_overlay_keeps_map_clear_and_labels_evidence_in_every_frame() ->
     assert "function atlasCapturePresentationSnapshot()" in block
     assert "window.getComputedStyle(cue)" in block
     assert "key_items: keyItems" in block
-    assert "style=\"background:${escapeHtml(item.fill)};border-color:${escapeHtml(item.stroke)};\"" in block
+    assert (
+        'style="background:${escapeHtml(item.fill)};border-color:${escapeHtml(item.stroke)};"'
+        in block
+    )
     assert "cue: 'cluster-count', fill: layerFill, stroke: layerStroke" in block
     assert (
         "atlasCaptureKey.innerHTML = keyItems.map(atlasCaptureKeyItemHtml).join('')"
@@ -298,7 +299,9 @@ def test_capture_country_framing_is_quiet_without_changing_interactive_style() -
 
 
 def test_capture_omits_source_chronology_without_an_active_governed_facet() -> None:
-    block = template_block("function atlasCaptureSnapshot", "function atlasCaptureOrientationKeys")
+    block = template_block(
+        "function atlasCaptureSnapshot", "function atlasCaptureOrientationKeys"
+    )
 
     assert "const sourceChronologyAvailable = Boolean(" in block
     assert "activeLayerKeys.has(sourceLayer.key)" in block

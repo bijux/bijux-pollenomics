@@ -10,7 +10,6 @@ from ...acquisition.scoped.plans import (
     SEAD_FULL_EVIDENCE_TABLE_PLANS,
     SEAD_SITE_TABLE_PLAN,
 )
-
 from .serialization import canonical_sha256
 
 SOURCE_KEY_LEDGER_SCHEMA_VERSION: Final = "sead-source-key-ledger.v1"

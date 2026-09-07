@@ -415,8 +415,7 @@ def _validate_selector_rows(rows: object, *, selector: str) -> None:
         seen.add(value)
         if selector == "source_ecological_code" and (
             row.get("source_code") != value
-            or row.get("feature_key")
-            != f"source:neotoma:ecological-code:{value}"
+            or row.get("feature_key") != f"source:neotoma:ecological-code:{value}"
         ):
             raise ValueError("source ecological-code facet identity changed")
         if selector == "source_taxon":
@@ -432,9 +431,7 @@ def _validate_selector_rows(rows: object, *, selector: str) -> None:
                 raise ValueError("source taxon facet identity changed")
 
 
-def _validate_value_counts(
-    rows: object, aggregate: Mapping[str, object]
-) -> None:
+def _validate_value_counts(rows: object, aggregate: Mapping[str, object]) -> None:
     if not isinstance(rows, list):
         raise TypeError("source_unit_counts must be a list")
     values: set[str] = set()
@@ -455,13 +452,10 @@ def _validate_value_counts(
             raise ValueError("source unit counts must be nonnegative integers")
         values.add(value)
         node_count += _validated_count(row, "node_count")
-        observation_denominator += _validated_count(
-            row, "observation_denominator"
-        )
-    if (
-        node_count != aggregate.get("node_count")
-        or observation_denominator != aggregate.get("observation_denominator")
-    ):
+        observation_denominator += _validated_count(row, "observation_denominator")
+    if node_count != aggregate.get(
+        "node_count"
+    ) or observation_denominator != aggregate.get("observation_denominator"):
         raise ValueError("source unit counts do not reconcile")
 
 
@@ -575,12 +569,16 @@ def _validate_empty_derived_country(row: object) -> None:
 def _validate_no_scientific_promotion(value: object) -> None:
     if isinstance(value, Mapping):
         for key, child in value.items():
-            if key in {
-                "accepted_classification",
-                "aggregation_is_abundance",
-                "propagation_allowed",
-                "propagation_eligible",
-            } and child is not False:
+            if (
+                key
+                in {
+                    "accepted_classification",
+                    "aggregation_is_abundance",
+                    "propagation_allowed",
+                    "propagation_eligible",
+                }
+                and child is not False
+            ):
                 raise ValueError("source-label facet scientific refusal changed")
             if key == "propagation_status" and child != "refused":
                 raise ValueError("source-label facet propagation status changed")

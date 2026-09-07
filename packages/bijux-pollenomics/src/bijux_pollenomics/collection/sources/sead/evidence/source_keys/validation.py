@@ -13,7 +13,6 @@ from ...acquisition.admission import (
     SeadAdmissionExpectedIdentity,
     read_materialized_sead_full_evidence_admission,
 )
-
 from .contract import (
     SOURCE_KEY_LEDGER_SCHEMA_VERSION,
     SOURCE_KEY_RANGE_ENCODING,

@@ -51,8 +51,7 @@ def test_product_policy_binds_exact_release_inventory_and_producer_authority() -
         "identity": "aadr-source-accountability",
         "media_type": "application/json",
         "path": (
-            "data/adna/species/homo_sapiens/review/"
-            "aadr_v66_source_accountability.json"
+            "data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json"
         ),
         "producer_path": (
             "packages/bijux-pollenomics/src/bijux_pollenomics/collection"

@@ -314,8 +314,7 @@ def _valid_visible_counts(
     )
     expected_source_site_count = (
         story.expected_visible_site_counts[ordinal]
-        if story.expected_visible_site_counts is not None
-        and isinstance(ordinal, int)
+        if story.expected_visible_site_counts is not None and isinstance(ordinal, int)
         else None
     )
     expected_source_observation_count = (

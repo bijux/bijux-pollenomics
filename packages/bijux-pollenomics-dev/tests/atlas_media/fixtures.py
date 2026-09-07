@@ -183,9 +183,7 @@ def _source_nodes() -> tuple[SourceChronologyNode, ...]:
                     younger_bp=younger,
                     older_bp=older,
                     observation_count=(
-                        2
-                        if taxon.source_taxon_id == 967 and member_index == 0
-                        else 1
+                        2 if taxon.source_taxon_id == 967 and member_index == 0 else 1
                     ),
                     source_taxon_id=taxon.source_taxon_id,
                     source_reported_name=taxon.source_reported_name,

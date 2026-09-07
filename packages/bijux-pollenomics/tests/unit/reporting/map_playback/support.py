@@ -134,12 +134,12 @@ def _source_label_presets(
         source_snapshot_id=SOURCE_SNAPSHOT_ID,
         build_id=BUILD_ID,
     )
-    taxa_by_id = {
-        int(cast(str, row["source_taxon_id"])): row for row in taxa
-    }
+    taxa_by_id = {int(cast(str, row["source_taxon_id"])): row for row in taxa}
 
     def aggregate(member_ids: list[int]) -> dict[str, object]:
-        rows = [taxa_by_id[taxon_id] for taxon_id in member_ids if taxon_id in taxa_by_id]
+        rows = [
+            taxa_by_id[taxon_id] for taxon_id in member_ids if taxon_id in taxa_by_id
+        ]
         populated = [row for row in rows if cast(int, row["node_count"]) > 0]
         return _accountability(
             sum(cast(int, row["node_count"]) for row in rows),
@@ -200,9 +200,7 @@ def source_layers() -> list[dict[str, object]]:
         for row in cast(list[dict[str, object]], source_taxa)
     }
     additional_taxon_ids = [
-        int(identifier)
-        for identifier in source_names
-        if identifier > 972
+        int(identifier) for identifier in source_names if identifier > 972
     ]
     replaced_ids = set(range(900, 900 + len(additional_taxon_ids)))
     taxon_ids = [
@@ -241,9 +239,7 @@ def source_layers() -> list[dict[str, object]]:
             "facet_metadata": {
                 "schema_version": "neotoma-source-chronology-facets.v4",
                 "node_level": "source_sample_presence",
-                **_accountability(
-                    1, 1, 0, 22_911, site_count=1
-                ),
+                **_accountability(1, 1, 0, 22_911, site_count=1),
                 "source_unit_counts": [
                     {
                         "value": "source units",
@@ -268,9 +264,7 @@ def source_layers() -> list[dict[str, object]]:
                         "label": "Aquatic Vascular Plants",
                         "source_code": "AQVP",
                         "feature_key": "source:neotoma:ecological-code:AQVP",
-                        **_accountability(
-                            1, 1, 0, 19_190, site_count=1
-                        ),
+                        **_accountability(1, 1, 0, 19_190, site_count=1),
                     },
                     {
                         "value": "SEED",
@@ -284,9 +278,7 @@ def source_layers() -> list[dict[str, object]]:
                         "label": "Trees and Shrubs",
                         "source_code": "TRSH",
                         "feature_key": "source:neotoma:ecological-code:TRSH",
-                        **_accountability(
-                            1, 1, 0, 22_911, site_count=1
-                        ),
+                        **_accountability(1, 1, 0, 22_911, site_count=1),
                     },
                     {
                         "value": "UNID",
@@ -300,15 +292,11 @@ def source_layers() -> list[dict[str, object]]:
                         "label": "Upland Herbs",
                         "source_code": "UPHE",
                         "feature_key": "source:neotoma:ecological-code:UPHE",
-                        **_accountability(
-                            1, 1, 0, 22_911, site_count=1
-                        ),
+                        **_accountability(1, 1, 0, 22_911, site_count=1),
                     },
                 ],
                 "source_taxa": [],
-                **_accountability(
-                    5, 5, 0, 22_911, site_count=5
-                ),
+                **_accountability(5, 5, 0, 22_911, site_count=5),
                 "source_unit_counts": [
                     {
                         "value": "source units",
@@ -358,9 +346,9 @@ def source_layers() -> list[dict[str, object]]:
         )
     ]
     code_layer = layers[1]
-    code_facets = cast(
-        dict[str, object], code_layer["facet_metadata"]
-    )["source_ecological_codes"]
+    code_facets = cast(dict[str, object], code_layer["facet_metadata"])[
+        "source_ecological_codes"
+    ]
     assert isinstance(code_facets, list)
     code_layer["features"] = [
         _source_feature(

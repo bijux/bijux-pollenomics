@@ -208,12 +208,8 @@ def _validate_input_artifacts(
         source_file = _mapping(item, f"source_files[{index}]")
         expected.append(
             {
-                "path": _nonempty_string(
-                    source_file.get("source_path"), "source path"
-                ),
-                "sha256": _sha256(
-                    source_file.get("source_sha256"), "source sha256"
-                ),
+                "path": _nonempty_string(source_file.get("source_path"), "source path"),
+                "sha256": _sha256(source_file.get("source_sha256"), "source sha256"),
                 "byte_count": _nonnegative_integer(
                     source_file.get("source_byte_count"), "source byte_count"
                 ),
@@ -236,9 +232,7 @@ def _validate_input_artifacts(
         observed.append(
             {
                 "path": path,
-                "sha256": _sha256(
-                    artifact.get("sha256"), "input artifact sha256"
-                ),
+                "sha256": _sha256(artifact.get("sha256"), "input artifact sha256"),
                 "byte_count": _nonnegative_integer(
                     artifact.get("byte_count"), "input artifact byte_count"
                 ),
@@ -255,7 +249,9 @@ def _validate_input_artifacts(
             "AADR input-artifact paths must exactly match the manifest and source files"
         )
     if observed != expected:
-        raise ValueError("AADR input-artifact identity differs from its declared source")
+        raise ValueError(
+            "AADR input-artifact identity differs from its declared source"
+        )
 
 
 def _validate_stream(stream: Mapping[str, object], *, expected_line_count: int) -> None:

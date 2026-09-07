@@ -129,8 +129,10 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
         self.assertEqual(
             contracts["aadr"].reviewed_layer.example_artifacts,
             (
-                "data/adna/species/homo_sapiens/review/"
-                "aadr_v66_source_accountability.json",
+                (
+                    "data/adna/species/homo_sapiens/review/"
+                    "aadr_v66_source_accountability.json"
+                ),
             ),
         )
 
@@ -211,8 +213,7 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             output_root = Path(tmp) / "data"
             receipt = (
-                output_root
-                / "adna/species/homo_sapiens/review/"
+                output_root / "adna/species/homo_sapiens/review/"
                 "aadr_v66_source_accountability.json"
             )
             receipt.parent.mkdir(parents=True)
@@ -244,8 +245,10 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
         self.assertEqual(
             contracts["aadr"].reviewed_layer.example_artifacts,
             (
-                "data/adna/species/homo_sapiens/review/"
-                "aadr_v70_source_accountability.json",
+                (
+                    "data/adna/species/homo_sapiens/review/"
+                    "aadr_v70_source_accountability.json"
+                ),
             ),
         )
 
@@ -340,13 +343,11 @@ class DataContractSurfaceUnitTests(unittest.TestCase):
                 physical_root / "aadr", target_is_directory=True
             )
             receipt_source = (
-                physical_root
-                / "adna/species/homo_sapiens/review/"
+                physical_root / "adna/species/homo_sapiens/review/"
                 "aadr_v70_source_accountability.json"
             )
             receipt_target = (
-                output_root
-                / "adna/species/homo_sapiens/review/"
+                output_root / "adna/species/homo_sapiens/review/"
                 "aadr_v70_source_accountability.json"
             )
             receipt_target.parent.mkdir(parents=True)

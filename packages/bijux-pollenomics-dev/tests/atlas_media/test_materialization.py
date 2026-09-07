@@ -357,14 +357,8 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
                 {
                     "width": media_plan.width,
                     "height": media_plan.height,
-                    "frame_count": (
-                        1 if media_type == "poster" else len(story.frames)
-                    ),
-                    **(
-                        {"duration_seconds": 1.0}
-                        if media_type != "poster"
-                        else {}
-                    ),
+                    "frame_count": (1 if media_type == "poster" else len(story.frames)),
+                    **({"duration_seconds": 1.0} if media_type != "poster" else {}),
                 }
             )
             rows.append(asset)

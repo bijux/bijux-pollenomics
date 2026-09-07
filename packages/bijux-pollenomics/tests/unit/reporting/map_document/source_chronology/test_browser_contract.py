@@ -12,6 +12,7 @@ from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory impo
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 from bijux_pollenomics.reporting.map_publication import MapScopePolicy
 
+from ...source_chronology.support import projection
 from ..browser_semantics.support import (
     check_javascript_syntax,
     run_node_json,
@@ -24,7 +25,6 @@ from .support import (
     compressed_provenance_asset,
     sharded_index_payload,
 )
-from ...source_chronology.support import projection
 
 
 def test_mobile_scrim_stays_below_interactive_controls() -> None:
@@ -383,8 +383,7 @@ def test_hash_filters_are_distinct_and_source_selection_drives_playback() -> Non
     )
     assert "params.set('source_taxon', activeSourceChronologyTaxon)" in hash_block
     assert (
-        "params.set('source_label_preset', activeSourceChronologyPreset)"
-        in hash_block
+        "params.set('source_label_preset', activeSourceChronologyPreset)" in hash_block
     )
     assert (
         "initialState.sourceChronologyLevel && initialSourceChronologyLayer && "
@@ -685,9 +684,24 @@ console.log(JSON.stringify({exact,mixed,facet}));
     )
 
     assert observed == {
-        "exact": {"status": "available", "count": 1, "split_status": "unavailable", "absent_count": None, "refused_count": None, "contextual_count": None},
-        "mixed": {"status": "unavailable", "count": None, "split_status": "unavailable"},
-        "facet": {"status": "unavailable", "count": None, "split_status": "unavailable"},
+        "exact": {
+            "status": "available",
+            "count": 1,
+            "split_status": "unavailable",
+            "absent_count": None,
+            "refused_count": None,
+            "contextual_count": None,
+        },
+        "mixed": {
+            "status": "unavailable",
+            "count": None,
+            "split_status": "unavailable",
+        },
+        "facet": {
+            "status": "unavailable",
+            "count": None,
+            "split_status": "unavailable",
+        },
     }
 
 
@@ -732,7 +746,8 @@ def test_capture_contract_validates_and_restores_exact_preset_state() -> None:
         "function normalizeAtlasCaptureFrame", "async function awaitAtlasCaptureReady"
     )
     application = template_block(
-        "async function applyAtlasCaptureFrame", "globalThis.BijuxPollenomicsAtlasCapture"
+        "async function applyAtlasCaptureFrame",
+        "globalThis.BijuxPollenomicsAtlasCapture",
     )
     snapshot = template_block(
         "function atlasCaptureSnapshot", "function atlasCaptureOrientationKeys"
@@ -745,7 +760,10 @@ def test_capture_contract_validates_and_restores_exact_preset_state() -> None:
         "capture cannot combine an exact source taxon and a source-label preset"
         in normalization
     )
-    assert "sourceChronologyFacetForSelection(sourceLayer, sourceCode, sourceTaxon, sourcePreset)" in normalization
+    assert (
+        "sourceChronologyFacetForSelection(sourceLayer, sourceCode, sourceTaxon, sourcePreset)"
+        in normalization
+    )
     assert "activeSourceChronologyPreset = captureFrame.sourcePreset" in application
     assert "source_preset:" in snapshot
     assert "source_preset_member_taxon_ids:" in snapshot

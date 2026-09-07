@@ -128,7 +128,7 @@ def load_animal_sample_chronology_corpus(
 
     nodes: list[AnimalSampleChronologyNode] = []
     refusals: list[AnimalSampleChronologyRefusal] = []
-    refusal_counts = Counter({reason: 0 for reason in _REFUSAL_ORDER})
+    refusal_counts = Counter(dict.fromkeys(_REFUSAL_ORDER, 0))
     for key in sorted(masters):
         master = masters[key]
         reason: str | None
@@ -438,9 +438,7 @@ def _validate_coordinate_claim(
     if basis not in _MAPPABLE_COORDINATE_BASES:
         raise ValueError(f"mappable coordinate has incompatible basis for {key!r}")
     if confidence not in _MAPPABLE_COORDINATE_CONFIDENCE:
-        raise ValueError(
-            f"mappable coordinate has incompatible confidence for {key!r}"
-        )
+        raise ValueError(f"mappable coordinate has incompatible confidence for {key!r}")
     _coordinate(master.get("latitude_text"), -90.0, 90.0, key, "latitude")
     _coordinate(master.get("longitude_text"), -180.0, 180.0, key, "longitude")
 

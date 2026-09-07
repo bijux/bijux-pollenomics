@@ -227,9 +227,7 @@ def build_neotoma_compact_lineage(
     if missing_relational:
         refusal_reasons.append("compact_records_without_relational_site")
     if unexplained_missing_compact:
-        refusal_reasons.append(
-            "relational_sites_without_compact_or_governed_exclusion"
-        )
+        refusal_reasons.append("relational_sites_without_compact_or_governed_exclusion")
     detail_totals: Counter[str] = Counter()
     for row in rows:
         counts_mapping = _mapping(row["detail_row_counts"], "detail_row_counts")

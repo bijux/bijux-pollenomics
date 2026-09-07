@@ -134,9 +134,7 @@ class SwedenArchaeologySiteDiscoveryTests(unittest.TestCase):
         self.assertEqual(len(csv_rows), 1)
         self.assertEqual(csv_rows[0]["site_uuid"], "uuid-20")
         self.assertEqual(len(geojson["features"]), 1)
-        self.assertEqual(
-            geojson["features"][0]["properties"]["site_uuid"], "uuid-20"
-        )
+        self.assertEqual(geojson["features"][0]["properties"]["site_uuid"], "uuid-20")
         self.assertIn("every geolocated Swedish SEAD site", markdown)
 
 

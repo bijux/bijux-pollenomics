@@ -156,9 +156,7 @@ def test_post_1950_bp_interval_is_refused_from_static_time_metadata() -> None:
     assert selection["contextual_chronology_record_count"] == 0
 
 
-def test_explicit_temporal_refusal_overrides_numeric_fields_in_static_indexes() -> (
-    None
-):
+def test_explicit_temporal_refusal_overrides_numeric_fields_in_static_indexes() -> None:
     feature = {
         "latitude": 59,
         "longitude": 18,
@@ -224,9 +222,7 @@ def test_node_selection_separates_absent_refused_and_contextual_chronology() -> 
                 {
                     "latitude": 59,
                     "longitude": 18,
-                    "temporal_semantics": {
-                        "comparability_posture": "context_only"
-                    },
+                    "temporal_semantics": {"comparability_posture": "context_only"},
                 },
             ],
         }

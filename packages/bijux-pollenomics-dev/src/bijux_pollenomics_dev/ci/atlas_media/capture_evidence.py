@@ -112,7 +112,8 @@ def capture_frame_evidence_valid(
                     expected_source_count > 0  # type: ignore[operator]
                     and _nonnegative_integer(visible_observations)
                     and expected_source_observation_count > 0  # type: ignore[operator]
-                    and expected_source_observation_count <= source_observation_denominator  # type: ignore[operator]
+                    and expected_source_observation_count
+                    <= source_observation_denominator  # type: ignore[operator]
                 )
             )
             and value.get("visible_modeled_no_pollen_data_count") is None

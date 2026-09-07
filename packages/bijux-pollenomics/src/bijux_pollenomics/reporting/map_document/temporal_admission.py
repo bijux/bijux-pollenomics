@@ -14,9 +14,7 @@ def feature_temporal_admission(
     posture = ""
     if isinstance(temporal_semantics, Mapping):
         posture = str(temporal_semantics.get("comparability_posture", "")).strip()
-        refusal_reason = str(
-            temporal_semantics.get("refusal_reason_code", "")
-        ).strip()
+        refusal_reason = str(temporal_semantics.get("refusal_reason_code", "")).strip()
         if posture == "refused" or refusal_reason:
             return ("refused", None)
     interval: tuple[float, float] | None = None

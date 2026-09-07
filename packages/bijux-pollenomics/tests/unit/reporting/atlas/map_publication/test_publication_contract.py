@@ -63,12 +63,14 @@ class PublicationContractTests(MapPublicationTestCase):
     ) -> None:
         policy = resolve_map_scope_policy(None)
         for value in (None, "", "0", False, True, -1, 0.0):
-            with self.subTest(value=value):
-                with self.assertRaisesRegex(ValueError, "nonnegative integer"):
-                    _serialize_layer_contract_row(
-                        {"key": "invalid", "count": value},
-                        policy=policy,
-                    )
+            with (
+                self.subTest(value=value),
+                self.assertRaisesRegex(ValueError, "nonnegative integer"),
+            ):
+                _serialize_layer_contract_row(
+                    {"key": "invalid", "count": value},
+                    policy=policy,
+                )
         with self.assertRaisesRegex(ValueError, "does not match its features"):
             _serialize_layer_contract_row(
                 {"key": "drift", "count": 2, "features": [{}]},
@@ -220,11 +222,13 @@ class PublicationContractTests(MapPublicationTestCase):
         for field in expected_fields:
             layer = self._animal_chronology_layer()
             layer.pop(field)
-            with self.subTest(field=field):
-                with self.assertRaisesRegex(
+            with (
+                self.subTest(field=field),
+                self.assertRaisesRegex(
                     ValueError, "animal source chronology context posture differs"
-                ):
-                    _serialize_layer_contract_row(layer, policy=policy)
+                ),
+            ):
+                _serialize_layer_contract_row(layer, policy=policy)
 
         contradictory = self._animal_chronology_layer()
         contradictory["semantic_role"] = "accepted_scientific_classification"
@@ -268,9 +272,11 @@ class PublicationContractTests(MapPublicationTestCase):
             invalid_feature = dict(feature)
             invalid_feature.pop(field)
             invalid.update({"count": 1, "features": [invalid_feature]})
-            with self.subTest(field=field):
-                with self.assertRaisesRegex(ValueError, "feature posture differs"):
-                    _serialize_layer_contract_row(invalid, policy=policy)
+            with (
+                self.subTest(field=field),
+                self.assertRaisesRegex(ValueError, "feature posture differs"),
+            ):
+                _serialize_layer_contract_row(invalid, policy=policy)
 
         duplicate = self._animal_chronology_layer()
         duplicate.update({"count": 2, "features": [feature, dict(feature)]})
@@ -308,14 +314,18 @@ class PublicationContractTests(MapPublicationTestCase):
         for field in forbidden:
             layer = self._animal_chronology_layer()
             layer[field] = "forbidden"
-            with self.subTest(surface="layer", field=field):
-                with self.assertRaisesRegex(ValueError, "forbidden scientific fields"):
-                    _serialize_layer_contract_row(layer, policy=policy)
+            with (
+                self.subTest(surface="layer", field=field),
+                self.assertRaisesRegex(ValueError, "forbidden scientific fields"),
+            ):
+                _serialize_layer_contract_row(layer, policy=policy)
         for field in forbidden:
             layer = self._animal_chronology_layer()
             invalid_feature = dict(feature)
             invalid_feature[field] = "forbidden"
             layer.update({"count": 1, "features": [invalid_feature]})
-            with self.subTest(surface="feature", field=field):
-                with self.assertRaisesRegex(ValueError, "forbidden scientific fields"):
-                    _serialize_layer_contract_row(layer, policy=policy)
+            with (
+                self.subTest(surface="feature", field=field),
+                self.assertRaisesRegex(ValueError, "forbidden scientific fields"),
+            ):
+                _serialize_layer_contract_row(layer, policy=policy)

@@ -38,12 +38,12 @@ def build_dna_source_family_contracts(
                 layer_key="reviewed",
                 repository_path="data/adna/species/homo_sapiens/review",
                 required=True,
-                purpose=(
-                    "compact, non-admitting AADR source-accountability evidence"
-                ),
+                purpose=("compact, non-admitting AADR source-accountability evidence"),
                 example_artifacts=(
-                    "data/adna/species/homo_sapiens/review/"
-                    f"aadr_{version}_source_accountability.json",
+                    (
+                        "data/adna/species/homo_sapiens/review/"
+                        f"aadr_{version}_source_accountability.json"
+                    ),
                 ),
             ),
             published_layer=SourceFamilyLayerContract(

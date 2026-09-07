@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics.collection.sources.sead.collection import (
     SEAD_GOVERNED_ACQUISITION_ID,
 )
@@ -18,7 +19,6 @@ from bijux_pollenomics.evidence.sources.sead import (
     governed_sead_evidence_root,
     read_validated_sead_evidence_document,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts

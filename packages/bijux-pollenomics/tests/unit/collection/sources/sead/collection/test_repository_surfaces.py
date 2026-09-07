@@ -5,9 +5,10 @@ import os
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.collection.sources.sead.collection.repository_surfaces import (
-    RepositorySurfaceCandidate,
     SEAD_REPOSITORY_SURFACE_PATHS,
+    RepositorySurfaceCandidate,
     prepare_repository_surface_transaction,
     publish_repository_surface_candidate,
     validate_repository_surface_candidate,

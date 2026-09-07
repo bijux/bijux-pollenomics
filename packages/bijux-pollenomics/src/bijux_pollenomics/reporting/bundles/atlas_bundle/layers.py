@@ -7,7 +7,6 @@ from typing import Any
 
 from ...modeled_context.publication_projection import project_modeled_context_layers
 
-
 _ANIMAL_CHRONOLOGY_CONTEXT = {
     "semantic_role": "animal_source_chronology_context",
     "group": "animal-chronology-context",

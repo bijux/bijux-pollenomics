@@ -200,7 +200,7 @@ def test_activation_selects_exact_source_window_and_hide_restores_generic_time()
     )
     result = run_node_json(
         f"const MODELED_CONTEXT = {json.dumps(_browser_modeled_context_manifest())};\n"
-        + """
+        """
 const initialState = {modeledFamily: null, modeledMetric: null};
 const modeledContextPlayback = { setAttribute() {}, textContent: '' };
 const modeledContextControls = { hidden: false };

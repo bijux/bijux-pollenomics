@@ -290,8 +290,7 @@ CORE_SOURCE_STORIES = tuple(
     story
     for story in PUBLICATION_STORIES
     if story.evidence_role == "observation_chronology"
-    and story.selector_kind
-    not in {"source_taxon", "source_label_preset"}
+    and story.selector_kind not in {"source_taxon", "source_label_preset"}
 )
 DEFAULT_SOURCE_LABEL_PRESETS = tuple(
     story.selector_value

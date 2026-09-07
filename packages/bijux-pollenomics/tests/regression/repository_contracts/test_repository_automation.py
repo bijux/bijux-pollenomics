@@ -73,9 +73,7 @@ class RepositoryAutomationTests(unittest.TestCase):
         )
 
     def test_aadr_accountability_target_refreshes_dependent_contracts(self) -> None:
-        root_make_text = (REPO_ROOT / "makes" / "root.mk").read_text(
-            encoding="utf-8"
-        )
+        root_make_text = (REPO_ROOT / "makes" / "root.mk").read_text(encoding="utf-8")
         target_start = root_make_text.index("aadr-source-accountability:")
         target_end = root_make_text.index("\n\nreports:", target_start)
         target = root_make_text[target_start:target_end]

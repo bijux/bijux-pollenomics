@@ -162,9 +162,7 @@ def test_selector_facets_carry_exact_node_and_observation_denominators() -> None
         }
     ]
     assert cast(dict[str, object], taxon_density)["node_count"] == 1
-    assert (
-        len(cast(list[object], cast(dict[str, object], taxon_density)["bins"])) == 12
-    )
+    assert len(cast(list[object], cast(dict[str, object], taxon_density)["bins"])) == 12
 
 
 def test_empty_facet_metadata_has_no_invented_time_extent() -> None:

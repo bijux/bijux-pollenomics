@@ -117,10 +117,9 @@ def admit_bp_interval(
         return BpIntervalAdmission(
             interval=None, refusal_reason_code="partial_interval"
         )
-    if any(
-        isinstance(value, bool) or not isinstance(value, (int, float))
-        for value in (younger_bp, older_bp)
-    ):
+    if isinstance(younger_bp, bool) or not isinstance(younger_bp, (int, float)):
+        return BpIntervalAdmission(interval=None, refusal_reason_code="non_finite")
+    if isinstance(older_bp, bool) or not isinstance(older_bp, (int, float)):
         return BpIntervalAdmission(interval=None, refusal_reason_code="non_finite")
     younger = float(younger_bp)
     older = float(older_bp)
@@ -336,7 +335,7 @@ def normalize_temporal_semantics_payload(value: object) -> dict[str, object]:
     """Normalize one temporal semantics payload recovered from JSON or GeoJSON."""
     if not isinstance(value, dict):
         return {}
-    payload = {
+    payload: dict[str, object] = {
         "schema_version": "temporal-semantics.v1",
         "source_family": str(value.get("source_family", "")).strip(),
         "evidence_class": str(value.get("evidence_class", "")).strip(),
@@ -382,17 +381,19 @@ def normalize_temporal_semantics_payload(value: object) -> dict[str, object]:
         payload["refusal_reason_code"] = _bp_value_refusal_reason(
             payload.get("time_mean_bp")
         )
-    payload["time_start_bp"] = interval[0] if interval is not None else None
-    payload["time_end_bp"] = interval[1] if interval is not None else None
+    normalized_start = interval[0] if interval is not None else None
+    normalized_end = interval[1] if interval is not None else None
+    payload["time_start_bp"] = normalized_start
+    payload["time_end_bp"] = normalized_end
     payload["time_mean_bp"] = mean
     payload["duration_years"] = (
         interval[1] - interval[0] if interval is not None else None
     )
     payload["temporal_window_key"], payload["temporal_window_label"] = (
         resolve_temporal_window(
-            time_start_bp=payload["time_start_bp"],
-            time_end_bp=payload["time_end_bp"],
-            time_mean_bp=payload["time_mean_bp"],
+            time_start_bp=normalized_start,
+            time_end_bp=normalized_end,
+            time_mean_bp=mean,
         )
     )
     return payload

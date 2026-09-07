@@ -34,6 +34,8 @@ from ....evidence import (
 from ...aadr import summarize_localities
 from ...adna import (
     build_animal_sample_chronology_context as build_animal_sample_chronology_context,
+)
+from ...adna import (
     build_tracked_animal_atlas_bundle,
 )
 from ...geography import GeographicScope

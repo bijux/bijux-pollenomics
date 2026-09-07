@@ -2,21 +2,21 @@
 
 from __future__ import annotations
 
-import json
-import tempfile
 from contextlib import chdir
+import json
 from pathlib import Path
+import tempfile
 from types import SimpleNamespace
 from typing import cast
 from unittest.mock import patch
 
 import pytest
+
 from bijux_pollenomics.collection.sources.sead import collection as sead_collection
 from bijux_pollenomics.collection.sources.sead.collection import (
     collect_sead_data,
     materialize_sead_repository_surfaces,
 )
-
 from tests.support.context_data import NordicBoundaryTestCase
 
 _SITE_UUID = "16fd2706-8baf-433b-82eb-8c7fada847da"

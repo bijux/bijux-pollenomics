@@ -331,8 +331,6 @@ def test_explicit_zero_observation_layers_publish_no_playback() -> None:
             assert isinstance(union, dict)
             empty_accountability(union)
 
-    result = build_source_chronology_storyboards(
-        layers, countries=NORDIC_COUNTRIES
-    )
+    result = build_source_chronology_storyboards(layers, countries=NORDIC_COUNTRIES)
     assert result.stories == ()
     assert result.exact_taxa == ()

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import csv
 from collections.abc import Iterable, Mapping
+import csv
 from pathlib import Path
 
 from bijux_pollenomics.adna.domain.locality import build_locality_identity

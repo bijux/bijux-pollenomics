@@ -67,8 +67,7 @@ def extract_context_points(
                     time_label=str(time_payload["time_label"]),
                     temporal_semantics=(
                         temporal_semantics
-                        if isinstance(temporal_semantics, dict)
-                        and temporal_semantics
+                        if isinstance(temporal_semantics, dict) and temporal_semantics
                         else None
                     ),
                     site_uuid=(

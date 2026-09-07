@@ -11,10 +11,10 @@ import pytest
 from bijux_pollenomics.analysis.propagation.source_chronology import (
     SourceChronologyNode,
 )
-from bijux_pollenomics.reporting.source_chronology.facets import build_facet_metadata
 from bijux_pollenomics.reporting.source_chronology.facet_accountability import (
     validate_facet_accountability,
 )
+from bijux_pollenomics.reporting.source_chronology.facets import build_facet_metadata
 from bijux_pollenomics.reporting.source_chronology.source_label_presets import (
     build_neotoma_source_label_preset_catalog,
 )

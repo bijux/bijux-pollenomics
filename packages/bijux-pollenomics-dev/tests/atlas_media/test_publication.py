@@ -3,16 +3,17 @@
 from __future__ import annotations
 
 import base64
-import hashlib
-import json
-import shutil
-import zlib
 from collections.abc import Callable
 from copy import deepcopy
+import hashlib
+import json
 from pathlib import Path
+import shutil
 from typing import Any, cast
+import zlib
 
 import pytest
+
 from bijux_pollenomics.reporting.source_chronology.source_label_presets import (
     NEOTOMA_SOURCE_LABEL_PRESETS,
 )
@@ -39,7 +40,6 @@ from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     sha256_file,
     write_gallery_manifest,
 )
-
 from tests.atlas_media.fixtures import (
     BUILD_ID,
     COUNTRIES,
@@ -59,17 +59,38 @@ STORIES: tuple[StorySpec, ...] = PUBLICATION_STORY_TUPLES
 _PRESET_MEMBER_IDS = {
     preset.key: preset.member_taxon_ids for preset in NEOTOMA_SOURCE_LABEL_PRESETS
 }
-_PRESET_CATALOG_DIGEST = str(
-    source_preset_catalog()["content_sha256"]
-).removeprefix("sha256:")
+_PRESET_CATALOG_DIGEST = str(source_preset_catalog()["content_sha256"]).removeprefix(
+    "sha256:"
+)
 _FRAME_COUNTS = dict(
     zip(
         (story[0] for story in STORIES),
         (
-            230, 230, 230, 192,
-            140, 124, 107, 45, 119,
-            18, 67, 72, 45, 24, 92, 14, 31,
-            25, 25, 25, 25, 25, 25, 25, 25,
+            230,
+            230,
+            230,
+            192,
+            140,
+            124,
+            107,
+            45,
+            119,
+            18,
+            67,
+            72,
+            45,
+            24,
+            92,
+            14,
+            31,
+            25,
+            25,
+            25,
+            25,
+            25,
+            25,
+            25,
+            25,
         ),
         strict=True,
     )
@@ -186,7 +207,7 @@ def _encoding_profile() -> dict[str, object]:
 def _story(spec: StorySpec) -> SelectedStory:
     story_id, role, kind, value, family = spec
     frame_count = _FRAME_COUNTS[story_id]
-    frames = tuple(
+    frames: tuple[dict[str, object], ...] = tuple(
         {
             "ordinal": ordinal,
             "story_kind": (
@@ -234,14 +255,10 @@ def _story(spec: StorySpec) -> SelectedStory:
             expected_visible_observation_counts=(1,) * frame_count,
             source_authority_sha256="1" * 64,
             source_preset_member_taxon_ids=(
-                _PRESET_MEMBER_IDS[value]
-                if kind == "source_label_preset"
-                else None
+                _PRESET_MEMBER_IDS[value] if kind == "source_label_preset" else None
             ),
             source_preset_catalog_sha256=(
-                _PRESET_CATALOG_DIGEST
-                if kind == "source_label_preset"
-                else None
+                _PRESET_CATALOG_DIGEST if kind == "source_label_preset" else None
             ),
             frames=frames,
         )
@@ -297,9 +314,7 @@ def _gallery(tmp_path: Path, *, stories: tuple[StorySpec, ...] = STORIES) -> Pat
                 {
                     "width": 16,
                     "height": 16,
-                    "frame_count": (
-                        1 if media_type == "poster" else len(story.frames)
-                    ),
+                    "frame_count": (1 if media_type == "poster" else len(story.frames)),
                     **(
                         {"duration_seconds": float(len(story.frames))}
                         if media_type in {"mp4", "gif"}
@@ -380,13 +395,9 @@ def _gallery(tmp_path: Path, *, stories: tuple[StorySpec, ...] = STORIES) -> Pat
                     source_node_denominator=story.node_count or 0,
                     visible_source_observations=1,
                     source_observation_denominator=story.observation_denominator or 0,
-                    modeled_feature_count=cast(
-                        int, frame.get("feature_count") or 0
-                    ),
+                    modeled_feature_count=cast(int, frame.get("feature_count") or 0),
                     modeled_no_pollen_data_count=4,
-                    source_window_label=str(
-                        frame.get("source_window_label") or ""
-                    ),
+                    source_window_label=str(frame.get("source_window_label") or ""),
                 ),
                 "capture_layout": capture_layout(),
             }
@@ -480,9 +491,13 @@ def _rewrite_as_legacy_v3(root: Path) -> None:
         }
         by_id = {story["story_id"]: story for story in value["stories"]}
         donor = by_id["neotoma-source-taxon-416"]
-        for story_id, _role, kind, selector_value, family in (
-            LEGACY_PUBLICATION_STORY_TUPLES_V3
-        ):
+        for (
+            story_id,
+            _role,
+            kind,
+            selector_value,
+            family,
+        ) in LEGACY_PUBLICATION_STORY_TUPLES_V3:
             if story_id in by_id:
                 continue
             story = deepcopy(donor)
@@ -514,8 +529,7 @@ def _rewrite_as_legacy_v3(root: Path) -> None:
                         identity["duration_seconds"] = 1.0
             by_id[story_id] = story
         value["stories"] = [
-            by_id[story_id]
-            for story_id, *_ in LEGACY_PUBLICATION_STORY_TUPLES_V3
+            by_id[story_id] for story_id, *_ in LEGACY_PUBLICATION_STORY_TUPLES_V3
         ]
         value["story_count"] = len(LEGACY_PUBLICATION_STORY_TUPLES_V3)
         value["publication_budget"]["published_asset_count"] = (
@@ -615,9 +629,13 @@ def _rewrite_as_legacy_v4(root: Path) -> None:
         value.pop("source_label_preset_catalog")
         by_id = {story["story_id"]: story for story in value["stories"]}
         donor = by_id["neotoma-source-taxon-416"]
-        for story_id, _role, kind, selector_value, family in (
-            LEGACY_PUBLICATION_STORY_TUPLES_V4
-        ):
+        for (
+            story_id,
+            _role,
+            kind,
+            selector_value,
+            family,
+        ) in LEGACY_PUBLICATION_STORY_TUPLES_V4:
             if story_id in by_id:
                 continue
             story = deepcopy(donor)
@@ -649,8 +667,7 @@ def _rewrite_as_legacy_v4(root: Path) -> None:
                         identity["duration_seconds"] = 1.0
             by_id[story_id] = story
         value["stories"] = [
-            by_id[story_id]
-            for story_id, *_ in LEGACY_PUBLICATION_STORY_TUPLES_V4
+            by_id[story_id] for story_id, *_ in LEGACY_PUBLICATION_STORY_TUPLES_V4
         ]
         value["story_count"] = len(value["stories"])
         value["publication_budget"]["published_asset_count"] = len(value["stories"]) * 2
@@ -853,15 +870,11 @@ def test_public_validator_refuses_rehashed_semantic_and_contract_forgery(
     "mutation,error",
     (
         (
-            lambda story: story.update(
-                {"source_preset_member_taxon_ids": [414, 415]}
-            ),
+            lambda story: story.update({"source_preset_member_taxon_ids": [414, 415]}),
             "preset member IDs differ",
         ),
         (
-            lambda story: story.update(
-                {"source_preset_catalog_sha256": "9" * 64}
-            ),
+            lambda story: story.update({"source_preset_catalog_sha256": "9" * 64}),
             "preset catalog differs",
         ),
     ),

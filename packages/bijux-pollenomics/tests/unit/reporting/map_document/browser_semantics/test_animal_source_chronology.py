@@ -6,15 +6,15 @@ from .support import MAP_DOCUMENT_TEMPLATE, run_node_json, template_block
 
 
 def test_animal_source_chronology_is_discoverable_but_default_off() -> None:
-    assert "{ key: 'animal-chronology-context', label: 'Animal source chronology' }" in (
-        MAP_DOCUMENT_TEMPLATE
+    assert (
+        "{ key: 'animal-chronology-context', label: 'Animal source chronology' }"
+        in (MAP_DOCUMENT_TEMPLATE)
     )
     assert "const ANIMAL_CHRONOLOGY_LAYER_GROUP = 'animal-chronology-context';" in (
         MAP_DOCUMENT_TEMPLATE
     )
     assert (
-        "new Set([...ANIMAL_EVIDENCE_LAYER_GROUPS, "
-        "ANIMAL_CHRONOLOGY_LAYER_GROUP])"
+        "new Set([...ANIMAL_EVIDENCE_LAYER_GROUPS, ANIMAL_CHRONOLOGY_LAYER_GROUP])"
     ) in MAP_DOCUMENT_TEMPLATE
     assert "layer.default_enabled === false" in MAP_DOCUMENT_TEMPLATE
 
@@ -136,7 +136,9 @@ def test_animal_metrics_do_not_merge_atlas_evidence_and_source_chronology() -> N
     panel = template_block(
         "function renderAnimalEvidencePanel", "function renderAnimalControls"
     )
-    controls = template_block("function renderAnimalControls", "function applyLayerPreset")
+    controls = template_block(
+        "function renderAnimalControls", "function applyLayerPreset"
+    )
 
     assert "visibleSourceChronologyEntries" in metrics
     assert "visibleAtlasEvidenceEntries" in metrics

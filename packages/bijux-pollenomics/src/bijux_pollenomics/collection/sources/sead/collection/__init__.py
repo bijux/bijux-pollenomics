@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-import time
 from collections.abc import Callable, Iterable, Mapping
 from pathlib import Path
+import time
 
 from bijux_pollenomics.collection.sources.sead.acquisition.fetch import (
     build_sead_in_filter as build_sead_in_filter_value,

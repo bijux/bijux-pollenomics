@@ -9,7 +9,6 @@ import pytest
 
 from .repository_paths import REPO_ROOT
 
-
 pytestmark = pytest.mark.generated_artifacts
 
 
@@ -41,9 +40,7 @@ class PublicAnimalClaimParityTests(unittest.TestCase):
         accountability = _load_json(
             "data/adna/final/atlas/animal_atlas_candidate_accountability.json"
         )
-        readiness = _load_json(
-            "data/adna/governance/cross_species_map_readiness.json"
-        )
+        readiness = _load_json("data/adna/governance/cross_species_map_readiness.json")
         foundation = _load_json(
             "data/adna/governance/animal_sample_foundation_truth.json"
         )
@@ -95,15 +92,19 @@ class PublicAnimalClaimParityTests(unittest.TestCase):
         )
         required_claims = (
             f"**{final_samples:,} final sample rows**",
-            f"**{foundation_summary['tracked_species_count']:,} species and "
-            f"{contributing_projects:,} contributing projects**",
+            (
+                f"**{foundation_summary['tracked_species_count']:,} species and "
+                f"{contributing_projects:,} contributing projects**"
+            ),
             f"**{len(project_rows):,} tracked projects**",
             f"**{recovered_raw:,} recovered raw sample-master rows**",
             f"**{published_features:,} published locality features**",
             f"**{mapped_samples:,} distinct admitted samples**",
             f"{scope_counts['domesticated_core']:,} `domesticated_core` localities",
-            f"{scope_counts['wild_or_progenitor_context']:,} "
-            "`wild_or_progenitor_context` localities",
+            (
+                f"{scope_counts['wild_or_progenitor_context']:,} "
+                "`wild_or_progenitor_context` localities"
+            ),
         )
         for claim in required_claims:
             with self.subTest(claim=claim):
@@ -152,9 +153,7 @@ class PublicAnimalClaimParityTests(unittest.TestCase):
         candidates = _load_json(
             "data/adna/final/atlas/animal_atlas_point_candidates.json"
         )
-        readiness = _load_json(
-            "data/adna/governance/cross_species_map_readiness.json"
-        )
+        readiness = _load_json("data/adna/governance/cross_species_map_readiness.json")
         wadi_rows = [
             row
             for row in readiness["not_materialized_rows"]

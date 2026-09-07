@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
+from dataclasses import asdict
 import json
 import os
 import shutil
-from dataclasses import asdict
 
 from .contract import (
     RepositorySurfaceCandidate,

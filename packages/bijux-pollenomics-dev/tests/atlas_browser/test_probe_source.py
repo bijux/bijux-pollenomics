@@ -205,9 +205,7 @@ def _run_rendered_evidence_checks(
         re.DOTALL,
     )
     assert match is not None
-    function_source = match.group(0).removesuffix(
-        "\n\nfunction captureColorIsVisible"
-    )
+    function_source = match.group(0).removesuffix("\n\nfunction captureColorIsVisible")
     script = (
         f"{function_source}\n"
         f"const scenarios = {json.dumps(scenarios)};\n"
@@ -362,9 +360,7 @@ def _run_visual_density_checks(
         re.DOTALL,
     )
     assert match is not None
-    function_source = match.group(0).removesuffix(
-        "\n\nfunction mapVisibilityPasses"
-    )
+    function_source = match.group(0).removesuffix("\n\nfunction mapVisibilityPasses")
     script = (
         f"{function_source}\n"
         f"const scenarios = {json.dumps(scenarios)};\n"
@@ -613,9 +609,12 @@ def test_fit_active_journey_uses_control_and_evidence_geometry() -> None:
     assert ".leaflet-marker-pane .leaflet-marker-icon" in source
     assert ".leaflet-boundary-pane" not in source
     assert probe.count("const fitActive = await fitActiveJourney(normal.cdp);") == 2
-    assert probe.count(
-        "desktopLayoutPasses(responsive[1440]) && fitActivePasses(fitActive)"
-    ) == 2
+    assert (
+        probe.count(
+            "desktopLayoutPasses(responsive[1440]) && fitActivePasses(fitActive)"
+        )
+        == 2
+    )
     assert probe.count("fit_active_evidence_framed: fitActivePasses(fitActive)") == 2
 
 
@@ -660,7 +659,7 @@ def test_fit_active_contract_rejects_near_world_nordic_collapse() -> None:
         "countries": ["AU", "DK", "US"],
         "visible_point_count": 1239,
     }
-    scenarios = {
+    scenarios: dict[str, dict[str, object]] = {
         "valid_nordic": valid_nordic,
         "valid_world": valid_world,
         "nordic_near_world_zoom": {
@@ -779,13 +778,16 @@ def test_probe_journeys_and_status_use_strict_boundary_parsers() -> None:
         Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
     )
 
-    assert probe.count(
-        "const parseNonnegativeIntegerText = "
-        "${parseNonnegativeIntegerText.toString()};"
-    ) == 3
-    assert probe.count(
-        "const parseSliderBounds = ${parseSliderBounds.toString()};"
-    ) == 2
+    assert (
+        probe.count(
+            "const parseNonnegativeIntegerText = "
+            "${parseNonnegativeIntegerText.toString()};"
+        )
+        == 3
+    )
+    assert (
+        probe.count("const parseSliderBounds = ${parseSliderBounds.toString()};") == 2
+    )
     assert probe.count("const { minimum, maximum } = parseSliderBounds(slider);") == 2
     assert "Number(slider.min)" not in probe
     assert "Number(slider.max)" not in probe
@@ -801,9 +803,10 @@ def test_slider_journeys_bind_count_changes_to_rendered_map_evidence() -> None:
     )
 
     assert probe.count("const renderedMapEvidenceSignature = async () => {") == 2
-    assert probe.count(
-        "rendered_evidence_signature: await renderedMapEvidenceSignature()"
-    ) == 2
+    assert (
+        probe.count("rendered_evidence_signature: await renderedMapEvidenceSignature()")
+        == 2
+    )
     assert ".leaflet-point-pane path" in probe
     assert ".leaflet-point-pane .leaflet-marker-icon" in probe
     assert ".leaflet-marker-pane .leaflet-marker-icon" in probe
@@ -816,8 +819,7 @@ def test_slider_journeys_bind_count_changes_to_rendered_map_evidence() -> None:
         "'visible_source_chronology_point_count')"
     ) in probe
     assert (
-        "renderedEvidenceChangesWithCounts(timeJourney.frames, "
-        "'visible_point_count')"
+        "renderedEvidenceChangesWithCounts(timeJourney.frames, 'visible_point_count')"
     ) in probe
 
 
@@ -828,7 +830,7 @@ def test_rendered_evidence_check_fails_closed_on_stale_or_missing_rendering() ->
             result["rendered_evidence_signature"] = signature
         return result
 
-    scenarios = {
+    scenarios: dict[str, dict[str, object]] = {
         "valid": {
             "count_field": "visible_point_count",
             "frames": [frame(0, "[]"), frame(3, '[["path","three"]]')],
@@ -1240,22 +1242,19 @@ def test_map_visibility_requires_dense_sampling_and_contextual_clear_fraction() 
 
 
 def test_visual_density_contract_rejects_loud_or_ambiguous_symbols() -> None:
-    baseline = {
+    cluster: dict[str, object] = {
+        "width_px": 44,
+        "height_px": 44,
+        "diameter_px": 44,
+        "border_width_px": 2,
+        "count_text": "12",
+        "count": 12,
+    }
+    baseline: dict[str, object] = {
         "boundary_count": 1,
-        "boundaries": [
-            {"stroke_width_px": 1.4, "opacity": 0.72, "fill_opacity": 0.04}
-        ],
+        "boundaries": [{"stroke_width_px": 1.4, "opacity": 0.72, "fill_opacity": 0.04}],
         "cluster_count": 1,
-        "clusters": [
-            {
-                "width_px": 44,
-                "height_px": 44,
-                "diameter_px": 44,
-                "border_width_px": 2,
-                "count_text": "12",
-                "count": 12,
-            }
-        ],
+        "clusters": [cluster],
         "aggregate_cluster_footprint_ratio": 0.04,
     }
     scenarios: dict[str, dict[str, object]] = {
@@ -1325,35 +1324,35 @@ def test_visual_density_contract_rejects_loud_or_ambiguous_symbols() -> None:
         "small_cluster": {
             "facts": {
                 **baseline,
-                "clusters": [{**baseline["clusters"][0], "diameter_px": 31.9}],
+                "clusters": [{**cluster, "diameter_px": 31.9}],
             },
             "maximum": 0.04,
         },
         "large_cluster": {
             "facts": {
                 **baseline,
-                "clusters": [{**baseline["clusters"][0], "diameter_px": 44.1}],
+                "clusters": [{**cluster, "diameter_px": 44.1}],
             },
             "maximum": 0.04,
         },
         "thick_cluster_border": {
             "facts": {
                 **baseline,
-                "clusters": [{**baseline["clusters"][0], "border_width_px": 2.1}],
+                "clusters": [{**cluster, "border_width_px": 2.1}],
             },
             "maximum": 0.04,
         },
         "non_integer_cluster_count": {
             "facts": {
                 **baseline,
-                "clusters": [{**baseline["clusters"][0], "count": 12.5}],
+                "clusters": [{**cluster, "count": 12.5}],
             },
             "maximum": 0.04,
         },
         "mismatched_cluster_label": {
             "facts": {
                 **baseline,
-                "clusters": [{**baseline["clusters"][0], "count_text": "13"}],
+                "clusters": [{**cluster, "count_text": "13"}],
             },
             "maximum": 0.04,
         },
@@ -1385,7 +1384,9 @@ def test_visual_density_contract_rejects_loud_or_ambiguous_symbols() -> None:
     }
 
 
-def test_visual_density_facts_measure_rendered_boundaries_and_cluster_footprint() -> None:
+def test_visual_density_facts_measure_rendered_boundaries_and_cluster_footprint() -> (
+    None
+):
     probe = (
         Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
     )
@@ -1448,9 +1449,10 @@ def test_responsive_contract_proves_compact_search_keyboard_journey() -> None:
     ):
         assert literal in probe
     assert probe.count("searchInput.value = 'a';") == 2
-    assert probe.count(
-        "searchInput.dispatchEvent(new Event('input', { bubbles: true }))"
-    ) == 2
+    assert (
+        probe.count("searchInput.dispatchEvent(new Event('input', { bubbles: true }))")
+        == 2
+    )
     assert probe.index("searchControl.escape_restores_focus") < probe.index(
         "const focusSearchResult = searchResults.querySelector('[data-search-index]')"
     )
@@ -1469,9 +1471,12 @@ def test_mobile_panel_must_not_cover_the_topbar() -> None:
 
     assert mobile_contract is not None
     assert "layout.mobile.expanded.topbar_non_overlapping" in mobile_contract.group(0)
-    assert probe.count(
-        "topbar_non_overlapping: !boxesOverlap(legendPanelBox, box(topbar))"
-    ) == 1
+    assert (
+        probe.count(
+            "topbar_non_overlapping: !boxesOverlap(legendPanelBox, box(topbar))"
+        )
+        == 1
+    )
 
 
 def test_populated_search_and_focused_record_checks_fail_closed() -> None:

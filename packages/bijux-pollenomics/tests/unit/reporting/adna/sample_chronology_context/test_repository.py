@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from copy import deepcopy
 from collections import Counter
+from copy import deepcopy
 import json
 from pathlib import Path
 
@@ -133,7 +133,9 @@ def test_missing_source_native_identity_kind_fails_closed(tmp_path: Path) -> Non
         sites=[site],
     )
 
-    with pytest.raises(ValueError, match="source_native_identity_kind must be nonempty"):
+    with pytest.raises(
+        ValueError, match="source_native_identity_kind must be nonempty"
+    ):
         load_animal_sample_chronology_corpus(tmp_path)
 
 
@@ -435,9 +437,9 @@ def test_explicit_coordinate_refusal_postures_reach_the_refusal_ledger(
     corpus = load_animal_sample_chronology_corpus(tmp_path)
 
     assert corpus.nodes == ()
-    assert [(row.repo_stable_sample_id, row.reason_code) for row in corpus.refusals] == [
-        ("prjtest1:sample1", "source_coordinate_not_mappable")
-    ]
+    assert [
+        (row.repo_stable_sample_id, row.reason_code) for row in corpus.refusals
+    ] == [("prjtest1:sample1", "source_coordinate_not_mappable")]
 
 
 def test_symlinked_governed_input_is_refused(tmp_path: Path) -> None:

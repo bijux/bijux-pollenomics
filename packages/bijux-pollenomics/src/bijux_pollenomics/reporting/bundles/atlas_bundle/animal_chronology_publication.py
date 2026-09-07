@@ -26,7 +26,9 @@ def build_animal_chronology_publication(
     projection: Any, *, artifact_name: str
 ) -> tuple[dict[str, object], dict[str, object]]:
     """Reconcile projected nodes and refusals before emitting their contract."""
-    input_identity = dict(_mapping(projection.input_identity.as_dict(), "input identity"))
+    input_identity = dict(
+        _mapping(projection.input_identity.as_dict(), "input identity")
+    )
     accountability = dict(_mapping(projection.accountability, "accountability"))
     corpus_identity = dict(_mapping(projection.corpus_identity, "corpus identity"))
     refusals = [
@@ -97,7 +99,9 @@ def _validate_corpus_identity(
         ("country_rows", "country_rows"),
         ("governed_country_rows", "governed_country_rows"),
     ):
-        if accountability.get(accountability_field) != corpus_identity.get(corpus_field):
+        if accountability.get(accountability_field) != corpus_identity.get(
+            corpus_field
+        ):
             raise ValueError(
                 f"animal chronology {accountability_field} differs from corpus identity"
             )
@@ -148,11 +152,18 @@ def _validate_counts(
     )
     if global_count != projected_count + excluded_count:
         raise ValueError("animal chronology projected count does not reconcile")
-    if _integer(source_counts.get("admitted_node_count"), "source admitted count") != global_count:
+    if (
+        _integer(source_counts.get("admitted_node_count"), "source admitted count")
+        != global_count
+    ):
         raise ValueError("animal chronology source admitted count differs")
-    if _integer(source_counts.get("refused_master_row_count"), "source refusal count") != len(refusals):
+    if _integer(
+        source_counts.get("refused_master_row_count"), "source refusal count"
+    ) != len(refusals):
         raise ValueError("animal chronology source refusal count differs")
-    master_count = _integer(source_counts.get("sample_master_row_count"), "master count")
+    master_count = _integer(
+        source_counts.get("sample_master_row_count"), "master count"
+    )
     if master_count != global_count + len(refusals):
         raise ValueError("animal chronology master dispositions do not reconcile")
     refusal_counts = _mapping(accountability.get("refusal_counts"), "refusal counts")
@@ -166,7 +177,9 @@ def _validate_counts(
             raise ValueError("animal chronology companion row counts do not reconcile")
     project_count = _integer(source_counts.get("project_count"), "source project count")
     input_identity = _mapping(accountability.get("input_identity"), "input identity")
-    artifact_count = _integer(input_identity.get("artifact_count"), "input artifact count")
+    artifact_count = _integer(
+        input_identity.get("artifact_count"), "input artifact count"
+    )
     if artifact_count != 1 + (project_count * 3):
         raise ValueError("animal chronology project input inventory does not reconcile")
     if len(layers) != 6:
@@ -228,7 +241,9 @@ def _validate_projected_features(
             if feature_id != f"animal-source-chronology:{identity[0]}:{identity[1]}":
                 raise ValueError("animal chronology feature identity format differs")
             if identity in refusal_ids:
-                raise ValueError("animal chronology identity is both admitted and refused")
+                raise ValueError(
+                    "animal chronology identity is both admitted and refused"
+                )
             feature_ids.add(feature_id)
             sample_ids.add(identity)
             feature_species = _text(
@@ -238,8 +253,12 @@ def _validate_projected_features(
                 raise ValueError("animal chronology feature species differs from layer")
             species[feature_species] += 1
             projects[identity[0]] += 1
-            precision[_text(feature.get("chronology_precision_posture"), "precision")] += 1
-            coordinate_basis[_text(feature.get("coordinate_basis"), "coordinate basis")] += 1
+            precision[
+                _text(feature.get("chronology_precision_posture"), "precision")
+            ] += 1
+            coordinate_basis[
+                _text(feature.get("coordinate_basis"), "coordinate basis")
+            ] += 1
             coordinate_confidence[
                 _text(feature.get("coordinate_confidence"), "coordinate confidence")
             ] += 1
@@ -265,8 +284,13 @@ def _validate_projected_features(
         raise ValueError("animal chronology source-native taxonomy status differs")
     if accountability.get("source_native_taxonomy") != expected_taxonomy:
         raise ValueError("animal chronology source-native taxonomy counts differ")
-    starts = [_integer(feature.get("time_start_bp"), "feature time start") for feature in features]
-    ends = [_integer(feature.get("time_end_bp"), "feature time end") for feature in features]
+    starts = [
+        _integer(feature.get("time_start_bp"), "feature time start")
+        for feature in features
+    ]
+    ends = [
+        _integer(feature.get("time_end_bp"), "feature time end") for feature in features
+    ]
     if accountability.get("time_min_bp") != (min(starts) if starts else None):
         raise ValueError("animal chronology projected minimum time differs")
     if accountability.get("time_max_bp") != (max(ends) if ends else None):
@@ -330,15 +354,21 @@ def _validate_country_accountability(
             raise ValueError("animal chronology world scope countries differ")
         observed = _country_rows_from_features(features)
         if observed != country_rows:
-            raise ValueError("animal chronology global country rows differ from features")
-    elif any(str(feature.get("country") or "") not in scope_countries for feature in features):
+            raise ValueError(
+                "animal chronology global country rows differ from features"
+            )
+    elif any(
+        str(feature.get("country") or "") not in scope_countries for feature in features
+    ):
         raise ValueError("animal chronology projected feature is outside scope")
 
 
 def _country_rows_from_features(
     features: list[dict[str, object]],
 ) -> list[dict[str, object]]:
-    countries = sorted({str(feature.get("country")) for feature in features if feature.get("country")})
+    countries = sorted(
+        {str(feature.get("country")) for feature in features if feature.get("country")}
+    )
     rows = [_feature_country_row(country, features) for country in countries]
     rows.append(_feature_country_row(None, features))
     return rows
@@ -356,11 +386,17 @@ def _feature_country_row(
         "country_name": country,
         "node_count": len(selected),
         "time_min_bp": min(
-            (_integer(feature.get("time_start_bp"), "feature time start") for feature in selected),
+            (
+                _integer(feature.get("time_start_bp"), "feature time start")
+                for feature in selected
+            ),
             default=None,
         ),
         "time_max_bp": max(
-            (_integer(feature.get("time_end_bp"), "feature time end") for feature in selected),
+            (
+                _integer(feature.get("time_end_bp"), "feature time end")
+                for feature in selected
+            ),
             default=None,
         ),
     }
@@ -378,7 +414,9 @@ def _validate_country_row_bounds(row: Mapping[str, object]) -> None:
         if minimum is not None or maximum is not None:
             raise ValueError("animal chronology empty country has non-null bounds")
         return
-    if _integer(minimum, "country minimum time") > _integer(maximum, "country maximum time"):
+    if _integer(minimum, "country minimum time") > _integer(
+        maximum, "country maximum time"
+    ):
         raise ValueError("animal chronology country time bounds are inverted")
 
 

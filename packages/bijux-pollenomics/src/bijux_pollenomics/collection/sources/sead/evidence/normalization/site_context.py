@@ -35,7 +35,9 @@ def normalize_sead_rows(
         site_id = str(row.get("site_id", "")).strip()
         site_uuid = clean_optional_text(row.get("site_uuid"))
         if not site_uuid:
-            raise ValueError(f"SEAD site {site_id or 'without ID'} is missing site_uuid")
+            raise ValueError(
+                f"SEAD site {site_id or 'without ID'} is missing site_uuid"
+            )
         country_assignment_method = clean_optional_text(
             row.get("country_assignment_method")
         )

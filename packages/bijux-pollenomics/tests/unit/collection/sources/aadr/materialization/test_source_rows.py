@@ -18,10 +18,10 @@ from bijux_pollenomics.collection.sources.aadr.materialization.source_rows impor
 )
 
 _SOURCE = (
-    "Genetic ID\tPolitical Entity\tMethod for Determining Date\t"
-    "Date mean in BP\tDate standard deviation in BP\tFull Date\tLatitude\tLongitude\n"
-    "ID-1\tSweden\tDirect\t0\t0\t1-0 BP\t0\t0\n"
-).encode()
+    b"Genetic ID\tPolitical Entity\tMethod for Determining Date\t"
+    b"Date mean in BP\tDate standard deviation in BP\tFull Date\tLatitude\tLongitude\n"
+    b"ID-1\tSweden\tDirect\t0\t0\t1-0 BP\t0\t0\n"
+)
 
 
 def test_logical_path_keeps_identity_and_stream_digest_checkout_independent(

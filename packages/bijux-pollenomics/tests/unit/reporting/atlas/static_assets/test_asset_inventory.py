@@ -2,15 +2,16 @@
 
 from __future__ import annotations
 
-import json
 from copy import deepcopy
+import json
 from pathlib import Path
 from typing import cast
 
 import pytest
+
 from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
-    ASSET_TABLE_SCHEMA,
     ASSET_TABLE_FIELDS,
+    ASSET_TABLE_SCHEMA,
     ASSET_TABLE_STORED_FIELDS,
     PREVIOUS_ASSET_TABLE_SCHEMA,
     encode_asset_inventory,
@@ -101,9 +102,10 @@ def test_checked_in_inventory_reconciles_to_manifest_contract() -> None:
                 isinstance(count, int) and not isinstance(count, bool) and count >= 0
                 for count in chronology_counts
             )
-            assert sum(cast(tuple[int, int, int], chronology_counts)) == row[
-                "untimed_record_count"
-            ]
+            assert (
+                sum(cast(tuple[int, int, int], chronology_counts))
+                == row["untimed_record_count"]
+            )
     for domain in ("nodes", "details", "edges", "sequences"):
         assert (
             sum(

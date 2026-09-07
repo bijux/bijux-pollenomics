@@ -1,6 +1,9 @@
 from __future__ import annotations
 
+from hypothesis import given
+from hypothesis import strategies as st
 import pytest
+
 from bijux_pollenomics.core.temporal_semantics import (
     InvalidBpIntervalError,
     admit_bp_interval,
@@ -10,8 +13,6 @@ from bijux_pollenomics.core.temporal_semantics import (
     directional_lag_bounds,
     normalize_temporal_semantics_payload,
 )
-from hypothesis import given
-from hypothesis import strategies as st
 
 
 @pytest.mark.parametrize(

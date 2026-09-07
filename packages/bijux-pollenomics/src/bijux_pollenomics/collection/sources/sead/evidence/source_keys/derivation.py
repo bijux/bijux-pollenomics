@@ -10,7 +10,6 @@ from pathlib import Path
 from typing import cast
 
 from ...acquisition.scoped.models import SeadScopedTablePlan
-
 from .contract import (
     SOURCE_KEY_LEDGER_SCHEMA_VERSION,
     SOURCE_KEY_RANGE_ENCODING,
@@ -19,12 +18,12 @@ from .contract import (
     source_key_table_contract_rows,
     source_key_table_contract_sha256,
 )
+from .identities import canonical_site_uuid
 from .ranges import (
     encode_positive_integer_ranges,
     positive_integer_key_set_sha256,
     positive_integer_ranges_sha256,
 )
-from .identities import canonical_site_uuid
 from .serialization import canonical_sha256
 
 _COUNTRY_CODES = ("DK", "FI", "NO", "SE")

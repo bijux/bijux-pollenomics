@@ -50,9 +50,7 @@ def build_playback_manifest(
     countries: tuple[str, ...],
 ) -> dict[str, Any]:
     """Build a deterministic manifest whose digest covers all scientific content."""
-    ordered_source = sorted(
-        source_chronology.stories, key=lambda story: story.story_id
-    )
+    ordered_source = sorted(source_chronology.stories, key=lambda story: story.story_id)
     ordered_modeled = sorted(modeled_stories, key=lambda story: story.story_id)
     ordered_taxa = sorted(
         source_chronology.exact_taxa,
@@ -184,10 +182,7 @@ def _validated_source_label_presets(
         accountability.get("source_taxon_count") != len(NEOTOMA_SOURCE_LABEL_TAXA)
         or accountability.get("preset_count") != len(NEOTOMA_SOURCE_LABEL_PRESETS)
         or accountability.get("membership_count")
-        != sum(
-            len(preset.member_taxon_ids)
-            for preset in NEOTOMA_SOURCE_LABEL_PRESETS
-        )
+        != sum(len(preset.member_taxon_ids) for preset in NEOTOMA_SOURCE_LABEL_PRESETS)
     ):
         raise PlaybackContractError("source-label preset inventory count differs")
     preset_stories = [
@@ -195,13 +190,9 @@ def _validated_source_label_presets(
         for story in source.stories
         if story.selector_kind == "source_label_preset"
     ]
-    stories = {
-        story.selector_value: story
-        for story in preset_stories
-    }
-    if (
-        len(preset_stories) != len(NEOTOMA_SOURCE_LABEL_PRESETS)
-        or len(stories) != len(NEOTOMA_SOURCE_LABEL_PRESETS)
+    stories = {story.selector_value: story for story in preset_stories}
+    if len(preset_stories) != len(NEOTOMA_SOURCE_LABEL_PRESETS) or len(stories) != len(
+        NEOTOMA_SOURCE_LABEL_PRESETS
     ):
         raise PlaybackContractError("source-label preset story inventory differs")
     for row, preset in zip(rows, NEOTOMA_SOURCE_LABEL_PRESETS, strict=True):
@@ -209,8 +200,7 @@ def _validated_source_label_presets(
         if (
             story is None
             or story.story_id != f"neotoma-source-preset-{preset.key}"
-            or story.title
-            != f"Neotoma literal exact-ID union — {preset.label}"
+            or story.title != f"Neotoma literal exact-ID union — {preset.label}"
             or any(
                 row.get(field) != getattr(story, field)
                 for field in (
@@ -224,10 +214,9 @@ def _validated_source_label_presets(
                 "source-label preset story identity or denominator differs"
             )
         first_frame, last_frame = story.frames[0], story.frames[-1]
-        if (
-            first_frame.older_bp != row.get("time_max_bp")
-            or last_frame.younger_bp != row.get("time_min_bp")
-        ):
+        if first_frame.older_bp != row.get(
+            "time_max_bp"
+        ) or last_frame.younger_bp != row.get("time_min_bp"):
             raise PlaybackContractError("source-label preset story extent differs")
         if (
             row.get("label") != preset.label

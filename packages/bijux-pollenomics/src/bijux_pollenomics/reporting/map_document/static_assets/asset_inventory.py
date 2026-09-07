@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import base64
-import math
 from collections.abc import Mapping, Sequence
+import math
 
 ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v3"
 PREVIOUS_ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v2"
@@ -321,12 +321,16 @@ def _validate_rows(
             if set(row) != expected_node_fields:
                 raise ValueError("static atlas node selection metadata is incomplete")
         _validate_row_types(row, require_decoded_counts=require_decoded_counts)
-        if require_temporal_split and row.get("domain") == "nodes" and any(
-            row.get(field) is None
-            for field in (
-                "chronology_absent_record_count",
-                "refused_chronology_record_count",
-                "contextual_chronology_record_count",
+        if (
+            require_temporal_split
+            and row.get("domain") == "nodes"
+            and any(
+                row.get(field) is None
+                for field in (
+                    "chronology_absent_record_count",
+                    "refused_chronology_record_count",
+                    "contextual_chronology_record_count",
+                )
             )
         ):
             raise ValueError("static atlas node chronology split is required")
@@ -449,9 +453,7 @@ def _validate_node_fields(row: Mapping[str, object]) -> None:
         for field, value in zip(split_fields, split_values, strict=True):
             if isinstance(value, bool) or not isinstance(value, int) or value < 0:
                 raise ValueError(f"static atlas node {field} is invalid")
-        split_total = sum(
-            value for value in split_values if isinstance(value, int)
-        )
+        split_total = sum(value for value in split_values if isinstance(value, int))
         if split_total != untimed_record_count:
             raise ValueError("static atlas node chronology split is inconsistent")
     if (minimum is None) != all_records_are_untimed:

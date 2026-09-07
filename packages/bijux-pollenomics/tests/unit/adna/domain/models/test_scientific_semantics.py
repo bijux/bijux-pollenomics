@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-import pickle
 from dataclasses import FrozenInstanceError
+import pickle
 
 import pytest
+
 from bijux_pollenomics.adna.domain.models import (
     AdnaChronology,
     AdnaCoordinate,

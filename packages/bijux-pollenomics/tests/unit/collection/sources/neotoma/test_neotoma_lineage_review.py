@@ -313,7 +313,9 @@ def test_compact_lineage_accounts_for_governed_country_exclusions(
     }
 
 
-@pytest.mark.parametrize("country_input", [None, "assigned"], ids=["unassigned", "assigned"])
+@pytest.mark.parametrize(
+    "country_input", [None, "assigned"], ids=["unassigned", "assigned"]
+)
 def test_compact_lineage_refuses_missing_site_without_exact_governed_exclusion(
     tmp_path: Path,
     country_input: str | None,

@@ -142,8 +142,10 @@ def _preset_contract() -> tuple[
     SourceChronologyAuthority, dict[str, object], dict[str, object]
 ]:
     facets = {
-        ("source_taxon", f"source:neotoma:taxon:{taxon.source_taxon_id}"):
-        SourceFacetAuthority(
+        (
+            "source_taxon",
+            f"source:neotoma:taxon:{taxon.source_taxon_id}",
+        ): SourceFacetAuthority(
             selector_kind="source_taxon",
             selector_value=f"source:neotoma:taxon:{taxon.source_taxon_id}",
             label=taxon.source_reported_name,
@@ -202,8 +204,7 @@ def _preset_contract() -> tuple[
         "source_taxon_count": len(NEOTOMA_SOURCE_LABEL_TAXA),
         "preset_count": len(NEOTOMA_SOURCE_LABEL_PRESETS),
         "membership_count": sum(
-            len(preset.member_taxon_ids)
-            for preset in NEOTOMA_SOURCE_LABEL_PRESETS
+            len(preset.member_taxon_ids) for preset in NEOTOMA_SOURCE_LABEL_PRESETS
         ),
         "presets": rows,
     }

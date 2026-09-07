@@ -5,6 +5,7 @@ from __future__ import annotations
 import copy
 
 import pytest
+
 from bijux_pollenomics.reporting.adna.public_outputs import atlas_readiness
 from bijux_pollenomics.reporting.adna.public_outputs.atlas_readiness import (
     _atlas_readiness_status,
@@ -17,7 +18,6 @@ from bijux_pollenomics.reporting.adna.public_outputs.rendering import (
     _format_nullable_share,
     _render_animal_atlas_readiness_markdown,
 )
-
 from tests.support.repository import REPOSITORY_ROOT
 
 

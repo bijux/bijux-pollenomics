@@ -331,9 +331,7 @@ def _review_partition(
         "genetic_id_count": len(selected),
         "linked_source_row_count": sum(len(record.source_rows) for record in selected),
         "dataset_genetic_id_membership_counts": _counter_dict(
-            dataset_name
-            for record in selected
-            for dataset_name in record.dataset_names
+            dataset_name for record in selected for dataset_name in record.dataset_names
         ),
         "coordinate_review": {
             "evidence_group_count": len(coordinate_groups),

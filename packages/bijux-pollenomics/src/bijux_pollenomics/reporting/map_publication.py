@@ -546,8 +546,7 @@ def _animal_chronology_context_posture(
     )
     if differing:
         raise ValueError(
-            "animal source chronology context posture differs: "
-            + ", ".join(differing)
+            "animal source chronology context posture differs: " + ", ".join(differing)
         )
     species_fields = (
         "project_species_latin_name",
@@ -562,9 +561,7 @@ def _animal_chronology_context_posture(
     if layer["species_attribution_basis"] != "governed_project_registry":
         raise ValueError("animal source chronology project species posture differs")
     forbidden_layer_fields = sorted(
-        field
-        for field in _ANIMAL_CHRONOLOGY_LAYER_FORBIDDEN_FIELDS
-        if field in layer
+        field for field in _ANIMAL_CHRONOLOGY_LAYER_FORBIDDEN_FIELDS if field in layer
     )
     if forbidden_layer_fields:
         raise ValueError(

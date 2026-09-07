@@ -113,7 +113,9 @@ class DataLayoutUnitTests(unittest.TestCase):
             self.assertIn("## Current Material State", readme)
             self.assertIn("## Evidence Boundary", readme)
             self.assertIn("compact source-accountability", readme)
-            self.assertIn("does not close those downstream scientific boundaries", readme)
+            self.assertIn(
+                "does not close those downstream scientific boundaries", readme
+            )
 
     def test_homo_sapiens_layout_uses_requested_aadr_release(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

@@ -27,11 +27,11 @@ from ...collection import (
     collect_data,
     validate_collection_summary_file,
 )
-from ...collection.workflow.materialization.repository_snapshot import (
-    materialize_repository_collection_snapshot,
-)
 from ...collection.sources.aadr.materialization.accountability import (
     materialize_aadr_source_accountability,
+)
+from ...collection.workflow.materialization.repository_snapshot import (
+    materialize_repository_collection_snapshot,
 )
 from ...governance import build_release_bar, build_release_readiness_report
 from ...reporting import (

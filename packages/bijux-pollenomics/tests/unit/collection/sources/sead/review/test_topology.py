@@ -44,7 +44,5 @@ def test_review_publication_validates_stable_site_identity_before_writes(
         {"site_id": 2, "site_uuid": "duplicate"},
     ]
     with pytest.raises(ValueError, match="site_uuid is duplicated"):
-        review.write_sead_review_outputs(
-            tmp_path, rows=duplicate_rows, records=[]
-        )
+        review.write_sead_review_outputs(tmp_path, rows=duplicate_rows, records=[])
     assert not (tmp_path / "review").exists()

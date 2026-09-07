@@ -75,9 +75,7 @@ def test_default_selection_covers_core_and_primary_modeled_context(
         for frame in story.frames
     )
     secale = next(
-        story
-        for story in stories
-        if story.selector_value == "source:neotoma:taxon:967"
+        story for story in stories if story.selector_value == "source:neotoma:taxon:967"
     )
     assert secale.evidence_role == "observation_chronology"
     assert secale.selector_kind == "source_taxon"

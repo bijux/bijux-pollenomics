@@ -8,10 +8,10 @@ from dataclasses import dataclass
 import math
 from typing import Any, cast
 
-from bijux_pollenomics.reporting.source_chronology.facets import FACET_SCHEMA_VERSION
 from bijux_pollenomics.reporting.source_chronology.facet_accountability import (
     validate_facet_accountability,
 )
+from bijux_pollenomics.reporting.source_chronology.facets import FACET_SCHEMA_VERSION
 from bijux_pollenomics.reporting.source_chronology.time_density import (
     time_density_matches_facet,
 )
@@ -94,9 +94,7 @@ def build_source_chronology_storyboards(
     for level, layer in layers.items():
         _reconcile_facet_metadata_to_features(layer, facets_by_level[level])
     taxon_facets = facets_by_level["source_taxon"]
-    catalog = _required_mapping(
-        taxon_facets, "source_label_preset_catalog"
-    )
+    catalog = _required_mapping(taxon_facets, "source_label_preset_catalog")
     accountability = _required_mapping(
         taxon_facets, "source_label_preset_accountability"
     )
@@ -158,8 +156,7 @@ def build_source_chronology_storyboards(
             _source_story(
                 story_id=f"neotoma-source-preset-{preset_key}",
                 title=(
-                    "Neotoma literal exact-ID union — "
-                    f"{_required_text(row, 'label')}"
+                    f"Neotoma literal exact-ID union — {_required_text(row, 'label')}"
                 ),
                 selector_kind="source_label_preset",
                 selector_value=preset_key,
@@ -403,9 +400,7 @@ def _positive_int(row: Mapping[str, object], field: str) -> int:
     return value
 
 
-def _required_mapping(
-    row: Mapping[str, object], field: str
-) -> Mapping[str, object]:
+def _required_mapping(row: Mapping[str, object], field: str) -> Mapping[str, object]:
     value = row.get(field)
     if not isinstance(value, Mapping):
         raise PlaybackContractError(f"source chronology {field} must be an object")
@@ -418,7 +413,9 @@ def _rows_by_key(value: object, *, field: str) -> dict[str, Mapping[str, object]
     rows: dict[str, Mapping[str, object]] = {}
     for value_row in value:
         if not isinstance(value_row, Mapping):
-            raise PlaybackContractError("source chronology preset row must be an object")
+            raise PlaybackContractError(
+                "source chronology preset row must be an object"
+            )
         key = _required_text(value_row, field)
         if key in rows:
             raise PlaybackContractError("source chronology preset key is duplicated")
@@ -438,7 +435,9 @@ def _reconcile_facet_metadata_to_features(
         )
     features = cast(list[Mapping[str, object]], raw_features)
     if layer.get("count") != len(features):
-        raise PlaybackContractError("source chronology layer count differs from features")
+        raise PlaybackContractError(
+            "source chronology layer count differs from features"
+        )
     expected_level = _required_text(layer, "node_level")
     source_snapshot_id = _required_text(layer, "source_snapshot_id")
     build_id = _required_text(layer, "build_id")
@@ -479,11 +478,13 @@ def _reconcile_facet_metadata_to_features(
         for feature_key, row in taxon_rows.items():
             _compare_feature_aggregate(
                 row,
-                [feature for feature in features if feature.get("feature_key") == feature_key],
+                [
+                    feature
+                    for feature in features
+                    if feature.get("feature_key") == feature_key
+                ],
             )
-        accountability = _required_mapping(
-            facets, "source_label_preset_accountability"
-        )
+        accountability = _required_mapping(facets, "source_label_preset_accountability")
         for row in _rows_by_key(accountability.get("presets"), field="key").values():
             member_ids = _integer_ids(row.get("member_taxon_ids"))
             _compare_feature_aggregate(
@@ -576,7 +577,9 @@ def _feature_aggregate(
         }
     intervals = [_feature_interval(feature) for feature in features]
     return {
-        "site_count": len({_required_text(feature, "record_id") for feature in features}),
+        "site_count": len(
+            {_required_text(feature, "record_id") for feature in features}
+        ),
         "node_count": len(features),
         "observation_denominator": sum(
             _positive_int(feature, "observation_denominator") for feature in features

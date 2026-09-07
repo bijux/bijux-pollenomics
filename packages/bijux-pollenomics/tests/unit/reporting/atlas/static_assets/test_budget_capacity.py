@@ -38,10 +38,7 @@ def test_bootstrap_budget_can_encode_the_maximum_asset_inventory() -> None:
                 "asset_key": f"nodes:{sequence}",
                 "domain": "nodes",
                 "sequence": sequence,
-                "path": (
-                    "capacity.atlas-nodes."
-                    f"{sequence:04d}.{wire_digest[:16]}.js"
-                ),
+                "path": (f"capacity.atlas-nodes.{sequence:04d}.{wire_digest[:16]}.js"),
                 "sha256": wire_digest,
                 "integrity": _integrity(wire_digest),
                 "payload_sha256": payload_digest,

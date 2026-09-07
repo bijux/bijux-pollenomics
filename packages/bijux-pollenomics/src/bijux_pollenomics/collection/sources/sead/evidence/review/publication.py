@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 import csv
 import io
 import json
 import os
-from collections.abc import Mapping
 from pathlib import Path
 from typing import cast
 

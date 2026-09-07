@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-import hashlib
 from copy import deepcopy
 from dataclasses import replace
+import hashlib
 
 import pytest
 
@@ -156,9 +156,7 @@ def test_manifest_rejects_post_build_preset_accountability_tampering() -> None:
     source_chronology = build_source_chronology_storyboards(
         source_layers(), countries=NORDIC_COUNTRIES
     )
-    accountability = deepcopy(
-        source_chronology.source_label_preset_accountability
-    )
+    accountability = deepcopy(source_chronology.source_label_preset_accountability)
     presets = accountability["presets"]
     assert isinstance(presets, list) and isinstance(presets[0], dict)
     presets[0]["site_count"] = 1

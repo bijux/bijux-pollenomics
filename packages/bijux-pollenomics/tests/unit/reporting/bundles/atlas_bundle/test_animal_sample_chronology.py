@@ -34,8 +34,8 @@ from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory impo
 from bijux_pollenomics.reporting.map_playback import (
     build_source_chronology_storyboards,
 )
-from tests.unit.reporting.map_playback.support import source_layers
 from tests.support.repository import REPOSITORY_ROOT
+from tests.unit.reporting.map_playback.support import source_layers
 
 
 def _animal_chronology_layer() -> dict[str, object]:
@@ -104,9 +104,7 @@ def test_prepare_layers_publishes_default_disabled_animal_chronology_before_stat
     calls: list[tuple[Path, object]] = []
     chronology_layer = _animal_chronology_layer()
 
-    def build_animal_context(
-        *, data_root: Path, geography_scope: object
-    ) -> object:
+    def build_animal_context(*, data_root: Path, geography_scope: object) -> object:
         calls.append((data_root, geography_scope))
         return SimpleNamespace(
             point_layers=(chronology_layer,),
@@ -234,7 +232,9 @@ def test_real_animal_chronology_projection_is_display_only_for_atlas_analysis() 
     assert projection.point_layers
     assert atlas_bundle._extract_context_points(list(projection.point_layers)) == ()
     assert all(layer["default_enabled"] is False for layer in projection.point_layers)
-    assert all(layer["applies_time_filter"] is True for layer in projection.point_layers)
+    assert all(
+        layer["applies_time_filter"] is True for layer in projection.point_layers
+    )
 
 
 def test_real_animal_chronology_layers_link_the_accountability_artifact(
@@ -253,9 +253,7 @@ def test_real_animal_chronology_layers_link_the_accountability_artifact(
         ),
     )
 
-    assert all(
-        layer["traceability_artifact"] == artifact_path.name for layer in layers
-    )
+    assert all(layer["traceability_artifact"] == artifact_path.name for layer in layers)
 
 
 def test_real_animal_chronology_is_time_indexed_as_ordinary_static_point_data(
@@ -346,13 +344,15 @@ def test_animal_chronology_accountability_is_identity_bound_in_atlas_contract(
     assert payload["refusals"] == [row.as_dict() for row in projection.refusals]
     assert identity["content_sha256"] == payload["content_sha256"]
     assert identity["scope"] == projection.accountability["scope"]
-    assert identity["global_admitted_node_count"] == projection.accountability[
-        "global_admitted_node_count"
-    ]
+    assert (
+        identity["global_admitted_node_count"]
+        == projection.accountability["global_admitted_node_count"]
+    )
     assert identity["refusal_count"] == len(projection.refusals)
-    assert identity["governed_country_rows"] == projection.accountability[
-        "governed_country_rows"
-    ]
+    assert (
+        identity["governed_country_rows"]
+        == projection.accountability["governed_country_rows"]
+    )
     assert artifacts == [
         (
             "Animal source-sample chronology accountability",
