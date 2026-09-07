@@ -218,6 +218,7 @@ name = "bijux-pollenomics-dev"
 source = { editable = "packages/bijux-pollenomics-dev" }
 dependencies = [
     { name = "bijux-pollenomics" },
+    { name = "pytest" },
     { name = "pyyaml" },
 ]
 
@@ -233,7 +234,6 @@ dev = [
     { name = "pip-audit" },
     { name = "pydantic" },
     { name = "pydocstyle" },
-    { name = "pytest" },
     { name = "pytest-asyncio" },
     { name = "pytest-cov" },
     { name = "pytest-timeout" },
@@ -257,7 +257,7 @@ requires-dist = [
     { name = "pip-audit", marker = "extra == 'dev'", specifier = ">=2.9.0,<3.0" },
     { name = "pydantic", marker = "extra == 'dev'", specifier = ">=2.12,<3.0" },
     { name = "pydocstyle", marker = "extra == 'dev'", specifier = ">=6.3.0,<7.0" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=9.0.3,<10.0" },
+    { name = "pytest", specifier = ">=9.0.3,<10.0" },
     { name = "pytest-asyncio", marker = "extra == 'dev'", specifier = ">=1.0.0,<2.0" },
     { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=6.2.1,<8.0" },
     { name = "pytest-timeout", marker = "extra == 'dev'", specifier = ">=2.4.0,<3.0" },

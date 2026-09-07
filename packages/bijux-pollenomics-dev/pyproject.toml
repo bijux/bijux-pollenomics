@@ -13,6 +13,7 @@ authors = [
 ]
 dependencies = [
     "bijux-pollenomics>=0.1.5,<1.0",
+    "pytest>=9.0.3,<10.0",
     "PyYAML>=6.0,<7.0",
 ]
 dynamic = ["version"]
@@ -26,7 +27,6 @@ Security = "https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md"
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=9.0.3,<10.0",
     "pytest-asyncio>=1.0.0,<2.0",
     "pytest-cov>=6.2.1,<8.0",
     "pytest-timeout>=2.4.0,<3.0",

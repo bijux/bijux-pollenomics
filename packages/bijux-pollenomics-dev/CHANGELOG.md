@@ -27,6 +27,7 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
 
 ### Fixed
 
+- Declared pytest as a required dependency of the shipped test-shard plugin.
 - Hardened verification subprocesses, XML and JSON inputs, path selection, and
   artifact identity checks so malformed or unrelated evidence fails closed.
 - Corrected reproducibility and browser diagnostics to retain actionable failure
