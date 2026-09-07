@@ -74,6 +74,95 @@ def _run_capture_frame_clarity(
     )
 
 
+def _run_provider_refusal_readiness_checks() -> subprocess.CompletedProcess[str]:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    match = re.search(
+        r"async function waitForProviderRefusal.*?\n}\n\nasync function pageFacts",
+        probe,
+        re.DOTALL,
+    )
+    assert match is not None
+    function_source = match.group(0).removesuffix("\n\nasync function pageFacts")
+    script = f"""
+{function_source}
+const timeoutMs = 250;
+let activeObserver = null;
+globalThis.MutationObserver = class {{
+  constructor(callback) {{
+    this.callback = callback;
+    this.disconnected = false;
+    activeObserver = this;
+  }}
+  observe() {{}}
+  disconnect() {{ this.disconnected = true; }}
+}};
+globalThis.document = {{
+  documentElement: {{}},
+  getElementById: () => ({{ textContent: 'provider unavailable' }}),
+}};
+async function evaluate(_cdp, source) {{ return (0, eval)(source); }}
+
+async function successScenario() {{
+  let state = {{ basemap: 'street', ready: true, visible_point_count: 1239 }};
+  let resolveReady;
+  let awaitReadyCalls = 0;
+  const ready = new Promise((resolve) => {{ resolveReady = resolve; }});
+  globalThis.BijuxPollenomicsAtlasCapture = {{
+    snapshot: () => structuredClone(state),
+    awaitReady: () => {{ awaitReadyCalls += 1; return ready; }},
+  }};
+  const pending = waitForProviderRefusal(null);
+  const observer = activeObserver;
+  state = {{ basemap: 'none', ready: false, visible_point_count: 0 }};
+  observer.callback();
+  let settled = false;
+  void pending.then(() => {{ settled = true; }}, () => {{ settled = true; }});
+  await Promise.resolve();
+  await Promise.resolve();
+  const settledBeforeReady = settled;
+  resolveReady({{ basemap: 'none', ready: true, visible_point_count: 1239 }});
+  const observation = await pending;
+  return {{
+    settled_before_ready: settledBeforeReady,
+    await_ready_calls: awaitReadyCalls,
+    observer_disconnected: observer.disconnected,
+    observation,
+  }};
+}}
+
+async function rejectionScenario() {{
+  let state = {{ basemap: 'street', ready: true }};
+  globalThis.BijuxPollenomicsAtlasCapture = {{
+    snapshot: () => structuredClone(state),
+    awaitReady: () => Promise.reject(new Error('readiness failed')),
+  }};
+  const pending = waitForProviderRefusal(null);
+  state = {{ basemap: 'none', ready: false }};
+  activeObserver.callback();
+  try {{
+    await pending;
+    return null;
+  }} catch (error) {{
+    return error.message;
+  }}
+}}
+
+const result = {{
+  success: await successScenario(),
+  rejection: await rejectionScenario(),
+}};
+process.stdout.write(JSON.stringify(result));
+"""
+    return subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+
 def _run_rendered_evidence_checks(
     scenarios: dict[str, dict[str, object]],
 ) -> subprocess.CompletedProcess[str]:
@@ -442,12 +531,34 @@ def test_provider_failure_uses_request_interception() -> None:
         re.DOTALL,
     )
     assert refusal is not None
-    assert "await api.awaitReady()" not in refusal.group(0)
-    assert "if (!api || typeof api.snapshot !== 'function') return false" in (
-        refusal.group(0)
-    )
+    assert "typeof api.awaitReady !== 'function'" in refusal.group(0)
+    assert ".then(() => api.awaitReady())" in refusal.group(0)
+    assert ".catch(reject)" in refusal.group(0)
     assert "observer.observe(document.documentElement" in refusal.group(0)
     assert "? api.snapshot() : null" in refusal.group(0)
+
+
+def test_provider_failure_waits_for_capture_readiness_and_propagates_failure() -> None:
+    completed = _run_provider_refusal_readiness_checks()
+
+    assert completed.returncode == 0, completed.stderr
+    result = json.loads(completed.stdout)
+    assert result == {
+        "success": {
+            "settled_before_ready": False,
+            "await_ready_calls": 1,
+            "observer_disconnected": True,
+            "observation": {
+                "snapshot": {
+                    "basemap": "none",
+                    "ready": True,
+                    "visible_point_count": 1239,
+                },
+                "timed_out": False,
+            },
+        },
+        "rejection": "readiness failed",
+    }
 
 
 def test_generic_time_journey_counts_zero_as_a_real_visibility_state() -> None:

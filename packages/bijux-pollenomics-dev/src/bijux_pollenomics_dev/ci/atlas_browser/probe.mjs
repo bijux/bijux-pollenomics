@@ -1812,15 +1812,21 @@ async function applyCurrentFrame(cdp, basemap) {
 }
 
 async function waitForProviderRefusal(cdp) {
-  return evaluate(cdp, `(() => new Promise((resolve) => {
+  return evaluate(cdp, `(() => new Promise((resolve, reject) => {
+    let refusalObserved = false;
     const finish = () => {
+      if (refusalObserved) return false;
       const api = globalThis.BijuxPollenomicsAtlasCapture;
-      if (!api || typeof api.snapshot !== 'function') return false;
+      if (!api || typeof api.snapshot !== 'function' || typeof api.awaitReady !== 'function') return false;
       const state = api.snapshot();
       if (state.basemap !== 'none') return false;
+      refusalObserved = true;
       observer.disconnect();
       clearTimeout(timeout);
-      resolve({ snapshot: state, timed_out: false });
+      Promise.resolve()
+        .then(() => api.awaitReady())
+        .then((snapshot) => resolve({ snapshot, timed_out: false }))
+        .catch(reject);
       return true;
     };
     const observer = new MutationObserver(finish);
