@@ -4617,7 +4617,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (sourceChronology && !animalSourceChronologyLayerIsValid(layer)) return;
           (layer.features || []).forEach((feature) => {
             if (sourceChronology && !animalSourceChronologyFeatureIsValid(feature)) return;
-            if (layer.applies_country_filter && !activeCountries.has(feature.country)) return;
+            if (layer.applies_country_filter && !animalSourceChronologyCountryFilterBypassed(layer) && !activeCountries.has(feature.country)) return;
             if (!pointFeatureInTimeWindow(layer, feature)) return;
             entries.push({ layer, feature });
           });

@@ -63,9 +63,11 @@ def test_animal_source_chronology_layer_posture_fails_closed() -> None:
     visibility = template_block(
         "function pointFeatureVisible", "function polygonFeatureVisible"
     )
+    candidates = template_block(
+        "function animalCandidateEntries", "function animalEntryMatchesFilters"
+    )
     assert "animalSourceChronologyLayerIsValid(layer)" in visibility
     assert "animalSourceChronologyFeatureIsValid(feature)" in visibility
-    candidates = template_block("function animalCandidateEntries", "function animalEntryMatchesFilters")
     assert "!animalSourceChronologyLayerIsValid(layer)" in candidates
     assert "!animalSourceChronologyFeatureIsValid(feature)" in candidates
 
@@ -160,6 +162,9 @@ def test_world_animal_chronology_bypasses_four_country_human_filter() -> None:
     visibility = template_block(
         "function pointFeatureVisible", "function polygonFeatureVisible"
     )
+    candidates = template_block(
+        "function animalCandidateEntries", "function animalEntryMatchesFilters"
+    )
     observed = run_node_json(
         """
 function isAnimalSourceChronologyLayer(layer) {
@@ -176,13 +181,49 @@ console.log(JSON.stringify({
 }));
 """
     )
+    candidate_observed = run_node_json(
+        """
+let SCOPE_KEY='world';
+const activeCountries=new Set(['Sweden']);
+const activeLayerKeys=new Set(['chronology']);
+const POINT_LAYERS=[{
+  key:'chronology',
+  group:'animal-chronology-context',
+  semantic_role:'animal_source_chronology_context',
+  applies_country_filter:true,
+  features:[
+    {id:'se',country:'Sweden'},
+    {id:'fr',country:'France'},
+    {id:'unassigned',country:''},
+  ],
+}];
+function isAnimalLayer(){return true}
+function isAnimalSourceChronologyLayer(layer){return layer.group==='animal-chronology-context'}
+function animalSourceChronologyLayerIsValid(){return true}
+function animalSourceChronologyFeatureIsValid(){return true}
+function pointFeatureInTimeWindow(){return true}
+"""
+        + country_filter.split("function staticAtlasCountryNeeded", maxsplit=1)[0]
+        + candidates
+        + """
+const world=animalCandidateEntries().map(({feature})=>feature.id);
+SCOPE_KEY='nordic';
+const nordic=animalCandidateEntries().map(({feature})=>feature.id);
+console.log(JSON.stringify({world,nordic}));
+"""
+    )
 
     assert observed == {"world": True, "nordic": False, "unrelated": False}
+    assert candidate_observed == {
+        "world": ["se", "fr", "unassigned"],
+        "nordic": ["se"],
+    }
     assert (
         "!layer.applies_country_filter || "
         "animalSourceChronologyCountryFilterBypassed(layer)"
     ) in country_filter
     assert "animalSourceChronologyCountryFilterBypassed(layer)" in visibility
+    assert "animalSourceChronologyCountryFilterBypassed(layer)" in candidates
 
 
 def test_context_preset_explicitly_enables_animal_source_chronology() -> None:
