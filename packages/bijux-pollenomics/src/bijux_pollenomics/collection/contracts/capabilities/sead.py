@@ -13,6 +13,7 @@ from .constants import (
     _SEAD_COUNTRY_DECISIONS_SHA256,
     _SEAD_EVIDENCE_MANIFEST_SHA256,
     _SEAD_NORMALIZED_CHRONOLOGY,
+    _SEAD_NORMALIZED_ROOT,
     _SEAD_PARENT_ADMISSION_SHA256,
     _SEAD_RUN_ID,
     _SEAD_SCOPE_ID,
@@ -152,6 +153,26 @@ def _valid_sead_evidence_member(
             and payload.get("events") == []
             and _exact_mapping_keys(payload.get("partitioned_fields"), {"refusals"})
         )
+    if repository_path == f"{_SEAD_NORMALIZED_ROOT}/source_key_ledger.json":
+        try:
+            from ...sources.sead.evidence.source_keys import (
+                validate_sead_source_key_ledger,
+            )
+
+            validated = validate_sead_source_key_ledger(payload)
+        except (TypeError, ValueError):
+            return False
+        return all(
+            manifest.get(manifest_field) == validated.get(ledger_field)
+            for manifest_field, ledger_field in (
+                ("source_key_count", "distinct_primary_key_count"),
+                ("source_key_range_count", "key_range_count"),
+                ("empty_source_table_count", "empty_table_count"),
+                ("source_key_set_sha256", "source_key_set_sha256"),
+                ("source_key_table_contract_sha256", "table_contract_sha256"),
+                ("site_country_binding_sha256", "site_country_binding_sha256"),
+            )
+        )
     return False
 
 
@@ -175,7 +196,12 @@ def _valid_sead_normalized_admission_link(
                 encoding="utf-8"
             )
         )
+        source_keys = json.loads(
+            (path.parent / "source_key_ledger.json").read_text(encoding="utf-8")
+        )
     except (OSError, UnicodeDecodeError, json.JSONDecodeError):
+        return False
+    if not isinstance(source_keys, dict):
         return False
     if not all(
         manifest.get(field) == admission.get(field)
@@ -206,12 +232,36 @@ def _valid_sead_normalized_admission_link(
             raw_sha256[table] = hashlib.sha256(payload_bytes).hexdigest()
     except (OSError, UnicodeDecodeError, json.JSONDecodeError, AttributeError):
         return False
+    try:
+        from ...sources.sead.evidence.source_keys import (
+            validate_sead_source_key_ledger,
+        )
+
+        validated_source_keys = validate_sead_source_key_ledger(source_keys)
+        source_key_tables = validated_source_keys["tables"]
+        if not isinstance(source_key_tables, list):
+            return False
+        source_key_counts = {
+            row.get("table"): row.get("row_count")
+            for row in source_key_tables
+            if isinstance(row, Mapping)
+        }
+        source_key_sha256 = {
+            row.get("table"): payload.get("sha256")
+            for row in source_key_tables
+            if isinstance(row, Mapping)
+            and isinstance((payload := row.get("payload")), Mapping)
+        }
+    except (KeyError, TypeError, ValueError):
+        return False
     return bool(
         admission.get("table_counts") == raw_counts
         and observations.get("source_table_counts") == raw_counts
         and observations.get("source_table_sha256") == raw_sha256
         and relations.get("source_table_counts") == raw_counts
         and relations.get("source_table_sha256") == raw_sha256
+        and source_key_counts == raw_counts
+        and source_key_sha256 == raw_sha256
     )
 
 
@@ -230,9 +280,9 @@ def _exact_mapping_keys(value: object, expected: set[str]) -> bool:
 def _sead_full_source_tables() -> frozenset[str]:
     # Lazy loading avoids the SEAD package's model imports while this module is
     # itself initializing through source-family contracts.
-    from ...sources.sead.acquisition.archive import SEAD_FULL_EVIDENCE_SOURCE_TABLES
+    from ...sources.sead.evidence.source_keys import sead_source_key_table_plans
 
-    return frozenset(SEAD_FULL_EVIDENCE_SOURCE_TABLES)
+    return frozenset(plan.table for plan in sead_source_key_table_plans())
 
 
 def _valid_sead_table_payload(path: Path, payload: Mapping[str, object]) -> bool:

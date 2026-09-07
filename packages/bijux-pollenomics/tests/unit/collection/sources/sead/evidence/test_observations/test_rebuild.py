@@ -28,7 +28,7 @@ def _materializing_writer(
 ) -> tuple[Path, ...]:
     del acquisition_root, expected_identity
     output_root.mkdir()
-    for index in range(52):
+    for index in range(53):
         (output_root / f"part-{index:02d}.json").write_text(
             json.dumps({"index": index}) + "\n", encoding="utf-8"
         )
@@ -86,7 +86,7 @@ def test_rebuild_uses_pinned_identity_and_validates_offline(
 
     assert calls == ["admission", "writer", "bundle"]
     assert result["status"] == "PASS"
-    assert result["file_count"] == 53
+    assert result["file_count"] == 54
     assert result["network_policy"] == "forbidden"
     identity = governed_sead_expected_identity(repository / "data")
     assert identity.run_id == rebuild.SEAD_GOVERNED_EVIDENCE_RUN_ID

@@ -29,7 +29,7 @@ from .bundle import (
 )
 
 _MANIFEST_NAME: Final = "evidence_materialization_manifest.json"
-_EXPECTED_FILE_COUNT: Final = 53
+_EXPECTED_FILE_COUNT: Final = 54
 
 
 class NetworkAccessRefused(RuntimeError):

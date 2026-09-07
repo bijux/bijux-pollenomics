@@ -27,7 +27,6 @@ from bijux_pollenomics.collection.sources.sead.acquisition.full import (
 from .codec import _canonical_bytes, _current_utc, _validate_identity
 from .dependencies import _acquire_dependency_scoped_table, _aggregate_table_acquisition
 from .models import (
-    _SITE_PROJECTION,
     FULL_EVIDENCE_ORCHESTRATOR_VERSION,
     NORDIC_TARGET_COUNTRIES,
     SCOPED_ORCHESTRATOR_VERSION,
@@ -43,6 +42,7 @@ from .plans.full_tables import (
 )
 from .plans.joins import SEAD_FULL_EVIDENCE_JOIN_PLANS
 from .plans.scoped import SEAD_SCOPED_TABLE_PLANS
+from .plans.site import SEAD_SITE_TABLE_PLAN
 from .reconciliation import _reconcile_join
 from .validation import (
     _bbox_filters,
@@ -200,11 +200,11 @@ def _acquire_sead_relations(
     }
     bbox_filters = _bbox_filters(bbox)
     bbox_sites = acquire_sead_table(
-        "tbl_sites",
+        SEAD_SITE_TABLE_PLAN.table,
         fetch_json_fn=fetch_json_fn,
-        select=_SITE_PROJECTION,
+        select=SEAD_SITE_TABLE_PLAN.projection,
         filters=bbox_filters,
-        order_by=("site_id",),
+        order_by=(SEAD_SITE_TABLE_PLAN.primary_key,),
         country_scope=NORDIC_TARGET_COUNTRIES,
         spatial_scope={**scope, "kind": "governed_bbox"},
         parent_run_id=parent_run_id,
@@ -217,7 +217,10 @@ def _acquire_sead_relations(
         sleep_fn=sleep_fn,
     )
     bbox_rows = _validated_rows(
-        "tbl_sites", bbox_sites.rows, "site_id", _SITE_PROJECTION
+        SEAD_SITE_TABLE_PLAN.table,
+        bbox_sites.rows,
+        SEAD_SITE_TABLE_PLAN.primary_key,
+        SEAD_SITE_TABLE_PLAN.projection,
     )
     _validate_site_uuids(bbox_rows)
     bbox_site_ids = {_required_source_id(row, "site_id") for row in bbox_rows}
@@ -237,11 +240,11 @@ def _acquire_sead_relations(
         site_id for site_id, code in assignments.items() if code == "UNASSIGNED"
     )
     site_acquisition = _aggregate_table_acquisition(
-        table="tbl_sites",
+        table=SEAD_SITE_TABLE_PLAN.table,
         rows=scoped_site_rows,
-        primary_key="site_id",
-        projection=_SITE_PROJECTION,
-        filter_field="site_id",
+        primary_key=SEAD_SITE_TABLE_PLAN.primary_key,
+        projection=SEAD_SITE_TABLE_PLAN.projection,
+        filter_field=SEAD_SITE_TABLE_PLAN.filter_field,
         requested_ids=sorted(bbox_site_ids),
         query_acquisitions=(bbox_sites,),
         scope=scope,

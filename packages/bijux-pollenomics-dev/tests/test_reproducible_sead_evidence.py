@@ -21,7 +21,7 @@ _RUN_ID = "sead-full-evidence-39bfff6a-ce80714e"
 
 def _write_bundle(root: Path) -> Path:
     root.mkdir(parents=True)
-    for index in range(52):
+    for index in range(53):
         (root / f"part-{index:02d}.json").write_text(
             json.dumps({"index": index}, sort_keys=True) + "\n", encoding="utf-8"
         )
@@ -80,7 +80,7 @@ def _copying_runner(repository_root: Path) -> Runner:
                 "acquisition_manifest_sha256"
             ],
             "evidence_manifest_sha256": manifest_sha256,
-            "file_count": 53,
+            "file_count": 54,
             "network_policy": "forbidden",
             "output_root": str(output),
         }
@@ -109,9 +109,9 @@ def test_fixed_point_pass_cleans_candidates_and_retains_proof(tmp_path: Path) ->
     assert (evidence / "logs/reference.stdout.log").is_file()
     inventories = cast(dict[str, list[dict[str, object]]], report["bundle_inventories"])
     assert {name: len(rows) for name, rows in inventories.items()} == {
-        "reference": 53,
-        "replay": 53,
-        "tracked": 53,
+        "reference": 54,
+        "replay": 54,
+        "tracked": 54,
     }
 
 

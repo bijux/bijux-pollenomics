@@ -12,6 +12,10 @@ from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
 from bijux_pollenomics.collection.sources.sead.evidence.claims import (
     build_sead_chronology_claim_bundle,
 )
+from bijux_pollenomics.collection.sources.sead.evidence.source_keys import (
+    build_sead_source_key_ledger,
+    validate_sead_source_key_ledger,
+)
 
 from .admission import _country_by_site, _load_full_admission
 from .constants import (
@@ -59,6 +63,13 @@ def build_sead_source_native_evidence_bundle(
     root, tables, table_sha256 = _load_full_admission(
         acquisition_root, validated_admission=admission
     )
+    source_key_ledger = build_sead_source_key_ledger(
+        root,
+        admission=admission,
+        tables=tables,
+        table_sha256=table_sha256,
+    )
+    validate_sead_source_key_ledger(source_key_ledger)
     manifest_sha256 = _required_sha256(admission, "acquisition_manifest_sha256")
     build_id = _required_text(admission, "build_id")
     run_id = _required_text(admission, "run_id")
@@ -371,4 +382,5 @@ def build_sead_source_native_evidence_bundle(
         "source_native_observations.json": observation_bundle,
         "observation_relation_index.json": relation_index,
         "evidence_events.json": event_bundle,
+        "source_key_ledger.json": source_key_ledger,
     }

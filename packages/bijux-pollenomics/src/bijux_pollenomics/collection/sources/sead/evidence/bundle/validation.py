@@ -5,8 +5,9 @@ import hashlib
 from pathlib import Path
 from typing import cast
 
-from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
-    SEAD_FULL_EVIDENCE_SOURCE_TABLES,
+from bijux_pollenomics.collection.sources.sead.evidence.source_keys import (
+    sead_source_key_table_plans,
+    validate_sead_source_key_ledger,
 )
 
 from .constants import (
@@ -73,6 +74,7 @@ def validate_sead_source_native_evidence_materialization(
         "source_native_observations.json",
         "observation_relation_index.json",
         "evidence_events.json",
+        "source_key_ledger.json",
     }
     if not logical_document_names <= set(records):
         raise ValueError("SEAD evidence materialization lacks a logical document")
@@ -93,6 +95,7 @@ def validate_sead_source_native_evidence_materialization(
     if not isinstance(multipart_value, Mapping):
         raise TypeError("SEAD evidence multipart_documents must be an object")
     referenced_parts: set[str] = set()
+    reconstructed_fields: dict[str, dict[str, list[object]]] = {}
     logical_documents: dict[str, dict[str, object]] = {}
     for document_name in logical_document_names:
         document_content = contents[document_name]
@@ -122,6 +125,7 @@ def validate_sead_source_native_evidence_materialization(
             if field_record.get("part_count") != len(parts):
                 raise ValueError("SEAD evidence partition part count changed")
             row_cursor = 0
+            reconstructed_rows: list[object] = []
             for part_number, part_record in enumerate(parts, start=1):
                 if not isinstance(part_record, Mapping):
                     raise TypeError("SEAD evidence part record must be an object")
@@ -141,6 +145,8 @@ def validate_sead_source_native_evidence_materialization(
                 if not isinstance(rows, list):
                     raise TypeError(f"SEAD evidence part rows are invalid: {part_path}")
                 row_end = row_cursor + len(rows)
+                if document_name == "source_key_ledger.json":
+                    reconstructed_rows.extend(rows)
                 for key, expected in (
                     ("schema_version", MULTIPART_SCHEMA_VERSION),
                     ("logical_document", document_name),
@@ -171,6 +177,10 @@ def validate_sead_source_native_evidence_materialization(
                 referenced_parts.add(part_path)
             if field_record.get("row_count") != row_cursor:
                 raise ValueError("SEAD evidence partition row denominator changed")
+            if document_name == "source_key_ledger.json":
+                reconstructed_fields.setdefault(document_name, {})[field] = (
+                    reconstructed_rows
+                )
         if declared.get("part_count") != len(document_parts):
             raise ValueError("SEAD multipart document part count changed")
         if declared.get("parts") != sorted(document_parts):
@@ -182,6 +192,12 @@ def validate_sead_source_native_evidence_materialization(
     chronology = logical_documents["chronology_claims.json"]
     events = logical_documents["evidence_events.json"]
     relations = logical_documents["observation_relation_index.json"]
+    reconstructed_source_keys = dict(logical_documents["source_key_ledger.json"])
+    reconstructed_source_keys.update(
+        reconstructed_fields.get("source_key_ledger.json", {})
+    )
+    reconstructed_source_keys.pop("partitioned_fields", None)
+    source_keys = validate_sead_source_key_ledger(reconstructed_source_keys)
     for field, expected_value in (
         ("source_run_id", observations.get("source_run_id")),
         ("build_id", observations.get("build_id")),
@@ -236,7 +252,7 @@ def validate_sead_source_native_evidence_materialization(
     source_table_counts = relations.get("source_table_counts")
     if not isinstance(source_table_counts, Mapping):
         raise TypeError("SEAD evidence source table counts are missing")
-    expected_source_tables = set(SEAD_FULL_EVIDENCE_SOURCE_TABLES)
+    expected_source_tables = {plan.table for plan in sead_source_key_table_plans()}
     if set(source_table_counts) != expected_source_tables or any(
         isinstance(value, bool) or not isinstance(value, int) or value < 0
         for value in source_table_counts.values()
@@ -246,6 +262,16 @@ def validate_sead_source_native_evidence_materialization(
         raise ValueError("SEAD evidence manifest source table count must equal 61")
     if observations.get("source_table_counts") != source_table_counts:
         raise ValueError("SEAD observation source table denominators do not reconcile")
+    ledger_tables_value = source_keys.get("tables")
+    if not isinstance(ledger_tables_value, list):
+        raise TypeError("SEAD source-key ledger tables are missing")
+    ledger_table_counts = {
+        row.get("table"): row.get("row_count")
+        for row in ledger_tables_value
+        if isinstance(row, Mapping)
+    }
+    if ledger_table_counts != source_table_counts:
+        raise ValueError("SEAD source-key table denominators do not reconcile")
     relation_table_sha256 = relations.get("source_table_sha256")
     if (
         not isinstance(relation_table_sha256, Mapping)
@@ -260,6 +286,38 @@ def validate_sead_source_native_evidence_materialization(
         raise ValueError("SEAD evidence requires exact 61-table source digests")
     if observations.get("source_table_sha256") != relation_table_sha256:
         raise ValueError("SEAD observation source table digests do not reconcile")
+    ledger_table_sha256 = {
+        row.get("table"): payload.get("sha256")
+        for row in ledger_tables_value
+        if isinstance(row, Mapping)
+        and isinstance((payload := row.get("payload")), Mapping)
+    }
+    if ledger_table_sha256 != relation_table_sha256:
+        raise ValueError("SEAD source-key table digests do not reconcile")
+    for field, ledger_field in (
+        ("source_key_count", "distinct_primary_key_count"),
+        ("source_key_range_count", "key_range_count"),
+        ("empty_source_table_count", "empty_table_count"),
+        ("source_key_set_sha256", "source_key_set_sha256"),
+        ("source_key_table_contract_sha256", "table_contract_sha256"),
+        ("site_country_binding_sha256", "site_country_binding_sha256"),
+    ):
+        if manifest.get(field) != source_keys.get(ledger_field):
+            raise ValueError(f"SEAD evidence manifest {field} does not reconcile")
+    if source_keys.get("source_row_count") != sum(
+        cast(int, value) for value in source_table_counts.values()
+    ):
+        raise ValueError("SEAD source-key row denominator does not reconcile")
+    if (
+        source_keys.get("scope_id") != observations.get("source_scope_id")
+        or source_keys.get("acquisition_bundle_sha256")
+        != observations.get("acquisition_bundle_sha256")
+        or source_keys.get("parent_admission_sha256")
+        != observations.get("parent_admission_sha256")
+        or source_keys.get("country_decisions_sha256")
+        != observations.get("country_decisions_sha256")
+    ):
+        raise ValueError("SEAD source-key acquisition identity does not reconcile")
     expected_observation_table_counts = {
         table: source_table_counts.get(table) for table, _, _ in _OBSERVATION_TABLES
     }

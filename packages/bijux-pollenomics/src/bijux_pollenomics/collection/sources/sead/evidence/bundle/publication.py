@@ -60,7 +60,23 @@ def write_sead_source_native_evidence_bundle(
         "parent_admission_sha256": payloads["source_native_observations.json"][
             "parent_admission_sha256"
         ],
-        "source_table_count": 61,
+        "source_table_count": payloads["source_key_ledger.json"]["table_count"],
+        "source_key_count": payloads["source_key_ledger.json"][
+            "distinct_primary_key_count"
+        ],
+        "source_key_range_count": payloads["source_key_ledger.json"]["key_range_count"],
+        "empty_source_table_count": payloads["source_key_ledger.json"][
+            "empty_table_count"
+        ],
+        "source_key_set_sha256": payloads["source_key_ledger.json"][
+            "source_key_set_sha256"
+        ],
+        "source_key_table_contract_sha256": payloads["source_key_ledger.json"][
+            "table_contract_sha256"
+        ],
+        "site_country_binding_sha256": payloads["source_key_ledger.json"][
+            "site_country_binding_sha256"
+        ],
         "chronology_claim_count": payloads["chronology_claims.json"]["claim_count"],
         "observation_count": payloads["source_native_observations.json"][
             "observation_count"

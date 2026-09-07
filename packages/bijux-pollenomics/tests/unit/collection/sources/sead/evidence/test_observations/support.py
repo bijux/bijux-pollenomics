@@ -61,7 +61,7 @@ class _FullEvidencePostgrestFixture:
                     "site_name": "native site",
                     "latitude_dd": 56.0,
                     "longitude_dd": 13.0,
-                    "site_uuid": "sead-site-uuid-1",
+                    "site_uuid": "00000000-0000-4000-8000-000000000001",
                 }
             )
         elif table == "tbl_analysis_values":
@@ -112,8 +112,12 @@ def _full_admission_inputs(
                 "decisions": [
                     {
                         "site_id": 1,
+                        "site_uuid": "00000000-0000-4000-8000-000000000001",
                         "governed_country_code": "SE",
-                        "decision": {"decision_method": "strict_boundary_containment"},
+                        "decision": {
+                            "decision_method": "strict_boundary_containment",
+                            "decision_status": "assigned",
+                        },
                     }
                 ]
             },

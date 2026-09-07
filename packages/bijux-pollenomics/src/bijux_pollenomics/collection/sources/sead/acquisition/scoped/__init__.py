@@ -21,6 +21,7 @@ from .plans import (
     SEAD_FULL_EVIDENCE_JOIN_PLANS,
     SEAD_FULL_EVIDENCE_TABLE_PLANS,
     SEAD_SCOPED_TABLE_PLANS,
+    SEAD_SITE_TABLE_PLAN,
 )
 from .service import acquire_full_evidence_sead_relations, acquire_scoped_sead_relations
 
@@ -33,6 +34,7 @@ __all__ = [
     "SEAD_FULL_EVIDENCE_JOIN_PLANS",
     "SEAD_FULL_EVIDENCE_TABLE_PLANS",
     "SEAD_SCOPED_TABLE_PLANS",
+    "SEAD_SITE_TABLE_PLAN",
     "SeadScopedAcquisitionResult",
     "acquire_full_evidence_sead_relations",
     "acquire_scoped_sead_relations",

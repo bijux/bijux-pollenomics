@@ -25,10 +25,10 @@ _EXPECTED_LINEAGE = {
         "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1"
     ),
     "evidence_manifest_sha256": (
-        "9c46225547cf98fdf8cad214ad0d43261a57a848ed80eccd410527c0f31eea74"
+        "c5ec51e8e7360e4f47cffceeb7a907e022da4445caf853317cbcc908269b0093"
     ),
     "evidence_file_set_sha256": (
-        "53526aeb0f218e5e3acc410ce059533fb3594ff1e239c8ef9fed2ce4e319baf0"
+        "3a18b6e11ccccdc61f3c1fcbc5f301fd1132313ad14c8dba2fa87c6a9b3174cf"
     ),
 }
 _EXPECTED_TAXONOMY_TABLE_COUNTS = {

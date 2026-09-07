@@ -23,7 +23,7 @@ JsonObject = dict[str, object]
 
 _GOVERNED_RUN_ID: Final = "sead-full-evidence-39bfff6a-ce80714e"
 _MANIFEST_NAME: Final = "evidence_materialization_manifest.json"
-_EXPECTED_FILE_COUNT: Final = 53
+_EXPECTED_FILE_COUNT: Final = 54
 _GENERATOR_MODULE: Final = "bijux_pollenomics.collection.sources.sead.evidence.rebuild"
 _INPUT_GROUPS: Final[dict[str, tuple[str, ...]]] = {
     "configuration": (

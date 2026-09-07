@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from copy import deepcopy
 import hashlib
 import json
 from pathlib import Path
@@ -9,6 +10,7 @@ import pytest
 
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     materialize_sead_full_evidence_admission,
+    read_materialized_sead_full_evidence_admission,
 )
 from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
     service as admission_service,
@@ -17,6 +19,15 @@ from bijux_pollenomics.collection.sources.sead.evidence.bundle import (
     build_sead_source_native_evidence_bundle,
     validate_sead_source_native_evidence_materialization,
     write_sead_source_native_evidence_bundle,
+)
+from bijux_pollenomics.collection.sources.sead.evidence.source_keys import (
+    build_sead_source_key_ledger,
+    sead_source_key_table_plans,
+    validate_sead_source_key_ledger,
+    validate_sead_source_key_ledger_against_acquisition,
+)
+from bijux_pollenomics.collection.sources.sead.evidence.source_keys.serialization import (
+    canonical_sha256,
 )
 from bijux_pollenomics.collection.sources.sead.evidence.bundle import (
     publication as evidence_publication,
@@ -61,6 +72,123 @@ def test_source_native_evidence_preserves_every_row_and_is_fixed_point(
         )
         observations = bundle["source_native_observations.json"]
         events = bundle["evidence_events.json"]
+        source_keys = validate_sead_source_key_ledger(bundle["source_key_ledger.json"])
+        assert source_keys["table_count"] == 61
+        assert source_keys["source_row_count"] == 55
+        assert source_keys["distinct_primary_key_count"] == 55
+        assert source_keys["key_range_count"] == 55
+        assert source_keys["empty_table_count"] == 6
+        assert source_keys["site_country_bindings"] == {
+            "fields": [
+                "site_id",
+                "site_uuid",
+                "country_code_index",
+                "assignment_method_index",
+            ],
+            "country_codes": ["DK", "FI", "NO", "SE"],
+            "assignment_methods": ["strict_boundary_containment"],
+            "rows": [[1, "00000000-0000-4000-8000-000000000001", 3, 0]],
+        }
+        malformed_uuid = deepcopy(source_keys)
+        binding = malformed_uuid["site_country_bindings"]
+        assert isinstance(binding, dict)
+        binding_rows = binding["rows"]
+        assert isinstance(binding_rows, list)
+        binding_rows[0][1] = "NOT-A-CANONICAL-UUID"
+        with pytest.raises(ValueError, match="canonical"):
+            validate_sead_source_key_ledger(malformed_uuid)
+        noncanonical_range = deepcopy(source_keys)
+        ledger_tables = noncanonical_range["tables"]
+        assert isinstance(ledger_tables, list)
+        ledger_tables[0]["key_ranges"] = [[1, 1], [2, 2]]
+        with pytest.raises(ValueError, match="ordered and coalesced"):
+            validate_sead_source_key_ledger(noncanonical_range)
+
+        for field, forged_value in (
+            ("ordinal", False),
+            ("ordinal", 0.0),
+            ("row_count", True),
+            ("row_count", 1.0),
+            ("distinct_primary_key_count", True),
+            ("distinct_primary_key_count", 1.0),
+            ("duplicate_primary_key_count", False),
+            ("duplicate_primary_key_count", 0.0),
+            ("key_range_count", True),
+            ("key_range_count", 1.0),
+            ("minimum_primary_key", True),
+            ("minimum_primary_key", 1.0),
+            ("maximum_primary_key", True),
+            ("maximum_primary_key", 1.0),
+        ):
+            forged_numeric = deepcopy(source_keys)
+            forged_tables = forged_numeric["tables"]
+            assert isinstance(forged_tables, list)
+            forged_record = forged_tables[0]
+            forged_record[field] = forged_value
+            record_without_digest = dict(forged_record)
+            record_without_digest.pop("table_record_sha256")
+            forged_record["table_record_sha256"] = canonical_sha256(
+                record_without_digest
+            )
+            with pytest.raises(ValueError, match="integer"):
+                validate_sead_source_key_ledger(forged_numeric)
+
+        for forged_value in (True, 1.0):
+            forged_receipt_count = deepcopy(source_keys)
+            forged_tables = forged_receipt_count["tables"]
+            assert isinstance(forged_tables, list)
+            forged_record = forged_tables[0]
+            forged_receipt = forged_record["receipt"]
+            assert isinstance(forged_receipt, dict)
+            forged_receipt["row_count"] = forged_value
+            record_without_digest = dict(forged_record)
+            record_without_digest.pop("table_record_sha256")
+            forged_record["table_record_sha256"] = canonical_sha256(
+                record_without_digest
+            )
+            with pytest.raises(ValueError, match="integer"):
+                validate_sead_source_key_ledger(forged_receipt_count)
+
+        for forged_value in (True, 1.0):
+            forged_country_count = deepcopy(source_keys)
+            accountability = forged_country_count["country_binding_accountability"]
+            assert isinstance(accountability, dict)
+            country_counts = accountability["country_counts"]
+            assert isinstance(country_counts, dict)
+            country_counts["SE"] = forged_value
+            with pytest.raises(ValueError, match="integer"):
+                validate_sead_source_key_ledger(forged_country_count)
+
+        admission_snapshot = read_materialized_sead_full_evidence_admission(
+            acquisition,
+            expected_identity=expected,
+        )
+        admitted_tables: dict[str, list[dict[str, object]]] = {}
+        table_sha256: dict[str, str] = {}
+        for plan in sead_source_key_table_plans():
+            path = f"payloads/{plan.table}.json"
+            content = admission_snapshot.copied_files[path]
+            payload = json.loads(content)
+            rows = payload["rows"]
+            assert isinstance(rows, list)
+            assert all(isinstance(row, dict) for row in rows)
+            admitted_tables[plan.table] = rows
+            table_sha256[plan.table] = hashlib.sha256(content).hexdigest()
+        forged_tables = deepcopy(admitted_tables)
+        forged_tables["tbl_analysis_entities"][0]["analysis_entity_id"] = 224_428
+        forged_ledger = build_sead_source_key_ledger(
+            acquisition,
+            admission=admission_snapshot.admission,
+            tables=forged_tables,
+            table_sha256=table_sha256,
+        )
+        validate_sead_source_key_ledger(forged_ledger)
+        with pytest.raises(ValueError, match="differs from admitted acquisition"):
+            validate_sead_source_key_ledger_against_acquisition(
+                forged_ledger,
+                acquisition,
+                expected_identity=expected,
+            )
         assert observations["observation_count"] == 4
         assert observations["observation_table_counts"] == {
             "tbl_abundances": 1,
@@ -115,6 +243,27 @@ def test_source_native_evidence_preserves_every_row_and_is_fixed_point(
             }
             manifest = validate_sead_source_native_evidence_materialization(output)
             assert manifest["multipart_documents"]
+            assert manifest["source_table_count"] == source_keys["table_count"]
+            assert (
+                manifest["source_key_count"]
+                == source_keys["distinct_primary_key_count"]
+            )
+            assert manifest["source_key_range_count"] == source_keys["key_range_count"]
+            assert (
+                manifest["empty_source_table_count"] == source_keys["empty_table_count"]
+            )
+            assert (
+                manifest["source_key_set_sha256"]
+                == source_keys["source_key_set_sha256"]
+            )
+            assert (
+                manifest["source_key_table_contract_sha256"]
+                == source_keys["table_contract_sha256"]
+            )
+            assert (
+                manifest["site_country_binding_sha256"]
+                == source_keys["site_country_binding_sha256"]
+            )
             assert max(len(content) for content in first_bytes.values()) <= 16384
             observation_path = output / "source_native_observations.json"
             observation_document = json.loads(

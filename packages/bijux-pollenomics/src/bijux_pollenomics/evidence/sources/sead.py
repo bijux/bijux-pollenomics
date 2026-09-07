@@ -17,6 +17,7 @@ _LOGICAL_DOCUMENTS: Final = frozenset(
         "chronology_claims.json",
         "evidence_events.json",
         "observation_relation_index.json",
+        "source_key_ledger.json",
         "source_native_observations.json",
     }
 )
@@ -25,7 +26,7 @@ SEAD_GOVERNED_EVIDENCE_SCOPE_ID: Final = (
     "sha256:39bfff6abd80041dc01c554711b2a57daf6ee68e1757e3515668a18874ffb7d7"
 )
 SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256: Final = (
-    "9c46225547cf98fdf8cad214ad0d43261a57a848ed80eccd410527c0f31eea74"
+    "c5ec51e8e7360e4f47cffceeb7a907e022da4445caf853317cbcc908269b0093"
 )
 SEAD_GOVERNED_ADMISSION_SHA256: Final = (
     "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea"
