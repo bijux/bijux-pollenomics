@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 import json
-import re
 from pathlib import Path
+import re
 
 import pytest
 import yaml
+
 from bijux_pollenomics_dev.ci.path_selection import (
     REQUIRED_SURFACE_IDS,
     ChangeImpactContract,
@@ -115,8 +116,7 @@ def test_scientific_evidence_materializer_selects_every_mandatory_gate() -> None
     result = select_changed_paths(
         _contract(),
         [
-            "packages/bijux-pollenomics-dev/src/"
-            "bijux_pollenomics_dev/ci/scientific_evidence.py"
+            "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/scientific_evidence.py"
         ],
     )
 

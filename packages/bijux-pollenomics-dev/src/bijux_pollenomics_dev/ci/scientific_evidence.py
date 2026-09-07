@@ -3,16 +3,17 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
-import json
-import stat
-import sys
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+import hashlib
+import json
 from pathlib import Path, PurePosixPath
+import stat
+import sys
 from typing import Never, cast
 
 import yaml
+
 from bijux_pollenomics.analysis.propagation.outputs import (
     PROPAGATION_PRODUCER_ID,
     PROPAGATION_PRODUCER_SOURCE_PATHS,

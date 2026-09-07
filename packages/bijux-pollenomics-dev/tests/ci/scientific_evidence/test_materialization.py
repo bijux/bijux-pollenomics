@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
-import json
 from dataclasses import replace
+import json
 from pathlib import Path
 from typing import Any, cast
 
 import pytest
+
 from bijux_pollenomics.analysis.propagation.outputs import (
     PropagationMaterializationResult,
     PropagationOutputRefusalError,

@@ -1,12 +1,13 @@
 from __future__ import annotations
 
+from copy import deepcopy
 import json
+from pathlib import Path
 import re
 import subprocess
-from copy import deepcopy
-from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics_dev.ci import atlas_browser
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
     GENERIC_TIME_AWARE_PROFILE,
