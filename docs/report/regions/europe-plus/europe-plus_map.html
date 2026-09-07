@@ -492,6 +492,7 @@
         gap: 8px;
         margin-top: 12px;
       }
+      .source-shortcuts[hidden] { display: none; }
       .source-shortcuts .inline-button,
       .time-stepper .inline-button {
         min-width: 0;
@@ -2016,7 +2017,7 @@
                     <button id="scientific-whole" class="inline-button is-primary" type="button">Whole pollen</button>
                     <button id="scientific-clear" class="inline-button" type="button">Clear comparison</button>
                   </div>
-                  <div class="source-shortcuts" aria-label="Open source-native pollen views">
+                  <div id="source-chronology-shortcuts" class="source-shortcuts" aria-label="Open source-native pollen views" hidden>
                     <button class="inline-button is-primary" type="button" data-source-shortcut="sample">Source sample presence</button>
                     <button class="inline-button" type="button" data-source-shortcut="TRSH">TRSH</button>
                     <button class="inline-button" type="button" data-source-shortcut="UPHE">UPHE</button>
@@ -2332,7 +2333,7 @@
         </div>
       </div>
     </div>
-    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"europe-plus","version":"v66","build_id":"atlas-6bcaf1c9cd9adf4289597e72eb5655241ed67e8438a5a391c98f1956277dfb60","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3"},"budgets":{"bootstrap_max_bytes":65536,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1243},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":5,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1239}},"assets":{"schema_version":"atlas-static-asset-table.v2","scope_slug":"europe-plus","fields":["domain","sha256","payload_sha256","decoded_byte_count","byte_count","record_count","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","scientific_signal_ids"],"record_count":17,"records":[["provenance","a781ca7562aa7dc5194670647120354984c9e4a4b0db59b7c3435422b31dbf77","af5f5e11dfd7e813d4b220f6ee2000e2471a8d2316bd520a416b8bc9d97e0094",6262,2408,5,null,null,null,null,null,null,null,null,null],["nodes","cbd06eabc07b6041acff1f05d8324b0703862a32a415d53fa96e013758cfe53b","43b67cb5e8d747b9781d65df992b63d7bcc334a06c901bb79e158efbdb292918",1526717,83463,653,0,"aadr","point",["Denmark"],[54.623,8.728229,57.5065361,14.99854],73.0,10520.0,4,[]],["nodes","a3c886e8b472e0de5751479699912152e2c5054c7466fa387b183acd441338cd","769314dfa5d092fa1abc69d654436a2d7b945e300162c53fc5114d2125420a04",69807,3927,32,0,"aadr","point",["Finland"],[60.2,22.178,69.91,27.03],0.0,1688.0,0,[]],["nodes","39f0fa894d43bab55e57e6395f02abaa24d663ce5a6863d2fabf3a702ee0fb6d","295225373575513ffc7a4c82ca97124ef35eb07aed332f2c2ea32e29ab4415ca",303822,18771,130,0,"aadr","point",["Norway"],[58.064,5.126940543,70.117388,19.017706],0.0,9486.0,0,[]],["nodes","71bbc34b0e7650c387771cdd64850f9e2e46594254671ea791e9077bc3067960","454b30dced49c9cf1d10f24a8788a92147a6d0e43350306c73334ec491c0ac13",981137,47339,416,0,"aadr","point",["Sweden"],[55.37774,11.3007,63.2,18.7],274.0,10010.0,0,[]],["nodes","5251263e5c7d62bbcb89a4aee08a3343b7bf02184dc3e671554c52039929cb02","3434b057eb74e233a2e5943bbf7505add89c41ecdd3e3f5c1d9cd8df5c0ebf1b",17245,4227,2,1,"animal-bos-taurus-wild-or-progenitor-context","point",["Denmark"],[55.3584015935903,9.8686973853874,57.2407065497517,11.3931303537925],6748.0,8173.0,0,[]],["nodes","a05256cbfd0658f82615be69abe72f6b3c93761b4269af85ba306c89d2910859","9bd796dbc5001754d157b742b77fc81751ee3c5fbff5b6ae6aea52a97f08a575",15695,3859,2,1,"animal-bos-taurus-wild-or-progenitor-context","point",["Sweden"],[55.6219,13.2297,55.8476269883224,13.8093770947441],9133.0,9657.0,0,[]],["nodes","48a9ea0c10af44b14274788d06e93d3f296e72aae7eb2e010aba354ecf246874","ff39d6934e73b9f11a91ef80823e163d1a6145b0d6c39ea2fd4e8a1a7011f54e",6881,3183,1,2,"animal-ovis-aries","point",["Finland"],[60.23,20.08,60.23,20.08],340.0,527.0,0,[]],["nodes","cbeade92a150f3b89d7b10734bdb3bc63e31b6e969eec2655872f143fa81521e","4075492cfd23648bda4f1253feedb393e9934f05d9743e69e935f5f6777265a1",7008,3211,1,2,"animal-ovis-aries","point",["Sweden"],[57.29,17.97,57.29,17.97],3699.0,4151.0,0,[]],["nodes","d3f83360515f26e7ddc32dc004d1bfb1ecd2e8cb9abee13075bf215a6bf94f01","b306ed097a794ea8a7395ce6ee4922683db78c67ccd39842797111fc85ebb98a",16918,4387,2,3,"animal-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],1000.0,4700.0,0,[]],["nodes","db97d7d02d3ed09282cc80f24600a809208292659ef8758c27a3d3456be26eea","95871e0500eb6fb7f283c07252c10ccc26b006bbe10a4d2ba4d94230cc6b6066",47147,23432,1,4,"country-boundaries","polygon",["Denmark"],[54.56859,8.094005,57.751166,15.151378],null,null,1,[]],["nodes","b8543721e24c80aa3f13dd8eb4ce3c114bd9e1e92eb2fdb7e1b0c5f3ceb2e3a6","5605db8b2fe55ce35a5719a559ae4c3be1e07f943c48e39d6a590b0a1fb0c0e7",70887,35308,1,4,"country-boundaries","polygon",["Finland"],[59.811225,20.623165,70.07531,31.569525],null,null,1,[]],["nodes","d821fe3aad73432e0d50e21e8dff8b61ea075f8999767bcc3d708744fd8f4121","7317e01524da23ccc8ca2977fc97c926b9e44f11cf92be79e85f38c48826a662",341282,165780,1,4,"country-boundaries","polygon",["Norway"],[-54.462498,-9.117421,80.770087,33.640391],null,null,1,[]],["nodes","a5fa05af1a99a54547575097c517d7e884b62413403f6c2a9191edfc6f11c119","949de087f8746f9d41fbcd85c5205ca7cde5e17383294c754e6ae8c9ae3f7b4b",102306,50004,1,4,"country-boundaries","polygon",["Sweden"],[55.342678,11.108165,69.036356,24.163414],null,null,1,[]],["edges","efb8ab5ce8bb7fcea82ea7a478ddc21a8be7a7266a34c749e825e265bcf2cb17","c4ca8a0522b59b92a35a2438bebf551e5f2a022146b98e65bfe17a981b153d31",281,589,0,null,null,null,null,null,null,null,null,null],["sequences","e86160bb58fc56b61dc49a5b08775701d33fa498a3c2de6120d6037c31043978","7b6ad1cc2f25b3da7fd1016b2fe348a763aa1c334b3001dac046d0e73db5c648",296,608,0,null,null,null,null,null,null,null,null,null],["indexes","ef15305a558c827d79198c09e6848019b8c2a886592fdf976173c8a2ba08980e","2de4ccc8b54aa56995250b7e4d56cca9814313c03047d76cca075812210950ef",18417,18837,1239,null,null,null,null,null,null,null,null,null]]}}</script>
+    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"europe-plus","version":"v66","build_id":"atlas-e5ea35d4bb5c2c99de7abc93968b64a9337c9fe2662812e021e20c440a5fe22b","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3"},"budgets":{"bootstrap_max_bytes":65536,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1243},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":5,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1239}},"assets":{"schema_version":"atlas-static-asset-table.v2","scope_slug":"europe-plus","fields":["domain","sha256","payload_sha256","decoded_byte_count","byte_count","record_count","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","scientific_signal_ids"],"record_count":17,"records":[["provenance","ae461b76cf4433e8695f233a79742bd9dd588eb74163285b916433284e041b21","93a41d45ffa31586d0f29bfa80fff03f63f794732fbd8da871125b5056a50876",6262,2404,5,null,null,null,null,null,null,null,null,null],["nodes","30a5f9214f3d3d5e59ae8492bb869cdf788694c95e9cd82c8c19feff03ca29a9","566f04c87ba8bbb25f3abe34c8d62ecdca2296199e0d5a69b10d107608fdd9b4",1563675,86879,653,0,"aadr","point",["Denmark"],[54.623,8.728229,57.5065361,14.99854],73.0,10520.0,4,[]],["nodes","17bb9571ef197d4eb5ed6997167917b6a49a42aed303b5893e613513bff70414","a1503e7aea071c031721df7b2a465d89b38493137d320436681196e9c57a6d28",71553,4111,32,0,"aadr","point",["Finland"],[60.2,22.178,69.91,27.03],0.0,1688.0,0,[]],["nodes","4cd95e086dabd869a6996773f9968804ed6b8412803d18f29f34ea0b75ee748e","7fc59de3e591ef13f05ebe3c5aab90a518c6473323adb587862ffe62fc45ec66",311100,19527,130,0,"aadr","point",["Norway"],[58.064,5.126940543,70.117388,19.017706],0.0,9486.0,0,[]],["nodes","de7be7aa97ee77bbb986556b79a8462d5a797b08ceea14fa5697d83e56b6ca21","6133d25c8f1f139bbdc2232d6e90c337813ae42b06f5775da22b998361579dc7",1003359,49539,416,0,"aadr","point",["Sweden"],[55.37774,11.3007,63.2,18.7],274.0,10010.0,0,[]],["nodes","0a55000b5968ec682384e454c581316b731a12f31a0a10068cc99cb3a920a71a","0f614b506d527345856599b71e86014fd6d527ab9bfaf81013fbfeca5951c23a",17245,4227,2,1,"animal-bos-taurus-wild-or-progenitor-context","point",["Denmark"],[55.3584015935903,9.8686973853874,57.2407065497517,11.3931303537925],6748.0,8173.0,0,[]],["nodes","6888996f03cfbd08392157c34c5b765036c6df17a53a754c58366b75f3d3ce7d","6f1e5b0798d306cc072e7ec394af105931dceed2725c2e0dfbe9ac95f9f35663",15695,3859,2,1,"animal-bos-taurus-wild-or-progenitor-context","point",["Sweden"],[55.6219,13.2297,55.8476269883224,13.8093770947441],9133.0,9657.0,0,[]],["nodes","acc00b94250f04927af1c93b0641e29b72e2a0ff0a04ffb14b592f626a795b4d","67ccae0b7ab8e00b8425548a9fb85f40fcab6bc6fe78747feef2f852091534ac",6881,3183,1,2,"animal-ovis-aries","point",["Finland"],[60.23,20.08,60.23,20.08],340.0,527.0,0,[]],["nodes","0660913c2f09d9d3866f06a1f1fc7187db5c60780b778050c6203046c5ba481f","1900631ce02ae1ffc203396737fd72b57922a09bda1c214eea227afae7f70872",7008,3207,1,2,"animal-ovis-aries","point",["Sweden"],[57.29,17.97,57.29,17.97],3699.0,4151.0,0,[]],["nodes","b8ac7203edc65f104567f66b10b91c40e4b95749eb8393e6edb7b80b9fa670d2","b72f257590598983dcee6eaa406d54a129973069df39f66b431037fd715734f1",16918,4387,2,3,"animal-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],1000.0,4700.0,0,[]],["nodes","93a20e2d76bbd3e45d01405620b66db2e6bc158b421dd81947ea826f33bdfe1e","ea8719ae3e8c12fac74440d77e1285e854ddfaae851804a956064f521fab7c3d",47147,23432,1,4,"country-boundaries","polygon",["Denmark"],[54.56859,8.094005,57.751166,15.151378],null,null,1,[]],["nodes","8488db5345f6e1de6c5f0987cc064cf12a412320dfc9ca051260470b45bb1eb2","e0866db47d225ba6a1d27f4e6ab303bf3ef388fb524f8959b402d88b5a92e3d2",70887,35304,1,4,"country-boundaries","polygon",["Finland"],[59.811225,20.623165,70.07531,31.569525],null,null,1,[]],["nodes","5777ceba241803661aa6ae3894802cafd7ff343584d98cde30b431ae5f13b83f","9037290d63a4348256bf9e4d9c5e6338fd78351250fee1b663aa52127556f2f2",341282,165780,1,4,"country-boundaries","polygon",["Norway"],[-54.462498,-9.117421,80.770087,33.640391],null,null,1,[]],["nodes","0987f3e8a0484d7e835834406229a72235b0f9b02b66abe9fba5da48586e117e","aaaab66d46da38e0820b222112a3b0b542555efb3903e5708b09dedbe4759b84",102306,50000,1,4,"country-boundaries","polygon",["Sweden"],[55.342678,11.108165,69.036356,24.163414],null,null,1,[]],["edges","402fe1b77425247b5f699e10aab746a87360b877689c289dbf54482a7b66dd9f","eff00f22f7a4e176faf1cf38b2f0ed9c22e98bc499f47ccf02c0f65fcf649598",281,589,0,null,null,null,null,null,null,null,null,null],["sequences","0bbbd9e15fcb2cce2e4d40cfe424c87a39515305b057f949ed796a2a914f9155","38a0fdc51a9ad5ba226f95139d3a7d2d41ff38765db84b929ec13987cb11d714",296,608,0,null,null,null,null,null,null,null,null,null],["indexes","0774ff94d9b5962257e39aa0f03a9fa9d0fc798c499bd4de1291140e27c9745a","0b2095b56b4645debcbd41bb8fa74b1a8ea7c174037d596662c729bd9813b1f9",18417,18837,1239,null,null,null,null,null,null,null,null,null]]}}</script>
     <script src="./_map_assets/leaflet/leaflet.js"></script>
     <script src="./_map_assets/markercluster/leaflet.markercluster.js"></script>
 
@@ -2903,6 +2904,7 @@
       let renderedPointGroups = [];
       let renderedEdgeLayers = [];
       let renderedPolygonLayers = [];
+      let renderedFittablePolygonLayers = [];
       let visiblePointEntries = [];
       let visiblePolygonFeatureEntries = [];
       let highlightedPointEntry = null;
@@ -2929,6 +2931,7 @@
       const scientificActions = document.getElementById('scientific-actions');
       const scientificStatus = document.getElementById('scientific-status');
       const scientificSummary = document.getElementById('scientific-summary');
+      const sourceChronologyShortcuts = document.getElementById('source-chronology-shortcuts');
       const countryPairFilter = document.getElementById('country-pair-filter');
       const crossBorderOnlyCheckbox = document.getElementById('cross-border-only');
       const relationSummary = document.getElementById('relation-summary');
@@ -4852,10 +4855,17 @@
       }
       function renderScientificControls() {
         const available = ATLAS_EVIDENCE.classifications_status === 'available' && SCIENTIFIC_SIGNALS.length > 0;
+        const sourceChronologyAvailable = sourceChronologyLayers().length > 0;
         scientificActions.hidden = !available;
+        sourceChronologyShortcuts.hidden = !sourceChronologyAvailable;
+        sourceChronologyShortcuts.querySelectorAll('[data-source-shortcut]').forEach((button) => {
+          button.disabled = !sourceChronologyAvailable;
+        });
         scientificStatus.textContent = available
           ? 'Only accepted, versioned classifications are selectable. Color is always paired with a shape cue.'
-          : 'Harmonized scientific classifications are awaiting qualified review. Source-native pollen-bearing sample presence, ecological-code, and exact-label chronology remains available below without asserting equivalence.';
+          : sourceChronologyAvailable
+            ? 'Harmonized scientific classifications are awaiting qualified review. Source-native pollen-bearing sample presence, ecological-code, and exact-label chronology remains available below without asserting equivalence.'
+            : 'Harmonized scientific classifications are awaiting qualified review. This scope has no source-native pollen chronology layers.';
         scientificFilters.innerHTML = available
           ? SCIENTIFIC_RESOLUTION_ORDER.map((resolution) => {
               const signals = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === resolution);
@@ -4865,7 +4875,7 @@
           : '';
         scientificSummary.textContent = available
           ? `${activeScientificSignalIds.size} of ${SCIENTIFIC_SIGNALS.length} accepted signals selected`
-          : 'Source-native views available';
+          : sourceChronologyAvailable ? 'Source-native views available' : 'Accepted classifications unavailable';
         document.querySelectorAll('.scientific-checkbox').forEach((checkbox) => {
           checkbox.addEventListener('change', () => {
             if (checkbox.checked) activeScientificSignalIds.add(checkbox.value); else activeScientificSignalIds.delete(checkbox.value);
@@ -5523,6 +5533,7 @@
         renderedPointGroups = [];
         renderedEdgeLayers = [];
         renderedPolygonLayers = [];
+        renderedFittablePolygonLayers = [];
         circleLayerGroup.clearLayers();
         visiblePointEntries = [];
         visiblePolygonFeatureEntries = [];
@@ -5791,6 +5802,7 @@
           }
           geoJsonLayer.addTo(map);
           renderedPolygonLayers.push(geoJsonLayer);
+          if (layer.kind !== 'country-boundaries') renderedFittablePolygonLayers.push(geoJsonLayer);
         });
       }
       function activeBounds() {
@@ -5798,7 +5810,7 @@
           .map((entry) => featureCoordinatePair(entry.feature))
           .filter((coordinates) => coordinates !== null)
           .map((coordinates) => [coordinates.latitude, coordinates.longitude]);
-        renderedPolygonLayers.forEach((layer) => {
+        renderedFittablePolygonLayers.forEach((layer) => {
           const bounds = layer.getBounds();
           if (bounds.isValid()) {
             latLngs.push([bounds.getSouth(), bounds.getWest()]);
