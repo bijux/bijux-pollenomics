@@ -1,7 +1,5 @@
 """Tests for repository-root discovery independent of module depth."""
 
-from pathlib import Path
-
 import pytest
 
 from bijux_pollenomics.core.repository import (
