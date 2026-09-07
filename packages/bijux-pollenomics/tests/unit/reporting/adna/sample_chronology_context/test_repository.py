@@ -406,6 +406,40 @@ def test_exclusive_refusals_do_not_leak_lower_priority_reasons(tmp_path: Path) -
     assert len({row.repo_stable_sample_id for row in corpus.refusals}) == 7
 
 
+@pytest.mark.parametrize(
+    ("posture", "basis", "confidence"),
+    [
+        ("refused_region_only", "region_centroid_fallback", "approximate"),
+        ("refused_unresolved_location", "unresolved_location_state", "unknown"),
+    ],
+)
+def test_explicit_coordinate_refusal_postures_reach_the_refusal_ledger(
+    tmp_path: Path,
+    posture: str,
+    basis: str,
+    confidence: str,
+) -> None:
+    master, chronology, site = (deepcopy(row) for row in base_rows())
+    master["latitude_text"] = ""
+    master["longitude_text"] = ""
+    site["coordinate_mapping_posture"] = posture
+    site["coordinate_basis"] = basis
+    site["coordinate_confidence"] = confidence
+    write_source_repository(
+        tmp_path,
+        masters=[master],
+        chronologies=[chronology],
+        sites=[site],
+    )
+
+    corpus = load_animal_sample_chronology_corpus(tmp_path)
+
+    assert corpus.nodes == ()
+    assert [(row.repo_stable_sample_id, row.reason_code) for row in corpus.refusals] == [
+        ("prjtest1:sample1", "source_coordinate_not_mappable")
+    ]
+
+
 def test_symlinked_governed_input_is_refused(tmp_path: Path) -> None:
     write_source_repository(tmp_path)
     chronology_path = (

@@ -15,6 +15,7 @@ from ....adna.domain.models.vocabularies import (
     ADNA_COORDINATE_CONFIDENCE,
     ADNA_COORDINATE_PROVENANCE_CLASSES,
     ADNA_DATING_BASES,
+    ADNA_MAPPING_POSTURES,
 )
 from ....adna.projects.evidence.chronology.constants import (
     ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
@@ -321,6 +322,12 @@ def _validate_row_identity(
             ADNA_COORDINATE_CONFIDENCE,
             key=(accession, sample_id),
         )
+        _optional_vocabulary(
+            row,
+            "coordinate_mapping_posture",
+            ADNA_MAPPING_POSTURES,
+            key=(accession, sample_id),
+        )
     return accession, sample_id
 
 
@@ -424,8 +431,6 @@ def _validate_coordinate_claim(
     master: Mapping[str, object], site: Mapping[str, object], *, key: _SampleKey
 ) -> None:
     posture = site.get("coordinate_mapping_posture")
-    if posture not in {"", _MAPPABLE_POSTURE}:
-        raise ValueError(f"unsupported coordinate mapping posture for {key!r}")
     if posture != _MAPPABLE_POSTURE:
         return
     basis = _required_text(site, "coordinate_basis")
