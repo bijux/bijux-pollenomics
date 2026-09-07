@@ -231,6 +231,7 @@ def test_farming_scenario_selects_globally_oldest_signal_not_first_country() -> 
             {
                 "country": "Denmark",
                 "species_latin_name": "Bos taurus",
+                "animal_scope": "domesticated_core",
                 "first_signal_bp": 100,
                 "time_label": "100 BP",
                 "project_accession": "PRJYOUNG",
@@ -238,6 +239,7 @@ def test_farming_scenario_selects_globally_oldest_signal_not_first_country() -> 
             {
                 "country": "Sweden",
                 "species_latin_name": "Capra hircus",
+                "animal_scope": "domesticated_core",
                 "first_signal_bp": 5_000,
                 "time_label": "5000 BP",
                 "project_accession": "PRJOLD",
