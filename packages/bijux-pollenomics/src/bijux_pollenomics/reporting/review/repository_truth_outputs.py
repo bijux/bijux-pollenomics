@@ -52,6 +52,9 @@ from .sead_context_outputs import (
     build_repository_sead_legibility_review,
     render_repository_sead_legibility_review_markdown,
 )
+from .sustainability_outputs import (
+    publish_repository_output_sustainability_review,
+)
 
 __all__ = [
     "publish_repository_output_sustainability_review",
@@ -103,28 +106,6 @@ def publish_repository_truth_outputs(
     return {f"{stem}_json": f"{stem}.json" for stem in payloads} | {
         f"{stem}_markdown": f"{stem}.md" for stem in payloads
     }
-
-
-def publish_repository_output_sustainability_review(
-    output_root: Path,
-    *,
-    data_root: Path,
-    docs_root: Path,
-) -> None:
-    """Write balance counts from the complete report tree visible at call time."""
-    payload = build_repository_output_sustainability_review(
-        data_root=Path(data_root),
-        docs_root=Path(docs_root),
-        report_root=Path(output_root),
-    )
-    (output_root / "repository_output_sustainability_review.json").write_text(
-        json.dumps(payload, indent=2),
-        encoding="utf-8",
-    )
-    (output_root / "repository_output_sustainability_review.md").write_text(
-        render_repository_output_sustainability_review_markdown(payload),
-        encoding="utf-8",
-    )
 
 
 def _build_repository_output_specs(

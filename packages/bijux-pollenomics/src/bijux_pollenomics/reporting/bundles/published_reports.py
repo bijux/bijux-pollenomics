@@ -23,9 +23,9 @@ from ..geography import (
 )
 from ..models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from ..presentation import publish_report_portal
-from ..review.repository_truth_outputs import (
+from ..review.repository_truth_outputs import publish_repository_truth_outputs
+from ..review.sustainability_outputs import (
     publish_repository_output_sustainability_review,
-    publish_repository_truth_outputs,
 )
 from .paths import (
     AtlasBundlePaths,
