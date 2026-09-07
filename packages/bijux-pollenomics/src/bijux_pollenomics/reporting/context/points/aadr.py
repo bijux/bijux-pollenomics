@@ -25,6 +25,7 @@ def build_aadr_point_layer(
         )
         features.append(
             {
+                "record_id": f"{sample.sample_namespace}:{sample.genetic_id}",
                 "latitude": sample.latitude,
                 "longitude": sample.longitude,
                 "country": sample.political_entity,
