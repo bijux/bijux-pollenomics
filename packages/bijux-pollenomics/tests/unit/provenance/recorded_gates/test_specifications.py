@@ -96,7 +96,13 @@ def test_gate_inputs_recursively_bind_owned_python_sources() -> None:
         "science": ("analysis", "core", "evidence"),
         "data": ("adna", "collection"),
         "map": ("evidence", "reporting"),
-        "provenance": ("provenance",),
+        "provenance": (
+            "analysis/propagation",
+            "core",
+            "evidence/classification",
+            "evidence/sources/neotoma",
+            "provenance",
+        ),
         "doc-counts": ("governance", "reporting/review"),
     }
 

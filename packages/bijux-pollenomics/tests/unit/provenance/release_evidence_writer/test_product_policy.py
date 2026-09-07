@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import replace
+import hashlib
 from pathlib import Path
 from typing import cast
 
@@ -109,9 +110,47 @@ def test_product_request_policy_has_coherent_full_artifact_graph(
 ) -> None:
     root = REPOSITORY_ROOT
     policy = release_policy._load_release_evidence_policy(root)
+    validation_paths = {
+        requirement.path
+        for requirement in policy.required_artifacts
+        if requirement.role == "validation_result"
+    }
+    hash_repository_object = request_module._hash_repository_object
+
+    def hash_or_identify_pending_gate(
+        repository_root: Path,
+        relative_path: str,
+        *,
+        exclude_python_cache: bool = False,
+    ) -> dict[str, object]:
+        if relative_path in validation_paths:
+            return {
+                "object_type": "file",
+                "output_digest": (
+                    "sha256:" + hashlib.sha256(relative_path.encode()).hexdigest()
+                ),
+                "byte_size": 0,
+                "file_count": 1,
+            }
+        return hash_repository_object(
+            repository_root,
+            relative_path,
+            exclude_python_cache=exclude_python_cache,
+        )
+
+    monkeypatch.setattr(
+        request_module,
+        "_hash_repository_object",
+        hash_or_identify_pending_gate,
+    )
     artifacts, digests = request_module._artifact_inputs(root, policy)
     records = [
-        release_artifacts._artifact_record(root, artifact) for artifact in artifacts
+        (
+            request_module._artifact_record(artifact)
+            if artifact.role == "validation_result"
+            else release_artifacts._artifact_record(root, artifact)
+        )
+        for artifact in artifacts
     ]
     dependency_lock = next(
         digests[item.identity]

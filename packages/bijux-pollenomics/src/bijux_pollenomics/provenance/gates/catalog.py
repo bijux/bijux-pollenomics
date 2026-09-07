@@ -110,6 +110,11 @@ _GATE_FIXED_INPUTS: dict[str, tuple[str, ...]] = {
         *_GATE_TRUST_INPUTS,
         "configs/pytest.ini",
         "configs/release_evidence_policy.json",
+        "configs/scientific-contracts",
+        "data/neotoma/relational",
+        "artifacts/execution-control/classification/neotoma-audit-5a932522",
+        "artifacts/execution-control/propagation/neotoma-pollen-release-refusal-092dfe4f",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/scientific_evidence.py",
     ),
     "doc-counts": (
         *_GATE_TRUST_INPUTS,
@@ -144,6 +149,10 @@ _GATE_GLOBS: dict[str, tuple[str, ...]] = {
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/**/*.py",
     ),
     "provenance": (
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/**/*.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/**/*.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/**/*.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/**/*.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/**/*.py",
     ),
     "doc-counts": (
