@@ -250,6 +250,14 @@ _ANIMAL_CHRONOLOGY_FEATURE_FORBIDDEN_FIELDS = (
     "taxon_alignment_status",
     "taxon_alignment_statuses",
 )
+_TRACEABILITY_OPTIONAL_RECORD_FIELDS = (
+    "title",
+    "country",
+    "source_url",
+    "species_latin_name",
+    "animal_scope",
+    "coordinate_confidence",
+)
 
 
 def resolve_map_scope_policy(
@@ -414,6 +422,7 @@ def build_map_point_traceability(
         if not isinstance(features, list):
             continue
         records: list[dict[str, object]] = []
+        field_counts = dict.fromkeys(_TRACEABILITY_OPTIONAL_RECORD_FIELDS, 0)
         for index, feature in enumerate(features, start=1):
             if not isinstance(feature, dict):
                 continue
@@ -422,21 +431,13 @@ def build_map_point_traceability(
                 or str(feature.get("title", "")).strip()
                 or f"{layer_key}:{index}"
             )
-            records.append(
-                {
-                    "record_id": record_id,
-                    "title": str(feature.get("title", "")).strip(),
-                    "country": str(feature.get("country", "")).strip(),
-                    "source_url": str(feature.get("source_url", "")).strip(),
-                    "species_latin_name": str(
-                        feature.get("species_latin_name", "")
-                    ).strip(),
-                    "animal_scope": str(feature.get("animal_scope", "")).strip(),
-                    "coordinate_confidence": str(
-                        feature.get("coordinate_confidence", "")
-                    ).strip(),
-                }
-            )
+            record: dict[str, object] = {"record_id": record_id}
+            for field in _TRACEABILITY_OPTIONAL_RECORD_FIELDS:
+                value = str(feature.get(field, "")).strip()
+                if value:
+                    record[field] = value
+                    field_counts[field] += 1
+            records.append(record)
         layers.append(
             {
                 "layer_key": layer_key,
@@ -446,6 +447,7 @@ def build_map_point_traceability(
                 "source_artifact": source_artifact,
                 "source_reference": source_reference,
                 "row_count": len(records),
+                "field_counts": field_counts,
                 "records": records,
             }
         )

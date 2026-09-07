@@ -119,6 +119,18 @@ class PublicationContractTests(MapPublicationTestCase):
         self.assertIsInstance(layers, list)
         self.assertEqual([layer["layer_key"] for layer in layers], ["aadr", "zebra"])
         self.assertEqual(layers[0]["row_count"], 2)
+        self.assertEqual(
+            layers[0]["field_counts"],
+            {
+                "title": 2,
+                "country": 2,
+                "source_url": 0,
+                "species_latin_name": 0,
+                "animal_scope": 0,
+                "coordinate_confidence": 0,
+            },
+        )
+        self.assertNotIn("source_url", layers[0]["records"][0])
         self.assertEqual(layers[1]["records"][0]["record_id"], "zebra:1")
         self.assertNotIn("layer_key", layers[1]["records"][0])
         self.assertNotIn("scope_key", layers[1]["records"][0])
