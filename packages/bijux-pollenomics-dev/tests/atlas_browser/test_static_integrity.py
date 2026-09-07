@@ -4,7 +4,6 @@ import json
 from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasBrowserContractError
 from bijux_pollenomics_dev.ci.atlas_browser.static_integrity import audit_static_atlas
 
@@ -25,6 +24,23 @@ def test_static_atlas_binds_document_manifest_assets_and_provider(
         "carto_absent": True,
         "api_key_markers_absent": True,
     }
+
+
+def test_static_atlas_accepts_previous_manifest_without_chronology_split(
+    tmp_path: Path,
+) -> None:
+    scope = write_static_atlas(tmp_path)
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    table = manifest["assets"]
+    table["schema_version"] = "atlas-static-asset-table.v2"
+    del table["fields"][14:17]
+    del table["records"][0][14:17]
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    report = audit_static_atlas(tmp_path, scope, candidate())
+
+    assert report["status"] == "PASS"
 
 
 def test_static_atlas_rejects_asset_tampering(tmp_path: Path) -> None:
@@ -111,6 +127,7 @@ def test_static_atlas_rejects_untimed_count_above_total(tmp_path: Path) -> None:
     row[0] = "nodes"
     row[8] = "point"
     row[13] = row[5] + 1
+    row[14:17] = [row[13], 0, 0]
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
 
     with pytest.raises(AtlasBrowserContractError, match="exceeds record_count"):
@@ -137,6 +154,8 @@ def test_static_atlas_rejects_node_time_accounting_contradictions(
     row[11] = minimum
     row[12] = maximum
     row[13] = untimed
+    if isinstance(untimed, int) and not isinstance(untimed, bool):
+        row[14:17] = [untimed, 0, 0]
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
 
     with pytest.raises(AtlasBrowserContractError):
@@ -173,8 +192,8 @@ def test_static_atlas_rejects_non_node_time_selection_metadata(
         (9, ["Sweden", ""], "country_keys"),
         (10, [56, 11, 55, 10], "bounds"),
         (10, [-91, 10, 56, 11], "bounds"),
-        (14, None, "scientific_signal_ids"),
-        (14, ["signal", ""], "scientific_signal_ids"),
+        (17, None, "scientific_signal_ids"),
+        (17, ["signal", ""], "scientific_signal_ids"),
     ],
 )
 def test_static_atlas_rejects_invalid_node_selection_metadata(
@@ -188,7 +207,20 @@ def test_static_atlas_rejects_invalid_node_selection_metadata(
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     row = manifest["assets"]["records"][0]
     row[0] = "nodes"
-    row[6:15] = [0, "layer", "point", [], None, None, None, row[5], []]
+    row[6:18] = [
+        0,
+        "layer",
+        "point",
+        [],
+        None,
+        None,
+        None,
+        row[5],
+        row[5],
+        0,
+        0,
+        [],
+    ]
     row[field_index] = invalid_value
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
 
@@ -196,7 +228,7 @@ def test_static_atlas_rejects_invalid_node_selection_metadata(
         audit_static_atlas(tmp_path, scope, candidate())
 
 
-@pytest.mark.parametrize("field_index", (6, 7, 8, 9, 10, 14))
+@pytest.mark.parametrize("field_index", (6, 7, 8, 9, 10, 14, 15, 16, 17))
 def test_static_atlas_rejects_non_node_selection_metadata(
     tmp_path: Path, field_index: int
 ) -> None:
@@ -207,6 +239,36 @@ def test_static_atlas_rejects_non_node_selection_metadata(
     manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
 
     with pytest.raises(AtlasBrowserContractError, match="non-node selection"):
+        audit_static_atlas(tmp_path, scope, candidate())
+
+
+@pytest.mark.parametrize(
+    "split",
+    ([None, 0, 0], [1, 1, 0], [-1, 1, 1], [True, 0, 0]),
+)
+def test_static_atlas_rejects_invalid_node_chronology_split(
+    tmp_path: Path, split: list[object]
+) -> None:
+    scope = write_static_atlas(tmp_path)
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    row = manifest["assets"]["records"][0]
+    row[0] = "nodes"
+    row[6:18] = [
+        0,
+        "layer",
+        "point",
+        [],
+        None,
+        None,
+        None,
+        1,
+        *split,
+        [],
+    ]
+    manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(AtlasBrowserContractError, match="chronology"):
         audit_static_atlas(tmp_path, scope, candidate())
 
 

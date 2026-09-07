@@ -54,6 +54,9 @@ def write_static_atlas(root: Path) -> AtlasScope:
         "time_min_bp",
         "time_max_bp",
         "untimed_record_count",
+        "chronology_absent_record_count",
+        "refused_chronology_record_count",
+        "contextual_chronology_record_count",
         "scientific_signal_ids",
     ]
     manifest = {
@@ -65,6 +68,8 @@ def write_static_atlas(root: Path) -> AtlasScope:
             "static_assets_max_bytes": 4096,
         },
         "assets": {
+            "schema_version": "atlas-static-asset-table.v3",
+            "scope_slug": "nordic",
             "fields": fields,
             "record_count": 1,
             "records": [
@@ -75,6 +80,9 @@ def write_static_atlas(root: Path) -> AtlasScope:
                     len(payload),
                     len(payload),
                     1,
+                    None,
+                    None,
+                    None,
                     None,
                     None,
                     None,

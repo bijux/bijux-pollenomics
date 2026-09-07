@@ -6,8 +6,8 @@ import base64
 import hashlib
 import json
 import math
-from pathlib import Path
 import re
+from pathlib import Path
 from typing import cast
 
 from .contracts import AtlasBrowserContractError, AtlasCandidate, AtlasScope, JsonObject
@@ -27,7 +27,25 @@ _ASSET_FIELDS = (
     "time_min_bp",
     "time_max_bp",
     "untimed_record_count",
+    "chronology_absent_record_count",
+    "refused_chronology_record_count",
+    "contextual_chronology_record_count",
     "scientific_signal_ids",
+)
+_LEGACY_ASSET_FIELDS = tuple(
+    field
+    for field in _ASSET_FIELDS
+    if field
+    not in {
+        "chronology_absent_record_count",
+        "refused_chronology_record_count",
+        "contextual_chronology_record_count",
+    }
+)
+_CHRONOLOGY_SPLIT_FIELDS = (
+    "chronology_absent_record_count",
+    "refused_chronology_record_count",
+    "contextual_chronology_record_count",
 )
 _ASSET_DOMAINS = frozenset(
     {"provenance", "nodes", "details", "edges", "sequences", "indexes"}
@@ -83,7 +101,12 @@ def _finite_number(value: object, *, label: str) -> float:
     return float(value)
 
 
-def _validate_asset_counts_and_time(asset: JsonObject, *, sequence: int) -> None:
+def _validate_asset_counts_and_time(
+    asset: JsonObject,
+    *,
+    sequence: int,
+    require_chronology_split: bool,
+) -> None:
     record_count = _nonnegative_integer(
         asset["record_count"], label=f"manifest asset row {sequence} record_count"
     )
@@ -105,6 +128,28 @@ def _validate_asset_counts_and_time(asset: JsonObject, *, sequence: int) -> None
             raise AtlasBrowserContractError(
                 f"manifest asset row {sequence} untimed_record_count exceeds record_count"
             )
+        split = tuple(asset[field] for field in _CHRONOLOGY_SPLIT_FIELDS)
+        present = tuple(value is not None for value in split)
+        if any(present) and not all(present):
+            raise AtlasBrowserContractError(
+                f"manifest asset row {sequence} chronology split is incomplete"
+            )
+        if require_chronology_split and not all(present):
+            raise AtlasBrowserContractError(
+                f"manifest asset row {sequence} chronology split is required"
+            )
+        if all(present):
+            split_counts = tuple(
+                _nonnegative_integer(
+                    value,
+                    label=f"manifest asset row {sequence} {field}",
+                )
+                for field, value in zip(_CHRONOLOGY_SPLIT_FIELDS, split, strict=True)
+            )
+            if sum(split_counts) != untimed_count:
+                raise AtlasBrowserContractError(
+                    f"manifest asset row {sequence} chronology split does not reconcile"
+                )
     elif untimed is not None:
         raise AtlasBrowserContractError(
             f"manifest asset row {sequence} non-node untimed_record_count must be null"
@@ -187,7 +232,18 @@ def _validate_asset_selection(asset: JsonObject, *, sequence: int) -> None:
 
 def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
     table = _mapping(manifest.get("assets"), label="manifest.assets")
-    if table.get("fields") != list(_ASSET_FIELDS):
+    table_schema = table.get("schema_version")
+    if table_schema == "atlas-static-asset-table.v3":
+        stored_fields = _ASSET_FIELDS
+        require_chronology_split = True
+    elif table_schema == "atlas-static-asset-table.v2":
+        stored_fields = _LEGACY_ASSET_FIELDS
+        require_chronology_split = False
+    else:
+        raise AtlasBrowserContractError("manifest asset schema is unsupported")
+    if table.get("scope_slug") != manifest.get("scope_slug"):
+        raise AtlasBrowserContractError("manifest asset scope does not match bootstrap")
+    if table.get("fields") != list(stored_fields):
         raise AtlasBrowserContractError("manifest asset fields are not canonical")
     raw_records = table.get("records")
     if not isinstance(raw_records, list):
@@ -199,18 +255,24 @@ def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
         raise AtlasBrowserContractError("manifest asset record_count is inconsistent")
     assets: list[JsonObject] = []
     for sequence, raw_record in enumerate(raw_records):
-        if not isinstance(raw_record, list) or len(raw_record) != len(_ASSET_FIELDS):
+        if not isinstance(raw_record, list) or len(raw_record) != len(stored_fields):
             raise AtlasBrowserContractError(
                 f"manifest asset row {sequence} is malformed"
             )
-        asset = dict(zip(_ASSET_FIELDS, raw_record, strict=True))
+        asset = dict(zip(stored_fields, raw_record, strict=True))
+        for field in _CHRONOLOGY_SPLIT_FIELDS:
+            asset.setdefault(field, None)
         domain = asset["domain"]
         digest = asset["sha256"]
         if domain not in _ASSET_DOMAINS or not isinstance(digest, str):
             raise AtlasBrowserContractError(
                 f"manifest asset row {sequence} identity is malformed"
             )
-        _validate_asset_counts_and_time(asset, sequence=sequence)
+        _validate_asset_counts_and_time(
+            asset,
+            sequence=sequence,
+            require_chronology_split=require_chronology_split,
+        )
         _validate_asset_selection(asset, sequence=sequence)
         asset["path"] = (
             f"{manifest['scope_slug']}.atlas-{domain}.{sequence:04d}.{digest[:16]}.js"
