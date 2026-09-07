@@ -101,6 +101,12 @@ reason codes. An unrelated reduced-scope decision cannot waive an unresolved
 required count. Resolve the source evidence or explicitly govern a narrower
 release scope before seeking approval.
 
+Counts also do not override a required bundle's scientific release posture.
+The release assessor reads manifest-bound `release_metadata.json` and retains
+explicit classification or propagation refusal reasons in its decision. Missing
+or malformed release posture fails validation; an unrelated reduced-scope
+blocker cannot waive an explicit refusal.
+
 ## Partial Publication And Recovery
 
 A release can be partial because package and documentation surfaces publish

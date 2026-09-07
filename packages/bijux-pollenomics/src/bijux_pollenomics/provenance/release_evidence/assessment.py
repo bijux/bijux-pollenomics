@@ -415,6 +415,7 @@ def _release_decision(
     gates: Sequence[GateResult],
     reconciliations: Sequence[CountReconciliation],
     blockers: Sequence[Blocker],
+    release_refusal_reasons: Sequence[str] = (),
 ) -> dict[str, object]:
     required_nonpass = [
         gate for gate in gates if gate.required and gate.status != "PASS"
@@ -437,6 +438,7 @@ def _release_decision(
         f"required_reconciliation_{item.count_status}:{item.identity}"
         for item in required_unreconciled
     )
+    reasons.extend(release_refusal_reasons)
     reasons.extend(f"blocker:{blocker.reason_code}" for blocker in blockers)
     if dirty:
         reasons.append("candidate_dirty")
@@ -448,14 +450,17 @@ def _release_decision(
         status = "failed"
     elif "external" in blocker_kinds:
         status = "external_blocked"
-    elif "refused" in blocker_kinds or any(
-        item.count_status == "refused" for item in required_unreconciled
+    elif (
+        "refused" in blocker_kinds
+        or any(item.count_status == "refused" for item in required_unreconciled)
+        or release_refusal_reasons
     ):
         status = "refused_invalid"
     elif (
         blocker_kinds == {"reduced_scope"}
         and not required_nonpass
         and not required_unreconciled
+        and not release_refusal_reasons
         and not dirty
         and all(gate.attestation != "local_self_attestation" for gate in gates)
     ):

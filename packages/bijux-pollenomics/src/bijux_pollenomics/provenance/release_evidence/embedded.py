@@ -8,7 +8,10 @@ import json
 from pathlib import Path, PurePosixPath
 
 from .codec import (
+    _digest_bytes,
     _mapping,
+    _require_identity,
+    _require_unique,
     _string_field,
 )
 from .models import (
@@ -20,6 +23,184 @@ from .models import (
 from .repository import (
     _read_repository_file,
 )
+
+_BUNDLE_RELEASE_METADATA_CONTRACTS = {
+    "classification-audit-manifest.v1": (
+        "classification-release-metadata.v1",
+        "classification_release",
+        "release_reason_codes",
+        frozenset({"refused", "review_required"}),
+    ),
+    "propagation-output-manifest.v2": (
+        "propagation-release-metadata.v2",
+        "propagation_release",
+        "reason_codes",
+        frozenset({"refused", "review_required"}),
+    ),
+}
+
+
+def _bundle_release_refusal_reasons(
+    root: Path,
+    artifacts: Mapping[str, ArtifactInput],
+    policy: _ReleaseEvidencePolicy,
+) -> tuple[str, ...]:
+    """Read explicit release posture from manifest-bound bundle metadata."""
+    reasons: list[str] = []
+    for inventory in policy.bundle_inventories:
+        if "release_metadata.json" not in inventory.filenames:
+            continue
+        artifact = artifacts[inventory.artifact_identity]
+        manifest_payload = _read_repository_file(root, artifact.path)
+        if _digest_bytes(manifest_payload) != artifact.output_digest:
+            raise ReleaseEvidenceError(
+                f"release metadata manifest identity changed: {artifact.identity}"
+            )
+        manifest = _release_metadata_object(
+            manifest_payload, f"{artifact.identity} bundle manifest"
+        )
+        entries = manifest.get("files")
+        if not isinstance(entries, list):
+            raise ReleaseEvidenceError(
+                f"release metadata manifest files are missing: {artifact.identity}"
+            )
+        metadata_entries = [
+            _mapping(entry, "release metadata manifest entry")
+            for entry in entries
+            if isinstance(entry, Mapping)
+            and entry.get("path") == "release_metadata.json"
+        ]
+        if len(metadata_entries) != 1:
+            raise ReleaseEvidenceError(
+                f"release metadata manifest entry is missing: {artifact.identity}"
+            )
+        metadata_path = (
+            PurePosixPath(artifact.path).parent / "release_metadata.json"
+        ).as_posix()
+        metadata_payload = _read_repository_file(root, metadata_path)
+        expected_digest = metadata_entries[0].get("sha256")
+        if (
+            not isinstance(expected_digest, str)
+            or hashlib.sha256(metadata_payload).hexdigest() != expected_digest
+        ):
+            raise ReleaseEvidenceError(
+                f"release metadata identity changed: {artifact.identity}"
+            )
+        metadata = _release_metadata_object(
+            metadata_payload, f"{artifact.identity} release metadata"
+        )
+        schema_version = _release_metadata_text(
+            metadata, "schema_version", artifact.identity
+        )
+        status_namespace = _release_metadata_text(
+            metadata, "status_namespace", artifact.identity
+        )
+        release_status = _release_metadata_text(
+            metadata, "release_status", artifact.identity
+        )
+        for field, value in (
+            ("schema_version", schema_version),
+            ("status_namespace", status_namespace),
+            ("release_status", release_status),
+        ):
+            _require_identity(value, f"release metadata {field}")
+        public_release_allowed = metadata.get("public_release_allowed")
+        if type(public_release_allowed) is not bool:
+            raise ReleaseEvidenceError(
+                f"release metadata approval is invalid: {artifact.identity}"
+            )
+        reason_fields = [
+            field
+            for field in ("reason_codes", "release_reason_codes")
+            if field in metadata
+        ]
+        if len(reason_fields) != 1:
+            raise ReleaseEvidenceError(
+                f"release metadata reason vocabulary is invalid: {artifact.identity}"
+            )
+        raw_reason_codes = metadata[reason_fields[0]]
+        if not isinstance(raw_reason_codes, list) or any(
+            not isinstance(reason_code, str) for reason_code in raw_reason_codes
+        ):
+            raise ReleaseEvidenceError(
+                f"release metadata reason codes are invalid: {artifact.identity}"
+            )
+        reason_codes = tuple(raw_reason_codes)
+        _require_unique(reason_codes, "release metadata reason code")
+        for reason_code in reason_codes:
+            _require_identity(reason_code, "release metadata reason code")
+        contract = _BUNDLE_RELEASE_METADATA_CONTRACTS.get(artifact.schema_version)
+        if policy.mode == "product" and contract is None:
+            raise ReleaseEvidenceError(
+                f"release metadata contract is not governed: {artifact.identity}"
+            )
+        if contract is not None:
+            (
+                expected_schema,
+                expected_namespace,
+                expected_reason_field,
+                allowed_statuses,
+            ) = contract
+            if schema_version != expected_schema:
+                raise ReleaseEvidenceError(
+                    f"release metadata schema does not match bundle authority: "
+                    f"{artifact.identity}"
+                )
+            if status_namespace != expected_namespace:
+                raise ReleaseEvidenceError(
+                    f"release metadata namespace does not match bundle authority: "
+                    f"{artifact.identity}"
+                )
+            if reason_fields[0] != expected_reason_field:
+                raise ReleaseEvidenceError(
+                    f"release metadata reason vocabulary does not match bundle "
+                    f"authority: {artifact.identity}"
+                )
+            if release_status not in allowed_statuses:
+                raise ReleaseEvidenceError(
+                    f"release metadata status is not governed: {artifact.identity}"
+                )
+        if public_release_allowed and (
+            release_status in {"refused", "review_required"} or reason_codes
+        ):
+            raise ReleaseEvidenceError(
+                f"release metadata approval contradicts refusal posture: "
+                f"{artifact.identity}"
+            )
+        if not public_release_allowed and not reason_codes:
+            raise ReleaseEvidenceError(
+                f"release metadata refusal lacks reasons: {artifact.identity}"
+            )
+        if not public_release_allowed:
+            reasons.extend(
+                f"required_artifact_release_refused:{artifact.identity}:"
+                f"{schema_version}:{status_namespace}:{release_status}:{reason_code}"
+                for reason_code in reason_codes
+            )
+    return tuple(sorted(reasons))
+
+
+def _release_metadata_object(payload: bytes, label: str) -> Mapping[str, object]:
+    """Decode a bundle posture object after its bytes have been identity-checked."""
+    try:
+        document = json.loads(payload)
+    except (UnicodeDecodeError, json.JSONDecodeError) as error:
+        raise ReleaseEvidenceError(f"invalid JSON in {label}") from error
+    if not isinstance(document, Mapping):
+        raise ReleaseEvidenceError(f"JSON object required in {label}")
+    return document
+
+
+def _release_metadata_text(
+    metadata: Mapping[str, object], field: str, artifact_identity: str
+) -> str:
+    """Read a non-empty governed release-posture vocabulary value."""
+    value = metadata.get(field)
+    if not isinstance(value, str) or not value.strip():
+        raise ReleaseEvidenceError(
+            f"release metadata {field} is invalid: {artifact_identity}"
+        )
+    return value
 
 
 def _validate_embedded_producer_identities(

@@ -29,6 +29,7 @@ from .codec import (
     _require_unique,
     _string_field,
 )
+from .embedded import _bundle_release_refusal_reasons
 from .models import (
     ArtifactInput,
     Blocker,
@@ -73,6 +74,11 @@ def build_release_evidence_manifest(
     _validate_artifact_graph(
         root, ordered_artifacts, artifact_records, dependency_lock_digest, policy
     )
+    release_refusal_reasons = _bundle_release_refusal_reasons(
+        root,
+        {item.identity: item for item in ordered_artifacts},
+        policy,
+    )
     recording_authority = next(
         record
         for record in artifact_records
@@ -96,7 +102,11 @@ def build_release_evidence_manifest(
     _validate_blockers(ordered_blockers, artifact_records, ordered_gates, policy)
 
     decision = _release_decision(
-        dirty, ordered_gates, ordered_reconciliations, ordered_blockers
+        dirty,
+        ordered_gates,
+        ordered_reconciliations,
+        ordered_blockers,
+        release_refusal_reasons,
     )
     content: dict[str, object] = {
         "schema_version": "release-evidence-manifest.v3",

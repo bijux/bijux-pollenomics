@@ -207,6 +207,38 @@ def test_reduced_scope_cannot_waive_unavailable_counts_or_dirty_inputs(
     )
 
 
+def test_reduced_scope_cannot_waive_bound_artifact_release_refusal() -> None:
+    digest = "sha256:" + "0" * 64
+    gate = GateResult(
+        "quality",
+        "PASS",
+        True,
+        digest,
+        attestation="independent_execution_attestation",
+        authority_id="independent-verifier",
+    )
+    reduced_scope = Blocker(
+        "scope", "reduced_publication_scope", digest, kind="reduced_scope"
+    )
+
+    decision = _release_decision(
+        False,
+        [gate],
+        _reconciliations(),
+        [reduced_scope],
+        [
+            (
+                "required_artifact_release_refused:classification:"
+                "classification-release-metadata.v1:classification_release:refused:"
+                "accepted_mapping_not_available"
+            )
+        ],
+    )
+
+    assert decision["release_ready"] is False
+    assert decision["status"] == "refused_invalid"
+
+
 @pytest.mark.parametrize(
     ("kind", "expected_status"),
     [("external", "external_blocked"), ("refused", "refused_invalid")],
