@@ -122,6 +122,13 @@ _SUPPLEMENTARY_SOURCE_BY_DOI: dict[str, str] = {
     ),
 }
 
+_PIG_GOVERNED_SITE_ADMISSIONS = frozenset(
+    {
+        ("SAMEA5160867", "AA015"),
+        ("SAMEA5160868", "AA016"),
+    }
+)
+
 
 def build_species_curated_sample_rows(
     species_name: str,
@@ -167,13 +174,17 @@ def build_species_curated_sample_rows(
                 )
                 if (
                     project.project_accession == "PRJEB30282"
-                    and not master_row.supplementary_table_sample_label
+                    and not _pig_site_publication_admitted(master_row)
                 ):
-                    inclusion_status = "archive_identity_only"
+                    inclusion_status = "sample_context_blocked"
                     inclusion_note = (
-                        "Archive identity is retained for denominator accounting; "
-                        "no domestication classification, sample-owned locality, "
-                        "coordinate, or chronology has been accepted for this sample."
+                        "Sample-owned locality is retained from the exact "
+                        "archive-to-supplement join, but no governed sample coordinate "
+                        "or domesticated-core publication admission exists."
+                        if master_row.locality_text
+                        else "Archive and supplement identity are retained, but the "
+                        "source reports no sample-owned locality or date and no "
+                        "domesticated-core publication admission exists."
                     )
                 rows.append(
                     AdnaCuratedSampleRow(
@@ -315,6 +326,19 @@ def build_species_curated_sample_rows(
         )
     rows.sort(key=lambda item: (item.project_accession, item.stable_sample_id))
     return tuple(rows)
+
+
+def _pig_site_publication_admitted(row: AdnaProjectSampleMasterRow) -> bool:
+    """Admit only governed pig identities carrying their source-bound coordinates."""
+    identity = (
+        row.archive_native_sample_id,
+        row.supplementary_table_sample_label,
+    )
+    return (
+        identity in _PIG_GOVERNED_SITE_ADMISSIONS
+        and bool(row.latitude_text)
+        and bool(row.longitude_text)
+    )
 
 
 def _resolve_row_context(

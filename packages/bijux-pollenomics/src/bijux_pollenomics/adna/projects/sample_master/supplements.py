@@ -299,7 +299,7 @@ def _pig_supplementary_sample_rows(
     project: AdnaArchiveProject,
 ) -> tuple[AdnaProjectSampleMasterRow, ...]:
     paper_row = _paper_row_by_project(output_root, project.project_accession)
-    workbook_artifact = next(
+    ancient_workbook_artifact = next(
         (
             artifact
             for artifact in paper_row.expected_supplementary_artifacts
@@ -307,25 +307,48 @@ def _pig_supplementary_sample_rows(
         ),
         None,
     )
+    modern_workbook_artifact = next(
+        (
+            artifact
+            for artifact in paper_row.expected_supplementary_artifacts
+            if artifact.endswith("pnas.1901169116.sd02.xlsx")
+        ),
+        None,
+    )
     archive_source_path = (
         f"{ADNA_SOURCE_LIBRARY_DIR}/projects/{project.project_accession}/"
         "archive_metadata.html"
     )
-    if workbook_artifact is None:
+    if ancient_workbook_artifact is None or modern_workbook_artifact is None:
         return ()
-    workbook_source_path = (
+    ancient_workbook_source_path = (
         f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1073-pnas.1901169116/"
         "supplementary/pnas.1901169116.sd01.xlsx"
     )
-    workbook_path = _resolve_data_relative_path(output_root, workbook_artifact)
+    modern_workbook_source_path = (
+        f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1073-pnas.1901169116/"
+        "supplementary/pnas.1901169116.sd02.xlsx"
+    )
+    ancient_workbook_path = _resolve_data_relative_path(
+        output_root, ancient_workbook_artifact
+    )
+    modern_workbook_path = _resolve_data_relative_path(
+        output_root, modern_workbook_artifact
+    )
     archive_path = _resolve_data_relative_path(output_root, archive_source_path)
-    if not workbook_path.is_file() or not archive_path.is_file():
+    if (
+        not ancient_workbook_path.is_file()
+        or not modern_workbook_path.is_file()
+        or not archive_path.is_file()
+    ):
         return ()
     return _build_pig_panel_rows(
         species=species,
         project=project,
-        source_path=workbook_source_path,
-        rows=_read_xlsx_rows(workbook_path, sheet_name="Sheet1"),
+        source_path=ancient_workbook_source_path,
+        rows=_read_xlsx_rows(ancient_workbook_path, sheet_name="Sheet1"),
+        modern_source_path=modern_workbook_source_path,
+        modern_rows=_read_xlsx_rows(modern_workbook_path, sheet_name="Sheet1"),
         archive_source_path=archive_source_path,
         archive_text=read_source_artifact_text(archive_path),
         coordinate_evidence=load_pig_site_coordinate_evidence(output_root),

@@ -130,9 +130,11 @@ def test_archive_denominator_reconciles_to_two_sample_backed_sites() -> None:
             "time_end_bp": 4700,
             "time_mean_bp": 4700,
             "date_stddev_bp": "",
+            "source_mean_bp_text": "",
             "dating_basis": "archaeological_context",
             "evidence_class": "archaeological_context_date",
             "precision_posture": "sample_approximate_or_modeled",
+            "refusal_reason_code": "",
         },
         "SAMEA5160868": {
             "original_text": "1000 BP",
@@ -140,9 +142,11 @@ def test_archive_denominator_reconciles_to_two_sample_backed_sites() -> None:
             "time_end_bp": 1000,
             "time_mean_bp": 1000,
             "date_stddev_bp": "",
+            "source_mean_bp_text": "",
             "dating_basis": "archaeological_context",
             "evidence_class": "archaeological_context_date",
             "precision_posture": "sample_approximate_or_modeled",
+            "refusal_reason_code": "",
         },
     }
     assert not any(

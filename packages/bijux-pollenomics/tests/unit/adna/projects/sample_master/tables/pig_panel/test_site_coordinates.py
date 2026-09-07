@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
+
 import pytest
 
 from bijux_pollenomics.adna.projects.evidence.chronology import (
@@ -18,10 +20,14 @@ from bijux_pollenomics.adna.projects.registry.localities import (
 )
 from bijux_pollenomics.adna.projects.registry.samples import (
     _matching_locality_lead,
+    _pig_site_publication_admitted,
     build_species_curated_sample_rows,
 )
 from bijux_pollenomics.adna.projects.registry.sites.assembly import (
     _matching_locality_row,
+)
+from bijux_pollenomics.adna.projects.sample_master import (
+    build_project_sample_master_rows,
 )
 from bijux_pollenomics.adna.projects.sample_master.tables.pig_panel import (
     PIG_SITE_COORDINATE_EVIDENCE_PATH,
@@ -32,6 +38,7 @@ from bijux_pollenomics.adna.projects.sample_master.tables.pig_panel import (
 from .support import (
     ARCHIVE_SOURCE_PATH,
     DATA_ROOT,
+    MODERN_WORKBOOK_SOURCE_PATH,
     WORKBOOK_SOURCE_PATH,
     governed_inputs,
 )
@@ -51,10 +58,12 @@ def test_pig_coordinate_evidence_preserves_site_level_uncertainty() -> None:
 
 
 def test_join_audit_admits_coordinates_only_for_the_two_evidence_records() -> None:
-    rows, archive_text = governed_inputs()
+    rows, modern_rows, archive_text = governed_inputs()
     audit = build_pig_panel_join_audit(
         source_path=WORKBOOK_SOURCE_PATH,
         rows=rows,
+        modern_source_path=MODERN_WORKBOOK_SOURCE_PATH,
+        modern_rows=modern_rows,
         archive_source_path=ARCHIVE_SOURCE_PATH,
         archive_text=archive_text,
         coordinate_evidence=load_pig_site_coordinate_evidence(DATA_ROOT),
@@ -144,15 +153,21 @@ def test_pig_site_rows_and_locality_leads_keep_coordinates_per_site() -> None:
     assert context_row.coordinate_basis == "inferred_region_centroid"
 
     leads = resolve_project_locality_leads("PRJEB30282")
+    assert len(leads) == 105
+    assert (
+        sum(not lead.latitude_text and not lead.longitude_text for lead in leads) == 103
+    )
     assert {
-        lead.locality_text: (lead.latitude_text, lead.longitude_text) for lead in leads
+        lead.locality_text: (lead.latitude_text, lead.longitude_text)
+        for lead in leads
+        if lead.latitude_text or lead.longitude_text
     } == {
         "Bundsø": ("55.02158609", "9.77344984"),
         "Trelleborg": ("55.39416667", "11.26527778"),
     }
 
 
-def test_only_archive_proven_domestic_samples_gain_site_coordinates() -> None:
+def test_only_governed_domestic_anchors_gain_site_coordinates() -> None:
     rows = build_species_curated_sample_rows("Sus scrofa domesticus")
     mapped = {
         row.archive_native_sample_id: (
@@ -182,17 +197,48 @@ def test_only_archive_proven_domestic_samples_gain_site_coordinates() -> None:
             "archaeological_context",
         ),
     }
-    archive_only = [
+    blocked = [
         row
         for row in rows
         if row.project_accession == "PRJEB30282" and not row.latitude_text
     ]
-    assert len(archive_only) == 341
-    assert all(row.inclusion_status == "archive_identity_only" for row in archive_only)
-    assert all(row.longitude_text == "" for row in archive_only)
+    assert len(blocked) == 341
+    assert all(row.inclusion_status == "sample_context_blocked" for row in blocked)
+    assert all(row.longitude_text == "" for row in blocked)
+    ancient_context = [
+        row
+        for row in blocked
+        if row.site_label != "site detail not yet extracted from tracked source support"
+    ]
+    modern_context = [
+        row
+        for row in blocked
+        if row.site_label == "site detail not yet extracted from tracked source support"
+    ]
+    assert len(ancient_context) == 318
+    assert len(modern_context) == 23
     assert all(
-        "no domestication classification" in row.inclusion_note for row in archive_only
+        "Sample-owned locality is retained" in row.inclusion_note
+        for row in ancient_context
     )
+    assert all(
+        "source reports no sample-owned locality or date" in row.inclusion_note
+        for row in modern_context
+    )
+
+
+def test_publication_admission_requires_governed_identity_and_coordinates() -> None:
+    rows = build_project_sample_master_rows(DATA_ROOT, "PRJEB30282")
+    anchor = next(row for row in rows if row.archive_native_sample_id == "SAMEA5160867")
+
+    assert _pig_site_publication_admitted(anchor)
+    assert not _pig_site_publication_admitted(
+        replace(anchor, supplementary_table_sample_label="AA017")
+    )
+    assert not _pig_site_publication_admitted(
+        replace(anchor, archive_native_sample_id="SAMEA5160869")
+    )
+    assert not _pig_site_publication_admitted(replace(anchor, latitude_text=""))
 
 
 def test_pig_ages_remain_approximate_archaeological_context_points() -> None:
