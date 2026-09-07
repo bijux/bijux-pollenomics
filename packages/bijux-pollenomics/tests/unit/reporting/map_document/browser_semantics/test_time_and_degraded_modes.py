@@ -352,6 +352,10 @@ def test_populated_search_and_mobile_focus_preserve_map_space() -> None:
     assert "width: min(360px, 100%);" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: min(18vh, 140px);" in MAP_DOCUMENT_TEMPLATE
     assert "width: min(240px, 46vw);" in MAP_DOCUMENT_TEMPLATE
+    assert ".topbar-search {\n          width: min(188px, 46vw);" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "justify-self: end;" in MAP_DOCUMENT_TEMPLATE
     assert "width: min(340px, 46vw);" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: min(32vh, 320px);" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: min(22vh, 220px);" in MAP_DOCUMENT_TEMPLATE
