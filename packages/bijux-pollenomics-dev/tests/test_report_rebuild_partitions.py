@@ -292,7 +292,9 @@ def test_partition_build_accepts_runtime_inventory_order_difference(
         evidence_root=root / "artifacts/fragment",
     )
 
-    assert set(manifest["relative_paths"]) == {"world/a.txt", "world/z.txt"}
+    relative_paths = manifest["relative_paths"]
+    assert isinstance(relative_paths, list)
+    assert set(relative_paths) == {"world/a.txt", "world/z.txt"}
 
 
 def test_lane_assembly_rejects_governed_input_mutation(
@@ -378,9 +380,10 @@ def test_partitioned_rebuild_detects_cross_lane_content_drift(tmp_path: Path) ->
     )
 
     assert report["status"] == "FAIL"
-    assert any(
-        row["comparison"] == "reference_vs_replay" for row in report["differences"]
-    )
+    differences = report["differences"]
+    assert isinstance(differences, list)
+    assert all(isinstance(row, dict) for row in differences)
+    assert any(row["comparison"] == "reference_vs_replay" for row in differences)
 
 
 def test_assembly_manifest_rejects_overlapping_path_ownership(tmp_path: Path) -> None:

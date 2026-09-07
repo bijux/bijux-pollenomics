@@ -8,8 +8,8 @@ import xml.etree.ElementTree as ET
 
 import pytest
 
+from bijux_pollenomics_dev.ci.test_shards import shard_for
 from bijux_pollenomics_dev.ci.test_shards.__main__ import main, verify_receipts
-from bijux_pollenomics_dev.ci.test_shards.plugin import shard_for
 
 pytest_plugins = ["pytester"]
 
@@ -204,7 +204,10 @@ def test_junit_attests_only_successful_reconciliation(
         suite = ET.parse(junit).getroot()
         assert suite.attrib["tests"] == "1"
         assert suite.attrib["failures"] == "0"
-        assert "100 selected tests" in suite.find("testcase/system-out").text
+        system_output = suite.find("testcase/system-out")
+        assert system_output is not None
+        assert system_output.text is not None
+        assert "100 selected tests" in system_output.text
     else:
         with pytest.raises(ValueError):
             main()

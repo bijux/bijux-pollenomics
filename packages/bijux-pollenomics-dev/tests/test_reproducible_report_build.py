@@ -265,9 +265,11 @@ def test_repository_policy_binds_canonical_report_command() -> None:
         "schema_version": "published-report-partition-policy.v1",
         "country_group_size": 2,
     }
-    assert ".github/workflows/scientific-verification.yml" in policy["input_paths"]
+    input_paths = policy["input_paths"]
+    assert isinstance(input_paths, list)
+    assert ".github/workflows/scientific-verification.yml" in input_paths
     assert (
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild"
-        in policy["input_paths"]
+        in input_paths
     )
     assert sys.version_info >= (3, 11)
