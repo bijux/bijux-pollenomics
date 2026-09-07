@@ -230,6 +230,7 @@ class PublicationGeographyTests(unittest.TestCase):
             version_dir.mkdir(parents=True, exist_ok=True)
             observed_published_dirs: list[Path] = []
             observed_docs_roots: list[Path] = []
+            observed_sustainability_roots: list[Path] = []
 
             def fake_publish_foundation_outputs(
                 output_root: Path, *, docs_root: Path, **_: object
@@ -255,6 +256,18 @@ class PublicationGeographyTests(unittest.TestCase):
                 return {
                     "repository_truth_posture_json": "repository_truth_posture.json"
                 }
+
+            def fake_publish_sustainability(
+                output_root: Path, *, docs_root: Path, **_: object
+            ) -> None:
+                observed_docs_roots.append(docs_root)
+                self.assertTrue(
+                    (output_root / "published_reports_summary.json").is_file()
+                )
+                self.assertTrue(
+                    (output_root / "report_surface_registry.json").is_file()
+                )
+                observed_sustainability_roots.append(output_root)
 
             def fake_generate_multi_country_map_fn(
                 *,
@@ -393,6 +406,10 @@ class PublicationGeographyTests(unittest.TestCase):
                     side_effect=fake_publish_repository_truth_outputs,
                 ),
                 patch(
+                    "bijux_pollenomics.reporting.bundles.published_reports.publish_repository_output_sustainability_review",
+                    side_effect=fake_publish_sustainability,
+                ),
+                patch(
                     "bijux_pollenomics.reporting.bundles.published_reports.build_public_animal_output_audit",
                     return_value={"rows": [], "report_root": str(output_root)},
                 ),
@@ -432,7 +449,11 @@ class PublicationGeographyTests(unittest.TestCase):
                 report.country_output_root, published_output_root / "countries"
             )
             self.assertEqual(len(observed_published_dirs), 5)
-            self.assertEqual(observed_docs_roots, [Path("docs"), Path("docs")])
+            self.assertEqual(
+                observed_docs_roots,
+                [Path("docs"), Path("docs"), Path("docs")],
+            )
+            self.assertEqual(observed_sustainability_roots, [staging_output_root])
             self.assertTrue(
                 all(
                     directory.is_relative_to(published_output_root)

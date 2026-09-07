@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 import tempfile
 
@@ -93,6 +94,32 @@ class RepositoryTruthPublicationTests(RepositoryTruthTestCase):
             )
             self.assertTrue(
                 (output_root / "repository_generated_output_policy.md").is_file()
+            )
+            sustainability = json.loads(
+                (
+                    output_root / "repository_output_sustainability_review.json"
+                ).read_text(encoding="utf-8")
+            )
+            balance_counts = sustainability["balance_counts"]
+            self.assertEqual(
+                balance_counts["report_file_count"],
+                sum(1 for path in output_root.rglob("*") if path.is_file()),
+            )
+            self.assertEqual(
+                balance_counts["maintainer_root_review_file_count"],
+                sum(1 for _ in output_root.glob("repository_*.json")),
+            )
+            sustainability_markdown = (
+                output_root / "repository_output_sustainability_review.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn(
+                f"- Report files: `{balance_counts['report_file_count']}`",
+                sustainability_markdown,
+            )
+            self.assertIn(
+                "- Maintainer root review files: "
+                f"`{balance_counts['maintainer_root_review_file_count']}`",
+                sustainability_markdown,
             )
             claim_audit = (output_root / "repository_claim_audit.json").read_text(
                 encoding="utf-8"

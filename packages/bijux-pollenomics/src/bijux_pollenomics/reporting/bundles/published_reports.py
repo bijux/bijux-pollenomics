@@ -23,7 +23,10 @@ from ..geography import (
 )
 from ..models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from ..presentation import publish_report_portal
-from ..review.repository_truth_outputs import publish_repository_truth_outputs
+from ..review.repository_truth_outputs import (
+    publish_repository_output_sustainability_review,
+    publish_repository_truth_outputs,
+)
 from .paths import (
     AtlasBundlePaths,
     build_country_bundle_paths,
@@ -220,6 +223,11 @@ def publish_published_reports_tree(
         ),
     )
     report_portal_artifacts = publish_report_portal(staging_output_root)
+    publish_repository_output_sustainability_review(
+        staging_output_root,
+        data_root=Path(data_root),
+        docs_root=docs_root,
+    )
     repository_claim_audit = json.loads(
         (staging_output_root / "repository_claim_audit.json").read_text(
             encoding="utf-8"
