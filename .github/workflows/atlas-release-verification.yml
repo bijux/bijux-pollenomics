@@ -114,7 +114,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          PYTHONPATH="packages/bijux-pollenomics-dev/src" \
+          PYTHONPATH="packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics/src" \
             python3 -m bijux_pollenomics_dev.ci.atlas_browser.runner \
             --plan artifacts/execution-control/browser/plan.json
 
