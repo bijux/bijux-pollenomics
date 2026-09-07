@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
 import tomllib
+from pathlib import Path
 from typing import Any, cast
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -32,7 +32,8 @@ def test_root_pyproject_uses_shared_workspace_build_contract() -> None:
 
     assert tool_section["uv"]["workspace"]["members"] == ["packages/*"]
     assert tool_section["hatch"]["build"]["targets"]["wheel"] == {
-        "bypass-selection": True
+        "bypass-selection": True,
+        "skip-excluded-dirs": True,
     }
 
 

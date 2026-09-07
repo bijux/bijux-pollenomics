@@ -76,3 +76,4 @@ raw-options = { git_describe_command = "git describe --dirty --tags --long --mat
 
 [tool.hatch.build.targets.wheel]
 bypass-selection = true
+skip-excluded-dirs = true
