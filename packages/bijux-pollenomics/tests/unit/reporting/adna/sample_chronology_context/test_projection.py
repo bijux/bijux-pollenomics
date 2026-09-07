@@ -37,11 +37,7 @@ def test_chronology_context_is_available_only_when_project_registry_is_declared(
     tmp_path: Path,
 ) -> None:
     registry_path = (
-        tmp_path
-        / "adna"
-        / "governance"
-        / "source_library"
-        / "project_registry.json"
+        tmp_path / "adna" / "governance" / "source_library" / "project_registry.json"
     )
     assert not animal_sample_chronology_context_available(tmp_path)
 
