@@ -7,6 +7,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+import pytest
+
 from bijux_pollenomics.analysis.propagation.source_chronology import (
     SOURCE_NODE_CONFIG_DIGEST,
     SourceNodeContext,
@@ -25,6 +27,7 @@ def _surface(manifest: dict[str, Any], name: str) -> list[dict[str, object]]:
     return rows
 
 
+@pytest.mark.timeout(300)
 def test_committed_snapshot_reconciles_country_nodes_and_refusals() -> None:
     manifest = json.loads((RELATIONAL / "manifest.json").read_text(encoding="utf-8"))
     observations = _surface(manifest, "observations")
