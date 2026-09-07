@@ -108,11 +108,11 @@ def test_archive_denominator_reconciles_to_two_sample_backed_sites() -> None:
     payload = _read_json("normalized/sample_records.json")
     samples = payload["samples"]
     assert isinstance(samples, list)
-    archive_only = [
+    blocked_context = [
         sample
         for sample in samples
         if isinstance(sample, dict)
-        and sample.get("inclusion_status") == "archive_identity_only"
+        and sample.get("inclusion_status") == "sample_context_blocked"
     ]
     supported = {
         str(sample["archive_native_sample_id"]): sample
@@ -121,7 +121,7 @@ def test_archive_denominator_reconciles_to_two_sample_backed_sites() -> None:
         and sample.get("paper_native_sample_label") in {"AA015", "AA016"}
     }
 
-    assert len(archive_only) == 341
+    assert len(blocked_context) == 341
     assert set(supported) == {"SAMEA5160867", "SAMEA5160868"}
     assert {accession: row["chronology"] for accession, row in supported.items()} == {
         "SAMEA5160867": {

@@ -17,7 +17,7 @@
       "expected_sample_count": null,
       "minimum_expected_sample_count": 1,
       "minimum_gap_count": 0,
-      "lacking_defensible_site_assignment_count": 341,
+      "lacking_defensible_site_assignment_count": 23,
       "missing_chronology_count": 341,
       "chronology_conflict_count": 0,
       "material_evidence_expected_count": 0,

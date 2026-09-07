@@ -52,6 +52,6 @@
 
 ## Manual Curation Work Units
 
-- `chronology_recovery`: 80 item(s), blocks chronology honesty and publication precision
-- `locality_string_resolution`: 39 item(s), blocks coordinate derivation and exact locality publication
-- `site_resolution`: 39 item(s), blocks exact site, coordinate, and publication recovery
+- `chronology_recovery`: 28 item(s), blocks chronology honesty and publication precision
+- `locality_string_resolution`: 10 item(s), blocks coordinate derivation and exact locality publication
+- `site_resolution`: 10 item(s), blocks exact site, coordinate, and publication recovery

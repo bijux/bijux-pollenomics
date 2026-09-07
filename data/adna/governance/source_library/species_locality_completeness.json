@@ -4,17 +4,17 @@
     {
       "species_latin_name": "Bos taurus",
       "recovered_sample_row_count": 134,
-      "exact_site_evidence_count": 72,
-      "broader_locality_evidence_count": 0,
-      "unresolved_geography_count": 62,
-      "excavation_site_count": 72,
-      "broader_locality_count": 0,
+      "exact_site_evidence_count": 97,
+      "broader_locality_evidence_count": 4,
+      "unresolved_geography_count": 33,
+      "excavation_site_count": 97,
+      "broader_locality_count": 4,
       "municipality_count": 0,
       "region_count": 0,
       "country_count": 0,
       "inferred_place_string_count": 0,
-      "locality_unresolved_count": 62,
-      "locality_completeness_ratio": 0.5373
+      "locality_unresolved_count": 33,
+      "locality_completeness_ratio": 0.7239
     },
     {
       "species_latin_name": "Camelus dromedarius",
@@ -139,17 +139,17 @@
     {
       "species_latin_name": "Sus scrofa domesticus",
       "recovered_sample_row_count": 343,
-      "exact_site_evidence_count": 2,
+      "exact_site_evidence_count": 320,
       "broader_locality_evidence_count": 0,
-      "unresolved_geography_count": 341,
-      "excavation_site_count": 2,
+      "unresolved_geography_count": 23,
+      "excavation_site_count": 320,
       "broader_locality_count": 0,
       "municipality_count": 0,
       "region_count": 0,
       "country_count": 0,
       "inferred_place_string_count": 0,
-      "locality_unresolved_count": 341,
-      "locality_completeness_ratio": 0.0058
+      "locality_unresolved_count": 23,
+      "locality_completeness_ratio": 0.9329
     }
   ]
 }

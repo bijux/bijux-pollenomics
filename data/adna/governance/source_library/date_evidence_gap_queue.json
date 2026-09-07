@@ -16,20 +16,6 @@
       ]
     },
     {
-      "project_accession": "PRJEB75467",
-      "species_latin_name": "Bos taurus",
-      "recovered_sample_row_count": 45,
-      "sample_owned_date_row_count": 6,
-      "exact_sample_date_count": 4,
-      "modeled_or_approximate_sample_date_count": 2,
-      "contextual_date_count": 0,
-      "broad_label_count": 0,
-      "missing_date_count": 39,
-      "gap_reasons": [
-        "missing_sample_level_date_evidence"
-      ]
-    },
-    {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
       "recovered_sample_row_count": 20,
@@ -57,6 +43,20 @@
       "gap_reasons": [
         "missing_sample_level_date_evidence",
         "project_context_dates_still_dominate"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "recovered_sample_row_count": 45,
+      "sample_owned_date_row_count": 34,
+      "exact_sample_date_count": 28,
+      "modeled_or_approximate_sample_date_count": 6,
+      "contextual_date_count": 0,
+      "broad_label_count": 0,
+      "missing_date_count": 11,
+      "gap_reasons": [
+        "missing_sample_level_date_evidence"
       ]
     },
     {

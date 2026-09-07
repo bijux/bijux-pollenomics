@@ -5,7 +5,7 @@
 | Species | Project | Minimum sample gap | Site gap | Chronology gap | Publication status |
 | --- | --- | ---: | ---: | ---: | --- |
 | `Bos taurus` | `PRJEB31621` | `0` | `12` | `13` | `blocked` |
-| `Bos taurus` | `PRJEB75467` | `0` | `39` | `39` | `blocked` |
+| `Bos taurus` | `PRJEB75467` | `0` | `10` | `11` | `blocked` |
 | `Bos taurus` | `PRJNA705960` | `0` | `11` | `11` | `blocked` |
 | `Camelus dromedarius` | `KU605068-KU605080` | `0` | `0` | `0` | `complete` |
 | `Camelus dromedarius` | `SRP073444` | `1` | `0` | `0` | `blocked` |
@@ -40,7 +40,7 @@
 | `Rangifer tarandus` | `PRJEB60484` | `0` | `20` | `20` | `blocked` |
 | `Rangifer tarandus` | `PRJEB61721` | `0` | `0` | `0` | `not_required` |
 | `Rangifer tarandus` | `PRJNA634908` | `0` | `0` | `0` | `not_required` |
-| `Sus scrofa domesticus` | `PRJEB30282` | `0` | `341` | `341` | `blocked` |
+| `Sus scrofa domesticus` | `PRJEB30282` | `0` | `23` | `341` | `blocked` |
 | `Sus scrofa domesticus` | `PRJNA421430` | `0` | `0` | `0` | `not_required` |
 | `Sus scrofa domesticus` | `PRJNA788987` | `0` | `0` | `0` | `blocked` |
 | `Sus scrofa domesticus` | `PRJNA878488` | `0` | `0` | `0` | `blocked` |

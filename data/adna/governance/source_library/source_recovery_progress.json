@@ -3,9 +3,9 @@
   "project_count": 40,
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
-    "sample_with_site": 586,
-    "sample_with_site_and_chronology": 333,
-    "sample_with_site_chronology_and_coordinates": 531
+    "sample_with_site": 558,
+    "sample_with_site_and_chronology": 335,
+    "sample_with_site_chronology_and_coordinates": 557
   },
   "project_counts": {
     "projects_with_sample_identity_rows": 21,

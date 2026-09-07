@@ -1,11 +1,29 @@
 # Animal atlas candidate accountability
 
-- Candidate rows: `152`
-- Fully accountable rows: `152`
+- Candidate rows: `170`
+- Fully accountable rows: `170`
 - Overall ok: `true`
 
 | Species | Project | Sample rows | Sample lineage | Site evidence | Chronology evidence | Coordinate evidence | Locality match |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
+| Bos taurus | PRJEB75467 | true | true | true | true | true | true |
 | Bos taurus | PRJEB75467 | true | true | true | true | true | true |
 | Bos taurus | PRJEB75467 | true | true | true | true | true | true |
 | Bos taurus | PRJEB75467 | true | true | true | true | true | true |

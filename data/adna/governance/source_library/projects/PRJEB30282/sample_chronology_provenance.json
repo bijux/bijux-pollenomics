@@ -54,7 +54,7 @@
       "repo_stable_sample_id": "prjeb30282:samea5160867",
       "preferred_sample_label": "SAMEA5160867",
       "published_wording": "4700 BP",
-      "source_wording_excerpt": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | Bundsø | Denmark | 2800-2600 BC | 4700 BP | Domestic",
+      "source_wording_excerpt": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | previous_extraction_code=GL468 | mtdna_accession=- | source=Kim Aaris-Sørensen | museum_or_sample_code=ZMK 17 | additional_sample_information=- | location=Bundsø | country=Denmark | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=2800-2600 BC | source_mean_years_bp=4700 | period=Middle Neolithic A phase III | group=EUD-A | zooarch_status=Domestic | combined_status=Domestic | secondary_zooarch_status=Domestic | published=N | chronology_disposition=admitted_existing_context_point | domestication_disposition=admitted_domesticated_core",
       "provenance_surface": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
       "provenance_kind": "supplementary_spreadsheet_row",
       "provenance_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
@@ -84,7 +84,7 @@
         "refusal_reason_code": "",
         "provenance_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
         "provenance_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
-        "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | Bundsø | Denmark | 2800-2600 BC | 4700 BP | Domestic",
+        "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | previous_extraction_code=GL468 | mtdna_accession=- | source=Kim Aaris-Sørensen | museum_or_sample_code=ZMK 17 | additional_sample_information=- | location=Bundsø | country=Denmark | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=2800-2600 BC | source_mean_years_bp=4700 | period=Middle Neolithic A phase III | group=EUD-A | zooarch_status=Domestic | combined_status=Domestic | secondary_zooarch_status=Domestic | published=N | chronology_disposition=admitted_existing_context_point | domestication_disposition=admitted_domesticated_core",
         "original_labels": [
           "4700 BP"
         ],
@@ -99,7 +99,7 @@
       "repo_stable_sample_id": "prjeb30282:samea5160868",
       "preferred_sample_label": "SAMEA5160868",
       "published_wording": "1000 BP",
-      "source_wording_excerpt": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | Trelleborg | Denmark | c. AD 1000 | 1000 BP | Domestic",
+      "source_wording_excerpt": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | previous_extraction_code=GL306 | mtdna_accession=- | source=Kim Aaris-Sørensen | museum_or_sample_code=ZMK 25 | additional_sample_information=- | location=Trelleborg | country=Denmark | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=c. AD 1000 | source_mean_years_bp=1000 | period=Early Medieval | group=EUD-A | zooarch_status=Domestic | combined_status=Domestic | secondary_zooarch_status=Domestic | published=N | chronology_disposition=admitted_existing_context_point | domestication_disposition=admitted_domesticated_core",
       "provenance_surface": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
       "provenance_kind": "supplementary_spreadsheet_row",
       "provenance_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
@@ -129,7 +129,7 @@
         "refusal_reason_code": "",
         "provenance_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
         "provenance_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
-        "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | Trelleborg | Denmark | c. AD 1000 | 1000 BP | Domestic",
+        "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | previous_extraction_code=GL306 | mtdna_accession=- | source=Kim Aaris-Sørensen | museum_or_sample_code=ZMK 25 | additional_sample_information=- | location=Trelleborg | country=Denmark | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=c. AD 1000 | source_mean_years_bp=1000 | period=Early Medieval | group=EUD-A | zooarch_status=Domestic | combined_status=Domestic | secondary_zooarch_status=Domestic | published=N | chronology_disposition=admitted_existing_context_point | domestication_disposition=admitted_domesticated_core",
         "original_labels": [
           "1000 BP"
         ],

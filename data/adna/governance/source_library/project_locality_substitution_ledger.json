@@ -24,7 +24,7 @@
       "species_latin_name": "Sus scrofa domesticus",
       "publication_blocked": false,
       "reason": "project_context_rows_cannot_substitute_for_multi_site_sample_owned_localities",
-      "distinct_sample_owned_locality_count": 2,
+      "distinct_sample_owned_locality_count": 105,
       "project_context_row_count": 4,
       "blocked_sample_count": 0
     },
@@ -60,7 +60,7 @@
       "species_latin_name": "Bos taurus",
       "publication_blocked": false,
       "reason": "project_context_rows_cannot_substitute_for_multi_site_sample_owned_localities",
-      "distinct_sample_owned_locality_count": 5,
+      "distinct_sample_owned_locality_count": 23,
       "project_context_row_count": 1,
       "blocked_sample_count": 0
     },

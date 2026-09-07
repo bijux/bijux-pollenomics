@@ -2,11 +2,11 @@
 
 - Rows audited: `1455`
 - Precise point rows: `468`
-- Precise interval rows: `282`
-- Approximate or modeled rows: `196`
+- Precise interval rows: `306`
+- Approximate or modeled rows: `200`
 - Contextual rows: `16`
 - Broad period rows: `40`
-- Unresolved rows: `453`
+- Unresolved rows: `425`
 
 | Project accession | Sample id | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- |
@@ -476,45 +476,21 @@
 | PRJEB31621 | prjeb31621:samea5577409 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2800 BP |
 | PRJEB31621 | prjeb31621:samea5605818 | unresolved | unresolved | unresolved |  |
 | PRJEB31621 | prjeb31621:supplement:men1 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 8050 BP |
-| PRJEB75467 | prjeb75467:samea115574404 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574405 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574406 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574407 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574408 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574409 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574411 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574412 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574415 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574416 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574417 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574418 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574420 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574420 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 3321-8989 BP |
 | PRJEB75467 | prjeb75467:samea115574421 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574422 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574423 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574424 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574426 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574428 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574429 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574430 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574432 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574433 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574434 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574435 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574436 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574437 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574433 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 45005-68764 BP |
+| PRJEB75467 | prjeb75467:samea115574435 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 10048-14942 BP |
 | PRJEB75467 | prjeb75467:samea115574440 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574443 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574444 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574445 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574446 | unresolved | unresolved | unresolved |  |
 | PRJEB75467 | prjeb75467:samea115574447 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574448 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574449 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574450 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574452 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574454 | unresolved | unresolved | unresolved |  |
-| PRJEB75467 | prjeb75467:samea115574455 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574454 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6007-6244 BP |
 | PRJEB75467 | prjeb75467:samea115574456 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6754-7744 BP |
 | PRJEB75467 | prjeb75467:samea115574457 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6748-7744 BP |
 | PRJNA705960 | prjna705960:samn18106827 | unresolved | unresolved | unresolved |  |

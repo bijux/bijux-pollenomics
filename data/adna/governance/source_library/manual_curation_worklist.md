@@ -7,9 +7,9 @@
 | `PRJEB31621` | `Bos taurus` | `chronology_recovery` | `pending_source_recovery` | `91` | blocks chronology honesty and publication precision |
 | `PRJEB31621` | `Bos taurus` | `locality_string_resolution` | `pending_manual_curation` | `12` | blocks coordinate derivation and exact locality publication |
 | `PRJEB31621` | `Bos taurus` | `site_resolution` | `pending_manual_curation` | `12` | blocks exact site, coordinate, and publication recovery |
-| `PRJEB75467` | `Bos taurus` | `chronology_recovery` | `pending_source_recovery` | `80` | blocks chronology honesty and publication precision |
-| `PRJEB75467` | `Bos taurus` | `locality_string_resolution` | `pending_manual_curation` | `39` | blocks coordinate derivation and exact locality publication |
-| `PRJEB75467` | `Bos taurus` | `site_resolution` | `pending_manual_curation` | `39` | blocks exact site, coordinate, and publication recovery |
+| `PRJEB75467` | `Bos taurus` | `chronology_recovery` | `pending_source_recovery` | `28` | blocks chronology honesty and publication precision |
+| `PRJEB75467` | `Bos taurus` | `locality_string_resolution` | `pending_manual_curation` | `10` | blocks coordinate derivation and exact locality publication |
+| `PRJEB75467` | `Bos taurus` | `site_resolution` | `pending_manual_curation` | `10` | blocks exact site, coordinate, and publication recovery |
 | `PRJNA705960` | `Bos taurus` | `chronology_recovery` | `pending_source_recovery` | `22` | blocks chronology honesty and publication precision |
 | `PRJNA705960` | `Bos taurus` | `locality_string_resolution` | `pending_manual_curation` | `11` | blocks coordinate derivation and exact locality publication |
 | `PRJNA705960` | `Bos taurus` | `site_resolution` | `pending_manual_curation` | `11` | blocks exact site, coordinate, and publication recovery |
@@ -33,5 +33,5 @@
 | `PRJEB60484` | `Rangifer tarandus` | `locality_string_resolution` | `pending_manual_curation` | `20` | blocks coordinate derivation and exact locality publication |
 | `PRJEB60484` | `Rangifer tarandus` | `site_resolution` | `pending_manual_curation` | `20` | blocks exact site, coordinate, and publication recovery |
 | `PRJEB30282` | `Sus scrofa domesticus` | `chronology_recovery` | `pending_source_recovery` | `684` | blocks chronology honesty and publication precision |
-| `PRJEB30282` | `Sus scrofa domesticus` | `locality_string_resolution` | `pending_manual_curation` | `341` | blocks coordinate derivation and exact locality publication |
-| `PRJEB30282` | `Sus scrofa domesticus` | `site_resolution` | `pending_manual_curation` | `341` | blocks exact site, coordinate, and publication recovery |
+| `PRJEB30282` | `Sus scrofa domesticus` | `locality_string_resolution` | `pending_manual_curation` | `23` | blocks coordinate derivation and exact locality publication |
+| `PRJEB30282` | `Sus scrofa domesticus` | `site_resolution` | `pending_manual_curation` | `23` | blocks exact site, coordinate, and publication recovery |

@@ -19,7 +19,7 @@
       "species_common_name": "pig",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 2,
-      "unresolved_sample_count": 0,
+      "unresolved_sample_count": 341,
       "refused_coordinate_provenance_count": 0,
       "region_only_coordinate_refusal_count": 0,
       "unresolved_location_coordinate_refusal_count": 0,
@@ -43,15 +43,15 @@
     {
       "species_latin_name": "Bos taurus",
       "species_common_name": "cattle",
-      "direct_coordinate_backed": 5,
+      "direct_coordinate_backed": 24,
       "indirectly_geocoded": 0,
-      "unresolved_sample_count": 62,
+      "unresolved_sample_count": 33,
       "refused_coordinate_provenance_count": 1,
       "region_only_coordinate_refusal_count": 1,
       "unresolved_location_coordinate_refusal_count": 0,
-      "coordinate_provenance_mappable_count": 5,
-      "publication_candidate_count": 4,
-      "not_materialized_count": 1
+      "coordinate_provenance_mappable_count": 24,
+      "publication_candidate_count": 22,
+      "not_materialized_count": 2
     },
     {
       "species_latin_name": "Capra hircus",
@@ -133,16 +133,16 @@
     }
   ],
   "totals": {
-    "direct_coordinate_backed": 281,
+    "direct_coordinate_backed": 300,
     "indirectly_geocoded": 4,
-    "unresolved_sample_count": 90,
+    "unresolved_sample_count": 402,
     "refused_coordinate_provenance_count": 4,
     "region_only_coordinate_refusal_count": 4,
     "unresolved_location_coordinate_refusal_count": 0,
-    "coordinate_provenance_mappable_count": 285,
-    "coordinate_provenance_row_count": 289,
-    "publication_candidate_count": 152,
-    "not_materialized_count": 133
+    "coordinate_provenance_mappable_count": 304,
+    "coordinate_provenance_row_count": 308,
+    "publication_candidate_count": 170,
+    "not_materialized_count": 134
   },
   "not_materialized_rows": [
     {
@@ -154,6 +154,16 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
       "source_locator": "Supplementary Data 1!A44:Y44",
       "reason_code": "no_admitted_sample_backed_locality_candidate"
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "project_accession": "PRJEB75467",
+      "site_label": "Uralsk",
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A43:Y43",
+      "reason_code": "chronology_not_supported_for_atlas_publication"
     },
     {
       "species_latin_name": "Camelus dromedarius",

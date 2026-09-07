@@ -1,6 +1,6 @@
 # Coordinate caveat surface
 
-- Direct-coordinate points: `281`
+- Direct-coordinate points: `300`
 - Place-name resolved points: `4`
 - Still-weak geography rows: `4`
 
@@ -217,11 +217,30 @@
 | Equus caballus | PRJEB44430 | Černý Vůl | supplementary_table_coordinates | exact |
 | Ovis aries | PRJEB59481 | Kastelholm | archive_coordinates | source_reported_two_decimal_degrees |
 | Ovis aries | PRJEB59481 | Stora Förvar | archive_coordinates | source_reported_two_decimal_degrees |
+| Bos taurus | PRJEB75467 | Barche di Solferino, near Mantova | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Barguzin river, Baikal | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Bedburg-Königshoven | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Borly 4, Pavlodar region | supplementary_proximal_site_coordinates | approximate |
 | Bos taurus | PRJEB75467 | Frederiksborg, Alsønderup | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Grotta dell'Uzzo, Sicily | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Gyumri district | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Herxheim | supplementary_proximal_site_coordinates | approximate |
 | Bos taurus | PRJEB75467 | Hjørring, Tofte Bæk | supplementary_proximal_site_coordinates | approximate |
 | Bos taurus | PRJEB75467 | Lundby I | supplementary_proximal_site_coordinates | approximate |
 | Bos taurus | PRJEB75467 | Nevishög | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Novoil`inka-VI (Новоильинка-VI) | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | O Courel, Galicia | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Padova | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Palidoro, Latium | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Roshchinskoe | supplementary_proximal_site_coordinates | approximate |
 | Bos taurus | PRJEB75467 | Skåne | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Trier-Brüderkrankenhaus | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Tula district | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Upper Rhine Valley | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Uralsk | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Varfolomeevka | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Vratsa | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Yorkshire | supplementary_proximal_site_coordinates | approximate |
 | Capra hircus | PRJEB90141 | Acemhöyük | supplementary_table_coordinates | exact |
 | Capra hircus | PRJEB90141 | Blagotin-Poljna | supplementary_table_coordinates | exact |
 | Capra hircus | PRJEB90141 | Direkli Cave | supplementary_table_coordinates | exact |

@@ -28,7 +28,7 @@
     {
       "project_accession": "PRJEB30282",
       "species_latin_name": "Sus scrofa domesticus",
-      "queued_sample_count": 341,
+      "queued_sample_count": 23,
       "queue_reasons": [
         "recovered_sample_rows_still_lack_any_location_claim"
       ],
@@ -52,7 +52,7 @@
     {
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
-      "queued_sample_count": 39,
+      "queued_sample_count": 10,
       "queue_reasons": [
         "recovered_sample_rows_still_lack_any_location_claim"
       ],

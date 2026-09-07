@@ -191,13 +191,13 @@
       "project_accession": "PRJEB30282",
       "species_latin_name": "Sus scrofa domesticus",
       "recovered_sample_row_count": 343,
-      "direct_sample_site_count": 2,
+      "direct_sample_site_count": 320,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
       "region_only_count": 0,
-      "unresolved_count": 341,
-      "lacking_defensible_site_assignment_count": 341,
+      "unresolved_count": 23,
+      "lacking_defensible_site_assignment_count": 23,
       "missing_reasons": [
         "unresolved"
       ]
@@ -260,13 +260,13 @@
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
       "recovered_sample_row_count": 45,
-      "direct_sample_site_count": 6,
+      "direct_sample_site_count": 35,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
       "region_only_count": 0,
-      "unresolved_count": 39,
-      "lacking_defensible_site_assignment_count": 39,
+      "unresolved_count": 10,
+      "lacking_defensible_site_assignment_count": 10,
       "missing_reasons": [
         "unresolved"
       ]

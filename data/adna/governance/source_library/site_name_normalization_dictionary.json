@@ -710,10 +710,986 @@
     {
       "project_accession": "PRJEB30282",
       "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Abu Ghosh",
+      "geocoding_safe_token": "abughosh",
+      "original_source_spellings": [
+        "Abu Ghosh"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Acemhöyük",
+      "geocoding_safe_token": "acemhöyük",
+      "original_source_spellings": [
+        "Acemhöyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Ajvide",
+      "geocoding_safe_token": "ajvide",
+      "original_source_spellings": [
+        "Ajvide"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Alba Iulia-Lumea Nouă",
+      "geocoding_safe_token": "albaiulialumeanouă",
+      "original_source_spellings": [
+        "Alba Iulia-Lumea Nouă"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Albertfalva Roman vicus (Budapest)",
+      "geocoding_safe_token": "albertfalvaromanvicusbudapest",
+      "original_source_spellings": [
+        "Albertfalva Roman vicus (Budapest)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Arbon Bleiche 3",
+      "geocoding_safe_token": "arbonbleiche3",
+      "original_source_spellings": [
+        "Arbon Bleiche 3"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Atij",
+      "geocoding_safe_token": "atij",
+      "original_source_spellings": [
+        "Atij"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Augusta Raurica, Kastelen",
+      "geocoding_safe_token": "augustarauricakastelen",
+      "original_source_spellings": [
+        "Augusta Raurica, Kastelen"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Aşıklı Höyük",
+      "geocoding_safe_token": "aşıklıhöyük",
+      "original_source_spellings": [
+        "Aşıklı Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Bademağacı Höyük",
+      "geocoding_safe_token": "bademağacıhöyük",
+      "original_source_spellings": [
+        "Bademağacı Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Bandar gaz, Caspian sea",
+      "geocoding_safe_token": "bandargazcaspiansea",
+      "original_source_spellings": [
+        "Bandar gaz, Caspian sea"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Basel-Gasfabrik",
+      "geocoding_safe_token": "baselgasfabrik",
+      "original_source_spellings": [
+        "Basel-Gasfabrik"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Bercy",
+      "geocoding_safe_token": "bercy",
+      "original_source_spellings": [
+        "Bercy"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Birsmatten-Basisgrotte",
+      "geocoding_safe_token": "birsmattenbasisgrotte",
+      "original_source_spellings": [
+        "Birsmatten-Basisgrotte"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Bodzia stan 1",
+      "geocoding_safe_token": "bodziastan1",
+      "original_source_spellings": [
+        "Bodzia stan 1"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Boulancourt",
+      "geocoding_safe_token": "boulancourt",
+      "original_source_spellings": [
+        "Boulancourt"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
       "normalized_display_spelling": "Bundsø",
       "geocoding_safe_token": "bundsø",
       "original_source_spellings": [
         "Bundsø"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Bunnik Odijk, Utrecht",
+      "geocoding_safe_token": "bunnikodijkutrecht",
+      "original_source_spellings": [
+        "Bunnik Odijk, Utrecht"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Buran-Kaya IV",
+      "geocoding_safe_token": "burankayaiv",
+      "original_source_spellings": [
+        "Buran-Kaya IV"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Cabeço da Amoreira",
+      "geocoding_safe_token": "cabeçodaamoreira",
+      "original_source_spellings": [
+        "Cabeço da Amoreira"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Cabeço da Arruda",
+      "geocoding_safe_token": "cabeçodaarruda",
+      "original_source_spellings": [
+        "Cabeço da Arruda"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Casa Solima (Troina)",
+      "geocoding_safe_token": "casasolimatroina",
+      "original_source_spellings": [
+        "Casa Solima (Troina)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Cencelle",
+      "geocoding_safe_token": "cencelle",
+      "original_source_spellings": [
+        "Cencelle"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Chedworth Roman villa",
+      "geocoding_safe_token": "chedworthromanvilla",
+      "original_source_spellings": [
+        "Chedworth Roman villa"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Coppergate",
+      "geocoding_safe_token": "coppergate",
+      "original_source_spellings": [
+        "Coppergate"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Crypta Balbi",
+      "geocoding_safe_token": "cryptabalbi",
+      "original_source_spellings": [
+        "Crypta Balbi"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Căscioarele A",
+      "geocoding_safe_token": "căscioarelea",
+      "original_source_spellings": [
+        "Căscioarele A"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Direkli Cave",
+      "geocoding_safe_token": "direklicave",
+      "original_source_spellings": [
+        "Direkli Cave"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Durostorum-Ostrov Farm 4",
+      "geocoding_safe_token": "durostorumostrovfarm4",
+      "original_source_spellings": [
+        "Durostorum-Ostrov Farm 4"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Durrington Walls",
+      "geocoding_safe_token": "durringtonwalls",
+      "original_source_spellings": [
+        "Durrington Walls"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Eilsleben",
+      "geocoding_safe_token": "eilsleben",
+      "original_source_spellings": [
+        "Eilsleben"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "El Portalón (Portalon Cueva Mayor)",
+      "geocoding_safe_token": "elportalónportaloncuevamayor",
+      "original_source_spellings": [
+        "El Portalón (Portalon Cueva Mayor)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Erbaba Höyük",
+      "geocoding_safe_token": "erbabahöyük",
+      "original_source_spellings": [
+        "Erbaba Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Exedra of Crypta Balbi",
+      "geocoding_safe_token": "exedraofcryptabalbi",
+      "original_source_spellings": [
+        "Exedra of Crypta Balbi"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Flynderhage",
+      "geocoding_safe_token": "flynderhage",
+      "original_source_spellings": [
+        "Flynderhage"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Friesack",
+      "geocoding_safe_token": "friesack",
+      "original_source_spellings": [
+        "Friesack"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Gomolava",
+      "geocoding_safe_token": "gomolava",
+      "original_source_spellings": [
+        "Gomolava"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Gordion",
+      "geocoding_safe_token": "gordion",
+      "original_source_spellings": [
+        "Gordion"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Grotta del Santuario della Madonna",
+      "geocoding_safe_token": "grottadelsantuariodellamadonna",
+      "original_source_spellings": [
+        "Grotta del Santuario della Madonna"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Grotta Verde Alghero (Sardinia)",
+      "geocoding_safe_token": "grottaverdealgherosardinia",
+      "original_source_spellings": [
+        "Grotta Verde Alghero (Sardinia)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Göbekli Tepe",
+      "geocoding_safe_token": "göbeklitepe",
+      "original_source_spellings": [
+        "Göbekli Tepe"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Gürcütepe II",
+      "geocoding_safe_token": "gürcütepeii",
+      "original_source_spellings": [
+        "Gürcütepe II"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Haftavan Tepe",
+      "geocoding_safe_token": "haftavantepe",
+      "original_source_spellings": [
+        "Haftavan Tepe"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Hallan Çemi",
+      "geocoding_safe_token": "hallançemi",
+      "original_source_spellings": [
+        "Hallan Çemi"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Herxheim",
+      "geocoding_safe_token": "herxheim",
+      "original_source_spellings": [
+        "Herxheim"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Houten-Hoogdijk, Utrecht",
+      "geocoding_safe_token": "houtenhoogdijkutrecht",
+      "original_source_spellings": [
+        "Houten-Hoogdijk, Utrecht"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Hârşova-tell",
+      "geocoding_safe_token": "hârşovatell",
+      "original_source_spellings": [
+        "Hârşova-tell"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Icoana",
+      "geocoding_safe_token": "icoana",
+      "original_source_spellings": [
+        "Icoana"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Klimonas",
+      "geocoding_safe_token": "klimonas",
+      "original_source_spellings": [
+        "Klimonas"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Kohne Tepesi",
+      "geocoding_safe_token": "kohnetepesi",
+      "original_source_spellings": [
+        "Kohne Tepesi"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Kush, Ras al-Khaimah",
+      "geocoding_safe_token": "kushrasalkhaimah",
+      "original_source_spellings": [
+        "Kush, Ras al-Khaimah"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Latronico (Potenza, Basilicata)",
+      "geocoding_safe_token": "latronicopotenzabasilicata",
+      "original_source_spellings": [
+        "Latronico (Potenza, Basilicata)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Lchashen",
+      "geocoding_safe_token": "lchashen",
+      "original_source_spellings": [
+        "Lchashen"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Le Taï (Grotte du Tai)",
+      "geocoding_safe_token": "letaïgrottedutai",
+      "original_source_spellings": [
+        "Le Taï (Grotte du Tai)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Leilan",
+      "geocoding_safe_token": "leilan",
+      "original_source_spellings": [
+        "Leilan"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Londerzeel",
+      "geocoding_safe_token": "londerzeel",
+      "original_source_spellings": [
+        "Londerzeel"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Madzhari",
+      "geocoding_safe_token": "madzhari",
+      "original_source_spellings": [
+        "Madzhari"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Miankaleh, Caspian sea",
+      "geocoding_safe_token": "miankalehcaspiansea",
+      "original_source_spellings": [
+        "Miankaleh, Caspian sea"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Montaigle",
+      "geocoding_safe_token": "montaigle",
+      "original_source_spellings": [
+        "Montaigle"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Mount Petrino (Mondragone, Caserta)",
+      "geocoding_safe_token": "mountpetrinomondragonecaserta",
+      "original_source_spellings": [
+        "Mount Petrino (Mondragone, Caserta)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Mureybet",
+      "geocoding_safe_token": "mureybet",
+      "original_source_spellings": [
+        "Mureybet"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Măgura",
+      "geocoding_safe_token": "măgura",
+      "original_source_spellings": [
+        "Măgura"
       ],
       "alternative_spellings": [],
       "source_surfaces": [
@@ -746,10 +1722,682 @@
     {
       "project_accession": "PRJEB30282",
       "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Nivå",
+      "geocoding_safe_token": "nivå",
+      "original_source_spellings": [
+        "Nivå"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "North Sea",
+      "geocoding_safe_token": "northsea",
+      "original_source_spellings": [
+        "North Sea"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Noyen",
+      "geocoding_safe_token": "noyen",
+      "original_source_spellings": [
+        "Noyen"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Oudenburg",
+      "geocoding_safe_token": "oudenburg",
+      "original_source_spellings": [
+        "Oudenburg"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Oulens",
+      "geocoding_safe_token": "oulens",
+      "original_source_spellings": [
+        "Oulens"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Parkhai Karakala",
+      "geocoding_safe_token": "parkhaikarakala",
+      "original_source_spellings": [
+        "Parkhai Karakala"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Pločnik",
+      "geocoding_safe_token": "pločnik",
+      "original_source_spellings": [
+        "Pločnik"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Popesti",
+      "geocoding_safe_token": "popesti",
+      "original_source_spellings": [
+        "Popesti"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Pupicina",
+      "geocoding_safe_token": "pupicina",
+      "original_source_spellings": [
+        "Pupicina"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Roucadour",
+      "geocoding_safe_token": "roucadour",
+      "original_source_spellings": [
+        "Roucadour"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Sagalassos",
+      "geocoding_safe_token": "sagalassos",
+      "original_source_spellings": [
+        "Sagalassos"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Sagalossos",
+      "geocoding_safe_token": "sagalossos",
+      "original_source_spellings": [
+        "Sagalossos"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Santa Maria In Selva (Marche)",
+      "geocoding_safe_token": "santamariainselvamarche",
+      "original_source_spellings": [
+        "Santa Maria In Selva (Marche)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Schela Cladovei",
+      "geocoding_safe_token": "schelacladovei",
+      "original_source_spellings": [
+        "Schela Cladovei"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Siniarzewo 1",
+      "geocoding_safe_token": "siniarzewo1",
+      "original_source_spellings": [
+        "Siniarzewo 1"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Skagafjordur",
+      "geocoding_safe_token": "skagafjordur",
+      "original_source_spellings": [
+        "Skagafjordur"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Suberde Höyük",
+      "geocoding_safe_token": "suberdehöyük",
+      "original_source_spellings": [
+        "Suberde Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Surb nahatak (Sevcar)",
+      "geocoding_safe_token": "surbnahataksevcar",
+      "original_source_spellings": [
+        "Surb nahatak (Sevcar)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Swinegate",
+      "geocoding_safe_token": "swinegate",
+      "original_source_spellings": [
+        "Swinegate"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Tel Bet Shean",
+      "geocoding_safe_token": "telbetshean",
+      "original_source_spellings": [
+        "Tel Bet Shean"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Tel Miqne-Ekron",
+      "geocoding_safe_token": "telmiqneekron",
+      "original_source_spellings": [
+        "Tel Miqne-Ekron"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Tel Safi/Gat",
+      "geocoding_safe_token": "telsafigat",
+      "original_source_spellings": [
+        "Tel Safi/Gat"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Tell Brak",
+      "geocoding_safe_token": "tellbrak",
+      "original_source_spellings": [
+        "Tell Brak"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Tell-Afis Sarageb",
+      "geocoding_safe_token": "tellafissarageb",
+      "original_source_spellings": [
+        "Tell-Afis Sarageb"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Tmbatir (Achajur)",
+      "geocoding_safe_token": "tmbatirachajur",
+      "original_source_spellings": [
+        "Tmbatir (Achajur)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Tol e Bashi",
+      "geocoding_safe_token": "tolebashi",
+      "original_source_spellings": [
+        "Tol e Bashi"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
       "normalized_display_spelling": "Trelleborg",
       "geocoding_safe_token": "trelleborg",
       "original_source_spellings": [
         "Trelleborg"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Trou Al'Wesse",
+      "geocoding_safe_token": "troualwesse",
+      "original_source_spellings": [
+        "Trou Al'Wesse"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Tsakaektsy",
+      "geocoding_safe_token": "tsakaektsy",
+      "original_source_spellings": [
+        "Tsakaektsy"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Ulucak Höyük",
+      "geocoding_safe_token": "ulucakhöyük",
+      "original_source_spellings": [
+        "Ulucak Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Umm Qseir",
+      "geocoding_safe_token": "ummqseir",
+      "original_source_spellings": [
+        "Umm Qseir"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Undir Junkariusfløtti",
+      "geocoding_safe_token": "undirjunkariusfløtti",
+      "original_source_spellings": [
+        "Undir Junkariusfløtti"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Untervaz-Haselbodensenke",
+      "geocoding_safe_token": "untervazhaselbodensenke",
+      "original_source_spellings": [
+        "Untervaz-Haselbodensenke"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Vinča Belo Brdo",
+      "geocoding_safe_token": "vinčabelobrdo",
+      "original_source_spellings": [
+        "Vinča Belo Brdo"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Vlasac",
+      "geocoding_safe_token": "vlasac",
+      "original_source_spellings": [
+        "Vlasac"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Vărăşti",
+      "geocoding_safe_token": "vărăşti",
+      "original_source_spellings": [
+        "Vărăşti"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Wageningen",
+      "geocoding_safe_token": "wageningen",
+      "original_source_spellings": [
+        "Wageningen"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Zambujal",
+      "geocoding_safe_token": "zambujal",
+      "original_source_spellings": [
+        "Zambujal"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Zurich-Mozartstrasse",
+      "geocoding_safe_token": "zurichmozartstrasse",
+      "original_source_spellings": [
+        "Zurich-Mozartstrasse"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Zurich-Seefeld",
+      "geocoding_safe_token": "zurichseefeld",
+      "original_source_spellings": [
+        "Zurich-Seefeld"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Çadır Höyük",
+      "geocoding_safe_token": "çadırhöyük",
+      "original_source_spellings": [
+        "Çadır Höyük"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Çamlibel Tarlasi",
+      "geocoding_safe_token": "çamlibeltarlasi",
+      "original_source_spellings": [
+        "Çamlibel Tarlasi"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB30282",
+      "species_latin_name": "Sus scrofa domesticus",
+      "normalized_display_spelling": "Çayönü Tepesi",
+      "geocoding_safe_token": "çayönütepesi",
+      "original_source_spellings": [
+        "Çayönü Tepesi"
       ],
       "alternative_spellings": [],
       "source_surfaces": [
@@ -4946,10 +6594,138 @@
     {
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Barche di Solferino, near Mantova",
+      "geocoding_safe_token": "barchedisolferinonearmantova",
+      "original_source_spellings": [
+        "Barche di Solferino, near Mantova"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Barguzin river, Baikal",
+      "geocoding_safe_token": "barguzinriverbaikal",
+      "original_source_spellings": [
+        "Barguzin river, Baikal"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Bedburg-Königshoven",
+      "geocoding_safe_token": "bedburgkönigshoven",
+      "original_source_spellings": [
+        "Bedburg-Königshoven"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Borly 4, Pavlodar region",
+      "geocoding_safe_token": "borly4pavlodarregion",
+      "original_source_spellings": [
+        "Borly 4, Pavlodar region"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Former Soviet Union",
+      "geocoding_safe_token": "formersovietunion",
+      "original_source_spellings": [
+        "Former Soviet Union"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
       "normalized_display_spelling": "Frederiksborg, Alsønderup",
       "geocoding_safe_token": "frederiksborgalsønderup",
       "original_source_spellings": [
         "Frederiksborg, Alsønderup"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Grotta dell'Uzzo, Sicily",
+      "geocoding_safe_token": "grottadelluzzosicily",
+      "original_source_spellings": [
+        "Grotta dell'Uzzo, Sicily"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Gyumri district",
+      "geocoding_safe_token": "gyumridistrict",
+      "original_source_spellings": [
+        "Gyumri district"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Herxheim",
+      "geocoding_safe_token": "herxheim",
+      "original_source_spellings": [
+        "Herxheim"
       ],
       "alternative_spellings": [],
       "source_surfaces": [
@@ -5010,10 +6786,202 @@
     {
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Novoil`inka-VI (Новоильинка-VI)",
+      "geocoding_safe_token": "novoilinkaviновоильинкаvi",
+      "original_source_spellings": [
+        "Novoil`inka-VI (Новоильинка-VI)"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "O Courel, Galicia",
+      "geocoding_safe_token": "ocourelgalicia",
+      "original_source_spellings": [
+        "O Courel, Galicia"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Padova",
+      "geocoding_safe_token": "padova",
+      "original_source_spellings": [
+        "Padova"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Palidoro, Latium",
+      "geocoding_safe_token": "palidorolatium",
+      "original_source_spellings": [
+        "Palidoro, Latium"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Roshchinskoe",
+      "geocoding_safe_token": "roshchinskoe",
+      "original_source_spellings": [
+        "Roshchinskoe"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
       "normalized_display_spelling": "Skåne",
       "geocoding_safe_token": "skåne",
       "original_source_spellings": [
         "Skåne"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Trier-Brüderkrankenhaus",
+      "geocoding_safe_token": "trierbrüderkrankenhaus",
+      "original_source_spellings": [
+        "Trier-Brüderkrankenhaus"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Tula district",
+      "geocoding_safe_token": "tuladistrict",
+      "original_source_spellings": [
+        "Tula district"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Upper Rhine Valley",
+      "geocoding_safe_token": "upperrhinevalley",
+      "original_source_spellings": [
+        "Upper Rhine Valley"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Uralsk",
+      "geocoding_safe_token": "uralsk",
+      "original_source_spellings": [
+        "Uralsk"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Varfolomeevka",
+      "geocoding_safe_token": "varfolomeevka",
+      "original_source_spellings": [
+        "Varfolomeevka"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Vratsa",
+      "geocoding_safe_token": "vratsa",
+      "original_source_spellings": [
+        "Vratsa"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB75467",
+      "species_latin_name": "Bos taurus",
+      "normalized_display_spelling": "Yorkshire",
+      "geocoding_safe_token": "yorkshire",
+      "original_source_spellings": [
+        "Yorkshire"
       ],
       "alternative_spellings": [],
       "source_surfaces": [

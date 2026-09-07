@@ -1,7 +1,7 @@
 {
   "schema_version": "animal-atlas-candidate-accountability.v1",
-  "candidate_row_count": 152,
-  "passed_row_count": 152,
+  "candidate_row_count": 170,
+  "passed_row_count": 170,
   "overall_ok": true,
   "rows": [
     {
@@ -107,6 +107,482 @@
       ],
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
       "coordinate_provenance_locator": "Supplementary Data 1!A33:Y33",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-barchedisolferinonearmantova-italy",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:barchedisolferinonearmantova:italy",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574423"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A38:Y38",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A38:Y38",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-barguzinriverbaikal-russia",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:barguzinriverbaikal:russia",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574404"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A5:Y5",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A5:Y5",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-bedburgknigshoven-germany",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:bedburgknigshoven:germany",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574405"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A16:Y16",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A16:Y16",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-borly4pavlodarregion-kazakhstan",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:borly4pavlodarregion:kazakhstan",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574407"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A23:Y23",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A23:Y23",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-grottadelluzzosicily-italy",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:grottadelluzzosicily:italy",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574448"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A20:Y20",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A20:Y20",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-gyumridistrict-armenia",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:gyumridistrict:armenia",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574418"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A3:Y3",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A3:Y3",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-herxheim-germany",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:herxheim:germany",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574420"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A2:Y2",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A2:Y2",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-novoilinkavivi-russia",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:novoilinkavivi:russia",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574428",
+        "bos_taurus:sample:prjeb75467:samea115574429"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A47:Y47 || Supplementary Data 1!A42:Y42",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A47:Y47 || Supplementary Data 1!A42:Y42",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-ocourelgalicia-spain",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:ocourelgalicia:spain",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574415",
+        "bos_taurus:sample:prjeb75467:samea115574416",
+        "bos_taurus:sample:prjeb75467:samea115574417"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A4:Y4 || Supplementary Data 1!A30:Y30 || Supplementary Data 1!A12:Y12",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A4:Y4 || Supplementary Data 1!A30:Y30 || Supplementary Data 1!A12:Y12",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-padova-italy",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:padova:italy",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574430"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A39:Y39",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A39:Y39",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-palidorolatium-italy",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:palidorolatium:italy",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574432"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A13:Y13",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A13:Y13",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-roshchinskoe-kazakhstan",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:roshchinskoe:kazakhstan",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574436",
+        "bos_taurus:sample:prjeb75467:samea115574437"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A46:Y46 || Supplementary Data 1!A40:Y40",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A46:Y46 || Supplementary Data 1!A40:Y40",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-trierbrderkrankenhaus-germany",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:trierbrderkrankenhaus:germany",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574445"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A17:Y17",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A17:Y17",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-tuladistrict-russia",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:tuladistrict:russia",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574446"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A10:Y10",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A10:Y10",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-upperrhinevalley-germany",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:upperrhinevalley:germany",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574433",
+        "bos_taurus:sample:prjeb75467:samea115574434",
+        "bos_taurus:sample:prjeb75467:samea115574435"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A24:Y24 || Supplementary Data 1!A18:Y18 || Supplementary Data 1!A11:Y11",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A24:Y24 || Supplementary Data 1!A18:Y18 || Supplementary Data 1!A11:Y11",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-varfolomeevka-russia",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:varfolomeevka:russia",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574449",
+        "bos_taurus:sample:prjeb75467:samea115574450"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A9:Y9 || Supplementary Data 1!A7:Y7",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A9:Y9 || Supplementary Data 1!A7:Y7",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-vratsa-bulgaria",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:vratsa:bulgaria",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574452",
+        "bos_taurus:sample:prjeb75467:samea115574454"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A6:Y6 || Supplementary Data 1!A25:Y25",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A6:Y6 || Supplementary Data 1!A25:Y25",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-yorkshire-britain",
+      "species_latin_name": "Bos taurus",
+      "project_accession": "PRJEB75467",
+      "site_record_id": "bos_taurus:locality:prjeb75467:yorkshire:britain",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574455"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "site_evidence_locator": "Supplementary Data 1!A8:Y8",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx || data/adna/governance/source_library/projects/PRJEB75467/archive_metadata.html"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "coordinate_provenance_locator": "Supplementary Data 1!A8:Y8",
       "fully_accountable": true
     },
     {
