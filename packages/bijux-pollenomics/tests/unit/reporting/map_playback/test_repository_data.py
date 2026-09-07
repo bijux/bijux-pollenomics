@@ -6,6 +6,8 @@ import json
 import math
 from pathlib import Path
 
+import pytest
+
 from bijux_pollenomics.reporting.context.points import build_external_point_layer
 from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma import (
     _project_neotoma,
@@ -17,6 +19,7 @@ from bijux_pollenomics.reporting.map_playback import (
 from tests.unit.reporting.map_playback.support import NORDIC_COUNTRIES
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[6]
+pytestmark = pytest.mark.generated_artifacts
 
 
 def test_committed_neotoma_projection_builds_complete_real_story_inventory() -> None:
