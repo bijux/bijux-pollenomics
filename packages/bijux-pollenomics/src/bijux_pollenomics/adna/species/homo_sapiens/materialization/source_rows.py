@@ -7,10 +7,10 @@ from hashlib import sha256
 import io
 from pathlib import Path
 
+from .chronology import prepare_aadr_chronology_evidence
 from .coordinates import parse_aadr_coordinates
 from .date_methods import classify_aadr_date_method
 from .models import (
-    AadrChronologyEvidence,
     AadrSourceFile,
     AadrSourceRow,
     AadrSourceTable,
@@ -82,7 +82,7 @@ def load_aadr_source_table(
                     _selected_value(raw_tokens, field_indexes, "latitude"),
                     _selected_value(raw_tokens, field_indexes, "longitude"),
                 ),
-                chronology=AadrChronologyEvidence(
+                chronology=prepare_aadr_chronology_evidence(
                     date_method=classify_aadr_date_method(
                         _selected_value(raw_tokens, field_indexes, "date_method")
                     ),

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import re
 
-from .models import AadrDateMethodEvidence, DateMethodFamily
+from .chronology import AadrDateMethodEvidence, DateMethodFamily
 
 _METHOD_FAMILIES: tuple[tuple[re.Pattern[str], DateMethodFamily], ...] = (
     (re.compile(r"^direct(?:$|[\s:(])"), "direct"),

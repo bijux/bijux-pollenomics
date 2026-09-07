@@ -6,6 +6,8 @@ from dataclasses import dataclass, field
 import re
 from typing import Literal
 
+from .chronology import AadrChronologyEvidence
+
 CoordinateStatus = Literal[
     "admitted",
     "missing",
@@ -14,15 +16,6 @@ CoordinateStatus = Literal[
     "non_finite",
     "out_of_range",
 ]
-DateMethodFamily = Literal[
-    "direct",
-    "contextual",
-    "modern",
-    "known_historical",
-    "modeled_relational",
-    "unclassified",
-]
-ChronologyEvaluationStatus = Literal["not_evaluated"]
 TaxonScopeStatus = Literal["not_asserted_by_source"]
 
 _SHA256_RE = re.compile(r"[0-9a-f]{64}")
@@ -65,26 +58,6 @@ class AadrCoordinateEvidence:
     def admitted(self) -> bool:
         """Return whether both source-native coordinates are usable as a point."""
         return self.status == "admitted"
-
-
-@dataclass(frozen=True, slots=True)
-class AadrDateMethodEvidence:
-    """Raw dating-method token and its syntax-only family classification."""
-
-    raw_value: str
-    normalized_value: str
-    family: DateMethodFamily
-
-
-@dataclass(frozen=True, slots=True)
-class AadrChronologyEvidence:
-    """Uninterpreted chronology fields awaiting a separate scientific policy."""
-
-    date_method: AadrDateMethodEvidence
-    date_mean_bp_raw: str
-    date_stddev_bp_raw: str
-    full_date_raw: str
-    evaluation_status: ChronologyEvaluationStatus = "not_evaluated"
 
 
 @dataclass(frozen=True, slots=True)

@@ -63,7 +63,9 @@ def test_loader_preserves_every_row_raw_tokens_and_source_identity(
     assert first.chronology.date_mean_bp_raw == "100"
     assert first.chronology.date_stddev_bp_raw == "20"
     assert first.chronology.full_date_raw == "120-80 BP"
-    assert first.chronology.evaluation_status == "not_evaluated"
+    assert first.chronology.evaluation_status == "review_required"
+    assert first.chronology.refusal_reason_code == "method_specific_policy_required"
+    assert not first.chronology.scientifically_admitted
     assert second.coordinates.status == "missing"
     assert second.chronology.date_mean_bp_raw == "unknown"
     assert third.genetic_id_raw == ""
@@ -97,7 +99,8 @@ def test_loader_preserves_short_rows_instead_of_dropping_them(tmp_path: Path) ->
     assert row.raw_tokens == ("ID-only",)
     assert row.genetic_id_raw == "ID-only"
     assert row.coordinates.status == "missing"
-    assert row.chronology.evaluation_status == "not_evaluated"
+    assert row.chronology.evaluation_status == "refused"
+    assert row.chronology.refusal_reason_code == "source_chronology_missing"
 
 
 def test_loader_refuses_a_source_digest_mismatch(tmp_path: Path) -> None:
