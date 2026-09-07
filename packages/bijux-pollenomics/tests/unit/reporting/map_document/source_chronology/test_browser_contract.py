@@ -747,6 +747,12 @@ def test_capture_contract_validates_and_restores_exact_preset_state() -> None:
     assert "source_preset:" in snapshot
     assert "source_preset_member_taxon_ids:" in snapshot
     assert "source_preset_catalog_sha256:" in snapshot
+    assert (
+        "const sourceCaveat = snapshot.source_chronology.source_preset"
+        in MAP_DOCUMENT_TEMPLATE
+    )
+    assert "Literal exact-ID source-label union only" in MAP_DOCUMENT_TEMPLATE
+    assert "not an accepted classification or abundance" in MAP_DOCUMENT_TEMPLATE
     assert "sourceChronologyCapturePresetAuthority" in normalization
     assert "facet_site_count:" in snapshot
     assert "visible_site_count:" in snapshot

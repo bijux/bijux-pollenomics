@@ -238,9 +238,11 @@ def test_capture_overlay_keeps_map_clear_and_labels_evidence_in_every_frame() ->
     assert "contributing observations" in block
     assert "published cells visible" in block
     assert "no pollen data · N/A, not 0" in block
-    assert "display clusters are not abundance" in block
-    assert "no interpolation, flow, or propagation inference" in block
-    assert "no atlas interpolation, flow, or propagation inference" in block
+    assert "site, node, and display-cluster counts are not abundance" in block
+    assert "not an accepted classification or abundance" in block
+    assert "no interpolation, flow, propagation, migration, or causation" in block
+    assert "not an observed pollen trajectory" in block
+    assert "no atlas interpolation, flow, propagation, migration" in block
     assert "schema_version: 'atlas-capture-presentation.v1'" in block
     assert "null_handling: 'null_not_zero'" in block
     assert "interpolation_allowed: false" in block

@@ -6638,6 +6638,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const layerStroke = sourceLayer?.style?.stroke || layerFill;
           const visibleObservations = snapshot.source_chronology.visible_observation_denominator;
           const visibleObservationLabel = visibleObservations === null ? 'unavailable' : String(visibleObservations);
+          const sourceCaveat = snapshot.source_chronology.source_preset
+            ? 'Literal exact-ID source-label union only · not an accepted classification or abundance · no interpolation, flow, propagation, migration, or causation inference.'
+            : 'Observed source records only · site, node, and display-cluster counts are not abundance · no interpolation, flow, propagation, migration, or causation inference.';
           const keyItems = [
             { label: 'source record', cue: 'point', fill: layerFill, stroke: layerStroke },
             { label: 'records grouped at current zoom', cue: 'cluster-count', fill: layerFill, stroke: layerStroke },
@@ -6649,7 +6652,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             title: atlasCaptureSourceTitle(sourceLayer),
             time_label: timeLabel,
             counts_label: `${snapshot.source_chronology.visible_site_count}/${snapshot.source_chronology.facet_site_count} unique source sites · ${snapshot.source_chronology.visible_node_count}/${snapshot.source_chronology.facet_node_count} governed source nodes in this interval · ${visibleObservationLabel}/${snapshot.source_chronology.facet_observation_denominator} contributing observations`,
-            caveat: 'Observed source records only · display clusters are not abundance · no interpolation, flow, or propagation inference.',
+            caveat: sourceCaveat,
           }, keyItems);
           return;
         }
@@ -6670,7 +6673,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           title,
           time_label: timeLabel,
           counts_label: `${snapshot.visible_modeled_context_feature_count}/${modeledContextPublishedCellCountLabel(snapshot)} published cells visible · ${qualityCounts.no_pollen_data} explicitly have no pollen data · ${sourceWindow?.label || 'source window unavailable'}`,
-          caveat: 'Published modeled cells are context only · no atlas interpolation, flow, or propagation inference.',
+          caveat: 'Published modeled cells are context only, not an observed pollen trajectory · no atlas interpolation, flow, propagation, migration, or causation inference.',
         }, keyItems);
       }
       async function applyAtlasCaptureFrame(frameSpec) {
