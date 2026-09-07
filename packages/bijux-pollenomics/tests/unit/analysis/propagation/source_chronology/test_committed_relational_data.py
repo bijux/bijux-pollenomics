@@ -2,18 +2,19 @@
 
 from __future__ import annotations
 
-from collections import Counter
 import json
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
 import pytest
-
 from bijux_pollenomics.analysis.propagation.source_chronology import (
     SOURCE_NODE_CONFIG_DIGEST,
     SourceNodeContext,
     derive_neotoma_source_chronology_nodes,
 )
+
+pytestmark = pytest.mark.generated_artifacts
 
 ROOT = Path(__file__).resolve().parents[7]
 RELATIONAL = ROOT / "data/neotoma/relational"
