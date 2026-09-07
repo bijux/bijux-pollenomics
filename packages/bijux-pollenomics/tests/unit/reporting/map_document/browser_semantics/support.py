@@ -20,7 +20,11 @@ def run_node_json(source: str) -> Any:
     node = shutil.which("node")
     assert node is not None, "Node.js is required to verify browser semantics"
     result = subprocess.run(
-        [node, "-e", source], check=True, capture_output=True, text=True
+        [node, "-"],
+        input=source,
+        check=True,
+        capture_output=True,
+        text=True,
     )
     return json.loads(result.stdout)
 

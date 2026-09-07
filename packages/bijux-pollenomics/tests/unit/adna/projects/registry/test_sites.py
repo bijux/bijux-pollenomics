@@ -17,6 +17,7 @@ from bijux_pollenomics.adna.projects.registry.sites import (
     build_sample_site_ambiguity_ledger,
     build_sample_site_manual_curation_queue,
 )
+from bijux_pollenomics.adna.projects.registry.sites import hierarchy as site_hierarchy
 from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts
@@ -118,12 +119,12 @@ class AdnaProjectSampleSitesUnitTests(unittest.TestCase):
             pdf_path.write_bytes(b"%PDF-1.4\n")
             with (
                 patch.object(
-                    project_sample_sites_module.shutil,
+                    site_hierarchy.shutil,
                     "which",
                     return_value="/usr/bin/gs",
                 ),
                 patch.object(
-                    project_sample_sites_module.subprocess,
+                    site_hierarchy.subprocess,
                     "run",
                     return_value=SimpleNamespace(returncode=0, stdout="atlas text"),
                 ) as mock_run,
