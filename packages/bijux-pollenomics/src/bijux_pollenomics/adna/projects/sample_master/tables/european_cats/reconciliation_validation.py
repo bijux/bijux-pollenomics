@@ -9,11 +9,20 @@ from typing import Protocol
 class ReconciledCatRow(Protocol):
     """Fields required to validate one reconciled cat row."""
 
-    reconciliation_status: str
-    political_entity: str
-    chronology_evidence_class: str
-    coordinate_admission_status: str
-    archive_native_sample_id: str
+    @property
+    def reconciliation_status(self) -> str: ...
+
+    @property
+    def political_entity(self) -> str: ...
+
+    @property
+    def chronology_evidence_class(self) -> str: ...
+
+    @property
+    def coordinate_admission_status(self) -> str: ...
+
+    @property
+    def archive_native_sample_id(self) -> str: ...
 
 
 def validate_reconciliation(
