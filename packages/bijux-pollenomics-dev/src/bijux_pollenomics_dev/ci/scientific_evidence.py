@@ -168,6 +168,22 @@ def _validated_repository_root(path: Path) -> Path:
     return root.resolve(strict=True)
 
 
+def _prepare_output_parent(output_root: Path, *, repository_root: Path) -> None:
+    parent = output_root.parent
+    _reject_symlink_components(parent, boundary=repository_root)
+    try:
+        parent.mkdir(parents=True, exist_ok=True)
+    except OSError as error:
+        raise ScientificEvidenceMaterializationError(
+            "unsafe_evidence_path", f"cannot create output namespace: {parent}"
+        ) from error
+    _reject_symlink_components(parent, boundary=repository_root)
+    if not parent.is_dir() or not parent.resolve(strict=True).is_relative_to(
+        repository_root
+    ):
+        _refuse("unsafe_evidence_path", f"invalid output namespace: {parent}")
+
+
 def _read_regular_bytes(path: Path, *, repository_root: Path) -> bytes:
     _reject_symlink_components(path, boundary=repository_root)
     try:
@@ -565,6 +581,14 @@ def materialize_scientific_evidence(
         contract_id="bijux-pollenomics.propagation-model",
         contract_version=materialization_policy.propagation_contract_version,
         expected_digest=materialization_policy.propagation_contract_digest,
+    )
+    _prepare_output_parent(
+        materialization_policy.classification_root,
+        repository_root=root,
+    )
+    _prepare_output_parent(
+        materialization_policy.propagation_root,
+        repository_root=root,
     )
     relational_root = (root / _RELATIONAL_ROOT).absolute()
     snapshot = _classification_snapshot(root, relational_root)

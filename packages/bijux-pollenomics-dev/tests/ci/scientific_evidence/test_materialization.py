@@ -51,6 +51,7 @@ def _install_successful_producers(
         calls.append("classification")
         invocation_counts["classification"] += 1
         paths = kwargs["paths"]
+        assert paths.output_root.parent.is_dir()
         return ClassificationAuditMaterializationResult(
             output_root=paths.output_root,
             disposition=(
@@ -67,6 +68,7 @@ def _install_successful_producers(
     def propagation(events: object, **kwargs: Any) -> object:
         calls.append("propagation")
         assert events == ()
+        assert kwargs["output_root"].parent.is_dir()
         invocation_counts["propagation"] += 1
         return PropagationMaterializationResult(
             output_root=kwargs["output_root"],
