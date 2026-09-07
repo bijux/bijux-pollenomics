@@ -276,3 +276,36 @@ class PublicationContractTests(MapPublicationTestCase):
         duplicate.update({"count": 2, "features": [feature, dict(feature)]})
         with self.assertRaisesRegex(ValueError, "identity is duplicated"):
             _serialize_layer_contract_row(duplicate, policy=policy)
+
+    def test_animal_chronology_forbids_accepted_taxonomy_aliases(self) -> None:
+        policy = resolve_map_scope_policy(None)
+        feature = {
+            "feature_id": "animal-sample:PRJEB31613:horse-1",
+            "project_accession": "PRJEB31613",
+            "repo_stable_sample_id": "horse-1",
+            "project_species_latin_name": "Equus caballus",
+            "project_species_common_name": "horse",
+            "species_attribution_basis": "governed_project_registry",
+            "semantic_role": "animal_source_chronology_context",
+            "contribution_role": "display_only",
+            "candidate_ranking_eligible": False,
+            "scientific_classification_eligible": False,
+            "scientific_selection_enabled": False,
+            "propagation_status": "refused",
+            "propagation_reason_code": "display_only_source_chronology",
+            "edge_count": 0,
+        }
+        for field in ("animal_scope", "species_latin_name"):
+            layer = self._animal_chronology_layer()
+            layer[field] = "forbidden"
+            with self.subTest(surface="layer", field=field):
+                with self.assertRaisesRegex(ValueError, "forbidden scientific fields"):
+                    _serialize_layer_contract_row(layer, policy=policy)
+        for field in ("animal_scope", "classification_id", "species_latin_name"):
+            layer = self._animal_chronology_layer()
+            invalid_feature = dict(feature)
+            invalid_feature[field] = "forbidden"
+            layer.update({"count": 1, "features": [invalid_feature]})
+            with self.subTest(surface="feature", field=field):
+                with self.assertRaisesRegex(ValueError, "forbidden scientific fields"):
+                    _serialize_layer_contract_row(layer, policy=policy)

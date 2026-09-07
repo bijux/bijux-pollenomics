@@ -230,6 +230,15 @@ _ANIMAL_CHRONOLOGY_FEATURE_POSTURE = {
         "edge_count",
     )
 }
+_ANIMAL_CHRONOLOGY_LAYER_FORBIDDEN_FIELDS = (
+    "animal_scope",
+    "species_latin_name",
+)
+_ANIMAL_CHRONOLOGY_FEATURE_FORBIDDEN_FIELDS = (
+    "animal_scope",
+    "classification_id",
+    "species_latin_name",
+)
 
 
 def resolve_map_scope_policy(
@@ -541,6 +550,16 @@ def _animal_chronology_context_posture(
         raise ValueError("animal source chronology project species posture differs")
     if layer["species_attribution_basis"] != "governed_project_registry":
         raise ValueError("animal source chronology project species posture differs")
+    forbidden_layer_fields = sorted(
+        field
+        for field in _ANIMAL_CHRONOLOGY_LAYER_FORBIDDEN_FIELDS
+        if field in layer
+    )
+    if forbidden_layer_fields:
+        raise ValueError(
+            "animal source chronology layer exposes forbidden scientific fields: "
+            + ", ".join(forbidden_layer_fields)
+        )
     features = layer.get("features")
     if not isinstance(features, list):
         raise ValueError("animal source chronology features are invalid")
@@ -558,6 +577,16 @@ def _animal_chronology_context_posture(
             raise ValueError(
                 "animal source chronology feature posture differs: "
                 + ", ".join(feature_differences)
+            )
+        forbidden_feature_fields = sorted(
+            field
+            for field in _ANIMAL_CHRONOLOGY_FEATURE_FORBIDDEN_FIELDS
+            if field in feature
+        )
+        if forbidden_feature_fields:
+            raise ValueError(
+                "animal source chronology feature exposes forbidden scientific fields: "
+                + ", ".join(forbidden_feature_fields)
             )
         if any(feature.get(field) != layer.get(field) for field in species_fields):
             raise ValueError("animal source chronology feature species differs")
