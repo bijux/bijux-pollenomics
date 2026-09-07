@@ -1,0 +1,75 @@
+"""Verify repository sustainability counts use governed Git identities."""
+
+from __future__ import annotations
+
+from pathlib import Path
+import subprocess
+
+import pytest
+
+from bijux_pollenomics.governance.repository_truth.release import sustainability
+
+
+def test_tracked_data_count_excludes_ignored_files_and_tracked_symlinks(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repository_root = tmp_path / "repository"
+    data_root = repository_root / "data"
+    docs_root = repository_root / "docs"
+    report_root = docs_root / "report"
+    report_root.mkdir(parents=True)
+    data_root.mkdir()
+    (data_root / "tracked.json").write_text("{}\n", encoding="utf-8")
+    (data_root / ".DS_Store").write_bytes(b"ignored platform metadata")
+    (data_root / "tracked-link").symlink_to("tracked.json")
+
+    index_rows = (
+        b"100644 0000000000000000000000000000000000000000 0\tdata/tracked.json\0"
+        b"120000 1111111111111111111111111111111111111111 0\tdata/tracked-link\0"
+    )
+
+    def fake_run(
+        command: tuple[str, ...],
+        *,
+        check: bool,
+        stdin: int,
+        capture_output: bool,
+        shell: bool,
+    ) -> subprocess.CompletedProcess[bytes]:
+        assert command == (
+            "git",
+            "-C",
+            str(data_root),
+            "ls-files",
+            "--stage",
+            "-z",
+            "--full-name",
+            "--",
+            ".",
+        )
+        assert check is True
+        assert stdin is subprocess.DEVNULL
+        assert capture_output is True
+        assert shell is False
+        return subprocess.CompletedProcess(command, 0, stdout=index_rows, stderr=b"")
+
+    monkeypatch.setattr(subprocess, "run", fake_run)
+    monkeypatch.setattr(
+        sustainability,
+        "build_repository_governance_artifact_review",
+        lambda **_kwargs: {"summary": {"retire": 0}},
+    )
+
+    payload = sustainability.build_repository_output_sustainability_review(
+        data_root=data_root,
+        docs_root=docs_root,
+        report_root=report_root,
+    )
+
+    assert payload["balance_counts"] == {
+        "runtime_python_file_count": 0,
+        "tracked_data_file_count": 1,
+        "report_file_count": 0,
+        "maintainer_root_review_file_count": 0,
+    }
