@@ -1,6 +1,9 @@
 """Size and responsiveness budgets for the static atlas transport."""
 
-ATLAS_BOOTSTRAP_MAX_BYTES = 65_536
+# The bootstrap carries the bounded 512-entry asset inventory, including two
+# SHA-256 identities per entry. Keep enough room for that governed maximum while
+# remaining well inside the total initial-load ceiling.
+ATLAS_BOOTSTRAP_MAX_BYTES = 262_144
 ATLAS_CHUNK_MAX_BYTES = 4_194_304
 ATLAS_CHUNK_TARGET_BYTES = 2_097_152
 # Compressed chunks can safely use more of the decoded-payload budget. The margin
