@@ -14,10 +14,10 @@ from bijux_pollenomics.provenance import (
     write_release_evidence_request,
 )
 from bijux_pollenomics.provenance import request as request_module
-from bijux_pollenomics.provenance.request import service as request_service
 from bijux_pollenomics.provenance.release_evidence import (
     repository as release_repository,
 )
+from bijux_pollenomics.provenance.request import service as request_service
 
 from .support import (
     _canonical_json,

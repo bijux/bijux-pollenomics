@@ -16,11 +16,6 @@ from bijux_pollenomics.provenance import (
     ReleaseEvidenceError,
     validate_release_evidence_manifest,
 )
-from bijux_pollenomics.provenance.request import artifacts as request_artifacts
-from bijux_pollenomics.provenance.request import (
-    reconciliation as request_reconciliation,
-)
-from bijux_pollenomics.provenance.request import service as request_service
 from bijux_pollenomics.provenance.release_evidence import artifacts as release_artifacts
 from bijux_pollenomics.provenance.release_evidence import (
     assessment as release_assessment,
@@ -29,6 +24,11 @@ from bijux_pollenomics.provenance.release_evidence import embedded as release_em
 from bijux_pollenomics.provenance.release_evidence import models as release_models
 from bijux_pollenomics.provenance.release_evidence import policy as release_policy
 from bijux_pollenomics.provenance.release_evidence import service as release_service
+from bijux_pollenomics.provenance.request import artifacts as request_artifacts
+from bijux_pollenomics.provenance.request import (
+    reconciliation as request_reconciliation,
+)
+from bijux_pollenomics.provenance.request import service as request_service
 from tests.support.repository import REPOSITORY_ROOT
 
 from .support import (

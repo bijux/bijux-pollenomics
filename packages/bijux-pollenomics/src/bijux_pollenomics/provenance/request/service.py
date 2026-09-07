@@ -13,8 +13,7 @@ from ..release_evidence.repository import (
     _repository_root,
     _repository_state,
 )
-from .artifacts import artifact_record
-from .artifacts import derive_artifact_inputs
+from .artifacts import artifact_record, derive_artifact_inputs
 from .blockers import blocker_record
 from .gates import derive_gate_results, gate_record
 from .identity import code_commit, dirty_state
