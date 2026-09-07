@@ -28,7 +28,9 @@ def _hash_files(paths: list[Path], *, root: Path) -> str:
 def _collect_files(root: Path) -> list[Path]:
     if not root.exists() or not root.is_dir():
         return []
-    return [path for path in root.rglob("*") if path.is_file()]
+    return [
+        path for path in root.rglob("*") if path.is_file() and path.name != ".DS_Store"
+    ]
 
 
 def build_source_hashes(
