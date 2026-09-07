@@ -10,7 +10,12 @@ from typing import cast
 
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasCandidate
 
-from .catalog import DEFAULT_EXACT_TAXA, DEFAULT_MODELED_METRICS
+from .catalog import (
+    CORE_SOURCE_STORIES,
+    DEFAULT_EXACT_TAXA,
+    DEFAULT_MODELED_METRICS,
+    PUBLICATION_STORIES,
+)
 
 _SAFE_SLUG = re.compile(r"[a-z][a-z0-9-]*")
 
@@ -67,12 +72,12 @@ class StorySelection:
         ):
             raise AtlasMediaError("at least one atlas media story must be selected")
         selected_count = (
-            (4 if self.include_core_source_stories else 0)
+            (len(CORE_SOURCE_STORIES) if self.include_core_source_stories else 0)
             + len(self.exact_taxa)
             + len(self.modeled_metrics)
         )
-        if selected_count > 16:
-            raise AtlasMediaError("atlas media selection exceeds sixteen stories")
+        if selected_count > len(PUBLICATION_STORIES):
+            raise AtlasMediaError("atlas media selection exceeds publication catalog")
 
 
 @dataclass(frozen=True, slots=True)

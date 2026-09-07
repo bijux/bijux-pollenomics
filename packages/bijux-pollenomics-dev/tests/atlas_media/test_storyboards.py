@@ -31,7 +31,9 @@ def _manifest(tmp_path: Path) -> tuple[Any, AtlasMediaPlan]:
     return manifest, media_plan
 
 
-def test_default_selection_covers_core_secale_and_open_land(tmp_path: Path) -> None:
+def test_default_selection_covers_core_and_primary_modeled_context(
+    tmp_path: Path,
+) -> None:
     manifest, media_plan = _manifest(tmp_path)
     stories = select_stories(
         manifest, media_plan.selection, source_authority=source_authority()
@@ -46,6 +48,11 @@ def test_default_selection_covers_core_secale_and_open_land(tmp_path: Path) -> N
         "pangaea-937075-metric-cerealia-t",
         "pangaea-937075-metric-secale",
         "pangaea-937075-metric-ol",
+        "pangaea-937075-metric-et",
+        "pangaea-937075-metric-st",
+        "pangaea-937075-metric-lse",
+        "pangaea-937075-metric-gl",
+        "pangaea-937075-metric-al",
     ]
     assert all(
         frame["basemap"] == "none" for story in stories for frame in story.frames
@@ -66,7 +73,7 @@ def test_default_selection_covers_core_secale_and_open_land(tmp_path: Path) -> N
         newer["time_end_bp"] == older["time_start_bp"]
         for older, newer in zip(secale.frames, secale.frames[1:], strict=False)
     )
-    modeled = stories[-1]
+    modeled = next(story for story in stories if story.selector_value == "OL")
     assert modeled.evidence_role == "modeled_context"
     assert modeled.selector_value == "OL"
     assert modeled.frame_feature_denominators == (75,) * 25

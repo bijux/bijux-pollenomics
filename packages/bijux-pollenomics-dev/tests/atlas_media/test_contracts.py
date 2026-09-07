@@ -19,6 +19,7 @@ from bijux_pollenomics_dev.ci.atlas_media.catalog import (
     LEGACY_PUBLICATION_STORY_TITLES_V3,
     LEGACY_PUBLICATION_STORY_TUPLES_V1,
     LEGACY_PUBLICATION_STORY_TUPLES_V2,
+    LEGACY_PUBLICATION_STORY_TUPLES_V3,
     PUBLICATION_ASSET_COUNT,
     PUBLICATION_SCHEMA_VERSION,
     PUBLICATION_STORIES,
@@ -47,7 +48,7 @@ def test_plan_requires_dedicated_repository_artifact_output(tmp_path: Path) -> N
 def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
     assert PUBLICATION_SCHEMA_VERSION == "atlas-media-publication.v4"
     assert LEGACY_PUBLICATION_SCHEMA_VERSION_V3 == "atlas-media-publication.v3"
-    assert len(PUBLICATION_STORY_TITLES) == 15
+    assert len(PUBLICATION_STORY_TITLES) == 20
     assert PUBLICATION_STORY_TITLES["neotoma-source-taxon-967"] == (
         "Neotoma exact source-reported taxon — Secale"
     )
@@ -64,9 +65,18 @@ def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
         "source:neotoma:taxon:488",
         "source:neotoma:taxon:969",
     )
-    assert DEFAULT_MODELED_METRICS == ("Cerealia.t", "Secale", "OL")
-    assert len(PUBLICATION_STORIES) == 15
-    assert PUBLICATION_ASSET_COUNT == 30
+    assert DEFAULT_MODELED_METRICS == (
+        "Cerealia.t",
+        "Secale",
+        "OL",
+        "ET",
+        "ST",
+        "LSE",
+        "GL",
+        "AL",
+    )
+    assert len(PUBLICATION_STORIES) == 20
+    assert PUBLICATION_ASSET_COUNT == 40
     assert LEGACY_PUBLICATION_STORY_TUPLES_V1 == (
         (
             "neotoma-source-sample-presence",
@@ -113,7 +123,83 @@ def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
     )
     assert LEGACY_PUBLICATION_STORY_TUPLES_V2[4][0] == ("neotoma-source-taxon-967")
     assert len(LEGACY_PUBLICATION_STORY_TUPLES_V2) == 8
-    assert len({story.story_id for story in PUBLICATION_STORIES}) == 15
+    assert len(LEGACY_PUBLICATION_STORY_TUPLES_V3) == 15
+    assert LEGACY_PUBLICATION_STORY_TUPLES_V3[-3:] == (
+        (
+            "pangaea-937075-metric-cerealia-t",
+            "modeled_context",
+            "modeled_metric",
+            "Cerealia.t",
+            "exact_taxa",
+        ),
+        (
+            "pangaea-937075-metric-secale",
+            "modeled_context",
+            "modeled_metric",
+            "Secale",
+            "exact_taxa",
+        ),
+        (
+            "pangaea-937075-metric-ol",
+            "modeled_context",
+            "modeled_metric",
+            "OL",
+            "source_land_cover_types",
+        ),
+    )
+    assert tuple(story.as_tuple() for story in PUBLICATION_STORIES[-5:]) == (
+        (
+            "pangaea-937075-metric-et",
+            "modeled_context",
+            "modeled_metric",
+            "ET",
+            "source_land_cover_types",
+        ),
+        (
+            "pangaea-937075-metric-st",
+            "modeled_context",
+            "modeled_metric",
+            "ST",
+            "source_land_cover_types",
+        ),
+        (
+            "pangaea-937075-metric-lse",
+            "modeled_context",
+            "modeled_metric",
+            "LSE",
+            "source_pft_codes",
+        ),
+        (
+            "pangaea-937075-metric-gl",
+            "modeled_context",
+            "modeled_metric",
+            "GL",
+            "source_pft_codes",
+        ),
+        (
+            "pangaea-937075-metric-al",
+            "modeled_context",
+            "modeled_metric",
+            "AL",
+            "source_pft_codes",
+        ),
+    )
+    assert PUBLICATION_STORY_TITLES["pangaea-937075-metric-et"] == (
+        "PANGAEA 937075 modeled context — Evergreen trees (ET)"
+    )
+    assert PUBLICATION_STORY_TITLES["pangaea-937075-metric-st"] == (
+        "PANGAEA 937075 modeled context — Summer-green trees (ST)"
+    )
+    assert PUBLICATION_STORY_TITLES["pangaea-937075-metric-lse"] == (
+        "PANGAEA 937075 modeled context — Low shrub, broadleaved evergreen (LSE)"
+    )
+    assert PUBLICATION_STORY_TITLES["pangaea-937075-metric-gl"] == (
+        "PANGAEA 937075 modeled context — Grassland - all herbs (GL)"
+    )
+    assert PUBLICATION_STORY_TITLES["pangaea-937075-metric-al"] == (
+        "PANGAEA 937075 modeled context — Agricultural land - cereals (AL)"
+    )
+    assert len({story.story_id for story in PUBLICATION_STORIES}) == 20
     assert (
         len(
             {
@@ -121,7 +207,7 @@ def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
                 for story in PUBLICATION_STORIES
             }
         )
-        == 15
+        == 20
     )
 
 
@@ -141,6 +227,10 @@ def test_story_selection_refuses_empty_or_duplicate_requests() -> None:
         )
     with pytest.raises(AtlasMediaError, match="unique"):
         StorySelection(exact_taxa=("Secale", "Secale"))
+    with pytest.raises(
+        AtlasMediaError, match="modeled_metrics selection exceeds eight"
+    ):
+        StorySelection(modeled_metrics=tuple(f"metric-{index}" for index in range(9)))
 
 
 def test_sample_presence_selector_is_exactly_all() -> None:

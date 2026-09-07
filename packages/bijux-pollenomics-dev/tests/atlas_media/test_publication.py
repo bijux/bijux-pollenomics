@@ -16,6 +16,7 @@ from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError, publication
 from bijux_pollenomics_dev.ci.atlas_media.catalog import (
     LEGACY_PUBLICATION_SCHEMA_VERSION_V3,
     LEGACY_PUBLICATION_STORY_TITLES_V3,
+    LEGACY_PUBLICATION_STORY_TUPLES_V3,
     PUBLICATION_ASSET_COUNT,
     PUBLICATION_SCHEMA_VERSION,
     PUBLICATION_STORIES,
@@ -378,12 +379,32 @@ def _rewrite_publication(
 
 
 def _rewrite_as_legacy_v3(root: Path) -> None:
+    legacy_story_ids = {story_id for story_id, *_ in LEGACY_PUBLICATION_STORY_TUPLES_V3}
+    current_only_story_ids = {
+        story_id for story_id, *_ in PUBLICATION_STORY_TUPLES
+    } - legacy_story_ids
+    for story_id in current_only_story_ids:
+        for suffix in (".poster.png", ".mp4"):
+            (root / "media" / f"{story_id}{suffix}").unlink()
+
     def downgrade(value: dict[str, Any]) -> None:
         value["schema_version"] = LEGACY_PUBLICATION_SCHEMA_VERSION_V3
         value["encoding_profile"]["poster"] = {
             "format": "png",
             "source_frame_ordinal": 0,
         }
+        value["stories"] = [
+            story for story in value["stories"] if story["story_id"] in legacy_story_ids
+        ]
+        value["story_count"] = len(LEGACY_PUBLICATION_STORY_TUPLES_V3)
+        value["publication_budget"]["published_asset_count"] = (
+            len(LEGACY_PUBLICATION_STORY_TUPLES_V3) * 2
+        )
+        value["publication_budget"]["published_byte_count"] = sum(
+            asset["published"]["byte_count"]
+            for story in value["stories"]
+            for asset in story["assets"]
+        )
         for story in value["stories"]:
             story["title"] = LEGACY_PUBLICATION_STORY_TITLES_V3[story["story_id"]]
             story.pop("poster_frame_ordinal")
@@ -884,9 +905,12 @@ def test_publication_replaces_exact_legacy_v3_destination_with_v4(
     manifest = _publish(source, destination)
 
     assert manifest["schema_version"] == PUBLICATION_SCHEMA_VERSION
-    assert json.loads(
-        (destination / "publication-manifest.json").read_text(encoding="utf-8")
-    ) == manifest
+    assert (
+        json.loads(
+            (destination / "publication-manifest.json").read_text(encoding="utf-8")
+        )
+        == manifest
+    )
 
 
 @pytest.mark.parametrize(
@@ -894,9 +918,7 @@ def test_publication_replaces_exact_legacy_v3_destination_with_v4(
     (
         lambda root: _rewrite_publication(
             root,
-            lambda value: value["stories"][1]["selector"].update(
-                {"value": "AQVP"}
-            ),
+            lambda value: value["stories"][1]["selector"].update({"value": "AQVP"}),
         ),
         lambda root: _rewrite_publication(
             root,

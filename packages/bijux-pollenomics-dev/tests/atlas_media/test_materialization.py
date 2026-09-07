@@ -309,7 +309,9 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
         + len(media_plan.selection.exact_taxa)
         + len(media_plan.selection.modeled_metrics)
     )
-    modeled_gallery = gallery["stories"][-1]
+    modeled_gallery = next(
+        story for story in gallery["stories"] if story["selector"]["value"] == "OL"
+    )
     assert modeled_gallery["selector"]["value"] == "OL"
     assert modeled_gallery["frame_feature_denominators"] == [75] * 25
     assert candidate_checks == [media_plan, media_plan]
