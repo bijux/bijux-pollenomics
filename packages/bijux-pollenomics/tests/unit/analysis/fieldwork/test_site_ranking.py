@@ -1,18 +1,25 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
+
+import pytest
+
 from bijux_pollenomics.adna import (
     AdnaChronology,
     AdnaCoordinate,
     AdnaLocalityIdentity,
     AdnaLocalitySummary,
 )
+import bijux_pollenomics.analysis.fieldwork.ranking as ranking_module
 from bijux_pollenomics.analysis.fieldwork.ranking import (
     build_candidate_context,
     build_ranking_sensitivity_report,
     rank_localities,
     temporal_overlap,
 )
+from bijux_pollenomics.analysis.propagation.candidates import CandidateSiteContext
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.core import haversine_km
 
 
 def _locality(
@@ -98,6 +105,51 @@ def _point(
     )
 
 
+def _uncached_candidate_context(
+    locality: AdnaLocalitySummary,
+    context_points: Iterable[ContextPointRecord],
+    *,
+    radius_km: float,
+) -> CandidateSiteContext:
+    assert locality.latitude is not None
+    assert locality.longitude is not None
+    nearby_context_points = 0
+    time_aware_context_points = 0
+    temporal_overlap_points = 0
+    nearest_context_distance_km: float | None = None
+    nearby_context_layers: set[str] = set()
+    for point in context_points:
+        distance_km = haversine_km(
+            latitude_a=locality.latitude,
+            longitude_a=locality.longitude,
+            latitude_b=point.latitude,
+            longitude_b=point.longitude,
+        )
+        if (
+            nearest_context_distance_km is None
+            or distance_km < nearest_context_distance_km
+        ):
+            nearest_context_distance_km = distance_km
+        if distance_km <= radius_km:
+            nearby_context_points += 1
+            nearby_context_layers.add(point.layer_key)
+            if point.time_start_bp is not None and point.time_end_bp is not None:
+                time_aware_context_points += 1
+            if temporal_overlap(locality, point):
+                temporal_overlap_points += 1
+    return CandidateSiteContext(
+        locality=locality,
+        direct_evidence=(locality,),
+        nearby_context_points=nearby_context_points,
+        nearby_context_layer_count=len(nearby_context_layers),
+        time_aware_context_points=time_aware_context_points,
+        temporal_overlap_points=temporal_overlap_points,
+        nearest_context_distance_km=round(nearest_context_distance_km, 4)
+        if nearest_context_distance_km is not None
+        else None,
+    )
+
+
 def test_build_candidate_context_counts_nearby_points_and_layers() -> None:
     locality = _locality("Lake One", 59.0, 18.0)
     context = build_candidate_context(
@@ -114,6 +166,94 @@ def test_build_candidate_context_counts_nearby_points_and_layers() -> None:
     assert context.nearby_context_layer_count == 2
     assert context.time_aware_context_points == 2
     assert context.temporal_overlap_points == 2
+
+
+def test_candidate_context_reuses_exact_coordinate_distance_without_collapsing_rows(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    locality = _locality("Lake One", 59.0, 18.0)
+    points = (
+        _point("near-a", 59.01, 18.02, layer_key="neotoma-sites"),
+        _point(
+            "near-b",
+            59.01,
+            18.02,
+            layer_key="sead-sites",
+            time_start_bp=None,
+            time_end_bp=None,
+        ),
+        _point("far", 63.0, 20.0, layer_key="neotoma-sites"),
+    )
+    expected = _uncached_candidate_context(locality, points, radius_km=10.0)
+    original_haversine = haversine_km
+    calls = 0
+
+    def counted_haversine(
+        *,
+        latitude_a: float,
+        longitude_a: float,
+        latitude_b: float,
+        longitude_b: float,
+    ) -> float:
+        nonlocal calls
+        calls += 1
+        return original_haversine(
+            latitude_a=latitude_a,
+            longitude_a=longitude_a,
+            latitude_b=latitude_b,
+            longitude_b=longitude_b,
+        )
+
+    monkeypatch.setattr(ranking_module, "haversine_km", counted_haversine)
+
+    observed = build_candidate_context(locality, points, radius_km=10.0)
+
+    assert observed == expected
+    assert observed.nearby_context_points == 2
+    assert observed.nearby_context_layer_count == 2
+    assert observed.time_aware_context_points == 1
+    assert observed.temporal_overlap_points == 1
+    assert calls == 2
+
+
+def test_candidate_context_reuses_distance_and_preserves_nearest_beyond_radius(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    locality = _locality("Lake One", 59.0, 18.0)
+    points = (
+        _point("far-a", 59.2, 18.0),
+        _point("far-b", 59.2, 18.0),
+        _point("farther", 63.0, 20.0),
+    )
+    expected = _uncached_candidate_context(locality, points, radius_km=1.0)
+    original_haversine = haversine_km
+    calls = 0
+
+    def counted_haversine(
+        *,
+        latitude_a: float,
+        longitude_a: float,
+        latitude_b: float,
+        longitude_b: float,
+    ) -> float:
+        nonlocal calls
+        calls += 1
+        return original_haversine(
+            latitude_a=latitude_a,
+            longitude_a=longitude_a,
+            latitude_b=latitude_b,
+            longitude_b=longitude_b,
+        )
+
+    monkeypatch.setattr(ranking_module, "haversine_km", counted_haversine)
+
+    observed = build_candidate_context(locality, points, radius_km=1.0)
+
+    assert observed == expected
+    assert observed.nearby_context_points == 0
+    assert observed.nearest_context_distance_km is not None
+    assert observed.nearest_context_distance_km > 1.0
+    assert calls == 2
 
 
 def test_candidate_context_excludes_disjoint_temporal_intervals() -> None:
@@ -204,3 +344,128 @@ def test_sensitivity_report_shows_profile_rank_shifts() -> None:
     assert report.schema_version == "candidate-site-sensitivity.v1"
     assert report.rows
     assert "fieldwork_triage" in report.rows[0].profile_ranks
+
+
+def test_sensitivity_report_preserves_exact_profile_output() -> None:
+    report = build_ranking_sensitivity_report(
+        (
+            _locality("Lake One", 59.0, 18.0, sample_count=3),
+            _locality("Lake Two", 61.0, 15.0, sample_count=2),
+        ),
+        (
+            _point("a", 59.01, 18.02, layer_key="neotoma-sites"),
+            _point(
+                "b",
+                61.01,
+                15.02,
+                layer_key="sead-sites",
+                time_start_bp=None,
+                time_end_bp=None,
+            ),
+        ),
+        radius_km=20.0,
+    )
+
+    assert report.as_dict() == {
+        "schema_version": "candidate-site-sensitivity.v1",
+        "baseline_profile": "atlas_exploration",
+        "compared_profiles": [
+            "atlas_exploration",
+            "chronology_first",
+            "context_first",
+            "fieldwork_triage",
+        ],
+        "rows": [
+            {
+                "locality": "Lake One",
+                "locality_token": "lake-one-59.0-18.0",
+                "baseline_profile": "atlas_exploration",
+                "baseline_rank": 1,
+                "profile_ranks": {
+                    "atlas_exploration": 1,
+                    "chronology_first": 1,
+                    "context_first": 1,
+                    "fieldwork_triage": 1,
+                },
+                "profile_statuses": {
+                    "atlas_exploration": "ranked",
+                    "chronology_first": "ranked",
+                    "context_first": "ranked",
+                    "fieldwork_triage": "ranked",
+                },
+                "max_rank_shift": 0,
+                "recommendation_ready_profiles": [],
+            },
+            {
+                "locality": "Lake Two",
+                "locality_token": "lake-two-61.0-15.0",
+                "baseline_profile": "atlas_exploration",
+                "baseline_rank": 2,
+                "profile_ranks": {
+                    "atlas_exploration": 2,
+                    "chronology_first": 2,
+                    "context_first": 2,
+                    "fieldwork_triage": 2,
+                },
+                "profile_statuses": {
+                    "atlas_exploration": "downgraded",
+                    "chronology_first": "downgraded",
+                    "context_first": "downgraded",
+                    "fieldwork_triage": "downgraded",
+                },
+                "max_rank_shift": 0,
+                "recommendation_ready_profiles": [],
+            },
+        ],
+    }
+
+
+def test_sensitivity_builds_each_grouped_context_once(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    original = ranking_module.build_candidate_context
+    calls = 0
+
+    def counted_build_candidate_context(
+        locality: AdnaLocalitySummary,
+        context_points: Iterable[ContextPointRecord],
+        *,
+        co_located_localities: Iterable[AdnaLocalitySummary] | None = None,
+        radius_km: float = 25.0,
+    ) -> CandidateSiteContext:
+        nonlocal calls
+        calls += 1
+        return original(
+            locality,
+            context_points,
+            co_located_localities=co_located_localities,
+            radius_km=radius_km,
+        )
+
+    monkeypatch.setattr(
+        ranking_module, "build_candidate_context", counted_build_candidate_context
+    )
+
+    report = build_ranking_sensitivity_report(
+        (
+            _locality("Lake One", 59.0, 18.0, token="shared:lake-one"),
+            _locality(
+                "Lake One",
+                59.0,
+                18.0,
+                token="shared:lake-one",
+                species_latin_name="Equus caballus",
+                species_common_name="horse",
+            ),
+            _locality("Lake Two", 61.0, 15.0),
+        ),
+        (_point("context", 59.01, 18.02),),
+    )
+
+    assert report.compared_profiles == (
+        "atlas_exploration",
+        "chronology_first",
+        "context_first",
+        "fieldwork_triage",
+    )
+    assert calls == 2

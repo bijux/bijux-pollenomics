@@ -2,17 +2,44 @@
 
 from __future__ import annotations
 
+from bisect import bisect_right
 from collections import defaultdict
+from dataclasses import dataclass
 
 from ...adna import AdnaLocalitySummary
 from ...collection.contracts.models import ContextPointRecord
+from ...core.temporal_semantics import BpInterval
 from ..models import AtlasEvidenceSpeciesRow
 from .models import ChronologyOverlapRow
 from .temporal import (
     _context_point_interval,
     _locality_interval,
-    _locality_overlaps_point,
 )
+
+
+@dataclass(frozen=True)
+class _LayerIntervals:
+    """Index the existence of a closed overlap without weighting duplicate points."""
+
+    starts: tuple[float, ...]
+    maximum_ends: tuple[float, ...]
+
+    @classmethod
+    def from_points(cls, points: list[ContextPointRecord]) -> _LayerIntervals:
+        bounds = sorted(
+            (interval.younger_bp, interval.older_bp)
+            for point in points
+            if (interval := _context_point_interval(point)) is not None
+        )
+        maximum_ends: list[float] = []
+        for _, end in bounds:
+            maximum_ends.append(max(end, maximum_ends[-1]) if maximum_ends else end)
+        return cls(tuple(start for start, _ in bounds), tuple(maximum_ends))
+
+    def overlaps(self, interval: BpInterval) -> bool:
+        # A start at the query's older endpoint still forms a closed overlap.
+        index = bisect_right(self.starts, interval.older_bp) - 1
+        return index >= 0 and self.maximum_ends[index] >= interval.younger_bp
 
 
 def _build_chronology_overlaps(
@@ -26,21 +53,20 @@ def _build_chronology_overlaps(
     grouped_context: dict[str, list[ContextPointRecord]] = defaultdict(list)
     for point in context_points:
         grouped_context[point.layer_key].append(point)
-    for layer_key, points in sorted(grouped_context.items()):
+    layer_intervals = {
+        key: _LayerIntervals.from_points(points)
+        for key, points in grouped_context.items()
+    }
+    for layer_key, intervals in sorted(layer_intervals.items()):
         overlapping = 0
         non_overlapping = 0
         noncomparable = 0
         for locality in direct_localities:
             locality_interval = _locality_interval(locality)
-            comparable_points = tuple(
-                point for point in points if _context_point_interval(point) is not None
-            )
-            if locality_interval is None or not comparable_points:
+            if locality_interval is None or not intervals.starts:
                 noncomparable += 1
                 continue
-            if any(
-                _locality_overlaps_point(locality, point) for point in comparable_points
-            ):
+            if intervals.overlaps(locality_interval):
                 overlapping += 1
             else:
                 non_overlapping += 1
@@ -68,21 +94,13 @@ def _build_chronology_overlaps(
                 overlapping = 0
                 non_overlapping = 0
                 noncomparable = 0
-                layer_points = grouped_context.get(layer_key, [])
+                intervals = layer_intervals[layer_key]
                 for locality in species_animal_localities:
                     locality_interval = _locality_interval(locality)
-                    comparable_points = tuple(
-                        point
-                        for point in layer_points
-                        if _context_point_interval(point) is not None
-                    )
-                    if locality_interval is None or not comparable_points:
+                    if locality_interval is None or not intervals.starts:
                         noncomparable += 1
                         continue
-                    if any(
-                        _locality_overlaps_point(locality, point)
-                        for point in layer_points
-                    ):
+                    if intervals.overlaps(locality_interval):
                         overlapping += 1
                     else:
                         non_overlapping += 1

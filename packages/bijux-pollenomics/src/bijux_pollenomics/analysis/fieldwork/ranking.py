@@ -125,17 +125,22 @@ def build_candidate_context(
     temporal_overlap_points = 0
     nearest_context_distance_km: float | None = None
     nearby_context_layers: set[str] = set()
+    distance_by_coordinate: dict[tuple[float, float], float] = {}
     anchor_latitude = anchor.latitude
     anchor_longitude = anchor.longitude
     for point in context_points:
         if anchor_latitude is None or anchor_longitude is None:
             continue
-        distance_km = haversine_km(
-            latitude_a=anchor_latitude,
-            longitude_a=anchor_longitude,
-            latitude_b=point.latitude,
-            longitude_b=point.longitude,
-        )
+        coordinate = (point.latitude, point.longitude)
+        distance_km = distance_by_coordinate.get(coordinate)
+        if distance_km is None:
+            distance_km = haversine_km(
+                latitude_a=anchor_latitude,
+                longitude_a=anchor_longitude,
+                latitude_b=point.latitude,
+                longitude_b=point.longitude,
+            )
+            distance_by_coordinate[coordinate] = distance_km
         if (
             nearest_context_distance_km is None
             or distance_km < nearest_context_distance_km
@@ -170,8 +175,15 @@ def rank_localities(
 ) -> list[CandidateSiteScore]:
     """Rank grouped locality anchors against context layers under one profile."""
     points = tuple(context_points)
-    profile = resolve_ranking_profile(profile_name)
     contexts = _build_grouped_contexts(localities, points, radius_km=radius_km)
+    return _rank_contexts(contexts, profile_name=profile_name)
+
+
+def _rank_contexts(
+    contexts: tuple[CandidateSiteContext, ...], *, profile_name: str
+) -> list[CandidateSiteScore]:
+    """Score precomputed locality contexts under one ranking profile."""
+    profile = resolve_ranking_profile(profile_name)
     scores = [score_candidate_site(context, profile=profile) for context in contexts]
     return sorted(
         scores,
@@ -195,13 +207,10 @@ def build_ranking_sensitivity_report(
     profile_names = compared_profiles or tuple(
         profile.profile_name for profile in build_ranking_profiles()
     )
+    points = tuple(context_points)
+    contexts = _build_grouped_contexts(localities, points, radius_km=radius_km)
     results_by_profile = {
-        profile_name: rank_localities(
-            localities,
-            context_points,
-            radius_km=radius_km,
-            profile_name=profile_name,
-        )
+        profile_name: _rank_contexts(contexts, profile_name=profile_name)
         for profile_name in profile_names
     }
     baseline_scores = results_by_profile[baseline_profile_name]
