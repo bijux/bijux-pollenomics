@@ -63,6 +63,15 @@ erase this exception through an ordinary standards refresh before equivalent
 upstream behavior exists. No upstream issue or publication is implied by this
 local removal plan.
 
+The release builder carries a second narrow exception: all three artifact-mode
+release callers pass the requested tag into `release-artifacts.yml`. Before
+upload, the builder requires the peeled tag, checkout, and workflow SHA to
+agree, invokes the existing package publication guard, and requires the
+resolved version to equal the tag version. Its upstream follow-through is to
+add this input and fail-closed guard to the shared artifact builder and its
+callers, with tag/revision/version mismatch fixtures. Remove the local wiring
+only after an exact accepted upstream refresh preserves those checks.
+
 ## Release Surface
 
 Release workflows consume an already accepted revision and immutable staged
@@ -131,6 +140,11 @@ workflows. For each selected package it:
 4. stages all distribution files and recognized production/development SBOMs
    as `<package>-release`; and
 5. retains both Actions artifacts for 14 days.
+
+Before either artifact upload, the builder checks the requested release tag
+against both `HEAD` and the workflow SHA and applies the package version and
+distribution-version guard. Dispatching from a different revision or attempting
+to label development artifacts with a final release tag fails at this boundary.
 
 The staged artifacts are the handoff between build and publication jobs. A
 publication lane must consume the artifacts from its own run or explicitly

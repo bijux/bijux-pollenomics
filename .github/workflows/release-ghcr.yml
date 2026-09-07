@@ -78,6 +78,7 @@ jobs:
   resolve:
     name: resolve-release-ghcr-config
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
     outputs:
       enabled: ${{ steps.config.outputs.enabled }}
       release_tag: ${{ steps.config.outputs.release_tag }}
@@ -278,6 +279,7 @@ jobs:
     uses: ./.github/workflows/release-artifacts.yml
     with:
       package_slug: ${{ matrix.package_slug }}
+      release_tag: ${{ needs.resolve.outputs.release_tag }}
       package_dir: ${{ matrix.package_dir }}
       artifacts_dir: ${{ matrix.artifacts_dir }}
       makefile_path: ${{ matrix.makefile_path || '' }}
@@ -290,6 +292,7 @@ jobs:
       - build
     if: ${{ needs.resolve.outputs.enabled == 'true' }}
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
     permissions:
       contents: read
       packages: write

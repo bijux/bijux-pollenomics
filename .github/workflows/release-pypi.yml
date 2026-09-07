@@ -85,6 +85,7 @@ jobs:
   resolve:
     name: resolve-release-pypi-config
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
     outputs:
       enabled: ${{ steps.config.outputs.enabled }}
       mode: ${{ steps.config.outputs.mode }}
@@ -333,6 +334,7 @@ jobs:
     uses: ./.github/workflows/release-artifacts.yml
     with:
       package_slug: ${{ matrix.package_slug }}
+      release_tag: ${{ needs.resolve.outputs.release_tag }}
       package_dir: ${{ matrix.package_dir }}
       artifacts_dir: ${{ matrix.artifacts_dir }}
       makefile_path: ${{ matrix.makefile_path || '' }}
@@ -345,6 +347,7 @@ jobs:
       - build
     if: ${{ needs.resolve.outputs.enabled == 'true' && needs.resolve.outputs.mode == 'artifact' }}
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
     environment:
       name: ${{ matrix.environment_name || needs.resolve.outputs.environment_name }}
     permissions:
@@ -468,7 +471,7 @@ jobs:
     needs: resolve
     if: ${{ needs.resolve.outputs.enabled == 'true' && needs.resolve.outputs.mode == 'maturin' }}
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 10
     environment:
       name: ${{ needs.resolve.outputs.environment_name }}
     permissions:
