@@ -6,8 +6,6 @@ import csv
 from dataclasses import dataclass
 from hashlib import sha256
 from io import StringIO
-from pathlib import PurePosixPath
-import re
 from typing import Final
 
 from bijux_pollenomics.adna.projects.sample_master.models import (
@@ -24,6 +22,13 @@ from .evidence import (
     AUROCHS_NATURAL_HISTORY_WORKBOOK_SHA256,
     AUROCHS_WILD_POPULATION_LABEL,
     PAPER_ONLY_SAMPLE_LABEL,
+)
+from .field_validation import _cell, _required, _required_coordinate
+from .source_values import (
+    _basename_has_label,
+    _parse_calibrated_bp_interval,
+    _parse_mitochondrial_date,
+    _submitted_basenames,
 )
 
 _EXPECTED_WORKBOOK_HEADER: Final = (
@@ -74,12 +79,6 @@ _EXPECTED_ARCHIVE_HEADER: Final = (
     "submitted_ftp",
     "sra_ftp",
 )
-_BP_INTERVAL_RE: Final = re.compile(r"(?P<older>\d+)-(?P<younger>\d+)")
-_MITOCHONDRIAL_DATE_RE: Final = re.compile(
-    r"(?P<mean>\d+(?:\.\d+)?) \((?P<younger>\d+)-(?P<older>\d+)\)"
-)
-
-
 @dataclass(frozen=True)
 class AurochsWorkbookEvidence:
     """One exact row from the governed natural-history workbook."""
@@ -496,60 +495,6 @@ def _parse_archive_evidence(archive_text: str) -> dict[str, AurochsArchiveEviden
     if len(accession_claims) != len(set(accession_claims)):
         raise ValueError("PRJEB75467 archive joins reuse a BioSample accession")
     return evidence
-
-
-def _parse_calibrated_bp_interval(value: str, label: str) -> tuple[int, int]:
-    match = _BP_INTERVAL_RE.fullmatch(value)
-    if match is None:
-        raise ValueError(f"PRJEB75467 {label} calibrated BP interval is invalid")
-    younger = int(match.group("younger"))
-    older = int(match.group("older"))
-    if younger > older:
-        raise ValueError(f"PRJEB75467 {label} calibrated BP interval direction drift")
-    return younger, older
-
-
-def _parse_mitochondrial_date(value: str, label: str) -> tuple[int, int, float]:
-    match = _MITOCHONDRIAL_DATE_RE.fullmatch(value)
-    if match is None:
-        raise ValueError(f"PRJEB75467 {label} mitochondrial date is invalid")
-    younger = int(match.group("younger"))
-    older = int(match.group("older"))
-    mean = float(match.group("mean"))
-    if younger > mean or mean > older:
-        raise ValueError(f"PRJEB75467 {label} mitochondrial date ordering drift")
-    return younger, older, mean
-
-
-def _submitted_basenames(value: str) -> tuple[str, ...]:
-    return tuple(
-        PurePosixPath(part.strip()).name for part in value.split(";") if part.strip()
-    )
-
-
-def _basename_has_label(basename: str, label: str) -> bool:
-    return re.match(rf"^{re.escape(label)}(?:[_\-.]|$)", basename) is not None
-
-
-def _required_coordinate(value: str, *, label: str, axis: str) -> str:
-    try:
-        number = float(value)
-    except ValueError as error:
-        raise ValueError(f"PRJEB75467 {label} {axis} is invalid") from error
-    bound = 90 if axis == "latitude" else 180
-    if not -bound <= number <= bound:
-        raise ValueError(f"PRJEB75467 {label} {axis} is out of range")
-    return value
-
-
-def _required(value: str, label: str, field: str) -> str:
-    if not value:
-        raise ValueError(f"PRJEB75467 {label} {field} is missing")
-    return value
-
-
-def _cell(row: tuple[str, ...], index: int) -> str:
-    return row[index].strip() if index < len(row) else ""
 
 
 __all__ = [
