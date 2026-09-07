@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 
-from .support import template_block
+from .support import run_node_json, template_block
 
 
 def test_interactive_framing_preserves_records_with_quiet_visual_density() -> None:
@@ -24,6 +24,49 @@ def test_interactive_framing_preserves_records_with_quiet_visual_density() -> No
     )
     assert "renderer: boundaryRenderer" in boundary_block
     assert "preferCanvas: true" in MAP_DOCUMENT_TEMPLATE
+
+
+def test_fit_active_keeps_evidence_polygons_outside_orientation_bounds() -> None:
+    render_block = template_block(
+        "function renderPolygonLayers", "function activeBounds"
+    )
+    bounds_block = template_block("function activeBounds", "function updateStats")
+    remove_block = template_block(
+        "function removeRenderedLayers", "function createClusterGroup"
+    )
+
+    assert "if (layer.kind !== 'country-boundaries')" in render_block
+    assert "renderedFittablePolygonLayers.push(geoJsonLayer)" in render_block
+    assert "renderedFittablePolygonLayers.forEach" in bounds_block
+    assert "renderedPolygonLayers.forEach" not in bounds_block
+    assert "renderedFittablePolygonLayers = [];" in remove_block
+
+    observed = run_node_json(
+        """
+const visiblePointEntries=[{feature:{latitude:60,longitude:18}}];
+function featureCoordinatePair(feature){
+  return {latitude:feature.latitude,longitude:feature.longitude};
+}
+function bounds(south,west,north,east){
+  return {
+    isValid(){return true},
+    getSouth(){return south},getWest(){return west},
+    getNorth(){return north},getEast(){return east},
+  };
+}
+const evidencePolygon={getBounds(){return bounds(55,10,65,25)}};
+const orientationBoundary={getBounds(){return bounds(-54,-9,81,34)}};
+const renderedFittablePolygonLayers=[evidencePolygon];
+const renderedPolygonLayers=[evidencePolygon,orientationBoundary];
+const L={latLngBounds(values){return values}};
+"""
+        + bounds_block
+        + """
+console.log(JSON.stringify(activeBounds()));
+"""
+    )
+
+    assert observed == [[60, 18], [55, 10], [65, 25]]
 
 
 def test_viewport_chrome_is_compact_clipped_and_non_overlapping() -> None:

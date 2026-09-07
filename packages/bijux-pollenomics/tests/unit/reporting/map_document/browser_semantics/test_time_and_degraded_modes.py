@@ -645,7 +645,9 @@ const ATLAS_EVIDENCE={classifications_status:'available'};
 const scientificStatus={textContent:''}, scientificFilters={innerHTML:''};
 const scientificActions={hidden:false};
 const scientificSummary={textContent:''};
+const sourceChronologyShortcuts={hidden:false,querySelectorAll(){return []}};
 const document={querySelectorAll(){return []}};
+function sourceChronologyLayers(){return []}
 function escapeHtml(value){return String(value)}
 function scientificCueGlyph(){return 'x'}
 """
@@ -671,6 +673,77 @@ console.log(JSON.stringify({
         "signals": ["subgroup:cereals"],
         "subgroupControl": True,
     }
+
+
+def test_scientific_controls_only_offer_source_views_when_the_scope_has_them() -> None:
+    control_renderer = template_block(
+        "function renderScientificControls", "function visibleGovernedEdges"
+    )
+    observed = run_node_json(
+        """
+const SCIENTIFIC_SIGNALS=[];
+const SCIENTIFIC_RESOLUTION_ORDER=['whole','group','subgroup','role','taxon'];
+const activeScientificSignalIds=new Set();
+const ATLAS_EVIDENCE={classifications_status:'unavailable'};
+const scientificStatus={textContent:''}, scientificFilters={innerHTML:''};
+const scientificActions={hidden:false};
+const scientificSummary={textContent:''};
+const shortcutButtons=Array.from({length:6},()=>({disabled:false}));
+const sourceChronologyShortcuts={
+  hidden:false,
+  querySelectorAll(selector){
+    if(selector!=='[data-source-shortcut]') throw new Error('unexpected selector');
+    return shortcutButtons;
+  },
+};
+const document={querySelectorAll(){return []}};
+let sourceLayerCount=0;
+function sourceChronologyLayers(){return Array.from({length:sourceLayerCount},()=>({}))}
+function escapeHtml(value){return String(value)}
+function scientificCueGlyph(){return 'x'}
+"""
+        + control_renderer
+        + """
+function snapshot(){
+  return {
+    status:scientificStatus.textContent,
+    summary:scientificSummary.textContent,
+    shortcutsHidden:sourceChronologyShortcuts.hidden,
+    shortcutsDisabled:shortcutButtons.every((button)=>button.disabled),
+  };
+}
+renderScientificControls();
+const withoutSourceChronology=snapshot();
+sourceLayerCount=1;
+renderScientificControls();
+const withSourceChronology=snapshot();
+console.log(JSON.stringify({withoutSourceChronology,withSourceChronology}));
+"""
+    )
+
+    assert observed == {
+        "withoutSourceChronology": {
+            "status": (
+                "Harmonized scientific classifications are awaiting qualified "
+                "review. This scope has no source-native pollen chronology layers."
+            ),
+            "summary": "Accepted classifications unavailable",
+            "shortcutsHidden": True,
+            "shortcutsDisabled": True,
+        },
+        "withSourceChronology": {
+            "status": (
+                "Harmonized scientific classifications are awaiting qualified "
+                "review. Source-native pollen-bearing sample presence, ecological-code, "
+                "and exact-label chronology remains available below without asserting "
+                "equivalence."
+            ),
+            "summary": "Source-native views available",
+            "shortcutsHidden": False,
+            "shortcutsDisabled": False,
+        },
+    }
+    assert ".source-shortcuts[hidden] { display: none; }" in MAP_DOCUMENT_TEMPLATE
 
 
 def test_inline_payload_supplies_the_runtime_filter_budget() -> None:

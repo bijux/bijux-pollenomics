@@ -492,6 +492,7 @@
         gap: 8px;
         margin-top: 12px;
       }
+      .source-shortcuts[hidden] { display: none; }
       .source-shortcuts .inline-button,
       .time-stepper .inline-button {
         min-width: 0;
@@ -2016,7 +2017,7 @@
                     <button id="scientific-whole" class="inline-button is-primary" type="button">Whole pollen</button>
                     <button id="scientific-clear" class="inline-button" type="button">Clear comparison</button>
                   </div>
-                  <div class="source-shortcuts" aria-label="Open source-native pollen views">
+                  <div id="source-chronology-shortcuts" class="source-shortcuts" aria-label="Open source-native pollen views" hidden>
                     <button class="inline-button is-primary" type="button" data-source-shortcut="sample">Source sample presence</button>
                     <button class="inline-button" type="button" data-source-shortcut="TRSH">TRSH</button>
                     <button class="inline-button" type="button" data-source-shortcut="UPHE">UPHE</button>
@@ -2903,6 +2904,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       let renderedPointGroups = [];
       let renderedEdgeLayers = [];
       let renderedPolygonLayers = [];
+      let renderedFittablePolygonLayers = [];
       let visiblePointEntries = [];
       let visiblePolygonFeatureEntries = [];
       let highlightedPointEntry = null;
@@ -2929,6 +2931,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const scientificActions = document.getElementById('scientific-actions');
       const scientificStatus = document.getElementById('scientific-status');
       const scientificSummary = document.getElementById('scientific-summary');
+      const sourceChronologyShortcuts = document.getElementById('source-chronology-shortcuts');
       const countryPairFilter = document.getElementById('country-pair-filter');
       const crossBorderOnlyCheckbox = document.getElementById('cross-border-only');
       const relationSummary = document.getElementById('relation-summary');
@@ -4852,10 +4855,17 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function renderScientificControls() {
         const available = ATLAS_EVIDENCE.classifications_status === 'available' && SCIENTIFIC_SIGNALS.length > 0;
+        const sourceChronologyAvailable = sourceChronologyLayers().length > 0;
         scientificActions.hidden = !available;
+        sourceChronologyShortcuts.hidden = !sourceChronologyAvailable;
+        sourceChronologyShortcuts.querySelectorAll('[data-source-shortcut]').forEach((button) => {
+          button.disabled = !sourceChronologyAvailable;
+        });
         scientificStatus.textContent = available
           ? 'Only accepted, versioned classifications are selectable. Color is always paired with a shape cue.'
-          : 'Harmonized scientific classifications are awaiting qualified review. Source-native pollen-bearing sample presence, ecological-code, and exact-label chronology remains available below without asserting equivalence.';
+          : sourceChronologyAvailable
+            ? 'Harmonized scientific classifications are awaiting qualified review. Source-native pollen-bearing sample presence, ecological-code, and exact-label chronology remains available below without asserting equivalence.'
+            : 'Harmonized scientific classifications are awaiting qualified review. This scope has no source-native pollen chronology layers.';
         scientificFilters.innerHTML = available
           ? SCIENTIFIC_RESOLUTION_ORDER.map((resolution) => {
               const signals = SCIENTIFIC_SIGNALS.filter((signal) => signal.resolution === resolution);
@@ -4865,7 +4875,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           : '';
         scientificSummary.textContent = available
           ? `${activeScientificSignalIds.size} of ${SCIENTIFIC_SIGNALS.length} accepted signals selected`
-          : 'Source-native views available';
+          : sourceChronologyAvailable ? 'Source-native views available' : 'Accepted classifications unavailable';
         document.querySelectorAll('.scientific-checkbox').forEach((checkbox) => {
           checkbox.addEventListener('change', () => {
             if (checkbox.checked) activeScientificSignalIds.add(checkbox.value); else activeScientificSignalIds.delete(checkbox.value);
@@ -5523,6 +5533,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         renderedPointGroups = [];
         renderedEdgeLayers = [];
         renderedPolygonLayers = [];
+        renderedFittablePolygonLayers = [];
         circleLayerGroup.clearLayers();
         visiblePointEntries = [];
         visiblePolygonFeatureEntries = [];
@@ -5791,6 +5802,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           }
           geoJsonLayer.addTo(map);
           renderedPolygonLayers.push(geoJsonLayer);
+          if (layer.kind !== 'country-boundaries') renderedFittablePolygonLayers.push(geoJsonLayer);
         });
       }
       function activeBounds() {
@@ -5798,7 +5810,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           .map((entry) => featureCoordinatePair(entry.feature))
           .filter((coordinates) => coordinates !== null)
           .map((coordinates) => [coordinates.latitude, coordinates.longitude]);
-        renderedPolygonLayers.forEach((layer) => {
+        renderedFittablePolygonLayers.forEach((layer) => {
           const bounds = layer.getBounds();
           if (bounds.isValid()) {
             latLngs.push([bounds.getSouth(), bounds.getWest()]);
