@@ -29,6 +29,7 @@ _REGISTRATION_ORDER = [
     "build_multi_country_map_parser",
     "build_publish_reports_parser",
     "build_collect_data_parser",
+    "build_refresh_aadr_source_accountability_parser",
     "build_refresh_data_contract_surfaces_parser",
     "build_surface_map_parser",
     "build_product_scope_parser",
@@ -38,7 +39,7 @@ _REGISTRATION_ORDER = [
 ]
 
 
-def test_export_order_is_unchanged() -> None:
+def test_export_order_covers_every_supported_builder() -> None:
     assert subcommands.__all__ == [
         "build_adna_archive_projects_parser",
         "build_adna_artifact_plan_parser",
@@ -57,6 +58,7 @@ def test_export_order_is_unchanged() -> None:
         "build_product_scope_parser",
         "build_publish_reports_parser",
         "build_refresh_animal_adna_foundation_parser",
+        "build_refresh_aadr_source_accountability_parser",
         "build_refresh_data_contract_surfaces_parser",
         "build_report_country_parser",
         "build_source_support_parser",
@@ -66,12 +68,12 @@ def test_export_order_is_unchanged() -> None:
     ]
 
 
-def test_builder_signatures_are_unchanged() -> None:
+def test_builder_signatures_remain_uniform() -> None:
     expected = (
         "(subparsers: 'argparse._SubParsersAction[argparse.ArgumentParser]') "
         "-> 'argparse.ArgumentParser'"
     )
-    assert len(_BUILDERS) == 22
+    assert len(_BUILDERS) == 23
     assert all(
         str(inspect.signature(getattr(subcommands, name))) == expected
         for name in _BUILDERS
