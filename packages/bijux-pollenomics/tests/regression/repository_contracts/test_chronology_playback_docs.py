@@ -29,6 +29,11 @@ EXPECTED_STORIES = (
     "pangaea-937075-metric-cerealia-t",
     "pangaea-937075-metric-secale",
     "pangaea-937075-metric-ol",
+    "pangaea-937075-metric-et",
+    "pangaea-937075-metric-st",
+    "pangaea-937075-metric-lse",
+    "pangaea-937075-metric-gl",
+    "pangaea-937075-metric-al",
 )
 EXPECTED_PUBLIC_ROWS = {
     "neotoma-source-sample-presence": {
@@ -151,6 +156,46 @@ EXPECTED_PUBLIC_ROWS = {
         "last_interval": (0, 100),
         "page_row": "| modeled *Secale cereale* | 75 modeled cells per frame | 25 source-defined windows; no interpolation |",
     },
+    "pangaea-937075-metric-et": {
+        "node_count": None,
+        "observation_denominator": None,
+        "frame_count": 25,
+        "first_interval": (11200, 11700),
+        "last_interval": (0, 100),
+        "page_row": "| evergreen trees (ET) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |",
+    },
+    "pangaea-937075-metric-st": {
+        "node_count": None,
+        "observation_denominator": None,
+        "frame_count": 25,
+        "first_interval": (11200, 11700),
+        "last_interval": (0, 100),
+        "page_row": "| summer-green trees (ST) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |",
+    },
+    "pangaea-937075-metric-lse": {
+        "node_count": None,
+        "observation_denominator": None,
+        "frame_count": 25,
+        "first_interval": (11200, 11700),
+        "last_interval": (0, 100),
+        "page_row": "| low shrub, broadleaved evergreen (LSE) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |",
+    },
+    "pangaea-937075-metric-gl": {
+        "node_count": None,
+        "observation_denominator": None,
+        "frame_count": 25,
+        "first_interval": (11200, 11700),
+        "last_interval": (0, 100),
+        "page_row": "| grassland — all herbs (GL) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |",
+    },
+    "pangaea-937075-metric-al": {
+        "node_count": None,
+        "observation_denominator": None,
+        "frame_count": 25,
+        "first_interval": (11200, 11700),
+        "last_interval": (0, 100),
+        "page_row": "| agricultural land — cereals (AL) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |",
+    },
 }
 
 
@@ -176,15 +221,18 @@ def test_chronology_page_embeds_the_exact_governed_media_inventory() -> None:
         (PUBLICATION_ROOT / "publication-manifest.json").read_text(encoding="utf-8")
     )
 
-    assert manifest["schema_version"] == "atlas-media-publication.v3"
+    assert manifest["schema_version"] == "atlas-media-publication.v4"
     assert manifest["story_count"] == len(EXPECTED_STORIES)
+    assert manifest["publication_budget"]["published_asset_count"] == (
+        2 * len(EXPECTED_STORIES)
+    )
     assert tuple(row["story_id"] for row in manifest["stories"]) == EXPECTED_STORIES
     assert page.count(
         '<video controls preload="metadata" muted playsinline loop'
     ) == len(EXPECTED_STORIES)
     assert "autoplay" not in page
     assert 'href="./chronology-playback/"' in atlas_index
-    assert "provides 15 pre-rendered views" in " ".join(atlas_index.split())
+    assert "provides 20 pre-rendered views" in " ".join(atlas_index.split())
     for story in manifest["stories"]:
         expected = EXPECTED_PUBLIC_ROWS[story["story_id"]]
         assert story["node_count"] == expected["node_count"]

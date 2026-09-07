@@ -4,12 +4,12 @@ audience: reader
 type: analysis
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-06
+last_reviewed: 2026-09-07
 ---
 
 # Nordic Chronology Playback
 
-These fifteen governed animations replay dated evidence from the oldest window
+These twenty governed animations replay dated evidence from the oldest window
 toward the present. Denmark, Finland, Norway, and Sweden remain available as
 the same four filter scopes used by the interactive Nordic atlas; a country
 with no evidence for a selected taxon remains empty and is not presented as
@@ -17,9 +17,10 @@ covered.
 
 The twelve Neotoma animations show discrete dated source observations. Changing
 spatial visibility through time can look flow-like, but it is not evidence of
-movement, migration, causation, or propagation. The three PANGAEA animations
-show non-interpolated modeled cereal-taxon and open-land context from
-[PANGAEA 937075](https://doi.org/10.1594/PANGAEA.937075), published with the
+movement, migration, causation, or propagation. The eight PANGAEA animations
+show non-interpolated modeled taxon, land-cover, and plant-functional-type
+context from [PANGAEA 937075](https://doi.org/10.1594/PANGAEA.937075), published
+with the
 [Githumbi et al. (2022) reconstruction](https://doi.org/10.5194/essd-14-1581-2022);
 a modeled surface is not an observed pollen trajectory. Null ages remain
 unavailable and are never converted to zero.
@@ -55,6 +56,11 @@ labels, and provider failures cannot obscure or compete with the evidence.
 | modeled cereal type (Cerealia.t) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
 | modeled *Secale cereale* | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
 | open land (OL) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
+| evergreen trees (ET) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
+| summer-green trees (ST) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
+| low shrub, broadleaved evergreen (LSE) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
+| grassland — all herbs (GL) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
+| agricultural land — cereals (AL) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
 
 Counts retain their declared denominator. Nodes and observations are not added
 together, and the modeled-cell denominator is not compared as though it were a
@@ -164,9 +170,9 @@ taxon in that country; it does not mean absence in the past environment.
 <figure class="bijux-media-card">
   <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-967.poster.png">
     <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-967.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-967.mp4">Open the exact *Secale* chronology video.</a>
+    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-967.mp4">Open the exact <em>Secale</em> chronology video.</a>
   </video>
-  <figcaption>Only Neotoma source taxon 967 (*Secale*): 469 nodes and 469 observations. Broader cereal categories are not silently merged into this exact-taxon view.</figcaption>
+  <figcaption>Only Neotoma source taxon 967 (<em>Secale</em>): 469 nodes and 469 observations. Broader cereal categories are not silently merged into this exact-taxon view.</figcaption>
 </figure>
 
 ## Exact Taxon — *Secale cereale*
@@ -227,6 +233,56 @@ taxon in that country; it does not mean absence in the past environment.
     <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-ol.mp4">Open the open-land modeled-context video.</a>
   </video>
   <figcaption>Open-land metric OL from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows from 11,700 BP toward the present.</figcaption>
+</figure>
+
+## PANGAEA Evergreen-Tree Context
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-et.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-et.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-et.mp4">Open the evergreen-tree modeled-context video.</a>
+  </video>
+  <figcaption>Evergreen-tree land-cover metric ET from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. It is context, not a source-observation or propagation layer.</figcaption>
+</figure>
+
+## PANGAEA Summer-Green-Tree Context
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-st.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-st.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-st.mp4">Open the summer-green-tree modeled-context video.</a>
+  </video>
+  <figcaption>Summer-green-tree land-cover metric ST from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. It is not silently combined with ET or source pollen observations.</figcaption>
+</figure>
+
+## PANGAEA Low-Shrub Context
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-lse.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-lse.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-lse.mp4">Open the low-shrub modeled-context video.</a>
+  </video>
+  <figcaption>Low shrub, broadleaved evergreen source PFT code LSE from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows.</figcaption>
+</figure>
+
+## PANGAEA Grassland Context
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-gl.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-gl.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-gl.mp4">Open the grassland modeled-context video.</a>
+  </video>
+  <figcaption>Grassland — all herbs source PFT code GL from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows.</figcaption>
+</figure>
+
+## PANGAEA Agricultural-Land Context
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-al.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-al.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/pangaea-937075-metric-al.mp4">Open the agricultural-land modeled-context video.</a>
+  </video>
+  <figcaption>Agricultural land — cereals source PFT code AL from PANGAEA 937075: 75 modeled cells in each of 25 source-defined windows. It remains distinct from exact cereal-taxon evidence.</figcaption>
 </figure>
 
 ## Scientific Boundary
