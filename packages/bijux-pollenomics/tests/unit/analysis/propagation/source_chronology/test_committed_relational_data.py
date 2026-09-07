@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
-import json
 from collections import Counter
+import json
 from pathlib import Path
 from typing import Any
 
 import pytest
+
 from bijux_pollenomics.analysis.propagation.source_chronology import (
     SOURCE_NODE_CONFIG_DIGEST,
     SourceNodeContext,
