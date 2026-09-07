@@ -10,6 +10,9 @@ import zlib
 
 from .budgets import ATLAS_CHUNK_MAX_BYTES
 
+_GZIP_OPERATING_SYSTEM_OFFSET = 9
+_GZIP_OPERATING_SYSTEM_UNKNOWN = 255
+
 
 def canonical_json(value: Any) -> str:
     """Serialize a JSON value with the atlas's deterministic encoding."""
@@ -39,7 +42,7 @@ def chunk_script_bytes(
         envelope["payload_json"] = payload_json
     elif payload_encoding == "gzip_base64":
         envelope["payload_gzip_base64"] = base64.b64encode(
-            gzip.compress(payload_json.encode("utf-8"), compresslevel=9, mtime=0)
+            _canonical_gzip_compress(payload_json.encode("utf-8"))
         ).decode("ascii")
     else:
         raise ValueError("static atlas payload encoding is unsupported")
@@ -50,6 +53,13 @@ def chunk_script_bytes(
         f"globalThis.__BIJUX_ATLAS_RAW_CHUNKS__.push({envelope_json});\n"
     )
     return statement.encode("utf-8")
+
+
+def _canonical_gzip_compress(payload: bytes) -> bytes:
+    """Compress bytes without leaking the producer operating system."""
+    compressed = bytearray(gzip.compress(payload, compresslevel=9, mtime=0))
+    compressed[_GZIP_OPERATING_SYSTEM_OFFSET] = _GZIP_OPERATING_SYSTEM_UNKNOWN
+    return bytes(compressed)
 
 
 def decode_chunk_script(

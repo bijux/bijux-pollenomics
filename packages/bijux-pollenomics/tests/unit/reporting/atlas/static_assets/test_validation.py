@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -133,6 +134,39 @@ def test_compressed_payload_refuses_over_budget_expansion() -> None:
             expected_payload_encoding="gzip_base64",
             expected_decoded_byte_count=len(payload_json),
         )
+
+
+def test_compressed_payload_uses_platform_neutral_gzip_header(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    platform_gzip_compress = gzip.compress
+
+    def compress_with_platform_header(
+        payload: bytes, *, compresslevel: int, mtime: int
+    ) -> bytes:
+        compressed = bytearray(
+            platform_gzip_compress(
+                payload,
+                compresslevel=compresslevel,
+                mtime=mtime,
+            )
+        )
+        compressed[9] = 19
+        return bytes(compressed)
+
+    monkeypatch.setattr(gzip, "compress", compress_with_platform_header)
+    payload_json = canonical_json({"records": [{"id": "sample"}]})
+    script = chunk_script_bytes(
+        asset_key="nodes:1",
+        payload_sha256=hashlib.sha256(payload_json.encode()).hexdigest(),
+        payload_json=payload_json,
+        payload_encoding="gzip_base64",
+    )
+    envelope = json.loads(script.decode().split(".push(", maxsplit=1)[1][:-3])
+    compressed = base64.b64decode(envelope["payload_gzip_base64"])
+
+    assert compressed[9] == 255
+    assert gzip.decompress(compressed).decode() == payload_json
 
 
 def test_compressed_payload_normalizes_truncated_gzip_failure() -> None:
