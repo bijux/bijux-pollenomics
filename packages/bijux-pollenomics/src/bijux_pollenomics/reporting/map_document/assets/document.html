@@ -4014,6 +4014,26 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (!layer || layer.node_level !== 'source_taxon' || presetKey === 'none') return null;
         return layer.facet_metadata.source_label_preset_accountability.presets.find((row) => row.key === presetKey) || null;
       }
+      function sourceChronologyCapturePresetAuthority(layer, presetKey) {
+        if (presetKey === 'none') return null;
+        if (!sourceChronologyLayerIsValid(layer) || layer.node_level !== 'source_taxon') throw new Error('capture source preset authority is unavailable');
+        const catalog = layer.facet_metadata.source_label_preset_catalog;
+        const account = sourceChronologyPresetForSelection(layer, presetKey);
+        const definition = catalog.presets.find((row) => row.key === presetKey) || null;
+        if (!account || !definition) throw new Error('capture source preset authority is unavailable');
+        if (!sourceChronologyIntegerIdsAreValid(account.member_taxon_ids)
+          || JSON.stringify(account.member_taxon_ids) !== JSON.stringify(definition.member_taxon_ids)) {
+          throw new Error('capture source preset member IDs differ from the governed catalog');
+        }
+        if (!sourceChronologySha256IdentityIsValid(catalog.content_sha256)
+          || layer.facet_metadata.source_label_preset_accountability.catalog_content_sha256 !== catalog.content_sha256) {
+          throw new Error('capture source preset catalog digest differs from governed accountability');
+        }
+        return Object.freeze({
+          memberTaxonIds: Object.freeze([...account.member_taxon_ids]),
+          catalogSha256: catalog.content_sha256.slice('sha256:'.length),
+        });
+      }
       function sourceChronologyFacetForSelection(layer, code, taxon, presetKey = typeof activeSourceChronologyPreset === 'undefined' ? 'none' : activeSourceChronologyPreset) {
         if (!layer) return null;
         const facets = layer.facet_metadata;
@@ -6348,6 +6368,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           let sourceCode = 'all';
           let sourceTaxon = 'all';
           let sourcePreset = 'none';
+          let sourcePresetAuthority = null;
           if (sourceLevel === 'source_ecological_code') {
             const validCodes = ['all', ...sourceLayer.facet_metadata.source_ecological_codes.map((row) => row.value)];
             sourceCode = String(frameSpec.source_code || 'all');
@@ -6360,6 +6381,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             sourcePreset = String(frameSpec.source_preset || 'none');
             if (!validPresets.includes(sourcePreset)) throw new Error('capture source_preset is unavailable');
             if (sourceTaxon !== 'all' && sourcePreset !== 'none') throw new Error('capture cannot combine an exact source taxon and a source-label preset');
+            sourcePresetAuthority = sourceChronologyCapturePresetAuthority(sourceLayer, sourcePreset);
           }
           const frameWindow = captureFrameWindow(frameSpec);
           const facet = sourceChronologyFacetForSelection(sourceLayer, sourceCode, sourceTaxon, sourcePreset);
@@ -6367,7 +6389,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const minimum = sourceChronologyTimeValue(facet.time_min_bp);
           const maximum = sourceChronologyTimeValue(facet.time_max_bp);
           if (frameWindow.youngerBp < minimum || frameWindow.olderBp > maximum) throw new Error('capture BP interval exceeds the selected source extent');
-          return { ...common, sourceLevel, sourceCode, sourceTaxon, sourcePreset, frameWindow };
+          return { ...common, sourceLevel, sourceCode, sourceTaxon, sourcePreset, sourcePresetAuthority, frameWindow };
         }
         if (!modeledContextAvailable()) throw new Error('modeled_context_capture_not_available');
         const sourceWindowLabel = String(frameSpec.source_window_label || '');
@@ -6413,6 +6435,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const sourceLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
         const sourceFacet = sourceLayer
           ? sourceChronologyFacetForSelection(sourceLayer, activeSourceChronologyCode, activeSourceChronologyTaxon)
+          : null;
+        const sourcePresetAuthority = activeSourceChronologyLevel === 'source_taxon' && activeSourceChronologyPreset !== 'none'
+          ? sourceChronologyCapturePresetAuthority(sourceLayer, activeSourceChronologyPreset)
           : null;
         const visibleSourceEntries = visiblePointEntries.filter(({ layer }) => layer.semantic_role === 'source_chronology_context');
         const visibleSourceSiteCount = new Set(visibleSourceEntries.map(({ feature }) => feature.record_id)).size;
@@ -6466,6 +6491,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             source_code: activeSourceChronologyLevel === 'source_ecological_code' ? activeSourceChronologyCode : null,
             source_taxon: activeSourceChronologyLevel === 'source_taxon' ? activeSourceChronologyTaxon : null,
             source_preset: activeSourceChronologyLevel === 'source_taxon' && activeSourceChronologyPreset !== 'none' ? activeSourceChronologyPreset : null,
+            source_preset_member_taxon_ids: sourcePresetAuthority ? [...sourcePresetAuthority.memberTaxonIds] : null,
+            source_preset_catalog_sha256: sourcePresetAuthority ? sourcePresetAuthority.catalogSha256 : null,
             facet_site_count: sourceFacet ? sourceFacet.site_count : null,
             facet_node_count: sourceFacet ? sourceFacet.node_count : null,
             facet_observation_denominator: sourceFacet ? sourceFacet.observation_denominator : null,

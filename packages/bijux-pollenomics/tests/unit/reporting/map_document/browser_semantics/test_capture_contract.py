@@ -36,6 +36,9 @@ def test_capture_contract_preserves_scientific_refusals_and_bp_semantics() -> No
     assert "evidence_role: 'context_only'" in block
     assert "feature_count: sourceWindow.feature_count" in block
     assert "visible_source_chronology_point_count:" in block
+    assert "source_preset_member_taxon_ids:" in block
+    assert "source_preset_catalog_sha256:" in block
+    assert "sourceChronologyCapturePresetAuthority" in block
     assert "layer.semantic_role === 'source_chronology_context'" in block
     assert "visible_modeled_context_feature_count:" in block
     assert "isModeledContextFeature(layer, feature.properties || {})" in block

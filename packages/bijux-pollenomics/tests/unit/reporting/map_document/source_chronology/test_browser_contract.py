@@ -277,6 +277,73 @@ console.log(JSON.stringify({
     }
 
 
+def test_capture_preset_authority_is_observed_from_governed_browser_data() -> None:
+    helpers = template_block(
+        "const SOURCE_CHRONOLOGY_LEVEL_ORDER",
+        "function sourceRecordConcentrationFailure",
+    )
+    taxon_layer = next(
+        layer
+        for layer in projection()[1].point_layers
+        if layer["node_level"] == "source_taxon"
+    )
+    facets = taxon_layer["facet_metadata"]
+    assert isinstance(facets, dict)
+    catalog = facets["source_label_preset_catalog"]
+    assert isinstance(catalog, dict)
+    catalog_identity = catalog["content_sha256"]
+    assert isinstance(catalog_identity, str)
+    observed = run_node_json(
+        "const POINT_LAYERS="
+        + json.dumps([taxon_layer])
+        + ";"
+        + helpers
+        + """
+const layer=POINT_LAYERS[0];
+const membershipDrift=JSON.parse(JSON.stringify(layer));
+membershipDrift.facet_metadata.source_label_preset_accountability.presets[0].member_taxon_ids=[999];
+const digestDrift=JSON.parse(JSON.stringify(layer));
+digestDrift.facet_metadata.source_label_preset_catalog.content_sha256='sha256:'+'f'.repeat(64);
+const missingCatalog=JSON.parse(JSON.stringify(layer));
+delete missingCatalog.facet_metadata.source_label_preset_catalog;
+function outcome(candidate) {
+  try { return {status:'accepted',value:sourceChronologyCapturePresetAuthority(candidate,'avena')}; }
+  catch (error) { return {status:'refused',message:error.message}; }
+}
+console.log(JSON.stringify({
+  governed:outcome(layer),
+  membershipDrift:outcome(membershipDrift),
+  digestDrift:outcome(digestDrift),
+  missingCatalog:outcome(missingCatalog),
+  noPreset:sourceChronologyCapturePresetAuthority(layer,'none'),
+}));
+"""
+    )
+
+    assert observed == {
+        "governed": {
+            "status": "accepted",
+            "value": {
+                "memberTaxonIds": [414, 415, 3915, 3917, 3918, 31581, 48827],
+                "catalogSha256": catalog_identity.removeprefix("sha256:"),
+            },
+        },
+        "membershipDrift": {
+            "status": "refused",
+            "message": "capture source preset authority is unavailable",
+        },
+        "digestDrift": {
+            "status": "refused",
+            "message": "capture source preset authority is unavailable",
+        },
+        "missingCatalog": {
+            "status": "refused",
+            "message": "capture source preset authority is unavailable",
+        },
+        "noPreset": None,
+    }
+
+
 def test_denominators_and_exact_source_identity_drive_selector_state() -> None:
     renderer = template_block(
         "function selectSourceChronologyLevel",
@@ -678,6 +745,9 @@ def test_capture_contract_validates_and_restores_exact_preset_state() -> None:
     assert "sourceChronologyFacetForSelection(sourceLayer, sourceCode, sourceTaxon, sourcePreset)" in normalization
     assert "activeSourceChronologyPreset = captureFrame.sourcePreset" in application
     assert "source_preset:" in snapshot
+    assert "source_preset_member_taxon_ids:" in snapshot
+    assert "source_preset_catalog_sha256:" in snapshot
+    assert "sourceChronologyCapturePresetAuthority" in normalization
     assert "facet_site_count:" in snapshot
     assert "visible_site_count:" in snapshot
     assert "sourceChronologyPreset: params.get('source_label_preset')" in (
