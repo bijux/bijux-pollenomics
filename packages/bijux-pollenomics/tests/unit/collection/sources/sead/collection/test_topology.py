@@ -37,6 +37,7 @@ def test_repository_surface_transaction_is_grouped_and_bounded() -> None:
     assert [module.name for module in modules] == [
         "__init__.py",
         "contract.py",
+        "identity.py",
         "transaction.py",
         "validation.py",
     ]
