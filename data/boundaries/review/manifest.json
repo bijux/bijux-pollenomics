@@ -72,8 +72,8 @@
     "animal_adna": [
       {
         "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-        "sha256": "eae1fffbff2449637f7b2c816130b7b88bf913a9eac5be994fa8f5600a0f2509",
-        "bytes": 611058
+        "sha256": "5d2a53b27c83d856eb6f033531ecba932d739355d7127fc27f360d32ed7cc6bc",
+        "bytes": 700614
       },
       {
         "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
@@ -138,7 +138,7 @@
     "NO",
     "FI"
   ],
-  "point_count": 3029,
+  "point_count": 3048,
   "point_review_count": 147,
   "point_surface_scope": {
     "denominator_policy": "Enumerate each source-owned point once from its most complete governed local surface; do not recount publication derivatives.",
@@ -173,26 +173,26 @@
   },
   "source_summaries": {
     "animal_adna": {
-      "row_count": 151,
+      "row_count": 170,
       "country_counts": {
         "SE": 2,
         "DK": 4,
         "NO": 0,
         "FI": 0,
-        "UNASSIGNED": 145
+        "UNASSIGNED": 164
       },
       "decision_status_counts": {
         "assigned": 6,
         "review": 1,
-        "unassigned": 144
+        "unassigned": 163
       },
       "decision_method_counts": {
         "boundary_proximity": 1,
-        "no_boundary_containment": 144,
+        "no_boundary_containment": 163,
         "strict_boundary_containment": 6
       },
       "review_requirement_counts": {
-        "no_point_review_required": 150,
+        "no_point_review_required": 169,
         "qualified_review_required": 1
       }
     },
@@ -272,8 +272,8 @@
     },
     {
       "path": "data/boundaries/review/country-decisions/animal_adna.json",
-      "sha256": "2ff6996acc90eacc9565e635349145ffdab05663c9298cd68ff5986e27ebe3a6",
-      "bytes": 338836
+      "sha256": "e77dd526ef217414fb19da2c0d9e92ab6be3e6a6f9abac4a91572235c653bb7c",
+      "bytes": 380963
     },
     {
       "path": "data/boundaries/review/country-decisions/landclim.json",

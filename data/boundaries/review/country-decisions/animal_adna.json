@@ -28,8 +28,8 @@
   "source_artifacts": [
     {
       "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-      "sha256": "eae1fffbff2449637f7b2c816130b7b88bf913a9eac5be994fa8f5600a0f2509",
-      "bytes": 611058
+      "sha256": "5d2a53b27c83d856eb6f033531ecba932d739355d7127fc27f360d32ed7cc6bc",
+      "bytes": 700614
     },
     {
       "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
@@ -87,28 +87,28 @@
       "bytes": 2694
     }
   ],
-  "row_count": 151,
+  "row_count": 170,
   "summary": {
-    "row_count": 151,
+    "row_count": 170,
     "country_counts": {
       "SE": 2,
       "DK": 4,
       "NO": 0,
       "FI": 0,
-      "UNASSIGNED": 145
+      "UNASSIGNED": 164
     },
     "decision_status_counts": {
       "assigned": 6,
       "review": 1,
-      "unassigned": 144
+      "unassigned": 163
     },
     "decision_method_counts": {
       "boundary_proximity": 1,
-      "no_boundary_containment": 144,
+      "no_boundary_containment": 163,
       "strict_boundary_containment": 6
     },
     "review_requirement_counts": {
-      "no_point_review_required": 150,
+      "no_point_review_required": 169,
       "qualified_review_required": 1
     }
   },
@@ -123,7 +123,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[114]"
+          "locator": "rows[133]"
         },
         {
           "role": "source_native_row",
@@ -171,7 +171,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[35]"
+          "locator": "rows[54]"
         },
         {
           "role": "source_native_row",
@@ -219,7 +219,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[60]"
+          "locator": "rows[79]"
         },
         {
           "role": "source_native_row",
@@ -267,7 +267,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[89]"
+          "locator": "rows[108]"
         },
         {
           "role": "source_native_row",
@@ -315,7 +315,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[19]"
+          "locator": "rows[37]"
         },
         {
           "role": "source_native_row",
@@ -363,7 +363,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[88]"
+          "locator": "rows[107]"
         },
         {
           "role": "source_native_row",
@@ -403,6 +403,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:0ae6fc6b414d5f93b218c0706c8febd91e999209c648c923fe728cdeeb7d2135",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:palidorolatium:italy",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[14]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A13:Y13"
+        }
+      ],
+      "longitude": 12.1784197861236,
+      "latitude": 41.9268766840193,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Italy",
+      "published_country": "Italy",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:0bc316f6723d2abb6ce40a790f42b2023d2ad57f395ae3173648117e0a75e647",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -411,7 +459,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[118]"
+          "locator": "rows[137]"
         },
         {
           "role": "source_native_row",
@@ -459,7 +507,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[6]"
+          "locator": "rows[24]"
         },
         {
           "role": "source_native_row",
@@ -507,7 +555,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[51]"
+          "locator": "rows[70]"
         },
         {
           "role": "source_native_row",
@@ -555,7 +603,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[74]"
+          "locator": "rows[93]"
         },
         {
           "role": "source_native_row",
@@ -603,7 +651,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[73]"
+          "locator": "rows[92]"
         },
         {
           "role": "source_native_row",
@@ -651,7 +699,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[75]"
+          "locator": "rows[94]"
         },
         {
           "role": "source_native_row",
@@ -699,7 +747,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[56]"
+          "locator": "rows[75]"
         },
         {
           "role": "source_native_row",
@@ -747,7 +795,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[148]"
+          "locator": "rows[167]"
         },
         {
           "role": "source_native_row",
@@ -801,7 +849,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[122]"
+          "locator": "rows[141]"
         },
         {
           "role": "source_native_row",
@@ -849,7 +897,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[22]"
+          "locator": "rows[40]"
         },
         {
           "role": "source_native_row",
@@ -897,7 +945,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[34]"
+          "locator": "rows[53]"
         },
         {
           "role": "source_native_row",
@@ -945,7 +993,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[144]"
+          "locator": "rows[163]"
         },
         {
           "role": "source_native_row",
@@ -993,7 +1041,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[116]"
+          "locator": "rows[135]"
         },
         {
           "role": "source_native_row",
@@ -1041,7 +1089,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[68]"
+          "locator": "rows[87]"
         },
         {
           "role": "source_native_row",
@@ -1089,7 +1137,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[47]"
+          "locator": "rows[66]"
         },
         {
           "role": "source_native_row",
@@ -1129,6 +1177,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:26ecf4970e656639554015e719b43173383cb1be8eeb67d0ed69de2a316d001a",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:vratsa:bulgaria",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[20]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A6:Y6 || Supplementary Data 1!A25:Y25"
+        }
+      ],
+      "longitude": 24.118494664326,
+      "latitude": 42.9726491502666,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Bulgaria",
+      "published_country": "Bulgaria",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:27d82bd386e3f7369624999bf366118db810e8e6b7fa8c2ef042e8f9ffe0577b",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -1137,7 +1233,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[142]"
+          "locator": "rows[161]"
         },
         {
           "role": "source_native_row",
@@ -1185,7 +1281,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[72]"
+          "locator": "rows[91]"
         },
         {
           "role": "source_native_row",
@@ -1225,6 +1321,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:28cdc492889027461f5408edee323fbd9bbdd5d1f7477bac836ea4dd1189883b",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "capra_hircus:locality:prjeb90261:lobos:lobos",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[43]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+          "locator": "Table S2!row60"
+        }
+      ],
+      "longitude": -13.825055,
+      "latitude": 28.741962,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Lobos",
+      "published_country": "Lobos",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:2f27a268509b7427daa03aaa6c277bdc715b45e581e1ca93bc752d71729fd6b4",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -1233,7 +1377,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[110]"
+          "locator": "rows[129]"
         },
         {
           "role": "source_native_row",
@@ -1281,7 +1425,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[83]"
+          "locator": "rows[102]"
         },
         {
           "role": "source_native_row",
@@ -1321,6 +1465,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:317d2a091dbf3a94f1152b75e2e807c86b02cce46406294dc67263f7f41e21de",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:gyumridistrict:armenia",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[9]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A3:Y3"
+        }
+      ],
+      "longitude": 43.8712544488537,
+      "latitude": 41.1320112833211,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Armenia",
+      "published_country": "Armenia",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:31e1a9d02700dd9f734cb3eaf0344f429b6c9bdea362f54c0e32d932c6bfb37c",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -1329,7 +1521,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[40]"
+          "locator": "rows[59]"
         },
         {
           "role": "source_native_row",
@@ -1377,7 +1569,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[87]"
+          "locator": "rows[106]"
         },
         {
           "role": "source_native_row",
@@ -1425,7 +1617,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[67]"
+          "locator": "rows[86]"
         },
         {
           "role": "source_native_row",
@@ -1473,7 +1665,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[108]"
+          "locator": "rows[127]"
         },
         {
           "role": "source_native_row",
@@ -1521,7 +1713,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[95]"
+          "locator": "rows[114]"
         },
         {
           "role": "source_native_row",
@@ -1569,7 +1761,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[16]"
+          "locator": "rows[34]"
         },
         {
           "role": "source_native_row",
@@ -1609,6 +1801,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:432c0d94988c3020b487a3b431531dc0dec86c961f39f536e7dff6392e553a50",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:trierbrderkrankenhaus:germany",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[16]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A17:Y17"
+        }
+      ],
+      "longitude": 6.633333,
+      "latitude": 49.75,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Germany",
+      "published_country": "Germany",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:469fd0ac3ec6d933228c101b5bb3d6355ee9b3d1f98799a97991d615f0cdf5ab",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -1617,7 +1857,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[101]"
+          "locator": "rows[120]"
         },
         {
           "role": "source_native_row",
@@ -1665,7 +1905,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[117]"
+          "locator": "rows[136]"
         },
         {
           "role": "source_native_row",
@@ -1713,7 +1953,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[26]"
+          "locator": "rows[45]"
         },
         {
           "role": "source_native_row",
@@ -1761,7 +2001,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[140]"
+          "locator": "rows[159]"
         },
         {
           "role": "source_native_row",
@@ -1809,7 +2049,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[44]"
+          "locator": "rows[63]"
         },
         {
           "role": "source_native_row",
@@ -1857,7 +2097,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[138]"
+          "locator": "rows[157]"
         },
         {
           "role": "source_native_row",
@@ -1905,7 +2145,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[150]"
+          "locator": "rows[169]"
         },
         {
           "role": "source_native_row",
@@ -1952,6 +2192,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:4d4b16385854ef0c2921de57e4bd81775c85c1f6bd09217f199692804eb697f9",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:bedburgknigshoven:germany",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[6]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A16:Y16"
+        }
+      ],
+      "longitude": 6.46428381971451,
+      "latitude": 51.1072285985126,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Germany",
+      "published_country": "Germany",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:4ebc3366c1f70a1fb69ebc8de058775bd16b94892e7a609caf789dac5d556aae",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -1960,7 +2248,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[66]"
+          "locator": "rows[85]"
         },
         {
           "role": "source_native_row",
@@ -2000,6 +2288,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:4f5687bd90db8a74407e41ce297b9f9a4c28e5cf9eab3306d7f649db4683d986",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:varfolomeevka:russia",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[19]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A9:Y9 || Supplementary Data 1!A7:Y7"
+        }
+      ],
+      "longitude": 49.6658507598358,
+      "latitude": 51.6301587756887,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Russia",
+      "published_country": "Russia",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:4fc7bdb427bdfdaef2855c6c39ed968238e4036919f510c5abd4dae886a5bfac",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -2008,7 +2344,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[105]"
+          "locator": "rows[124]"
         },
         {
           "role": "source_native_row",
@@ -2056,7 +2392,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[78]"
+          "locator": "rows[97]"
         },
         {
           "role": "source_native_row",
@@ -2154,7 +2490,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[136]"
+          "locator": "rows[155]"
         },
         {
           "role": "source_native_row",
@@ -2194,6 +2530,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:58d09751e257719dc7398a65d2181ad77a8f5080d1673b6bdc239260cd9963e5",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:novoilinkavivi:russia",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[11]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A47:Y47 || Supplementary Data 1!A42:Y42"
+        }
+      ],
+      "longitude": 81.911,
+      "latitude": 51.669,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Russia",
+      "published_country": "Russia",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:5ae623b28beb974bef8373fe47d828e7b31a6a41c9fe92c5c672b6b3a14c0c1c",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -2202,7 +2586,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[134]"
+          "locator": "rows[153]"
         },
         {
           "role": "source_native_row",
@@ -2250,7 +2634,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[57]"
+          "locator": "rows[76]"
         },
         {
           "role": "source_native_row",
@@ -2298,7 +2682,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[49]"
+          "locator": "rows[68]"
         },
         {
           "role": "source_native_row",
@@ -2346,7 +2730,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[81]"
+          "locator": "rows[100]"
         },
         {
           "role": "source_native_row",
@@ -2394,7 +2778,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[14]"
+          "locator": "rows[32]"
         },
         {
           "role": "source_native_row",
@@ -2442,7 +2826,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[115]"
+          "locator": "rows[134]"
         },
         {
           "role": "source_native_row",
@@ -2490,7 +2874,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[107]"
+          "locator": "rows[126]"
         },
         {
           "role": "source_native_row",
@@ -2538,7 +2922,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[124]"
+          "locator": "rows[143]"
         },
         {
           "role": "source_native_row",
@@ -2586,7 +2970,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[29]"
+          "locator": "rows[48]"
         },
         {
           "role": "source_native_row",
@@ -2634,7 +3018,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[85]"
+          "locator": "rows[104]"
         },
         {
           "role": "source_native_row",
@@ -2682,7 +3066,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[133]"
+          "locator": "rows[152]"
         },
         {
           "role": "source_native_row",
@@ -2730,7 +3114,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[42]"
+          "locator": "rows[61]"
         },
         {
           "role": "source_native_row",
@@ -2778,7 +3162,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[71]"
+          "locator": "rows[90]"
         },
         {
           "role": "source_native_row",
@@ -2826,7 +3210,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[125]"
+          "locator": "rows[144]"
         },
         {
           "role": "source_native_row",
@@ -2874,7 +3258,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[100]"
+          "locator": "rows[119]"
         },
         {
           "role": "source_native_row",
@@ -2922,7 +3306,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[5]"
+          "locator": "rows[23]"
         },
         {
           "role": "source_native_row",
@@ -2970,7 +3354,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[39]"
+          "locator": "rows[58]"
         },
         {
           "role": "source_native_row",
@@ -3018,7 +3402,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[69]"
+          "locator": "rows[88]"
         },
         {
           "role": "source_native_row",
@@ -3058,6 +3442,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:742aefa9678572239f4ee70f41db7d53780a6ebccb2c90fc285995b4c04bf97f",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:barguzinriverbaikal:russia",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[5]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A5:Y5"
+        }
+      ],
+      "longitude": 104.037519968685,
+      "latitude": 51.4966093549618,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Russia",
+      "published_country": "Russia",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:745fd2c73eeab9a6cde9977e3e8ab2485db1f25cd60d387c330e9041203151b9",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -3066,7 +3498,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[123]"
+          "locator": "rows[142]"
         },
         {
           "role": "source_native_row",
@@ -3114,7 +3546,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[109]"
+          "locator": "rows[128]"
         },
         {
           "role": "source_native_row",
@@ -3162,7 +3594,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[62]"
+          "locator": "rows[81]"
         },
         {
           "role": "source_native_row",
@@ -3210,7 +3642,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[27]"
+          "locator": "rows[46]"
         },
         {
           "role": "source_native_row",
@@ -3258,7 +3690,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[135]"
+          "locator": "rows[154]"
         },
         {
           "role": "source_native_row",
@@ -3298,6 +3730,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:79d7186992c75ba4dfc33e1dd762361863b5e12b0aaafa06af1a1226f534668b",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:ocourelgalicia:spain",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[12]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A4:Y4 || Supplementary Data 1!A30:Y30 || Supplementary Data 1!A12:Y12"
+        }
+      ],
+      "longitude": -8.66097028062168,
+      "latitude": 43.0719383129431,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Spain",
+      "published_country": "Spain",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:79d9c38ae7d692776bf53a04a9833237666da5cff28d644bd83a96cca2651636",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -3306,7 +3786,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[143]"
+          "locator": "rows[162]"
         },
         {
           "role": "source_native_row",
@@ -3354,7 +3834,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[38]"
+          "locator": "rows[57]"
         },
         {
           "role": "source_native_row",
@@ -3402,7 +3882,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[77]"
+          "locator": "rows[96]"
         },
         {
           "role": "source_native_row",
@@ -3450,7 +3930,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[18]"
+          "locator": "rows[36]"
         },
         {
           "role": "source_native_row",
@@ -3498,7 +3978,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[145]"
+          "locator": "rows[164]"
         },
         {
           "role": "source_native_row",
@@ -3546,7 +4026,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[91]"
+          "locator": "rows[110]"
         },
         {
           "role": "source_native_row",
@@ -3594,7 +4074,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[139]"
+          "locator": "rows[158]"
         },
         {
           "role": "source_native_row",
@@ -3642,7 +4122,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[63]"
+          "locator": "rows[82]"
         },
         {
           "role": "source_native_row",
@@ -3690,7 +4170,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[119]"
+          "locator": "rows[138]"
         },
         {
           "role": "source_native_row",
@@ -3738,7 +4218,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[111]"
+          "locator": "rows[130]"
         },
         {
           "role": "source_native_row",
@@ -3778,6 +4258,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:8b5a39715ecc46ac1633c2dff7f6a7d69e5d109edf8b8275f5d38945a2c8c87e",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:upperrhinevalley:germany",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[18]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A24:Y24 || Supplementary Data 1!A18:Y18 || Supplementary Data 1!A11:Y11"
+        }
+      ],
+      "longitude": 9.66938943552029,
+      "latitude": 51.6188100745602,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Germany",
+      "published_country": "Germany",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:8e351ca0a308f452452c349681c21b564769007f4bb2bc5723bf416957b1a72a",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -3786,7 +4314,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[43]"
+          "locator": "rows[62]"
         },
         {
           "role": "source_native_row",
@@ -3834,7 +4362,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[102]"
+          "locator": "rows[121]"
         },
         {
           "role": "source_native_row",
@@ -3882,7 +4410,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[70]"
+          "locator": "rows[89]"
         },
         {
           "role": "source_native_row",
@@ -3896,6 +4424,54 @@
       "coordinate_axis_order": "longitude,latitude",
       "raw_country": "Russia",
       "published_country": "Russia",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:8ee9890a2f772ca6202d9b5648ac49be9944dadd726685352dbd22d1b7b73230",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:roshchinskoe:kazakhstan",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[15]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A46:Y46 || Supplementary Data 1!A40:Y40"
+        }
+      ],
+      "longitude": 69.1937753660588,
+      "latitude": 54.1452769675404,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Kazakhstan",
+      "published_country": "Kazakhstan",
       "derived_boundary_membership": null,
       "derived_country_code": null,
       "candidate_countries": [],
@@ -3980,7 +4556,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[45]"
+          "locator": "rows[64]"
         },
         {
           "role": "source_native_row",
@@ -4028,7 +4604,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[15]"
+          "locator": "rows[33]"
         },
         {
           "role": "source_native_row",
@@ -4076,7 +4652,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[130]"
+          "locator": "rows[149]"
         },
         {
           "role": "source_native_row",
@@ -4124,7 +4700,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[103]"
+          "locator": "rows[122]"
         },
         {
           "role": "source_native_row",
@@ -4172,7 +4748,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[129]"
+          "locator": "rows[148]"
         },
         {
           "role": "source_native_row",
@@ -4220,7 +4796,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[132]"
+          "locator": "rows[151]"
         },
         {
           "role": "source_native_row",
@@ -4268,7 +4844,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[4]"
+          "locator": "rows[22]"
         },
         {
           "role": "source_native_row",
@@ -4316,7 +4892,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[8]"
+          "locator": "rows[26]"
         },
         {
           "role": "source_native_row",
@@ -4364,7 +4940,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[146]"
+          "locator": "rows[165]"
         },
         {
           "role": "source_native_row",
@@ -4412,7 +4988,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[21]"
+          "locator": "rows[39]"
         },
         {
           "role": "source_native_row",
@@ -4452,6 +5028,102 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:9dd0b6dec061982b615967963513ccc9cd3de2cdcf61b40d0c500c4534679215",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:barchedisolferinonearmantova:italy",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[4]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A38:Y38"
+        }
+      ],
+      "longitude": 10.793506163037,
+      "latitude": 45.1581560673906,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Italy",
+      "published_country": "Italy",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:a264ccd329fb74c236d5c17db4685b4d566ff2051423766f7a17fe67c57105e3",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:borly4pavlodarregion:kazakhstan",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[7]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A23:Y23"
+        }
+      ],
+      "longitude": 77.7272383993485,
+      "latitude": 52.040164667297,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Kazakhstan",
+      "published_country": "Kazakhstan",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:a2fcf593180ae16b8080bdb2447109aebcc3fc9c5dc5289dce053d9370e4f4f7",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -4460,7 +5132,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[33]"
+          "locator": "rows[52]"
         },
         {
           "role": "source_native_row",
@@ -4508,7 +5180,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[141]"
+          "locator": "rows[160]"
         },
         {
           "role": "source_native_row",
@@ -4556,7 +5228,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[13]"
+          "locator": "rows[31]"
         },
         {
           "role": "source_native_row",
@@ -4604,7 +5276,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[25]"
+          "locator": "rows[44]"
         },
         {
           "role": "source_native_row",
@@ -4652,7 +5324,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[99]"
+          "locator": "rows[118]"
         },
         {
           "role": "source_native_row",
@@ -4700,7 +5372,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[121]"
+          "locator": "rows[140]"
         },
         {
           "role": "source_native_row",
@@ -4748,7 +5420,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[84]"
+          "locator": "rows[103]"
         },
         {
           "role": "source_native_row",
@@ -4796,7 +5468,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[82]"
+          "locator": "rows[101]"
         },
         {
           "role": "source_native_row",
@@ -4844,7 +5516,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[147]"
+          "locator": "rows[166]"
         },
         {
           "role": "source_native_row",
@@ -4892,7 +5564,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[98]"
+          "locator": "rows[117]"
         },
         {
           "role": "source_native_row",
@@ -4940,7 +5612,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[65]"
+          "locator": "rows[84]"
         },
         {
           "role": "source_native_row",
@@ -4988,7 +5660,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[126]"
+          "locator": "rows[145]"
         },
         {
           "role": "source_native_row",
@@ -5036,7 +5708,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[55]"
+          "locator": "rows[74]"
         },
         {
           "role": "source_native_row",
@@ -5084,7 +5756,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[30]"
+          "locator": "rows[49]"
         },
         {
           "role": "source_native_row",
@@ -5124,6 +5796,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:b19688677523c2c5ea7368ea5c1e3aedce8ed803b51fb334f44a73763e472cc4",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:padova:italy",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[13]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A39:Y39"
+        }
+      ],
+      "longitude": 11.8823169512564,
+      "latitude": 45.406241207952,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Italy",
+      "published_country": "Italy",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:b225d4b7c88f6ff9d1950092dda3ecf7d135582c4f584b43b1b6877b08ba1420",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -5132,7 +5852,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[97]"
+          "locator": "rows[116]"
         },
         {
           "role": "source_native_row",
@@ -5180,7 +5900,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[128]"
+          "locator": "rows[147]"
         },
         {
           "role": "source_native_row",
@@ -5228,7 +5948,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[12]"
+          "locator": "rows[30]"
         },
         {
           "role": "source_native_row",
@@ -5276,7 +5996,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[96]"
+          "locator": "rows[115]"
         },
         {
           "role": "source_native_row",
@@ -5324,7 +6044,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[149]"
+          "locator": "rows[168]"
         },
         {
           "role": "source_native_row",
@@ -5379,7 +6099,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[113]"
+          "locator": "rows[132]"
         },
         {
           "role": "source_native_row",
@@ -5427,7 +6147,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[58]"
+          "locator": "rows[77]"
         },
         {
           "role": "source_native_row",
@@ -5467,6 +6187,102 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:bf86efce2113e4e013f7150cec6bf8102bab4d56ad0c0286f3de18fffc171bf0",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:tuladistrict:russia",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[17]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A10:Y10"
+        }
+      ],
+      "longitude": 37.6054675840347,
+      "latitude": 54.1927677001745,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Russia",
+      "published_country": "Russia",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:c4d18b66912b53eda9f472864432946a9ef7479c19ac50985706f0dc279519ab",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:grottadelluzzosicily:italy",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[8]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A20:Y20"
+        }
+      ],
+      "longitude": 13.8526139597698,
+      "latitude": 37.5934202669809,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Italy",
+      "published_country": "Italy",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:c6a1a59fcdc5771631d4c44fc486f6c8d16083e6517fadf4c81b7346a208aaac",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -5475,7 +6291,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[9]"
+          "locator": "rows[27]"
         },
         {
           "role": "source_native_row",
@@ -5523,7 +6339,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[59]"
+          "locator": "rows[78]"
         },
         {
           "role": "source_native_row",
@@ -5571,7 +6387,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[90]"
+          "locator": "rows[109]"
         },
         {
           "role": "source_native_row",
@@ -5619,7 +6435,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[106]"
+          "locator": "rows[125]"
         },
         {
           "role": "source_native_row",
@@ -5667,7 +6483,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[7]"
+          "locator": "rows[25]"
         },
         {
           "role": "source_native_row",
@@ -5715,7 +6531,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[131]"
+          "locator": "rows[150]"
         },
         {
           "role": "source_native_row",
@@ -5755,6 +6571,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:d424273a6a818ed368e821ab83343749f9e0e5e6d911db57e755c9d5ad1b58aa",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:yorkshire:britain",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[21]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A8:Y8"
+        }
+      ],
+      "longitude": -2.2914,
+      "latitude": 54.1101,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Britain",
+      "published_country": "Britain",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:d50cbe5843115327b91fb981dfe40efd28999722abf8087f7a12ab4cb8d07ef2",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -5763,7 +6627,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[28]"
+          "locator": "rows[47]"
         },
         {
           "role": "source_native_row",
@@ -5811,7 +6675,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[53]"
+          "locator": "rows[72]"
         },
         {
           "role": "source_native_row",
@@ -5859,7 +6723,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[64]"
+          "locator": "rows[83]"
         },
         {
           "role": "source_native_row",
@@ -5907,7 +6771,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[20]"
+          "locator": "rows[38]"
         },
         {
           "role": "source_native_row",
@@ -5955,7 +6819,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[127]"
+          "locator": "rows[146]"
         },
         {
           "role": "source_native_row",
@@ -6003,7 +6867,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[50]"
+          "locator": "rows[69]"
         },
         {
           "role": "source_native_row",
@@ -6051,7 +6915,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[32]"
+          "locator": "rows[51]"
         },
         {
           "role": "source_native_row",
@@ -6099,7 +6963,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[92]"
+          "locator": "rows[111]"
         },
         {
           "role": "source_native_row",
@@ -6147,7 +7011,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[24]"
+          "locator": "rows[42]"
         },
         {
           "role": "source_native_row",
@@ -6195,7 +7059,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[79]"
+          "locator": "rows[98]"
         },
         {
           "role": "source_native_row",
@@ -6243,7 +7107,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[93]"
+          "locator": "rows[112]"
         },
         {
           "role": "source_native_row",
@@ -6291,7 +7155,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[37]"
+          "locator": "rows[56]"
         },
         {
           "role": "source_native_row",
@@ -6339,7 +7203,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[61]"
+          "locator": "rows[80]"
         },
         {
           "role": "source_native_row",
@@ -6387,7 +7251,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[31]"
+          "locator": "rows[50]"
         },
         {
           "role": "source_native_row",
@@ -6435,7 +7299,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[48]"
+          "locator": "rows[67]"
         },
         {
           "role": "source_native_row",
@@ -6483,7 +7347,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[120]"
+          "locator": "rows[139]"
         },
         {
           "role": "source_native_row",
@@ -6581,7 +7445,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[137]"
+          "locator": "rows[156]"
         },
         {
           "role": "source_native_row",
@@ -6629,7 +7493,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[52]"
+          "locator": "rows[71]"
         },
         {
           "role": "source_native_row",
@@ -6677,7 +7541,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[10]"
+          "locator": "rows[28]"
         },
         {
           "role": "source_native_row",
@@ -6725,7 +7589,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[94]"
+          "locator": "rows[113]"
         },
         {
           "role": "source_native_row",
@@ -6773,7 +7637,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[41]"
+          "locator": "rows[60]"
         },
         {
           "role": "source_native_row",
@@ -6821,7 +7685,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[104]"
+          "locator": "rows[123]"
         },
         {
           "role": "source_native_row",
@@ -6869,7 +7733,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[112]"
+          "locator": "rows[131]"
         },
         {
           "role": "source_native_row",
@@ -6917,7 +7781,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[11]"
+          "locator": "rows[29]"
         },
         {
           "role": "source_native_row",
@@ -6965,7 +7829,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[76]"
+          "locator": "rows[95]"
         },
         {
           "role": "source_native_row",
@@ -7013,7 +7877,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[86]"
+          "locator": "rows[105]"
         },
         {
           "role": "source_native_row",
@@ -7053,6 +7917,54 @@
     },
     {
       "schema_version": "country-attribution-decision.v1",
+      "decision_id": "sha256:f50e6d075f1f2f2910a5bd7e2224aa23edb15f726af280f495a918eaef701608",
+      "source_family": "animal_adna",
+      "source_scope": "global_with_four_country_filter",
+      "source_record_id": "bos_taurus:locality:prjeb75467:herxheim:germany",
+      "source_native_lineage": [
+        {
+          "role": "point_record",
+          "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+          "locator": "rows[10]"
+        },
+        {
+          "role": "source_native_row",
+          "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+          "locator": "Supplementary Data 1!A2:Y2"
+        }
+      ],
+      "longitude": 8.221805,
+      "latitude": 49.145275,
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_axis_order": "longitude,latitude",
+      "raw_country": "Germany",
+      "published_country": "Germany",
+      "derived_boundary_membership": null,
+      "derived_country_code": null,
+      "candidate_countries": [],
+      "candidate_country_codes": [],
+      "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+      "boundary_version": "natural-earth:5.1.1",
+      "country_decision_status": "unassigned",
+      "boundary_decision_status": "unassigned",
+      "decision_method": "no_boundary_containment",
+      "ambiguity_reason": "outside_governed_boundaries",
+      "ambiguity_reason_codes": [
+        "outside_governed_boundaries"
+      ],
+      "refusal_reason": "outside_governed_boundaries",
+      "raw_country_comparison": "unresolved",
+      "published_country_comparison": "unresolved",
+      "prior_country_decision_comparison": "not_supplied",
+      "review_requirement": "no_point_review_required",
+      "review_reason_codes": [],
+      "qualified_review_status": "not_required",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null,
+      "boundary_semantics": "Modern country membership is a filter and denominator dimension; it is not evidence of a historical ecological barrier."
+    },
+    {
+      "schema_version": "country-attribution-decision.v1",
       "decision_id": "sha256:f5f40196d0ee1b52f8d53ea996a19825246d0b2e1d8650c53ef94681d8219ef4",
       "source_family": "animal_adna",
       "source_scope": "global_with_four_country_filter",
@@ -7061,7 +7973,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[46]"
+          "locator": "rows[65]"
         },
         {
           "role": "source_native_row",
@@ -7109,7 +8021,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[54]"
+          "locator": "rows[73]"
         },
         {
           "role": "source_native_row",
@@ -7157,7 +8069,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[17]"
+          "locator": "rows[35]"
         },
         {
           "role": "source_native_row",
@@ -7205,7 +8117,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[80]"
+          "locator": "rows[99]"
         },
         {
           "role": "source_native_row",
@@ -7253,7 +8165,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[36]"
+          "locator": "rows[55]"
         },
         {
           "role": "source_native_row",
@@ -7301,7 +8213,7 @@
         {
           "role": "point_record",
           "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-          "locator": "rows[23]"
+          "locator": "rows[41]"
         },
         {
           "role": "source_native_row",
