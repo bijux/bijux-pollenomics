@@ -81,10 +81,10 @@ __all__ = [
     "build_project_source_evidence_matrix",
     "build_reference_stash_doi_integrity_audit",
     "build_reference_stash_reconciliation",
-    "build_source_blocker_review",
     "build_supplement_acquisition_checklist",
     "build_supplement_file_family_audit",
     "build_supplement_recovery_audit",
+    "build_source_blocker_review",
     "build_tracked_project_scope_audit",
     "materialize_source_inventory",
 ]

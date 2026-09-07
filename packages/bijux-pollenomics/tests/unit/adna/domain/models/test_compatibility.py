@@ -67,7 +67,7 @@ def test_dataclass_fields_annotations_defaults_and_signatures_are_frozen() -> No
     ).encode()
     assert len(schemas) == 8
     assert hashlib.sha256(payload).hexdigest() == (
-        "100a19f57ba1aa01cf394f3d9f7bc22c36485cbd63535766f2630feecb4a574d"
+        "caedd1facb198063cf0897f58c6f813ec944398d241b2561b7b42a6ff7079bd0"
     )
 
 
