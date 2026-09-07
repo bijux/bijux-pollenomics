@@ -18,6 +18,9 @@ from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     canonical_json_bytes,
     media_asset_row,
 )
+from bijux_pollenomics_dev.ci.atlas_media.poster_selection import (
+    poster_frame_ordinal,
+)
 from tests.atlas_media.fixtures import SUCCESSION, plan, source_authority
 from tests.atlas_media.receipt_fixtures import (
     capture_evidence_layer_key,
@@ -123,6 +126,15 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
                         "source_level": frame.get("source_level"),
                         "source_code": frame.get("source_code"),
                         "source_taxon": frame.get("source_taxon"),
+                        "source_preset": frame.get("source_preset"),
+                        "source_preset_member_taxon_ids": (
+                            list(story.source_preset_member_taxon_ids)
+                            if story.source_preset_member_taxon_ids is not None
+                            else None
+                        ),
+                        "source_preset_catalog_sha256": (
+                            story.source_preset_catalog_sha256
+                        ),
                         "source_window_label": frame.get("source_window_label"),
                         "metric_family_key": frame.get("metric_family_key"),
                         "metric_key": frame.get("metric_key"),
@@ -146,6 +158,17 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
                             else frame["feature_count"]
                         ),
                         "visible_source_chronology_point_count": (source_count),
+                        "facet_site_count": (
+                            story.site_count
+                            if story.evidence_role == "observation_chronology"
+                            else None
+                        ),
+                        "visible_site_count": (
+                            story.expected_visible_site_counts[ordinal]
+                            if story.evidence_role == "observation_chronology"
+                            and story.expected_visible_site_counts is not None
+                            else None
+                        ),
                         "visible_modeled_context_feature_count": (
                             0
                             if story.evidence_role == "observation_chronology"
@@ -160,8 +183,9 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
                             else None
                         ),
                         "visible_source_observation_denominator": (
-                            source_count
+                            story.expected_visible_observation_counts[ordinal]
                             if story.evidence_role == "observation_chronology"
+                            and story.expected_visible_observation_counts is not None
                             else None
                         ),
                         "capture_layers": capture_layers(
@@ -169,13 +193,31 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
                         ),
                         "capture_presentation": capture_presentation(
                             evidence_role=story.evidence_role,
-                            source_level=story.selector_kind,
+                            source_level=(
+                                "source_taxon"
+                                if story.selector_kind == "source_label_preset"
+                                else story.selector_kind
+                            ),
+                            source_preset=cast(
+                                str | None,
+                                frame.get("source_preset"),
+                            ),
                             title=story.title,
                             younger_bp=cast(int, frame["time_start_bp"]),
                             older_bp=cast(int, frame["time_end_bp"]),
                             visible_source_count=source_count,
+                            visible_source_site_count=(
+                                story.expected_visible_site_counts[ordinal]
+                                if story.expected_visible_site_counts is not None
+                                else 0
+                            ),
+                            source_site_denominator=story.site_count or 0,
                             source_node_denominator=story.node_count or 0,
-                            visible_source_observations=source_count,
+                            visible_source_observations=(
+                                story.expected_visible_observation_counts[ordinal]
+                                if story.expected_visible_observation_counts is not None
+                                else 0
+                            ),
                             source_observation_denominator=(
                                 story.observation_denominator or 0
                             ),
@@ -200,6 +242,7 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
                         "value": story.selector_value,
                         "family": story.selector_family,
                     },
+                    "site_count": story.site_count,
                     "node_count": story.node_count,
                     "observation_denominator": story.observation_denominator,
                     "frame_feature_denominators": (
@@ -217,7 +260,25 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
                         if story.expected_visible_feature_counts is not None
                         else None
                     ),
+                    "expected_visible_site_counts": (
+                        list(story.expected_visible_site_counts)
+                        if story.expected_visible_site_counts is not None
+                        else None
+                    ),
+                    "expected_visible_observation_counts": (
+                        list(story.expected_visible_observation_counts)
+                        if story.expected_visible_observation_counts is not None
+                        else None
+                    ),
                     "source_authority_sha256": story.source_authority_sha256,
+                    "source_preset_member_taxon_ids": (
+                        list(story.source_preset_member_taxon_ids)
+                        if story.source_preset_member_taxon_ids is not None
+                        else None
+                    ),
+                    "source_preset_catalog_sha256": (
+                        story.source_preset_catalog_sha256
+                    ),
                     "frame_count": len(story.frames),
                     "frames": receipts,
                 }
@@ -226,7 +287,7 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
         receipt.write_text(
             json.dumps(
                 {
-                    "schema_version": "atlas-media-capture-receipt.v2",
+                    "schema_version": "atlas-media-capture-receipt.v3",
                     "candidate": media_plan.candidate.as_json(),
                     "capture_api_version": "atlas-capture.v1",
                     "basemap": "none",
@@ -263,7 +324,7 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
     def fake_encode(
         current_plan: object,
         story: SelectedStory,
-        _capture_frames: list[dict[str, object]],
+        capture_frames: list[dict[str, object]],
     ) -> list[dict[str, object]]:
         assert current_plan == media_plan
         rows = []
@@ -275,12 +336,16 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
             path = media_plan.artifact_root / "media" / f"{story.story_id}{suffix}"
             path.parent.mkdir(parents=True, exist_ok=True)
             if media_type == "poster":
+                poster_ordinal = poster_frame_ordinal(
+                    story.evidence_role,
+                    capture_frames,
+                )
                 path.write_bytes(
                     (
                         media_plan.artifact_root
                         / "frames"
                         / story.story_id
-                        / "000000.png"
+                        / f"{poster_ordinal:06d}.png"
                     ).read_bytes()
                 )
             else:
@@ -292,8 +357,14 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
                 {
                     "width": media_plan.width,
                     "height": media_plan.height,
-                    "frame_count": (1 if media_type == "poster" else len(story.frames)),
-                    **({"duration_seconds": 1.0} if media_type != "poster" else {}),
+                    "frame_count": (
+                        1 if media_type == "poster" else len(story.frames)
+                    ),
+                    **(
+                        {"duration_seconds": 1.0}
+                        if media_type != "poster"
+                        else {}
+                    ),
                 }
             )
             rows.append(asset)
@@ -306,6 +377,7 @@ def test_materializer_reconciles_capture_encoding_and_gallery(
 
     assert gallery["story_count"] == (
         4
+        + len(media_plan.selection.source_label_presets)
         + len(media_plan.selection.exact_taxa)
         + len(media_plan.selection.modeled_metrics)
     )

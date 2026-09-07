@@ -28,6 +28,7 @@ def capture_evidence_layer_key(selector_kind: str) -> str:
         "source_sample_presence": "neotoma-source-sample-pollen-context",
         "source_ecological_code": "neotoma-source-ecological-code",
         "source_taxon": "neotoma-source-exact-taxon",
+        "source_label_preset": "neotoma-source-exact-taxon",
         "modeled_metric": "landclim-reveals-temporal-grid",
     }[selector_kind]
 
@@ -36,10 +37,13 @@ def capture_presentation(
     *,
     evidence_role: str,
     source_level: str = "source_sample_presence",
+    source_preset: str | None = None,
     title: str = "Source sample presence",
     younger_bp: int = 100,
     older_bp: int = 200,
     visible_source_count: int = 1,
+    visible_source_site_count: int = 1,
+    source_site_denominator: int = 10,
     source_node_denominator: int = 10,
     visible_source_observations: int = 2,
     source_observation_denominator: int = 20,
@@ -103,6 +107,7 @@ def capture_presentation(
         "title": title,
         "time_label": f"[{younger_bp}, {older_bp}] BP · oldest → present",
         "counts_label": (
+            f"{visible_source_site_count}/{source_site_denominator} unique source sites · "
             f"{visible_source_count}/{source_node_denominator} governed source nodes in this interval · "
             f"{visible_source_observations}/{source_observation_denominator} contributing observations"
             if source
@@ -120,9 +125,11 @@ def capture_presentation(
             for label, cue, (fill, stroke) in zip(key_labels, cues, styles, strict=True)
         ],
         "caveat": (
-            "Observed source records only · display clusters are not abundance · no interpolation, flow, or propagation inference."
+            "Literal exact-ID source-label union only · not an accepted classification or abundance · no interpolation, flow, propagation, migration, or causation inference."
+            if source and source_preset
+            else "Observed source records only · site, node, and display-cluster counts are not abundance · no interpolation, flow, propagation, migration, or causation inference."
             if source
-            else "Published modeled cells are context only · no atlas interpolation, flow, or propagation inference."
+            else "Published modeled cells are context only, not an observed pollen trajectory · no atlas interpolation, flow, propagation, migration, or causation inference."
         ),
     }
 
@@ -153,9 +160,12 @@ def make_story() -> SelectedStory:
         evidence_role="observation_chronology",
         selector_kind="source_sample_presence",
         selector_value="all",
+        site_count=10,
         node_count=10,
         observation_denominator=20,
         expected_visible_feature_counts=(1,),
+        expected_visible_site_counts=(1,),
+        expected_visible_observation_counts=(2,),
         source_authority_sha256="1" * 64,
         frames=(
             {
@@ -186,6 +196,17 @@ def build_capture_frames(
                 "file": f"frames/{story.story_id}/{ordinal:06d}.png",
                 "png_sha256": hashlib.sha256(payload).hexdigest(),
                 "byte_count": len(payload),
+                "facet_site_count": (
+                    story.site_count
+                    if story.evidence_role == "observation_chronology"
+                    else None
+                ),
+                "visible_site_count": (
+                    story.expected_visible_site_counts[ordinal]
+                    if story.evidence_role == "observation_chronology"
+                    and story.expected_visible_site_counts is not None
+                    else None
+                ),
                 "visible_source_chronology_point_count": (
                     story.expected_visible_feature_counts[ordinal]
                     if story.evidence_role == "observation_chronology"

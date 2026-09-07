@@ -15,13 +15,19 @@ from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     canonical_json_bytes,
     media_asset_row,
     sha256_file,
+    validate_source_preset_catalog,
     write_gallery_manifest,
 )
 from bijux_pollenomics_dev.ci.atlas_media.run_evidence import (
     build_run_evidence_index,
     write_run_evidence_index,
 )
-from tests.atlas_media.fixtures import BUILD_ID, COUNTRIES, candidate
+from tests.atlas_media.fixtures import (
+    BUILD_ID,
+    COUNTRIES,
+    candidate,
+    source_preset_catalog,
+)
 from tests.atlas_media.receipt_fixtures import (
     capture_layers,
     capture_layout,
@@ -38,6 +44,14 @@ def _tool_identity() -> dict[str, object]:
             strict=True,
         )
     }
+
+
+def test_source_preset_catalog_rejects_malformed_identity() -> None:
+    catalog = source_preset_catalog()
+    catalog["source_snapshot_id"] = "bogus"
+
+    with pytest.raises(AtlasMediaError, match="catalog identity differs"):
+        validate_source_preset_catalog(catalog)
 
 
 def _encoding_profile() -> dict[str, object]:
@@ -102,9 +116,12 @@ def test_gallery_checksums_every_story_asset_and_its_own_manifest(
         evidence_role="observation_chronology",
         selector_kind="source_sample_presence",
         selector_value="all",
+        site_count=10,
         node_count=10,
         observation_denominator=20,
         expected_visible_feature_counts=(1,),
+        expected_visible_site_counts=(1,),
+        expected_visible_observation_counts=(2,),
         source_authority_sha256="1" * 64,
         frames=(
             {
@@ -128,6 +145,7 @@ def test_gallery_checksums_every_story_asset_and_its_own_manifest(
         },
         candidate_identity=candidate().as_json(),
         storyboard_sha256="e" * 64,
+        source_preset_catalog=source_preset_catalog(),
         stories=(story,),
         assets_by_story={story.story_id: assets},
         capture_frames_by_story={
@@ -136,8 +154,10 @@ def test_gallery_checksums_every_story_asset_and_its_own_manifest(
                     "ordinal": 0,
                     "file": "frames/sample-story/000000.png",
                     "frame_sha256": "6" * 64,
-                    "png_sha256": poster_asset["sha256"],
-                    "byte_count": poster_asset["byte_count"],
+                        "png_sha256": poster_asset["sha256"],
+                        "byte_count": poster_asset["byte_count"],
+                        "facet_site_count": 10,
+                        "visible_site_count": 1,
                     "visible_point_count": 1,
                     "visible_polygon_layer_count": 0,
                     "visible_polygon_feature_count": 0,
@@ -180,7 +200,8 @@ def test_gallery_checksums_every_story_asset_and_its_own_manifest(
         == hashlib.sha256(canonical_json_bytes(content)).hexdigest()
     )
     assert manifest["stories"][0]["interpretation"] == (
-        "Dated observation chronology; not movement or causation."
+        "Dated source-observation chronology; site, node, and cluster counts are not "
+        "abundance; not flow, propagation, migration, or causation."
     )
     assert manifest["stories"][0]["selector"] == {
         "kind": "source_sample_presence",
@@ -344,7 +365,7 @@ def test_run_evidence_refuses_media_mutated_after_gallery_publication(
     frame.write_bytes(b"frame")
     asset.write_bytes(b"poster")
     content: dict[str, object] = {
-        "schema_version": "atlas-media-gallery.v3",
+        "schema_version": "atlas-media-gallery.v4",
         "command_execution_receipts": ["renderer.execution.json"],
         "stories": [
             {

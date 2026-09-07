@@ -17,17 +17,28 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import NoReturn, cast
 
+from bijux_pollenomics.reporting.source_chronology.source_label_presets import (
+    NEOTOMA_SOURCE_LABEL_PRESETS,
+)
+
 from .capture_evidence import capture_frame_evidence_valid, expected_capture_layer_key
 from .catalog import (
     LEGACY_PUBLICATION_SCHEMA_VERSION_V3,
+    LEGACY_PUBLICATION_SCHEMA_VERSION_V4,
     LEGACY_PUBLICATION_STORY_TITLES_V3,
+    LEGACY_PUBLICATION_STORY_TITLES_V4,
     PUBLICATION_SCHEMA_VERSION,
+    PUBLICATION_FRAME_COUNT,
     PUBLICATION_STORY_TITLES,
     PUBLICATION_STORY_TUPLES,
     SUPPORTED_EXISTING_PUBLICATION_CONTRACTS,
 )
-from .contracts import AtlasMediaError
-from .gallery import canonical_json_bytes, sha256_file
+from .contracts import AtlasMediaError, story_interpretation
+from .gallery import (
+    canonical_json_bytes,
+    sha256_file,
+    validate_source_preset_catalog,
+)
 from .poster_selection import poster_frame_ordinal
 
 MAX_MP4_BYTES = 16 * 1024 * 1024
@@ -37,20 +48,30 @@ MAX_PUBLICATION_BYTES = 96 * 1024 * 1024
 _SHA256 = re.compile(r"[0-9a-f]{64}")
 _GIT_OBJECT = re.compile(r"(?:[0-9a-f]{40}|[0-9a-f]{64})")
 _BUILD_ID = re.compile(r"atlas-[0-9a-f]{64}")
-_SOURCE_INTERPRETATION = (
+_LEGACY_SOURCE_INTERPRETATION = (
     "Dated source-observation chronology; not movement, migration, causation, "
     "or propagation."
 )
-_MODELED_INTERPRETATION = (
+_LEGACY_MODELED_INTERPRETATION = (
     "Non-interpolated modeled context; not an observed pollen trajectory or "
     "propagation."
 )
 _EXPECTED_STORIES = PUBLICATION_STORY_TUPLES
+_PRESET_MEMBER_IDS = {
+    preset.key: preset.member_taxon_ids for preset in NEOTOMA_SOURCE_LABEL_PRESETS
+}
+
+
+def _source_level(selector_kind: str) -> str:
+    return "source_taxon" if selector_kind == "source_label_preset" else selector_kind
+
+
 _GALLERY_FIELDS = {
     "schema_version",
     "atlas_identity",
     "candidate_identity",
     "storyboard_sha256",
+    "source_label_preset_catalog",
     "temporal_direction",
     "interpolation_allowed",
     "candidate_succession",
@@ -66,12 +87,17 @@ _STORY_FIELDS = {
     "title",
     "evidence_role",
     "selector",
+    "site_count",
     "node_count",
     "observation_denominator",
     "frame_feature_denominators",
     "frame_no_pollen_data_counts",
     "expected_visible_feature_counts",
+    "expected_visible_site_counts",
+    "expected_visible_observation_counts",
     "source_authority_sha256",
+    "source_preset_member_taxon_ids",
+    "source_preset_catalog_sha256",
     "interpretation",
     "temporal_direction",
     "interval_semantics",
@@ -90,6 +116,7 @@ _PUBLICATION_FIELDS = {
     "atlas_identity",
     "candidate_identity",
     "storyboard_sha256",
+    "source_label_preset_catalog",
     "source_authority_sha256",
     "scientific_posture",
     "candidate_succession",
@@ -100,6 +127,7 @@ _PUBLICATION_FIELDS = {
     "stories",
     "content_sha256",
 }
+_LEGACY_PUBLICATION_FIELDS = _PUBLICATION_FIELDS - {"source_label_preset_catalog"}
 _PUBLIC_STORY_FIELDS = {
     "story_id",
     "title",
@@ -108,12 +136,17 @@ _PUBLIC_STORY_FIELDS = {
     "interpretation",
     "temporal_direction",
     "interval_semantics",
+    "site_count",
     "node_count",
     "observation_denominator",
     "frame_feature_denominators",
     "frame_no_pollen_data_counts",
     "expected_visible_feature_counts",
+    "expected_visible_site_counts",
+    "expected_visible_observation_counts",
     "source_authority_sha256",
+    "source_preset_member_taxon_ids",
+    "source_preset_catalog_sha256",
     "frame_count",
     "poster_frame_ordinal",
     "first_frame",
@@ -122,7 +155,14 @@ _PUBLIC_STORY_FIELDS = {
     "capture_frame_set_sha256",
     "assets",
 }
-_LEGACY_V3_PUBLIC_STORY_FIELDS = _PUBLIC_STORY_FIELDS - {
+_LEGACY_V4_PUBLIC_STORY_FIELDS = _PUBLIC_STORY_FIELDS - {
+    "source_preset_member_taxon_ids",
+    "source_preset_catalog_sha256",
+    "site_count",
+    "expected_visible_site_counts",
+    "expected_visible_observation_counts",
+}
+_LEGACY_V3_PUBLIC_STORY_FIELDS = _LEGACY_V4_PUBLIC_STORY_FIELDS - {
     "frame_no_pollen_data_counts",
     "poster_frame_ordinal",
 }
@@ -203,7 +243,7 @@ def _load_gallery(root: Path) -> tuple[dict[str, object], bytes, str]:
     value = _load_json_object(payload, label="gallery manifest")
     if set(value) != _GALLERY_FIELDS:
         raise AtlasMediaError("gallery manifest fields differ")
-    if value.get("schema_version") != "atlas-media-gallery.v3":
+    if value.get("schema_version") != "atlas-media-gallery.v4":
         raise AtlasMediaError("gallery manifest schema is unsupported")
     claimed_content = value.get("content_sha256")
     content = {key: item for key, item in value.items() if key != "content_sha256"}
@@ -227,6 +267,9 @@ def _build_publication(
     if atlas_identity["build_id"] != candidate_identity["build_id"]:
         raise AtlasMediaError("atlas and candidate build identities differ")
     storyboard_sha256 = _digest(gallery.get("storyboard_sha256"), "storyboard")
+    source_preset_catalog, source_preset_catalog_sha256 = (
+        validate_source_preset_catalog(gallery.get("source_label_preset_catalog"))
+    )
     if (
         gallery.get("temporal_direction") != "oldest_to_present"
         or gallery.get("interpolation_allowed") is not False
@@ -240,10 +283,13 @@ def _build_publication(
         _EXPECTED_STORIES
     ):
         raise AtlasMediaError("gallery must contain the canonical governed stories")
+    if sum(_positive_integer(story.get("frame_count"), "story frame_count") for story in stories) != PUBLICATION_FRAME_COUNT:
+        raise AtlasMediaError("gallery frame inventory differs from the governed publication")
 
     public_stories: list[dict[str, object]] = []
     transfers: list[dict[str, object]] = []
     source_authorities: set[str] = set()
+    preset_catalogs: set[str] = set()
     for story, expected in zip(stories, _EXPECTED_STORIES, strict=True):
         public_story, story_transfers = _publication_story(
             story,
@@ -255,10 +301,15 @@ def _build_publication(
         authority = public_story["source_authority_sha256"]
         if isinstance(authority, str):
             source_authorities.add(authority)
+        preset_catalog = public_story["source_preset_catalog_sha256"]
+        if isinstance(preset_catalog, str):
+            preset_catalogs.add(preset_catalog)
         public_stories.append(public_story)
         transfers.extend(story_transfers)
     if len(source_authorities) != 1:
         raise AtlasMediaError("source stories do not share one authority identity")
+    if preset_catalogs != {source_preset_catalog_sha256}:
+        raise AtlasMediaError("source-label preset stories differ from governed catalog")
     total_bytes = sum(cast(int, row["byte_count"]) for row in transfers)
     if total_bytes > MAX_PUBLICATION_BYTES:
         raise AtlasMediaError("publication exceeds the 96 MiB total budget")
@@ -271,6 +322,7 @@ def _build_publication(
         "atlas_identity": atlas_identity,
         "candidate_identity": candidate_identity,
         "storyboard_sha256": storyboard_sha256,
+        "source_label_preset_catalog": source_preset_catalog,
         "source_authority_sha256": next(iter(source_authorities)),
         "scientific_posture": {
             "temporal_direction": "oldest_to_present",
@@ -323,11 +375,7 @@ def _publication_story(
         or story.get("temporal_direction") != "oldest_to_present"
         or story.get("interval_semantics") != "[younger_bp, older_bp]"
         or story.get("interpretation")
-        != (
-            "Dated observation chronology; not movement or causation."
-            if role == "observation_chronology"
-            else "Non-interpolated modeled context; not observed movement or causation."
-        )
+        != story_interpretation(role, selector_kind)
     ):
         raise AtlasMediaError(
             f"governed story identity or semantics differ: {story_id}"
@@ -352,6 +400,10 @@ def _publication_story(
         float | int, last_frame["time_start_bp"]
     ) or cast(float | int, first_frame["time_end_bp"]) < cast(
         float | int, last_frame["time_end_bp"]
+    ) or (
+        frame_count > 1
+        and cast(float | int, first_frame["time_start_bp"])
+        == cast(float | int, last_frame["time_start_bp"])
     ):
         raise AtlasMediaError(f"story boundary direction differs: {story_id}")
     frame_set = _digest(story.get("frame_set_sha256"), "frame set")
@@ -363,6 +415,8 @@ def _publication_story(
     for ordinal, capture in enumerate(captures):
         expected_path = f"frames/{story_id}/{ordinal:06d}.png"
         source_counts = story.get("expected_visible_feature_counts")
+        source_site_counts = story.get("expected_visible_site_counts")
+        source_observation_counts = story.get("expected_visible_observation_counts")
         modeled_counts = story.get("frame_feature_denominators")
         modeled_no_pollen_counts = story.get("frame_no_pollen_data_counts")
         if (
@@ -376,7 +430,12 @@ def _publication_story(
                 "time_start_bp",
                 "time_end_bp",
                 "source_window_label",
+                "source_preset",
+                "source_preset_member_taxon_ids",
+                "source_preset_catalog_sha256",
                 "no_pollen_data_count",
+                "facet_site_count",
+                "visible_site_count",
                 "visible_point_count",
                 "visible_polygon_layer_count",
                 "visible_polygon_feature_count",
@@ -395,11 +454,21 @@ def _publication_story(
             or not _is_sha256(capture.get("frame_sha256"))
             or not _is_sha256(capture.get("png_sha256"))
             or _positive_integer(capture.get("byte_count"), "capture byte_count") <= 0
+            or capture.get("source_preset")
+            != (
+                selector_value if selector_kind == "source_label_preset" else None
+            )
+            or capture.get("source_preset_member_taxon_ids")
+            != story.get("source_preset_member_taxon_ids")
+            or capture.get("source_preset_catalog_sha256")
+            != story.get("source_preset_catalog_sha256")
             or not capture_frame_evidence_valid(
                 capture,
                 evidence_role=role,
                 source_level=(
-                    selector_kind if role == "observation_chronology" else None
+                    _source_level(selector_kind)
+                    if role == "observation_chronology"
+                    else None
                 ),
                 expected_evidence_layer_key=expected_capture_layer_key(
                     story_kind=(
@@ -407,12 +476,23 @@ def _publication_story(
                         if role == "observation_chronology"
                         else "modeled_context"
                     ),
-                    source_level=selector_kind,
+                    source_level=_source_level(selector_kind),
                 ),
                 expected_title=cast(str, story.get("title")),
                 expected_source_count=(
                     source_counts[ordinal] if isinstance(source_counts, list) else None
                 ),
+                expected_source_site_count=(
+                    source_site_counts[ordinal]
+                    if isinstance(source_site_counts, list)
+                    else None
+                ),
+                expected_source_observation_count=(
+                    source_observation_counts[ordinal]
+                    if isinstance(source_observation_counts, list)
+                    else None
+                ),
+                source_site_denominator=story.get("site_count"),
                 source_node_denominator=story.get("node_count"),
                 source_observation_denominator=story.get("observation_denominator"),
                 expected_modeled_count=(
@@ -442,6 +522,9 @@ def _publication_story(
         raise AtlasMediaError(f"capture frame set identity differs: {story_id}")
 
     if role == "observation_chronology":
+        site_count: int | None = _positive_integer(
+            story.get("site_count"), "site_count"
+        )
         node_count: int | None = _positive_integer(
             story.get("node_count"), "node_count"
         )
@@ -455,9 +538,45 @@ def _publication_story(
             length=frame_count,
             label="source visibility denominators",
         )
+        visible_site_counts = _nonnegative_integer_list(
+            story.get("expected_visible_site_counts"),
+            length=frame_count,
+            label="source site visibility denominators",
+        )
+        visible_observation_counts = _nonnegative_integer_list(
+            story.get("expected_visible_observation_counts"),
+            length=frame_count,
+            label="source observation visibility denominators",
+        )
         authority: str | None = _digest(
             story.get("source_authority_sha256"), "source authority"
         )
+        if selector_kind == "source_label_preset":
+            preset_member_ids: list[object] | None = _positive_integer_list(
+                story.get("source_preset_member_taxon_ids"),
+                length=None,
+                label="source-label preset member IDs",
+            )
+            if len(set(cast(list[int], preset_member_ids))) != len(
+                cast(list[object], preset_member_ids)
+            ):
+                raise AtlasMediaError("source-label preset member IDs differ")
+            preset_catalog: str | None = _digest(
+                story.get("source_preset_catalog_sha256"),
+                "source-label preset catalog",
+            )
+            if tuple(cast(list[object], preset_member_ids)) != _PRESET_MEMBER_IDS.get(
+                selector_value
+            ):
+                raise AtlasMediaError("source-label preset member IDs differ")
+        else:
+            if (
+                story.get("source_preset_member_taxon_ids") is not None
+                or story.get("source_preset_catalog_sha256") is not None
+            ):
+                raise AtlasMediaError("non-preset source story carries preset authority")
+            preset_member_ids = None
+            preset_catalog = None
         if story.get("frame_feature_denominators") is not None:
             raise AtlasMediaError(f"source story has modeled denominators: {story_id}")
         if story.get("frame_no_pollen_data_counts") is not None:
@@ -466,9 +585,17 @@ def _publication_story(
             )
         if (
             sum(cast(list[int], visible_counts)) <= 0
+            or sum(cast(list[int], visible_site_counts)) <= 0
             or any(cast(int, count) > cast(int, node_count) for count in visible_counts)
             or any(
+                cast(int, count) > cast(int, site_count)
+                for count in visible_site_counts
+            )
+            or any(
                 capture.get("visible_source_chronology_point_count") != count
+                or capture.get("facet_site_count") != site_count
+                or capture.get("visible_site_count") != visible_site_count
+                or cast(int, visible_site_count) > cast(int, count)
                 or capture.get("visible_point_count") != count
                 or capture.get("visible_modeled_context_feature_count") != 0
                 or capture.get("visible_source_node_count") != count
@@ -476,25 +603,41 @@ def _publication_story(
                     capture.get("visible_source_observation_denominator"),
                     denominator=cast(int, observations),
                 )
-                for capture, count in zip(
-                    published_captures, visible_counts, strict=True
+                or capture.get("visible_source_observation_denominator")
+                != visible_observation_count
+                for capture, count, visible_site_count, visible_observation_count in zip(
+                    published_captures,
+                    visible_counts,
+                    visible_site_counts,
+                    visible_observation_counts,
+                    strict=True,
                 )
             )
         ):
             raise AtlasMediaError(f"source visibility evidence differs: {story_id}")
-        interpretation = _SOURCE_INTERPRETATION
+        interpretation = story_interpretation(role, selector_kind)
     else:
         if (
-            story.get("node_count") is not None
+            story.get("site_count") is not None
+            or story.get("node_count") is not None
             or story.get("observation_denominator") is not None
             or story.get("expected_visible_feature_counts") is not None
+            or story.get("expected_visible_site_counts") is not None
+            or story.get("expected_visible_observation_counts") is not None
             or story.get("source_authority_sha256") is not None
+            or story.get("source_preset_member_taxon_ids") is not None
+            or story.get("source_preset_catalog_sha256") is not None
         ):
             raise AtlasMediaError("modeled story carries source evidence")
+        site_count = None
         node_count = None
         observations = None
         visible_counts = None
+        visible_site_counts = None
+        visible_observation_counts = None
         authority = None
+        preset_member_ids = None
+        preset_catalog = None
         modeled_denominators = _positive_integer_list(
             story.get("frame_feature_denominators"),
             length=frame_count,
@@ -520,6 +663,8 @@ def _publication_story(
             or capture.get("visible_modeled_context_feature_count") != denominator
             or capture.get("visible_source_node_count") is not None
             or capture.get("visible_source_observation_denominator") is not None
+            or capture.get("facet_site_count") is not None
+            or capture.get("visible_site_count") is not None
             or capture.get("no_pollen_data_count") != no_pollen_count
             or capture.get("visible_modeled_no_pollen_data_count") != no_pollen_count
             for capture, denominator, no_pollen_count in zip(
@@ -530,7 +675,7 @@ def _publication_story(
             )
         ):
             raise AtlasMediaError("modeled visibility evidence differs")
-        interpretation = _MODELED_INTERPRETATION
+        interpretation = story_interpretation(role, selector_kind)
 
     assets = _object_list(story.get("assets"), "story assets")
     if len(assets) != 3 or [asset.get("media_type") for asset in assets] != [
@@ -562,12 +707,17 @@ def _publication_story(
             "interpretation": interpretation,
             "temporal_direction": "oldest_to_present",
             "interval_semantics": "[younger_bp, older_bp]",
+            "site_count": site_count,
             "node_count": node_count,
             "observation_denominator": observations,
             "frame_feature_denominators": modeled_denominators,
             "frame_no_pollen_data_counts": modeled_no_pollen_denominators,
             "expected_visible_feature_counts": visible_counts,
+            "expected_visible_site_counts": visible_site_counts,
+            "expected_visible_observation_counts": visible_observation_counts,
             "source_authority_sha256": authority,
+            "source_preset_member_taxon_ids": preset_member_ids,
+            "source_preset_catalog_sha256": preset_catalog,
             "frame_count": frame_count,
             "poster_frame_ordinal": poster_ordinal,
             "first_frame": first_frame,
@@ -772,7 +922,12 @@ def _validate_atlas_media_publication_inventory(
 ) -> dict[str, object]:
     """Validate one publication against an explicitly recognized inventory."""
     if legacy_v3 != (
-        expected_schema_version == LEGACY_PUBLICATION_SCHEMA_VERSION_V3
+        expected_schema_version
+        in {
+            "atlas-media-publication.v1",
+            "atlas-media-publication.v2",
+            LEGACY_PUBLICATION_SCHEMA_VERSION_V3,
+        }
     ):
         raise AtlasMediaError("publication validator contract is inconsistent")
     expected_asset_count = len(expected_stories) * 2
@@ -786,8 +941,13 @@ def _validate_atlas_media_publication_inventory(
     manifest = _load_json_object(payload, label="publication manifest")
     content_digest = manifest.get("content_sha256")
     content = {key: value for key, value in manifest.items() if key != "content_sha256"}
+    expected_manifest_fields = (
+        _PUBLICATION_FIELDS
+        if expected_schema_version == PUBLICATION_SCHEMA_VERSION
+        else _LEGACY_PUBLICATION_FIELDS
+    )
     if (
-        set(manifest) != _PUBLICATION_FIELDS
+        set(manifest) != expected_manifest_fields
         or manifest.get("schema_version") != expected_schema_version
         or not _is_sha256(content_digest)
         or content_digest != hashlib.sha256(canonical_json_bytes(content)).hexdigest()
@@ -807,6 +967,11 @@ def _validate_atlas_media_publication_inventory(
     source_authority = _digest(
         manifest.get("source_authority_sha256"), "published source authority"
     )
+    source_preset_catalog_sha256 = None
+    if expected_schema_version == PUBLICATION_SCHEMA_VERSION:
+        _catalog, source_preset_catalog_sha256 = validate_source_preset_catalog(
+            manifest.get("source_label_preset_catalog")
+        )
     if manifest.get("scientific_posture") != {
         "temporal_direction": "oldest_to_present",
         "interval_semantics": "[younger_bp, older_bp]",
@@ -842,16 +1007,29 @@ def _validate_atlas_media_publication_inventory(
         expected_stories
     ):
         raise AtlasMediaError("publication story inventory differs")
+    if expected_schema_version == PUBLICATION_SCHEMA_VERSION and sum(
+        _positive_integer(story.get("frame_count"), "publication story frame_count")
+        for story in stories
+    ) != PUBLICATION_FRAME_COUNT:
+        raise AtlasMediaError("publication frame inventory differs")
     expected_files = {"publication-manifest.json", "publication-manifest.sha256"}
     published_bytes = 0
     published_assets = 0
+    preset_catalogs: set[str] = set()
     for story, expected in zip(stories, expected_stories, strict=True):
         _validate_published_story(
             story,
             expected=expected,
             source_authority_sha256=source_authority,
+            source_preset_catalog_sha256=source_preset_catalog_sha256,
             legacy_v3=legacy_v3,
+            legacy_v4=(
+                expected_schema_version == LEGACY_PUBLICATION_SCHEMA_VERSION_V4
+            ),
         )
+        preset_catalog = story.get("source_preset_catalog_sha256")
+        if isinstance(preset_catalog, str):
+            preset_catalogs.add(preset_catalog)
         story_id = expected[0]
         frame_count = cast(int, story["frame_count"])
         assets = _object_list(story.get("assets"), "publication assets")
@@ -930,6 +1108,11 @@ def _validate_atlas_media_publication_inventory(
             expected_files.add(path_text)
             published_bytes += byte_count
             published_assets += 1
+    if (
+        expected_schema_version == PUBLICATION_SCHEMA_VERSION
+        and preset_catalogs != {source_preset_catalog_sha256}
+    ):
+        raise AtlasMediaError("source-label preset stories differ from governed catalog")
     observed = {
         path.relative_to(root).as_posix()
         for path in root.rglob("*")
@@ -952,17 +1135,23 @@ def _validate_published_story(
     *,
     expected: tuple[str, str, str, str, str | None],
     source_authority_sha256: str,
+    source_preset_catalog_sha256: str | None,
     legacy_v3: bool = False,
+    legacy_v4: bool = False,
 ) -> None:
     story_id, role, selector_kind, selector_value, selector_family = expected
     expected_title = (
         LEGACY_PUBLICATION_STORY_TITLES_V3[story_id]
         if legacy_v3
+        else LEGACY_PUBLICATION_STORY_TITLES_V4[story_id]
+        if legacy_v4
         else PUBLICATION_STORY_TITLES[story_id]
     )
     expected_fields = (
         _LEGACY_V3_PUBLIC_STORY_FIELDS if legacy_v3 else _PUBLIC_STORY_FIELDS
     )
+    if legacy_v4:
+        expected_fields = _LEGACY_V4_PUBLIC_STORY_FIELDS
     if (
         set(story) != expected_fields
         or story.get("story_id") != story_id
@@ -974,9 +1163,11 @@ def _validate_published_story(
         or story.get("interval_semantics") != "[younger_bp, older_bp]"
         or story.get("interpretation")
         != (
-            _SOURCE_INTERPRETATION
-            if role == "observation_chronology"
-            else _MODELED_INTERPRETATION
+            _LEGACY_SOURCE_INTERPRETATION
+            if (legacy_v3 or legacy_v4) and role == "observation_chronology"
+            else _LEGACY_MODELED_INTERPRETATION
+            if legacy_v3 or legacy_v4
+            else story_interpretation(role, selector_kind)
         )
     ):
         raise AtlasMediaError("publication story identity or semantics differ")
@@ -1012,11 +1203,20 @@ def _validate_published_story(
         float | int, last_frame["time_start_bp"]
     ) or cast(float | int, first_frame["time_end_bp"]) < cast(
         float | int, last_frame["time_end_bp"]
+    ) or (
+        frame_count > 1
+        and cast(float | int, first_frame["time_start_bp"])
+        == cast(float | int, last_frame["time_start_bp"])
     ):
         raise AtlasMediaError("publication story boundary direction differs")
     _digest(story.get("frame_set_sha256"), "published frame set")
     _digest(story.get("capture_frame_set_sha256"), "published capture frame set")
     if role == "observation_chronology":
+        site_count = (
+            None
+            if legacy_v3 or legacy_v4
+            else _positive_integer(story.get("site_count"), "published site_count")
+        )
         node_count = _positive_integer(story.get("node_count"), "published node_count")
         _positive_integer(
             story.get("observation_denominator"),
@@ -1027,6 +1227,47 @@ def _validate_published_story(
             length=frame_count,
             label="published visibility denominators",
         )
+        visible_sites = (
+            None
+            if legacy_v3 or legacy_v4
+            else _nonnegative_integer_list(
+                story.get("expected_visible_site_counts"),
+                length=frame_count,
+                label="published site visibility denominators",
+            )
+        )
+        visible_observations = (
+            None
+            if legacy_v3 or legacy_v4
+            else _nonnegative_integer_list(
+                story.get("expected_visible_observation_counts"),
+                length=frame_count,
+                label="published observation visibility denominators",
+            )
+        )
+        if selector_kind == "source_label_preset":
+            member_ids = _positive_integer_list(
+                story.get("source_preset_member_taxon_ids"),
+                length=None,
+                label="published source-label preset member IDs",
+            )
+            if len(set(cast(list[int], member_ids))) != len(member_ids):
+                raise AtlasMediaError("published source-label preset member IDs differ")
+            if tuple(member_ids) != _PRESET_MEMBER_IDS.get(selector_value):
+                raise AtlasMediaError("published source-label preset member IDs differ")
+            preset_catalog = _digest(
+                story.get("source_preset_catalog_sha256"),
+                "published source-label preset catalog",
+            )
+            if preset_catalog != source_preset_catalog_sha256:
+                raise AtlasMediaError("published source-label preset catalog differs")
+        elif not legacy_v3 and not legacy_v4 and (
+            story.get("source_preset_member_taxon_ids") is not None
+            or story.get("source_preset_catalog_sha256") is not None
+        ):
+            raise AtlasMediaError(
+                "published non-preset source story carries preset authority"
+            )
         if (
             story.get("frame_feature_denominators") is not None
             or (
@@ -1036,13 +1277,46 @@ def _validate_published_story(
             or story.get("source_authority_sha256") != source_authority_sha256
             or sum(cast(list[int], visible)) <= 0
             or any(cast(int, count) > node_count for count in visible)
+            or (
+                visible_sites is not None
+                and (
+                    site_count is None
+                    or sum(cast(list[int], visible_sites)) <= 0
+                    or any(
+                        cast(int, count) > site_count for count in visible_sites
+                    )
+                )
+            )
+            or (
+                visible_observations is not None
+                and sum(cast(list[int], visible_observations)) <= 0
+            )
         ):
             raise AtlasMediaError("published source-story evidence differs")
     elif (
-        story.get("node_count") is not None
+        (not legacy_v3 and not legacy_v4 and story.get("site_count") is not None)
+        or story.get("node_count") is not None
         or story.get("observation_denominator") is not None
         or story.get("expected_visible_feature_counts") is not None
+        or (
+            not legacy_v3
+            and not legacy_v4
+            and story.get("expected_visible_site_counts") is not None
+        )
+        or (
+            not legacy_v3
+            and not legacy_v4
+            and story.get("expected_visible_observation_counts") is not None
+        )
         or story.get("source_authority_sha256") is not None
+        or (
+            not legacy_v3
+            and not legacy_v4
+            and (
+                story.get("source_preset_member_taxon_ids") is not None
+                or story.get("source_preset_catalog_sha256") is not None
+            )
+        )
     ):
         raise AtlasMediaError("published modeled story carries source evidence")
     else:
@@ -1066,6 +1340,23 @@ def _validate_published_story(
                 raise AtlasMediaError(
                     "published modeled no-pollen-data count exceeds denominator"
                 )
+
+    if not legacy_v3:
+        poster_counts = (
+            visible
+            if role == "observation_chronology"
+            else _positive_integer_list(
+                story.get("frame_feature_denominators"),
+                length=frame_count,
+                label="published modeled feature denominators",
+            )
+        )
+        expected_poster = max(
+            range(frame_count),
+            key=lambda ordinal: (cast(list[int], poster_counts)[ordinal], -ordinal),
+        )
+        if story.get("poster_frame_ordinal") != expected_poster:
+            raise AtlasMediaError("publication poster frame ordinal differs")
 
 
 def _published_encoding(
@@ -1147,7 +1438,10 @@ def _require_existing_destination_is_governed(
         expected_schema_version=supported_schema,
         expected_stories=inventory,
         mp4_probe=mp4_probe,
-        legacy_v3=(supported_schema == LEGACY_PUBLICATION_SCHEMA_VERSION_V3),
+        legacy_v3=(
+            supported_schema
+            not in {LEGACY_PUBLICATION_SCHEMA_VERSION_V4, PUBLICATION_SCHEMA_VERSION}
+        ),
     )
 
 
@@ -1565,6 +1859,8 @@ def _validate_boundary_selector(
             expected_fields.add("source_code")
         elif selector_kind == "source_taxon":
             expected_fields.add("source_taxon")
+        elif selector_kind == "source_label_preset":
+            expected_fields.update({"source_taxon", "source_preset"})
     else:
         expected_fields.update(
             {
@@ -1585,7 +1881,7 @@ def _validate_boundary_selector(
     if role == "observation_chronology":
         if (
             frame.get("story_kind") != "source_chronology"
-            or frame.get("source_level") != selector_kind
+            or frame.get("source_level") != _source_level(selector_kind)
             or frame.get("source_window_label") is not None
             or frame.get("feature_count") is not None
             or (
@@ -1595,6 +1891,13 @@ def _validate_boundary_selector(
             or (
                 selector_kind == "source_taxon"
                 and frame.get("source_taxon") != selector_value
+            )
+            or (
+                selector_kind == "source_label_preset"
+                and (
+                    frame.get("source_taxon") != "all"
+                    or frame.get("source_preset") != selector_value
+                )
             )
         ):
             raise AtlasMediaError("source story boundary selector differs")
@@ -1716,10 +2019,13 @@ def _positive_integer(value: object, label: str) -> int:
     return value
 
 
-def _positive_integer_list(value: object, *, length: int, label: str) -> list[object]:
+def _positive_integer_list(
+    value: object, *, length: int | None, label: str
+) -> list[object]:
     if (
         not isinstance(value, list)
-        or len(value) != length
+        or (length is not None and len(value) != length)
+        or not value
         or any(
             isinstance(item, bool) or not isinstance(item, int) or item <= 0
             for item in value

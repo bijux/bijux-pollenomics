@@ -29,7 +29,7 @@ def test_capture_receipt_must_reconcile_every_frame(tmp_path: Path) -> None:
     media_plan = plan(tmp_path)
     story = make_story()
     receipt: Any = {
-        "schema_version": "atlas-media-capture-receipt.v2",
+        "schema_version": "atlas-media-capture-receipt.v3",
         "candidate": media_plan.candidate.as_json(),
         "capture_api_version": "atlas-capture.v1",
         "basemap": "none",
@@ -142,7 +142,7 @@ def test_capture_receipt_binds_frame_selector_build_and_png(tmp_path: Path) -> N
     frame_path.parent.mkdir(parents=True)
     frame_path.write_bytes(b"captured-png")
     receipt: Any = {
-        "schema_version": "atlas-media-capture-receipt.v2",
+        "schema_version": "atlas-media-capture-receipt.v3",
         "candidate": media_plan.candidate.as_json(),
         "capture_api_version": "atlas-capture.v1",
         "basemap": "none",
@@ -157,11 +157,14 @@ def test_capture_receipt_binds_frame_selector_build_and_png(tmp_path: Path) -> N
                     "kind": story.selector_kind,
                     "value": story.selector_value,
                     "family": story.selector_family,
-                },
-                "node_count": story.node_count,
+                    },
+                    "site_count": story.site_count,
+                    "node_count": story.node_count,
                 "observation_denominator": story.observation_denominator,
                 "frame_feature_denominators": None,
-                "expected_visible_feature_counts": [1],
+                    "expected_visible_feature_counts": [1],
+                    "expected_visible_site_counts": [1],
+                    "expected_visible_observation_counts": [2],
                 "source_authority_sha256": "1" * 64,
                 "frame_count": 1,
                 "frames": [
@@ -181,6 +184,8 @@ def test_capture_receipt_binds_frame_selector_build_and_png(tmp_path: Path) -> N
                         "visible_governed_candidate_count": 0,
                         "time_start_bp": 100,
                         "time_end_bp": 200,
+                        "facet_site_count": 10,
+                        "visible_site_count": 1,
                         "frame_sha256": hashlib.sha256(
                             canonical_json_bytes(frame)
                         ).hexdigest(),

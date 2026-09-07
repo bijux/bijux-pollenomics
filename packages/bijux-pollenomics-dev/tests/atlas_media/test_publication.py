@@ -8,15 +8,22 @@ import json
 import shutil
 import zlib
 from collections.abc import Callable
+from copy import deepcopy
 from pathlib import Path
 from typing import Any, cast
 
 import pytest
+from bijux_pollenomics.reporting.source_chronology.source_label_presets import (
+    NEOTOMA_SOURCE_LABEL_PRESETS,
+)
 from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError, publication
 from bijux_pollenomics_dev.ci.atlas_media.catalog import (
     LEGACY_PUBLICATION_SCHEMA_VERSION_V3,
+    LEGACY_PUBLICATION_SCHEMA_VERSION_V4,
     LEGACY_PUBLICATION_STORY_TITLES_V3,
+    LEGACY_PUBLICATION_STORY_TITLES_V4,
     LEGACY_PUBLICATION_STORY_TUPLES_V3,
+    LEGACY_PUBLICATION_STORY_TUPLES_V4,
     PUBLICATION_ASSET_COUNT,
     PUBLICATION_SCHEMA_VERSION,
     PUBLICATION_STORIES,
@@ -33,7 +40,13 @@ from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     write_gallery_manifest,
 )
 
-from tests.atlas_media.fixtures import BUILD_ID, COUNTRIES, SUCCESSION, candidate
+from tests.atlas_media.fixtures import (
+    BUILD_ID,
+    COUNTRIES,
+    SUCCESSION,
+    candidate,
+    source_preset_catalog,
+)
 from tests.atlas_media.receipt_fixtures import (
     capture_evidence_layer_key,
     capture_layers,
@@ -43,6 +56,24 @@ from tests.atlas_media.receipt_fixtures import (
 
 StorySpec = tuple[str, str, str, str, str | None]
 STORIES: tuple[StorySpec, ...] = PUBLICATION_STORY_TUPLES
+_PRESET_MEMBER_IDS = {
+    preset.key: preset.member_taxon_ids for preset in NEOTOMA_SOURCE_LABEL_PRESETS
+}
+_PRESET_CATALOG_DIGEST = str(
+    source_preset_catalog()["content_sha256"]
+).removeprefix("sha256:")
+_FRAME_COUNTS = dict(
+    zip(
+        (story[0] for story in STORIES),
+        (
+            230, 230, 230, 192,
+            140, 124, 107, 45, 119,
+            18, 67, 72, 45, 24, 92, 14, 31,
+            25, 25, 25, 25, 25, 25, 25, 25,
+        ),
+        strict=True,
+    )
+)
 
 _MINIMAL_MP4 = base64.b64decode(
     "AAAAJGZ0eXBpc29tAAACAGlzb21pc282aXNvMmF2YzFtcDQxAAAC7W1vb3YAAABs"
@@ -103,12 +134,14 @@ def _png(width: int = 16, height: int = 16) -> bytes:
     )
 
 
-def _probe(_: Path) -> publication.ProbedMp4:
+def _probe(path: Path) -> publication.ProbedMp4:
+    story_id = path.name.removesuffix(".mp4")
+    frame_count = _FRAME_COUNTS.get(story_id, 1)
     return publication.ProbedMp4(
         width=16,
         height=16,
-        frame_count=1,
-        duration_seconds=1.0,
+        frame_count=frame_count,
+        duration_seconds=float(frame_count),
         codec_name="h264",
         pixel_format="yuv420p",
     )
@@ -152,51 +185,76 @@ def _encoding_profile() -> dict[str, object]:
 
 def _story(spec: StorySpec) -> SelectedStory:
     story_id, role, kind, value, family = spec
-    frame: dict[str, object] = {
-        "ordinal": 0,
-        "story_kind": (
-            "source_chronology"
-            if role == "observation_chronology"
-            else "modeled_context"
-        ),
-        "time_start_bp": 100,
-        "time_end_bp": 200,
-        "countries": list(COUNTRIES),
-        "basemap": "none",
-    }
+    frame_count = _FRAME_COUNTS[story_id]
+    frames = tuple(
+        {
+            "ordinal": ordinal,
+            "story_kind": (
+                "source_chronology"
+                if role == "observation_chronology"
+                else "modeled_context"
+            ),
+            "time_start_bp": frame_count - ordinal - 1,
+            "time_end_bp": frame_count - ordinal,
+            "countries": list(COUNTRIES),
+            "basemap": "none",
+        }
+        for ordinal in range(frame_count)
+    )
     if role == "observation_chronology":
-        frame.update(
-            {
-                "source_level": kind,
-                "source_window_label": None,
-                "feature_count": None,
-            }
-        )
-        if kind == "source_ecological_code":
-            frame["source_code"] = value
-        if kind == "source_taxon":
-            frame["source_taxon"] = value
+        for frame in frames:
+            frame.update(
+                {
+                    "source_level": (
+                        "source_taxon" if kind == "source_label_preset" else kind
+                    ),
+                    "source_window_label": None,
+                    "feature_count": None,
+                }
+            )
+            if kind == "source_ecological_code":
+                frame["source_code"] = value
+            if kind == "source_taxon":
+                frame["source_taxon"] = value
+            if kind == "source_label_preset":
+                frame["source_taxon"] = "all"
+                frame["source_preset"] = value
         return SelectedStory(
             story_id=story_id,
             title=PUBLICATION_STORY_TITLES[story_id],
             evidence_role=role,
             selector_kind=kind,
             selector_value=value,
+            selector_family=family,
+            site_count=3,
             node_count=3,
             observation_denominator=4,
-            expected_visible_feature_counts=(1,),
+            expected_visible_feature_counts=(1,) * frame_count,
+            expected_visible_site_counts=(1,) * frame_count,
+            expected_visible_observation_counts=(1,) * frame_count,
             source_authority_sha256="1" * 64,
-            frames=(frame,),
+            source_preset_member_taxon_ids=(
+                _PRESET_MEMBER_IDS[value]
+                if kind == "source_label_preset"
+                else None
+            ),
+            source_preset_catalog_sha256=(
+                _PRESET_CATALOG_DIGEST
+                if kind == "source_label_preset"
+                else None
+            ),
+            frames=frames,
         )
-    frame.update(
-        {
-            "metric_family_key": family,
-            "metric_key": value,
-            "source_window_label": "100-200 BP",
-            "feature_count": 75,
-            "no_pollen_data_count": 4,
-        }
-    )
+    for frame in frames:
+        frame.update(
+            {
+                "metric_family_key": family,
+                "metric_key": value,
+                "source_window_label": "synthetic governed window",
+                "feature_count": 75,
+                "no_pollen_data_count": 4,
+            }
+        )
     return SelectedStory(
         story_id=story_id,
         title=PUBLICATION_STORY_TITLES[story_id],
@@ -204,9 +262,9 @@ def _story(spec: StorySpec) -> SelectedStory:
         selector_kind=kind,
         selector_value=value,
         selector_family=family,
-        frame_feature_denominators=(75,),
-        frame_no_pollen_data_counts=(4,),
-        frames=(frame,),
+        frame_feature_denominators=(75,) * frame_count,
+        frame_no_pollen_data_counts=(4,) * frame_count,
+        frames=frames,
     )
 
 
@@ -239,9 +297,11 @@ def _gallery(tmp_path: Path, *, stories: tuple[StorySpec, ...] = STORIES) -> Pat
                 {
                     "width": 16,
                     "height": 16,
-                    "frame_count": 1,
+                    "frame_count": (
+                        1 if media_type == "poster" else len(story.frames)
+                    ),
                     **(
-                        {"duration_seconds": 1.0}
+                        {"duration_seconds": float(len(story.frames))}
                         if media_type in {"mp4", "gif"}
                         else {}
                     ),
@@ -252,12 +312,27 @@ def _gallery(tmp_path: Path, *, stories: tuple[StorySpec, ...] = STORIES) -> Pat
         poster = next(row for row in assets if row["media_type"] == "poster")
         captures[story.story_id] = [
             {
-                "ordinal": 0,
-                "file": f"frames/{story.story_id}/000000.png",
+                "ordinal": ordinal,
+                "file": f"frames/{story.story_id}/{ordinal:06d}.png",
                 "frame_sha256": "2" * 64,
                 "png_sha256": poster["sha256"],
                 "byte_count": poster["byte_count"],
-                "no_pollen_data_count": story.frames[0].get("no_pollen_data_count"),
+                "no_pollen_data_count": frame.get("no_pollen_data_count"),
+                "source_preset": frame.get("source_preset"),
+                "source_preset_member_taxon_ids": (
+                    list(story.source_preset_member_taxon_ids)
+                    if story.source_preset_member_taxon_ids is not None
+                    else None
+                ),
+                "source_preset_catalog_sha256": story.source_preset_catalog_sha256,
+                "facet_site_count": (
+                    story.site_count
+                    if story.evidence_role == "observation_chronology"
+                    else None
+                ),
+                "visible_site_count": (
+                    1 if story.evidence_role == "observation_chronology" else None
+                ),
                 "visible_point_count": (
                     1 if story.evidence_role == "observation_chronology" else 0
                 ),
@@ -290,24 +365,32 @@ def _gallery(tmp_path: Path, *, stories: tuple[StorySpec, ...] = STORIES) -> Pat
                 ),
                 "capture_presentation": capture_presentation(
                     evidence_role=story.evidence_role,
-                    source_level=story.selector_kind,
+                    source_level=(
+                        "source_taxon"
+                        if story.selector_kind == "source_label_preset"
+                        else story.selector_kind
+                    ),
+                    source_preset=cast(str | None, frame.get("source_preset")),
                     title=story.title,
-                    younger_bp=cast(int, story.frames[0]["time_start_bp"]),
-                    older_bp=cast(int, story.frames[0]["time_end_bp"]),
+                    younger_bp=cast(int, frame["time_start_bp"]),
+                    older_bp=cast(int, frame["time_end_bp"]),
                     visible_source_count=1,
+                    visible_source_site_count=1,
+                    source_site_denominator=story.site_count or 0,
                     source_node_denominator=story.node_count or 0,
                     visible_source_observations=1,
                     source_observation_denominator=story.observation_denominator or 0,
                     modeled_feature_count=cast(
-                        int, story.frames[0].get("feature_count") or 0
+                        int, frame.get("feature_count") or 0
                     ),
                     modeled_no_pollen_data_count=4,
                     source_window_label=str(
-                        story.frames[0].get("source_window_label") or ""
+                        frame.get("source_window_label") or ""
                     ),
                 ),
                 "capture_layout": capture_layout(),
             }
+            for ordinal, frame in enumerate(story.frames)
         ]
     tools: dict[str, object] = {
         name: {"binary_sha256": digit * 64, "version": f"{name} fixture"}
@@ -326,6 +409,7 @@ def _gallery(tmp_path: Path, *, stories: tuple[StorySpec, ...] = STORIES) -> Pat
         },
         candidate_identity=candidate().as_json(),
         storyboard_sha256="7" * 64,
+        source_preset_catalog=source_preset_catalog(),
         stories=selected,
         assets_by_story=assets_by_story,
         capture_frames_by_story=captures,
@@ -389,12 +473,49 @@ def _rewrite_as_legacy_v3(root: Path) -> None:
 
     def downgrade(value: dict[str, Any]) -> None:
         value["schema_version"] = LEGACY_PUBLICATION_SCHEMA_VERSION_V3
+        value.pop("source_label_preset_catalog")
         value["encoding_profile"]["poster"] = {
             "format": "png",
             "source_frame_ordinal": 0,
         }
+        by_id = {story["story_id"]: story for story in value["stories"]}
+        donor = by_id["neotoma-source-taxon-416"]
+        for story_id, _role, kind, selector_value, family in (
+            LEGACY_PUBLICATION_STORY_TUPLES_V3
+        ):
+            if story_id in by_id:
+                continue
+            story = deepcopy(donor)
+            story["story_id"] = story_id
+            story["selector"] = {
+                "kind": kind,
+                "value": selector_value,
+                "family": family,
+            }
+            story["frame_count"] = 1
+            story["expected_visible_feature_counts"] = [1]
+            story["expected_visible_site_counts"] = [1]
+            story["expected_visible_observation_counts"] = [1]
+            story["poster_frame_ordinal"] = 0
+            for boundary in (story["first_frame"], story["last_frame"]):
+                boundary["ordinal"] = 0
+                boundary["time_start_bp"] = 0
+                boundary["time_end_bp"] = 1
+                boundary["source_taxon"] = selector_value
+            for asset in story["assets"]:
+                suffix = ".poster.png" if asset["media_type"] == "poster" else ".mp4"
+                source_path = root / "media" / f"neotoma-source-taxon-416{suffix}"
+                target_path = root / "media" / f"{story_id}{suffix}"
+                target_path.write_bytes(source_path.read_bytes())
+                for identity in (asset["source"], asset["published"]):
+                    identity["path"] = f"media/{story_id}{suffix}"
+                    if asset["media_type"] == "mp4":
+                        identity["frame_count"] = 1
+                        identity["duration_seconds"] = 1.0
+            by_id[story_id] = story
         value["stories"] = [
-            story for story in value["stories"] if story["story_id"] in legacy_story_ids
+            by_id[story_id]
+            for story_id, *_ in LEGACY_PUBLICATION_STORY_TUPLES_V3
         ]
         value["story_count"] = len(LEGACY_PUBLICATION_STORY_TUPLES_V3)
         value["publication_budget"]["published_asset_count"] = (
@@ -407,6 +528,21 @@ def _rewrite_as_legacy_v3(root: Path) -> None:
         )
         for story in value["stories"]:
             story["title"] = LEGACY_PUBLICATION_STORY_TITLES_V3[story["story_id"]]
+            story["interpretation"] = (
+                "Dated source-observation chronology; not movement, migration, "
+                "causation, or propagation."
+                if story["evidence_role"] == "observation_chronology"
+                else "Non-interpolated modeled context; not an observed pollen "
+                "trajectory or propagation."
+            )
+            for field in (
+                "site_count",
+                "expected_visible_site_counts",
+                "expected_visible_observation_counts",
+                "source_preset_member_taxon_ids",
+                "source_preset_catalog_sha256",
+            ):
+                story.pop(field)
             story.pop("poster_frame_ordinal")
             story.pop("frame_no_pollen_data_counts")
             if story["evidence_role"] == "modeled_context":
@@ -414,6 +550,138 @@ def _rewrite_as_legacy_v3(root: Path) -> None:
                 story["last_frame"].pop("no_pollen_data_count")
 
     _rewrite_publication(root, downgrade)
+
+
+def _rewrite_as_pre_v4(
+    root: Path,
+    *,
+    schema: str,
+    inventory: tuple[StorySpec, ...],
+) -> None:
+    legacy_story_ids = {story_id for story_id, *_ in inventory}
+    for story_id, *_ in PUBLICATION_STORY_TUPLES:
+        if story_id not in legacy_story_ids:
+            for suffix in (".poster.png", ".mp4"):
+                (root / "media" / f"{story_id}{suffix}").unlink()
+
+    def downgrade(value: dict[str, Any]) -> None:
+        value["schema_version"] = schema
+        value.pop("source_label_preset_catalog")
+        value["encoding_profile"]["poster"] = {
+            "format": "png",
+            "source_frame_ordinal": 0,
+        }
+        value["stories"] = [
+            story for story in value["stories"] if story["story_id"] in legacy_story_ids
+        ]
+        value["story_count"] = len(inventory)
+        value["publication_budget"]["published_asset_count"] = len(inventory) * 2
+        value["publication_budget"]["published_byte_count"] = sum(
+            asset["published"]["byte_count"]
+            for story in value["stories"]
+            for asset in story["assets"]
+        )
+        for story in value["stories"]:
+            story["title"] = LEGACY_PUBLICATION_STORY_TITLES_V3[story["story_id"]]
+            story["interpretation"] = (
+                "Dated source-observation chronology; not movement, migration, "
+                "causation, or propagation."
+                if story["evidence_role"] == "observation_chronology"
+                else "Non-interpolated modeled context; not an observed pollen "
+                "trajectory or propagation."
+            )
+            for field in (
+                "site_count",
+                "expected_visible_site_counts",
+                "expected_visible_observation_counts",
+                "source_preset_member_taxon_ids",
+                "source_preset_catalog_sha256",
+            ):
+                story.pop(field)
+            story.pop("poster_frame_ordinal")
+            story.pop("frame_no_pollen_data_counts")
+            if story["evidence_role"] == "modeled_context":
+                story["first_frame"].pop("no_pollen_data_count")
+                story["last_frame"].pop("no_pollen_data_count")
+
+    _rewrite_publication(root, downgrade)
+
+
+def _rewrite_as_legacy_v4(root: Path) -> None:
+    legacy_ids = {story_id for story_id, *_ in LEGACY_PUBLICATION_STORY_TUPLES_V4}
+
+    def downgrade(value: dict[str, Any]) -> None:
+        value["schema_version"] = LEGACY_PUBLICATION_SCHEMA_VERSION_V4
+        value.pop("source_label_preset_catalog")
+        by_id = {story["story_id"]: story for story in value["stories"]}
+        donor = by_id["neotoma-source-taxon-416"]
+        for story_id, _role, kind, selector_value, family in (
+            LEGACY_PUBLICATION_STORY_TUPLES_V4
+        ):
+            if story_id in by_id:
+                continue
+            story = deepcopy(donor)
+            story["story_id"] = story_id
+            story["selector"] = {
+                "kind": kind,
+                "value": selector_value,
+                "family": family,
+            }
+            story["frame_count"] = 1
+            story["poster_frame_ordinal"] = 0
+            story["expected_visible_feature_counts"] = [1]
+            story["expected_visible_site_counts"] = [1]
+            story["expected_visible_observation_counts"] = [1]
+            for boundary in (story["first_frame"], story["last_frame"]):
+                boundary["ordinal"] = 0
+                boundary["time_start_bp"] = 0
+                boundary["time_end_bp"] = 1
+                boundary["source_taxon"] = selector_value
+            for asset in story["assets"]:
+                suffix = ".poster.png" if asset["media_type"] == "poster" else ".mp4"
+                source_path = root / "media" / f"neotoma-source-taxon-416{suffix}"
+                target_path = root / "media" / f"{story_id}{suffix}"
+                target_path.write_bytes(source_path.read_bytes())
+                for identity in (asset["source"], asset["published"]):
+                    identity["path"] = f"media/{story_id}{suffix}"
+                    if asset["media_type"] == "mp4":
+                        identity["frame_count"] = 1
+                        identity["duration_seconds"] = 1.0
+            by_id[story_id] = story
+        value["stories"] = [
+            by_id[story_id]
+            for story_id, *_ in LEGACY_PUBLICATION_STORY_TUPLES_V4
+        ]
+        value["story_count"] = len(value["stories"])
+        value["publication_budget"]["published_asset_count"] = len(value["stories"]) * 2
+        value["publication_budget"]["published_byte_count"] = sum(
+            asset["published"]["byte_count"]
+            for story in value["stories"]
+            for asset in story["assets"]
+        )
+        for story in value["stories"]:
+            story["title"] = LEGACY_PUBLICATION_STORY_TITLES_V4[story["story_id"]]
+            story["interpretation"] = (
+                "Dated source-observation chronology; not movement, migration, "
+                "causation, or propagation."
+                if story["evidence_role"] == "observation_chronology"
+                else "Non-interpolated modeled context; not an observed pollen "
+                "trajectory or propagation."
+            )
+            for field in (
+                "site_count",
+                "expected_visible_site_counts",
+                "expected_visible_observation_counts",
+                "source_preset_member_taxon_ids",
+                "source_preset_catalog_sha256",
+            ):
+                story.pop(field)
+
+    _rewrite_publication(root, downgrade)
+    for story_id, *_ in PUBLICATION_STORY_TUPLES:
+        if story_id not in legacy_ids:
+            for suffix in (".poster.png", ".mp4"):
+                (root / "media" / f"{story_id}{suffix}").unlink()
 
 
 def _file_bytes(root: Path) -> dict[str, bytes]:
@@ -439,6 +707,12 @@ def test_publication_is_deterministic_bounded_and_excludes_run_artifacts(
 
     manifest: Any = _publish(source, first)
     _publish(source, second)
+    gallery_manifest = json.loads(
+        (source / "gallery-manifest.json").read_text(encoding="utf-8")
+    )
+    assert [story["interpretation"] for story in manifest["stories"]] == [
+        story["interpretation"] for story in gallery_manifest["stories"]
+    ]
 
     expected_media = {
         f"media/{story_id}{suffix}"
@@ -516,12 +790,10 @@ def test_public_validator_reconciles_complete_existing_bundle_and_real_ffprobe(
     ffprobe = shutil.which("ffprobe")
     if ffprobe is None:
         pytest.skip("ffprobe is unavailable for the real-media portability check")
-    assert (
+    with pytest.raises(AtlasMediaError, match="MP4 properties differ"):
         publication.validate_atlas_media_publication(
             destination, ffprobe_binary=Path(ffprobe)
         )
-        == expected
-    )
 
 
 @pytest.mark.parametrize(
@@ -574,6 +846,62 @@ def test_public_validator_refuses_rehashed_semantic_and_contract_forgery(
     _rewrite_publication(destination, mutation)
 
     with pytest.raises(AtlasMediaError, match=error):
+        publication.validate_atlas_media_publication(destination, mp4_probe=_probe)
+
+
+@pytest.mark.parametrize(
+    "mutation,error",
+    (
+        (
+            lambda story: story.update(
+                {"source_preset_member_taxon_ids": [414, 415]}
+            ),
+            "preset member IDs differ",
+        ),
+        (
+            lambda story: story.update(
+                {"source_preset_catalog_sha256": "9" * 64}
+            ),
+            "preset catalog differs",
+        ),
+    ),
+)
+def test_public_validator_refuses_rehashed_preset_authority_forgery(
+    tmp_path: Path,
+    mutation: Callable[[dict[str, Any]], None],
+    error: str,
+) -> None:
+    source = _gallery(tmp_path)
+    destination = tmp_path / "published"
+    _publish(source, destination)
+
+    def mutate(value: dict[str, Any]) -> None:
+        story = next(
+            row
+            for row in value["stories"]
+            if row["selector"]["kind"] == "source_label_preset"
+        )
+        mutation(story)
+
+    _rewrite_publication(destination, mutate)
+    with pytest.raises(AtlasMediaError, match=error):
+        publication.validate_atlas_media_publication(destination, mp4_probe=_probe)
+
+
+def test_public_validator_refuses_coordinated_preset_catalog_forgery(
+    tmp_path: Path,
+) -> None:
+    source = _gallery(tmp_path)
+    destination = tmp_path / "published"
+    _publish(source, destination)
+
+    def mutate(value: dict[str, Any]) -> None:
+        for story in value["stories"]:
+            if story["selector"]["kind"] == "source_label_preset":
+                story["source_preset_catalog_sha256"] = "9" * 64
+
+    _rewrite_publication(destination, mutate)
+    with pytest.raises(AtlasMediaError, match="preset catalog differs"):
         publication.validate_atlas_media_publication(destination, mp4_probe=_probe)
 
 
@@ -851,26 +1179,22 @@ def test_publication_refuses_uncontrolled_existing_destination(
 )
 def test_publication_replaces_recognized_existing_inventory(
     tmp_path: Path,
-    monkeypatch: pytest.MonkeyPatch,
     legacy_contract: tuple[str, tuple[StorySpec, ...]],
 ) -> None:
     legacy_schema, legacy_inventory = legacy_contract
     destination = tmp_path / "published"
-    legacy_source = _gallery(tmp_path / "legacy", stories=legacy_inventory)
-
-    monkeypatch.setattr(publication, "_EXPECTED_STORIES", legacy_inventory)
-    monkeypatch.setattr(publication, "PUBLICATION_SCHEMA_VERSION", legacy_schema)
-    _publish(legacy_source, destination)
+    current_source = _gallery(tmp_path / "current")
+    _publish(current_source, destination)
+    _rewrite_as_pre_v4(
+        destination,
+        schema=legacy_schema,
+        inventory=legacy_inventory,
+    )
     legacy_manifest = json.loads(
         (destination / "publication-manifest.json").read_text(encoding="utf-8")
     )
     assert len(legacy_manifest["stories"]) == len(legacy_inventory)
 
-    monkeypatch.setattr(publication, "_EXPECTED_STORIES", STORIES)
-    monkeypatch.setattr(
-        publication, "PUBLICATION_SCHEMA_VERSION", PUBLICATION_SCHEMA_VERSION
-    )
-    current_source = _gallery(tmp_path / "current")
     manifest: Any = _publish(current_source, destination)
 
     assert manifest["story_count"] == len(STORIES)
@@ -879,7 +1203,7 @@ def test_publication_replaces_recognized_existing_inventory(
     }
 
 
-def test_publication_replaces_exact_legacy_v3_destination_with_v4(
+def test_publication_replaces_exact_legacy_v3_destination_with_current(
     tmp_path: Path,
 ) -> None:
     source = _gallery(tmp_path / "source")
@@ -901,6 +1225,36 @@ def test_publication_replaces_exact_legacy_v3_destination_with_v4(
     )
     with pytest.raises(AtlasMediaError, match="content identity differs"):
         publication.validate_atlas_media_publication(destination, mp4_probe=_probe)
+
+    manifest = _publish(source, destination)
+
+    assert manifest["schema_version"] == PUBLICATION_SCHEMA_VERSION
+    assert (
+        json.loads(
+            (destination / "publication-manifest.json").read_text(encoding="utf-8")
+        )
+        == manifest
+    )
+
+
+def test_publication_replaces_exact_legacy_v4_destination_with_current(
+    tmp_path: Path,
+) -> None:
+    source = _gallery(tmp_path / "source")
+    destination = tmp_path / "published"
+    _publish(source, destination)
+    _rewrite_as_legacy_v4(destination)
+
+    legacy = json.loads(
+        (destination / "publication-manifest.json").read_text(encoding="utf-8")
+    )
+    assert legacy["schema_version"] == LEGACY_PUBLICATION_SCHEMA_VERSION_V4
+    assert all("poster_frame_ordinal" in story for story in legacy["stories"])
+    assert all(
+        "frame_no_pollen_data_counts" in story
+        for story in legacy["stories"]
+        if story["evidence_role"] == "modeled_context"
+    )
 
     manifest = _publish(source, destination)
 
@@ -985,10 +1339,14 @@ def test_v4_validator_requires_poster_selection_and_modeled_quality_counts(
     source = _gallery(tmp_path)
     destination = tmp_path / "published"
     _publish(source, destination)
+    _rewrite_as_legacy_v4(destination)
     _rewrite_publication(destination, mutation)
+    before = _file_bytes(destination)
 
     with pytest.raises(AtlasMediaError, match="identity or semantics differ"):
-        publication.validate_atlas_media_publication(destination, mp4_probe=_probe)
+        _publish(source, destination)
+
+    assert _file_bytes(destination) == before
 
 
 def test_publication_rejects_duplicate_json_fields(tmp_path: Path) -> None:

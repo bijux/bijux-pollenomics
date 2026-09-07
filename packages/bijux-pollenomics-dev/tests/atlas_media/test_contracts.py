@@ -15,12 +15,16 @@ from bijux_pollenomics_dev.ci.atlas_media.__main__ import _parser
 from bijux_pollenomics_dev.ci.atlas_media.catalog import (
     DEFAULT_EXACT_TAXA,
     DEFAULT_MODELED_METRICS,
+    DEFAULT_SOURCE_LABEL_PRESETS,
     LEGACY_PUBLICATION_SCHEMA_VERSION_V3,
+    LEGACY_PUBLICATION_SCHEMA_VERSION_V4,
     LEGACY_PUBLICATION_STORY_TITLES_V3,
     LEGACY_PUBLICATION_STORY_TUPLES_V1,
     LEGACY_PUBLICATION_STORY_TUPLES_V2,
     LEGACY_PUBLICATION_STORY_TUPLES_V3,
+    LEGACY_PUBLICATION_STORY_TUPLES_V4,
     PUBLICATION_ASSET_COUNT,
+    PUBLICATION_FRAME_COUNT,
     PUBLICATION_SCHEMA_VERSION,
     PUBLICATION_STORIES,
     PUBLICATION_STORY_TITLES,
@@ -34,7 +38,13 @@ def test_plan_requires_dedicated_repository_artifact_output(tmp_path: Path) -> N
 
     assert media_plan.artifact_root == tmp_path / "artifacts/media"
     assert media_plan.selection == StorySelection(
-        exact_taxa=("source:neotoma:taxon:967",)
+        source_label_presets=(
+            "avena",
+            "hordeum",
+            "triticum",
+            "secale",
+            "cerealia",
+        )
     )
     with pytest.raises(FrozenInstanceError):
         media_plan.width = 10  # type: ignore[misc]
@@ -46,9 +56,10 @@ def test_plan_requires_dedicated_repository_artifact_output(tmp_path: Path) -> N
 
 
 def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
-    assert PUBLICATION_SCHEMA_VERSION == "atlas-media-publication.v4"
+    assert PUBLICATION_SCHEMA_VERSION == "atlas-media-publication.v5"
+    assert LEGACY_PUBLICATION_SCHEMA_VERSION_V4 == "atlas-media-publication.v4"
     assert LEGACY_PUBLICATION_SCHEMA_VERSION_V3 == "atlas-media-publication.v3"
-    assert len(PUBLICATION_STORY_TITLES) == 20
+    assert len(PUBLICATION_STORY_TITLES) == 25
     assert PUBLICATION_STORY_TITLES["neotoma-source-taxon-967"] == (
         "Neotoma exact source-reported taxon — Secale"
     )
@@ -56,14 +67,21 @@ def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
         "Neotoma exact source taxon — Secale"
     )
     assert DEFAULT_EXACT_TAXA == (
-        "source:neotoma:taxon:416",
-        "source:neotoma:taxon:427",
-        "source:neotoma:taxon:1947",
-        "source:neotoma:taxon:3924",
-        "source:neotoma:taxon:967",
-        "source:neotoma:taxon:3926",
-        "source:neotoma:taxon:488",
+        "source:neotoma:taxon:3915",
+        "source:neotoma:taxon:3923",
         "source:neotoma:taxon:969",
+        "source:neotoma:taxon:967",
+        "source:neotoma:taxon:416",
+        "source:neotoma:taxon:415",
+        "source:neotoma:taxon:3924",
+        "source:neotoma:taxon:3926",
+    )
+    assert DEFAULT_SOURCE_LABEL_PRESETS == (
+        "avena",
+        "hordeum",
+        "triticum",
+        "secale",
+        "cerealia",
     )
     assert DEFAULT_MODELED_METRICS == (
         "Cerealia.t",
@@ -75,8 +93,10 @@ def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
         "GL",
         "AL",
     )
-    assert len(PUBLICATION_STORIES) == 20
-    assert PUBLICATION_ASSET_COUNT == 40
+    assert len(PUBLICATION_STORIES) == 25
+    assert PUBLICATION_ASSET_COUNT == 50
+    assert PUBLICATION_FRAME_COUNT == 1980
+    assert len(LEGACY_PUBLICATION_STORY_TUPLES_V4) == 20
     assert LEGACY_PUBLICATION_STORY_TUPLES_V1 == (
         (
             "neotoma-source-sample-presence",
@@ -199,7 +219,7 @@ def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
     assert PUBLICATION_STORY_TITLES["pangaea-937075-metric-al"] == (
         "PANGAEA 937075 modeled context — Agricultural land - cereals (AL)"
     )
-    assert len({story.story_id for story in PUBLICATION_STORIES}) == 20
+    assert len({story.story_id for story in PUBLICATION_STORIES}) == 25
     assert (
         len(
             {
@@ -207,7 +227,7 @@ def test_default_publication_catalog_has_one_ordered_source_of_truth() -> None:
                 for story in PUBLICATION_STORIES
             }
         )
-        == 20
+        == 25
     )
 
 
@@ -222,6 +242,7 @@ def test_story_selection_refuses_empty_or_duplicate_requests() -> None:
     with pytest.raises(AtlasMediaError, match="at least one"):
         StorySelection(
             include_core_source_stories=False,
+            source_label_presets=(),
             exact_taxa=(),
             modeled_metrics=(),
         )
@@ -241,6 +262,7 @@ def test_sample_presence_selector_is_exactly_all() -> None:
             evidence_role="observation_chronology",
             selector_kind="source_sample_presence",
             selector_value="TRSH",
+            site_count=1,
             node_count=1,
             observation_denominator=1,
             frames=(
@@ -255,6 +277,45 @@ def test_sample_presence_selector_is_exactly_all() -> None:
                 },
             ),
         )
+
+
+def test_source_label_preset_story_binds_exact_members_and_catalog() -> None:
+    story = SelectedStory(
+        story_id="neotoma-source-preset-avena",
+        title="Neotoma literal exact-ID union — Avena source labels",
+        evidence_role="observation_chronology",
+        selector_kind="source_label_preset",
+        selector_value="avena",
+        selector_family="literal_source_label_membership",
+        site_count=7,
+        node_count=7,
+        observation_denominator=7,
+        expected_visible_feature_counts=(7,),
+        expected_visible_site_counts=(7,),
+        expected_visible_observation_counts=(7,),
+        source_authority_sha256="1" * 64,
+        source_preset_member_taxon_ids=(414, 415, 3915),
+        source_preset_catalog_sha256="2" * 64,
+        frames=(
+            {
+                "ordinal": 0,
+                "story_kind": "source_chronology",
+                "source_level": "source_taxon",
+                "source_taxon": "all",
+                "source_preset": "avena",
+                "time_start_bp": 100,
+                "time_end_bp": 200,
+                "countries": list(COUNTRIES),
+                "basemap": "none",
+            },
+        ),
+    )
+
+    assert story.source_preset_member_taxon_ids == (414, 415, 3915)
+    with pytest.raises(AtlasMediaError, match="member IDs"):
+        replace(story, source_preset_member_taxon_ids=(414, 414))
+    with pytest.raises(AtlasMediaError, match="member IDs"):
+        replace(story, source_preset_member_taxon_ids=(0, 414))
 
 
 def test_plan_refuses_governed_input_symlink_escaping_repository(
@@ -298,9 +359,12 @@ def test_source_story_allows_governed_empty_interval_but_not_empty_playback() ->
         evidence_role="observation_chronology",
         selector_kind="source_sample_presence",
         selector_value="all",
+        site_count=1,
         node_count=1,
         observation_denominator=1,
         expected_visible_feature_counts=(0, 1),
+        expected_visible_site_counts=(0, 1),
+        expected_visible_observation_counts=(0, 1),
         source_authority_sha256="1" * 64,
         frames=frames,
     )

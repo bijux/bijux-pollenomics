@@ -44,7 +44,19 @@ def test_default_selection_covers_core_and_primary_modeled_context(
         "neotoma-source-code-trsh",
         "neotoma-source-code-uphe",
         "neotoma-source-code-aqvp",
-        "neotoma-source-taxon-secale",
+        "neotoma-source-preset-avena",
+        "neotoma-source-preset-hordeum",
+        "neotoma-source-preset-triticum",
+        "neotoma-source-preset-secale",
+        "neotoma-source-preset-cerealia",
+        "neotoma-source-taxon-3915",
+        "neotoma-source-taxon-3923",
+        "neotoma-source-taxon-969",
+        "neotoma-source-taxon-967",
+        "neotoma-source-taxon-416",
+        "neotoma-source-taxon-415",
+        "neotoma-source-taxon-3924",
+        "neotoma-source-taxon-3926",
         "pangaea-937075-metric-cerealia-t",
         "pangaea-937075-metric-secale",
         "pangaea-937075-metric-ol",
@@ -62,13 +74,18 @@ def test_default_selection_covers_core_and_primary_modeled_context(
         for story in stories
         for frame in story.frames
     )
-    secale = stories[4]
+    secale = next(
+        story
+        for story in stories
+        if story.selector_value == "source:neotoma:taxon:967"
+    )
     assert secale.evidence_role == "observation_chronology"
     assert secale.selector_kind == "source_taxon"
+    assert secale.site_count == 2
     assert secale.node_count == 3
     assert secale.observation_denominator == 4
-    assert secale.frames[0]["time_end_bp"] == 236.75
-    assert secale.frames[-1]["time_start_bp"] == 36.16162
+    assert secale.frames[0]["time_end_bp"] == 4_461
+    assert secale.frames[-1]["time_start_bp"] == 2
     assert all(
         newer["time_end_bp"] == older["time_start_bp"]
         for older, newer in zip(secale.frames, secale.frames[1:], strict=False)
@@ -155,6 +172,7 @@ def test_explicit_instant_taxon_preserves_equal_closed_bounds(tmp_path: Path) ->
         manifest,
         StorySelection(
             include_core_source_stories=False,
+            source_label_presets=(),
             exact_taxa=("Exact instant",),
             modeled_metrics=(),
         ),
@@ -337,6 +355,7 @@ def test_selection_is_bounded_and_only_one_exact_instant_story_is_allowed(
             mutated,
             StorySelection(
                 include_core_source_stories=False,
+                source_label_presets=(),
                 exact_taxa=("Exact instant", "Second instant"),
                 modeled_metrics=(),
             ),

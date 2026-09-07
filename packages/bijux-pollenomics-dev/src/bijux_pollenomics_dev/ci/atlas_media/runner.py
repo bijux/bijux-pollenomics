@@ -104,6 +104,14 @@ def materialize_atlas_media(plan: AtlasMediaPlan) -> dict[str, object]:
         atlas_identity=dict(identity),
         candidate_identity=plan.candidate.as_json(),
         storyboard_sha256=sha256_file(storyboard_path),
+        source_preset_catalog=dict(
+            cast(
+                dict[str, object],
+                cast(dict[str, object], storyboard["source_chronology"])[
+                    "source_label_preset_catalog"
+                ],
+            )
+        ),
         stories=stories,
         assets_by_story=assets,
         capture_frames_by_story=capture_frames,

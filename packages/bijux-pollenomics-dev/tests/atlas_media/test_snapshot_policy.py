@@ -23,6 +23,7 @@ def test_snapshot_policy_rejects_stale_readiness_and_scientific_posture() -> Non
         "version": "v66",
     }
     frame = {
+        "ordinal": 0,
         "story_kind": "source_chronology",
         "source_level": "source_sample_presence",
         "time_start_bp": 100,
@@ -31,8 +32,12 @@ def test_snapshot_policy_rejects_stale_readiness_and_scientific_posture() -> Non
     }
     story = {
         "title": "Source sample presence",
+        "site_count": 10,
         "node_count": 10,
         "observation_denominator": 20,
+        "expected_visible_feature_counts": [1],
+        "expected_visible_site_counts": [1],
+        "expected_visible_observation_counts": [2],
     }
     snapshot = {
         "capture_api_version": "atlas-capture.v1",
@@ -52,9 +57,14 @@ def test_snapshot_policy_rejects_stale_readiness_and_scientific_posture() -> Non
             "level": "source_sample_presence",
             "source_code": None,
             "source_taxon": None,
+            "source_preset": None,
+            "source_preset_member_taxon_ids": None,
+            "source_preset_catalog_sha256": None,
+            "facet_site_count": 10,
             "facet_node_count": 10,
             "facet_observation_denominator": 20,
             "visible_node_count": 1,
+            "visible_site_count": 1,
             "visible_observation_denominator": 2,
         },
         "modeled_context": None,
@@ -81,6 +91,11 @@ def test_snapshot_policy_rejects_stale_readiness_and_scientific_posture() -> Non
         ["scientific_posture.observation_chronology_is_propagation", True],
         ["visible_governed_candidate_count", 1],
         ["visible_polygon_feature_count", -1],
+        ["source_chronology.facet_site_count", 9],
+        ["source_chronology.visible_site_count", 2],
+        ["source_chronology.visible_observation_denominator", 3],
+        ["source_chronology.source_preset_member_taxon_ids", [414]],
+        ["source_chronology.source_preset_catalog_sha256", "f" * 64],
         ["capture_layers.active_keys", ["country-boundaries", "unrelated"]],
         ["capture_presentation.null_handling", "null_as_zero"],
         ["capture_presentation.key_items.1.fill", "rgb(255, 255, 255)"],

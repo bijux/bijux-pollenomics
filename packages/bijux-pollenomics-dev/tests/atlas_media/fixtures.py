@@ -7,6 +7,9 @@ from pathlib import Path
 import shutil
 import subprocess
 
+from bijux_pollenomics.analysis.propagation.source_chronology import (
+    SourceChronologyNode,
+)
 from bijux_pollenomics.reporting.map_playback import (
     build_modeled_context_storyboards,
     build_playback_manifest,
@@ -18,6 +21,12 @@ from bijux_pollenomics.reporting.modeled_context.contracts import (
     PANGAEA_WINDOWS_PRESENT_TO_OLDEST,
 )
 from bijux_pollenomics.reporting.modeled_context.metric_families import METRIC_FAMILIES
+from bijux_pollenomics.reporting.source_chronology.facets import build_facet_metadata
+from bijux_pollenomics.reporting.source_chronology.features import build_atlas_feature
+from bijux_pollenomics.reporting.source_chronology.source_label_presets import (
+    NEOTOMA_SOURCE_LABEL_TAXA,
+    build_neotoma_source_label_preset_catalog,
+)
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasCandidate
 from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaPlan, StorySelection
 from bijux_pollenomics_dev.ci.atlas_media.source_authority import (
@@ -29,6 +38,8 @@ SHA_A = "a" * 64
 SHA_B = "b" * 64
 SHA_C = "c" * 64
 BUILD_ID = "atlas-" + ("d" * 64)
+SOURCE_SNAPSHOT_ID = "sha256:" + ("e" * 64)
+SOURCE_BUILD_ID = "sha256:" + ("f" * 64)
 COUNTRIES = ("Denmark", "Finland", "Norway", "Sweden")
 SUCCESSION = {
     "product_key": "candidate_succession",
@@ -48,136 +59,189 @@ def candidate() -> AtlasCandidate:
     return AtlasCandidate(SHA_A, SHA_B, SHA_C, BUILD_ID)
 
 
-def _time_density(
-    node_count: int,
-    observation_denominator: int,
-    time_min_bp: float,
-    time_max_bp: float,
-) -> dict[str, object]:
-    span = time_max_bp - time_min_bp
-    bins = (
-        [
-            {
-                "ordinal": 0,
-                "younger_bp": time_min_bp,
-                "older_bp": time_max_bp,
-                "node_count": node_count,
-                "observation_denominator": observation_denominator,
-            }
-        ]
-        if span == 0
-        else [
-            {
-                "ordinal": ordinal,
-                "younger_bp": time_min_bp + ((11 - ordinal) * span / 12),
-                "older_bp": time_min_bp + ((12 - ordinal) * span / 12),
-                "node_count": node_count,
-                "observation_denominator": observation_denominator,
-            }
-            for ordinal in range(12)
-        ]
+def source_preset_catalog() -> dict[str, object]:
+    """Return the exact governed literal source-label catalog fixture."""
+    return build_neotoma_source_label_preset_catalog(
+        source_snapshot_id=SOURCE_SNAPSHOT_ID,
+        build_id=SOURCE_BUILD_ID,
     )
-    return {
-        "schema_version": "source-chronology-time-density.v1",
-        "temporal_direction": "oldest_to_present",
-        "interval_semantics": "[younger_bp, older_bp]",
-        "bin_admission": "closed_interval_overlap",
-        "bins_are_additive": False,
-        "node_count": node_count,
-        "observation_denominator": observation_denominator,
-        "time_min_bp": time_min_bp,
-        "time_max_bp": time_max_bp,
-        "bins": bins,
-    }
+
+
+def _source_node(
+    *,
+    node_level: str,
+    ordinal: int,
+    younger_bp: float,
+    older_bp: float,
+    observation_count: int = 1,
+    source_taxon_id: int | str | None = None,
+    source_reported_name: str | None = None,
+    source_ecological_group: str | None = None,
+    site_id: str | None = None,
+) -> SourceChronologyNode:
+    token = f"{node_level}-{ordinal}"
+    return SourceChronologyNode(
+        node_id=f"node-{token}",
+        source_family="neotoma",
+        source_snapshot_id=SOURCE_SNAPSHOT_ID,
+        source_record_id=f"sample-{token}",
+        site_id=site_id or f"site-{token}",
+        observation_ids=tuple(
+            f"observation-{token}-{index}" for index in range(observation_count)
+        ),
+        node_level=node_level,
+        feature_key=(
+            f"source:neotoma:taxon:{source_taxon_id}"
+            if source_taxon_id is not None
+            else f"source:neotoma:ecological-code:{source_ecological_group}"
+            if source_ecological_group is not None
+            else "source:neotoma:sample-presence"
+        ),
+        source_variable_ids=(
+            (f"variable-{source_taxon_id}",) if source_taxon_id is not None else ()
+        ),
+        source_taxon_id=source_taxon_id,
+        source_reported_name=source_reported_name,
+        source_ecological_group=source_ecological_group,
+        source_unit="count",
+        country_code="SE",
+        latitude=56.0 + (ordinal / 10_000),
+        longitude=13.0 + (ordinal / 10_000),
+        coordinate_quality="source_coordinate",
+        chronology_claim_id=f"chronology-claim-{token}",
+        chronology_id=f"chronology-{token}",
+        chronology_name="Synthetic selected chronology",
+        is_default_chronology=True,
+        chronology_selection_posture="selected_source_default",
+        younger_bp=younger_bp,
+        older_bp=older_bp,
+        provenance_record_id=f"provenance-{token}",
+        input_digest="sha256:" + ("1" * 64),
+        config_digest="sha256:" + ("2" * 64),
+        producer_version="atlas-media-fixture",
+        build_id=SOURCE_BUILD_ID,
+        candidate_refusal_reason={
+            "source_sample_presence": "reviewed_pollen_sum_not_available",
+            "source_ecological_code": "source_ecological_equivalence_not_reviewed",
+            "source_taxon": "source_taxon_equivalence_not_reviewed",
+        }[node_level],
+    )
+
+
+def _source_nodes() -> tuple[SourceChronologyNode, ...]:
+    nodes = [
+        _source_node(
+            node_level="source_sample_presence",
+            ordinal=index,
+            younger_bp=0,
+            older_bp=22_911,
+            observation_count=2,
+        )
+        for index in range(10)
+    ]
+    for code, maximum, offset in (
+        ("TRSH", 22_911, 100),
+        ("UPHE", 22_911, 200),
+        ("AQVP", 19_190, 300),
+    ):
+        nodes.extend(
+            _source_node(
+                node_level="source_ecological_code",
+                ordinal=offset + index,
+                younger_bp=0,
+                older_bp=maximum,
+                observation_count=2 if index < 3 else 1,
+                source_ecological_group=code,
+            )
+            for index in range(5)
+        )
+    for index, taxon in enumerate(NEOTOMA_SOURCE_LABEL_TAXA, start=1):
+        count = 3 if taxon.source_taxon_id == 967 else 1
+        exact_intervals = {
+            414: (6.3, 13_907),
+            415: (24, 9_138),
+            416: (0, 2_337),
+            427: (0, 11_891),
+            497: (2.780076, 10_646),
+            967: (2, 4_461),
+            969: (11, 7_197.5),
+            3705: (2.780076, 12_318),
+            3915: (6.3, 1_725),
+            3923: (11, 6_645),
+            3924: (376, 1_751),
+            3926: (0, 3_067),
+        }
+        for member_index in range(count):
+            younger, older = exact_intervals.get(
+                taxon.source_taxon_id,
+                (float(index), float(index + 200)),
+            )
+            nodes.append(
+                _source_node(
+                    node_level="source_taxon",
+                    ordinal=1_000 + (index * 10) + member_index,
+                    younger_bp=younger,
+                    older_bp=older,
+                    observation_count=(
+                        2
+                        if taxon.source_taxon_id == 967 and member_index == 0
+                        else 1
+                    ),
+                    source_taxon_id=taxon.source_taxon_id,
+                    source_reported_name=taxon.source_reported_name,
+                    site_id=(
+                        f"site-source-taxon-secale-{min(member_index, 1)}"
+                        if taxon.source_taxon_id == 967
+                        else None
+                    ),
+                )
+            )
+    nodes.append(
+        _source_node(
+            node_level="source_taxon",
+            ordinal=9_999,
+            younger_bp=100.5,
+            older_bp=100.5,
+            source_taxon_id="instant",
+            source_reported_name="Exact instant",
+        )
+    )
+    return tuple(nodes)
 
 
 def _source_layers() -> list[dict[str, object]]:
+    nodes = _source_nodes()
     common = {
         "semantic_role": "source_chronology_context",
         "propagation_status": "refused",
         "edge_count": 0,
         "temporal_direction": "oldest_to_present",
         "interval_semantics": "[younger_bp, older_bp]",
+        "source_snapshot_id": SOURCE_SNAPSHOT_ID,
+        "build_id": SOURCE_BUILD_ID,
     }
-    return [
-        {
-            **common,
-            "node_level": "source_sample_presence",
-            "facet_metadata": {
-                "schema_version": "neotoma-source-chronology-facets.v3",
-                "node_level": "source_sample_presence",
-                "node_count": 10,
-                "observation_denominator": 20,
-                "time_min_bp": 0,
-                "time_max_bp": 250,
-                "time_density": _time_density(10, 20, 0, 250),
-            },
-        },
-        {
-            **common,
-            "node_level": "source_ecological_code",
-            "facet_metadata": {
-                "schema_version": "neotoma-source-chronology-facets.v3",
-                "node_level": "source_ecological_code",
-                "source_ecological_codes": [
-                    {
-                        "value": code,
-                        "label": label,
-                        "node_count": 5,
-                        "observation_denominator": 8,
-                        "time_min_bp": 0,
-                        "time_max_bp": maximum,
-                        "time_density": _time_density(5, 8, 0, maximum),
-                    }
-                    for code, label, maximum in (
-                        ("TRSH", "Trees and Shrubs", 250),
-                        ("UPHE", "Upland Herbs", 240),
-                        ("AQVP", "Aquatic Vascular Plants", 190),
-                    )
-                ],
-                "node_count": 15,
-                "observation_denominator": 24,
-                "time_min_bp": 0,
-                "time_max_bp": 250,
-                "time_density": _time_density(15, 24, 0, 250),
-            },
-        },
-        {
-            **common,
-            "node_level": "source_taxon",
-            "facet_metadata": {
-                "schema_version": "neotoma-source-chronology-facets.v3",
-                "node_level": "source_taxon",
-                "source_taxa": [
-                    {
-                        "value": "source:neotoma:taxon:967",
-                        "source_taxon_id": "secale",
-                        "label": "Secale",
-                        "node_count": 3,
-                        "observation_denominator": 4,
-                        "time_min_bp": 36.16162,
-                        "time_max_bp": 236.75,
-                        "time_density": _time_density(3, 4, 36.16162, 236.75),
-                    },
-                    {
-                        "value": "source:neotoma:taxon:instant",
-                        "source_taxon_id": "instant",
-                        "label": "Exact instant",
-                        "node_count": 1,
-                        "observation_denominator": 1,
-                        "time_min_bp": 100.5,
-                        "time_max_bp": 100.5,
-                        "time_density": _time_density(1, 1, 100.5, 100.5),
-                    },
-                ],
-                "node_count": 4,
-                "observation_denominator": 5,
-                "time_min_bp": 36.16162,
-                "time_max_bp": 236.75,
-                "time_density": _time_density(4, 5, 36.16162, 236.75),
-            },
-        },
-    ]
+    layers = []
+    for level in (
+        "source_sample_presence",
+        "source_ecological_code",
+        "source_taxon",
+    ):
+        selected = [node for node in nodes if node.node_level == level]
+        layers.append(
+            {
+                **common,
+                "node_level": level,
+                "count": len(selected),
+                "facet_metadata": build_facet_metadata(
+                    nodes,
+                    node_level=level,
+                    source_snapshot_id=SOURCE_SNAPSHOT_ID,
+                    build_id=SOURCE_BUILD_ID,
+                ),
+                "features": [build_atlas_feature(node) for node in selected],
+            }
+        )
+    return layers
 
 
 def _modeled_manifest() -> dict[str, object]:
@@ -222,16 +286,15 @@ def write_inputs(root: Path) -> tuple[Path, Path, Path]:
         ),
         encoding="utf-8",
     )
-    source_stories, taxa = build_source_chronology_storyboards(
+    source_chronology = build_source_chronology_storyboards(
         _source_layers(), countries=COUNTRIES
     )
     modeled_stories = build_modeled_context_storyboards(
         _modeled_manifest(), countries=COUNTRIES
     )
     storyboard = build_playback_manifest(
-        source_stories=source_stories,
+        source_chronology=source_chronology,
         modeled_stories=modeled_stories,
-        exact_taxa=taxa,
         candidate_succession=refuse_candidate_succession_storyboard(
             {
                 "propagation_status": "refused",
@@ -318,36 +381,49 @@ def plan(root: Path) -> AtlasMediaPlan:
         atlas_manifest=atlas_manifest.relative_to(root).as_posix(),
         storyboard_manifest=storyboard.relative_to(root).as_posix(),
         candidate=AtlasCandidate(head, tree, head, BUILD_ID),
-        selection=StorySelection(exact_taxa=("source:neotoma:taxon:967",)),
+        selection=StorySelection(
+            source_label_presets=(
+                "avena",
+                "hordeum",
+                "triticum",
+                "secale",
+                "cerealia",
+            )
+        ),
     )
 
 
 def source_authority() -> SourceChronologyAuthority:
     """Return source facts matching the synthetic storyboard fixture."""
     facets: dict[tuple[str, str], SourceFacetAuthority] = {}
-    for kind, value, count, denominator, younger, older in (
-        ("source_sample_presence", "all", 10, 20, 0, 250),
-        ("source_ecological_code", "TRSH", 5, 8, 0, 250),
-        ("source_ecological_code", "UPHE", 5, 8, 0, 240),
-        ("source_ecological_code", "AQVP", 5, 8, 0, 190),
-        ("source_taxon", "source:neotoma:taxon:967", 3, 4, 36.16162, 236.75),
-        ("source_taxon", "source:neotoma:taxon:instant", 1, 1, 100.5, 100.5),
-    ):
+    buckets: dict[tuple[str, str], list[SourceChronologyNode]] = {}
+    for node in _source_nodes():
+        selector = (
+            "all"
+            if node.node_level == "source_sample_presence"
+            else str(node.source_ecological_group)
+            if node.node_level == "source_ecological_code"
+            else node.feature_key
+        )
+        buckets.setdefault((node.node_level, selector), []).append(node)
+    for (kind, value), nodes in buckets.items():
         facets[(kind, value)] = SourceFacetAuthority(
             selector_kind=kind,
             selector_value=value,
-            label=(
-                "Secale"
-                if value == "source:neotoma:taxon:967"
-                else "Exact instant"
-                if value == "source:neotoma:taxon:instant"
-                else None
+            label=nodes[0].source_reported_name,
+            site_count=len({node.site_id for node in nodes}),
+            node_count=len(nodes),
+            observation_denominator=sum(len(node.observation_ids) for node in nodes),
+            time_min_bp=min(node.younger_bp for node in nodes),
+            time_max_bp=max(node.older_bp for node in nodes),
+            intervals=tuple((node.younger_bp, node.older_bp) for node in nodes),
+            site_intervals=tuple(
+                (node.site_id, node.younger_bp, node.older_bp) for node in nodes
             ),
-            node_count=count,
-            observation_denominator=denominator,
-            time_min_bp=younger,
-            time_max_bp=older,
-            intervals=tuple((younger, older) for _ in range(count)),
+            observation_intervals=tuple(
+                (len(node.observation_ids), node.younger_bp, node.older_bp)
+                for node in nodes
+            ),
         )
     return SourceChronologyAuthority(
         build_id=BUILD_ID,

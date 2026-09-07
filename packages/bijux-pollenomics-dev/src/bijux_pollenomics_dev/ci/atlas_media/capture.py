@@ -53,7 +53,7 @@ def _render_frames(
         cast(str, asset["path"]) for asset in governed_static_assets
     ]
     render_plan = {
-        "schema_version": "atlas-media-render-plan.v2",
+        "schema_version": "atlas-media-render-plan.v3",
         "repository_root": str(plan.repository_root.resolve()),
         "static_root": str(static_root.resolve()),
         "artifact_root": str(plan.artifact_root.resolve()),
@@ -77,12 +77,17 @@ def _render_frames(
                     "value": story.selector_value,
                     "family": story.selector_family,
                 },
+                "site_count": story.site_count,
                 "node_count": story.node_count,
                 "observation_denominator": story.observation_denominator,
                 "frame_feature_denominators": story.frame_feature_denominators,
                 "frame_no_pollen_data_counts": story.frame_no_pollen_data_counts,
                 "expected_visible_feature_counts": story.expected_visible_feature_counts,
+                "expected_visible_site_counts": story.expected_visible_site_counts,
+                "expected_visible_observation_counts": story.expected_visible_observation_counts,
                 "source_authority_sha256": story.source_authority_sha256,
+                "source_preset_member_taxon_ids": story.source_preset_member_taxon_ids,
+                "source_preset_catalog_sha256": story.source_preset_catalog_sha256,
                 "frames": [
                     {
                         "capture": frame,
@@ -143,7 +148,7 @@ def _validate_capture_receipt(
         raise AtlasMediaError("capture receipt candidate succession posture differs")
     expected_atlas_identity = _atlas_manifest_identity(plan)
     if (
-        receipt.get("schema_version") != "atlas-media-capture-receipt.v2"
+        receipt.get("schema_version") != "atlas-media-capture-receipt.v3"
         or receipt.get("candidate") != plan.candidate.as_json()
         or receipt.get("atlas_identity") != expected_atlas_identity
         or expected_atlas_identity["build_id"] != plan.candidate.build_id
@@ -184,6 +189,7 @@ def _validate_capture_receipt(
                 "family": story.selector_family,
             }
             or row.get("node_count") != story.node_count
+            or row.get("site_count") != story.site_count
             or row.get("observation_denominator") != story.observation_denominator
             or row.get("frame_feature_denominators")
             != (
@@ -203,7 +209,27 @@ def _validate_capture_receipt(
                 if story.expected_visible_feature_counts is not None
                 else None
             )
+            or row.get("expected_visible_site_counts")
+            != (
+                list(story.expected_visible_site_counts)
+                if story.expected_visible_site_counts is not None
+                else None
+            )
+            or row.get("expected_visible_observation_counts")
+            != (
+                list(story.expected_visible_observation_counts)
+                if story.expected_visible_observation_counts is not None
+                else None
+            )
             or row.get("source_authority_sha256") != story.source_authority_sha256
+            or row.get("source_preset_member_taxon_ids")
+            != (
+                list(story.source_preset_member_taxon_ids)
+                if story.source_preset_member_taxon_ids is not None
+                else None
+            )
+            or row.get("source_preset_catalog_sha256")
+            != story.source_preset_catalog_sha256
         ):
             raise AtlasMediaError("capture receipt story frames differ")
         capture_frames[cast(str, story_id)] = [
@@ -235,6 +261,7 @@ def _validate_capture_receipt(
                 or frame_receipt.get("time_end_bp") != frame["time_end_bp"]
                 or frame_receipt.get("frame_sha256") != _frame_sha256(frame)
                 or frame_receipt.get("node_count") != story.node_count
+                or frame_receipt.get("facet_site_count") != story.site_count
                 or frame_receipt.get("observation_denominator")
                 != story.observation_denominator
                 or frame_receipt.get("feature_count") != frame.get("feature_count")
@@ -243,6 +270,15 @@ def _validate_capture_receipt(
                 or frame_receipt.get("source_level") != frame.get("source_level")
                 or frame_receipt.get("source_code") != frame.get("source_code")
                 or frame_receipt.get("source_taxon") != frame.get("source_taxon")
+                or frame_receipt.get("source_preset") != frame.get("source_preset")
+                or frame_receipt.get("source_preset_member_taxon_ids")
+                != (
+                    list(story.source_preset_member_taxon_ids)
+                    if story.source_preset_member_taxon_ids is not None
+                    else None
+                )
+                or frame_receipt.get("source_preset_catalog_sha256")
+                != story.source_preset_catalog_sha256
                 or frame_receipt.get("source_window_label")
                 != frame.get("source_window_label")
                 or frame_receipt.get("metric_family_key")
@@ -276,6 +312,18 @@ def _valid_visible_counts(
         and isinstance(ordinal, int)
         else None
     )
+    expected_source_site_count = (
+        story.expected_visible_site_counts[ordinal]
+        if story.expected_visible_site_counts is not None
+        and isinstance(ordinal, int)
+        else None
+    )
+    expected_source_observation_count = (
+        story.expected_visible_observation_counts[ordinal]
+        if story.expected_visible_observation_counts is not None
+        and isinstance(ordinal, int)
+        else None
+    )
     return capture_frame_evidence_valid(
         frame_receipt,
         evidence_role=story.evidence_role,
@@ -285,6 +333,9 @@ def _valid_visible_counts(
         ),
         expected_title=story.title,
         expected_source_count=expected_source_count,
+        expected_source_site_count=expected_source_site_count,
+        expected_source_observation_count=expected_source_observation_count,
+        source_site_denominator=story.site_count,
         source_node_denominator=story.node_count,
         source_observation_denominator=story.observation_denominator,
         expected_modeled_count=frame.get("feature_count"),

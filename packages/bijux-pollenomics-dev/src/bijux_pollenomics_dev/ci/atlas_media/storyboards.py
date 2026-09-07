@@ -9,9 +9,12 @@ import math
 from pathlib import Path
 from typing import cast
 
-from .catalog import CORE_SOURCE_STORIES
+from .catalog import CORE_SOURCE_STORIES, PUBLICATION_STORIES
 from .contracts import AtlasMediaError, SelectedStory, StorySelection
-from .source_authority import SourceChronologyAuthority
+from .source_authority import (
+    SourceChronologyAuthority,
+    bind_source_label_preset_authority,
+)
 
 _EXPECTED_COUNTRIES = ("Denmark", "Finland", "Norway", "Sweden")
 
@@ -126,6 +129,50 @@ def select_stories(
                 source_authority=source_authority,
             )
             selected.append(selected_story)
+
+    if selection.source_label_presets:
+        try:
+            source_authority = bind_source_label_preset_authority(
+                source_authority,
+                catalog=source["source_label_preset_catalog"],
+                accountability=source["source_label_preset_accountability"],
+            )
+        except KeyError as error:
+            raise AtlasMediaError(
+                "source chronology manifest lacks governed source-label preset metadata"
+            ) from error
+        preset_specs = {
+            story.selector_value: story
+            for story in PUBLICATION_STORIES
+            if story.selector_kind == "source_label_preset"
+        }
+        for preset_key in selection.source_label_presets:
+            preset_specification = preset_specs.get(preset_key)
+            if preset_specification is None:
+                raise AtlasMediaError(
+                    f"source-label preset is outside publication catalog: {preset_key}"
+                )
+            story = source_by_selector.get(preset_key)
+            if story is None:
+                raise AtlasMediaError(
+                    f"source-label preset story is absent: {preset_key}"
+                )
+            story_selector = _mapping(story.get("selector"), "story.selector")
+            if (
+                story_selector.get("kind") != preset_specification.selector_kind
+                or story_selector.get("family")
+                != preset_specification.selector_family
+            ):
+                raise AtlasMediaError(
+                    f"source-label preset selector differs: {preset_key}"
+                )
+            selected.append(
+                _selected_story(
+                    story,
+                    countries=countries,
+                    source_authority=source_authority,
+                )
+            )
 
     discovery = _mapping(source.get("exact_taxon_discovery"), "taxon discovery")
     if (
@@ -264,10 +311,12 @@ def _selected_story(
             "source story selection requires governed atlas authority"
         )
     if evidence_role == "observation_chronology":
+        _positive_int(story, "site_count")
         _positive_int(story, "node_count")
         _positive_int(story, "observation_denominator")
     if authority_facet is not None and (
-        story.get("node_count") != authority_facet.node_count
+        story.get("site_count") != authority_facet.site_count
+        or story.get("node_count") != authority_facet.node_count
         or story.get("observation_denominator")
         != authority_facet.observation_denominator
     ):
@@ -290,6 +339,14 @@ def _selected_story(
             raise AtlasMediaError(
                 "source taxon story label differs from governed atlas assets"
             )
+    if authority_facet is not None and selector_kind == "source_label_preset":
+        expected_title = (
+            f"Neotoma literal exact-ID union — {authority_facet.label}"
+        )
+        if authority_facet.label is None or story.get("title") != expected_title:
+            raise AtlasMediaError(
+                "source-label preset title differs from governed contract"
+            )
     return SelectedStory(
         story_id=_text(story, "story_id"),
         title=_text(story, "title"),
@@ -297,6 +354,11 @@ def _selected_story(
         selector_kind=selector_kind,
         selector_value=selector_value,
         selector_family=selector_family,
+        site_count=(
+            _positive_int(story, "site_count")
+            if evidence_role == "observation_chronology"
+            else cast("int | None", story.get("site_count"))
+        ),
         node_count=(
             _positive_int(story, "node_count")
             if evidence_role == "observation_chronology"
@@ -328,9 +390,43 @@ def _selected_story(
             if authority_facet is not None
             else None
         ),
+        expected_visible_site_counts=(
+            tuple(
+                authority_facet.visible_site_count(
+                    cast("float | int", frame["time_start_bp"]),
+                    cast("float | int", frame["time_end_bp"]),
+                )
+                for frame in normalized
+            )
+            if authority_facet is not None
+            else None
+        ),
+        expected_visible_observation_counts=(
+            tuple(
+                authority_facet.visible_observation_count(
+                    cast("float | int", frame["time_start_bp"]),
+                    cast("float | int", frame["time_end_bp"]),
+                )
+                for frame in normalized
+            )
+            if authority_facet is not None
+            else None
+        ),
         source_authority_sha256=(
             source_authority.digest
             if authority_facet is not None and source_authority is not None
+            else None
+        ),
+        source_preset_member_taxon_ids=(
+            authority_facet.member_taxon_ids
+            if authority_facet is not None
+            and selector_kind == "source_label_preset"
+            else None
+        ),
+        source_preset_catalog_sha256=(
+            authority_facet.source_preset_catalog_sha256
+            if authority_facet is not None
+            and selector_kind == "source_label_preset"
             else None
         ),
         frames=tuple(normalized),
@@ -359,6 +455,11 @@ def _validate_frame_selector(frame: Mapping[str, object], *, story_kind: str) ->
         _text(frame, "source_code")
     elif level == "source_taxon":
         _text(frame, "source_taxon")
+        preset = frame.get("source_preset")
+        if preset is not None and (
+            not isinstance(preset, str) or not preset.strip()
+        ):
+            raise AtlasMediaError("source_preset must be null or non-empty")
 
 
 def _object_rows(value: object, label: str) -> tuple[Mapping[str, object], ...]:
@@ -453,6 +554,7 @@ def _exact_taxon_story(
         "interpolation_allowed": False,
         "propagation_claim_allowed": False,
         "edge_count": 0,
+        "site_count": _positive_int(facet, "site_count"),
         "node_count": _positive_int(facet, "node_count"),
         "observation_denominator": _positive_int(facet, "observation_denominator"),
         "frame_count": len(frames),

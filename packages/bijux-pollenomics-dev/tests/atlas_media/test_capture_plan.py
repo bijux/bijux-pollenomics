@@ -30,9 +30,12 @@ def test_render_plan_passes_python_canonical_hash_for_integral_floats(
         evidence_role="observation_chronology",
         selector_kind="source_sample_presence",
         selector_value="all",
+        site_count=10,
         node_count=10,
         observation_denominator=20,
         expected_visible_feature_counts=(1,),
+        expected_visible_site_counts=(1,),
+        expected_visible_observation_counts=(2,),
         source_authority_sha256="1" * 64,
         frames=(frame,),
     )

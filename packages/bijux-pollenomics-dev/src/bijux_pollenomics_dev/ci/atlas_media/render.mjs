@@ -12,7 +12,7 @@ import { validateSnapshot } from './snapshot_policy.mjs';
 import { normalizeStaticAssetAuthority, validateStaticAssetPayload } from './static_asset_policy.mjs';
 
 const plan = JSON.parse(await readFile(resolve(process.argv[2]), 'utf8'));
-if (plan.schema_version !== 'atlas-media-render-plan.v2') throw new Error('unsupported render plan schema');
+if (plan.schema_version !== 'atlas-media-render-plan.v3') throw new Error('unsupported render plan schema');
 if (plan.frame_hash_contract !== 'python-json-sort-keys-utf8-newline.v1') throw new Error('unsupported frame hash contract');
 const repositoryRoot = resolve(plan.repository_root);
 const artifactRoot = resolve(plan.artifact_root);
@@ -246,6 +246,8 @@ try {
         visible_governed_candidate_count: snapshot.visible_governed_candidate_count,
         time_start_bp: frame.time_start_bp,
         time_end_bp: frame.time_end_bp,
+        facet_site_count: snapshot.source_chronology?.facet_site_count ?? null,
+        visible_site_count: snapshot.source_chronology?.visible_site_count ?? null,
         node_count: snapshot.source_chronology?.facet_node_count ?? null,
         observation_denominator: snapshot.source_chronology?.facet_observation_denominator ?? null,
         feature_count: snapshot.modeled_context?.feature_count ?? null,
@@ -253,6 +255,9 @@ try {
         source_level: snapshot.source_chronology?.level ?? null,
         source_code: snapshot.source_chronology?.source_code ?? null,
         source_taxon: snapshot.source_chronology?.source_taxon ?? null,
+        source_preset: snapshot.source_chronology?.source_preset ?? null,
+        source_preset_member_taxon_ids: snapshot.source_chronology?.source_preset_member_taxon_ids ?? null,
+        source_preset_catalog_sha256: snapshot.source_chronology?.source_preset_catalog_sha256 ?? null,
         source_window_label: snapshot.modeled_context?.window_label ?? null,
         metric_family_key: snapshot.modeled_context?.metric_family_key ?? null,
         metric_key: snapshot.modeled_context?.metric_key ?? null,
@@ -280,12 +285,17 @@ try {
       story_id: story.story_id,
       evidence_role: story.evidence_role,
       selector: story.selector,
+      site_count: story.site_count,
       node_count: story.node_count,
       observation_denominator: story.observation_denominator,
       frame_feature_denominators: story.frame_feature_denominators,
       frame_no_pollen_data_counts: story.frame_no_pollen_data_counts,
       expected_visible_feature_counts: story.expected_visible_feature_counts,
+      expected_visible_site_counts: story.expected_visible_site_counts,
+      expected_visible_observation_counts: story.expected_visible_observation_counts,
       source_authority_sha256: story.source_authority_sha256,
+      source_preset_member_taxon_ids: story.source_preset_member_taxon_ids,
+      source_preset_catalog_sha256: story.source_preset_catalog_sha256,
       frame_count: frameReceipts.length,
       frames: frameReceipts,
     });
@@ -305,7 +315,7 @@ try {
   networkRequests.sort((left, right) => JSON.stringify(left).localeCompare(JSON.stringify(right)));
   assertCandidate();
   const receipt = {
-    schema_version: 'atlas-media-capture-receipt.v2',
+    schema_version: 'atlas-media-capture-receipt.v3',
     candidate,
     atlas_identity: atlasIdentity,
     capture_api_version: 'atlas-capture.v1',

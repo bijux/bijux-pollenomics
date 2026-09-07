@@ -21,9 +21,19 @@ export function validateSnapshot(snapshot, frame, story, atlasIdentity) {
     if (snapshot.source_chronology?.level !== frame.source_level) throw new Error('captured source level differs');
     const expectedCode = frame.source_level === 'source_ecological_code' ? frame.source_code : null;
     const expectedTaxon = frame.source_level === 'source_taxon' ? frame.source_taxon : null;
+    const expectedPreset = frame.source_level === 'source_taxon' ? (frame.source_preset ?? null) : null;
     if (snapshot.source_chronology.source_code !== expectedCode) throw new Error('captured source code differs');
     if (snapshot.source_chronology.source_taxon !== expectedTaxon) throw new Error('captured source taxon differs');
+    if ((snapshot.source_chronology.source_preset ?? null) !== expectedPreset) throw new Error('captured source preset differs');
+    const expectedPresetMembers = story.source_preset_member_taxon_ids ?? null;
+    const expectedPresetCatalog = story.source_preset_catalog_sha256 ?? null;
+    if (
+      JSON.stringify(snapshot.source_chronology.source_preset_member_taxon_ids ?? null)
+        !== JSON.stringify(expectedPresetMembers)
+      || (snapshot.source_chronology.source_preset_catalog_sha256 ?? null) !== expectedPresetCatalog
+    ) throw new Error('captured source preset authority differs');
     if (snapshot.modeled_context !== null) throw new Error('source frame exposed modeled context');
+    if (snapshot.source_chronology?.facet_site_count !== story.site_count) throw new Error('captured source site denominator differs');
     if (snapshot.source_chronology?.facet_node_count !== story.node_count) throw new Error('captured source node denominator differs');
     if (snapshot.source_chronology?.facet_observation_denominator !== story.observation_denominator) {
       throw new Error('captured source observation denominator differs');
@@ -36,7 +46,16 @@ export function validateSnapshot(snapshot, frame, story, atlasIdentity) {
     if (snapshot.source_chronology?.visible_node_count !== snapshot.visible_source_chronology_point_count) {
       throw new Error('captured source visible-node accounting differs');
     }
+    const expectedVisibleSites = story.expected_visible_site_counts?.[frame.ordinal];
+    if (
+      !Number.isInteger(snapshot.source_chronology?.visible_site_count)
+      || snapshot.source_chronology.visible_site_count < 0
+      || snapshot.source_chronology.visible_site_count > story.site_count
+      || snapshot.source_chronology.visible_site_count > snapshot.source_chronology.visible_node_count
+      || snapshot.source_chronology.visible_site_count !== expectedVisibleSites
+    ) throw new Error('captured source visible-site accounting differs');
     const visibleObservations = snapshot.source_chronology?.visible_observation_denominator;
+    const expectedVisibleObservations = story.expected_visible_observation_counts?.[frame.ordinal];
     if (
       visibleObservations !== null
       && (!Number.isInteger(visibleObservations) || visibleObservations < 0 || visibleObservations > story.observation_denominator)
@@ -44,6 +63,7 @@ export function validateSnapshot(snapshot, frame, story, atlasIdentity) {
     if (
       (snapshot.visible_source_chronology_point_count === 0 && visibleObservations !== 0)
       || (snapshot.visible_source_chronology_point_count > 0 && (!Number.isInteger(visibleObservations) || visibleObservations <= 0))
+      || visibleObservations !== expectedVisibleObservations
     ) throw new Error('captured source visible-observation accounting differs');
     if (snapshot.visible_modeled_no_pollen_data_count !== null) throw new Error('source frame exposed modeled quality counts');
     if (frame.no_pollen_data_count != null) throw new Error('source frame carries modeled quality denominator');
@@ -147,8 +167,10 @@ function validateCapturePresentation(value, frame, story, snapshot) {
   const sourceFrame = frame.story_kind === 'source_chronology';
   const expectedRoleLabel = sourceFrame ? 'Observed source chronology' : 'Modeled context · published source window';
   const expectedCaveat = sourceFrame
-    ? 'Observed source records only · display clusters are not abundance · no interpolation, flow, or propagation inference.'
-    : 'Published modeled cells are context only · no atlas interpolation, flow, or propagation inference.';
+    ? (snapshot.source_chronology?.source_preset
+      ? 'Literal exact-ID source-label union only · not an accepted classification or abundance · no interpolation, flow, propagation, migration, or causation inference.'
+      : 'Observed source records only · site, node, and display-cluster counts are not abundance · no interpolation, flow, propagation, migration, or causation inference.')
+    : 'Published modeled cells are context only, not an observed pollen trajectory · no atlas interpolation, flow, propagation, migration, or causation inference.';
   const expectedKeyLabels = sourceFrame
     ? ['source record', 'records grouped at current zoom', 'country boundary']
     : ['0–20%', '>20–40%', '>40–60%', '>60–80%', '>80–100%', 'no pollen data · N/A, not 0', 'country boundary'];
@@ -162,8 +184,9 @@ function validateCapturePresentation(value, frame, story, snapshot) {
   };
   const expectedSourceColors = sourceColors[frame.source_level];
   const visibleObservations = snapshot.source_chronology?.visible_observation_denominator;
+  const visibleSites = snapshot.source_chronology?.visible_site_count;
   const expectedCounts = sourceFrame
-    ? `${snapshot.visible_source_chronology_point_count}/${story.node_count} governed source nodes in this interval · ${visibleObservations}/${story.observation_denominator} contributing observations`
+    ? `${visibleSites}/${story.site_count} unique source sites · ${snapshot.visible_source_chronology_point_count}/${story.node_count} governed source nodes in this interval · ${visibleObservations}/${story.observation_denominator} contributing observations`
     : `${frame.feature_count}/${frame.feature_count} published cells visible · ${frame.no_pollen_data_count} explicitly have no pollen data · ${frame.source_window_label}`;
   if (
     value.schema_version !== 'atlas-capture-presentation.v1'

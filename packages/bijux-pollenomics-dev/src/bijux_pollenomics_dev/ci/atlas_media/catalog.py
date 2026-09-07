@@ -27,7 +27,7 @@ class PublicationStorySpec:
         )
 
 
-PUBLICATION_STORIES = (
+LEGACY_PUBLICATION_STORIES_V4 = (
     PublicationStorySpec(
         "neotoma-source-sample-presence",
         "Neotoma source sample presence",
@@ -178,11 +178,125 @@ PUBLICATION_STORIES = (
     ),
 )
 
+LEGACY_PUBLICATION_STORY_TUPLES_V4 = tuple(
+    story.as_tuple() for story in LEGACY_PUBLICATION_STORIES_V4
+)
+LEGACY_PUBLICATION_STORY_TITLES_V4 = {
+    story.story_id: story.title for story in LEGACY_PUBLICATION_STORIES_V4
+}
+
+PUBLICATION_STORIES = (
+    *LEGACY_PUBLICATION_STORIES_V4[:4],
+    PublicationStorySpec(
+        "neotoma-source-preset-avena",
+        "Neotoma literal exact-ID union — Avena source labels",
+        "observation_chronology",
+        "source_label_preset",
+        "avena",
+        "literal_source_label_membership",
+    ),
+    PublicationStorySpec(
+        "neotoma-source-preset-hordeum",
+        "Neotoma literal exact-ID union — Hordeum source labels",
+        "observation_chronology",
+        "source_label_preset",
+        "hordeum",
+        "literal_source_label_membership",
+    ),
+    PublicationStorySpec(
+        "neotoma-source-preset-triticum",
+        "Neotoma literal exact-ID union — Triticum source labels",
+        "observation_chronology",
+        "source_label_preset",
+        "triticum",
+        "literal_source_label_membership",
+    ),
+    PublicationStorySpec(
+        "neotoma-source-preset-secale",
+        "Neotoma literal exact-ID union — Secale source labels",
+        "observation_chronology",
+        "source_label_preset",
+        "secale",
+        "literal_source_label_membership",
+    ),
+    PublicationStorySpec(
+        "neotoma-source-preset-cerealia",
+        "Neotoma literal exact-ID union — Cerealia source labels",
+        "observation_chronology",
+        "source_label_preset",
+        "cerealia",
+        "literal_source_label_membership",
+    ),
+    PublicationStorySpec(
+        "neotoma-source-taxon-3915",
+        "Neotoma exact source-reported taxon — Avena",
+        "observation_chronology",
+        "source_taxon",
+        "source:neotoma:taxon:3915",
+    ),
+    PublicationStorySpec(
+        "neotoma-source-taxon-3923",
+        "Neotoma exact source-reported taxon — Hordeum",
+        "observation_chronology",
+        "source_taxon",
+        "source:neotoma:taxon:3923",
+    ),
+    PublicationStorySpec(
+        "neotoma-source-taxon-969",
+        "Neotoma exact source-reported taxon — Triticum",
+        "observation_chronology",
+        "source_taxon",
+        "source:neotoma:taxon:969",
+    ),
+    PublicationStorySpec(
+        "neotoma-source-taxon-967",
+        "Neotoma exact source-reported taxon — Secale",
+        "observation_chronology",
+        "source_taxon",
+        "source:neotoma:taxon:967",
+    ),
+    PublicationStorySpec(
+        "neotoma-source-taxon-416",
+        "Neotoma exact source-reported taxon — Poaceae (Cerealia)",
+        "observation_chronology",
+        "source_taxon",
+        "source:neotoma:taxon:416",
+    ),
+    PublicationStorySpec(
+        "neotoma-source-taxon-415",
+        "Neotoma exact source-reported taxon — Avena/Triticum",
+        "observation_chronology",
+        "source_taxon",
+        "source:neotoma:taxon:415",
+    ),
+    PublicationStorySpec(
+        "neotoma-source-taxon-3924",
+        "Neotoma exact source-reported taxon — Hordeum/Secale",
+        "observation_chronology",
+        "source_taxon",
+        "source:neotoma:taxon:3924",
+    ),
+    PublicationStorySpec(
+        "neotoma-source-taxon-3926",
+        "Neotoma exact source-reported taxon — Secale cereale",
+        "observation_chronology",
+        "source_taxon",
+        "source:neotoma:taxon:3926",
+    ),
+    *LEGACY_PUBLICATION_STORIES_V4[12:],
+)
+
 CORE_SOURCE_STORIES = tuple(
     story
     for story in PUBLICATION_STORIES
     if story.evidence_role == "observation_chronology"
-    and story.selector_kind != "source_taxon"
+    and story.selector_kind
+    not in {"source_taxon", "source_label_preset"}
+)
+DEFAULT_SOURCE_LABEL_PRESETS = tuple(
+    story.selector_value
+    for story in PUBLICATION_STORIES
+    if story.selector_kind == "source_label_preset"
 )
 DEFAULT_EXACT_TAXA = tuple(
     story.selector_value
@@ -310,13 +424,15 @@ LEGACY_PUBLICATION_STORY_TUPLES_V3 = (
     ),
 )
 LEGACY_PUBLICATION_STORY_TITLES_V3 = {
-    story_id: PUBLICATION_STORY_TITLES[story_id].replace(
+    story_id: LEGACY_PUBLICATION_STORY_TITLES_V4[story_id].replace(
         "exact source-reported taxon", "exact source taxon"
     )
     for story_id, *_ in LEGACY_PUBLICATION_STORY_TUPLES_V3
 }
 PUBLICATION_ASSET_COUNT = len(PUBLICATION_STORIES) * 2
-PUBLICATION_SCHEMA_VERSION = "atlas-media-publication.v4"
+PUBLICATION_FRAME_COUNT = 1_980
+PUBLICATION_SCHEMA_VERSION = "atlas-media-publication.v5"
+LEGACY_PUBLICATION_SCHEMA_VERSION_V4 = "atlas-media-publication.v4"
 LEGACY_PUBLICATION_SCHEMA_VERSION_V3 = "atlas-media-publication.v3"
 LEGACY_PUBLICATION_STORY_TUPLES_V1 = (
     (
@@ -434,6 +550,10 @@ SUPPORTED_EXISTING_PUBLICATION_CONTRACTS = (
         LEGACY_PUBLICATION_STORY_TUPLES_V3,
     ),
     (
+        LEGACY_PUBLICATION_SCHEMA_VERSION_V4,
+        LEGACY_PUBLICATION_STORY_TUPLES_V4,
+    ),
+    (
         PUBLICATION_SCHEMA_VERSION,
         PUBLICATION_STORY_TUPLES,
     ),
@@ -444,12 +564,17 @@ __all__ = [
     "CORE_SOURCE_STORIES",
     "DEFAULT_EXACT_TAXA",
     "DEFAULT_MODELED_METRICS",
+    "DEFAULT_SOURCE_LABEL_PRESETS",
     "LEGACY_PUBLICATION_SCHEMA_VERSION_V3",
+    "LEGACY_PUBLICATION_SCHEMA_VERSION_V4",
     "LEGACY_PUBLICATION_STORY_TITLES_V3",
+    "LEGACY_PUBLICATION_STORY_TITLES_V4",
     "LEGACY_PUBLICATION_STORY_TUPLES_V1",
     "LEGACY_PUBLICATION_STORY_TUPLES_V2",
     "LEGACY_PUBLICATION_STORY_TUPLES_V3",
+    "LEGACY_PUBLICATION_STORY_TUPLES_V4",
     "PUBLICATION_ASSET_COUNT",
+    "PUBLICATION_FRAME_COUNT",
     "PUBLICATION_SCHEMA_VERSION",
     "PUBLICATION_STORIES",
     "PUBLICATION_STORY_TITLES",

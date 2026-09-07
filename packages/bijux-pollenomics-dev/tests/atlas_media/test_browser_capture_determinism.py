@@ -88,6 +88,7 @@ def test_real_atlas_frame_is_pixel_identical_across_browser_replays() -> None:
         atlas,
         StorySelection(
             include_core_source_stories=False,
+            source_label_presets=(),
             exact_taxa=("source:neotoma:taxon:967",),
             modeled_metrics=(),
         ),
@@ -136,6 +137,7 @@ def test_real_atlas_frame_is_pixel_identical_across_browser_replays() -> None:
             candidate=candidate,
             selection=StorySelection(
                 include_core_source_stories=False,
+                source_label_presets=(),
                 exact_taxa=("source:neotoma:taxon:967",),
                 modeled_metrics=(),
             ),

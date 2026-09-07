@@ -31,6 +31,9 @@ def capture_frame_evidence_valid(
     expected_evidence_layer_key: str,
     expected_title: str,
     expected_source_count: object,
+    expected_source_site_count: object,
+    expected_source_observation_count: object,
+    source_site_denominator: object,
     source_node_denominator: object,
     source_observation_denominator: object,
     expected_modeled_count: object,
@@ -69,8 +72,11 @@ def capture_frame_evidence_valid(
         value.get("capture_presentation"),
         evidence_role=evidence_role,
         source_level=source_level,
+        source_preset=value.get("source_preset"),
         expected_title=expected_title,
         expected_source_count=expected_source_count,
+        expected_source_site_count=expected_source_site_count,
+        source_site_denominator=source_site_denominator,
         source_node_denominator=source_node_denominator,
         source_observation_denominator=source_observation_denominator,
         visible_source_observations=value.get("visible_source_observation_denominator"),
@@ -87,9 +93,16 @@ def capture_frame_evidence_valid(
         visible_observations = value.get("visible_source_observation_denominator")
         return (
             _nonnegative_integer(expected_source_count)
+            and _nonnegative_integer(expected_source_site_count)
+            and _nonnegative_integer(source_site_denominator)
+            and _nonnegative_integer(expected_source_observation_count)
             and _nonnegative_integer(source_node_denominator)
             and _nonnegative_integer(source_observation_denominator)
             and source_count == expected_source_count
+            and value.get("facet_site_count") == source_site_denominator
+            and value.get("visible_site_count") == expected_source_site_count
+            and visible_observations == expected_source_observation_count
+            and expected_source_site_count <= expected_source_count  # type: ignore[operator]
             and point_count == source_count
             and modeled_count == 0
             and value.get("visible_source_node_count") == source_count
@@ -98,8 +111,8 @@ def capture_frame_evidence_valid(
                 or (
                     expected_source_count > 0  # type: ignore[operator]
                     and _nonnegative_integer(visible_observations)
-                    and visible_observations > 0  # type: ignore[operator]
-                    and visible_observations <= source_observation_denominator  # type: ignore[operator]
+                    and expected_source_observation_count > 0  # type: ignore[operator]
+                    and expected_source_observation_count <= source_observation_denominator  # type: ignore[operator]
                 )
             )
             and value.get("visible_modeled_no_pollen_data_count") is None
@@ -114,6 +127,8 @@ def capture_frame_evidence_valid(
         and modeled_count <= polygon_feature_count  # type: ignore[operator]
         and value.get("visible_source_node_count") is None
         and value.get("visible_source_observation_denominator") is None
+        and value.get("facet_site_count") is None
+        and value.get("visible_site_count") is None
         and _nonnegative_integer(value.get("visible_modeled_no_pollen_data_count"))
         and _nonnegative_integer(expected_modeled_no_pollen_data_count)
         and expected_modeled_no_pollen_data_count <= expected_modeled_count  # type: ignore[operator]
@@ -159,8 +174,11 @@ def _capture_presentation_valid(
     *,
     evidence_role: str,
     source_level: object,
+    source_preset: object,
     expected_title: str,
     expected_source_count: object,
+    expected_source_site_count: object,
+    source_site_denominator: object,
     source_node_denominator: object,
     source_observation_denominator: object,
     visible_source_observations: object,
@@ -190,7 +208,15 @@ def _capture_presentation_valid(
     caveat = value.get("caveat")
     if evidence_role == "observation_chronology":
         expected_role_label = "Observed source chronology"
-        expected_caveat = "Observed source records only · display clusters are not abundance · no interpolation, flow, or propagation inference."
+        expected_caveat = (
+            "Literal exact-ID source-label union only · not an accepted "
+            "classification or abundance · no interpolation, flow, propagation, "
+            "migration, or causation inference."
+            if isinstance(source_preset, str) and source_preset
+            else "Observed source records only · site, node, and display-cluster "
+            "counts are not abundance · no interpolation, flow, propagation, "
+            "migration, or causation inference."
+        )
         expected_key_labels = [
             "source record",
             "records grouped at current zoom",
@@ -218,12 +244,17 @@ def _capture_presentation_valid(
             else str(visible_source_observations)
         )
         expected_counts_label = (
+            f"{expected_source_site_count}/{source_site_denominator} unique source sites · "
             f"{expected_source_count}/{source_node_denominator} governed source nodes in this interval · "
             f"{observation_label}/{source_observation_denominator} contributing observations"
         )
     else:
         expected_role_label = "Modeled context · published source window"
-        expected_caveat = "Published modeled cells are context only · no atlas interpolation, flow, or propagation inference."
+        expected_caveat = (
+            "Published modeled cells are context only, not an observed pollen "
+            "trajectory · no atlas interpolation, flow, propagation, migration, "
+            "or causation inference."
+        )
         expected_key_labels = [
             "0–20%",
             ">20–40%",

@@ -7,8 +7,12 @@ import json
 import math
 from pathlib import Path
 
+from bijux_pollenomics.reporting.source_chronology.source_label_presets import (
+    build_neotoma_source_label_preset_catalog,
+)
+
 from .capture_evidence import capture_frame_evidence_valid, expected_capture_layer_key
-from .contracts import AtlasMediaError, SelectedStory
+from .contracts import AtlasMediaError, SelectedStory, story_interpretation
 from .poster_selection import poster_frame_ordinal
 
 
@@ -33,6 +37,37 @@ def canonical_json_bytes(value: object) -> bytes:
         )
         + "\n"
     ).encode("utf-8")
+
+
+def validate_source_preset_catalog(value: object) -> tuple[dict[str, object], str]:
+    """Reconstruct and validate the governed literal source-label catalog."""
+    if not isinstance(value, dict):
+        raise AtlasMediaError("source-label preset catalog is absent")
+    catalog = dict(value)
+    source_snapshot_id = catalog.get("source_snapshot_id")
+    build_id = catalog.get("build_id")
+    if not isinstance(source_snapshot_id, str) or not isinstance(build_id, str):
+        raise AtlasMediaError("source-label preset catalog identity differs")
+    try:
+        expected = build_neotoma_source_label_preset_catalog(
+            source_snapshot_id=source_snapshot_id,
+            build_id=build_id,
+        )
+    except ValueError as error:
+        raise AtlasMediaError(
+            "source-label preset catalog identity differs"
+        ) from error
+    if catalog != expected:
+        raise AtlasMediaError("source-label preset catalog differs")
+    content_sha256 = expected["content_sha256"]
+    if not isinstance(content_sha256, str) or not content_sha256.startswith("sha256:"):
+        raise AtlasMediaError("source-label preset catalog digest differs")
+    digest = content_sha256.removeprefix("sha256:")
+    if len(digest) != 64 or any(
+        character not in "0123456789abcdef" for character in digest
+    ):
+        raise AtlasMediaError("source-label preset catalog digest differs")
+    return expected, digest
 
 
 def media_asset_row(root: Path, path: Path, *, media_type: str) -> dict[str, object]:
@@ -63,6 +98,7 @@ def build_gallery_manifest(
     atlas_identity: dict[str, object],
     candidate_identity: dict[str, object],
     storyboard_sha256: str,
+    source_preset_catalog: dict[str, object],
     stories: tuple[SelectedStory, ...],
     assets_by_story: dict[str, list[dict[str, object]]],
     capture_frames_by_story: dict[str, list[dict[str, object]]],
@@ -86,6 +122,15 @@ def build_gallery_manifest(
     _validate_tool_identity(tool_identity)
     _validate_encoding_profile(encoding_profile)
     _validate_execution_receipts(execution_receipts)
+    governed_catalog, governed_catalog_digest = validate_source_preset_catalog(
+        source_preset_catalog
+    )
+    if any(
+        story.source_preset_catalog_sha256 != governed_catalog_digest
+        for story in stories
+        if story.selector_kind == "source_label_preset"
+    ):
+        raise AtlasMediaError("source-label preset story catalog differs")
     story_rows: list[dict[str, object]] = []
     for story in stories:
         assets = assets_by_story.get(story.story_id)
@@ -153,6 +198,7 @@ def build_gallery_manifest(
                     "value": story.selector_value,
                     "family": story.selector_family,
                 },
+                "site_count": story.site_count,
                 "node_count": story.node_count,
                 "observation_denominator": story.observation_denominator,
                 "frame_feature_denominators": (
@@ -170,11 +216,26 @@ def build_gallery_manifest(
                     if story.expected_visible_feature_counts is not None
                     else None
                 ),
+                "expected_visible_site_counts": (
+                    list(story.expected_visible_site_counts)
+                    if story.expected_visible_site_counts is not None
+                    else None
+                ),
+                "expected_visible_observation_counts": (
+                    list(story.expected_visible_observation_counts)
+                    if story.expected_visible_observation_counts is not None
+                    else None
+                ),
                 "source_authority_sha256": story.source_authority_sha256,
-                "interpretation": (
-                    "Dated observation chronology; not movement or causation."
-                    if story.evidence_role == "observation_chronology"
-                    else "Non-interpolated modeled context; not observed movement or causation."
+                "source_preset_member_taxon_ids": (
+                    list(story.source_preset_member_taxon_ids)
+                    if story.source_preset_member_taxon_ids is not None
+                    else None
+                ),
+                "source_preset_catalog_sha256": story.source_preset_catalog_sha256,
+                "interpretation": story_interpretation(
+                    story.evidence_role,
+                    story.selector_kind,
                 ),
                 "temporal_direction": "oldest_to_present",
                 "interval_semantics": "[younger_bp, older_bp]",
@@ -193,10 +254,11 @@ def build_gallery_manifest(
             }
         )
     content: dict[str, object] = {
-        "schema_version": "atlas-media-gallery.v3",
+        "schema_version": "atlas-media-gallery.v4",
         "atlas_identity": atlas_identity,
         "candidate_identity": candidate_identity,
         "storyboard_sha256": storyboard_sha256,
+        "source_label_preset_catalog": governed_catalog,
         "temporal_direction": "oldest_to_present",
         "interpolation_allowed": False,
         "candidate_succession": candidate_succession,
@@ -330,6 +392,16 @@ def _capture_frame_identity(
         or isinstance(byte_count, bool)
         or not isinstance(byte_count, int)
         or byte_count <= 0
+        or value.get("source_preset")
+        != story.frames[ordinal].get("source_preset")
+        or value.get("source_preset_member_taxon_ids")
+        != (
+            list(story.source_preset_member_taxon_ids)
+            if story.source_preset_member_taxon_ids is not None
+            else None
+        )
+        or value.get("source_preset_catalog_sha256")
+        != story.source_preset_catalog_sha256
         or not _valid_capture_frame_counts(value, ordinal=ordinal, story=story)
     ):
         raise AtlasMediaError("gallery capture frame identity is invalid")
@@ -342,7 +414,16 @@ def _capture_frame_identity(
         "time_start_bp": story.frames[ordinal]["time_start_bp"],
         "time_end_bp": story.frames[ordinal]["time_end_bp"],
         "source_window_label": story.frames[ordinal].get("source_window_label"),
+        "source_preset": story.frames[ordinal].get("source_preset"),
+        "source_preset_member_taxon_ids": (
+            list(story.source_preset_member_taxon_ids)
+            if story.source_preset_member_taxon_ids is not None
+            else None
+        ),
+        "source_preset_catalog_sha256": story.source_preset_catalog_sha256,
         "no_pollen_data_count": story.frames[ordinal].get("no_pollen_data_count"),
+        "facet_site_count": value.get("facet_site_count"),
+        "visible_site_count": value.get("visible_site_count"),
         "visible_point_count": value.get("visible_point_count"),
         "visible_polygon_layer_count": value.get("visible_polygon_layer_count"),
         "visible_polygon_feature_count": value.get("visible_polygon_feature_count"),
@@ -375,6 +456,16 @@ def _valid_capture_frame_counts(
         if story.expected_visible_feature_counts is not None
         else None
     )
+    expected_source_site_count = (
+        story.expected_visible_site_counts[ordinal]
+        if story.expected_visible_site_counts is not None
+        else None
+    )
+    expected_source_observation_count = (
+        story.expected_visible_observation_counts[ordinal]
+        if story.expected_visible_observation_counts is not None
+        else None
+    )
     return capture_frame_evidence_valid(
         value,
         evidence_role=story.evidence_role,
@@ -384,6 +475,9 @@ def _valid_capture_frame_counts(
         ),
         expected_title=story.title,
         expected_source_count=expected_source_count,
+        expected_source_site_count=expected_source_site_count,
+        expected_source_observation_count=expected_source_observation_count,
+        source_site_denominator=story.site_count,
         source_node_denominator=story.node_count,
         source_observation_denominator=story.observation_denominator,
         expected_modeled_count=frame.get("feature_count"),
@@ -420,6 +514,7 @@ def _frame_identity(frame: dict[str, object]) -> dict[str, object]:
             "source_level",
             "source_code",
             "source_taxon",
+            "source_preset",
             "source_window_label",
             "metric_family_key",
             "metric_key",

@@ -10,7 +10,11 @@ from pathlib import Path
 
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import AtlasCandidate
 
-from .catalog import DEFAULT_EXACT_TAXA, DEFAULT_MODELED_METRICS
+from .catalog import (
+    DEFAULT_EXACT_TAXA,
+    DEFAULT_MODELED_METRICS,
+    DEFAULT_SOURCE_LABEL_PRESETS,
+)
 from .contracts import AtlasMediaError, AtlasMediaPlan, StorySelection
 from .runner import materialize_atlas_media
 
@@ -49,6 +53,7 @@ def _parser() -> argparse.ArgumentParser:
     parser.add_argument("--ffprobe-binary", type=Path)
     parser.add_argument("--no-core-source-stories", action="store_true")
     parser.add_argument("--exact-taxon", action="append")
+    parser.add_argument("--source-label-preset", action="append")
     parser.add_argument("--modeled-metric", action="append")
     parser.add_argument("--width", type=int, default=1440)
     parser.add_argument("--height", type=int, default=900)
@@ -83,6 +88,9 @@ def main(argv: list[str] | None = None) -> int:
             ),
             selection=StorySelection(
                 include_core_source_stories=not arguments.no_core_source_stories,
+                source_label_presets=tuple(
+                    arguments.source_label_preset or DEFAULT_SOURCE_LABEL_PRESETS
+                ),
                 exact_taxa=tuple(arguments.exact_taxon or DEFAULT_EXACT_TAXA),
                 modeled_metrics=tuple(
                     arguments.modeled_metric or DEFAULT_MODELED_METRICS

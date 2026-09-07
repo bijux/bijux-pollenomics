@@ -14,6 +14,7 @@ from .catalog import (
     CORE_SOURCE_STORIES,
     DEFAULT_EXACT_TAXA,
     DEFAULT_MODELED_METRICS,
+    DEFAULT_SOURCE_LABEL_PRESETS,
     PUBLICATION_STORIES,
 )
 
@@ -22,6 +23,29 @@ _SAFE_SLUG = re.compile(r"[a-z][a-z0-9-]*")
 
 class AtlasMediaError(ValueError):
     """Report an input or runtime state that cannot produce governed media."""
+
+
+SOURCE_CHRONOLOGY_INTERPRETATION = (
+    "Dated source-observation chronology; site, node, and cluster counts are not "
+    "abundance; not flow, propagation, migration, or causation."
+)
+SOURCE_PRESET_INTERPRETATION = (
+    "Literal source-label union chronology; not classification or abundance; "
+    "not flow, propagation, migration, or causation."
+)
+MODELED_CONTEXT_INTERPRETATION = (
+    "Non-interpolated modeled context; not an observed pollen trajectory; "
+    "not flow, propagation, migration, or causation."
+)
+
+
+def story_interpretation(evidence_role: str, selector_kind: str) -> str:
+    """Return the single conservative interpretation for every media surface."""
+    if selector_kind == "source_label_preset":
+        return SOURCE_PRESET_INTERPRETATION
+    if evidence_role == "observation_chronology":
+        return SOURCE_CHRONOLOGY_INTERPRETATION
+    return MODELED_CONTEXT_INTERPRETATION
 
 
 def _safe_relative_file(value: str, *, suffix: str, label: str) -> None:
@@ -41,6 +65,7 @@ class StorySelection:
     """Explicit story selectors with scientifically conservative defaults."""
 
     include_core_source_stories: bool = True
+    source_label_presets: tuple[str, ...] = DEFAULT_SOURCE_LABEL_PRESETS
     exact_taxa: tuple[str, ...] = DEFAULT_EXACT_TAXA
     modeled_metrics: tuple[str, ...] = DEFAULT_MODELED_METRICS
 
@@ -49,6 +74,7 @@ class StorySelection:
         if not isinstance(self.include_core_source_stories, bool):
             raise AtlasMediaError("include_core_source_stories must be boolean")
         for label, values in (
+            ("source_label_presets", self.source_label_presets),
             ("exact_taxa", self.exact_taxa),
             ("modeled_metrics", self.modeled_metrics),
         ):
@@ -67,12 +93,14 @@ class StorySelection:
                 raise AtlasMediaError(f"{label} selection exceeds eight stories")
         if (
             not self.include_core_source_stories
+            and not self.source_label_presets
             and not self.exact_taxa
             and not self.modeled_metrics
         ):
             raise AtlasMediaError("at least one atlas media story must be selected")
         selected_count = (
             (len(CORE_SOURCE_STORIES) if self.include_core_source_stories else 0)
+            + len(self.source_label_presets)
             + len(self.exact_taxa)
             + len(self.modeled_metrics)
         )
@@ -170,12 +198,17 @@ class SelectedStory:
     selector_value: str
     frames: tuple[dict[str, object], ...]
     selector_family: str | None = None
+    site_count: int | None = None
     node_count: int | None = None
     observation_denominator: int | None = None
     frame_feature_denominators: tuple[int, ...] | None = None
     frame_no_pollen_data_counts: tuple[int, ...] | None = None
     expected_visible_feature_counts: tuple[int, ...] | None = None
+    expected_visible_site_counts: tuple[int, ...] | None = None
+    expected_visible_observation_counts: tuple[int, ...] | None = None
     source_authority_sha256: str | None = None
+    source_preset_member_taxon_ids: tuple[int, ...] | None = None
+    source_preset_catalog_sha256: str | None = None
 
     def __post_init__(self) -> None:
         """Reject stories that violate source and modeled-evidence contracts."""
@@ -198,10 +231,41 @@ class SelectedStory:
                 "source_sample_presence",
                 "source_ecological_code",
                 "source_taxon",
+                "source_label_preset",
             }:
                 raise AtlasMediaError("source story selector kind is unsupported")
-            if self.selector_family is not None:
-                raise AtlasMediaError("source story selector family must be null")
+            if self.selector_kind == "source_label_preset":
+                if self.selector_family != "literal_source_label_membership":
+                    raise AtlasMediaError(
+                        "source-label preset selector family differs"
+                    )
+                if (
+                    not isinstance(self.source_preset_member_taxon_ids, tuple)
+                    or not self.source_preset_member_taxon_ids
+                    or len(self.source_preset_member_taxon_ids)
+                    != len(set(self.source_preset_member_taxon_ids))
+                    or any(
+                        isinstance(value, bool)
+                        or not isinstance(value, int)
+                        or value <= 0
+                        for value in self.source_preset_member_taxon_ids
+                    )
+                ):
+                    raise AtlasMediaError(
+                        "source-label preset member IDs are invalid"
+                    )
+                _sha256(
+                    self.source_preset_catalog_sha256,
+                    "source_preset_catalog_sha256",
+                )
+            elif (
+                self.selector_family is not None
+                or self.source_preset_member_taxon_ids is not None
+                or self.source_preset_catalog_sha256 is not None
+            ):
+                raise AtlasMediaError(
+                    "non-preset source story carries preset authority"
+                )
             if (
                 self.selector_kind == "source_sample_presence"
                 and self.selector_value != "all"
@@ -210,6 +274,7 @@ class SelectedStory:
                     "source sample-presence selector value must be all"
                 )
             _positive_denominator(self.node_count, "node_count")
+            _positive_denominator(self.site_count, "site_count")
             _positive_denominator(
                 self.observation_denominator,
                 "observation_denominator",
@@ -236,6 +301,40 @@ class SelectedStory:
                     "source story requires exact nonempty frame visibility evidence"
                 )
             if (
+                not isinstance(self.expected_visible_site_counts, tuple)
+                or len(self.expected_visible_site_counts) != len(self.frames)
+                or any(
+                    isinstance(value, bool)
+                    or not isinstance(value, int)
+                    or value < 0
+                    or value > cast(int, self.site_count)
+                    or value > self.expected_visible_feature_counts[index]
+                    for index, value in enumerate(self.expected_visible_site_counts)
+                )
+                or sum(self.expected_visible_site_counts) <= 0
+            ):
+                raise AtlasMediaError(
+                    "source story requires exact nonempty site visibility evidence"
+                )
+            if (
+                not isinstance(self.expected_visible_observation_counts, tuple)
+                or len(self.expected_visible_observation_counts) != len(self.frames)
+                or any(
+                    isinstance(value, bool)
+                    or not isinstance(value, int)
+                    or value < 0
+                    or value > cast(int, self.observation_denominator)
+                    or (self.expected_visible_feature_counts[index] == 0) != (value == 0)
+                    for index, value in enumerate(
+                        self.expected_visible_observation_counts
+                    )
+                )
+                or sum(self.expected_visible_observation_counts) <= 0
+            ):
+                raise AtlasMediaError(
+                    "source story requires exact observation visibility evidence"
+                )
+            if (
                 not isinstance(self.source_authority_sha256, str)
                 or len(self.source_authority_sha256) != 64
                 or any(
@@ -254,11 +353,19 @@ class SelectedStory:
                 or not self.selector_family.strip()
             ):
                 raise AtlasMediaError("modeled story selector family must not be empty")
-            if self.node_count is not None or self.observation_denominator is not None:
+            if (
+                self.site_count is not None
+                or self.node_count is not None
+                or self.observation_denominator is not None
+            ):
                 raise AtlasMediaError("modeled story cannot carry source denominators")
             if (
                 self.expected_visible_feature_counts is not None
+                or self.expected_visible_site_counts is not None
+                or self.expected_visible_observation_counts is not None
                 or self.source_authority_sha256 is not None
+                or self.source_preset_member_taxon_ids is not None
+                or self.source_preset_catalog_sha256 is not None
             ):
                 raise AtlasMediaError("modeled story cannot carry source authority")
             if (
@@ -338,6 +445,15 @@ def _positive_denominator(value: object, label: str) -> None:
         raise AtlasMediaError(f"story {label} must be a positive integer")
 
 
+def _sha256(value: object, label: str) -> None:
+    if (
+        not isinstance(value, str)
+        or len(value) != 64
+        or any(character not in "0123456789abcdef" for character in value)
+    ):
+        raise AtlasMediaError(f"story {label} must be a lowercase SHA-256")
+
+
 def _frame_number(frame: dict[str, object], field: str) -> float | int:
     value = frame.get(field)
     if (
@@ -366,9 +482,14 @@ def _validate_capture_frame(
     if younger > older:
         raise AtlasMediaError("story frame has a reversed BP interval")
     if evidence_role == "observation_chronology":
+        expected_level = (
+            "source_taxon"
+            if selector_kind == "source_label_preset"
+            else selector_kind
+        )
         if (
             frame.get("story_kind") != "source_chronology"
-            or frame.get("source_level") != selector_kind
+            or frame.get("source_level") != expected_level
             or (
                 selector_kind == "source_ecological_code"
                 and frame.get("source_code") != selector_value
@@ -382,8 +503,20 @@ def _validate_capture_frame(
                 and frame.get("source_taxon") != selector_value
             )
             or (
-                selector_kind != "source_taxon"
+                selector_kind == "source_label_preset"
+                and frame.get("source_taxon") != "all"
+            )
+            or (
+                selector_kind not in {"source_taxon", "source_label_preset"}
                 and frame.get("source_taxon") not in {None, ""}
+            )
+            or (
+                selector_kind == "source_label_preset"
+                and frame.get("source_preset") != selector_value
+            )
+            or (
+                selector_kind != "source_label_preset"
+                and frame.get("source_preset") not in {None, ""}
             )
             or frame.get("metric_family_key") not in {None, ""}
             or frame.get("metric_key") not in {None, ""}
@@ -401,6 +534,7 @@ def _validate_capture_frame(
         or frame.get("source_level") not in {None, ""}
         or frame.get("source_code") not in {None, ""}
         or frame.get("source_taxon") not in {None, ""}
+        or frame.get("source_preset") not in {None, ""}
     ):
         raise AtlasMediaError("modeled frame selector differs from its story selector")
 
