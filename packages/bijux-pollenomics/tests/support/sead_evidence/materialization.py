@@ -7,6 +7,162 @@ import json
 from pathlib import Path
 from typing import cast
 
+from bijux_pollenomics.collection.sources.sead.evidence.source_keys.contract import (
+    SOURCE_KEY_LEDGER_SCHEMA_VERSION,
+    SOURCE_KEY_RANGE_ENCODING,
+    SOURCE_KEY_TABLE_CONTRACT_SCHEMA_VERSION,
+    source_key_table_contract_rows,
+    source_key_table_contract_sha256,
+)
+from bijux_pollenomics.collection.sources.sead.evidence.source_keys.ranges import (
+    positive_integer_key_set_sha256,
+    positive_integer_ranges_sha256,
+)
+from bijux_pollenomics.collection.sources.sead.evidence.source_keys.serialization import (
+    canonical_bytes,
+    canonical_sha256,
+)
+from bijux_pollenomics.collection.sources.sead.evidence.source_keys.validation import (
+    validate_sead_source_key_ledger,
+)
+
+
+def _source_key_ledger_fixture(
+    *,
+    run_id: str,
+    build_id: str,
+    acquisition_manifest_sha256: str,
+    acquisition_bundle_sha256: str,
+    country_decisions_sha256: str,
+    parent_admission_sha256: str,
+) -> dict[str, object]:
+    """Build a small, complete ledger for a projection-only materialization."""
+    contract_rows = source_key_table_contract_rows()
+    table_rows: list[dict[str, object]] = []
+    payload_inventory: list[dict[str, object]] = []
+    receipt_inventory: list[dict[str, object]] = []
+    key_inventory: list[dict[str, object]] = []
+    empty_key_sha256 = positive_integer_key_set_sha256([])
+    empty_ranges_sha256 = positive_integer_ranges_sha256([])
+
+    for contract_row in contract_rows:
+        table = cast(str, contract_row["table"])
+        primary_key = cast(str, contract_row["primary_key"])
+        payload_bytes = canonical_bytes({"rows": [], "table": table})
+        payload_sha256 = hashlib.sha256(payload_bytes).hexdigest()
+        receipt_bytes = canonical_bytes(
+            {
+                "content_sha256": payload_sha256,
+                "receipt_id": f"sead-fixture-receipt:{table}",
+                "row_count": 0,
+                "status": "complete",
+                "table": table,
+            }
+        )
+        receipt_sha256 = hashlib.sha256(receipt_bytes).hexdigest()
+        payload_identity = {
+            "path": f"payloads/{table}.json",
+            "byte_count": len(payload_bytes),
+            "sha256": payload_sha256,
+        }
+        receipt_identity = {
+            "path": f"receipts/{table}.json",
+            "byte_count": len(receipt_bytes),
+            "sha256": receipt_sha256,
+            "receipt_id": f"sead-fixture-receipt:{table}",
+            "status": "complete",
+            "row_count": 0,
+            "content_sha256": payload_sha256,
+        }
+        table_row: dict[str, object] = {
+            **contract_row,
+            "row_count": 0,
+            "distinct_primary_key_count": 0,
+            "duplicate_primary_key_count": 0,
+            "minimum_primary_key": None,
+            "maximum_primary_key": None,
+            "key_encoding": SOURCE_KEY_RANGE_ENCODING,
+            "key_ranges": [],
+            "key_range_count": 0,
+            "key_set_sha256": empty_key_sha256,
+            "key_ranges_sha256": empty_ranges_sha256,
+            "payload": payload_identity,
+            "receipt": receipt_identity,
+        }
+        table_row["table_record_sha256"] = canonical_sha256(table_row)
+        table_rows.append(table_row)
+        payload_inventory.append(
+            {
+                "table": table,
+                "byte_count": len(payload_bytes),
+                "sha256": payload_sha256,
+            }
+        )
+        receipt_inventory.append(
+            {
+                "table": table,
+                "byte_count": len(receipt_bytes),
+                "sha256": receipt_sha256,
+            }
+        )
+        key_inventory.append(
+            {
+                "table": table,
+                "primary_key": primary_key,
+                "row_count": 0,
+                "key_set_sha256": empty_key_sha256,
+            }
+        )
+
+    site_country_bindings: dict[str, object] = {
+        "fields": [
+            "site_id",
+            "site_uuid",
+            "country_code_index",
+            "assignment_method_index",
+        ],
+        "country_codes": ["DK", "FI", "NO", "SE"],
+        "assignment_methods": ["fixture_projection_only"],
+        "rows": [],
+    }
+    ledger: dict[str, object] = {
+        "schema_version": SOURCE_KEY_LEDGER_SCHEMA_VERSION,
+        "source_family": "sead",
+        "source_run_id": run_id,
+        "scope_id": "sha256:"
+        + hashlib.sha256(f"sead-fixture-scope:{run_id}".encode()).hexdigest(),
+        "build_id": build_id,
+        "acquisition_manifest_sha256": acquisition_manifest_sha256,
+        "acquisition_bundle_sha256": acquisition_bundle_sha256,
+        "parent_admission_sha256": parent_admission_sha256,
+        "country_decisions_sha256": country_decisions_sha256,
+        "table_contract_schema_version": SOURCE_KEY_TABLE_CONTRACT_SCHEMA_VERSION,
+        "table_contract_sha256": source_key_table_contract_sha256(contract_rows),
+        "table_count": len(table_rows),
+        "source_row_count": 0,
+        "distinct_primary_key_count": 0,
+        "key_range_count": 0,
+        "empty_table_count": len(table_rows),
+        "payload_set_sha256": canonical_sha256(payload_inventory),
+        "receipt_set_sha256": canonical_sha256(receipt_inventory),
+        "source_key_set_sha256": canonical_sha256(key_inventory),
+        "site_identity_sha256": canonical_sha256([]),
+        "site_country_binding_sha256": canonical_sha256(site_country_bindings),
+        "site_country_bindings": site_country_bindings,
+        "country_binding_accountability": {
+            "country_decisions_sha256": country_decisions_sha256,
+            "bbox_site_count": 0,
+            "assigned_site_count": 0,
+            "review_site_count": 0,
+            "unassigned_site_count": 0,
+            "excluded_site_count": 0,
+            "country_counts": {"DK": 0, "FI": 0, "NO": 0, "SE": 0},
+            "decision_status_counts": {"assigned": 0},
+        },
+        "tables": table_rows,
+    }
+    return validate_sead_source_key_ledger(ledger)
+
 
 def _write_json(path: Path, value: object) -> bytes:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -288,11 +444,27 @@ def _write_sead_evidence_fixture(
             "events": [],
             "refusals": refusals,
         },
+        "source_key_ledger.json": _source_key_ledger_fixture(
+            run_id=run_id,
+            build_id=build_id,
+            acquisition_manifest_sha256=acquisition_manifest_sha256,
+            acquisition_bundle_sha256=acquisition_bundle_sha256,
+            country_decisions_sha256=country_decisions_sha256,
+            parent_admission_sha256=parent_admission_sha256,
+        ),
     }
     evidence_root = root / "sead" / "normalized" / "acquisitions" / run_id
     file_records: dict[str, dict[str, object]] = {}
     multipart_documents: dict[str, dict[str, object]] = {}
     for document_name, document in documents.items():
+        if document_name == "source_key_ledger.json":
+            payload = _write_json(evidence_root / document_name, document)
+            file_records[document_name] = {
+                "path": document_name,
+                "byte_count": len(payload),
+                "sha256": hashlib.sha256(payload).hexdigest(),
+            }
+            continue
         partitioned_fields = [
             field
             for field in (

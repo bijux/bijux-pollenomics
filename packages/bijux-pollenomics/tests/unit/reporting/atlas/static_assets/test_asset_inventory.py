@@ -9,8 +9,10 @@ from typing import cast
 
 import pytest
 from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
+    ASSET_TABLE_SCHEMA,
     ASSET_TABLE_FIELDS,
     ASSET_TABLE_STORED_FIELDS,
+    PREVIOUS_ASSET_TABLE_SCHEMA,
     encode_asset_inventory,
     normalize_asset_inventory,
 )
@@ -79,13 +81,29 @@ def test_checked_in_inventory_reconciles_to_manifest_contract() -> None:
     assert len({row["asset_key"] for row in rows}) == len(rows)
     assert len({row["path"] for row in rows}) == len(rows)
     assert any(row["domain"] == "nodes" for row in rows)
-    assert all(
-        row["chronology_absent_record_count"] is None
-        and row["refused_chronology_record_count"] is None
-        and row["contextual_chronology_record_count"] is None
-        for row in rows
-        if row["domain"] == "nodes"
-    )
+    node_rows = [row for row in rows if row["domain"] == "nodes"]
+    if inventory["schema_version"] == PREVIOUS_ASSET_TABLE_SCHEMA:
+        assert all(
+            row["chronology_absent_record_count"] is None
+            and row["refused_chronology_record_count"] is None
+            and row["contextual_chronology_record_count"] is None
+            for row in node_rows
+        )
+    else:
+        assert inventory["schema_version"] == ASSET_TABLE_SCHEMA
+        for row in node_rows:
+            chronology_counts = (
+                row["chronology_absent_record_count"],
+                row["refused_chronology_record_count"],
+                row["contextual_chronology_record_count"],
+            )
+            assert all(
+                isinstance(count, int) and not isinstance(count, bool) and count >= 0
+                for count in chronology_counts
+            )
+            assert sum(cast(tuple[int, int, int], chronology_counts)) == row[
+                "untimed_record_count"
+            ]
     for domain in ("nodes", "details", "edges", "sequences"):
         assert (
             sum(
@@ -164,7 +182,9 @@ def test_columnar_inventory_refuses_structural_drift(
         elif mutation == "asymmetric_time":
             node[indexes["time_min_bp"]] = None
         elif mutation == "excess_untimed_count":
-            node[indexes["untimed_record_count"]] = node[indexes["record_count"]] + 1
+            node[indexes["untimed_record_count"]] = (
+                cast(int, node[indexes["record_count"]]) + 1
+            )
         elif mutation == "incomplete_chronology_split":
             node[indexes["chronology_absent_record_count"]] = None
         elif mutation == "missing_chronology_split":

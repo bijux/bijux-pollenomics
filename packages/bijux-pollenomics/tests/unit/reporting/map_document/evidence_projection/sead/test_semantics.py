@@ -9,6 +9,10 @@ from typing import cast
 
 import pytest
 
+from bijux_pollenomics.collection.sources.sead.evidence.source_keys.validation import (
+    validate_sead_source_key_ledger,
+)
+from bijux_pollenomics.evidence.sources.sead import SEAD_GOVERNED_EVIDENCE_RUN_ID
 from bijux_pollenomics.reporting.map_document.evidence_projection import (
     sead as sead_projection,
 )
@@ -20,7 +24,7 @@ from tests.support.sead_evidence import (
 from ..fixtures.common import _decode_dictionary_table, _decode_sead_claim_table
 
 _CANONICAL_PROJECTION_SHA256 = (
-    "8bbe8a01c9e14ab51054171613dd90cef12596da446af8adcee6c53c0995b0a5"
+    "453d56a01a3f4f51763b8ee5df1526b6ec65f7019387cfd3cef86fa62d6c922d"
 )
 
 
@@ -31,6 +35,39 @@ def _projection(
     layers = sead_projection_layers()[1:]
     records, accounting = sead_projection._project_sead(root, layers)
     return records, accounting, layers
+
+
+def test_projection_fixture_publishes_valid_unpartitioned_source_key_ledger(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    install_sead_projection_fixture(tmp_path.absolute(), monkeypatch)
+    evidence_root = (
+        tmp_path
+        / "sead"
+        / "normalized"
+        / "acquisitions"
+        / SEAD_GOVERNED_EVIDENCE_RUN_ID
+    )
+    manifest = json.loads(
+        (evidence_root / "evidence_materialization_manifest.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    ledger = json.loads(
+        (evidence_root / "source_key_ledger.json").read_text(encoding="utf-8")
+    )
+
+    validated = validate_sead_source_key_ledger(ledger)
+    assert "source_key_ledger.json" not in manifest["multipart_documents"]
+    assert "source_key_ledger.json" in {
+        record["path"] for record in manifest["files"]
+    }
+    assert validated["source_run_id"] == manifest["source_run_id"]
+    assert validated["build_id"] == manifest["build_id"]
+    assert (
+        validated["acquisition_manifest_sha256"]
+        == manifest["acquisition_manifest_sha256"]
+    )
 
 
 def test_projection_preserves_canonical_serialized_bytes(
@@ -139,7 +176,7 @@ def test_projection_rejects_parent_admission_lineage_drift(
         / "sead"
         / "normalized"
         / "acquisitions"
-        / sead_projection.SEAD_GOVERNED_EVIDENCE_RUN_ID
+        / SEAD_GOVERNED_EVIDENCE_RUN_ID
         / "evidence_materialization_manifest.json"
     )
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
