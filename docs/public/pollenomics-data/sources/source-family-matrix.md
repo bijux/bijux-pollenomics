@@ -65,8 +65,8 @@ The current stage matrix reports this materialized state:
 | animal aDNA | present | present | present | present | 10 species and 1,450 final sample-foundation rows from 21 contributing projects are materialized within a 40-project registry |
 
 The animal lifecycle count is the population of final species-owned foundation
-rows, not the 1,455 recovered raw project sample-master rows or the 151
-published locality features representing 288 samples. Each quantity is valid
+rows, not the 1,455 recovered raw project sample-master rows or the 170
+published locality features representing 331 samples. Each quantity is valid
 only with its governing unit. The corrected metric no longer reports zero
 merely because it was reading a field name that the foundation summary does
 not own.

@@ -68,9 +68,9 @@ result. It records what is known about the source and what remains unavailable.
 ## Current Evidence Depth
 
 The governed foundation currently contains **1,450 final sample rows** across
-**10 species and 21 contributing projects**. Of those rows, 531 are fully
-grounded, 333 are partly grounded, 11 are blocked by missing metadata, 79 by
-missing location detail, and 496 by weak chronology. This is the final sample
+**10 species and 21 contributing projects**. Of those rows, 557 are fully
+grounded, 335 are partly grounded, 11 are blocked by missing metadata, 391 by
+missing location detail, and 156 by weak chronology. This is the final sample
 evidence-preparation population, not a publication-feature count.
 
 The generated project intake review separately covers **40 tracked projects**
@@ -79,13 +79,13 @@ the final sample population**. Only four projects have an exact expected-sample
 denominator. The repository therefore does not present either total as a
 complete census of every deposited sample.
 
-The point-evidence review contains **151 published locality features**
-representing **288 distinct admitted samples**. The features comprise 116
-`domesticated_core` localities and 35 `wild_or_progenitor_context` localities.
+The point-evidence review contains **170 published locality features**
+representing **331 distinct admitted samples**. The features comprise 117
+`domesticated_core` localities and 53 `wild_or_progenitor_context` localities.
 These are admitted evidence features, not proof that every project, species,
 locality, or chronology has reached the same maturity.
 
-All 151 published features are backed by at least one admitted sample. Wadi
+All 170 published features are backed by at least one admitted sample. Wadi
 Halfa dromedary context for project `SRP073444` remains useful source context,
 but it is not published. Map-readiness accounting retains it among the 134
 not-materialized rows with reason
@@ -93,9 +93,9 @@ not-materialized rows with reason
 
 | Point population | Rows | Identity and coordinate posture |
 | --- | ---: | --- |
-| domesticated-core localities | 116 | admitted sample backing and product scope retained |
-| wild or progenitor context localities | 35 | admitted sample backing with context role retained |
-| total published locality features | 151 | represents 288 distinct admitted samples |
+| domesticated-core localities | 117 | admitted sample backing and product scope retained |
+| wild or progenitor context localities | 53 | admitted sample backing with context role retained |
+| total published locality features | 170 | represents 331 distinct admitted samples |
 
 ### Three Ledgers Answer Three Questions
 
@@ -132,8 +132,8 @@ flowchart LR
     Inventory["40 tracked projects"] --> Recovery["1,455 recovered raw rows"]
     Recovery --> Foundation["1,450 final sample rows"]
     Foundation --> Review["identity, locality, chronology, coordinate review"]
-    Review --> Samples["288 distinct admitted samples"]
-    Samples --> Points["151 published locality features"]
+    Review --> Samples["331 distinct admitted samples"]
+    Samples --> Points["170 published locality features"]
     Review --> Excluded["134 coordinate-ready rows not materialized"]
     Inventory --> Gaps["blocked, under-recovered, and unresolved projects"]
     Gaps --> Accountability["recovery review and refusal surfaces"]

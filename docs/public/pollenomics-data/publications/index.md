@@ -279,7 +279,7 @@ contract for the current counts and filter eligibility.
 flowchart LR
     Bundle["world_bundle.json / v66"] --> Contract["world map contract"]
     Contract --> AADR["1,231 human sample features"]
-    Contract --> Animal["151 animal locality features<br/>288 admitted samples"]
+    Contract --> Animal["170 animal locality features<br/>331 admitted samples"]
     Contract --> Boundaries["4 framing features"]
     AADR --> Trace["point traceability"]
     Animal --> Trace
@@ -341,7 +341,7 @@ narrowest evidence member that supports the statement. If that member cannot
 be named, the statement is not yet traceable enough for scientific reuse.
 
 For a count, also retain the observation unit, numerator, eligible population,
-exclusions, and scope. “151 locality features representing 288 samples” is a
+exclusions, and scope. “170 locality features representing 331 samples” is a
 product-membership statement; it is not a recovery rate until a defensible
 denominator and recovery rule are named.
 

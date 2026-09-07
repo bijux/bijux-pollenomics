@@ -155,8 +155,8 @@ flowchart LR
 ```
 
 The checked-in animal-atlas accountability export makes this distinction
-visible. It contains 151 locality candidates, and all 151 pass the complete
-sample-accountability predicate; together they represent 288 distinct admitted
+visible. It contains 170 locality candidates, and all 170 pass the complete
+sample-accountability predicate; together they represent 331 distinct admitted
 samples. Wadi Halfa is not a publication candidate. Its surrounding evidence
 remains useful in readiness accounting, where it is not materialized because
 no admitted sample-backed locality candidate is available

@@ -110,6 +110,34 @@ class PublicAnimalClaimParityTests(unittest.TestCase):
             with self.subTest(claim=claim):
                 self.assertIn(claim, overview)
 
+        intake = _normalized_markdown(
+            "docs/public/pollenomics-data/sources/animal-source-intake.md"
+        )
+        for label, field in (
+            ("fully grounded", "fully_grounded_count"),
+            ("partially grounded", "partially_grounded_count"),
+            ("blocked: missing metadata", "blocked_missing_metadata_count"),
+            (
+                "blocked: missing location detail",
+                "blocked_missing_location_detail_count",
+            ),
+            ("blocked: weak chronology", "blocked_weak_chronology_count"),
+        ):
+            with self.subTest(foundation=field):
+                self.assertIn(f"| {label} | {foundation_summary[field]:,} |", intake)
+
+        point_rules = _normalized_markdown(
+            "docs/public/pollenomics-data/publications/point-rules.md"
+        )
+        confidence_counts = Counter(
+            row["coordinate_confidence"] for row in candidate_rows
+        )
+        self.assertIn(
+            f"{confidence_counts['exact']:,} `exact`, "
+            f"{confidence_counts['approximate']:,} `approximate`",
+            point_rules,
+        )
+
         coordinates = _normalized_markdown(
             "docs/public/pollenomics-data/evidence/coordinates.md"
         )

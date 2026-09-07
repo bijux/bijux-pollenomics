@@ -124,7 +124,7 @@ flowchart LR
 ```
 
 Visible counts are selection counts, not source-family denominators. Report
-both when coverage matters—for example, “8 of 151 published animal locality
+both when coverage matters—for example, “8 of 170 published animal locality
 features are visible under this Nordic filter”—and keep the member IDs so equal
 counts with different membership remain distinguishable.
 

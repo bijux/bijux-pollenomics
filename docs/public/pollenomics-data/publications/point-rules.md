@@ -16,11 +16,11 @@ curated collection, but it cannot borrow visual certainty from a map marker.
 
 ## Current Published Point Posture
 
-The animal point-evidence review contains 151 accepted locality rows
-representing 288 distinct admitted samples. Their coordinate confidence classes
-are 143 `exact`, six `approximate`, and two
-`source_reported_two_decimal_degrees`. Their coordinate bases are 143
-supplementary-table rows, four supplementary proximal-site rows, two archive
+The animal point-evidence review contains 170 accepted locality rows
+representing 331 distinct admitted samples. Their coordinate confidence classes
+are 144 `exact`, 24 `approximate`, and two
+`source_reported_two_decimal_degrees`. Their coordinate bases are 144
+supplementary-table rows, 22 supplementary proximal-site rows, two archive
 sample records, and two named-site geocodes. The public surface therefore must
 not be described as uniformly precise or as one feature per sample.
 
@@ -88,13 +88,13 @@ unrecovered project-context token to stand in for a sample identifier.
 
 | Product class | Features | Minimum identity | Coordinate posture | Claim ceiling |
 | --- | ---: | --- | --- | --- |
-| domesticated-core locality | 116 | one or more final admitted sample identities | governed exact or qualified coordinate | qualified domesticated-animal presence at the reported locality |
-| wild or progenitor context locality | 35 | one or more final admitted sample identities | governed exact or qualified coordinate | context-role presence without promotion to domesticated evidence |
+| domesticated-core locality | 117 | one or more final admitted sample identities | governed exact or qualified coordinate | qualified domesticated-animal presence at the reported locality |
+| wild or progenitor context locality | 53 | one or more final admitted sample identities | governed exact or qualified coordinate | context-role presence without promotion to domesticated evidence |
 
 The two classes share a point layer because both satisfy the current spatial
 and sample-accountability contract. They do not share biological role.
-Sample-level counts must use the 288 distinct sample identities rather than the
-151 aggregated localities, and domestication analyses must preserve the scope
+Sample-level counts must use the 331 distinct sample identities rather than the
+170 aggregated localities, and domestication analyses must preserve the scope
 class.
 
 ### Compare Two Admission Packets

@@ -20,8 +20,8 @@ resolution being published.
 
 ## Current Evidence Posture
 
-Of 1,455 recovered raw sample-site review rows, 1,021 carry a direct
-sample-site assignment and 434 remain unresolved. No current row is promoted
+Of 1,455 recovered raw sample-site review rows, 1,368 carry a direct
+sample-site assignment and 87 remain unresolved. No current row is promoted
 through a sample-group, project-only, region-only, or inferred named-place
 assignment. These counts describe locality linkage, not coordinate quality;
 even a direct site still needs independent coordinate provenance before it can

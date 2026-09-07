@@ -184,9 +184,9 @@ count without the reviewed and excluded populations cannot establish
 completeness.
 
 Population accounting also requires stable identities on the non-member side.
-The current publication denominator reconciles 285 mappable coordinate-
-provenance rows into 151 published locality features and 134 not-materialized
-rows. The published features represent 288 distinct admitted samples; the two
+The current publication denominator reconciles 304 mappable coordinate-
+provenance rows into 170 published locality features and 134 not-materialized
+rows. The published features represent 331 distinct admitted samples; the two
 units must remain separately addressable.
 
 ### Admission Reconciliation

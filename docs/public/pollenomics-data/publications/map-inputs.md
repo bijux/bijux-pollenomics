@@ -169,7 +169,7 @@ surface and then regenerates the scoped export and bundle.
 
 The current input scale is intentionally heterogeneous: 490 LandClim site
 sequences, 200 Neotoma sites, 2,069 assigned four-country SEAD sites, four Nordic boundary
-polygons, and 151 reviewed animal publication localities representing 288
+polygons, and 170 reviewed animal publication localities representing 331
 distinct admitted samples. RAÄ is withheld because its source authority is
 refused; retained density files are audit material, not governed map input.
 Available counts describe different units and roles and must never be summed

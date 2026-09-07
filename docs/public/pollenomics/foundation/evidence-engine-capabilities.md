@@ -98,8 +98,8 @@ Some real capabilities carry narrower claims because the evidence is uneven:
 
 - animal source recovery tracks 40 projects, 1,455 recovered raw sample rows,
   and 1,450 final rows, while expected-sample denominators remain incomplete;
-- animal point publication admits 151 sample-backed locality features
-  representing 288 distinct samples without presenting locality and sample
+- animal point publication admits 170 sample-backed locality features
+  representing 331 distinct samples without presenting locality and sample
   counts as one homogeneous population;
 - Neotoma provides 170 numerically comparable site spans alongside five
   contextual-only and 25 unresolved sites;
@@ -112,9 +112,9 @@ Some real capabilities carry narrower claims because the evidence is uneven:
 
 The animal database also contains different governed populations: 1,455
 recovered raw project sample-master rows, 1,450 final sample-foundation rows,
-288 distinct admitted samples, and 151 point-publication locality features.
+331 distinct admitted samples, and 170 point-publication locality features.
 These are distinct contracts rather than a single attrition funnel. The public
-layer contains 116 domesticated-core and 35 wild/progenitor-context features,
+layer contains 117 domesticated-core and 53 wild/progenitor-context features,
 all with admitted sample backing.
 
 ```mermaid
@@ -138,7 +138,7 @@ one output, qualified for another, and outside scope for a stronger analysis.
 | Domain question | State | Governed result | Claim ceiling |
 | --- | --- | --- | --- |
 | Which AADR v66 rows belong to a country bundle? | operational | release-resolved members, manifest, table, and GeoJSON | geographic publication of metadata, not genotype analysis |
-| Which recovered animal samples meet the point contract? | operational for 288 samples represented by 151 locality features | final sample identity, locality, coordinate, chronology posture, and traceability | admitted subset, not complete project recovery |
+| Which recovered animal samples meet the point contract? | operational for 331 samples represented by 170 locality features | final sample identity, locality, coordinate, chronology posture, and traceability | admitted subset, not complete project recovery |
 | May the Wadi Halfa dromedary context appear spatially? | not published | readiness evidence retained with `no_admitted_sample_backed_locality_candidate` | context remains outside the point product |
 | Are current SEAD sites contemporaneous with nearby aDNA? | qualified per record | 25,109 chronology claims include 14,264 comparable claims, while context-only, refused, and unresolved claims remain ineligible | interval overlap is contextual evidence, not proof of association |
 | Which Swedish lakes rank under declared scenarios? | qualified decision support | ranking, sensitivity, and fieldwork-preparation packets | prioritization, not sampling readiness |

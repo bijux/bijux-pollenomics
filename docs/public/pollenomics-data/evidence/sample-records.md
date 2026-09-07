@@ -22,9 +22,9 @@ the stable sample identifier.
 ## Current Evidence Posture
 
 The governed snapshot contains a 1,450-row final sample-foundation truth
-surface across 10 species and 21 contributing projects. It classifies 531 rows
-as fully grounded, 333 as partially grounded, 11 as blocked by missing
-metadata, 79 as blocked by missing location detail, and 496 as blocked by weak
+surface across 10 species and 21 contributing projects. It classifies 557 rows
+as fully grounded, 335 as partially grounded, 11 as blocked by missing
+metadata, 391 as blocked by missing location detail, and 156 as blocked by weak
 chronology.
 
 The project sample-master registry covers 40 tracked projects and contains

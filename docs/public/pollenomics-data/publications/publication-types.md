@@ -201,9 +201,9 @@ publication claim = product + version + scope + member + role + evidence posture
 | governing evidence identity | allowing the projection to become authority for source facts |
 | qualification and admission posture | reusing a visible member at stronger precision or certainty |
 
-This receipt is especially important for the 151-member animal locality
-surface, which represents 288 distinct admitted samples: 116 features are
-`domesticated_core` and 35 are `wild_or_progenitor_context`. Dropping scope or
+This receipt is especially important for the 170-member animal locality
+surface, which represents 331 distinct admitted samples: 117 features are
+`domesticated_core` and 53 are `wild_or_progenitor_context`. Dropping scope or
 observation unit preserves a count while destroying the scientific
 distinction.
 

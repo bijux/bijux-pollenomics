@@ -20,14 +20,19 @@ equally precise on a map.
 
 ## Current Evidence Posture
 
-The cross-species map-readiness review currently reports 281 direct
-coordinate-backed entries, four indirectly geocoded entries, 90 unresolved
-sample rows, and four coordinate-provenance entries refused from mapping. The
-289 coordinate-provenance rows therefore reconcile to 285 mappable and 4
+The cross-species map-readiness review currently reports 300 direct
+coordinate-backed entries, four indirectly geocoded entries, 402 blocked
+publication-context sample rows, and four coordinate-provenance entries refused
+from mapping. The
+308 coordinate-provenance rows therefore reconcile to 304 mappable and 4
 refused entries. These are readiness units in
 the governed species/site review, not a count of all recovered samples: many
 samples can share a reviewed locality, and samples without defensible linkage
 must not inherit it.
+
+Blocked publication context does not mean the source lacks a place name. Of
+the 341 blocked pig samples, 318 retain exact supplement-owned locality text;
+that text alone does not admit coordinates, chronology, or domesticated scope.
 
 The asymmetry across species is material. Horse accounts for 207 of the direct
 entries, goat for 27, while several other species currently have no direct
