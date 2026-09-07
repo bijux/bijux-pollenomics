@@ -49,7 +49,7 @@ def test_artifact_builder_guards_revision_and_versions_before_upload() -> None:
     guard = steps[guard_index]
     assert guard["env"]["RELEASE_TAG"] == "${{ inputs.release_tag }}"
     script = guard["run"]
-    assert 'refs/tags/${RELEASE_TAG}^{commit}' in script
+    assert "refs/tags/${RELEASE_TAG}^{commit}" in script
     assert '"${head_commit}" != "${GITHUB_SHA}"' in script
     assert "bijux_pollenomics_dev.release.publication_guard" in script
     assert '--dist-dir "${DIST_DIR}"' in script

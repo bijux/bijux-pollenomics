@@ -130,7 +130,9 @@ def test_sample_master_enriches_only_explicit_progenitor_joins() -> None:
     blocked = {row.archive_native_sample_id for row in rows} & blocked_accessions
     assert blocked == blocked_accessions
     assert all(
-        next(row for row in rows if row.archive_native_sample_id == accession).sample_evidence_status
+        next(
+            row for row in rows if row.archive_native_sample_id == accession
+        ).sample_evidence_status
         == "archive_native"
         for accession in blocked_accessions
     )

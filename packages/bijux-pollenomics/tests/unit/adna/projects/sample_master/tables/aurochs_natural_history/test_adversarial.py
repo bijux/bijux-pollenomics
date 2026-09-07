@@ -104,7 +104,11 @@ def test_domestic_population_drift_is_refused() -> None:
     )
     bed4 = list(workbook_rows[bed4_index])
     bed4[24] = "Holocene Domestic Germany"
-    altered = (*workbook_rows[:bed4_index], tuple(bed4), *workbook_rows[bed4_index + 1 :])
+    altered = (
+        *workbook_rows[:bed4_index],
+        tuple(bed4),
+        *workbook_rows[bed4_index + 1 :],
+    )
 
     with pytest.raises(ValueError, match="progenitor-population evidence drift"):
         _parse_workbook_evidence(altered)

@@ -44,8 +44,7 @@ def test_reconciliation_preserves_exact_joined_aurochs_claims() -> None:
         "Fre1": None,
     }
     assert all(
-        row.workbook.source_native_scientific_name == "Bos primigenius"
-        for row in rows
+        row.workbook.source_native_scientific_name == "Bos primigenius" for row in rows
     )
     assert all(
         by_label[label].workbook.population_label == "Holocene Wild Scandinavia"
@@ -69,8 +68,7 @@ def test_reconciliation_preserves_exact_joined_aurochs_claims() -> None:
             for identity in RECOVERABLE_PROGENITOR_ARCHIVE_IDENTITIES
         }
     } == {
-        identity.sample_label
-        for identity in RECOVERABLE_PROGENITOR_ARCHIVE_IDENTITIES
+        identity.sample_label for identity in RECOVERABLE_PROGENITOR_ARCHIVE_IDENTITIES
     }
 
 
@@ -191,13 +189,16 @@ def test_archive_join_has_complete_run_and_experiment_denominators() -> None:
     )
     joined = {row.workbook.sample_label: row.archive for row in rows if row.archive}
 
-    assert {label: len(joined[label].run_accessions) for label in (
-        "Hjo1",
-        "Ska1",
-        "Ska3",
-        "Zea1",
-        "Zea2",
-    )} == {
+    assert {
+        label: len(joined[label].run_accessions)
+        for label in (
+            "Hjo1",
+            "Ska1",
+            "Ska3",
+            "Zea1",
+            "Zea2",
+        )
+    } == {
         "Hjo1": 9,
         "Ska1": 5,
         "Ska3": 3,

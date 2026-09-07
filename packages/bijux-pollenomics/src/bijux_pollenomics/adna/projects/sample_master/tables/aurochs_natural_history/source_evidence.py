@@ -139,7 +139,9 @@ def _chronology_fields(
     chronology_cells = tuple(_cell(row, index) for index in (8, 9, 10, 11, 22, 23))
     if label in CHRONOLOGY_UNAVAILABLE_SAMPLE_LABELS:
         if any(chronology_cells):
-            raise ValueError(f"PRJEB75467 {label} chronology-unavailable contract drift")
+            raise ValueError(
+                f"PRJEB75467 {label} chronology-unavailable contract drift"
+            )
         return None, None, None, "source_chronology_unavailable"
     if _cell(row, 11):
         younger, older = _parse_calibrated_bp_interval(_cell(row, 11), label)
@@ -209,9 +211,7 @@ def _parse_workbook_evidence(
                     f"PRJEB75467 {label} specimen-ID-unavailable contract drift"
                 )
         else:
-            original_specimen_id = _required(
-                original_specimen_id, label, "specimen ID"
-            )
+            original_specimen_id = _required(original_specimen_id, label, "specimen ID")
         evidence[label] = AurochsWorkbookEvidence(
             sample_label=label,
             row_number=row_number,
@@ -251,7 +251,8 @@ def _parse_archive_evidence(archive_text: str) -> dict[str, AurochsArchiveEviden
     if tuple(reader.fieldnames or ()) != _EXPECTED_ARCHIVE_HEADER:
         raise ValueError("PRJEB75467 archive header drift")
     expected = {
-        identity.sample_label: identity.sample_accession for identity in ARCHIVE_IDENTITIES
+        identity.sample_label: identity.sample_accession
+        for identity in ARCHIVE_IDENTITIES
     }
     archive_rows = tuple(
         (line_number, row, _submitted_basenames(row["submitted_ftp"]))
@@ -272,7 +273,9 @@ def _parse_archive_evidence(archive_text: str) -> dict[str, AurochsArchiveEviden
         if matched == [PAPER_ONLY_SAMPLE_LABEL]:
             fre1_matches.append(line_number)
     if fre1_matches:
-        raise ValueError("PRJEB75467 archive unexpectedly assigns Fre1 sequencing identity")
+        raise ValueError(
+            "PRJEB75467 archive unexpectedly assigns Fre1 sequencing identity"
+        )
 
     evidence: dict[str, AurochsArchiveEvidence] = {}
     for label, expected_accession in expected.items():

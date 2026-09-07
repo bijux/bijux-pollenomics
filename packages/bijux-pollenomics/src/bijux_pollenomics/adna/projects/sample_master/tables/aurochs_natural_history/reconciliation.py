@@ -145,7 +145,9 @@ class AurochsNaturalHistoryReconciliationRow:
             sample_ambiguity_note=self.refusal_reason,
             locality_text=source.locality_text,
             political_entity=source.political_entity,
-            latitude_text=("" if source.latitude_text == "Unknown" else source.latitude_text),
+            latitude_text=(
+                "" if source.latitude_text == "Unknown" else source.latitude_text
+            ),
             longitude_text=(
                 "" if source.longitude_text == "Unknown" else source.longitude_text
             ),

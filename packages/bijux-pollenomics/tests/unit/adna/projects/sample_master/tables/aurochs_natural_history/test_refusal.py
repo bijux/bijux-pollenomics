@@ -58,9 +58,7 @@ def test_non_progenitor_and_ambiguous_archive_rows_remain_blocked() -> None:
         by_accession.setdefault(archive_row["sample_accession"], []).append(
             archive_row["submitted_ftp"]
         )
-    assert any(
-        "Borly4a" in value for value in by_accession["SAMEA115574406"]
-    )
+    assert any("Borly4a" in value for value in by_accession["SAMEA115574406"])
     assert any("Borlya" in value for value in by_accession["SAMEA115574406"])
     assert any("Borlya" in value for value in by_accession["SAMEA115574408"])
 
