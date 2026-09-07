@@ -130,4 +130,12 @@ def test_real_animal_layers_publish_admitted_caveated_numeric_chronology(
         }
         assert popup["Chronology evidence class"] == "archaeological context date"
         assert popup["Chronology precision posture"] == "sample approximate or modeled"
-        assert "radiocarbon" not in " ".join(popup.values()).casefold()
+        source_evidence = popup["Source evidence text"]
+        assert "radiocarbon_lab=-" in source_evidence
+        assert "uncalibrated_date=-" in source_evidence
+        assert "uncalibrated_error=-" in source_evidence
+        assert "calibrated_from_bp=-" in source_evidence
+        assert "calibrated_to_bp=-" in source_evidence
+        assert (
+            "chronology_disposition=admitted_existing_context_point" in source_evidence
+        )

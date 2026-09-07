@@ -7,6 +7,7 @@ from bijux_pollenomics.adna import (
     ADNA_MAPPING_POSTURES,
     build_species_coordinate_provenance_rows,
     resolve_project_coordinate_provenance,
+    resolve_project_site_evidence,
 )
 
 
@@ -143,7 +144,7 @@ class AdnaCoordinateProvenanceUnitTests(unittest.TestCase):
     def test_aurochs_coordinates_remain_wild_or_progenitor_context(self) -> None:
         rows = resolve_project_coordinate_provenance("PRJEB75467")
 
-        self.assertEqual(len(rows), 5)
+        self.assertEqual(len(rows), 24)
         self.assertTrue(all(row.mapping_posture == "mappable_point" for row in rows))
         self.assertTrue(
             all(
@@ -167,6 +168,12 @@ class AdnaCoordinateProvenanceUnitTests(unittest.TestCase):
         self.assertIn("A36:Y36", lundby.source_locator)
         self.assertIn("A41:Y41", lundby.source_locator)
         self.assertNotIn("sample_accession", lundby.source_locator)
+        site_labels = {
+            row.site_label for row in resolve_project_site_evidence("PRJEB75467")
+        }
+        self.assertEqual(
+            site_labels - {row.site_label for row in rows}, {"Former Soviet Union"}
+        )
 
 
 if __name__ == "__main__":

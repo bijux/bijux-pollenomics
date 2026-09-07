@@ -30,20 +30,20 @@ def test_atlas_readiness_never_combines_sample_and_site_denominators() -> None:
     assert rows
     assert payload["reconciled_denominators"] == {
         "coordinate_provenance": {
-            "denominator": 289,
-            "mappable": 285,
+            "denominator": 308,
+            "mappable": 304,
             "refused": 4,
         },
         "publication": {
-            "denominator": 285,
-            "published": 151,
+            "denominator": 304,
+            "published": 170,
             "not_materialized": 134,
         },
         "samples": {
             "denominator": 1450,
-            "mapped": 288,
-            "blocked": 1162,
-            "unresolved_subset_of_blocked": 90,
+            "mapped": 331,
+            "blocked": 1119,
+            "unresolved_subset_of_blocked": 402,
         },
     }
     for row in rows:

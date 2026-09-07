@@ -136,7 +136,7 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
     def test_aurochs_sites_remain_wild_or_progenitor_context(self) -> None:
         rows = resolve_project_site_evidence("PRJEB75467")
 
-        self.assertEqual(len(rows), 5)
+        self.assertEqual(len(rows), 25)
         self.assertTrue(
             all(
                 row.domestication_context == "wild_or_progenitor_context"
@@ -154,6 +154,17 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
         self.assertNotIn("sample_accession", lundby.source_locator)
         self.assertIn("workbook sample Zea1", lundby.exact_source_text)
         self.assertIn("workbook sample Zea2", lundby.exact_source_text)
+        unresolved_coordinates = [
+            row for row in rows if not row.latitude_text or not row.longitude_text
+        ]
+        self.assertEqual(
+            [row.site_label for row in unresolved_coordinates],
+            ["Former Soviet Union"],
+        )
+        self.assertIn(
+            "source proximal coordinates Unknown, Unknown",
+            unresolved_coordinates[0].exact_source_text,
+        )
 
 
 if __name__ == "__main__":
