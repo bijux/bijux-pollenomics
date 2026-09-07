@@ -1,0 +1,272 @@
+name: atlas release verification
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  merge_group:
+    branches:
+      - main
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - deploy-docs
+    types:
+      - completed
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: atlas-release-verification-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser:
+    name: atlas / browser
+    if: "${{ github.event_name != 'workflow_run' && (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+
+      - name: Resolve hosted Chromium browser
+        id: browser
+        shell: bash
+        run: |
+          set -euo pipefail
+          for command_name in google-chrome-stable google-chrome chromium chromium-browser; do
+            if browser_binary="$(command -v "${command_name}" 2>/dev/null)"; then
+              echo "binary=${browser_binary}" >> "${GITHUB_OUTPUT}"
+              "${browser_binary}" --version
+              exit 0
+            fi
+          done
+          echo "The hosted runner exposes no supported Chromium browser." >&2
+          exit 1
+
+      - name: Bind browser plan to candidate
+        shell: bash
+        env:
+          BROWSER_BINARY: ${{ steps.browser.outputs.binary }}
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/execution-control/browser
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+
+          root = Path(os.environ["GITHUB_WORKSPACE"]).resolve()
+
+          def git(*arguments: str) -> str:
+              return subprocess.run(
+                  ("git", *arguments),
+                  cwd=root,
+                  check=True,
+                  capture_output=True,
+                  text=True,
+              ).stdout.strip()
+
+          document = "docs/report/regions/nordic/nordic_map.html"
+          manifest = "docs/report/regions/nordic/nordic_map_assets.json"
+          build_id = json.loads((root / manifest).read_text(encoding="utf-8"))["build_id"]
+          plan = {
+              "schema_version": "atlas-browser-verification-plan.v2",
+              "repository_root": str(root),
+              "artifact_root": str(root / "artifacts/execution-control/browser/evidence"),
+              "browser_binary": str(Path(os.environ["BROWSER_BINARY"]).resolve()),
+              "timeout_seconds": 45,
+              "verification_profile": "nordic-source-chronology-v1",
+              "candidate": {
+                  "repository_head": git("rev-parse", "HEAD"),
+                  "repository_tree": git("rev-parse", "HEAD^{tree}"),
+                  "atlas_output_commit": git("log", "-1", "--format=%H", "--", document),
+                  "build_id": build_id,
+              },
+              "scopes": [
+                  {
+                      "name": "nordic",
+                      "document": document,
+                      "manifest": manifest,
+                  }
+              ],
+          }
+          path = root / "artifacts/execution-control/browser/plan.json"
+          path.write_text(json.dumps(plan, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+          PY
+
+      - name: Verify interactive chronology and provider failure
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH="packages/bijux-pollenomics-dev/src" \
+            python3 -m bijux_pollenomics_dev.ci.atlas_browser.runner \
+            --plan artifacts/execution-control/browser/plan.json
+
+      - name: Upload browser evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: atlas-browser-evidence
+          path: artifacts/execution-control/browser
+          if-no-files-found: error
+
+  deployed-smoke:
+    name: atlas / deployed smoke
+    if: "${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout deployed candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Prove exact candidate is publicly served
+        shell: bash
+        env:
+          DEPLOYED_CANDIDATE_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/execution-control/deployed-smoke
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import time
+          from urllib.parse import urlencode
+          from urllib.request import Request, urlopen
+
+          root = Path(os.environ["GITHUB_WORKSPACE"]).resolve()
+          candidate = os.environ["DEPLOYED_CANDIDATE_SHA"]
+          base_url = "https://bijux.io/bijux-pollenomics"
+          evidence_path = root / "artifacts/execution-control/deployed-smoke/result.json"
+          exact_paths = [
+              Path("docs/report/regions/nordic/nordic_map.html"),
+              Path("docs/report/regions/nordic/nordic_map_assets.json"),
+              Path("docs/gallery/nordic-atlas/chronology/publication-manifest.json"),
+          ]
+          manifest_path = exact_paths[1]
+          manifest = json.loads((root / manifest_path).read_text(encoding="utf-8"))
+          fields = manifest["assets"]["fields"]
+          indexes = {name: position for position, name in enumerate(fields)}
+          observed_domains = set()
+          manifest_directory = manifest_path.parent
+          for sequence, row in enumerate(manifest["assets"]["records"]):
+              domain = row[indexes["domain"]]
+              if domain in observed_domains:
+                  continue
+              observed_domains.add(domain)
+              digest = row[indexes["sha256"]]
+              exact_paths.append(
+                  manifest_directory
+                  / f"nordic.atlas-{domain}.{sequence:04d}.{digest[:16]}.js"
+              )
+
+          status_paths = [
+              "public/nordic-atlas/",
+              "public/nordic-atlas/chronology-playback/",
+          ]
+
+          def public_url(path: str, attempt: int) -> str:
+              query = urlencode({"candidate": candidate, "attempt": attempt})
+              return f"{base_url}/{path}?{query}"
+
+          def fetch(path: str, attempt: int) -> bytes:
+              request = Request(
+                  public_url(path, attempt),
+                  headers={
+                      "Cache-Control": "no-cache",
+                      "User-Agent": "bijux-pollenomics-deployed-smoke/1",
+                  },
+              )
+              with urlopen(request, timeout=20) as response:
+                  if response.status != 200:
+                      raise RuntimeError(f"HTTP {response.status}")
+                  return response.read()
+
+          def verify(attempt: int) -> tuple[list[dict[str, object]], list[str]]:
+              rows = []
+              failures = []
+              for local_path in exact_paths:
+                  relative = local_path.relative_to("docs").as_posix()
+                  expected = (root / local_path).read_bytes()
+                  try:
+                      observed = fetch(relative, attempt)
+                  except Exception as error:
+                      failures.append(f"{relative}: {error}")
+                      continue
+                  expected_digest = hashlib.sha256(expected).hexdigest()
+                  observed_digest = hashlib.sha256(observed).hexdigest()
+                  rows.append(
+                      {
+                          "path": relative,
+                          "expected_sha256": expected_digest,
+                          "observed_sha256": observed_digest,
+                          "byte_count": len(observed),
+                      }
+                  )
+                  if observed != expected:
+                      failures.append(f"{relative}: deployed bytes differ from candidate")
+              for relative in status_paths:
+                  try:
+                      observed = fetch(relative, attempt)
+                      rows.append({"path": relative, "byte_count": len(observed)})
+                      if not observed:
+                          failures.append(f"{relative}: response is empty")
+                  except Exception as error:
+                      failures.append(f"{relative}: {error}")
+              return rows, failures
+
+          attempts = []
+          rows = []
+          failures = []
+          for attempt, delay in enumerate((0, 5, 15, 30), start=1):
+              if delay:
+                  time.sleep(delay)
+              rows, failures = verify(attempt)
+              attempts.append({"attempt": attempt, "failures": failures})
+              if not failures:
+                  break
+
+          evidence = {
+              "schema_version": "atlas-deployed-smoke.v1",
+              "status": "PASS" if not failures else "FAIL",
+              "candidate_sha": candidate,
+              "base_url": base_url,
+              "build_id": manifest["build_id"],
+              "checks": rows,
+              "attempts": attempts,
+          }
+          evidence_path.write_text(
+              json.dumps(evidence, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          print(json.dumps(evidence, sort_keys=True))
+          if failures:
+              raise SystemExit(1)
+          PY
+
+      - name: Upload deployed-smoke evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: atlas-deployed-smoke-${{ github.event.workflow_run.head_sha }}
+          path: artifacts/execution-control/deployed-smoke
+          if-no-files-found: error

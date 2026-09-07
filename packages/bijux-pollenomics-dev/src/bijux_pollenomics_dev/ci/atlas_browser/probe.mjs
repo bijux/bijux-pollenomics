@@ -89,8 +89,8 @@ await new Promise((accept, reject) => {
 });
 const serverPort = server.address().port;
 
-const profileRoot = await mkdtemp(join(artifactRoot, 'brave-profile-'));
-const browserLogPath = join(artifactRoot, 'brave-browser.log');
+const profileRoot = await mkdtemp(join(artifactRoot, 'browser-profile-'));
+const browserLogPath = join(artifactRoot, 'browser.log');
 const browserLog = createWriteStream(browserLogPath, { flags: 'wx' });
 const browser = spawn(plan.browser_binary, [
   '--headless=new',
@@ -109,9 +109,15 @@ browser.stdout.pipe(browserLog, { end: false });
 browser.stderr.pipe(browserLog, { end: false });
 
 const scenarios = [];
-const receipts = ['brave-browser.log'];
+const receipts = ['browser.log'];
 try {
   const browserWebSocket = await debuggerEndpoint(browser, timeoutMs);
+  const browserCdp = await connectCdp(browserWebSocket);
+  const browserVersion = browserIdentity(
+    await browserCdp.send('Browser.getVersion'),
+    plan.browser_binary,
+  );
+  browserCdp.close();
   const debuggerOrigin = new URL(browserWebSocket);
   debuggerOrigin.protocol = 'http:';
   debuggerOrigin.pathname = '';
@@ -162,7 +168,7 @@ try {
     schema_version: 'atlas-browser-runtime-report.v2',
     verification_profile: verificationProfile,
     candidate,
-    browser: { product: 'Brave Browser', binary: plan.browser_binary },
+    browser: browserVersion,
     assertions: Object.fromEntries(required.map((name) => [name, assertions[name] === true])),
     scenarios,
     receipts: [...new Set(receipts)].sort(),
@@ -2386,6 +2392,23 @@ function assertCandidate() {
 
 function git(...args) {
   return execFileSync('git', args, { cwd: repositoryRoot, encoding: 'utf8' }).trim();
+}
+
+function browserIdentity(version, binary) {
+  const fields = {
+    product: version.product,
+    revision: version.revision,
+    user_agent: version.userAgent,
+    javascript_version: version.jsVersion,
+    protocol_version: version.protocolVersion,
+    binary,
+  };
+  for (const [name, value] of Object.entries(fields)) {
+    if (typeof value !== 'string' || value.length === 0) {
+      throw new Error(`browser identity field is unavailable: ${name}`);
+    }
+  }
+  return fields;
 }
 
 function debuggerEndpoint(process, waitMilliseconds) {

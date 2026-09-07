@@ -3,12 +3,11 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import re
+from pathlib import Path
 
 import pytest
 import yaml
-
 from bijux_pollenomics_dev.ci.path_selection import (
     REQUIRED_SURFACE_IDS,
     ChangeImpactContract,
@@ -19,6 +18,9 @@ from bijux_pollenomics_dev.ci.path_selection import (
 REPO_ROOT = Path(__file__).resolve().parents[3]
 CONTRACT_PATH = REPO_ROOT / "configs" / "ci" / "scientific-change-impact.json"
 WORKFLOW_PATH = REPO_ROOT / ".github" / "workflows" / "scientific-verification.yml"
+ATLAS_WORKFLOW_PATH = (
+    REPO_ROOT / ".github" / "workflows" / "atlas-release-verification.yml"
+)
 DEPENDABOT_SKIP = "github.event.pull_request.user.login != 'dependabot[bot]'"
 PINNED_ACTION = re.compile(r"^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+@[0-9a-f]{40}$")
 DATA_GATES = {
@@ -129,13 +131,14 @@ def test_unknown_or_malformed_paths_fail_closed_to_all_declared_gates(
 
     assert result.fail_closed
     assert result.available_gates == contract.available_gate_ids
-    assert result.unavailable_gates == ("browser", "deployed-smoke")
+    assert result.unavailable_gates == ()
 
 
-def test_manual_full_selection_includes_unavailable_release_requirements() -> None:
+def test_manual_full_selection_contains_only_executable_premerge_gates() -> None:
     result = select_changed_paths(_contract(), [], select_all=True)
 
-    assert set(result.unavailable_gates) == {"browser", "deployed-smoke"}
+    assert result.unavailable_gates == ()
+    assert set(result.available_gates) == set(_contract().gate_order)
     assert not result.fail_closed
 
 
@@ -241,3 +244,52 @@ def test_contract_is_canonical_json() -> None:
 
     assert document["schema_version"] == "scientific-change-impact.v1"
     assert document["unknown_path_policy"] == "all_declared_gates"
+    assert "browser" not in document["gates"]
+    assert "deployed-smoke" not in document["gates"]
+
+
+def test_atlas_workflow_separates_premerge_browser_from_postdeployment_smoke() -> None:
+    workflow = yaml.load(
+        ATLAS_WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
+    )
+    events = workflow["on"]
+    jobs = workflow["jobs"]
+
+    assert {"push", "pull_request", "merge_group", "workflow_dispatch"} <= set(events)
+    assert events["workflow_run"] == {
+        "workflows": ["deploy-docs"],
+        "types": ["completed"],
+        "branches": ["main"],
+    }
+    browser_job = jobs["browser"]
+    smoke_job = jobs["deployed-smoke"]
+    assert "github.event_name != 'workflow_run'" in browser_job["if"]
+    assert DEPENDABOT_SKIP in browser_job["if"]
+    assert "github.event_name == 'workflow_run'" in smoke_job["if"]
+    assert "github.event.workflow_run.conclusion == 'success'" in smoke_job["if"]
+    assert "github.event.workflow_run.head_branch == 'main'" in smoke_job["if"]
+    assert DEPENDABOT_SKIP in smoke_job["if"]
+
+    browser_script = "\n".join(step.get("run", "") for step in browser_job["steps"])
+    assert "repository_head" in browser_script
+    assert "repository_tree" in browser_script
+    assert "atlas_output_commit" in browser_script
+    assert "nordic-source-chronology-v1" in browser_script
+    assert "bijux_pollenomics_dev.ci.atlas_browser.runner" in browser_script
+
+    smoke_script = "\n".join(step.get("run", "") for step in smoke_job["steps"])
+    assert "DEPLOYED_CANDIDATE_SHA" in smoke_script
+    assert "workflow_run.head_sha" in smoke_job["steps"][0]["with"]["ref"]
+    assert "nordic_map.html" in smoke_script
+    assert "nordic_map_assets.json" in smoke_script
+    assert "publication-manifest.json" in smoke_script
+    assert "deployed bytes differ from candidate" in smoke_script
+
+    action_references = [
+        step["uses"]
+        for job in jobs.values()
+        for step in job.get("steps", [])
+        if "uses" in step
+    ]
+    assert action_references
+    assert all(PINNED_ACTION.fullmatch(reference) for reference in action_references)

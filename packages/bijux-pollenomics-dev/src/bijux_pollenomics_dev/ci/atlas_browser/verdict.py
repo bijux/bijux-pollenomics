@@ -76,6 +76,16 @@ PROFILE_REQUIRED_ASSERTIONS = {
     GENERIC_TIME_AWARE_PROFILE: GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS,
 }
 REQUIRED_ASSERTIONS = NORDIC_SOURCE_CHRONOLOGY_REQUIRED_ASSERTIONS
+_BROWSER_IDENTITY_FIELDS = frozenset(
+    {
+        "product",
+        "revision",
+        "user_agent",
+        "javascript_version",
+        "protocol_version",
+        "binary",
+    }
+)
 
 
 def _mapping(value: object, *, label: str) -> JsonObject:
@@ -99,6 +109,11 @@ def evaluate_browser_report(
     report_candidate = _mapping(document.get("candidate"), label="report.candidate")
     if report_candidate != candidate.as_json():
         raise AtlasBrowserContractError("browser report candidate identity differs")
+    browser = _mapping(document.get("browser"), label="report.browser")
+    if set(browser) != _BROWSER_IDENTITY_FIELDS or any(
+        not isinstance(value, str) or not value for value in browser.values()
+    ):
+        raise AtlasBrowserContractError("browser report identity is incomplete")
     assertions = _mapping(document.get("assertions"), label="report.assertions")
     if set(assertions) != required_assertions:
         missing = sorted(required_assertions - set(assertions))
@@ -126,6 +141,7 @@ def evaluate_browser_report(
         "verification_profile": verification_profile,
         "failed_assertions": failed,
         "candidate": candidate.as_json(),
+        "browser": browser,
         "assertions": assertions,
         "scenario_count": len(scenarios),
         "receipt_count": len(receipts),

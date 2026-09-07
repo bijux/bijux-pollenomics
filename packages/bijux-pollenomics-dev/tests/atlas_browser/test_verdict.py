@@ -3,7 +3,6 @@ from __future__ import annotations
 from typing import cast
 
 import pytest
-
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
     GENERIC_TIME_AWARE_PROFILE,
     NORDIC_SOURCE_CHRONOLOGY_PROFILE,
@@ -28,6 +27,14 @@ def _report(
         "schema_version": "atlas-browser-runtime-report.v2",
         "verification_profile": profile,
         "candidate": candidate().as_json(),
+        "browser": {
+            "product": "Chrome/140.0.0.0",
+            "revision": "@0123456789abcdef",
+            "user_agent": "Mozilla/5.0 HeadlessChrome/140.0.0.0",
+            "javascript_version": "14.0.0",
+            "protocol_version": "1.3",
+            "binary": "/usr/bin/google-chrome",
+        },
         "assertions": assertions,
         "scenarios": [{"name": "synthetic"}],
         "receipts": ["synthetic.json"],
@@ -111,6 +118,21 @@ def test_candidate_substitution_is_refused() -> None:
     report_candidate["repository_head"] = "f" * 64
 
     with pytest.raises(AtlasBrowserContractError, match="identity differs"):
+        evaluate_browser_report(
+            report,
+            candidate=candidate(),
+            verification_profile=NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+        )
+
+
+@pytest.mark.parametrize("field", ["product", "revision", "binary"])
+def test_incomplete_browser_identity_is_refused(field: str) -> None:
+    report = _report()
+    browser = report["browser"]
+    assert isinstance(browser, dict)
+    browser[field] = ""
+
+    with pytest.raises(AtlasBrowserContractError, match="identity is incomplete"):
         evaluate_browser_report(
             report,
             candidate=candidate(),

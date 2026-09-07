@@ -8,9 +8,7 @@
     "rebuild",
     "provenance",
     "doc-counts",
-    "map",
-    "browser",
-    "deployed-smoke"
+    "map"
   ],
   "gates": {
     "path-selection": {
@@ -40,14 +38,6 @@
     "map": {
       "availability": "available",
       "target": "verify-map"
-    },
-    "browser": {
-      "availability": "unavailable",
-      "reason": "The tracked cross-browser runtime and provider-failure gate is not implemented."
-    },
-    "deployed-smoke": {
-      "availability": "unavailable",
-      "reason": "No authorized automatic deployment caller and exact-candidate deployed smoke gate exist."
     }
   },
   "surfaces": [
@@ -129,8 +119,7 @@
         "rebuild",
         "provenance",
         "doc-counts",
-        "map",
-        "browser"
+        "map"
       ]
     },
     {
@@ -183,8 +172,7 @@
         "rebuild",
         "provenance",
         "doc-counts",
-        "map",
-        "browser"
+        "map"
       ]
     },
     {
@@ -201,9 +189,7 @@
         "rebuild",
         "provenance",
         "doc-counts",
-        "map",
-        "browser",
-        "deployed-smoke"
+        "map"
       ]
     },
     {

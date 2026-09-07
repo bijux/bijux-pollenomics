@@ -1,19 +1,94 @@
 from __future__ import annotations
 
-from copy import deepcopy
 import json
-from pathlib import Path
 import re
 import subprocess
+from copy import deepcopy
+from pathlib import Path
 
 import pytest
-
 from bijux_pollenomics_dev.ci import atlas_browser
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
     GENERIC_TIME_AWARE_PROFILE,
     NORDIC_SOURCE_CHRONOLOGY_PROFILE,
 )
 from bijux_pollenomics_dev.ci.atlas_browser.verdict import PROFILE_REQUIRED_ASSERTIONS
+
+
+def _run_browser_identity(
+    version: dict[str, str], binary: str = "/usr/bin/chromium"
+) -> subprocess.CompletedProcess[str]:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    match = re.search(
+        r"function browserIdentity.*?\n}\n\nfunction debuggerEndpoint",
+        probe,
+        re.DOTALL,
+    )
+    assert match is not None
+    function_source = match.group(0).removesuffix("\n\nfunction debuggerEndpoint")
+    script = (
+        f"{function_source}\n"
+        f"const version = {json.dumps(version)};\n"
+        f"const binary = {json.dumps(binary)};\n"
+        "try { console.log(JSON.stringify(browserIdentity(version, binary))); } "
+        "catch (error) { console.error(error.message); process.exitCode = 2; }\n"
+    )
+    return subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+
+def test_probe_records_runtime_browser_identity_without_brand_assumptions() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    assert "Browser.getVersion" in probe
+    assert "browser: browserVersion" in probe
+    assert "Brave Browser" not in probe
+    assert "brave-browser.log" not in probe
+
+
+def test_probe_preserves_browser_supplied_product_and_version_identity() -> None:
+    result = _run_browser_identity(
+        {
+            "product": "Chrome/140.0.0.0",
+            "revision": "@0123456789abcdef",
+            "userAgent": "Mozilla/5.0 HeadlessChrome/140.0.0.0",
+            "jsVersion": "14.0.0",
+            "protocolVersion": "1.3",
+        }
+    )
+
+    assert result.returncode == 0, result.stderr
+    assert json.loads(result.stdout) == {
+        "product": "Chrome/140.0.0.0",
+        "revision": "@0123456789abcdef",
+        "user_agent": "Mozilla/5.0 HeadlessChrome/140.0.0.0",
+        "javascript_version": "14.0.0",
+        "protocol_version": "1.3",
+        "binary": "/usr/bin/chromium",
+    }
+
+
+def test_probe_refuses_incomplete_browser_identity() -> None:
+    result = _run_browser_identity(
+        {
+            "product": "",
+            "revision": "@0123456789abcdef",
+            "userAgent": "Mozilla/5.0",
+            "jsVersion": "14.0.0",
+            "protocolVersion": "1.3",
+        }
+    )
+
+    assert result.returncode == 2
+    assert "browser identity field is unavailable: product" in result.stderr
 
 
 def _run_generic_manifest_facts(

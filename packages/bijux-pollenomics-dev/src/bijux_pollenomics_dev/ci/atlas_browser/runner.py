@@ -5,8 +5,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from pathlib import Path
 import sys
+from pathlib import Path
 
 from ..atlas_media.process_execution import BoundedProcessError, run_bounded_argv
 from .contracts import (
@@ -162,7 +162,7 @@ def run_browser_verification(plan: BrowserVerificationPlan) -> JsonObject:
 
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Verify a content-bound published atlas in Brave via CDP."
+        description="Verify a content-bound published atlas in a Chromium browser via CDP."
     )
     parser.add_argument("--plan", required=True, type=Path)
     return parser
