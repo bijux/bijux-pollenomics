@@ -85,22 +85,21 @@ def load_animal_sample_chronology_corpus(
     data_root = Path(data_root)
     source_root = data_root / "adna" / "governance" / "source_library"
     registry_path = source_root / "project_registry.json"
-    registry = _read_object(registry_path)
+    captured_inputs: dict[Path, bytes] = {}
+    registry = _read_object(registry_path, captured_inputs=captured_inputs)
     _require_equal(registry.get("schema_version"), _REGISTRY_SCHEMA, "registry schema")
     registry_rows = _rows(registry, "registry")
     projects = _project_inventory(registry_rows)
     project_root = source_root / "projects"
     _validate_project_directories(project_root, set(projects))
 
-    artifacts = [registry_path]
     surfaces: dict[str, dict[_SampleKey, _Row]] = {
         filename: {} for filename in _SURFACE_SCHEMAS
     }
     for accession, registry_row in sorted(projects.items()):
         for filename, schema in _SURFACE_SCHEMAS.items():
             path = project_root / accession / filename
-            artifacts.append(path)
-            payload = _read_object(path)
+            payload = _read_object(path, captured_inputs=captured_inputs)
             _validate_surface_root(
                 payload,
                 filename=filename,
@@ -168,7 +167,7 @@ def load_animal_sample_chronology_corpus(
     return AnimalSampleChronologyCorpus(
         nodes=tuple(nodes),
         refusals=tuple(refusals),
-        input_identity=_build_input_identity(data_root, artifacts),
+        input_identity=_build_input_identity(data_root, captured_inputs),
         source_counts=(
             ("project_count", len(projects)),
             ("sample_master_row_count", len(masters)),
@@ -183,15 +182,17 @@ def load_animal_sample_chronology_corpus(
     )
 
 
-def _read_object(path: Path) -> _Row:
+def _read_object(path: Path, *, captured_inputs: dict[Path, bytes]) -> _Row:
     if not path.is_file() or path.is_symlink():
         raise ValueError(f"governed animal chronology input is unavailable: {path}")
     try:
-        value = json.loads(path.read_text(encoding="utf-8"))
+        content = path.read_bytes()
+        value = json.loads(content.decode("utf-8"))
     except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise ValueError(f"invalid governed animal chronology JSON: {path}") from exc
     if not isinstance(value, dict):
         raise ValueError(f"governed animal chronology root must be an object: {path}")
+    captured_inputs[path] = content
     return cast(_Row, value)
 
 
@@ -572,14 +573,16 @@ def _build_node(
 
 
 def _build_input_identity(
-    data_root: Path, paths: list[Path]
+    data_root: Path, captured_inputs: Mapping[Path, bytes]
 ) -> AnimalChronologyInputIdentity:
     identities: list[InputArtifactIdentity] = []
     family_members: dict[str, list[tuple[str, bytes]]] = {}
     all_members: list[tuple[str, bytes]] = []
-    for path in sorted(paths, key=lambda item: item.relative_to(data_root).as_posix()):
+    for path in sorted(
+        captured_inputs, key=lambda item: item.relative_to(data_root).as_posix()
+    ):
         logical_path = path.relative_to(data_root).as_posix()
-        content = path.read_bytes()
+        content = captured_inputs[path]
         identities.append(
             InputArtifactIdentity(
                 logical_path=logical_path,

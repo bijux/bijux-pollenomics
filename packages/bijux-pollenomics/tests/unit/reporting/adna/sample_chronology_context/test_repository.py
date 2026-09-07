@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from collections import Counter
 import json
 from pathlib import Path
 
@@ -262,6 +263,49 @@ def test_valid_content_change_changes_path_and_byte_identity(tmp_path: Path) -> 
     assert before.combined_sha256 != after.combined_sha256
     assert before.artifacts[0].logical_path == after.artifacts[0].logical_path
     assert before.artifacts[0].sha256 != after.artifacts[0].sha256
+
+
+def test_parsed_rows_and_input_identity_use_the_same_captured_bytes(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    write_source_repository(tmp_path)
+    baseline = load_animal_sample_chronology_corpus(tmp_path)
+    chronology_path = (
+        tmp_path
+        / "adna"
+        / "governance"
+        / "source_library"
+        / "projects"
+        / PROJECT
+        / "sample_chronology.json"
+    )
+    changed = json.loads(chronology_path.read_text(encoding="utf-8"))
+    changed["rows"][0].update(
+        {
+            "chronology_text": "2000-2200 BP",
+            "time_start_bp": 2000,
+            "time_end_bp": 2200,
+            "time_mean_bp": 2100,
+        }
+    )
+    changed_bytes = json.dumps(changed, indent=2).encode("utf-8")
+    original_read_bytes = Path.read_bytes
+    reads: Counter[Path] = Counter()
+
+    def mutate_after_read(path: Path) -> bytes:
+        content = original_read_bytes(path)
+        reads[path] += 1
+        if path == chronology_path and reads[path] == 1:
+            path.write_bytes(changed_bytes)
+        return content
+
+    monkeypatch.setattr(Path, "read_bytes", mutate_after_read)
+    raced = load_animal_sample_chronology_corpus(tmp_path)
+
+    assert reads[chronology_path] == 1
+    assert (raced.nodes[0].younger_bp, raced.nodes[0].older_bp) == (1000, 1200)
+    assert raced.input_identity == baseline.input_identity
+    assert chronology_path.read_bytes() == changed_bytes
 
 
 def test_boolean_declared_count_fails_closed(tmp_path: Path) -> None:
