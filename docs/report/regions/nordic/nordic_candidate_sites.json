@@ -1213,6 +1213,43 @@
       ]
     },
     {
+      "locality": "Skien nor (Nor South, Vestfold og Telemark, Telemark)",
+      "locality_token": "homo_sapiens:aadr:norway:skien-nor-nor-south-vestfold-og-telemark-telemark:59-22-9-59",
+      "ranking_status": "ranked",
+      "total_score": 0.6435,
+      "score_families": {
+        "evidence_density": 0.7358,
+        "chronology_alignment": 0.5525,
+        "species_diversity": 0.3467,
+        "contextual_support": 0.9022
+      },
+      "missingness_penalty": 0.075,
+      "direct_sample_count": 4,
+      "distinct_species_count": 1,
+      "nearby_context_points": 5909,
+      "nearby_context_layer_count": 5,
+      "time_aware_context_points": 5906,
+      "temporal_overlap_points": 620,
+      "sampling_recommendation_ready": false,
+      "recommendation_posture": "exploratory_only",
+      "ranking_blockers": [],
+      "recommendation_blockers": [
+        "profile_is_not_fieldwork_triage"
+      ],
+      "warning_flags": [
+        "single_species_direct_evidence",
+        "metadata_only_direct_evidence"
+      ],
+      "rationale": [
+        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
+        "4 direct ancient-DNA samples support 1 species at this locality anchor",
+        "5909 nearby context points across 5 context layers shape the support surface",
+        "score families: evidence=0.7358; chronology=0.5525; species=0.3467; context=0.9022",
+        "missingness penalty=0.0750; ranking status=ranked",
+        "recommendation posture=exploratory_only"
+      ]
+    },
+    {
       "locality": "Regnemark (Zealand)",
       "locality_token": "homo_sapiens:aadr:denmark:regnemark-zealand:55-4642932-11-9884963",
       "ranking_status": "ranked",
@@ -1393,43 +1430,6 @@
         "3 direct ancient-DNA samples support 1 species at this locality anchor",
         "2908 nearby context points across 9 context layers shape the support surface",
         "score families: evidence=0.6525; chronology=0.5271; species=0.3467; context=0.9775",
-        "missingness penalty=0.0750; ranking status=ranked",
-        "recommendation posture=exploratory_only"
-      ]
-    },
-    {
-      "locality": "Skien nor (Nor South, Vestfold og Telemark, Telemark)",
-      "locality_token": "homo_sapiens:aadr:norway:skien-nor-nor-south-vestfold-og-telemark-telemark:59-22-9-59",
-      "ranking_status": "ranked",
-      "total_score": 0.6335,
-      "score_families": {
-        "evidence_density": 0.7358,
-        "chronology_alignment": 0.5028,
-        "species_diversity": 0.3467,
-        "contextual_support": 0.9022
-      },
-      "missingness_penalty": 0.075,
-      "direct_sample_count": 4,
-      "distinct_species_count": 1,
-      "nearby_context_points": 5909,
-      "nearby_context_layer_count": 5,
-      "time_aware_context_points": 545,
-      "temporal_overlap_points": 3,
-      "sampling_recommendation_ready": false,
-      "recommendation_posture": "exploratory_only",
-      "ranking_blockers": [],
-      "recommendation_blockers": [
-        "profile_is_not_fieldwork_triage"
-      ],
-      "warning_flags": [
-        "single_species_direct_evidence",
-        "metadata_only_direct_evidence"
-      ],
-      "rationale": [
-        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
-        "4 direct ancient-DNA samples support 1 species at this locality anchor",
-        "5909 nearby context points across 5 context layers shape the support surface",
-        "score families: evidence=0.7358; chronology=0.5028; species=0.3467; context=0.9022",
         "missingness penalty=0.0750; ranking status=ranked",
         "recommendation posture=exploratory_only"
       ]
@@ -1620,6 +1620,43 @@
       ]
     },
     {
+      "locality": "Ljungbacka (Sk\u00e5ne l\u00e4n, Vellinge)",
+      "locality_token": "homo_sapiens:aadr:sweden:ljungbacka-sk-ne-l-n-vellinge:55-54-13-05",
+      "ranking_status": "ranked",
+      "total_score": 0.6174,
+      "score_families": {
+        "evidence_density": 0.5692,
+        "chronology_alignment": 0.5477,
+        "species_diversity": 0.3467,
+        "contextual_support": 0.997
+      },
+      "missingness_penalty": 0.075,
+      "direct_sample_count": 2,
+      "distinct_species_count": 1,
+      "nearby_context_points": 3154,
+      "nearby_context_layer_count": 8,
+      "time_aware_context_points": 3028,
+      "temporal_overlap_points": 289,
+      "sampling_recommendation_ready": false,
+      "recommendation_posture": "exploratory_only",
+      "ranking_blockers": [],
+      "recommendation_blockers": [
+        "profile_is_not_fieldwork_triage"
+      ],
+      "warning_flags": [
+        "single_species_direct_evidence",
+        "metadata_only_direct_evidence"
+      ],
+      "rationale": [
+        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
+        "2 direct ancient-DNA samples support 1 species at this locality anchor",
+        "3154 nearby context points across 8 context layers shape the support surface",
+        "score families: evidence=0.5692; chronology=0.5477; species=0.3467; context=0.9970",
+        "missingness penalty=0.0750; ranking status=ranked",
+        "recommendation posture=exploratory_only"
+      ]
+    },
+    {
       "locality": "Assler\u00f6d (Western Sweden/ Bohusl\u00e4n)",
       "locality_token": "homo_sapiens:aadr:sweden:assler-d-western-sweden-bohusl-n:58-4172-11-3251",
       "ranking_status": "ranked",
@@ -1653,43 +1690,6 @@
         "56 nearby context points across 3 context layers shape the support surface",
         "score families: evidence=0.4858; chronology=1.0000; species=0.3467; context=0.9035",
         "missingness penalty=0.1050; ranking status=ranked",
-        "recommendation posture=exploratory_only"
-      ]
-    },
-    {
-      "locality": "Abek\u00e5s I (Sk\u00e5ne County, Skurup Municipality)",
-      "locality_token": "homo_sapiens:aadr:sweden:abek-s-i-sk-ne-county-skurup-municipality:55-397-13-6",
-      "ranking_status": "ranked",
-      "total_score": 0.6156,
-      "score_families": {
-        "evidence_density": 0.5692,
-        "chronology_alignment": 0.595,
-        "species_diversity": 0.3467,
-        "contextual_support": 0.9649
-      },
-      "missingness_penalty": 0.075,
-      "direct_sample_count": 2,
-      "distinct_species_count": 1,
-      "nearby_context_points": 19604,
-      "nearby_context_layer_count": 7,
-      "time_aware_context_points": 10550,
-      "temporal_overlap_points": 2004,
-      "sampling_recommendation_ready": false,
-      "recommendation_posture": "exploratory_only",
-      "ranking_blockers": [],
-      "recommendation_blockers": [
-        "profile_is_not_fieldwork_triage"
-      ],
-      "warning_flags": [
-        "single_species_direct_evidence",
-        "metadata_only_direct_evidence"
-      ],
-      "rationale": [
-        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
-        "2 direct ancient-DNA samples support 1 species at this locality anchor",
-        "19604 nearby context points across 7 context layers shape the support surface",
-        "score families: evidence=0.5692; chronology=0.5950; species=0.3467; context=0.9649",
-        "missingness penalty=0.0750; ranking status=ranked",
         "recommendation posture=exploratory_only"
       ]
     },
@@ -1842,23 +1842,23 @@
       ]
     },
     {
-      "locality": "Ljungbacka (Sk\u00e5ne l\u00e4n, Vellinge)",
-      "locality_token": "homo_sapiens:aadr:sweden:ljungbacka-sk-ne-l-n-vellinge:55-54-13-05",
+      "locality": "Abek\u00e5s I (Sk\u00e5ne County, Skurup Municipality)",
+      "locality_token": "homo_sapiens:aadr:sweden:abek-s-i-sk-ne-county-skurup-municipality:55-397-13-6",
       "ranking_status": "ranked",
-      "total_score": 0.6101,
+      "total_score": 0.6089,
       "score_families": {
         "evidence_density": 0.5692,
-        "chronology_alignment": 0.5112,
+        "chronology_alignment": 0.5617,
         "species_diversity": 0.3467,
-        "contextual_support": 0.997
+        "contextual_support": 0.9649
       },
       "missingness_penalty": 0.075,
       "direct_sample_count": 2,
       "distinct_species_count": 1,
-      "nearby_context_points": 3154,
-      "nearby_context_layer_count": 8,
-      "time_aware_context_points": 1657,
-      "temporal_overlap_points": 37,
+      "nearby_context_points": 19604,
+      "nearby_context_layer_count": 7,
+      "time_aware_context_points": 19568,
+      "temporal_overlap_points": 2413,
       "sampling_recommendation_ready": false,
       "recommendation_posture": "exploratory_only",
       "ranking_blockers": [],
@@ -1872,8 +1872,8 @@
       "rationale": [
         "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
         "2 direct ancient-DNA samples support 1 species at this locality anchor",
-        "3154 nearby context points across 8 context layers shape the support surface",
-        "score families: evidence=0.5692; chronology=0.5112; species=0.3467; context=0.9970",
+        "19604 nearby context points across 7 context layers shape the support surface",
+        "score families: evidence=0.5692; chronology=0.5617; species=0.3467; context=0.9649",
         "missingness penalty=0.0750; ranking status=ranked",
         "recommendation posture=exploratory_only"
       ]
@@ -2508,43 +2508,6 @@
       ]
     },
     {
-      "locality": "L Beddinge 56 (Sk\u00e5ne l\u00e4n, Trelleborg)",
-      "locality_token": "homo_sapiens:aadr:sweden:l-beddinge-56-sk-ne-l-n-trelleborg:55-381-13-445",
-      "ranking_status": "ranked",
-      "total_score": 0.5629,
-      "score_families": {
-        "evidence_density": 0.4858,
-        "chronology_alignment": 0.5671,
-        "species_diversity": 0.3467,
-        "contextual_support": 0.9995
-      },
-      "missingness_penalty": 0.105,
-      "direct_sample_count": 1,
-      "distinct_species_count": 1,
-      "nearby_context_points": 15160,
-      "nearby_context_layer_count": 7,
-      "time_aware_context_points": 10068,
-      "temporal_overlap_points": 1351,
-      "sampling_recommendation_ready": false,
-      "recommendation_posture": "exploratory_only",
-      "ranking_blockers": [],
-      "recommendation_blockers": [
-        "profile_is_not_fieldwork_triage"
-      ],
-      "warning_flags": [
-        "single_species_direct_evidence",
-        "metadata_only_direct_evidence"
-      ],
-      "rationale": [
-        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
-        "1 direct ancient-DNA samples support 1 species at this locality anchor",
-        "15160 nearby context points across 7 context layers shape the support surface",
-        "score families: evidence=0.4858; chronology=0.5671; species=0.3467; context=0.9995",
-        "missingness penalty=0.1050; ranking status=ranked",
-        "recommendation posture=exploratory_only"
-      ]
-    },
-    {
       "locality": "Gl Lejre (Zealand Region)",
       "locality_token": "homo_sapiens:aadr:denmark:gl-lejre-zealand-region:55-62-11-97",
       "ranking_status": "ranked",
@@ -2615,6 +2578,43 @@
         "16 nearby context points across 2 context layers shape the support surface",
         "score families: evidence=0.5692; chronology=0.6923; species=0.3467; context=0.7526",
         "missingness penalty=0.0750; ranking status=ranked",
+        "recommendation posture=exploratory_only"
+      ]
+    },
+    {
+      "locality": "L Beddinge 56 (Sk\u00e5ne l\u00e4n, Trelleborg)",
+      "locality_token": "homo_sapiens:aadr:sweden:l-beddinge-56-sk-ne-l-n-trelleborg:55-381-13-445",
+      "ranking_status": "ranked",
+      "total_score": 0.5585,
+      "score_families": {
+        "evidence_density": 0.4858,
+        "chronology_alignment": 0.5447,
+        "species_diversity": 0.3467,
+        "contextual_support": 0.9995
+      },
+      "missingness_penalty": 0.105,
+      "direct_sample_count": 1,
+      "distinct_species_count": 1,
+      "nearby_context_points": 15160,
+      "nearby_context_layer_count": 7,
+      "time_aware_context_points": 15117,
+      "temporal_overlap_points": 1351,
+      "sampling_recommendation_ready": false,
+      "recommendation_posture": "exploratory_only",
+      "ranking_blockers": [],
+      "recommendation_blockers": [
+        "profile_is_not_fieldwork_triage"
+      ],
+      "warning_flags": [
+        "single_species_direct_evidence",
+        "metadata_only_direct_evidence"
+      ],
+      "rationale": [
+        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
+        "1 direct ancient-DNA samples support 1 species at this locality anchor",
+        "15160 nearby context points across 7 context layers shape the support surface",
+        "score families: evidence=0.4858; chronology=0.5447; species=0.3467; context=0.9995",
+        "missingness penalty=0.1050; ranking status=ranked",
         "recommendation posture=exploratory_only"
       ]
     },
@@ -2804,23 +2804,23 @@
       ]
     },
     {
-      "locality": "Skateholm-1 (Sk\u00e5ne l\u00e4n, Trelleborg)",
-      "locality_token": "homo_sapiens:aadr:sweden:skateholm-1-sk-ne-l-n-trelleborg:55-386-13-481",
+      "locality": "H\u00f6ja g\u00e5rd (Southern Sweden/ Sk\u00e5ne)",
+      "locality_token": "homo_sapiens:aadr:sweden:h-ja-g-rd-southern-sweden-sk-ne:55-58-13-069",
       "ranking_status": "ranked",
-      "total_score": 0.5523,
+      "total_score": 0.5525,
       "score_families": {
         "evidence_density": 0.4858,
-        "chronology_alignment": 0.5449,
+        "chronology_alignment": 0.5356,
         "species_diversity": 0.3467,
-        "contextual_support": 0.9817
+        "contextual_support": 0.9877
       },
       "missingness_penalty": 0.105,
       "direct_sample_count": 1,
       "distinct_species_count": 1,
-      "nearby_context_points": 17151,
-      "nearby_context_layer_count": 7,
-      "time_aware_context_points": 10264,
-      "temporal_overlap_points": 921,
+      "nearby_context_points": 3191,
+      "nearby_context_layer_count": 8,
+      "time_aware_context_points": 3061,
+      "temporal_overlap_points": 218,
       "sampling_recommendation_ready": false,
       "recommendation_posture": "exploratory_only",
       "ranking_blockers": [],
@@ -2834,8 +2834,8 @@
       "rationale": [
         "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
         "1 direct ancient-DNA samples support 1 species at this locality anchor",
-        "17151 nearby context points across 7 context layers shape the support surface",
-        "score families: evidence=0.4858; chronology=0.5449; species=0.3467; context=0.9817",
+        "3191 nearby context points across 8 context layers shape the support surface",
+        "score families: evidence=0.4858; chronology=0.5356; species=0.3467; context=0.9877",
         "missingness penalty=0.1050; ranking status=ranked",
         "recommendation posture=exploratory_only"
       ]
@@ -2915,50 +2915,13 @@
       ]
     },
     {
-      "locality": "\u00c4ngdala (Sk\u00e5ne l\u00e4n, Malm\u00f6)",
-      "locality_token": "homo_sapiens:aadr:sweden:ngdala-sk-ne-l-n-malm:55-588-13-113",
-      "ranking_status": "ranked",
-      "total_score": 0.549,
-      "score_families": {
-        "evidence_density": 0.4858,
-        "chronology_alignment": 0.5043,
-        "species_diversity": 0.3467,
-        "contextual_support": 0.9955
-      },
-      "missingness_penalty": 0.105,
-      "direct_sample_count": 1,
-      "distinct_species_count": 1,
-      "nearby_context_points": 3252,
-      "nearby_context_layer_count": 8,
-      "time_aware_context_points": 1749,
-      "temporal_overlap_points": 15,
-      "sampling_recommendation_ready": false,
-      "recommendation_posture": "exploratory_only",
-      "ranking_blockers": [],
-      "recommendation_blockers": [
-        "profile_is_not_fieldwork_triage"
-      ],
-      "warning_flags": [
-        "single_species_direct_evidence",
-        "metadata_only_direct_evidence"
-      ],
-      "rationale": [
-        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
-        "1 direct ancient-DNA samples support 1 species at this locality anchor",
-        "3252 nearby context points across 8 context layers shape the support surface",
-        "score families: evidence=0.4858; chronology=0.5043; species=0.3467; context=0.9955",
-        "missingness penalty=0.1050; ranking status=ranked",
-        "recommendation posture=exploratory_only"
-      ]
-    },
-    {
       "locality": "Oxie 7 (Sk\u00e5ne l\u00e4n, Vellinge)",
       "locality_token": "homo_sapiens:aadr:sweden:oxie-7-sk-ne-l-n-vellinge:55-545-13-098",
       "ranking_status": "ranked",
-      "total_score": 0.5482,
+      "total_score": 0.55,
       "score_families": {
         "evidence_density": 0.4858,
-        "chronology_alignment": 0.5033,
+        "chronology_alignment": 0.5124,
         "species_diversity": 0.3467,
         "contextual_support": 0.9937
       },
@@ -2967,8 +2930,8 @@
       "distinct_species_count": 1,
       "nearby_context_points": 3160,
       "nearby_context_layer_count": 8,
-      "time_aware_context_points": 1660,
-      "temporal_overlap_points": 11,
+      "time_aware_context_points": 3031,
+      "temporal_overlap_points": 75,
       "sampling_recommendation_ready": false,
       "recommendation_posture": "exploratory_only",
       "ranking_blockers": [],
@@ -2983,7 +2946,81 @@
         "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
         "1 direct ancient-DNA samples support 1 species at this locality anchor",
         "3160 nearby context points across 8 context layers shape the support surface",
-        "score families: evidence=0.4858; chronology=0.5033; species=0.3467; context=0.9937",
+        "score families: evidence=0.4858; chronology=0.5124; species=0.3467; context=0.9937",
+        "missingness penalty=0.1050; ranking status=ranked",
+        "recommendation posture=exploratory_only"
+      ]
+    },
+    {
+      "locality": "\u00c4ngdala (Sk\u00e5ne l\u00e4n, Malm\u00f6)",
+      "locality_token": "homo_sapiens:aadr:sweden:ngdala-sk-ne-l-n-malm:55-588-13-113",
+      "ranking_status": "ranked",
+      "total_score": 0.5493,
+      "score_families": {
+        "evidence_density": 0.4858,
+        "chronology_alignment": 0.5061,
+        "species_diversity": 0.3467,
+        "contextual_support": 0.9955
+      },
+      "missingness_penalty": 0.105,
+      "direct_sample_count": 1,
+      "distinct_species_count": 1,
+      "nearby_context_points": 3252,
+      "nearby_context_layer_count": 8,
+      "time_aware_context_points": 3120,
+      "temporal_overlap_points": 38,
+      "sampling_recommendation_ready": false,
+      "recommendation_posture": "exploratory_only",
+      "ranking_blockers": [],
+      "recommendation_blockers": [
+        "profile_is_not_fieldwork_triage"
+      ],
+      "warning_flags": [
+        "single_species_direct_evidence",
+        "metadata_only_direct_evidence"
+      ],
+      "rationale": [
+        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
+        "1 direct ancient-DNA samples support 1 species at this locality anchor",
+        "3252 nearby context points across 8 context layers shape the support surface",
+        "score families: evidence=0.4858; chronology=0.5061; species=0.3467; context=0.9955",
+        "missingness penalty=0.1050; ranking status=ranked",
+        "recommendation posture=exploratory_only"
+      ]
+    },
+    {
+      "locality": "Skateholm-1 (Sk\u00e5ne l\u00e4n, Trelleborg)",
+      "locality_token": "homo_sapiens:aadr:sweden:skateholm-1-sk-ne-l-n-trelleborg:55-386-13-481",
+      "ranking_status": "ranked",
+      "total_score": 0.5489,
+      "score_families": {
+        "evidence_density": 0.4858,
+        "chronology_alignment": 0.5278,
+        "species_diversity": 0.3467,
+        "contextual_support": 0.9817
+      },
+      "missingness_penalty": 0.105,
+      "direct_sample_count": 1,
+      "distinct_species_count": 1,
+      "nearby_context_points": 17151,
+      "nearby_context_layer_count": 7,
+      "time_aware_context_points": 17106,
+      "temporal_overlap_points": 951,
+      "sampling_recommendation_ready": false,
+      "recommendation_posture": "exploratory_only",
+      "ranking_blockers": [],
+      "recommendation_blockers": [
+        "profile_is_not_fieldwork_triage"
+      ],
+      "warning_flags": [
+        "single_species_direct_evidence",
+        "metadata_only_direct_evidence"
+      ],
+      "rationale": [
+        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
+        "1 direct ancient-DNA samples support 1 species at this locality anchor",
+        "17151 nearby context points across 7 context layers shape the support surface",
+        "score families: evidence=0.4858; chronology=0.5278; species=0.3467; context=0.9817",
         "missingness penalty=0.1050; ranking status=ranked",
         "recommendation posture=exploratory_only"
       ]
@@ -3026,43 +3063,6 @@
       ]
     },
     {
-      "locality": "Fredriksberg (Sk\u00e5ne l\u00e4n, Malm\u00f6)",
-      "locality_token": "homo_sapiens:aadr:sweden:fredriksberg-sk-ne-l-n-malm:55-557-13-059",
-      "ranking_status": "ranked",
-      "total_score": 0.5471,
-      "score_families": {
-        "evidence_density": 0.4858,
-        "chronology_alignment": 0.503,
-        "species_diversity": 0.3467,
-        "contextual_support": 0.9908
-      },
-      "missingness_penalty": 0.105,
-      "direct_sample_count": 1,
-      "distinct_species_count": 1,
-      "nearby_context_points": 3162,
-      "nearby_context_layer_count": 8,
-      "time_aware_context_points": 1660,
-      "temporal_overlap_points": 10,
-      "sampling_recommendation_ready": false,
-      "recommendation_posture": "exploratory_only",
-      "ranking_blockers": [],
-      "recommendation_blockers": [
-        "profile_is_not_fieldwork_triage"
-      ],
-      "warning_flags": [
-        "single_species_direct_evidence",
-        "metadata_only_direct_evidence"
-      ],
-      "rationale": [
-        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
-        "1 direct ancient-DNA samples support 1 species at this locality anchor",
-        "3162 nearby context points across 8 context layers shape the support surface",
-        "score families: evidence=0.4858; chronology=0.5030; species=0.3467; context=0.9908",
-        "missingness penalty=0.1050; ranking status=ranked",
-        "recommendation posture=exploratory_only"
-      ]
-    },
-    {
       "locality": "Bergsgraven (\u00d6sterg\u00f6tlands l\u00e4n, Link\u00f6ping)",
       "locality_token": "homo_sapiens:aadr:sweden:bergsgraven-sterg-tlands-l-n-link-ping:58-415833-15-625278",
       "ranking_status": "ranked",
@@ -3100,6 +3100,43 @@
       ]
     },
     {
+      "locality": "Fredriksberg (Sk\u00e5ne l\u00e4n, Malm\u00f6)",
+      "locality_token": "homo_sapiens:aadr:sweden:fredriksberg-sk-ne-l-n-malm:55-557-13-059",
+      "ranking_status": "ranked",
+      "total_score": 0.5468,
+      "score_families": {
+        "evidence_density": 0.4858,
+        "chronology_alignment": 0.5016,
+        "species_diversity": 0.3467,
+        "contextual_support": 0.9908
+      },
+      "missingness_penalty": 0.105,
+      "direct_sample_count": 1,
+      "distinct_species_count": 1,
+      "nearby_context_points": 3162,
+      "nearby_context_layer_count": 8,
+      "time_aware_context_points": 3031,
+      "temporal_overlap_points": 10,
+      "sampling_recommendation_ready": false,
+      "recommendation_posture": "exploratory_only",
+      "ranking_blockers": [],
+      "recommendation_blockers": [
+        "profile_is_not_fieldwork_triage"
+      ],
+      "warning_flags": [
+        "single_species_direct_evidence",
+        "metadata_only_direct_evidence"
+      ],
+      "rationale": [
+        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
+        "1 direct ancient-DNA samples support 1 species at this locality anchor",
+        "3162 nearby context points across 8 context layers shape the support surface",
+        "score families: evidence=0.4858; chronology=0.5016; species=0.3467; context=0.9908",
+        "missingness penalty=0.1050; ranking status=ranked",
+        "recommendation posture=exploratory_only"
+      ]
+    },
+    {
       "locality": "F\u00f8re 1 (Northern Norway/ Nordland)",
       "locality_token": "homo_sapiens:aadr:norway:f-re-1-northern-norway-nordland:68-666659-14-468748",
       "ranking_status": "ranked",
@@ -3133,43 +3170,6 @@
         "1322 nearby context points across 5 context layers shape the support surface",
         "score families: evidence=0.5692; chronology=0.5136; species=0.3467; context=0.8143",
         "missingness penalty=0.0750; ranking status=ranked",
-        "recommendation posture=exploratory_only"
-      ]
-    },
-    {
-      "locality": "H\u00f6ja g\u00e5rd (Southern Sweden/ Sk\u00e5ne)",
-      "locality_token": "homo_sapiens:aadr:sweden:h-ja-g-rd-southern-sweden-sk-ne:55-58-13-069",
-      "ranking_status": "ranked",
-      "total_score": 0.5463,
-      "score_families": {
-        "evidence_density": 0.4858,
-        "chronology_alignment": 0.5044,
-        "species_diversity": 0.3467,
-        "contextual_support": 0.9877
-      },
-      "missingness_penalty": 0.105,
-      "direct_sample_count": 1,
-      "distinct_species_count": 1,
-      "nearby_context_points": 3191,
-      "nearby_context_layer_count": 8,
-      "time_aware_context_points": 1690,
-      "temporal_overlap_points": 15,
-      "sampling_recommendation_ready": false,
-      "recommendation_posture": "exploratory_only",
-      "ranking_blockers": [],
-      "recommendation_blockers": [
-        "profile_is_not_fieldwork_triage"
-      ],
-      "warning_flags": [
-        "single_species_direct_evidence",
-        "metadata_only_direct_evidence"
-      ],
-      "rationale": [
-        "profile `atlas_exploration` weights evidence density, chronology, species diversity, and contextual support explicitly",
-        "1 direct ancient-DNA samples support 1 species at this locality anchor",
-        "3191 nearby context points across 8 context layers shape the support surface",
-        "score families: evidence=0.4858; chronology=0.5044; species=0.3467; context=0.9877",
-        "missingness penalty=0.1050; ranking status=ranked",
         "recommendation posture=exploratory_only"
       ]
     },

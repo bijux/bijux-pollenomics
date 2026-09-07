@@ -19,7 +19,7 @@
       "scope": "Sweden",
       "parent_scope": "Nordic",
       "country_subset_ok": true,
-      "animal_subset_ok": false,
+      "animal_subset_ok": true,
       "human_subset_ok": true
     },
     {
@@ -33,14 +33,14 @@
       "scope": "Finland",
       "parent_scope": "Nordic",
       "country_subset_ok": true,
-      "animal_subset_ok": false,
+      "animal_subset_ok": true,
       "human_subset_ok": true
     },
     {
       "scope": "Denmark",
       "parent_scope": "Nordic",
       "country_subset_ok": true,
-      "animal_subset_ok": false,
+      "animal_subset_ok": true,
       "human_subset_ok": true
     }
   ]

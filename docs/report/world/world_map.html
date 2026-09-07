@@ -846,6 +846,14 @@
           linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
           var(--surface);
       }
+      .floating-legend:has(.legend-body.is-collapsed) {
+        width: auto;
+        max-height: none;
+        padding: 8px 10px;
+      }
+      .floating-legend:has(.legend-body.is-collapsed) .legend-head {
+        margin-bottom: 0;
+      }
       .control-panel {
         position: absolute;
         top: 116px;
@@ -1778,8 +1786,27 @@
           top: max(8px, env(safe-area-inset-top));
         }
         .topbar-search {
-          width: min(188px, 46vw);
-          justify-self: end;
+          position: absolute;
+          top: calc(100% + 8px);
+          right: 0;
+          width: min(220px, calc(100vw - 16px));
+          padding: 8px;
+          border: 1px solid var(--surface-edge);
+          border-radius: 16px;
+          background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0)),
+            var(--surface-strong);
+          backdrop-filter: blur(16px);
+          box-shadow: var(--shadow-md);
+        }
+        .search-results--floating {
+          position: relative;
+          top: auto;
+          right: auto;
+          width: 100%;
+          max-height: min(14vh, 96px);
+          padding: 6px;
+          border-radius: 12px;
         }
         .map-topbar .topbar-context {
           position: absolute;
@@ -1952,7 +1979,6 @@
           <div id="legend-body" class="legend-body is-collapsed">
             <div id="legend-items" class="legend-list"></div>
             <div id="density-ramp" class="density-ramp">
-              <div class="legend-item"><span>Acceptance rings use each active layer's marker colors and remain translucent so overlap is visible.</span></div>
               <div class="legend-item"><span class="legend-swatch" style="background: rgba(239, 68, 68, 0.22); border-color: #7f1d1d;"></span><span>RAÄ archaeology density shows Swedish `Fornlämning` counts in 1° grid cells.</span></div>
               <div class="density-bar"><span></span><span></span><span></span><span></span><span></span><span></span></div>
               <div class="density-labels"><span>Lower density</span><span>Higher density</span></div>
@@ -2032,7 +2058,11 @@
                     <button class="inline-button" type="button" data-source-shortcut="UPHE">UPHE</button>
                     <button class="inline-button" type="button" data-source-shortcut="AQVP">AQVP</button>
                     <button class="inline-button" type="button" data-source-shortcut="taxa">All exact labels</button>
-                    <button class="inline-button" type="button" data-source-shortcut="cereals">Find cereal-like labels</button>
+                    <button class="inline-button" type="button" data-source-preset="avena">Avena labels</button>
+                    <button class="inline-button" type="button" data-source-preset="hordeum">Hordeum labels</button>
+                    <button class="inline-button" type="button" data-source-preset="triticum">Triticum labels</button>
+                    <button class="inline-button" type="button" data-source-preset="secale">Secale labels</button>
+                    <button class="inline-button" type="button" data-source-preset="cerealia">Cerealia labels</button>
                   </div>
                 </div>
               </details>
@@ -2054,6 +2084,8 @@
                     <select id="source-chronology-code" class="search-input" aria-label="Filter by literal Neotoma ecological code"></select>
                   </div>
                   <div id="source-chronology-taxon-fields" hidden>
+                    <div id="source-label-preset-controls" class="source-shortcuts" aria-label="Governed exact-ID source-label presets"></div>
+                    <div id="source-label-preset-state" class="search-meta" aria-live="polite">No source-label preset selected.</div>
                     <label class="field-label" for="source-chronology-taxon-query"><span>Find source-reported taxon or pollen type</span><span>not a species assertion</span></label>
                     <input id="source-chronology-taxon-query" class="search-input" type="search" autocomplete="off" placeholder="Search source labels; use | for alternatives" aria-controls="source-chronology-taxon">
                     <label class="field-label" for="source-chronology-taxon"><span>Exact source label</span><span>all by default</span></label>
@@ -2342,7 +2374,7 @@
         </div>
       </div>
     </div>
-    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"world","version":"v66","build_id":"atlas-6ce44d3ab099acdafbcb6bcdec6259a6e006910fe9312c9a0fb536a92ebfd3fe","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3"},"budgets":{"bootstrap_max_bytes":65536,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1386},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":11,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1382}},"assets":{"schema_version":"atlas-static-asset-table.v2","scope_slug":"world","fields":["domain","sha256","payload_sha256","decoded_byte_count","byte_count","record_count","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","scientific_signal_ids"],"record_count":66,"records":[["provenance","4ae0f0704e5873571909a800d60bbcd3628dc70a6e8185e77131979b33109e53","46da100324e29bb4a3931c2a2b69bf4c11493a454f1b0fed6fba25909950034e",14271,2956,11,null,null,null,null,null,null,null,null,null],["nodes","114f98d7b43a1ab09d6bd6c4906b7286728a515d56cf6c0e3c4f15a52b6f4b04","44ec1c02291c38170f3ffc61bb51950faba135be2a9cc852caac1d7588859ec0",1563669,86879,653,0,"aadr","point",["Denmark"],[54.623,8.728229,57.5065361,14.99854],73.0,10520.0,4,[]],["nodes","611d10bbc4fb35bdbd34ee9c043d5b48fe929da097d57a23779493929b36929f","ef94aaa7167f805694c4e59b269c62cf4c08f8098844757459e5ca1a60f229d2",71547,4107,32,0,"aadr","point",["Finland"],[60.2,22.178,69.91,27.03],0.0,1688.0,0,[]],["nodes","3ba4cf8d51bd37e2bdaa4cb44e6247f4b77d40ad9e5622ac3219754e66563387","98437182c92cb13cbc7767be283d56c64d3a98e8635447da9670ec6fd1ca6ba3",311094,19527,130,0,"aadr","point",["Norway"],[58.064,5.126940543,70.117388,19.017706],0.0,9486.0,0,[]],["nodes","433b48ef55b1cc9464c7a7e77245072de2f3ce150a34b98f53245385020f3592","6bbe6638f0dfa16b5da1a6bf7a2c8fba3399b346005324e65c352557c5f8776d",1003353,49543,416,0,"aadr","point",["Sweden"],[55.37774,11.3007,63.2,18.7],274.0,10010.0,0,[]],["nodes","9d532798641060a5a2f4d4c5e919d03940797814ae53bf1190dc19b6098ac5ca","ffcc72e592432fdcee9796afb5cea57d3d92308dc9db7d121d139ada6db7a02e",17239,4223,2,1,"animal-bos-taurus-wild-or-progenitor-context","point",["Denmark"],[55.3584015935903,9.8686973853874,57.2407065497517,11.3931303537925],6748.0,8173.0,0,[]],["nodes","28105c963699d08a646a9f20d7a47d0b31cf6729a05f73a73a1a81cad6cd862a","cec138b9d200a05d1444464a5740ba344c761ebb56a6fb539a4ce523661f3f1a",15689,3851,2,1,"animal-bos-taurus-wild-or-progenitor-context","point",["Sweden"],[55.6219,13.2297,55.8476269883224,13.8093770947441],9133.0,9657.0,0,[]],["nodes","350a52f911b988bda03a1e569e813d72cfc0c48e9ed1bb1f8b7928542c5f07bf","28c16bc2acae058bd30086576e212ab37d49bd2312320b7419d7976515376718",7231,3167,1,2,"animal-capra-hircus","point",["Aksaray Plain, Turkey"],[38.540978,33.771234,38.540978,33.771234],3833.0,3984.0,0,[]],["nodes","d9714759860a9d114cd3165ed5f657ecbc8c9446ace607ac08eb46bcb72b0f4f","45cd4d4b7393236b807cacdac66ca3b1e717b57f22cccd771e32601c1c6635d7",7310,3179,1,2,"animal-capra-hircus","point",["Burgos"],[42.2853,-3.8335,42.2853,-3.8335],null,null,1,[]],["nodes","97b593f9008d434c587a0a87a794624b3abc91237df3063d5aadae36ef5ec728","c40dd5daca5f03ac81f2c226c33a23e1ef06bd799fd6e35eddf9b7098bfcede6",7556,3195,1,2,"animal-capra-hircus","point",["China"],[36.584302,100.502975,36.584302,100.502975],3480.0,3580.0,0,[]],["nodes","852777ecad3b024ebdb540d2f4408b48c78e144bc5bac37660af1200650d2ce7","17eae0f9f6824523cea33dc7a71d3028e02665e8ad4b923a5a6be43bdd761326",7573,3240,1,2,"animal-capra-hircus","point",["El Hierro"],[27.640201,-17.989809,27.640201,-17.989809],null,null,1,[]],["nodes","af83978f1982f3e29a4ffa4050c2df5d0ac19d212469b03beac72b7affb82715","e5753456018716d22baa0af058510188ca8f905237f129efda609d491dccedcd",23073,4240,3,2,"animal-capra-hircus","point",["Fuerteventura"],[28.408761,-14.125189,28.665573,-13.899854],null,null,3,[]],["nodes","265b91667777264399777aca316b99d43119244a69ceee21f7cbb1ae7023a51f","1085371271bf79f112a4b69ebd593290a15c4713f6b2d68af82a8178cc3b3b5a",36319,4900,5,2,"animal-capra-hircus","point",["Gran Canaria"],[27.8812894086404,-15.813492,28.151167,-15.381412],null,null,5,[]],["nodes","18b364a03b1ead7043bcb34d1614703a5905d52a15348952f164444d5b6011c6","64fda97363a4691d7e263309cb986c688269ec17a3d25e4bf83d730e711a37f6",22097,4136,3,2,"animal-capra-hircus","point",["La Gomera"],[28.085573,-17.323679,28.178344,-17.149227],null,null,3,[]],["nodes","e67643eebae147ab4a301bd12d7fe08f8b338dce87efa74a020417b9e409e70b","7d34c004ede0e2a0665d7f94ecb3920ed3adb653e57a9c7e821c87e2802f3056",28360,4420,4,2,"animal-capra-hircus","point",["La Palma"],[28.552055,-17.9765,28.7924,-17.765601],null,null,4,[]],["nodes","40e3733ea3db3f088bf850d2fc855e63e4462ca50bf890fba5c0ab6b9e475cc9","aba6ff409b46a7db5e38ec74f4d0887fa889ac7145861223c0c69667c6390e4a",7306,3200,1,2,"animal-capra-hircus","point",["Lanzarote"],[29.078038,-13.596783,29.078038,-13.596783],null,null,1,[]],["nodes","d853f3ba2c05efc559c2d9fb26aacee87eed93557882f9c87feca50d348d5e46","c111612ddaf78789071b48537651ae52710b7c22486a7ccf94724a78cdaa7137",7184,3168,1,2,"animal-capra-hircus","point",["Semnan, Iran"],[36.504158,55.000786,36.504158,55.000786],7939.0,8170.0,0,[]],["nodes","8a57baa770adcdf451e80fe8deba78c00c64fc47bd583a40424d4caa7dae3240","49f2da0612a3e15246a3ee6a3bdb409293aa1310838d3bf79ca5602f698e91c9",21334,4020,3,2,"animal-capra-hircus","point",["Tenerife"],[28.0842,-16.5289,28.422,-16.3133],null,null,3,[]],["nodes","7ce4e1330f462caa3b986322716b04989a5b99af283896d97d6c2e18b1a11d0b","5f1ef8c4c573f36ccd29ffa240d9d9ca98cd59902566dad82e69c2cce735d28b",7176,3172,1,2,"animal-capra-hircus","point",["Trstenik, Serbia"],[43.723286,21.099449,43.723286,21.099449],7840.0,8030.0,0,[]],["nodes","6e1b1be803039142807f2845184c7c2086dc85682d805506326e36c6139f1752","6fb7cbf912c438023aa1eac3b50df14f765d1c1fa9efd3429cd014bfb6f52e15",7469,3264,1,3,"animal-capra-hircus-wild-or-progenitor-context","point",["Taurus Mountains, Turkey"],[37.8578,36.653883,37.8578,36.653883],13169.0,13316.0,0,[]],["nodes","fa0b6c1336e27940e6bb17bcded667e3ca6386decc1f9f5b7b951db27fe9aabd","0a77b66bc45703394ce00cd68fd006b60aabc01f308001fffa36d193e9b7dfc9",7201,3180,1,4,"animal-equus-caballus","point",["Austria"],[48.451361,16.599992,48.451361,16.599992],2535.0,2535.0,0,[]],["nodes","4b740187116cfc1244b5e6632e6bcc7bdf2615dd55b31dda8abeea010a95860a","f49b7610ad530facc51516d58781f2f9919ed31264ac0a259649d1cd49b049cd",56158,6192,8,4,"animal-equus-caballus","point",["Czech Republic"],[49.313,13.74354,50.36361,17.15314],2574.0,3987.0,0,[]],["nodes","e42c833ac5635ba90243ae0bded6b620b981c7e5cc30ed3013cadf810cd0fcc1","0cf82e17406537e7651e365c6b3f36b2130ac173408f2cce491aec91d86ebb71",14284,3660,2,4,"animal-equus-caballus","point",["Estonia"],[58.410926,23.016137,58.4552,23.0326],2604.0,2650.0,0,[]],["nodes","ca26418a6f1b867b7f3d5763f17e20886dd0ec821fac49dc700d2166e7b9bab9","ba1eb8f0184fef084d182fe49f2ec8fe4734caa07107f9104f859c4bb512d38d",7253,3200,1,4,"animal-equus-caballus","point",["France"],[43.3667,3.4167,43.3667,3.4167],2567.0,2567.0,0,[]],["nodes","a20a88d05f343eadb74435c2defed914a0ee27a609101c868635b3c6f8756b17","d52c11ffa8d1939e262a31b2a673d9dd71020b62476c8824014b1029470b5f84",14169,3668,2,4,"animal-equus-caballus","point",["Iran"],[35.773,45.458817,37.004486,49.938],2718.0,3052.0,0,[]],["nodes","ea22d47a62a493855fa6b48b86b83b63e1c72c7ba5a49e3a645f59d3b998254e","ec182b079c2a1505a6b7adf3fc6d958fbcc322f1c78e0f540fbbd3674cba9bb0",7163,3164,1,4,"animal-equus-caballus","point",["Italy"],[42.249167,11.756111,42.249167,11.756111],2607.0,2607.0,0,[]],["nodes","30c334ce5b03fb6af19da45f83b10552dfe8f33a5aeff42ab6213e1f80ac5b58","347cb41cedfecf5ec10be53533e8af22a322cff6337695791a686f086dedee9f",35206,5080,5,4,"animal-equus-caballus","point",["Kazakhstan"],[47.237169,62.7610338,52.843,84.542033],2243.0,3806.0,0,[]],["nodes","a33db550d29bb55360789e2f1142c5411ddcbd1db4e56c7cb854bd0bf27599d0","a63d9e8ba2f96ad70dd989391f473f219351af6d3def638376107ea7501045e1",14144,3692,2,4,"animal-equus-caballus","point",["Moldova"],[47.987105,27.169232,48.159923,27.788329],3200.0,4013.0,0,[]],["nodes","5618096146d5ea419c37ccb5696ba6e477945a7b811093eb54819e365ac0e5ab","4c5a5a125605ab437ed945dc1bd4e59fe27a1394ff84624943f96aeab0a8360a",90587,8144,13,4,"animal-equus-caballus","point",["Mongolia"],[46.4,89.99,51.421361,103.277861],2608.0,3095.0,0,[]],["nodes","9616438a916e4e71d8c219f73a371b42ff3d82be4dc170db39a4dbb5b5b2693b","83100aed62248fce20d684ce35f0de6e119b1fdc10916223cd9fc53f50422934",21598,4192,3,4,"animal-equus-caballus","point",["Poland"],[50.143,20.04609,50.35749,20.4654],2599.0,3500.0,0,[]],["nodes","76ed3ee32118ff70e5bb30ca97b1a6aa3ceb5c973493f9db6f271c0abc21f54e","bd335a94a0444fc4c64ac545e2279f83b2865c5c9d4a72852db25b3c3dcbd2ba",118854,9988,17,4,"animal-equus-caballus","point",["Russia"],[43.79028,42.7278,53.658,93.5225],2530.0,3904.0,0,[]],["nodes","0a94f0c8184e91b45b6b9e8e25cf2eef9b93125082271ada605c0380f133a72b","1bcdce9750f38b6136e65286ce91b15a010e8d4277e1b876487bef97b7e8061e",7287,3192,1,4,"animal-equus-caballus","point",["Slovakia"],[48.069502,18.200384,48.069502,18.200384],3633.0,3633.0,0,[]],["nodes","f45401a94d0fbacf082de4136b23b02a19d69d2c30496691d354bc8c15769158","942ce61971fc0ab30e10877877809a429c690fd7ede1a7eae1502208a1b69165",21062,4168,3,4,"animal-equus-caballus","point",["Spain"],[38.949334,0.95,41.7075,6.064916],2267.0,2688.0,0,[]],["nodes","3a35f437810737e08fbff3476d3923400c7e61d229e61030f224fb0de2a6b360","28d67d49b85e481ba009d4bfe6eb5e29c6e346a283bcc7c887bdb4d9a09cacab",7394,3220,1,4,"animal-equus-caballus","point",["Tunisia"],[35.873429,8.78621,35.873429,8.78621],2531.0,2610.0,0,[]],["nodes","9cdf1d31abdecf41d34b79a8e765a739614c17fc4c56bcc458de0baacc91075f","903f3774f22acdaf44fa8ce90324dca6db7d53f05923a9d0bf69bcc69f91b8fe",7382,3220,1,4,"animal-equus-caballus","point",["Turkey"],[38.411227,33.835694,38.411227,33.835694],2240.0,4075.0,0,[]],["nodes","49bfd71131df35145634c12b32b194694e712386e6c467f20b6b4c4d6774e362","960dabd3db3c4913e5ce072e16b272dcb3a5efb9cfa083d80648d88f91e0c14e",14169,3688,2,4,"animal-equus-caballus","point",["United Kingdom"],[51.330592,1.389657,51.578275,2.829228],2424.0,2959.0,0,[]],["nodes","d00380b62eff97ed6ac344edef9d446036eba0f23ed1caaad994f0f86f456f1b","0a65f9ca85ccd25cd510f8581968113bc77d00ac9d21971dec5738c4f360d94f",7448,3260,1,5,"animal-equus-caballus-wild-or-progenitor-context","point",["Belgium"],[50.44667,5.00911,50.44667,5.00911],31750.0,35870.0,0,[]],["nodes","b740bc565ed8ab6914c3c20bfc78d4c6e3267f800a4c47e0cc3bb91a5c43afb0","a8bb5ceac6bb1bdebd2cd7d306a70540f4a9b23ccf98023d09fdb69187cce196",15544,3888,2,5,"animal-equus-caballus-wild-or-progenitor-context","point",["France"],[44.499039,1.692232,48.871883,2.157139],12350.0,23605.0,0,[]],["nodes","7ecba311bfde9c6770784ab4da2e22395568e029262bf5e53de0422612a23671","274c7c8925d04024a3eac5d17002e9b3b5d809b5088d45b2d4a9b07aafe872f7",7571,3300,1,5,"animal-equus-caballus-wild-or-progenitor-context","point",["Romania"],[45.807945,22.812173,45.807945,22.812173],36751.0,36751.0,0,[]],["nodes","e513af8f456aa29be37a5d98fb2c2da977b11a6ded73ceacaae642d0f87dc651","262f026052dc41431c5bf7e5ded84021e45146e7358b09c585132a1f1de1edfa",71114,7488,10,5,"animal-equus-caballus-wild-or-progenitor-context","point",["Russia"],[51.376,39.071,73.046,134.766666666666],5155.0,44950.0,0,[]],["nodes","359564fdd0adccc0f4f248718c78e4c321983f2843e5554890897cb4d640dff2","63beff8e3fea25ddd876274d9fde8ba2a39cc3453d6c622bde7387456db5ca4a",7461,3284,1,5,"animal-equus-caballus-wild-or-progenitor-context","point",["United Kingdom"],[50.467709,3.502667,50.467709,3.502667],14616.0,14616.0,0,[]],["nodes","71b9aae6dbaec78df05db6983b936dcb41f70768b1eedbdaa25a3c585037e3f6","ad172a7ce6123b6a33df9099f007b512cc3d752f1e464d16010dcef5f88a9b97",28189,4420,4,6,"animal-felis-catus","point",["Austria"],[47.8,13.05,48.39,16.85],1630.0,1999.0,1,[]],["nodes","81ea310c8d1fb9a1f2aa5d677f650da254753c1833aa72685efe2a60a7e75490","7306ab355766d054c643233dbd3836a38c93a5a8d0b30e073a955d1393c26806",7387,3188,1,6,"animal-felis-catus","point",["Belgium"],[50.85,4.35,50.85,4.35],null,null,1,[]],["nodes","b95d943a4d0f74f0db736eb95a2f6c922cea9ffc02fa73babf54178cc343b0f1","94c812997eb494620c4e7807c3a3e806ee85234cf08d2bae479409096a29667b",14351,3704,2,6,"animal-felis-catus","point",["Germany"],[53.1,8.83,53.1,8.83],320.0,510.0,1,[]],["nodes","cf041e478553ab21ca6997d5414d38b4221c71304fe049e756438e1916928805","bc74405e4cfe05fe32631b44c4c8b9a95c1ab7b5a0e195fdc75fd41f7fd7a485",63313,6004,9,6,"animal-felis-catus","point",["Italy"],[39.69,8.55,45.41,17.99],510.0,1740.0,6,[]],["nodes","700f8c2d4a6703421e4231c9f23e63fab7c8d9123a2aee3240296bd9de5d3601","f99a3dbf50d182f15ce940aef1d7c8e8715923153ac5865e032c42f65ae6b0da",14450,3752,2,6,"animal-felis-catus","point",["Portugal"],[38.57,-9.14,38.71,-8.9],910.0,1060.0,1,[]],["nodes","387816baa3823e12ea178081b504d25c3754ce5ba5cc76da5ec2c5a660855590","c0ab9a954e590743cccac54bb736a3229d8da7e4a812cfdc0bfedae02564899b",7478,3240,1,6,"animal-felis-catus","point",["Serbia"],[44.74,21.23,44.74,21.23],1530.0,1930.0,0,[]],["nodes","e9c21c7a589bb03d3f0e9fd592757ef8da2c2fa17bce07a0a4e6323868e4e41e","632933db6b125663a26355d2e2ee906363bfca18d8d91dad3c9e532e19f04d94",7192,3144,1,6,"animal-felis-catus","point",["Spain"],[42.58,-2.78,42.58,-2.78],null,null,1,[]],["nodes","edef34d115e4843bde7c012745e2b28ebf916797699be2bc21fb221a01971944","44655a7cad4c7ea321c0915e375725e6e46fef6ef28b71f6ffe00e0b55128fad",28429,4528,4,6,"animal-felis-catus","point",["Turkey"],[37.68,28.95,41.0,30.52],550.0,1375.0,1,[]],["nodes","e0b141d0fbecba12b39a375a820441a103103b9782e5ace375b5ca2649c6e2e9","5077156bb2502df25eb90e37bf6db70045b41ea313a9e580e357b9af8b79f3b0",7869,3432,1,7,"animal-felis-catus-wild-or-progenitor-context","point",["Belgium"],[50.78,5.46,50.78,5.46],1820.0,1989.0,0,[]],["nodes","6f75894248f823843c6ce38044633c515904c6926ad7517ba486d73e972fe24c","c5482fd7d2e91a4f5bc41a032a884a2fdf58c0a68cab3134b3336eef72ec50e6",15450,3804,2,7,"animal-felis-catus-wild-or-progenitor-context","point",["Bulgaria"],[43.41,25.88,43.7,28.54],6049.0,7429.0,0,[]],["nodes","7653ce4bcfd58575d39daf84656b11303f852d86527f1e6ba311da6e369faa8e","c430c2530ae55841cebebb913233e8f0c94d6053fbcef22d7ad19e13862ec08d",7852,3420,1,7,"animal-felis-catus-wild-or-progenitor-context","point",["Greece"],[39.15,20.67,39.15,20.67],2149.0,2349.0,0,[]],["nodes","e56ad2a1847def9badbb1e2587ffc5cfef95a8fdae4a0b7ed165a27835133a1c","5088dbc408905cf5391385ad52d13ca9853e48a858c45b800c9eeb7df969dc7d",37893,5188,5,7,"animal-felis-catus-wild-or-progenitor-context","point",["Italy"],[39.77,8.33,44.16,16.15],1410.0,7319.0,2,[]],["nodes","09e0fd74f23c9b5f2a462542d00846538392e2d45b160d2f6a72c822abb50ffb","9a9519aee9c08be65fc8dbb1907af7c2d9b9d3bb9a30c14f2afe917444aed1d8",7932,3448,1,7,"animal-felis-catus-wild-or-progenitor-context","point",["Serbia"],[44.74,21.23,44.74,21.23],790.0,960.0,0,[]],["nodes","3bd35b75af7ae5227490ef624c8b91fbb24d95a8ca5629912ae47f3e1cdf30e3","4eb0f8f270dd042effdec2ae11d7600631cc1a152ba7bb04d9af983cc9d8c5f0",15413,3936,2,7,"animal-felis-catus-wild-or-progenitor-context","point",["Spain"],[37.05,-2.39,42.47,0.53],4349.0,7249.0,0,[]],["nodes","a7cf5ea3225b0d324301f707347223c147446d78c97426ed0bcffcc769665b6a","725036fbd63555da94016adaf6de52023111156f85fd211080e7f59ec6a16475",22915,4172,3,7,"animal-felis-catus-wild-or-progenitor-context","point",["Turkey"],[37.21,29.52,40.28,34.23],7929.0,9899.0,0,[]],["nodes","1b3b20ff57a705b78ab182b28ad11f0d0f21c647ffef3b6a8d846b320cea1c7b","b9deb1d2a973ed38a898ee9ddfc0566535dccd11b2db7cce3ccd558266d3f4f8",6876,3180,1,8,"animal-ovis-aries","point",["Finland"],[60.23,20.08,60.23,20.08],340.0,527.0,0,[]],["nodes","8c03251553dee07206e66acb2eae5b72793c040128b3a17aea532879869d6bb3","54118a8d30aa7e59eac14c3ca3116386c6b96fee71d5169e9d3103ba19ff2293",7003,3204,1,8,"animal-ovis-aries","point",["Sweden"],[57.29,17.97,57.29,17.97],3699.0,4151.0,0,[]],["nodes","d5065d44d5281bce015e73e83fd67294d1f2fa6042f137241e5db10e54413a2f","e9a81e6b8b0c8c22b9b061a319ade9fb88c1a5e30db398fe714c0507f9d8467c",16913,4384,2,9,"animal-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],1000.0,4700.0,0,[]],["nodes","0308580238ed29944c5d9412fce7b98912f318f00cf9dcb49e23a71cfcb0d1f0","de30e6e716cacf6d5e56612194e4c2f9d0fe0373bbb1bf5a0ca32abf9058646e",47142,23436,1,10,"country-boundaries","polygon",["Denmark"],[54.56859,8.094005,57.751166,15.151378],null,null,1,[]],["nodes","7eb73256ab9d306a64cd9fed6089a2420247441d05402ff49080ea8528558929","7450330c740ad6ae971f5b507592b6a142d17949e3610a886b88ed0a03827ae2",70882,35316,1,10,"country-boundaries","polygon",["Finland"],[59.811225,20.623165,70.07531,31.569525],null,null,1,[]],["nodes","0a27533c58ab50eedd9a5498ef5745717f0c1ebf6a1548963d9deb587ff8e8ba","d05951f28fe056446d80a7ea266d8d4b9c4a127251fd036041d772cd5a277a3f",341277,165788,1,10,"country-boundaries","polygon",["Norway"],[-54.462498,-9.117421,80.770087,33.640391],null,null,1,[]],["nodes","204c50ecc1b454a0cac5f5a8215fab0bc5941b9c9525fe0c276594e85cdae0ee","54d41c95f0281529194952a1f9330d2a8e20701452ae0a611cec8f824ae5ada9",102301,50016,1,10,"country-boundaries","polygon",["Sweden"],[55.342678,11.108165,69.036356,24.163414],null,null,1,[]],["edges","1c2b2b67bb9866434cff17ad80127b2a8ab888379a28c3d301aba68922ca68a9","7e66b2b7bfd43f41b4310a8d87e1e20889ca2e706ae4a0c40bd9f762796c137c",275,583,0,null,null,null,null,null,null,null,null,null],["sequences","7b3f13d5a22ea469d91e63bcb583b5c28781002f844d43ba2103028392f0acce","05e81e70e2b79827337ce9e954dd42bc8359a148cfa2c57cc106071808193648",290,602,0,null,null,null,null,null,null,null,null,null],["indexes","b9952388556f7ddfeec103ba6d9f13264491783bc9bbc5422fddcb70540cddfd","84641e3ce64df1a116476f27c0e843ab71a648daba9ed0a3db018e971bf13934",21907,22327,1382,null,null,null,null,null,null,null,null,null]]}}</script>
+    <script id="atlas-static-bootstrap" type="application/json">{"schema_version":"atlas-static-bootstrap.v2","scope_slug":"world","version":"v66","build_id":"atlas-85e04f09244632f09e395eb93b6de8b443f40acab52c6953ccdb21bbdf3881be","load_strategy":"selection_aware_static_scripts","offline_file_compatible":true,"transport_integrity":{"http_https":"subresource_integrity_plus_payload_sha256","file":"payload_sha256_after_script_registration","file_pre_execution_sri":false},"compatibility":{"provenance_schema":"atlas-provenance-chunk.v3","node_schema":"atlas-node-chunk.v1","detail_schema":"atlas-details-chunk.v1","edge_schema":"atlas-edges-chunk.v1","sequence_schema":"atlas-sequences-chunk.v1","index_schema":"atlas-static-indexes.v3"},"budgets":{"bootstrap_max_bytes":262144,"chunk_max_bytes":4194304,"document_max_bytes":524288,"static_assets_max_bytes":134217728,"static_assets_max_files":512,"initial_max_requests":4,"initial_max_bytes":1048576,"interaction_max_requests":128,"interaction_max_bytes":67108864,"filter_main_thread_max_ms":50},"domains":{"nodes":{"status":"available","record_count":1917},"edges":{"status":"unavailable","record_count":0,"reason_code":"governed_map_edge_model_not_available"},"sequences":{"status":"unavailable","record_count":0,"reason_code":"governed_sequence_detail_model_not_available"},"provenance":{"status":"layer_metadata_only","record_count":17,"reason_code":"record_level_provenance_model_not_available"},"details":{"status":"unavailable","record_count":0,"reason_code":"record_level_evidence_not_available"},"classifications":{"status":"unavailable","record_count":0,"reason_code":"accepted_scientific_classifications_not_available"},"indexes":{"status":"available","record_count":1913}},"assets":{"schema_version":"atlas-static-asset-table.v3","scope_slug":"world","fields":["domain","sha256","payload_sha256","decoded_byte_count","byte_count","record_count","layer_index","layer_key","layer_kind","country_keys","bounds","time_min_bp","time_max_bp","untimed_record_count","chronology_absent_record_count","refused_chronology_record_count","contextual_chronology_record_count","scientific_signal_ids"],"record_count":116,"records":[["provenance","43efb4e2cbd5a646ce5a70dc7958ec08edb9d52834b589a4c3d9415c0bfdf54f","9a82ab01a538b448de9e2d5cebfdfca194f391569457bfc51cd4174cd5a07a2f",22406,3624,17,null,null,null,null,null,null,null,null,null,null,null,null],["nodes","0dbe65bd053317ab84c8f0df7d18130de2d1c04078d82515acff594affa5cd52","43198a5f0fbadd28eade692b68c0177a20b25a6d146e59c376330a81ea8dce74",1563669,86875,653,0,"aadr","point",["Denmark"],[54.623,8.728229,57.5065361,14.99854],73.0,10520.0,4,0,4,0,[]],["nodes","6f5df582620e76feef9bcd1b6dd79618bb12c0b265926a6cbe92167ab934471e","cc4f903f21ec4105a20f6f8f05d23e61415bc7cb320371085a8b0d5b46c7886c",71547,4107,32,0,"aadr","point",["Finland"],[60.2,22.178,69.91,27.03],0.0,1688.0,0,0,0,0,[]],["nodes","5b8df33062016000857b08bbaa272706444fae4176ecdf97f2527c3c0404619a","4a9d7e500ef379d12c33b20f987969599d8cdc7bbe80dc75fda8e454adcc9133",311094,19527,130,0,"aadr","point",["Norway"],[58.064,5.126940543,70.117388,19.017706],0.0,9486.0,0,0,0,0,[]],["nodes","84dbccf52a8f72dec5e023468568cead6e450c1cb4dcd63f5f6bad662bd4fcb8","8420a3f1dc7518889d473b2c41432c9ae545f30e334a3a4141022eb224fe0366",1003353,49539,416,0,"aadr","point",["Sweden"],[55.37774,11.3007,63.2,18.7],274.0,10010.0,0,0,0,0,[]],["nodes","fd7cc2026f3183e353659534704d639674906b40f4608d30afaca54f8feabea5","0bdcb8f00fe87804410fd9fc6fd436fa09f5d97486b6733ef029753e256258c1",17239,4223,2,1,"animal-bos-taurus-wild-or-progenitor-context","point",["Denmark"],[55.3584015935903,9.8686973853874,57.2407065497517,11.3931303537925],6748.0,8173.0,0,0,0,0,[]],["nodes","c91938aa3bb4ce7bcc1b9584e34c58939c03864bdb8337eb43bbe11ee7b16935","18324207f54f54d78b86b7129fd9fdd016ee97fdbbc621274a847170a0004896",15689,3855,2,1,"animal-bos-taurus-wild-or-progenitor-context","point",["Sweden"],[55.6219,13.2297,55.8476269883224,13.8093770947441],9133.0,9657.0,0,0,0,0,[]],["nodes","782d90b32529aac94ac8f567f72c6f901f863f167747baac8907775c20f26c18","1c3bd5dd32cba66c008728efd12315daee108a314f579b5fc83ff8caf1964e49",7231,3171,1,2,"animal-capra-hircus","point",["Aksaray Plain, Turkey"],[38.540978,33.771234,38.540978,33.771234],3833.0,3984.0,0,0,0,0,[]],["nodes","8b8d6bf36801babf2a3a3d692c292bef5ea81f21bd32dda69e3f523751f9701b","448c5544f321ceb4f9c2c32b2d56dbf96916d655e0593f5c65dee7ad27ab64fb",7310,3179,1,2,"animal-capra-hircus","point",["Burgos"],[42.2853,-3.8335,42.2853,-3.8335],null,null,1,0,0,1,[]],["nodes","2590016e0439b6ae90d66c85d6c65d300a1e78365564842097406dc5325c2c07","6290b6abdc2e6b4bc7cbe508f738771d77002ec408765bca7082d3f5efe97e65",7556,3195,1,2,"animal-capra-hircus","point",["China"],[36.584302,100.502975,36.584302,100.502975],3480.0,3580.0,0,0,0,0,[]],["nodes","62795128939f15b51133b90a5f0f40d62472790219e298e367a6da6031df46c0","30244ccc0dfe53feb8043bd94b64362cd803f95733a5a5f17f927f8b89a33e46",7573,3240,1,2,"animal-capra-hircus","point",["El Hierro"],[27.640201,-17.989809,27.640201,-17.989809],null,null,1,0,0,1,[]],["nodes","d0d57e976fe15cfb3802cbd697f39eb565d94f10171a71117e544367b35bf63d","bff8318bf8e744160027fb3d7e28ced5eb1e55768125a93468435c0e63350c59",23073,4240,3,2,"animal-capra-hircus","point",["Fuerteventura"],[28.408761,-14.125189,28.665573,-13.899854],null,null,3,0,0,3,[]],["nodes","e8ce6928b2a17f7ae77267ee705ec26706a60308ae826ad8d3c9aef16570b128","fad231077b1a26a09332feba3182649ee42c571cd59a48c2ce49bf229c6a684c",36319,4896,5,2,"animal-capra-hircus","point",["Gran Canaria"],[27.8812894086404,-15.813492,28.151167,-15.381412],null,null,5,0,0,5,[]],["nodes","016c01f0c6cbeb6bec9a9bcfd32abe1f25cec5758b5c1d40a6be3aa623ab3f78","2f141cb7359f9445810c1d912545d3d236caf0f0e5c2e58f12aa519a35f8b4c9",22097,4136,3,2,"animal-capra-hircus","point",["La Gomera"],[28.085573,-17.323679,28.178344,-17.149227],null,null,3,0,0,3,[]],["nodes","2e8a6bc3b35baeeb3abd6e0e05ec1294b913f93b525d60b8246f0df69f27a615","40d698a99a7839f4da79e4667d50e2e9b76bc3bea5c0f29ed960f73d5cb08aa1",28360,4416,4,2,"animal-capra-hircus","point",["La Palma"],[28.552055,-17.9765,28.7924,-17.765601],null,null,4,0,0,4,[]],["nodes","e7c2bd0834edb0745f1a2e9dfc0e88bdce598c8070d8558fa8010ddae11439f8","d7dd5ca72d9f4c719b342018955f749bef8212cb88b6185fdac35a61dc2f80ad",7306,3200,1,2,"animal-capra-hircus","point",["Lanzarote"],[29.078038,-13.596783,29.078038,-13.596783],null,null,1,0,0,1,[]],["nodes","2e1f534746f618c25f01a5cbc88a3f130e9be708c615cbab89f7836945b078be","1a6ab4e521d82b1be5eac80adf36607af0393eea3b2e06ca4e38b00f7b34b948",7184,3168,1,2,"animal-capra-hircus","point",["Semnan, Iran"],[36.504158,55.000786,36.504158,55.000786],7939.0,8170.0,0,0,0,0,[]],["nodes","70387724d60dee9831a81c281498e606c712ff1faa802606873501d5b2d4f20c","2fe835579f05284ba2bcc1e35223ae5d9b57d823dd4201eb749d38674022dbcb",21334,4020,3,2,"animal-capra-hircus","point",["Tenerife"],[28.0842,-16.5289,28.422,-16.3133],null,null,3,0,0,3,[]],["nodes","56d59d5e2c2f1a020b71c61cab7f3cd0cda4c9ec0bfe6e08caf0d2d3d03287cd","f982645dd9635b4cc3dcd4e3d5e3d0f4157af7b207e7a3a5a9df62ca7ccf661c",7176,3172,1,2,"animal-capra-hircus","point",["Trstenik, Serbia"],[43.723286,21.099449,43.723286,21.099449],7840.0,8030.0,0,0,0,0,[]],["nodes","713ba32c503fcbf7b36578ace492859fa71f2e2eb9a11cdae2168e2194864a1a","894a20b54b5c4ac6cd2128eb630f139cca5e7ee09ab94626b88f1bc068b523d1",7469,3260,1,3,"animal-capra-hircus-wild-or-progenitor-context","point",["Taurus Mountains, Turkey"],[37.8578,36.653883,37.8578,36.653883],13169.0,13316.0,0,0,0,0,[]],["nodes","201b0ff348b69f69c873ad168005089a8fe0b46a542d652b925c99cefdf7d7b4","958e7530fc3c35cf09e533f171e04a3549df25e0969757d52a583cd9e6fbea39",7201,3176,1,4,"animal-equus-caballus","point",["Austria"],[48.451361,16.599992,48.451361,16.599992],2535.0,2535.0,0,0,0,0,[]],["nodes","cb7cf54aaa06834b44d66b93914cbc6bd1104d7a90cc087c3b9cb0d683a59339","ccfad1db83a70a5352d67c435f9547a6b6016679c2be523ed21f67d3e8e24c3f",56158,6192,8,4,"animal-equus-caballus","point",["Czech Republic"],[49.313,13.74354,50.36361,17.15314],2574.0,3987.0,0,0,0,0,[]],["nodes","a061a46b375f696f38bed143a6957697064d5f4fccfbac81e6c01d3aa92bd1e5","db5cdfc2ab99cafff5719431937489e27f7b07d7fe73ab67b0261030e62afca1",14284,3660,2,4,"animal-equus-caballus","point",["Estonia"],[58.410926,23.016137,58.4552,23.0326],2604.0,2650.0,0,0,0,0,[]],["nodes","b572b2fb8fb3983919e46fbc8c77ee82487961b63eca7efa4516ccb108b30679","a6bb917631e6972401207dc798253eccc350dfe148a051abe8dab5cab53019c7",7253,3196,1,4,"animal-equus-caballus","point",["France"],[43.3667,3.4167,43.3667,3.4167],2567.0,2567.0,0,0,0,0,[]],["nodes","c844adf590f82b767288bc388db5dc7de38867e4309667c3ea91df2a728739be","dcdec3c21c89738c4704c2d1b8e4d2e3a46d07f923a4a503e72457e5375adbe8",14169,3664,2,4,"animal-equus-caballus","point",["Iran"],[35.773,45.458817,37.004486,49.938],2718.0,3052.0,0,0,0,0,[]],["nodes","6747c2ab405f86530e420998940cd13a68675e8aa862d89febcbce990a7cf728","d48c4c09e62a41cfed6d98429b6613a0c3e3764def9db34e9fd27a8036830e8e",7163,3164,1,4,"animal-equus-caballus","point",["Italy"],[42.249167,11.756111,42.249167,11.756111],2607.0,2607.0,0,0,0,0,[]],["nodes","762ce98c6a28bbdae8bc63a80cd64d43e46bbde91d0ab23b8537005f51dd1de1","7ba99b58a0ff34760c39f74c55e0aede9e25f5d8fbb3e67857f9b1de11f34382",35206,5076,5,4,"animal-equus-caballus","point",["Kazakhstan"],[47.237169,62.7610338,52.843,84.542033],2243.0,3806.0,0,0,0,0,[]],["nodes","3dd021276c2028eae389e05197ac24af70ed2709e661c04b8202eb5cf408fe6f","35103f66a61287a9fffeb978683d8e30c5e101ca6bd481fa2b92bc7716c64f56",14144,3688,2,4,"animal-equus-caballus","point",["Moldova"],[47.987105,27.169232,48.159923,27.788329],3200.0,4013.0,0,0,0,0,[]],["nodes","31f3c4b05f60c834805dbe350173c5e851cd8d26b6a7a081c7d8469a1a1de867","bd3d1ff0f5c646671a5cff83d8949755e738bf39fb661bbcee79e182410372bd",90587,8140,13,4,"animal-equus-caballus","point",["Mongolia"],[46.4,89.99,51.421361,103.277861],2608.0,3095.0,0,0,0,0,[]],["nodes","922367eec6465b0357a8bc2dec501fc31750d97f3601c8291e7fc2c87b8c80b5","f3888fe67638be8b095dcf657966f125563aae769b45b0f6f9e7c5bc32c1f28c",21598,4192,3,4,"animal-equus-caballus","point",["Poland"],[50.143,20.04609,50.35749,20.4654],2599.0,3500.0,0,0,0,0,[]],["nodes","fa6c23d97ae83f05e33f9f82e6f6211ab964501743ec0ec11184e8db1906378a","a2ca0a5c0ff70d99f65cd1f71afd1b120415eb6358729dcd03aeef141c073280",118854,9984,17,4,"animal-equus-caballus","point",["Russia"],[43.79028,42.7278,53.658,93.5225],2530.0,3904.0,0,0,0,0,[]],["nodes","32b1d6e6bc65202a066677d5b885eada3701f6f4e2385bc5ef53af4ec6c6d171","442b1ccd0618985214aacfe4425a2f302cb584efed42fe859b6c31ebd0185486",7287,3192,1,4,"animal-equus-caballus","point",["Slovakia"],[48.069502,18.200384,48.069502,18.200384],3633.0,3633.0,0,0,0,0,[]],["nodes","012aebdf5c30fd84373ef9a14061358459f884b0346f177775fc49267149d90e","0fc84fb2a7c3de050bc0cc4145ee4cf9bdecd434779e0bdc9fd97bb81b0a2614",21062,4168,3,4,"animal-equus-caballus","point",["Spain"],[38.949334,0.95,41.7075,6.064916],2267.0,2688.0,0,0,0,0,[]],["nodes","df4964f3db5377b9462546d0c1bc5450420d644ae222e5f34d95d8a0bb615071","5acf5930b1df3c100842ab13c2a623c2ea50032b4684fd5e8e69a1031f787f44",7394,3220,1,4,"animal-equus-caballus","point",["Tunisia"],[35.873429,8.78621,35.873429,8.78621],2531.0,2610.0,0,0,0,0,[]],["nodes","fde97d84d29a7e0d7e66283e13b3b78cfa569a78a9c8f9112507363eb313363e","09a1cde3e3c046a017d3651afae134e1677d3cd1f0e6d2a5042ce342b9e2bea3",7382,3216,1,4,"animal-equus-caballus","point",["Turkey"],[38.411227,33.835694,38.411227,33.835694],2240.0,4075.0,0,0,0,0,[]],["nodes","c3f3ac60edc7c531b06f602ffc62a8ddf557bf028e39ba96b19682b1e47c143a","f5b80d78ffaa4032b1a2fabc16f172c0cc42a940fd8f70b3de09055dea7f90a4",14169,3688,2,4,"animal-equus-caballus","point",["United Kingdom"],[51.330592,1.389657,51.578275,2.829228],2424.0,2959.0,0,0,0,0,[]],["nodes","c2a85e09dce5ed4ac57c7c3f517d2e4f568cfd7c5abcfab96fc5c4470a211d03","938d3a00cdeda11ba7800b7a9bb9d38493fc9376c2d0c491f9b8030bf27b1da9",7448,3264,1,5,"animal-equus-caballus-wild-or-progenitor-context","point",["Belgium"],[50.44667,5.00911,50.44667,5.00911],31750.0,35870.0,0,0,0,0,[]],["nodes","e57668e3af090d07e400fdfa49a9a975335b013ec0830e77edce908153f26229","4fdcf791d571843df0f885ed37274d06912d0d77da96d4922be839a35b0ed874",15544,3884,2,5,"animal-equus-caballus-wild-or-progenitor-context","point",["France"],[44.499039,1.692232,48.871883,2.157139],12350.0,23605.0,0,0,0,0,[]],["nodes","c0d099842a6e090b90e146939f573c5cc31248a5c6eb786412f3af1b6f299897","de6e0c690607c0b3cfb406c8550ee67d581df4f050608b43b6bb8596d6e22edd",7571,3300,1,5,"animal-equus-caballus-wild-or-progenitor-context","point",["Romania"],[45.807945,22.812173,45.807945,22.812173],36751.0,36751.0,0,0,0,0,[]],["nodes","54c73daa57e3c57431df99e7f9b6ee86c2ffd894b17b7dbce3f63804d7900ff8","ecb7b2bad09d80c1d463b638d8e9cf4c0727d00013d938ff5d12df1a47f29d77",71114,7484,10,5,"animal-equus-caballus-wild-or-progenitor-context","point",["Russia"],[51.376,39.071,73.046,134.766666666666],5155.0,44950.0,0,0,0,0,[]],["nodes","fb71d44d88a43d622f450605230bbec0ec3bf363dbeb2dc9d3a843f45e5f4aa9","55a5c00c8c26bfa9b1d4e332bcfb89b1f0cf5ebf00decf046af226226fcde0f9",7461,3280,1,5,"animal-equus-caballus-wild-or-progenitor-context","point",["United Kingdom"],[50.467709,3.502667,50.467709,3.502667],14616.0,14616.0,0,0,0,0,[]],["nodes","d26cf46590c7e38ff382a9b5be17f7fa95d337eebe460fa831dd3798f26d12f8","2216d2827e9c11a74560d13f2f69c1e6af4867bcdfe431354cb1dacd1c5d2ac9",28189,4420,4,6,"animal-felis-catus","point",["Austria"],[47.8,13.05,48.39,16.85],1630.0,1999.0,1,0,0,1,[]],["nodes","1ec57c7e61cac33ede6565871c346430f95594f55e81a148b8cd79f74864112f","1778e5e92b2de443c3836a57b8f764c4a9a981b2ad73a2922d270fc3d13ac836",7387,3192,1,6,"animal-felis-catus","point",["Belgium"],[50.85,4.35,50.85,4.35],null,null,1,0,0,1,[]],["nodes","9fd009cc3c54fb9c864b5703115378feb6b1671582c13bdb56c9313717d86b06","8da5ef8f1315e5bdf51ed9b26b5e8eac32db7fe6e62f5512f981e840c1765ab4",14351,3704,2,6,"animal-felis-catus","point",["Germany"],[53.1,8.83,53.1,8.83],320.0,510.0,1,0,0,1,[]],["nodes","f8c45bfb88441bd0c8b91a3c7c3a9dea8a31f34a7a2bb39e9c609c1988c7a955","e2dbf9525ed7b2c8ebfc9454922ac1dedee2578f0617f7074f1a28c03853c5be",63313,6004,9,6,"animal-felis-catus","point",["Italy"],[39.69,8.55,45.41,17.99],510.0,1740.0,6,0,0,6,[]],["nodes","0f975c37586a187347654d7d033032df44785974808b7137b156812e4296e41f","c11c014a918d5625a645e2e29409dedfb5098846be368f6a25ea010f01f94621",14450,3752,2,6,"animal-felis-catus","point",["Portugal"],[38.57,-9.14,38.71,-8.9],910.0,1060.0,1,0,0,1,[]],["nodes","9b5bbb9f43a5cff37ed2b7d36b302397aaa6ca288f16e05eee2b73565c17f0f7","c1b138f25c0298220f3e274c0a3eabfecd5b12446d7c7e89952ad8a7e7966c00",7478,3240,1,6,"animal-felis-catus","point",["Serbia"],[44.74,21.23,44.74,21.23],1530.0,1930.0,0,0,0,0,[]],["nodes","0355947a7ed317bd9441d43647068b88f335d74742e67630913a2b388d6cb39f","c57a4f46a500e5f75b43fc4cd709024937960a8b9ad14a73208418240e9e8e7a",7192,3144,1,6,"animal-felis-catus","point",["Spain"],[42.58,-2.78,42.58,-2.78],null,null,1,0,0,1,[]],["nodes","becf298c26d4aec00b633c88b196ab936e326d8f2820d5e8192ee49e229a7534","e9f9cd8d49626f45787edbb54d559c81c4a95082bf8bf46f611baaedf2f571b9",28429,4528,4,6,"animal-felis-catus","point",["Turkey"],[37.68,28.95,41.0,30.52],550.0,1375.0,1,0,0,1,[]],["nodes","34ee06e793f791b65ff297a37d0ce20fcece58939f6a529abf2d707261688e32","3e3d7f0b8b57d20df93b4e761ba22f60d13969f367bba34cf3c07a965e2a09e0",7869,3432,1,7,"animal-felis-catus-wild-or-progenitor-context","point",["Belgium"],[50.78,5.46,50.78,5.46],1820.0,1989.0,0,0,0,0,[]],["nodes","c717346e2e0eb202c613a898086af29a2c79153eaba80b7e2877d724b99f6338","3bca11d467e00f72c63b29caf7d3b2784af77e0ddcef2cb7caed8e89c424f907",15450,3804,2,7,"animal-felis-catus-wild-or-progenitor-context","point",["Bulgaria"],[43.41,25.88,43.7,28.54],6049.0,7429.0,0,0,0,0,[]],["nodes","d5e224ca934806f2eb2ce5b1ae3cce4f27700699019c13331c8ac757b7ebe3e3","09c4a2d3176824dd7eb303994dcc5a98fce44a8c52688469aa6b0ada37441e86",7852,3420,1,7,"animal-felis-catus-wild-or-progenitor-context","point",["Greece"],[39.15,20.67,39.15,20.67],2149.0,2349.0,0,0,0,0,[]],["nodes","800a6f37c842c3be164095e709380bce75146c52ba210f4e4262e8110bee4b68","35d9b87a70c9a8850d932e8cee8b545281cb42ad306f4b4d8b83aad2a1865471",37893,5184,5,7,"animal-felis-catus-wild-or-progenitor-context","point",["Italy"],[39.77,8.33,44.16,16.15],1410.0,7319.0,2,0,0,2,[]],["nodes","0d999badf44c8da482439b439944e85f270995ad509c4f562a01f2504ea81d02","6c141ff84e2b9a000994b4d752160fbb57b4c58c818944f2f569a174d4e7a8c1",7932,3448,1,7,"animal-felis-catus-wild-or-progenitor-context","point",["Serbia"],[44.74,21.23,44.74,21.23],790.0,960.0,0,0,0,0,[]],["nodes","625d91cd42104ecc2af330296d0a470334e36b56f930b66b42a3c9e3c5b7e89b","be5a517f274ebc89d1baa7aaa490062f4150589d80202771846578991eba28a8",15413,3936,2,7,"animal-felis-catus-wild-or-progenitor-context","point",["Spain"],[37.05,-2.39,42.47,0.53],4349.0,7249.0,0,0,0,0,[]],["nodes","9f292455819414c1de727dd67e7bbfca1d0cc04218f4c1072e92f4a732c080b4","7c2a7dceb5c3372e40958118d3c6b38da2311fd15b3e4cd5d8ec4525fe9ad1b4",22915,4168,3,7,"animal-felis-catus-wild-or-progenitor-context","point",["Turkey"],[37.21,29.52,40.28,34.23],7929.0,9899.0,0,0,0,0,[]],["nodes","bbaebe0a587349ff4c12b15ba4e1eda48400206d0b5f59cbba595ddf281a55fb","f29254f47e8b048f129420d5edb8bbae8d2e6be9f91a93cd09190f2be5741212",6876,3180,1,8,"animal-ovis-aries","point",["Finland"],[60.23,20.08,60.23,20.08],340.0,527.0,0,0,0,0,[]],["nodes","0ea7315bb88d4692091722c4e91b65821301687c980b23b0c16921ae80af0840","3bc8f9b5c0d0145f15886815601d25657cb062358a7abbf878d991cdd686b7ae",7003,3208,1,8,"animal-ovis-aries","point",["Sweden"],[57.29,17.97,57.29,17.97],3699.0,4151.0,0,0,0,0,[]],["nodes","d49973943018634724bd483ef7e45dcc2fc9df0e3b029aaf95458f499b17726b","c4419b650fd645698c602bc515bc5eb032c642746acc9a738adb18329b918c14",16913,4388,2,9,"animal-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],1000.0,4700.0,0,0,0,0,[]],["nodes","cadbf0df7af04b1b53e571f59a1145f8895c5cf921dcc4ff17519b25b8f65b5e","d8510169822a4b7cd35d59d06ed839fefca16d03067d4d4ed799d488dd9bf3d7",25715,4024,3,10,"animal-source-chronology-bos-taurus","point",["Denmark"],[55.3584015935903,9.8686973853874,57.2407065497517,11.3931303537925],6748.0,8173.0,0,0,0,0,[]],["nodes","3adf26e20b82f0ad4956a2e8b31b78871aa3f3b33bb62c7ea13b7eaf3b22d0c1","95e3df8fb561ce6c6b748c3f1f2a9baa8daf556ecde5a0866fdd9d0aa4dcdf30",16718,3424,2,10,"animal-source-chronology-bos-taurus","point",["Sweden"],[55.6219,13.2297,55.8476269883224,13.8093770947441],9133.0,9657.0,0,0,0,0,[]],["nodes","99d619621325a2dba6819a2f4a64bb4c9daf3d35413eb8b9e9f7ebf3ba8b12d5","ddb9e517375f1d2d92e8f4b2a328410a21cbee3b1fcc6e51c7d1250b8b571eb1",31124,3644,5,11,"animal-source-chronology-capra-hircus","point",["China"],[36.584302,100.502975,36.584302,100.502975],3480.0,3580.0,0,0,0,0,[]],["nodes","c66e8f8f779b049a3bbb8ff0dd92f145024b6dc6b0ba3731fe2c4987829ed9c7","df835b34b1caf8ad3912dc5a42d239f16622e9ddc3020844ebe08e9aa4e22c4a",25879,4124,4,11,"animal-source-chronology-capra-hircus","point",["UNASSIGNED"],[36.504158,21.099449,43.723286,55.000786],3833.0,13316.0,0,0,0,0,[]],["nodes","08dea91ce4ab4acf0e9a53e46cf8292ffca7048dec3bd1922c8a591800ea72e6","95a7d4819699e21e47c377b47838986adcaf1d6e1e3a53f4f4bc238b1e69ebeb",6747,2832,1,12,"animal-source-chronology-equus-caballus","point",["Austria"],[48.451361,16.599992,48.451361,16.599992],2535.0,2535.0,0,0,0,0,[]],["nodes","4400ed0731472aadfd37cfc24c62337c8ec85d5440bc04213e9d170c7b3d298b","8beddbb5b0a0941eb55627b8dcb745da14d40ee9128bbb38f99464f5732f5336",12664,3076,2,12,"animal-source-chronology-equus-caballus","point",["Belgium"],[50.44667,5.00911,50.44667,5.00911],31750.0,35870.0,0,0,0,0,[]],["nodes","460684a8f18b08593bb5b977da3ac61010c712332190e9333a339238217871a0","60797531b5845493968f2d400afcdcbf535220c5ae97f337663494f3ac2c8411",6436,2724,1,12,"animal-source-chronology-equus-caballus","point",["China"],[36.8406667,101.9584722,36.8406667,101.9584722],2820.0,2820.0,0,0,0,0,[]],["nodes","810feb881f6af056d04e3425ce89a6dea842cd84b0e1b89882e031a87c9d8356","7965f8b2678344a160976e7f5f3c019567bb1d07d9b6cab876ae336cc1e6ed24",18923,3376,3,12,"animal-source-chronology-equus-caballus","point",["Croatia"],[45.1973255,18.8414917,45.3325281,19.2624907],1187.0,1305.0,0,0,0,0,[]],["nodes","e65310d1132c9a9c2ffa4a682b7f9fd996d5b9f9d0e8b1eee723540ad42ae583","781b8734d8db49db42d835c67422f2bdb1c88693d483769eb5ef31178f4a5887",65214,6764,10,12,"animal-source-chronology-equus-caballus","point",["Czech Republic"],[49.19081,13.74354,50.36361,17.15314],2574.0,5186.0,0,0,0,0,[]],["nodes","e4181118293d7f2d481f39a9c8fbb645f983afe3988ce4a9ab950ba0e75c5264","0f95be82940e1fe1e93f522ec625908617cce391ee373fd3403d93913de28055",13110,3164,2,12,"animal-source-chronology-equus-caballus","point",["Denmark"],[56.41134,10.74481,56.41134,10.74481],4944.0,4961.0,0,0,0,0,[]],["nodes","c8fd2143d656e30341c2445ea1b168d9856f542d5c8006645964b57bd4f159a2","2356f3623784505631f6eef06a1f7dc7bc470912941b9343b33c5762a8b4c1e2",56324,5596,9,12,"animal-source-chronology-equus-caballus","point",["Estonia"],[58.058048,23.016137,58.5431999,26.6781],1017.0,2817.0,0,0,0,0,[]],["nodes","6b34d25dd33d5d20298a1dc138fe1a3389057bd6a215d51796de58f5619f34de","247c6517dd2e14d980f86ff834a7fcbd949263de306cdf1192d50a568202f45e",348312,18268,56,12,"animal-source-chronology-equus-caballus","point",["France"],[43.3667,1.1589729,50.31503,6.172751],217.0,23605.0,0,0,0,0,[]],["nodes","bfff95ee5a3a41a216dcb79a2f45ce18ce088d8273b26bd1f7a015fbb1b02b8d","3a4f1da35dc437cbac8c073078233a9bea4841697e3f3c16330e9bb8ae6b64c6",12487,3204,2,12,"animal-source-chronology-equus-caballus","point",["Georgia"],[41.466667,44.62016419,42.74016371,46.016667],17.0,3604.0,0,0,0,0,[]],["nodes","75212e7a651a1b10d8879938d8c8db03df943729745e6daf807a4e1714b5b5b7","1930cc72fb96d39f5270c03ea8df14f1c8d2889ffe76aa453132c224c535414f",63324,5948,10,12,"animal-source-chronology-equus-caballus","point",["Germany"],[48.3079118,8.26,51.104,11.145],1373.0,4669.0,0,0,0,0,[]],["nodes","91f6cbd9a788850aeae5890a2b7ade647427bbfd61d37fdff8dd39faf8dccdb9","71b75d8e343cffcf5b19d186e5d5cabad732ef30d0bcfd69e9596a1e0f371151",12851,3400,2,12,"animal-source-chronology-equus-caballus","point",["Hungary"],[46.362,17.731,46.9619059,18.9355227],4077.0,4408.0,0,0,0,0,[]],["nodes","78f1ceb19e41828b1303c9cdbb76edadf5dbf24d11259159673316c2394f082d","eb193e3f305a866256b9c0ecb27e841eae591be14706de691fc145e20e836dd9",12423,3032,2,12,"animal-source-chronology-equus-caballus","point",["Iceland"],[65.268,-22.117,65.53,-18.24],917.0,1217.0,0,0,0,0,[]],["nodes","3daf56bac86b0835dcc87972a64590a2783d7ab8f00cb3e231fa2f545af69c2d","8414fc14d6b54318268319b76650814ee46b8dd017c9070fd86f08020eb5b22e",111311,8268,18,12,"animal-source-chronology-equus-caballus","point",["Iran"],[34.730428,45.458817,37.0424531,57.4715652],485.0,3117.0,0,0,0,0,[]],["nodes","18fbb02d545087bd021ece6d22987289bf9b7de092963f91f781c8aa47ec824b","a51ca05a098293a9f045dbb1784fe0f1eb3a9c902210db68e4d5639fc4bc7a81",6744,2824,1,12,"animal-source-chronology-equus-caballus","point",["Italy"],[42.249167,11.756111,42.249167,11.756111],2607.0,2607.0,0,0,0,0,[]],["nodes","b7ce1c7a350167252d97ee95f9cc66f5b418e46f460f8f2167adafcd016b37d9","3e1aa77636700850e0eb074fa53a8070237ba7172976ffb3b637968891bebb85",578053,26880,94,12,"animal-source-chronology-equus-caballus","point",["Kazakhstan"],[43.1836111,18.8838649,53.325935,86.4272922],1143.0,12408.0,0,0,0,0,[]],["nodes","f71b888df4c005245f13d3c2d26d02dbdfd36dc89ccfa3bad681555dcf76d054","9683488a2f561e9dd4d2786077f766af371a751e679c72b10eb90b1e33fca00d",12254,2928,2,12,"animal-source-chronology-equus-caballus","point",["Kyrgyzstan"],[39.9983333,71.0733333,39.9983333,71.0733333],1217.0,1217.0,0,0,0,0,[]],["nodes","2f7cefe0f3789cbf218701d453440e781cb7b66bfcab6788191dd8720e6df623","e62c6972ae87466cc49e83fdd94b4613a6f165b6e118007d450d2952b321a027",55722,4564,9,12,"animal-source-chronology-equus-caballus","point",["Lithuania"],[54.89674,23.87248,54.89674,23.87248],1087.0,1189.0,0,0,0,0,[]],["nodes","8f31511f09701c6e26f3606ca6dc2cd799bdfd0993d141b338c1c2331b6a2561","9a0e9f33eb0f8f56ad104544f1154111e7e88205a367131261688749e79a5d5c",25495,4148,4,12,"animal-source-chronology-equus-caballus","point",["Moldova"],[47.986875,27.169232,48.159923,27.790131],3017.0,4013.0,0,0,0,0,[]],["nodes","24cbc1d938b39c7e96c8a32aed1eb79f53e08af65e154d4f43f21ac09d70e85d","40c286342b6c74f1f88f9b6c0ee096b413f51b8236ea55cfb5b58a5359fe067f",311318,17500,50,12,"animal-source-chronology-equus-caballus","point",["Mongolia"],[45.0997222,88.3488611,51.421361,112.7196944],649.0,3130.0,0,0,0,0,[]],["nodes","dc41959513cd41f901b14524ab4010b7d887819d05cf105fc18ea179598a951d","e563d61b2ab77e0c8d494d628f4b9cd93704acaaa35808907d57fab6b49bc237",76788,6512,12,12,"animal-source-chronology-equus-caballus","point",["Poland"],[50.143,16.562,52.007,20.51853],2599.0,5751.0,0,0,0,0,[]],["nodes","dcc5753afe2789e15bf0b604df90f5df1b4ed8140c9c9b6f05b3da4cc09e1e2f","ab08483e8fdd217ca96ee966b2791140b56ef1fd61294e845ed283f96a79c302",12849,3444,2,12,"animal-source-chronology-equus-caballus","point",["Portugal"],[39.0744,-8.692,39.241,9.2857],817.0,4509.0,0,0,0,0,[]],["nodes","3da1f84fc1e67f139f86d804ea390a09725dc737087ade5b4ad7972c043d7d54","264973c67d6a745f3fe831fa6b0670e627a501569dcde016f480d4c02b22dcef",38610,5036,6,12,"animal-source-chronology-equus-caballus","point",["Romania"],[44.067779,22.0079387,45.807945,26.4696],3574.0,36751.0,0,0,0,0,[]],["nodes","19a47dc72fb4aad7d12d4f56a2cc2d4c296cc645976a01bfe64c350f8af9a0cb","8b6ffccc1756d37beefa67342624f536ce840b4d7fe5ed89fb10b49d0b13863b",688394,40240,109,12,"animal-source-chronology-equus-caballus","point",["Russia"],[43.79028,8.85,73.046,142.821769],192.0,44950.0,0,0,0,0,[]],["nodes","db91154508bfdb36757ef70edb1fd657857c69dbe16e0f5f3e239eb2c33ee4b0","ddb726e3338c17aefa26b11d11d034081a8363bbc004f5a9c8a9316dfe9f08fe",12890,3436,2,12,"animal-source-chronology-equus-caballus","point",["Slovakia"],[48.069502,18.200384,48.655,21.268],1217.0,3633.0,0,0,0,0,[]],["nodes","607ba6dd4be24b2bc6bb91327e80a4906271479765325c129ec062c7a258087e","bd10b5fe813bbd99f70a84a7028da6b12a01f4baaa8155304fa2b1e6b1989336",81803,7780,13,12,"animal-source-chronology-equus-caballus","point",["Spain"],[38.0982811,-7.5592897,43.0092829,6.064916],1617.0,7130.0,0,0,0,0,[]],["nodes","8294f82fdbb782b5a509a84ec8b307769591daf63dd02dc3bb251882a997fbb8","d9fbc239446775f03a648848491c12ff5c2bc9dab5f13b8de8d5049e8f507f06",6316,2696,1,12,"animal-source-chronology-equus-caballus","point",["Sweden"],[59.861,17.639,59.861,17.639],1217.0,1417.0,0,0,0,0,[]],["nodes","3143c619272df26ba60f19967bff2986692d3dd87da148aaced2c1d1686bdf1d","cb95a2abde9da462a0cd0afd4ef397874c9e85f7de3fc3a47b5de261d6f45516",37268,4336,6,12,"animal-source-chronology-equus-caballus","point",["Switzerland"],[47.2333,7.5167,47.65,8.85],1617.0,2017.0,0,0,0,0,[]],["nodes","7c8ab9e4bff42125cadfa290cc2834a50a8995778fe180757bcf0740c18f0351","8a1f5843e128222f5d7500d42a2a7c61dbbd4e245ed7fbb40f16467c506bb04f",19499,3512,3,12,"animal-source-chronology-equus-caballus","point",["Tunisia"],[35.873429,8.78621,35.873429,8.78621],2531.0,2610.0,0,0,0,0,[]],["nodes","f309a2126d6f54ce1230401f4c87b807f7dfcf2734ebcd044ddfd44871390e42","ac5f98e63fb438e8b88bd2796a458df7834b43a6d898ec61c1f6473c7b39f146",155820,9824,25,12,"animal-source-chronology-equus-caballus","point",["Turkey"],[37.847803,27.225306,41.721357,35.1436],1156.0,8269.0,0,0,0,0,[]],["nodes","ab7e7b5c8f4027f259587ae1f7e7381216c13dc6069d757d5ac10e2b07103dc8","144d1e857f2ce94be56beb6749889033ab7654d662852a31ee9f082eea45770f",6457,2736,1,12,"animal-source-chronology-equus-caballus","point",["UNASSIGNED"],[16.049578,-61.569156,16.049578,-61.569156],317.0,517.0,0,0,0,0,[]],["nodes","9ee83e9549c63f5408e2d72249827d23d31e1f159bb445d48c3590c1152d921a","b692e07714604df53d7801c1a424fa472a602fefa3ef941e5e34be70d92e09ae",6784,2832,1,12,"animal-source-chronology-equus-caballus","point",["Ukraine"],[46.86888889,35.43305556,46.86888889,35.43305556],6135.0,6135.0,0,0,0,0,[]],["nodes","3933eade0782aa40f0136662d115f183da3e9a9f932d15c62bf614adedb7d051","edab28841f4a833c789007361115997a82f3df423f6bc663cc0124d577ebd31d",99104,7428,16,12,"animal-source-chronology-equus-caballus","point",["United Kingdom"],[50.467709,-2.97,59.337156,3.502667],117.0,14616.0,0,0,0,0,[]],["nodes","a1f88fddd2a9f48db044949f49de474ff8e5ea959c4c3ed054a6a099c1f2d5f4","7228cce2fb3f0e15538a6096d4cffb1e67a48bf0e6be48b0e0944aa42f008bcc",6340,2704,1,12,"animal-source-chronology-equus-caballus","point",["Uzbekistan"],[38.867278,65.800161,38.867278,65.800161],2853.0,2853.0,0,0,0,0,[]],["nodes","96dba3db9ca28df3e36b2f65a2e22b6db9fcc3d50324a97d62fd73bd5acc0246","e5b6c1537ebd7818e758756277cecf7fd3726caccc3b0d5fa88668dc16774eb5",32263,4032,5,13,"animal-source-chronology-felis-catus","point",["Austria"],[48.12,15.58,48.69,16.87],970.0,1999.0,0,0,0,0,[]],["nodes","efdf9990c8f6d296a9aff8f6ddb13b1bdb2f2713b339cd09ce9222bb5dad7adc","30d909d1dba445848fa3718d6bda530ee204e814ff45417ec8d2defa22896e02",6891,2812,1,13,"animal-source-chronology-felis-catus","point",["Belgium"],[50.78,5.46,50.78,5.46],1820.0,1989.0,0,0,0,0,[]],["nodes","65a2433a836891adee410cd2a1a4ad5edd771739ae694c12e501f1186ea48bd8","cedffbd7d8730317e7a2b595140410490bed7d392487553ac46827d1ab728432",32806,3820,5,13,"animal-source-chronology-felis-catus","point",["Bulgaria"],[43.41,25.88,43.7,28.54],6049.0,7429.0,0,0,0,0,[]],["nodes","39228372a5f432f54e971727dc7c5201494a9c631bb2555a2f6858cbd496be83","ad94ed990fcb3f11ae7a6794b5d3bc02671b88e705a15e4c69edfc9c5abd4a3b",6854,2800,1,13,"animal-source-chronology-felis-catus","point",["Germany"],[53.1,8.83,53.1,8.83],320.0,510.0,0,0,0,0,[]],["nodes","bcd6c38d30bb0d5ac632e703287e275ff92cefe02bfa8b9a77a4c8afd7f0a0d6","9c5ae3538fe0c89d5a23bdf63d101c511449fdba3e01cfe9c8766221e6c36464",6871,2797,1,13,"animal-source-chronology-felis-catus","point",["Greece"],[39.15,20.67,39.15,20.67],2149.0,2349.0,0,0,0,0,[]],["nodes","fb5f047fe54d8850abd0e3b66c884a054d5cb9b75d82868fdbce5f24c3325e68","a2d335c455f119f3121808109803146a5902321b529cf7c6a295b6f86d67e5dc",39150,4721,6,13,"animal-source-chronology-felis-catus","point",["Italy"],[39.8,9.0,45.41,13.41],510.0,7319.0,0,0,0,0,[]],["nodes","0cd10648e8bccb1b978bf3033d4790b992ab882d212338a303795ac45b3e5fb3","40937cac690119f65c053be98bd2dc7aff3beb09e4f4eaa3d55573fb8fa495ff",19701,3313,3,13,"animal-source-chronology-felis-catus","point",["Portugal"],[38.71,-9.14,38.71,-9.14],910.0,1060.0,0,0,0,0,[]],["nodes","5fd4c57d2ac6edcd3de7fb1316e051c9bacf7add0e03128cb358d63ead429b9c","8adf7fa7fb24a235cecd85c5184f99f08e87320f61452a41a97a382ad77495a6",19796,3473,3,13,"animal-source-chronology-felis-catus","point",["Serbia"],[44.74,21.23,44.74,21.23],790.0,1930.0,0,0,0,0,[]],["nodes","60f46432f636981b843d3c82446ee3ea3fc7d8e3ddc09c96b69cd18eb7fedba5","71cf9abf7dd0056e8f2b23335a93937140a43fe85835c9fe8547434af27cb8c3",13550,3321,2,13,"animal-source-chronology-felis-catus","point",["Spain"],[37.05,-2.39,42.47,0.53],4349.0,7249.0,0,0,0,0,[]],["nodes","60fe5c4541d6824cb3a6e9e53506beb0d19d7ec31ee7af4d5e34baf47d69b56b","e6501b1171e9bcb0533437e619088087a33f59fe2ead8b09fcff30cdfb6add76",52526,5213,8,13,"animal-source-chronology-felis-catus","point",["Turkey"],[37.21,28.95,41.0,34.23],550.0,9899.0,0,0,0,0,[]],["nodes","dac835dc2df92d8884d12560d136ae1edee25d4f3629abba350b1de27bb70dd5","7ba5b54e0e123e7b83eed38fbdf3b9d4df3e11ff092ab70346bbbd6978b9b00e",12421,3429,2,14,"animal-source-chronology-ovis-aries","point",["Finland"],[60.23,20.08,60.23,20.08],340.0,527.0,0,0,0,0,[]],["nodes","a0f42bf8e726420594219c753ebd2186a46412bda41fb6f2b8ca36691a926e24","6d0abb64ffcb0ea032b9431a5f419a8b47b143b6e59f83d078ad44e53cc96225",12014,3205,2,14,"animal-source-chronology-ovis-aries","point",["Sweden"],[57.29,17.97,57.29,17.97],3699.0,4151.0,0,0,0,0,[]],["nodes","0da639475353c04b2ebb04ad23f9ed75023e88e1b4527f928dffa98291c22fde","57939bb99b03b03747ff305f6b989fdacce7db771dbaa736cfd7b3258b61c3f6",13447,3161,2,15,"animal-source-chronology-sus-scrofa-domesticus","point",["Denmark"],[55.02158609,9.77344984,55.39416667,11.26527778],1000.0,4700.0,0,0,0,0,[]],["nodes","fc5fc5dc28e99afb37250832b8e6ec6477a9444b32edc94ac44d35b8040d4111","3e2a42f88871c873c522d8dbe412a74d9f4bbf95f928efb112b4427dfb176a67",47143,23433,1,16,"country-boundaries","polygon",["Denmark"],[54.56859,8.094005,57.751166,15.151378],null,null,1,1,0,0,[]],["nodes","3aad187fb7a88440e01bd34d05e4f4341f1e0f5a47776924d3682bee1af61b5b","5c75951502661cdc5ea64575390781ea70e696da65d5b7db2e3bd0e4894ba441",70883,35313,1,16,"country-boundaries","polygon",["Finland"],[59.811225,20.623165,70.07531,31.569525],null,null,1,1,0,0,[]],["nodes","258a9f5a44b121fa1f230bb01424d28265688fe32c0bfc8a0724b99ac0c05974","2f718d9e1a71fba610151f5f6069d21258d7440a0f57b27bc5768262c048a990",341278,165785,1,16,"country-boundaries","polygon",["Norway"],[-54.462498,-9.117421,80.770087,33.640391],null,null,1,1,0,0,[]],["nodes","e5f6b95b3e0c86cf76a670c5549ea87151637903ddb626d15551ebe8a496dda7","68c56880636f59ebad7edd1a98957c412c5ad593914aec98bdb952f158b10615",102302,50005,1,16,"country-boundaries","polygon",["Sweden"],[55.342678,11.108165,69.036356,24.163414],null,null,1,1,0,0,[]],["edges","29a4ed2539e207a73ad25320efa0c4ae101cb39d6114f2b6deb5996c2fbaf685","3f41dae7632d100ba9e1d08e1e1903a3e9358d3fcbd22bbc1403893ea26f1f5b",276,585,0,null,null,null,null,null,null,null,null,null,null,null,null],["sequences","7babc28f7dfebcf3165a55e4e5291048e0416e8f3cb14f21e882e6f5c8120e91","33415c009c72888f0e2acd5b1f1a985275b269a42d157712da41ee07c4ec8edb",291,604,0,null,null,null,null,null,null,null,null,null,null,null,null],["indexes","41ce9f3f2c83016cf648699f8a94dfd60c3c5e981d6520c1230b05bde623eced","3fef2181c5442a1d3fae8af6cdd1aa3f52d58e982ad34739e5c34d8ae8096e48",29822,30243,1913,null,null,null,null,null,null,null,null,null,null,null,null]]}}</script>
     <script src="./_map_assets/leaflet/leaflet.js"></script>
     <script src="./_map_assets/markercluster/leaflet.markercluster.js"></script>
 
@@ -2353,14 +2385,32 @@
         'payload_sha256', 'payload_encoding', 'decoded_byte_count', 'byte_count',
         'record_count', 'initial_load', 'layer_index', 'layer_key', 'layer_kind',
         'country_keys', 'bounds', 'time_min_bp', 'time_max_bp',
-        'untimed_record_count', 'scientific_signal_ids',
+        'untimed_record_count', 'chronology_absent_record_count',
+        'refused_chronology_record_count', 'contextual_chronology_record_count',
+        'scientific_signal_ids',
       ]);
       const STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS = Object.freeze([
         'domain', 'sha256', 'payload_sha256', 'decoded_byte_count', 'byte_count',
         'record_count', 'layer_index', 'layer_key', 'layer_kind', 'country_keys',
         'bounds', 'time_min_bp', 'time_max_bp', 'untimed_record_count',
+        'chronology_absent_record_count', 'refused_chronology_record_count',
+        'contextual_chronology_record_count',
         'scientific_signal_ids',
       ]);
+      const STATIC_ATLAS_ASSET_TABLE_V2_STORED_FIELDS = Object.freeze(
+        STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS.filter((field) => ![
+          'chronology_absent_record_count',
+          'refused_chronology_record_count',
+          'contextual_chronology_record_count',
+        ].includes(field))
+      );
+      const STATIC_ATLAS_ASSET_TABLE_V1_FIELDS = Object.freeze(
+        STATIC_ATLAS_ASSET_TABLE_FIELDS.filter((field) => ![
+          'chronology_absent_record_count',
+          'refused_chronology_record_count',
+          'contextual_chronology_record_count',
+        ].includes(field))
+      );
       const STATIC_ATLAS_ASSET_CORE_FIELD_COUNT = 12;
       const STATIC_ATLAS_BOOTSTRAP = normalizeStaticAtlasBootstrap(JSON.parse(document.getElementById('atlas-static-bootstrap').textContent || '{}'));
       const STATIC_ATLAS_INLINE = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-inline-bootstrap.v1';
@@ -2381,11 +2431,9 @@
         throw new Error(`Static atlas data cannot be loaded: ${message}. Reload the page; if the problem persists, redeploy the HTML and hashed assets from the same build.`);
       }
       function staticAtlasNonnegativeInteger(value, label) {
-        if (value === null || value === undefined || typeof value === 'boolean' || (typeof value === 'string' && !value.trim())) staticAtlasFailure(`${label} is missing`);
-        if (typeof value !== 'number' && typeof value !== 'string') staticAtlasFailure(`${label} is invalid`);
-        const numeric = Number(value);
-        if (!Number.isSafeInteger(numeric) || numeric < 0) staticAtlasFailure(`${label} is invalid`);
-        return numeric;
+        if (value === null || value === undefined) staticAtlasFailure(`${label} is missing`);
+        if (typeof value !== 'number' || !Number.isSafeInteger(value) || value < 0) staticAtlasFailure(`${label} is invalid`);
+        return value;
       }
       function staticAtlasNullableFiniteNumber(value, label, minimum, maximum) {
         if (value === null) return null;
@@ -2403,13 +2451,18 @@
       function normalizeStaticAtlasBootstrap(bootstrap) {
         if (!bootstrap || typeof bootstrap !== 'object' || bootstrap.schema_version !== 'atlas-static-bootstrap.v2') return bootstrap;
         const table = bootstrap.assets;
-        const compact = table?.schema_version === 'atlas-static-asset-table.v2';
+        const compact = ['atlas-static-asset-table.v2', 'atlas-static-asset-table.v3'].includes(table?.schema_version);
         const expectedTableKeys = compact
           ? ['fields', 'record_count', 'records', 'schema_version', 'scope_slug']
           : ['fields', 'record_count', 'records', 'schema_version'];
         if (!table || typeof table !== 'object' || Object.keys(table).sort().join('|') !== expectedTableKeys.join('|')) staticAtlasFailure('asset table shape is invalid');
-        if (!['atlas-static-asset-table.v1', 'atlas-static-asset-table.v2'].includes(table.schema_version)) staticAtlasFailure('asset table schema is invalid');
-        const storedFields = compact ? STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS : STATIC_ATLAS_ASSET_TABLE_FIELDS;
+        if (!['atlas-static-asset-table.v1', 'atlas-static-asset-table.v2', 'atlas-static-asset-table.v3'].includes(table.schema_version)) staticAtlasFailure('asset table schema is invalid');
+        const splitFields = ['chronology_absent_record_count', 'refused_chronology_record_count', 'contextual_chronology_record_count'];
+        const storedFields = table.schema_version === 'atlas-static-asset-table.v3'
+          ? STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS
+          : table.schema_version === 'atlas-static-asset-table.v2'
+            ? STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS.filter((field) => !splitFields.includes(field))
+            : STATIC_ATLAS_ASSET_TABLE_FIELDS.filter((field) => !splitFields.includes(field));
         if (!Array.isArray(table.fields) || table.fields.length !== storedFields.length || table.fields.some((field, index) => field !== storedFields[index]) || new Set(table.fields).size !== table.fields.length) staticAtlasFailure('asset table fields are invalid');
         if (compact && (typeof table.scope_slug !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(table.scope_slug))) staticAtlasFailure('asset table scope is invalid');
         if (!Number.isSafeInteger(table.record_count) || table.record_count < 0 || !Array.isArray(table.records) || table.records.length !== table.record_count) staticAtlasFailure('asset table record count is invalid');
@@ -2420,7 +2473,7 @@
           if (!Array.isArray(record) || record.length !== storedFields.length) staticAtlasFailure(`asset table row ${recordIndex} width is invalid`);
           const stored = Object.fromEntries(storedFields.map((field, index) => [field, record[index]]));
           const domain = stored.domain;
-          const row = compact
+          let row = compact
             ? {
                 asset_key: `${domain}:${recordIndex}`,
                 domain,
@@ -2437,6 +2490,14 @@
                 ...Object.fromEntries(STATIC_ATLAS_ASSET_TABLE_FIELDS.slice(STATIC_ATLAS_ASSET_CORE_FIELD_COUNT).map((field) => [field, stored[field]])),
               }
             : stored;
+          if (row.domain === 'nodes' && table.schema_version !== 'atlas-static-asset-table.v3') {
+            row = {
+              ...row,
+              chronology_absent_record_count: null,
+              refused_chronology_record_count: null,
+              contextual_chronology_record_count: null,
+            };
+          }
           if (STATIC_ATLAS_ASSET_TABLE_FIELDS.slice(0, STATIC_ATLAS_ASSET_CORE_FIELD_COUNT).some((field) => row[field] === null || row[field] === undefined)) staticAtlasFailure(`asset table row ${recordIndex} core field is missing`);
           if (typeof row.asset_key !== 'string' || !row.asset_key || typeof row.domain !== 'string' || !row.domain || typeof row.path !== 'string' || !row.path) staticAtlasFailure(`asset table row ${recordIndex} identity is invalid`);
           if (!['provenance', 'nodes', 'details', 'edges', 'sequences', 'indexes'].includes(row.domain)) staticAtlasFailure(`asset table row ${recordIndex} domain is invalid`);
@@ -2451,8 +2512,13 @@
           if (row.domain === 'nodes') {
             if (!Number.isSafeInteger(row.layer_index) || row.layer_index < 0 || typeof row.layer_key !== 'string' || !row.layer_key || !['point', 'polygon'].includes(row.layer_kind)) staticAtlasFailure(`asset table row ${recordIndex} node identity is invalid`);
             if (!Array.isArray(row.country_keys) || row.country_keys.some((country) => typeof country !== 'string' || !country) || !Array.isArray(row.scientific_signal_ids) || row.scientific_signal_ids.some((signalId) => typeof signalId !== 'string' || !signalId)) staticAtlasFailure(`asset table row ${recordIndex} node selection field is invalid`);
+            const chronologySplit = [row.chronology_absent_record_count, row.refused_chronology_record_count, row.contextual_chronology_record_count];
+            const splitAvailable = chronologySplit.map((value) => value !== null && value !== undefined);
+            if (splitAvailable.some(Boolean) && !splitAvailable.every(Boolean)) staticAtlasFailure(`asset table row ${recordIndex} chronology split is incomplete`);
+            if (table.schema_version === 'atlas-static-asset-table.v3' && !splitAvailable.every(Boolean)) staticAtlasFailure(`asset table row ${recordIndex} chronology split is required`);
+            if (splitAvailable.every(Boolean) && (chronologySplit.some((value) => !Number.isSafeInteger(value) || value < 0) || chronologySplit.reduce((total, value) => total + value, 0) !== row.untimed_record_count)) staticAtlasFailure(`asset table row ${recordIndex} chronology split is inconsistent`);
           } else {
-            if (optionalFields.some((field) => row[field] !== null)) staticAtlasFailure(`asset table row ${recordIndex} non-node selection field is not null`);
+            if (optionalFields.some((field) => row[field] !== null && row[field] !== undefined)) staticAtlasFailure(`asset table row ${recordIndex} non-node selection field is not null`);
             optionalFields.forEach((field) => delete row[field]);
           }
           return row;
@@ -2486,6 +2552,18 @@
           if (row.domain === 'nodes') {
             const untimedCount = staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key || 'unknown asset'} untimed record count`);
             if (untimedCount > recordCount) staticAtlasFailure(`${row.asset_key || 'unknown asset'} untimed record count exceeds its record count`);
+            const chronologySplit = [
+              row.chronology_absent_record_count,
+              row.refused_chronology_record_count,
+              row.contextual_chronology_record_count,
+            ];
+            const splitAvailable = chronologySplit.map((value) => value !== null && value !== undefined);
+            if (splitAvailable.some(Boolean) && !splitAvailable.every(Boolean)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} chronology split is incomplete`);
+            if (table.schema_version === 'atlas-static-asset-table.v3' && !splitAvailable.every(Boolean)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} chronology split is required`);
+            if (splitAvailable.every(Boolean)) {
+              const splitTotal = chronologySplit.reduce((total, value, index) => total + staticAtlasNonnegativeInteger(value, `${row.asset_key || 'unknown asset'} chronology split ${index}`), 0);
+              if (splitTotal !== untimedCount) staticAtlasFailure(`${row.asset_key || 'unknown asset'} chronology split is inconsistent`);
+            }
             const timeMinimum = staticAtlasNullableFiniteNumber(row.time_min_bp, `${row.asset_key || 'unknown asset'} minimum BP`, 0, Number.MAX_SAFE_INTEGER);
             const timeMaximum = staticAtlasNullableFiniteNumber(row.time_max_bp, `${row.asset_key || 'unknown asset'} maximum BP`, 0, Number.MAX_SAFE_INTEGER);
             if ((timeMinimum === null) !== (timeMaximum === null) || (timeMinimum !== null && timeMinimum > timeMaximum)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} BP interval is invalid`);
@@ -2817,6 +2895,7 @@
             return { ...layer, geojson: { ...(entry.layer.geojson || {}), features } };
           });
       }
+      const SCOPE_KEY = "world";
       const COUNTRIES = ["Sweden","Norway","Finland","Denmark"];
       const POINT_LAYERS = hydrateStaticAtlasLayers('point');
       const POLYGON_LAYERS = hydrateStaticAtlasLayers('polygon');
@@ -2850,21 +2929,28 @@
         { key: 'animal-domesticated-evidence', label: 'Domesticated animal aDNA' },
         { key: 'animal-comparator-evidence', label: 'Comparator animal aDNA' },
         { key: 'animal-progenitor-evidence', label: 'Wild and progenitor animal aDNA' },
+        { key: 'animal-chronology-context', label: 'Animal source chronology' },
         { key: 'candidate-ranking', label: 'Sweden lake ranking' },
         { key: 'environmental-context', label: 'Environmental context' },
         { key: 'archaeology-context', label: 'Archaeology context' },
         { key: 'orientation', label: 'Orientation layers' },
       ];
-      const ANIMAL_LAYER_GROUPS = new Set(['animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence']);
+      const ANIMAL_EVIDENCE_LAYER_GROUPS = new Set(['animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence']);
+      const ANIMAL_CHRONOLOGY_LAYER_GROUP = 'animal-chronology-context';
+      const ANIMAL_LAYER_GROUPS = new Set([...ANIMAL_EVIDENCE_LAYER_GROUPS, ANIMAL_CHRONOLOGY_LAYER_GROUP]);
       const ANIMAL_SPECIES = Array.from(
         new Map(
           POINT_LAYERS
-            .filter((layer) => ANIMAL_LAYER_GROUPS.has(layer.group) && layer.species_latin_name)
+            .filter((layer) => (
+              ANIMAL_LAYER_GROUPS.has(layer.group)
+              && (!isAnimalSourceChronologyLayer(layer) || animalSourceChronologyLayerIsValid(layer))
+              && (layer.species_latin_name || layer.project_species_latin_name)
+            ))
             .map((layer) => [
-              layer.species_latin_name,
+              layer.species_latin_name || layer.project_species_latin_name,
               {
-                latinName: layer.species_latin_name,
-                commonName: layer.species_common_name || layer.label || layer.species_latin_name,
+                latinName: layer.species_latin_name || layer.project_species_latin_name,
+                commonName: layer.species_common_name || layer.project_species_common_name || layer.label || layer.project_species_latin_name,
                 fill: layer.style && layer.style.fill ? layer.style.fill : '#475569',
                 stroke: layer.style && layer.style.stroke ? layer.style.stroke : '#1e293b',
                 animalScope: layer.animal_scope || '',
@@ -2982,6 +3068,8 @@
       const sourceChronologyCodeFields = document.getElementById('source-chronology-code-fields');
       const sourceChronologyCode = document.getElementById('source-chronology-code');
       const sourceChronologyTaxonFields = document.getElementById('source-chronology-taxon-fields');
+      const sourceLabelPresetControls = document.getElementById('source-label-preset-controls');
+      const sourceLabelPresetState = document.getElementById('source-label-preset-state');
       const sourceChronologyTaxonQuery = document.getElementById('source-chronology-taxon-query');
       const sourceChronologyTaxon = document.getElementById('source-chronology-taxon');
       const sourceChronologyTaxonShortcuts = document.getElementById('source-chronology-taxon-shortcuts');
@@ -3052,6 +3140,7 @@
           sourceChronologyLevel: params.get('source_chronology_level'),
           sourceChronologyCode: params.get('source_ecological_code'),
           sourceChronologyTaxon: params.get('source_taxon'),
+          sourceChronologyPreset: params.get('source_label_preset'),
           sourceRecordConcentration: params.get('source_record_concentration'),
           density: params.get('density'),
           basemap: params.get('basemap'),
@@ -3711,6 +3800,43 @@
         if (nodeCount === 0) return row.time_min_bp === null && row.time_max_bp === null;
         return minimum !== null && maximum !== null && minimum <= maximum;
       }
+      function sourceChronologyAggregateIsValid(row, { density = true } = {}) {
+        if (!row || typeof row !== 'object' || Array.isArray(row)) return false;
+        const siteCount = sourceChronologyCount(row.site_count);
+        const nodeCount = sourceChronologyCount(row.node_count);
+        const observationCount = sourceChronologyCount(row.observation_denominator);
+        if (siteCount === null || nodeCount === null || observationCount === null) return false;
+        if (row.site_count_semantics !== 'unique_site_union' || !sourceChronologyExtentIsValid(row)) return false;
+        if (nodeCount === 0) {
+          if (siteCount !== 0 || observationCount !== 0) return false;
+        } else if (siteCount === 0 || siteCount > nodeCount || observationCount === 0) return false;
+        return !density || sourceChronologyTimeDensityIsValid(row.time_density, row);
+      }
+      const SOURCE_CHRONOLOGY_COUNTRIES = Object.freeze([
+        Object.freeze(['SE', 'Sweden']),
+        Object.freeze(['DK', 'Denmark']),
+        Object.freeze(['NO', 'Norway']),
+        Object.freeze(['FI', 'Finland']),
+      ]);
+      function sourceChronologyCountryRowsAreValid(rows, aggregate) {
+        if (!Array.isArray(rows) || rows.length !== SOURCE_CHRONOLOGY_COUNTRIES.length) return false;
+        if (!rows.every((row, index) => (
+          row?.country_code === SOURCE_CHRONOLOGY_COUNTRIES[index][0]
+          && row.value === SOURCE_CHRONOLOGY_COUNTRIES[index][1]
+          && sourceChronologyAggregateIsValid(row, { density: false })
+        ))) return false;
+        for (const field of ['site_count', 'node_count', 'observation_denominator']) {
+          if (rows.reduce((total, row) => total + row[field], 0) !== aggregate[field]) return false;
+        }
+        const populated = rows.filter((row) => row.node_count > 0);
+        if (aggregate.node_count === 0) return populated.length === 0;
+        return Math.min(...populated.map((row) => row.time_min_bp)) === aggregate.time_min_bp
+          && Math.max(...populated.map((row) => row.time_max_bp)) === aggregate.time_max_bp;
+      }
+      function sourceChronologyAccountabilityIsValid(row, { density = true } = {}) {
+        return sourceChronologyAggregateIsValid(row, { density })
+          && sourceChronologyCountryRowsAreValid(row.country_counts, row);
+      }
       function sourceChronologyTimeDensityIsValid(density, facet) {
         if (!density || density.schema_version !== 'source-chronology-time-density.v1') return false;
         if (density.temporal_direction !== 'oldest_to_present' || density.interval_semantics !== '[younger_bp, older_bp]') return false;
@@ -3732,43 +3858,170 @@
           return true;
         });
       }
-      function sourceChronologyFacetRowsAreValid(rows, { featureKey = false, taxon = false, timeExtent = false } = {}) {
+      function sourceChronologyFacetRowsAreValid(rows, { featureKey = false, taxon = false } = {}) {
         if (!Array.isArray(rows)) return false;
         const values = new Set();
         return rows.every((row) => {
           if (!row || typeof row !== 'object' || typeof row.value !== 'string' || !row.value.trim() || values.has(row.value)) return false;
           values.add(row.value);
-          if (sourceChronologyCount(row.node_count) === null || sourceChronologyCount(row.observation_denominator) === null) return false;
-          if (timeExtent && (
-            !sourceChronologyExtentIsValid(row)
-            || !sourceChronologyTimeDensityIsValid(row.time_density, row)
-          )) return false;
+          if (!sourceChronologyAccountabilityIsValid(row)) return false;
           if (featureKey && (typeof row.feature_key !== 'string' || !row.feature_key.trim())) return false;
-          if (taxon && (typeof row.source_taxon_id !== 'string' || !row.source_taxon_id.trim() || typeof row.label !== 'string' || !row.label.trim())) return false;
+          if (taxon && (typeof row.source_taxon_id !== 'string' || !/^\d+$/.test(row.source_taxon_id) || typeof row.label !== 'string' || !row.label.trim())) return false;
           return true;
         });
       }
-      function sourceChronologyLayerIsValid(layer) {
+      function sourceChronologyUnitRowsAreValid(rows, aggregate) {
+        if (!Array.isArray(rows)) return false;
+        const values = new Set();
+        if (!rows.every((row) => {
+          if (!row || typeof row.value !== 'string' || !row.value.trim() || values.has(row.value)) return false;
+          values.add(row.value);
+          return sourceChronologyCount(row.node_count) !== null
+            && sourceChronologyCount(row.observation_denominator) !== null;
+        })) return false;
+        return rows.reduce((total, row) => total + row.node_count, 0) === aggregate.node_count
+          && rows.reduce((total, row) => total + row.observation_denominator, 0) === aggregate.observation_denominator;
+      }
+      function sourceChronologySha256IdentityIsValid(value) {
+        return typeof value === 'string' && /^sha256:[0-9a-f]{64}$/.test(value);
+      }
+      function sourceChronologyLiteralPostureIsValid(row) {
+        return row?.membership_semantics === 'literal_source_label_membership'
+          && row.accepted_classification === false
+          && row.aggregation_is_abundance === false
+          && row.propagation_allowed === false;
+      }
+      function sourceChronologyIntegerIdsAreValid(values) {
+        return Array.isArray(values)
+          && values.every((value) => Number.isSafeInteger(value) && value >= 0)
+          && new Set(values).size === values.length;
+      }
+      function sourceChronologyDerivedFacet(rows) {
+        const populated = rows.filter((row) => row.node_count > 0);
+        return {
+          node_count: rows.reduce((total, row) => total + row.node_count, 0),
+          observation_denominator: rows.reduce((total, row) => total + row.observation_denominator, 0),
+          time_min_bp: populated.length ? Math.min(...populated.map((row) => row.time_min_bp)) : null,
+          time_max_bp: populated.length ? Math.max(...populated.map((row) => row.time_max_bp)) : null,
+        };
+      }
+      function sourceChronologyDerivedCountsMatch(actual, rows) {
+        const expected = sourceChronologyDerivedFacet(rows);
+        return ['node_count', 'observation_denominator', 'time_min_bp', 'time_max_bp']
+          .every((field) => actual[field] === expected[field]);
+      }
+      function sourceChronologyDerivedSiteBoundsMatch(actual, rows) {
+        const lowerBound = rows.length ? Math.max(...rows.map((row) => row.site_count)) : 0;
+        const upperBound = rows.reduce((total, row) => total + row.site_count, 0);
+        return actual.site_count >= lowerBound && actual.site_count <= upperBound;
+      }
+      function sourceChronologyPresetContractIsValid(layer) {
+        const facets = layer.facet_metadata;
+        const catalog = facets.source_label_preset_catalog;
+        const accountability = facets.source_label_preset_accountability;
+        const expectedPresetKeys = ['avena', 'hordeum', 'triticum', 'secale', 'cerealia'];
+        if (!catalog || !accountability) return false;
+        if (catalog.schema_version !== 'neotoma-source-label-presets.v1' || catalog.source !== 'neotoma') return false;
+        if (!sourceChronologyLiteralPostureIsValid(catalog) || !sourceChronologyLiteralPostureIsValid(accountability)) return false;
+        if (catalog.source_snapshot_id !== layer.source_snapshot_id || catalog.build_id !== layer.build_id) return false;
+        if (![catalog.definition_sha256, catalog.content_sha256].every(sourceChronologySha256IdentityIsValid)) return false;
+        if (accountability.schema_version !== 'neotoma-source-label-preset-accountability.v1' || accountability.catalog_content_sha256 !== catalog.content_sha256) return false;
+        if (catalog.source_taxon_count !== 21 || catalog.preset_count !== 5 || catalog.membership_count !== 24) return false;
+        if (accountability.source_taxon_count !== catalog.source_taxon_count || accountability.preset_count !== catalog.preset_count || accountability.membership_count !== catalog.membership_count) return false;
+        if (!Array.isArray(catalog.source_taxa) || catalog.source_taxa.length !== catalog.source_taxon_count) return false;
+        if (!Array.isArray(catalog.presets) || !Array.isArray(accountability.presets) || catalog.presets.length !== 5 || accountability.presets.length !== 5) return false;
+        const presetKeys = catalog.presets.map((row) => row?.key);
+        if (presetKeys.join('|') !== expectedPresetKeys.join('|') || accountability.presets.map((row) => row?.key).join('|') !== presetKeys.join('|')) return false;
+        const taxaById = new Map();
+        for (const taxon of catalog.source_taxa) {
+          if (!taxon || !Number.isSafeInteger(taxon.source_taxon_id) || taxon.source_taxon_id < 0 || taxaById.has(taxon.source_taxon_id)) return false;
+          if (typeof taxon.source_reported_name !== 'string' || !taxon.source_reported_name.trim()) return false;
+          if (!Array.isArray(taxon.preset_keys) || new Set(taxon.preset_keys).size !== taxon.preset_keys.length || taxon.preset_keys.some((key) => !expectedPresetKeys.includes(key))) return false;
+          taxaById.set(taxon.source_taxon_id, taxon);
+        }
+        if (taxaById.size !== catalog.source_taxon_count) return false;
+        const exactFacetsById = new Map(facets.source_taxa.map((row) => [Number(row.source_taxon_id), row]));
+        if (exactFacetsById.size !== facets.source_taxa.length) return false;
+        for (const [taxonId, taxon] of taxaById) {
+          const exactFacet = exactFacetsById.get(taxonId);
+          if (exactFacet && exactFacet.label !== taxon.source_reported_name) return false;
+        }
+        for (let index = 0; index < catalog.presets.length; index += 1) {
+          const definition = catalog.presets[index];
+          const account = accountability.presets[index];
+          if (!sourceChronologyLiteralPostureIsValid(definition) || !sourceChronologyLiteralPostureIsValid(account)) return false;
+          if (typeof definition.label !== 'string' || !definition.label.trim() || account.label !== definition.label || account.key !== definition.key) return false;
+          if (!sourceChronologyIntegerIdsAreValid(definition.member_taxon_ids) || definition.member_taxon_count !== definition.member_taxon_ids.length) return false;
+          if (account.member_taxon_count !== definition.member_taxon_count || JSON.stringify(account.member_taxon_ids) !== JSON.stringify(definition.member_taxon_ids)) return false;
+          if (!sourceChronologyAccountabilityIsValid(account)) return false;
+          if (definition.member_taxon_ids.some((taxonId) => !taxaById.has(taxonId) || !taxaById.get(taxonId).preset_keys.includes(definition.key))) return false;
+          if ([...taxaById.values()].some((taxon) => taxon.preset_keys.includes(definition.key) !== definition.member_taxon_ids.includes(taxon.source_taxon_id))) return false;
+          const memberFacets = definition.member_taxon_ids.map((taxonId) => exactFacetsById.get(taxonId)).filter(Boolean);
+          if (!sourceChronologyDerivedCountsMatch(account, memberFacets) || !sourceChronologyDerivedSiteBoundsMatch(account, memberFacets)) return false;
+          for (let countryIndex = 0; countryIndex < SOURCE_CHRONOLOGY_COUNTRIES.length; countryIndex += 1) {
+            const countryFacets = memberFacets.map((row) => row.country_counts[countryIndex]);
+            if (!sourceChronologyDerivedCountsMatch(account.country_counts[countryIndex], countryFacets) || !sourceChronologyDerivedSiteBoundsMatch(account.country_counts[countryIndex], countryFacets)) return false;
+          }
+        }
+        const union = accountability.union;
+        const allTaxonIds = [...taxaById.keys()];
+        if (!sourceChronologyLiteralPostureIsValid(union) || union?.key !== 'all-governed-source-labels' || typeof union.label !== 'string' || !union.label.trim()) return false;
+        if (!sourceChronologyIntegerIdsAreValid(union.member_taxon_ids) || union.member_taxon_count !== catalog.source_taxon_count || JSON.stringify(union.member_taxon_ids) !== JSON.stringify(allTaxonIds)) return false;
+        if (!sourceChronologyAccountabilityIsValid(union)) return false;
+        const unionFacets = allTaxonIds.map((taxonId) => exactFacetsById.get(taxonId)).filter(Boolean);
+        if (!sourceChronologyDerivedCountsMatch(union, unionFacets) || !sourceChronologyDerivedSiteBoundsMatch(union, unionFacets)) return false;
+        for (let countryIndex = 0; countryIndex < SOURCE_CHRONOLOGY_COUNTRIES.length; countryIndex += 1) {
+          const countryFacets = unionFacets.map((row) => row.country_counts[countryIndex]);
+          if (!sourceChronologyDerivedCountsMatch(union.country_counts[countryIndex], countryFacets) || !sourceChronologyDerivedSiteBoundsMatch(union.country_counts[countryIndex], countryFacets)) return false;
+        }
+        return true;
+      }
+      function sourceChronologyLayerContractIsValid(layer) {
         if (!layer || layer.semantic_role !== 'source_chronology_context') return false;
         if (!SOURCE_CHRONOLOGY_LEVEL_ORDER.includes(layer.node_level)) return false;
         if (layer.propagation_status !== 'refused' || layer.edge_count !== 0) return false;
         if (layer.temporal_direction !== 'oldest_to_present' || layer.interval_semantics !== '[younger_bp, older_bp]') return false;
         const facets = layer.facet_metadata;
-        if (!facets || facets.schema_version !== 'neotoma-source-chronology-facets.v3' || facets.node_level !== layer.node_level) return false;
-        if (sourceChronologyCount(facets.node_count) === null || sourceChronologyCount(facets.observation_denominator) === null) return false;
-        if (!sourceChronologyExtentIsValid(facets)) return false;
-        if (!sourceChronologyTimeDensityIsValid(facets.time_density, facets)) return false;
+        if (!facets || facets.schema_version !== 'neotoma-source-chronology-facets.v4' || facets.node_level !== layer.node_level) return false;
+        if (!sourceChronologyAccountabilityIsValid(facets)) return false;
         if (sourceChronologyCount(layer.count) !== facets.node_count) return false;
-        if (!sourceChronologyFacetRowsAreValid(facets.country_counts) || !sourceChronologyFacetRowsAreValid(facets.source_unit_counts)) return false;
-        if (facets.country_counts.map((row) => row.value).join('|') !== 'Sweden|Denmark|Norway|Finland') return false;
+        if (!sourceChronologyUnitRowsAreValid(facets.source_unit_counts, facets)) return false;
         if (layer.node_level === 'source_sample_presence' && layer.default_enabled !== true) return false;
         if (layer.node_level === 'source_ecological_code') {
-          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_ecological_codes, { featureKey: true, timeExtent: true })) return false;
+          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_ecological_codes, { featureKey: true })) return false;
         } else if (!Array.isArray(facets.source_ecological_codes) || facets.source_ecological_codes.length !== 0) return false;
         if (layer.node_level === 'source_taxon') {
-          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_taxa, { taxon: true, timeExtent: true })) return false;
+          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_taxa, { taxon: true }) || !sourceChronologyPresetContractIsValid(layer)) return false;
         } else if (!Array.isArray(facets.source_taxa) || facets.source_taxa.length !== 0) return false;
         return true;
+      }
+      const SOURCE_CHRONOLOGY_LAYER_VALIDATION_CACHE = new WeakMap();
+      function freezeSourceChronologyMetadata(value, seen = new WeakSet()) {
+        if (!value || typeof value !== 'object' || seen.has(value)) return value;
+        seen.add(value);
+        Object.values(value).forEach((child) => freezeSourceChronologyMetadata(child, seen));
+        return Object.freeze(value);
+      }
+      function sourceChronologyLayerIsValid(layer) {
+        if (!layer || typeof layer !== 'object') return false;
+        const fingerprint = [
+          layer.semantic_role,
+          layer.node_level,
+          layer.default_enabled,
+          layer.propagation_status,
+          layer.edge_count,
+          layer.temporal_direction,
+          layer.interval_semantics,
+          layer.count,
+          layer.source_snapshot_id,
+          layer.build_id,
+        ].join('|');
+        const cached = SOURCE_CHRONOLOGY_LAYER_VALIDATION_CACHE.get(layer);
+        if (cached && cached.facet_metadata === layer.facet_metadata && cached.fingerprint === fingerprint) return cached.valid;
+        const valid = sourceChronologyLayerContractIsValid(layer);
+        if (valid) freezeSourceChronologyMetadata(layer.facet_metadata);
+        SOURCE_CHRONOLOGY_LAYER_VALIDATION_CACHE.set(layer, { facet_metadata: layer.facet_metadata, fingerprint, valid });
+        return valid;
       }
       function sourceChronologyLayers() {
         return POINT_LAYERS
@@ -3779,9 +4032,36 @@
         return sourceChronologyLayers().find((layer) => layer.node_level === level) || null;
       }
       function sourceChronologyTaxonIdentifierIsValid(value) {
-        return (typeof value === 'string' && Boolean(value.trim())) || (Number.isSafeInteger(value) && value >= 0);
+        return (typeof value === 'string' && /^\d+$/.test(value)) || (Number.isSafeInteger(value) && value >= 0);
       }
-      function sourceChronologyFacetForSelection(layer, code, taxon) {
+      function sourceChronologyTaxonIdentifier(value) {
+        return sourceChronologyTaxonIdentifierIsValid(value) ? Number(value) : null;
+      }
+      function sourceChronologyPresetForSelection(layer, presetKey) {
+        if (!layer || layer.node_level !== 'source_taxon' || presetKey === 'none') return null;
+        return layer.facet_metadata.source_label_preset_accountability.presets.find((row) => row.key === presetKey) || null;
+      }
+      function sourceChronologyCapturePresetAuthority(layer, presetKey) {
+        if (presetKey === 'none') return null;
+        if (!sourceChronologyLayerIsValid(layer) || layer.node_level !== 'source_taxon') throw new Error('capture source preset authority is unavailable');
+        const catalog = layer.facet_metadata.source_label_preset_catalog;
+        const account = sourceChronologyPresetForSelection(layer, presetKey);
+        const definition = catalog.presets.find((row) => row.key === presetKey) || null;
+        if (!account || !definition) throw new Error('capture source preset authority is unavailable');
+        if (!sourceChronologyIntegerIdsAreValid(account.member_taxon_ids)
+          || JSON.stringify(account.member_taxon_ids) !== JSON.stringify(definition.member_taxon_ids)) {
+          throw new Error('capture source preset member IDs differ from the governed catalog');
+        }
+        if (!sourceChronologySha256IdentityIsValid(catalog.content_sha256)
+          || layer.facet_metadata.source_label_preset_accountability.catalog_content_sha256 !== catalog.content_sha256) {
+          throw new Error('capture source preset catalog digest differs from governed accountability');
+        }
+        return Object.freeze({
+          memberTaxonIds: Object.freeze([...account.member_taxon_ids]),
+          catalogSha256: catalog.content_sha256.slice('sha256:'.length),
+        });
+      }
+      function sourceChronologyFacetForSelection(layer, code, taxon, presetKey = typeof activeSourceChronologyPreset === 'undefined' ? 'none' : activeSourceChronologyPreset) {
         if (!layer) return null;
         const facets = layer.facet_metadata;
         if (layer.node_level === 'source_ecological_code' && code !== 'all') {
@@ -3790,12 +4070,18 @@
         if (layer.node_level === 'source_taxon' && taxon !== 'all') {
           return facets.source_taxa.find((row) => row.value === taxon) || null;
         }
+        if (layer.node_level === 'source_taxon' && presetKey !== 'none') {
+          return sourceChronologyPresetForSelection(layer, presetKey);
+        }
         return {
+          site_count_semantics: facets.site_count_semantics,
+          site_count: facets.site_count,
           node_count: facets.node_count,
           observation_denominator: facets.observation_denominator,
           time_min_bp: facets.time_min_bp,
           time_max_bp: facets.time_max_bp,
           time_density: facets.time_density,
+          country_counts: facets.country_counts,
         };
       }
       function sourceChronologyPlaybackSelection() {
@@ -3809,7 +4095,7 @@
         return {
           time_min_bp: minimum,
           time_max_bp: maximum,
-          selection_key: [layer.key, activeSourceChronologyCode, activeSourceChronologyTaxon, minimum, maximum].join('|'),
+          selection_key: [layer.key, activeSourceChronologyCode, activeSourceChronologyTaxon, activeSourceChronologyPreset, minimum, maximum].join('|'),
         };
       }
       function genericUntimedExclusion() {
@@ -3819,28 +4105,40 @@
           && layer.semantic_role !== 'source_chronology_context'
         ));
         if (STATIC_ATLAS_INLINE) {
-          const count = layers.reduce((total, layer) => {
+          const classified = { absent: 0, refused: 0, contextual: 0 };
+          layers.forEach((layer) => {
             const pointFeatures = Array.isArray(layer.features) ? layer.features : [];
             const polygonFeatures = Array.isArray(layer.geojson?.features)
               ? layer.geojson.features.map((feature) => feature?.properties || {})
               : [];
-            return total + pointFeatures.concat(polygonFeatures).filter((feature) => (
+            pointFeatures.concat(polygonFeatures).filter((feature) => (
               (!layer.applies_country_filter || activeCountries.has(feature.country))
-              && featureTimeAdmission(feature).status === 'untimed'
-            )).length;
-          }, 0);
-          return { status: 'available', count };
+            )).forEach((feature) => {
+              const status = featureTimeAdmission(feature).status;
+              if (Object.prototype.hasOwnProperty.call(classified, status)) classified[status] += 1;
+            });
+          });
+          return { status: 'available', count: classified.absent + classified.refused + classified.contextual, split_status: 'available', absent_count: classified.absent, refused_count: classified.refused, contextual_count: classified.contextual };
         }
         let count = 0;
         let ambiguous = false;
+        let splitUnavailable = false;
+        const classified = { absent: 0, refused: 0, contextual: 0 };
         const layersByKey = new Map(layers.map((layer) => [layer.key, layer]));
         STATIC_ATLAS_BOOTSTRAP.assets
           .filter((row) => row.domain === 'nodes' && layersByKey.has(row.layer_key))
           .forEach((row) => {
             const layer = layersByKey.get(row.layer_key);
             const untimed = staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key} untimed record count`);
+            const split = [row.chronology_absent_record_count, row.refused_chronology_record_count, row.contextual_chronology_record_count];
+            const hasSplit = split.every((value) => value !== null && value !== undefined);
             if (!layer.applies_country_filter) {
               count += untimed;
+              if (hasSplit) {
+                classified.absent += staticAtlasNonnegativeInteger(split[0], `${row.asset_key} absent chronology count`);
+                classified.refused += staticAtlasNonnegativeInteger(split[1], `${row.asset_key} refused chronology count`);
+                classified.contextual += staticAtlasNonnegativeInteger(split[2], `${row.asset_key} contextual chronology count`);
+              } else splitUnavailable = true;
               return;
             }
             const countries = Array.isArray(row.country_keys)
@@ -3848,48 +4146,74 @@
               : [];
             if (countries.length && countries.every((country) => activeCountries.has(country))) {
               count += untimed;
+              if (hasSplit) {
+                classified.absent += staticAtlasNonnegativeInteger(split[0], `${row.asset_key} absent chronology count`);
+                classified.refused += staticAtlasNonnegativeInteger(split[1], `${row.asset_key} refused chronology count`);
+                classified.contextual += staticAtlasNonnegativeInteger(split[2], `${row.asset_key} contextual chronology count`);
+              } else splitUnavailable = true;
               return;
             }
             if (countries.some((country) => activeCountries.has(country)) && untimed > 0) ambiguous = true;
           });
-        return ambiguous ? { status: 'unavailable', count: null } : { status: 'available', count };
+        if (ambiguous) return { status: 'unavailable', count: null, split_status: 'unavailable', absent_count: null, refused_count: null, contextual_count: null };
+        return { status: 'available', count, split_status: splitUnavailable ? 'unavailable' : 'available', absent_count: splitUnavailable ? null : classified.absent, refused_count: splitUnavailable ? null : classified.refused, contextual_count: splitUnavailable ? null : classified.contextual };
       }
       function sourceChronologyUntimedExclusion(layer) {
-        if (!layer || !sourceChronologyLayerIsValid(layer)) return { status: 'unavailable', count: null };
+        if (!layer || !sourceChronologyLayerIsValid(layer)) return { status: 'unavailable', count: null, split_status: 'unavailable' };
         if (STATIC_ATLAS_INLINE) {
           const candidates = (layer.features || []).filter((feature) => (
             sourceChronologyFeatureMatches(layer, feature)
             && (!layer.applies_country_filter || activeCountries.has(feature.country))
           ));
+          const classified = { absent: 0, refused: 0, contextual: 0 };
+          candidates.forEach((feature) => {
+            const status = featureTimeAdmission(feature).status;
+            if (Object.prototype.hasOwnProperty.call(classified, status)) classified[status] += 1;
+          });
           return {
             status: 'available',
-            count: candidates.filter((feature) => featureTimeAdmission(feature).status === 'untimed').length,
+            count: classified.absent + classified.refused + classified.contextual,
+            split_status: 'available',
+            absent_count: classified.absent,
+            refused_count: classified.refused,
+            contextual_count: classified.contextual,
           };
         }
         const rows = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.domain === 'nodes' && row.layer_key === layer.key);
         let count = 0;
         let ambiguous = false;
+        let splitUnavailable = false;
+        const classified = { absent: 0, refused: 0, contextual: 0 };
         rows.forEach((row) => {
           const untimed = staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key} untimed record count`);
+          const split = [row.chronology_absent_record_count, row.refused_chronology_record_count, row.contextual_chronology_record_count];
+          const hasSplit = split.every((value) => value !== null && value !== undefined);
           const countries = Array.isArray(row.country_keys) ? row.country_keys.filter((country) => country !== 'UNASSIGNED') : [];
           if (!layer.applies_country_filter || (countries.length && countries.every((country) => activeCountries.has(country)))) {
             count += untimed;
+            if (hasSplit) {
+              classified.absent += staticAtlasNonnegativeInteger(split[0], `${row.asset_key} absent chronology count`);
+              classified.refused += staticAtlasNonnegativeInteger(split[1], `${row.asset_key} refused chronology count`);
+              classified.contextual += staticAtlasNonnegativeInteger(split[2], `${row.asset_key} contextual chronology count`);
+            } else splitUnavailable = true;
             return;
           }
           if (countries.some((country) => activeCountries.has(country)) && untimed > 0) ambiguous = true;
         });
         const exactFacetSelected = (
           (layer.node_level === 'source_ecological_code' && activeSourceChronologyCode !== 'all')
-          || (layer.node_level === 'source_taxon' && activeSourceChronologyTaxon !== 'all')
+          || (layer.node_level === 'source_taxon' && (activeSourceChronologyTaxon !== 'all' || activeSourceChronologyPreset !== 'none'))
         );
-        if (ambiguous || (exactFacetSelected && count > 0)) return { status: 'unavailable', count: null };
-        return { status: 'available', count };
+        if (ambiguous || (exactFacetSelected && count > 0)) return { status: 'unavailable', count: null, split_status: 'unavailable' };
+        return { status: 'available', count, split_status: splitUnavailable ? 'unavailable' : 'available', absent_count: splitUnavailable ? null : classified.absent, refused_count: splitUnavailable ? null : classified.refused, contextual_count: splitUnavailable ? null : classified.contextual };
       }
-      function sourceChronologyFeatureMatches(layer, feature, code = activeSourceChronologyCode, taxon = activeSourceChronologyTaxon) {
+      function sourceChronologyFeatureMatches(layer, feature, code = activeSourceChronologyCode, taxon = activeSourceChronologyTaxon, presetKey = typeof activeSourceChronologyPreset === 'undefined' ? 'none' : activeSourceChronologyPreset) {
         if (layer.semantic_role !== 'source_chronology_context') return true;
         if (!sourceChronologyLayerIsValid(layer) || !feature || feature.semantic_role !== 'source_chronology_context') return false;
         if (feature.node_level !== layer.node_level || feature.propagation_eligible !== false || feature.candidate_generation_status !== 'refused') return false;
         if (typeof feature.candidate_refusal_reason !== 'string' || !feature.candidate_refusal_reason.trim()) return false;
+        if (feature.source_snapshot_id !== layer.source_snapshot_id || feature.build_id !== layer.build_id) return false;
+        if (typeof feature.node_id !== 'string' || !feature.node_id.trim() || typeof feature.record_id !== 'string' || !feature.record_id.trim()) return false;
         if (typeof feature.feature_key !== 'string' || !feature.feature_key.trim() || typeof feature.source_unit !== 'string' || !feature.source_unit.trim()) return false;
         if (layer.node_level === 'source_ecological_code') {
           if (typeof feature.source_ecological_code !== 'string' || !feature.source_ecological_code.trim()) return false;
@@ -3900,7 +4224,9 @@
           if (typeof feature.source_reported_name !== 'string' || !feature.source_reported_name.trim()) return false;
           if (!sourceChronologyTaxonIdentifierIsValid(feature.source_taxon_id)) return false;
           if (feature.source_ecological_code !== null) return false;
-          return taxon === 'all' || feature.feature_key === taxon;
+          if (taxon !== 'all') return feature.feature_key === taxon;
+          const preset = sourceChronologyPresetForSelection(layer, presetKey);
+          return !preset || preset.member_taxon_ids.includes(sourceChronologyTaxonIdentifier(feature.source_taxon_id));
         }
         return feature.source_ecological_code === null && feature.source_taxon_id === null && feature.source_reported_name === null;
       }
@@ -3918,7 +4244,7 @@
         const activeSourceLayers = sourceChronologyLayers().filter((candidate) => activeLayerKeys.has(candidate.key));
         if (activeSourceLayers.length !== 1 || activeSourceLayers[0].key !== layer.key) return null;
         if (layer.node_level === 'source_ecological_code' && activeSourceChronologyCode === 'all') return null;
-        if (layer.node_level === 'source_taxon' && activeSourceChronologyTaxon === 'all') return null;
+        if (layer.node_level === 'source_taxon' && activeSourceChronologyTaxon === 'all' && activeSourceChronologyPreset === 'none') return null;
         const facet = sourceChronologyFacetForSelection(layer, activeSourceChronologyCode, activeSourceChronologyTaxon);
         if (!facet || sourceChronologyCount(facet.node_count) === null || sourceChronologyCount(facet.observation_denominator) === null) return null;
         return facet;
@@ -3927,6 +4253,8 @@
         if (!layer) return 'unavailable facet';
         if (layer.node_level === 'source_ecological_code') return `literal source code ${activeSourceChronologyCode}`;
         if (layer.node_level === 'source_taxon') {
+          const preset = sourceChronologyPresetForSelection(layer, activeSourceChronologyPreset);
+          if (preset) return `${preset.label} exact-ID union`;
           const row = layer.facet_metadata.source_taxa.find((candidate) => candidate.value === activeSourceChronologyTaxon);
           return row ? `exact source label ${row.label} (${row.source_taxon_id})` : 'unavailable exact source label';
         }
@@ -3951,7 +4279,7 @@
         [...features]
           .sort((left, right) => sourceRecordConcentrationCompareText(left?.node_id || '', right?.node_id || ''))
           .forEach((feature) => {
-            if (!sourceChronologyFeatureMatches(layer, feature, 'all', 'all')) sourceRecordConcentrationFailure('a loaded source node violates the active-level contract');
+            if (!sourceChronologyFeatureMatches(layer, feature, 'all', 'all', 'none')) sourceRecordConcentrationFailure('a loaded source node violates the active-level contract');
             const nodeId = typeof feature.node_id === 'string' ? feature.node_id.trim() : '';
             const siteId = typeof feature.record_id === 'string' ? feature.record_id.trim() : '';
             const observationCount = sourceChronologyCount(feature.observation_denominator);
@@ -4022,6 +4350,7 @@
       );
       let activeSourceChronologyCode = 'all';
       let activeSourceChronologyTaxon = 'all';
+      let activeSourceChronologyPreset = 'none';
       const initialSourceChronologyLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
       if (initialSourceChronologyLayer && initialSourceChronologyLayer.node_level === 'source_ecological_code') {
         activeSourceChronologyCode = normalizedSingleValue(
@@ -4036,6 +4365,13 @@
           ['all', ...initialSourceChronologyLayer.facet_metadata.source_taxa.map((row) => row.value)],
           'all'
         );
+        if (activeSourceChronologyTaxon === 'all') {
+          activeSourceChronologyPreset = normalizedSingleValue(
+            initialState.sourceChronologyPreset,
+            ['none', ...initialSourceChronologyLayer.facet_metadata.source_label_preset_accountability.presets.map((row) => row.key)],
+            'none'
+          );
+        }
       }
       let sourceChronologyTaxonSearch = '';
       let sourceRecordConcentrationActive = initialState.sourceRecordConcentration === 'captured';
@@ -4134,8 +4470,11 @@
       function staticAtlasLayerForRow(row) {
         return ALL_LAYERS.find((layer) => layer.key === row.layer_key) || null;
       }
+      function animalSourceChronologyCountryFilterBypassed(layer, scopeKey = SCOPE_KEY) {
+        return scopeKey === 'world' && isAnimalSourceChronologyLayer(layer);
+      }
       function staticAtlasCountryNeeded(row, layer) {
-        if (!layer.applies_country_filter) return true;
+        if (!layer.applies_country_filter || animalSourceChronologyCountryFilterBypassed(layer)) return true;
         if (!activeCountries.size) return false;
         const countryKeys = Array.isArray(row.country_keys) ? row.country_keys : [];
         return countryKeys.some((country) => activeCountries.has(country));
@@ -4152,7 +4491,8 @@
       }
       function staticAtlasSignalNeeded(row, layer) {
         if (isAnimalLayer(layer)) {
-          if (activeAnimalSpecies !== 'all' && layer.species_latin_name !== activeAnimalSpecies) return false;
+          const layerSpecies = layer.species_latin_name || layer.project_species_latin_name || '';
+          if (activeAnimalSpecies !== 'all' && layerSpecies !== activeAnimalSpecies) return false;
           if (activeAnimalScope !== 'all' && layer.animal_scope !== activeAnimalScope) return false;
         }
         if (!layer.scientific_selection_enabled || !SCIENTIFIC_SIGNALS.length) return true;
@@ -4273,8 +4613,11 @@
         const entries = [];
         POINT_LAYERS.forEach((layer) => {
           if (!isAnimalLayer(layer) || !activeLayerKeys.has(layer.key)) return;
+          const sourceChronology = layer.semantic_role === 'animal_source_chronology_context' || layer.group === 'animal-chronology-context';
+          if (sourceChronology && !animalSourceChronologyLayerIsValid(layer)) return;
           (layer.features || []).forEach((feature) => {
-            if (layer.applies_country_filter && !activeCountries.has(feature.country)) return;
+            if (sourceChronology && !animalSourceChronologyFeatureIsValid(feature)) return;
+            if (layer.applies_country_filter && !animalSourceChronologyCountryFilterBypassed(layer) && !activeCountries.has(feature.country)) return;
             if (!pointFeatureInTimeWindow(layer, feature)) return;
             entries.push({ layer, feature });
           });
@@ -4284,7 +4627,8 @@
       function animalEntryMatchesFilters(entry, overrides = {}) {
         const state = animalFilterState(overrides);
         const feature = entry.feature;
-        if (state.species !== 'all' && String(feature.species_latin_name || '') !== state.species) return false;
+        const species = String(feature.species_latin_name || feature.project_species_latin_name || '');
+        if (state.species !== 'all' && species !== state.species) return false;
         if (state.scope !== 'all' && String(feature.animal_scope || '') !== state.scope) return false;
         if (state.confidence !== 'all' && String(feature.coordinate_confidence || '') !== state.confidence) return false;
         if (state.temporalWindow !== 'all' && String(feature.temporal_window_label || '') !== state.temporalWindow) return false;
@@ -4297,9 +4641,11 @@
       function summarizeAnimalMetrics() {
         const candidateEntries = animalCandidateEntries();
         const visibleEntries = candidateEntries.filter((entry) => animalEntryMatchesFilters(entry));
+        const visibleSourceChronologyEntries = visibleEntries.filter(({ layer }) => isAnimalSourceChronologyLayer(layer));
+        const visibleAtlasEvidenceEntries = visibleEntries.filter(({ layer }) => !isAnimalSourceChronologyLayer(layer));
         const visibleSpecies = new Set(
           visibleEntries
-            .map(({ feature }) => String(feature.species_latin_name || '').trim())
+            .map(({ feature }) => String(feature.species_latin_name || feature.project_species_latin_name || '').trim())
             .filter(Boolean)
         );
         const confidenceCounts = {};
@@ -4317,6 +4663,8 @@
         return {
           candidateEntries,
           visibleEntries,
+          visibleSourceChronologyEntries,
+          visibleAtlasEvidenceEntries,
           visibleSpecies,
           confidenceCounts,
           activeFilters,
@@ -4326,6 +4674,67 @@
       function layerColor(layer) { return layer.style && layer.style.fill ? layer.style.fill : (layer.style && layer.style.stroke ? layer.style.stroke : '#475569'); }
       function isAnimalLayer(layer) {
         return ANIMAL_LAYER_GROUPS.has(layer.group);
+      }
+      function isAnimalSourceChronologyLayer(layer) {
+        return Boolean(
+          layer
+          && (
+            layer.group === ANIMAL_CHRONOLOGY_LAYER_GROUP
+            || layer.semantic_role === 'animal_source_chronology_context'
+          )
+        );
+      }
+      function animalSourceChronologyPostureIsValid(value) {
+        return Boolean(
+          value
+          && value.semantic_role === 'animal_source_chronology_context'
+          && value.contribution_role === 'display_only'
+          && value.candidate_ranking_eligible === false
+          && value.scientific_classification_eligible === false
+          && value.scientific_selection_enabled === false
+          && value.propagation_status === 'refused'
+          && value.propagation_reason_code === 'display_only_source_chronology'
+          && value.edge_count === 0
+        );
+      }
+      function animalSourceChronologyLayerIsValid(layer) {
+        if (!isAnimalSourceChronologyLayer(layer)) return false;
+        return (
+          layer.group === ANIMAL_CHRONOLOGY_LAYER_GROUP
+          && layer.default_enabled === false
+          && layer.applies_country_filter === true
+          && layer.applies_time_filter === true
+          && layer.circle_enabled === false
+          && typeof layer.project_species_latin_name === 'string'
+          && Boolean(layer.project_species_latin_name.trim())
+          && layer.species_attribution_basis === 'governed_project_registry'
+          && !Object.prototype.hasOwnProperty.call(layer, 'species_latin_name')
+          && !Object.prototype.hasOwnProperty.call(layer, 'species_common_name')
+          && !Object.prototype.hasOwnProperty.call(layer, 'animal_scope')
+          && !Object.prototype.hasOwnProperty.call(layer, 'classification_id')
+          && !Object.prototype.hasOwnProperty.call(layer, 'classification_status')
+          && !Object.prototype.hasOwnProperty.call(layer, 'taxon_alignment_status')
+          && !Object.prototype.hasOwnProperty.call(layer, 'taxon_alignment_statuses')
+          && !Object.prototype.hasOwnProperty.call(layer, 'scientific_signal_ids')
+          && animalSourceChronologyPostureIsValid(layer)
+        );
+      }
+      function animalSourceChronologyFeatureIsValid(feature) {
+        if (!feature || feature.semantic_role !== 'animal_source_chronology_context') return false;
+        return (
+          typeof feature.project_species_latin_name === 'string'
+          && Boolean(feature.project_species_latin_name.trim())
+          && feature.species_attribution_basis === 'governed_project_registry'
+          && !Object.prototype.hasOwnProperty.call(feature, 'species_latin_name')
+          && !Object.prototype.hasOwnProperty.call(feature, 'species_common_name')
+          && !Object.prototype.hasOwnProperty.call(feature, 'animal_scope')
+          && !Object.prototype.hasOwnProperty.call(feature, 'classification_id')
+          && !Object.prototype.hasOwnProperty.call(feature, 'classification_status')
+          && !Object.prototype.hasOwnProperty.call(feature, 'taxon_alignment_status')
+          && !Object.prototype.hasOwnProperty.call(feature, 'taxon_alignment_statuses')
+          && !Object.prototype.hasOwnProperty.call(feature, 'scientific_signal_ids')
+          && animalSourceChronologyPostureIsValid(feature)
+        );
       }
       function featureMatchesAnimalFilters(layer, feature) {
         if (!isAnimalLayer(layer)) return true;
@@ -4449,6 +4858,7 @@
           if (activeSourceChronologyLevel !== defaultSourceChronologyLevel) params.set('source_chronology_level', activeSourceChronologyLevel);
           if (activeSourceChronologyCode !== 'all') params.set('source_ecological_code', activeSourceChronologyCode);
           if (activeSourceChronologyTaxon !== 'all') params.set('source_taxon', activeSourceChronologyTaxon);
+          if (activeSourceChronologyPreset !== 'none') params.set('source_label_preset', activeSourceChronologyPreset);
           if (sourceRecordConcentrationActive) params.set('source_record_concentration', 'captured');
         }
         if (Number(slider.value) !== 40) params.set('diameter', String(Number(slider.value)));
@@ -4875,6 +5285,14 @@
         sourceChronologyShortcuts.querySelectorAll('[data-source-shortcut]').forEach((button) => {
           button.disabled = !sourceChronologyAvailable;
         });
+        const presetLayer = sourceChronologyLayers().find((layer) => layer.node_level === 'source_taxon') || null;
+        if (presetLayer) {
+          sourceChronologyShortcuts.querySelectorAll('[data-source-preset]').forEach((button) => {
+            button.disabled = false;
+            button.classList.toggle('is-primary', button.dataset.sourcePreset === activeSourceChronologyPreset);
+            button.setAttribute('aria-pressed', String(button.dataset.sourcePreset === activeSourceChronologyPreset));
+          });
+        }
         scientificStatus.textContent = available
           ? 'Only accepted, versioned classifications are selectable. Color is always paired with a shape cue.'
           : sourceChronologyAvailable
@@ -4920,6 +5338,7 @@
         stopTimePlayback();
         if (activeSourceChronologyLevel !== layer.node_level) sourceRecordConcentrationActive = false;
         activeSourceChronologyLevel = layer.node_level;
+        if (layer.node_level !== 'source_taxon') activeSourceChronologyPreset = 'none';
         sourceChronologyLayers().forEach((candidate) => activeLayerKeys.delete(candidate.key));
         activeLayerKeys.add(layer.key);
         return true;
@@ -4990,6 +5409,13 @@
         const taxonRows = selectedLayer.node_level === 'source_taxon' ? selectedLayer.facet_metadata.source_taxa : [];
         const validTaxa = ['all', ...taxonRows.map((row) => row.value)];
         activeSourceChronologyTaxon = normalizedSingleValue(activeSourceChronologyTaxon, validTaxa, 'all');
+        const presetRows = selectedLayer.node_level === 'source_taxon'
+          ? selectedLayer.facet_metadata.source_label_preset_accountability.presets
+          : [];
+        activeSourceChronologyPreset = normalizedSingleValue(activeSourceChronologyPreset, ['none', ...presetRows.map((row) => row.key)], 'none');
+        if (activeSourceChronologyTaxon !== 'all') activeSourceChronologyPreset = 'none';
+        const selectedPreset = sourceChronologyPresetForSelection(selectedLayer, activeSourceChronologyPreset);
+        const selectedPresetTaxonIds = new Set(selectedPreset?.member_taxon_ids || []);
         const query = sourceChronologyTaxonSearch.trim().toLowerCase();
         const queryAlternatives = query
           .split('|')
@@ -4997,6 +5423,7 @@
           .filter((alternative) => alternative.length);
         const visibleTaxa = taxonRows.filter((row) => (
           row.value === activeSourceChronologyTaxon
+          || selectedPresetTaxonIds.has(Number(row.source_taxon_id))
           || !queryAlternatives.length
           || queryAlternatives.some((alternative) => {
             const searchable = `${row.label} ${row.source_taxon_id}`.toLowerCase();
@@ -5004,6 +5431,24 @@
           })
         ));
         sourceChronologyTaxonFields.hidden = selectedLayer.node_level !== 'source_taxon';
+        sourceLabelPresetControls.innerHTML = presetRows.map((row) => `<button class="inline-button ${row.key === activeSourceChronologyPreset ? 'is-primary' : ''}" type="button" data-source-label-preset="${escapeHtml(row.key)}" aria-pressed="${String(row.key === activeSourceChronologyPreset)}">${escapeHtml(row.label)} · ${row.member_taxon_count} IDs · ${row.site_count} sites · ${row.node_count} nodes</button>`).join('');
+        sourceLabelPresetState.textContent = selectedPreset
+          ? `${selectedPreset.label}: exact union of ${selectedPreset.member_taxon_count} governed Neotoma taxon IDs · ${selectedPreset.site_count} unique sites · ${selectedPreset.node_count} nodes · ${selectedPreset.observation_denominator} contributing observations · literal labels only; not an accepted classification, abundance surface, flow, or propagation.`
+          : 'No source-label preset selected. Exact source labels remain individually selectable; presets are literal exact-ID unions, not accepted classifications.';
+        sourceLabelPresetControls.querySelectorAll('[data-source-label-preset]').forEach((button) => {
+          button.addEventListener('click', () => {
+            stopTimePlayback();
+            activeSourceChronologyPreset = button.dataset.sourceLabelPreset === activeSourceChronologyPreset
+              ? 'none'
+              : normalizedSingleValue(button.dataset.sourceLabelPreset, ['none', ...presetRows.map((row) => row.key)], 'none');
+            activeSourceChronologyTaxon = 'all';
+            sourceChronologyTaxonSearch = '';
+            sourceChronologyTaxonQuery.value = '';
+            sourceRecordConcentrationActive = false;
+            focusSourceChronologyNavigation();
+            renderMapState();
+          });
+        });
         sourceChronologyTaxon.innerHTML = `<option value="all">All source-reported labels · ${taxonRows.length} facets</option>` + visibleTaxa.map((row) => `<option value="${escapeHtml(row.value)}" ${row.value === activeSourceChronologyTaxon ? 'selected' : ''}>${escapeHtml(row.label)} · source taxon ${escapeHtml(row.source_taxon_id)} · ${row.node_count} nodes · ${row.observation_denominator} observations</option>`).join('');
         sourceChronologyTaxonShortcuts.innerHTML = queryAlternatives.length
           ? visibleTaxa.map((row) => `<button class="inline-button ${row.value === activeSourceChronologyTaxon ? 'is-primary' : ''}" type="button" data-source-taxon-facet="${escapeHtml(row.value)}">${escapeHtml(row.label)} · ${escapeHtml(row.source_taxon_id)}</button>`).join('')
@@ -5016,6 +5461,7 @@
               validTaxa,
               'all'
             );
+            activeSourceChronologyPreset = 'none';
             sourceRecordConcentrationActive = false;
             focusSourceChronologyNavigation();
             renderMapState();
@@ -5042,9 +5488,11 @@
         const visibleObservationLabel = visibleObservationDenominator === null ? 'unavailable' : String(visibleObservationDenominator);
         const activeWindowLabel = `[${timeStartBp}, ${timeWindowEndBp()}] BP`;
         const untimedLabel = untimedExclusion.status === 'available'
-          ? `${untimedExclusion.count} untimed source nodes excluded before viewport filtering`
-          : 'untimed source-node count unavailable for this exact filtered selection';
-        sourceChronologySummary.textContent = `${visibleSourceEntries.length} of ${selectedFacet.node_count} nodes visible · ${activeWindowLabel}`;
+          ? untimedExclusion.split_status === 'available'
+            ? `${untimedExclusion.count} source nodes without admitted numeric chronology excluded (${untimedExclusion.absent_count} absent, ${untimedExclusion.refused_count} refused, ${untimedExclusion.contextual_count} contextual)`
+            : `${untimedExclusion.count} source nodes without admitted numeric chronology excluded; absent/refused/contextual split unavailable for this legacy report`
+          : 'source-node count without admitted numeric chronology unavailable for this exact filtered selection';
+        sourceChronologySummary.textContent = `${visibleSourceEntries.length} of ${selectedFacet.node_count} nodes visible · ${selectedFacet.site_count} unique sites · ${activeWindowLabel}`;
         const concentrationEligible = sourceRecordConcentrationSelection(selectedLayer) !== null;
         sourceRecordConcentrationToggle.disabled = !concentrationEligible;
         sourceRecordConcentrationToggle.setAttribute('aria-pressed', String(sourceRecordConcentrationActive));
@@ -5054,7 +5502,8 @@
         sourceRecordConcentrationToggle.title = concentrationEligible
           ? 'Group admitted records at identical source sites without interpolation or value weighting.'
           : 'Choose exactly one active source level and, for code or taxon views, one exact source facet.';
-        sourceChronologyGlobalDenominator.textContent = `Global pre-filter denominator: ${selectedFacet.node_count} source nodes and ${selectedFacet.observation_denominator} contributing observations for ${sourceRecordConcentrationFacetLabel(selectedLayer)} · ${untimedLabel}.`;
+        const countryAccountability = selectedFacet.country_counts.map((row) => `${row.country_code}: ${row.site_count} sites / ${row.node_count} nodes / ${row.observation_denominator} observations`).join(' · ');
+        sourceChronologyGlobalDenominator.textContent = `Global pre-filter denominator: ${selectedFacet.site_count} unique sites, ${selectedFacet.node_count} source nodes, and ${selectedFacet.observation_denominator} contributing observations for ${sourceRecordConcentrationFacetLabel(selectedLayer)} · ${countryAccountability} · ${untimedLabel}.`;
         if (sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'available') {
           const snapshot = sourceRecordConcentrationSnapshot;
           const countryLabel = activeCountries.size ? [...activeCountries].sort().join(', ') : 'no active countries';
@@ -5062,7 +5511,7 @@
         } else if (sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'refused') {
           sourceChronologyState.textContent = `${sourceRecordConcentrationSnapshot.reason} No concentration symbols were rendered.`;
         } else {
-          sourceChronologyState.textContent = `${visibleSourceEntries.length} source nodes and ${visibleObservationLabel} contributing observations visible in ${activeWindowLabel} · ${selectedFacet.node_count} nodes and ${selectedFacet.observation_denominator} observations in the global selected-facet denominator before country and BP-window filters · ${unitCount} literal source units · source playback extent ${extentLabel} · ${untimedLabel} · chronology context only`;
+          sourceChronologyState.textContent = `${visibleSourceEntries.length} source nodes and ${visibleObservationLabel} contributing observations visible in ${activeWindowLabel} · ${selectedFacet.site_count} unique sites, ${selectedFacet.node_count} nodes, and ${selectedFacet.observation_denominator} observations in the global selected-facet denominator before country and BP-window filters · ${unitCount} literal source units · source playback extent ${extentLabel} · ${untimedLabel} · chronology context only`;
         }
       }
       function refreshTimeStepperStatus() {
@@ -5114,9 +5563,10 @@
             const cards = layers.map((layer) => {
               const checked = activeLayerKeys.has(layer.key) ? 'checked' : '';
               const sourceChronologyInvalid = layer.semantic_role === 'source_chronology_context' && !sourceChronologyLayerIsValid(layer);
+              const animalChronologyInvalid = isAnimalSourceChronologyLayer(layer) && !animalSourceChronologyLayerIsValid(layer);
               const swatchColor = layerColor(layer);
               const swatchBorder = layer.style && layer.style.stroke ? layer.style.stroke : swatchColor;
-              return `<label class="dock-layer-chip"><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} ${sourceChronologyInvalid ? 'disabled' : ''} aria-label="Toggle ${escapeHtml(layer.label)}"><span class="chip-swatch" style="background:${escapeHtml(swatchColor)};border-color:${escapeHtml(swatchBorder)};"></span><span>${escapeHtml(layer.label)}</span></label>`;
+              return `<label class="dock-layer-chip"><input class="layer-checkbox" type="checkbox" value="${escapeHtml(layer.key)}" ${checked} ${sourceChronologyInvalid || animalChronologyInvalid ? 'disabled' : ''} aria-label="Toggle ${escapeHtml(layer.label)}"><span class="chip-swatch" style="background:${escapeHtml(swatchColor)};border-color:${escapeHtml(swatchBorder)};"></span><span>${escapeHtml(layer.label)}</span></label>`;
             }).join('');
             return `<div class="legend-group"><div class="legend-group-label">${escapeHtml(group.label)}</div><div class="dock-layer-grid">${cards}</div></div>`;
           })
@@ -5135,7 +5585,8 @@
         if (!animalEvidenceMetrics || !animalEvidenceConfidence || !animalEvidenceState) return;
         const confidenceEntries = Object.entries(metrics.confidenceCounts).sort((left, right) => right[1] - left[1]);
         animalEvidenceMetrics.innerHTML = [
-          { value: metrics.visibleEntries.length, label: 'Visible atlas points' },
+          { value: metrics.visibleAtlasEvidenceEntries.length, label: 'Visible atlas evidence points' },
+          { value: metrics.visibleSourceChronologyEntries.length, label: 'Visible source chronology points' },
           { value: metrics.visibleSpecies.size, label: 'Visible species' },
           { value: metrics.candidateEntries.length - metrics.visibleEntries.length, label: 'Filtered out by current posture' },
         ]
@@ -5167,7 +5618,7 @@
         const metrics = summarizeAnimalMetrics();
         animalNordicOnlyCheckbox.disabled = false;
         const scopeOptions = [
-          { value: 'all', label: 'All animal evidence' },
+          { value: 'all', label: 'All animal records' },
           { value: 'domesticated_core', label: 'Domesticated-core only' },
           { value: 'comparator', label: 'Comparator only' },
         ];
@@ -5199,7 +5650,7 @@
         ];
         animalTemporalWindowFilters.innerHTML = temporalWindowButtons.join('');
         animalNordicOnlyCheckbox.checked = animalNordicOnly;
-        animalFilterSummary.textContent = `${metrics.visibleEntries.length} animal points · ${metrics.visibleSpecies.size} species visible`;
+        animalFilterSummary.textContent = `${metrics.visibleAtlasEvidenceEntries.length} atlas evidence · ${metrics.visibleSourceChronologyEntries.length} source chronology · ${metrics.visibleSpecies.size} species visible`;
         renderAnimalEvidencePanel(metrics);
         document.querySelectorAll('[data-animal-scope]').forEach((button) => {
           button.addEventListener('click', () => {
@@ -5237,7 +5688,7 @@
         if (preset === 'context') {
           activeLayerKeys = new Set(
             ALL_LAYERS
-              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence', 'environmental-context', 'archaeology-context'].includes(layer.group))
+              .filter((layer) => ['primary-evidence', 'animal-domesticated-evidence', 'animal-comparator-evidence', 'animal-progenitor-evidence', 'animal-chronology-context', 'environmental-context', 'archaeology-context'].includes(layer.group))
               .map((layer) => layer.key)
           );
         }
@@ -5262,10 +5713,12 @@
         renderMapState();
       }
       function renderLegend() {
-        const activeLegendLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key));
-        const activeAnimalLayers = activeLegendLayers.filter((layer) => isAnimalLayer(layer));
+        const renderedLayerKeys = new Set([
+          ...visiblePointEntries.map(({ layer }) => layer.key),
+          ...visiblePolygonFeatureEntries.map(({ layer }) => layer.key),
+        ]);
+        const activeLegendLayers = ALL_LAYERS.filter((layer) => renderedLayerKeys.has(layer.key));
         const concentrationLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
-        const animalMetrics = summarizeAnimalMetrics();
         const renderLayerCue = (layer) => {
           if (layer.kind === 'country-boundaries') {
             return [...activeCountries].sort().map((country) => {
@@ -5277,7 +5730,7 @@
           const stroke = layer.style.stroke || fill;
           const acceptanceFill = layer.style.circleFill || fill;
           const acceptanceStroke = layer.style.circleStroke || stroke;
-          const acceptanceCue = POINT_LAYERS.includes(layer)
+          const acceptanceCue = POINT_LAYERS.includes(layer) && layer.circle_enabled && Number(slider.value) > 0
             ? `<span class="legend-acceptance-cue" data-legend-acceptance-layer="${escapeHtml(layer.key)}" title="Acceptance ring for ${escapeHtml(layer.label)}" style="color:${escapeHtml(acceptanceStroke)};background:${escapeHtml(acceptanceFill)};"></span>`
             : '';
           return `<div class="legend-item" data-legend-layer="${escapeHtml(layer.key)}"><span class="legend-swatch" style="background:${escapeHtml(fill)};border-color:${escapeHtml(stroke)};"></span>${acceptanceCue}<span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)} ${layer.coverage_label ? `(${escapeHtml(layer.coverage_label)})` : ''}</span></div>`;
@@ -5285,26 +5738,24 @@
         const renderGroup = (label, layers) => layers.length
           ? `<div class="legend-group"><div class="legend-group-label">${escapeHtml(label)}</div><div class="legend-list">${layers.map(renderLayerCue).join('')}</div></div>`
           : '';
-        const clusterLegendSection = activeLegendLayers.some((layer) => POINT_LAYERS.includes(layer))
+        const clusterLegendSection = visiblePointEntries.length > 0
           ? '<div class="legend-group"><div class="legend-group-label">Map grouping</div><div class="legend-item legend-item--compact"><span class="legend-cluster-cue">12</span><span>Numbered circles group same-layer records at the current zoom; the number is a record count, not abundance.</span></div></div>'
           : '';
-        const animalLegendSections = activeAnimalLayers.length
-          ? [
-              `<div class="legend-group"><div class="legend-group-label">Animal scope</div><div class="legend-pill-list"><span class="legend-pill"><span class="legend-swatch" style="background: rgba(176, 133, 42, 0.18); border-color: #8a5b11;"></span><span>Domesticated-core</span><span class="legend-pill-note">tracked support surface</span></span><span class="legend-pill"><span class="legend-swatch" style="background: rgba(20, 184, 166, 0.18); border-color: #0f766e;"></span><span>Comparator</span><span class="legend-pill-note">comparison only</span></span></div></div>`,
-              `<div class="legend-group"><div class="legend-group-label">Coordinate trust</div><div class="legend-list">${Object.entries(animalMetrics.confidenceCounts).sort((left, right) => right[1] - left[1]).map(([confidence, count]) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background: rgba(20, 33, 61, 0.08); border-color: rgba(20, 33, 61, 0.22);"></span><span class="legend-item-copy"><span class="legend-item-title">${escapeHtml(formatCoordinateConfidence(confidence))}</span><span class="legend-item-meta">${escapeHtml(String(count))} visible points</span></span></div>`).join('') || '<div class="legend-item"><span>No visible animal points for the current filter state.</span></div>'}</div></div>`,
-              `<div class="legend-group"><div class="legend-group-label">Tracked species</div><div class="legend-list">${activeAnimalLayers.map((layer) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span class="legend-item-copy"><span class="legend-item-title">${escapeHtml(layer.species_common_name || layer.label)}</span><span class="legend-item-meta">${escapeHtml(formatAnimalScope(layer.animal_scope || ''))} · ${escapeHtml(mappedPointCountLabel(layer.count))}</span></span></div>`).join('')}</div></div>`,
-            ].join('')
-          : '';
-        const scientificLegendSection = SCIENTIFIC_SIGNALS.length
-          ? `<div class="legend-group"><div class="legend-group-label">Accepted scientific comparison</div><div class="legend-list">${SCIENTIFIC_SIGNALS.filter((signal) => activeScientificSignalIds.has(signal.signal_id)).map((signal) => `<div class="legend-item"><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span><span>${escapeHtml(signal.label)} · ${escapeHtml(signal.resolution)} · ${escapeHtml(signal.feature_key)}</span></div>`).join('') || '<div class="legend-item"><span>No accepted scientific signals selected.</span></div>'}</div></div>`
+        const visibleScientificSignalIds = new Set([
+          ...visiblePointEntries.flatMap(({ feature }) => Array.isArray(feature.scientific_signal_ids) ? feature.scientific_signal_ids : []),
+          ...visibleGovernedEdges().map((edge) => edge.signal_id),
+        ]);
+        const visibleScientificSignals = SCIENTIFIC_SIGNALS.filter((signal) => activeScientificSignalIds.has(signal.signal_id) && visibleScientificSignalIds.has(signal.signal_id));
+        const scientificLegendSection = visibleScientificSignals.length
+          ? `<div class="legend-group"><div class="legend-group-label">Accepted scientific comparison</div><div class="legend-list">${visibleScientificSignals.map((signal) => `<div class="legend-item"><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span><span>${escapeHtml(signal.label)} · ${escapeHtml(signal.resolution)} · ${escapeHtml(signal.feature_key)}</span></div>`).join('')}</div></div>`
           : '';
         const sourceConcentrationLegendSection = concentrationLayer && sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'available'
           ? `<div class="legend-group"><div class="legend-group-label">Captured source-record concentration</div><div class="legend-list">${[[7, '1 raw visible node at one source site'], [10, '2–4 nodes'], [13, '5–9 nodes'], [16, '10–24 nodes'], [19, '25+ nodes']].map(([size, label]) => `<div class="legend-item"><span class="legend-swatch" data-legend-concentration-size="${size}" style="width:${size}px;height:${size}px;background:${escapeHtml(layerColor(concentrationLayer))};border-color:${escapeHtml(concentrationLayer.style.stroke || layerColor(concentrationLayer))};"></span><span>${label}</span></div>`).join('')}<div class="legend-item"><span>${sourceRecordConcentrationSnapshot.visible_observation_denominator} contributing observations for visible symbols; ${sourceRecordConcentrationSnapshot.global_observation_denominator} in the global pre-filter facet denominator. Values are not weighted.</span></div></div></div>`
           : '';
-        legendItems.innerHTML = `${clusterLegendSection}${scientificLegendSection}${sourceConcentrationLegendSection}${animalLegendSections}${LAYER_GROUP_DEFINITIONS
+        legendItems.innerHTML = `${clusterLegendSection}${scientificLegendSection}${sourceConcentrationLegendSection}${LAYER_GROUP_DEFINITIONS
           .map((group) => renderGroup(group.label, activeLegendLayers.filter((layer) => layer.group === group.key)))
           .join('')}` || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
-        densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
+        densityRamp.hidden = !visiblePolygonFeatureEntries.some(({ layer }) => layer.key === 'raa-archaeology');
       }
       function sourceChronologyPopupHtml(feature) {
         if (!feature || feature.semantic_role !== 'source_chronology_context') return '';
@@ -5322,7 +5773,32 @@
         const rows = values.map(([label, value]) => `<div class="popup-row"><span class="popup-row-label">${escapeHtml(label)}</span><span class="popup-row-value">${escapeHtml(value)}</span></div>`).join('');
         return `<div class="popup-section"><span class="popup-section-title">Source-native chronology context</span>${rows}<div class="popup-row"><span class="popup-row-label">Interpretation posture</span><span class="popup-row-value">Chronology context only; propagation use refused.</span></div></div>`;
       }
-      function popupHtml(feature) {
+      function animalSourceChronologyPopupHtml(feature, layer = null) {
+        if (!animalSourceChronologyFeatureIsValid(feature)) return '';
+        const sourceRows = availablePopupRows(Array.isArray(feature.popup_rows) ? feature.popup_rows : []);
+        const identityRows = [
+          { label: 'Project accession', value: feature.project_accession },
+          { label: 'Repository sample', value: feature.repo_stable_sample_id },
+          { label: 'Project-registry species attribution', value: feature.project_species_latin_name },
+          { label: 'Source-native identity kind', value: feature.source_native_identity_kind },
+          { label: 'Source-native taxon ID', value: feature.source_native_tax_id },
+          { label: 'Source-native scientific name', value: feature.source_native_scientific_name },
+          { label: 'Source-native taxonomy status', value: feature.source_native_taxonomy_status },
+          { label: 'Chronology', value: featureTimeLabel(feature) },
+          { label: 'Coordinate basis', value: formatCoordinateBasis(feature.coordinate_basis || '') },
+          { label: 'Coordinate confidence', value: formatCoordinateConfidence(feature.coordinate_confidence || '') },
+        ].filter((row) => valueIsAvailable(row.value));
+        const seenLabels = new Set(identityRows.map((row) => row.label));
+        const rows = identityRows.concat(sourceRows.filter((row) => !seenLabels.has(row.label)));
+        const rowHtml = rows.map((row) => `<div class="popup-row"><span class="popup-row-label">${escapeHtml(row.label || '')}</span><span class="popup-row-value">${escapeHtml(row.value)}</span></div>`).join('');
+        const traceabilityArtifact = typeof layer?.traceability_artifact === 'string' ? layer.traceability_artifact.trim() : '';
+        const traceabilityHtml = traceabilityArtifact ? `<div class="popup-row"><span class="popup-row-label">Accountability</span><span class="popup-row-value"><a href="./${escapeHtml(traceabilityArtifact)}" target="_blank" rel="noreferrer">Open chronology accountability and refusals</a></span></div>` : '';
+        return `<div class="popup-card"><div class="popup-headline"><span class="popup-kicker">Animal source chronology</span><div class="popup-title">${escapeHtml(feature.title || feature.repo_stable_sample_id || '')}</div><div class="popup-subtitle">${escapeHtml(feature.project_species_common_name || feature.project_species_latin_name || '')}</div></div><div class="popup-badges"><span class="popup-badge">Display-only chronology</span><span class="popup-badge">Project-registry species attribution</span></div><div class="popup-section"><span class="popup-section-title">Source sample and chronology</span>${rowHtml}<div class="popup-row"><span class="popup-row-label">Scientific posture</span><span class="popup-row-value">Project species attribution is not an accepted source-native taxonomic classification. This layer is excluded from candidate ranking, accepted scientific comparison, sequences, edges, propagation, migration, and causal claims.</span></div><div class="popup-row"><span class="popup-row-label">Coordinates</span><span class="popup-row-value">${escapeHtml(coordinateLabel(feature, 6))}</span></div>${traceabilityHtml}${mediaLinksHtml(feature.media_links)}</div>${feature.source_url ? `<div class="popup-section"><span class="popup-section-title">Source link</span><div class="popup-row"><span class="popup-row-value"><a href="${escapeHtml(feature.source_url)}" target="_blank" rel="noreferrer">Open source record</a></span></div></div>` : ''}</div>`;
+      }
+      function popupHtml(feature, layer = null) {
+        if (feature.semantic_role === 'animal_source_chronology_context') {
+          return animalSourceChronologyPopupHtml(feature, layer);
+        }
         const rows = Array.isArray(feature.popup_rows) ? feature.popup_rows : [];
         const scientificRows = scientificSignalsForFeature(feature);
         const sourceChronologyHtml = typeof sourceChronologyPopupHtml === 'function'
@@ -5417,11 +5893,7 @@
         return coordinates ? `${coordinates.latitude.toFixed(precision)}, ${coordinates.longitude.toFixed(precision)}` : 'Unavailable';
       }
       function finiteCountValue(value) {
-        if (value === null || value === undefined || typeof value === 'boolean') return null;
-        if (typeof value === 'string' && !value.trim()) return null;
-        if (typeof value !== 'number' && typeof value !== 'string') return null;
-        const numeric = Number(value);
-        return Number.isSafeInteger(numeric) && numeric >= 0 ? numeric : null;
+        return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0 ? value : null;
       }
       function countDisplayValue(count, countLabel) {
         if (typeof countLabel === 'string' && countLabel.trim()) return countLabel.trim();
@@ -5433,6 +5905,17 @@
         return count === null ? 'mapped count unavailable' : `${count} mapped point${count === 1 ? '' : 's'}`;
       }
       function featureTimeAdmission(feature) {
+        const semantics = feature?.temporal_semantics;
+        let posture = '';
+        if (semantics && typeof semantics === 'object' && !Array.isArray(semantics)) {
+          posture = typeof semantics.comparability_posture === 'string'
+            ? semantics.comparability_posture.trim()
+            : '';
+          const refusalReason = typeof semantics.refusal_reason_code === 'string'
+            ? semantics.refusal_reason_code.trim()
+            : '';
+          if (posture === 'refused' || refusalReason) return { status: 'refused', window: null };
+        }
         const startDeclared = Object.prototype.hasOwnProperty.call(feature, 'time_start_bp');
         const endDeclared = Object.prototype.hasOwnProperty.call(feature, 'time_end_bp');
         if (startDeclared || endDeclared) {
@@ -5443,7 +5926,8 @@
           if (!startAbsent || !endAbsent) {
             const start = finiteTimeValue(rawStart);
             const end = finiteTimeValue(rawEnd);
-            if (start === null || end === null || start > end) return { status: 'invalid', window: null };
+            if (start === null || end === null || start > end) return { status: 'refused', window: null };
+            if (posture && !['numeric_interval', 'numeric_interval_with_caveat', 'mixed_interval_and_context'].includes(posture)) return { status: 'contextual', window: null };
             return { status: 'valid', window: { start, end } };
           }
         }
@@ -5452,20 +5936,25 @@
           const rawValue = feature[field];
           if (rawValue === null || rawValue === undefined) continue;
           const value = finiteTimeValue(rawValue);
-          if (value === null) return { status: 'invalid', window: null };
+          if (value === null) return { status: 'refused', window: null };
+          if (posture && !['numeric_interval', 'numeric_interval_with_caveat', 'mixed_interval_and_context'].includes(posture)) return { status: 'contextual', window: null };
           return { status: 'valid', window: { start: value, end: value } };
         }
-        return { status: 'untimed', window: null };
+        if (semantics && typeof semantics === 'object' && !Array.isArray(semantics) && Object.keys(semantics).length) {
+          if (['numeric_interval', 'numeric_interval_with_caveat', 'mixed_interval_and_context'].includes(posture)) return { status: 'refused', window: null };
+          return { status: 'contextual', window: null };
+        }
+        return { status: 'absent', window: null };
       }
       function featureTimeWindow(feature) {
         return featureTimeAdmission(feature).window;
       }
       function featureInTimeWindow(layer, feature) {
         const admission = featureTimeAdmission(feature);
-        if (admission.status === 'invalid') return false;
-        if (admission.status === 'untimed' && layer.semantic_role === 'source_chronology_context') return false;
+        if (admission.status === 'refused') return false;
+        if (['absent', 'contextual'].includes(admission.status) && layer.semantic_role === 'source_chronology_context') return false;
         if (!layer.applies_time_filter || !TIME_HAS_DATA) return true;
-        if (admission.status === 'untimed') {
+        if (['absent', 'contextual'].includes(admission.status)) {
           return timeFilterUsesFullExtent();
         }
         const featureWindow = admission.window;
@@ -5474,7 +5963,7 @@
       }
       function featureTimeLabel(feature) {
         const admission = featureTimeAdmission(feature);
-        if (admission.status === 'invalid') return '';
+        if (admission.status === 'refused') return '';
         if (feature.time_label) return String(feature.time_label);
         const window = admission.window;
         if (!window) return '';
@@ -5500,8 +5989,9 @@
       function pointFeatureVisible(layer, feature) {
         return (
           activeLayerKeys.has(layer.key)
+          && (!((layer.semantic_role === 'animal_source_chronology_context' || layer.group === 'animal-chronology-context')) || (animalSourceChronologyLayerIsValid(layer) && animalSourceChronologyFeatureIsValid(feature)))
           && featureCoordinatePair(feature) !== null
-          && (!layer.applies_country_filter || activeCountries.has(feature.country))
+          && (!layer.applies_country_filter || animalSourceChronologyCountryFilterBypassed(layer) || activeCountries.has(feature.country))
           && pointFeatureInTimeWindow(layer, feature)
           && sourceChronologyFeatureMatches(layer, feature)
           && featureMatchesAnimalFilters(layer, feature)
@@ -5637,7 +6127,7 @@
                   }),
                 })
               : L.circleMarker(latLng, { pane: 'pointPane', radius: layer.key === 'aadr' ? 4.5 : 6, color: layer.style.stroke, weight: 1.3, fillColor: layer.style.fill, fillOpacity: 0.92 });
-            marker.bindPopup(popupHtml(feature), { maxWidth: 360 });
+            marker.bindPopup(popupHtml(feature, layer), { maxWidth: 360 });
             const entry = { layer, feature, marker };
             marker.on('click', () => {
               focusPointAtVisibleIndex(visiblePointEntries.indexOf(entry));
@@ -5852,8 +6342,10 @@
         if (TIME_HAS_DATA && !timeFilterUsesFullExtent()) {
           const untimedExclusion = genericUntimedExclusion();
           timeRecordSummary += untimedExclusion.status === 'available'
-            ? ` ${untimedExclusion.count} records without comparable BP chronology are excluded by this narrowed window.`
-            : ' The exact number of records excluded for missing comparable BP chronology is unavailable for this country selection.';
+            ? untimedExclusion.split_status === 'available'
+              ? ` ${untimedExclusion.count} records without admitted numeric BP chronology are excluded (${untimedExclusion.absent_count} absent, ${untimedExclusion.refused_count} refused, ${untimedExclusion.contextual_count} contextual).`
+              : ` ${untimedExclusion.count} records without admitted numeric BP chronology are excluded; the absent/refused/contextual split is unavailable for this legacy report.`
+            : ' The exact number of records excluded without admitted numeric BP chronology is unavailable for this country selection.';
         }
         const playbackBlockReason = automaticTimePlaybackBlockReason();
         timeRecordCount.textContent = playbackBlockReason
@@ -6003,6 +6495,8 @@
           if (!sourceLayer) throw new Error('capture source_level is unavailable');
           let sourceCode = 'all';
           let sourceTaxon = 'all';
+          let sourcePreset = 'none';
+          let sourcePresetAuthority = null;
           if (sourceLevel === 'source_ecological_code') {
             const validCodes = ['all', ...sourceLayer.facet_metadata.source_ecological_codes.map((row) => row.value)];
             sourceCode = String(frameSpec.source_code || 'all');
@@ -6011,14 +6505,19 @@
             const validTaxa = ['all', ...sourceLayer.facet_metadata.source_taxa.map((row) => row.value)];
             sourceTaxon = String(frameSpec.source_taxon || 'all');
             if (!validTaxa.includes(sourceTaxon)) throw new Error('capture source_taxon is unavailable');
+            const validPresets = ['none', ...sourceLayer.facet_metadata.source_label_preset_accountability.presets.map((row) => row.key)];
+            sourcePreset = String(frameSpec.source_preset || 'none');
+            if (!validPresets.includes(sourcePreset)) throw new Error('capture source_preset is unavailable');
+            if (sourceTaxon !== 'all' && sourcePreset !== 'none') throw new Error('capture cannot combine an exact source taxon and a source-label preset');
+            sourcePresetAuthority = sourceChronologyCapturePresetAuthority(sourceLayer, sourcePreset);
           }
           const frameWindow = captureFrameWindow(frameSpec);
-          const facet = sourceChronologyFacetForSelection(sourceLayer, sourceCode, sourceTaxon);
+          const facet = sourceChronologyFacetForSelection(sourceLayer, sourceCode, sourceTaxon, sourcePreset);
           if (!facet || !sourceChronologyExtentIsValid(facet) || facet.node_count === 0) throw new Error('capture source facet has no chronological evidence');
           const minimum = sourceChronologyTimeValue(facet.time_min_bp);
           const maximum = sourceChronologyTimeValue(facet.time_max_bp);
           if (frameWindow.youngerBp < minimum || frameWindow.olderBp > maximum) throw new Error('capture BP interval exceeds the selected source extent');
-          return { ...common, sourceLevel, sourceCode, sourceTaxon, frameWindow };
+          return { ...common, sourceLevel, sourceCode, sourceTaxon, sourcePreset, sourcePresetAuthority, frameWindow };
         }
         if (!modeledContextAvailable()) throw new Error('modeled_context_capture_not_available');
         const sourceWindowLabel = String(frameSpec.source_window_label || '');
@@ -6065,7 +6564,11 @@
         const sourceFacet = sourceLayer
           ? sourceChronologyFacetForSelection(sourceLayer, activeSourceChronologyCode, activeSourceChronologyTaxon)
           : null;
+        const sourcePresetAuthority = activeSourceChronologyLevel === 'source_taxon' && activeSourceChronologyPreset !== 'none'
+          ? sourceChronologyCapturePresetAuthority(sourceLayer, activeSourceChronologyPreset)
+          : null;
         const visibleSourceEntries = visiblePointEntries.filter(({ layer }) => layer.semantic_role === 'source_chronology_context');
+        const visibleSourceSiteCount = new Set(visibleSourceEntries.map(({ feature }) => feature.record_id)).size;
         const visibleSourceObservationValues = visibleSourceEntries.map(({ feature }) => sourceChronologyCount(feature.observation_denominator));
         const visibleSourceObservationDenominator = visibleSourceObservationValues.every((value) => value !== null)
           ? visibleSourceObservationValues.reduce((total, value) => total + value, 0)
@@ -6115,8 +6618,13 @@
             level: activeSourceChronologyLevel,
             source_code: activeSourceChronologyLevel === 'source_ecological_code' ? activeSourceChronologyCode : null,
             source_taxon: activeSourceChronologyLevel === 'source_taxon' ? activeSourceChronologyTaxon : null,
+            source_preset: activeSourceChronologyLevel === 'source_taxon' && activeSourceChronologyPreset !== 'none' ? activeSourceChronologyPreset : null,
+            source_preset_member_taxon_ids: sourcePresetAuthority ? [...sourcePresetAuthority.memberTaxonIds] : null,
+            source_preset_catalog_sha256: sourcePresetAuthority ? sourcePresetAuthority.catalogSha256 : null,
+            facet_site_count: sourceFacet ? sourceFacet.site_count : null,
             facet_node_count: sourceFacet ? sourceFacet.node_count : null,
             facet_observation_denominator: sourceFacet ? sourceFacet.observation_denominator : null,
+            visible_site_count: visibleSourceSiteCount,
             visible_node_count: visibleSourceEntries.length,
             visible_observation_denominator: visibleSourceObservationDenominator,
           } : null,
@@ -6183,6 +6691,8 @@
           return row ? `Neotoma ${row.value} — ${row.label}` : `Neotoma ${activeSourceChronologyCode}`;
         }
         if (sourceLayer.node_level === 'source_taxon') {
+          const preset = sourceChronologyPresetForSelection(sourceLayer, activeSourceChronologyPreset);
+          if (preset) return `Neotoma literal exact-ID union — ${preset.label}`;
           const row = sourceLayer.facet_metadata.source_taxa.find((candidate) => candidate.value === activeSourceChronologyTaxon);
           return row ? `Neotoma exact source-reported taxon — ${row.label}` : 'Neotoma exact source-reported taxon';
         }
@@ -6256,6 +6766,9 @@
           const layerStroke = sourceLayer?.style?.stroke || layerFill;
           const visibleObservations = snapshot.source_chronology.visible_observation_denominator;
           const visibleObservationLabel = visibleObservations === null ? 'unavailable' : String(visibleObservations);
+          const sourceCaveat = snapshot.source_chronology.source_preset
+            ? 'Literal exact-ID source-label union only · not an accepted classification or abundance · no interpolation, flow, propagation, migration, or causation inference.'
+            : 'Observed source records only · site, node, and display-cluster counts are not abundance · no interpolation, flow, propagation, migration, or causation inference.';
           const keyItems = [
             { label: 'source record', cue: 'point', fill: layerFill, stroke: layerStroke },
             { label: 'records grouped at current zoom', cue: 'cluster-count', fill: layerFill, stroke: layerStroke },
@@ -6266,8 +6779,8 @@
             role_label: 'Observed source chronology',
             title: atlasCaptureSourceTitle(sourceLayer),
             time_label: timeLabel,
-            counts_label: `${snapshot.source_chronology.visible_node_count}/${snapshot.source_chronology.facet_node_count} governed source nodes in this interval · ${visibleObservationLabel}/${snapshot.source_chronology.facet_observation_denominator} contributing observations`,
-            caveat: 'Observed source records only · display clusters are not abundance · no interpolation, flow, or propagation inference.',
+            counts_label: `${snapshot.source_chronology.visible_site_count}/${snapshot.source_chronology.facet_site_count} unique source sites · ${snapshot.source_chronology.visible_node_count}/${snapshot.source_chronology.facet_node_count} governed source nodes in this interval · ${visibleObservationLabel}/${snapshot.source_chronology.facet_observation_denominator} contributing observations`,
+            caveat: sourceCaveat,
           }, keyItems);
           return;
         }
@@ -6288,7 +6801,7 @@
           title,
           time_label: timeLabel,
           counts_label: `${snapshot.visible_modeled_context_feature_count}/${modeledContextPublishedCellCountLabel(snapshot)} published cells visible · ${qualityCounts.no_pollen_data} explicitly have no pollen data · ${sourceWindow?.label || 'source window unavailable'}`,
-          caveat: 'Published modeled cells are context only · no atlas interpolation, flow, or propagation inference.',
+          caveat: 'Published modeled cells are context only, not an observed pollen trajectory · no atlas interpolation, flow, propagation, migration, or causation inference.',
         }, keyItems);
       }
       async function applyAtlasCaptureFrame(frameSpec) {
@@ -6317,6 +6830,7 @@
             activeSourceChronologyCode = captureFrame.sourceCode;
           } else if (captureFrame.sourceLevel === 'source_taxon') {
             activeSourceChronologyTaxon = captureFrame.sourceTaxon;
+            activeSourceChronologyPreset = captureFrame.sourcePreset;
             sourceChronologyTaxonSearch = '';
           }
           timeStartBp = captureFrame.frameWindow.youngerBp;
@@ -6422,6 +6936,7 @@
         activeSourceChronologyLevel = defaultSourceChronologyLevel;
         activeSourceChronologyCode = 'all';
         activeSourceChronologyTaxon = 'all';
+        activeSourceChronologyPreset = 'none';
         sourceChronologyTaxonSearch = '';
         sourceRecordConcentrationActive = false;
         sourceRecordConcentrationSnapshot = null;
@@ -6462,11 +6977,12 @@
           const shortcut = button.dataset.sourceShortcut;
           const targetLevel = shortcut === 'sample'
             ? 'source_sample_presence'
-            : (shortcut === 'taxa' || shortcut === 'cereals' ? 'source_taxon' : 'source_ecological_code');
+            : (shortcut === 'taxa' ? 'source_taxon' : 'source_ecological_code');
           if (!selectSourceChronologyLevel(targetLevel)) return;
-          sourceChronologyTaxonSearch = shortcut === 'cereals' ? 'cereal|secale' : '';
+          sourceChronologyTaxonSearch = '';
           sourceChronologyTaxonQuery.value = sourceChronologyTaxonSearch;
           if (targetLevel === 'source_ecological_code') {
+            activeSourceChronologyPreset = 'none';
             const layer = sourceChronologyLayerForLevel(targetLevel);
             activeSourceChronologyCode = normalizedSingleValue(
               shortcut,
@@ -6475,14 +6991,24 @@
             );
           } else if (shortcut === 'taxa') {
             activeSourceChronologyTaxon = 'all';
-          } else if (shortcut === 'cereals') {
-            const layer = sourceChronologyLayerForLevel(targetLevel);
-            const cerealFacets = layer.facet_metadata.source_taxa.filter((row) => /cereal|secale/i.test(row.label));
-            const preferredCerealFacet = cerealFacets.find((row) => row.label.trim().toLowerCase() === 'secale')
-              || cerealFacets.find((row) => row.source_taxon_id === '967')
-              || cerealFacets[0];
-            activeSourceChronologyTaxon = preferredCerealFacet?.value || 'all';
+            activeSourceChronologyPreset = 'none';
           }
+          focusSourceChronologyNavigation();
+          renderLayerControls();
+          renderMapState();
+          sourceChronologyControls.open = true;
+        });
+      });
+      document.querySelectorAll('[data-source-preset]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const layer = sourceChronologyLayerForLevel('source_taxon');
+          if (!layer || !selectSourceChronologyLevel('source_taxon')) return;
+          const validPresetKeys = layer.facet_metadata.source_label_preset_accountability.presets.map((row) => row.key);
+          activeSourceChronologyPreset = normalizedSingleValue(button.dataset.sourcePreset, validPresetKeys, 'none');
+          activeSourceChronologyTaxon = 'all';
+          sourceChronologyTaxonSearch = '';
+          sourceChronologyTaxonQuery.value = '';
+          sourceRecordConcentrationActive = false;
           focusSourceChronologyNavigation();
           renderLayerControls();
           renderMapState();
@@ -6646,6 +7172,7 @@
       });
       sourceChronologyTaxonQuery.addEventListener('input', () => {
         sourceChronologyTaxonSearch = sourceChronologyTaxonQuery.value;
+        if (sourceChronologyTaxonSearch.trim()) activeSourceChronologyPreset = 'none';
         renderSourceChronologyControls();
       });
       sourceChronologyTaxon.addEventListener('change', () => {
@@ -6657,6 +7184,7 @@
           ['all', ...layer.facet_metadata.source_taxa.map((row) => row.value)],
           'all'
         );
+        activeSourceChronologyPreset = 'none';
         sourceRecordConcentrationActive = false;
         focusSourceChronologyNavigation();
         renderMapState();

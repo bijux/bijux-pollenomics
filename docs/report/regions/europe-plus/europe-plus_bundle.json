@@ -82,71 +82,103 @@
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-provenance.0000.ae461b76cf4433e8.js"
+        "filename": "europe-plus.atlas-provenance.0000.c9e1c262f5a12f81.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0001.30a5f9214f3d3d5e.js"
+        "filename": "europe-plus.atlas-nodes.0001.4927fb991b9bf67b.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0002.17bb9571ef197d4e.js"
+        "filename": "europe-plus.atlas-nodes.0002.7a66f4002eef48b1.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0003.4cd95e086dabd869.js"
+        "filename": "europe-plus.atlas-nodes.0003.790f6e804fdf3d5e.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0004.de7be7aa97ee77bb.js"
+        "filename": "europe-plus.atlas-nodes.0004.b3bac435418ed06c.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0005.0a55000b5968ec68.js"
+        "filename": "europe-plus.atlas-nodes.0005.8a0c9223d26d2ef2.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0006.6888996f03cfbd08.js"
+        "filename": "europe-plus.atlas-nodes.0006.85d7586d5e806e3d.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0007.acc00b94250f0492.js"
+        "filename": "europe-plus.atlas-nodes.0007.e63539bd1c263b27.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0008.0660913c2f09d9d3.js"
+        "filename": "europe-plus.atlas-nodes.0008.98b6bef63f24f4be.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0009.b8ac7203edc65f10.js"
+        "filename": "europe-plus.atlas-nodes.0009.d6279855913896e0.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0010.93a20e2d76bbd3e4.js"
+        "filename": "europe-plus.atlas-nodes.0010.2d60ad17d20a1711.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0011.8488db5345f6e1de.js"
+        "filename": "europe-plus.atlas-nodes.0011.dcf6c2207cb8bf39.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0012.5777ceba24180366.js"
+        "filename": "europe-plus.atlas-nodes.0012.ac6ed9877939b53c.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-nodes.0013.0987f3e8a0484d7e.js"
+        "filename": "europe-plus.atlas-nodes.0013.dd727504128ebb97.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-edges.0014.402fe1b77425247b.js"
+        "filename": "europe-plus.atlas-nodes.0014.a13b7e05e3670d59.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-sequences.0015.0bbbd9e15fcb2cce.js"
+        "filename": "europe-plus.atlas-nodes.0015.b394bc5d65ceab54.js"
       },
       {
         "label": "Static atlas data chunk",
-        "filename": "europe-plus.atlas-indexes.0016.0774ff94d9b59622.js"
+        "filename": "europe-plus.atlas-nodes.0016.ee78fa9fc0ce2881.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-nodes.0017.6150eefa96579872.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-nodes.0018.352d88b2836d62c0.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-nodes.0019.6b775337161fe86e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-nodes.0020.6f422f9377cf0b05.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-edges.0021.60595a784d07fd03.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-sequences.0022.5143fe10717a51cb.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "europe-plus.atlas-indexes.0023.88a6cadf0dc16e6a.js"
+      },
+      {
+        "label": "Animal source-sample chronology accountability",
+        "filename": "europe-plus_animal_sample_chronology_context.json"
       },
       {
         "label": "Candidate site ranking CSV",
@@ -249,7 +281,7 @@
       "point_traceability_json": "europe-plus_point_traceability.json"
     },
     "role_counts": {
-      "shared_world_scale_layer": 4,
+      "shared_world_scale_layer": 10,
       "region_filtered_layer": 1,
       "scope_specific_overlay": 0
     },
@@ -307,6 +339,162 @@
         "scope_caveat": "Shared evidence layer across every governed scope."
       },
       {
+        "key": "animal-source-chronology-bos-taurus",
+        "label": "Cattle source-sample chronology",
+        "source_name": "Governed animal project sample chronology",
+        "coverage_label": "",
+        "count": 5,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+        "group": "animal-chronology-context",
+        "semantic_role": "animal_source_chronology_context",
+        "contribution_role": "display_only",
+        "candidate_ranking_eligible": false,
+        "scientific_classification_eligible": false,
+        "scientific_selection_enabled": false,
+        "propagation_status": "refused",
+        "propagation_reason_code": "display_only_source_chronology",
+        "edge_count": 0,
+        "circle_enabled": false,
+        "project_species_latin_name": "Bos taurus",
+        "project_species_common_name": "cattle",
+        "species_attribution_basis": "governed_project_registry"
+      },
+      {
+        "key": "animal-source-chronology-capra-hircus",
+        "label": "Goat source-sample chronology",
+        "source_name": "Governed animal project sample chronology",
+        "coverage_label": "",
+        "count": 0,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+        "group": "animal-chronology-context",
+        "semantic_role": "animal_source_chronology_context",
+        "contribution_role": "display_only",
+        "candidate_ranking_eligible": false,
+        "scientific_classification_eligible": false,
+        "scientific_selection_enabled": false,
+        "propagation_status": "refused",
+        "propagation_reason_code": "display_only_source_chronology",
+        "edge_count": 0,
+        "circle_enabled": false,
+        "project_species_latin_name": "Capra hircus",
+        "project_species_common_name": "goat",
+        "species_attribution_basis": "governed_project_registry"
+      },
+      {
+        "key": "animal-source-chronology-equus-caballus",
+        "label": "Horse source-sample chronology",
+        "source_name": "Governed animal project sample chronology",
+        "coverage_label": "",
+        "count": 3,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+        "group": "animal-chronology-context",
+        "semantic_role": "animal_source_chronology_context",
+        "contribution_role": "display_only",
+        "candidate_ranking_eligible": false,
+        "scientific_classification_eligible": false,
+        "scientific_selection_enabled": false,
+        "propagation_status": "refused",
+        "propagation_reason_code": "display_only_source_chronology",
+        "edge_count": 0,
+        "circle_enabled": false,
+        "project_species_latin_name": "Equus caballus",
+        "project_species_common_name": "horse",
+        "species_attribution_basis": "governed_project_registry"
+      },
+      {
+        "key": "animal-source-chronology-felis-catus",
+        "label": "Cat source-sample chronology",
+        "source_name": "Governed animal project sample chronology",
+        "coverage_label": "",
+        "count": 0,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+        "group": "animal-chronology-context",
+        "semantic_role": "animal_source_chronology_context",
+        "contribution_role": "display_only",
+        "candidate_ranking_eligible": false,
+        "scientific_classification_eligible": false,
+        "scientific_selection_enabled": false,
+        "propagation_status": "refused",
+        "propagation_reason_code": "display_only_source_chronology",
+        "edge_count": 0,
+        "circle_enabled": false,
+        "project_species_latin_name": "Felis catus",
+        "project_species_common_name": "cat",
+        "species_attribution_basis": "governed_project_registry"
+      },
+      {
+        "key": "animal-source-chronology-ovis-aries",
+        "label": "Sheep source-sample chronology",
+        "source_name": "Governed animal project sample chronology",
+        "coverage_label": "",
+        "count": 4,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+        "group": "animal-chronology-context",
+        "semantic_role": "animal_source_chronology_context",
+        "contribution_role": "display_only",
+        "candidate_ranking_eligible": false,
+        "scientific_classification_eligible": false,
+        "scientific_selection_enabled": false,
+        "propagation_status": "refused",
+        "propagation_reason_code": "display_only_source_chronology",
+        "edge_count": 0,
+        "circle_enabled": false,
+        "project_species_latin_name": "Ovis aries",
+        "project_species_common_name": "sheep",
+        "species_attribution_basis": "governed_project_registry"
+      },
+      {
+        "key": "animal-source-chronology-sus-scrofa-domesticus",
+        "label": "Pig source-sample chronology",
+        "source_name": "Governed animal project sample chronology",
+        "coverage_label": "",
+        "count": 2,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+        "group": "animal-chronology-context",
+        "semantic_role": "animal_source_chronology_context",
+        "contribution_role": "display_only",
+        "candidate_ranking_eligible": false,
+        "scientific_classification_eligible": false,
+        "scientific_selection_enabled": false,
+        "propagation_status": "refused",
+        "propagation_reason_code": "display_only_source_chronology",
+        "edge_count": 0,
+        "circle_enabled": false,
+        "project_species_latin_name": "Sus scrofa domesticus",
+        "project_species_common_name": "pig",
+        "species_attribution_basis": "governed_project_registry"
+      },
+      {
         "key": "country-boundaries",
         "label": "Country boundaries",
         "source_name": "Natural Earth country boundaries",
@@ -324,7 +512,7 @@
       "schema_version": "atlas-static-bootstrap.v2",
       "manifest": "europe-plus_map_assets.json",
       "budgets": {
-        "bootstrap_max_bytes": 65536,
+        "bootstrap_max_bytes": 262144,
         "chunk_max_bytes": 4194304,
         "document_max_bytes": 524288,
         "static_assets_max_bytes": 134217728,
@@ -338,7 +526,7 @@
       "domains": {
         "nodes": {
           "status": "available",
-          "record_count": 1243
+          "record_count": 1257
         },
         "edges": {
           "status": "unavailable",
@@ -352,7 +540,7 @@
         },
         "provenance": {
           "status": "layer_metadata_only",
-          "record_count": 5,
+          "record_count": 11,
           "reason_code": "record_level_provenance_model_not_available"
         },
         "details": {
@@ -367,9 +555,55 @@
         },
         "indexes": {
           "status": "available",
-          "record_count": 1239
+          "record_count": 1253
         }
       }
+    },
+    "animal_sample_chronology_context": {
+      "artifact": "europe-plus_animal_sample_chronology_context.json",
+      "content_sha256": "f0c3eb6026800a7e319ba803757a5f734ac974e81c83ffa1aaa3b0b21b504fd3",
+      "input_identity_sha256": "699ba2f922552b6e292d1b981d09f707f5b93eeba0c120effb5cd0fa0065d6c2",
+      "corpus_identity_sha256": "a8706e0c8aa05e4cc759f53f79142105055c4b30c8270492b1b91cac55bc1a6d",
+      "scope": {
+        "key": "europe_plus",
+        "kind": "region",
+        "countries": [
+          "Sweden",
+          "Norway",
+          "Finland",
+          "Denmark"
+        ]
+      },
+      "global_admitted_node_count": 531,
+      "projected_node_count": 14,
+      "excluded_by_scope_count": 517,
+      "refusal_count": 944,
+      "governed_country_rows": [
+        {
+          "country_name": "Denmark",
+          "node_count": 7,
+          "time_min_bp": 1000,
+          "time_max_bp": 8173
+        },
+        {
+          "country_name": "Finland",
+          "node_count": 2,
+          "time_min_bp": 340,
+          "time_max_bp": 527
+        },
+        {
+          "country_name": "Norway",
+          "node_count": 0,
+          "time_min_bp": null,
+          "time_max_bp": null
+        },
+        {
+          "country_name": "Sweden",
+          "node_count": 5,
+          "time_min_bp": 1217,
+          "time_max_bp": 9657
+        }
+      ]
     },
     "detail_projection": {
       "schema_version": "atlas-evidence-projection.v2",

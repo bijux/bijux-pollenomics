@@ -29,6 +29,12 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 | Cattle aDNA site evidence (wild or progenitor context) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `4` |
 | Sheep aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
 | Pig aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
+| Cattle source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `5` |
+| Goat source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `0` |
+| Horse source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `3` |
+| Cat source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `0` |
+| Sheep source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `4` |
+| Pig source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `2` |
 | Neotoma sample pollen-presence context | `scope_specific_overlay` | Neotoma | Dated source samples with positive reported pollen observations; not reviewed pollen-sum events. | `9988` |
 | Neotoma literal ecological codes | `scope_specific_overlay` | Neotoma | Literal source ecological codes without cross-source equivalence or propagation claims. | `25165` |
 | Neotoma exact source taxa | `scope_specific_overlay` | Neotoma | Exact source taxon identities without accepted ecological classification or propagation claims. | `215751` |

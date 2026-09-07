@@ -65,18 +65,18 @@ link farms or coded operator notes.
 | `docs/report/publication_country_onboarding_contract.md` | `reader_ready` | 7 | 0 | 16 | 0 | 9 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_geography_registry.md` | `reader_ready` | 2 | 0 | 0 | 9 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_geography_subset_validation.md` | `reader_ready` | 1 | 0 | 0 | 8 | 2 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/europe-plus/README.md` | `reader_ready` | 9 | 0 | 64 | 22 | 14 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/europe-plus/README.md` | `reader_ready` | 9 | 0 | 72 | 28 | 14 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/europe-plus/europe-plus_candidate_site_sensitivity.md` | `thin_structure` | 1 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/europe-plus/europe-plus_candidate_sites.md` | `thin_structure` | 4 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/europe-plus/europe-plus_evidence_surface.md` | `reader_ready` | 1 | 0 | 0 | 47 | 4 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/europe-plus/europe-plus_map_publication_contract.md` | `reader_ready` | 6 | 0 | 6 | 7 | 7 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/europe-plus/europe-plus_map_publication_contract.md` | `reader_ready` | 6 | 0 | 6 | 13 | 7 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/europe-plus/europe-plus_point_traceability.md` | `reader_ready` | 1 | 0 | 0 | 42 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/europe-plus/europe-plus_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 196 | 10 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/README.md` | `reader_ready` | 10 | 0 | 299 | 31 | 14 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/README.md` | `reader_ready` | 10 | 0 | 307 | 37 | 14 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_candidate_site_sensitivity.md` | `thin_structure` | 1 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/nordic_candidate_sites.md` | `thin_structure` | 4 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/nordic_evidence_surface.md` | `reader_ready` | 1 | 0 | 0 | 47 | 4 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/nordic_map_publication_contract.md` | `reader_ready` | 7 | 0 | 19 | 16 | 7 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/nordic_map_publication_contract.md` | `reader_ready` | 7 | 0 | 19 | 22 | 7 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_point_traceability.md` | `reader_ready` | 1 | 0 | 0 | 42 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 324 | 10 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/sweden_archaeology_site_discovery.md` | `reader_ready` | 4 | 0 | 4 | 42 | 4 | Page explains its purpose before or alongside artifact links. |
@@ -102,11 +102,11 @@ link farms or coded operator notes.
 | `docs/report/repository_source_explainer_audit.md` | `thin_structure` | 1 | 0 | 1 | 18 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/repository_source_family_matrix.md` | `structured_reference` | 0 | 0 | 0 | 10 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/repository_truth_posture.md` | `reader_ready` | 5 | 0 | 21 | 0 | 5 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/world/README.md` | `reader_ready` | 9 | 0 | 113 | 35 | 14 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/world/README.md` | `reader_ready` | 9 | 0 | 164 | 41 | 14 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/world/world_candidate_site_sensitivity.md` | `thin_structure` | 1 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/world/world_candidate_sites.md` | `thin_structure` | 4 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/world/world_evidence_surface.md` | `reader_ready` | 1 | 0 | 0 | 43 | 4 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/world/world_map_publication_contract.md` | `reader_ready` | 6 | 0 | 6 | 13 | 7 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/world/world_map_publication_contract.md` | `reader_ready` | 6 | 0 | 6 | 19 | 7 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/world/world_point_traceability.md` | `reader_ready` | 1 | 0 | 0 | 42 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/world/world_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 300 | 10 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/caveats/index.md` | `reader_ready` | 3 | 5 | 4 | 0 | 4 | Page explains its purpose before or alongside artifact links. |

@@ -9,7 +9,7 @@
 
 ## Balance Counts
 
-- Runtime Python files: `1021`
-- Tracked data files: `1826`
-- Report files: `561`
+- Runtime Python files: `1039`
+- Tracked data files: `1839`
+- Report files: `628`
 - Maintainer root review files: `0`

@@ -64,7 +64,7 @@
     "point_traceability_json": "nordic_point_traceability.json"
   },
   "role_counts": {
-    "shared_world_scale_layer": 4,
+    "shared_world_scale_layer": 10,
     "region_filtered_layer": 1,
     "scope_specific_overlay": 9
   },
@@ -187,6 +187,162 @@
       "scope_caveat": "Shared evidence layer across every governed scope."
     },
     {
+      "key": "animal-source-chronology-bos-taurus",
+      "label": "Cattle source-sample chronology",
+      "source_name": "Governed animal project sample chronology",
+      "coverage_label": "",
+      "count": 5,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+      "group": "animal-chronology-context",
+      "semantic_role": "animal_source_chronology_context",
+      "contribution_role": "display_only",
+      "candidate_ranking_eligible": false,
+      "scientific_classification_eligible": false,
+      "scientific_selection_enabled": false,
+      "propagation_status": "refused",
+      "propagation_reason_code": "display_only_source_chronology",
+      "edge_count": 0,
+      "circle_enabled": false,
+      "project_species_latin_name": "Bos taurus",
+      "project_species_common_name": "cattle",
+      "species_attribution_basis": "governed_project_registry"
+    },
+    {
+      "key": "animal-source-chronology-capra-hircus",
+      "label": "Goat source-sample chronology",
+      "source_name": "Governed animal project sample chronology",
+      "coverage_label": "",
+      "count": 0,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+      "group": "animal-chronology-context",
+      "semantic_role": "animal_source_chronology_context",
+      "contribution_role": "display_only",
+      "candidate_ranking_eligible": false,
+      "scientific_classification_eligible": false,
+      "scientific_selection_enabled": false,
+      "propagation_status": "refused",
+      "propagation_reason_code": "display_only_source_chronology",
+      "edge_count": 0,
+      "circle_enabled": false,
+      "project_species_latin_name": "Capra hircus",
+      "project_species_common_name": "goat",
+      "species_attribution_basis": "governed_project_registry"
+    },
+    {
+      "key": "animal-source-chronology-equus-caballus",
+      "label": "Horse source-sample chronology",
+      "source_name": "Governed animal project sample chronology",
+      "coverage_label": "",
+      "count": 3,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+      "group": "animal-chronology-context",
+      "semantic_role": "animal_source_chronology_context",
+      "contribution_role": "display_only",
+      "candidate_ranking_eligible": false,
+      "scientific_classification_eligible": false,
+      "scientific_selection_enabled": false,
+      "propagation_status": "refused",
+      "propagation_reason_code": "display_only_source_chronology",
+      "edge_count": 0,
+      "circle_enabled": false,
+      "project_species_latin_name": "Equus caballus",
+      "project_species_common_name": "horse",
+      "species_attribution_basis": "governed_project_registry"
+    },
+    {
+      "key": "animal-source-chronology-felis-catus",
+      "label": "Cat source-sample chronology",
+      "source_name": "Governed animal project sample chronology",
+      "coverage_label": "",
+      "count": 0,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+      "group": "animal-chronology-context",
+      "semantic_role": "animal_source_chronology_context",
+      "contribution_role": "display_only",
+      "candidate_ranking_eligible": false,
+      "scientific_classification_eligible": false,
+      "scientific_selection_enabled": false,
+      "propagation_status": "refused",
+      "propagation_reason_code": "display_only_source_chronology",
+      "edge_count": 0,
+      "circle_enabled": false,
+      "project_species_latin_name": "Felis catus",
+      "project_species_common_name": "cat",
+      "species_attribution_basis": "governed_project_registry"
+    },
+    {
+      "key": "animal-source-chronology-ovis-aries",
+      "label": "Sheep source-sample chronology",
+      "source_name": "Governed animal project sample chronology",
+      "coverage_label": "",
+      "count": 4,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+      "group": "animal-chronology-context",
+      "semantic_role": "animal_source_chronology_context",
+      "contribution_role": "display_only",
+      "candidate_ranking_eligible": false,
+      "scientific_classification_eligible": false,
+      "scientific_selection_enabled": false,
+      "propagation_status": "refused",
+      "propagation_reason_code": "display_only_source_chronology",
+      "edge_count": 0,
+      "circle_enabled": false,
+      "project_species_latin_name": "Ovis aries",
+      "project_species_common_name": "sheep",
+      "species_attribution_basis": "governed_project_registry"
+    },
+    {
+      "key": "animal-source-chronology-sus-scrofa-domesticus",
+      "label": "Pig source-sample chronology",
+      "source_name": "Governed animal project sample chronology",
+      "coverage_label": "",
+      "count": 2,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+      "group": "animal-chronology-context",
+      "semantic_role": "animal_source_chronology_context",
+      "contribution_role": "display_only",
+      "candidate_ranking_eligible": false,
+      "scientific_classification_eligible": false,
+      "scientific_selection_enabled": false,
+      "propagation_status": "refused",
+      "propagation_reason_code": "display_only_source_chronology",
+      "edge_count": 0,
+      "circle_enabled": false,
+      "project_species_latin_name": "Sus scrofa domesticus",
+      "project_species_common_name": "pig",
+      "species_attribution_basis": "governed_project_registry"
+    },
+    {
       "key": "neotoma-source-sample-pollen-context",
       "label": "Neotoma sample pollen-presence context",
       "source_name": "Neotoma",
@@ -256,7 +412,7 @@
     "schema_version": "atlas-static-bootstrap.v2",
     "manifest": "nordic_map_assets.json",
     "budgets": {
-      "bootstrap_max_bytes": 65536,
+      "bootstrap_max_bytes": 262144,
       "chunk_max_bytes": 4194304,
       "document_max_bytes": 524288,
       "static_assets_max_bytes": 134217728,
@@ -270,7 +426,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 267142
+        "record_count": 267156
       },
       "edges": {
         "status": "unavailable",
@@ -299,9 +455,55 @@
       },
       "indexes": {
         "status": "available",
-        "record_count": 266885
+        "record_count": 266899
       }
     }
+  },
+  "animal_sample_chronology_context": {
+    "artifact": "nordic_animal_sample_chronology_context.json",
+    "content_sha256": "591dcc7ee5d9227550ab5feb05840eca5aabbd4e75ebf2120ee218319c3c1868",
+    "input_identity_sha256": "699ba2f922552b6e292d1b981d09f707f5b93eeba0c120effb5cd0fa0065d6c2",
+    "corpus_identity_sha256": "a8706e0c8aa05e4cc759f53f79142105055c4b30c8270492b1b91cac55bc1a6d",
+    "scope": {
+      "key": "nordic",
+      "kind": "region",
+      "countries": [
+        "Sweden",
+        "Norway",
+        "Finland",
+        "Denmark"
+      ]
+    },
+    "global_admitted_node_count": 531,
+    "projected_node_count": 14,
+    "excluded_by_scope_count": 517,
+    "refusal_count": 944,
+    "governed_country_rows": [
+      {
+        "country_name": "Denmark",
+        "node_count": 7,
+        "time_min_bp": 1000,
+        "time_max_bp": 8173
+      },
+      {
+        "country_name": "Finland",
+        "node_count": 2,
+        "time_min_bp": 340,
+        "time_max_bp": 527
+      },
+      {
+        "country_name": "Norway",
+        "node_count": 0,
+        "time_min_bp": null,
+        "time_max_bp": null
+      },
+      {
+        "country_name": "Sweden",
+        "node_count": 5,
+        "time_min_bp": 1217,
+        "time_max_bp": 9657
+      }
+    ]
   },
   "detail_projection": {
     "schema_version": "atlas-evidence-projection.v2",
@@ -496,7 +698,7 @@
         "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
         "parent_admission_sha256": "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1",
         "acquisition_release_status": "refused",
-        "evidence_file_set_sha256": "53526aeb0f218e5e3acc410ce059533fb3594ff1e239c8ef9fed2ce4e319baf0",
+        "evidence_file_set_sha256": "3a18b6e11ccccdc61f3c1fcbc5f301fd1132313ad14c8dba2fa87c6a9b3174cf",
         "country_site_counts": {
           "Denmark": 59,
           "Finland": 40,

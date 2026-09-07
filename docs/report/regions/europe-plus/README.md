@@ -42,23 +42,31 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 - Animal atlas evidence JSON: [`europe-plus_animal_atlas_evidence.json`](./europe-plus_animal_atlas_evidence.json)
 - Animal point traceability JSON: [`europe-plus_animal_point_traceability.json`](./europe-plus_animal_point_traceability.json)
 - Static atlas bootstrap manifest: [`europe-plus_map_assets.json`](./europe-plus_map_assets.json)
-- Static atlas data chunk: [`europe-plus.atlas-provenance.0000.ae461b76cf4433e8.js`](./europe-plus.atlas-provenance.0000.ae461b76cf4433e8.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0001.30a5f9214f3d3d5e.js`](./europe-plus.atlas-nodes.0001.30a5f9214f3d3d5e.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0002.17bb9571ef197d4e.js`](./europe-plus.atlas-nodes.0002.17bb9571ef197d4e.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0003.4cd95e086dabd869.js`](./europe-plus.atlas-nodes.0003.4cd95e086dabd869.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0004.de7be7aa97ee77bb.js`](./europe-plus.atlas-nodes.0004.de7be7aa97ee77bb.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0005.0a55000b5968ec68.js`](./europe-plus.atlas-nodes.0005.0a55000b5968ec68.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0006.6888996f03cfbd08.js`](./europe-plus.atlas-nodes.0006.6888996f03cfbd08.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0007.acc00b94250f0492.js`](./europe-plus.atlas-nodes.0007.acc00b94250f0492.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0008.0660913c2f09d9d3.js`](./europe-plus.atlas-nodes.0008.0660913c2f09d9d3.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0009.b8ac7203edc65f10.js`](./europe-plus.atlas-nodes.0009.b8ac7203edc65f10.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0010.93a20e2d76bbd3e4.js`](./europe-plus.atlas-nodes.0010.93a20e2d76bbd3e4.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0011.8488db5345f6e1de.js`](./europe-plus.atlas-nodes.0011.8488db5345f6e1de.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0012.5777ceba24180366.js`](./europe-plus.atlas-nodes.0012.5777ceba24180366.js)
-- Static atlas data chunk: [`europe-plus.atlas-nodes.0013.0987f3e8a0484d7e.js`](./europe-plus.atlas-nodes.0013.0987f3e8a0484d7e.js)
-- Static atlas data chunk: [`europe-plus.atlas-edges.0014.402fe1b77425247b.js`](./europe-plus.atlas-edges.0014.402fe1b77425247b.js)
-- Static atlas data chunk: [`europe-plus.atlas-sequences.0015.0bbbd9e15fcb2cce.js`](./europe-plus.atlas-sequences.0015.0bbbd9e15fcb2cce.js)
-- Static atlas data chunk: [`europe-plus.atlas-indexes.0016.0774ff94d9b59622.js`](./europe-plus.atlas-indexes.0016.0774ff94d9b59622.js)
+- Static atlas data chunk: [`europe-plus.atlas-provenance.0000.c9e1c262f5a12f81.js`](./europe-plus.atlas-provenance.0000.c9e1c262f5a12f81.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0001.4927fb991b9bf67b.js`](./europe-plus.atlas-nodes.0001.4927fb991b9bf67b.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0002.7a66f4002eef48b1.js`](./europe-plus.atlas-nodes.0002.7a66f4002eef48b1.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0003.790f6e804fdf3d5e.js`](./europe-plus.atlas-nodes.0003.790f6e804fdf3d5e.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0004.b3bac435418ed06c.js`](./europe-plus.atlas-nodes.0004.b3bac435418ed06c.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0005.8a0c9223d26d2ef2.js`](./europe-plus.atlas-nodes.0005.8a0c9223d26d2ef2.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0006.85d7586d5e806e3d.js`](./europe-plus.atlas-nodes.0006.85d7586d5e806e3d.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0007.e63539bd1c263b27.js`](./europe-plus.atlas-nodes.0007.e63539bd1c263b27.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0008.98b6bef63f24f4be.js`](./europe-plus.atlas-nodes.0008.98b6bef63f24f4be.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0009.d6279855913896e0.js`](./europe-plus.atlas-nodes.0009.d6279855913896e0.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0010.2d60ad17d20a1711.js`](./europe-plus.atlas-nodes.0010.2d60ad17d20a1711.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0011.dcf6c2207cb8bf39.js`](./europe-plus.atlas-nodes.0011.dcf6c2207cb8bf39.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0012.ac6ed9877939b53c.js`](./europe-plus.atlas-nodes.0012.ac6ed9877939b53c.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0013.dd727504128ebb97.js`](./europe-plus.atlas-nodes.0013.dd727504128ebb97.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0014.a13b7e05e3670d59.js`](./europe-plus.atlas-nodes.0014.a13b7e05e3670d59.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0015.b394bc5d65ceab54.js`](./europe-plus.atlas-nodes.0015.b394bc5d65ceab54.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0016.ee78fa9fc0ce2881.js`](./europe-plus.atlas-nodes.0016.ee78fa9fc0ce2881.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0017.6150eefa96579872.js`](./europe-plus.atlas-nodes.0017.6150eefa96579872.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0018.352d88b2836d62c0.js`](./europe-plus.atlas-nodes.0018.352d88b2836d62c0.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0019.6b775337161fe86e.js`](./europe-plus.atlas-nodes.0019.6b775337161fe86e.js)
+- Static atlas data chunk: [`europe-plus.atlas-nodes.0020.6f422f9377cf0b05.js`](./europe-plus.atlas-nodes.0020.6f422f9377cf0b05.js)
+- Static atlas data chunk: [`europe-plus.atlas-edges.0021.60595a784d07fd03.js`](./europe-plus.atlas-edges.0021.60595a784d07fd03.js)
+- Static atlas data chunk: [`europe-plus.atlas-sequences.0022.5143fe10717a51cb.js`](./europe-plus.atlas-sequences.0022.5143fe10717a51cb.js)
+- Static atlas data chunk: [`europe-plus.atlas-indexes.0023.88a6cadf0dc16e6a.js`](./europe-plus.atlas-indexes.0023.88a6cadf0dc16e6a.js)
+- Animal source-sample chronology accountability: [`europe-plus_animal_sample_chronology_context.json`](./europe-plus_animal_sample_chronology_context.json)
 - Candidate site ranking CSV: [`europe-plus_candidate_sites.csv`](./europe-plus_candidate_sites.csv)
 - Candidate site ranking JSON: [`europe-plus_candidate_sites.json`](./europe-plus_candidate_sites.json)
 - Candidate site ranking markdown: [`europe-plus_candidate_sites.md`](./europe-plus_candidate_sites.md)
@@ -78,6 +86,12 @@ Europe-plus is a governed regional filter view. It keeps only Europe-plus countr
 | Cattle aDNA site evidence (wild or progenitor context) | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `4` |
 | Sheep aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
 | Pig aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
+| Cattle source-sample chronology | `shared_world_scale_layer` |  | `5` |
+| Goat source-sample chronology | `shared_world_scale_layer` |  | `0` |
+| Horse source-sample chronology | `shared_world_scale_layer` |  | `3` |
+| Cat source-sample chronology | `shared_world_scale_layer` |  | `0` |
+| Sheep source-sample chronology | `shared_world_scale_layer` |  | `4` |
+| Pig source-sample chronology | `shared_world_scale_layer` |  | `2` |
 | Country boundaries | `region_filtered_layer` | Published country outlines used for framing and scope-aware map filtering. | `4` |
 
 ## Governed Filters
