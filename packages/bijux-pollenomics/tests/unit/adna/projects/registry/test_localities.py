@@ -6,6 +6,9 @@ from bijux_pollenomics.adna.projects.registry.localities import (
     build_species_project_locality_leads,
     resolve_project_locality_leads,
 )
+from bijux_pollenomics.adna.workflow.normalization import (
+    build_species_normalization_bundle,
+)
 
 
 class AdnaProjectLocalityUnitTests(unittest.TestCase):
@@ -51,6 +54,48 @@ class AdnaProjectLocalityUnitTests(unittest.TestCase):
         self.assertEqual(uppsala.coordinate_basis, "supplementary_table_coordinates")
         self.assertEqual(uppsala.latitude_text, "59.860999999999997")
         self.assertEqual(uppsala.longitude_text, "17.638999999999999")
+
+    def test_resolve_project_locality_leads_match_repeated_locality_entity(
+        self,
+    ) -> None:
+        rows = resolve_project_locality_leads("PRJEB90261")
+
+        lobos = next(row for row in rows if row.locality_text == "Lobos")
+        self.assertEqual(lobos.political_entity, "Lobos")
+        self.assertEqual(lobos.coordinate_basis, "supplementary_table_coordinates")
+        self.assertEqual(lobos.latitude_text, "28.741962000000001")
+        self.assertEqual(lobos.longitude_text, "-13.825055000000001")
+        self.assertEqual(
+            lobos.chronology_text,
+            "1st century BCE - 3rd century CE (site)",
+        )
+        self.assertIsNone(lobos.time_start_bp)
+        self.assertIsNone(lobos.time_end_bp)
+
+    def test_goat_normalization_joins_lobos_samples_to_locality(self) -> None:
+        bundle = build_species_normalization_bundle("Capra hircus")
+
+        samples = tuple(
+            row
+            for row in bundle.sample_records
+            if row.project_accession == "PRJEB90261" and row.locality == "Lobos"
+        )
+        locality = next(
+            row
+            for row in bundle.locality_records
+            if "PRJEB90261" in row.project_accessions and row.locality == "Lobos"
+        )
+
+        self.assertEqual(len(samples), 17)
+        self.assertEqual(
+            {row.locality_token for row in samples}, {locality.locality_token}
+        )
+        self.assertEqual(
+            {row.master_id for row in samples},
+            set(locality.sample_ids),
+        )
+        self.assertEqual(locality.latitude_text, "28.741962000000001")
+        self.assertEqual(locality.longitude_text, "-13.825055000000001")
 
     def test_build_species_project_locality_leads_keeps_requested_accession_order(
         self,

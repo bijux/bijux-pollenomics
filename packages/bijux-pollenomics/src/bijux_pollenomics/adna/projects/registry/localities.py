@@ -115,7 +115,9 @@ def _lead_rows(
     for rows in grouped_rows.values():
         row = rows[0]
         political_entity = row.country_name or row.broader_geography or ""
-        if _normalize_text(political_entity) == _normalize_text(row.locality_text):
+        if not row.country_name and _normalize_text(
+            political_entity
+        ) == _normalize_text(row.locality_text):
             political_entity = ""
         coordinate_row = coordinate_lookup.get(
             (
