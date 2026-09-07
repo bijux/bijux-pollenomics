@@ -4,6 +4,8 @@ POLLENOMICS_SOURCE_ROOT := packages/bijux-pollenomics/src/bijux_pollenomics
 POLLENOMICS_TEST_ROOT := packages/bijux-pollenomics/tests
 POLLENOMICS_GATE_ARTIFACTS := artifacts/execution-control/gates
 POLLENOMICS_SEAD_GOVERNED_RUN := sead-full-evidence-39bfff6a-ce80714e
+POLLENOMICS_CLASSIFICATION_EVIDENCE := artifacts/execution-control/classification/neotoma-audit-5a932522
+POLLENOMICS_PROPAGATION_EVIDENCE := artifacts/execution-control/propagation/neotoma-pollen-release-refusal-092dfe4f
 POLLENOMICS_RELEASE_CANDIDATE_ID ?= $(shell git rev-parse HEAD 2>/dev/null)
 POLLENOMICS_RELEASE_EVIDENCE_DIRECTORY ?= artifacts/execution-control/release-evidence/$(POLLENOMICS_RELEASE_CANDIDATE_ID)
 POLLENOMICS_RELEASE_EVIDENCE_REQUEST ?= $(POLLENOMICS_RELEASE_EVIDENCE_DIRECTORY)/request.json
@@ -114,6 +116,15 @@ POLLENOMICS_PROVENANCE_INPUTS := \
 	$(POLLENOMICS_GATE_TRUST_INPUTS) \
 	configs/pytest.ini \
 	configs/release_evidence_policy.json \
+	configs/scientific-contracts \
+	data/neotoma/relational \
+	$(POLLENOMICS_CLASSIFICATION_EVIDENCE) \
+	$(POLLENOMICS_PROPAGATION_EVIDENCE) \
+	packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/scientific_evidence.py \
+	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/analysis/propagation) \
+	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/core/geospatial) \
+	$(POLLENOMICS_SOURCE_ROOT)/core/temporal_semantics.py \
+	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/evidence/classification) \
 	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/provenance) \
 	$(POLLENOMICS_PROVENANCE_TESTS)
 
@@ -183,7 +194,11 @@ define run_pollenomics_pytest_gate
 		$(2)
 endef
 
-.PHONY: verify-science verify-data verify-map verify-provenance verify-doc-counts verify-rebuild verify-sead-evidence-fixed-point refresh-release-gates release-evidence-request release-evidence verify-release-candidate
+.PHONY: materialize-scientific-evidence verify-science verify-data verify-map verify-provenance verify-doc-counts verify-rebuild verify-sead-evidence-fixed-point refresh-release-gates release-evidence-request release-evidence verify-release-candidate
+
+materialize-scientific-evidence: root-check-env ## Recreate policy-owned classification and propagation evidence
+	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.scientific_evidence \
+		--repository-root "$(CURDIR)"
 
 verify-rebuild: root-check-env ## Prove tracked reports rebuild deterministically
 	@mkdir -p "$(CURDIR)/artifacts/execution-control"; \
@@ -209,7 +224,7 @@ verify-data: root-check-env ## Record source, relation, and data-contract verifi
 verify-map: root-check-env ## Record map and publication-surface verification
 	$(call run_pollenomics_pytest_gate,map,$(POLLENOMICS_MAP_TESTS),$(POLLENOMICS_MAP_INPUTS))
 
-verify-provenance: root-check-env ## Record provenance and release-evidence verification
+verify-provenance: materialize-scientific-evidence ## Record provenance and release-evidence verification
 	$(call run_pollenomics_pytest_gate,provenance,$(POLLENOMICS_PROVENANCE_TESTS),$(POLLENOMICS_PROVENANCE_INPUTS))
 
 verify-doc-counts: root-check-env ## Record documentation and governed-count verification

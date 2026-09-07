@@ -12,6 +12,7 @@ authors = [
     { name = "Bijan Mousavi", email = "bijan@bijux.io" },
 ]
 dependencies = [
+    "bijux-pollenomics>=0.1.5,<1.0",
     "PyYAML>=6.0,<7.0",
 ]
 dynamic = ["version"]
