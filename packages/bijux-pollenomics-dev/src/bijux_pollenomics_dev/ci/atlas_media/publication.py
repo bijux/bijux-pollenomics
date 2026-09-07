@@ -12,7 +12,6 @@ import os
 from pathlib import Path
 import re
 import shutil
-import subprocess
 import tempfile
 from typing import NoReturn, cast
 import zlib
@@ -40,6 +39,7 @@ from .gallery import (
     validate_source_preset_catalog,
 )
 from .poster_selection import poster_frame_ordinal
+from .process_execution import BoundedProcessError, run_bounded_argv
 
 MAX_MP4_BYTES = 16 * 1024 * 1024
 MAX_POSTER_BYTES = 2 * 1024 * 1024
@@ -1504,7 +1504,7 @@ def _resolve_mp4_probe(
 
 def _ffprobe_mp4(binary: Path, path: Path) -> ProbedMp4:
     try:
-        completed = subprocess.run(  # nosec B603
+        completed = run_bounded_argv(
             (
                 str(binary),
                 "-v",
@@ -1518,13 +1518,13 @@ def _ffprobe_mp4(binary: Path, path: Path) -> ProbedMp4:
                 "json",
                 str(path),
             ),
-            check=False,
-            capture_output=True,
-            timeout=30,
+            cwd=path.parent,
+            timeout_seconds=30,
+            max_output_bytes=1024 * 1024,
         )
-    except (OSError, subprocess.TimeoutExpired) as error:
+    except BoundedProcessError as error:
         raise AtlasMediaError("ffprobe could not inspect published MP4") from error
-    if completed.returncode != 0 or len(completed.stdout) > 1024 * 1024:
+    if completed.timed_out or completed.returncode != 0:
         raise AtlasMediaError("ffprobe rejected published MP4")
     try:
         value = json.loads(completed.stdout.decode("utf-8"))

@@ -6,9 +6,9 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-import subprocess
 import sys
 
+from ..atlas_media.process_execution import BoundedProcessError, run_bounded_argv
 from .contracts import (
     AtlasBrowserContractError,
     AtlasCandidate,
@@ -19,20 +19,34 @@ from .contracts import (
 from .static_integrity import audit_static_atlas
 from .verdict import evaluate_browser_report
 
+_GIT_TIMEOUT_SECONDS = 30
+_BROWSER_PROCESS_TIMEOUT_MULTIPLIER = 32
+_BROWSER_MAX_OUTPUT_BYTES = 16 * 1024 * 1024
+
 
 def _git(repository_root: Path, *arguments: str) -> str:
-    completed = subprocess.run(
-        ("git", *arguments),
-        cwd=repository_root,
-        check=False,
-        capture_output=True,
-        text=True,
-    )
+    try:
+        completed = run_bounded_argv(
+            ("git", *arguments),
+            cwd=repository_root,
+            timeout_seconds=_GIT_TIMEOUT_SECONDS,
+        )
+    except BoundedProcessError as error:
+        raise AtlasBrowserContractError("git could not be executed safely") from error
+    if completed.timed_out:
+        raise AtlasBrowserContractError(
+            f"git {' '.join(arguments)} exceeded {_GIT_TIMEOUT_SECONDS} seconds"
+        )
+    try:
+        stdout = completed.stdout.decode("utf-8")
+        stderr = completed.stderr.decode("utf-8")
+    except UnicodeError as error:
+        raise AtlasBrowserContractError("git output is not UTF-8") from error
     if completed.returncode != 0:
         raise AtlasBrowserContractError(
-            f"git {' '.join(arguments)} failed: {completed.stderr.strip()}"
+            f"git {' '.join(arguments)} failed: {stderr.strip()}"
         )
-    return completed.stdout.strip()
+    return stdout.strip()
 
 
 def _observed_candidate(plan: BrowserVerificationPlan) -> AtlasCandidate:
@@ -92,15 +106,26 @@ def run_browser_verification(plan: BrowserVerificationPlan) -> JsonObject:
     _write_json(artifact_root / "plan.json", plan.as_json())
     _write_json(artifact_root / "static-integrity-before.json", static_before)
     probe = Path(__file__).with_name("probe.mjs")
-    completed = subprocess.run(
-        ("node", str(probe), str(artifact_root / "plan.json")),
-        cwd=plan.repository_root,
-        check=False,
-        capture_output=True,
-        text=True,
-    )
-    (artifact_root / "runner.stdout.log").write_text(completed.stdout, encoding="utf-8")
-    (artifact_root / "runner.stderr.log").write_text(completed.stderr, encoding="utf-8")
+    try:
+        completed = run_bounded_argv(
+            ("node", str(probe), str(artifact_root / "plan.json")),
+            cwd=plan.repository_root,
+            timeout_seconds=max(
+                300,
+                plan.timeout_seconds
+                * _BROWSER_PROCESS_TIMEOUT_MULTIPLIER
+                * len(plan.scopes),
+            ),
+            max_output_bytes=_BROWSER_MAX_OUTPUT_BYTES,
+        )
+    except BoundedProcessError as error:
+        raise AtlasBrowserContractError(
+            "browser process could not be executed safely"
+        ) from error
+    (artifact_root / "runner.stdout.log").write_bytes(completed.stdout)
+    (artifact_root / "runner.stderr.log").write_bytes(completed.stderr)
+    if completed.timed_out:
+        raise AtlasBrowserContractError("browser process exceeded its bounded deadline")
     report_path = artifact_root / "browser-runtime-report.json"
     if not report_path.is_file():
         raise AtlasBrowserContractError(

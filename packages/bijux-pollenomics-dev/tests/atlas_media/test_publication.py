@@ -40,6 +40,7 @@ from bijux_pollenomics_dev.ci.atlas_media.gallery import (
     sha256_file,
     write_gallery_manifest,
 )
+from bijux_pollenomics_dev.ci.atlas_media.process_execution import CompletedCommand
 from tests.atlas_media.fixtures import (
     BUILD_ID,
     COUNTRIES,
@@ -95,6 +96,81 @@ _FRAME_COUNTS = dict(
         strict=True,
     )
 )
+
+
+def test_ffprobe_uses_bounded_argv_execution(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    binary = tmp_path / "ffprobe"
+    media = tmp_path / "story.mp4"
+    observed: dict[str, object] = {}
+    payload = json.dumps(
+        {
+            "streams": [
+                {
+                    "codec_name": "h264",
+                    "pix_fmt": "yuv420p",
+                    "width": 1440,
+                    "height": 900,
+                    "nb_read_frames": 25,
+                    "duration": 2.083333,
+                }
+            ]
+        }
+    ).encode()
+
+    def run(
+        command: tuple[str, ...],
+        *,
+        cwd: Path,
+        timeout_seconds: float,
+        max_output_bytes: int,
+    ) -> CompletedCommand:
+        observed.update(
+            command=command,
+            cwd=cwd,
+            timeout_seconds=timeout_seconds,
+            max_output_bytes=max_output_bytes,
+        )
+        return CompletedCommand(
+            command=command,
+            returncode=0,
+            stdout=payload,
+            stderr=b"",
+            duration_seconds=0.01,
+            timed_out=False,
+            termination="not_required",
+        )
+
+    monkeypatch.setattr(publication, "run_bounded_argv", run)
+
+    probed = publication._ffprobe_mp4(binary, media)
+
+    assert probed == publication.ProbedMp4(
+        width=1440,
+        height=900,
+        frame_count=25,
+        duration_seconds=2.083333,
+        codec_name="h264",
+        pixel_format="yuv420p",
+    )
+    assert observed["cwd"] == tmp_path
+    assert observed["timeout_seconds"] == 30
+    assert observed["max_output_bytes"] == 1024 * 1024
+    assert observed["command"] == (
+        str(binary),
+        "-v",
+        "error",
+        "-select_streams",
+        "v:0",
+        "-count_frames",
+        "-show_entries",
+        "stream=codec_name,pix_fmt,width,height,nb_read_frames,duration",
+        "-of",
+        "json",
+        str(media),
+    )
+
 
 _MINIMAL_MP4 = base64.b64decode(
     "AAAAJGZ0eXBpc29tAAACAGlzb21pc282aXNvMmF2YzFtcDQxAAAC7W1vb3YAAABs"

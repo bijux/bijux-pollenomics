@@ -11,6 +11,46 @@ import pytest
 from bijux_pollenomics_dev.ci.atlas_media import AtlasMediaError, process_execution
 
 
+def test_bounded_argv_resolves_executable_and_captures_bytes(tmp_path: Path) -> None:
+    completed = process_execution.run_bounded_argv(
+        (sys.executable, "-c", "import sys;sys.stdout.buffer.write(b'bounded')"),
+        cwd=tmp_path,
+        timeout_seconds=5,
+    )
+
+    assert completed.command[0] == str(Path(sys.executable).resolve(strict=True))
+    assert completed.returncode == 0
+    assert completed.stdout == b"bounded"
+    assert completed.stderr == b""
+    assert completed.timed_out is False
+    assert completed.termination == "not_required"
+
+
+@pytest.mark.parametrize(
+    "command",
+    [(), ("definitely-not-a-bijux-executable",), (sys.executable, "bad\0argument")],
+)
+def test_bounded_argv_rejects_invalid_or_unavailable_commands(
+    tmp_path: Path, command: tuple[str, ...]
+) -> None:
+    with pytest.raises(process_execution.BoundedProcessError):
+        process_execution.run_bounded_argv(
+            command,
+            cwd=tmp_path,
+            timeout_seconds=5,
+        )
+
+
+def test_bounded_argv_rejects_output_over_configured_limit(tmp_path: Path) -> None:
+    with pytest.raises(process_execution.BoundedProcessError, match="stdout exceeded"):
+        process_execution.run_bounded_argv(
+            (sys.executable, "-c", "print('12345', end='')"),
+            cwd=tmp_path,
+            timeout_seconds=5,
+            max_output_bytes=4,
+        )
+
+
 def test_logged_command_timeout_is_bounded_and_receipted(tmp_path: Path) -> None:
     root = tmp_path / "artifacts/media"
     root.mkdir(parents=True)
@@ -28,7 +68,7 @@ def test_logged_command_timeout_is_bounded_and_receipted(tmp_path: Path) -> None
 
     receipt = json.loads((root / "bounded.execution.json").read_text(encoding="utf-8"))
     assert receipt["command"] == [
-        sys.executable,
+        str(Path(sys.executable).resolve(strict=True)),
         "-c",
         "import time; time.sleep(2)",
     ]
