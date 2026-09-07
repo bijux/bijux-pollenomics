@@ -12,36 +12,8 @@ from ....core.geospatial.geojson import (
     LinearRing,
     Polygon,
 )
-from .boundary_distance import (
-    geometry_boundary_distance as _geometry_boundary_distance,
-)
-from .boundary_distance import (
-    point_on_geometry_boundary as _point_on_geometry_boundary,
-)
-from .boundary_distance import (
-    point_to_segment_distance as _point_to_segment_distance,
-)
-from .boundary_distance import (
-    polygon_boundary_distance as _polygon_boundary_distance,
-)
-from .boundary_distance import (
-    ring_boundary_distance as _ring_boundary_distance,
-)
-from .containment import (
-    point_in_geometry as _point_in_geometry,
-)
-from .containment import (
-    point_in_geometry_ignoring_holes as _point_in_geometry_ignoring_holes,
-)
-from .containment import (
-    point_in_outer_ring as _point_in_outer_ring,
-)
-from .containment import (
-    point_in_polygon as _point_in_polygon,
-)
-from .containment import (
-    point_in_ring as _point_in_ring,
-)
+from . import boundary_distance as _boundary_distance
+from . import containment as _containment
 from .decision import classify_country as _classify_country
 from .decision import decide_country_attribution as _decide_country_attribution
 from .dependencies import CountryClassificationDependencies
@@ -128,7 +100,7 @@ def _compare_raw_country(
 
 def point_in_geometry(longitude: float, latitude: float, geometry: JsonObject) -> bool:
     """Check whether a point falls inside a GeoJSON Polygon or MultiPolygon."""
-    return _point_in_geometry(longitude, latitude, geometry)
+    return _containment.point_in_geometry(longitude, latitude, geometry)
 
 
 def point_on_geometry_boundary(
@@ -139,29 +111,31 @@ def point_on_geometry_boundary(
     epsilon: float = BOUNDARY_CONTACT_EPSILON,
 ) -> bool:
     """Return whether a point touches a polygon ring within a numeric epsilon."""
-    return _point_on_geometry_boundary(longitude, latitude, geometry, epsilon=epsilon)
+    return _boundary_distance.point_on_geometry_boundary(
+        longitude, latitude, geometry, epsilon=epsilon
+    )
 
 
 def point_in_geometry_ignoring_holes(
     longitude: float, latitude: float, geometry: JsonObject
 ) -> bool:
     """Check outer-ring containment for diagnostics without assigning a country."""
-    return _point_in_geometry_ignoring_holes(longitude, latitude, geometry)
+    return _containment.point_in_geometry_ignoring_holes(longitude, latitude, geometry)
 
 
 def point_in_polygon(longitude: float, latitude: float, polygon: Polygon) -> bool:
     """Ray-casting point-in-polygon with support for holes."""
-    return _point_in_polygon(longitude, latitude, polygon)
+    return _containment.point_in_polygon(longitude, latitude, polygon)
 
 
 def point_in_outer_ring(longitude: float, latitude: float, polygon: Polygon) -> bool:
     """Return whether a point lies inside a polygon's outer ring."""
-    return _point_in_outer_ring(longitude, latitude, polygon)
+    return _containment.point_in_outer_ring(longitude, latitude, polygon)
 
 
 def point_in_ring(longitude: float, latitude: float, ring: LinearRing) -> bool:
     """Return True when a point is inside a linear ring."""
-    return _point_in_ring(longitude, latitude, ring)
+    return _containment.point_in_ring(longitude, latitude, ring)
 
 
 def nearest_country_by_boundary_distance(
@@ -184,28 +158,28 @@ def geometry_boundary_distance(
     longitude: float, latitude: float, geometry: JsonObject
 ) -> float:
     """Return the minimum distance from a point to a polygon or multipolygon boundary."""
-    return _geometry_boundary_distance(longitude, latitude, geometry)
+    return _boundary_distance.geometry_boundary_distance(longitude, latitude, geometry)
 
 
 def polygon_boundary_distance(
     longitude: float, latitude: float, polygon: Polygon
 ) -> float:
     """Return the minimum distance from a point to any ring in one polygon."""
-    return _polygon_boundary_distance(longitude, latitude, polygon)
+    return _boundary_distance.polygon_boundary_distance(longitude, latitude, polygon)
 
 
 def ring_boundary_distance(
     longitude: float, latitude: float, ring: LinearRing
 ) -> float:
     """Return the minimum distance from a point to one linear-ring edge."""
-    return _ring_boundary_distance(longitude, latitude, ring)
+    return _boundary_distance.ring_boundary_distance(longitude, latitude, ring)
 
 
 def point_to_segment_distance(
     px: float, py: float, ax: float, ay: float, bx: float, by: float
 ) -> float:
     """Return the Euclidean distance from a point to one line segment in lon/lat degrees."""
-    return _point_to_segment_distance(px, py, ax, ay, bx, by)
+    return _boundary_distance.point_to_segment_distance(px, py, ax, ay, bx, by)
 
 
 __all__ = [
