@@ -26,6 +26,14 @@ from .models import (
     CoordinateStatus,
     TaxonScopeStatus,
 )
+from .projection import (
+    AADR_ACCOUNTABILITY_PROJECTION_SCHEMA_VERSION,
+    build_aadr_accountability_summary,
+    iter_aadr_accountability_json_lines,
+    iter_aadr_accountability_projection,
+    iter_aadr_accountability_records,
+    validate_aadr_accountability_summary,
+)
 from .reconciliation import (
     AadrChronologyEvidenceGroup,
     AadrCoordinateEvidenceGroup,
@@ -39,6 +47,7 @@ from .reconciliation import (
 from .source_rows import load_aadr_source_table
 
 __all__ = [
+    "AADR_ACCOUNTABILITY_PROJECTION_SCHEMA_VERSION",
     "AadrChronologyEvidence",
     "AadrCoordinateEvidence",
     "AadrDateMethodEvidence",
@@ -63,11 +72,16 @@ __all__ = [
     "NumericEvidenceStatus",
     "ReconciliationStatus",
     "TaxonScopeStatus",
+    "build_aadr_accountability_summary",
     "classify_aadr_date_method",
     "load_aadr_source_table",
+    "iter_aadr_accountability_json_lines",
+    "iter_aadr_accountability_projection",
+    "iter_aadr_accountability_records",
     "parse_aadr_full_date",
     "parse_aadr_numeric_evidence",
     "parse_aadr_coordinates",
     "prepare_aadr_chronology_evidence",
     "reconcile_aadr_panels",
+    "validate_aadr_accountability_summary",
 ]

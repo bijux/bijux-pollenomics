@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from hashlib import sha256
+import json
 import re
 from typing import Literal
 
@@ -19,6 +21,22 @@ CoordinateStatus = Literal[
 TaxonScopeStatus = Literal["not_asserted_by_source"]
 
 _SHA256_RE = re.compile(r"[0-9a-f]{64}")
+
+
+def build_aadr_source_file_key(
+    *,
+    source_path: str,
+    source_release: str,
+    dataset_name: str,
+    source_sha256: str,
+) -> str:
+    """Return a deterministic identity key for one physical AADR input."""
+    identity = json.dumps(
+        [source_sha256, source_release, dataset_name, source_path],
+        ensure_ascii=False,
+        separators=(",", ":"),
+    ).encode()
+    return f"source-file:{sha256(identity).hexdigest()}"
 
 
 @dataclass(frozen=True, slots=True)
@@ -42,6 +60,16 @@ class AadrSourceFile:
             raise ValueError("AADR source digest must be lowercase SHA-256")
         if self.source_byte_count < 0:
             raise ValueError("AADR source byte count cannot be negative")
+
+    @property
+    def key(self) -> str:
+        """Return the stable physical-source identity key."""
+        return build_aadr_source_file_key(
+            source_path=self.source_path,
+            source_release=self.source_release,
+            dataset_name=self.dataset_name,
+            source_sha256=self.source_sha256,
+        )
 
 
 @dataclass(frozen=True, slots=True)

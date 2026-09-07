@@ -13,6 +13,7 @@ from .models import (
     AadrSourceRow,
     AadrSourceTable,
     TaxonScopeStatus,
+    build_aadr_source_file_key,
 )
 
 ReconciliationStatus = Literal["exact", "complementary", "conflict"]
@@ -31,12 +32,19 @@ class AadrSourceRowLink:
     source_line_end: int
 
     @property
+    def source_file_key(self) -> str:
+        """Return the stable physical-source identity key."""
+        return build_aadr_source_file_key(
+            source_path=self.source_path,
+            source_release=self.source_release,
+            dataset_name=self.dataset_name,
+            source_sha256=self.source_sha256,
+        )
+
+    @property
     def key(self) -> str:
         """Return a collision-resistant source-row key."""
-        return (
-            f"sha256:{self.source_sha256}:dataset:{self.dataset_name}:"
-            f"record:{self.source_record_number}"
-        )
+        return f"{self.source_file_key}:record:{self.source_record_number}"
 
 
 @dataclass(frozen=True, slots=True)
@@ -63,6 +71,7 @@ class AadrReconciledRecord:
     genetic_id_raw_values: tuple[str, ...]
     dataset_names: tuple[str, ...]
     source_rows: tuple[AadrSourceRowLink, ...]
+    source_evidence_rows: tuple[AadrSourceRow, ...]
     coordinate_groups: tuple[AadrCoordinateEvidenceGroup, ...]
     chronology_groups: tuple[AadrChronologyEvidenceGroup, ...]
     coordinate_status: ReconciliationStatus
@@ -79,6 +88,7 @@ class AadrUnkeyedSourceRow:
     """An accountability row refused from Genetic-ID reconciliation."""
 
     source_row: AadrSourceRowLink
+    source_evidence_row: AadrSourceRow
     genetic_id_raw: str
     refusal_reason_code: Literal["genetic_id_missing"] = "genetic_id_missing"
     taxon_scope_status: TaxonScopeStatus = field(
@@ -91,6 +101,7 @@ class AadrPanelReconciliation:
     """Deterministic reconciliation plus explicit unkeyed-row accountability."""
 
     dataset_names: tuple[str, ...]
+    source_tables: tuple[AadrSourceTable, ...]
     records: tuple[AadrReconciledRecord, ...]
     unkeyed_rows: tuple[AadrUnkeyedSourceRow, ...]
     source_row_count: int
@@ -100,7 +111,10 @@ def reconcile_aadr_panels(
     tables: Iterable[AadrSourceTable],
 ) -> AadrPanelReconciliation:
     """Group panel rows without selecting winners or synthesizing evidence."""
-    source_tables = tuple(tables)
+    source_tables = tuple(sorted(tables, key=lambda table: table.source.key))
+    source_file_keys = tuple(table.source.key for table in source_tables)
+    if len(source_file_keys) != len(set(source_file_keys)):
+        raise ValueError("AADR physical source files must be unique")
     panel_names = tuple(sorted({table.source.dataset_name for table in source_tables}))
     keyed_rows: dict[str, list[AadrSourceRow]] = defaultdict(list)
     unkeyed_rows: list[AadrUnkeyedSourceRow] = []
@@ -113,6 +127,7 @@ def reconcile_aadr_panels(
                 unkeyed_rows.append(
                     AadrUnkeyedSourceRow(
                         source_row=_source_row_link(row),
+                        source_evidence_row=row,
                         genetic_id_raw=row.genetic_id_raw,
                     )
                 )
@@ -132,6 +147,7 @@ def reconcile_aadr_panels(
         raise ValueError("AADR reconciliation did not account for every source row")
     return AadrPanelReconciliation(
         dataset_names=panel_names,
+        source_tables=source_tables,
         records=records,
         unkeyed_rows=sorted_unkeyed,
         source_row_count=source_row_count,
@@ -160,6 +176,7 @@ def _reconcile_record(
         ),
         dataset_names=dataset_names,
         source_rows=row_links,
+        source_evidence_rows=ordered_rows,
         coordinate_groups=coordinate_groups,
         chronology_groups=chronology_groups,
         coordinate_status=coordinate_status,
@@ -302,6 +319,7 @@ def _source_row_sort_key(row: AadrSourceRow) -> tuple[object, ...]:
 
 def _source_link_sort_key(link: AadrSourceRowLink) -> tuple[object, ...]:
     return (
+        link.source_file_key,
         link.source_release,
         link.dataset_name,
         link.source_sha256,
