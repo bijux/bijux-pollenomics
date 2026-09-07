@@ -33,6 +33,7 @@ from .support import (
 )
 
 
+@pytest.mark.generated_artifacts
 def test_product_request_policy_has_exact_inventory_and_reconciliation_counts() -> None:
     root = REPOSITORY_ROOT
     policy = release_policy._load_release_evidence_policy(root)
@@ -105,6 +106,7 @@ def test_product_request_policy_has_exact_inventory_and_reconciliation_counts() 
     assert by_identity["propagation.evaluated_pairs.source"].candidate_count == 0
 
 
+@pytest.mark.generated_artifacts
 def test_product_request_policy_has_coherent_full_artifact_graph(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:

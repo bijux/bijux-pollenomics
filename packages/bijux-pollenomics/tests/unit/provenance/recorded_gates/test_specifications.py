@@ -22,7 +22,10 @@ def test_product_map_gate_binds_generated_report_tree() -> None:
     assert specification.timeout_seconds == 900.0
     runtime_identity = dict(specification.runtime_identity)
     assert runtime_identity["command_executable_path"].endswith("/pytest")
-    assert runtime_identity["command_executable_sha256"].startswith("sha256:")
+    if os.path.isfile(runtime_identity["command_executable_path"]):
+        assert runtime_identity["command_executable_sha256"].startswith("sha256:")
+    else:
+        assert runtime_identity["command_executable_sha256"] == "unavailable"
     assert runtime_identity["runner_python"]
     assert runtime_identity["python_implementation"]
     assert runtime_identity["python_version"]

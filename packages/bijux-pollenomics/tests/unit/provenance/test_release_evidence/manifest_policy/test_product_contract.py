@@ -5,6 +5,8 @@ from __future__ import annotations
 import json
 from typing import cast
 
+import pytest
+
 from bijux_pollenomics.provenance import ArtifactInput, hash_repository_object
 from bijux_pollenomics.provenance.release_evidence import bundles as release_bundles
 from bijux_pollenomics.provenance.release_evidence import embedded as release_embedded
@@ -12,6 +14,8 @@ from bijux_pollenomics.provenance.release_evidence import policy as release_poli
 from tests.support.repository import REPOSITORY_ROOT
 
 from ..support import _canonical_json
+
+pytestmark = pytest.mark.generated_artifacts
 
 
 def test_product_policy_binds_exact_release_inventory_and_producer_authority() -> None:
