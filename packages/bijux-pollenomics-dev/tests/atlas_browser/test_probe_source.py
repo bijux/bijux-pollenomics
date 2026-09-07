@@ -722,6 +722,9 @@ def test_responsive_contract_proves_desktop_and_bottom_sheet_states() -> None:
     assert "body_horizontally_contained:" in probe
     assert "body_top_contained:" in probe
     assert "legendBody.scrollTop = legendBody.scrollHeight" in probe
+    assert "const legendVisibleContent = [...legendBody.querySelectorAll('*')]" in probe
+    assert ".filter((element) => visible(element))" in probe
+    assert "querySelector('#density-ramp > :last-child')" not in probe
     assert "last_content_reachable:" in probe
     assert "legendLastContentBox.bottom <= legendBodyBox.bottom" in probe
 

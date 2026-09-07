@@ -245,20 +245,28 @@ const layer={key:'source-taxon'};
 const entries=[
   {layer,feature:{record_id:'site:42',node_id:'node:early'}},
   {layer,feature:{record_id:'site:42',node_id:'node:late'}},
-  {layer,feature:{record_id:'site:99'}},
+  {layer,feature:{record_id:'site:99',evidence_row_id:'row:early'}},
+  {layer,feature:{record_id:'site:99',evidence_row_id:'row:late'}},
+  {layer,feature:{record_id:'site:100'}},
 ];
 const early=pointFocusIdentity(layer,entries[0].feature);
 const late=pointFocusIdentity(layer,entries[1].feature);
-const record=pointFocusIdentity(layer,entries[2].feature);
+const evidenceEarly=pointFocusIdentity(layer,entries[2].feature);
+const evidenceLate=pointFocusIdentity(layer,entries[3].feature);
+const record=pointFocusIdentity(layer,entries[4].feature);
 let duplicateRefused=false;
 try { uniquePointEntryForFocus([entries[0],entries[0]],{kind:'point',...early}); }
 catch (error) { duplicateRefused=error.message === 'point focus identity is not unique'; }
 console.log(JSON.stringify({
   early,
   late,
+  evidenceEarly,
+  evidenceLate,
   record,
   resolvedEarly:uniquePointEntryForFocus(entries,{kind:'point',...early})?.feature.node_id,
   resolvedLate:uniquePointEntryForFocus(entries,{kind:'point',...late})?.feature.node_id,
+  resolvedEvidenceEarly:uniquePointEntryForFocus(entries,{kind:'point',...evidenceEarly})?.feature.evidence_row_id,
+  resolvedEvidenceLate:uniquePointEntryForFocus(entries,{kind:'point',...evidenceLate})?.feature.evidence_row_id,
   missingRecord:pointFocusIdentity(layer,{node_id:'orphan'}),
   duplicateRefused,
 }));
@@ -276,13 +284,25 @@ console.log(JSON.stringify({
             "featureKey": "node:node:late",
             "recordId": "site:42",
         },
+        "evidenceEarly": {
+            "layerKey": "source-taxon",
+            "featureKey": "evidence:row:early",
+            "recordId": "site:99",
+        },
+        "evidenceLate": {
+            "layerKey": "source-taxon",
+            "featureKey": "evidence:row:late",
+            "recordId": "site:99",
+        },
         "record": {
             "layerKey": "source-taxon",
-            "featureKey": "record:site:99",
-            "recordId": "site:99",
+            "featureKey": "record:site:100",
+            "recordId": "site:100",
         },
         "resolvedEarly": "node:early",
         "resolvedLate": "node:late",
+        "resolvedEvidenceEarly": "row:early",
+        "resolvedEvidenceLate": "row:late",
         "missingRecord": None,
         "duplicateRefused": True,
     }

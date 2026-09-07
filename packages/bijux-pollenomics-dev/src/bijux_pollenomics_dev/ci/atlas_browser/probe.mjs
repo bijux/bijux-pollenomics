@@ -1317,8 +1317,9 @@ async function responsiveFacts(cdp, width) {
     const legendPanelBox = box(legendPanel);
     const legendBodyBox = box(legendBody);
     const legendBodyStyle = getComputedStyle(legendBody);
-    const legendLastContent = legendBody.querySelector('#density-ramp > :last-child')
-      || legendBody.lastElementChild;
+    const legendVisibleContent = [...legendBody.querySelectorAll('*')]
+      .filter((element) => visible(element));
+    const legendLastContent = legendVisibleContent.at(-1) || null;
     const legendLastContentBox = legendLastContent ? box(legendLastContent) : null;
     const legendMaximumScrollTop = Math.max(0, legendBody.scrollHeight - legendBody.clientHeight);
     const expandedLegend = {

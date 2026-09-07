@@ -4349,10 +4349,15 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const layerKey = String(layer?.key ?? '').trim();
         const recordId = String(feature?.record_id ?? '').trim();
         const nodeId = String(feature?.node_id ?? '').trim();
+        const evidenceRowId = String(feature?.evidence_row_id ?? '').trim();
         if (!layerKey || !recordId) return null;
         return {
           layerKey,
-          featureKey: nodeId ? `node:${nodeId}` : `record:${recordId}`,
+          featureKey: nodeId
+            ? `node:${nodeId}`
+            : evidenceRowId
+              ? `evidence:${evidenceRowId}`
+              : `record:${recordId}`,
           recordId,
         };
       }
