@@ -6,8 +6,8 @@ import base64
 import hashlib
 import json
 import math
-import re
 from pathlib import Path
+import re
 from typing import cast
 
 from .contracts import AtlasBrowserContractError, AtlasCandidate, AtlasScope, JsonObject
@@ -233,6 +233,7 @@ def _validate_asset_selection(asset: JsonObject, *, sequence: int) -> None:
 def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
     table = _mapping(manifest.get("assets"), label="manifest.assets")
     table_schema = table.get("schema_version")
+    stored_fields: tuple[str, ...]
     if table_schema == "atlas-static-asset-table.v3":
         stored_fields = _ASSET_FIELDS
         require_chronology_split = True

@@ -8,8 +8,6 @@ TEST_PATHS_UNIT := tests
 TEST_SOURCE_PATHS := src
 INTERROGATE_PATHS := src
 QUALITY_PATHS := src tests
-MYPY_FLAGS := --strict --follow-imports=skip
-QUALITY_MYPY_FLAGS := --strict --follow-imports=skip
 SECURITY_AUDIT_PREPARE_MODE = pyproject
 PIP_AUDIT_INPUTS = -r "$(SECURITY_REQS)"
 ENABLE_PYDOCSTYLE := 1

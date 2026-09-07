@@ -64,6 +64,7 @@ class ScientificEvidenceMaterializationError(RuntimeError):
     """Refuse an unsafe or policy-incoherent scientific materialization."""
 
     def __init__(self, reason_code: str, detail: str) -> None:
+        """Preserve the stable refusal reason alongside its diagnostic detail."""
         self.reason_code = reason_code
         super().__init__(detail)
 
