@@ -6,6 +6,7 @@ import math
 from ...core.geospatial.geojson import JsonObject, as_mapping, feature_list
 from ..map_publication import MapScopePolicy
 from .coordinates import point_coordinate_pair
+from .temporal_admission import feature_interval
 
 
 @dataclass(frozen=True)
@@ -21,45 +22,13 @@ class MapDocumentState:
     time_min_bp: int
 
 
-def _finite_bp_value(value: object) -> float | None:
-    if value is None or isinstance(value, bool):
-        return None
-    if not isinstance(value, (int, float, str)):
-        return None
-    try:
-        numeric = float(value)
-    except (TypeError, ValueError, OverflowError):
-        return None
-    if not math.isfinite(numeric) or numeric < 0:
-        return None
-    return numeric
-
-
 def collect_feature_time_candidates(
     time_candidates: set[float], feature: JsonObject
 ) -> None:
-    """Collect only complete canonical intervals or standalone point ages."""
-    interval_declared = "time_start_bp" in feature or "time_end_bp" in feature
-    if interval_declared:
-        raw_start = feature.get("time_start_bp")
-        raw_end = feature.get("time_end_bp")
-        if raw_start is None and raw_end is None:
-            interval_declared = False
-        else:
-            start = _finite_bp_value(raw_start)
-            end = _finite_bp_value(raw_end)
-            if start is not None and end is not None and start <= end:
-                time_candidates.update((start, end))
-            return
-    if not interval_declared:
-        for key in ("time_mean_bp", "time_year_bp"):
-            if key not in feature or feature.get(key) is None:
-                continue
-            point_age = _finite_bp_value(feature.get(key))
-            if point_age is None:
-                return
-            time_candidates.add(point_age)
-            return
+    """Collect only chronology admitted by the shared static/browser contract."""
+    interval = feature_interval(feature)
+    if interval is not None:
+        time_candidates.update(interval)
 
 
 def build_map_document_state(

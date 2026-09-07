@@ -104,3 +104,32 @@ class ScopeAndTimeStateTests(MapPublicationTestCase):
 
         self.assertFalse(state.has_time_data)
         self.assertEqual((state.time_min_bp, state.time_max_bp), (0, 0))
+
+    def test_map_time_state_does_not_admit_explicitly_refused_numeric_bounds(
+        self,
+    ) -> None:
+        policy = resolve_map_scope_policy(
+            build_published_geography_plan(("Sweden",)).world_scope
+        )
+        state = build_map_document_state(
+            policy=policy,
+            point_layers=[
+                {
+                    "features": [
+                        {"time_start_bp": 340, "time_end_bp": 527},
+                        {
+                            "time_start_bp": 1,
+                            "time_end_bp": 999_999,
+                            "temporal_semantics": {
+                                "comparability_posture": "refused",
+                                "refusal_reason_code": "source_age_system_not_comparable",
+                            },
+                        },
+                    ]
+                }
+            ],
+            polygon_layers=[],
+        )
+
+        self.assertTrue(state.has_time_data)
+        self.assertEqual((state.time_min_bp, state.time_max_bp), (340, 527))
