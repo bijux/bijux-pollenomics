@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-import hashlib
-import json
-import re
 from collections.abc import Iterator, Mapping
 from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
+import hashlib
+import json
 from pathlib import Path
+import re
 from types import MappingProxyType
 from typing import Protocol, TypeVar, cast
 

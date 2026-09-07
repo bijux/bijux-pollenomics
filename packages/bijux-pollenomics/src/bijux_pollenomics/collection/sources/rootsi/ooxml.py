@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterator
 import io
+from pathlib import PurePosixPath
 import re
 import stat
-import unicodedata
-from collections.abc import Iterator
-from pathlib import PurePosixPath
 from typing import IO, Protocol, cast
+import unicodedata
 from zipfile import BadZipFile, ZipFile, ZipInfo
 
 from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
