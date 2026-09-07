@@ -303,6 +303,7 @@ def _write_geography_packets(
         render_geography_subset_validation_markdown(subset_payload),
         encoding="utf-8",
     )
+    _require_valid_geography_subsets(subset_rows)
 
     onboarding_payload = build_geography_onboarding_contract(
         published_countries=plan.world_scope.countries,
@@ -315,6 +316,25 @@ def _write_geography_packets(
         render_geography_onboarding_contract_markdown(onboarding_payload),
         encoding="utf-8",
     )
+
+
+def _require_valid_geography_subsets(
+    subset_rows: list[dict[str, object]],
+) -> None:
+    """Refuse publication when any governed parent-child subset has drifted."""
+    invalid_subset_rows = [
+        row
+        for row in subset_rows
+        if not all(
+            row.get(field) is True
+            for field in ("country_subset_ok", "animal_subset_ok", "human_subset_ok")
+        )
+    ]
+    if invalid_subset_rows:
+        invalid_scopes = ", ".join(str(row["scope"]) for row in invalid_subset_rows)
+        raise ValueError(
+            f"Publication geography subset validation failed for: {invalid_scopes}"
+        )
 
 
 def _build_subset_validation_row(
@@ -402,9 +422,13 @@ def _load_animal_evidence_ids(
     payload = json.loads(
         bundle_paths.animal_atlas_evidence_json_path.read_text(encoding="utf-8")
     )
-    rows = payload.get("rows", []) if isinstance(payload, dict) else payload
+    if not isinstance(payload, dict):
+        raise ValueError("Animal atlas evidence must be a JSON object")
+    if payload.get("schema_version") != "animal-atlas-evidence-rows.v1":
+        raise ValueError("Animal atlas evidence schema version is unsupported")
+    rows = payload.get("rows")
     if not isinstance(rows, list):
-        return set()
+        raise ValueError("Animal atlas evidence rows must be a list")
     identifiers: set[str] = set()
     for row in rows:
         if not isinstance(row, dict):

@@ -11,6 +11,8 @@ from bijux_pollenomics.reporting.bundles.paths import (
     serialize_publication_path,
 )
 from bijux_pollenomics.reporting.bundles.published_reports import (
+    _load_animal_evidence_ids,
+    _require_valid_geography_subsets,
     publish_published_reports_tree,
 )
 from bijux_pollenomics.reporting.bundles.summary_builders import (
@@ -30,6 +32,66 @@ from bijux_pollenomics.reporting.models import (
 
 
 class PublicationGeographyTests(unittest.TestCase):
+    def test_geography_subset_validation_fails_closed(self) -> None:
+        with self.assertRaisesRegex(ValueError, "Sweden"):
+            _require_valid_geography_subsets(
+                [
+                    {
+                        "scope": "Sweden",
+                        "country_subset_ok": True,
+                        "animal_subset_ok": False,
+                        "human_subset_ok": True,
+                    }
+                ]
+            )
+
+    def test_animal_subset_loader_requires_the_governed_envelope(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_dir = Path(tmp)
+            evidence_path = build_atlas_bundle_paths(
+                output_dir, "nordic", "unused"
+            ).animal_atlas_evidence_json_path
+
+            for invalid in (
+                [{"evidence_row_id": "animal:one"}],
+                {"schema_version": "wrong.v1", "rows": []},
+                {
+                    "schema_version": "animal-atlas-evidence-rows.v1",
+                    "rows": {},
+                },
+            ):
+                evidence_path.write_text(json.dumps(invalid), encoding="utf-8")
+                with (
+                    self.subTest(invalid=invalid),
+                    self.assertRaisesRegex(ValueError, "Animal atlas evidence"),
+                ):
+                    _load_animal_evidence_ids(
+                        output_dir,
+                        slug="nordic",
+                        build_atlas_bundle_paths_fn=build_atlas_bundle_paths,
+                    )
+
+            evidence_path.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "animal-atlas-evidence-rows.v1",
+                        "rows": [
+                            {"evidence_row_id": "animal:one"},
+                            {"evidence_row_id": "animal:two"},
+                        ],
+                    }
+                ),
+                encoding="utf-8",
+            )
+            self.assertEqual(
+                _load_animal_evidence_ids(
+                    output_dir,
+                    slug="nordic",
+                    build_atlas_bundle_paths_fn=build_atlas_bundle_paths,
+                ),
+                {"animal:one", "animal:two"},
+            )
+
     def test_publication_paths_do_not_expose_build_machine_prefixes(self) -> None:
         self.assertEqual(
             serialize_publication_path(Path("/private/build/docs/report/world")),
@@ -223,7 +285,7 @@ class PublicationGeographyTests(unittest.TestCase):
                             "features": [
                                 {
                                     "properties": {
-                                        "genetic_id": f"{slug}:{country.lower()}"
+                                        "genetic_id": f"human:{country.lower()}"
                                     }
                                 }
                                 for country in countries
@@ -235,7 +297,7 @@ class PublicationGeographyTests(unittest.TestCase):
                 (output_dir / f"{slug}_animal_atlas_evidence.json").write_text(
                     json.dumps(
                         {
-                            "schema_version": "animal-atlas-evidence.v1",
+                            "schema_version": "animal-atlas-evidence-rows.v1",
                             "rows": [
                                 {"evidence_row_id": (f"animal:{country.lower()}")}
                                 for country in countries
@@ -279,7 +341,7 @@ class PublicationGeographyTests(unittest.TestCase):
                             "features": [
                                 {
                                     "properties": {
-                                        "genetic_id": f"{country.lower()}:human:one"
+                                        "genetic_id": f"human:{country.lower()}"
                                     }
                                 }
                             ],
