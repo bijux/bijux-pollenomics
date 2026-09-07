@@ -49,6 +49,7 @@ def story_interpretation(evidence_role: str, selector_kind: str) -> str:
 
 
 def _safe_relative_file(value: str, *, suffix: str, label: str) -> None:
+    """Require a safe repository-relative file with the expected suffix."""
     path = Path(value)
     if (
         not value
@@ -438,11 +439,13 @@ class SelectedStory:
 
 
 def _positive_denominator(value: object, label: str) -> None:
+    """Require a positive integer denominator."""
     if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
         raise AtlasMediaError(f"story {label} must be a positive integer")
 
 
 def _sha256(value: object, label: str) -> None:
+    """Require a lowercase SHA-256 digest."""
     if (
         not isinstance(value, str)
         or len(value) != 64
@@ -452,6 +455,7 @@ def _sha256(value: object, label: str) -> None:
 
 
 def _frame_number(frame: dict[str, object], field: str) -> float | int:
+    """Return a finite nonnegative numeric frame field."""
     value = frame.get(field)
     if (
         isinstance(value, bool)
@@ -472,6 +476,7 @@ def _validate_capture_frame(
     selector_value: str,
     selector_family: str | None,
 ) -> None:
+    """Validate one governed chronological capture frame."""
     if frame.get("ordinal") != ordinal:
         raise AtlasMediaError("story frame ordinals must be contiguous from zero")
     younger = _frame_number(frame, "time_start_bp")

@@ -20,6 +20,7 @@ from .runner import materialize_atlas_media
 
 
 def _binary(name: str, fallback: str | None = None) -> Path:
+    """Resolve an executable path from the environment or a fallback."""
     resolved = shutil.which(name)
     if resolved is not None:
         return Path(resolved)
@@ -29,6 +30,7 @@ def _binary(name: str, fallback: str | None = None) -> Path:
 
 
 def _parser() -> argparse.ArgumentParser:
+    """Build the command-line parser for atlas-media materialization."""
     parser = argparse.ArgumentParser(
         description="Render a governed Nordic atlas storyboard as poster, MP4, and GIF."
     )

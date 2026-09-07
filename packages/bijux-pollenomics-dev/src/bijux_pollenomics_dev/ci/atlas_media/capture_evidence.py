@@ -139,6 +139,7 @@ def capture_frame_evidence_valid(
 
 
 def _capture_layers_valid(value: object, *, expected_evidence_layer_key: str) -> bool:
+    """Return whether captured layers match the governed layer selection."""
     if not isinstance(value, dict) or set(value) != {
         "active_keys",
         "evidence_layer_key",
@@ -189,6 +190,7 @@ def _capture_presentation_valid(
     time_start_bp: object,
     time_end_bp: object,
 ) -> bool:
+    """Return whether captured presentation metadata matches the story."""
     if not isinstance(value, dict) or set(value) != {
         "schema_version",
         "null_handling",
@@ -308,6 +310,7 @@ def _capture_presentation_valid(
 
 
 def _capture_layout_valid(value: object) -> bool:
+    """Return whether the capture keeps overlays clear of the map."""
     if not isinstance(value, dict) or set(value) != {
         "overlay_visible",
         "overlay_bounded",
@@ -348,4 +351,5 @@ def _capture_layout_valid(value: object) -> bool:
 
 
 def _nonnegative_integer(value: object) -> bool:
+    """Return whether a value is a nonnegative integer excluding booleans."""
     return isinstance(value, int) and not isinstance(value, bool) and value >= 0
