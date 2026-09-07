@@ -8,7 +8,10 @@ from pathlib import Path
 import pytest
 
 from bijux_pollenomics_dev.ci.atlas_browser import runner
-from bijux_pollenomics_dev.ci.atlas_browser.contracts import BrowserVerificationPlan
+from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
+    AtlasBrowserContractError,
+    BrowserVerificationPlan,
+)
 from bijux_pollenomics_dev.ci.atlas_media.process_execution import CompletedCommand
 
 from .fixtures import candidate, write_static_atlas
@@ -145,6 +148,6 @@ def test_browser_probe_refuses_a_timed_out_process(
     monkeypatch.setattr(runner, "run_bounded_argv", run)
 
     with pytest.raises(
-        runner.AtlasBrowserContractError, match="exceeded its bounded deadline"
+        AtlasBrowserContractError, match="exceeded its bounded deadline"
     ):
         runner.run_browser_verification(plan)
