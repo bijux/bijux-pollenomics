@@ -19,6 +19,8 @@ from bijux_pollenomics.collection.sources.sead.collection import (
 
 from tests.support.context_data import NordicBoundaryTestCase
 
+_SITE_UUID = "16fd2706-8baf-433b-82eb-8c7fada847da"
+
 
 class SeadMaterializationTests(NordicBoundaryTestCase):
     def test_repository_materialization_root_refuses_missing_and_linked_paths(
@@ -73,7 +75,7 @@ class SeadMaterializationTests(NordicBoundaryTestCase):
                 "longitude_dd": 14.28,
                 "altitude": 24,
                 "site_description": "",
-                "site_uuid": "uuid-1",
+                "site_uuid": _SITE_UUID,
                 "dataset_count": 1,
             }
         ]
@@ -143,7 +145,7 @@ class SeadMaterializationTests(NordicBoundaryTestCase):
                                 "longitude_dd": 14.28,
                                 "altitude": 24,
                                 "site_description": "",
-                                "site_uuid": "uuid-1",
+                                "site_uuid": _SITE_UUID,
                             }
                         ],
                     }
@@ -360,7 +362,7 @@ class SeadMaterializationTests(NordicBoundaryTestCase):
         )
         self.assertEqual(recovery_requirements["rows"][0]["evidence_gap_count"], 1)
         self.assertEqual(
-            recovery_requirements["rows"][0]["affected_site_uuids"], ["uuid-1"]
+            recovery_requirements["rows"][0]["affected_site_uuids"], [_SITE_UUID]
         )
         for payload in (
             evidence_review,
@@ -373,6 +375,6 @@ class SeadMaterializationTests(NordicBoundaryTestCase):
             self.assertEqual(lineage["build_id"], "sha256:" + "b" * 64)
             self.assertEqual(lineage["acquisition_manifest_sha256"], "a" * 64)
             self.assertEqual(lineage["parent_admission_sha256"], "p" * 64)
-        self.assertEqual(evidence_review["rows"][0]["site_uuid"], "uuid-1")
-        self.assertEqual(access_model["rows"][0]["site_uuid"], "uuid-1")
-        self.assertEqual(temporal_review["rows"][0]["site_uuid"], "uuid-1")
+        self.assertEqual(evidence_review["rows"][0]["site_uuid"], _SITE_UUID)
+        self.assertEqual(access_model["rows"][0]["site_uuid"], _SITE_UUID)
+        self.assertEqual(temporal_review["rows"][0]["site_uuid"], _SITE_UUID)

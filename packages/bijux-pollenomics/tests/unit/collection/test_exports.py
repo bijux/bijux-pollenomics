@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import csv
 import json
 from pathlib import Path
 import tempfile
@@ -43,6 +44,7 @@ class ContextExportTests(unittest.TestCase):
                 "temporal_window_key": "recent_historical",
                 "temporal_window_label": "Recent and historical (0-1000 BP)",
             },
+            site_uuid="site-uuid-1",
         )
 
         with tempfile.TemporaryDirectory() as tmp:
@@ -54,6 +56,8 @@ class ContextExportTests(unittest.TestCase):
 
             csv_text = csv_path.read_text(encoding="utf-8")
             csv_bytes = csv_path.read_bytes()
+            with csv_path.open(encoding="utf-8", newline="") as handle:
+                csv_rows = list(csv.DictReader(handle))
             geojson = json.loads(geojson_path.read_text(encoding="utf-8"))
             geojson_features = cast(
                 list[dict[str, object]], cast(dict[str, object], geojson)["features"]
@@ -64,10 +68,12 @@ class ContextExportTests(unittest.TestCase):
         self.assertIn("time_mean_bp", csv_text)
         self.assertIn("time_label", csv_text)
         self.assertIn("temporal_semantics_json", csv_text)
+        self.assertEqual(csv_rows[0]["site_uuid"], "site-uuid-1")
         self.assertNotIn(b"\r\n", csv_bytes)
         self.assertIn("First line\nSecond line", csv_text)
         self.assertNotIn("First line   \n", csv_text)
         properties = cast(dict[str, object], geojson_features[0]["properties"])
+        self.assertEqual(properties["site_uuid"], "site-uuid-1")
         self.assertEqual(properties["time_start_bp"], 0)
         self.assertEqual(properties["time_end_bp"], 700)
         self.assertEqual(properties["time_mean_bp"], 350)

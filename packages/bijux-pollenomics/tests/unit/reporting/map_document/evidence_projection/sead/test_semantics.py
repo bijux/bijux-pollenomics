@@ -100,6 +100,36 @@ def test_projection_exposes_stable_site_and_parent_admission_identity(
     } == {"site-1", "site-2", "site-3", "site-4"}
 
 
+def test_projection_rejects_normalized_site_uuid_drift(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    install_sead_projection_fixture(tmp_path.absolute(), monkeypatch)
+    sites_path = (
+        tmp_path / "sead" / "normalized" / "nordic_environmental_sites.geojson"
+    )
+    sites = json.loads(sites_path.read_text(encoding="utf-8"))
+    sites["features"][0]["properties"]["site_uuid"] = "wrong-site-uuid"
+    sites_path.write_text(json.dumps(sites), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="UUID"):
+        sead_projection._project_sead(
+            tmp_path.absolute(), sead_projection_layers()[1:]
+        )
+
+
+def test_projection_rejects_atlas_feature_site_uuid_drift(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    install_sead_projection_fixture(tmp_path.absolute(), monkeypatch)
+    layers = sead_projection_layers()[1:]
+    cast(list[dict[str, object]], layers[0]["features"])[0]["site_uuid"] = (
+        "wrong-site-uuid"
+    )
+
+    with pytest.raises(ValueError, match="UUID"):
+        sead_projection._project_sead(tmp_path.absolute(), layers)
+
+
 def test_projection_rejects_parent_admission_lineage_drift(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:

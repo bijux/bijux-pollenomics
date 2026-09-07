@@ -34,6 +34,7 @@ class SeadNormalizationTests(NordicBoundaryTestCase):
 
         self.assertEqual(len(records), 1)
         self.assertEqual(records[0].record_id, "6468")
+        self.assertEqual(records[0].site_uuid, "uuid-1")
         self.assertEqual(records[0].name, "10412 Fjalkinge")
         self.assertEqual(records[0].country, "Sweden")
         self.assertEqual(records[0].category, "Environmental archaeology")
@@ -61,6 +62,7 @@ class SeadNormalizationTests(NordicBoundaryTestCase):
                 "site_name": "10412 Fjalkinge",
                 "latitude_dd": 56.05,
                 "longitude_dd": 14.28,
+                "site_uuid": "uuid-1",
                 "bibliography_rows": [{"biblio_id": 60}],
                 "dating_range_rows": [
                     {
@@ -113,6 +115,7 @@ class SeadNormalizationTests(NordicBoundaryTestCase):
         self.assertEqual(len(records), 2)
         self.assertEqual(sum(record.record_count for record in records), 3)
         first = records[0]
+        self.assertEqual(first.site_uuid, "uuid-1")
         self.assertEqual(first.layer_key, "sead-temporal-evidence")
         self.assertEqual(first.time_start_bp, 200)
         self.assertEqual(first.time_end_bp, 800)
@@ -121,3 +124,30 @@ class SeadNormalizationTests(NordicBoundaryTestCase):
             temporal_semantics["source_record_ids"],
             [34, 35],
         )
+
+    def test_sead_normalization_refuses_missing_stable_site_identity(self) -> None:
+        site = {
+            "site_id": 6468,
+            "site_name": "10412 Fjalkinge",
+            "latitude_dd": 56.05,
+            "longitude_dd": 14.28,
+        }
+
+        with self.assertRaisesRegex(ValueError, "site_uuid"):
+            normalize_sead_rows(
+                [dict(site)], country_boundaries=self.country_boundaries
+            )
+
+        site["dating_range_rows"] = [
+            {
+                "analysis_dating_range_id": 34,
+                "analysis_entity_id": 30,
+                "age_type": "calibrated years BP",
+                "time_start_bp": 200,
+                "time_end_bp": 800,
+            }
+        ]
+        with self.assertRaisesRegex(ValueError, "site_uuid"):
+            normalize_sead_temporal_evidence(
+                [site], country_boundaries=self.country_boundaries
+            )

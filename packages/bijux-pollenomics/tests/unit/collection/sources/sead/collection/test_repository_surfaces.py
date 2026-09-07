@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pytest
 from bijux_pollenomics.collection.sources.sead.collection.repository_surfaces import (
+    RepositorySurfaceCandidate,
     SEAD_REPOSITORY_SURFACE_PATHS,
     prepare_repository_surface_transaction,
     publish_repository_surface_candidate,
@@ -185,3 +186,107 @@ def test_repository_surface_baseline_refuses_partial_population(tmp_path: Path) 
         prepare_repository_surface_transaction(
             data_root, artifacts_root=tmp_path / "artifacts"
         )
+
+
+def test_cross_format_validation_requires_direct_uuid_reconciliation(
+    tmp_path: Path,
+) -> None:
+    site_uuid = "16fd2706-8baf-433b-82eb-8c7fada847da"
+    root = tmp_path / "candidate" / "data" / "sead"
+    normalized = root / "normalized"
+    derived = root / "derived"
+    review = root / "review"
+    for directory in (normalized, derived, review):
+        directory.mkdir(parents=True)
+    for stem in ("nordic_environmental_sites", "nordic_temporal_evidence"):
+        (normalized / f"{stem}.csv").write_text(
+            f"record_id,site_uuid\n1,{site_uuid}\n", encoding="utf-8"
+        )
+        (normalized / f"{stem}.geojson").write_text(
+            json.dumps(
+                {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": None,
+                            "properties": {
+                                "record_id": "1",
+                                "site_uuid": site_uuid,
+                            },
+                        }
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+    for stem in (
+        "access_model",
+        "evidence_legibility_review",
+        "recovery_requirements",
+        "temporal_review",
+    ):
+        (review / f"{stem}.csv").write_text("record_id\n", encoding="utf-8")
+        (review / f"{stem}.json").write_text(
+            json.dumps({"row_count": 0}), encoding="utf-8"
+        )
+    (derived / "sweden_archaeology_site_discovery.csv").write_text(
+        f"site_id,site_uuid\n1,{site_uuid}\n", encoding="utf-8"
+    )
+    (derived / "sweden_archaeology_site_discovery.json").write_text(
+        json.dumps(
+            {
+                "summary": {"site_count": 1, "map_feature_count": 1},
+                "sites": [{"site_id": "1", "site_uuid": site_uuid}],
+            }
+        ),
+        encoding="utf-8",
+    )
+    discovery_geojson = derived / "sweden_archaeology_site_discovery.geojson"
+    discovery_geojson.write_text(
+        json.dumps(
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": None,
+                        "properties": {
+                            "record_id": "1:unresolved:discovery",
+                            "site_uuid": site_uuid,
+                        },
+                    }
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+    (review / "scientific_classification_candidates.csv").write_text(
+        "candidate_id\n", encoding="utf-8"
+    )
+    (review / "scientific_classification_review.json").write_text(
+        json.dumps({"candidates": []}), encoding="utf-8"
+    )
+    candidate = RepositorySurfaceCandidate(
+        data_root=root.parent,
+        transaction_root=tmp_path / "transaction",
+        candidate_data_root=root.parent,
+        recovery_root=tmp_path / "recovery",
+        lock_path=tmp_path / "lock",
+        baseline=(),
+    )
+
+    surface_validation.validate_cross_format_counts(candidate)
+
+    value = json.loads(discovery_geojson.read_text(encoding="utf-8"))
+    value["features"][0]["properties"]["site_uuid"] = (
+        "6c39f57c-31a9-4a44-b8b7-c5b2798045dc"
+    )
+    discovery_geojson.write_text(json.dumps(value), encoding="utf-8")
+    with pytest.raises(ValueError, match="feature UUID differs"):
+        surface_validation.validate_cross_format_counts(candidate)
+
+    value["features"][0]["properties"]["site_uuid"] = "uuid-1"
+    discovery_geojson.write_text(json.dumps(value), encoding="utf-8")
+    with pytest.raises(ValueError, match="not a UUID"):
+        surface_validation.validate_cross_format_counts(candidate)

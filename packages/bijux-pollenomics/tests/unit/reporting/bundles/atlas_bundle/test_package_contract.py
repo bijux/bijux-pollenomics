@@ -77,6 +77,7 @@ def test_context_projection_preserves_standalone_mean_with_null_interval() -> No
                         "latitude": 59,
                         "longitude": 18,
                         "title": "Mean-only chronology",
+                        "site_uuid": "site-uuid-1",
                         "time_start_bp": None,
                         "time_end_bp": None,
                         "time_mean_bp": 123,
@@ -90,6 +91,7 @@ def test_context_projection_preserves_standalone_mean_with_null_interval() -> No
     assert records[0].time_start_bp is None
     assert records[0].time_end_bp is None
     assert records[0].time_mean_bp == 123
+    assert records[0].site_uuid == "site-uuid-1"
 
 
 def test_package_is_bounded_and_grouped_by_publication_intent() -> None:

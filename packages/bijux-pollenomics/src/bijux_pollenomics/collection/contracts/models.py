@@ -84,6 +84,7 @@ class ContextPointRecord:
     time_mean_bp: int | None = None
     time_label: str = ""
     temporal_semantics: dict[str, object] | None = None
+    site_uuid: str | None = None
 
 
 @dataclass(frozen=True)

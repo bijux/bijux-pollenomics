@@ -37,6 +37,7 @@ def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) 
         "time_label",
         "temporal_semantics_json",
         "popup_rows_json",
+        "site_uuid",
     ]
     with path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
@@ -74,6 +75,7 @@ def write_context_points_csv(path: Path, records: Iterable[ContextPointRecord]) 
                     "popup_rows_json": json.dumps(
                         record.popup_rows, ensure_ascii=False
                     ),
+                    "site_uuid": record.site_uuid or "",
                 }
             )
 
@@ -113,6 +115,7 @@ def write_context_points_geojson(
                         {"label": label, "value": value}
                         for label, value in record.popup_rows
                     ],
+                    "site_uuid": record.site_uuid,
                 },
             }
         )

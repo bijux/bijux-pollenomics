@@ -34,6 +34,8 @@ def normalize_sead_rows(
             continue
         site_id = str(row.get("site_id", "")).strip()
         site_uuid = clean_optional_text(row.get("site_uuid"))
+        if not site_uuid:
+            raise ValueError(f"SEAD site {site_id or 'without ID'} is missing site_uuid")
         country_assignment_method = clean_optional_text(
             row.get("country_assignment_method")
         )
@@ -68,7 +70,7 @@ def normalize_sead_rows(
 
         popup_rows = [
             ("Site ID", site_id),
-            ("Site UUID", site_uuid or "Unavailable"),
+            ("Site UUID", site_uuid),
             ("Country assignment", country_assignment_method or "Unavailable"),
             ("Category", "Environmental archaeology"),
             ("Source", "SEAD"),
@@ -169,6 +171,7 @@ def normalize_sead_rows(
                 if time_interval is not None
                 else "",
                 temporal_semantics=temporal_semantics,
+                site_uuid=site_uuid,
             )
         )
     return sorted(records, key=lambda item: (item.name.casefold(), item.record_id))

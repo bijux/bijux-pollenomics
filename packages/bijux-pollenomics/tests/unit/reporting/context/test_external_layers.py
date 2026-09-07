@@ -194,6 +194,7 @@ class ExternalLayerTests(unittest.TestCase):
                             "layer_key": "sead-temporal-evidence",
                             "layer_label": "SEAD temporal evidence",
                             "country": "Sweden",
+                            "site_uuid": "site-uuid-1",
                             "name": "Dated chronology",
                             "category": "Environmental archaeology chronology",
                             "time_start_bp": 1200,
@@ -209,6 +210,7 @@ class ExternalLayerTests(unittest.TestCase):
         layer_features = cast(list[dict[str, object]], layer["features"])
         self.assertEqual(layer_features[0]["time_start_bp"], 1200)
         self.assertEqual(layer_features[0]["time_end_bp"], 1800)
+        self.assertEqual(layer_features[0]["site_uuid"], "site-uuid-1")
 
     def test_external_point_layers_do_not_treat_context_labels_as_numeric_time(
         self,

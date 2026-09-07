@@ -49,6 +49,12 @@ def extract_context_points(
                     time_end_bp=time_end_bp,
                     time_mean_bp=time_mean_bp,
                     time_label=str(raw_point.get("time_label", "")),
+                    site_uuid=(
+                        str(raw_point["site_uuid"]).strip()
+                        if isinstance(raw_point.get("site_uuid"), str)
+                        and str(raw_point["site_uuid"]).strip()
+                        else None
+                    ),
                 )
             )
     return tuple(records)

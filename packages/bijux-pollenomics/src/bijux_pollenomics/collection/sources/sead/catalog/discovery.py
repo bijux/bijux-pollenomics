@@ -77,6 +77,9 @@ def build_sweden_archaeology_site_discovery(
 
     unranked: list[dict[str, object]] = []
     for site_id, record in sweden_sites.items():
+        site_uuid = record.site_uuid
+        if not site_uuid:
+            raise ValueError(f"SEAD discovery site {site_id} is missing site_uuid")
         raw = raw_by_site.get(site_id, {})
         chronology = temporal_by_site.get(site_id, [])
         bibliography_count = _list_count(raw.get("bibliography_rows"))
@@ -99,6 +102,7 @@ def build_sweden_archaeology_site_discovery(
         unranked.append(
             {
                 "site_id": site_id,
+                "site_uuid": site_uuid,
                 "site_name": record.name,
                 "country": "Sweden",
                 "latitude": record.latitude,
@@ -129,7 +133,8 @@ def build_sweden_archaeology_site_discovery(
     map_records = tuple(
         record
         for site_id in sorted(
-            sweden_sites, key=lambda value: rank_by_site[value]["discovery_rank"]
+            sweden_sites,
+            key=lambda value: _integer(rank_by_site[value]["discovery_rank"]),
         )
         for record in _map_records_for_site(
             sweden_sites[site_id],
@@ -138,13 +143,13 @@ def build_sweden_archaeology_site_discovery(
         )
     )
     resolved_count = sum(bool(row["chronology_resolved"]) for row in ranked)
-    summary = {
+    summary: dict[str, object] = {
         "country": "Sweden",
         "site_count": len(ranked),
         "chronology_resolved_site_count": resolved_count,
         "chronology_unresolved_site_count": len(ranked) - resolved_count,
         "bibliography_linked_site_count": sum(
-            int(row["bibliography_count"]) > 0 for row in ranked
+            _integer(row["bibliography_count"]) > 0 for row in ranked
         ),
         "map_feature_count": len(map_records),
         "numeric_temporal_feature_count": sum(
@@ -158,7 +163,7 @@ def build_sweden_archaeology_site_discovery(
         ),
         "current_activity_status": "not_captured_by_repository_sources",
     }
-    ranking_contract = {
+    ranking_contract: dict[str, object] = {
         "purpose": "repository discovery readiness, not archaeological significance",
         "coverage_rule": "every geolocated Swedish SEAD site is retained",
         "tier_order": list(_READINESS_ORDER),
@@ -274,7 +279,11 @@ def _map_records_for_site(
         ("Linked chronology kinds", str(registry_row["chronology_kind_count"])),
         (
             "RAÄ density context",
-            str(registry_row["raa_density_context_count"] or "Unavailable"),
+            (
+                "Unavailable"
+                if registry_row["raa_density_context_count"] is None
+                else str(registry_row["raa_density_context_count"])
+            ),
         ),
         ("Current activity", "Not captured by repository sources"),
     )
@@ -316,6 +325,7 @@ def _map_records_for_site(
                 time_mean_bp=item.time_mean_bp,
                 time_label=item.time_label,
                 temporal_semantics=item.temporal_semantics,
+                site_uuid=site.site_uuid,
             )
             for item in chronology
         ]
@@ -354,6 +364,7 @@ def _map_records_for_site(
             + popup
             + (("Time", "Unresolved"),),
             temporal_semantics=semantics,
+            site_uuid=site.site_uuid,
         )
     ]
 
@@ -371,10 +382,10 @@ def _readiness_tier(has_chronology: bool, has_bibliography: bool) -> str:
 def _ranking_key(row: Mapping[str, object]) -> tuple[object, ...]:
     return (
         _READINESS_ORDER[str(row["discovery_readiness"])],
-        -int(row["chronology_kind_count"]),
-        -int(row["chronology_record_count"]),
-        -int(row["bibliography_count"]),
-        -int(row["dataset_count"]),
+        -_integer(row["chronology_kind_count"]),
+        -_integer(row["chronology_record_count"]),
+        -_integer(row["bibliography_count"]),
+        -_integer(row["dataset_count"]),
         str(row["site_name"]).casefold(),
         str(row["site_id"]),
     )

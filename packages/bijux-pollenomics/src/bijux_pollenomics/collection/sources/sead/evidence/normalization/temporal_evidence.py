@@ -51,6 +51,8 @@ def normalize_sead_temporal_evidence(
             continue
         site_id = str(site_row.get("site_id", "")).strip()
         site_uuid = clean_optional_text(site_row.get("site_uuid"))
+        if not site_uuid:
+            raise ValueError(f"SEAD site {site_id or 'without ID'} is missing site_uuid")
         country_assignment_method = clean_optional_text(
             site_row.get("country_assignment_method")
         )
@@ -98,7 +100,7 @@ def normalize_sead_temporal_evidence(
             temporal_semantics["source_record_count"] = len(source_record_ids)
             temporal_semantics["source_record_ids"] = list(source_record_ids)
             temporal_semantics["chronology_claim_ids"] = [
-                f"sead:{site_uuid or f'site-{site_id}'}:{kind}:{record_id}"
+                f"sead:{site_uuid}:{kind}:{record_id}"
                 for record_id in source_record_ids
             ]
             temporal_semantics["claim_bundle_path"] = (
@@ -107,7 +109,7 @@ def normalize_sead_temporal_evidence(
             popup_rows = [
                 ("Site", site_name),
                 ("Site ID", site_id),
-                ("Site UUID", site_uuid or "Unavailable"),
+                ("Site UUID", site_uuid),
                 ("Country assignment", country_assignment_method or "Unavailable"),
                 ("Chronology kind", kind_label),
                 ("Date coverage", time_label),
@@ -154,6 +156,7 @@ def normalize_sead_temporal_evidence(
                     time_mean_bp=mean_bp_year_from_interval(interval),
                     time_label=time_label,
                     temporal_semantics=temporal_semantics,
+                    site_uuid=site_uuid,
                 )
             )
     return sorted(

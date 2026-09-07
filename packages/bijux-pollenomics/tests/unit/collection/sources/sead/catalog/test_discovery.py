@@ -30,6 +30,7 @@ def _site(site_id: str, name: str, longitude: float) -> ContextPointRecord:
         source_url=f"https://browser.sead.se/site/{site_id}",
         record_count=1,
         popup_rows=(),
+        site_uuid=f"uuid-{site_id}",
     )
 
 
@@ -94,10 +95,13 @@ class SwedenArchaeologySiteDiscoveryTests(unittest.TestCase):
         self.assertEqual(discovery.summary["chronology_unresolved_site_count"], 1)
         self.assertEqual(discovery.summary["map_feature_count"], 2)
         self.assertEqual(discovery.site_rows[0]["site_id"], "10")
+        self.assertEqual(discovery.site_rows[0]["site_uuid"], "uuid-10")
         self.assertEqual(discovery.site_rows[0]["discovery_rank"], 1)
         self.assertEqual(discovery.site_rows[0]["raa_density_context_count"], 42)
         self.assertEqual(discovery.map_records[0].time_start_bp, 1000)
+        self.assertEqual(discovery.map_records[0].site_uuid, "uuid-10")
         unresolved = discovery.map_records[1]
+        self.assertEqual(unresolved.site_uuid, "uuid-20")
         self.assertIsNone(unresolved.time_start_bp)
         self.assertEqual(
             unresolved.temporal_semantics["comparability_posture"], "unresolved"
@@ -126,8 +130,13 @@ class SwedenArchaeologySiteDiscoveryTests(unittest.TestCase):
             markdown = paths["markdown"].read_text(encoding="utf-8")
 
         self.assertEqual(len(payload["sites"]), 1)
+        self.assertEqual(payload["sites"][0]["site_uuid"], "uuid-20")
         self.assertEqual(len(csv_rows), 1)
+        self.assertEqual(csv_rows[0]["site_uuid"], "uuid-20")
         self.assertEqual(len(geojson["features"]), 1)
+        self.assertEqual(
+            geojson["features"][0]["properties"]["site_uuid"], "uuid-20"
+        )
         self.assertIn("every geolocated Swedish SEAD site", markdown)
 
 

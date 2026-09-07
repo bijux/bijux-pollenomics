@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from typing import cast
 
 from ..time import (
     extract_layer_identity,
@@ -50,41 +51,38 @@ def build_external_point_layer(
             raise ValueError(
                 f"{source_label} contains a point with non-numeric coordinates"
             ) from exc
-        features.append(
-            {
-                "latitude": latitude,
-                "longitude": longitude,
-                "country": str(properties.get("country", "")).strip(),
-                "title": str(properties.get("name", "")).strip(),
-                "subtitle": str(properties.get("category", "")).strip(),
-                "popup_rows": popup_rows,
-                "source_url": str(properties.get("source_url", "")).strip(),
-                "evidence_row_id": str(properties.get("record_id", "")).strip(),
-                "media_links": normalize_media_links(properties.get("media_links", [])),
-                **feature_time_payload(properties),
-            }
-        )
+        mapped_feature = {
+            "latitude": latitude,
+            "longitude": longitude,
+            "country": str(properties.get("country", "")).strip(),
+            "title": str(properties.get("name", "")).strip(),
+            "subtitle": str(properties.get("category", "")).strip(),
+            "popup_rows": popup_rows,
+            "source_url": str(properties.get("source_url", "")).strip(),
+            "evidence_row_id": str(properties.get("record_id", "")).strip(),
+            "media_links": normalize_media_links(properties.get("media_links", [])),
+            **feature_time_payload(properties),
+        }
+        site_uuid = properties.get("site_uuid")
+        if isinstance(site_uuid, str) and site_uuid.strip():
+            mapped_feature["site_uuid"] = site_uuid.strip()
+        features.append(mapped_feature)
 
     applies_country_filter = any(feature.get("country") for feature in features)
     applies_time_filter = any(feature_has_time(feature) for feature in features)
+    metadata = cast(dict[str, object], POINT_LAYER_METADATA.get(layer_key, {}))
     return {
         "key": layer_key,
         "label": layer_label,
         "count": len(features),
         "description": str(sample_properties.get("subtitle", "")).strip(),
-        "group": POINT_LAYER_METADATA.get(layer_key, {}).get("group", "context"),
-        "source_name": POINT_LAYER_METADATA.get(layer_key, {}).get(
-            "source_name", layer_label
-        ),
-        "coverage_label": POINT_LAYER_METADATA.get(layer_key, {}).get(
+        "group": metadata.get("group", "context"),
+        "source_name": metadata.get("source_name", layer_label),
+        "coverage_label": metadata.get(
             "coverage_label", "Country-aware contextual points."
         ),
-        "geometry_label": POINT_LAYER_METADATA.get(layer_key, {}).get(
-            "geometry_label", "Point records"
-        ),
-        "default_enabled": POINT_LAYER_METADATA.get(layer_key, {}).get(
-            "default_enabled", True
-        ),
+        "geometry_label": metadata.get("geometry_label", "Point records"),
+        "default_enabled": metadata.get("default_enabled", True),
         "applies_country_filter": applies_country_filter,
         "applies_time_filter": applies_time_filter,
         "circle_enabled": True,

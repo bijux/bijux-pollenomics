@@ -49,6 +49,10 @@ def index_sites(
             raise ValueError("SEAD Nordic site identity changed")
         site_rows.append(properties)
     sites = _unique_rows(site_rows, "record_id", "SEAD Nordic sites")
+    normalized_site_uuids = {
+        site_id: _required_text(row.get("site_uuid"), "SEAD normalized site UUID")
+        for site_id, row in sites.items()
+    }
     admitted_site_uuids = _admitted_site_uuids(bundle)
     admitted_site_ids = set(admitted_site_uuids)
     decision_rows, assigned_site_ids = _country_decisions(bundle)
@@ -59,6 +63,9 @@ def index_sites(
         raise ValueError(
             "SEAD normalized sites do not match assigned country decisions"
         )
+    for site_id, site_uuid in normalized_site_uuids.items():
+        if site_uuid != admitted_site_uuids[site_id]:
+            raise ValueError("SEAD normalized site UUID differs from admitted site")
     unknown_claim_sites = sorted(set(claims.by_site) - set(sites))
     if unknown_claim_sites:
         raise ValueError(
@@ -70,9 +77,7 @@ def index_sites(
             "SEAD observations reference unknown admitted sites: "
             f"{unknown_observation_sites[:5]}"
         )
-    feature_site_ids, feature_count = _bind_features(
-        layers, sites, admitted_site_uuids
-    )
+    feature_site_ids, feature_count = _bind_features(layers, sites, admitted_site_uuids)
     return SiteIndex(
         rows_by_id=sites,
         site_uuid_by_id=admitted_site_uuids,
@@ -164,8 +169,13 @@ def _bind_features(
                 raise ValueError(
                     f"SEAD map feature has no governed Nordic site: {source_site_id}"
                 )
+            feature_site_uuid = _required_text(
+                feature.get("site_uuid"), "SEAD feature site UUID"
+            )
+            if feature_site_uuid != site_uuid_by_id[source_site_id]:
+                raise ValueError("SEAD feature site UUID differs from admitted site")
             _set_feature_record_id(feature, f"sead:site:{source_site_id}")
-            feature["site_uuid"] = site_uuid_by_id[source_site_id]
+            feature["site_uuid"] = feature_site_uuid
             feature_site_ids.add(source_site_id)
             feature_count += 1
     if feature_site_ids != set(sites):

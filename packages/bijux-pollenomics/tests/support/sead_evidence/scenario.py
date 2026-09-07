@@ -202,6 +202,7 @@ def write_sead_projection_fixture(
                     "layer_label": "SEAD sites",
                     "category": "Environmental archaeology",
                     "record_id": site_id,
+                    "site_uuid": f"site-{site_id}",
                     "name": f"Site {site_id}",
                     "country": country,
                     "source_url": f"https://example.test/{site_id}",
@@ -225,7 +226,11 @@ def sead_projection_layers() -> list[dict[str, object]]:
         {
             "key": "sead-sites",
             "features": [
-                {"evidence_row_id": str(index), "country": country}
+                {
+                    "evidence_row_id": str(index),
+                    "site_uuid": f"site-{index}",
+                    "country": country,
+                }
                 for index, country in enumerate(
                     ("Sweden", "Denmark", "Norway", "Finland"), start=1
                 )
@@ -234,7 +239,11 @@ def sead_projection_layers() -> list[dict[str, object]]:
         {
             "key": "sweden-archaeology-site-discovery",
             "features": [
-                {"evidence_row_id": "1:unresolved:discovery", "country": "Sweden"}
+                {
+                    "evidence_row_id": "1:unresolved:discovery",
+                    "site_uuid": "site-1",
+                    "country": "Sweden",
+                }
             ],
         },
     ]
