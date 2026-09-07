@@ -57,16 +57,16 @@ from .sustainability import (
 )
 
 __all__ = [
-    "build_repository_brutal_honesty_review",
-    "build_repository_credibility_dashboard",
-    "build_repository_extension_review",
-    "build_repository_final_release_refusal",
-    "build_repository_output_sustainability_review",
     "build_repository_product_model",
-    "render_repository_brutal_honesty_review_markdown",
-    "render_repository_credibility_dashboard_markdown",
-    "render_repository_extension_review_markdown",
-    "render_repository_final_release_refusal_markdown",
-    "render_repository_output_sustainability_review_markdown",
     "render_repository_product_model_markdown",
+    "build_repository_credibility_dashboard",
+    "render_repository_credibility_dashboard_markdown",
+    "build_repository_output_sustainability_review",
+    "render_repository_output_sustainability_review_markdown",
+    "build_repository_extension_review",
+    "render_repository_extension_review_markdown",
+    "build_repository_brutal_honesty_review",
+    "render_repository_brutal_honesty_review_markdown",
+    "build_repository_final_release_refusal",
+    "render_repository_final_release_refusal_markdown",
 ]
