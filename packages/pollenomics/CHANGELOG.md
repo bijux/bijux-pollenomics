@@ -4,6 +4,16 @@ All notable changes for `pollenomics` are recorded here.
 
 ## Unreleased
 
+## 0.1.8 - 2026-09-08
+
+### Changed
+
+- Clarified that `pollenomics` remains the compatibility distribution for the
+  canonical `bijux-pollenomics` runtime and inherits its evidence, atlas, and
+  command behavior without owning separate scientific implementation.
+- Refreshed compatibility-package build and dependency constraints alongside
+  the repository's current supported Python and audited packaging toolchain.
+
 ## 0.1.7 - 2026-06-29
 
 ### Changed

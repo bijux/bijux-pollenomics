@@ -10,6 +10,44 @@ change contributor and maintainer workflows across the repository.
 
 ## Unreleased
 
+## 0.1.8 - 2026-09-08
+
+### Added
+
+- Added source-bound chronology, locality, classification, and accountability
+  evidence across Neotoma, SEAD, LandClim, AADR, and species-owned animal
+  ancient-DNA collections for the Denmark, Finland, Norway, and Sweden atlas.
+- Published responsive chronological atlas views and governed story media whose
+  visible records retain their source, spatial, temporal, and refusal posture.
+- Added canonical scientific release evidence spanning recorded gates, artifact
+  lineage, count reconciliations, and manifest-bound classification and
+  propagation decisions.
+
+### Changed
+
+- Reworked collection, curation, governance, analysis, and reporting boundaries
+  around explicit source identities and reproducible generated outputs instead
+  of implicit joins or presentation-owned scientific claims.
+- Expanded the public and maintainer documentation around evidence intake,
+  chronology semantics, map interpretation, publication limits, provenance,
+  and release support.
+- Refreshed governed data, reports, atlas assets, and sustainability accounting
+  to reconcile the repository's current scientific evidence inventory.
+
+### Fixed
+
+- Release assessment now fails closed for unreported or refused required counts,
+  malformed or contradictory bundle posture, dirty candidates, and scientific
+  release metadata that does not authorize the proposed language.
+- Corrected cross-run animal sample identities, source-field preservation,
+  locality and chronology admission, and registry publication so unsupported
+  context cannot become exact mapped evidence.
+- Made offline source metadata receipt-backed and collection digests insensitive
+  to Finder metadata while retaining ordinary scientific files in source hashes.
+- Hardened scientific input parsing, generated-output reproducibility, browser
+  verification, and atlas interaction contracts against ambiguous or stale
+  evidence.
+
 ## 0.1.7 - 2026-06-29
 
 ### Added
