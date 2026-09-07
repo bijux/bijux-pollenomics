@@ -10,7 +10,13 @@ POLLENOMICS_RELEASE_CANDIDATE_ID ?= $(shell git rev-parse HEAD 2>/dev/null)
 POLLENOMICS_RELEASE_EVIDENCE_DIRECTORY ?= artifacts/execution-control/release-evidence/$(POLLENOMICS_RELEASE_CANDIDATE_ID)
 POLLENOMICS_RELEASE_EVIDENCE_REQUEST ?= $(POLLENOMICS_RELEASE_EVIDENCE_DIRECTORY)/request.json
 POLLENOMICS_RELEASE_EVIDENCE_OUTPUT ?= $(POLLENOMICS_RELEASE_EVIDENCE_DIRECTORY)/manifest.json
-POLLENOMICS_GATE_TIMEOUT_SECONDS ?= 900
+POLLENOMICS_GATE_TIMEOUT_SECONDS ?= 540
+POLLENOMICS_DOC_COUNT_REDUCER_TIMEOUT_SECONDS := 120
+POLLENOMICS_REBUILD_POLICY := $(CURDIR)/configs/ci/reproducible-report-build.json
+POLLENOMICS_REBUILD_PLAN ?= $(CURDIR)/artifacts/execution-control/report-rebuild-plan/plan.json
+POLLENOMICS_DOC_COUNT_SHARD_COUNT := 2
+POLLENOMICS_DOC_COUNT_PLAN := artifacts/execution-control/doc-count-plan/collection-plan.json
+POLLENOMICS_DOC_COUNT_SHARD_ROOT := artifacts/execution-control/doc-count-shards
 POLLENOMICS_NODE_DIRECTORY := $(patsubst %/,%,$(dir $(shell command -v node 2>/dev/null)))
 POLLENOMICS_GATE_PATH := $(abspath $(ROOT_CHECK_VENV))/bin$(if $(POLLENOMICS_NODE_DIRECTORY),:$(POLLENOMICS_NODE_DIRECTORY)):/usr/bin:/bin
 POLLENOMICS_GATE_TRUST_INPUTS := Makefile makes/pollenomics-verification.mk pyproject.toml packages/bijux-pollenomics/pyproject.toml uv.lock
@@ -137,6 +143,9 @@ POLLENOMICS_DOC_COUNT_TESTS := \
 	$(POLLENOMICS_TEST_ROOT)/regression/test_docs_breadth.py
 POLLENOMICS_DOC_COUNT_INPUTS := \
 	$(POLLENOMICS_GATE_TRUST_INPUTS) \
+	.github/workflows/scientific-verification.yml \
+	artifacts/execution-control/doc-count-plan \
+	artifacts/execution-control/doc-count-shards \
 	configs/pytest.ini \
 	data/collection_summary.json \
 	data/country_dimension_coverage.json \
@@ -162,6 +171,7 @@ POLLENOMICS_DOC_COUNT_INPUTS := \
 	data/source_family_evidence_stage_matrix.json \
 	data/source_spatiotemporal_posture_registry.json \
 	docs/public/pollenomics-data \
+	packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/test_shards \
 	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/governance) \
 	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/reporting/review) \
 	$(POLLENOMICS_DOC_COUNT_TESTS)
@@ -194,7 +204,7 @@ define run_pollenomics_pytest_gate
 		$(2)
 endef
 
-.PHONY: materialize-scientific-evidence verify-science verify-data verify-map verify-provenance verify-doc-counts verify-rebuild verify-sead-evidence-fixed-point refresh-release-gates release-evidence-request release-evidence verify-release-candidate
+.PHONY: materialize-scientific-evidence verify-science verify-data verify-map verify-provenance verify-doc-counts collect-doc-count-universe verify-doc-count-shard attest-doc-count-shards verify-rebuild plan-report-rebuild build-report-rebuild-partition assemble-report-rebuild verify-partitioned-report-rebuild verify-sead-evidence-fixed-point refresh-release-gates release-evidence-request release-evidence verify-release-candidate
 
 materialize-scientific-evidence: root-check-env ## Recreate policy-owned classification and propagation evidence
 	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.scientific_evidence \
@@ -207,6 +217,45 @@ verify-rebuild: root-check-env ## Prove tracked reports rebuild deterministicall
 		--repo-root "$(CURDIR)" \
 		--policy "$(CURDIR)/configs/ci/reproducible-report-build.json" \
 		--evidence-root "$$evidence_parent/evidence"
+
+plan-report-rebuild: root-check-env ## Bind the report partition plan to repository inputs
+	@test -n "$(POLLENOMICS_REBUILD_PLAN)"
+	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild plan \
+		--repo-root "$(CURDIR)" \
+		--policy "$(POLLENOMICS_REBUILD_POLICY)" \
+		--output "$(POLLENOMICS_REBUILD_PLAN)" \
+		$(if $(GITHUB_OUTPUT),--github-output "$(GITHUB_OUTPUT)")
+
+build-report-rebuild-partition: root-check-env ## Materialize one evidence-bound report partition
+	@test -n "$(REBUILD_LANE)" && test -n "$(REBUILD_PARTITION_ID)" && test -n "$(REBUILD_EVIDENCE_ROOT)"
+	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild build \
+		--repo-root "$(CURDIR)" \
+		--policy "$(POLLENOMICS_REBUILD_POLICY)" \
+		--plan "$(POLLENOMICS_REBUILD_PLAN)" \
+		--lane "$(REBUILD_LANE)" \
+		--partition-id "$(REBUILD_PARTITION_ID)" \
+		--evidence-root "$(REBUILD_EVIDENCE_ROOT)" \
+		$(if $(REBUILD_SCOPE_ARTIFACTS_ROOT),--scope-artifacts-root "$(REBUILD_SCOPE_ARTIFACTS_ROOT)")
+
+assemble-report-rebuild: root-check-env ## Assemble one complete report tree from exact partitions
+	@test -n "$(REBUILD_LANE)" && test -n "$(REBUILD_PARTITION_ARTIFACTS_ROOT)" && test -n "$(REBUILD_EVIDENCE_ROOT)"
+	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild assemble \
+		--repo-root "$(CURDIR)" \
+		--policy "$(POLLENOMICS_REBUILD_POLICY)" \
+		--plan "$(POLLENOMICS_REBUILD_PLAN)" \
+		--lane "$(REBUILD_LANE)" \
+		--partition-artifacts-root "$(REBUILD_PARTITION_ARTIFACTS_ROOT)" \
+		--evidence-root "$(REBUILD_EVIDENCE_ROOT)"
+
+verify-partitioned-report-rebuild: root-check-env ## Compare two complete partitioned builds with tracked reports
+	@test -n "$(REBUILD_REFERENCE_MANIFEST)" && test -n "$(REBUILD_REPLAY_MANIFEST)" && test -n "$(REBUILD_EVIDENCE_ROOT)"
+	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild verify \
+		--repo-root "$(CURDIR)" \
+		--policy "$(POLLENOMICS_REBUILD_POLICY)" \
+		--plan "$(POLLENOMICS_REBUILD_PLAN)" \
+		--reference-manifest "$(REBUILD_REFERENCE_MANIFEST)" \
+		--replay-manifest "$(REBUILD_REPLAY_MANIFEST)" \
+		--evidence-root "$(REBUILD_EVIDENCE_ROOT)"
 
 verify-sead-evidence-fixed-point: root-check-env ## Prove governed SEAD evidence rebuilds byte-identically without network
 	@mkdir -p "$(CURDIR)/artifacts/execution-control"; \
@@ -228,7 +277,85 @@ verify-provenance: materialize-scientific-evidence ## Record provenance and rele
 	$(call run_pollenomics_pytest_gate,provenance,$(POLLENOMICS_PROVENANCE_TESTS),$(POLLENOMICS_PROVENANCE_INPUTS))
 
 verify-doc-counts: root-check-env ## Record documentation and governed-count verification
-	$(call run_pollenomics_pytest_gate,doc-counts,$(POLLENOMICS_DOC_COUNT_TESTS),$(POLLENOMICS_DOC_COUNT_INPUTS))
+	@set -eu; \
+	revision="$${GITHUB_SHA:-$$(git rev-parse HEAD)}"; \
+	$(MAKE) collect-doc-count-universe GITHUB_SHA="$$revision"; \
+	pids=""; \
+	for shard in $$(seq 0 $$(( $(POLLENOMICS_DOC_COUNT_SHARD_COUNT) - 1 ))); do \
+		$(MAKE) verify-doc-count-shard GITHUB_SHA="$$revision" DOC_COUNT_SHARD_INDEX="$$shard" & \
+		pids="$$pids $$!"; \
+	done; \
+	status=0; \
+	for pid in $$pids; do \
+		if wait "$$pid"; then :; else status=1; fi; \
+	done; \
+	if test "$$status" -ne 0; then \
+		echo "one or more doc-count shards failed" >&2; \
+		exit 1; \
+	fi; \
+	$(MAKE) attest-doc-count-shards
+
+collect-doc-count-universe: root-check-env ## Collect the independent complete doc-count test universe
+	@test -n "$(GITHUB_SHA)"
+	@mkdir -p "$(dir $(POLLENOMICS_DOC_COUNT_PLAN))"
+	@PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics-dev/src:$(CURDIR)/packages/bijux-pollenomics/src" \
+	PYTHONPYCACHEPREFIX="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/runner-pycache/doc-count-plan" \
+	GITHUB_SHA="$(GITHUB_SHA)" \
+	"$(POLLENOMICS_VERIFICATION_PYTEST)" \
+		--rootdir "$(CURDIR)" \
+		-c "$(CURDIR)/configs/pytest.ini" \
+		-q \
+		-o "cache_dir=$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/pytest-cache/doc-count-plan" \
+		--collect-only \
+		-p bijux_pollenomics_dev.ci.test_shards.plugin \
+		--bijux-shard-count=1 \
+		--bijux-shard-index=0 \
+		--bijux-shard-receipt="$(CURDIR)/$(POLLENOMICS_DOC_COUNT_PLAN)" \
+		$(POLLENOMICS_DOC_COUNT_TESTS)
+
+verify-doc-count-shard: root-check-env ## Execute one exact partition of the doc-count tests
+	@test -n "$(GITHUB_SHA)" && test -n "$(DOC_COUNT_SHARD_INDEX)"
+	@mkdir -p "$(CURDIR)/$(POLLENOMICS_DOC_COUNT_SHARD_ROOT)/$(DOC_COUNT_SHARD_INDEX)"
+	@PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics-dev/src:$(CURDIR)/packages/bijux-pollenomics/src" \
+	PYTHONPYCACHEPREFIX="$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/runner-pycache/doc-count-$(DOC_COUNT_SHARD_INDEX)" \
+	GITHUB_SHA="$(GITHUB_SHA)" \
+	"$(POLLENOMICS_VERIFICATION_PYTEST)" \
+		--rootdir "$(CURDIR)" \
+		-c "$(CURDIR)/configs/pytest.ini" \
+		-q \
+		-o "cache_dir=$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/pytest-cache/doc-count-$(DOC_COUNT_SHARD_INDEX)" \
+		--junitxml="$(CURDIR)/$(POLLENOMICS_DOC_COUNT_SHARD_ROOT)/$(DOC_COUNT_SHARD_INDEX)/results.junit.xml" \
+		-p bijux_pollenomics_dev.ci.test_shards.plugin \
+		--bijux-shard-count=$(POLLENOMICS_DOC_COUNT_SHARD_COUNT) \
+		--bijux-shard-index=$(DOC_COUNT_SHARD_INDEX) \
+		--bijux-shard-receipt="$(CURDIR)/$(POLLENOMICS_DOC_COUNT_SHARD_ROOT)/$(DOC_COUNT_SHARD_INDEX)/shard-receipt.json" \
+		$(POLLENOMICS_DOC_COUNT_TESTS)
+
+attest-doc-count-shards: root-check-env ## Record one doc-count gate after exact shard reconciliation
+	@revision="$${GITHUB_SHA:-$$(git rev-parse HEAD)}"; \
+	PYTHONPATH="$(CURDIR)/packages/bijux-pollenomics/src" \
+	"$(POLLENOMICS_VERIFICATION_PYTHON)" -m bijux_pollenomics.provenance.gate_runner \
+		--repository-root "$(CURDIR)" \
+		--gate-id doc-counts \
+		--artifacts-directory "$(POLLENOMICS_GATE_ARTIFACTS)" \
+		--junit-path "$(POLLENOMICS_GATE_ARTIFACTS)/doc-counts.junit.xml" \
+		--timeout-seconds "$(POLLENOMICS_DOC_COUNT_REDUCER_TIMEOUT_SECONDS)" \
+		$(foreach input,$(POLLENOMICS_DOC_COUNT_INPUTS),--input "$(input)") \
+		--environment "PATH=$(POLLENOMICS_GATE_PATH)" \
+		--environment "PYTHONPATH=$(CURDIR)/packages/bijux-pollenomics-dev/src" \
+		--environment "PYTHONPYCACHEPREFIX=$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/pycache/doc-counts" \
+		--environment "PYTHONDONTWRITEBYTECODE=1" \
+		--environment "PYTHONIOENCODING=utf-8" \
+		--environment "LANG=C" \
+		--environment "LC_ALL=C" \
+		-- \
+		"$(POLLENOMICS_VERIFICATION_PYTHON)" \
+		-m bijux_pollenomics_dev.ci.test_shards \
+		--receipt-root "$(CURDIR)/$(POLLENOMICS_DOC_COUNT_SHARD_ROOT)" \
+		--count "$(POLLENOMICS_DOC_COUNT_SHARD_COUNT)" \
+		--revision "$$revision" \
+		--expected-universe-file "$(CURDIR)/$(POLLENOMICS_DOC_COUNT_PLAN)" \
+		--junit-output "$(CURDIR)/$(POLLENOMICS_GATE_ARTIFACTS)/doc-counts.junit.xml"
 
 refresh-release-gates: verify-science verify-data verify-map verify-provenance verify-doc-counts ## Force-run and record every required local gate
 

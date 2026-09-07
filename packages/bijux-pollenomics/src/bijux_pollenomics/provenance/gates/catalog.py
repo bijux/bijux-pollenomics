@@ -118,6 +118,9 @@ _GATE_FIXED_INPUTS: dict[str, tuple[str, ...]] = {
     ),
     "doc-counts": (
         *_GATE_TRUST_INPUTS,
+        ".github/workflows/scientific-verification.yml",
+        "artifacts/execution-control/doc-count-plan",
+        "artifacts/execution-control/doc-count-shards",
         "configs/pytest.ini",
         "data/country_dimension_coverage.json",
         *_COUNTRY_COVERAGE_INPUT_PATHS,
@@ -127,6 +130,7 @@ _GATE_FIXED_INPUTS: dict[str, tuple[str, ...]] = {
         "data/source_family_evidence_stage_matrix.json",
         "data/source_spatiotemporal_posture_registry.json",
         "docs/public/pollenomics-data",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/test_shards",
     ),
 }
 

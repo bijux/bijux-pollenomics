@@ -260,4 +260,14 @@ def test_repository_policy_binds_canonical_report_command() -> None:
         "--context-root",
         "{repo_root}/data",
     ]
+    assert policy["schema_version"] == "reproducible-report-build-policy.v2"
+    assert policy["partitioning"] == {
+        "schema_version": "published-report-partition-policy.v1",
+        "country_group_size": 2,
+    }
+    assert ".github/workflows/scientific-verification.yml" in policy["input_paths"]
+    assert (
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild"
+        in policy["input_paths"]
+    )
     assert sys.version_info >= (3, 11)

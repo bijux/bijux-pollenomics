@@ -190,10 +190,20 @@ def test_workflow_has_no_path_filter_and_uses_selector_as_authority() -> None:
         "path-selection",
         "science",
         "data",
-        "rebuild",
         "provenance",
-        "doc-counts",
         "map",
+    }
+    assert workflow["jobs"]["doc-counts"]["name"] == "scientific / doc-counts"
+    assert workflow["jobs"]["rebuild-verify"]["name"] == "scientific / rebuild"
+    assert set(workflow["jobs"]["doc-counts"]["needs"]) == {
+        "impact",
+        "doc-count-plan",
+        "doc-count-shards",
+    }
+    assert set(workflow["jobs"]["rebuild-verify"]["needs"]) == {
+        "impact",
+        "rebuild-plan",
+        "rebuild-assemble",
     }
     assert "max-parallel" not in workflow["jobs"]["gates"]["strategy"]
     run_step = next(
@@ -247,10 +257,14 @@ def test_workflow_actions_are_immutable_and_final_signal_depends_on_all_postures
     assert set(workflow["jobs"]["final"]["needs"]) == {
         "impact",
         "gates",
+        "doc-counts",
+        "rebuild-verify",
         "unavailable",
     }
     final_script = workflow["jobs"]["final"]["steps"][0]["run"]
     assert "HAS_UNAVAILABLE" in final_script
+    assert "DOC_COUNTS_RESULT" in final_script
+    assert "REBUILD_RESULT" in final_script
     assert "exit 1" in final_script
 
 

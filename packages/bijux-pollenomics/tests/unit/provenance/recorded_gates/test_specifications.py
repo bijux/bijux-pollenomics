@@ -19,7 +19,7 @@ def test_product_map_gate_binds_generated_report_tree() -> None:
     reporting_tests = "packages/bijux-pollenomics/tests/unit/reporting"
     assert reporting_tests in specification.argv
     assert reporting_tests in specification.input_paths
-    assert specification.timeout_seconds == 900.0
+    assert specification.timeout_seconds == 540.0
     runtime_identity = dict(specification.runtime_identity)
     assert runtime_identity["command_executable_path"].endswith("/pytest")
     if os.path.isfile(runtime_identity["command_executable_path"]):
@@ -29,6 +29,37 @@ def test_product_map_gate_binds_generated_report_tree() -> None:
     assert runtime_identity["runner_python"]
     assert runtime_identity["python_implementation"]
     assert runtime_identity["python_version"]
+
+
+def test_doc_count_gate_attests_exact_shard_receipt_reconciliation() -> None:
+    specification = build_product_gate_specification(REPOSITORY_ROOT, "doc-counts")
+
+    assert specification.argv[1:3] == (
+        "-m",
+        "bijux_pollenomics_dev.ci.test_shards",
+    )
+    assert "--expected-universe-file" in specification.argv
+    assert "--junit-output" in specification.argv
+    assert specification.argv[specification.argv.index("--count") + 1] == "2"
+    assert specification.argv[specification.argv.index("--revision") + 1] == (
+        subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=REPOSITORY_ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+    )
+    assert {
+        ".github/workflows/scientific-verification.yml",
+        "artifacts/execution-control/doc-count-plan",
+        "artifacts/execution-control/doc-count-shards",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/test_shards",
+    } <= set(specification.input_paths)
+    assert dict(specification.environment)["PYTHONPATH"].endswith(
+        "/packages/bijux-pollenomics-dev/src"
+    )
+    assert specification.timeout_seconds == 120.0
 
 
 def test_make_gate_inputs_and_timeout_match_product_specifications() -> None:
@@ -64,7 +95,8 @@ def test_make_gate_inputs_and_timeout_match_product_specifications() -> None:
         make_inputs = tuple(sorted(match.group(1).split()))
         specification = build_product_gate_specification(repository_root, gate_id)
         assert make_inputs == specification.input_paths
-        assert specification.timeout_seconds == 900.0
+        expected_timeout = 120.0 if gate_id == "doc-counts" else 540.0
+        assert specification.timeout_seconds == expected_timeout
         assert {
             "Makefile",
             "makes/pollenomics-verification.mk",
@@ -87,7 +119,12 @@ def test_make_gate_inputs_and_timeout_match_product_specifications() -> None:
             assert test_path.exists(), test_path
 
     assert re.search(
-        r"^POLLENOMICS_GATE_TIMEOUT_SECONDS = 900$",
+        r"^POLLENOMICS_GATE_TIMEOUT_SECONDS = 540$",
+        completed.stdout,
+        flags=re.MULTILINE,
+    )
+    assert re.search(
+        r"^POLLENOMICS_DOC_COUNT_REDUCER_TIMEOUT_SECONDS := 120$",
         completed.stdout,
         flags=re.MULTILINE,
     )

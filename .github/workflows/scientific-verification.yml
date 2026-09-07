@@ -24,6 +24,7 @@ jobs:
     name: scientific / change impact
     if: "${{ github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]' }}"
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     outputs:
       available_gates: ${{ steps.select.outputs.available_gates }}
       has_available: ${{ steps.select.outputs.has_available }}
@@ -109,6 +110,7 @@ jobs:
     needs: impact
     if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && needs.impact.outputs.has_available == 'true' }}"
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
@@ -116,9 +118,7 @@ jobs:
           - path-selection
           - science
           - data
-          - rebuild
           - provenance
-          - doc-counts
           - map
     steps:
       - name: Checkout candidate
@@ -166,9 +166,7 @@ jobs:
               ;;
             science) make verify-science ;;
             data) make verify-data ;;
-            rebuild) make verify-rebuild ;;
             provenance) make verify-provenance ;;
-            doc-counts) make verify-doc-counts ;;
             map) make verify-map ;;
             *)
               echo "Selector returned an unimplemented available gate: ${SELECTED_GATE}" >&2
@@ -184,11 +182,456 @@ jobs:
           path: artifacts/execution-control
           if-no-files-found: error
 
+  doc-count-plan:
+    name: scientific / doc-counts / collect
+    needs: impact
+    if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && contains(fromJSON(needs.impact.outputs.available_gates), 'doc-counts') }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install locked verification environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          UV_PROJECT_ENVIRONMENT="${PWD}/artifacts/root/check-venv" \
+            uv sync --frozen --group dev --python python3
+
+      - name: Collect independent doc-count universe
+        run: make collect-doc-count-universe
+
+      - name: Upload doc-count collection plan
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: doc-count-collection-plan
+          path: artifacts/execution-control/doc-count-plan/collection-plan.json
+          if-no-files-found: error
+
+  doc-count-shards:
+    name: scientific / doc-counts / shard ${{ matrix.shard }}
+    needs: impact
+    if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && contains(fromJSON(needs.impact.outputs.available_gates), 'doc-counts') }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        shard:
+          - 0
+          - 1
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install locked verification environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          UV_PROJECT_ENVIRONMENT="${PWD}/artifacts/root/check-venv" \
+            uv sync --frozen --group dev --python python3
+
+      - name: Run exact doc-count shard
+        env:
+          DOC_COUNT_SHARD_INDEX: ${{ matrix.shard }}
+        run: make verify-doc-count-shard
+
+      - name: Upload compact doc-count receipt
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: doc-count-shard-${{ matrix.shard }}
+          path: |
+            artifacts/execution-control/doc-count-shards/${{ matrix.shard }}/results.junit.xml
+            artifacts/execution-control/doc-count-shards/${{ matrix.shard }}/shard-receipt.json
+          if-no-files-found: error
+
+  doc-counts:
+    name: scientific / doc-counts
+    needs:
+      - impact
+      - doc-count-plan
+      - doc-count-shards
+    if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && contains(fromJSON(needs.impact.outputs.available_gates), 'doc-counts') }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install locked verification environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          UV_PROJECT_ENVIRONMENT="${PWD}/artifacts/root/check-venv" \
+            uv sync --frozen --group dev --python python3
+
+      - name: Download doc-count collection plan
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: doc-count-collection-plan
+          path: artifacts/execution-control/doc-count-plan
+
+      - name: Download doc-count shard receipts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: doc-count-shard-*
+          path: artifacts/execution-control/doc-count-shards
+
+      - name: Reconcile and attest every selected doc-count test
+        run: make attest-doc-count-shards
+
+      - name: Upload doc-count gate evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: scientific-gate-doc-counts
+          path: |
+            artifacts/execution-control/gates
+            artifacts/execution-control/doc-count-plan
+            artifacts/execution-control/doc-count-shards
+          if-no-files-found: error
+
+  rebuild-plan:
+    name: scientific / rebuild / plan
+    needs: impact
+    if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && contains(fromJSON(needs.impact.outputs.available_gates), 'rebuild') }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      scope_partitions: ${{ steps.plan.outputs.scope_partitions }}
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install locked verification environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          UV_PROJECT_ENVIRONMENT="${PWD}/artifacts/root/check-venv" \
+            uv sync --frozen --group dev --python python3
+
+      - name: Bind report partition plan
+        id: plan
+        shell: bash
+        run: make plan-report-rebuild
+
+      - name: Upload report partition plan
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: report-rebuild-plan
+          path: artifacts/execution-control/report-rebuild-plan
+          if-no-files-found: error
+
+  rebuild-scopes:
+    name: scientific / rebuild / ${{ matrix.lane }} / ${{ matrix.partition }}
+    needs:
+      - impact
+      - rebuild-plan
+    if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && contains(fromJSON(needs.impact.outputs.available_gates), 'rebuild') }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        lane:
+          - reference
+          - replay
+        partition: "${{ fromJSON(needs.rebuild-plan.outputs.scope_partitions) }}"
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install locked verification environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          UV_PROJECT_ENVIRONMENT="${PWD}/artifacts/root/check-venv" \
+            uv sync --frozen --group dev --python python3
+
+      - name: Download report partition plan
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: report-rebuild-plan
+          path: artifacts/execution-control/report-rebuild-plan
+
+      - name: Build fresh report partition
+        shell: bash
+        env:
+          REBUILD_LANE: ${{ matrix.lane }}
+          REBUILD_PARTITION_ID: ${{ matrix.partition }}
+          REBUILD_EVIDENCE_ROOT: artifacts/execution-control/report-rebuild-fragment/${{ matrix.lane }}/${{ matrix.partition }}
+        run: make build-report-rebuild-partition
+
+      - name: Upload report partition
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: report-rebuild-${{ matrix.lane }}-${{ matrix.partition }}
+          path: artifacts/execution-control/report-rebuild-fragment/${{ matrix.lane }}/${{ matrix.partition }}
+          if-no-files-found: error
+
+  rebuild-foundation:
+    name: scientific / rebuild / ${{ matrix.lane }} / foundation
+    needs:
+      - impact
+      - rebuild-plan
+      - rebuild-scopes
+    if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && contains(fromJSON(needs.impact.outputs.available_gates), 'rebuild') }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        lane:
+          - reference
+          - replay
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install locked verification environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          UV_PROJECT_ENVIRONMENT="${PWD}/artifacts/root/check-venv" \
+            uv sync --frozen --group dev --python python3
+
+      - name: Download report partition plan
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: report-rebuild-plan
+          path: artifacts/execution-control/report-rebuild-plan
+
+      - name: Download scope partitions
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: report-rebuild-${{ matrix.lane }}-*
+          path: artifacts/execution-control/report-rebuild-scope-input
+
+      - name: Build fresh foundation partition
+        shell: bash
+        env:
+          REBUILD_LANE: ${{ matrix.lane }}
+          REBUILD_PARTITION_ID: foundation
+          REBUILD_SCOPE_ARTIFACTS_ROOT: artifacts/execution-control/report-rebuild-scope-input
+          REBUILD_EVIDENCE_ROOT: artifacts/execution-control/report-rebuild-fragment/${{ matrix.lane }}/foundation
+        run: make build-report-rebuild-partition
+
+      - name: Upload foundation partition
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: report-rebuild-${{ matrix.lane }}-foundation
+          path: |
+            artifacts/execution-control/report-rebuild-fragment/${{ matrix.lane }}/foundation/manifest.json
+            artifacts/execution-control/report-rebuild-fragment/${{ matrix.lane }}/foundation/output
+          if-no-files-found: error
+
+  rebuild-assemble:
+    name: scientific / rebuild / ${{ matrix.lane }} / assemble
+    needs:
+      - impact
+      - rebuild-plan
+      - rebuild-scopes
+      - rebuild-foundation
+    if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && contains(fromJSON(needs.impact.outputs.available_gates), 'rebuild') }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        lane:
+          - reference
+          - replay
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install locked verification environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          UV_PROJECT_ENVIRONMENT="${PWD}/artifacts/root/check-venv" \
+            uv sync --frozen --group dev --python python3
+
+      - name: Download report partition plan
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: report-rebuild-plan
+          path: artifacts/execution-control/report-rebuild-plan
+
+      - name: Download complete partition set
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: report-rebuild-${{ matrix.lane }}-*
+          path: artifacts/execution-control/report-rebuild-partition-input
+
+      - name: Assemble complete report tree
+        shell: bash
+        env:
+          REBUILD_LANE: ${{ matrix.lane }}
+          REBUILD_PARTITION_ARTIFACTS_ROOT: artifacts/execution-control/report-rebuild-partition-input
+          REBUILD_EVIDENCE_ROOT: artifacts/execution-control/report-rebuild-assembly/${{ matrix.lane }}
+        run: make assemble-report-rebuild
+
+      - name: Upload complete report tree
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: report-rebuild-assembly-${{ matrix.lane }}
+          path: artifacts/execution-control/report-rebuild-assembly/${{ matrix.lane }}
+          if-no-files-found: error
+
+  rebuild-verify:
+    name: scientific / rebuild
+    needs:
+      - impact
+      - rebuild-plan
+      - rebuild-assemble
+    if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && contains(fromJSON(needs.impact.outputs.available_gates), 'rebuild') }}"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install locked verification environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          UV_PROJECT_ENVIRONMENT="${PWD}/artifacts/root/check-venv" \
+            uv sync --frozen --group dev --python python3
+
+      - name: Download report partition plan
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: report-rebuild-plan
+          path: artifacts/execution-control/report-rebuild-plan
+
+      - name: Download reference assembly
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: report-rebuild-assembly-reference
+          path: artifacts/execution-control/report-rebuild-assembly/reference
+
+      - name: Download replay assembly
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: report-rebuild-assembly-replay
+          path: artifacts/execution-control/report-rebuild-assembly/replay
+
+      - name: Verify two-build and tracked-tree equivalence
+        shell: bash
+        env:
+          REBUILD_REFERENCE_MANIFEST: artifacts/execution-control/report-rebuild-assembly/reference/manifest.json
+          REBUILD_REPLAY_MANIFEST: artifacts/execution-control/report-rebuild-assembly/replay/manifest.json
+          REBUILD_EVIDENCE_ROOT: artifacts/execution-control/reproducible-report-build/evidence
+        run: make verify-partitioned-report-rebuild
+
+      - name: Upload rebuild evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: scientific-gate-rebuild
+          path: artifacts/execution-control/reproducible-report-build
+          if-no-files-found: error
+
   unavailable:
     name: scientific / unavailable requirements
     needs: impact
     if: "${{ (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') && needs.impact.outputs.has_unavailable == 'true' }}"
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Refuse unavailable mandatory gates
         shell: bash
@@ -204,15 +647,22 @@ jobs:
     needs:
       - impact
       - gates
+      - doc-counts
+      - rebuild-verify
       - unavailable
     if: "${{ always() && (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') }}"
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Resolve scientific verification signal
         shell: bash
         env:
           IMPACT_RESULT: ${{ needs.impact.result }}
           GATES_RESULT: ${{ needs.gates.result }}
+          DOC_COUNTS_RESULT: ${{ needs.doc-counts.result }}
+          DOC_COUNTS_REQUIRED: ${{ contains(fromJSON(needs.impact.outputs.available_gates), 'doc-counts') }}
+          REBUILD_RESULT: ${{ needs.rebuild-verify.result }}
+          REBUILD_REQUIRED: ${{ contains(fromJSON(needs.impact.outputs.available_gates), 'rebuild') }}
           UNAVAILABLE_RESULT: ${{ needs.unavailable.result }}
           HAS_AVAILABLE: ${{ needs.impact.outputs.has_available }}
           HAS_UNAVAILABLE: ${{ needs.impact.outputs.has_unavailable }}
@@ -225,6 +675,22 @@ jobs:
           fi
           if [[ "${HAS_AVAILABLE}" == "true" && "${GATES_RESULT}" != "success" ]]; then
             echo "At least one selected executable gate did not pass." >&2
+            exit 1
+          fi
+          if [[ "${DOC_COUNTS_REQUIRED}" == "true" && "${DOC_COUNTS_RESULT}" != "success" ]]; then
+            echo "The selected doc-count gate did not pass." >&2
+            exit 1
+          fi
+          if [[ "${DOC_COUNTS_REQUIRED}" != "true" && "${DOC_COUNTS_RESULT}" != "skipped" ]]; then
+            echo "Doc-count selection and execution posture are inconsistent." >&2
+            exit 1
+          fi
+          if [[ "${REBUILD_REQUIRED}" == "true" && "${REBUILD_RESULT}" != "success" ]]; then
+            echo "The selected reproducible-report rebuild did not pass." >&2
+            exit 1
+          fi
+          if [[ "${REBUILD_REQUIRED}" != "true" && "${REBUILD_RESULT}" != "skipped" ]]; then
+            echo "Rebuild selection and execution posture are inconsistent." >&2
             exit 1
           fi
           if [[ "${HAS_UNAVAILABLE}" == "true" ]]; then

@@ -9,6 +9,11 @@ import re
 
 import yaml
 
+from bijux_pollenomics.config import DEFAULT_PUBLISHED_COUNTRIES
+from bijux_pollenomics.reporting.bundles.report_partitions import (
+    build_report_partition_plan,
+)
+
 REPO_ROOT = Path(__file__).resolve().parents[3]
 DEPENDABOT_SKIP = "github.event.pull_request.user.login != 'dependabot[bot]'"
 DEPENDABOT_GOVERNANCE_WORKFLOWS = {
@@ -24,6 +29,20 @@ PULL_REQUEST_EVENTS = {
 }
 RULESET_PATH = REPO_ROOT / ".github" / "rulesets" / "main-branch-protection.json"
 STATUS_DOCUMENTATION_PATH = REPO_ROOT / ".github" / "required-status-checks.md"
+
+
+def declared_matrix_values(value: object) -> object:
+    """Resolve the report planner's declared dynamic scope dimension exactly."""
+    if value != "${{ fromJSON(needs.rebuild-plan.outputs.scope_partitions) }}":
+        return value
+    policy = json.loads(
+        (REPO_ROOT / "configs/ci/reproducible-report-build.json").read_text()
+    )
+    plan = build_report_partition_plan(
+        DEFAULT_PUBLISHED_COUNTRIES,
+        country_group_size=policy["partitioning"]["country_group_size"],
+    )
+    return [part.identity for part in plan.partitions if part.kind != "foundation"]
 
 
 def workflow_documents() -> list[tuple[Path, dict[str, object]]]:
@@ -45,7 +64,7 @@ def matrix_replacements(
     replacements: list[dict[str, str]] = []
     dimensions: list[list[str]] = []
     for key in matrix_keys:
-        values = matrix.get(key)
+        values = declared_matrix_values(matrix.get(key))
         if not isinstance(values, list):
             dimensions = []
             break
@@ -69,6 +88,25 @@ def matrix_replacements(
         f"{workflow_name} job {job_name} matrix must resolve {', '.join(matrix_keys)}"
     )
     return replacements
+
+
+def test_dynamic_report_matrix_preserves_every_concrete_check_name() -> None:
+    replacements = matrix_replacements(
+        matrix={
+            "lane": ["reference", "replay"],
+            "partition": "${{ fromJSON(needs.rebuild-plan.outputs.scope_partitions) }}",
+        },
+        matrix_keys=["lane", "partition"],
+        workflow_name="scientific-verification.yml",
+        job_name="rebuild-scopes",
+    )
+    scopes = declared_matrix_values(
+        "${{ fromJSON(needs.rebuild-plan.outputs.scope_partitions) }}"
+    )
+    assert isinstance(scopes, list) and scopes
+    assert {(row["lane"], row["partition"]) for row in replacements} == {
+        (lane, scope) for lane in ("reference", "replay") for scope in scopes
+    }
 
 
 def render_check_name(

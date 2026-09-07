@@ -1,5 +1,5 @@
 {
-  "schema_version": "reproducible-report-build-policy.v1",
+  "schema_version": "reproducible-report-build-policy.v2",
   "generator": {
     "module": "bijux_pollenomics",
     "arguments": [
@@ -17,11 +17,13 @@
     ]
   },
   "input_paths": [
+    ".github/workflows/scientific-verification.yml",
     "configs/ci/reproducible-report-build.json",
     "data",
     "packages/bijux-pollenomics/pyproject.toml",
     "packages/bijux-pollenomics/src/bijux_pollenomics",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/rebuild_reports.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild",
     "makes/pollenomics-verification.mk",
     "pyproject.toml",
     "uv.lock"
@@ -35,6 +37,10 @@
     "**/*.pyc"
   ],
   "require_clean_repository": true,
+  "partitioning": {
+    "schema_version": "published-report-partition-policy.v1",
+    "country_group_size": 2
+  },
   "tracked_report_root": "docs/report",
   "volatile_text_rules": [
     {

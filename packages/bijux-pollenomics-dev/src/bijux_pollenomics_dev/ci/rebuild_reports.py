@@ -90,6 +90,8 @@ def _string_list(value: object, label: str) -> tuple[str, ...]:
 def load_policy(path: Path) -> JsonObject:
     """Load and structurally validate the repository-owned policy."""
     try:
+        if not stat.S_ISREG(path.lstat().st_mode) or path.is_symlink():
+            raise ReproducibleReportError(f"policy must be a regular file: {path}")
         value = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, UnicodeError, json.JSONDecodeError) as error:
         raise ReproducibleReportError(f"cannot load policy: {path}") from error
@@ -104,10 +106,29 @@ def load_policy(path: Path) -> JsonObject:
         "tracked_report_root",
         "volatile_text_rules",
     }
+    schema_version = policy.get("schema_version")
+    if schema_version == "reproducible-report-build-policy.v2":
+        expected.add("partitioning")
     if set(policy) != expected:
         raise ReproducibleReportError("policy fields are not exact")
-    if policy["schema_version"] != "reproducible-report-build-policy.v1":
+    if schema_version not in {
+        "reproducible-report-build-policy.v1",
+        "reproducible-report-build-policy.v2",
+    }:
         raise ReproducibleReportError("unsupported policy schema_version")
+    if schema_version == "reproducible-report-build-policy.v2":
+        partitioning = _mapping(policy["partitioning"], "partitioning")
+        if set(partitioning) != {"country_group_size", "schema_version"}:
+            raise ReproducibleReportError("partitioning policy fields are not exact")
+        if partitioning["schema_version"] != "published-report-partition-policy.v1":
+            raise ReproducibleReportError("unsupported partitioning schema_version")
+        if (
+            type(partitioning["country_group_size"]) is not int
+            or partitioning["country_group_size"] < 1
+        ):
+            raise ReproducibleReportError(
+                "partitioning country_group_size must be a positive integer"
+            )
     _string_list(policy["input_paths"], "input_paths")
     _mapping(policy["allowed_input_symlinks"], "allowed_input_symlinks")
     _string_list(policy["excluded_input_globs"], "excluded_input_globs")
@@ -368,6 +389,26 @@ def _repository_identity(repo_root: Path, *, required: bool) -> JsonObject:
         "head_tree": run("rev-parse", "HEAD^{tree}").strip(),
         "status_sha256": _sha256(status.encode()),
     }
+
+
+def repository_identity(repo_root: Path, *, required: bool) -> JsonObject:
+    """Return the repository binding used by rebuild evidence."""
+    return _repository_identity(repo_root, required=required)
+
+
+def compare_inventories(
+    expected: Sequence[InventoryEntry],
+    observed: Sequence[InventoryEntry],
+    *,
+    canonical: bool,
+) -> list[JsonObject]:
+    """Return stable inventory differences for partitioned rebuild verification."""
+    return _compare(expected, observed, canonical=canonical)
+
+
+def write_rebuild_evidence(root: Path, report: JsonObject) -> None:
+    """Write the standard machine and human rebuild evidence views."""
+    _write_evidence(root, report)
 
 
 def _timing(started_at: datetime, started_monotonic: float) -> JsonObject:
