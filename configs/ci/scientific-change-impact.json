@@ -201,6 +201,7 @@
         "data/source_family_evidence_stage_matrix.json",
         "data/source_spatiotemporal_posture_registry.json",
         "configs/release_evidence_policy.json",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/scientific_evidence.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/**"
       ],
       "gates": [

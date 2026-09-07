@@ -111,6 +111,21 @@ def test_data_only_change_selects_every_mandatory_gate(changed_path: str) -> Non
     assert not result.fail_closed
 
 
+def test_scientific_evidence_materializer_selects_every_mandatory_gate() -> None:
+    result = select_changed_paths(
+        _contract(),
+        [
+            "packages/bijux-pollenomics-dev/src/"
+            "bijux_pollenomics_dev/ci/scientific_evidence.py"
+        ],
+    )
+
+    assert "evidence-contracts-and-manifests" in result.matched_surfaces
+    assert set(result.selected_gates) >= DATA_GATES
+    assert result.unavailable_gates == ()
+    assert not result.fail_closed
+
+
 @pytest.mark.parametrize(
     "changed_paths",
     [

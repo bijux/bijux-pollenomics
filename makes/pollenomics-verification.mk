@@ -122,9 +122,9 @@ POLLENOMICS_PROVENANCE_INPUTS := \
 	$(POLLENOMICS_PROPAGATION_EVIDENCE) \
 	packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/scientific_evidence.py \
 	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/analysis/propagation) \
-	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/core/geospatial) \
-	$(POLLENOMICS_SOURCE_ROOT)/core/temporal_semantics.py \
+	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/core) \
 	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/evidence/classification) \
+	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/evidence/sources/neotoma) \
 	$(call POLLENOMICS_PYTHON_SOURCES,$(POLLENOMICS_SOURCE_ROOT)/provenance) \
 	$(POLLENOMICS_PROVENANCE_TESTS)
 
