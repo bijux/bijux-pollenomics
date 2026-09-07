@@ -46,7 +46,7 @@ def test_developer_package_binds_shared_documentation_policy() -> None:
     ).read_text(encoding="utf-8")
 
     assert (
-        'QUALITY_INTERROGATE_FLAGS := --config "$(MONOREPO_ROOT)/pyproject.toml"'
+        'QUALITY_INTERROGATE_FLAGS = --config "$(MONOREPO_ROOT)/pyproject.toml"'
         in package_make
     )
 
