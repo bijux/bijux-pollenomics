@@ -13,6 +13,9 @@ from ..adna import (
 )
 from ..adna.sources.library import build_project_registry, refresh_source_library
 from ..adna.species.tracked_data import materialize_tracked_species_adna
+from ..adna.species.tracked_data.governance import (
+    _materialize_cross_species_adna_artifacts,
+)
 from ..adna.species.tracked_species import TRACKED_ADNA_SPECIES
 from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 from .adna.atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
@@ -265,6 +268,8 @@ def refresh_animal_adna_foundation(
         slug=DEFAULT_ATLAS_SLUG,
         context_root=context_root if context_root is not None else data_root,
     )
+    # Publication counts must describe the newly written atlas and country outputs.
+    _materialize_cross_species_adna_artifacts(data_root, report_root=report_root)
     atlas_rows = build_tracked_animal_atlas_evidence_rows(data_root)
     refreshed_species_latin_names = tuple(
         resolve_species_definition(name).latin_name for name in normalized_species

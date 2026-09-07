@@ -29,10 +29,16 @@ from bijux_pollenomics.core.records import require_record_rows
 from bijux_pollenomics.core.tabular import render_csv_rows
 
 
-def _materialize_cross_species_adna_artifacts(output_root: Path) -> None:
+def _materialize_cross_species_adna_artifacts(
+    output_root: Path, *, report_root: Path | None = None
+) -> None:
     governance_root = adna_governance_root(output_root)
     governance_root.mkdir(parents=True, exist_ok=True)
-    report_root = output_root.parent / "docs" / "report"
+    report_root = (
+        output_root.parent / "docs" / "report"
+        if report_root is None
+        else Path(report_root)
+    )
     bibliography_rows = build_cross_species_bibliography()
     archive_rows = build_cross_species_archive_inventory()
     freshness_rows = build_species_freshness_table()
