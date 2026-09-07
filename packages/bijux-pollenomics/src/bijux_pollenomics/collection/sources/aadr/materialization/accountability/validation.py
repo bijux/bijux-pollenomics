@@ -69,6 +69,11 @@ def validate_aadr_source_accountability_receipt(
         "summary unkeyed_source_row_count",
     )
     _validate_source_releases(summary, source_release)
+    _validate_input_artifacts(
+        receipt.get("input_artifacts"),
+        release_manifest=release_manifest,
+        source_files=_sequence(summary.get("source_files"), "source_files"),
+    )
     _validate_stream(
         _mapping(projection.get("stream"), "accountability stream"),
         expected_line_count=1 + genetic_id_count + unkeyed_source_row_count,
@@ -180,6 +185,77 @@ def _validate_source_releases(
         validate_aadr_logical_source_path(
             _nonempty_string(source_file.get("source_path"), "source path")
         )
+
+
+def _validate_input_artifacts(
+    value: object,
+    *,
+    release_manifest: Mapping[str, object],
+    source_files: Sequence[object],
+) -> None:
+    expected = [
+        {
+            "path": _nonempty_string(
+                release_manifest.get("logical_path"), "manifest logical_path"
+            ),
+            "sha256": _sha256(release_manifest.get("sha256"), "manifest sha256"),
+            "byte_count": _nonnegative_integer(
+                release_manifest.get("byte_count"), "manifest byte_count"
+            ),
+        }
+    ]
+    for index, item in enumerate(source_files):
+        source_file = _mapping(item, f"source_files[{index}]")
+        expected.append(
+            {
+                "path": _nonempty_string(
+                    source_file.get("source_path"), "source path"
+                ),
+                "sha256": _sha256(
+                    source_file.get("source_sha256"), "source sha256"
+                ),
+                "byte_count": _nonnegative_integer(
+                    source_file.get("source_byte_count"), "source byte_count"
+                ),
+            }
+        )
+    expected.sort(key=lambda artifact: str(artifact["path"]))
+    expected_paths = [str(artifact["path"]) for artifact in expected]
+    if len(expected_paths) != len(set(expected_paths)):
+        raise ValueError("AADR expected input-artifact paths must be unique")
+
+    artifacts = _sequence(value, "input_artifacts")
+    observed: list[dict[str, object]] = []
+    for index, item in enumerate(artifacts):
+        artifact = _mapping(item, f"input_artifacts[{index}]")
+        if set(artifact) != {"path", "sha256", "byte_count"}:
+            raise ValueError("AADR input artifact fields are incomplete or unexpected")
+        path = validate_aadr_logical_source_path(
+            _nonempty_string(artifact.get("path"), "input artifact path")
+        )
+        observed.append(
+            {
+                "path": path,
+                "sha256": _sha256(
+                    artifact.get("sha256"), "input artifact sha256"
+                ),
+                "byte_count": _nonnegative_integer(
+                    artifact.get("byte_count"), "input artifact byte_count"
+                ),
+            }
+        )
+
+    observed_paths = [str(artifact["path"]) for artifact in observed]
+    if len(observed_paths) != len(set(observed_paths)):
+        raise ValueError("AADR input-artifact paths must be unique")
+    if observed_paths != sorted(observed_paths):
+        raise ValueError("AADR input artifacts must be deterministically ordered")
+    if set(observed_paths) != set(expected_paths):
+        raise ValueError(
+            "AADR input-artifact paths must exactly match the manifest and source files"
+        )
+    if observed != expected:
+        raise ValueError("AADR input-artifact identity differs from its declared source")
 
 
 def _validate_stream(stream: Mapping[str, object], *, expected_line_count: int) -> None:

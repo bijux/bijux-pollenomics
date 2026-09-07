@@ -168,7 +168,8 @@ second outcome is a scientific refusal, not a runtime defect.
 Read-only inspection commands stop before state replacement. Commands such as
 `product-scope`, `surface-map`, `ownership-map`, and the animal review commands
 serialize existing contracts or governed state. Materializing commands such as
-`collect-data`, `refresh-data-contract-surfaces`, and `publish-reports` may
+`collect-data`, `refresh-aadr-source-accountability`,
+`refresh-data-contract-surfaces`, and `publish-reports` may
 change an owned tree and therefore require explicit roots and replacement
 semantics. The shared command registry gives both classes one discoverable
 entry point without pretending that they have the same impact.

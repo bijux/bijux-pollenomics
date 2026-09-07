@@ -119,16 +119,17 @@ flowchart LR
    into the population account.
 
 Human and non-human species roots have different material depth. The human
-root exposes the governed AADR v66 capture but has no normalized or review
-member artifacts in this checkout. The ten non-human roots materialize broader
-generated evidence and review surfaces. Directory symmetry does not establish
-lifecycle symmetry.
+root exposes the governed AADR v66 capture and a compact, non-admitting
+source-accountability receipt, but has no normalized member artifact in this
+checkout. The ten non-human roots materialize broader generated evidence and
+review surfaces. Directory symmetry does not establish lifecycle symmetry.
 
 ## Species View Regeneration
 
 Non-human species READMEs and their companion evidence files are produced by
 `bijux_pollenomics.adna.species.tracked_data`. The human README and AADR link
-contract are produced by `bijux_pollenomics.data_downloader.data_layout`.
+contract are produced by
+`bijux_pollenomics.collection.workflow.planning.layout`.
 Change those owners before regenerating descendants.
 
 After regeneration, verify that:

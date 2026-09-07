@@ -51,6 +51,7 @@ def write_source_family_state_matrix(summary: DataCollectionSummary) -> None:
         Path(summary.contract_artifacts["source_family_evidence_stage_matrix"]),
         build_source_family_state_matrix_payload(
             summary.output_root,
+            version=summary.version,
             counts={
                 "aadr_file_count": summary.aadr_file_count,
                 "landclim_site_count": summary.landclim_site_count,
@@ -72,5 +73,5 @@ def write_source_family_contract(summary: DataCollectionSummary) -> None:
     """Write the source-family contract declared by the collection summary."""
     write_json(
         Path(summary.contract_artifacts["source_family_contracts"]),
-        build_source_family_contract_payload(),
+        build_source_family_contract_payload(summary.version),
     )

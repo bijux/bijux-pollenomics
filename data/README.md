@@ -28,6 +28,7 @@ data
 │   │       ├── manifests
 │   │       ├── reports
 │   │       └── review
+│   │           └── aadr_v66_source_accountability.json
 │   ├── governance
 │   │   └── source_library
 │   └── final
@@ -141,8 +142,9 @@ surfaces stay under `adna/governance/` so incomplete work remains visible.
 
 `Homo sapiens` ancient DNA is governed under
 `adna/species/homo_sapiens/`. Its `raw/aadr -> ../../../../aadr` link preserves
-the captured release without a copy. The current human view is capture-only:
-normalized and review member artifacts are not materialized in this checkout.
+the captured release without a copy. A compact, non-admitting source-accountability
+receipt is materialized under `review/`; normalized membership and scientific
+admission are not materialized in this checkout.
 
 The domesticated-animal curation program owns generated views under:
 

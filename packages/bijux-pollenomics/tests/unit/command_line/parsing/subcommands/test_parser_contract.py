@@ -61,6 +61,7 @@ _COMMAND_ACTIONS = {
         "context_root",
     ],
     "collect-data": ["help", "sources", "version", "output_root"],
+    "refresh-aadr-source-accountability": ["help", "data_root", "version"],
     "refresh-data-contract-surfaces": ["help", "data_root", "version"],
     "surface-map": ["help", "json"],
     "product-scope": ["help", "json"],
@@ -96,8 +97,8 @@ def test_root_and_subcommand_help_text_is_frozen() -> None:
     subcommand_help = "".join(child.format_help() for child in action.choices.values())
     assert (
         root_digest
-        == "4f3f0088fcd36aa21da3c022d0acffec3cfb5e19ef4741f771bff819e3bfaab0"
+        == "7546a0e1edb4f99dc02db4ea115e00768d61b07d0fcf69cff51c0cad7ebe61f7"
     )
     assert hashlib.sha256(subcommand_help.encode()).hexdigest() == (
-        "cbbe6abf5715cae2987bf08b6ec04d253b221555dc855bc906d83e7d01513532"
+        "070037efc50cf3fedcdce8eb20f4ae3a19bdd15ea919be69ed97a251748c5ab5"
     )

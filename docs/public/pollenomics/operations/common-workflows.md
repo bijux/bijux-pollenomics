@@ -191,6 +191,33 @@ This workflow is appropriate for summaries and contracts that are stale
 relative to the checked-in tree. It must not be used to disguise an incomplete
 or partially replaced source family.
 
+## Reconcile AADR Source Accountability
+
+When the tracked AADR manifest and annotation panels are already present,
+use the repository workflow to materialize their compact source-accountability
+receipt without recollection:
+
+```bash
+make aadr-source-accountability
+```
+
+The Make target regenerates the receipt and then refreshes the dependent
+collection summary and source-family contract surfaces as one repository
+workflow. The equivalent lower-level CLI sequence is:
+
+```bash
+bijux-pollenomics refresh-aadr-source-accountability --data-root data --version v66
+bijux-pollenomics refresh-data-contract-surfaces --data-root data --version v66
+```
+
+Do not use the first CLI command alone when preparing the tracked repository;
+that would leave the dependent contract surfaces stale.
+
+The receipt records panel reconciliation and source-reported political-entity
+denominators. It does not create a normalized member set, admit records to a
+country or product, or materialize the reproducible full-row stream described
+by its digest.
+
 ## Review Animal Evidence
 
 ```bash

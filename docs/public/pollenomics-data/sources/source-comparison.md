@@ -57,7 +57,8 @@ the current snapshot:
 | --- | --- | --- |
 | Neotoma, SEAD, animal aDNA: capture, normalization, review, and publication present | inspect the governed reviewed population | verify member-level role, space, time, denominator, and proposed bridge |
 | LandClim, RAÄ, boundaries: review artifact absent | use normalized and published material at its declared role | do not claim source-specific review support; add the review contract required by the comparison |
-| SVAR, AADR: normalized and review artifacts absent | inspect retained capture and publication surfaces | do not infer missing authorities backward from product fields |
+| SVAR: normalized and review artifacts absent | inspect retained capture and publication surfaces | do not infer missing authorities backward from product fields |
+| AADR: compact accountability review present, normalized membership and qualified review absent | inspect captured panels, explicit denominators, and retained publication surfaces | do not treat source accountability as scientific or country admission |
 
 Comparison readiness is therefore evaluated from material evidence, not from
 navigation depth or map availability. A source can be valuable as framing or

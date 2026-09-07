@@ -32,7 +32,7 @@ flowchart LR
 | animal evidence structure | `adna-layout`, `adna-runtime-manifest`, `adna-artifact-plan`, `adna-curation-manifest`, `adna-normalization-bundle` | read-only manifests and plans |
 | animal evidence review | `adna-archive-projects`, `adna-domestication-coverage`, `adna-species`, `adna-species-review`, `adna-release-bar`, `adna-release-readiness` | read-only coverage and release posture |
 | validation | `validate-collection-summary` | validates an existing summary without recollection |
-| collection and contract refresh | `collect-data`, `refresh-data-contract-surfaces`, `refresh-animal-adna-foundation` | writes governed data and, for the animal refresh, related publication surfaces |
+| collection and contract refresh | `collect-data`, `refresh-aadr-source-accountability`, `refresh-data-contract-surfaces`, `refresh-animal-adna-foundation` | writes governed data and, for the animal refresh, related publication surfaces |
 | publication | `report-country`, `report-multi-country-map`, `publish-reports` | writes scoped report and atlas products |
 
 ## Command Synopsis
@@ -109,6 +109,7 @@ products. It does not collect missing source data.
 | Command | Required scope | Primary result | Does not establish |
 | --- | --- | --- | --- |
 | `collect-data` | one or more source names, or `all` | family captures, normalized data, and collection summary | publication admission |
+| `refresh-aadr-source-accountability` | data root and AADR version | compact panel-reconciliation and source-reported political-entity accountability receipt | normalized membership, country admission, or genotype evidence |
 | `refresh-data-contract-surfaces` | data root and AADR version | collection summary and checked-in contract surfaces | new upstream acquisition |
 | `report-country` | one political-entity value | one AADR country report bundle | multi-source regional synthesis |
 | `report-multi-country-map` | one or more political-entity values | one named shared evidence surface with country toggles | a global or default publication |

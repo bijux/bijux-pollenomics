@@ -61,7 +61,7 @@ The current stage matrix reports this materialized state:
 | RAÄ | present | present | missing | refused | authority is refused; source-scale counts and density files remain excluded until raw inventory, summary, and scientific review reconcile |
 | boundaries | present | present | missing | present | four country geometries frame membership without scientific weight |
 | SVAR | present | missing | partial | refused | authority is refused; a source-reported summary and 99-member review registry exist, but the complete contracted normalized registry is absent |
-| AADR | present | missing | missing | present | three v66 capture files and retained products exist without governed Homo sapiens normalized and review members |
+| AADR | present | missing | present | present | three v66 capture files and a compact accountability receipt reconcile 51,005 rows into 27,755 Genetic IDs; normalized membership and qualified scientific review remain unavailable |
 | animal aDNA | present | present | present | present | 10 species and 1,450 final sample-foundation rows from 21 contributing projects are materialized within a 40-project registry |
 
 The animal lifecycle count is the population of final species-owned foundation
@@ -158,9 +158,9 @@ flowchart LR
 Reading across one family shows which lifecycle evidence is materialized. Reading down
 one claim compares only the dimensions needed for that claim. Neither reading
 authorizes a global family ranking. LandClim can be mature for pollen context
-while AADR has a governed release capture but lacks its contracted normalized
-and review members; their record counts and roles are not competing measures
-of quality.
+while AADR has a governed release capture and non-admitting accountability
+review but lacks contracted normalized members and qualified scientific
+acceptance; their record counts and roles are not competing measures of quality.
 
 This distinction also prevents lifecycle completion from being mistaken for
 scientific readiness. A family may have captured, normalized, reviewed, and

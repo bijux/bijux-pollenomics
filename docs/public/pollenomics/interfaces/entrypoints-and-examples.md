@@ -158,6 +158,7 @@ not shortcuts around the same evidence requirements.
 | `source-support`, `adna-*` inspection | current governed state | standard output |
 | `validate-collection-summary` | one summary file | standard output and exit status |
 | `collect-data` | external sources and collector configuration | `data/` |
+| `refresh-aadr-source-accountability` | tracked AADR release manifest and annotation panels | compact Homo sapiens review receipt |
 | `refresh-data-contract-surfaces` | current data tree | collection and contract summaries |
 | `publish-reports`, `report-*` | governed data and geography configuration | `docs/report/` |
 

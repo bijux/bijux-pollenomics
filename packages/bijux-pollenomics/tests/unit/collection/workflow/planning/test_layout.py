@@ -49,6 +49,9 @@ class DataLayoutUnitTests(unittest.TestCase):
         self.assertIn("│   │   └── source_library", readme)
         self.assertIn("│   └── final", readme)
         self.assertIn("│   │       │   └── aadr -> ../../../../aadr", readme)
+        self.assertIn(
+            "│   │           └── aadr_v99.1_source_accountability.json", readme
+        )
         self.assertIn("│   └── v99.1", readme)
         self.assertIn("collection_summary.json", readme)
         self.assertIn("source_family_contracts.json", readme)
@@ -109,7 +112,23 @@ class DataLayoutUnitTests(unittest.TestCase):
             self.assertEqual(readme, render_homo_sapiens_readme())
             self.assertIn("## Current Material State", readme)
             self.assertIn("## Evidence Boundary", readme)
-            self.assertIn("capture-only boundary", readme)
+            self.assertIn("compact source-accountability", readme)
+            self.assertIn("does not close those downstream scientific boundaries", readme)
+
+    def test_homo_sapiens_layout_uses_requested_aadr_release(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            output_root.mkdir(parents=True, exist_ok=True)
+
+            ensure_homo_sapiens_adna_layout(output_root, version="v99.1")
+
+            readme = (
+                output_root / "adna" / "species" / "homo_sapiens" / "README.md"
+            ).read_text(encoding="utf-8")
+            self.assertEqual(readme, render_homo_sapiens_readme("v99.1"))
+            self.assertIn("raw/aadr/v99.1/release_manifest.json", readme)
+            self.assertIn("review/aadr_v99.1_source_accountability.json", readme)
+            self.assertNotIn("v66", readme)
 
     def test_ensure_curated_species_adna_layout_creates_nonhuman_species_roots(
         self,

@@ -25,6 +25,10 @@ from .publication import (
     canonical_aadr_source_accountability_bytes,
     write_aadr_source_accountability_receipt,
 )
+from .service import (
+    AadrSourceAccountabilityMaterialization,
+    materialize_aadr_source_accountability,
+)
 from .validation import validate_aadr_source_accountability_receipt
 
 __all__ = [
@@ -37,9 +41,11 @@ __all__ = [
     "AadrPoliticalEntityEvidenceGroup",
     "AadrPoliticalEntityReconciliation",
     "AadrReleaseManifestIdentity",
+    "AadrSourceAccountabilityMaterialization",
     "build_aadr_accountability_stream_descriptor",
     "build_aadr_source_accountability_receipt",
     "canonical_aadr_source_accountability_bytes",
+    "materialize_aadr_source_accountability",
     "reconcile_source_reported_political_entities",
     "source_reported_political_entity_evidence",
     "validate_aadr_source_accountability_receipt",

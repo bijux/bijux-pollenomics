@@ -69,6 +69,13 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
         self.assertEqual(rows["svar"]["authority_status"], "refused")
         self.assertIsNone(rows["svar"]["coverage_metrics"]["svar_lake_count"])
         self.assertEqual(rows["boundaries"]["authority_status"], "review_required")
+        self.assertEqual(rows["aadr"]["reviewed_status"], "present")
+        self.assertEqual(rows["aadr"]["normalized_status"], "missing")
+        self.assertEqual(rows["aadr"]["authority_status"], "review_required")
+        self.assertIn(
+            "qualified_human_adna_source_review_missing",
+            rows["aadr"]["blocking_reasons"],
+        )
         self.assertEqual(rows["sead"]["published_status"], "present")
         self.assertEqual(
             rows["sead"]["publication_posture"],

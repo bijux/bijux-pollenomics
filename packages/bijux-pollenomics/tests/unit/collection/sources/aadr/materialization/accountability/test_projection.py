@@ -93,6 +93,76 @@ def test_receipt_reconciles_every_row_id_and_country_disposition(
     validate_aadr_source_accountability_receipt(receipt)
 
 
+def test_receipt_embeds_exact_sorted_input_artifact_identities(tmp_path: Path) -> None:
+    panel = reconciliation(tmp_path)
+    manifest = release_manifest_identity()
+
+    receipt = build_aadr_source_accountability_receipt(
+        panel, release_manifest=manifest
+    )
+
+    assert receipt["input_artifacts"] == sorted(
+        [
+            {
+                "path": manifest.logical_path,
+                "sha256": manifest.sha256,
+                "byte_count": manifest.byte_count,
+            },
+            *(
+                {
+                    "path": table.source.source_path,
+                    "sha256": table.source.source_sha256,
+                    "byte_count": table.source.source_byte_count,
+                }
+                for table in panel.source_tables
+            ),
+        ],
+        key=lambda artifact: cast(str, artifact["path"]),
+    )
+
+
+@pytest.mark.parametrize(
+    ("mutation", "message"),
+    (
+        ("missing", "paths must exactly match"),
+        ("extra", "paths must exactly match"),
+        ("duplicate", "paths must be unique"),
+        ("digest", "identity differs"),
+        ("byte_count", "identity differs"),
+    ),
+)
+def test_validator_refuses_incomplete_or_tampered_input_artifacts(
+    tmp_path: Path,
+    mutation: str,
+    message: str,
+) -> None:
+    receipt = build_aadr_source_accountability_receipt(
+        reconciliation(tmp_path), release_manifest=release_manifest_identity()
+    )
+    tampered = deepcopy(receipt)
+    artifacts = cast(list[dict[str, object]], tampered["input_artifacts"])
+    if mutation == "missing":
+        artifacts.pop()
+    elif mutation == "extra":
+        artifacts.append(
+            {
+                "path": "data/aadr/v66/extra/extra.anno",
+                "sha256": "a" * 64,
+                "byte_count": 1,
+            }
+        )
+        artifacts.sort(key=lambda artifact: cast(str, artifact["path"]))
+    elif mutation == "duplicate":
+        artifacts.insert(1, deepcopy(artifacts[0]))
+    elif mutation == "digest":
+        artifacts[0]["sha256"] = "f" * 64
+    else:
+        artifacts[0]["byte_count"] = cast(int, artifacts[0]["byte_count"]) + 1
+
+    with pytest.raises(ValueError, match=message):
+        validate_aadr_source_accountability_receipt(tampered)
+
+
 def test_country_partitions_keep_coordinate_and_chronology_review_separate(
     tmp_path: Path,
 ) -> None:

@@ -43,6 +43,7 @@ def render_data_root_readme_for(output_root: Path, version: str) -> str:
         "│   │       ├── manifests",
         "│   │       ├── reports",
         "│   │       └── review",
+        f"│   │           └── aadr_{version}_source_accountability.json",
         "│   ├── governance",
         "│   │   └── source_library",
         "│   └── final",
@@ -109,6 +110,23 @@ may feed a fact backward into its evidence owner.
 These roots are not interchangeable. Their temporal resolution, spatial
 precision, licensing, coverage, and scientific role remain source-specific.
 
+### Read Partial Lifecycle State
+
+The tree is not expected to present one uniform four-directory pattern for
+every family. Read the materialized artifacts before describing readiness:
+
+| Observable state | Defensible conclusion | Unsupported conclusion |
+| --- | --- | --- |
+| capture only | named upstream material is retained | normalized meaning or publication fitness exists |
+| capture and normalization | repository objects can be traced to source material | conflicts and precision were reviewed |
+| normalization and publication, no review | a product was derived from normalized state under a declared topology | an absent review was performed implicitly |
+| review and no publication | fitness was evaluated for the named use | the reviewed population was published |
+| publication only among declared stage artifacts | a retained product exists | the current tree can reconstruct every upstream preparation stage |
+
+Stage absence is a database fact. Preserve it in lifecycle audits and release
+language rather than creating an empty artifact or inferring the stage from a
+downstream schema.
+
 ## Evidence Graph And Cardinality
 
 The data model is relational even when an artifact is serialized as a flat
@@ -148,8 +166,9 @@ surfaces stay under `adna/governance/` so incomplete work remains visible.
 
 `Homo sapiens` ancient DNA is governed under
 `adna/species/homo_sapiens/`. Its `raw/aadr -> ../../../../aadr` link preserves
-the captured release without a copy. The current human view is capture-only:
-normalized and review member artifacts are not materialized in this checkout.
+the captured release without a copy. A compact, non-admitting source-accountability
+receipt is materialized under `review/`; normalized membership and scientific
+admission are not materialized in this checkout.
 
 The domesticated-animal curation program owns generated views under:
 
@@ -198,6 +217,30 @@ remain subordinate to project- and sample-owned evidence.
 An audit closes only when the governing evidence and the decision connecting
 it to the product are both recoverable. Finding the same value in several
 files is not equivalent to finding its authority.
+
+### Worked Accountability Join
+
+`adna/final/atlas/animal_atlas_candidate_accountability.json` is an anti-gap
+surface over the animal point population. Each row joins a final candidate to
+the evidence dimensions required to account for it: sample rows, sample
+lineage, site evidence, chronology evidence, coordinate provenance, and
+locality agreement.
+
+For the current dromedary-camel candidate, `sample_rows_present` is true while
+`sample_lineage_present` is false. Site, chronology, and coordinate evidence
+are present, so the row is neither “missing” nor “complete.” The defensible
+state is a known candidate with a failed lineage dimension.
+
+| Surface | What it contributes | What it cannot decide alone |
+| --- | --- | --- |
+| final atlas candidate | stable proposed product identity | whether all evidence dimensions resolve |
+| accountability row | dimension-by-dimension presence and locators | whether missing evidence can be inferred |
+| project or paper evidence | recovered source material and relations | final product membership |
+| world bundle | manifested public population | upstream completeness |
+
+This join demonstrates why database preparation preserves booleans, locators,
+and failed dimensions rather than reducing accountability to the presence of a
+rendered point.
 
 ## Refresh Safety
 
@@ -250,9 +293,9 @@ def write_data_directory_readme(output_root: Path, version: str) -> None:
     )
 
 
-def render_homo_sapiens_readme() -> str:
+def render_homo_sapiens_readme(version: str = DEFAULT_AADR_VERSION) -> str:
     """Render the governed human ancient-DNA species-view contract."""
-    return """# Homo Sapiens Ancient-DNA Evidence View
+    return f"""# Homo Sapiens Ancient-DNA Evidence View
 
 `Homo sapiens` is the species-owned route into the checked-in AADR metadata
 capture. The `raw/aadr` link preserves one source release under both its
@@ -264,30 +307,30 @@ flowchart LR
     Release["AADR release manifest"] --> Panels["1240K and Human Origins annotations"]
     Panels --> Raw["human species raw view"]
     Raw -. "not materialized in this checkout" .-> Normalized["governed normalized human evidence"]
-    Normalized -. "not materialized in this checkout" .-> Review["human evidence review"]
-    Review -. "not established by this view" .-> Product["product membership"]
+    Panels --> Accountability["compact source accountability"]
+    Accountability -. "does not admit records" .-> Product["product membership"]
 ```
 
 ## Current Material State
 
 | Surface | Present state | Supported conclusion |
 | --- | --- | --- |
-| `raw/aadr/v66/release_manifest.json` | present through the governed symlink | release identity, requested members, retrieval metadata, and checksums are inspectable |
-| `raw/aadr/v66/1240k/v66.1240K.aadr.PUB.anno` | present | captured 1240K annotation rows can be inspected at release v66 |
-| `raw/aadr/v66/ho/v66.HO.aadr.PUB.anno` | present | captured Human Origins annotation rows can be inspected at release v66 |
+| `raw/aadr/{version}/release_manifest.json` | present through the governed symlink | release identity, requested members, retrieval metadata, and checksums are inspectable |
+| `raw/aadr/{version}/1240k/{version}.1240K.aadr.PUB.anno` | present | captured 1240K annotation rows can be inspected at release {version} |
+| `raw/aadr/{version}/ho/{version}.HO.aadr.PUB.anno` | present | captured Human Origins annotation rows can be inspected at release {version} |
 | `normalized/` | no governed member artifact | a current normalized human species database is not established here |
 | `manifests/` | no governed member artifact | no species-view build or membership identity is established here |
-| `review/` | no governed member artifact | source-specific human review support is not established here |
+| `review/aadr_{version}_source_accountability.json` | present | panel reconciliation, source-row and Genetic-ID denominators, and exact source-reported political-entity dispositions are reproducible without storing a full derived stream |
 | `reports/` | no governed member artifact | retained report products elsewhere cannot be inferred backward from this directory |
 
-The present evidence supports source-capture inspection and metadata-level
-analysis of the retained annotation members. It does not support a claim that
-the human species view has a complete raw-to-normalized-to-reviewed lifecycle
-in this checkout.
+The present evidence supports source-capture inspection, metadata-level
+analysis of the retained annotation members, and a compact source-accountability
+review surface. It does not support a claim that the human species view has a
+complete raw-to-normalized-to-admitted lifecycle in this checkout.
 
 ## Inspect The Capture
 
-1. Open `raw/aadr/v66/release_manifest.json` and confirm the persistent dataset
+1. Open `raw/aadr/{version}/release_manifest.json` and confirm the persistent dataset
    identity, requested release, member paths, hashes, and retrieval metadata.
 2. Select the 1240K or Human Origins annotation member explicitly; do not
    treat the panels as interchangeable or add their row counts without a
@@ -298,8 +341,9 @@ in this checkout.
 4. Follow any published descendant to its product manifest and geography
    decision rather than treating presence in an annotation file as automatic
    atlas or country membership.
-5. State the missing normalized and review stages when reuse depends on a
-   current end-to-end repository lifecycle.
+5. Use the compact accountability receipt for panel and source-label
+   denominators, while stating that normalized membership and product admission
+   remain unavailable.
 
 ## Evidence Boundary
 
@@ -317,16 +361,17 @@ are separate claims and must be reported separately.
 
 ## Required Evidence For A Stronger Posture
 
-A complete human species lifecycle would require a versioned normalized
-member set, explicit field and panel reconciliation, duplicate-identity
-handling, locality and chronology semantics, source-specific review evidence,
-product admission records, and traceability from every published member back
-to its AADR release member. Until those artifacts exist, preserve the current
-capture-only boundary.
+A complete human species lifecycle would still require a versioned normalized
+member set, locality and chronology semantics, product admission records, and
+traceability from every published member back to its AADR release member. The
+accountability receipt closes source-row and panel-reconciliation questions;
+it does not close those downstream scientific boundaries.
 """
 
 
-def ensure_homo_sapiens_adna_layout(output_root: Path) -> None:
+def ensure_homo_sapiens_adna_layout(
+    output_root: Path, version: str = DEFAULT_AADR_VERSION
+) -> None:
     """Materialize the governed Homo sapiens aDNA layout under one data root."""
     output_root = Path(output_root)
     species_root = output_root / ADNA_SPECIES_DIR.removeprefix("data/") / "homo_sapiens"
@@ -336,7 +381,7 @@ def ensure_homo_sapiens_adna_layout(output_root: Path) -> None:
         *(species_root / name for name in ADNA_LAYOUT_DIRS[1:]),
     ):
         directory.mkdir(parents=True, exist_ok=True)
-    write_text(species_root / "README.md", render_homo_sapiens_readme())
+    write_text(species_root / "README.md", render_homo_sapiens_readme(version))
     raw_aadr = raw_root / "aadr"
     if raw_aadr.exists() or raw_aadr.is_symlink():
         if not raw_aadr.is_symlink():

@@ -5,10 +5,16 @@ import unittest
 from unittest.mock import patch
 
 from bijux_pollenomics.command_line.parsing import build_parser
-from bijux_pollenomics.command_line.runtime import run_command
+from bijux_pollenomics.command_line.runtime import (
+    run_command,
+    run_refresh_aadr_source_accountability,
+)
 
 
 class CommandLineUnitTests(unittest.TestCase):
+    def test_runtime_facade_exports_aadr_source_accountability_handler(self) -> None:
+        self.assertTrue(callable(run_refresh_aadr_source_accountability))
+
     def test_build_parser_supports_validate_collection_summary_command(self) -> None:
         parser = build_parser()
         args = parser.parse_args(["validate-collection-summary"])
@@ -54,6 +60,31 @@ class CommandLineUnitTests(unittest.TestCase):
             exit_code = run_command(args, parser=parser)
 
         self.assertEqual(exit_code, 12)
+        handler.assert_called_once_with(args)
+
+    def test_build_parser_supports_refresh_aadr_source_accountability_command(
+        self,
+    ) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["refresh-aadr-source-accountability"])
+
+        self.assertEqual(args.command, "refresh-aadr-source-accountability")
+        self.assertEqual(args.data_root, Path("data"))
+        self.assertEqual(args.version, "v66")
+
+    def test_run_command_routes_refresh_aadr_source_accountability_through_registry(
+        self,
+    ) -> None:
+        parser = build_parser()
+        args = parser.parse_args(["refresh-aadr-source-accountability"])
+
+        with patch(
+            "bijux_pollenomics.command_line.runtime.dispatch.run_refresh_aadr_source_accountability",
+            return_value=14,
+        ) as handler:
+            exit_code = run_command(args, parser=parser)
+
+        self.assertEqual(exit_code, 14)
         handler.assert_called_once_with(args)
 
     def test_build_parser_supports_refresh_animal_adna_foundation_command(self) -> None:

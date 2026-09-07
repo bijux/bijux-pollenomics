@@ -43,10 +43,12 @@ named result. It does not mean that every family has the same artifacts. The
 current lifecycle matrix records full capture, normalization, review, and
 publication materialization for Neotoma, SEAD, and animal ancient DNA. Other
 families retain narrower stage combinations: LandClim, RAÄ, and boundaries
-lack a materialized review stage, while SVAR and AADR currently retain capture
-and publication evidence without materialized normalized or review artifacts.
-Those absences are visible capability limits, not stages inferred from a
-successful downstream build.
+lack a materialized review stage, and SVAR retains capture and publication
+evidence without materialized normalized or review artifacts. AADR retains
+capture and publication evidence plus a compact, non-admitting
+source-accountability review; normalized membership and qualified scientific
+review remain unavailable. Those limits are explicit capability boundaries,
+not stages inferred from a successful downstream build.
 
 ### Database Preparation Is Executable Evidence Work
 

@@ -127,6 +127,7 @@ def build_aadr_source_accountability_receipt(
             "sha256": release_manifest.sha256,
             "byte_count": release_manifest.byte_count,
         },
+        "input_artifacts": _input_artifacts(reconciliation, release_manifest),
         "accountability_projection": {
             "summary": summary,
             "stream": build_aadr_accountability_stream_descriptor(reconciliation),
@@ -187,6 +188,28 @@ def build_aadr_source_accountability_receipt(
     }
     validate_aadr_source_accountability_receipt(receipt)
     return receipt
+
+
+def _input_artifacts(
+    reconciliation: AadrPanelReconciliation,
+    release_manifest: AadrReleaseManifestIdentity,
+) -> list[dict[str, object]]:
+    artifacts = [
+        {
+            "path": release_manifest.logical_path,
+            "sha256": release_manifest.sha256,
+            "byte_count": release_manifest.byte_count,
+        },
+        *(
+            {
+                "path": table.source.source_path,
+                "sha256": table.source.source_sha256,
+                "byte_count": table.source.source_byte_count,
+            }
+            for table in reconciliation.source_tables
+        ),
+    ]
+    return sorted(artifacts, key=lambda artifact: str(artifact["path"]))
 
 
 def _validate_input_identity(
@@ -308,11 +331,9 @@ def _review_partition(
         "genetic_id_count": len(selected),
         "linked_source_row_count": sum(len(record.source_rows) for record in selected),
         "dataset_genetic_id_membership_counts": _counter_dict(
-            (
-                dataset_name
-                for record in selected
-                for dataset_name in record.dataset_names
-            )
+            dataset_name
+            for record in selected
+            for dataset_name in record.dataset_names
         ),
         "coordinate_review": {
             "evidence_group_count": len(coordinate_groups),

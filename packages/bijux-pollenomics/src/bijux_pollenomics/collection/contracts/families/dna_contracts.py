@@ -1,9 +1,15 @@
 from __future__ import annotations
 
+from pathlib import Path
+
+from ....config import DEFAULT_AADR_VERSION
 from .models import SourceFamilyContract, SourceFamilyLayerContract
 
 
-def build_dna_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
+def build_dna_source_family_contracts(
+    version: str = DEFAULT_AADR_VERSION,
+) -> tuple[SourceFamilyContract, ...]:
+    version = _aadr_version(version)
     return (
         SourceFamilyContract(
             source_key="aadr",
@@ -16,10 +22,10 @@ def build_dna_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
             raw_layer=SourceFamilyLayerContract(
                 layer_key="raw",
-                repository_path="data/aadr",
+                repository_path=f"data/aadr/{version}",
                 required=True,
                 purpose="tracked AADR versioned source files",
-                example_artifacts=("data/aadr/v66",),
+                example_artifacts=(f"data/aadr/{version}",),
             ),
             normalized_layer=SourceFamilyLayerContract(
                 layer_key="normalized",
@@ -32,8 +38,13 @@ def build_dna_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
                 layer_key="reviewed",
                 repository_path="data/adna/species/homo_sapiens/review",
                 required=True,
-                purpose="review-ready Homo sapiens package artifacts",
-                example_artifacts=("data/adna/species/homo_sapiens/review",),
+                purpose=(
+                    "compact, non-admitting AADR source-accountability evidence"
+                ),
+                example_artifacts=(
+                    "data/adna/species/homo_sapiens/review/"
+                    f"aadr_{version}_source_accountability.json",
+                ),
             ),
             published_layer=SourceFamilyLayerContract(
                 layer_key="published",
@@ -102,3 +113,16 @@ def build_dna_source_family_contracts() -> tuple[SourceFamilyContract, ...]:
             ),
         ),
     )
+
+
+def _aadr_version(value: str) -> str:
+    if (
+        not isinstance(value, str)
+        or not value
+        or value != value.strip()
+        or "\\" in value
+        or Path(value).name != value
+        or value in {".", ".."}
+    ):
+        raise ValueError("AADR contract version must be one safe path component")
+    return value

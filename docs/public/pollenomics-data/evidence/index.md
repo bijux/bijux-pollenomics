@@ -147,9 +147,11 @@ Every count or percentage must name its observation unit and population.
 The directories under `data/adna/species/` group evidence by accepted taxon
 and expose current curation, recovery, spatial, and release posture. They are
 projections over source- and project-owned evidence, not independent source
-databases. Human AADR currently exposes a capture-only species route, while
-the ten non-human views materialize broader normalized and review surfaces;
-the common directory shape must not be read as equivalent lifecycle depth.
+databases. Human AADR currently exposes its captured panels and a compact,
+non-admitting source-accountability review. Its normalized membership and
+qualified scientific review remain unavailable, while the ten non-human views
+materialize broader normalized and review surfaces; the common directory shape
+must not be read as equivalent lifecycle depth.
 
 [Species evidence views](species-evidence-views.md) defines how to interpret
 those differences, audit one taxon claim, and construct a cross-species

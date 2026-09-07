@@ -47,6 +47,27 @@ def test_product_policy_binds_exact_release_inventory_and_producer_authority() -
     }
     assert artifacts["dependency-lock"]["producer_path"] is None
     assert artifacts["aadr-snapshot"]["producer_path"].endswith("/adna")
+    assert artifacts["aadr-source-accountability"] == {
+        "identity": "aadr-source-accountability",
+        "media_type": "application/json",
+        "path": (
+            "data/adna/species/homo_sapiens/review/"
+            "aadr_v66_source_accountability.json"
+        ),
+        "producer_path": (
+            "packages/bijux-pollenomics/src/bijux_pollenomics/collection"
+        ),
+        "required_config_identities": ["release-evidence-policy"],
+        "required_embedded_input_paths": [
+            "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+            "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+            "data/aadr/v66/release_manifest.json",
+        ],
+        "required_parent_identities": ["aadr-snapshot"],
+        "role": "generated_output",
+        "schema_identity_field": "schema_version",
+        "schema_version": "aadr-source-accountability.v1",
+    }
     assert artifacts["classification"]["producer_path"].endswith(
         "/evidence/classification"
     )

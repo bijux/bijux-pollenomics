@@ -4,6 +4,7 @@ from collections.abc import Mapping
 from dataclasses import asdict
 from pathlib import Path
 
+from ....config import DEFAULT_AADR_VERSION
 from ..capabilities import build_source_capability_audit_payload
 from .authority import _source_authority_state
 from .metrics import _coverage_metrics
@@ -15,12 +16,15 @@ def build_source_family_state_rows(
     output_root: Path,
     *,
     counts: Mapping[str, int],
+    version: str = DEFAULT_AADR_VERSION,
 ) -> tuple[SourceFamilyStateRow, ...]:
     """Build one durable state row per tracked source family."""
     output_root = Path(output_root)
     states: list[SourceFamilyStateRow] = []
-    for contract in build_source_family_contracts():
-        authority = _source_authority_state(output_root, contract.source_key)
+    for contract in build_source_family_contracts(version):
+        authority = _source_authority_state(
+            output_root, contract.source_key, version=version
+        )
         raw_status = _layer_status(output_root, contract.raw_layer)
         normalized_status = _layer_status(output_root, contract.normalized_layer)
         reviewed_status = _layer_status(output_root, contract.reviewed_layer)
@@ -79,9 +83,12 @@ def build_source_family_state_matrix_payload(
     output_root: Path,
     *,
     counts: Mapping[str, int],
+    version: str = DEFAULT_AADR_VERSION,
 ) -> dict[str, object]:
     """Build a machine-readable evidence-stage matrix across tracked source families."""
-    state_rows = build_source_family_state_rows(output_root, counts=counts)
+    state_rows = build_source_family_state_rows(
+        output_root, counts=counts, version=version
+    )
     rows = [asdict(row) for row in state_rows]
     return {
         "schema_version": "source-family-evidence-stage-matrix.v2",

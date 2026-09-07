@@ -149,7 +149,7 @@ def collect_data(
     output_root.mkdir(parents=True, exist_ok=True)
     for source_dir in AVAILABLE_SOURCES:
         (output_root / source_dir).mkdir(parents=True, exist_ok=True)
-    ensure_homo_sapiens_adna_layout(output_root)
+    ensure_homo_sapiens_adna_layout(output_root, version=version)
     ensure_curated_species_adna_layout(output_root)
     materialize_tracked_species_adna(output_root)
     write_data_directory_readme(output_root, version=version)

@@ -150,18 +150,21 @@
       "primary_question": "Which tracked human ancient-DNA inputs and normalized records exist under the governed AADR program?",
       "raw_status": "present",
       "normalized_status": "missing",
-      "reviewed_status": "missing",
+      "reviewed_status": "present",
       "published_status": "present",
       "provenance_depth": "captured_only",
-      "publication_posture": "not_publication_ready",
-      "authority_status": "not_required",
-      "authority_reasons": [],
+      "publication_posture": "review_required_not_publication_ready",
+      "authority_status": "review_required",
+      "authority_reasons": [
+        "qualified_human_adna_source_review_missing"
+      ],
       "coverage_metrics": {
         "aadr_file_count": 3
       },
       "blocking_reasons": [
         "missing_normalized_outputs",
-        "missing_review_surface"
+        "source_authority_review_required",
+        "qualified_human_adna_source_review_missing"
       ]
     },
     {
@@ -2393,7 +2396,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_normalized_outputs",
-          "missing_review_surface",
+          "source_authority_review_required",
           "qualified_human_adna_source_review_missing"
         ]
       },
@@ -2418,7 +2421,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_normalized_outputs",
-          "missing_review_surface",
+          "source_authority_review_required",
           "qualified_human_adna_source_review_missing"
         ]
       },
@@ -2443,7 +2446,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_normalized_outputs",
-          "missing_review_surface",
+          "source_authority_review_required",
           "qualified_human_adna_source_review_missing"
         ]
       },
@@ -2468,7 +2471,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_normalized_outputs",
-          "missing_review_surface",
+          "source_authority_review_required",
           "qualified_human_adna_source_review_missing"
         ]
       },
@@ -2493,7 +2496,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_normalized_outputs",
-          "missing_review_surface",
+          "source_authority_review_required",
           "qualified_human_adna_source_review_missing"
         ]
       },
@@ -2518,7 +2521,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_normalized_outputs",
-          "missing_review_surface",
+          "source_authority_review_required",
           "qualified_human_adna_source_review_missing"
         ]
       },
@@ -2543,7 +2546,7 @@
         "reason_codes": [
           "governed_dimension_evidence_missing",
           "missing_normalized_outputs",
-          "missing_review_surface",
+          "source_authority_review_required",
           "qualified_human_adna_source_review_missing"
         ]
       },
@@ -2568,7 +2571,7 @@
         "reason_codes": [
           "governed_dimension_evidence_missing",
           "missing_normalized_outputs",
-          "missing_review_surface",
+          "source_authority_review_required",
           "qualified_human_adna_source_review_missing"
         ]
       },
@@ -2665,7 +2668,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_normalized_outputs",
-          "missing_review_surface",
+          "source_authority_review_required",
           "qualified_human_adna_source_review_missing"
         ]
       },
@@ -2690,7 +2693,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_normalized_outputs",
-          "missing_review_surface",
+          "source_authority_review_required",
           "qualified_human_adna_source_review_missing"
         ]
       },
@@ -2715,7 +2718,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_normalized_outputs",
-          "missing_review_surface",
+          "source_authority_review_required",
           "qualified_human_adna_source_review_missing"
         ]
       },
@@ -2758,7 +2761,7 @@
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "missing_normalized_outputs",
-          "missing_review_surface",
+          "source_authority_review_required",
           "qualified_human_adna_source_review_missing"
         ]
       },

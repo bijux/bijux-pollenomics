@@ -104,8 +104,10 @@ its governing evidence or parent publication family.
 The stage matrix evaluates each contracted artifact independently. In the
 current snapshot, Neotoma, SEAD, and animal aDNA have materialized evidence at
 all four stages. LandClim, RAÄ, and boundaries lack their contracted
-source-specific review artifacts. SVAR and AADR retain publications while
-their contracted normalized and review members are absent.
+source-specific review artifacts. SVAR retains publication evidence without
+its contracted normalized or review members. AADR retains publication evidence
+and a compact, non-admitting source-accountability review, while normalized
+membership and qualified scientific review remain unavailable.
 
 This is why the lifecycle is stored as four statuses rather than one maturity
 label. `published` answers whether the publication artifact exists.

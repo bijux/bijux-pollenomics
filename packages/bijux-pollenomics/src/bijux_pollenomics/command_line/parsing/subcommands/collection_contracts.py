@@ -80,3 +80,24 @@ def build_refresh_data_contract_surfaces_parser(
     )
     add_version_argument(parser)
     return parser
+
+
+def build_refresh_aadr_source_accountability_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build the compact AADR source-accountability refresh parser."""
+    parser = subparsers.add_parser(
+        "refresh-aadr-source-accountability",
+        help=(
+            "Reconcile the tracked AADR source panels into a compact, "
+            "non-admitting accountability receipt."
+        ),
+    )
+    parser.add_argument(
+        "--data-root",
+        type=Path,
+        default=DEFAULT_DATA_ROOT,
+        help="Path to the repository data root. Default: data",
+    )
+    add_version_argument(parser)
+    return parser

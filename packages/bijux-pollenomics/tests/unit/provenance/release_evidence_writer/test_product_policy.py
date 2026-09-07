@@ -39,7 +39,7 @@ def test_product_request_policy_has_exact_inventory_and_reconciliation_counts() 
     rows = request_module._reconciliations(root, policy)
     by_identity = {row.identity: row for row in rows}
 
-    assert len(policy.required_artifacts) == 26
+    assert len(policy.required_artifacts) == 27
     assert len(policy.required_gate_ids) == 5
     assert len(policy.required_reconciliations) == 28
     assert len(rows) == 390

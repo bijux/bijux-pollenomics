@@ -72,6 +72,19 @@ class RepositoryAutomationTests(unittest.TestCase):
             root_env_text,
         )
 
+    def test_aadr_accountability_target_refreshes_dependent_contracts(self) -> None:
+        root_make_text = (REPO_ROOT / "makes" / "root.mk").read_text(
+            encoding="utf-8"
+        )
+        target_start = root_make_text.index("aadr-source-accountability:")
+        target_end = root_make_text.index("\n\nreports:", target_start)
+        target = root_make_text[target_start:target_end]
+
+        receipt_refresh = target.index("refresh-aadr-source-accountability")
+        contract_refresh = target.index("refresh-data-contract-surfaces")
+
+        self.assertLess(receipt_refresh, contract_refresh)
+
     def test_readme_bootstrap_flow_installs_before_running_the_console_script(
         self,
     ) -> None:

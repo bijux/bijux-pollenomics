@@ -36,7 +36,7 @@ they do not currently share one material lifecycle.
 
 | View | Current source route | Material posture | Supported use |
 | --- | --- | --- | --- |
-| `homo_sapiens` | governed link to the AADR v66 release capture | raw capture present; normalized, manifest, review, and species-report members absent | inspect retained AADR metadata and release identity at the captured panel boundary |
+| `homo_sapiens` | governed link to the AADR v66 release capture | raw capture and compact source-accountability review present; normalized, manifest, and species-report members absent | inspect retained AADR metadata, panel reconciliation, and source-label denominators without implying scientific admission |
 | ten non-human species | project and paper source library with generated species projections | raw inventories, normalized evidence, manifests, reports, and species review are materialized | inspect recovered evidence, curation posture, project deficits, and downstream fitness at each declared boundary |
 
 Directory symmetry therefore does not prove evidence symmetry. A query must

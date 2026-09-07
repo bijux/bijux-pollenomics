@@ -33,6 +33,7 @@ from .adna_inventory import (
 from .animal_refresh import build_refresh_animal_adna_foundation_parser
 from .collection_contracts import (
     build_collect_data_parser,
+    build_refresh_aadr_source_accountability_parser,
     build_refresh_data_contract_surfaces_parser,
     build_validate_collection_summary_parser,
 )
@@ -66,6 +67,7 @@ __all__ = [
     "build_product_scope_parser",
     "build_publish_reports_parser",
     "build_refresh_animal_adna_foundation_parser",
+    "build_refresh_aadr_source_accountability_parser",
     "build_refresh_data_contract_surfaces_parser",
     "build_report_country_parser",
     "build_source_support_parser",
@@ -95,6 +97,7 @@ def register_subcommands(
     build_multi_country_map_parser(subparsers)
     build_publish_reports_parser(subparsers)
     build_collect_data_parser(subparsers)
+    build_refresh_aadr_source_accountability_parser(subparsers)
     build_refresh_data_contract_surfaces_parser(subparsers)
     build_surface_map_parser(subparsers)
     build_product_scope_parser(subparsers)

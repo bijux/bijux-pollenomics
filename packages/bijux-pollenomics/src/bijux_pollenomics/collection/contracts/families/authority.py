@@ -3,13 +3,17 @@ from __future__ import annotations
 from collections.abc import Mapping
 import hashlib
 import json
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
+from ....config import DEFAULT_AADR_VERSION
 from .models import _SourceAuthorityState
 
 
 def _source_authority_state(
-    output_root: Path, source_key: str
+    output_root: Path,
+    source_key: str,
+    *,
+    version: str = DEFAULT_AADR_VERSION,
 ) -> _SourceAuthorityState:
     if source_key == "raa":
         from ...sources.raa.authority import assess_raa_density_authority
@@ -37,7 +41,104 @@ def _source_authority_state(
         return _svar_authority_state(output_root)
     if source_key == "animal_adna":
         return _animal_adna_authority_state(output_root)
+    if source_key == "aadr":
+        return _aadr_authority_state(output_root, version=version)
     return _SourceAuthorityState(status="not_required", reason_codes=())
+
+
+def _aadr_authority_state(
+    output_root: Path,
+    *,
+    version: str = DEFAULT_AADR_VERSION,
+) -> _SourceAuthorityState:
+    from ...sources.aadr.materialization.accountability import (
+        validate_aadr_source_accountability_receipt,
+    )
+
+    receipt_path = (
+        output_root
+        / "adna"
+        / "species"
+        / "homo_sapiens"
+        / "review"
+        / f"aadr_{version}_source_accountability.json"
+    )
+    try:
+        receipt = _load_json_object(receipt_path)
+        validate_aadr_source_accountability_receipt(receipt)
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError):
+        return _SourceAuthorityState(
+            status="review_required",
+            reason_codes=("missing_or_invalid_aadr_source_accountability",),
+        )
+    if receipt.get("source_release") != version:
+        return _SourceAuthorityState(
+            status="review_required",
+            reason_codes=("aadr_source_accountability_release_mismatch",),
+        )
+    if not _aadr_receipt_inputs_are_current(
+        output_root,
+        receipt.get("input_artifacts"),
+    ):
+        return _SourceAuthorityState(
+            status="review_required",
+            reason_codes=("stale_or_unverifiable_aadr_source_accountability_inputs",),
+        )
+    return _SourceAuthorityState(
+        status="review_required",
+        reason_codes=("qualified_human_adna_source_review_missing",),
+    )
+
+
+def _aadr_receipt_inputs_are_current(
+    output_root: Path,
+    input_artifacts: object,
+) -> bool:
+    if output_root.is_symlink() or not isinstance(input_artifacts, list):
+        return False
+    root = output_root.resolve()
+    for raw_artifact in input_artifacts:
+        if not isinstance(raw_artifact, Mapping):
+            return False
+        logical_path = raw_artifact.get("path")
+        expected_sha256 = raw_artifact.get("sha256")
+        expected_byte_count = raw_artifact.get("byte_count")
+        if (
+            not isinstance(logical_path, str)
+            or not isinstance(expected_sha256, str)
+            or isinstance(expected_byte_count, bool)
+            or not isinstance(expected_byte_count, int)
+            or expected_byte_count < 0
+        ):
+            return False
+        try:
+            relative_path = PurePosixPath(logical_path).relative_to("data")
+        except ValueError:
+            return False
+        physical_path = output_root.joinpath(*relative_path.parts)
+        current = output_root
+        path_uses_symlink = False
+        for part in relative_path.parts:
+            current /= part
+            if current.is_symlink():
+                path_uses_symlink = True
+                break
+        if path_uses_symlink:
+            return False
+        try:
+            resolved_path = physical_path.resolve(strict=True)
+            content = physical_path.read_bytes()
+        except OSError:
+            return False
+        if (
+            physical_path.is_symlink()
+            or not physical_path.is_file()
+            or root not in resolved_path.parents
+            or len(content) != expected_byte_count
+            or hashlib.sha256(content).hexdigest() != expected_sha256
+        ):
+            return False
+    return True
 
 
 def _animal_adna_authority_state(output_root: Path) -> _SourceAuthorityState:

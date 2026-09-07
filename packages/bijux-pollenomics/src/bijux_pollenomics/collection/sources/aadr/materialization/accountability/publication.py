@@ -33,13 +33,15 @@ def canonical_aadr_source_accountability_bytes(
 def write_aadr_source_accountability_receipt(
     path: Path,
     receipt: Mapping[str, object],
+    *,
+    governed_root: Path,
 ) -> bytes:
     """Atomically write one compact receipt and return its exact bytes."""
     payload = canonical_aadr_source_accountability_bytes(receipt)
     destination = Path(path)
+    _validate_governed_destination(destination, Path(governed_root))
     destination.parent.mkdir(parents=True, exist_ok=True)
-    if destination.is_symlink() or destination.parent.is_symlink():
-        raise ValueError("AADR accountability output cannot use a symlink")
+    _validate_governed_destination(destination, Path(governed_root))
     descriptor, temporary_name = tempfile.mkstemp(
         prefix=f".{destination.name}.",
         suffix=".writing",
@@ -59,6 +61,37 @@ def write_aadr_source_accountability_receipt(
         if temporary.exists():
             temporary.unlink()
     return payload
+
+
+def _validate_governed_destination(destination: Path, governed_root: Path) -> None:
+    root = Path(os.path.abspath(governed_root))
+    candidate = Path(os.path.abspath(destination))
+    if governed_root.is_symlink() or not governed_root.is_dir():
+        raise ValueError(
+            "AADR accountability data root must be a non-symlink directory"
+        )
+    try:
+        relative = candidate.relative_to(root)
+    except ValueError as exc:
+        raise ValueError(
+            "AADR accountability output must remain under its data root"
+        ) from exc
+    if not relative.parts:
+        raise ValueError("AADR accountability output cannot replace its data root")
+
+    resolved_root = root.resolve(strict=True)
+    current = root
+    for part in relative.parts:
+        current /= part
+        if current.is_symlink():
+            raise ValueError("AADR accountability output cannot use a symlink")
+        if current.exists():
+            try:
+                current.resolve(strict=True).relative_to(resolved_root)
+            except ValueError as exc:
+                raise ValueError(
+                    "AADR accountability output must remain under its data root"
+                ) from exc
 
 
 def _fsync_directory(path: Path) -> None:

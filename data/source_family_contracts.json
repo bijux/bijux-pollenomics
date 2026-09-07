@@ -543,7 +543,7 @@
       "primary_question": "Which tracked human ancient-DNA inputs and normalized records exist under the governed AADR program?",
       "raw_layer": {
         "layer_key": "raw",
-        "repository_path": "data/aadr",
+        "repository_path": "data/aadr/v66",
         "required": true,
         "purpose": "tracked AADR versioned source files",
         "example_artifacts": [
@@ -563,9 +563,9 @@
         "layer_key": "reviewed",
         "repository_path": "data/adna/species/homo_sapiens/review",
         "required": true,
-        "purpose": "review-ready Homo sapiens package artifacts",
+        "purpose": "compact, non-admitting AADR source-accountability evidence",
         "example_artifacts": [
-          "data/adna/species/homo_sapiens/review"
+          "data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json"
         ]
       },
       "published_layer": {
@@ -583,7 +583,7 @@
       "layer_contracts": {
         "raw": {
           "layer_key": "raw",
-          "repository_path": "data/aadr",
+          "repository_path": "data/aadr/v66",
           "required": true,
           "purpose": "tracked AADR versioned source files",
           "example_artifacts": [
@@ -603,9 +603,9 @@
           "layer_key": "reviewed",
           "repository_path": "data/adna/species/homo_sapiens/review",
           "required": true,
-          "purpose": "review-ready Homo sapiens package artifacts",
+          "purpose": "compact, non-admitting AADR source-accountability evidence",
           "example_artifacts": [
-            "data/adna/species/homo_sapiens/review"
+            "data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json"
           ]
         },
         "published": {

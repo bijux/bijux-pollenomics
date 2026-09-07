@@ -65,7 +65,7 @@ def build_data_collection_summary(
         source_traceability=source_traceability,
         contract_artifacts=build_contract_artifact_paths(output_root),
         source_family_state_rows=build_source_family_state_rows(
-            output_root, counts=counts
+            output_root, counts=counts, version=version
         ),
         boundary_source=boundary_source,
         aadr_file_count=counts["aadr_file_count"],

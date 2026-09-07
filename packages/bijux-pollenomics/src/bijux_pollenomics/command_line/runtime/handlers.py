@@ -30,6 +30,9 @@ from ...collection import (
 from ...collection.workflow.materialization.repository_snapshot import (
     materialize_repository_collection_snapshot,
 )
+from ...collection.sources.aadr.materialization.accountability import (
+    materialize_aadr_source_accountability,
+)
 from ...governance import build_release_bar, build_release_readiness_report
 from ...reporting import (
     generate_country_report,
@@ -55,6 +58,7 @@ __all__ = [
     "run_ownership_map",
     "run_product_scope",
     "run_publish_reports",
+    "run_refresh_aadr_source_accountability",
     "run_refresh_animal_adna_foundation",
     "run_refresh_data_contract_surfaces",
     "run_report_country",
@@ -456,5 +460,18 @@ def run_refresh_data_contract_surfaces(args: argparse.Namespace) -> int:
     print(
         "Refreshed data contract surfaces at "
         f"{summary.summary_path} for {len(summary.source_family_state_rows)} source families"
+    )
+    return 0
+
+
+def run_refresh_aadr_source_accountability(args: argparse.Namespace) -> int:
+    """Materialize the compact AADR source-accountability receipt."""
+    result = materialize_aadr_source_accountability(
+        args.data_root,
+        version=args.version,
+    )
+    print(
+        f"Wrote AADR {args.version} source accountability to {result.output_path} "
+        f"({result.byte_count} bytes; sha256={result.sha256})"
     )
     return 0
