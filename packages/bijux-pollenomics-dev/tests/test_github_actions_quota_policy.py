@@ -11,6 +11,11 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 DEPENDABOT_SKIP = "github.event.pull_request.user.login != 'dependabot[bot]'"
+DEPENDABOT_GOVERNANCE_WORKFLOWS = {
+    "automerge-pr.yml",
+    "github-policy.yml",
+    "pr-approval-policy.yml",
+}
 MATRIX_REFERENCE = re.compile(r"\$\{\{\s*matrix\.([a-zA-Z0-9_-]+)\s*\}\}")
 PULL_REQUEST_EVENTS = {
     "pull_request",
@@ -127,6 +132,8 @@ def required_status_check_names() -> set[str]:
 
 def test_dependabot_pull_requests_do_not_allocate_workflow_runners() -> None:
     for path, document in workflow_documents():
+        if path.name in DEPENDABOT_GOVERNANCE_WORKFLOWS:
+            continue
         events = document.get("on")
         assert isinstance(events, dict), f"{path.name} must define workflow events"
         if not PULL_REQUEST_EVENTS.intersection(events):
