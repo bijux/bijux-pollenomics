@@ -9,6 +9,9 @@ from pathlib import Path
 import pytest
 
 from bijux_pollenomics.reporting.bundles import atlas_bundle
+from bijux_pollenomics.reporting.bundles.atlas_bundle import (
+    animal_chronology_publication,
+)
 
 EXPECTED_SIGNATURES = {
     "publish_multi_country_map_bundle": "(staging_output_dir: 'Path', *, report: 'MultiCountryMapReport', title: 'str', version: 'str', generated_on: 'str', countries: 'tuple[str, ...]', country_sample_counts: 'dict[str, int]', all_samples: 'tuple[SampleRecord, ...]', context_root: 'Path | None', geography_scope: 'GeographicScope | None', asset_base_path: 'str', build_atlas_bundle_paths_fn: 'Callable[..., AtlasBundlePaths]', build_context_layers_fn: 'Callable[..., tuple[list[dict[str, object]], list[dict[str, object]], list[tuple[str, str]]]]', build_multi_country_map_summary_fn: 'Callable[..., dict[str, object]]', build_samples_geojson_fn: 'Callable[[Iterable[SampleRecord]], JsonObject]', copy_map_assets_fn: 'Callable[[Path], Path]', render_multi_country_map_html_fn: 'Callable[..., str]', render_multi_country_map_markdown_fn: 'Callable[..., str]', write_summary_json_fn: 'Callable[[Path, dict[str, object]], None]', atlas_detail_records: 'Sequence[JsonObject] | None' = None, atlas_scientific_signals: 'Sequence[JsonObject] | None' = None, atlas_edge_records: 'Sequence[JsonObject] | None' = None, atlas_sequence_records: 'Sequence[JsonObject] | None' = None) -> 'None'",
@@ -170,6 +173,33 @@ def test_package_is_bounded_and_grouped_by_publication_intent() -> None:
     )
 
 
+def test_animal_chronology_publication_is_bounded_by_reconciliation_intent() -> None:
+    package_root = Path(animal_chronology_publication.__file__).parent
+    modules = sorted(path.name for path in package_root.glob("*.py"))
+    assert modules == [
+        "__init__.py",
+        "contract_values.py",
+        "corpus_reconciliation.py",
+        "feature_reconciliation.py",
+        "geography_reconciliation.py",
+        "identity.py",
+        "service.py",
+    ]
+    assert all(
+        len(path.read_text(encoding="utf-8").splitlines()) <= 220
+        for path in package_root.glob("*.py")
+    )
+    assert animal_chronology_publication.__all__ == [
+        "build_animal_chronology_publication"
+    ]
+    public = animal_chronology_publication.build_animal_chronology_publication
+    assert str(inspect.signature(public)) == (
+        "(projection: 'Any', *, artifact_name: 'str') "
+        "-> 'tuple[dict[str, object], dict[str, object]]'"
+    )
+    assert public.__module__ == animal_chronology_publication.__name__
+
+
 def test_package_refusals_are_explicit_and_bounded() -> None:
     package_root = Path(atlas_bundle.__file__).parent
     messages = [
@@ -180,8 +210,6 @@ def test_package_refusals_are_explicit_and_bounded() -> None:
         if node.exc is not None
     ]
     assert sorted(messages) == [
-        "ValueError('animal chronology accountability input identity differs')",
-        "ValueError('animal chronology accountability refusal count differs')",
         "ValueError('animal source chronology context posture differs')",
         "ValueError('candidate-succession playback cannot ignore governed atlas edges')",
         "ValueError('candidate-succession playback requires explicit unavailable classification evidence')",
