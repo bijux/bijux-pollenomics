@@ -60,6 +60,8 @@ console.log(JSON.stringify({
   negativeDeclaredFullExtent:featureInTimeWindow(layer,{time_start_bp:-1,time_end_bp:100}),
   reversedDeclaredFullExtent:featureInTimeWindow(layer,{time_start_bp:300,time_end_bp:200}),
   blankDeclaredFullExtent:featureInTimeWindow(layer,{time_start_bp:'',time_end_bp:''}),
+  arrayDeclaredFullExtent:featureInTimeWindow(layer,{time_start_bp:[],time_end_bp:[100]}),
+  objectDeclaredFullExtent:featureInTimeWindow(layer,{time_start_bp:{},time_end_bp:100}),
   partialDeclaredFullExtent:featureInTimeWindow(layer,{time_start_bp:100,time_end_bp:null}),
   genuinelyUntimedFullExtent:featureInTimeWindow(layer,{}),
   nullIntervalMeanFallback:featureInTimeWindow(layer,{time_start_bp:null,time_end_bp:null,time_mean_bp:123}),
@@ -80,6 +82,8 @@ console.log(JSON.stringify({
         "negativeDeclaredFullExtent": False,
         "reversedDeclaredFullExtent": False,
         "blankDeclaredFullExtent": False,
+        "arrayDeclaredFullExtent": False,
+        "objectDeclaredFullExtent": False,
         "partialDeclaredFullExtent": False,
         "genuinelyUntimedFullExtent": True,
         "nullIntervalMeanFallback": True,
@@ -386,6 +390,9 @@ console.log(JSON.stringify({
   high:clampDiameter(140),
   stepped:clampDiameter(42),
   zero:clampDiameter(0),
+  array:clampDiameter([]),
+  singletonArray:clampDiameter([0]),
+  object:clampDiameter({}),
 }));
 """
     )
@@ -397,6 +404,9 @@ console.log(JSON.stringify({
         "high": 100,
         "stepped": 40,
         "zero": 0,
+        "array": 40,
+        "singletonArray": 40,
+        "object": 40,
     }
 
 

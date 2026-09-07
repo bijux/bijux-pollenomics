@@ -1162,3 +1162,42 @@ console.log(JSON.stringify(Object.fromEntries(Object.entries(cases).map(([key,va
     assert "sequence is invalid" in observed["sequence"]
     assert "accounting field is invalid" in observed["accountingType"]
     assert "non-node selection field is not null" in observed["nonNodeSelection"]
+
+
+def test_static_asset_numbers_reject_non_scalar_zero_coercion() -> None:
+    helpers = template_block(
+        "function staticAtlasNonnegativeInteger",
+        "function staticAtlasIntegrityFromHex",
+    )
+    observed = run_node_json(
+        """
+function staticAtlasFailure(message){throw new Error(message)}
+function outcome(callback){
+  try{return {status:'accepted',value:callback()}}
+  catch(error){return {status:'refused',message:error.message}}
+}
+"""
+        + helpers
+        + """
+const invalid=[[],[0],{}];
+console.log(JSON.stringify({
+  integerZero:outcome(()=>staticAtlasNonnegativeInteger(0,'count')),
+  integerStringZero:outcome(()=>staticAtlasNonnegativeInteger('0','count')),
+  integerInvalid:invalid.map((value)=>outcome(()=>staticAtlasNonnegativeInteger(value,'count')).status),
+  nullableMissing:outcome(()=>staticAtlasNullableFiniteNumber(null,'bound',-180,180)),
+  nullableZero:outcome(()=>staticAtlasNullableFiniteNumber(0,'bound',-180,180)),
+  nullableStringZero:outcome(()=>staticAtlasNullableFiniteNumber('0','bound',-180,180)),
+  nullableInvalid:invalid.map((value)=>outcome(()=>staticAtlasNullableFiniteNumber(value,'bound',-180,180)).status),
+}));
+"""
+    )
+
+    assert observed == {
+        "integerZero": {"status": "accepted", "value": 0},
+        "integerStringZero": {"status": "accepted", "value": 0},
+        "integerInvalid": ["refused"] * 3,
+        "nullableMissing": {"status": "accepted", "value": None},
+        "nullableZero": {"status": "accepted", "value": 0},
+        "nullableStringZero": {"status": "accepted", "value": 0},
+        "nullableInvalid": ["refused"] * 3,
+    }

@@ -2372,6 +2372,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function staticAtlasNonnegativeInteger(value, label) {
         if (value === null || value === undefined || typeof value === 'boolean' || (typeof value === 'string' && !value.trim())) staticAtlasFailure(`${label} is missing`);
+        if (typeof value !== 'number' && typeof value !== 'string') staticAtlasFailure(`${label} is invalid`);
         const numeric = Number(value);
         if (!Number.isSafeInteger(numeric) || numeric < 0) staticAtlasFailure(`${label} is invalid`);
         return numeric;
@@ -2379,6 +2380,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function staticAtlasNullableFiniteNumber(value, label, minimum, maximum) {
         if (value === null) return null;
         if (value === undefined || typeof value === 'boolean' || (typeof value === 'string' && !value.trim())) staticAtlasFailure(`${label} is missing`);
+        if (typeof value !== 'number' && typeof value !== 'string') staticAtlasFailure(`${label} is invalid`);
         const numeric = Number(value);
         if (!Number.isFinite(numeric) || numeric < minimum || numeric > maximum) staticAtlasFailure(`${label} is invalid`);
         return numeric;
@@ -3084,6 +3086,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function finiteControlNumber(value) {
         if (value === null || value === undefined || typeof value === 'boolean') return null;
         if (typeof value === 'string' && !value.trim()) return null;
+        if (typeof value !== 'number' && typeof value !== 'string') return null;
         const numeric = Number(value);
         return Number.isFinite(numeric) ? numeric : null;
       }
@@ -3268,40 +3271,174 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         refreshTimePlaybackControl();
       }
       const initialState = parseHashState();
-      const MODELED_CONTEXT_WINDOWS = Object.freeze([...(MODELED_CONTEXT.windows_oldest_to_present || [])]);
-      const MODELED_CONTEXT_FAMILIES = Object.freeze([...(MODELED_CONTEXT.metric_families || [])]);
+      const MODELED_CONTEXT_WINDOWS = Object.freeze(Array.isArray(MODELED_CONTEXT.windows_oldest_to_present) ? [...MODELED_CONTEXT.windows_oldest_to_present] : []);
+      const MODELED_CONTEXT_FAMILIES = Object.freeze(Array.isArray(MODELED_CONTEXT.metric_families) ? [...MODELED_CONTEXT.metric_families] : []);
+      const MODELED_CONTEXT_PALETTE = Object.freeze(Array.isArray(MODELED_CONTEXT.palette) ? [...MODELED_CONTEXT.palette] : []);
+      const MODELED_CONTEXT_COUNTRIES = Object.freeze(['Denmark', 'Finland', 'Norway', 'Sweden']);
       function modeledContextFamilyByKey(key) {
-        return MODELED_CONTEXT_FAMILIES.find((family) => family.key === key) || null;
+        return MODELED_CONTEXT_FAMILIES.find((family) => modeledContextRecord(family) && family.key === key) || null;
       }
       const defaultModeledContextFamily = modeledContextFamilyByKey(MODELED_CONTEXT.default_metric_family_key) || MODELED_CONTEXT_FAMILIES[0] || null;
       const initialModeledContextFamily = modeledContextFamilyByKey(initialState.modeledFamily) || defaultModeledContextFamily;
-      let modeledContextFamilyKey = initialModeledContextFamily ? initialModeledContextFamily.key : '';
-      let modeledContextMetricKey = initialModeledContextFamily && initialModeledContextFamily.metrics.some((metric) => metric.key === initialState.modeledMetric)
+      const initialModeledContextMetrics = modeledContextRecord(initialModeledContextFamily) && Array.isArray(initialModeledContextFamily.metrics)
+        ? initialModeledContextFamily.metrics
+        : [];
+      let modeledContextFamilyKey = modeledContextRecord(initialModeledContextFamily) ? String(initialModeledContextFamily.key || '') : '';
+      let modeledContextMetricKey = initialModeledContextMetrics.some((metric) => modeledContextRecord(metric) && metric.key === initialState.modeledMetric)
         ? initialState.modeledMetric
-        : (initialModeledContextFamily ? initialModeledContextFamily.default_metric_key : '');
+        : (modeledContextRecord(initialModeledContextFamily) ? String(initialModeledContextFamily.default_metric_key || '') : '');
       let modeledContextActive = false;
       let modeledContextWindowIndex = 0;
       let modeledContextPlaybackTimer = null;
       let modeledContextPreviousTime = null;
+      function modeledContextRecord(value) {
+        return value !== null && typeof value === 'object' && !Array.isArray(value) ? value : null;
+      }
+      function modeledContextNonnegativeInteger(value) {
+        return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0 ? value : null;
+      }
+      function modeledContextCountMapIsValid(counts, keys, expectedTotal) {
+        const record = modeledContextRecord(counts);
+        if (!record || !Number.isSafeInteger(expectedTotal) || expectedTotal < 0) return false;
+        const recordKeys = Object.keys(record);
+        if (recordKeys.length !== keys.length || keys.some((key) => !Object.hasOwn(record, key))) return false;
+        return keys.reduce((total, key) => {
+          const count = modeledContextNonnegativeInteger(record[key]);
+          return count === null ? Number.NaN : total + count;
+        }, 0) === expectedTotal;
+      }
+      function modeledContextWindowSpan(sourceWindow) {
+        const record = modeledContextRecord(sourceWindow);
+        if (!record) return null;
+        const start = modeledContextNonnegativeInteger(record.time_start_bp);
+        const end = modeledContextNonnegativeInteger(record.time_end_bp);
+        if (start === null || end === null || end <= start) return null;
+        return { timeStartBp: start, timeIntervalYears: end - start };
+      }
       function modeledContextQualityContractIsValid() {
         const classes = MODELED_CONTEXT.quality_classes;
         const counts = MODELED_CONTEXT.quality_class_counts;
         if (MODELED_CONTEXT.schema_version !== 'modeled-context-manifest.v3') return false;
         if (MODELED_CONTEXT.no_pollen_data_display_posture !== 'null_not_zero') return false;
         if (!Array.isArray(classes) || classes.join('|') !== 'high|low|no_pollen_data') return false;
-        if (!counts || typeof counts !== 'object') return false;
-        const total = classes.reduce((sum, qualityClass) => {
-          const count = counts[qualityClass];
-          return Number.isSafeInteger(count) && count >= 0 ? sum + count : Number.NaN;
-        }, 0);
-        return total === MODELED_CONTEXT.feature_count;
+        const featureCount = modeledContextNonnegativeInteger(MODELED_CONTEXT.feature_count);
+        return featureCount !== null && modeledContextCountMapIsValid(counts, classes, featureCount);
+      }
+      function modeledContextCountryContractIsValid() {
+        const cellCount = modeledContextNonnegativeInteger(MODELED_CONTEXT.cell_count);
+        const featureCount = modeledContextNonnegativeInteger(MODELED_CONTEXT.feature_count);
+        const countryCounts = modeledContextRecord(MODELED_CONTEXT.country_cell_counts);
+        const countryQualityCounts = modeledContextRecord(MODELED_CONTEXT.country_quality_class_counts);
+        if (cellCount !== 75 || featureCount !== cellCount * MODELED_CONTEXT_WINDOWS.length) return false;
+        if (!modeledContextCountMapIsValid(countryCounts, MODELED_CONTEXT_COUNTRIES, cellCount)) return false;
+        if (!countryQualityCounts || Object.keys(countryQualityCounts).length !== MODELED_CONTEXT_COUNTRIES.length) return false;
+        const classes = MODELED_CONTEXT.quality_classes;
+        if (!Array.isArray(classes)) return false;
+        return MODELED_CONTEXT_COUNTRIES.every((country) => (
+          Object.hasOwn(countryQualityCounts, country)
+          && modeledContextCountMapIsValid(
+            countryQualityCounts[country],
+            classes,
+            countryCounts[country] * MODELED_CONTEXT_WINDOWS.length
+          )
+        ));
+      }
+      function modeledContextWindowsContractIsValid() {
+        if (MODELED_CONTEXT_WINDOWS.length !== 25 || !modeledContextQualityContractIsValid() || !modeledContextCountryContractIsValid()) return false;
+        const labels = new Set();
+        const classes = MODELED_CONTEXT.quality_classes;
+        const countryCounts = MODELED_CONTEXT.country_cell_counts;
+        const globalQualityTotals = Object.fromEntries(classes.map((qualityClass) => [qualityClass, 0]));
+        const globalCountryQualityTotals = Object.fromEntries(MODELED_CONTEXT_COUNTRIES.map((country) => [country, Object.fromEntries(classes.map((qualityClass) => [qualityClass, 0]))]));
+        let previousSpan = null;
+        for (const sourceWindow of MODELED_CONTEXT_WINDOWS) {
+          const record = modeledContextRecord(sourceWindow);
+          const span = modeledContextWindowSpan(sourceWindow);
+          if (!record || !span || typeof record.label !== 'string' || !record.label.trim() || record.label !== record.label.trim() || labels.has(record.label)) return false;
+          if (previousSpan && span.timeStartBp + span.timeIntervalYears !== previousSpan.timeStartBp) return false;
+          labels.add(record.label);
+          previousSpan = span;
+          const featureCount = modeledContextNonnegativeInteger(record.feature_count);
+          const noPollenCount = modeledContextNonnegativeInteger(record.no_pollen_data_count);
+          if (featureCount !== MODELED_CONTEXT.cell_count || noPollenCount === null) return false;
+          if (!modeledContextCountMapIsValid(record.quality_class_counts, classes, featureCount)) return false;
+          if (record.quality_class_counts.no_pollen_data !== noPollenCount) return false;
+          if (!modeledContextCountMapIsValid(record.country_counts, MODELED_CONTEXT_COUNTRIES, featureCount)) return false;
+          if (MODELED_CONTEXT_COUNTRIES.some((country) => record.country_counts[country] !== countryCounts[country])) return false;
+          const countryQualityCounts = modeledContextRecord(record.country_quality_class_counts);
+          if (!countryQualityCounts || Object.keys(countryQualityCounts).length !== MODELED_CONTEXT_COUNTRIES.length) return false;
+          const windowQualityTotals = Object.fromEntries(classes.map((qualityClass) => [qualityClass, 0]));
+          for (const country of MODELED_CONTEXT_COUNTRIES) {
+            if (!Object.hasOwn(countryQualityCounts, country) || !modeledContextCountMapIsValid(countryQualityCounts[country], classes, countryCounts[country])) return false;
+            for (const qualityClass of classes) {
+              const count = countryQualityCounts[country][qualityClass];
+              windowQualityTotals[qualityClass] += count;
+              globalCountryQualityTotals[country][qualityClass] += count;
+            }
+          }
+          for (const qualityClass of classes) {
+            if (windowQualityTotals[qualityClass] !== record.quality_class_counts[qualityClass]) return false;
+            globalQualityTotals[qualityClass] += record.quality_class_counts[qualityClass];
+          }
+        }
+        return classes.every((qualityClass) => (
+          globalQualityTotals[qualityClass] === MODELED_CONTEXT.quality_class_counts[qualityClass]
+          && MODELED_CONTEXT_COUNTRIES.every((country) => (
+            globalCountryQualityTotals[country][qualityClass] === MODELED_CONTEXT.country_quality_class_counts[country][qualityClass]
+          ))
+        ));
+      }
+      function modeledContextPaletteContractIsValid() {
+        if (MODELED_CONTEXT_PALETTE.length === 0) return false;
+        const labels = new Set();
+        let previousMaximum = -1;
+        for (const entry of MODELED_CONTEXT_PALETTE) {
+          const record = modeledContextRecord(entry);
+          if (!record || typeof record.maximum !== 'number' || !Number.isFinite(record.maximum)) return false;
+          if (record.maximum < 0 || record.maximum <= previousMaximum || record.maximum > 100) return false;
+          if (typeof record.label !== 'string' || !record.label.trim() || labels.has(record.label)) return false;
+          if (typeof record.color !== 'string' || !/^#[0-9a-f]{6}$/i.test(record.color)) return false;
+          labels.add(record.label);
+          previousMaximum = record.maximum;
+        }
+        return previousMaximum === 100;
+      }
+      function modeledContextFamilyContractIsValid() {
+        const familyCount = modeledContextNonnegativeInteger(MODELED_CONTEXT.metric_family_count);
+        const metricCount = modeledContextNonnegativeInteger(MODELED_CONTEXT.metric_count);
+        if (familyCount !== 3 || MODELED_CONTEXT_FAMILIES.length !== familyCount || metricCount === null) return false;
+        const familyKeys = new Set();
+        const metricKeys = new Set();
+        let observedMetricCount = 0;
+        for (const family of MODELED_CONTEXT_FAMILIES) {
+          const record = modeledContextRecord(family);
+          if (!record || typeof record.key !== 'string' || !record.key.trim() || record.key !== record.key.trim() || familyKeys.has(record.key)) return false;
+          if (typeof record.label !== 'string' || !record.label.trim()) return false;
+          if (!Array.isArray(record.metrics) || modeledContextNonnegativeInteger(record.metric_count) !== record.metrics.length || record.metrics.length === 0) return false;
+          if (typeof record.default_metric_key !== 'string' || !record.default_metric_key.trim()) return false;
+          const familyMetricKeys = new Set();
+          for (const metric of record.metrics) {
+            const metricRecord = modeledContextRecord(metric);
+            if (!metricRecord || typeof metricRecord.key !== 'string' || !metricRecord.key.trim() || metricRecord.key !== metricRecord.key.trim() || familyMetricKeys.has(metricRecord.key) || metricKeys.has(metricRecord.key)) return false;
+            if (typeof metricRecord.label !== 'string' || !metricRecord.label.trim()) return false;
+            if (typeof metricRecord.source_label !== 'string' || !metricRecord.source_label.trim()) return false;
+            familyMetricKeys.add(metricRecord.key);
+            metricKeys.add(metricRecord.key);
+          }
+          if (!familyMetricKeys.has(record.default_metric_key)) return false;
+          familyKeys.add(record.key);
+          observedMetricCount += record.metrics.length;
+        }
+        return observedMetricCount === metricCount
+          && familyKeys.has(MODELED_CONTEXT.default_metric_family_key)
+          && currentModeledContextMetric() !== null;
       }
       function modeledContextAvailable() {
         return MODELED_CONTEXT.status === 'available'
           && modeledContextQualityContractIsValid()
-          && MODELED_CONTEXT_WINDOWS.length === 25
-          && MODELED_CONTEXT_FAMILIES.length === 3
-          && currentModeledContextMetric() !== null;
+          && modeledContextWindowsContractIsValid()
+          && modeledContextPaletteContractIsValid()
+          && modeledContextFamilyContractIsValid();
       }
       function currentModeledContextWindow() {
         return MODELED_CONTEXT_WINDOWS[modeledContextWindowIndex] || null;
@@ -3311,7 +3448,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function currentModeledContextMetric() {
         const family = currentModeledContextFamily();
-        return family ? family.metrics.find((metric) => metric.key === modeledContextMetricKey) || null : null;
+        return modeledContextRecord(family) && Array.isArray(family.metrics)
+          ? family.metrics.find((metric) => modeledContextRecord(metric) && metric.key === modeledContextMetricKey) || null
+          : null;
       }
       function isModeledContextFeature(layer, properties) {
         return Boolean(
@@ -3329,21 +3468,21 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function modeledContextEstimate(properties) {
         if (!properties || properties.quality_class === 'no_pollen_data') return null;
-        const values = properties && properties.reconstruction_values;
-        return values && typeof values === 'object'
-          ? modeledContextNumber(values[modeledContextMetricKey])
-          : null;
+        const values = modeledContextRecord(properties.reconstruction_values);
+        const value = values ? modeledContextNumber(values[modeledContextMetricKey]) : null;
+        return value !== null && value >= 0 && value <= 100 ? value : null;
       }
       function modeledContextStandardError(properties) {
         if (!properties || properties.quality_class === 'no_pollen_data') return null;
-        const values = properties && properties.standard_errors;
-        return values && typeof values === 'object'
-          ? modeledContextNumber(values[modeledContextMetricKey])
-          : null;
+        const values = modeledContextRecord(properties.standard_errors);
+        const value = values ? modeledContextNumber(values[modeledContextMetricKey]) : null;
+        return value !== null && value >= 0 ? value : null;
       }
       function modeledContextFillColor(value) {
-        if (value === null) return '#cbd5e1';
-        const entry = (MODELED_CONTEXT.palette || []).find((candidate) => value <= Number(candidate.maximum));
+        const numeric = modeledContextNumber(value);
+        if (numeric === null || numeric < 0 || numeric > 100) return '#cbd5e1';
+        if (!modeledContextPaletteContractIsValid()) return '#cbd5e1';
+        const entry = MODELED_CONTEXT_PALETTE.find((candidate) => numeric <= candidate.maximum);
         return entry ? entry.color : '#d97706';
       }
       function stopModeledContextPlayback() {
@@ -3378,10 +3517,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           modeledContextPreviousTime = { timeStartBp, timeIntervalYears };
         }
         modeledContextWindowIndex = nextIndex;
-        modeledContextActive = true;
         const sourceWindow = currentModeledContextWindow();
-        timeStartBp = sourceWindow.time_start_bp;
-        timeIntervalYears = Math.max(1, sourceWindow.time_end_bp - sourceWindow.time_start_bp);
+        const sourceSpan = modeledContextWindowSpan(sourceWindow);
+        if (!sourceSpan) return;
+        modeledContextActive = true;
+        timeStartBp = sourceSpan.timeStartBp;
+        timeIntervalYears = sourceSpan.timeIntervalYears;
         activeLayerKeys.add(MODELED_CONTEXT.layer_key);
         await renderMapState();
       }
@@ -3531,7 +3672,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           : modeledContextStateText;
         modeledContextLegend.hidden = !modeledContextActive;
         modeledContextLegend.innerHTML = modeledContextActive && sourceWindow
-          ? `<div class="legend-group-label">${escapeHtml(sourceWindow.label)} · ${escapeHtml(metric.source_label)} (${escapeHtml(metric.key)}) · ${escapeHtml(MODELED_CONTEXT.value_unit)}</div>${(MODELED_CONTEXT.palette || []).map((entry) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(entry.color)};border-color:#334155;"></span><span>${escapeHtml(entry.label)}</span></div>`).join('')}<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:#cbd5e1;border-color:#334155;"></span><span>No pollen data · N/A, not 0</span></div>`
+          ? `<div class="legend-group-label">${escapeHtml(sourceWindow.label)} · ${escapeHtml(metric.source_label)} (${escapeHtml(metric.key)}) · ${escapeHtml(MODELED_CONTEXT.value_unit)}</div>${MODELED_CONTEXT_PALETTE.map((entry) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(entry.color)};border-color:#334155;"></span><span>${escapeHtml(entry.label)}</span></div>`).join('')}<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:#cbd5e1;border-color:#334155;"></span><span>No pollen data · N/A, not 0</span></div>`
           : '';
       }
       const SOURCE_CHRONOLOGY_LEVEL_ORDER = Object.freeze([
@@ -3952,16 +4093,19 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         (sourceWindow) => sourceWindow.label === initialState.modeledContext
       );
       if (modeledContextAvailable() && initialModeledContextIndex >= 0) {
-        modeledContextActive = true;
         modeledContextWindowIndex = initialModeledContextIndex;
-        modeledContextPreviousTime = {
-          timeStartBp: DEFAULT_TIME_START_BP,
-          timeIntervalYears: DEFAULT_TIME_INTERVAL_YEARS,
-        };
         const sourceWindow = currentModeledContextWindow();
-        timeStartBp = sourceWindow.time_start_bp;
-        timeIntervalYears = Math.max(1, sourceWindow.time_end_bp - sourceWindow.time_start_bp);
-        activeLayerKeys.add(MODELED_CONTEXT.layer_key);
+        const sourceSpan = modeledContextWindowSpan(sourceWindow);
+        if (sourceSpan) {
+          modeledContextActive = true;
+          modeledContextPreviousTime = {
+            timeStartBp: DEFAULT_TIME_START_BP,
+            timeIntervalYears: DEFAULT_TIME_INTERVAL_YEARS,
+          };
+          timeStartBp = sourceSpan.timeStartBp;
+          timeIntervalYears = sourceSpan.timeIntervalYears;
+          activeLayerKeys.add(MODELED_CONTEXT.layer_key);
+        }
       }
       const initialDensityPercent = finiteControlNumber(initialState.density);
       let densityOpacity = Math.max(0, Math.min(1, (initialDensityPercent === null ? 60 : initialDensityPercent) / 100));
@@ -5222,6 +5366,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function finiteTimeValue(value) {
         if (value === null || value === undefined || typeof value === 'boolean') return null;
         if (typeof value === 'string' && !value.trim()) return null;
+        if (typeof value !== 'number' && typeof value !== 'string') return null;
         const numeric = Number(value);
         return Number.isFinite(numeric) && numeric >= 0 ? numeric : null;
       }
@@ -5234,6 +5379,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function finiteCoordinateValue(value, minimum, maximum) {
         if (value === null || value === undefined || typeof value === 'boolean') return null;
         if (typeof value === 'string' && !value.trim()) return null;
+        if (typeof value !== 'number' && typeof value !== 'string') return null;
         const numeric = Number(value);
         return Number.isFinite(numeric) && numeric >= minimum && numeric <= maximum ? numeric : null;
       }
@@ -5249,6 +5395,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function finiteCountValue(value) {
         if (value === null || value === undefined || typeof value === 'boolean') return null;
         if (typeof value === 'string' && !value.trim()) return null;
+        if (typeof value !== 'number' && typeof value !== 'string') return null;
         const numeric = Number(value);
         return Number.isSafeInteger(numeric) && numeric >= 0 ? numeric : null;
       }
@@ -6070,6 +6217,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         atlasCaptureKey.innerHTML = keyItems.map(atlasCaptureKeyItemHtml).join('');
         atlasCaptureCaveat.textContent = atlasCapturePresentation.caveat;
       }
+      function modeledContextPublishedCellCountLabel(snapshot) {
+        const value = snapshot && snapshot.modeled_context ? snapshot.modeled_context.feature_count : null;
+        return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0 ? String(value) : 'unavailable';
+      }
       function renderAtlasCaptureOverlay(snapshot) {
         const { younger_bp: youngerBp, older_bp: olderBp } = snapshot.time_window_bp;
         const timeLabel = `[${youngerBp}, ${olderBp}] BP · oldest → present`;
@@ -6101,7 +6252,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           ? `PANGAEA 937075 modeled context — ${metric.label}`
           : 'PANGAEA 937075 modeled context';
         const keyItems = [
-          ...(MODELED_CONTEXT.palette || []).map((entry) => ({ label: entry.label, cue: 'area', fill: entry.color, stroke: '#334155' })),
+          ...MODELED_CONTEXT_PALETTE.map((entry) => ({ label: entry.label, cue: 'area', fill: entry.color, stroke: '#334155' })),
           { label: 'no pollen data · N/A, not 0', cue: 'area', fill: '#cbd5e1', stroke: '#334155' },
           { label: 'country boundary', cue: 'line', fill: null, stroke: '#64748b' },
         ];
@@ -6110,7 +6261,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           role_label: 'Modeled context · published source window',
           title,
           time_label: timeLabel,
-          counts_label: `${snapshot.visible_modeled_context_feature_count}/${snapshot.modeled_context?.feature_count ?? 0} published cells visible · ${qualityCounts.no_pollen_data} explicitly have no pollen data · ${sourceWindow?.label || 'source window unavailable'}`,
+          counts_label: `${snapshot.visible_modeled_context_feature_count}/${modeledContextPublishedCellCountLabel(snapshot)} published cells visible · ${qualityCounts.no_pollen_data} explicitly have no pollen data · ${sourceWindow?.label || 'source window unavailable'}`,
           caveat: 'Published modeled cells are context only · no atlas interpolation, flow, or propagation inference.',
         }, keyItems);
       }

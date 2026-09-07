@@ -253,6 +253,36 @@ def test_capture_overlay_keeps_map_clear_and_labels_evidence_in_every_frame() ->
     )
 
 
+def test_capture_overlay_refuses_to_invent_a_missing_modeled_denominator() -> None:
+    helper = template_block(
+        "function modeledContextPublishedCellCountLabel",
+        "function renderAtlasCaptureOverlay",
+    )
+    observed = run_node_json(
+        helper
+        + """
+console.log(JSON.stringify({
+  missing:modeledContextPublishedCellCountLabel({}),
+  nullValue:modeledContextPublishedCellCountLabel({modeled_context:{feature_count:null}}),
+  blank:modeledContextPublishedCellCountLabel({modeled_context:{feature_count:''}}),
+  array:modeledContextPublishedCellCountLabel({modeled_context:{feature_count:[]}}),
+  zero:modeledContextPublishedCellCountLabel({modeled_context:{feature_count:0}}),
+  published:modeledContextPublishedCellCountLabel({modeled_context:{feature_count:1875}}),
+}));
+"""
+    )
+
+    assert observed == {
+        "missing": "unavailable",
+        "nullValue": "unavailable",
+        "blank": "unavailable",
+        "array": "unavailable",
+        "zero": "0",
+        "published": "1875",
+    }
+    assert "snapshot.modeled_context?.feature_count ?? 0" not in MAP_DOCUMENT_TEMPLATE
+
+
 def test_capture_country_framing_is_quiet_without_changing_interactive_style() -> None:
     block = template_block("function renderPolygonLayers", "function updateStats")
 
