@@ -10,12 +10,35 @@ import pytest
 from bijux_pollenomics.provenance import (
     ArtifactInput,
     Blocker,
+    CountReconciliation,
     GateResult,
     ReleaseEvidenceError,
     build_release_evidence_manifest,
 )
+from bijux_pollenomics.provenance.release_evidence.assessment import _release_decision
 
 from .support import COMMIT, _artifacts, _build, _digest, _reconciliations
+
+
+def _reconciliations_with_status(
+    count_status: Literal["unavailable", "refused"],
+) -> list[CountReconciliation]:
+    return [
+        CountReconciliation(
+            **{
+                **item.__dict__,
+                "candidate_count": None,
+                "eligible_count": None,
+                "accepted_count": None,
+                "unresolved_count": None,
+                "excluded_count": None,
+                "refused_count": None,
+                "count_status": count_status,
+                "reason_codes": (f"source_dimension_{count_status}",),
+            }
+        )
+        for item in _reconciliations()
+    ]
 
 
 def test_failed_required_gate_never_claims_release_ready(tmp_path: Path) -> None:
@@ -38,6 +61,63 @@ def test_failed_required_gate_never_claims_release_ready(tmp_path: Path) -> None
     assert isinstance(decision, dict)
     assert decision["release_ready"] is False
     assert decision["status"] != "verified_complete"
+
+
+@pytest.mark.parametrize(
+    ("count_status", "expected_status"),
+    [("unavailable", "implemented_unverified"), ("refused", "refused_invalid")],
+)
+def test_required_unreported_reconciliations_refuse_complete_release(
+    tmp_path: Path,
+    count_status: Literal["unavailable", "refused"],
+    expected_status: str,
+) -> None:
+    reconciliations = _reconciliations_with_status(count_status)
+
+    manifest = _build(tmp_path, reconciliations=reconciliations)
+    decision = cast(dict[str, object], manifest["release_decision"])
+
+    assert decision["release_ready"] is False
+    assert decision["status"] == expected_status
+    assert {
+        f"required_reconciliation_{count_status}:{item.identity}"
+        for item in reconciliations
+    } <= set(cast(list[str], decision["reason_codes"]))
+
+
+def test_trusted_gates_require_reported_reconciliation_rows() -> None:
+    trusted_gate = GateResult(
+        "quality",
+        "PASS",
+        True,
+        "sha256:" + "0" * 64,
+        attestation="independent_execution_attestation",
+        authority_id="independent-verifier",
+    )
+
+    unavailable = _release_decision(
+        False,
+        [trusted_gate],
+        _reconciliations_with_status("unavailable"),
+        [],
+    )
+    refused = _release_decision(
+        False,
+        [trusted_gate],
+        _reconciliations_with_status("refused"),
+        [],
+    )
+    reported = _release_decision(False, [trusted_gate], _reconciliations(), [])
+
+    assert unavailable["status"] == "implemented_unverified"
+    assert unavailable["release_ready"] is False
+    assert refused["status"] == "refused_invalid"
+    assert refused["release_ready"] is False
+    assert reported == {
+        "release_ready": True,
+        "status": "verified_complete",
+        "reason_codes": [],
+    }
 
 
 def test_blockers_and_dirty_state_refuse_release_ready_claim(tmp_path: Path) -> None:
@@ -97,6 +177,34 @@ def test_blockers_and_dirty_state_refuse_release_ready_claim(tmp_path: Path) -> 
             "required_gate_not_independently_attested:quality",
         ],
     }
+
+
+@pytest.mark.parametrize("dirty", [False, True])
+def test_reduced_scope_cannot_waive_unavailable_counts_or_dirty_inputs(
+    dirty: bool,
+) -> None:
+    digest = "sha256:" + "0" * 64
+    gate = GateResult(
+        "quality",
+        "PASS",
+        True,
+        digest,
+        attestation="independent_execution_attestation",
+        authority_id="independent-verifier",
+    )
+    reduced_scope = Blocker(
+        "scope", "reduced_publication_scope", digest, kind="reduced_scope"
+    )
+    unresolved = _release_decision(
+        dirty, [gate], _reconciliations_with_status("unavailable"), [reduced_scope]
+    )
+    reported = _release_decision(dirty, [gate], _reconciliations(), [reduced_scope])
+
+    assert unresolved["status"] == "implemented_unverified"
+    assert unresolved["release_ready"] is False
+    assert reported["status"] == (
+        "implemented_unverified" if dirty else "verified_partial"
+    )
 
 
 @pytest.mark.parametrize(

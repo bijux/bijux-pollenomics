@@ -411,10 +411,16 @@ def _policy_artifact_ancestor_identities(
 
 
 def _release_decision(
-    dirty: bool, gates: Sequence[GateResult], blockers: Sequence[Blocker]
+    dirty: bool,
+    gates: Sequence[GateResult],
+    reconciliations: Sequence[CountReconciliation],
+    blockers: Sequence[Blocker],
 ) -> dict[str, object]:
     required_nonpass = [
         gate for gate in gates if gate.required and gate.status != "PASS"
+    ]
+    required_unreconciled = [
+        item for item in reconciliations if item.count_status != "reported"
     ]
     reasons = [
         f"required_gate_{gate.status.lower()}:{gate.identity}"
@@ -427,6 +433,10 @@ def _release_decision(
         and gate.status == "PASS"
         and gate.attestation == "local_self_attestation"
     )
+    reasons.extend(
+        f"required_reconciliation_{item.count_status}:{item.identity}"
+        for item in required_unreconciled
+    )
     reasons.extend(f"blocker:{blocker.reason_code}" for blocker in blockers)
     if dirty:
         reasons.append("candidate_dirty")
@@ -438,11 +448,15 @@ def _release_decision(
         status = "failed"
     elif "external" in blocker_kinds:
         status = "external_blocked"
-    elif "refused" in blocker_kinds:
+    elif "refused" in blocker_kinds or any(
+        item.count_status == "refused" for item in required_unreconciled
+    ):
         status = "refused_invalid"
     elif (
         blocker_kinds == {"reduced_scope"}
         and not required_nonpass
+        and not required_unreconciled
+        and not dirty
         and all(gate.attestation != "local_self_attestation" for gate in gates)
     ):
         status = "verified_partial"

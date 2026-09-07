@@ -95,7 +95,9 @@ def build_release_evidence_manifest(
     ordered_blockers = sorted(blockers, key=lambda item: item.identity)
     _validate_blockers(ordered_blockers, artifact_records, ordered_gates, policy)
 
-    decision = _release_decision(dirty, ordered_gates, ordered_blockers)
+    decision = _release_decision(
+        dirty, ordered_gates, ordered_reconciliations, ordered_blockers
+    )
     content: dict[str, object] = {
         "schema_version": "release-evidence-manifest.v3",
         "code_commit": code_commit,

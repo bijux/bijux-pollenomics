@@ -4,7 +4,7 @@ audience: maintainer
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-07
 ---
 
 # Release Support
@@ -91,6 +91,15 @@ the accepted revision and version.
 
 Each stop names its own scope. Report it as passed, failed, blocked, or not run;
 do not collapse several stops into an unqualified “release ready” label.
+
+The canonical release-evidence decision also checks every required count
+reconciliation. An `unavailable` count is unknown, and a `refused` count is
+inadmissible under its recorded reason; neither is a reported zero. Passing
+gates, including independently attested gates, cannot turn these rows into
+`verified_complete`. The decision names each affected reconciliation in its
+reason codes. An unrelated reduced-scope decision cannot waive an unresolved
+required count. Resolve the source evidence or explicitly govern a narrower
+release scope before seeking approval.
 
 ## Partial Publication And Recovery
 
