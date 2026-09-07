@@ -139,9 +139,12 @@ def test_plugin_preserves_existing_marker_selection(
             raise AssertionError("existing marker exclusion must be preserved")
     """)
     plan = pytester.path / "artifacts" / "collection-plan.json"
+    child_cache = pytester.path / "artifacts" / "pytest-cache"
     collected = pytester.runpytest(
         "-p",
         "bijux_pollenomics_dev.ci.test_shards.plugin",
+        "-o",
+        f"cache_dir={child_cache}",
         "-m",
         "not generated_artifacts",
         "--collect-only",
@@ -154,6 +157,8 @@ def test_plugin_preserves_existing_marker_selection(
         result = pytester.runpytest(
             "-p",
             "bijux_pollenomics_dev.ci.test_shards.plugin",
+            "-o",
+            f"cache_dir={child_cache}",
             "-m",
             "not generated_artifacts",
             "--bijux-shard-count=2",
