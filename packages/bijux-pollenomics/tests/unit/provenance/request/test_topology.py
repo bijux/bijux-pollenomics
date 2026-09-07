@@ -21,6 +21,7 @@ def test_request_implementation_is_an_intent_owned_package() -> None:
         "blockers.py",
         "gates.py",
         "identity.py",
+        "service.py",
         "reconciliation/__init__.py",
         "reconciliation/chronology.py",
         "reconciliation/classification.py",

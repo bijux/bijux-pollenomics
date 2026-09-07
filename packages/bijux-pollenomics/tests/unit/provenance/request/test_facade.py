@@ -12,6 +12,7 @@ from bijux_pollenomics.provenance.request import (
     derive_release_evidence_request,
     validate_release_evidence_request,
 )
+from bijux_pollenomics.provenance.request import service as request_service
 from tests.unit.provenance.release_evidence_writer.support import _inputs
 
 
@@ -32,10 +33,10 @@ def test_repository_state_override_remains_compatible(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     _inputs(tmp_path)
-    observed = request_module._repository_state(tmp_path, "fixture")
+    observed = request_service._repository_state(tmp_path, "fixture")
     dirty_state = {**observed, "dirty": True}
     monkeypatch.setattr(
-        request_module,
+        request_service,
         "_repository_state",
         lambda _root, _mode: dict(dirty_state),
     )

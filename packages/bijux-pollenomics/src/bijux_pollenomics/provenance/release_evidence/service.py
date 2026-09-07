@@ -147,9 +147,9 @@ def validate_release_evidence_manifest(
         )
         policy = _load_release_evidence_policy(_repository_root(repository_root))
         if policy.mode == "product":
-            from ..request import _reconciliations
+            from ..request.reconciliation import derive_reconciliations
 
-            governed_reconciliations = _reconciliations(
+            governed_reconciliations = derive_reconciliations(
                 _repository_root(repository_root), policy
             )
             if tuple(sorted(reconciliations, key=_reconciliation_sort_key)) != tuple(

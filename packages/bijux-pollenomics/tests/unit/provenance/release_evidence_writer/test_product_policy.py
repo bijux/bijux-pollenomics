@@ -16,7 +16,11 @@ from bijux_pollenomics.provenance import (
     ReleaseEvidenceError,
     validate_release_evidence_manifest,
 )
-from bijux_pollenomics.provenance import request as request_module
+from bijux_pollenomics.provenance.request import artifacts as request_artifacts
+from bijux_pollenomics.provenance.request import (
+    reconciliation as request_reconciliation,
+)
+from bijux_pollenomics.provenance.request import service as request_service
 from bijux_pollenomics.provenance.release_evidence import artifacts as release_artifacts
 from bijux_pollenomics.provenance.release_evidence import (
     assessment as release_assessment,
@@ -38,7 +42,7 @@ def test_product_request_policy_has_exact_inventory_and_reconciliation_counts() 
     root = REPOSITORY_ROOT
     policy = release_policy._load_release_evidence_policy(root)
 
-    rows = request_module._reconciliations(root, policy)
+    rows = request_service._reconciliations(root, policy)
     by_identity = {row.identity: row for row in rows}
 
     assert len(policy.required_artifacts) == 27
@@ -117,7 +121,7 @@ def test_product_request_policy_has_coherent_full_artifact_graph(
         for requirement in policy.required_artifacts
         if requirement.role == "validation_result"
     }
-    hash_repository_object = request_module._hash_repository_object
+    hash_repository_object = request_service._hash_repository_object
 
     def hash_or_identify_pending_gate(
         repository_root: Path,
@@ -141,14 +145,14 @@ def test_product_request_policy_has_coherent_full_artifact_graph(
         )
 
     monkeypatch.setattr(
-        request_module,
+        request_service,
         "_hash_repository_object",
         hash_or_identify_pending_gate,
     )
-    artifacts, digests = request_module._artifact_inputs(root, policy)
+    artifacts, digests = request_service._artifact_inputs(root, policy)
     records = [
         (
-            request_module._artifact_record(artifact)
+            request_artifacts.artifact_record(artifact)
             if artifact.role == "validation_result"
             else release_artifacts._artifact_record(root, artifact)
         )
@@ -211,7 +215,9 @@ def test_product_manifest_validation_rejects_caller_supplied_reconciliations(
         lambda _root: product_policy,
     )
     monkeypatch.setattr(
-        request_module, "_reconciliations", lambda _root, _policy: governed
+        request_reconciliation,
+        "derive_reconciliations",
+        lambda _root, _policy: governed,
     )
 
     with pytest.raises(ReleaseEvidenceError, match="governed derivation"):
@@ -241,4 +247,4 @@ def test_country_adapter_rejects_dimension_substitution(tmp_path: Path) -> None:
     ledger.parent.mkdir(parents=True)
     ledger.write_bytes(_canonical_json({"cells": cells}) + b"\n")
 
-    assert request_module._governed_country_values(tmp_path, requirement) is None
+    assert request_reconciliation.governed_country_values(tmp_path, requirement) is None

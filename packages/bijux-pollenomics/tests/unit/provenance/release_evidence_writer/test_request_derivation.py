@@ -14,6 +14,7 @@ from bijux_pollenomics.provenance import (
     write_release_evidence_request,
 )
 from bijux_pollenomics.provenance import request as request_module
+from bijux_pollenomics.provenance.request import service as request_service
 from bijux_pollenomics.provenance.release_evidence import (
     repository as release_repository,
 )
@@ -120,7 +121,7 @@ def test_request_derivation_rejects_concurrent_input_mutation(
             mutated = True
         return result
 
-    monkeypatch.setattr(request_module, "_hash_repository_object", mutating_hash)
+    monkeypatch.setattr(request_service, "_hash_repository_object", mutating_hash)
 
     with pytest.raises(ReleaseEvidenceError, match="digest changed"):
         derive_release_evidence_request(tmp_path)
@@ -142,7 +143,7 @@ def test_request_derivation_records_observed_dirty_state(
         "untracked_objects": [],
     }
     monkeypatch.setattr(
-        request_module,
+        request_service,
         "_repository_state",
         lambda _root, _mode: dict(state),
     )
