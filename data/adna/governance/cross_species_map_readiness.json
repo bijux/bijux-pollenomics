@@ -63,8 +63,8 @@
       "region_only_coordinate_refusal_count": 0,
       "unresolved_location_coordinate_refusal_count": 0,
       "coordinate_provenance_mappable_count": 27,
-      "publication_candidate_count": 26,
-      "not_materialized_count": 1
+      "publication_candidate_count": 27,
+      "not_materialized_count": 0
     },
     {
       "species_latin_name": "Canis lupus familiaris",
@@ -141,8 +141,8 @@
     "unresolved_location_coordinate_refusal_count": 0,
     "coordinate_provenance_mappable_count": 285,
     "coordinate_provenance_row_count": 289,
-    "publication_candidate_count": 151,
-    "not_materialized_count": 134
+    "publication_candidate_count": 152,
+    "not_materialized_count": 133
   },
   "not_materialized_rows": [
     {
@@ -163,16 +163,6 @@
       "coordinate_basis": "named_site_geocoding",
       "source_artifact_path": "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
       "source_locator": "introduction",
-      "reason_code": "no_admitted_sample_backed_locality_candidate"
-    },
-    {
-      "species_latin_name": "Capra hircus",
-      "species_common_name": "goat",
-      "project_accession": "PRJEB90261",
-      "site_label": "Lobos",
-      "coordinate_basis": "supplementary_table_coordinates",
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
-      "source_locator": "Table S2!row60",
       "reason_code": "no_admitted_sample_backed_locality_candidate"
     },
     {

@@ -88,9 +88,11 @@
         "time_end_bp": 2050,
         "time_mean_bp": 1850,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_accession_range_context",
       "molecular_sex": "",
@@ -174,9 +176,11 @@
         "time_end_bp": 2050,
         "time_mean_bp": 1850,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_accession_range_context",
       "molecular_sex": "",
@@ -260,9 +264,11 @@
         "time_end_bp": 2050,
         "time_mean_bp": 1850,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_accession_range_context",
       "molecular_sex": "",
@@ -346,9 +352,11 @@
         "time_end_bp": 1500,
         "time_mean_bp": 1375,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_accession_range_context",
       "molecular_sex": "",
@@ -432,9 +440,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_accession_range_context",
       "molecular_sex": "",
@@ -518,9 +528,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_accession_range_context",
       "molecular_sex": "",
@@ -604,9 +616,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_accession_range_context",
       "molecular_sex": "",
@@ -690,9 +704,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_accession_range_context",
       "molecular_sex": "",
@@ -776,9 +792,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_accession_range_context",
       "molecular_sex": "",
@@ -862,9 +880,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_accession_range_context",
       "molecular_sex": "",
@@ -948,9 +968,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_accession_range_context",
       "molecular_sex": "",
@@ -1034,9 +1056,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_accession_range_context",
       "molecular_sex": "",
@@ -1120,9 +1144,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_accession_range_context",
       "molecular_sex": "",
@@ -1457,9 +1483,9 @@
     {
       "identity": {
         "namespace": "camelus_dromedarius:project_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:austria",
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:austria:austria",
         "locality_text": "Austria",
-        "political_entity": "",
+        "political_entity": "Austria",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "",
@@ -1502,9 +1528,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "camelus_dromedarius:sample_locality",
       "project_accessions": [
@@ -1563,9 +1591,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "camelus_dromedarius:sample_locality",
       "project_accessions": [
@@ -1579,9 +1609,9 @@
     {
       "identity": {
         "namespace": "camelus_dromedarius:project_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:kenya",
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:kenya:kenya",
         "locality_text": "Kenya",
-        "political_entity": "",
+        "political_entity": "Kenya",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "",
@@ -1624,9 +1654,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "camelus_dromedarius:sample_locality",
       "project_accessions": [
@@ -1640,9 +1672,9 @@
     {
       "identity": {
         "namespace": "camelus_dromedarius:project_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:pakistan",
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:pakistan:pakistan",
         "locality_text": "Pakistan",
-        "political_entity": "",
+        "political_entity": "Pakistan",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "",
@@ -1685,9 +1717,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "camelus_dromedarius:sample_locality",
       "project_accessions": [
@@ -1748,9 +1782,11 @@
         "time_end_bp": 2050,
         "time_mean_bp": 1850,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "camelus_dromedarius:sample_locality",
       "project_accessions": [
@@ -1809,9 +1845,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "camelus_dromedarius:sample_locality",
       "project_accessions": [
@@ -1870,9 +1908,11 @@
         "time_end_bp": 1500,
         "time_mean_bp": 1375,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "camelus_dromedarius:sample_locality",
       "project_accessions": [
@@ -1886,9 +1926,9 @@
     {
       "identity": {
         "namespace": "camelus_dromedarius:project_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:saudiarabia",
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:saudiarabia:saudiarabia",
         "locality_text": "Saudi Arabia",
-        "political_entity": "",
+        "political_entity": "Saudi Arabia",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "",
@@ -1933,9 +1973,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "camelus_dromedarius:sample_locality",
       "project_accessions": [
@@ -1949,9 +1991,9 @@
     {
       "identity": {
         "namespace": "camelus_dromedarius:project_locality",
-        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sudan",
+        "stable_token": "camelus_dromedarius:locality:ku605068-ku605080:sudan:sudan",
         "locality_text": "Sudan",
-        "political_entity": "",
+        "political_entity": "Sudan",
         "source_anchor_tokens": [
           "KU605068-KU605080",
           "",
@@ -1994,9 +2036,11 @@
         "time_end_bp": 0,
         "time_mean_bp": 0,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_precise_point"
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "camelus_dromedarius:sample_locality",
       "project_accessions": [

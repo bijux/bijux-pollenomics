@@ -50,9 +50,11 @@
         "time_end_bp": 4700,
         "time_mean_bp": 4700,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "archaeological_context",
         "evidence_class": "archaeological_context_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "sus_scrofa_domesticus:sample_locality",
       "project_accessions": [
@@ -111,9 +113,11 @@
         "time_end_bp": 1000,
         "time_mean_bp": 1000,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "archaeological_context",
         "evidence_class": "archaeological_context_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "sus_scrofa_domesticus:sample_locality",
       "project_accessions": [

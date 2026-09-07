@@ -87,9 +87,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -173,9 +175,11 @@
         "time_end_bp": 4700,
         "time_mean_bp": 4700,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "archaeological_context",
         "evidence_class": "archaeological_context_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -259,9 +263,11 @@
         "time_end_bp": 1000,
         "time_mean_bp": 1000,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "archaeological_context",
         "evidence_class": "archaeological_context_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -345,9 +351,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -431,9 +439,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -517,9 +527,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -603,9 +615,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -689,9 +703,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -775,9 +791,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -861,9 +879,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -947,9 +967,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -1033,9 +1055,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -1119,9 +1143,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -1205,9 +1231,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -1291,9 +1319,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -1377,9 +1407,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -1463,9 +1495,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -1549,9 +1583,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -1635,9 +1671,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -1721,9 +1759,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -1807,9 +1847,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -1893,9 +1935,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -1979,9 +2023,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -2065,9 +2111,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -2151,9 +2199,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -2237,9 +2287,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -2323,9 +2375,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -2409,9 +2463,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -2495,9 +2551,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -2581,9 +2639,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -2667,9 +2727,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -2753,9 +2815,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -2839,9 +2903,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -2925,9 +2991,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -3011,9 +3079,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -3097,9 +3167,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -3183,9 +3255,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -3269,9 +3343,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -3355,9 +3431,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -3441,9 +3519,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -3527,9 +3607,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -3613,9 +3695,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -3699,9 +3783,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -3785,9 +3871,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -3871,9 +3959,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -3957,9 +4047,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -4043,9 +4135,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -4129,9 +4223,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -4215,9 +4311,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -4301,9 +4399,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -4387,9 +4487,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -4473,9 +4575,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -4559,9 +4663,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -4645,9 +4751,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -4731,9 +4839,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -4817,9 +4927,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -4903,9 +5015,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -4989,9 +5103,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -5075,9 +5191,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -5161,9 +5279,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -5247,9 +5367,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -5333,9 +5455,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -5419,9 +5543,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -5505,9 +5631,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -5591,9 +5719,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -5677,9 +5807,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -5763,9 +5895,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -5849,9 +5983,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -5935,9 +6071,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -6021,9 +6159,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -6107,9 +6247,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -6193,9 +6335,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -6279,9 +6423,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -6365,9 +6511,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -6451,9 +6599,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -6537,9 +6687,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -6623,9 +6775,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -6709,9 +6863,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -6795,9 +6951,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -6881,9 +7039,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -6967,9 +7127,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -7053,9 +7215,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -7139,9 +7303,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -7225,9 +7391,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -7311,9 +7479,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -7397,9 +7567,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -7483,9 +7655,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -7569,9 +7743,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -7655,9 +7831,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -7741,9 +7919,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -7827,9 +8007,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -7913,9 +8095,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -7999,9 +8183,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -8085,9 +8271,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -8171,9 +8359,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -8257,9 +8447,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -8343,9 +8535,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -8429,9 +8623,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -8515,9 +8711,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -8601,9 +8799,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -8687,9 +8887,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -8773,9 +8975,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -8859,9 +9063,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -8945,9 +9151,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -9031,9 +9239,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -9117,9 +9327,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -9203,9 +9415,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -9289,9 +9503,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -9375,9 +9591,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -9461,9 +9679,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -9547,9 +9767,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -9633,9 +9855,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -9719,9 +9943,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -9805,9 +10031,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -9891,9 +10119,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -9977,9 +10207,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -10063,9 +10295,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -10149,9 +10383,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -10235,9 +10471,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -10321,9 +10559,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -10407,9 +10647,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -10493,9 +10735,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -10579,9 +10823,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -10665,9 +10911,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -10751,9 +10999,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -10837,9 +11087,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -10923,9 +11175,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -11009,9 +11263,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -11095,9 +11351,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -11181,9 +11439,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -11267,9 +11527,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -11353,9 +11615,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -11439,9 +11703,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -11525,9 +11791,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -11611,9 +11879,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -11697,9 +11967,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -11783,9 +12055,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -11869,9 +12143,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -11955,9 +12231,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -12041,9 +12319,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -12127,9 +12407,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -12213,9 +12495,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -12299,9 +12583,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -12385,9 +12671,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -12471,9 +12759,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -12557,9 +12847,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -12643,9 +12935,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -12729,9 +13023,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -12815,9 +13111,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -12901,9 +13199,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -12987,9 +13287,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -13073,9 +13375,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -13159,9 +13463,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -13245,9 +13551,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -13331,9 +13639,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -13417,9 +13727,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -13503,9 +13815,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -13589,9 +13903,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -13675,9 +13991,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -13761,9 +14079,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -13847,9 +14167,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -13933,9 +14255,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -14019,9 +14343,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -14105,9 +14431,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -14191,9 +14519,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -14277,9 +14607,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -14363,9 +14695,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -14449,9 +14783,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -14535,9 +14871,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -14621,9 +14959,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -14707,9 +15047,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -14793,9 +15135,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -14879,9 +15223,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -14965,9 +15311,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -15051,9 +15399,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -15137,9 +15487,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -15223,9 +15575,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -15309,9 +15663,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -15395,9 +15751,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -15481,9 +15839,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -15567,9 +15927,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -15653,9 +16015,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -15739,9 +16103,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -15825,9 +16191,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -15911,9 +16279,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -15997,9 +16367,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -16083,9 +16455,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -16169,9 +16543,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -16255,9 +16631,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -16341,9 +16719,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -16427,9 +16807,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -16513,9 +16895,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -16599,9 +16983,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -16685,9 +17071,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -16771,9 +17159,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -16857,9 +17247,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -16943,9 +17335,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -17029,9 +17423,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -17115,9 +17511,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -17201,9 +17599,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -17287,9 +17687,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -17373,9 +17775,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -17459,9 +17863,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -17545,9 +17951,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -17631,9 +18039,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -17717,9 +18127,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -17803,9 +18215,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -17889,9 +18303,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -17975,9 +18391,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -18061,9 +18479,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -18147,9 +18567,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -18233,9 +18655,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -18319,9 +18743,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -18405,9 +18831,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -18491,9 +18919,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -18577,9 +19007,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -18663,9 +19095,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -18749,9 +19183,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -18835,9 +19271,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -18921,9 +19359,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -19007,9 +19447,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -19093,9 +19535,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -19179,9 +19623,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -19265,9 +19711,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -19351,9 +19799,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -19437,9 +19887,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -19523,9 +19975,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -19609,9 +20063,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -19695,9 +20151,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -19781,9 +20239,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -19867,9 +20327,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -19953,9 +20415,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -20039,9 +20503,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -20125,9 +20591,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -20211,9 +20679,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -20297,9 +20767,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -20383,9 +20855,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -20469,9 +20943,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -20555,9 +21031,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -20641,9 +21119,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -20727,9 +21207,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -20813,9 +21295,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -20899,9 +21383,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -20985,9 +21471,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -21071,9 +21559,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -21157,9 +21647,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -21243,9 +21735,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -21329,9 +21823,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -21415,9 +21911,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -21501,9 +21999,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -21587,9 +22087,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -21673,9 +22175,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -21759,9 +22263,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -21845,9 +22351,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -21931,9 +22439,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -22017,9 +22527,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -22103,9 +22615,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -22189,9 +22703,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -22275,9 +22791,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -22361,9 +22879,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -22447,9 +22967,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -22533,9 +23055,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -22619,9 +23143,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -22705,9 +23231,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -22791,9 +23319,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -22877,9 +23407,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -22963,9 +23495,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -23049,9 +23583,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -23135,9 +23671,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -23221,9 +23759,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -23307,9 +23847,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -23393,9 +23935,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -23479,9 +24023,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -23565,9 +24111,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -23651,9 +24199,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -23737,9 +24287,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -23823,9 +24375,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -23909,9 +24463,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -23995,9 +24551,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -24081,9 +24639,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -24167,9 +24727,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -24253,9 +24815,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -24339,9 +24903,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -24425,9 +24991,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -24511,9 +25079,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -24597,9 +25167,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -24683,9 +25255,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -24769,9 +25343,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -24855,9 +25431,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -24941,9 +25519,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -25027,9 +25607,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -25113,9 +25695,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -25199,9 +25783,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -25285,9 +25871,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -25371,9 +25959,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -25457,9 +26047,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -25543,9 +26135,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -25629,9 +26223,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -25715,9 +26311,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -25801,9 +26399,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -25887,9 +26487,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -25973,9 +26575,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -26059,9 +26663,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -26145,9 +26751,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -26231,9 +26839,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -26317,9 +26927,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -26403,9 +27015,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -26489,9 +27103,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -26575,9 +27191,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -26661,9 +27279,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -26747,9 +27367,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -26833,9 +27455,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -26919,9 +27543,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -27005,9 +27631,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -27091,9 +27719,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -27177,9 +27807,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -27263,9 +27895,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -27349,9 +27983,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -27435,9 +28071,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -27521,9 +28159,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -27607,9 +28247,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -27693,9 +28335,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -27779,9 +28423,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -27865,9 +28511,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -27951,9 +28599,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -28037,9 +28687,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -28123,9 +28775,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -28209,9 +28863,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -28295,9 +28951,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -28381,9 +29039,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -28467,9 +29127,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -28553,9 +29215,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -28639,9 +29303,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -28725,9 +29391,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -28811,9 +29479,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -28897,9 +29567,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -28983,9 +29655,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -29069,9 +29743,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -29155,9 +29831,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -29241,9 +29919,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -29327,9 +30007,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -29413,9 +30095,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -29499,9 +30183,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "unresolved",
-        "precision_posture": "unresolved"
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
       },
       "data_type": "archive_project_context",
       "molecular_sex": "",
@@ -29729,9 +30415,11 @@
         "time_end_bp": 4700,
         "time_mean_bp": 4700,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "archaeological_context",
         "evidence_class": "archaeological_context_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "sus_scrofa_domesticus:sample_locality",
       "project_accessions": [
@@ -29790,9 +30478,11 @@
         "time_end_bp": 1000,
         "time_mean_bp": 1000,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "archaeological_context",
         "evidence_class": "archaeological_context_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "sus_scrofa_domesticus:sample_locality",
       "project_accessions": [

@@ -1,6 +1,6 @@
 {
   "schema_version": "animal-atlas-point-candidates.v1",
-  "row_count": 151,
+  "row_count": 152,
   "rows": [
     {
       "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-hjrringtoftebk-denmark",
@@ -1976,6 +1976,99 @@
       "source_locator": "Table S2!row52",
       "source_support_status": "supplementary_table_row",
       "exact_source_text": "50 | CHIC-0050 | PGULL-1969 | LLD-1065 | Fuerteventura | Llano del Sombrero | 28.408760999999998 | -14.125189000000001 | 11th - 12th centuries (A; SU11) | Yes | No | Yes | 5.8900000000000003E-3 | 41.570300000000003 | 6.8337099999999998E-2 | 9589 | 0.98864399999999997 | 23.822199999999999 | Yes | A2a",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-lobos-lobos",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-lobos-lobos",
+      "site_record_id": "capra_hircus:locality:prjeb90261:lobos:lobos",
+      "species_latin_name": "Capra hircus",
+      "species_common_name": "goat",
+      "animal_scope": "domesticated_core",
+      "support_class": "accepted",
+      "support_note": "admissible_for_curated_support",
+      "locality": "Lobos",
+      "political_entity": "Lobos",
+      "latitude": 28.741962,
+      "longitude": -13.825055,
+      "latitude_text": "28.741962000000001",
+      "longitude_text": "-13.825055000000001",
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "geocoding_method": "direct_supplementary_coordinate_capture",
+      "geocoder_or_gazetteer": "not required because the supplementary table ships coordinates",
+      "confidence_rationale": "The published supplementary table provides direct coordinates for this locality.",
+      "original_place_text": "Lobos",
+      "resolved_place_text": "Lobos",
+      "coordinate_source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "coordinate_source_locator": "Table S2!row60",
+      "coordinate_supplementary_source": "",
+      "coordinate_support_gap_note": "",
+      "chronology": {
+        "original_text": "1st century BCE - 3rd century CE (site)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "project_accessions": [
+        "PRJEB90261"
+      ],
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1295",
+        "capra_hircus:sample:prjeb90261:pgull-1296",
+        "capra_hircus:sample:prjeb90261:pgull-1299",
+        "capra_hircus:sample:prjeb90261:pgull-1300",
+        "capra_hircus:sample:prjeb90261:pgull-1301",
+        "capra_hircus:sample:prjeb90261:pgull-1302",
+        "capra_hircus:sample:prjeb90261:pgull-1304",
+        "capra_hircus:sample:prjeb90261:pgull-1305",
+        "capra_hircus:sample:prjeb90261:pgull-1307",
+        "capra_hircus:sample:prjeb90261:pgull-1308",
+        "capra_hircus:sample:prjeb90261:pgull-1309",
+        "capra_hircus:sample:prjeb90261:pgull-1314",
+        "capra_hircus:sample:prjeb90261:pgull-1315",
+        "capra_hircus:sample:prjeb90261:pgull-1316",
+        "capra_hircus:sample:prjeb90261:pgull-1317",
+        "capra_hircus:sample:prjeb90261:pgull-1319",
+        "capra_hircus:sample:prjeb90261:pgull-1868"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "source_native_taxon_labels": [],
+      "source_native_tax_ids": [],
+      "source_native_scientific_names": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
+      "sample_count": 17,
+      "sample_namespace": "capra_hircus:sample_locality",
+      "inclusion_statuses": [
+        "site_curated"
+      ],
+      "inclusion_notes": [
+        "Sample-level locality comes directly from the recovered sample source row."
+      ],
+      "paper_title": "Paleogenomic evidence on the temporal continuity of indigenous goat exploitation in the Canary Islands",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "publication_year": "2025",
+      "journal_title": "iScience",
+      "paper_url": "https://doi.org/10.1016/j.isci.2025.113771",
+      "supplementary_sources": [],
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_artifact_kind": "supplementary_spreadsheet_row",
+      "source_locator": "Table S2!row60",
+      "source_support_status": "supplementary_table_row",
+      "exact_source_text": "58 | CHIC-0058 | PGULL-1295 | LLD-0497 | Lobos | Lobos | 28.741962000000001 | -13.825055000000001 | 1st century BCE - 3rd century CE (site) | Yes | No | No | 4.7E-2 | 42.363500000000002 | 0.33942600000000001 | 10681 | 0.98678100000000002 | 26.2804 | No | A8a | - | 0.87881299999999996 | 20.2514 | No",
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
       "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."

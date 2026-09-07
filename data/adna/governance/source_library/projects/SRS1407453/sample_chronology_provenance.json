@@ -38,6 +38,7 @@
         "time_mean_bp": 7080,
         "duration_years": 183,
         "comparison_note": "Chronology comes from the recovered sample-owned source row.",
+        "refusal_reason_code": "",
         "provenance_path": "adna/governance/source_library/papers/10.1038-ncomms16082/article.html",
         "provenance_locator": "Results: Archaeological samples and ancient DNA sequencing; Data availability",
         "provenance_excerpt": "SRS1407453 maps to HXH; the article identifies Herxheim and gives a calibrated BCE interval.",

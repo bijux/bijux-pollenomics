@@ -1,7 +1,7 @@
 {
   "schema_version": "animal-atlas-candidate-accountability.v1",
-  "candidate_row_count": 151,
-  "passed_row_count": 151,
+  "candidate_row_count": 152,
+  "passed_row_count": 152,
   "overall_ok": true,
   "rows": [
     {
@@ -681,6 +681,48 @@
       ],
       "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "coordinate_provenance_locator": "Table S2!row52",
+      "fully_accountable": true
+    },
+    {
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-lobos-lobos",
+      "species_latin_name": "Capra hircus",
+      "project_accession": "PRJEB90261",
+      "site_record_id": "capra_hircus:locality:prjeb90261:lobos:lobos",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1295",
+        "capra_hircus:sample:prjeb90261:pgull-1296",
+        "capra_hircus:sample:prjeb90261:pgull-1299",
+        "capra_hircus:sample:prjeb90261:pgull-1300",
+        "capra_hircus:sample:prjeb90261:pgull-1301",
+        "capra_hircus:sample:prjeb90261:pgull-1302",
+        "capra_hircus:sample:prjeb90261:pgull-1304",
+        "capra_hircus:sample:prjeb90261:pgull-1305",
+        "capra_hircus:sample:prjeb90261:pgull-1307",
+        "capra_hircus:sample:prjeb90261:pgull-1308",
+        "capra_hircus:sample:prjeb90261:pgull-1309",
+        "capra_hircus:sample:prjeb90261:pgull-1314",
+        "capra_hircus:sample:prjeb90261:pgull-1315",
+        "capra_hircus:sample:prjeb90261:pgull-1316",
+        "capra_hircus:sample:prjeb90261:pgull-1317",
+        "capra_hircus:sample:prjeb90261:pgull-1319",
+        "capra_hircus:sample:prjeb90261:pgull-1868"
+      ],
+      "sample_rows_present": true,
+      "sample_lineage_present": true,
+      "site_evidence_present": true,
+      "chronology_evidence_present": true,
+      "coordinate_provenance_present": true,
+      "sample_locality_matches_site_record": true,
+      "sample_lineage_paths": [
+        "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx"
+      ],
+      "site_evidence_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "site_evidence_locator": "Table S2!row60",
+      "chronology_provenance_paths": [
+        "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx"
+      ],
+      "coordinate_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "coordinate_provenance_locator": "Table S2!row60",
       "fully_accountable": true
     },
     {
