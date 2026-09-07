@@ -6,51 +6,26 @@ from ....core.geospatial.geojson import (
     JsonObject,
     LinearRing,
     Polygon,
-    parse_multipolygon,
-    parse_polygon,
 )
+from .topology import polygons_from_geometry
 
 
 def point_in_geometry(longitude: float, latitude: float, geometry: JsonObject) -> bool:
     """Check whether a point falls inside a GeoJSON Polygon or MultiPolygon."""
-    geometry_type = geometry.get("type")
-    coordinates = geometry.get("coordinates", [])
-    if geometry_type == "Polygon":
-        polygon = parse_polygon(coordinates)
-        return (
-            point_in_polygon(longitude, latitude, polygon)
-            if polygon is not None
-            else False
-        )
-    if geometry_type == "MultiPolygon":
-        multipolygon = parse_multipolygon(coordinates)
-        return any(
-            point_in_polygon(longitude, latitude, polygon)
-            for polygon in multipolygon or []
-        )
-    return False
+    return any(
+        point_in_polygon(longitude, latitude, polygon)
+        for polygon in polygons_from_geometry(geometry)
+    )
 
 
 def point_in_geometry_ignoring_holes(
     longitude: float, latitude: float, geometry: JsonObject
 ) -> bool:
     """Check outer-ring containment for diagnostics without assigning a country."""
-    geometry_type = geometry.get("type")
-    coordinates = geometry.get("coordinates", [])
-    if geometry_type == "Polygon":
-        polygon = parse_polygon(coordinates)
-        return (
-            point_in_outer_ring(longitude, latitude, polygon)
-            if polygon is not None
-            else False
-        )
-    if geometry_type == "MultiPolygon":
-        multipolygon = parse_multipolygon(coordinates)
-        return any(
-            point_in_outer_ring(longitude, latitude, polygon)
-            for polygon in multipolygon or []
-        )
-    return False
+    return any(
+        point_in_outer_ring(longitude, latitude, polygon)
+        for polygon in polygons_from_geometry(geometry)
+    )
 
 
 def point_in_polygon(longitude: float, latitude: float, polygon: Polygon) -> bool:

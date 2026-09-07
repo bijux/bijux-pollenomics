@@ -9,6 +9,7 @@ from .model import RawCountryComparison
 
 
 def coordinate_refusal_reason(longitude: float, latitude: float) -> str | None:
+    """Return the refusal reason for an invalid geographic coordinate."""
     if (
         isinstance(longitude, bool)
         or isinstance(latitude, bool)
@@ -26,6 +27,7 @@ def coordinate_refusal_reason(longitude: float, latitude: float) -> str | None:
 
 
 def optional_country(raw_country: str | None) -> str | None:
+    """Return a stripped country label or none when it is absent or blank."""
     if raw_country is None:
         return None
     normalized = raw_country.strip()
@@ -38,6 +40,7 @@ def compare_raw_country(
     derived_country: str,
     raw_country_aliases: Mapping[str, str] | None,
 ) -> RawCountryComparison:
+    """Compare source country evidence with the derived canonical country."""
     if raw_country is None:
         return "not_supplied"
     canonical_raw_country = raw_country

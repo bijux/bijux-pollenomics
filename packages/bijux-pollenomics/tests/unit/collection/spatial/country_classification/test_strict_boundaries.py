@@ -4,11 +4,16 @@ import dataclasses
 import hashlib
 import json
 import math
+from typing import cast
 from unittest.mock import patch
 
 import pytest
 
 from bijux_pollenomics.collection.spatial import country_classification
+from bijux_pollenomics.collection.spatial.country_classification import (
+    boundary_distance,
+    topology,
+)
 from bijux_pollenomics.collection.spatial.country_classification import (
     CountryAttributionDecision,
 )
@@ -47,6 +52,21 @@ def _decision(longitude: float, latitude: float) -> CountryAttributionDecision:
         boundary_artifact_digest=" digest ",
         boundary_version=" version ",
     )
+
+
+def _square_geometry() -> JsonObject:
+    return {
+        "type": "Polygon",
+        "coordinates": [
+            [
+                [0.0, 0.0],
+                [2.0, 0.0],
+                [2.0, 2.0],
+                [0.0, 2.0],
+                [0.0, 0.0],
+            ]
+        ],
+    }
 
 
 def test_strict_boundary_and_coordinate_refusals_are_distinct() -> None:
@@ -120,3 +140,75 @@ def test_decision_matrix_keeps_canonical_serialization_hash() -> None:
     ).hexdigest()
 
     assert digest == "d581e6e555f8c7d5af4880fd4d49b5b27fa68f7b2de834d32fa7ded1816c589f"
+
+
+@pytest.mark.parametrize(
+    ("longitude", "latitude", "epsilon"),
+    (
+        (0.0, 0.0, 1e-12),
+        (1.0, 0.0, 1e-12),
+        (1.0, 1.0, 1e-12),
+        (2.0 + 5e-13, 1.0, 1e-12),
+        (2.0 + 2e-12, 1.0, 1e-12),
+        (10.0, 10.0, 1e-12),
+        (1.0, 0.0, -1.0),
+        (1.0, 0.0, math.nan),
+    ),
+)
+def test_boundary_contact_matches_minimum_distance_definition(
+    longitude: float, latitude: float, epsilon: float
+) -> None:
+    geometry = _square_geometry()
+
+    assert country_classification.point_on_geometry_boundary(
+        longitude,
+        latitude,
+        geometry,
+        epsilon=epsilon,
+    ) == (
+        country_classification.geometry_boundary_distance(
+            longitude,
+            latitude,
+            geometry,
+        )
+        <= epsilon
+    )
+
+
+def test_boundary_contact_rejects_distant_segments_before_distance_math() -> None:
+    with patch.object(
+        boundary_distance,
+        "point_to_segment_distance",
+        wraps=boundary_distance.point_to_segment_distance,
+    ) as distance:
+        on_boundary = country_classification.point_on_geometry_boundary(
+            1.0,
+            1.0,
+            _square_geometry(),
+        )
+
+    assert on_boundary is False
+    distance.assert_not_called()
+
+
+def test_geometry_preparation_is_reused_and_invalidated_after_mutation() -> None:
+    geometry = _square_geometry()
+    with patch.object(
+        topology,
+        "parse_polygon",
+        wraps=topology.parse_polygon,
+    ) as parse_polygon:
+        assert not country_classification.point_on_geometry_boundary(
+            1.0,
+            1.0,
+            geometry,
+        )
+        assert country_classification.point_in_geometry(1.0, 1.0, geometry)
+        assert parse_polygon.call_count == 1
+
+        polygons = cast(list[list[list[float]]], geometry["coordinates"])
+        for position in polygons[0]:
+            position[0] += 10.0
+
+        assert not country_classification.point_in_geometry(1.0, 1.0, geometry)
+        assert parse_polygon.call_count == 2

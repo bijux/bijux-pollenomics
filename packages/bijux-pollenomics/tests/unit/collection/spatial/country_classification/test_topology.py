@@ -13,6 +13,7 @@ EXPECTED_MODULES = {
     "model.py",
     "partitions.py",
     "proximity.py",
+    "topology.py",
     "validation.py",
 }
 

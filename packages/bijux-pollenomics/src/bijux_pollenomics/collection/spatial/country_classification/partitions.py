@@ -13,6 +13,7 @@ from ....core.geospatial.geojson import (
 def geometries_by_country(
     country_boundaries: CountryBoundaryCollection,
 ) -> dict[str, tuple[JsonObject, ...]]:
+    """Return valid boundary geometries grouped in deterministic country order."""
     geometries_by_country: dict[str, tuple[JsonObject, ...]] = {}
     for country in sorted(country_boundaries):
         geometries = tuple(

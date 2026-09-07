@@ -1,49 +1,29 @@
-# ruff: noqa: F401
+"""Stable public facade for strict country classification."""
 
 from __future__ import annotations
 
 from collections.abc import Mapping
-from dataclasses import dataclass
-from itertools import pairwise
-import math
 import sys
-from typing import Literal, TypeAlias, cast
+from typing import cast
 
 from ....core.geospatial.geojson import (
     CountryBoundaryCollection,
     JsonObject,
     LinearRing,
     Polygon,
-    as_mapping,
-    feature_list,
-    parse_multipolygon,
-    parse_polygon,
 )
 from .boundary_distance import (
     geometry_boundary_distance as _geometry_boundary_distance,
-)
-from .boundary_distance import (
+    point_on_geometry_boundary as _point_on_geometry_boundary,
     point_to_segment_distance as _point_to_segment_distance,
-)
-from .boundary_distance import (
     polygon_boundary_distance as _polygon_boundary_distance,
-)
-from .boundary_distance import (
     ring_boundary_distance as _ring_boundary_distance,
 )
 from .containment import (
     point_in_geometry as _point_in_geometry,
-)
-from .containment import (
     point_in_geometry_ignoring_holes as _point_in_geometry_ignoring_holes,
-)
-from .containment import (
     point_in_outer_ring as _point_in_outer_ring,
-)
-from .containment import (
     point_in_polygon as _point_in_polygon,
-)
-from .containment import (
     point_in_ring as _point_in_ring,
 )
 from .decision import classify_country as _classify_country
@@ -143,7 +123,7 @@ def point_on_geometry_boundary(
     epsilon: float = BOUNDARY_CONTACT_EPSILON,
 ) -> bool:
     """Return whether a point touches a polygon ring within a numeric epsilon."""
-    return geometry_boundary_distance(longitude, latitude, geometry) <= epsilon
+    return _point_on_geometry_boundary(longitude, latitude, geometry, epsilon=epsilon)
 
 
 def point_in_geometry_ignoring_holes(
@@ -159,6 +139,7 @@ def point_in_polygon(longitude: float, latitude: float, polygon: Polygon) -> boo
 
 
 def point_in_outer_ring(longitude: float, latitude: float, polygon: Polygon) -> bool:
+    """Return whether a point lies inside a polygon's outer ring."""
     return _point_in_outer_ring(longitude, latitude, polygon)
 
 
@@ -224,10 +205,10 @@ __all__ = [
     "nearest_country_by_boundary_distance",
     "point_in_geometry",
     "point_in_geometry_ignoring_holes",
+    "point_on_geometry_boundary",
     "point_in_outer_ring",
     "point_in_polygon",
     "point_in_ring",
-    "point_on_geometry_boundary",
     "point_to_segment_distance",
     "polygon_boundary_distance",
     "ring_boundary_distance",

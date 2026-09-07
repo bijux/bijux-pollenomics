@@ -10,6 +10,8 @@ from .model import RawCountryComparison
 
 
 class CountryClassificationDependencies(Protocol):
+    """Describe facade operations injected into country-decision policy."""
+
     def _geometries_by_country(
         self, country_boundaries: CountryBoundaryCollection
     ) -> dict[str, tuple[JsonObject, ...]]: ...
@@ -35,16 +37,24 @@ class CountryClassificationDependencies(Protocol):
         geometry: JsonObject,
         *,
         epsilon: float = ...,
-    ) -> bool: ...
+    ) -> bool:
+        """Return whether a point touches a geometry boundary."""
+        ...
 
     def point_in_geometry(
         self, longitude: float, latitude: float, geometry: JsonObject
-    ) -> bool: ...
+    ) -> bool:
+        """Return whether a point lies inside a geometry."""
+        ...
 
     def point_in_geometry_ignoring_holes(
         self, longitude: float, latitude: float, geometry: JsonObject
-    ) -> bool: ...
+    ) -> bool:
+        """Return outer-ring containment without considering holes."""
+        ...
 
     def geometry_boundary_distance(
         self, longitude: float, latitude: float, geometry: JsonObject
-    ) -> float: ...
+    ) -> float:
+        """Return the minimum distance from a point to a geometry boundary."""
+        ...

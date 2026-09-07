@@ -9,32 +9,52 @@ from ....core.geospatial.geojson import (
     JsonObject,
     LinearRing,
     Polygon,
-    parse_multipolygon,
-    parse_polygon,
 )
+from .topology import boundary_segments_from_geometry, polygons_from_geometry
 
 
 def geometry_boundary_distance(
     longitude: float, latitude: float, geometry: JsonObject
 ) -> float:
     """Return the minimum distance from a point to a polygon or multipolygon boundary."""
-    geometry_type = geometry.get("type")
-    coordinates = geometry.get("coordinates", [])
-    if geometry_type == "Polygon":
-        polygon = parse_polygon(coordinates)
-        return (
-            polygon_boundary_distance(longitude, latitude, polygon)
-            if polygon is not None
-            else math.inf
-        )
-    if geometry_type == "MultiPolygon":
-        multipolygon = parse_multipolygon(coordinates)
-        distances = [
-            polygon_boundary_distance(longitude, latitude, polygon)
-            for polygon in multipolygon or []
-        ]
-        return min(distances) if distances else math.inf
-    return math.inf
+    distances = [
+        polygon_boundary_distance(longitude, latitude, polygon)
+        for polygon in polygons_from_geometry(geometry)
+    ]
+    return min(distances) if distances else math.inf
+
+
+def point_on_geometry_boundary(
+    longitude: float,
+    latitude: float,
+    geometry: JsonObject,
+    *,
+    epsilon: float,
+) -> bool:
+    """Return whether a point is within epsilon of any geometry edge."""
+    if not math.isfinite(epsilon) or epsilon < 0:
+        return geometry_boundary_distance(longitude, latitude, geometry) <= epsilon
+    for ax, ay, bx, by, minimum_x, maximum_x, minimum_y, maximum_y in (
+        boundary_segments_from_geometry(geometry)
+    ):
+        if not (
+            minimum_x - epsilon <= longitude <= maximum_x + epsilon
+            and minimum_y - epsilon <= latitude <= maximum_y + epsilon
+        ):
+            continue
+        if (
+            point_to_segment_distance(
+                longitude,
+                latitude,
+                ax,
+                ay,
+                bx,
+                by,
+            )
+            <= epsilon
+        ):
+            return True
+    return False
 
 
 def polygon_boundary_distance(
