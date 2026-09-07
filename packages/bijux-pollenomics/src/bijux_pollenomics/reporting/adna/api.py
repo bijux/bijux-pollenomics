@@ -25,13 +25,25 @@ from .homo_sapiens import (
     iter_samples_from_anno,
     load_country_samples,
 )
+from .sample_chronology_context import (
+    AnimalChronologyInputIdentity,
+    AnimalSampleChronologyContextProjection,
+    AnimalSampleChronologyNode,
+    AnimalSampleChronologyRefusal,
+    build_animal_sample_chronology_context,
+)
 
 __all__ = [
     "AnimalAtlasBundle",
     "AnimalAtlasCoordinateReview",
     "AnimalAtlasEvidenceRow",
+    "AnimalChronologyInputIdentity",
+    "AnimalSampleChronologyContextProjection",
+    "AnimalSampleChronologyNode",
+    "AnimalSampleChronologyRefusal",
     "CountryAnimalOutputBundle",
     "SchemaError",
+    "build_animal_sample_chronology_context",
     "build_country_animal_output_bundle",
     "build_tracked_animal_atlas_bundle",
     "build_tracked_animal_atlas_coordinate_review",
