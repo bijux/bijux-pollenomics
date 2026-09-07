@@ -38,6 +38,24 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install locked browser-verification environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          UV_PROJECT_ENVIRONMENT="${PWD}/artifacts/root/check-venv" \
+            uv sync --frozen --group dev --python python3
+
       - name: Set up Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -115,7 +133,8 @@ jobs:
         run: |
           set -euo pipefail
           PYTHONPATH="packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics/src" \
-            python3 -m bijux_pollenomics_dev.ci.atlas_browser.runner \
+            artifacts/root/check-venv/bin/python \
+            -m bijux_pollenomics_dev.ci.atlas_browser.runner \
             --plan artifacts/execution-control/browser/plan.json
 
       - name: Upload browser evidence

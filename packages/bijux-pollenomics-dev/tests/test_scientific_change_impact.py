@@ -276,6 +276,8 @@ def test_atlas_workflow_separates_premerge_browser_from_postdeployment_smoke() -
     assert "atlas_output_commit" in browser_script
     assert "nordic-source-chronology-v1" in browser_script
     assert "packages/bijux-pollenomics/src" in browser_script
+    assert "uv sync --frozen --group dev --python python3" in browser_script
+    assert "artifacts/root/check-venv/bin/python" in browser_script
     assert "bijux_pollenomics_dev.ci.atlas_browser.runner" in browser_script
 
     smoke_script = "\n".join(step.get("run", "") for step in smoke_job["steps"])
