@@ -663,7 +663,15 @@ def _parse_article_chronology_claim(
 
 def _parse_xml(payload: bytes, *, source_path: str) -> _XmlElement:
     try:
-        return cast(_XmlElement, ET.fromstring(payload, forbid_dtd=True))
+        return cast(
+            _XmlElement,
+            ET.fromstring(
+                payload,
+                forbid_dtd=False,
+                forbid_entities=True,
+                forbid_external=True,
+            ),
+        )
     except (
         ET.DTDForbidden,
         ET.EntitiesForbidden,

@@ -246,6 +246,20 @@ class SourceCaptureTests(unittest.TestCase):
             "unsafe_xml_source_payload",
         )
 
+    def test_xml_capture_accepts_a_declaration_only_doctype(self) -> None:
+        payload = (
+            b'<!DOCTYPE article SYSTEM "JATS.dtd">'
+            b"<article><title>Safe</title></article>"
+        )
+
+        self.assertIsNone(
+            source_library_acquisition._xml_capture_refusal_reason(
+                logical_path=Path("papers/article_full_text.xml"),
+                payload=payload,
+                content_type="application/xml",
+            )
+        )
+
     def test_official_xml_capture_uses_full_artifact_semantics(self) -> None:
         ena_path = Path(
             "adna/governance/source_library/projects/PRJEB59481/ena_samples/"

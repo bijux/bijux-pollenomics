@@ -22,6 +22,7 @@ from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep import (
     build_baltic_sheep_material_conflicts,
     load_baltic_sheep_official_evidence,
     materialize_baltic_sheep_material_conflicts,
+    official_evidence,
     parse_baltic_sheep_article_chronology,
     parse_baltic_sheep_ena_sample,
     reconcile_baltic_sheep_official_evidence,
@@ -346,6 +347,16 @@ def test_official_xml_parser_refuses_entity_declarations() -> None:
             source_path="untrusted.xml",
             expected_accession="SAMEA112960291",
         )
+
+
+def test_official_xml_parser_accepts_a_declaration_only_doctype() -> None:
+    payload = (
+        b'<!DOCTYPE article SYSTEM "JATS.dtd"><article><title>Safe</title></article>'
+    )
+
+    root = official_evidence._parse_xml(payload, source_path="article.xml")
+
+    assert root.tag == "article"
 
 
 def test_official_source_load_reconciles_payload_bytes_and_receipt(

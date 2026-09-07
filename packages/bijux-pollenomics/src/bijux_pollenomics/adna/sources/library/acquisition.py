@@ -326,7 +326,12 @@ def _xml_capture_refusal_reason(
     if "xml" not in content_type.casefold():
         return "xml_source_returned_non_xml_media_type"
     try:
-        root = ET.fromstring(payload, forbid_dtd=True)
+        root = ET.fromstring(
+            payload,
+            forbid_dtd=False,
+            forbid_entities=True,
+            forbid_external=True,
+        )
     except (ET.DTDForbidden, ET.EntitiesForbidden, ET.ExternalReferenceForbidden):
         return "unsafe_xml_source_payload"
     except ET.ParseError:
