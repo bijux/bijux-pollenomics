@@ -55,11 +55,12 @@ from .review import (
     build_sample_site_ambiguity_ledger,
 )
 
-__all__ = [
+# Export order is part of the compatibility contract.
+__all__ = [  # noqa: RUF022
     "ADNA_LOCALITY_RESOLUTION_STATUSES",
     "AdnaProjectSampleSiteRow",
-    "build_project_sample_site_review_rows",
     "build_project_sample_site_rows",
+    "build_project_sample_site_review_rows",
     "build_sample_site_ambiguity_ledger",
     "build_sample_site_manual_curation_queue",
     "materialize_project_sample_site_library",

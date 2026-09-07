@@ -171,13 +171,14 @@ def _safe_receipt_filename(value: object) -> str:
     return safe_receipt_filename(value)
 
 
-__all__ = [
-    "LandClimDataReport",
+# Export order is part of the compatibility contract.
+__all__ = [  # noqa: RUF022
     "LandClimRawReceiptError",
+    "LandClimDataReport",
     "build_landclim_grid_geojson",
+    "build_landclim_temporal_grid_geojson",
     "build_landclim_raw_asset_summaries",
     "build_landclim_site_records",
-    "build_landclim_temporal_grid_geojson",
     "collect_landclim_data",
     "download_landclim_raw_assets",
     "feature_key_from_center",

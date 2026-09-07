@@ -60,6 +60,9 @@ _source_snapshot_date = _repository_materialization.source_snapshot_date
 _validated_repository_data_root = (
     _repository_materialization.validated_repository_data_root
 )
+validate_governed_sead_admission = (
+    _repository_materialization.validate_governed_sead_admission
+)
 StrictSeadPageFetcher = _validation.StrictSeadPageFetcher
 _primary_key_for_table = _validation.primary_key_for_table
 _required_positive_int = _validation.required_positive_int

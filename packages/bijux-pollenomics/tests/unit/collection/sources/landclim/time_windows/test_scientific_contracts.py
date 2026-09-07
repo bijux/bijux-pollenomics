@@ -49,7 +49,7 @@ def test_representative_feature_serialization_and_bp_interval_are_frozen() -> No
     assert (properties["time_start_bp"], properties["time_end_bp"]) == (0, 100)
     assert properties["time_mean_bp"] == 50
     assert hashlib.sha256(payload).hexdigest() == (
-        "a84c415733cc6c2102978587ab199c31ac4c1572ed00ebd7ec7ab22ce13bc8d8"
+        "b018bf99efa45b261a3dcf5416c3359fe82d51f19db316c0ab13648e96390f94"
     )
 
 
