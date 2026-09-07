@@ -12,7 +12,7 @@ SBOM_FORMAT              ?= cyclonedx-json
 SBOM_CLI                 ?= cyclonedx
 SBOM_DEV_GROUP           ?= dev
 SBOM_REQUIREMENTS_WRITER ?=
-SBOM_IGNORE_IDS          ?= PYSEC-2022-42969
+SBOM_IGNORE_IDS          ?=
 SBOM_IGNORE_FLAGS         = $(foreach V,$(SBOM_IGNORE_IDS),--ignore-vuln $(V))
 SBOM_PROD_REQ            ?= $(SBOM_DIR)/requirements.prod.txt
 SBOM_DEV_REQ             ?= $(SBOM_DIR)/requirements.dev.txt
@@ -33,6 +33,10 @@ sbom: sbom-clean sbom-prod sbom-dev sbom-summary
 	@echo "✔ SBOMs generated in $(SBOM_DIR)"
 
 sbom-tooling: | $(VENV_PYTHON)
+	@if [ -n "$(strip $(SBOM_IGNORE_IDS))" ]; then \
+	  echo "✘ Ungoverned SBOM vulnerability suppressions are forbidden: $(SBOM_IGNORE_IDS)"; \
+	  exit 2; \
+	fi
 	@if ! "$(VENV_PYTHON)" -c "import pip_audit" >/dev/null 2>&1; then \
 	  echo "→ Installing pip-audit into $(VENV)"; \
 	  $(UV) pip install --python "$(VENV_PYTHON)" --upgrade pip-audit >/dev/null; \
@@ -47,10 +51,10 @@ sbom-prod: sbom-tooling
 	fi
 	@if [ -s "$(SBOM_PROD_REQ)" ]; then \
 	  echo "→ SBOM (prod via $(SBOM_PROD_REQ))"; \
-	  $(SBOM_CACHE_ENV) $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) -r "$(SBOM_PROD_REQ)" --output "$(SBOM_PROD_FILE)" || true; \
+	  $(SBOM_CACHE_ENV) $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) -r "$(SBOM_PROD_REQ)" --output "$(SBOM_PROD_FILE)"; \
 	else \
 	  echo "→ SBOM (prod fallback: current venv)"; \
-	  $(SBOM_CACHE_ENV) $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) --output "$(SBOM_PROD_FILE)" || true; \
+	  $(SBOM_CACHE_ENV) $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) --output "$(SBOM_PROD_FILE)"; \
 	fi
 
 sbom-dev: sbom-tooling
@@ -62,10 +66,10 @@ sbom-dev: sbom-tooling
 	fi
 	@if [ -s "$(SBOM_DEV_REQ)" ]; then \
 	  echo "→ SBOM (dev via $(SBOM_DEV_REQ))"; \
-	  $(SBOM_CACHE_ENV) $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) -r "$(SBOM_DEV_REQ)" --output "$(SBOM_DEV_FILE)" || true; \
+	  $(SBOM_CACHE_ENV) $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) -r "$(SBOM_DEV_REQ)" --output "$(SBOM_DEV_FILE)"; \
 	else \
 	  echo "→ SBOM (dev fallback: current venv)"; \
-	  $(SBOM_CACHE_ENV) $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) --output "$(SBOM_DEV_FILE)" || true; \
+	  $(SBOM_CACHE_ENV) $(SBOM_PIP_AUDIT) $(PIP_AUDIT_FLAGS) --output "$(SBOM_DEV_FILE)"; \
 	fi
 
 sbom-validate:
