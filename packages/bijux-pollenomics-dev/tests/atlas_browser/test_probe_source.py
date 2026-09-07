@@ -1271,7 +1271,7 @@ def test_nordic_source_states_are_literal_release_requirements() -> None:
         "code: 'AQVP', taxon: null, nodes: 4991, observations: 9666, younger: 18190, older: 19190",
         "taxon: 'source:neotoma:taxon:967', nodes: 469, observations: 469, younger: 3961, older: 4461",
         "taxon: 'source:neotoma:taxon:3924', nodes: 2, observations: 2, younger: 1651, older: 1751",
-        "nodes: 676, observations: 676, younger: 0, older: 11891",
+        "nodes: 676, observations: 676, younger: 10891, older: 11891",
         "memberTaxonIds: [416, 427, 1947, 2941]",
         "catalogSha256: '8f1751802e1ed25b9631729df80b21ac845490464cb678f7349fcc4446e57673'",
     ):
@@ -1291,14 +1291,14 @@ def test_cerealia_preset_state_rejects_authority_or_denominator_drift() -> None:
 {functions}
 const expected = {{
   level: 'source_taxon', code: null, taxon: 'all', preset: 'cerealia',
-  nodes: 676, observations: 676, younger: 0, older: 11891,
+  nodes: 676, observations: 676, younger: 10891, older: 11891,
   memberTaxonIds: [416, 427, 1947, 2941],
   catalogSha256: '8f1751802e1ed25b9631729df80b21ac845490464cb678f7349fcc4446e57673',
 }};
 const baseline = {{
   preset: 'cerealia', button_label: 'Cerealia labels', button_pressed: 'true',
   snapshot: {{
-    time_window_bp: {{ younger_bp: 0, older_bp: 11891 }},
+    time_window_bp: {{ younger_bp: 10891, older_bp: 11891 }},
     source_chronology: {{
       level: 'source_taxon', source_code: null, source_taxon: 'all',
       source_preset: 'cerealia', source_preset_member_taxon_ids: [416, 427, 1947, 2941],
@@ -1931,7 +1931,7 @@ def test_capture_frame_clarity_rejects_obstruction_and_semantic_drift() -> None:
                     "stroke": "rgb(100, 116, 139)",
                 },
             ],
-            "caveat": "Observed records only; no interpolation or propagation inference.",
+            "caveat": "Observed records only; no interpolation, flow, propagation, migration, or causation inference.",
         },
         "capture_layout": {
             "overlay_visible": True,
@@ -1960,6 +1960,10 @@ def test_capture_frame_clarity_rejects_obstruction_and_semantic_drift() -> None:
         ("capture_presentation.null_handling", "null_as_zero"),
         ("capture_presentation.interpolation_allowed", True),
         ("capture_presentation.propagation_use_allowed", True),
+        (
+            "capture_presentation.caveat",
+            "Observed records only; interpolation and propagation are inferred.",
+        ),
         (
             "capture_presentation.key_labels",
             [

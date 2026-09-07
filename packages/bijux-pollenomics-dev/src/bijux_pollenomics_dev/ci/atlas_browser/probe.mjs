@@ -26,7 +26,7 @@ const expectedNordic = Object.freeze({
   hordeumSecale: { level: 'source_taxon', code: null, taxon: 'source:neotoma:taxon:3924', nodes: 2, observations: 2, younger: 1651, older: 1751 },
   cerealia: {
     level: 'source_taxon', code: null, taxon: 'all', preset: 'cerealia',
-    nodes: 676, observations: 676, younger: 0, older: 11891,
+    nodes: 676, observations: 676, younger: 10891, older: 11891,
     memberTaxonIds: [416, 427, 1947, 2941],
     catalogSha256: '8f1751802e1ed25b9631729df80b21ac845490464cb678f7349fcc4446e57673',
   },
@@ -2256,7 +2256,7 @@ function captureFrameIsClear(snapshot, evidenceRole) {
     && presentation.propagation_use_allowed === false
     && typeof presentation.title === 'string' && presentation.title.length > 0
     && captureKeyIsClear(presentation, evidenceRole)
-    && /no .*propagation inference/i.test(presentation.caveat || '')
+    && /\bno\b[^.]*\bpropagation\b[^.]*\binference\b/i.test(presentation.caveat || '')
     && layout?.overlay_visible === true
     && layout.overlay_bounded === true
     && layout.overlay_content_bounded === true
