@@ -157,12 +157,24 @@ def _build_core_counts(
         available=sample_database_review_available,
     )
     if map_readiness_available:
-        assert coordinate_mappable_count is not None
-        assert coordinate_refused_count is not None
-        assert coordinate_total is not None
-        assert coordinate_not_materialized_count is not None
-        assert publication_candidate_count is not None
-        assert unresolved_sample_count is not None
+        coordinate_mappable_count = _require_surface_count(
+            coordinate_mappable_count, "coordinate_provenance_mappable_count"
+        )
+        coordinate_refused_count = _require_surface_count(
+            coordinate_refused_count, "refused_coordinate_provenance_count"
+        )
+        coordinate_total = _require_surface_count(
+            coordinate_total, "coordinate_provenance_row_count"
+        )
+        coordinate_not_materialized_count = _require_surface_count(
+            coordinate_not_materialized_count, "not_materialized_count"
+        )
+        publication_candidate_count = _require_surface_count(
+            publication_candidate_count, "publication_candidate_count"
+        )
+        unresolved_sample_count = _require_surface_count(
+            unresolved_sample_count, "unresolved_sample_count"
+        )
         if coordinate_mappable_count + coordinate_refused_count != coordinate_total:
             raise ValueError("Animal coordinate-provenance counts do not reconcile")
         if (
@@ -317,4 +329,10 @@ def _surface_count(
     value = payload.get(field)
     if isinstance(value, bool) or not isinstance(value, int) or value < 0:
         raise ValueError(f"Repository truth {field} must be a nonnegative integer")
+    return value
+
+
+def _require_surface_count(value: int | None, field: str) -> int:
+    if value is None:
+        raise ValueError(f"Repository truth {field} is unavailable")
     return value

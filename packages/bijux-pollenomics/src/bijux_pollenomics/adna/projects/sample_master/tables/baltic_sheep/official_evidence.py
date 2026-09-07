@@ -2,16 +2,17 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
-from dataclasses import dataclass
-from decimal import Decimal, InvalidOperation
 import hashlib
 import json
-from pathlib import Path
 import re
+from collections.abc import Iterator, Mapping
+from dataclasses import dataclass
+from decimal import Decimal, InvalidOperation
+from pathlib import Path
 from types import MappingProxyType
-from typing import TypeVar
-from xml.etree import ElementTree
+from typing import Protocol, TypeVar, cast
+
+from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 
 from bijux_pollenomics.adna.workflow.source_artifacts import (
     read_source_artifact_bytes,
@@ -98,6 +99,19 @@ _EXPECTED_ARTICLE_HEADER = (
     "Mitochondrial haplotype",
 )
 _RowT = TypeVar("_RowT")
+
+
+class _XmlElement(Protocol):
+    """Structural element surface returned by the hardened XML parser."""
+
+    attrib: dict[str, str]
+    tag: str
+
+    def findall(self, match: str) -> list[_XmlElement]: ...
+
+    def iter(self, tag: str | None = None) -> Iterator[_XmlElement]: ...
+
+    def itertext(self) -> Iterator[str]: ...
 
 
 @dataclass(frozen=True)
@@ -647,10 +661,16 @@ def _parse_article_chronology_claim(
     )
 
 
-def _parse_xml(payload: bytes, *, source_path: str) -> ElementTree.Element:
+def _parse_xml(payload: bytes, *, source_path: str) -> _XmlElement:
     try:
-        return ElementTree.fromstring(payload)
-    except ElementTree.ParseError as error:
+        return cast(_XmlElement, ET.fromstring(payload, forbid_dtd=True))
+    except (
+        ET.DTDForbidden,
+        ET.EntitiesForbidden,
+        ET.ExternalReferenceForbidden,
+    ) as error:
+        raise ValueError(f"Unsafe XML source: {source_path}") from error
+    except ET.ParseError as error:
         raise ValueError(f"Malformed XML source: {source_path}") from error
 
 
@@ -758,9 +778,7 @@ def _read_receipted_official_source(
     return payload
 
 
-def _required_text(
-    element: ElementTree.Element, selector: str, source_path: str
-) -> str:
+def _required_text(element: _XmlElement, selector: str, source_path: str) -> str:
     matches = element.findall(selector)
     if len(matches) != 1:
         raise ValueError(f"Required XML field is missing or ambiguous: {source_path}")
@@ -771,7 +789,7 @@ def _required_text(
 
 
 def _sample_attributes(
-    sample: ElementTree.Element, *, source_path: str
+    sample: _XmlElement, *, source_path: str
 ) -> dict[str, tuple[str, ...]]:
     values: dict[str, list[str]] = {}
     for attribute in sample.findall("./SAMPLE_ATTRIBUTES/SAMPLE_ATTRIBUTE"):
@@ -790,7 +808,7 @@ def _validate_coordinate(value: str, *, minimum: Decimal, maximum: Decimal) -> N
         raise ValueError(f"Baltic sheep coordinate outside WGS84 bounds: {value!r}")
 
 
-def _element_text(element: ElementTree.Element) -> str:
+def _element_text(element: _XmlElement) -> str:
     return " ".join("".join(element.itertext()).split())
 
 
@@ -799,8 +817,8 @@ def _xml_local_name(tag: str) -> str:
 
 
 def _chronology_cell_text(
-    age_cell: ElementTree.Element,
-    contextual_xrefs: list[ElementTree.Element],
+    age_cell: _XmlElement,
+    contextual_xrefs: list[_XmlElement],
 ) -> str:
     text = _element_text(age_cell)
     for xref in contextual_xrefs:

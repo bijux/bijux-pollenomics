@@ -227,6 +227,25 @@ class SourceCaptureTests(unittest.TestCase):
             "article_full_text_source_semantic_mismatch",
         )
 
+    def test_xml_capture_refuses_entity_declarations(self) -> None:
+        ena_path = Path(
+            "adna/governance/source_library/projects/PRJEB59481/ena_samples/"
+            "SAMEA112960291.xml"
+        )
+        payload = (
+            b'<!DOCTYPE SAMPLE_SET [<!ENTITY source SYSTEM "file:///etc/passwd">]>'
+            b"<SAMPLE_SET>&source;</SAMPLE_SET>"
+        )
+
+        self.assertEqual(
+            source_library_acquisition._xml_capture_refusal_reason(
+                logical_path=ena_path,
+                payload=payload,
+                content_type="application/xml",
+            ),
+            "unsafe_xml_source_payload",
+        )
+
     def test_official_xml_capture_uses_full_artifact_semantics(self) -> None:
         ena_path = Path(
             "adna/governance/source_library/projects/PRJEB59481/ena_samples/"

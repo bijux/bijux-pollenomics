@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable
-from datetime import UTC, datetime
 import hashlib
 import json
+from collections.abc import Callable
+from datetime import UTC, datetime
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
-from xml.etree import ElementTree
+
+from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 
 from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from bijux_pollenomics.adna.workflow.paths import (
@@ -325,8 +326,10 @@ def _xml_capture_refusal_reason(
     if "xml" not in content_type.casefold():
         return "xml_source_returned_non_xml_media_type"
     try:
-        root = ElementTree.fromstring(payload)
-    except ElementTree.ParseError:
+        root = ET.fromstring(payload, forbid_dtd=True)
+    except (ET.DTDForbidden, ET.EntitiesForbidden, ET.ExternalReferenceForbidden):
+        return "unsafe_xml_source_payload"
+    except ET.ParseError:
         return "malformed_xml_source_payload"
     if "/ena_samples/" in logical_path.as_posix() and root.tag != "SAMPLE_SET":
         return "ena_sample_source_root_mismatch"

@@ -38,8 +38,8 @@ def test_facade_preserves_public_and_private_import_contracts() -> None:
     assert tuple(sites.__all__) == _PUBLIC_CONTRACT
     assert all(hasattr(sites, name) for name in _PUBLIC_CONTRACT)
     assert all(callable(getattr(sites, name)) for name in _LEGACY_PRIVATE_FUNCTIONS)
-    assert sites.shutil is not None
-    assert sites.subprocess is not None
+    assert not hasattr(sites, "shutil")
+    assert not hasattr(sites, "subprocess")
 
 
 def test_facade_preserves_legacy_callable_signatures() -> None:

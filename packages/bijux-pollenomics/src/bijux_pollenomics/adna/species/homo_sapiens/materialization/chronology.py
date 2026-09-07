@@ -121,13 +121,13 @@ class AadrChronologyEvidence:
 
 def parse_aadr_numeric_evidence(raw_value: str) -> AadrNumericEvidence:
     """Parse one decimal source token without coercing absence to zero."""
-    token = raw_value.strip()
-    if not token or token == "..":
+    normalized_value = raw_value.strip()
+    if not normalized_value or normalized_value == "..":
         return AadrNumericEvidence(
             raw_value=raw_value, parsed_value=None, status="missing"
         )
     try:
-        value = Decimal(token.replace("\N{MINUS SIGN}", "-"))
+        value = Decimal(normalized_value.replace("\N{MINUS SIGN}", "-"))
     except InvalidOperation:
         return AadrNumericEvidence(
             raw_value=raw_value, parsed_value=None, status="invalid"

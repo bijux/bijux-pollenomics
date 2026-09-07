@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+from string import Template
 
 from ....adna import resolve_species_definition
 from ....adna.species.tracked_data import tracked_species_slugs
@@ -295,7 +296,7 @@ def write_data_directory_readme(output_root: Path, version: str) -> None:
 
 def render_homo_sapiens_readme(version: str = DEFAULT_AADR_VERSION) -> str:
     """Render the governed human ancient-DNA species-view contract."""
-    return f"""# Homo Sapiens Ancient-DNA Evidence View
+    return Template("""# Homo Sapiens Ancient-DNA Evidence View
 
 `Homo sapiens` is the species-owned route into the checked-in AADR metadata
 capture. The `raw/aadr` link preserves one source release under both its
@@ -315,12 +316,12 @@ flowchart LR
 
 | Surface | Present state | Supported conclusion |
 | --- | --- | --- |
-| `raw/aadr/{version}/release_manifest.json` | present through the governed symlink | release identity, requested members, retrieval metadata, and checksums are inspectable |
-| `raw/aadr/{version}/1240k/{version}.1240K.aadr.PUB.anno` | present | captured 1240K annotation rows can be inspected at release {version} |
-| `raw/aadr/{version}/ho/{version}.HO.aadr.PUB.anno` | present | captured Human Origins annotation rows can be inspected at release {version} |
+| `raw/aadr/${version}/release_manifest.json` | present through the governed symlink | release identity, requested members, retrieval metadata, and checksums are inspectable |
+| `raw/aadr/${version}/1240k/${version}.1240K.aadr.PUB.anno` | present | captured 1240K annotation rows can be inspected at release ${version} |
+| `raw/aadr/${version}/ho/${version}.HO.aadr.PUB.anno` | present | captured Human Origins annotation rows can be inspected at release ${version} |
 | `normalized/` | no governed member artifact | a current normalized human species database is not established here |
 | `manifests/` | no governed member artifact | no species-view build or membership identity is established here |
-| `review/aadr_{version}_source_accountability.json` | present | panel reconciliation, source-row and Genetic-ID denominators, and exact source-reported political-entity dispositions are reproducible without storing a full derived stream |
+| `review/aadr_${version}_source_accountability.json` | present | panel reconciliation, source-row and Genetic-ID denominators, and exact source-reported political-entity dispositions are reproducible without storing a full derived stream |
 | `reports/` | no governed member artifact | retained report products elsewhere cannot be inferred backward from this directory |
 
 The present evidence supports source-capture inspection, metadata-level
@@ -330,7 +331,7 @@ complete raw-to-normalized-to-admitted lifecycle in this checkout.
 
 ## Inspect The Capture
 
-1. Open `raw/aadr/{version}/release_manifest.json` and confirm the persistent dataset
+1. Open `raw/aadr/${version}/release_manifest.json` and confirm the persistent dataset
    identity, requested release, member paths, hashes, and retrieval metadata.
 2. Select the 1240K or Human Origins annotation member explicitly; do not
    treat the panels as interchangeable or add their row counts without a
@@ -366,7 +367,7 @@ member set, locality and chronology semantics, product admission records, and
 traceability from every published member back to its AADR release member. The
 accountability receipt closes source-row and panel-reconciliation questions;
 it does not close those downstream scientific boundaries.
-"""
+""").substitute(version=version)
 
 
 def ensure_homo_sapiens_adna_layout(

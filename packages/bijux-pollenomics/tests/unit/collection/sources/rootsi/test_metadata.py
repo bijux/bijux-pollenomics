@@ -248,3 +248,17 @@ def test_ooxml_formulae_and_actual_output_mismatch_fail_closed() -> None:
     declared.file_size = len(b"short") + 1
     with pytest.raises(IntakeRefusal, match="workbook_output_size_mismatch"):
         ooxml._read_part(cast(ZipFile, ShortArchive()), declared)
+
+
+def test_ooxml_xml_parts_refuse_entity_declarations() -> None:
+    workbook = BytesIO()
+    with ZipFile(workbook, "w") as archive:
+        archive.writestr(
+            "xl/worksheets/sheet1.xml",
+            '<!DOCTYPE worksheet [<!ENTITY source SYSTEM "file:///etc/passwd">]>'
+            '<worksheet xmlns="http://schemas.openxmlformats.org/'
+            'spreadsheetml/2006/main">&source;</worksheet>',
+        )
+
+    with pytest.raises(IntakeRefusal, match="unsafe_workbook_xml"):
+        ooxml.read_first_worksheet(workbook)

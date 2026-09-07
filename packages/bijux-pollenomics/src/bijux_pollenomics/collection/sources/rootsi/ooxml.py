@@ -3,15 +3,15 @@
 from __future__ import annotations
 
 import io
-from pathlib import PurePosixPath
 import re
 import stat
-from typing import IO
 import unicodedata
-from xml.etree.ElementTree import Element
+from collections.abc import Iterator
+from pathlib import PurePosixPath
+from typing import IO, Protocol, cast
 from zipfile import BadZipFile, ZipFile, ZipInfo
 
-from defusedxml.ElementTree import fromstring  # type: ignore[import-untyped]
+from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
 
 from ..quarantine import IntakeRefusal
 
@@ -23,6 +23,20 @@ _MAXIMUM_MEMBER_BYTES = 16_000_000
 _MAXIMUM_EXPANDED_BYTES = 32_000_000
 _MAXIMUM_COMPRESSION_RATIO = 100.0
 _BUFFER_BYTES = 1024 * 1024
+
+
+class _XmlElement(Protocol):
+    """Structural element surface returned by the hardened XML parser."""
+
+    text: str | None
+
+    def find(self, path: str) -> _XmlElement | None: ...
+
+    def findall(self, path: str) -> list[_XmlElement]: ...
+
+    def get(self, key: str, default: str | None = None) -> str | None: ...
+
+    def iter(self, tag: str | None = None) -> Iterator[_XmlElement]: ...
 
 
 def _canonical_path(name: str) -> str:
@@ -83,21 +97,34 @@ def _read_part(archive: ZipFile, info: ZipInfo) -> bytes:
     return result.getvalue()
 
 
+def _parse_xml_part(payload: bytes, *, part_name: str) -> _XmlElement:
+    try:
+        return cast(_XmlElement, ET.fromstring(payload, forbid_dtd=True))
+    except (
+        ET.DTDForbidden,
+        ET.EntitiesForbidden,
+        ET.ExternalReferenceForbidden,
+    ) as exc:
+        raise IntakeRefusal("unsafe_workbook_xml", part_name) from exc
+    except ET.ParseError as exc:
+        raise IntakeRefusal("malformed_workbook_xml", part_name) from exc
+
+
 def _shared_strings(archive: ZipFile, parts: dict[str, ZipInfo]) -> tuple[str, ...]:
     name = "xl/sharedStrings.xml"
     info = parts.get(name)
     if info is None:
         return ()
-    root = fromstring(_read_part(archive, info))
+    root = _parse_xml_part(_read_part(archive, info), part_name=name)
     return tuple(
         "".join(text.text or "" for text in item.iter(f"{_MAIN_NS}t"))
         for item in root.findall(f"{_MAIN_NS}si")
     )
 
 
-def _cell_value(cell: Element, shared: tuple[str, ...]) -> str | None:
+def _cell_value(cell: _XmlElement, shared: tuple[str, ...]) -> str | None:
     if cell.find(f"{_MAIN_NS}f") is not None:
-        raise IntakeRefusal("workbook_formula_not_supported", cell.get("r", "?"))
+        raise IntakeRefusal("workbook_formula_not_supported", cell.get("r") or "?")
     value = cell.find(f"{_MAIN_NS}v")
     raw = value.text if value is not None else None
     if cell.get("t") == "inlineStr":
@@ -126,14 +153,14 @@ def read_first_worksheet(stream: IO[bytes]) -> tuple[dict[str, str | None], ...]
             info = parts.get(sheet_name)
             if info is None:
                 raise IntakeRefusal("metadata_worksheet_missing", sheet_name)
-            root = fromstring(_read_part(archive, info))
+            root = _parse_xml_part(_read_part(archive, info), part_name=sheet_name)
     except BadZipFile as exc:
         raise IntakeRefusal("invalid_ooxml_workbook", str(exc)) from exc
     rows: list[dict[str, str | None]] = []
     for row in root.findall(f".//{_MAIN_NS}row"):
         values: dict[str, str | None] = {}
         for cell in row.findall(f"{_MAIN_NS}c"):
-            reference = cell.get("r", "")
+            reference = cell.get("r") or ""
             match = _CELL_REFERENCE.fullmatch(reference)
             if match is None:
                 raise IntakeRefusal("invalid_cell_reference", reference)

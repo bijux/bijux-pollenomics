@@ -1,8 +1,5 @@
 """Sample-owned archaeological site evidence and publication."""
 
-import shutil as shutil
-import subprocess as subprocess
-
 from .assembly import (
     _project_by_accession as _project_by_accession,
 )

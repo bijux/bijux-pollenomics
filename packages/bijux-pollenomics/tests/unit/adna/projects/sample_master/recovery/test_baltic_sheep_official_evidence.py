@@ -334,6 +334,20 @@ def test_ena_identity_coordinate_and_locality_drift_fail_closed() -> None:
         )
 
 
+def test_official_xml_parser_refuses_entity_declarations() -> None:
+    payload = (
+        b'<!DOCTYPE SAMPLE_SET [<!ENTITY source SYSTEM "file:///etc/passwd">]>'
+        b"<SAMPLE_SET>&source;</SAMPLE_SET>"
+    )
+
+    with pytest.raises(ValueError, match="Unsafe XML source"):
+        parse_baltic_sheep_ena_sample(
+            payload,
+            source_path="untrusted.xml",
+            expected_accession="SAMEA112960291",
+        )
+
+
 def test_official_source_load_reconciles_payload_bytes_and_receipt(
     tmp_path: Path,
 ) -> None:

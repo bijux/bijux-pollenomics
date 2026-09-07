@@ -9,6 +9,7 @@ import pytest
 
 from bijux_pollenomics.governance.repository_truth.metrics.counts import (
     _build_core_counts,
+    _require_surface_count,
     _surface_count,
 )
 from bijux_pollenomics.governance.repository_truth.metrics.filesystem import (
@@ -23,6 +24,12 @@ def test_available_surface_counts_fail_closed() -> None:
     for value in (None, "", "7", -1, False):
         with pytest.raises(ValueError, match="nonnegative integer"):
             _surface_count({"count": value}, "count", available=True)
+
+
+def test_required_surface_count_fails_closed_when_unavailable() -> None:
+    assert _require_surface_count(7, "count") == 7
+    with pytest.raises(ValueError, match="Repository truth count is unavailable"):
+        _require_surface_count(None, "count")
 
 
 def test_metric_rendering_names_unavailable_values() -> None:
