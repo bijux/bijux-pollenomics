@@ -89,6 +89,28 @@ def test_viewport_chrome_is_compact_clipped_and_non_overlapping() -> None:
     assert "--legend-max-height: min(24vh, 184px);" in MAP_DOCUMENT_TEMPLATE
 
 
+def test_narrow_search_is_a_locally_bounded_popover_outside_topbar_flow() -> None:
+    narrow_css = MAP_DOCUMENT_TEMPLATE.split(
+        "@media (max-width: 640px) {", maxsplit=1
+    )[1].split("</style>", maxsplit=1)[0]
+    search_rule = narrow_css.split(".topbar-search {", maxsplit=1)[1].split(
+        "}", maxsplit=1
+    )[0]
+    results_rule = narrow_css.split(
+        ".search-results--floating {", maxsplit=1
+    )[1].split("}", maxsplit=1)[0]
+
+    assert "position: absolute;" in search_rule
+    assert "top: calc(100% + 8px);" in search_rule
+    assert "right: 0;" in search_rule
+    assert "width: min(220px, calc(100vw - 16px));" in search_rule
+    assert "position: relative;" in results_rule
+    assert "top: auto;" in results_rule
+    assert "right: auto;" in results_rule
+    assert "width: 100%;" in results_rule
+    assert "max-height: min(14vh, 96px);" in results_rule
+
+
 def test_expanded_legend_scrolls_inside_its_bounded_surface() -> None:
     assert "--legend-max-height: min(42vh, 360px);" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: var(--legend-max-height);" in MAP_DOCUMENT_TEMPLATE

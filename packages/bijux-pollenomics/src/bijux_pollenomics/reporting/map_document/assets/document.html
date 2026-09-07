@@ -1786,8 +1786,27 @@
           top: max(8px, env(safe-area-inset-top));
         }
         .topbar-search {
-          width: min(188px, 46vw);
-          justify-self: end;
+          position: absolute;
+          top: calc(100% + 8px);
+          right: 0;
+          width: min(220px, calc(100vw - 16px));
+          padding: 8px;
+          border: 1px solid var(--surface-edge);
+          border-radius: 16px;
+          background:
+            linear-gradient(180deg, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0)),
+            var(--surface-strong);
+          backdrop-filter: blur(16px);
+          box-shadow: var(--shadow-md);
+        }
+        .search-results--floating {
+          position: relative;
+          top: auto;
+          right: auto;
+          width: 100%;
+          max-height: min(14vh, 96px);
+          padding: 6px;
+          border-radius: 12px;
         }
         .map-topbar .topbar-context {
           position: absolute;
