@@ -68,6 +68,8 @@
       html.atlas-capture-mode .map-status,
       html.atlas-capture-mode .focus-card,
       html.atlas-capture-mode .empty-state,
+      html.atlas-capture-mode .help-dialog,
+      html.atlas-capture-mode .leaflet-popup,
       html.atlas-capture-mode .mobile-panel-close,
       html.atlas-capture-mode .mobile-scrim,
       html.atlas-capture-mode .leaflet-control-zoom {
@@ -6116,6 +6118,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const captureFrame = normalizeAtlasCaptureFrame(frameSpec);
         stopTimePlayback();
         stopModeledContextPlayback();
+        closeHelpDialog();
+        setSearchOpen(false, false);
+        setFocusState(null);
+        map.closePopup();
         sourceRecordConcentrationActive = false;
         sourceRecordConcentrationSnapshot = null;
         atlasCapturePresentation = null;

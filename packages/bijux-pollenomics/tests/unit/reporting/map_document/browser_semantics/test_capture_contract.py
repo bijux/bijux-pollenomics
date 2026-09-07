@@ -91,6 +91,10 @@ def test_capture_contract_validates_source_facets_context_metrics_and_view() -> 
     assert "if (sourceLayer) activeLayerKeys.add(sourceLayer.key)" in block
     assert "activeLayerKeys.add(MODELED_CONTEXT.layer_key)" in block
     assert "sourceRecordConcentrationActive = false" in block
+    assert "closeHelpDialog()" in block
+    assert "setSearchOpen(false, false)" in block
+    assert "setFocusState(null)" in block
+    assert "map.closePopup()" in block
     assert "map.setView([captureFrame.view.latitude" in block
     assert "setPanelCollapsed(true, false)" in block
     assert "setLegendCollapsed(true, false)" in block
@@ -98,7 +102,7 @@ def test_capture_contract_validates_source_facets_context_metrics_and_view() -> 
     assert "map.invalidateSize({ animate: false })" in block
 
 
-def test_source_capture_resets_prior_concentration_state() -> None:
+def test_capture_resets_prior_obscuring_ui_and_concentration_state() -> None:
     apply_frame = template_block(
         "async function applyAtlasCaptureFrame",
         "globalThis.BijuxPollenomicsAtlasCapture",
@@ -115,12 +119,19 @@ let activeSourceChronologyTaxon='';
 let sourceChronologyTaxonSearch='stale';
 let timeStartBp=0;
 let timeIntervalYears=0;
+let helpOpen=true;
+let searchOpen=true;
+let focusOpen=true;
+let popupOpen=true;
 const document={documentElement:{classList:{add(){}}}};
 const window={scrollTo(){}};
-const map={invalidateSize(){},setView(){}};
+const map={invalidateSize(){},setView(){},closePopup(){popupOpen=false;}};
 function normalizeAtlasCaptureFrame(value){return value;}
 function stopTimePlayback(){}
 function stopModeledContextPlayback(){}
+function closeHelpDialog(){helpOpen=false;}
+function setSearchOpen(open){searchOpen=open;}
+function setFocusState(state){focusOpen=Boolean(state);}
 function setBasemap(){}
 function deactivateModeledContext(){}
 function selectSourceChronologyLevel(){}
@@ -132,6 +143,10 @@ async function renderMapState(){}
 function atlasCaptureSnapshot(){return {
   sourceRecordConcentrationActive,
   sourceRecordConcentrationSnapshot,
+  helpOpen,
+  searchOpen,
+  focusOpen,
+  popupOpen,
 };}
 function renderAtlasCaptureOverlay(){}
 async function awaitAtlasCaptureReady(){return atlasCaptureSnapshot();}
@@ -148,6 +163,10 @@ async function awaitAtlasCaptureReady(){return atlasCaptureSnapshot();}
     assert observed == {
         "sourceRecordConcentrationActive": False,
         "sourceRecordConcentrationSnapshot": None,
+        "helpOpen": False,
+        "searchOpen": False,
+        "focusOpen": False,
+        "popupOpen": False,
     }
 
 
@@ -184,6 +203,8 @@ def test_capture_overlay_keeps_map_clear_and_labels_evidence_in_every_frame() ->
     assert "html.atlas-capture-mode .control-panel" in MAP_DOCUMENT_TEMPLATE
     assert "html.atlas-capture-mode .map-status" in MAP_DOCUMENT_TEMPLATE
     assert "html.atlas-capture-mode .focus-card" in MAP_DOCUMENT_TEMPLATE
+    assert "html.atlas-capture-mode .help-dialog" in MAP_DOCUMENT_TEMPLATE
+    assert "html.atlas-capture-mode .leaflet-popup" in MAP_DOCUMENT_TEMPLATE
     assert "html.atlas-capture-mode .map-stage" in MAP_DOCUMENT_TEMPLATE
     assert "atlasCapturePresentation !== null" in MAP_DOCUMENT_TEMPLATE
     assert (
