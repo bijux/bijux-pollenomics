@@ -13,6 +13,9 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
   materialization.
 - Added browser and media verification for responsive atlas behavior, immutable
   capture inputs, governed story catalogs, and publication-ready media bytes.
+- Added deterministic test-shard receipts, independent documentation test
+  collection, and report-partition manifests with complete two-build and
+  tracked-output reconciliation.
 
 ### Changed
 
@@ -28,6 +31,8 @@ All notable changes for `bijux-pollenomics-dev` are recorded here.
   artifact identity checks so malformed or unrelated evidence fails closed.
 - Corrected reproducibility and browser diagnostics to retain actionable failure
   evidence without treating local artifacts as publication authority.
+- Rejected altered partition plans, missing or overlapping outputs, mixed
+  candidate identities, and input changes during partition execution.
 
 ## 0.1.7 - 2026-06-29
 

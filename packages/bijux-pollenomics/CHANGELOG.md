@@ -36,6 +36,9 @@ All notable changes for `bijux-pollenomics` are recorded here.
 - Hardened source parsing, offline acquisition metadata, deterministic report
   generation, and browser-visible atlas behavior against malformed, stale, or
   ambiguous inputs.
+- Reused validated chronology intervals, exact-coordinate distance results,
+  and grouped ranking contexts without changing closed-interval comparisons
+  or merging distinct source records.
 
 ## 0.1.7 - 2026-06-29
 

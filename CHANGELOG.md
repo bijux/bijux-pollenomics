@@ -33,6 +33,10 @@ change contributor and maintainer workflows across the repository.
   and release support.
 - Refreshed governed data, reports, atlas assets, and sustainability accounting
   to reconcile the repository's current scientific evidence inventory.
+- Split package tests, documentation-count checks, and independent report
+  rebuilds into bounded jobs with exact partition reconciliation and a
+  ten-minute timeout ceiling. Test uploads retain compact verification evidence
+  instead of fixture trees and caches.
 
 ### Fixed
 
@@ -47,6 +51,8 @@ change contributor and maintainer workflows across the repository.
 - Hardened scientific input parsing, generated-output reproducibility, browser
   verification, and atlas interaction contracts against ambiguous or stale
   evidence.
+- Bound release artifact uploads to the requested tag, checked-out commit,
+  workflow revision, and resolved package version.
 
 ## 0.1.7 - 2026-06-29
 
