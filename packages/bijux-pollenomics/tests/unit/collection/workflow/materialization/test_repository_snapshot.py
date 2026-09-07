@@ -1,9 +1,11 @@
 from __future__ import annotations
 
+from datetime import date
 import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from bijux_pollenomics.collection.workflow.materialization.contracts import (
     write_data_contract_surfaces,
@@ -16,6 +18,44 @@ from bijux_pollenomics.collection.workflow.materialization.repository_snapshot i
 
 
 class RepositorySnapshotUnitTests(unittest.TestCase):
+    def test_repository_summary_separates_build_date_from_acquisition_date(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            output_root = Path(tmp) / "data"
+            receipt_path = output_root / "boundaries" / "raw" / "source_manifest.json"
+            receipt_path.parent.mkdir(parents=True)
+            receipt_path.write_text(
+                json.dumps(
+                    {
+                        "schema_version": "natural-earth-boundary-receipt.v1",
+                        "source": "Natural Earth",
+                        "generated_on": "2026-09-04",
+                    }
+                ),
+                encoding="utf-8",
+            )
+
+            with patch(
+                "bijux_pollenomics.collection.workflow.materialization.reports.date"
+            ) as current_date:
+                current_date.today.return_value = date(2030, 2, 3)
+                summary = build_repository_collection_summary(
+                    output_root, version="v66"
+                )
+
+        self.assertEqual(summary.generated_on, "2030-02-03")
+        self.assertEqual(
+            summary.source_metadata["boundaries"].retrieved_on, "2026-09-04"
+        )
+        self.assertEqual(
+            summary.source_provenance["boundaries"].retrieved_on, "2026-09-04"
+        )
+        self.assertEqual(
+            summary.source_metadata["boundaries"].acquisition_method, "unavailable"
+        )
+        self.assertEqual(summary.source_metadata["aadr"].retrieved_on, "unavailable")
+
     def test_build_repository_source_counts_reads_existing_normalized_surfaces(
         self,
     ) -> None:

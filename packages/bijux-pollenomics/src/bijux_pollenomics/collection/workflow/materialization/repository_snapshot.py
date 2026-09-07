@@ -5,7 +5,7 @@ from pathlib import Path
 
 from ....config import DEFAULT_AADR_VERSION
 from ...catalog.hashes import build_source_hashes
-from ...catalog.metadata import build_source_metadata
+from ...catalog.metadata import build_repository_source_metadata
 from ...catalog.provenance import build_source_provenance
 from ...catalog.replacement import build_source_replacement_rules
 from ...catalog.traceability import build_source_traceability_records
@@ -82,9 +82,10 @@ def build_repository_collection_summary(
     source_output_roots = build_source_output_roots(
         output_root=output_root, version=version
     )
-    source_metadata = build_source_metadata(
+    source_metadata = build_repository_source_metadata(
         selected_sources=selected_sources,
         version=version,
+        source_output_roots=source_output_roots,
     )
     source_hashes = {
         source: {
