@@ -37,7 +37,9 @@ def polygons_from_geometry(geometry: JsonObject) -> tuple[Polygon, ...]:
         return _cached_polygons_from_geometry(geometry)
 
 
-def boundary_segments_from_geometry(geometry: JsonObject) -> tuple[BoundarySegment, ...]:
+def boundary_segments_from_geometry(
+    geometry: JsonObject,
+) -> tuple[BoundarySegment, ...]:
     """Return boundary segments and their precomputed axis-aligned bounds."""
     with _PREPARATION_LOCK:
         return _prepare_geometry(geometry).boundary_segments

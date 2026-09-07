@@ -102,7 +102,8 @@ def validate_reconciliation(reconciliation: AadrPanelReconciliation) -> None:
     if len(all_source_keys) != len(set(all_source_keys)):
         raise ValueError("AADR source-row links must be globally unique")
     source_file_row_count = sum(
-        row_count for row_count, _column_names in source_file_rows(reconciliation).values()
+        row_count
+        for row_count, _column_names in source_file_rows(reconciliation).values()
     )
     if source_file_row_count != reconciliation.source_row_count:
         raise ValueError("AADR source-file ledger denominator diverges")
@@ -153,7 +154,9 @@ def _validate_record(
     if any(
         group.evidence.scientifically_admitted for group in record.chronology_groups
     ):
-        raise ValueError("AADR chronology cannot be admitted by accountability projection")
+        raise ValueError(
+            "AADR chronology cannot be admitted by accountability projection"
+        )
 
 
 def _validate_unkeyed_row(
@@ -184,7 +187,9 @@ def _validate_coordinate_group_evidence(
     for group in record.coordinate_groups:
         for link in group.source_rows:
             if source_rows_by_key[link.key].coordinates != group.evidence:
-                raise ValueError("AADR coordinate evidence group changes source evidence")
+                raise ValueError(
+                    "AADR coordinate evidence group changes source evidence"
+                )
 
 
 def _validate_chronology_group_evidence(
@@ -194,7 +199,9 @@ def _validate_chronology_group_evidence(
     for group in record.chronology_groups:
         for link in group.source_rows:
             if source_rows_by_key[link.key].chronology != group.evidence:
-                raise ValueError("AADR chronology evidence group changes source evidence")
+                raise ValueError(
+                    "AADR chronology evidence group changes source evidence"
+                )
 
 
 def _validate_group_links(

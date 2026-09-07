@@ -34,9 +34,16 @@ def point_on_geometry_boundary(
     """Return whether a point is within epsilon of any geometry edge."""
     if not math.isfinite(epsilon) or epsilon < 0:
         return geometry_boundary_distance(longitude, latitude, geometry) <= epsilon
-    for ax, ay, bx, by, minimum_x, maximum_x, minimum_y, maximum_y in (
-        boundary_segments_from_geometry(geometry)
-    ):
+    for (
+        ax,
+        ay,
+        bx,
+        by,
+        minimum_x,
+        maximum_x,
+        minimum_y,
+        maximum_y,
+    ) in boundary_segments_from_geometry(geometry):
         if not (
             minimum_x - epsilon <= longitude <= maximum_x + epsilon
             and minimum_y - epsilon <= latitude <= maximum_y + epsilon

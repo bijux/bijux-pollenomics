@@ -79,6 +79,8 @@ _EXPECTED_ARCHIVE_HEADER: Final = (
     "submitted_ftp",
     "sra_ftp",
 )
+
+
 @dataclass(frozen=True)
 class AurochsWorkbookEvidence:
     """One exact row from the governed natural-history workbook."""
