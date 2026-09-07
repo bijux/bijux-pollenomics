@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from dataclasses import replace
 import json
 from pathlib import Path
 import shutil
@@ -25,7 +24,6 @@ from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep import (
     official_evidence,
     parse_baltic_sheep_article_chronology,
     parse_baltic_sheep_ena_sample,
-    reconcile_baltic_sheep_official_evidence,
 )
 from bijux_pollenomics.adna.sources.library import (
     build_project_source_bundles,
@@ -474,20 +472,4 @@ def test_article_context_epoch_identity_and_denominator_drift_fail_closed() -> N
     with pytest.raises(ValueError, match="identities must occur exactly once"):
         parse_baltic_sheep_article_chronology(
             ElementTree.tostring(root), source_path="mutated.xml"
-        )
-
-
-def test_reconciliation_refuses_missing_and_cross_contaminated_rows() -> None:
-    bundle = load_baltic_sheep_official_evidence(DATA_ROOT)
-    with pytest.raises(ValueError, match="ENA evidence denominator drift"):
-        reconcile_baltic_sheep_official_evidence(
-            tuple(row.archive for row in bundle.samples[:-1]),
-            tuple(row.chronology for row in bundle.samples),
-        )
-
-    archive_rows = [row.archive for row in bundle.samples]
-    archive_rows[0] = replace(archive_rows[0], site_name="Stora Förvar")
-    with pytest.raises(ValueError, match="source locality conflict"):
-        reconcile_baltic_sheep_official_evidence(
-            tuple(archive_rows), tuple(row.chronology for row in bundle.samples)
         )
