@@ -19,6 +19,12 @@ ADNA_SAMPLE_IDENTITY_RESOLUTIONS = (
     "ambiguous",
     "provisional",
 )
+ADNA_SOURCE_NATIVE_IDENTITY_KINDS = (
+    "biological_sample",
+    "biological_sample_accession",
+    "sequencing_experiment_accession",
+    "supplementary_sample_label",
+)
 _XLSX_NS = {
     "a": "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
     "r": "http://schemas.openxmlformats.org/officeDocument/2006/relationships",

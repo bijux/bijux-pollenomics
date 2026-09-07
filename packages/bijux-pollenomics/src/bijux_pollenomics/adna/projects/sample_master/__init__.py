@@ -3,6 +3,7 @@
 from .models import (
     ADNA_SAMPLE_EVIDENCE_STATUSES,
     ADNA_SAMPLE_IDENTITY_RESOLUTIONS,
+    ADNA_SOURCE_NATIVE_IDENTITY_KINDS,
     AdnaProjectSampleMaster,
     AdnaProjectSampleMasterRow,
 )
@@ -17,6 +18,7 @@ from .service import (
 __all__ = [
     "ADNA_SAMPLE_EVIDENCE_STATUSES",
     "ADNA_SAMPLE_IDENTITY_RESOLUTIONS",
+    "ADNA_SOURCE_NATIVE_IDENTITY_KINDS",
     "AdnaProjectSampleMaster",
     "AdnaProjectSampleMasterRow",
     "build_cross_project_sample_master_completeness",

@@ -89,6 +89,39 @@ def test_structural_tampering_fails_closed(
         load_animal_sample_chronology_corpus(tmp_path)
 
 
+@pytest.mark.parametrize(
+    ("surface", "field"),
+    (
+        ("master", "sample_evidence_status"),
+        ("master", "source_native_identity_kind"),
+        ("chronology", "sample_evidence_status"),
+        ("chronology", "chronology_strength"),
+        ("chronology", "chronology_evidence_class"),
+        ("chronology", "chronology_precision_posture"),
+        ("chronology", "chronology_normalization_status"),
+        ("chronology", "dating_basis"),
+        ("site", "coordinate_basis"),
+        ("site", "coordinate_confidence"),
+        ("site", "locality_resolution_status"),
+    ),
+)
+def test_controlled_source_vocabulary_tampering_fails_closed(
+    tmp_path: Path, surface: str, field: str
+) -> None:
+    master, chronology, site = (deepcopy(row) for row in base_rows())
+    rows = {"master": master, "chronology": chronology, "site": site}
+    rows[surface][field] = "fabricated_scientific_value"
+    write_source_repository(
+        tmp_path,
+        masters=[master],
+        chronologies=[chronology],
+        sites=[site],
+    )
+
+    with pytest.raises(ValueError, match=rf"unsupported {field}"):
+        load_animal_sample_chronology_corpus(tmp_path)
+
+
 def test_valid_content_change_changes_path_and_byte_identity(tmp_path: Path) -> None:
     write_source_repository(tmp_path)
     before = load_animal_sample_chronology_corpus(tmp_path).input_identity

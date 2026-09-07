@@ -9,6 +9,25 @@ import json
 from pathlib import Path
 from typing import cast
 
+from ....adna.domain.models.vocabularies import (
+    ADNA_CHRONOLOGY_EVIDENCE_CLASSES,
+    ADNA_CHRONOLOGY_PRECISION_POSTURES,
+    ADNA_COORDINATE_CONFIDENCE,
+    ADNA_COORDINATE_PROVENANCE_CLASSES,
+    ADNA_DATING_BASES,
+)
+from ....adna.projects.evidence.chronology.constants import (
+    ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
+    ADNA_CHRONOLOGY_STRENGTHS,
+)
+from ....adna.projects.registry.sites.records import (
+    ADNA_LOCALITY_RESOLUTION_STATUSES,
+)
+from ....adna.projects.sample_master.models import (
+    ADNA_SAMPLE_EVIDENCE_STATUSES,
+    ADNA_SAMPLE_IDENTITY_RESOLUTIONS,
+    ADNA_SOURCE_NATIVE_IDENTITY_KINDS,
+)
 from .contracts import (
     AnimalChronologyInputIdentity,
     AnimalSampleChronologyCorpus,
@@ -23,13 +42,8 @@ _SURFACE_SCHEMAS = {
     "sample_chronology.json": "animal-project-sample-chronology.v1",
     "sample_sites.json": "animal-project-sample-sites.v1",
 }
-_CHRONOLOGY_STATUSES = {
-    "normalized_interval",
-    "normalized_point",
-    "text_only_unparsed",
-    "unresolved",
-}
-_IDENTITY_STATUSES = {"ambiguous", "final", "provisional"}
+_CHRONOLOGY_STATUSES = set(ADNA_CHRONOLOGY_NORMALIZATION_STATUSES)
+_IDENTITY_STATUSES = set(ADNA_SAMPLE_IDENTITY_RESOLUTIONS)
 _MAPPABLE_POSTURE = "mappable_point"
 _REFUSAL_ORDER = (
     "sequencing_experiment_identity",
@@ -243,7 +257,75 @@ def _validate_row_identity(
         raise ValueError(
             f"unsupported sample identity status for {(accession, sample_id)!r}"
         )
+    _required_vocabulary(
+        row,
+        "sample_evidence_status",
+        ADNA_SAMPLE_EVIDENCE_STATUSES,
+        key=(accession, sample_id),
+    )
+    if filename == "sample_master.json":
+        _optional_vocabulary(
+            row,
+            "source_native_identity_kind",
+            ADNA_SOURCE_NATIVE_IDENTITY_KINDS,
+            key=(accession, sample_id),
+        )
+    elif filename == "sample_chronology.json":
+        for field, allowed in (
+            ("chronology_strength", ADNA_CHRONOLOGY_STRENGTHS),
+            ("chronology_evidence_class", ADNA_CHRONOLOGY_EVIDENCE_CLASSES),
+            ("chronology_precision_posture", ADNA_CHRONOLOGY_PRECISION_POSTURES),
+            (
+                "chronology_normalization_status",
+                ADNA_CHRONOLOGY_NORMALIZATION_STATUSES,
+            ),
+            ("dating_basis", ADNA_DATING_BASES),
+        ):
+            _required_vocabulary(row, field, allowed, key=(accession, sample_id))
+    elif filename == "sample_sites.json":
+        _required_vocabulary(
+            row,
+            "locality_resolution_status",
+            ADNA_LOCALITY_RESOLUTION_STATUSES,
+            key=(accession, sample_id),
+        )
+        _optional_vocabulary(
+            row,
+            "coordinate_basis",
+            ADNA_COORDINATE_PROVENANCE_CLASSES,
+            key=(accession, sample_id),
+        )
+        _optional_vocabulary(
+            row,
+            "coordinate_confidence",
+            ADNA_COORDINATE_CONFIDENCE,
+            key=(accession, sample_id),
+        )
     return accession, sample_id
+
+
+def _required_vocabulary(
+    row: Mapping[str, object],
+    field: str,
+    allowed: tuple[str, ...] | set[str],
+    *,
+    key: _SampleKey,
+) -> None:
+    value = _required_text(row, field)
+    if value not in allowed:
+        raise ValueError(f"unsupported {field} for {key!r}: {value!r}")
+
+
+def _optional_vocabulary(
+    row: Mapping[str, object],
+    field: str,
+    allowed: tuple[str, ...] | set[str],
+    *,
+    key: _SampleKey,
+) -> None:
+    value = _optional_text(row.get(field))
+    if value is not None and value not in allowed:
+        raise ValueError(f"unsupported {field} for {key!r}: {value!r}")
 
 
 def _validate_join_sets(
