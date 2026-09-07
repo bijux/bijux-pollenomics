@@ -1,11 +1,16 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from typing import cast
 
 from ..collection.contracts.cardinality import resolve_declared_count
-from .geography import GeographicScope
 from .models import MultiCountryMapReport
 from .presentation.text import escape_pipes
+from .scope_policy import (
+    ALL_SCOPE_KEYS,
+    NORDIC_SCOPE_KEYS,
+    MapScopePolicy,
+    resolve_map_scope_policy,
+)
 
 __all__ = [
     "MapScopePolicy",
@@ -19,179 +24,21 @@ __all__ = [
 ]
 
 
-@dataclass(frozen=True)
-class MapScopePolicy:
-    key: str
-    label: str
-    eyebrow_label: str
-    summary: str
-    bounds_summary: str
-    default_basemap: str
-    initial_diameter_km: int
-    minimum_bounds: tuple[tuple[float, float], tuple[float, float]]
-    filter_surfaces: tuple[str, ...]
-    legend_sections: tuple[str, ...]
-    visible_caveats: tuple[str, ...]
-    engine_summary: str
-    chronology_playback_href: str | None = None
-
-
-_COMMON_FILTER_SURFACES = (
-    "Country filters",
-    "Layer toggles",
-    "Search",
-    "Time window",
-    "Distance circles",
-    "Basemap switch",
-)
-_COMMON_LEGEND_SECTIONS = (
-    "Human evidence markers",
-    "Animal evidence markers when present",
-    "Context overlay symbols",
-    "Density ramp when archaeology density is visible",
-)
-_COMMON_ENGINE_SUMMARY = (
-    "One shared map document engine serves every published scope. Scope differences "
-    "must be encoded in governed bounds, layer eligibility, default basemap, and "
-    "reader caveats rather than hidden in separate renderer forks."
-)
-_ALL_SCOPE_KEYS = ("world", "europe_plus", "nordic", "custom")
-_NORDIC_SCOPE_KEYS = ("nordic",)
-
-_MAP_SCOPE_POLICIES: dict[str, MapScopePolicy] = {
-    "world": MapScopePolicy(
-        key="world",
-        label="World",
-        eyebrow_label="World Surface",
-        summary=(
-            "World is the governing publication surface. It keeps every published "
-            "country inside one shared map and excludes Nordic-only context overlays "
-            "that would look more complete than they really are at broader scale."
-        ),
-        bounds_summary=(
-            "The opening extent keeps a broad trans-Atlantic and Eurasian frame so the "
-            "root publication surface reads as a parent scope rather than a Nordic "
-            "detail page with a bigger title."
-        ),
-        default_basemap="street",
-        initial_diameter_km=40,
-        minimum_bounds=((-20.0, -165.0), (82.0, 180.0)),
-        filter_surfaces=_COMMON_FILTER_SURFACES,
-        legend_sections=_COMMON_LEGEND_SECTIONS,
-        visible_caveats=(
-            "World is the parent publication scope, not a claim that worldwide contextual coverage is already complete.",
-            "Nordic environmental and archaeology overlays are withheld here until broader equivalents exist.",
-            "Country counts still describe Homo sapiens AADR rows even when animal layers are also visible.",
-        ),
-        engine_summary=_COMMON_ENGINE_SUMMARY,
-    ),
-    "europe_plus": MapScopePolicy(
-        key="europe_plus",
-        label="Europe-plus",
-        eyebrow_label="Europe-plus Surface",
-        summary=(
-            "Europe-plus is a governed regional filter view. It keeps only Europe-plus "
-            "countries from the broader publication surface and still withholds "
-            "Nordic-only overlays that would overstate regional context coverage."
-        ),
-        bounds_summary=(
-            "The opening extent centers the European frame while keeping enough margin "
-            "for future expansion into non-Nordic Europe-plus countries."
-        ),
-        default_basemap="street",
-        initial_diameter_km=30,
-        minimum_bounds=((34.0, -16.0), (72.0, 42.0)),
-        filter_surfaces=_COMMON_FILTER_SURFACES,
-        legend_sections=_COMMON_LEGEND_SECTIONS,
-        visible_caveats=(
-            "Europe-plus is derived from the world publication surface by governed country filtering, not by a second evidence pipeline.",
-            "Nordic-only pollen, archaeology, and fieldwork overlays remain absent here on purpose.",
-            "Future non-Nordic Europe-plus additions should arrive by country onboarding, not by custom one-off bundle logic.",
-        ),
-        engine_summary=_COMMON_ENGINE_SUMMARY,
-    ),
-    "nordic": MapScopePolicy(
-        key="nordic",
-        label="Nordic",
-        eyebrow_label="Nordic Surface",
-        summary=(
-            "Nordic is the regional detail surface. It keeps the shared human and "
-            "animal evidence layers, then adds Nordic-only environmental, archaeology, "
-            "boundary, and fieldwork overlays that remain interpretable at this scale."
-        ),
-        bounds_summary=(
-            "The opening extent stays tight on Nordic countries so lake, site, and "
-            "archaeology context reads as map content rather than background noise."
-        ),
-        default_basemap="street",
-        initial_diameter_km=20,
-        minimum_bounds=((54.0, 4.0), (72.0, 35.0)),
-        filter_surfaces=(
-            *_COMMON_FILTER_SURFACES,
-            "Accepted scientific comparison when qualified classifications are available",
-            "Neotoma source-sample, literal-code, and exact-label chronology",
-            "Oldest-to-present BP window navigation and playback",
-            "PANGAEA 937075 exact-window modeled context",
-            "Modeled-context visible-frame export",
-            "Animal species focus when animal layers are present",
-            "Animal scope when animal layers are present",
-            "Animal coordinate confidence when animal layers are present",
-            "Animal temporal windows when animal layers are present",
-            "Nordic animal leads only when animal layers are present",
-        ),
-        legend_sections=(
-            *_COMMON_LEGEND_SECTIONS,
-            "Nordic environmental context markers",
-            "Nordic boundary and archaeology overlays",
-            "Fieldwork documentation marker when checked-in gallery media is present",
-        ),
-        visible_caveats=(
-            "Nordic-specific overlays describe the current Nordic recovery slice and must not be generalized outward.",
-            "Animal points can remain visible even when their Nordic relevance is regional rather than one exact country.",
-            "Approximate or inferred coordinates remain visible with explicit warnings instead of being silently dropped.",
-        ),
-        engine_summary=_COMMON_ENGINE_SUMMARY,
-        chronology_playback_href="../../../public/nordic-atlas/chronology-playback/",
-    ),
-    "custom": MapScopePolicy(
-        key="custom",
-        label="Custom",
-        eyebrow_label="Evidence Surface",
-        summary=(
-            "This is a direct generated map bundle outside the governed world, "
-            "Europe-plus, and Nordic publication tree."
-        ),
-        bounds_summary=(
-            "The opening extent follows the visible points because no governed scope "
-            "bounds were supplied."
-        ),
-        default_basemap="street",
-        initial_diameter_km=20,
-        minimum_bounds=((54.0, 4.0), (72.0, 35.0)),
-        filter_surfaces=_COMMON_FILTER_SURFACES,
-        legend_sections=_COMMON_LEGEND_SECTIONS,
-        visible_caveats=(
-            "Custom bundles are convenience outputs and do not define new public geography policy.",
-        ),
-        engine_summary=_COMMON_ENGINE_SUMMARY,
-    ),
-}
-
-_NORDIC_AND_CUSTOM_SCOPE_KEYS = set(_NORDIC_SCOPE_KEYS) | {"custom"}
+_NORDIC_AND_CUSTOM_SCOPE_KEYS = set(NORDIC_SCOPE_KEYS) | {"custom"}
 
 _LAYER_SCOPE_RULES = {
-    "aadr": _ALL_SCOPE_KEYS,
-    "country-boundaries": _ALL_SCOPE_KEYS,
+    "aadr": ALL_SCOPE_KEYS,
+    "country-boundaries": ALL_SCOPE_KEYS,
     "fieldwork-documentation": _NORDIC_AND_CUSTOM_SCOPE_KEYS,
-    "landclim-sites": _NORDIC_SCOPE_KEYS,
-    "neotoma-pollen": _NORDIC_SCOPE_KEYS,
-    "sead-sites": _NORDIC_SCOPE_KEYS,
-    "sead-temporal-evidence": _NORDIC_SCOPE_KEYS,
-    "sweden-archaeology-site-discovery": _NORDIC_SCOPE_KEYS,
-    "landclim-reveals-grid": _NORDIC_SCOPE_KEYS,
-    "landclim-reveals-temporal-grid": _NORDIC_SCOPE_KEYS,
-    "raa-archaeology": _NORDIC_SCOPE_KEYS,
-    "raa-layer-metadata": _NORDIC_SCOPE_KEYS,
+    "landclim-sites": NORDIC_SCOPE_KEYS,
+    "neotoma-pollen": NORDIC_SCOPE_KEYS,
+    "sead-sites": NORDIC_SCOPE_KEYS,
+    "sead-temporal-evidence": NORDIC_SCOPE_KEYS,
+    "sweden-archaeology-site-discovery": NORDIC_SCOPE_KEYS,
+    "landclim-reveals-grid": NORDIC_SCOPE_KEYS,
+    "landclim-reveals-temporal-grid": NORDIC_SCOPE_KEYS,
+    "raa-archaeology": NORDIC_SCOPE_KEYS,
+    "raa-layer-metadata": NORDIC_SCOPE_KEYS,
 }
 
 _SHARED_LAYER_KEYS = {"aadr"}
@@ -260,18 +107,9 @@ _TRACEABILITY_OPTIONAL_RECORD_FIELDS = (
 )
 
 
-def resolve_map_scope_policy(
-    geography_scope: GeographicScope | None,
-) -> MapScopePolicy:
-    """Resolve the governed map presentation policy for one publication scope."""
-    if geography_scope is None:
-        return _MAP_SCOPE_POLICIES["custom"]
-    return _MAP_SCOPE_POLICIES.get(geography_scope.key, _MAP_SCOPE_POLICIES["custom"])
-
-
 def map_allows_context_layer(*, scope_key: str, layer_key: str) -> bool:
     """Return whether one external context layer belongs in the active map scope."""
-    allowed_scope_keys = _LAYER_SCOPE_RULES.get(layer_key, _ALL_SCOPE_KEYS)
+    allowed_scope_keys = _LAYER_SCOPE_RULES.get(layer_key, ALL_SCOPE_KEYS)
     return scope_key in allowed_scope_keys
 
 
@@ -341,25 +179,28 @@ def render_map_publication_contract_markdown(payload: dict[str, object]) -> str:
     rows = (
         "\n".join(
             f"| {escape_pipes(str(row['label']))} | `{row['publication_role']}` | {escape_pipes(str(row['source_name']))} | {escape_pipes(str(row['coverage_label']))} | `{row['count']}` |"
-            for row in payload["layer_rows"]
+            for row in cast(list[dict[str, object]], payload["layer_rows"])
         )
         or "| No visible layers | `-` | - | - | `0` |"
     )
     filter_lines = (
         "\n".join(
-            f"- {escape_pipes(str(label))}" for label in payload["filter_surfaces"]
+            f"- {escape_pipes(str(label))}"
+            for label in cast(list[object], payload["filter_surfaces"])
         )
         or "- No governed filter surfaces"
     )
     legend_lines = (
         "\n".join(
-            f"- {escape_pipes(str(label))}" for label in payload["legend_sections"]
+            f"- {escape_pipes(str(label))}"
+            for label in cast(list[object], payload["legend_sections"])
         )
         or "- No governed legend sections"
     )
     caveat_lines = (
         "\n".join(
-            f"- {escape_pipes(str(label))}" for label in payload["visible_caveats"]
+            f"- {escape_pipes(str(label))}"
+            for label in cast(list[object], payload["visible_caveats"])
         )
         or "- No governed caveats"
     )
