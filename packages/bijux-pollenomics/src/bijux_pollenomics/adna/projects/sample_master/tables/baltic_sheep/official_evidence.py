@@ -735,9 +735,7 @@ def _read_receipted_official_source(
             f"Official source receipt is missing or invalid: {repository_path}"
         ) from error
     if not isinstance(receipt, dict):
-        raise ValueError(
-            f"Official source receipt must be an object: {repository_path}"
-        )
+        raise TypeError(f"Official source receipt must be an object: {repository_path}")
 
     expected_receipt_values: dict[str, object] = {
         "schema_version": _SOURCE_LIBRARY_SCHEMA_VERSION,
