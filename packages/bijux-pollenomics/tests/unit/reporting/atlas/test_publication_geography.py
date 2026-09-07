@@ -234,10 +234,13 @@ class PublicationGeographyTests(unittest.TestCase):
                 )
                 (output_dir / f"{slug}_animal_atlas_evidence.json").write_text(
                     json.dumps(
-                        [
-                            {"evidence_row_id": f"{slug}:animal:{country.lower()}"}
-                            for country in countries
-                        ]
+                        {
+                            "schema_version": "animal-atlas-evidence.v1",
+                            "rows": [
+                                {"evidence_row_id": (f"animal:{country.lower()}")}
+                                for country in countries
+                            ],
+                        }
                     ),
                     encoding="utf-8",
                 )
@@ -294,7 +297,7 @@ class PublicationGeographyTests(unittest.TestCase):
                     json.dumps(
                         {
                             "sample_rows": [
-                                {"evidence_row_id": f"nordic:animal:{country.lower()}"}
+                                {"evidence_row_id": f"animal:{country.lower()}"}
                             ]
                         }
                     ),
@@ -395,6 +398,14 @@ class PublicationGeographyTests(unittest.TestCase):
                 (
                     staging_output_root / "publication_country_onboarding_contract.json"
                 ).is_file()
+            )
+            subset_validation = json.loads(
+                (
+                    staging_output_root / "publication_geography_subset_validation.json"
+                ).read_text(encoding="utf-8")
+            )
+            self.assertTrue(
+                all(row["animal_subset_ok"] for row in subset_validation["rows"])
             )
             self.assertIn(
                 "../../regions/nordic/nordic_map.html",

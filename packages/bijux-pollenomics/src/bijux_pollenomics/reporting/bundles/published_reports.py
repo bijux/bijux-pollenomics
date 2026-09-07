@@ -402,10 +402,11 @@ def _load_animal_evidence_ids(
     payload = json.loads(
         bundle_paths.animal_atlas_evidence_json_path.read_text(encoding="utf-8")
     )
-    if not isinstance(payload, list):
+    rows = payload.get("rows", []) if isinstance(payload, dict) else payload
+    if not isinstance(rows, list):
         return set()
     identifiers: set[str] = set()
-    for row in payload:
+    for row in rows:
         if not isinstance(row, dict):
             continue
         evidence_row_id = str(row.get("evidence_row_id", "")).strip()
