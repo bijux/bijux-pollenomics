@@ -1,0 +1,483 @@
+schema_version: "1.0.0"
+contract_id: "bijux-pollenomics.propagation-model"
+contract_version: "1.0.0"
+status: "normative"
+title: "Candidate spatiotemporal propagation model"
+
+scientific_claim:
+  output_class: "candidate_propagation"
+  preferred_label: "candidate propagation link"
+  alternate_label: "spatiotemporal succession consistent with spread"
+  establishes_route: false
+  establishes_causation: false
+  establishes_human_migration: false
+  establishes_plant_migration: false
+  establishes_local_cultivation: false
+  note: "An edge is a versioned exploratory relation between evidence events, not a physical route or proof of a mechanism."
+
+geographic_scope:
+  countries:
+    - "SE"
+    - "NO"
+    - "FI"
+    - "DK"
+  country_boundaries_partition_candidate_generation: false
+  domestic_and_cross_border_rules_identical: true
+  required_ordered_country_pair_reporting:
+    - "SE-SE"
+    - "SE-NO"
+    - "SE-FI"
+    - "SE-DK"
+    - "NO-SE"
+    - "NO-NO"
+    - "NO-FI"
+    - "NO-DK"
+    - "FI-SE"
+    - "FI-NO"
+    - "FI-FI"
+    - "FI-DK"
+    - "DK-SE"
+    - "DK-NO"
+    - "DK-FI"
+    - "DK-DK"
+
+default_scenario:
+  scenario_id: "rectangular_100km_100yr_v1"
+  label: "100 km within 100 years"
+  spatial:
+    maximum_distance_km: 100.0
+    maximum_is_inclusive: true
+    interpretation: "maximum pairwise distance"
+    is_diameter: false
+    implied_radius_km: null
+  temporal:
+    minimum_positive_lag_years: 0.0
+    minimum_is_exclusive: true
+    maximum_lag_years: 100.0
+    maximum_is_inclusive: true
+    direction: "older_event_to_younger_event"
+  geometry: "rectangular_threshold"
+  rate_or_velocity_model: false
+  biological_law: false
+
+spatial_calculation:
+  coordinate_reference_system: "EPSG:4326"
+  coordinate_order: "longitude_latitude"
+  algorithm: "WGS84 inverse geodesic"
+  ellipsoid: "WGS84"
+  output_unit: "kilometre"
+  eligibility_distance_field: "distance_km_unrounded"
+  minimum_distinguishable_difference_km: 0.000001
+  minimum_decimal_places_when_text_serialized: 6
+  eligibility_value_storage: "full numeric value returned by the pinned implementation"
+  eligibility_value_serialization: "round-trip-safe numeric serialization"
+  eligibility_value_rounding_allowed: false
+  display_distance_field: "distance_km_display"
+  display_precision_km: 0.001
+  eligibility_uses_unrounded_value: true
+  implementation_identity:
+    required: true
+    library_name_field: "distance_library"
+    library_version_field: "distance_library_version"
+    algorithm_field: "distance_algorithm"
+    version_must_be_pinned_in_build_environment: true
+    library_and_version_must_be_stored_per_edge: true
+  silent_algorithm_fallback_allowed: false
+  validation:
+    latitude_minimum: -90.0
+    latitude_maximum: 90.0
+    longitude_minimum: -180.0
+    longitude_maximum: 180.0
+    missing_coordinate_action: "refuse"
+    invalid_coordinate_action: "refuse"
+    identical_coordinate_action: "allow only for distinct governed sites, with zero distance and shared_location=true"
+
+event_contract:
+  primary_key: "event_id"
+  required_fields:
+    - "schema_version"
+    - "event_id"
+    - "source_family"
+    - "evidence_domain"
+    - "source_snapshot_id"
+    - "source_record_id"
+    - "site_id"
+    - "observation_ids"
+    - "country_code"
+    - "latitude"
+    - "longitude"
+    - "coordinate_quality"
+    - "event_type"
+    - "resolution"
+    - "feature_key"
+    - "chronology_claim_id"
+    - "younger_bp"
+    - "older_bp"
+    - "comparability_status"
+    - "threshold_profile_id"
+    - "classification_contract_version"
+    - "provenance_record_id"
+    - "input_digest"
+    - "config_digest"
+    - "producer_version"
+    - "build_id"
+  allowed_event_types:
+    - "reported_positive_observation"
+    - "derived_first_observed"
+    - "derived_threshold_crossing"
+  allowed_evidence_domains:
+    - "pollen_context"
+    - "human_ancient_dna"
+    - "animal_ancient_dna"
+  pollen_candidate_domain: "pollen_context"
+  non_pollen_domain_posture: "retain as accounted input evidence but exclude from pollen candidate generation"
+  allowed_resolutions:
+    - "whole_pollen"
+    - "ecological_group"
+    - "ecological_subgroup"
+    - "ecological_role"
+    - "taxon"
+  resolution_requirements:
+    whole_pollen:
+      feature_key_prefix: "whole:"
+      interpretation_specificity: "low"
+      can_support_taxon_claim: false
+    ecological_group:
+      feature_key_prefix: "group:"
+      classification_version_required: true
+    ecological_subgroup:
+      feature_key_prefix: "subgroup:"
+      classification_version_required: true
+    ecological_role:
+      feature_key_prefix: "role:"
+      classification_version_required: true
+      cross_cut_role_membership_must_be_explicit: true
+    taxon:
+      feature_key_prefix: "taxon:"
+      accepted_taxon_concept_required: true
+      taxonomic_qualifier_required: true
+  first_observed_requirements:
+    sample_level_sequence_required: true
+    site_envelope_allowed: false
+    threshold_profile_required: true
+    label: "first observed in governed data"
+    global_first_claim_allowed: false
+
+threshold_profiles:
+  default_profile_id: "reported_positive_v1"
+  profiles:
+    - profile_id: "reported_positive_v1"
+      label: "source-reported positive observation"
+      compatible_measure_kinds:
+        - "count"
+        - "percentage"
+        - "concentration"
+        - "influx"
+        - "presence"
+      condition: "source value is valid and positive under its native measure semantics"
+      cross_unit_aggregation_allowed: false
+      interpretation: "detection, not establishment"
+    - profile_id: "count_ge_3_v1"
+      label: "at least three counted grains or items"
+      compatible_measure_kinds:
+        - "count"
+      condition: "normalized count >= 3"
+      cross_unit_aggregation_allowed: false
+      interpretation: "sensitivity profile; not universal evidence of establishment"
+    - profile_id: "percentage_ge_1_v1"
+      label: "at least one percent"
+      compatible_measure_kinds:
+        - "percentage"
+      condition: "normalized percentage >= 1.0"
+      cross_unit_aggregation_allowed: false
+      interpretation: "sensitivity profile; denominator must be known"
+    - profile_id: "two_consecutive_positive_v1"
+      label: "positive in two consecutive governed samples"
+      compatible_measure_kinds:
+        - "count"
+        - "percentage"
+        - "concentration"
+        - "influx"
+        - "presence"
+      condition: "two adjacent samples in one ordered collection unit are positive"
+      cross_unit_aggregation_allowed: false
+      interpretation: "persistence sensitivity profile; ordering and chronology required"
+
+pair_compatibility:
+  required:
+    - "different event_id"
+    - "different governed site_id"
+    - "same resolution"
+    - "same feature_key"
+    - "same threshold_profile_id"
+    - "same evidence_domain"
+    - "chronology relation is either comparable cal BP or explicitly unresolved"
+    - "both coordinate pairs are valid"
+    - "evidence methods are not demonstrably incompatible"
+    - "records are not the same underlying observation duplicated across sources"
+  refusal_ledger:
+    required: true
+    emitted_before_candidate_status_assignment: true
+    refused_pairs_are_candidate_rows: false
+    every_refusal_has_stable_pair_id: true
+    every_refusal_has_country_pair_and_feature_key: true
+    required_reason_codes:
+      - "same_governed_site"
+      - "duplicate_underlying_observation"
+      - "incompatible_evidence_method"
+      - "incompatible_evidence_domain"
+      - "evidence_domain_not_pollen_propagation_eligible"
+      - "incompatible_feature"
+      - "incompatible_measurement_semantics"
+      - "invalid_preaggregation"
+      - "invalid_or_missing_coordinate"
+      - "invalid_event_schema"
+    denominator_counts_required: true
+  same_site_policy:
+    distinct_events_at_same_governed_site: "refuse and record in pair-refusal ledger"
+    reason_code: "same_governed_site"
+    rationale: "Within-site chronological succession is not spatial propagation."
+  co_located_distinct_site_policy:
+    allowed: true
+    requirements:
+      - "source_site_id differs from target_site_id"
+      - "site reconciliation does not identify them as the same governed site"
+      - "shared_location is true"
+    interpretation: "distinct sites represented by identical coordinates; zero-distance relation, not within-site propagation"
+  taxon_resolution:
+    same_accepted_taxon_concept_required: true
+    unresolved_or_ambiguous_taxon_action: "refuse taxon edge"
+    text_label_only_match_allowed: false
+  derived_classification_resolutions:
+    same_classification_contract_version_required: true
+    applies_to:
+      - "ecological_group"
+      - "ecological_subgroup"
+      - "ecological_role"
+  whole_pollen_resolution:
+    heterogeneous_taxa_warning_required: true
+    interpretive_strength_cap: "exploratory_aggregate"
+  incompatible_units:
+    aggregation_allowed: false
+    presence_only_comparison_allowed: true
+    condition: "each observation independently satisfies the selected threshold profile"
+
+candidate_logic:
+  orientation: "For A to B, A is proposed as older/source and B as younger/target."
+  lag_bounds:
+    minimum_lag_years: "a_younger_bp - b_older_bp"
+    maximum_lag_years: "a_older_bp - b_younger_bp"
+  spatial_pass: "unrounded_distance_km <= maximum_distance_km"
+  statuses:
+    definite_candidate:
+      condition: "spatial_pass and minimum_lag_years > 0 and maximum_lag_years <= maximum_lag_years_threshold"
+      meaning: "all supported ages preserve direction and satisfy the lag threshold"
+    possible_candidate:
+      condition: "spatial_pass and minimum_lag_years > 0 and minimum_lag_years <= maximum_lag_years_threshold and maximum_lag_years > maximum_lag_years_threshold"
+      meaning: "direction is certain and some supported lags pass, but uncertainty crosses the maximum temporal threshold"
+    indeterminate_order:
+      condition: "spatial_pass and maximum_lag_years > 0 and minimum_lag_years <= 0"
+      meaning: "supported intervals do not establish which event is older; retain as a non-directional relation and render no arrow"
+      directional_arrow_allowed: false
+    unresolved:
+      condition: "both events and coordinates are schema-valid and distance is computed, but chronology or a non-demonstrably-incompatible method/provenance relation cannot be evaluated"
+      meaning: "insufficient relation evidence after spatial validation; not a negative result and not a refuge for invalid or demonstrably incompatible input"
+    excluded_spatial:
+      condition: "unrounded_distance_km > maximum_distance_km"
+      meaning: "demonstrably outside the spatial threshold"
+    excluded_temporal_nonpositive:
+      condition: "maximum_lag_years <= 0"
+      meaning: "A cannot be older than B under supported ages"
+    excluded_temporal_too_large:
+      condition: "minimum_lag_years > maximum_lag_years_threshold"
+      meaning: "all supported positive lags exceed the temporal threshold"
+  evaluation_order:
+    - "validate event schemas and provenance"
+    - "validate feature and method compatibility"
+    - "calculate unrounded geodesic distance"
+    - "calculate canonical lag bounds"
+    - "assign exactly one status and reason code"
+  no_midpoint_shortcut: true
+  same_point_age_directional: false
+
+output_edge_contract:
+  primary_key: "edge_id"
+  deterministic_id_inputs:
+    - "scenario_id"
+    - "threshold_profile_id"
+    - "resolution"
+    - "feature_key"
+    - "source_event_id"
+    - "target_event_id"
+    - "propagation_contract_version"
+  required_fields:
+    - "schema_version"
+    - "edge_id"
+    - "source_event_id"
+    - "target_event_id"
+    - "source_site_id"
+    - "target_site_id"
+    - "source_country_code"
+    - "target_country_code"
+    - "cross_border"
+    - "shared_location"
+    - "resolution"
+    - "feature_key"
+    - "distance_km_unrounded"
+    - "distance_km_display"
+    - "distance_algorithm"
+    - "distance_library"
+    - "distance_library_version"
+    - "minimum_lag_years"
+    - "maximum_lag_years"
+    - "candidate_status"
+    - "reason_code"
+    - "scenario_id"
+    - "threshold_profile_id"
+    - "temporal_contract_version"
+    - "classification_contract_version"
+    - "propagation_contract_version"
+    - "event_manifest_digest"
+    - "config_digest"
+    - "producer_version"
+    - "build_id"
+    - "map_geometry_role"
+    - "directional_arrow_allowed"
+    - "route_interpretation_allowed"
+  shared_location_semantics:
+    type: "boolean"
+    true_condition: "distinct governed site IDs have identical validated coordinate pairs and computed distance is zero"
+    false_condition: "validated coordinate pairs are not identical"
+    same_site_action: "refuse before candidate emission even when event IDs differ"
+  classification_version_semantics:
+    required_non_null_resolutions:
+      - "ecological_group"
+      - "ecological_subgroup"
+      - "ecological_role"
+      - "taxon"
+    whole_pollen_may_be_null: true
+  directional_arrow_semantics:
+    true_only_for:
+      - "definite_candidate"
+      - "possible_candidate"
+    false_for:
+      - "indeterminate_order"
+      - "unresolved"
+      - "excluded_spatial"
+      - "excluded_temporal_nonpositive"
+      - "excluded_temporal_too_large"
+  map_geometry: "straight geodesic endpoint connection for visualization only"
+  route_interpretation_allowed: false
+
+sensitivity_analysis:
+  required_for_release: true
+  distance_km_values:
+    - 25.0
+    - 50.0
+    - 100.0
+    - 200.0
+  lag_year_values:
+    - 50.0
+    - 100.0
+    - 200.0
+    - 500.0
+  threshold_profile_ids:
+    - "reported_positive_v1"
+    - "count_ge_3_v1"
+    - "percentage_ge_1_v1"
+    - "two_consecutive_positive_v1"
+  required_metrics:
+    - "eligible_event_count"
+    - "evaluated_pair_count"
+    - "definite_candidate_count"
+    - "possible_candidate_count"
+    - "indeterminate_order_count"
+    - "unresolved_pair_count"
+    - "excluded_spatial_count"
+    - "excluded_temporal_count"
+    - "connected_component_count"
+    - "country_pair_counts"
+    - "feature_stability_across_scenarios"
+
+map_contract:
+  same_map_comparison_allowed: true
+  selectable_resolutions:
+    - "whole_pollen"
+    - "ecological_group"
+    - "ecological_subgroup"
+    - "ecological_role"
+    - "taxon"
+  multiple_features_may_be_selected: true
+  merge_selected_features: false
+  color_registry_required: true
+  color_alone_is_sufficient: false
+  required_encodings:
+    definite_candidate:
+      line_style: "solid"
+      opacity_class: "high"
+    possible_candidate:
+      line_style: "dashed"
+      opacity_class: "medium"
+    indeterminate_order:
+      line_style: "undirected_dotted"
+      opacity_class: "medium"
+      directional_arrow_allowed: false
+    unresolved:
+      line_style: "dotted_or_hidden_by_default"
+      opacity_class: "low"
+      directional_arrow_allowed: false
+  required_edge_detail:
+    - "source and target event identifiers"
+    - "source and target site and country"
+    - "feature and resolution"
+    - "evidence domain and pollen-candidate eligibility"
+    - "distance"
+    - "lag bounds"
+    - "candidate status and reason"
+    - "scenario and threshold profile"
+    - "source provenance"
+    - "all contract versions"
+  undated_records:
+    may_render_as_context_points: true
+    may_render_as_dated_edges: false
+    may_enter_time_slider: false
+
+denominators:
+  statuses_are_mutually_exclusive: true
+  all_evaluated_pairs_must_be_accounted_for: true
+  required_partitions:
+    - "country_code"
+    - "ordered_country_pair"
+    - "source_family"
+    - "evidence_domain"
+    - "resolution"
+    - "feature_key"
+    - "candidate_status"
+    - "scenario_id"
+    - "threshold_profile_id"
+
+release_assertions:
+  - id: "P-001"
+    assertion: "The default threshold is 100 km pairwise distance and 100 years positive lag, both maxima inclusive."
+    severity: "blocker"
+  - id: "P-002"
+    assertion: "No candidate edge is labelled as migration, route, causation, or proof."
+    severity: "blocker"
+  - id: "P-003"
+    assertion: "Interval uncertainty is evaluated by bounds, not midpoint alone."
+    severity: "blocker"
+  - id: "P-004"
+    assertion: "Domestic and cross-border pairs use identical scientific rules."
+    severity: "blocker"
+  - id: "P-005"
+    assertion: "Every selected feature remains separately identifiable on the map and in exports."
+    severity: "blocker"
+  - id: "P-006"
+    assertion: "Indeterminate temporal order never produces a directional arrow."
+    severity: "blocker"
+  - id: "P-007"
+    assertion: "Eligibility distance is stored to at least 0.000001 km resolution with the calculation library and version."
+    severity: "blocker"
+  - id: "P-008"
+    assertion: "Invalid, spatially non-computable, same-site, duplicate-underlying-observation, and demonstrably incompatible pairs are recorded in the required refusal ledger and never emitted as candidates."
+    severity: "blocker"

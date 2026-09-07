@@ -13,12 +13,9 @@ from bijux_pollenomics.analysis.classification.events import (
 from bijux_pollenomics.analysis.classification.events import (
     authority as classification_authority_module,
 )
-from tests.support.repository import REPOSITORY_ROOT
+from tests.support.repository import SCIENTIFIC_CONTRACTS_ROOT
 
-EVENT_SCHEMA_PATH = (
-    REPOSITORY_ROOT.parent
-    / "bijux-pollenomics-execution-control/contracts/phenomenon-event.schema.json"
-)
+EVENT_SCHEMA_PATH = SCIENTIFIC_CONTRACTS_ROOT / "phenomenon-event.schema.json"
 
 
 def _context(**overrides: str) -> ClassificationEventContext:

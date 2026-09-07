@@ -13,5 +13,6 @@ def _find_repository_root() -> Path:
 
 
 REPOSITORY_ROOT = _find_repository_root()
+SCIENTIFIC_CONTRACTS_ROOT = REPOSITORY_ROOT / "configs" / "scientific-contracts"
 
-__all__ = ["REPOSITORY_ROOT"]
+__all__ = ["REPOSITORY_ROOT", "SCIENTIFIC_CONTRACTS_ROOT"]

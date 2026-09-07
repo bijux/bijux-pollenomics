@@ -1,0 +1,389 @@
+schema_version: "1.0.0"
+contract_id: "bijux-pollenomics.ecological-classification"
+contract_version: "1.0.0"
+status: "normative"
+title: "Taxonomic and ecological classification contract"
+
+scope:
+  countries:
+    - "SE"
+    - "NO"
+    - "FI"
+    - "DK"
+  applies_to:
+    - "pollen observations"
+    - "palynological non-pollen observations"
+    - "derived ecological roles"
+    - "map filters and legends"
+    - "group and taxon propagation views"
+
+principles:
+  source_taxonomy_is_preserved: true
+  accepted_taxonomy_is_derived: true
+  derived_roles_are_source_assertions: false
+  taxonomic_resolution_may_be_increased: false
+  unmapped_records_are_retained: true
+  contested_mappings_are_publishable_as_resolved: false
+  multi_role_membership_allowed: true
+  aggregate_double_counting_allowed: false
+  incompatible_units_may_be_aggregated: false
+
+evidence_universes:
+  palynological_evidence:
+    label: "All palynological evidence"
+    includes:
+      - "pollen"
+      - "spores"
+      - "non-pollen palynomorphs"
+      - "charcoal when reported in the palynological dataset"
+      - "laboratory and unidentified elements retained for audit"
+  whole_pollen:
+    label: "Whole pollen"
+    includes_element_types:
+      - "pollen"
+      - "pollen_or_spore only when source cannot separate and status is qualified"
+    excludes_element_types:
+      - "spore"
+      - "charcoal"
+      - "fungal remains"
+      - "algae"
+      - "laboratory measurements"
+      - "unknown non-pollen element"
+    interpretation: "heterogeneous aggregate view, not a single biological taxon"
+  non_pollen:
+    label: "Non-pollen evidence"
+    participates_in_whole_pollen: false
+    propagation_requires_separate_feature: true
+
+resolution_ladder:
+  ordered_levels:
+    - "whole_pollen"
+    - "ecological_group"
+    - "ecological_subgroup"
+    - "ecological_role"
+    - "taxon"
+  requirements:
+    whole_pollen:
+      feature_key: "whole:pollen"
+      source_element_type_required: true
+    ecological_group:
+      group_id_required: true
+      crosswalk_version_required: true
+    ecological_subgroup:
+      group_id_required: true
+      subgroup_id_required: true
+      crosswalk_version_required: true
+    ecological_role:
+      role_id_required: true
+      crosswalk_version_required: true
+      cross_cut_membership_must_remain_explicit: true
+    taxon:
+      reported_taxon_required: true
+      accepted_taxon_concept_id_required_for_cross_source_comparison: true
+      accepted_rank_and_qualifier_required: true
+  no_promotion_examples:
+    - "Cerealia-type must not become a cereal species."
+    - "Quercus sp. must not become Quercus robur."
+    - "Pinus undifferentiated must not become Pinus sylvestris."
+    - "A family-level record must not become a genus-level propagation edge."
+
+classification_record:
+  primary_key: "classification_id"
+  required_fields:
+    - "classification_id"
+    - "source_family"
+    - "source_taxon_or_variable_id"
+    - "source_reported_name"
+    - "source_element_type"
+    - "taxonomic_qualifier"
+    - "mapping_status"
+    - "primary_group_id"
+    - "primary_subgroup_id"
+    - "role_ids"
+    - "classification_confidence"
+    - "evidence_reference_ids"
+    - "reviewer_id"
+    - "decision_date"
+    - "contract_version"
+  nullable_fields:
+    - "accepted_taxon_concept_id"
+    - "accepted_taxon_name"
+    - "accepted_rank"
+    - "primary_group_id"
+    - "primary_subgroup_id"
+  allowed_mapping_statuses:
+    - "accepted"
+    - "accepted_qualified"
+    - "unmapped"
+    - "contested"
+    - "not_applicable"
+    - "refused"
+  allowed_taxonomic_qualifiers:
+    - "exact"
+    - "cf"
+    - "aff"
+    - "type"
+    - "group"
+    - "aggregate"
+    - "undifferentiated"
+    - "unknown"
+  allowed_confidence:
+    - "high"
+    - "moderate"
+    - "low"
+    - "unresolved"
+  evidence_reference_policy:
+    citation_or_governed_authority_required: true
+    undocumented_expert_memory_allowed: false
+
+hierarchy:
+  groups:
+    - group_id: "forest_woodland"
+      label: "Forest and woodland pollen"
+      subgroups:
+        - subgroup_id: "coniferous_trees"
+          label: "Coniferous trees"
+        - subgroup_id: "broadleaved_deciduous_trees"
+          label: "Broadleaved deciduous trees"
+        - subgroup_id: "broadleaved_evergreen_trees"
+          label: "Broadleaved evergreen trees"
+        - subgroup_id: "shrubs_and_dwarf_shrubs"
+          label: "Shrubs and dwarf shrubs"
+        - subgroup_id: "forest_understory"
+          label: "Forest understory"
+    - group_id: "open_ground"
+      label: "Open-ground pollen"
+      subgroups:
+        - subgroup_id: "grassland_meadow"
+          label: "Grassland and meadow"
+        - subgroup_id: "heathland"
+          label: "Heathland"
+        - subgroup_id: "ruderal_disturbance"
+          label: "Ruderal and disturbance-associated"
+        - subgroup_id: "pastoral_associated"
+          label: "Pastoral-associated indicators"
+        - subgroup_id: "open_ground_other"
+          label: "Other open-ground pollen"
+    - group_id: "cultivated_plants"
+      label: "Cultivated-plant pollen"
+      subgroups:
+        - subgroup_id: "cereals"
+          label: "Cereals"
+        - subgroup_id: "pulses_legumes"
+          label: "Pulses and cultivated legumes"
+        - subgroup_id: "fibre_oil_crops"
+          label: "Fibre and oil crops"
+        - subgroup_id: "other_field_crops"
+          label: "Other field crops"
+        - subgroup_id: "horticultural_orchard"
+          label: "Horticultural and orchard crops"
+    - group_id: "wetland_aquatic"
+      label: "Wetland and aquatic pollen"
+      subgroups:
+        - subgroup_id: "emergent_wetland"
+          label: "Emergent wetland"
+        - subgroup_id: "aquatic_submerged_floating"
+          label: "Submerged and floating aquatic"
+        - subgroup_id: "shoreline_riparian"
+          label: "Shoreline and riparian"
+        - subgroup_id: "wetland_aquatic_other"
+          label: "Other wetland and aquatic"
+    - group_id: "other_pollen"
+      label: "Other or unresolved pollen"
+      subgroups:
+        - subgroup_id: "ecology_unresolved"
+          label: "Ecology unresolved"
+        - subgroup_id: "taxon_unidentified"
+          label: "Taxon unidentified"
+        - subgroup_id: "mixed_pollen_aggregate"
+          label: "Mixed pollen aggregate"
+    - group_id: "non_pollen_evidence"
+      label: "Non-pollen palynological evidence"
+      participates_in_whole_pollen: false
+      subgroups:
+        - subgroup_id: "spores"
+          label: "Spores"
+        - subgroup_id: "fungal_remains"
+          label: "Fungal remains"
+        - subgroup_id: "algae_and_aquatic_npp"
+          label: "Algae and aquatic non-pollen palynomorphs"
+        - subgroup_id: "other_npp"
+          label: "Other non-pollen palynomorphs"
+    - group_id: "charcoal_combustion"
+      label: "Charcoal and combustion evidence"
+      participates_in_whole_pollen: false
+      subgroups:
+        - subgroup_id: "microcharcoal"
+          label: "Microcharcoal"
+        - subgroup_id: "macrocharcoal"
+          label: "Macrocharcoal"
+        - subgroup_id: "charcoal_unspecified"
+          label: "Charcoal, unspecified"
+    - group_id: "laboratory_or_excluded"
+      label: "Laboratory, administrative, or excluded element"
+      participates_in_whole_pollen: false
+      participates_in_propagation: false
+      subgroups:
+        - subgroup_id: "laboratory_measurement"
+          label: "Laboratory measurement"
+        - subgroup_id: "administrative_variable"
+          label: "Administrative variable"
+        - subgroup_id: "unusable_unknown"
+          label: "Unknown and scientifically unusable"
+
+role_vocabulary:
+  crop_evidence_roles:
+    - role_id: "direct_crop_confirmed"
+      label: "Direct crop taxon evidence"
+      requirements:
+        - "taxonomic concept is sufficiently diagnostic of a cultivated taxon"
+        - "source identification supports the accepted resolution"
+        - "mapping has evidence reference and review"
+      proves_local_cultivation: false
+    - role_id: "crop_type_qualified"
+      label: "Qualified crop-type evidence"
+      requirements:
+        - "record is a crop or cereal morphological type"
+        - "wild relatives or non-crop ambiguity remain possible"
+      proves_local_cultivation: false
+      must_display_qualifier: true
+    - role_id: "anthropogenic_indicator"
+      label: "Anthropogenic or land-use indicator"
+      direct_crop_evidence: false
+      proves_human_activity: false
+    - role_id: "pastoral_indicator"
+      label: "Pastoral-associated indicator"
+      direct_crop_evidence: false
+      proves_grazing: false
+    - role_id: "ruderal_disturbance_indicator"
+      label: "Ruderal or disturbance-associated indicator"
+      direct_crop_evidence: false
+      proves_human_disturbance: false
+  ecological_roles:
+    - "arboreal"
+    - "non_arboreal"
+    - "conifer"
+    - "broadleaved_deciduous"
+    - "broadleaved_evergreen"
+    - "shrub"
+    - "open_ground"
+    - "wetland"
+    - "aquatic"
+    - "cultivated"
+    - "indicator_only"
+    - "ecology_unresolved"
+
+crop_indicator_boundaries:
+  rules:
+    - id: "CROP-001"
+      source_pattern: "Cerealia-type or equivalent"
+      required_role: "crop_type_qualified"
+      prohibited_role: "direct_crop_confirmed"
+      rationale: "A morphological cereal type may include wild relatives or lack species resolution."
+    - id: "CROP-002"
+      source_pattern: "Plantago lanceolata or comparable land-use indicator"
+      required_role: "anthropogenic_indicator"
+      prohibited_role: "direct_crop_confirmed"
+      rationale: "Association with land use is not direct crop evidence."
+    - id: "CROP-003"
+      source_pattern: "Rumex taxa used as pastoral or disturbance indicators"
+      allowed_roles:
+        - "pastoral_indicator"
+        - "ruderal_disturbance_indicator"
+      prohibited_role: "direct_crop_confirmed"
+      rationale: "Indicator interpretation is contextual and does not establish cultivation."
+    - id: "CROP-004"
+      source_pattern: "species-resolved cultivated cereal"
+      allowed_role: "direct_crop_confirmed"
+      requirements:
+        - "accepted taxon concept is diagnostic"
+        - "source qualifier is exact or otherwise scientifically accepted"
+        - "domain review is recorded"
+      proves_local_cultivation: false
+  prohibited_aggregate_label: "agriculture pollen"
+  required_separate_totals:
+    - "direct_crop_confirmed"
+    - "crop_type_qualified"
+    - "anthropogenic_indicator"
+    - "pastoral_indicator"
+    - "ruderal_disturbance_indicator"
+
+multi_membership:
+  primary_group_count_per_classification: 1
+  secondary_roles_allowed: true
+  filter_semantics: "an observation may match any assigned role"
+  aggregate_semantics: "count distinct observation_id once within each requested output universe"
+  cross_group_total_semantics: "do not sum overlapping role totals without observation-id deduplication"
+  propagation_feature_semantics: "each role:* feature_key is evaluated separately at ecological_role resolution; one observation may seed multiple explicitly selected role analyses without being duplicated inside a role total"
+
+taxon_color_policy:
+  group_and_subgroup_colors_are_normative_here: false
+  normative_visual_profile: "contracts/map-visual-profile.v1.yaml"
+  taxon_color_method: "sha256_indexed_variant from accepted_taxon_concept_id, palette_id, and palette_version"
+  palette_id: "nordic-accessible-v1"
+  palette_version: "1.0.0"
+  same_taxon_same_color_across_builds: true
+  minimum_contrast_review_required: true
+  color_only_encoding_allowed: false
+  selected_taxa_must_have_text_legend: true
+  unresolved_taxa_style: "use the normative visual profile's unresolved diagnostic style"
+
+source_adapter_requirements:
+  retain_fields:
+    - "source-native taxon or variable identifier"
+    - "source-native taxon or variable name"
+    - "source-native ecological group"
+    - "element and element type"
+    - "value and unit"
+    - "sample and dataset identifiers"
+  cross_source_feature_match:
+    accepted_taxon_concept_id_required_at_taxon_level: true
+    shared_crosswalk_version_required_at_group_levels: true
+    label_string_match_alone_allowed: false
+  absent_dimension_value: "not_provided_by_source"
+
+coverage_and_review:
+  required_counts:
+    - "total_observations"
+    - "pollen_observations"
+    - "non_pollen_observations"
+    - "accepted_mappings"
+    - "accepted_qualified_mappings"
+    - "unmapped_mappings"
+    - "contested_mappings"
+    - "refused_mappings"
+    - "observations_by_group"
+    - "observations_by_subgroup"
+    - "observations_by_taxon"
+    - "observations_by_crop_evidence_role"
+  required_partitions:
+    - "country_code"
+    - "source_family"
+    - "source_element_type"
+    - "source_unit"
+  review_ledgers:
+    - "unmapped_taxa"
+    - "contested_taxa"
+    - "crop_and_indicator_decisions"
+    - "taxonomic_resolution_refusals"
+    - "source_ecological_group_conflicts"
+
+release_assertions:
+  - id: "E-001"
+    assertion: "Every pollen observation retains a source taxon and a stable observation identifier."
+    severity: "blocker"
+  - id: "E-002"
+    assertion: "No taxonomic mapping increases source-supported resolution."
+    severity: "blocker"
+  - id: "E-003"
+    assertion: "Direct crops, qualified crop types, and anthropogenic indicators remain distinct."
+    severity: "blocker"
+  - id: "E-004"
+    assertion: "Multi-role observations cannot inflate aggregate totals."
+    severity: "blocker"
+  - id: "E-005"
+    assertion: "Classification coverage and unresolved mappings are reported for SE, NO, FI, and DK."
+    severity: "blocker"
+  - id: "E-006"
+    assertion: "Map colors are stable, accessible, and accompanied by non-color identification."
+    severity: "blocker"

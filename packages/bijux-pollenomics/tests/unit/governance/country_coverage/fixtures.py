@@ -16,7 +16,7 @@ from bijux_pollenomics.governance.country_coverage import (
     COUNTRIES,
     build_country_dimension_coverage_ledger,
 )
-from tests.support.repository import REPOSITORY_ROOT
+from tests.support.repository import REPOSITORY_ROOT, SCIENTIFIC_CONTRACTS_ROOT
 
 _READ_BYTES = Path.read_bytes
 
@@ -24,10 +24,7 @@ _READ_BYTES = Path.read_bytes
 _REPOSITORY_ROOT = REPOSITORY_ROOT
 
 
-_CELL_SCHEMA_PATH = (
-    _REPOSITORY_ROOT.parent
-    / "bijux-pollenomics-execution-control/contracts/country-coverage.schema.json"
-)
+_CELL_SCHEMA_PATH = SCIENTIFIC_CONTRACTS_ROOT / "country-coverage.schema.json"
 
 
 _LEDGER_PATH = _REPOSITORY_ROOT / "data/country_dimension_coverage.json"
