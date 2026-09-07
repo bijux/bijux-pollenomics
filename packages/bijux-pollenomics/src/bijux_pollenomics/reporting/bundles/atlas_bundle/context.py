@@ -4,6 +4,9 @@ from __future__ import annotations
 
 from typing import Any
 
+from ....collection.contracts.cardinality import resolve_declared_count
+from ...context.time import feature_time_payload
+
 
 def extract_context_points(
     point_layers: list[dict[str, object]], *, surface: Any
@@ -27,7 +30,8 @@ def extract_context_points(
                 or not isinstance(longitude, (int, float))
             ):
                 continue
-            time_start_bp, time_end_bp, time_mean_bp = context_point_time(raw_point)
+            time_payload = feature_time_payload(raw_point)
+            temporal_semantics = time_payload["temporal_semantics"]
             records.append(
                 surface.ContextPointRecord(
                     source=str(layer.get("source_name", "")),
@@ -43,12 +47,27 @@ def extract_context_points(
                     subtitle=str(raw_point.get("subtitle", "")),
                     description=str(layer.get("description", "")),
                     source_url=str(raw_point.get("source_url", "")),
-                    record_count=surface._as_optional_int(layer.get("count")) or 1,
+                    record_count=resolve_declared_count(
+                        raw_point,
+                        "record_count",
+                        field=(
+                            "atlas context feature "
+                            f"{str(raw_point.get('title', '')).strip() or '<unknown>'} "
+                            "record_count"
+                        ),
+                        absent_default=1,
+                    ),
                     popup_rows=(),
-                    time_start_bp=time_start_bp,
-                    time_end_bp=time_end_bp,
-                    time_mean_bp=time_mean_bp,
-                    time_label=str(raw_point.get("time_label", "")),
+                    time_start_bp=time_payload["time_start_bp"],
+                    time_end_bp=time_payload["time_end_bp"],
+                    time_mean_bp=time_payload["time_mean_bp"],
+                    time_label=str(time_payload["time_label"]),
+                    temporal_semantics=(
+                        temporal_semantics
+                        if isinstance(temporal_semantics, dict)
+                        and temporal_semantics
+                        else None
+                    ),
                     site_uuid=(
                         str(raw_point["site_uuid"]).strip()
                         if isinstance(raw_point.get("site_uuid"), str)
@@ -64,31 +83,6 @@ def as_optional_int(value: object) -> int | None:
     if isinstance(value, int) and not isinstance(value, bool):
         return value
     return None
-
-
-def as_optional_bp_int(value: object) -> int | None:
-    """Return a canonical BP integer without coercing null, booleans, or negatives."""
-    parsed = as_optional_int(value)
-    return parsed if parsed is not None and parsed >= 0 else None
-
-
-def context_point_time(
-    raw_point: dict[str, object],
-) -> tuple[int | None, int | None, int | None]:
-    """Admit only complete ordered BP intervals or a standalone point age."""
-    raw_start = raw_point.get("time_start_bp")
-    raw_end = raw_point.get("time_end_bp")
-    interval_declared = (
-        "time_start_bp" in raw_point or "time_end_bp" in raw_point
-    ) and (raw_start is not None or raw_end is not None)
-    start = as_optional_bp_int(raw_start)
-    end = as_optional_bp_int(raw_end)
-    mean = as_optional_bp_int(raw_point.get("time_mean_bp"))
-    if interval_declared and (start is None or end is None or start > end):
-        return (None, None, None)
-    if start is not None and end is not None and mean is not None:
-        mean = mean if start <= mean <= end else None
-    return (start, end, mean)
 
 
 def build_animal_atlas_summary(
@@ -113,7 +107,15 @@ def build_animal_atlas_summary(
             "latin_name": str(layer.get("species_latin_name", "")),
             "common_name": str(layer.get("species_common_name", "")),
             "animal_scope": str(layer.get("animal_scope", "")),
-            "locality_count": surface._as_optional_int(layer.get("count")) or 0,
+            "locality_count": resolve_declared_count(
+                layer,
+                "count",
+                field=(
+                    "animal atlas layer "
+                    f"{str(layer.get('key', '')).strip() or '<unknown>'} count"
+                ),
+                absent_default=len(surface._layer_features(layer)),
+            ),
         }
         for layer in animal_layers
     ]

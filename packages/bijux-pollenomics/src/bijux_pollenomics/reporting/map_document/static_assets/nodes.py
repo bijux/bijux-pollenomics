@@ -9,7 +9,7 @@ from .budgets import (
     ATLAS_CHUNK_TARGET_BYTES,
     ATLAS_COMPRESSED_CHUNK_TARGET_BYTES,
 )
-from .indexes import feature_interval
+from .indexes import feature_temporal_admission
 from .serialization import canonical_json
 
 
@@ -122,12 +122,20 @@ def node_asset_selection(payload: dict[str, object]) -> dict[str, object]:
     if not isinstance(features, list):
         raise TypeError("static atlas node chunk has no feature records")
     safe_features = [feature for feature in features if isinstance(feature, dict)]
+    admissions = [
+        _node_feature_temporal_admission(str(payload["layer_kind"]), feature)
+        for feature in safe_features
+    ]
     intervals = [
         interval
-        for feature in safe_features
-        if (interval := _node_feature_interval(str(payload["layer_kind"]), feature))
-        is not None
+        for status, interval in admissions
+        if status == "admitted" and interval is not None
     ]
+    chronology_absent_count = sum(status == "absent" for status, _ in admissions)
+    refused_chronology_count = sum(status == "refused" for status, _ in admissions)
+    contextual_chronology_count = sum(
+        status == "contextual" for status, _ in admissions
+    )
     scientific_signal_ids: set[str] = set()
     for feature in safe_features:
         references = feature.get("scientific_signal_ids", [])
@@ -143,7 +151,11 @@ def node_asset_selection(payload: dict[str, object]) -> dict[str, object]:
         "bounds": _node_feature_bounds(str(payload["layer_kind"]), safe_features),
         "time_min_bp": min((interval[0] for interval in intervals), default=None),
         "time_max_bp": max((interval[1] for interval in intervals), default=None),
+        # Compatibility aggregate: all records without admitted numeric chronology.
         "untimed_record_count": len(safe_features) - len(intervals),
+        "chronology_absent_record_count": chronology_absent_count,
+        "refused_chronology_record_count": refused_chronology_count,
+        "contextual_chronology_record_count": contextual_chronology_count,
         "scientific_signal_ids": sorted(scientific_signal_ids),
     }
 
@@ -195,13 +207,17 @@ def _layer_facets(
     }
 
 
-def _node_feature_interval(
+def _node_feature_temporal_admission(
     layer_kind: str, feature: dict[str, object]
-) -> tuple[float, float] | None:
+) -> tuple[str, tuple[float, float] | None]:
     if layer_kind == "polygon":
         properties = feature.get("properties")
-        return feature_interval(properties) if isinstance(properties, dict) else None
-    return feature_interval(feature)
+        return (
+            feature_temporal_admission(properties)
+            if isinstance(properties, dict)
+            else ("absent", None)
+        )
+    return feature_temporal_admission(feature)
 
 
 def _node_feature_bounds(

@@ -65,6 +65,10 @@ console.log(JSON.stringify({
   partialDeclaredFullExtent:featureInTimeWindow(layer,{time_start_bp:100,time_end_bp:null}),
   genuinelyUntimedFullExtent:featureInTimeWindow(layer,{}),
   nullIntervalMeanFallback:featureInTimeWindow(layer,{time_start_bp:null,time_end_bp:null,time_mean_bp:123}),
+  refusedSemantics:featureInTimeWindow(layer,{time_start_bp:null,time_end_bp:null,temporal_semantics:{comparability_posture:'refused',refusal_reason_code:'negative_bp'}}),
+  refusedNumericSemantics:featureInTimeWindow(layer,{time_start_bp:100,time_end_bp:200,temporal_semantics:{comparability_posture:'refused',refusal_reason_code:'source_age_system_not_comparable'}}),
+  absentStatus:featureTimeAdmission({}).status,
+  refusedStatus:featureTimeAdmission({time_start_bp:null,time_end_bp:null,temporal_semantics:{comparability_posture:'refused',refusal_reason_code:'negative_bp'}}).status,
   invalidWithoutLayerFilter:featureInTimeWindow({applies_time_filter:false},{time_start_bp:'bad',time_end_bp:'bad'}),
 }));
 """
@@ -87,6 +91,10 @@ console.log(JSON.stringify({
         "partialDeclaredFullExtent": False,
         "genuinelyUntimedFullExtent": True,
         "nullIntervalMeanFallback": True,
+        "refusedSemantics": False,
+        "refusedNumericSemantics": False,
+        "absentStatus": "absent",
+        "refusedStatus": "refused",
         "invalidWithoutLayerFilter": False,
     }
 
@@ -560,8 +568,8 @@ const COUNTRIES=['Denmark','Finland','Norway','Sweden'];
 const activeLayerKeys=new Set(['context']);
 const ALL_LAYERS=[{key:'context',applies_time_filter:true,applies_country_filter:true,semantic_role:'context'}];
 const STATIC_ATLAS_BOOTSTRAP={assets:[
-  {asset_key:'sweden',domain:'nodes',layer_key:'context',country_keys:['Sweden'],untimed_record_count:4},
-  {asset_key:'mixed',domain:'nodes',layer_key:'context',country_keys:['Sweden','Norway'],untimed_record_count:3},
+  {asset_key:'sweden',domain:'nodes',layer_key:'context',country_keys:['Sweden'],untimed_record_count:4,chronology_absent_record_count:1,refused_chronology_record_count:2,contextual_chronology_record_count:1},
+  {asset_key:'mixed',domain:'nodes',layer_key:'context',country_keys:['Sweden','Norway'],untimed_record_count:3,chronology_absent_record_count:1,refused_chronology_record_count:1,contextual_chronology_record_count:1},
 ]};
 function staticAtlasNonnegativeInteger(value){return Number(value)}
 function featureTimeAdmission(feature){return {status:feature.status}}
@@ -574,10 +582,10 @@ activeCountries=new Set(['Sweden']);
 const sweden=genericUntimedExclusion();
 STATIC_ATLAS_INLINE=true;
 ALL_LAYERS[0].features=[
-  {country:'Sweden',status:'untimed'},
+  {country:'Sweden',status:'absent'},
   {country:'Sweden',status:'valid'},
-  {country:'Sweden',status:'invalid'},
-  {country:'Norway',status:'untimed'},
+  {country:'Sweden',status:'refused'},
+  {country:'Norway',status:'contextual'},
 ];
 const inline=genericUntimedExclusion();
 console.log(JSON.stringify({all,sweden,inline}));
@@ -585,9 +593,9 @@ console.log(JSON.stringify({all,sweden,inline}));
     )
 
     assert observed == {
-        "all": {"status": "available", "count": 7},
-        "sweden": {"status": "unavailable", "count": None},
-        "inline": {"status": "available", "count": 1},
+        "all": {"status": "available", "count": 7, "split_status": "available", "absent_count": 2, "refused_count": 3, "contextual_count": 2},
+        "sweden": {"status": "unavailable", "count": None, "split_status": "unavailable", "absent_count": None, "refused_count": None, "contextual_count": None},
+        "inline": {"status": "available", "count": 2, "split_status": "available", "absent_count": 1, "refused_count": 1, "contextual_count": 0},
     }
 
 

@@ -308,7 +308,7 @@ def test_hash_filters_are_distinct_and_source_selection_drives_playback() -> Non
     assert "!initialTimeWindowIsExplicit) focusSourceChronologyNavigation()" in (
         MAP_DOCUMENT_TEMPLATE
     )
-    assert "untimed source nodes excluded before viewport filtering" in (
+    assert "source nodes without admitted numeric chronology excluded" in (
         MAP_DOCUMENT_TEMPLATE
     )
     assert "stopTimePlayback();\n        activeSourceChronologyCode" in (
@@ -600,9 +600,9 @@ console.log(JSON.stringify({exact,mixed,facet}));
     )
 
     assert observed == {
-        "exact": {"status": "available", "count": 1},
-        "mixed": {"status": "unavailable", "count": None},
-        "facet": {"status": "unavailable", "count": None},
+        "exact": {"status": "available", "count": 1, "split_status": "unavailable", "absent_count": None, "refused_count": None, "contextual_count": None},
+        "mixed": {"status": "unavailable", "count": None, "split_status": "unavailable"},
+        "facet": {"status": "unavailable", "count": None, "split_status": "unavailable"},
     }
 
 
@@ -1086,15 +1086,25 @@ def test_derived_bootstrap_reconstructs_transport_metadata() -> None:
     legacy_table = cast(dict[str, object], compact_bootstrap()["assets"])
     legacy_records = cast(list[list[object]], legacy_table["records"])
     field_indexes = {field: index for index, field in enumerate(ASSET_TABLE_FIELDS)}
+    v2_stored_fields = [
+        field
+        for field in ASSET_TABLE_STORED_FIELDS
+        if field
+        not in {
+            "chronology_absent_record_count",
+            "refused_chronology_record_count",
+            "contextual_chronology_record_count",
+        }
+    ]
     compact = {
         "schema_version": "atlas-static-bootstrap.v2",
         "assets": {
             "schema_version": "atlas-static-asset-table.v2",
             "scope_slug": "nordic",
-            "fields": list(ASSET_TABLE_STORED_FIELDS),
+            "fields": v2_stored_fields,
             "record_count": len(legacy_records),
             "records": [
-                [record[field_indexes[field]] for field in ASSET_TABLE_STORED_FIELDS]
+                [record[field_indexes[field]] for field in v2_stored_fields]
                 for record in legacy_records
             ],
         },
@@ -1122,6 +1132,76 @@ console.log(JSON.stringify({{node:normalized.assets[0],indexes:normalized.assets
     )
     assert observed["indexes"]["payload_encoding"] == "json"
     assert observed["indexes"]["initial_load"] is False
+
+
+def test_v3_bootstrap_requires_reconciled_chronology_split() -> None:
+    integrity_helper = template_block(
+        "function staticAtlasIntegrityFromHex",
+        "function normalizeStaticAtlasBootstrap",
+    )
+    normalizer = template_block(
+        "function normalizeStaticAtlasBootstrap",
+        "function validateStaticAtlasBootstrap",
+    )
+    legacy_table = cast(dict[str, object], compact_bootstrap()["assets"])
+    legacy_records = cast(list[list[object]], legacy_table["records"])
+    old_indexes = {field: index for index, field in enumerate(ASSET_TABLE_FIELDS)}
+    split_fields = {
+        "chronology_absent_record_count",
+        "refused_chronology_record_count",
+        "contextual_chronology_record_count",
+    }
+    current_fields = [
+        *ASSET_TABLE_FIELDS[:-1],
+        "chronology_absent_record_count",
+        "refused_chronology_record_count",
+        "contextual_chronology_record_count",
+        ASSET_TABLE_FIELDS[-1],
+    ]
+    records = [
+        [
+            (
+                0
+                if field in split_fields and record[old_indexes["domain"]] == "nodes"
+                else None
+                if field in split_fields
+                else record[old_indexes[field]]
+            )
+            for field in ASSET_TABLE_STORED_FIELDS
+        ]
+        for record in legacy_records
+    ]
+    bootstrap = {
+        "schema_version": "atlas-static-bootstrap.v2",
+        "assets": {
+            "schema_version": "atlas-static-asset-table.v3",
+            "scope_slug": "nordic",
+            "fields": list(ASSET_TABLE_STORED_FIELDS),
+            "record_count": len(records),
+            "records": records,
+        },
+    }
+    observed = run_node_json(
+        f"""
+const STATIC_ATLAS_ASSET_TABLE_FIELDS=Object.freeze({json.dumps(current_fields)});
+const STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS=Object.freeze({json.dumps(ASSET_TABLE_STORED_FIELDS)});
+const STATIC_ATLAS_ASSET_CORE_FIELD_COUNT=12;
+function staticAtlasFailure(message){{throw new Error(message)}}
+{integrity_helper}
+{normalizer}
+const base={json.dumps(bootstrap, separators=(",", ":"))};
+const valid=normalizeStaticAtlasBootstrap(base);
+const missing=structuredClone(base);
+const indexes=Object.fromEntries(missing.assets.fields.map((field,index)=>[field,index]));
+for (const field of ['chronology_absent_record_count','refused_chronology_record_count','contextual_chronology_record_count']) missing.assets.records[0][indexes[field]]=null;
+let refusal=null;
+try{{normalizeStaticAtlasBootstrap(missing)}}catch(error){{refusal=error.message}}
+console.log(JSON.stringify({{split:valid.assets[0].chronology_absent_record_count,refusal}}));
+"""
+    )
+
+    assert observed["split"] == 0
+    assert "chronology split is required" in observed["refusal"]
 
 
 def test_compact_bootstrap_rejects_schema_width_count_identity_and_type_tamper() -> (
@@ -1179,7 +1259,7 @@ function outcome(callback){
 """
         + helpers
         + """
-const invalid=[[],[0],{}];
+const invalid=[[],[0],{},true,null,'1'];
 console.log(JSON.stringify({
   integerZero:outcome(()=>staticAtlasNonnegativeInteger(0,'count')),
   integerStringZero:outcome(()=>staticAtlasNonnegativeInteger('0','count')),
@@ -1194,10 +1274,10 @@ console.log(JSON.stringify({
 
     assert observed == {
         "integerZero": {"status": "accepted", "value": 0},
-        "integerStringZero": {"status": "accepted", "value": 0},
-        "integerInvalid": ["refused"] * 3,
+        "integerStringZero": {"status": "refused", "message": "count is invalid"},
+        "integerInvalid": ["refused"] * 6,
         "nullableMissing": {"status": "accepted", "value": None},
         "nullableZero": {"status": "accepted", "value": 0},
         "nullableStringZero": {"status": "accepted", "value": 0},
-        "nullableInvalid": ["refused"] * 3,
+        "nullableInvalid": ["refused"] * 4 + ["accepted"] * 2,
     }

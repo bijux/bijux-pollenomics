@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from ..collection.contracts.cardinality import resolve_declared_count
 from .geography import GeographicScope
 from .models import MultiCountryMapReport
 from .presentation.text import escape_pipes
@@ -437,12 +438,24 @@ def _serialize_layer_contract_row(
 ) -> dict[str, object]:
     layer_key = str(layer.get("key", "")).strip()
     layer_group = str(layer.get("group", "")).strip()
+    features = layer.get("features")
+    feature_count = len(features) if isinstance(features, list) else 0
+    count = resolve_declared_count(
+        layer,
+        "count",
+        field=f"map layer {layer_key or '<unknown>'} count",
+        absent_default=feature_count,
+    )
+    if isinstance(features, list) and count != feature_count:
+        raise ValueError(
+            f"map layer {layer_key or '<unknown>'} count does not match its features"
+        )
     return {
         "key": layer_key,
         "label": str(layer.get("label", "")).strip(),
         "source_name": str(layer.get("source_name", "")).strip(),
         "coverage_label": str(layer.get("coverage_label", "")).strip(),
-        "count": int(layer.get("count", 0) or 0),
+        "count": count,
         "publication_role": _publication_role_for(layer_key, layer_group=layer_group),
         "scope_visibility": "scope_owned"
         if layer_key in _LAYER_SCOPE_RULES

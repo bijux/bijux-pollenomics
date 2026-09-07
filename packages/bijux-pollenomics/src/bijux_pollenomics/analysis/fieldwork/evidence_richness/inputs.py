@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from bijux_pollenomics.collection.contracts.cardinality import resolve_declared_count
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.collection.spatial.representative_points import (
     geometry_to_representative_point,
@@ -96,7 +97,12 @@ def _load_sweden_context_points(
                 subtitle=str(properties.get("subtitle", "")),
                 description=str(properties.get("description", "")),
                 source_url=str(properties.get("source_url", "")),
-                record_count=int(properties.get("record_count", 1) or 1),
+                record_count=resolve_declared_count(
+                    properties,
+                    "record_count",
+                    field=f"{path.name} context feature record_count",
+                    absent_default=1,
+                ),
                 popup_rows=popup_rows,
                 time_start_bp=_optional_int(properties.get("time_start_bp")),
                 time_end_bp=_optional_int(properties.get("time_end_bp")),
@@ -154,7 +160,12 @@ def _load_sweden_density_cells(path: Path) -> tuple[_DensityCell, ...]:
                 max_latitude=max(latitudes),
                 min_longitude=min(longitudes),
                 max_longitude=max(longitudes),
-                count=int(properties.get("count", 0) or 0),
+                count=resolve_declared_count(
+                    properties,
+                    "count",
+                    field=f"{path.name} density cell count",
+                    absent_default=0,
+                ),
             )
         )
     return tuple(cells)

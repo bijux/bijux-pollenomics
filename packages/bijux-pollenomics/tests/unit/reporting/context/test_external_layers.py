@@ -5,6 +5,8 @@ from __future__ import annotations
 import unittest
 from typing import cast
 
+import pytest
+
 from bijux_pollenomics.reporting.context import (
     build_external_point_layer,
     build_external_polygon_layer,
@@ -12,6 +14,54 @@ from bijux_pollenomics.reporting.context import (
 
 
 class ExternalLayerTests(unittest.TestCase):
+    def test_external_feature_preserves_declared_record_count_including_zero(
+        self,
+    ) -> None:
+        layer = build_external_point_layer(
+            {
+                "type": "FeatureCollection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "geometry": {"type": "Point", "coordinates": [18, 59]},
+                        "properties": {
+                            "layer_key": "zero-count",
+                            "layer_label": "Zero-count source row",
+                            "record_count": 0,
+                        },
+                    }
+                ],
+            }
+        )
+
+        feature = cast(list[dict[str, object]], layer["features"])[0]
+        self.assertEqual(feature["record_count"], 0)
+
+    def test_external_feature_refuses_malformed_declared_record_count(self) -> None:
+        with pytest.raises(
+            ValueError,
+            match="feature record_count must be a nonnegative integer",
+        ):
+            build_external_point_layer(
+                {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": {
+                                "type": "Point",
+                                "coordinates": [18, 59],
+                            },
+                            "properties": {
+                                "layer_key": "bad-count",
+                                "layer_label": "Malformed count",
+                                "record_count": None,
+                            },
+                        }
+                    ],
+                }
+            )
+
     def test_external_null_interval_preserves_valid_standalone_mean(self) -> None:
         layer = build_external_point_layer(
             {

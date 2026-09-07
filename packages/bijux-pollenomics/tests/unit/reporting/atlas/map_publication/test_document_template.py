@@ -34,7 +34,7 @@ class MapDocumentTemplateTests(MapPublicationTestCase):
             "start === null || end === null || start > end", MAP_DOCUMENT_TEMPLATE
         )
         self.assertIn(
-            "if (admission.status === 'invalid') return '';", MAP_DOCUMENT_TEMPLATE
+            "if (admission.status === 'refused') return '';", MAP_DOCUMENT_TEMPLATE
         )
         self.assertNotIn(
             "const start = Number(feature.time_start_bp)", MAP_DOCUMENT_TEMPLATE

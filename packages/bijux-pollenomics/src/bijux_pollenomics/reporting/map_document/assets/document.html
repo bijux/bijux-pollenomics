@@ -2353,14 +2353,32 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         'payload_sha256', 'payload_encoding', 'decoded_byte_count', 'byte_count',
         'record_count', 'initial_load', 'layer_index', 'layer_key', 'layer_kind',
         'country_keys', 'bounds', 'time_min_bp', 'time_max_bp',
-        'untimed_record_count', 'scientific_signal_ids',
+        'untimed_record_count', 'chronology_absent_record_count',
+        'refused_chronology_record_count', 'contextual_chronology_record_count',
+        'scientific_signal_ids',
       ]);
       const STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS = Object.freeze([
         'domain', 'sha256', 'payload_sha256', 'decoded_byte_count', 'byte_count',
         'record_count', 'layer_index', 'layer_key', 'layer_kind', 'country_keys',
         'bounds', 'time_min_bp', 'time_max_bp', 'untimed_record_count',
+        'chronology_absent_record_count', 'refused_chronology_record_count',
+        'contextual_chronology_record_count',
         'scientific_signal_ids',
       ]);
+      const STATIC_ATLAS_ASSET_TABLE_V2_STORED_FIELDS = Object.freeze(
+        STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS.filter((field) => ![
+          'chronology_absent_record_count',
+          'refused_chronology_record_count',
+          'contextual_chronology_record_count',
+        ].includes(field))
+      );
+      const STATIC_ATLAS_ASSET_TABLE_V1_FIELDS = Object.freeze(
+        STATIC_ATLAS_ASSET_TABLE_FIELDS.filter((field) => ![
+          'chronology_absent_record_count',
+          'refused_chronology_record_count',
+          'contextual_chronology_record_count',
+        ].includes(field))
+      );
       const STATIC_ATLAS_ASSET_CORE_FIELD_COUNT = 12;
       const STATIC_ATLAS_BOOTSTRAP = normalizeStaticAtlasBootstrap(JSON.parse(document.getElementById('atlas-static-bootstrap').textContent || '{}'));
       const STATIC_ATLAS_INLINE = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-inline-bootstrap.v1';
@@ -2381,11 +2399,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         throw new Error(`Static atlas data cannot be loaded: ${message}. Reload the page; if the problem persists, redeploy the HTML and hashed assets from the same build.`);
       }
       function staticAtlasNonnegativeInteger(value, label) {
-        if (value === null || value === undefined || typeof value === 'boolean' || (typeof value === 'string' && !value.trim())) staticAtlasFailure(`${label} is missing`);
-        if (typeof value !== 'number' && typeof value !== 'string') staticAtlasFailure(`${label} is invalid`);
-        const numeric = Number(value);
-        if (!Number.isSafeInteger(numeric) || numeric < 0) staticAtlasFailure(`${label} is invalid`);
-        return numeric;
+        if (value === null || value === undefined) staticAtlasFailure(`${label} is missing`);
+        if (typeof value !== 'number' || !Number.isSafeInteger(value) || value < 0) staticAtlasFailure(`${label} is invalid`);
+        return value;
       }
       function staticAtlasNullableFiniteNumber(value, label, minimum, maximum) {
         if (value === null) return null;
@@ -2403,13 +2419,18 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function normalizeStaticAtlasBootstrap(bootstrap) {
         if (!bootstrap || typeof bootstrap !== 'object' || bootstrap.schema_version !== 'atlas-static-bootstrap.v2') return bootstrap;
         const table = bootstrap.assets;
-        const compact = table?.schema_version === 'atlas-static-asset-table.v2';
+        const compact = ['atlas-static-asset-table.v2', 'atlas-static-asset-table.v3'].includes(table?.schema_version);
         const expectedTableKeys = compact
           ? ['fields', 'record_count', 'records', 'schema_version', 'scope_slug']
           : ['fields', 'record_count', 'records', 'schema_version'];
         if (!table || typeof table !== 'object' || Object.keys(table).sort().join('|') !== expectedTableKeys.join('|')) staticAtlasFailure('asset table shape is invalid');
-        if (!['atlas-static-asset-table.v1', 'atlas-static-asset-table.v2'].includes(table.schema_version)) staticAtlasFailure('asset table schema is invalid');
-        const storedFields = compact ? STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS : STATIC_ATLAS_ASSET_TABLE_FIELDS;
+        if (!['atlas-static-asset-table.v1', 'atlas-static-asset-table.v2', 'atlas-static-asset-table.v3'].includes(table.schema_version)) staticAtlasFailure('asset table schema is invalid');
+        const splitFields = ['chronology_absent_record_count', 'refused_chronology_record_count', 'contextual_chronology_record_count'];
+        const storedFields = table.schema_version === 'atlas-static-asset-table.v3'
+          ? STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS
+          : table.schema_version === 'atlas-static-asset-table.v2'
+            ? STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS.filter((field) => !splitFields.includes(field))
+            : STATIC_ATLAS_ASSET_TABLE_FIELDS.filter((field) => !splitFields.includes(field));
         if (!Array.isArray(table.fields) || table.fields.length !== storedFields.length || table.fields.some((field, index) => field !== storedFields[index]) || new Set(table.fields).size !== table.fields.length) staticAtlasFailure('asset table fields are invalid');
         if (compact && (typeof table.scope_slug !== 'string' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(table.scope_slug))) staticAtlasFailure('asset table scope is invalid');
         if (!Number.isSafeInteger(table.record_count) || table.record_count < 0 || !Array.isArray(table.records) || table.records.length !== table.record_count) staticAtlasFailure('asset table record count is invalid');
@@ -2420,7 +2441,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (!Array.isArray(record) || record.length !== storedFields.length) staticAtlasFailure(`asset table row ${recordIndex} width is invalid`);
           const stored = Object.fromEntries(storedFields.map((field, index) => [field, record[index]]));
           const domain = stored.domain;
-          const row = compact
+          let row = compact
             ? {
                 asset_key: `${domain}:${recordIndex}`,
                 domain,
@@ -2437,6 +2458,14 @@ __STATIC_CHUNK_SCRIPT_TAGS__
                 ...Object.fromEntries(STATIC_ATLAS_ASSET_TABLE_FIELDS.slice(STATIC_ATLAS_ASSET_CORE_FIELD_COUNT).map((field) => [field, stored[field]])),
               }
             : stored;
+          if (row.domain === 'nodes' && table.schema_version !== 'atlas-static-asset-table.v3') {
+            row = {
+              ...row,
+              chronology_absent_record_count: null,
+              refused_chronology_record_count: null,
+              contextual_chronology_record_count: null,
+            };
+          }
           if (STATIC_ATLAS_ASSET_TABLE_FIELDS.slice(0, STATIC_ATLAS_ASSET_CORE_FIELD_COUNT).some((field) => row[field] === null || row[field] === undefined)) staticAtlasFailure(`asset table row ${recordIndex} core field is missing`);
           if (typeof row.asset_key !== 'string' || !row.asset_key || typeof row.domain !== 'string' || !row.domain || typeof row.path !== 'string' || !row.path) staticAtlasFailure(`asset table row ${recordIndex} identity is invalid`);
           if (!['provenance', 'nodes', 'details', 'edges', 'sequences', 'indexes'].includes(row.domain)) staticAtlasFailure(`asset table row ${recordIndex} domain is invalid`);
@@ -2451,8 +2480,13 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (row.domain === 'nodes') {
             if (!Number.isSafeInteger(row.layer_index) || row.layer_index < 0 || typeof row.layer_key !== 'string' || !row.layer_key || !['point', 'polygon'].includes(row.layer_kind)) staticAtlasFailure(`asset table row ${recordIndex} node identity is invalid`);
             if (!Array.isArray(row.country_keys) || row.country_keys.some((country) => typeof country !== 'string' || !country) || !Array.isArray(row.scientific_signal_ids) || row.scientific_signal_ids.some((signalId) => typeof signalId !== 'string' || !signalId)) staticAtlasFailure(`asset table row ${recordIndex} node selection field is invalid`);
+            const chronologySplit = [row.chronology_absent_record_count, row.refused_chronology_record_count, row.contextual_chronology_record_count];
+            const splitAvailable = chronologySplit.map((value) => value !== null && value !== undefined);
+            if (splitAvailable.some(Boolean) && !splitAvailable.every(Boolean)) staticAtlasFailure(`asset table row ${recordIndex} chronology split is incomplete`);
+            if (table.schema_version === 'atlas-static-asset-table.v3' && !splitAvailable.every(Boolean)) staticAtlasFailure(`asset table row ${recordIndex} chronology split is required`);
+            if (splitAvailable.every(Boolean) && (chronologySplit.some((value) => !Number.isSafeInteger(value) || value < 0) || chronologySplit.reduce((total, value) => total + value, 0) !== row.untimed_record_count)) staticAtlasFailure(`asset table row ${recordIndex} chronology split is inconsistent`);
           } else {
-            if (optionalFields.some((field) => row[field] !== null)) staticAtlasFailure(`asset table row ${recordIndex} non-node selection field is not null`);
+            if (optionalFields.some((field) => row[field] !== null && row[field] !== undefined)) staticAtlasFailure(`asset table row ${recordIndex} non-node selection field is not null`);
             optionalFields.forEach((field) => delete row[field]);
           }
           return row;
@@ -2486,6 +2520,18 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (row.domain === 'nodes') {
             const untimedCount = staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key || 'unknown asset'} untimed record count`);
             if (untimedCount > recordCount) staticAtlasFailure(`${row.asset_key || 'unknown asset'} untimed record count exceeds its record count`);
+            const chronologySplit = [
+              row.chronology_absent_record_count,
+              row.refused_chronology_record_count,
+              row.contextual_chronology_record_count,
+            ];
+            const splitAvailable = chronologySplit.map((value) => value !== null && value !== undefined);
+            if (splitAvailable.some(Boolean) && !splitAvailable.every(Boolean)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} chronology split is incomplete`);
+            if (table.schema_version === 'atlas-static-asset-table.v3' && !splitAvailable.every(Boolean)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} chronology split is required`);
+            if (splitAvailable.every(Boolean)) {
+              const splitTotal = chronologySplit.reduce((total, value, index) => total + staticAtlasNonnegativeInteger(value, `${row.asset_key || 'unknown asset'} chronology split ${index}`), 0);
+              if (splitTotal !== untimedCount) staticAtlasFailure(`${row.asset_key || 'unknown asset'} chronology split is inconsistent`);
+            }
             const timeMinimum = staticAtlasNullableFiniteNumber(row.time_min_bp, `${row.asset_key || 'unknown asset'} minimum BP`, 0, Number.MAX_SAFE_INTEGER);
             const timeMaximum = staticAtlasNullableFiniteNumber(row.time_max_bp, `${row.asset_key || 'unknown asset'} maximum BP`, 0, Number.MAX_SAFE_INTEGER);
             if ((timeMinimum === null) !== (timeMaximum === null) || (timeMinimum !== null && timeMinimum > timeMaximum)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} BP interval is invalid`);
@@ -3819,28 +3865,40 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           && layer.semantic_role !== 'source_chronology_context'
         ));
         if (STATIC_ATLAS_INLINE) {
-          const count = layers.reduce((total, layer) => {
+          const classified = { absent: 0, refused: 0, contextual: 0 };
+          layers.forEach((layer) => {
             const pointFeatures = Array.isArray(layer.features) ? layer.features : [];
             const polygonFeatures = Array.isArray(layer.geojson?.features)
               ? layer.geojson.features.map((feature) => feature?.properties || {})
               : [];
-            return total + pointFeatures.concat(polygonFeatures).filter((feature) => (
+            pointFeatures.concat(polygonFeatures).filter((feature) => (
               (!layer.applies_country_filter || activeCountries.has(feature.country))
-              && featureTimeAdmission(feature).status === 'untimed'
-            )).length;
-          }, 0);
-          return { status: 'available', count };
+            )).forEach((feature) => {
+              const status = featureTimeAdmission(feature).status;
+              if (Object.prototype.hasOwnProperty.call(classified, status)) classified[status] += 1;
+            });
+          });
+          return { status: 'available', count: classified.absent + classified.refused + classified.contextual, split_status: 'available', absent_count: classified.absent, refused_count: classified.refused, contextual_count: classified.contextual };
         }
         let count = 0;
         let ambiguous = false;
+        let splitUnavailable = false;
+        const classified = { absent: 0, refused: 0, contextual: 0 };
         const layersByKey = new Map(layers.map((layer) => [layer.key, layer]));
         STATIC_ATLAS_BOOTSTRAP.assets
           .filter((row) => row.domain === 'nodes' && layersByKey.has(row.layer_key))
           .forEach((row) => {
             const layer = layersByKey.get(row.layer_key);
             const untimed = staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key} untimed record count`);
+            const split = [row.chronology_absent_record_count, row.refused_chronology_record_count, row.contextual_chronology_record_count];
+            const hasSplit = split.every((value) => value !== null && value !== undefined);
             if (!layer.applies_country_filter) {
               count += untimed;
+              if (hasSplit) {
+                classified.absent += staticAtlasNonnegativeInteger(split[0], `${row.asset_key} absent chronology count`);
+                classified.refused += staticAtlasNonnegativeInteger(split[1], `${row.asset_key} refused chronology count`);
+                classified.contextual += staticAtlasNonnegativeInteger(split[2], `${row.asset_key} contextual chronology count`);
+              } else splitUnavailable = true;
               return;
             }
             const countries = Array.isArray(row.country_keys)
@@ -3848,32 +3906,56 @@ __STATIC_CHUNK_SCRIPT_TAGS__
               : [];
             if (countries.length && countries.every((country) => activeCountries.has(country))) {
               count += untimed;
+              if (hasSplit) {
+                classified.absent += staticAtlasNonnegativeInteger(split[0], `${row.asset_key} absent chronology count`);
+                classified.refused += staticAtlasNonnegativeInteger(split[1], `${row.asset_key} refused chronology count`);
+                classified.contextual += staticAtlasNonnegativeInteger(split[2], `${row.asset_key} contextual chronology count`);
+              } else splitUnavailable = true;
               return;
             }
             if (countries.some((country) => activeCountries.has(country)) && untimed > 0) ambiguous = true;
           });
-        return ambiguous ? { status: 'unavailable', count: null } : { status: 'available', count };
+        if (ambiguous) return { status: 'unavailable', count: null, split_status: 'unavailable', absent_count: null, refused_count: null, contextual_count: null };
+        return { status: 'available', count, split_status: splitUnavailable ? 'unavailable' : 'available', absent_count: splitUnavailable ? null : classified.absent, refused_count: splitUnavailable ? null : classified.refused, contextual_count: splitUnavailable ? null : classified.contextual };
       }
       function sourceChronologyUntimedExclusion(layer) {
-        if (!layer || !sourceChronologyLayerIsValid(layer)) return { status: 'unavailable', count: null };
+        if (!layer || !sourceChronologyLayerIsValid(layer)) return { status: 'unavailable', count: null, split_status: 'unavailable' };
         if (STATIC_ATLAS_INLINE) {
           const candidates = (layer.features || []).filter((feature) => (
             sourceChronologyFeatureMatches(layer, feature)
             && (!layer.applies_country_filter || activeCountries.has(feature.country))
           ));
+          const classified = { absent: 0, refused: 0, contextual: 0 };
+          candidates.forEach((feature) => {
+            const status = featureTimeAdmission(feature).status;
+            if (Object.prototype.hasOwnProperty.call(classified, status)) classified[status] += 1;
+          });
           return {
             status: 'available',
-            count: candidates.filter((feature) => featureTimeAdmission(feature).status === 'untimed').length,
+            count: classified.absent + classified.refused + classified.contextual,
+            split_status: 'available',
+            absent_count: classified.absent,
+            refused_count: classified.refused,
+            contextual_count: classified.contextual,
           };
         }
         const rows = STATIC_ATLAS_BOOTSTRAP.assets.filter((row) => row.domain === 'nodes' && row.layer_key === layer.key);
         let count = 0;
         let ambiguous = false;
+        let splitUnavailable = false;
+        const classified = { absent: 0, refused: 0, contextual: 0 };
         rows.forEach((row) => {
           const untimed = staticAtlasNonnegativeInteger(row.untimed_record_count, `${row.asset_key} untimed record count`);
+          const split = [row.chronology_absent_record_count, row.refused_chronology_record_count, row.contextual_chronology_record_count];
+          const hasSplit = split.every((value) => value !== null && value !== undefined);
           const countries = Array.isArray(row.country_keys) ? row.country_keys.filter((country) => country !== 'UNASSIGNED') : [];
           if (!layer.applies_country_filter || (countries.length && countries.every((country) => activeCountries.has(country)))) {
             count += untimed;
+            if (hasSplit) {
+              classified.absent += staticAtlasNonnegativeInteger(split[0], `${row.asset_key} absent chronology count`);
+              classified.refused += staticAtlasNonnegativeInteger(split[1], `${row.asset_key} refused chronology count`);
+              classified.contextual += staticAtlasNonnegativeInteger(split[2], `${row.asset_key} contextual chronology count`);
+            } else splitUnavailable = true;
             return;
           }
           if (countries.some((country) => activeCountries.has(country)) && untimed > 0) ambiguous = true;
@@ -3882,8 +3964,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           (layer.node_level === 'source_ecological_code' && activeSourceChronologyCode !== 'all')
           || (layer.node_level === 'source_taxon' && activeSourceChronologyTaxon !== 'all')
         );
-        if (ambiguous || (exactFacetSelected && count > 0)) return { status: 'unavailable', count: null };
-        return { status: 'available', count };
+        if (ambiguous || (exactFacetSelected && count > 0)) return { status: 'unavailable', count: null, split_status: 'unavailable' };
+        return { status: 'available', count, split_status: splitUnavailable ? 'unavailable' : 'available', absent_count: splitUnavailable ? null : classified.absent, refused_count: splitUnavailable ? null : classified.refused, contextual_count: splitUnavailable ? null : classified.contextual };
       }
       function sourceChronologyFeatureMatches(layer, feature, code = activeSourceChronologyCode, taxon = activeSourceChronologyTaxon) {
         if (layer.semantic_role !== 'source_chronology_context') return true;
@@ -5042,8 +5124,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const visibleObservationLabel = visibleObservationDenominator === null ? 'unavailable' : String(visibleObservationDenominator);
         const activeWindowLabel = `[${timeStartBp}, ${timeWindowEndBp()}] BP`;
         const untimedLabel = untimedExclusion.status === 'available'
-          ? `${untimedExclusion.count} untimed source nodes excluded before viewport filtering`
-          : 'untimed source-node count unavailable for this exact filtered selection';
+          ? untimedExclusion.split_status === 'available'
+            ? `${untimedExclusion.count} source nodes without admitted numeric chronology excluded (${untimedExclusion.absent_count} absent, ${untimedExclusion.refused_count} refused, ${untimedExclusion.contextual_count} contextual)`
+            : `${untimedExclusion.count} source nodes without admitted numeric chronology excluded; absent/refused/contextual split unavailable for this legacy report`
+          : 'source-node count without admitted numeric chronology unavailable for this exact filtered selection';
         sourceChronologySummary.textContent = `${visibleSourceEntries.length} of ${selectedFacet.node_count} nodes visible · ${activeWindowLabel}`;
         const concentrationEligible = sourceRecordConcentrationSelection(selectedLayer) !== null;
         sourceRecordConcentrationToggle.disabled = !concentrationEligible;
@@ -5417,11 +5501,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return coordinates ? `${coordinates.latitude.toFixed(precision)}, ${coordinates.longitude.toFixed(precision)}` : 'Unavailable';
       }
       function finiteCountValue(value) {
-        if (value === null || value === undefined || typeof value === 'boolean') return null;
-        if (typeof value === 'string' && !value.trim()) return null;
-        if (typeof value !== 'number' && typeof value !== 'string') return null;
-        const numeric = Number(value);
-        return Number.isSafeInteger(numeric) && numeric >= 0 ? numeric : null;
+        return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0 ? value : null;
       }
       function countDisplayValue(count, countLabel) {
         if (typeof countLabel === 'string' && countLabel.trim()) return countLabel.trim();
@@ -5433,6 +5513,17 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return count === null ? 'mapped count unavailable' : `${count} mapped point${count === 1 ? '' : 's'}`;
       }
       function featureTimeAdmission(feature) {
+        const semantics = feature?.temporal_semantics;
+        let posture = '';
+        if (semantics && typeof semantics === 'object' && !Array.isArray(semantics)) {
+          posture = typeof semantics.comparability_posture === 'string'
+            ? semantics.comparability_posture.trim()
+            : '';
+          const refusalReason = typeof semantics.refusal_reason_code === 'string'
+            ? semantics.refusal_reason_code.trim()
+            : '';
+          if (posture === 'refused' || refusalReason) return { status: 'refused', window: null };
+        }
         const startDeclared = Object.prototype.hasOwnProperty.call(feature, 'time_start_bp');
         const endDeclared = Object.prototype.hasOwnProperty.call(feature, 'time_end_bp');
         if (startDeclared || endDeclared) {
@@ -5443,7 +5534,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (!startAbsent || !endAbsent) {
             const start = finiteTimeValue(rawStart);
             const end = finiteTimeValue(rawEnd);
-            if (start === null || end === null || start > end) return { status: 'invalid', window: null };
+            if (start === null || end === null || start > end) return { status: 'refused', window: null };
+            if (posture && !['numeric_interval', 'numeric_interval_with_caveat', 'mixed_interval_and_context'].includes(posture)) return { status: 'contextual', window: null };
             return { status: 'valid', window: { start, end } };
           }
         }
@@ -5452,20 +5544,25 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const rawValue = feature[field];
           if (rawValue === null || rawValue === undefined) continue;
           const value = finiteTimeValue(rawValue);
-          if (value === null) return { status: 'invalid', window: null };
+          if (value === null) return { status: 'refused', window: null };
+          if (posture && !['numeric_interval', 'numeric_interval_with_caveat', 'mixed_interval_and_context'].includes(posture)) return { status: 'contextual', window: null };
           return { status: 'valid', window: { start: value, end: value } };
         }
-        return { status: 'untimed', window: null };
+        if (semantics && typeof semantics === 'object' && !Array.isArray(semantics) && Object.keys(semantics).length) {
+          if (['numeric_interval', 'numeric_interval_with_caveat', 'mixed_interval_and_context'].includes(posture)) return { status: 'refused', window: null };
+          return { status: 'contextual', window: null };
+        }
+        return { status: 'absent', window: null };
       }
       function featureTimeWindow(feature) {
         return featureTimeAdmission(feature).window;
       }
       function featureInTimeWindow(layer, feature) {
         const admission = featureTimeAdmission(feature);
-        if (admission.status === 'invalid') return false;
-        if (admission.status === 'untimed' && layer.semantic_role === 'source_chronology_context') return false;
+        if (admission.status === 'refused') return false;
+        if (['absent', 'contextual'].includes(admission.status) && layer.semantic_role === 'source_chronology_context') return false;
         if (!layer.applies_time_filter || !TIME_HAS_DATA) return true;
-        if (admission.status === 'untimed') {
+        if (['absent', 'contextual'].includes(admission.status)) {
           return timeFilterUsesFullExtent();
         }
         const featureWindow = admission.window;
@@ -5474,7 +5571,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function featureTimeLabel(feature) {
         const admission = featureTimeAdmission(feature);
-        if (admission.status === 'invalid') return '';
+        if (admission.status === 'refused') return '';
         if (feature.time_label) return String(feature.time_label);
         const window = admission.window;
         if (!window) return '';
@@ -5852,8 +5949,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (TIME_HAS_DATA && !timeFilterUsesFullExtent()) {
           const untimedExclusion = genericUntimedExclusion();
           timeRecordSummary += untimedExclusion.status === 'available'
-            ? ` ${untimedExclusion.count} records without comparable BP chronology are excluded by this narrowed window.`
-            : ' The exact number of records excluded for missing comparable BP chronology is unavailable for this country selection.';
+            ? untimedExclusion.split_status === 'available'
+              ? ` ${untimedExclusion.count} records without admitted numeric BP chronology are excluded (${untimedExclusion.absent_count} absent, ${untimedExclusion.refused_count} refused, ${untimedExclusion.contextual_count} contextual).`
+              : ` ${untimedExclusion.count} records without admitted numeric BP chronology are excluded; the absent/refused/contextual split is unavailable for this legacy report.`
+            : ' The exact number of records excluded without admitted numeric BP chronology is unavailable for this country selection.';
         }
         const playbackBlockReason = automaticTimePlaybackBlockReason();
         timeRecordCount.textContent = playbackBlockReason

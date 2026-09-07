@@ -6,9 +6,10 @@ import base64
 import math
 from collections.abc import Mapping, Sequence
 
-ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v2"
+ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v3"
+PREVIOUS_ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v2"
 LEGACY_ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v1"
-ASSET_TABLE_FIELDS = (
+_LEGACY_ASSET_TABLE_FIELDS = (
     "asset_key",
     "domain",
     "sequence",
@@ -31,8 +32,16 @@ ASSET_TABLE_FIELDS = (
     "untimed_record_count",
     "scientific_signal_ids",
 )
+ASSET_TABLE_FIELDS = (
+    *_LEGACY_ASSET_TABLE_FIELDS[:-1],
+    "chronology_absent_record_count",
+    "refused_chronology_record_count",
+    "contextual_chronology_record_count",
+    _LEGACY_ASSET_TABLE_FIELDS[-1],
+)
 _CORE_FIELDS = ASSET_TABLE_FIELDS[:12]
 _NODE_FIELDS = ASSET_TABLE_FIELDS[12:]
+_LEGACY_NODE_FIELDS = _LEGACY_ASSET_TABLE_FIELDS[12:]
 ASSET_TABLE_STORED_FIELDS = (
     "domain",
     "sha256",
@@ -41,6 +50,15 @@ ASSET_TABLE_STORED_FIELDS = (
     "byte_count",
     "record_count",
     *_NODE_FIELDS,
+)
+_PREVIOUS_ASSET_TABLE_STORED_FIELDS = (
+    "domain",
+    "sha256",
+    "payload_sha256",
+    "decoded_byte_count",
+    "byte_count",
+    "record_count",
+    *_LEGACY_NODE_FIELDS,
 )
 _LEGACY_TABLE_KEYS = {"schema_version", "fields", "record_count", "records"}
 _TABLE_KEYS = {
@@ -67,7 +85,9 @@ def encode_asset_inventory(
 ) -> dict[str, object]:
     """Encode exact rows while deriving redundant identity and transport fields."""
     _validate_scope_slug(scope_slug)
-    normalized = _validate_rows(rows, require_decoded_counts=True)
+    normalized = _validate_rows(
+        rows, require_decoded_counts=True, require_temporal_split=True
+    )
     for sequence, row in enumerate(normalized):
         _validate_derived_fields(row, scope_slug=scope_slug, sequence=sequence)
     records = [
@@ -85,7 +105,8 @@ def encode_asset_inventory(
 def normalize_asset_inventory(value: object) -> list[dict[str, object]]:
     """Expand a legacy list or authenticated columnar inventory into row objects."""
     if isinstance(value, list):
-        return _validate_rows(value, require_decoded_counts=False)
+        rows = [_with_unavailable_temporal_split(row) for row in value]
+        return _validate_rows(rows, require_decoded_counts=False)
     if not isinstance(value, Mapping):
         raise ValueError(  # noqa: TRY004 - malformed serialized contract
             "static atlas asset table shape is invalid"
@@ -93,8 +114,27 @@ def normalize_asset_inventory(value: object) -> list[dict[str, object]]:
     schema = value.get("schema_version")
     if schema == LEGACY_ASSET_TABLE_SCHEMA:
         return _normalize_legacy_table(value)
+    if schema == PREVIOUS_ASSET_TABLE_SCHEMA:
+        return _normalize_compact_table(
+            value,
+            stored_fields=_PREVIOUS_ASSET_TABLE_STORED_FIELDS,
+            temporal_split_available=False,
+        )
     if schema != ASSET_TABLE_SCHEMA or set(value) != _TABLE_KEYS:
         raise ValueError("static atlas asset table shape is invalid")
+    return _normalize_compact_table(
+        value,
+        stored_fields=ASSET_TABLE_STORED_FIELDS,
+        temporal_split_available=True,
+    )
+
+
+def _normalize_compact_table(
+    value: Mapping[str, object],
+    *,
+    stored_fields: tuple[str, ...],
+    temporal_split_available: bool,
+) -> list[dict[str, object]]:
     scope_slug = value.get("scope_slug")
     if not isinstance(scope_slug, str):
         raise ValueError(  # noqa: TRY004 - malformed serialized contract
@@ -102,12 +142,12 @@ def normalize_asset_inventory(value: object) -> list[dict[str, object]]:
         )
     _validate_scope_slug(scope_slug)
     fields = value.get("fields")
-    if fields != list(ASSET_TABLE_STORED_FIELDS):
+    if fields != list(stored_fields):
         raise ValueError("static atlas asset table fields are invalid")
-    records = _validated_records(value, width=len(ASSET_TABLE_STORED_FIELDS))
+    records = _validated_records(value, width=len(stored_fields))
     rows: list[dict[str, object]] = []
     for sequence, record in enumerate(records):
-        stored = dict(zip(ASSET_TABLE_STORED_FIELDS, record, strict=True))
+        stored = dict(zip(stored_fields, record, strict=True))
         domain = stored.get("domain")
         digest = stored.get("sha256")
         if not isinstance(domain, str) or domain not in _ASSET_DOMAINS:
@@ -131,11 +171,25 @@ def normalize_asset_inventory(value: object) -> list[dict[str, object]]:
             "initial_load": _initial_load(domain),
         }
         if domain == "nodes":
-            row.update({field: stored[field] for field in _NODE_FIELDS})
-        elif any(stored[field] is not None for field in _NODE_FIELDS):
+            row.update({field: stored[field] for field in _LEGACY_NODE_FIELDS})
+            if temporal_split_available:
+                row.update(
+                    {
+                        field: stored[field]
+                        for field in _NODE_FIELDS
+                        if field not in _LEGACY_NODE_FIELDS
+                    }
+                )
+            else:
+                row = _with_unavailable_temporal_split(row)
+        elif any(stored[field] is not None for field in stored_fields[6:]):
             raise ValueError("static atlas non-node selection metadata is invalid")
         rows.append(row)
-    return _validate_rows(rows, require_decoded_counts=True)
+    return _validate_rows(
+        rows,
+        require_decoded_counts=True,
+        require_temporal_split=temporal_split_available,
+    )
 
 
 def _normalize_legacy_table(value: Mapping[str, object]) -> list[dict[str, object]]:
@@ -144,22 +198,24 @@ def _normalize_legacy_table(value: Mapping[str, object]) -> list[dict[str, objec
     if value.get("schema_version") != LEGACY_ASSET_TABLE_SCHEMA:
         raise ValueError("static atlas asset table schema is invalid")
     fields = value.get("fields")
-    if fields != list(ASSET_TABLE_FIELDS):
+    if fields != list(_LEGACY_ASSET_TABLE_FIELDS):
         raise ValueError("static atlas asset table fields are invalid")
-    records = _validated_records(value, width=len(ASSET_TABLE_FIELDS))
+    records = _validated_records(value, width=len(_LEGACY_ASSET_TABLE_FIELDS))
     rows: list[dict[str, object]] = []
     for record in records:
-        if not isinstance(record, list) or len(record) != len(ASSET_TABLE_FIELDS):
+        if not isinstance(record, list) or len(record) != len(
+            _LEGACY_ASSET_TABLE_FIELDS
+        ):
             raise ValueError("static atlas asset table row width is invalid")
-        row = dict(zip(ASSET_TABLE_FIELDS, record, strict=True))
+        row = dict(zip(_LEGACY_ASSET_TABLE_FIELDS, record, strict=True))
         if row.get("domain") != "nodes":
-            for field in _NODE_FIELDS:
+            for field in _LEGACY_NODE_FIELDS:
                 if row[field] is not None:
                     raise ValueError(
                         "static atlas non-node selection metadata is invalid"
                     )
                 del row[field]
-        rows.append(row)
+        rows.append(_with_unavailable_temporal_split(row))
     return _validate_rows(rows, require_decoded_counts=True)
 
 
@@ -235,7 +291,10 @@ def _initial_load(domain: str) -> bool:
 
 
 def _validate_rows(
-    rows: Sequence[object], *, require_decoded_counts: bool
+    rows: Sequence[object],
+    *,
+    require_decoded_counts: bool,
+    require_temporal_split: bool = False,
 ) -> list[dict[str, object]]:
     normalized: list[dict[str, object]] = []
     identities: set[str] = set()
@@ -262,6 +321,15 @@ def _validate_rows(
             if set(row) != expected_node_fields:
                 raise ValueError("static atlas node selection metadata is incomplete")
         _validate_row_types(row, require_decoded_counts=require_decoded_counts)
+        if require_temporal_split and row.get("domain") == "nodes" and any(
+            row.get(field) is None
+            for field in (
+                "chronology_absent_record_count",
+                "refused_chronology_record_count",
+                "contextual_chronology_record_count",
+            )
+        ):
+            raise ValueError("static atlas node chronology split is required")
         asset_key = str(row["asset_key"])
         path = str(row["path"])
         sequence = int(row["sequence"])
@@ -361,11 +429,44 @@ def _validate_node_fields(row: Mapping[str, object]) -> None:
         or minimum > maximum
     ):
         raise ValueError("static atlas node BP bounds are invalid")
-    all_records_are_untimed = row["untimed_record_count"] == row["record_count"]
-    if row["untimed_record_count"] > row["record_count"]:
+    untimed_record_count = row["untimed_record_count"]
+    record_count = row["record_count"]
+    if not isinstance(untimed_record_count, int) or not isinstance(record_count, int):
+        raise ValueError("static atlas node count is invalid")
+    all_records_are_untimed = untimed_record_count == record_count
+    if untimed_record_count > record_count:
         raise ValueError("static atlas untimed node count exceeds record count")
+    split_fields = (
+        "chronology_absent_record_count",
+        "refused_chronology_record_count",
+        "contextual_chronology_record_count",
+    )
+    split_values = [row.get(field) for field in split_fields]
+    split_available = [value is not None for value in split_values]
+    if any(split_available) and not all(split_available):
+        raise ValueError("static atlas node chronology split is incomplete")
+    if all(split_available):
+        for field, value in zip(split_fields, split_values, strict=True):
+            if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+                raise ValueError(f"static atlas node {field} is invalid")
+        split_total = sum(
+            value for value in split_values if isinstance(value, int)
+        )
+        if split_total != untimed_record_count:
+            raise ValueError("static atlas node chronology split is inconsistent")
     if (minimum is None) != all_records_are_untimed:
         raise ValueError("static atlas node BP bounds contradict untimed records")
+
+
+def _with_unavailable_temporal_split(value: object) -> dict[str, object]:
+    if not isinstance(value, Mapping):
+        raise ValueError("static atlas asset row is invalid")
+    row = dict(value)
+    if row.get("domain") == "nodes":
+        row.setdefault("chronology_absent_record_count", None)
+        row.setdefault("refused_chronology_record_count", None)
+        row.setdefault("contextual_chronology_record_count", None)
+    return row
 
 
 __all__ = [

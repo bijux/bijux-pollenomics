@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
+from .cardinality import require_nonnegative_count
 from .families import SourceFamilyStateRow
 
 
@@ -85,6 +86,13 @@ class ContextPointRecord:
     time_label: str = ""
     temporal_semantics: dict[str, object] | None = None
     site_uuid: str | None = None
+
+    def __post_init__(self) -> None:
+        """Reject malformed cardinalities at the shared context-record boundary."""
+        require_nonnegative_count(
+            self.record_count,
+            field="context point record_count",
+        )
 
 
 @dataclass(frozen=True)

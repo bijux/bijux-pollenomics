@@ -6,6 +6,8 @@ import ast
 import inspect
 from pathlib import Path
 
+import pytest
+
 from bijux_pollenomics.reporting.bundles import atlas_bundle
 
 EXPECTED_SIGNATURES = {
@@ -61,6 +63,59 @@ def test_context_projection_preserves_signed_coordinates_but_refuses_negative_bp
     assert record.time_start_bp is None
     assert record.time_end_bp is None
     assert record.time_mean_bp is None
+    assert record.temporal_semantics is not None
+    assert record.temporal_semantics["comparability_posture"] == "refused"
+    assert record.temporal_semantics["refusal_reason_code"] == "negative_bp"
+
+
+def test_context_projection_preserves_feature_count_including_zero() -> None:
+    records = atlas_bundle._extract_context_points(
+        [
+            {
+                "key": "context",
+                "label": "Context",
+                "source_name": "Source",
+                "count": 2,
+                "features": [
+                    {
+                        "latitude": 59,
+                        "longitude": 18,
+                        "title": "Zero backing records",
+                        "record_count": 0,
+                    },
+                    {
+                        "latitude": 60,
+                        "longitude": 19,
+                        "title": "Legacy feature",
+                    },
+                ],
+            }
+        ]
+    )
+
+    assert [record.record_count for record in records] == [0, 1]
+
+
+def test_context_projection_refuses_malformed_declared_feature_count() -> None:
+    with pytest.raises(ValueError, match="record_count must be a nonnegative integer"):
+        atlas_bundle._extract_context_points(
+            [
+                {
+                    "key": "context",
+                    "label": "Context",
+                    "source_name": "Source",
+                    "count": 1,
+                    "features": [
+                        {
+                            "latitude": 59,
+                            "longitude": 18,
+                            "title": "Malformed count",
+                            "record_count": False,
+                        }
+                    ],
+                }
+            ]
+        )
 
 
 def test_context_projection_preserves_standalone_mean_with_null_interval() -> None:

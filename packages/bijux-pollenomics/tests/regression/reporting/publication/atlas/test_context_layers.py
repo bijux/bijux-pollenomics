@@ -391,13 +391,15 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn('data-time-interval="50000">50000 years</button>', map_html)
             self.assertIn('data-time-interval="full">Full span</button>', map_html)
             self.assertIn("const admission = featureTimeAdmission(feature);", map_html)
-            self.assertIn("if (admission.status === 'invalid') return false;", map_html)
+            self.assertIn("if (admission.status === 'refused') return false;", map_html)
             self.assertIn(
-                "if (admission.status === 'untimed' && layer.semantic_role === "
-                "'source_chronology_context') return false;",
+                "if (['absent', 'contextual'].includes(admission.status) && "
+                "layer.semantic_role === 'source_chronology_context') return false;",
                 map_html,
             )
-            self.assertIn("if (admission.status === 'untimed') {", map_html)
+            self.assertIn(
+                "if (['absent', 'contextual'].includes(admission.status)) {", map_html
+            )
 
     def test_generate_multi_country_map_rejects_context_point_layers_without_identity(
         self,

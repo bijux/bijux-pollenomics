@@ -5,6 +5,10 @@ from __future__ import annotations
 from collections.abc import Iterable, Sequence
 from dataclasses import replace
 
+from bijux_pollenomics.collection.contracts.cardinality import (
+    require_nonnegative_count,
+    resolve_declared_count,
+)
 from bijux_pollenomics.collection.contracts.models import ContextPointRecord
 from bijux_pollenomics.core import (
     build_temporal_semantics,
@@ -57,7 +61,10 @@ def _extract_human_points(localities: Iterable[object]) -> tuple[_PointEvidence,
             _PointEvidence(
                 latitude=float(latitude),
                 longitude=float(longitude),
-                sample_count=int(sample_count) if isinstance(sample_count, int) else 0,
+                sample_count=require_nonnegative_count(
+                    sample_count,
+                    field=f"human aDNA {locality_token or locality_name} sample_count",
+                ),
                 time_start_bp=_optional_int(getattr(locality, "time_start_bp", None)),
                 time_end_bp=_optional_int(getattr(locality, "time_end_bp", None)),
                 time_mean_bp=_optional_int(getattr(locality, "time_mean_bp", None)),
@@ -82,7 +89,12 @@ def _extract_animal_points(
             longitude, (int, float)
         ):
             continue
-        sample_count = locality.get("sample_count", 0)
+        sample_count = resolve_declared_count(
+            locality,
+            "sample_count",
+            field="animal aDNA locality sample_count",
+            absent_default=0,
+        )
         source_token = str(
             locality.get("site_record_id")
             or locality.get("feature_id")
@@ -94,7 +106,7 @@ def _extract_animal_points(
             _PointEvidence(
                 latitude=float(latitude),
                 longitude=float(longitude),
-                sample_count=int(sample_count) if isinstance(sample_count, int) else 0,
+                sample_count=sample_count,
                 time_start_bp=_optional_int(locality.get("time_start_bp")),
                 time_end_bp=_optional_int(locality.get("time_end_bp")),
                 time_mean_bp=_optional_int(locality.get("time_mean_bp")),
@@ -146,7 +158,7 @@ def _context_point_evidence(point: ContextPointRecord) -> _PointEvidence:
     return _PointEvidence(
         latitude=point.latitude,
         longitude=point.longitude,
-        sample_count=max(1, point.record_count),
+        sample_count=point.record_count,
         time_start_bp=point.time_start_bp,
         time_end_bp=point.time_end_bp,
         time_mean_bp=point.time_mean_bp,
@@ -284,8 +296,8 @@ def _time_aware_ratio(points: Sequence[ContextPointRecord]) -> float:
 
 
 def _context_point_has_numeric_interval(point: ContextPointRecord) -> bool:
-    if not temporal_semantics_has_numeric_interval(point.temporal_semantics) and (
-        point.time_start_bp is None or point.time_end_bp is None
+    if point.temporal_semantics and not temporal_semantics_has_numeric_interval(
+        point.temporal_semantics
     ):
         return False
     return _validated_interval(point.time_start_bp, point.time_end_bp) is not None

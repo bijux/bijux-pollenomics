@@ -5,6 +5,7 @@ from pathlib import Path
 from bijux_pollenomics.reporting.bundles.paths import build_atlas_bundle_paths
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
 from bijux_pollenomics.reporting.map_publication import (
+    _serialize_layer_contract_row,
     build_map_publication_contract,
     resolve_map_scope_policy,
 )
@@ -14,6 +15,39 @@ from .support import MapPublicationTestCase
 
 
 class PublicationContractTests(MapPublicationTestCase):
+    def test_layer_contract_preserves_zero_and_derives_only_absent_legacy_count(
+        self,
+    ) -> None:
+        policy = resolve_map_scope_policy(None)
+        zero = _serialize_layer_contract_row(
+            {"key": "empty", "count": 0, "features": []},
+            policy=policy,
+        )
+        legacy = _serialize_layer_contract_row(
+            {"key": "legacy", "features": [{}, {}]},
+            policy=policy,
+        )
+
+        self.assertEqual(zero["count"], 0)
+        self.assertEqual(legacy["count"], 2)
+
+    def test_layer_contract_refuses_malformed_or_drifting_declared_count(
+        self,
+    ) -> None:
+        policy = resolve_map_scope_policy(None)
+        for value in (None, "", "0", False, True, -1, 0.0):
+            with self.subTest(value=value):
+                with self.assertRaisesRegex(ValueError, "nonnegative integer"):
+                    _serialize_layer_contract_row(
+                        {"key": "invalid", "count": value},
+                        policy=policy,
+                    )
+        with self.assertRaisesRegex(ValueError, "does not match its features"):
+            _serialize_layer_contract_row(
+                {"key": "drift", "count": 2, "features": [{}]},
+                policy=policy,
+            )
+
     def test_map_publication_contract_distinguishes_layer_roles(self) -> None:
         report = MultiCountryMapReport(
             title="Nordic Evidence Surface",

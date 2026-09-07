@@ -116,6 +116,9 @@ def test_null_interval_uses_valid_mean_age_across_state_and_static_metadata() ->
     assert selection["time_min_bp"] == 123.25
     assert selection["time_max_bp"] == 123.25
     assert selection["untimed_record_count"] == 0
+    assert selection["chronology_absent_record_count"] == 0
+    assert selection["refused_chronology_record_count"] == 0
+    assert selection["contextual_chronology_record_count"] == 0
 
 
 def test_post_1950_bp_interval_is_refused_from_static_time_metadata() -> None:
@@ -148,6 +151,43 @@ def test_post_1950_bp_interval_is_refused_from_static_time_metadata() -> None:
     assert selection["time_min_bp"] is None
     assert selection["time_max_bp"] is None
     assert selection["untimed_record_count"] == 1
+    assert selection["chronology_absent_record_count"] == 0
+    assert selection["refused_chronology_record_count"] == 1
+    assert selection["contextual_chronology_record_count"] == 0
+
+
+def test_explicit_temporal_refusal_overrides_numeric_fields_in_static_indexes() -> (
+    None
+):
+    feature = {
+        "latitude": 59,
+        "longitude": 18,
+        "country": "Sweden",
+        "time_start_bp": 100,
+        "time_end_bp": 200,
+        "temporal_semantics": {
+            "comparability_posture": "refused",
+            "refusal_reason_code": "source_age_system_not_comparable",
+        },
+    }
+    indexes = build_indexes([{"key": "sites", "features": [feature]}])
+    selection = node_asset_selection(
+        {
+            "layer_kind": "point",
+            "layer_index": 0,
+            "layer_key": "sites",
+            "country_keys": ["Sweden"],
+            "features": [feature],
+        }
+    )
+
+    assert indexes["time_interval_feature_indexes"] == []
+    assert selection["time_min_bp"] is None
+    assert selection["time_max_bp"] is None
+    assert selection["untimed_record_count"] == 1
+    assert selection["chronology_absent_record_count"] == 0
+    assert selection["refused_chronology_record_count"] == 1
+    assert selection["contextual_chronology_record_count"] == 0
 
 
 def test_invalid_declared_mean_does_not_fall_through_to_year_age() -> None:
@@ -169,6 +209,33 @@ def test_invalid_declared_mean_does_not_fall_through_to_year_age() -> None:
 
     assert not state.has_time_data
     assert indexes["time_interval_feature_indexes"] == []
+
+
+def test_node_selection_separates_absent_refused_and_contextual_chronology() -> None:
+    selection = node_asset_selection(
+        {
+            "layer_kind": "point",
+            "layer_index": 0,
+            "layer_key": "sites",
+            "country_keys": ["Sweden"],
+            "features": [
+                {"latitude": 59, "longitude": 18},
+                {"latitude": 59, "longitude": 18, "time_mean_bp": "bad"},
+                {
+                    "latitude": 59,
+                    "longitude": 18,
+                    "temporal_semantics": {
+                        "comparability_posture": "context_only"
+                    },
+                },
+            ],
+        }
+    )
+
+    assert selection["untimed_record_count"] == 3
+    assert selection["chronology_absent_record_count"] == 1
+    assert selection["refused_chronology_record_count"] == 1
+    assert selection["contextual_chronology_record_count"] == 1
 
 
 def test_subgroup_is_a_first_class_scientific_resolution() -> None:

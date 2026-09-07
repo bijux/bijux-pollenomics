@@ -3,6 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import cast
 
+from ....collection.contracts.cardinality import require_nonnegative_count
 from ..time import (
     extract_layer_identity,
     feature_has_time,
@@ -63,6 +64,11 @@ def build_external_point_layer(
             "media_links": normalize_media_links(properties.get("media_links", [])),
             **feature_time_payload(properties),
         }
+        if "record_count" in properties:
+            mapped_feature["record_count"] = require_nonnegative_count(
+                properties["record_count"],
+                field=f"{source_label} feature record_count",
+            )
         site_uuid = properties.get("site_uuid")
         if isinstance(site_uuid, str) and site_uuid.strip():
             mapped_feature["site_uuid"] = site_uuid.strip()

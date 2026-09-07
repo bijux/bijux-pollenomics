@@ -37,7 +37,7 @@ def _inventory(tmp_path: Path) -> dict[str, object]:
 def test_columnar_inventory_reconstructs_exact_ordered_rows(tmp_path: Path) -> None:
     inventory = _inventory(tmp_path)
     assert inventory == {
-        "schema_version": "atlas-static-asset-table.v2",
+        "schema_version": "atlas-static-asset-table.v3",
         "scope_slug": "nordic",
         "fields": list(ASSET_TABLE_STORED_FIELDS),
         "record_count": len(cast(list[object], inventory["records"])),
@@ -79,6 +79,13 @@ def test_checked_in_inventory_reconciles_to_manifest_contract() -> None:
     assert len({row["asset_key"] for row in rows}) == len(rows)
     assert len({row["path"] for row in rows}) == len(rows)
     assert any(row["domain"] == "nodes" for row in rows)
+    assert all(
+        row["chronology_absent_record_count"] is None
+        and row["refused_chronology_record_count"] is None
+        and row["contextual_chronology_record_count"] is None
+        for row in rows
+        if row["domain"] == "nodes"
+    )
     for domain in ("nodes", "details", "edges", "sequences"):
         assert (
             sum(
@@ -112,6 +119,9 @@ def test_checked_in_inventory_reconciles_to_manifest_contract() -> None:
         ("asymmetric_time", "BP bounds are asymmetric"),
         ("untimed_time_contradiction", "contradict untimed records"),
         ("excess_untimed_count", "exceeds record count"),
+        ("incomplete_chronology_split", "chronology split is incomplete"),
+        ("missing_chronology_split", "chronology split is required"),
+        ("inconsistent_chronology_split", "chronology split is inconsistent"),
     ],
 )
 def test_columnar_inventory_refuses_structural_drift(
@@ -155,7 +165,22 @@ def test_columnar_inventory_refuses_structural_drift(
             node[indexes["time_min_bp"]] = None
         elif mutation == "excess_untimed_count":
             node[indexes["untimed_record_count"]] = node[indexes["record_count"]] + 1
+        elif mutation == "incomplete_chronology_split":
+            node[indexes["chronology_absent_record_count"]] = None
+        elif mutation == "missing_chronology_split":
+            node[indexes["chronology_absent_record_count"]] = None
+            node[indexes["refused_chronology_record_count"]] = None
+            node[indexes["contextual_chronology_record_count"]] = None
+        elif mutation == "inconsistent_chronology_split":
+            node[indexes["refused_chronology_record_count"]] = (
+                cast(int, node[indexes["refused_chronology_record_count"]]) + 1
+            )
         else:
+            node[indexes["chronology_absent_record_count"]] = node[
+                indexes["record_count"]
+            ]
+            node[indexes["refused_chronology_record_count"]] = 0
+            node[indexes["contextual_chronology_record_count"]] = 0
             node[indexes["untimed_record_count"]] = node[indexes["record_count"]]
 
     with pytest.raises(ValueError, match=message):
