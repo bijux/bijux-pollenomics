@@ -3,6 +3,7 @@ import { createServer } from 'node:http';
 import { createWriteStream } from 'node:fs';
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { extname, join, normalize, relative, resolve } from 'node:path';
+import { finished } from 'node:stream/promises';
 
 const plan = JSON.parse(await readFile(resolve(process.argv[2]), 'utf8'));
 if (plan.schema_version !== 'atlas-browser-verification-plan.v2') throw new Error('unsupported plan schema');
@@ -22,7 +23,13 @@ const expectedNordic = Object.freeze({
   UPHE: { level: 'source_ecological_code', code: 'UPHE', taxon: null, nodes: 9928, observations: 91739, younger: 21911, older: 22911 },
   AQVP: { level: 'source_ecological_code', code: 'AQVP', taxon: null, nodes: 4991, observations: 9666, younger: 18190, older: 19190 },
   secale: { level: 'source_taxon', code: null, taxon: 'source:neotoma:taxon:967', nodes: 469, observations: 469, younger: 3961, older: 4461 },
-  cereal: { level: 'source_taxon', code: null, taxon: 'source:neotoma:taxon:3924', nodes: 2, observations: 2, younger: 1651, older: 1751 },
+  hordeumSecale: { level: 'source_taxon', code: null, taxon: 'source:neotoma:taxon:3924', nodes: 2, observations: 2, younger: 1651, older: 1751 },
+  cerealia: {
+    level: 'source_taxon', code: null, taxon: 'all', preset: 'cerealia',
+    nodes: 676, observations: 676, younger: 0, older: 11891,
+    memberTaxonIds: [416, 427, 1947, 2941],
+    catalogSha256: '8f1751802e1ed25b9631729df80b21ac845490464cb678f7349fcc4446e57673',
+  },
 });
 
 function parseNonnegativeIntegerText(value) {
@@ -105,11 +112,15 @@ const browser = spawn(plan.browser_binary, [
   `--user-data-dir=${profileRoot}`,
   'about:blank',
 ], { stdio: ['ignore', 'pipe', 'pipe'] });
+const browserClosed = new Promise((accept) => {
+  browser.once('close', (code, signal) => accept({ code, signal }));
+});
 browser.stdout.pipe(browserLog, { end: false });
 browser.stderr.pipe(browserLog, { end: false });
 
 const scenarios = [];
 const receipts = ['browser.log'];
+let verificationError;
 try {
   const browserWebSocket = await debuggerEndpoint(browser, timeoutMs);
   const browserCdp = await connectCdp(browserWebSocket);
@@ -141,7 +152,8 @@ try {
       'capture_api_ready', 'candidate_identity', 'keyless_provider_policy',
       'default_sample_window', 'default_denominators', 'trsh_exact_state',
       'uphe_exact_state', 'aqvp_exact_state', 'secale_exact_state',
-      'cereal_finder_exact_state', 'capture_frames_uncluttered',
+      'hordeum_secale_exact_state', 'cerealia_preset_exact_state',
+      'capture_frames_uncluttered',
       'chronology_buttons_navigate', 'chronology_controls_persistent',
       'chronology_status_action', 'basemap_discoverability', 'help_dialog_accessible',
       'comparison_refusal', 'capture_null_inputs_refused', 'responsive_1440',
@@ -179,16 +191,80 @@ try {
   await writeFile(join(artifactRoot, 'browser-runtime-report.json'), `${JSON.stringify(report, null, 2)}\n`);
   console.log(JSON.stringify({ assertions: report.assertions, scenario_count: scenarios.length }, null, 2));
   if (Object.values(report.assertions).some((passed) => !passed)) process.exitCode = 1;
-} finally {
-  browser.kill('SIGTERM');
-  await Promise.race([
-    new Promise((accept) => browser.once('exit', accept)),
-    new Promise((accept) => setTimeout(accept, 4000)),
-  ]);
-  if (browser.exitCode === null) browser.kill('SIGKILL');
-  await new Promise((accept) => server.close(accept));
-  browserLog.end();
-  await rm(profileRoot, { recursive: true, force: true });
+} catch (error) {
+  verificationError = error;
+}
+await finalizeBrowserVerification(verificationError, [
+  ['browser process', () => stopBrowser(browser, browserClosed, 4000)],
+  ['artifact server', () => closeServer(server)],
+  ['browser log', () => closeBrowserLog(browserLog)],
+  ['browser profile', () => rm(profileRoot, {
+    recursive: true,
+    force: true,
+    maxRetries: 5,
+    retryDelay: 100,
+  })],
+]);
+
+function browserHasExited(process) {
+  return process.exitCode !== null || process.signalCode !== null;
+}
+
+async function settlesWithin(promise, waitMilliseconds) {
+  let timer;
+  try {
+    return await Promise.race([
+      promise.then(() => true),
+      new Promise((accept) => { timer = setTimeout(() => accept(false), waitMilliseconds); }),
+    ]);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function stopBrowser(process, closed, graceMilliseconds) {
+  if (!browserHasExited(process)) process.kill('SIGTERM');
+  if (await settlesWithin(closed, graceMilliseconds)) return;
+  if (!browserHasExited(process)) process.kill('SIGKILL');
+  if (!(await settlesWithin(closed, graceMilliseconds))) {
+    throw new Error('browser process did not close after SIGKILL');
+  }
+}
+
+function closeServer(server) {
+  return new Promise((accept, reject) => {
+    server.close((error) => error ? reject(error) : accept());
+  });
+}
+
+async function closeBrowserLog(stream) {
+  const completion = finished(stream);
+  stream.end();
+  await completion;
+}
+
+async function finalizeBrowserVerification(originalError, cleanupSteps) {
+  const cleanupErrors = [];
+  for (const [name, cleanup] of cleanupSteps) {
+    try {
+      await cleanup();
+    } catch (error) {
+      cleanupErrors.push({ name, error });
+    }
+  }
+  if (originalError !== undefined) {
+    for (const { name, error } of cleanupErrors) {
+      const message = error instanceof Error ? error.message : String(error);
+      console.error(`atlas browser cleanup also failed (${name}): ${message}`);
+    }
+    throw originalError;
+  }
+  if (cleanupErrors.length > 0) {
+    throw new AggregateError(
+      cleanupErrors.map(({ error }) => error),
+      `atlas browser cleanup failed: ${cleanupErrors.map(({ name }) => name).join(', ')}`,
+    );
+  }
 }
 
 async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
@@ -230,9 +306,13 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
   chronologyJourneys.secale = await sliderChronologyJourney(normal.cdp);
   await screenshot(normal.cdp, `${scope.name}/secale.png`);
   scopeReceipts.push(`${scope.name}/secale.png`);
-  const cereal = await cerealFinderFrame(normal.cdp);
-  await screenshot(normal.cdp, `${scope.name}/cereal-finder.png`);
-  scopeReceipts.push(`${scope.name}/cereal-finder.png`);
+  const hordeumSecale = await exactTaxonFrame(normal.cdp, expectedNordic.hordeumSecale);
+  await screenshot(normal.cdp, `${scope.name}/hordeum-secale.png`);
+  scopeReceipts.push(`${scope.name}/hordeum-secale.png`);
+  const cerealia = await sourcePresetFrame(normal.cdp, expectedNordic.cerealia.preset);
+  chronologyJourneys.cerealia = await sliderChronologyJourney(normal.cdp);
+  await screenshot(normal.cdp, `${scope.name}/cerealia-preset.png`);
+  scopeReceipts.push(`${scope.name}/cerealia-preset.png`);
   const captureNullRefusals = await captureNullInputs(normal.cdp);
   const signedCaptureView = await captureSignedView(normal.cdp);
   const noBasemap = await applyCurrentFrame(normal.cdp, 'none');
@@ -243,7 +323,8 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
     default_dom: defaultDom,
     source_states: sourceStates,
     secale,
-    cereal_finder: cereal,
+    hordeum_secale: hordeumSecale,
+    cerealia_preset: cerealia,
     chronology_journeys: chronologyJourneys,
     capture_null_refusals: captureNullRefusals,
     signed_capture_view: signedCaptureView,
@@ -262,9 +343,12 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
       uphe_exact_state: exactSourceState(sourceStates.UPHE, expectedNordic.UPHE),
       aqvp_exact_state: exactSourceState(sourceStates.AQVP, expectedNordic.AQVP),
       secale_exact_state: exactTaxonState(secale, expectedNordic.secale, /^Secale\b/i),
-      cereal_finder_exact_state: exactTaxonState(cereal, expectedNordic.cereal, /Hordeum\/Secale/i)
-        && cereal.query_before_capture === 'cereal|secale',
-      capture_frames_uncluttered: [sourceStates.TRSH, sourceStates.UPHE, sourceStates.AQVP, secale.snapshot, cereal.snapshot]
+      hordeum_secale_exact_state: exactTaxonState(hordeumSecale, expectedNordic.hordeumSecale, /Hordeum\/Secale/i),
+      cerealia_preset_exact_state: exactPresetState(cerealia, expectedNordic.cerealia),
+      capture_frames_uncluttered: [
+        sourceStates.TRSH, sourceStates.UPHE, sourceStates.AQVP,
+        secale.snapshot, hordeumSecale.snapshot, cerealia.snapshot,
+      ]
         .every((snapshot) => captureFrameIsClear(snapshot, 'observation_chronology')),
       chronology_controls_persistent: [responsive[1440], responsive[390]].every((layout) => layout.chronology_controls_visible
         && layout.chronology_controls_bounded && layout.chronology_controls_uncovered
@@ -1057,27 +1141,28 @@ async function exactTaxonFrame(cdp, expected) {
   })()`);
 }
 
-async function cerealFinderFrame(cdp) {
+async function sourcePresetFrame(cdp, preset) {
   return evaluate(cdp, `(async () => {
-    const button = [...document.querySelectorAll('[data-source-shortcut]')].find((row) => row.dataset.sourceShortcut === 'cereals');
-    if (!button) throw new Error('cereal finder is unavailable');
+    const button = [...document.querySelectorAll('[data-source-preset]')]
+      .find((row) => row.dataset.sourcePreset === ${JSON.stringify(preset)});
+    if (!button || button.disabled) throw new Error('source-label preset is unavailable: ${preset}');
     button.click();
     const api = globalThis.BijuxPollenomicsAtlasCapture;
-    const queryBeforeCapture = document.getElementById('source-chronology-taxon-query')?.value || '';
-    const select = document.getElementById('source-chronology-taxon');
-    const requested = [...select.options].find((row) => row.value === 'source:neotoma:taxon:3924');
-    if (!requested) throw new Error('expected Hordeum/Secale source taxon is unavailable after cereal search');
-    select.value = requested.value;
-    select.dispatchEvent(new Event('change', { bubbles: true }));
     const selected = api.snapshot();
     const snapshot = await api.applyFrame({
       story_kind: 'source_chronology', basemap: 'none', countries: selected.countries,
       source_level: selected.source_chronology.level,
       source_taxon: selected.source_chronology.source_taxon,
+      source_preset: selected.source_chronology.source_preset,
       time_start_bp: selected.time_window_bp.younger_bp,
       time_end_bp: selected.time_window_bp.older_bp,
     });
-    return { snapshot, selected_label: select.selectedOptions[0]?.textContent || '', selected_value: select.value, query_before_capture: queryBeforeCapture };
+    return {
+      snapshot,
+      preset: button.dataset.sourcePreset,
+      button_label: button.textContent?.trim() || '',
+      button_pressed: button.getAttribute('aria-pressed'),
+    };
   })()`);
 }
 
@@ -2019,6 +2104,19 @@ function exactTaxonState(result, expected, labelPattern) {
   return exactSourceState(result?.snapshot, expected)
     && labelPattern.test(result.selected_label || '')
     && result.selected_value === expected.taxon;
+}
+
+function exactPresetState(result, expected) {
+  const source = result?.snapshot?.source_chronology;
+  return exactSourceState(result?.snapshot, expected)
+    && source.source_preset === expected.preset
+    && Array.isArray(source.source_preset_member_taxon_ids)
+    && source.source_preset_member_taxon_ids.length === expected.memberTaxonIds.length
+    && source.source_preset_member_taxon_ids.every((value, index) => value === expected.memberTaxonIds[index])
+    && source.source_preset_catalog_sha256 === expected.catalogSha256
+    && result.preset === expected.preset
+    && result.button_label === 'Cerealia labels'
+    && result.button_pressed === 'true';
 }
 
 function webMercatorPixelPoint(view) {

@@ -91,6 +91,134 @@ def test_probe_refuses_incomplete_browser_identity() -> None:
     assert "browser identity field is unavailable: product" in result.stderr
 
 
+def _probe_function_block(start: str, end: str) -> str:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    match = re.search(rf"{start}.*?\n}}\n\n{end}", probe, re.DOTALL)
+    assert match is not None
+    return match.group(0).removesuffix(f"\n\n{end}")
+
+
+def test_browser_shutdown_awaits_term_and_kill_completion() -> None:
+    functions = _probe_function_block(
+        "function browserHasExited", "function closeServer"
+    )
+    script = f"""
+import {{ EventEmitter }} from 'node:events';
+{functions}
+
+class FakeBrowser extends EventEmitter {{
+  constructor(closeAfter) {{
+    super();
+    this.closeAfter = closeAfter;
+    this.exitCode = null;
+    this.signalCode = null;
+    this.signals = [];
+  }}
+  kill(signal) {{
+    this.signals.push(signal);
+    if (signal === this.closeAfter) {{
+      setTimeout(() => {{ this.signalCode = signal; this.emit('close', null, signal); }}, 1);
+    }}
+    return true;
+  }}
+}}
+
+async function exercise(closeAfter) {{
+  const browser = new FakeBrowser(closeAfter);
+  const closed = new Promise((resolve) => browser.once('close', resolve));
+  let error = null;
+  try {{ await stopBrowser(browser, closed, 5); }} catch (caught) {{ error = caught.message; }}
+  return {{ signals: browser.signals, error }};
+}}
+
+const alreadyClosed = {{ exitCode: 0, signalCode: null, signals: [], kill(signal) {{ this.signals.push(signal); }} }};
+await stopBrowser(alreadyClosed, Promise.resolve(), 5);
+process.stdout.write(JSON.stringify({{
+  graceful: await exercise('SIGTERM'),
+  forced: await exercise('SIGKILL'),
+  refused: await exercise('never'),
+  already_closed_signals: alreadyClosed.signals,
+}}));
+"""
+
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert completed.returncode == 0, completed.stderr
+    result = json.loads(completed.stdout)
+    assert result["graceful"] == {"signals": ["SIGTERM"], "error": None}
+    assert result["forced"] == {
+        "signals": ["SIGTERM", "SIGKILL"],
+        "error": None,
+    }
+    assert result["refused"] == {
+        "signals": ["SIGTERM", "SIGKILL"],
+        "error": "browser process did not close after SIGKILL",
+    }
+    assert result["already_closed_signals"] == []
+
+
+def test_cleanup_preserves_original_verification_error() -> None:
+    function = _probe_function_block(
+        "async function finalizeBrowserVerification",
+        "async function verifyNordicSourceChronologyScope",
+    )
+    script = f"""
+{function}
+const original = new Error('verification failed');
+const completed = [];
+const messages = [];
+console.error = (message) => messages.push(message);
+let caught = null;
+try {{
+  await finalizeBrowserVerification(original, [
+    ['browser process', async () => {{ throw new Error('shutdown failed'); }}],
+    ['browser log', async () => {{ completed.push('browser log'); }}],
+  ]);
+}} catch (error) {{ caught = error; }}
+process.stdout.write(JSON.stringify({{
+  original_preserved: caught === original,
+  completed,
+  messages,
+}}));
+"""
+
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        "original_preserved": True,
+        "completed": ["browser log"],
+        "messages": [
+            "atlas browser cleanup also failed (browser process): shutdown failed"
+        ],
+    }
+
+
+def test_browser_log_is_closed_before_profile_cleanup_with_bounded_retries() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+
+    assert "const completion = finished(stream);" in probe
+    assert "await completion;" in probe
+    assert "['browser log', () => closeBrowserLog(browserLog)]" in probe
+    assert "maxRetries: 5" in probe
+    assert "retryDelay: 100" in probe
+    assert probe.index("['browser log'") < probe.index("['browser profile'")
+
+
 def _run_generic_manifest_facts(
     manifest_expression: str,
 ) -> subprocess.CompletedProcess[str]:
@@ -1106,19 +1234,28 @@ def test_generic_manifest_facts_rejects_unsafe_aggregate_count() -> None:
     assert "aggregate point record_count" in completed.stderr
 
 
-def test_cereal_finder_can_navigate_beyond_the_preferred_shortcut_result() -> None:
+def test_cerealia_preset_and_hordeum_secale_taxon_are_distinct_journeys() -> None:
     probe = (
         Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
     )
-    journey = re.search(
-        r"async function cerealFinderFrame.*?\n}\n\nasync function sliderChronologyJourney",
+    preset_journey = re.search(
+        r"async function sourcePresetFrame.*?\n}\n\nasync function sliderChronologyJourney",
         probe,
         re.DOTALL,
     )
 
-    assert journey is not None
-    assert "row.value === 'source:neotoma:taxon:3924'" in journey.group(0)
-    assert "select.dispatchEvent(new Event('change'" in journey.group(0)
+    assert preset_journey is not None
+    assert "document.querySelectorAll('[data-source-preset]')" in preset_journey.group(
+        0
+    )
+    assert "row.dataset.sourcePreset" in preset_journey.group(0)
+    assert (
+        "source_preset: selected.source_chronology.source_preset"
+        in preset_journey.group(0)
+    )
+    assert "[data-source-shortcut]" not in preset_journey.group(0)
+    assert "expectedNordic.hordeumSecale" in probe
+    assert "expectedNordic.cerealia.preset" in probe
 
 
 def test_nordic_source_states_are_literal_release_requirements() -> None:
@@ -1133,13 +1270,67 @@ def test_nordic_source_states_are_literal_release_requirements() -> None:
         "code: 'AQVP', taxon: null, nodes: 4991, observations: 9666, younger: 18190, older: 19190",
         "taxon: 'source:neotoma:taxon:967', nodes: 469, observations: 469, younger: 3961, older: 4461",
         "taxon: 'source:neotoma:taxon:3924', nodes: 2, observations: 2, younger: 1651, older: 1751",
-        "cereal.query_before_capture === 'cereal|secale'",
+        "nodes: 676, observations: 676, younger: 0, older: 11891",
+        "memberTaxonIds: [416, 427, 1947, 2941]",
+        "catalogSha256: '8f1751802e1ed25b9631729df80b21ac845490464cb678f7349fcc4446e57673'",
     ):
         assert literal in probe
     assert "exactSourceState(defaultSnapshot, expectedNordic.sample)" in probe
     assert "exactSourceState(sourceStates.TRSH, expectedNordic.TRSH)" in probe
     assert "exactTaxonState(secale, expectedNordic.secale" in probe
-    assert "exactTaxonState(cereal, expectedNordic.cereal" in probe
+    assert "exactTaxonState(hordeumSecale, expectedNordic.hordeumSecale" in probe
+    assert "exactPresetState(cerealia, expectedNordic.cerealia)" in probe
+
+
+def test_cerealia_preset_state_rejects_authority_or_denominator_drift() -> None:
+    functions = _probe_function_block(
+        "function exactSourceState", "function webMercatorPixelPoint"
+    )
+    script = f"""
+{functions}
+const expected = {{
+  level: 'source_taxon', code: null, taxon: 'all', preset: 'cerealia',
+  nodes: 676, observations: 676, younger: 0, older: 11891,
+  memberTaxonIds: [416, 427, 1947, 2941],
+  catalogSha256: '8f1751802e1ed25b9631729df80b21ac845490464cb678f7349fcc4446e57673',
+}};
+const baseline = {{
+  preset: 'cerealia', button_label: 'Cerealia labels', button_pressed: 'true',
+  snapshot: {{
+    time_window_bp: {{ younger_bp: 0, older_bp: 11891 }},
+    source_chronology: {{
+      level: 'source_taxon', source_code: null, source_taxon: 'all',
+      source_preset: 'cerealia', source_preset_member_taxon_ids: [416, 427, 1947, 2941],
+      source_preset_catalog_sha256: expected.catalogSha256,
+      facet_node_count: 676, facet_observation_denominator: 676,
+    }},
+  }},
+}};
+const changed = (mutate) => {{ const value = structuredClone(baseline); mutate(value); return value; }};
+process.stdout.write(JSON.stringify({{
+  baseline: exactPresetState(baseline, expected),
+  wrong_members: exactPresetState(changed((value) => {{ value.snapshot.source_chronology.source_preset_member_taxon_ids[0] = 999; }}), expected),
+  wrong_digest: exactPresetState(changed((value) => {{ value.snapshot.source_chronology.source_preset_catalog_sha256 = '0'.repeat(64); }}), expected),
+  wrong_nodes: exactPresetState(changed((value) => {{ value.snapshot.source_chronology.facet_node_count = 675; }}), expected),
+  wrong_observations: exactPresetState(changed((value) => {{ value.snapshot.source_chronology.facet_observation_denominator = 675; }}), expected),
+}}));
+"""
+
+    completed = subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        "baseline": True,
+        "wrong_members": False,
+        "wrong_digest": False,
+        "wrong_nodes": False,
+        "wrong_observations": False,
+    }
 
 
 def test_responsive_contract_proves_desktop_and_bottom_sheet_states() -> None:
