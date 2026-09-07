@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import re
+from pathlib import Path
 from typing import cast
 
 from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
@@ -1134,6 +1134,7 @@ def test_bootstrap_allows_governed_compressed_domains_without_weakening_legacy_j
     )
     assert "row.decoded_byte_count" in bootstrap
     assert "BP interval contradicts its untimed record count" in bootstrap
+    assert "table.schema_version" not in bootstrap
     consume = template_block(
         "async function consumeStaticAtlasAsset", "function loadStaticAtlasAsset"
     )

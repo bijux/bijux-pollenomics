@@ -2559,7 +2559,6 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             ];
             const splitAvailable = chronologySplit.map((value) => value !== null && value !== undefined);
             if (splitAvailable.some(Boolean) && !splitAvailable.every(Boolean)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} chronology split is incomplete`);
-            if (table.schema_version === 'atlas-static-asset-table.v3' && !splitAvailable.every(Boolean)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} chronology split is required`);
             if (splitAvailable.every(Boolean)) {
               const splitTotal = chronologySplit.reduce((total, value, index) => total + staticAtlasNonnegativeInteger(value, `${row.asset_key || 'unknown asset'} chronology split ${index}`), 0);
               if (splitTotal !== untimedCount) staticAtlasFailure(`${row.asset_key || 'unknown asset'} chronology split is inconsistent`);
