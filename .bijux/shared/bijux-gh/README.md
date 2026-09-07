@@ -68,8 +68,8 @@ Repositories should not maintain ad hoc variants unless there is a repository-sp
 
 Canonical reusable release helper scripts are provided under `.github/scripts`.
 
-- `wait_for_ci.py`: waits for the configured CI workflow to complete for the release SHA.
-- `check_workflow_prerequisites.py`: holds auxiliary workflows until the required policy and standards workflows succeed, identifies governed workflows by stable path across display-name changes, ignores malformed or wrong-event runs for the same SHA, and fails fast when prerequisite policy checks conclude unsuccessfully.
+- `wait_for_ci.py`: observes the configured CI workflow once for the release SHA, succeeds for admitted terminal evidence, fails for a terminal rejection, and returns exit code `75` while the run is external and unfinished.
+- `check_workflow_prerequisites.py`: observes required policy and standards workflows once, identifies governed workflows by stable path across display-name changes, ignores malformed or wrong-event runs for the same SHA, fails fast on terminal rejection, and returns exit code `75` while evidence is external and unfinished.
 
 Repository-specific release prepare scripts may still exist in `.github/scripts`, but shared helpers should come from this canonical source.
 

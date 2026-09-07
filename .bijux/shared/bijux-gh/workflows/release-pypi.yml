@@ -418,7 +418,7 @@ jobs:
         id: trusted_publish
         if: ${{ steps.auth.outputs.mode != 'token' }}
         continue-on-error: true
-        uses: pypa/gh-action-pypi-publish@ba38be9e461d3875417946c167d0b5f3d385a247 # release/v1
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # release/v1
         with:
           packages-dir: .github/tmp/${{ matrix.package_slug }}-dist
           skip-existing: ${{ needs.resolve.outputs.skip_existing == 'true' }}
@@ -438,7 +438,7 @@ jobs:
         if: ${{ (steps.auth.outputs.mode == 'token' || (steps.auth.outputs.mode != 'token' && needs.resolve.outputs.allow_token_bootstrap_on_missing == 'true' && steps.trusted_publish.outcome == 'failure' && steps.pypi_project.outputs.probe_status == 'missing')) && env.PYPI_API_TOKEN_PRESENT == 'true' }}
         env:
           PYPI_API_TOKEN_PRESENT: ${{ secrets.PYPI_API_TOKEN != '' }}
-        uses: pypa/gh-action-pypi-publish@ba38be9e461d3875417946c167d0b5f3d385a247 # release/v1
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # release/v1
         with:
           packages-dir: .github/tmp/${{ matrix.package_slug }}-dist
           skip-existing: ${{ needs.resolve.outputs.skip_existing == 'true' }}
@@ -483,7 +483,7 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.sha }}
 
-      - name: Wait for CI to pass on the tagged commit
+      - name: Observe CI gate once for the tagged commit
         if: ${{ github.event_name == 'push' && needs.resolve.outputs.wait_for_ci_command != '' }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -493,8 +493,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          CI_WAIT_STARTED_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          export CI_WAIT_STARTED_AT
           eval "${WAIT_FOR_CI_COMMAND}"
 
       - name: Decide whether to publish PyPI distributions
@@ -542,13 +540,13 @@ jobs:
 
       - name: Set up Rust
         if: ${{ steps.release.outputs.publish == 'true' && needs.resolve.outputs.setup_rust == 'true' }}
-        uses: dtolnay/rust-toolchain@e97e2d8cc328f1b50210efc529dca0028893a2d9 # v1
+        uses: dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772 # v1
         with:
           toolchain: ${{ needs.resolve.outputs.rust_toolchain }}
 
       - name: Restore the Rust cache
         if: ${{ steps.release.outputs.publish == 'true' && needs.resolve.outputs.setup_rust == 'true' }}
-        uses: Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4 # v2.9.1
+        uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
 
       - name: Prepare release tree
         if: ${{ steps.release.outputs.publish == 'true' }}
@@ -668,7 +666,7 @@ jobs:
         id: trusted_publish
         if: ${{ steps.release.outputs.publish == 'true' && needs.resolve.outputs.publish_command == '' && steps.auth.outputs.mode != 'token' }}
         continue-on-error: true
-        uses: pypa/gh-action-pypi-publish@ba38be9e461d3875417946c167d0b5f3d385a247 # release/v1
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # release/v1
         with:
           packages-dir: artifacts/python/build
           skip-existing: ${{ needs.resolve.outputs.skip_existing == 'true' }}
@@ -688,7 +686,7 @@ jobs:
         if: ${{ steps.release.outputs.publish == 'true' && needs.resolve.outputs.publish_command == '' && (steps.auth.outputs.mode == 'token' || (steps.auth.outputs.mode != 'token' && needs.resolve.outputs.allow_token_bootstrap_on_missing == 'true' && steps.trusted_publish.outcome == 'failure' && steps.pypi_project.outputs.probe_status == 'missing')) && env.PYPI_API_TOKEN_PRESENT == 'true' }}
         env:
           PYPI_API_TOKEN_PRESENT: ${{ secrets.PYPI_API_TOKEN != '' }}
-        uses: pypa/gh-action-pypi-publish@ba38be9e461d3875417946c167d0b5f3d385a247 # release/v1
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # release/v1
         with:
           packages-dir: artifacts/python/build
           skip-existing: ${{ needs.resolve.outputs.skip_existing == 'true' }}
