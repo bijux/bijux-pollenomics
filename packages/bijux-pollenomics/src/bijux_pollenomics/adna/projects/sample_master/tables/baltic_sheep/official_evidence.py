@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
+import hashlib
+import json
+import re
 from collections.abc import Iterator, Mapping
 from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
-import hashlib
-import json
 from pathlib import Path
-import re
 from types import MappingProxyType
 from typing import Protocol, TypeVar, cast
 
@@ -18,6 +18,10 @@ from bijux_pollenomics.adna.workflow.source_artifacts import (
     read_source_artifact_bytes,
     resolve_source_artifact_path,
     source_artifact_exists,
+)
+from bijux_pollenomics.core.xml_security import (
+    UnsafeXmlSourceError,
+    parse_hardened_xml,
 )
 
 PROJECT_ACCESSION = "PRJEB59481"
@@ -365,7 +369,11 @@ def parse_baltic_sheep_article_chronology(
     source_path: str,
 ) -> tuple[BalticSheepChronologyEvidence, ...]:
     """Parse the five Table 1 chronology claims without broad-period invention."""
-    root = _parse_xml(payload, source_path=source_path)
+    root = _parse_xml(
+        payload,
+        source_path=source_path,
+        permit_pinned_jats_doctype=True,
+    )
     doi = _required_text(
         root,
         "./front/article-meta/article-id[@pub-id-type='doi']",
@@ -661,22 +669,21 @@ def _parse_article_chronology_claim(
     )
 
 
-def _parse_xml(payload: bytes, *, source_path: str) -> _XmlElement:
+def _parse_xml(
+    payload: bytes,
+    *,
+    source_path: str,
+    permit_pinned_jats_doctype: bool = False,
+) -> _XmlElement:
     try:
         return cast(
             _XmlElement,
-            ET.fromstring(
+            parse_hardened_xml(
                 payload,
-                forbid_dtd=False,
-                forbid_entities=True,
-                forbid_external=True,
+                permit_pinned_jats_doctype=permit_pinned_jats_doctype,
             ),
         )
-    except (
-        ET.DTDForbidden,
-        ET.EntitiesForbidden,
-        ET.ExternalReferenceForbidden,
-    ) as error:
+    except UnsafeXmlSourceError as error:
         raise ValueError(f"Unsafe XML source: {source_path}") from error
     except ET.ParseError as error:
         raise ValueError(f"Malformed XML source: {source_path}") from error

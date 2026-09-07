@@ -5,9 +5,9 @@ from __future__ import annotations
 import gzip
 import io
 import json
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 from bijux_pollenomics.adna.sources import library as source_library_module
@@ -24,6 +24,7 @@ from bijux_pollenomics.adna.workflow.source_artifacts import (
     read_source_artifact_text,
     write_source_artifact_bytes,
 )
+
 from tests.support.repository import REPOSITORY_ROOT
 
 from .fixtures import _bounded_paper_spec
@@ -246,9 +247,31 @@ class SourceCaptureTests(unittest.TestCase):
             "unsafe_xml_source_payload",
         )
 
+    def test_xml_capture_refuses_dtd_attribute_defaults(self) -> None:
+        ena_path = Path(
+            "adna/governance/source_library/projects/PRJEB59481/ena_samples/"
+            "SAMEA112960291.xml"
+        )
+        payload = (
+            b"<!DOCTYPE SAMPLE_SET [<!ATTLIST SAMPLE accession CDATA "
+            b'"SAMEA112960291" alias CDATA "AKAS001">]>'
+            b"<SAMPLE_SET><SAMPLE/></SAMPLE_SET>"
+        )
+
+        self.assertEqual(
+            source_library_acquisition._xml_capture_refusal_reason(
+                logical_path=ena_path,
+                payload=payload,
+                content_type="application/xml",
+            ),
+            "unsafe_xml_source_payload",
+        )
+
     def test_xml_capture_accepts_a_declaration_only_doctype(self) -> None:
         payload = (
-            b'<!DOCTYPE article SYSTEM "JATS.dtd">'
+            b'<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal '
+            b'Archiving and Interchange DTD with MathML3 v1.4 20241031//EN" '
+            b'"JATS-archivearticle1-4-mathml3.dtd">'
             b"<article><title>Safe</title></article>"
         )
 

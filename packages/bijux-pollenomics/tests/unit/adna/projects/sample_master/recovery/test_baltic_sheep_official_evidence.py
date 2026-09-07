@@ -2,14 +2,13 @@
 
 from __future__ import annotations
 
-from dataclasses import replace
 import json
-from pathlib import Path
 import shutil
+from dataclasses import replace
+from pathlib import Path
 from xml.etree import ElementTree
 
 import pytest
-
 from bijux_pollenomics.adna.projects.evidence.chronology import (
     build_project_sample_chronology_rows,
 )
@@ -35,6 +34,7 @@ from bijux_pollenomics.adna.sources.recovery import build_project_recovery_dossi
 from bijux_pollenomics.adna.workflow.source_artifacts import (
     resolve_source_artifact_path,
 )
+
 from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts
@@ -349,12 +349,36 @@ def test_official_xml_parser_refuses_entity_declarations() -> None:
         )
 
 
-def test_official_xml_parser_accepts_a_declaration_only_doctype() -> None:
+def test_official_xml_parser_refuses_dtd_attribute_defaults() -> None:
     payload = (
-        b'<!DOCTYPE article SYSTEM "JATS.dtd"><article><title>Safe</title></article>'
+        b"<!DOCTYPE SAMPLE_SET [<!ATTLIST SAMPLE accession CDATA "
+        b'"SAMEA112960291" alias CDATA "AKAS001">]>'
+        + _ena_payload("SAMEA112960291")
+        .replace(b' accession="SAMEA112960291"', b"")
+        .replace(b' alias="AKAS001"', b"")
     )
 
-    root = official_evidence._parse_xml(payload, source_path="article.xml")
+    with pytest.raises(ValueError, match="Unsafe XML source"):
+        parse_baltic_sheep_ena_sample(
+            payload,
+            source_path="untrusted.xml",
+            expected_accession="SAMEA112960291",
+        )
+
+
+def test_official_xml_parser_accepts_a_declaration_only_doctype() -> None:
+    payload = (
+        b'<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Archiving '
+        b'and Interchange DTD with MathML3 v1.4 20241031//EN" '
+        b'"JATS-archivearticle1-4-mathml3.dtd">'
+        b"<article><title>Safe</title></article>"
+    )
+
+    root = official_evidence._parse_xml(
+        payload,
+        source_path=ARTICLE_SOURCE_PATH,
+        permit_pinned_jats_doctype=True,
+    )
 
     assert root.tag == "article"
 

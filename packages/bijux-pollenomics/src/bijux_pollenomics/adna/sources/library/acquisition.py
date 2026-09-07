@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable
-from datetime import UTC, datetime
 import hashlib
 import json
+from collections.abc import Callable
+from datetime import UTC, datetime
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
@@ -25,6 +25,10 @@ from bijux_pollenomics.adna.workflow.source_artifacts import (
 )
 from bijux_pollenomics.core.files import write_json
 from bijux_pollenomics.core.http import validate_http_url
+from bijux_pollenomics.core.xml_security import (
+    UnsafeXmlSourceError,
+    parse_hardened_xml,
+)
 
 from .cache_control import _clear_source_library_caches
 from .models import (
@@ -325,20 +329,19 @@ def _xml_capture_refusal_reason(
         return None
     if "xml" not in content_type.casefold():
         return "xml_source_returned_non_xml_media_type"
+    is_article = logical_path.name == "article_full_text.xml"
     try:
-        root = ET.fromstring(
+        root = parse_hardened_xml(
             payload,
-            forbid_dtd=False,
-            forbid_entities=True,
-            forbid_external=True,
+            permit_pinned_jats_doctype=is_article,
         )
-    except (ET.DTDForbidden, ET.EntitiesForbidden, ET.ExternalReferenceForbidden):
+    except UnsafeXmlSourceError:
         return "unsafe_xml_source_payload"
     except ET.ParseError:
         return "malformed_xml_source_payload"
     if "/ena_samples/" in logical_path.as_posix() and root.tag != "SAMPLE_SET":
         return "ena_sample_source_root_mismatch"
-    if logical_path.name == "article_full_text.xml" and root.tag != "article":
+    if is_article and root.tag != "article":
         return "article_full_text_source_root_mismatch"
     path_text = logical_path.as_posix()
     if "/projects/PRJEB59481/ena_samples/" in path_text and logical_path.name.endswith(
