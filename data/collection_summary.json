@@ -26,50 +26,50 @@
       "source": "aadr",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline"
+      "retrieved_on": "unavailable",
+      "acquisition_method": "unavailable"
     },
     "boundaries": {
       "source": "boundaries",
       "version": "5.1.1",
       "license": "Natural Earth public domain",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline"
+      "retrieved_on": "2026-09-04",
+      "acquisition_method": "unavailable"
     },
     "landclim": {
       "source": "landclim",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline"
+      "retrieved_on": "2026-03-31",
+      "acquisition_method": "unavailable"
     },
     "neotoma": {
       "source": "neotoma",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline"
+      "retrieved_on": "2026-04-01",
+      "acquisition_method": "unavailable"
     },
     "raa": {
       "source": "raa",
       "version": "v66",
       "license": "open data terms",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline"
+      "retrieved_on": "unavailable",
+      "acquisition_method": "unavailable"
     },
     "sead": {
       "source": "sead",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline"
+      "retrieved_on": "2026-09-05",
+      "acquisition_method": "postgrest_dependency_scoped"
     },
     "svar": {
       "source": "svar",
       "version": "v66",
       "license": "open data terms",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline"
+      "retrieved_on": "2026-06-22",
+      "acquisition_method": "unavailable"
     }
   },
   "source_hashes": {
@@ -78,7 +78,7 @@
       "normalized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "boundaries": {
-      "snapshot_sha256": "ca23df4cc6b6de570838c9cb63a41f8fd68a39690ef538a23e92cd9457b23615",
+      "snapshot_sha256": "04e13686a25d9d877567af0dcb9f40d2f06e07d035af56f828abe30a962cdee2",
       "normalized_sha256": "44c05182fe053907fd8af620ad6d573ff83eeb01219f00ccea2006a8a8b9bd59"
     },
     "landclim": {
@@ -94,8 +94,8 @@
       "normalized_sha256": "e484c1b9230922cecaa4169dbbc21c3aef82429280cbcf4f36092749b7d4a53a"
     },
     "sead": {
-      "snapshot_sha256": "7859e9cb76b4d70ddcb9fd5516edca30df3516fffcf519decd632777fd0b4ab3",
-      "normalized_sha256": "3edf92fbfd059bdb2de9064f391840786049d9117261066ed07ab5919901fdd7"
+      "snapshot_sha256": "2c9dd2e27d87bdc026a5a9da78156e5427e2051f63db86c0044e53006736117e",
+      "normalized_sha256": "b3ea3f19732bbb61a22116c3d68bf8754c7836d588b74c404c7b7464082f3bf9"
     },
     "svar": {
       "snapshot_sha256": "d7393e481d3cd836d1e902794c9a531d7177f74e3c8237114459c266b6901ce9",
@@ -109,8 +109,8 @@
       "evidence_family": "ancient_dna_context",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline",
+      "retrieved_on": "unavailable",
+      "acquisition_method": "unavailable",
       "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/aadr",
       "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/aadr/normalized",
       "snapshot_sha256": "1a87ce20bfd7e975ee71b059973099a47b5a514d0fce82a7a6226e589cd9d127",
@@ -122,11 +122,11 @@
       "evidence_family": "geospatial_boundary_context",
       "version": "5.1.1",
       "license": "Natural Earth public domain",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline",
+      "retrieved_on": "2026-09-04",
+      "acquisition_method": "unavailable",
       "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/boundaries",
       "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/boundaries/normalized",
-      "snapshot_sha256": "ca23df4cc6b6de570838c9cb63a41f8fd68a39690ef538a23e92cd9457b23615",
+      "snapshot_sha256": "04e13686a25d9d877567af0dcb9f40d2f06e07d035af56f828abe30a962cdee2",
       "normalized_sha256": "44c05182fe053907fd8af620ad6d573ff83eeb01219f00ccea2006a8a8b9bd59"
     },
     "landclim": {
@@ -135,8 +135,8 @@
       "evidence_family": "pollen_paleoclimate_context",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline",
+      "retrieved_on": "2026-03-31",
+      "acquisition_method": "unavailable",
       "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/landclim",
       "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/landclim/normalized",
       "snapshot_sha256": "e321e1561426a85a06a3f1c774add9a08a952f29d25900d5780f94dad6e6d9cb",
@@ -148,8 +148,8 @@
       "evidence_family": "pollen_context",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline",
+      "retrieved_on": "2026-04-01",
+      "acquisition_method": "unavailable",
       "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma",
       "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/normalized",
       "snapshot_sha256": "9f9394aa40861eac03c977d54ad3080471684496d515fca7f1e6b16f2456eeba",
@@ -161,8 +161,8 @@
       "evidence_family": "archaeology_context",
       "version": "v66",
       "license": "open data terms",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline",
+      "retrieved_on": "unavailable",
+      "acquisition_method": "unavailable",
       "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/raa",
       "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/raa/normalized",
       "snapshot_sha256": "a84f4b99f96e4e237c4bbd8e984232433e4632ee554542552e987129141a94f7",
@@ -174,12 +174,12 @@
       "evidence_family": "environmental_archaeology_context",
       "version": "v66",
       "license": "source-specific terms",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline",
+      "retrieved_on": "2026-09-05",
+      "acquisition_method": "postgrest_dependency_scoped",
       "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/sead",
       "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/sead/normalized",
-      "snapshot_sha256": "7859e9cb76b4d70ddcb9fd5516edca30df3516fffcf519decd632777fd0b4ab3",
-      "normalized_sha256": "3edf92fbfd059bdb2de9064f391840786049d9117261066ed07ab5919901fdd7"
+      "snapshot_sha256": "2c9dd2e27d87bdc026a5a9da78156e5427e2051f63db86c0044e53006736117e",
+      "normalized_sha256": "b3ea3f19732bbb61a22116c3d68bf8754c7836d588b74c404c7b7464082f3bf9"
     },
     "svar": {
       "source": "svar",
@@ -187,8 +187,8 @@
       "evidence_family": "hydrography_context",
       "version": "v66",
       "license": "open data terms",
-      "retrieved_on": "2026-09-07",
-      "acquisition_method": "collector_pipeline",
+      "retrieved_on": "2026-06-22",
+      "acquisition_method": "unavailable",
       "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/svar",
       "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/svar/normalized",
       "snapshot_sha256": "d7393e481d3cd836d1e902794c9a531d7177f74e3c8237114459c266b6901ce9",
@@ -266,9 +266,9 @@
       "source": "boundaries",
       "source_identity": "boundaries",
       "source_version": "5.1.1",
-      "snapshot_sha256": "ca23df4cc6b6de570838c9cb63a41f8fd68a39690ef538a23e92cd9457b23615",
+      "snapshot_sha256": "04e13686a25d9d877567af0dcb9f40d2f06e07d035af56f828abe30a962cdee2",
       "normalized_sha256": "44c05182fe053907fd8af620ad6d573ff83eeb01219f00ccea2006a8a8b9bd59",
-      "dispute_token": "boundaries@5.1.1:ca23df4cc6b6"
+      "dispute_token": "boundaries@5.1.1:04e13686a25d"
     },
     "landclim": {
       "source": "landclim",
@@ -298,9 +298,9 @@
       "source": "sead",
       "source_identity": "sead",
       "source_version": "v66",
-      "snapshot_sha256": "7859e9cb76b4d70ddcb9fd5516edca30df3516fffcf519decd632777fd0b4ab3",
-      "normalized_sha256": "3edf92fbfd059bdb2de9064f391840786049d9117261066ed07ab5919901fdd7",
-      "dispute_token": "sead@v66:7859e9cb76b4"
+      "snapshot_sha256": "2c9dd2e27d87bdc026a5a9da78156e5427e2051f63db86c0044e53006736117e",
+      "normalized_sha256": "b3ea3f19732bbb61a22116c3d68bf8754c7836d588b74c404c7b7464082f3bf9",
+      "dispute_token": "sead@v66:2c9dd2e27d87"
     },
     "svar": {
       "source": "svar",
