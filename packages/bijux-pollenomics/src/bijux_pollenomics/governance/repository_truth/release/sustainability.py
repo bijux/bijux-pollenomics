@@ -12,31 +12,31 @@ from ..metrics import _count_suffix_files, _count_tree_files
 _GIT_REGULAR_FILE_MODES = frozenset({b"100644", b"100755"})
 
 
-def _count_git_tracked_regular_files(path: Path) -> int:
-    """Count regular files in Git's index without following tracked links."""
+def _count_git_tracked_regular_files(
+    path: Path, *, repository_root: Path
+) -> int | None:
+    """Count indexed regular files, or report unavailable outside a Git checkout."""
     try:
         # The executable and arguments are fixed repository-inspection probes.
         completed = subprocess.run(  # nosec B603
             (
                 "git",
                 "-C",
-                str(path),
+                str(repository_root),
                 "ls-files",
                 "--stage",
                 "-z",
                 "--full-name",
                 "--",
-                ".",
+                f":(literal){path.resolve().relative_to(repository_root.resolve())}",
             ),
             check=True,
             stdin=subprocess.DEVNULL,
             capture_output=True,
             shell=False,
         )
-    except (OSError, subprocess.CalledProcessError) as error:
-        raise RuntimeError(
-            "tracked data count requires an inspectable Git index"
-        ) from error
+    except (OSError, subprocess.CalledProcessError):
+        return None
 
     count = 0
     for record in completed.stdout.split(b"\0"):
@@ -101,7 +101,9 @@ def build_repository_output_sustainability_review(
             "runtime_python_file_count": _count_suffix_files(
                 docs_root.parent / "packages" / "bijux-pollenomics" / "src", ".py"
             ),
-            "tracked_data_file_count": _count_git_tracked_regular_files(data_root),
+            "tracked_data_file_count": _count_git_tracked_regular_files(
+                data_root, repository_root=docs_root.parent
+            ),
             "report_file_count": _count_tree_files(report_root),
             "maintainer_root_review_file_count": sum(
                 1 for path in report_root.glob("repository_*.json")
@@ -131,7 +133,12 @@ def render_repository_output_sustainability_review_markdown(
             "## Balance Counts",
             "",
             f"- Runtime Python files: `{balance_counts['runtime_python_file_count']}`",
-            f"- Tracked data files: `{balance_counts['tracked_data_file_count']}`",
+            "- Tracked data files: "
+            + (
+                "unavailable (Git index could not be inspected)"
+                if balance_counts["tracked_data_file_count"] is None
+                else f"`{balance_counts['tracked_data_file_count']}`"
+            ),
             f"- Report files: `{balance_counts['report_file_count']}`",
             f"- Maintainer root review files: `{balance_counts['maintainer_root_review_file_count']}`",
         ]

@@ -10,19 +10,22 @@ import pytest
 from bijux_pollenomics.governance.repository_truth.release import sustainability
 
 
+@pytest.mark.parametrize("data_directory_present", [True, False])
 def test_tracked_data_count_excludes_ignored_files_and_tracked_symlinks(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
+    data_directory_present: bool,
 ) -> None:
     repository_root = tmp_path / "repository"
     data_root = repository_root / "data"
     docs_root = repository_root / "docs"
     report_root = docs_root / "report"
     report_root.mkdir(parents=True)
-    data_root.mkdir()
-    (data_root / "tracked.json").write_text("{}\n", encoding="utf-8")
-    (data_root / ".DS_Store").write_bytes(b"ignored platform metadata")
-    (data_root / "tracked-link").symlink_to("tracked.json")
+    if data_directory_present:
+        data_root.mkdir()
+        (data_root / "tracked.json").write_text("{}\n", encoding="utf-8")
+        (data_root / ".DS_Store").write_bytes(b"ignored platform metadata")
+        (data_root / "tracked-link").symlink_to("tracked.json")
 
     index_rows = (
         b"100644 0000000000000000000000000000000000000000 0\tdata/tracked.json\0"
@@ -40,13 +43,13 @@ def test_tracked_data_count_excludes_ignored_files_and_tracked_symlinks(
         assert command == (
             "git",
             "-C",
-            str(data_root),
+            str(repository_root),
             "ls-files",
             "--stage",
             "-z",
             "--full-name",
             "--",
-            ".",
+            ":(literal)data",
         )
         assert check is True
         assert stdin is subprocess.DEVNULL
@@ -73,3 +76,18 @@ def test_tracked_data_count_excludes_ignored_files_and_tracked_symlinks(
         "report_file_count": 0,
         "maintainer_root_review_file_count": 0,
     }
+
+
+def test_uninspectable_index_is_unavailable(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def unavailable_index(*_args: object, **_kwargs: object) -> None:
+        raise OSError("Git is unavailable")
+
+    monkeypatch.setattr(subprocess, "run", unavailable_index)
+    assert (
+        sustainability._count_git_tracked_regular_files(
+            tmp_path / "data", repository_root=tmp_path
+        )
+        is None
+    )
