@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from types import SimpleNamespace
 
 import pytest
 
@@ -235,22 +234,18 @@ def test_partition_consumer_rejects_same_id_plan_with_changed_grouping(
 def test_partition_build_rejects_governed_input_mutation(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    import bijux_pollenomics.reporting.bundles.report_partitions as runtime
+    from bijux_pollenomics_dev.ci.report_rebuild import execution
 
     root, policy_path, plan_path = _fixture(tmp_path)
 
-    def mutate_input(partition_id: str, **kwargs: object) -> SimpleNamespace:
-        output_root = Path(str(kwargs["output_root"]))
+    def mutate_input(request: dict[str, object]) -> dict[str, object]:
+        output_root = Path(str(request["output_root"]))
         (output_root / "world").mkdir(parents=True)
         (output_root / "world/report.txt").write_text("report\n", encoding="utf-8")
         (root / "source.txt").write_text("mutated\n", encoding="utf-8")
-        return SimpleNamespace(
-            partition=partition_id,
-            output_root=output_root,
-            relative_paths=("world/report.txt",),
-        )
+        return {"partition_id": "world", "relative_paths": ["world/report.txt"]}
 
-    monkeypatch.setattr(runtime, "generate_report_partition", mutate_input)
+    monkeypatch.setattr(execution, "run_runtime_command", mutate_input)
 
     with pytest.raises(ReportRebuildError, match="post-build"):
         build_partition(
@@ -266,22 +261,21 @@ def test_partition_build_rejects_governed_input_mutation(
 def test_partition_build_accepts_runtime_inventory_order_difference(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    import bijux_pollenomics.reporting.bundles.report_partitions as runtime
+    from bijux_pollenomics_dev.ci.report_rebuild import execution
 
     root, policy_path, plan_path = _fixture(tmp_path)
 
-    def generate(partition_id: str, **kwargs: object) -> SimpleNamespace:
-        output_root = Path(str(kwargs["output_root"]))
+    def generate(request: dict[str, object]) -> dict[str, object]:
+        output_root = Path(str(request["output_root"]))
         (output_root / "world").mkdir(parents=True)
         (output_root / "world/a.txt").write_text("a\n", encoding="utf-8")
         (output_root / "world/z.txt").write_text("z\n", encoding="utf-8")
-        return SimpleNamespace(
-            partition=partition_id,
-            output_root=output_root,
-            relative_paths=("world/z.txt", "world/a.txt"),
-        )
+        return {
+            "partition_id": "world",
+            "relative_paths": ["world/z.txt", "world/a.txt"],
+        }
 
-    monkeypatch.setattr(runtime, "generate_report_partition", generate)
+    monkeypatch.setattr(execution, "run_runtime_command", generate)
 
     manifest = build_partition(
         repo_root=root,
@@ -300,7 +294,7 @@ def test_partition_build_accepts_runtime_inventory_order_difference(
 def test_lane_assembly_rejects_governed_input_mutation(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    import bijux_pollenomics.reporting.bundles.report_partitions as runtime
+    from bijux_pollenomics_dev.ci.report_rebuild import execution
 
     root, policy_path, plan_path = _fixture(tmp_path)
     plan = json.loads(plan_path.read_text(encoding="utf-8"))
@@ -313,13 +307,13 @@ def test_lane_assembly_rejects_governed_input_mutation(
             binding=plan["binding"],
         )
 
-    def mutate_input(**kwargs: object) -> SimpleNamespace:
-        output_root = Path(str(kwargs["output_root"]))
+    def mutate_input(request: dict[str, object]) -> dict[str, object]:
+        output_root = Path(str(request["output_root"]))
         _write_complete_tree(output_root, plan_path=plan_path, report_payload="world\n")
         (root / "source.txt").write_text("mutated\n", encoding="utf-8")
-        return SimpleNamespace(output_root=output_root)
+        return {"output_root": str(output_root)}
 
-    monkeypatch.setattr(runtime, "assemble_report_partitions", mutate_input)
+    monkeypatch.setattr(execution, "run_runtime_command", mutate_input)
 
     with pytest.raises(ReportRebuildError, match="post-assembly"):
         assemble_partition_lane(

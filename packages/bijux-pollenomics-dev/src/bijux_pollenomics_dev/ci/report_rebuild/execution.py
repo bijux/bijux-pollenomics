@@ -28,6 +28,7 @@ from .evidence import (
     require_inventory_matches_tree,
 )
 from .planning import current_binding, parse_plan, require_current_binding
+from .runtime_process import run_runtime_command
 
 FRAGMENT_SCHEMA = "partitioned-report-fragment.v1"
 ASSEMBLY_SCHEMA = "partitioned-report-assembly.v1"
@@ -87,10 +88,6 @@ def build_partition(
     scope_artifacts_root: Path | None = None,
 ) -> JsonObject:
     """Build one fresh partition and emit content-bound fragment evidence."""
-    from bijux_pollenomics.reporting.bundles.report_partitions import (
-        generate_report_partition,
-    )
-
     if lane not in _LANES:
         raise ReportRebuildError(f"unsupported rebuild lane: {lane}")
     repo_root = repo_root.resolve()
@@ -130,21 +127,35 @@ def build_partition(
         raise ReportRebuildError("scope artifacts are only valid for foundation")
     output_root = evidence_root / "output"
     countries = require_string_sequence(parameters["countries"], "plan countries")
-    result = generate_report_partition(
-        partition_id,
-        version_dir=repo_root / "data/aadr" / cast(str, parameters["version"]),
-        countries=countries,
-        output_root=output_root,
-        published_output_root=Path(cast(str, parameters["published_output_root"])),
-        title=cast(str, parameters["title"]),
-        slug=cast(str, parameters["slug"]),
-        context_root=repo_root / "data",
-        scope_input_root=scope_input_root,
-        country_group_size=cast(int, parameters["country_group_size"]),
+    result = run_runtime_command(
+        {
+            "schema_version": "published-report-partition-command.v1",
+            "operation": "generate",
+            "partition_id": partition_id,
+            "version_dir": str(
+                repo_root / "data/aadr" / cast(str, parameters["version"])
+            ),
+            "countries": list(countries),
+            "output_root": str(output_root.resolve()),
+            "published_output_root": cast(str, parameters["published_output_root"]),
+            "title": cast(str, parameters["title"]),
+            "slug": cast(str, parameters["slug"]),
+            "context_root": str((repo_root / "data").resolve()),
+            "scope_input_root": (
+                None if scope_input_root is None else str(scope_input_root.resolve())
+            ),
+            "country_group_size": cast(int, parameters["country_group_size"]),
+        }
     )
+    if set(result) != {"partition_id", "relative_paths"}:
+        raise ReportRebuildError("runtime partition result fields are not exact")
+    if require_string(result["partition_id"], "runtime partition_id") != partition_id:
+        raise ReportRebuildError("runtime partition result identity does not match")
     inventory = inventory_reports(output_root, policy)
     paths = tuple(entry.path for entry in inventory)
-    result_paths = tuple(result.relative_paths)
+    result_paths = require_string_sequence(
+        result["relative_paths"], "runtime relative_paths"
+    )
     if (
         not paths
         or len(result_paths) != len(set(result_paths))
@@ -177,10 +188,6 @@ def assemble_partition_lane(
     evidence_root: Path,
 ) -> JsonObject:
     """Assemble one complete report tree from exactly one copy of every partition."""
-    from bijux_pollenomics.reporting.bundles.report_partitions import (
-        assemble_report_partitions,
-    )
-
     if lane not in _LANES:
         raise ReportRebuildError(f"unsupported rebuild lane: {lane}")
     if evidence_root.exists() or evidence_root.is_symlink():
@@ -203,17 +210,33 @@ def assemble_partition_lane(
     evidence_root.mkdir(parents=True)
     output_root = evidence_root / "output"
     parameters = require_mapping(plan["parameters"], "plan parameters")
-    assemble_report_partitions(
-        version_dir=repo_root / "data/aadr" / cast(str, parameters["version"]),
-        countries=require_string_sequence(parameters["countries"], "plan countries"),
-        output_root=output_root,
-        partition_roots={identity: row[0] for identity, row in fragments.items()},
-        published_output_root=Path(cast(str, parameters["published_output_root"])),
-        title=cast(str, parameters["title"]),
-        slug=cast(str, parameters["slug"]),
-        context_root=repo_root / "data",
-        country_group_size=cast(int, parameters["country_group_size"]),
+    result = run_runtime_command(
+        {
+            "schema_version": "published-report-partition-command.v1",
+            "operation": "assemble",
+            "version_dir": str(
+                repo_root / "data/aadr" / cast(str, parameters["version"])
+            ),
+            "countries": list(
+                require_string_sequence(parameters["countries"], "plan countries")
+            ),
+            "output_root": str(output_root.resolve()),
+            "partition_roots": {
+                identity: str(row[0].resolve()) for identity, row in fragments.items()
+            },
+            "published_output_root": cast(str, parameters["published_output_root"]),
+            "title": cast(str, parameters["title"]),
+            "slug": cast(str, parameters["slug"]),
+            "context_root": str((repo_root / "data").resolve()),
+            "country_group_size": cast(int, parameters["country_group_size"]),
+        }
     )
+    if set(result) != {"output_root"}:
+        raise ReportRebuildError("runtime assembly result fields are not exact")
+    if Path(require_string(result["output_root"], "runtime output_root")) != (
+        output_root.resolve()
+    ):
+        raise ReportRebuildError("runtime assembly result output root does not match")
     complete = inventory_reports(output_root, policy)
     complete_by_path = {entry.path: entry for entry in complete}
     owners: dict[str, str] = {}

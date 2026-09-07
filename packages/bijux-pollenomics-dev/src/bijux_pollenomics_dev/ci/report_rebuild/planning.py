@@ -26,6 +26,7 @@ from .contracts import (
     require_string_sequence,
     sha256_bytes,
 )
+from .runtime_process import run_runtime_command
 
 PLAN_SCHEMA = "partitioned-report-rebuild-plan.v1"
 _CANONICAL_GENERATOR_ARGUMENTS = (
@@ -88,45 +89,39 @@ def current_binding(
     )
 
 
-def _runtime_defaults() -> tuple[tuple[str, ...], str, str, str]:
-    from bijux_pollenomics.config import (
-        DEFAULT_AADR_VERSION,
-        DEFAULT_ATLAS_SLUG,
-        DEFAULT_ATLAS_TITLE,
-        DEFAULT_PUBLISHED_COUNTRIES,
-    )
-
-    return (
-        tuple(DEFAULT_PUBLISHED_COUNTRIES),
-        DEFAULT_AADR_VERSION,
-        DEFAULT_ATLAS_TITLE,
-        DEFAULT_ATLAS_SLUG,
-    )
-
-
 def _canonical_plan(binding: RebuildBinding, group_size: int) -> JsonObject:
     """Derive the only plan accepted for the current runtime and policy."""
-    from bijux_pollenomics.reporting.bundles.report_partitions import (
-        build_report_partition_plan,
+    runtime_plan = run_runtime_command(
+        {
+            "schema_version": "published-report-partition-command.v1",
+            "operation": "plan",
+            "country_group_size": group_size,
+        }
     )
-
-    countries, version, title, slug = _runtime_defaults()
-    runtime_plan = build_report_partition_plan(
-        countries,
-        title=title,
-        slug=slug,
-        country_group_size=group_size,
+    expected = {
+        "countries",
+        "dependent_partition_ids",
+        "partition_ids",
+        "scope_partition_ids",
+        "slug",
+        "title",
+        "version",
+    }
+    if set(runtime_plan) != expected:
+        raise ReportRebuildError("runtime plan fields are not exact")
+    countries = require_string_sequence(runtime_plan["countries"], "runtime countries")
+    partition_ids = require_string_sequence(
+        runtime_plan["partition_ids"], "runtime partition_ids"
     )
-    partition_ids = tuple(runtime_plan.partition_ids)
-    dependent_ids = tuple(
-        partition.identity
-        for partition in runtime_plan.partitions
-        if partition.kind == "foundation"
+    dependent_ids = require_string_sequence(
+        runtime_plan["dependent_partition_ids"], "runtime dependent_partition_ids"
+    )
+    scope_ids = require_string_sequence(
+        runtime_plan["scope_partition_ids"], "runtime scope_partition_ids"
     )
     if dependent_ids != ("foundation",):
         raise ReportRebuildError("runtime plan must contain one foundation partition")
-    scope_ids = tuple(item for item in partition_ids if item not in dependent_ids)
-    if not scope_ids or len(partition_ids) != len(set(partition_ids)):
+    if (*scope_ids, *dependent_ids) != partition_ids:
         raise ReportRebuildError("runtime partition identities are invalid")
     return {
         "schema_version": PLAN_SCHEMA,
@@ -135,9 +130,9 @@ def _canonical_plan(binding: RebuildBinding, group_size: int) -> JsonObject:
             "countries": list(countries),
             "country_group_size": group_size,
             "published_output_root": "docs/report",
-            "slug": slug,
-            "title": title,
-            "version": version,
+            "slug": require_string(runtime_plan["slug"], "runtime slug"),
+            "title": require_string(runtime_plan["title"], "runtime title"),
+            "version": require_string(runtime_plan["version"], "runtime version"),
         },
         "partition_ids": list(partition_ids),
         "scope_partition_ids": list(scope_ids),
