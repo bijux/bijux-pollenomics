@@ -78,11 +78,11 @@
         "sample_accounting_available": true,
         "coordinate_accounting_available": true,
         "papers_with_archived_supplements": 18,
-        "published_atlas_points": 151,
+        "published_atlas_points": 170,
         "tracked_samples": 1450,
-        "mapped_samples": 288,
-        "unresolved_samples": 90,
-        "mappable_coordinate_provenance": 285,
+        "mapped_samples": 331,
+        "unresolved_samples": 402,
+        "mappable_coordinate_provenance": 304,
         "refused_coordinate_provenance": 4
       },
       "note": "The animal aDNA program has real tracked structure but still weak evidence depth relative to its public surfaces."
@@ -95,7 +95,7 @@
       "documentation_clarity": 3,
       "output_honesty": 3,
       "metrics": {
-        "published_atlas_points": 151,
+        "published_atlas_points": 170,
         "published_country_bundles": 4,
         "sample_accounting_available": true
       },

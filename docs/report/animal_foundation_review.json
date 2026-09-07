@@ -14,10 +14,10 @@
     "published_points_still_depend_on_named_site_geocoding"
   ],
   "counts": {
-    "published_point_count": 151,
-    "direct_coordinate_point_count": 281,
+    "published_point_count": 170,
+    "direct_coordinate_point_count": 300,
     "geocoded_point_count": 4,
-    "unresolved_sample_count": 90,
+    "unresolved_sample_count": 402,
     "coordinate_provenance_refusal_count": 4,
     "blocked_project_count": 31
   },
@@ -26,7 +26,7 @@
   "caveat_summary": {
     "missing_supplement_count": 0,
     "unreadable_table_count": 3,
-    "uncertain_site_assignment_count": 434,
+    "uncertain_site_assignment_count": 87,
     "region_only_geography_count": 4,
     "comparator_only_evidence_count": 0
   }

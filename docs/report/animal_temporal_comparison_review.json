@@ -7,9 +7,9 @@
       "display_name": "Animal aDNA chronology",
       "row_count": 1455,
       "comparability_counts": {
-        "numeric_interval": 750,
-        "unresolved": 453,
-        "numeric_interval_with_caveat": 116,
+        "numeric_interval": 774,
+        "unresolved": 425,
+        "numeric_interval_with_caveat": 120,
         "contextual_label_only": 136
       },
       "comparison_policy": "Animal rows only support interval comparison when sample-owned chronology survives publication without false precision."

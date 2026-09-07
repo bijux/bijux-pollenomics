@@ -18,7 +18,7 @@ link farms or coded operator notes.
 
 | Path | Posture | Prose paragraphs | Link bullets | Sentence bullets | Table lines | Headings | Note |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| `docs/report/animal_atlas_exclusion_report.md` | `structured_reference` | 0 | 0 | 1 | 1164 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
+| `docs/report/animal_atlas_exclusion_report.md` | `structured_reference` | 0 | 0 | 1 | 1121 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_atlas_readiness.md` | `structured_reference` | 0 | 0 | 1 | 12 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_country_species_coverage.md` | `structured_reference` | 0 | 0 | 0 | 7 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_cross_surface_drift.md` | `structured_reference` | 0 | 0 | 0 | 11 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
@@ -29,7 +29,7 @@ link farms or coded operator notes.
 | `docs/report/animal_intake_recovery_review.md` | `reader_ready` | 3 | 0 | 13 | 22 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/animal_output_audit.md` | `reader_ready` | 2 | 0 | 2 | 12 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/animal_output_honesty.md` | `structured_reference` | 0 | 0 | 0 | 11 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
-| `docs/report/animal_point_evidence_review.md` | `reader_ready` | 151 | 0 | 304 | 0 | 152 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/animal_point_evidence_review.md` | `reader_ready` | 170 | 0 | 342 | 0 | 171 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/animal_pollen_chronology_overlap.md` | `thin_structure` | 1 | 0 | 1 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/animal_project_publication_gap_review.md` | `structured_reference` | 0 | 0 | 1 | 33 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_publication_release_gate.md` | `reader_ready` | 2 | 0 | 4 | 12 | 2 | Page explains its purpose before or alongside artifact links. |
@@ -102,13 +102,13 @@ link farms or coded operator notes.
 | `docs/report/repository_source_explainer_audit.md` | `thin_structure` | 1 | 0 | 1 | 18 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/repository_source_family_matrix.md` | `structured_reference` | 0 | 0 | 0 | 10 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/repository_truth_posture.md` | `reader_ready` | 5 | 0 | 21 | 0 | 5 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/world/README.md` | `reader_ready` | 9 | 0 | 164 | 41 | 14 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/world/README.md` | `reader_ready` | 9 | 0 | 181 | 41 | 14 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/world/world_candidate_site_sensitivity.md` | `thin_structure` | 1 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/world/world_candidate_sites.md` | `thin_structure` | 4 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/world/world_evidence_surface.md` | `reader_ready` | 1 | 0 | 0 | 43 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/world/world_map_publication_contract.md` | `reader_ready` | 6 | 0 | 6 | 19 | 7 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/world/world_point_traceability.md` | `reader_ready` | 1 | 0 | 0 | 42 | 3 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/world/world_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 300 | 10 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/world/world_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 301 | 10 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/caveats/index.md` | `reader_ready` | 3 | 5 | 4 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/how-to-read.md` | `reader_ready` | 6 | 0 | 0 | 0 | 5 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/index.md` | `reader_ready` | 3 | 10 | 0 | 7 | 6 | Page explains its purpose before or alongside artifact links. |

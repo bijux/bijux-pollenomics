@@ -12,14 +12,14 @@
 - Tracked papers: `18`
 - Tracked supplements: `72`
 - Sample rows: `1450`
-- Site evidence rows: `414`
+- Site evidence rows: `537`
 - Sample site rows: `1455`
 - Chronology rows: `1455`
-- Coordinate rows: `289`
-- Published atlas points: `151`
+- Coordinate rows: `308`
+- Published atlas points: `170`
 - Published country bundles: `4`
 - Papers with archived supplements: `18`
-- Mapped sample share: `0.1986`
+- Mapped sample share: `0.2283`
 - Projects blocked in intake recovery: `24`
 - Projects ready for publication review: `10`
 - Implausibly low recovery projects: `0`

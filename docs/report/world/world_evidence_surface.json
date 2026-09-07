@@ -48,7 +48,7 @@
       ],
       "layer_role": "mapped_direct",
       "mapped": true,
-      "feature_count": 151,
+      "feature_count": 170,
       "evidence_posture": "mapped_species_owned_locality_evidence",
       "provenance_posture": "tracked_species_locality_summaries",
       "popup_contract": [
@@ -136,7 +136,7 @@
       "species_scope": [],
       "layer_role": "mapped_context",
       "mapped": true,
-      "feature_count": 151,
+      "feature_count": 170,
       "evidence_posture": "non_adna_context",
       "provenance_posture": "normalized_context_layers",
       "popup_contract": [
@@ -248,7 +248,7 @@
       "dataset_bucket": "archive_verified_needs_paper_pinning",
       "contribution_role": "direct",
       "interaction_posture": "decreases_confidence",
-      "mapped_direct_record_count": 4,
+      "mapped_direct_record_count": 22,
       "curated_project_count": 1,
       "study_summary_count": 3,
       "chronology_posture": "mapped_locality_bp_windows_available",
@@ -272,6 +272,7 @@
       ],
       "rationale": [
         "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats.",
+        "Some mapped animal leads remain non-Nordic or comparator context and should not be flattened into Nordic domestication claims.",
         "Current blocking reasons reduce confidence rather than strengthening the atlas narrative.",
         "Cattle remains under a mixed-species rule, so wild or progenitor context cannot be flattened into domesticated-core support."
       ]
@@ -342,7 +343,7 @@
       "dataset_bucket": "paper_pinned_core",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 26,
+      "mapped_direct_record_count": 27,
       "curated_project_count": 3,
       "study_summary_count": 3,
       "chronology_posture": "mapped_locality_points_with_partial_chronology",

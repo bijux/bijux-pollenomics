@@ -139,7 +139,7 @@
           },
           {
             "label": "Source evidence text",
-            "value": "workbook sample Hjo1 | specimen VHM500/1985, ZMK103/1989 | locality Hj\u00f8rring, Tofte B\u00e6k, Denmark | source BP claim 8173-7976 | canonical BP interval [7976, 8173] | published analysis mean 8074.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context"
+            "value": "workbook sample Hjo1 | specimen VHM500/1985, ZMK103/1989 | locality Hj\u00f8rring, Tofte B\u00e6k, Denmark | source proximal coordinates 57.2407065497517, 9.8686973853874 | source BP claim 8173-7976 | canonical BP interval [7976, 8173] | published analysis mean 8074.5 BP | normalized integer mean 8074 BP; source decimal precision retained in the published analysis mean | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context"
           },
           {
             "label": "Nordic relevance",
@@ -191,7 +191,7 @@
           "refusal_reason_code": "",
           "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
           "provenance_locator": "Supplementary Data 1!A26:Y26",
-          "provenance_excerpt": "workbook sample Hjo1 | specimen VHM500/1985, ZMK103/1989 | locality Hj\u00f8rring, Tofte B\u00e6k, Denmark | source BP claim 8173-7976 | canonical BP interval [7976, 8173] | published analysis mean 8074.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+          "provenance_excerpt": "workbook sample Hjo1 | specimen VHM500/1985, ZMK103/1989 | locality Hj\u00f8rring, Tofte B\u00e6k, Denmark | source proximal coordinates 57.2407065497517, 9.8686973853874 | source BP claim 8173-7976 | canonical BP interval [7976, 8173] | published analysis mean 8074.5 BP | normalized integer mean 8074 BP; source decimal precision retained in the published analysis mean | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
           "original_labels": [
             "7976-8173 BP"
           ],
@@ -252,7 +252,7 @@
         "source_artifact_kind": "supplementary_spreadsheet_row",
         "source_locator": "Supplementary Data 1!A26:Y26",
         "source_support_status": "supplementary_table_row",
-        "exact_source_text": "workbook sample Hjo1 | specimen VHM500/1985, ZMK103/1989 | locality Hj\u00f8rring, Tofte B\u00e6k, Denmark | source BP claim 8173-7976 | canonical BP interval [7976, 8173] | published analysis mean 8074.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+        "exact_source_text": "workbook sample Hjo1 | specimen VHM500/1985, ZMK103/1989 | locality Hj\u00f8rring, Tofte B\u00e6k, Denmark | source proximal coordinates 57.2407065497517, 9.8686973853874 | source BP claim 8173-7976 | canonical BP interval [7976, 8173] | published analysis mean 8074.5 BP | normalized integer mean 8074 BP; source decimal precision retained in the published analysis mean | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
         "time_start_bp": 7976,
         "time_end_bp": 8173,
         "time_mean_bp": 8074,
@@ -394,7 +394,7 @@
           },
           {
             "label": "Source evidence text",
-            "value": "workbook sample Zea1 | specimen 3/1930 Hovedfelt II, P269/2021PB | locality Lundby I, Denmark | source BP claim 7302 (6754-7744) | canonical BP interval [6754, 7744] | published analysis mean 7302 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || workbook sample Zea2 | specimen 3/1930 Hovedfelt II, E6, P270/2021PB | locality Lundby I, Denmark | source BP claim 7296 (6748-7744) | canonical BP interval [6748, 7744] | published analysis mean 7296 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context"
+            "value": "workbook sample Zea1 | specimen 3/1930 Hovedfelt II, P269/2021PB | locality Lundby I, Denmark | source proximal coordinates 55.3584015935903, 11.3931303537925 | source BP claim 7302 (6754-7744) | canonical BP interval [6754, 7744] | published analysis mean 7302.0 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || workbook sample Zea2 | specimen 3/1930 Hovedfelt II, E6, P270/2021PB | locality Lundby I, Denmark | source proximal coordinates 55.3584015935903, 11.3931303537925 | source BP claim 7296 (6748-7744) | canonical BP interval [6748, 7744] | published analysis mean 7296.0 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context"
           },
           {
             "label": "Nordic relevance",
@@ -446,7 +446,7 @@
           "refusal_reason_code": "",
           "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
           "provenance_locator": "Supplementary Data 1!A36:Y36 || Supplementary Data 1!A41:Y41",
-          "provenance_excerpt": "workbook sample Zea1 | specimen 3/1930 Hovedfelt II, P269/2021PB | locality Lundby I, Denmark | source BP claim 7302 (6754-7744) | canonical BP interval [6754, 7744] | published analysis mean 7302 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || workbook sample Zea2 | specimen 3/1930 Hovedfelt II, E6, P270/2021PB | locality Lundby I, Denmark | source BP claim 7296 (6748-7744) | canonical BP interval [6748, 7744] | published analysis mean 7296 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+          "provenance_excerpt": "workbook sample Zea1 | specimen 3/1930 Hovedfelt II, P269/2021PB | locality Lundby I, Denmark | source proximal coordinates 55.3584015935903, 11.3931303537925 | source BP claim 7302 (6754-7744) | canonical BP interval [6754, 7744] | published analysis mean 7302.0 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || workbook sample Zea2 | specimen 3/1930 Hovedfelt II, E6, P270/2021PB | locality Lundby I, Denmark | source proximal coordinates 55.3584015935903, 11.3931303537925 | source BP claim 7296 (6748-7744) | canonical BP interval [6748, 7744] | published analysis mean 7296.0 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
           "original_labels": [
             "6748-7744 BP"
           ],
@@ -508,7 +508,7 @@
         "source_artifact_kind": "supplementary_spreadsheet_row",
         "source_locator": "Supplementary Data 1!A36:Y36 || Supplementary Data 1!A41:Y41",
         "source_support_status": "supplementary_table_row",
-        "exact_source_text": "workbook sample Zea1 | specimen 3/1930 Hovedfelt II, P269/2021PB | locality Lundby I, Denmark | source BP claim 7302 (6754-7744) | canonical BP interval [6754, 7744] | published analysis mean 7302 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || workbook sample Zea2 | specimen 3/1930 Hovedfelt II, E6, P270/2021PB | locality Lundby I, Denmark | source BP claim 7296 (6748-7744) | canonical BP interval [6748, 7744] | published analysis mean 7296 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+        "exact_source_text": "workbook sample Zea1 | specimen 3/1930 Hovedfelt II, P269/2021PB | locality Lundby I, Denmark | source proximal coordinates 55.3584015935903, 11.3931303537925 | source BP claim 7302 (6754-7744) | canonical BP interval [6754, 7744] | published analysis mean 7302.0 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context || workbook sample Zea2 | specimen 3/1930 Hovedfelt II, E6, P270/2021PB | locality Lundby I, Denmark | source proximal coordinates 55.3584015935903, 11.3931303537925 | source BP claim 7296 (6748-7744) | canonical BP interval [6748, 7744] | published analysis mean 7296.0 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
         "time_start_bp": 6748,
         "time_end_bp": 7744,
         "time_mean_bp": 7246,
@@ -650,7 +650,7 @@
           },
           {
             "label": "Source evidence text",
-            "value": "workbook sample Ska1 | specimen Lzzz/3362 L62 | locality Nevish\u00f6g, Sweden | source BP claim 9536-9133 | canonical BP interval [9133, 9536] | published analysis mean 9334.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context"
+            "value": "workbook sample Ska1 | specimen Lzzz/3362 L62 | locality Nevish\u00f6g, Sweden | source proximal coordinates 55.6219, 13.2297 | source BP claim 9536-9133 | canonical BP interval [9133, 9536] | published analysis mean 9334.5 BP | normalized integer mean 9334 BP; source decimal precision retained in the published analysis mean | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context"
           },
           {
             "label": "Nordic relevance",
@@ -702,7 +702,7 @@
           "refusal_reason_code": "",
           "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
           "provenance_locator": "Supplementary Data 1!A34:Y34",
-          "provenance_excerpt": "workbook sample Ska1 | specimen Lzzz/3362 L62 | locality Nevish\u00f6g, Sweden | source BP claim 9536-9133 | canonical BP interval [9133, 9536] | published analysis mean 9334.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+          "provenance_excerpt": "workbook sample Ska1 | specimen Lzzz/3362 L62 | locality Nevish\u00f6g, Sweden | source proximal coordinates 55.6219, 13.2297 | source BP claim 9536-9133 | canonical BP interval [9133, 9536] | published analysis mean 9334.5 BP | normalized integer mean 9334 BP; source decimal precision retained in the published analysis mean | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
           "original_labels": [
             "9133-9536 BP"
           ],
@@ -763,7 +763,7 @@
         "source_artifact_kind": "supplementary_spreadsheet_row",
         "source_locator": "Supplementary Data 1!A34:Y34",
         "source_support_status": "supplementary_table_row",
-        "exact_source_text": "workbook sample Ska1 | specimen Lzzz/3362 L62 | locality Nevish\u00f6g, Sweden | source BP claim 9536-9133 | canonical BP interval [9133, 9536] | published analysis mean 9334.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+        "exact_source_text": "workbook sample Ska1 | specimen Lzzz/3362 L62 | locality Nevish\u00f6g, Sweden | source proximal coordinates 55.6219, 13.2297 | source BP claim 9536-9133 | canonical BP interval [9133, 9536] | published analysis mean 9334.5 BP | normalized integer mean 9334 BP; source decimal precision retained in the published analysis mean | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
         "time_start_bp": 9133,
         "time_end_bp": 9536,
         "time_mean_bp": 9334,
@@ -905,7 +905,7 @@
           },
           {
             "label": "Source evidence text",
-            "value": "workbook sample Ska3 | specimen Lzzz/3284 L84 | locality Sk\u00e5ne, Sweden | source BP claim 9657-9434 | canonical BP interval [9434, 9657] | published analysis mean 9545.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context"
+            "value": "workbook sample Ska3 | specimen Lzzz/3284 L84 | locality Sk\u00e5ne, Sweden | source proximal coordinates 55.8476269883224, 13.8093770947441 | source BP claim 9657-9434 | canonical BP interval [9434, 9657] | published analysis mean 9545.5 BP | normalized integer mean 9546 BP; source decimal precision retained in the published analysis mean | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context"
           },
           {
             "label": "Nordic relevance",
@@ -957,7 +957,7 @@
           "refusal_reason_code": "",
           "provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
           "provenance_locator": "Supplementary Data 1!A33:Y33",
-          "provenance_excerpt": "workbook sample Ska3 | specimen Lzzz/3284 L84 | locality Sk\u00e5ne, Sweden | source BP claim 9657-9434 | canonical BP interval [9434, 9657] | published analysis mean 9545.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+          "provenance_excerpt": "workbook sample Ska3 | specimen Lzzz/3284 L84 | locality Sk\u00e5ne, Sweden | source proximal coordinates 55.8476269883224, 13.8093770947441 | source BP claim 9657-9434 | canonical BP interval [9434, 9657] | published analysis mean 9545.5 BP | normalized integer mean 9546 BP; source decimal precision retained in the published analysis mean | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
           "original_labels": [
             "9434-9657 BP"
           ],
@@ -1018,7 +1018,7 @@
         "source_artifact_kind": "supplementary_spreadsheet_row",
         "source_locator": "Supplementary Data 1!A33:Y33",
         "source_support_status": "supplementary_table_row",
-        "exact_source_text": "workbook sample Ska3 | specimen Lzzz/3284 L84 | locality Sk\u00e5ne, Sweden | source BP claim 9657-9434 | canonical BP interval [9434, 9657] | published analysis mean 9545.5 BP | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
+        "exact_source_text": "workbook sample Ska3 | specimen Lzzz/3284 L84 | locality Sk\u00e5ne, Sweden | source proximal coordinates 55.8476269883224, 13.8093770947441 | source BP claim 9657-9434 | canonical BP interval [9434, 9657] | published analysis mean 9545.5 BP | normalized integer mean 9546 BP; source decimal precision retained in the published analysis mean | source taxonomy Bos primigenius | population label \"Holocene Wild Scandinavia\" | admitted only as explicit wild/progenitor context",
         "time_start_bp": 9434,
         "time_end_bp": 9657,
         "time_mean_bp": 9546,

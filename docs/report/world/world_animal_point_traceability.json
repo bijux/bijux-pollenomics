@@ -107,6 +107,482 @@
       "supplementary_sources": []
     },
     {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-barchedisolferinonearmantova-italy",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-barchedisolferinonearmantova-italy",
+      "site_record_id": "bos_taurus:locality:prjeb75467:barchedisolferinonearmantova:italy",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574423"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A38:Y38",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-barguzinriverbaikal-russia",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-barguzinriverbaikal-russia",
+      "site_record_id": "bos_taurus:locality:prjeb75467:barguzinriverbaikal:russia",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574404"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A5:Y5",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-bedburgknigshoven-germany",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-bedburgknigshoven-germany",
+      "site_record_id": "bos_taurus:locality:prjeb75467:bedburgknigshoven:germany",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574405"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A16:Y16",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-borly4pavlodarregion-kazakhstan",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-borly4pavlodarregion-kazakhstan",
+      "site_record_id": "bos_taurus:locality:prjeb75467:borly4pavlodarregion:kazakhstan",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574407"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A23:Y23",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-grottadelluzzosicily-italy",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-grottadelluzzosicily-italy",
+      "site_record_id": "bos_taurus:locality:prjeb75467:grottadelluzzosicily:italy",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574448"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A20:Y20",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-gyumridistrict-armenia",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-gyumridistrict-armenia",
+      "site_record_id": "bos_taurus:locality:prjeb75467:gyumridistrict:armenia",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574418"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A3:Y3",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-herxheim-germany",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-herxheim-germany",
+      "site_record_id": "bos_taurus:locality:prjeb75467:herxheim:germany",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574420"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A2:Y2",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-novoilinkavivi-russia",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-novoilinkavivi-russia",
+      "site_record_id": "bos_taurus:locality:prjeb75467:novoilinkavivi:russia",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574428",
+        "bos_taurus:sample:prjeb75467:samea115574429"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A47:Y47 || Supplementary Data 1!A42:Y42",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-ocourelgalicia-spain",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-ocourelgalicia-spain",
+      "site_record_id": "bos_taurus:locality:prjeb75467:ocourelgalicia:spain",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574415",
+        "bos_taurus:sample:prjeb75467:samea115574416",
+        "bos_taurus:sample:prjeb75467:samea115574417"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 3,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A4:Y4 || Supplementary Data 1!A30:Y30 || Supplementary Data 1!A12:Y12",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-padova-italy",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-padova-italy",
+      "site_record_id": "bos_taurus:locality:prjeb75467:padova:italy",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574430"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A39:Y39",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-palidorolatium-italy",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-palidorolatium-italy",
+      "site_record_id": "bos_taurus:locality:prjeb75467:palidorolatium:italy",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574432"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A13:Y13",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-roshchinskoe-kazakhstan",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-roshchinskoe-kazakhstan",
+      "site_record_id": "bos_taurus:locality:prjeb75467:roshchinskoe:kazakhstan",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574436",
+        "bos_taurus:sample:prjeb75467:samea115574437"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A46:Y46 || Supplementary Data 1!A40:Y40",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-trierbrderkrankenhaus-germany",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-trierbrderkrankenhaus-germany",
+      "site_record_id": "bos_taurus:locality:prjeb75467:trierbrderkrankenhaus:germany",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574445"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A17:Y17",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-tuladistrict-russia",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-tuladistrict-russia",
+      "site_record_id": "bos_taurus:locality:prjeb75467:tuladistrict:russia",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574446"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A10:Y10",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-upperrhinevalley-germany",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-upperrhinevalley-germany",
+      "site_record_id": "bos_taurus:locality:prjeb75467:upperrhinevalley:germany",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574433",
+        "bos_taurus:sample:prjeb75467:samea115574434",
+        "bos_taurus:sample:prjeb75467:samea115574435"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 3,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A24:Y24 || Supplementary Data 1!A18:Y18 || Supplementary Data 1!A11:Y11",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-varfolomeevka-russia",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-varfolomeevka-russia",
+      "site_record_id": "bos_taurus:locality:prjeb75467:varfolomeevka:russia",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574449",
+        "bos_taurus:sample:prjeb75467:samea115574450"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A9:Y9 || Supplementary Data 1!A7:Y7",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-vratsa-bulgaria",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-vratsa-bulgaria",
+      "site_record_id": "bos_taurus:locality:prjeb75467:vratsa:bulgaria",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574452",
+        "bos_taurus:sample:prjeb75467:samea115574454"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A6:Y6 || Supplementary Data 1!A25:Y25",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-yorkshire-britain",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-yorkshire-britain",
+      "site_record_id": "bos_taurus:locality:prjeb75467:yorkshire:britain",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574455"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A8:Y8",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
       "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey",
       "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90141-capra-hircus-locality-prjeb90141-acemhyk-aksarayplainturkey",
       "site_record_id": "capra_hircus:locality:prjeb90141:acemhyk:aksarayplainturkey",
@@ -635,6 +1111,46 @@
       "coordinate_confidence": "exact",
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "source_locator": "Table S2!row52",
+      "paper_doi": "10.1016/j.isci.2025.113771",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-lobos-lobos",
+      "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-lobos-lobos",
+      "site_record_id": "capra_hircus:locality:prjeb90261:lobos:lobos",
+      "species_latin_name": "Capra hircus",
+      "primary_project_accession": "PRJEB90261",
+      "sample_record_ids": [
+        "capra_hircus:sample:prjeb90261:pgull-1295",
+        "capra_hircus:sample:prjeb90261:pgull-1296",
+        "capra_hircus:sample:prjeb90261:pgull-1299",
+        "capra_hircus:sample:prjeb90261:pgull-1300",
+        "capra_hircus:sample:prjeb90261:pgull-1301",
+        "capra_hircus:sample:prjeb90261:pgull-1302",
+        "capra_hircus:sample:prjeb90261:pgull-1304",
+        "capra_hircus:sample:prjeb90261:pgull-1305",
+        "capra_hircus:sample:prjeb90261:pgull-1307",
+        "capra_hircus:sample:prjeb90261:pgull-1308",
+        "capra_hircus:sample:prjeb90261:pgull-1309",
+        "capra_hircus:sample:prjeb90261:pgull-1314",
+        "capra_hircus:sample:prjeb90261:pgull-1315",
+        "capra_hircus:sample:prjeb90261:pgull-1316",
+        "capra_hircus:sample:prjeb90261:pgull-1317",
+        "capra_hircus:sample:prjeb90261:pgull-1319",
+        "capra_hircus:sample:prjeb90261:pgull-1868"
+      ],
+      "sample_group_ids": [
+        "PRJEB90261"
+      ],
+      "source_native_taxon_labels": [],
+      "taxon_alignment_statuses": [
+        "not_reported"
+      ],
+      "sample_count": 17,
+      "coordinate_basis": "supplementary_table_coordinates",
+      "coordinate_confidence": "exact",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+      "source_locator": "Table S2!row60",
       "paper_doi": "10.1016/j.isci.2025.113771",
       "supplementary_sources": []
     },

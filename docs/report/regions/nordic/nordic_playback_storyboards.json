@@ -1,7 +1,7 @@
 {
   "schema_version": "map-playback-manifest.v1",
   "atlas_identity": {
-    "build_id": "atlas-365f5cc48788de87f9aa6b74e490de38802f131160aec80cafec6ade769ca3cb",
+    "build_id": "atlas-12d472c49279ceaac661c55f22281f45a1f1022db4238fd85af8ae4f2c6f6da6",
     "scope_slug": "nordic",
     "version": "v66",
     "countries": [
@@ -64603,5 +64603,5 @@
     "story_count": 0,
     "edge_count": 0
   },
-  "content_sha256": "fa046e50c2a876cc3e6127b98184df34cffe32e217466f89829744dfdf34e137"
+  "content_sha256": "c75e2ba23405bd3834947712f72a261e227cb04e2ac8cc705ac5a0c34a4b2dd3"
 }

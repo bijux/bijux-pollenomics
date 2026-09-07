@@ -15,12 +15,12 @@
     },
     "input_identity": {
       "identity_algorithm": "sha256-length-framed-logical-path-and-bytes.v1",
-      "combined_sha256": "699ba2f922552b6e292d1b981d09f707f5b93eeba0c120effb5cd0fa0065d6c2",
+      "combined_sha256": "5b220aa1bf9199d6001179f64aaf679e577f7936a585068c24e6ee370c17a2ab",
       "family_sha256": {
         "project_registry.json": "24fa1cb30d3d4d8caa9a433ed6bff7695781ac945724bb4ff89878707dba9461",
-        "sample_chronology.json": "e3c8e68e0631208f0f7fe643d8cfbf78411fcdc965e1bb98dd1b98fda3e277c2",
-        "sample_master.json": "d0df42d690689680599c01abc46c8ecafe669970481e7847fa6bee8af6fb05da",
-        "sample_sites.json": "385e3182ca3ab69debca7919b4e83d8b10295d97d5023cf8013279c184f977ac"
+        "sample_chronology.json": "63f44f4d5721e774524dd0962fec7b1e53420cc9bd416fc3817ed51794d2aba4",
+        "sample_master.json": "c4c65ce18aa9bb18e1a3db7db03caef33b2efc9a66589d02ec71b2c5791e5cb8",
+        "sample_sites.json": "f32b46c5c85ba1ced43dc86eca8a461b5e921be2efd949deba68dc9d1a1b8afb"
       },
       "artifact_count": 121,
       "artifacts": [
@@ -106,18 +106,18 @@
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB30282/sample_chronology.json",
-          "byte_count": 383172,
-          "sha256": "633b5e529c0dc0b73c1f3a315b93883571f46524a8c4c665f2acf0b31401c8ee"
+          "byte_count": 384274,
+          "sha256": "18400af7cb376dce83d59e117b2b86ac88a5597f77e2a9704ccaab71be239c7e"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB30282/sample_master.json",
-          "byte_count": 491174,
-          "sha256": "98040ff92ae08ed14a30cd581afdf18ae6afebdc08beb622a071b0fcb3ed79dc"
+          "byte_count": 763449,
+          "sha256": "ebfadbfcd06836086756dba37cda722d224f473925095ab75fa16f2c148749c1"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB30282/sample_sites.json",
-          "byte_count": 362685,
-          "sha256": "da81da85c767e180e46802be0454a778fd95cf3e58c9f1288a08a47430bf5881"
+          "byte_count": 693788,
+          "sha256": "78d452bb1cc5c0e4c58b5e82f1de0ca78c6274b0d92e61a26142363bf544a93d"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB31613/sample_chronology.json",
@@ -391,18 +391,18 @@
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB75467/sample_chronology.json",
-          "byte_count": 55210,
-          "sha256": "8a554cf8dcb953b6502b0e69defc4431e8551a4b379a40a23c155b198d8469c9"
+          "byte_count": 83470,
+          "sha256": "2224127d3d04a7d48f7258a1c992bd35c9ca0daf218d2b2e354959502c1d4532"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB75467/sample_master.json",
-          "byte_count": 69813,
-          "sha256": "dc830cfd335930202b6ed55bf0272c557d1264a9a3b4ca5f0702f51310a40c12"
+          "byte_count": 95772,
+          "sha256": "d9e9f977307e06ac4a1d8537a4ec00d82eb0173c942f3ec7b9ac6ad0b75b7189"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB75467/sample_sites.json",
-          "byte_count": 53024,
-          "sha256": "ebb6a2872b333ea29d44d70fd0aac3e32ba1dd2e0d5e4834c2ae6b8b7c4f9479"
+          "byte_count": 84950,
+          "sha256": "164c753a97dfd572d487a8821087e318511ea6ee57286a1204273089c8955772"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB81145/sample_chronology.json",
@@ -636,23 +636,23 @@
       "sample_master_row_count": 1475,
       "sample_chronology_row_count": 1455,
       "sample_site_row_count": 1455,
-      "admitted_node_count": 531,
-      "refused_master_row_count": 944
+      "admitted_node_count": 557,
+      "refused_master_row_count": 918
     },
     "refusal_counts": {
       "sequencing_experiment_identity": 20,
       "sample_identity_not_final": 5,
-      "source_chronology_not_comparable": 586,
-      "source_coordinate_not_mappable": 333,
+      "source_chronology_not_comparable": 558,
+      "source_coordinate_not_mappable": 335,
       "sample_provenance_unavailable": 0,
       "chronology_provenance_unavailable": 0,
       "site_provenance_unavailable": 0
     },
-    "refusal_count": 944,
-    "refusal_rows_sha256": "e7290b70af271da1aa06b70e731f18be5bfecbc0363b494ad2f7eff3917ce477",
-    "global_admitted_node_count": 531,
+    "refusal_count": 918,
+    "refusal_rows_sha256": "e11ab335e96580ae57889edda75b2544767d54f42e6ae561b1b4a7a87dafb03d",
+    "global_admitted_node_count": 557,
     "projected_node_count": 14,
-    "excluded_by_scope_count": 517,
+    "excluded_by_scope_count": 543,
     "species_counts": {
       "Bos taurus": 5,
       "Equus caballus": 3,
@@ -692,6 +692,12 @@
     "time_max_bp": 9657,
     "country_rows": [
       {
+        "country_name": "Armenia",
+        "node_count": 1,
+        "time_min_bp": 13789,
+        "time_max_bp": 14023
+      },
+      {
         "country_name": "Austria",
         "node_count": 6,
         "time_min_bp": 970,
@@ -704,9 +710,15 @@
         "time_max_bp": 35870
       },
       {
+        "country_name": "Britain",
+        "node_count": 1,
+        "time_min_bp": 4584,
+        "time_max_bp": 4835
+      },
+      {
         "country_name": "Bulgaria",
-        "node_count": 5,
-        "time_min_bp": 6049,
+        "node_count": 7,
+        "time_min_bp": 5932,
         "time_max_bp": 7429
       },
       {
@@ -759,9 +771,9 @@
       },
       {
         "country_name": "Germany",
-        "node_count": 11,
+        "node_count": 17,
         "time_min_bp": 320,
-        "time_max_bp": 4669
+        "time_max_bp": 68764
       },
       {
         "country_name": "Greece",
@@ -789,13 +801,13 @@
       },
       {
         "country_name": "Italy",
-        "node_count": 7,
+        "node_count": 11,
         "time_min_bp": 510,
-        "time_max_bp": 7319
+        "time_max_bp": 18236
       },
       {
         "country_name": "Kazakhstan",
-        "node_count": 94,
+        "node_count": 97,
         "time_min_bp": 1143,
         "time_max_bp": 12408
       },
@@ -843,7 +855,7 @@
       },
       {
         "country_name": "Russia",
-        "node_count": 109,
+        "node_count": 115,
         "time_min_bp": 192,
         "time_max_bp": 44950
       },
@@ -861,9 +873,9 @@
       },
       {
         "country_name": "Spain",
-        "node_count": 15,
+        "node_count": 18,
         "time_min_bp": 1617,
-        "time_max_bp": 7249
+        "time_max_bp": 9474
       },
       {
         "country_name": "Sweden",
@@ -4572,22 +4584,7 @@
     },
     {
       "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574404",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574405",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
       "repo_stable_sample_id": "prjeb75467:samea115574406",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574407",
       "reason_code": "source_chronology_not_comparable"
     },
     {
@@ -4612,42 +4609,12 @@
     },
     {
       "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574415",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574416",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574417",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574418",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574420",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
       "repo_stable_sample_id": "prjeb75467:samea115574421",
       "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB75467",
       "repo_stable_sample_id": "prjeb75467:samea115574422",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574423",
       "reason_code": "source_chronology_not_comparable"
     },
     {
@@ -4662,107 +4629,22 @@
     },
     {
       "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574428",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574429",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574430",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574432",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574433",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574434",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574435",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574436",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574437",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
       "repo_stable_sample_id": "prjeb75467:samea115574440",
       "reason_code": "source_chronology_not_comparable"
     },
     {
       "project_accession": "PRJEB75467",
       "repo_stable_sample_id": "prjeb75467:samea115574443",
-      "reason_code": "source_chronology_not_comparable"
+      "reason_code": "source_coordinate_not_mappable"
     },
     {
       "project_accession": "PRJEB75467",
       "repo_stable_sample_id": "prjeb75467:samea115574444",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574445",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574446",
-      "reason_code": "source_chronology_not_comparable"
+      "reason_code": "source_coordinate_not_mappable"
     },
     {
       "project_accession": "PRJEB75467",
       "repo_stable_sample_id": "prjeb75467:samea115574447",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574448",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574449",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574450",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574452",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574454",
-      "reason_code": "source_chronology_not_comparable"
-    },
-    {
-      "project_accession": "PRJEB75467",
-      "repo_stable_sample_id": "prjeb75467:samea115574455",
       "reason_code": "source_chronology_not_comparable"
     },
     {
@@ -5673,12 +5555,12 @@
   ],
   "input_identity": {
     "identity_algorithm": "sha256-length-framed-logical-path-and-bytes.v1",
-    "combined_sha256": "699ba2f922552b6e292d1b981d09f707f5b93eeba0c120effb5cd0fa0065d6c2",
+    "combined_sha256": "5b220aa1bf9199d6001179f64aaf679e577f7936a585068c24e6ee370c17a2ab",
     "family_sha256": {
       "project_registry.json": "24fa1cb30d3d4d8caa9a433ed6bff7695781ac945724bb4ff89878707dba9461",
-      "sample_chronology.json": "e3c8e68e0631208f0f7fe643d8cfbf78411fcdc965e1bb98dd1b98fda3e277c2",
-      "sample_master.json": "d0df42d690689680599c01abc46c8ecafe669970481e7847fa6bee8af6fb05da",
-      "sample_sites.json": "385e3182ca3ab69debca7919b4e83d8b10295d97d5023cf8013279c184f977ac"
+      "sample_chronology.json": "63f44f4d5721e774524dd0962fec7b1e53420cc9bd416fc3817ed51794d2aba4",
+      "sample_master.json": "c4c65ce18aa9bb18e1a3db7db03caef33b2efc9a66589d02ec71b2c5791e5cb8",
+      "sample_sites.json": "f32b46c5c85ba1ced43dc86eca8a461b5e921be2efd949deba68dc9d1a1b8afb"
     },
     "artifact_count": 121,
     "artifacts": [
@@ -5764,18 +5646,18 @@
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB30282/sample_chronology.json",
-        "byte_count": 383172,
-        "sha256": "633b5e529c0dc0b73c1f3a315b93883571f46524a8c4c665f2acf0b31401c8ee"
+        "byte_count": 384274,
+        "sha256": "18400af7cb376dce83d59e117b2b86ac88a5597f77e2a9704ccaab71be239c7e"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB30282/sample_master.json",
-        "byte_count": 491174,
-        "sha256": "98040ff92ae08ed14a30cd581afdf18ae6afebdc08beb622a071b0fcb3ed79dc"
+        "byte_count": 763449,
+        "sha256": "ebfadbfcd06836086756dba37cda722d224f473925095ab75fa16f2c148749c1"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB30282/sample_sites.json",
-        "byte_count": 362685,
-        "sha256": "da81da85c767e180e46802be0454a778fd95cf3e58c9f1288a08a47430bf5881"
+        "byte_count": 693788,
+        "sha256": "78d452bb1cc5c0e4c58b5e82f1de0ca78c6274b0d92e61a26142363bf544a93d"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB31613/sample_chronology.json",
@@ -6049,18 +5931,18 @@
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB75467/sample_chronology.json",
-        "byte_count": 55210,
-        "sha256": "8a554cf8dcb953b6502b0e69defc4431e8551a4b379a40a23c155b198d8469c9"
+        "byte_count": 83470,
+        "sha256": "2224127d3d04a7d48f7258a1c992bd35c9ca0daf218d2b2e354959502c1d4532"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB75467/sample_master.json",
-        "byte_count": 69813,
-        "sha256": "dc830cfd335930202b6ed55bf0272c557d1264a9a3b4ca5f0702f51310a40c12"
+        "byte_count": 95772,
+        "sha256": "d9e9f977307e06ac4a1d8537a4ec00d82eb0173c942f3ec7b9ac6ad0b75b7189"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB75467/sample_sites.json",
-        "byte_count": 53024,
-        "sha256": "ebb6a2872b333ea29d44d70fd0aac3e32ba1dd2e0d5e4834c2ae6b8b7c4f9479"
+        "byte_count": 84950,
+        "sha256": "164c753a97dfd572d487a8821087e318511ea6ee57286a1204273089c8955772"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB81145/sample_chronology.json",
@@ -6291,28 +6173,34 @@
   },
   "corpus_identity": {
     "schema_version": "animal-sample-chronology-corpus-identity.v1",
-    "input_identity_sha256": "699ba2f922552b6e292d1b981d09f707f5b93eeba0c120effb5cd0fa0065d6c2",
-    "admitted_rows_sha256": "5ad33061acc4e4192e17a90161fe234ab7e54b199eb99c8d795a773e6e917b04",
-    "refusal_rows_sha256": "e7290b70af271da1aa06b70e731f18be5bfecbc0363b494ad2f7eff3917ce477",
+    "input_identity_sha256": "5b220aa1bf9199d6001179f64aaf679e577f7936a585068c24e6ee370c17a2ab",
+    "admitted_rows_sha256": "3f8b3533b1cd31497dc60a62d7328050de2bb986610ce2d989e52105e60599d2",
+    "refusal_rows_sha256": "e11ab335e96580ae57889edda75b2544767d54f42e6ae561b1b4a7a87dafb03d",
     "source_counts": {
       "project_count": 40,
       "sample_master_row_count": 1475,
       "sample_chronology_row_count": 1455,
       "sample_site_row_count": 1455,
-      "admitted_node_count": 531,
-      "refused_master_row_count": 944
+      "admitted_node_count": 557,
+      "refused_master_row_count": 918
     },
     "refusal_counts": {
       "sequencing_experiment_identity": 20,
       "sample_identity_not_final": 5,
-      "source_chronology_not_comparable": 586,
-      "source_coordinate_not_mappable": 333,
+      "source_chronology_not_comparable": 558,
+      "source_coordinate_not_mappable": 335,
       "sample_provenance_unavailable": 0,
       "chronology_provenance_unavailable": 0,
       "site_provenance_unavailable": 0
     },
-    "global_admitted_node_count": 531,
+    "global_admitted_node_count": 557,
     "country_rows": [
+      {
+        "country_name": "Armenia",
+        "node_count": 1,
+        "time_min_bp": 13789,
+        "time_max_bp": 14023
+      },
       {
         "country_name": "Austria",
         "node_count": 6,
@@ -6326,9 +6214,15 @@
         "time_max_bp": 35870
       },
       {
+        "country_name": "Britain",
+        "node_count": 1,
+        "time_min_bp": 4584,
+        "time_max_bp": 4835
+      },
+      {
         "country_name": "Bulgaria",
-        "node_count": 5,
-        "time_min_bp": 6049,
+        "node_count": 7,
+        "time_min_bp": 5932,
         "time_max_bp": 7429
       },
       {
@@ -6381,9 +6275,9 @@
       },
       {
         "country_name": "Germany",
-        "node_count": 11,
+        "node_count": 17,
         "time_min_bp": 320,
-        "time_max_bp": 4669
+        "time_max_bp": 68764
       },
       {
         "country_name": "Greece",
@@ -6411,13 +6305,13 @@
       },
       {
         "country_name": "Italy",
-        "node_count": 7,
+        "node_count": 11,
         "time_min_bp": 510,
-        "time_max_bp": 7319
+        "time_max_bp": 18236
       },
       {
         "country_name": "Kazakhstan",
-        "node_count": 94,
+        "node_count": 97,
         "time_min_bp": 1143,
         "time_max_bp": 12408
       },
@@ -6465,7 +6359,7 @@
       },
       {
         "country_name": "Russia",
-        "node_count": 109,
+        "node_count": 115,
         "time_min_bp": 192,
         "time_max_bp": 44950
       },
@@ -6483,9 +6377,9 @@
       },
       {
         "country_name": "Spain",
-        "node_count": 15,
+        "node_count": 18,
         "time_min_bp": 1617,
-        "time_max_bp": 7249
+        "time_max_bp": 9474
       },
       {
         "country_name": "Sweden",
@@ -6563,8 +6457,8 @@
       }
     ],
     "time_min_bp": 17,
-    "time_max_bp": 44950,
-    "content_sha256": "a8706e0c8aa05e4cc759f53f79142105055c4b30c8270492b1b91cac55bc1a6d"
+    "time_max_bp": 68764,
+    "content_sha256": "dce6a8a6382d9a5f17d4b88330f0f879b010e38ade52e6deb51fe9346f8a62e7"
   },
-  "content_sha256": "591dcc7ee5d9227550ab5feb05840eca5aabbd4e75ebf2120ee218319c3c1868"
+  "content_sha256": "b3e7c260e12e871d4f27b6a894778283e347877dfeead9f05fc340368ac03785"
 }

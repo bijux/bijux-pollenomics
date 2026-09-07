@@ -109,10 +109,10 @@
         "sample_accounting_available": true,
         "coordinate_accounting_available": true,
         "tracked_paper_count": 18,
-        "published_atlas_point_count": 151,
+        "published_atlas_point_count": 170,
         "tracked_sample_count": 1450,
-        "unresolved_sample_count": 90,
-        "coordinate_provenance_count": 289,
+        "unresolved_sample_count": 402,
+        "coordinate_provenance_count": 308,
         "refused_coordinate_provenance_count": 4
       },
       "docs_paths": [
@@ -138,7 +138,7 @@
       "tracked_metrics": {
         "sample_accounting_available": true,
         "country_bundle_count": 4,
-        "animal_point_count": 151
+        "animal_point_count": 170
       },
       "docs_paths": [
         "docs/public/pollenomics-data/publications/reports.md",

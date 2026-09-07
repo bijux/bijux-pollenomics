@@ -10,396 +10,396 @@ fieldwork-triage weighting.
 | Frälsegården (Västra Götalands län, Falköping, Falbygden) | 2 | 2 | 2 | 2 | 0 | none |
 | Rössberga (Götaland, Västergötland) | 3 | 3 | 3 | 3 | 0 | none |
 | Landbogården (Västra Götalands län, Falköping, Falbygden) | 4 | 4 | 4 | 4 | 0 | none |
-| Gökhem (Västra Götalands län, Falköping) | 5 | 5 | 5 | 8 | 3 | none |
-| Västerbjers (Gotland, Gothem parish) | 6 | 11 | 22 | 6 | 16 | none |
-| Frojel (Gotlands län, Gotland) | 7 | 16 | 27 | 5 | 20 | none |
-| Kopparsvik (Gotlands län, Gotland) | 8 | 20 | 38 | 7 | 30 | none |
-| Bakkendrup (Zealand Region) | 9 | 14 | 21 | 11 | 12 | none |
-| Stora-Karlsö (Gotlands län, Gotland) | 10 | 23 | 40 | 9 | 30 | none |
-| Ahlgade 15-17 (Holbæk) | 11 | 7 | 9 | 29 | 18 | none |
-| Simonsborg (Zealand/ Alsted) | 12 | 17 | 25 | 12 | 13 | none |
-| Varnhem (Västra Götalands län, Skara) | 13 | 24 | 43 | 10 | 30 | none |
-| Oland | 14 | 19 | 31 | 13 | 17 | none |
-| Albäcksbacken Maglarp (Southern Sweden/ Skåne) | 15 | 18 | 26 | 14 | 11 | none |
-| Lillevasby (Zealand) | 16 | 9 | 11 | 30 | 14 | none |
-| Kopenhagen (Zealand Region) | 17 | 12 | 16 | 27 | 10 | none |
-| Galgedil (Funen Region) | 18 | 6 | 6 | 56 | 38 | none |
-| Mosede Fort (Zealand) | 19 | 8 | 7 | 41 | 22 | none |
-| Sandby Borg (Kalmar län, Mörbylånga) | 20 | 29 | 47 | 20 | 27 | none |
-| Ansarve (Gotland County, Tofta area) | 21 | 31 | 49 | 19 | 28 | none |
-| Kronan (Kalmar län, Mörbylånga) | 22 | 28 | 44 | 22 | 22 | none |
-| Karda (Jönköpings län, Värnamo) | 23 | 30 | 46 | 28 | 23 | none |
-| Karlstrup (Sjælland, Solrød) | 24 | 15 | 15 | 48 | 24 | none |
-| Sigtuna, church 1 (St Gertrud) | 25 | 33 | 48 | 32 | 23 | none |
-| Hunnebostrand (Västra Götaland County, Sotenäs Municipality) | 26 | 10 | 8 | 16 | 18 | none |
-| Henriksholm-Bøgebakken (Zealand Region, Vedbæk) | 27 | 39 | 51 | 25 | 24 | none |
-| Lejre (Zealand Region) | 28 | 26 | 28 | 36 | 8 | none |
-| Alken_Enge (Jutland) | 29 | 38 | 52 | 43 | 23 | none |
-| Lundbjerggård (Zealand/ Region Hovedstaden) | 30 | 21 | 19 | 52 | 22 | none |
-| Vindinge Vest I&II (Zealand/ Region Hovedstaden) | 31 | 22 | 20 | 54 | 23 | none |
-| Gerdrup (Zealand Region) | 32 | 27 | 23 | 38 | 9 | none |
-| Skien nor (Nor South, Vestfold og Telemark, Telemark) | 33 | 49 | 61 | 26 | 28 | none |
-| Regnemark (Zealand) | 34 | 25 | 17 | 51 | 17 | none |
-| Trelleborg (Zealand) | 35 | 35 | 42 | 74 | 39 | none |
-| Hindby mosse (Skåne län, Malmö) | 36 | 55 | 71 | 15 | 35 | none |
-| Hesselbjerg (Jutland Region) | 37 | 40 | 50 | 71 | 34 | none |
-| Olljso (Skåne län, Kristianstad) | 38 | 54 | 70 | 17 | 32 | none |
-| Asnæs (Zealand) | 39 | 45 | 55 | 79 | 40 | none |
-| Ajvide Settlement (Gotland, Eksta) | 40 | 61 | 79 | 21 | 39 | none |
-| Stålmosegård (Zealand) | 41 | 36 | 29 | 61 | 20 | none |
-| Sanddal (Zealand) | 42 | 37 | 30 | 65 | 23 | none |
-| Holma (Västra Götalands län, Falköping, Falbygden) | 43 | 43 | 12 | 33 | 31 | none |
-| Ljungbacka (Skåne län, Vellinge) | 44 | 64 | 74 | 18 | 30 | none |
-| Assleröd (Western Sweden/ Bohuslän) | 45 | 44 | 13 | 34 | 32 | none |
-| Tollemosegard (Zealand Region) | 46 | 42 | 35 | 70 | 24 | none |
-| Alsike (Uppsala län, Knivsta) | 47 | 53 | 66 | 55 | 19 | none |
-| Sigtuna, cemetery 1 (Nunnnan) | 48 | 56 | 72 | 49 | 24 | none |
-| Sigtuna, cemetery 4 (Bensinst ) | 49 | 57 | 73 | 50 | 24 | none |
-| Abekås I (Skåne County, Skurup Municipality) | 50 | 66 | 75 | 24 | 26 | none |
-| Ängamöllan (Skåne län, Kristianstad) | 51 | 76 | 98 | 23 | 47 | none |
-| Hummervikholmen (Agder, Søgne nor) | 52 | 70 | 94 | 35 | 42 | none |
-| Bergen | 53 | 32 | 33 | 175 | 122 | none |
-| Dragsholm (Zealand Region) | 54 | 50 | 56 | 77 | 23 | none |
-| SOEL_964_Engbjerg (Zealand) | 55 | 47 | 37 | 67 | 18 | none |
-| Ringsaker nor (Nor South, Innlandet, Hedmark) | 56 | 73 | 89 | 31 | 33 | none |
-| Skongeneshelleren (Western Norway/ Sogn and Fjordane) | 57 | 34 | 34 | 192 | 135 | none |
-| Ribe (Jutland Region) | 58 | 13 | 10 | 220 | 162 | none |
-| Rude (Jutland Region) | 59 | 48 | 32 | 76 | 27 | none |
-| Sigtuna, mass grave (St Lars) | 60 | 75 | 97 | 62 | 37 | none |
-| Toftum Mose (Jutland Region) | 61 | 65 | 80 | 93 | 32 | none |
-| Rantzausminde (Funen Region) | 62 | 74 | 92 | 69 | 30 | none |
-| Værebro Å, Snydebro (Zealand) | 63 | 62 | 60 | 68 | 5 | none |
-| Landledgård (Zealand) | 64 | 59 | 59 | 101 | 37 | none |
-| Fraugde (Zealand) | 65 | 63 | 57 | 87 | 22 | none |
-| Mosede Mose (Zealand Region) | 66 | 51 | 36 | 102 | 36 | none |
-| Kalmargården (Zealand) | 67 | 79 | 105 | 66 | 38 | none |
-| Gl Lejre (Zealand Region) | 68 | 67 | 65 | 86 | 18 | none |
-| Hvidovre (Zealand) | 69 | 68 | 63 | 91 | 22 | none |
-| L Beddinge 56 (Skåne län, Trelleborg) | 70 | 126 | 163 | 37 | 93 | none |
-| Hessum (Funen Region) | 71 | 41 | 14 | 170 | 99 | none |
-| Skomsta (Uppsala län, Uppsala) | 72 | 83 | 116 | 73 | 44 | none |
-| Hanaskede (Västra Götalands län, Skara) | 73 | 99 | 108 | 59 | 35 | none |
-| Dösemarken (Skåne län, Malmö) | 74 | 146 | 176 | 39 | 102 | none |
-| Sigtuna, cemetery 3 (Kållandet) | 75 | 86 | 130 | 75 | 55 | none |
-| Höja gård (Southern Sweden/ Skåne) | 76 | 143 | 170 | 42 | 94 | none |
-| Tværvejen etape III, Asperup sogn sb nr 56, Båg Herred, Odense Amt (Funen) | 77 | 78 | 54 | 85 | 23 | none |
-| Kastanjegården (Skåne län, Malmö) | 78 | 156 | 192 | 40 | 114 | none |
-| Oxie 7 (Skåne län, Vellinge) | 79 | 154 | 188 | 45 | 109 | none |
-| Ängdala (Skåne län, Malmö) | 80 | 158 | 193 | 44 | 113 | none |
-| Skateholm-1 (Skåne län, Trelleborg) | 81 | 150 | 180 | 47 | 99 | none |
-| Illerup_weapon_sacrifice_site (Jutland) | 82 | 87 | 129 | 88 | 47 | none |
-| Bergsgraven (Östergötlands län, Linköping) | 83 | 93 | 154 | 81 | 71 | none |
-| Fredriksberg (Skåne län, Malmö) | 84 | 166 | 199 | 46 | 115 | none |
-| Føre 1 (Northern Norway/ Nordland) | 85 | 90 | 148 | 84 | 63 | none |
-| Døjringe (Zealand Region) | 86 | 133 | 160 | 60 | 74 | none |
-| Vattenledningen (Skåne län, Vellinge) | 87 | 157 | 189 | 53 | 102 | none |
-| Kaarebjerg Agre, Tørslev Hage, Gerlev Sogn (Zealand) | 88 | 77 | 76 | 110 | 22 | none |
-| Hablingbo Havor (Gotlands län, Gotland) | 89 | 167 | 196 | 57 | 107 | none |
-| Eksta Kvie (Gotlands län, Gotland) | 90 | 171 | 205 | 58 | 115 | none |
-| Vor Frue Kirkegård (Aalborg) | 91 | 58 | 67 | 239 | 148 | none |
-| Tissøe (Zealand Region) | 92 | 151 | 173 | 64 | 81 | none |
-| Strandby (Jutland) | 93 | 71 | 39 | 128 | 54 | none |
-| Nygaard_Mose (Jutland) | 94 | 72 | 41 | 127 | 53 | none |
-| Kyndelöse (Sjælland, Lejre) | 95 | 80 | 96 | 114 | 19 | none |
-| Varpelev (Zealand) | 96 | 46 | 18 | 210 | 114 | none |
-| Stora Bjers (Gotland, Stenkyrka) | 97 | 177 | 211 | 63 | 114 | none |
-| Ruds Vedby (Zealand/ Holbæk, Løve,) | 98 | 142 | 158 | 72 | 60 | none |
-| Bogøvej (Langelands Sønder) | 99 | 60 | 68 | 243 | 144 | none |
-| Gannor (Gotlands län, Gotland) | 100 | 139 | 153 | 78 | 53 | none |
-| Kirkebakkegård (Zealand) | 101 | 98 | 87 | 100 | 14 | none |
-| Værløse (Alugod) (Zealand/ Smørum) | 102 | 104 | 99 | 103 | 3 | none |
-| Højstrupvej (Funen/ Odense) | 103 | 109 | 100 | 107 | 6 | none |
-| Lillestrand, Bogense sb 21 (Funen) | 104 | 85 | 62 | 133 | 42 | none |
-| Almager (Zealand) | 105 | 110 | 101 | 109 | 5 | none |
-| Højgård (Zealand) | 106 | 114 | 113 | 104 | 8 | none |
-| Stokke (79/1) (Nordland, Tjelsund) | 107 | 191 | 216 | 80 | 109 | none |
-| Alpegard (Zealand) | 108 | 116 | 114 | 105 | 8 | none |
-| Hamar nor (Nor South, Innlandet, Hedmark) | 109 | 184 | 209 | 83 | 100 | none |
-| Sigersdal Mose (Zealand Region) | 110 | 117 | 115 | 108 | 7 | none |
-| Sondrup Østergaard, Ulstrup sogn (Jutland) | 111 | 88 | 124 | 157 | 46 | none |
-| Bengtstorp (Oland) | 112 | 201 | 223 | 82 | 111 | none |
-| Egedal Mose (Zealand) | 113 | 113 | 104 | 113 | 9 | none |
-| Fårevejlegård (Funen) | 114 | 95 | 141 | 146 | 32 | none |
-| Norsminde (Jutland Region) | 115 | 100 | 88 | 129 | 27 | none |
-| Roskilde Fjord (south of Jyllinge) (Zealand Region) | 116 | 112 | 103 | 121 | 13 | none |
-| Mörbylånga (Oland) | 117 | 209 | 230 | 90 | 113 | none |
-| Sörby_Störlinge (Oland) | 118 | 212 | 231 | 89 | 113 | none |
-| Jorløse Mose (Zealand Region) | 119 | 186 | 201 | 94 | 82 | none |
-| Sperrestrup (Zealand) | 120 | 115 | 107 | 123 | 13 | none |
-| Vedbaek Boldbaner (Zealand Region) | 121 | 188 | 202 | 95 | 81 | none |
-| Stenlille (Zealand) | 122 | 175 | 185 | 97 | 63 | none |
-| Kirkebjerggaard (Zealand) | 123 | 131 | 136 | 112 | 13 | none |
-| Hove A (Zealand Region) | 124 | 123 | 120 | 116 | 8 | none |
-| Viby (Skåne län, Kristianstad) | 125 | 214 | 232 | 92 | 107 | none |
-| Kragehave Odetofter (Zealand Region) | 126 | 103 | 90 | 136 | 36 | none |
-| Lund, Namsos M (Central Norway/ Trøndelag) | 127 | 193 | 212 | 96 | 85 | none |
-| Engbjerg (Zealand/ Smørum) | 128 | 105 | 91 | 138 | 37 | none |
-| Jørlundegard (Zealand Region) | 129 | 119 | 110 | 131 | 19 | none |
-| Gadevang Mose (Zealand) | 130 | 147 | 142 | 115 | 17 | none |
-| Kalvehavegaard (Funen) | 131 | 69 | 64 | 237 | 106 | none |
-| Ubby (Zealand) | 132 | 190 | 200 | 99 | 68 | none |
-| Sigersdal Mose 2 (Zealand Region) | 133 | 134 | 132 | 125 | 8 | none |
-| Viksø Mose (Zealand Region) | 134 | 149 | 143 | 119 | 15 | none |
-| Bredebjerggård 8 (Zealand/ Smørum) | 135 | 111 | 93 | 159 | 42 | none |
-| Vester Klodske (Jutland/ Venneberg) | 136 | 89 | 69 | 181 | 67 | none |
-| Ladby (Funen Region) | 137 | 52 | 24 | 230 | 113 | none |
-| Sejlsbjerg (Zealand/ Smørum) | 138 | 121 | 106 | 151 | 32 | none |
-| Solsem (Central Norway/ Leka, Trøndelag) | 139 | 215 | 233 | 98 | 94 | none |
-| Ravnsbjerggard II (Zealand Region) | 140 | 161 | 166 | 118 | 26 | none |
-| Rolund (Funen/ Odense) | 141 | 163 | 167 | 120 | 26 | none |
-| Hastrup (Zealand) | 142 | 97 | 77 | 179 | 65 | none |
-| Allerslev (Zealand) | 143 | 138 | 131 | 141 | 12 | none |
-| Alsted (Zealand) | 144 | 174 | 174 | 122 | 30 | none |
-| Trekroner-Grydehøj (Zealand) | 145 | 129 | 126 | 149 | 19 | none |
-| Marbjerg (Sjælland, Roskilde) | 146 | 128 | 125 | 150 | 21 | none |
-| Landlystvej (Zealand) | 147 | 137 | 128 | 145 | 19 | none |
-| Maderne (Zealand) | 148 | 198 | 210 | 111 | 62 | none |
-| Mellemholm (Jutland/ Hornum) | 149 | 82 | 95 | 219 | 70 | none |
-| Gerlev STR. Vej 10 Indiv 1 MFG 114/97 (Zealand) | 150 | 106 | 85 | 177 | 65 | none |
-| Gerlev STR. Vej 10 Indiv 2 MFG 114/97 (Zealand) | 151 | 107 | 86 | 178 | 65 | none |
-| Brondsager Torsiinre (Zealand Region) | 152 | 122 | 111 | 165 | 41 | none |
-| Kyndby (Zealand) | 153 | 125 | 117 | 162 | 36 | none |
-| Klokkehøj (Funen Region) | 154 | 183 | 187 | 117 | 37 | none |
-| Tysmose (Zealand Region) | 155 | 155 | 151 | 137 | 18 | none |
-| Lilla_Smedby (Oland) | 156 | 220 | 241 | 106 | 85 | none |
-| Vibygards Mose (Zealand Region) | 157 | 141 | 133 | 152 | 24 | none |
-| Nørrebjerg (Funen) | 158 | 144 | 135 | 154 | 23 | none |
-| Kildehus (Zealand) | 159 | 127 | 119 | 164 | 40 | none |
-| Trekroner-Grydehej (Zealand Region) | 160 | 135 | 127 | 160 | 33 | none |
-| Storelyng (Østrup Homo II) (Zealand Region) | 161 | 194 | 194 | 124 | 37 | none |
-| Gevninge Overdrev (Zealand) | 162 | 153 | 147 | 158 | 15 | none |
-| Storelyng (Øgarde boat III) (Zealand) | 163 | 195 | 195 | 126 | 37 | none |
-| Ølby (Zealand) | 164 | 101 | 82 | 196 | 82 | none |
-| Sdr.Tranders (Jutland/ Aalborg) | 165 | 94 | 138 | 218 | 71 | none |
-| Fullero (Uppsala län, Uppsala) | 166 | 202 | 208 | 132 | 42 | none |
-| Store Grandløse (Zealand) | 167 | 180 | 177 | 153 | 14 | none |
-| Egebjerg (Zealand) | 168 | 108 | 146 | 205 | 60 | none |
-| Bilidt (Zealand) | 169 | 136 | 121 | 189 | 48 | none |
-| Aamosen-Gammelvind (Zealand) | 170 | 203 | 204 | 140 | 34 | none |
-| Sala (Västmanlands län, Sala) | 171 | 207 | 206 | 142 | 36 | none |
-| Sandlyngmose (Zealand) | 172 | 208 | 207 | 143 | 36 | none |
-| Sigtuna, cemetery 2 (Kålsängen) | 173 | 225 | 237 | 130 | 64 | none |
-| Rosenaeen (Sjaelland) | 174 | 152 | 139 | 185 | 35 | none |
-| Salpetermosen syd 8 (Zealand Region) | 175 | 179 | 169 | 169 | 6 | none |
-| Madesø (Zealand Region) | 176 | 219 | 222 | 139 | 46 | none |
-| Strandlunden II Gerlev MFG 191/02 (Zealand) | 177 | 140 | 123 | 195 | 54 | none |
-| Sigtuna (Stockholms län, Upplands-Bro) | 178 | 228 | 239 | 135 | 61 | none |
-| Norrsunda (Stockholms län, Sigtuna) | 179 | 235 | 243 | 134 | 64 | none |
-| Neverkær Mose Høgholm (Funen/ Båg) | 180 | 189 | 182 | 171 | 9 | none |
-| Alken Enge (Jutland Region) | 181 | 227 | 235 | 147 | 54 | none |
-| Haraldsted (Zealand) | 182 | 204 | 197 | 167 | 22 | none |
-| Tveje Merløse (Zealand) | 183 | 205 | 198 | 168 | 22 | none |
-| Skregeskov (Funen/ Hillerslev) | 184 | 217 | 218 | 161 | 34 | none |
-| Tybjerg Mose (Zealand) | 185 | 223 | 227 | 155 | 42 | none |
-| Kongemose (Zealand Region) | 186 | 231 | 238 | 148 | 52 | none |
-| Gedebjerg (Zealand) | 187 | 218 | 219 | 163 | 32 | none |
-| Neverkær Mose (Funen Region) | 188 | 192 | 184 | 176 | 12 | none |
-| Vanløse Mose (Zealand Region) | 189 | 196 | 190 | 173 | 16 | none |
-| Lollikehuse (Zealand Region) | 190 | 172 | 161 | 191 | 29 | none |
-| Lille Bjerggård, Sønderholm (Jutland/ Aalborg) | 191 | 182 | 172 | 184 | 19 | none |
-| Bodal K (Zealand Region) | 192 | 233 | 240 | 156 | 48 | none |
-| Strøby (Avlebjerg) | 193 | 84 | 81 | 224 | 112 | none |
-| Lovö (Stockholms län, Ekerö) | 194 | 242 | 265 | 144 | 71 | none |
-| Bøgebjerggård, Røstofte (Zealand/ Bårse) | 195 | 118 | 156 | 214 | 77 | none |
-| Koelbjerg (Funen Region) | 196 | 224 | 224 | 166 | 30 | none |
-| Regstrup (Funen/ Odense) | 197 | 187 | 178 | 193 | 19 | none |
-| Museums garden (Jutland) | 198 | 211 | 203 | 180 | 18 | none |
-| Hørby Skov (Zealand) | 199 | 197 | 186 | 187 | 13 | none |
-| Gammel Hasseris Grusgrav (Jutland) | 200 | 222 | 221 | 172 | 28 | none |
-| Skivum VI (Jutland) | 201 | 216 | 215 | 182 | 19 | none |
-| Mandemarke Bakker (Zealand) | 202 | 165 | 144 | 200 | 58 | none |
-| Mandemarke (Mön Region) | 203 | 164 | 145 | 201 | 58 | none |
-| Enbacken (Örebro län, Örebro) | 204 | 236 | 236 | 174 | 32 | none |
-| Baunehøj (Zealand) | 205 | 206 | 191 | 197 | 14 | none |
-| Tollestrup_Mose (Jutland) | 206 | 92 | 118 | 240 | 114 | none |
-| Skole Samling (Jutland) | 207 | 229 | 225 | 186 | 22 | none |
-| Svinninge Vejle (Zealand Region) | 208 | 230 | 228 | 188 | 22 | none |
-| Dalmosegaard (Møn Region) | 209 | 168 | 149 | 207 | 60 | none |
-| Maglebjerghøj (Zealand) | 210 | 169 | 150 | 208 | 60 | none |
-| Engeldrup Bro, Melby Sb 19 (Funen) | 211 | 148 | 122 | 212 | 89 | none |
-| Scheelsminde (Jutland/ Aalborg) | 212 | 232 | 229 | 190 | 22 | none |
-| Bybjerg (Zealand Region) | 213 | 185 | 168 | 202 | 45 | none |
-| Varpelev Vest (Zealand) | 214 | 81 | 45 | 234 | 169 | none |
-| Illemose (Funen) | 215 | 120 | 152 | 223 | 95 | none |
-| Sasta (Stockholms län, Täby) | 216 | 248 | 275 | 183 | 59 | none |
-| Lohals (Langeland Region) | 217 | 243 | 257 | 194 | 40 | none |
-| Borre_Enge (Moen) | 218 | 181 | 157 | 213 | 61 | none |
-| Hyldebjerg, Vaarst (Jutland/ Aalborg) | 219 | 124 | 159 | 226 | 95 | none |
-| Langdyssegård (Zealand) | 220 | 199 | 179 | 211 | 41 | none |
-| Tanderup | 221 | 246 | 263 | 198 | 42 | none |
-| Keldeklinte_Mose (Zealand) | 222 | 241 | 242 | 199 | 23 | none |
-| Sønderup XI (Jutland) | 223 | 237 | 226 | 206 | 17 | none |
-| Læbrogård (Zealand) | 224 | 162 | 134 | 221 | 90 | none |
-| Glerup (Jutland) | 225 | 130 | 165 | 235 | 95 | none |
-| Sludegaard Sømose (Funen) | 226 | 249 | 272 | 203 | 46 | none |
-| Sludegard Sømose (Funen Region) | 227 | 250 | 273 | 204 | 46 | none |
-| Forlev \Forlev I\"" (Zealand/ Sorø) | 228 | 234 | 217 | 215 | 13 | none |
-| Barup Sandgrav (Zealand) | 229 | 176 | 140 | 225 | 89 | none |
-| Gammelbyn Börstil (Uppsala län, Östhammar) | 230 | 261 | 282 | 209 | 52 | none |
-| Stubberup, Oue sogn (Jutland) | 231 | 245 | 245 | 216 | 15 | none |
-| Bygholm Nørremark (Jutland Region) | 232 | 247 | 246 | 217 | 15 | none |
-| Jarlsberg Herregaard (Southern Norway/ Vestfold) | 233 | 91 | 53 | 249 | 180 | none |
-| Korsør Nor (Zealand Region) | 234 | 102 | 109 | 254 | 132 | none |
-| Lejrhøje (Jutland) | 235 | 132 | 155 | 248 | 103 | none |
-| Nymarksgaard (Funen) | 236 | 96 | 58 | 257 | 178 | none |
-| Borritshoved (Zealand/ Broskov) | 237 | 145 | 162 | 251 | 92 | none |
-| Hyllebjerg X (Jutland) | 238 | 244 | 234 | 227 | 11 | none |
-| Mærkebækgård Syd (Zealand) | 239 | 239 | 213 | 233 | 26 | none |
-| Stengade I (Langeland Region) | 240 | 267 | 281 | 222 | 41 | none |
-| Vasagard (Bornholm) | 241 | 160 | 112 | 247 | 129 | none |
-| Vilsted Sogn IX (Jutland) | 242 | 251 | 251 | 229 | 13 | none |
-| Sebber skole | 243 | 240 | 214 | 238 | 29 | none |
-| Falshöj (Nordjylland, Mariagerfjord) | 244 | 254 | 266 | 228 | 22 | none |
-| Sæsing (Jutland) | 245 | 210 | 164 | 244 | 81 | none |
-| Aastofte (Zealand) | 246 | 257 | 270 | 231 | 24 | none |
-| Lekkende (Zealand) | 247 | 253 | 258 | 232 | 15 | none |
-| Porsmose (Zealand Region) | 248 | 255 | 262 | 236 | 14 | none |
-| Næs (Falster Region) | 249 | 252 | 247 | 242 | 7 | none |
-| Eksercérpladsen (Zealand/ Bårse) | 250 | 260 | 269 | 241 | 19 | none |
-| Barhøj (Zealand Region, Strøby Egede) | 251 | 221 | 171 | 250 | 80 | none |
-| Strøby Ladeplads (Zealand Region) | 252 | 226 | 175 | 253 | 77 | none |
-| Kumle Høje (Langelands Sønder) | 253 | 173 | 181 | 272 | 80 | none |
-| Græsbjerg (Zealand/ Bårse) | 254 | 268 | 274 | 245 | 20 | none |
-| Smidie (Jutland/ Hellum) | 255 | 259 | 259 | 246 | 9 | none |
-| Hellevad (Jutland) | 256 | 200 | 137 | 267 | 119 | none |
-| Hestehavens mose (Jutland) | 257 | 238 | 183 | 259 | 74 | none |
-| Grønhøjgård, Vaarst (Jutland/ Aalborg) | 258 | 269 | 268 | 252 | 11 | none |
-| Tudse Hage (Zealand Region) | 259 | 256 | 244 | 258 | 15 | none |
-| Nr. Hedegård (Jutland/ Fleskum) | 260 | 277 | 278 | 255 | 18 | none |
-| Bøgebjerg (Zealand) | 261 | 278 | 280 | 256 | 19 | none |
-| Lygtebæk (Jutland) | 262 | 262 | 248 | 260 | 14 | none |
-| Vibsig Mose (Jutland) | 263 | 263 | 249 | 261 | 14 | none |
-| Juellinge (Lolland/ Juellinge) | 264 | 264 | 250 | 262 | 14 | none |
-| Vendsyssel_Svennum (Jutland) | 265 | 265 | 252 | 263 | 13 | none |
-| Stistrup kær VII (Jutland) | 266 | 266 | 254 | 266 | 12 | none |
-| Kornum Bro (Jutland) | 267 | 270 | 255 | 268 | 12 | none |
-| Stenum (Jutland) | 268 | 271 | 256 | 269 | 12 | none |
-| Aalstrup, Mellergaard (Jutland) | 269 | 272 | 260 | 270 | 9 | none |
-| Endegaarde (Zealand) | 270 | 273 | 261 | 271 | 9 | none |
-| Romdrup, Christianshøj (Jutland/ Fleskum) | 271 | 279 | 276 | 264 | 8 | none |
-| Romdrupgård (Jutland/ Fleskum) | 272 | 280 | 277 | 265 | 8 | none |
-| Klæsterupholm Mose (Jutland Region) | 273 | 274 | 264 | 274 | 9 | none |
-| Pandebjerg (Zealand Region) | 274 | 282 | 279 | 273 | 8 | none |
-| Hestbek III (Jutland) | 275 | 275 | 267 | 275 | 8 | none |
-| Mors (Jutland) | 276 | 159 | 78 | 278 | 198 | none |
-| Vemmetofte Skovridergård (Zealand) | 277 | 276 | 271 | 276 | 6 | none |
-| Hamahus (Jutland/ Hornum) | 278 | 170 | 83 | 279 | 195 | none |
-| Langø Skaldynge (Funen Region) | 279 | 258 | 220 | 277 | 59 | none |
-| Vængesø II (Jutland Region) | 280 | 178 | 84 | 281 | 196 | none |
-| Balsnes (Northern Norway/ Troms) | 281 | 213 | 102 | 282 | 179 | none |
-| Vig Femhøve (Zealand Region) | 282 | 281 | 253 | 280 | 29 | none |
-| Falköping-5 (Västra Götalands län, Falköping) | 283 | 283 | 284 | 283 | 1 | none |
-| Nästegården (Västra Götalands län, Falköping) | 284 | 284 | 286 | 285 | 2 | none |
-| Vasterhus (Jämtlands län, Östersund) | 285 | 285 | 283 | 291 | 6 | none |
-| Kanaljorden (Östergötlands län, Motala) | 286 | 286 | 287 | 286 | 1 | none |
-| Stora Förvar (Gotland, Eksta socken, Stora Karlsö) | 287 | 287 | 288 | 284 | 3 | none |
-| Vik, Klepp (Western Norway/ Rogaland) | 288 | 288 | 292 | 287 | 4 | none |
-| Hemmor (Gotland, När parish) | 289 | 289 | 294 | 288 | 5 | none |
-| Skeie, Klepp (Western Norway/ Rogaland) | 290 | 292 | 295 | 289 | 5 | none |
-| Bredgården (Västra Götalands län, Ulricehamn) | 291 | 303 | 302 | 290 | 12 | none |
-| Tjærby (Randers Municipality) | 292 | 290 | 296 | 311 | 19 | none |
-| Romback (Västernorrlands län, Ånge) | 293 | 294 | 285 | 299 | 8 | none |
-| Hemmeshøj (Zealand) | 294 | 295 | 298 | 294 | 4 | none |
-| Slusegård (Bornholms Sønder) | 295 | 291 | 297 | 312 | 17 | none |
-| Gorla (Stockholms län, Norrtälje) | 296 | 296 | 299 | 295 | 3 | none |
-| Rislev (Zealand) | 297 | 297 | 301 | 297 | 4 | none |
-| Firse sten (Västra Götalands län, Falköping, Falbygden) | 298 | 308 | 309 | 292 | 11 | none |
-| Rjoa, Sola (Western Norway/ Rogland) | 299 | 309 | 310 | 293 | 11 | none |
-| Bogevej (Langeland Region) | 300 | 293 | 300 | 327 | 27 | none |
-| Grøfte (Zealand Region) | 301 | 313 | 318 | 296 | 17 | none |
-| Frösön (Jämtlands län, Östersund) | 302 | 311 | 289 | 303 | 13 | none |
-| Espe (Zealand) | 303 | 301 | 305 | 306 | 3 | none |
-| Arnestad store (24/1) (Nor South, Hedmark, Åmot) | 304 | 302 | 306 | 307 | 3 | none |
-| Over Vindinge (Zealand/ Region Hovedstaden) | 305 | 298 | 303 | 315 | 10 | none |
-| Sillvik (Västra Götalands län, Gothenburg) | 306 | 319 | 322 | 298 | 16 | none |
-| Øbjergaard (Zealand) | 307 | 299 | 304 | 318 | 11 | none |
-| Blæsenborgvej (Zealand) | 308 | 321 | 323 | 300 | 15 | none |
-| Hälsingland (Gävleborgs län, Hudiksvall) | 309 | 315 | 290 | 309 | 19 | none |
-| Skåne (Gävleborgs län, Hudiksvall) | 310 | 316 | 291 | 308 | 19 | none |
-| Vendel (Uppsala) | 311 | 322 | 325 | 301 | 14 | none |
-| Hedegaard (Jutland Region, Bislev) | 312 | 324 | 326 | 302 | 14 | none |
-| Fauskland (Central Norway/ Hitra, Trøndelag) | 313 | 323 | 293 | 310 | 20 | none |
-| Læsten Mose (Jutland Region) | 314 | 326 | 330 | 304 | 16 | none |
-| Hundstrup Mose (Zealand Region) | 315 | 304 | 308 | 317 | 11 | none |
-| Evensås (Västra Götalands län, Uddevalla) | 316 | 327 | 331 | 305 | 15 | none |
-| Øsjergaard (Zealand) | 317 | 305 | 317 | 321 | 12 | none |
-| Koed (Jutland Region) | 318 | 307 | 319 | 314 | 11 | none |
-| Bulbjerg (Jutland) | 319 | 300 | 307 | 360 | 41 | none |
-| Kolind (Jutland Region) | 320 | 310 | 320 | 316 | 10 | none |
-| Borreby (Zealand Region) | 321 | 312 | 324 | 320 | 9 | none |
-| Skovgårde (Zealand/ Bårse) | 322 | 306 | 321 | 342 | 20 | none |
-| Arnestad lille (25/1) (Nor South, Hedmark, Åmot) | 323 | 332 | 338 | 313 | 15 | none |
-| Vester Egesborg (Zealand) | 324 | 314 | 327 | 328 | 10 | none |
-| Ertebølle (Jutland Region) | 325 | 317 | 328 | 329 | 8 | none |
-| Næstved Mark (Zealand) | 326 | 318 | 329 | 330 | 8 | none |
-| Orehoved Sejlrende (Falster Region) | 327 | 320 | 332 | 331 | 7 | none |
-| Magleø (Zealand Region) | 328 | 333 | 340 | 319 | 12 | none |
-| Tybrind Vig (Funen Region) | 329 | 334 | 341 | 322 | 12 | none |
-| Bjørnsholm (Jutland Region) | 330 | 335 | 342 | 324 | 12 | none |
-| Skafterup Mark (Zealand) | 331 | 336 | 343 | 325 | 12 | none |
-| Gjerrild Cist (Eastern Jutland, Djursland) | 332 | 325 | 334 | 336 | 7 | none |
-| Lundby-Falster (Falster Region) | 333 | 328 | 335 | 340 | 7 | none |
-| Sdr. Trander, Aalborg (Jutland) | 334 | 329 | 336 | 343 | 9 | none |
-| Broskov (Zealand) | 335 | 330 | 337 | 348 | 13 | none |
-| Sdr. Tostrup (Sønder Tåstrup) (Falsters Nørre) | 336 | 331 | 339 | 353 | 17 | none |
-| Havnø (Jutland Region) | 337 | 337 | 349 | 332 | 12 | none |
-| Borse (Zealand Region) | 338 | 338 | 350 | 333 | 12 | none |
-| Nederst (Jutland Region) | 339 | 339 | 351 | 334 | 12 | none |
-| Hammer Strandhuse (Zealand) | 340 | 340 | 352 | 335 | 12 | none |
-| Strøby Grøftemar (Zealand Region) | 341 | 341 | 353 | 337 | 12 | none |
-| Fannerup F (Jutland Region) | 342 | 342 | 354 | 338 | 12 | none |
-| Fannerup D (Jutland Region) | 343 | 343 | 355 | 339 | 12 | none |
-| Fannerup E (Jutland Region) | 344 | 344 | 356 | 341 | 12 | none |
-| Vittrup (Jutland Region) | 345 | 345 | 357 | 344 | 12 | none |
-| Rønsten (Jutland Region) | 346 | 346 | 368 | 345 | 22 | none |
-| Kongsted_Lyng_(Store_Lyng) (Zealand) | 347 | 347 | 370 | 347 | 23 | none |
-| Køge Sønakke (Zealand Region) | 348 | 348 | 369 | 346 | 21 | none |
-| Toksværd By (Zealand) | 349 | 349 | 371 | 349 | 22 | none |
-| Skyttemarksvej (Zealand) | 350 | 350 | 372 | 350 | 22 | none |
-| Sølager (Zealand Region) | 351 | 351 | 373 | 351 | 22 | none |
-| Neder Vindinge (Zealand) | 352 | 352 | 374 | 352 | 22 | none |
-| Assistens Kirkegård (Zealand/ Sokkelund) | 353 | 393 | 446 | 323 | 93 | none |
-| Kainsbakke II (Jutland Region) | 354 | 353 | 375 | 354 | 21 | none |
-| Bårse (Zealand/ Bårse) | 355 | 354 | 376 | 355 | 21 | none |
-| Vendsyssel_(Holger_Friis_kaelder) (Jutland) | 356 | 355 | 377 | 356 | 21 | none |
-| Borremose (Falsters Nørre) | 357 | 356 | 378 | 357 | 21 | none |
-| Sørup Sø (Sørup Mose) (Falsters Nørre) | 358 | 357 | 379 | 358 | 21 | none |
-| Stenderup Hage (Funen Region) | 359 | 358 | 380 | 359 | 21 | none |
-| Lauritshoej (Jutland) | 360 | 359 | 381 | 361 | 21 | none |
-| Oustrup (Tåderup mose) (Fasters Nørre) | 361 | 360 | 382 | 362 | 21 | none |
+| Gökhem (Västra Götalands län, Falköping) | 5 | 5 | 5 | 7 | 2 | none |
+| Varnhem (Västra Götalands län, Skara) | 6 | 11 | 17 | 6 | 11 | none |
+| Frojel (Gotlands län, Gotland) | 7 | 17 | 29 | 5 | 22 | none |
+| Bakkendrup (Zealand Region) | 8 | 15 | 24 | 9 | 16 | none |
+| Stora-Karlsö (Gotlands län, Gotland) | 9 | 23 | 42 | 8 | 33 | none |
+| Ahlgade 15-17 (Holbæk) | 10 | 7 | 9 | 27 | 17 | none |
+| Simonsborg (Zealand/ Alsted) | 11 | 18 | 27 | 10 | 16 | none |
+| Oland | 12 | 20 | 33 | 11 | 21 | none |
+| Albäcksbacken Maglarp (Southern Sweden/ Skåne) | 13 | 19 | 28 | 12 | 15 | none |
+| Karda (Jönköpings län, Värnamo) | 14 | 9 | 11 | 23 | 9 | none |
+| Lillevasby (Zealand) | 15 | 10 | 12 | 28 | 13 | none |
+| Kopenhagen (Zealand Region) | 16 | 13 | 18 | 25 | 9 | none |
+| Galgedil (Funen Region) | 17 | 6 | 6 | 52 | 35 | none |
+| Mosede Fort (Zealand) | 18 | 8 | 7 | 37 | 19 | none |
+| Kopparsvik (Gotlands län, Gotland) | 19 | 28 | 47 | 14 | 28 | none |
+| Sandby Borg (Kalmar län, Mörbylånga) | 20 | 30 | 48 | 19 | 28 | none |
+| Ansarve (Gotland County, Tofta area) | 21 | 31 | 50 | 18 | 29 | none |
+| Kronan (Kalmar län, Mörbylånga) | 22 | 29 | 45 | 21 | 23 | none |
+| Karlstrup (Sjælland, Solrød) | 23 | 16 | 16 | 44 | 21 | none |
+| Sigtuna, church 1 (St Gertrud) | 24 | 33 | 49 | 29 | 25 | none |
+| Hunnebostrand (Västra Götaland County, Sotenäs Municipality) | 25 | 12 | 8 | 15 | 17 | none |
+| Henriksholm-Bøgebakken (Zealand Region, Vedbæk) | 26 | 39 | 52 | 24 | 26 | none |
+| Lejre (Zealand Region) | 27 | 25 | 30 | 32 | 5 | none |
+| Alken_Enge (Jutland) | 28 | 38 | 54 | 40 | 26 | none |
+| Lundbjerggård (Zealand/ Region Hovedstaden) | 29 | 21 | 22 | 48 | 19 | none |
+| Vindinge Vest I&II (Zealand/ Region Hovedstaden) | 30 | 22 | 23 | 50 | 20 | none |
+| Gerdrup (Zealand Region) | 31 | 27 | 25 | 33 | 6 | none |
+| Hindby mosse (Skåne län, Malmö) | 32 | 53 | 72 | 13 | 40 | none |
+| Regnemark (Zealand) | 33 | 24 | 19 | 47 | 14 | none |
+| Trelleborg (Zealand) | 34 | 35 | 44 | 67 | 33 | none |
+| Hesselbjerg (Jutland Region) | 35 | 40 | 51 | 64 | 29 | none |
+| Skien nor (Nor South, Vestfold og Telemark, Telemark) | 36 | 26 | 21 | 54 | 18 | none |
+| Asnæs (Zealand) | 37 | 45 | 57 | 72 | 35 | none |
+| Olljso (Skåne län, Kristianstad) | 38 | 60 | 79 | 17 | 41 | none |
+| Ajvide Settlement (Gotland, Eksta) | 39 | 61 | 83 | 20 | 44 | none |
+| Stålmosegård (Zealand) | 40 | 36 | 31 | 55 | 15 | none |
+| Sanddal (Zealand) | 41 | 37 | 32 | 58 | 17 | none |
+| Holma (Västra Götalands län, Falköping, Falbygden) | 42 | 43 | 13 | 30 | 29 | none |
+| Ljungbacka (Skåne län, Vellinge) | 43 | 64 | 75 | 16 | 32 | none |
+| Assleröd (Western Sweden/ Bohuslän) | 44 | 44 | 14 | 31 | 30 | none |
+| Tollemosegard (Zealand Region) | 45 | 42 | 38 | 63 | 18 | none |
+| Alsike (Uppsala län, Knivsta) | 46 | 52 | 70 | 51 | 24 | none |
+| Sigtuna, cemetery 1 (Nunnnan) | 47 | 54 | 76 | 45 | 29 | none |
+| Sigtuna, cemetery 4 (Bensinst ) | 48 | 55 | 77 | 46 | 29 | none |
+| Ängamöllan (Skåne län, Kristianstad) | 49 | 76 | 101 | 22 | 52 | none |
+| Bergen | 50 | 32 | 35 | 167 | 117 | none |
+| Abekås I (Skåne County, Skurup Municipality) | 51 | 72 | 93 | 26 | 42 | none |
+| Dragsholm (Zealand Region) | 52 | 49 | 58 | 70 | 18 | none |
+| SOEL_964_Engbjerg (Zealand) | 53 | 47 | 40 | 60 | 13 | none |
+| Skongeneshelleren (Western Norway/ Sogn and Fjordane) | 54 | 34 | 37 | 184 | 130 | none |
+| Ribe (Jutland Region) | 55 | 14 | 10 | 212 | 157 | none |
+| Rude (Jutland Region) | 56 | 48 | 34 | 69 | 22 | none |
+| Sigtuna, mass grave (St Lars) | 57 | 75 | 100 | 56 | 43 | none |
+| Toftum Mose (Jutland Region) | 58 | 65 | 84 | 83 | 26 | none |
+| Rantzausminde (Funen Region) | 59 | 74 | 96 | 62 | 37 | none |
+| Værebro Å, Snydebro (Zealand) | 60 | 62 | 64 | 61 | 4 | none |
+| Landledgård (Zealand) | 61 | 57 | 63 | 91 | 30 | none |
+| Fraugde (Zealand) | 62 | 63 | 59 | 77 | 15 | none |
+| Mosede Mose (Zealand Region) | 63 | 50 | 39 | 92 | 29 | none |
+| Kalmargården (Zealand) | 64 | 79 | 108 | 59 | 44 | none |
+| Gl Lejre (Zealand Region) | 65 | 66 | 69 | 76 | 11 | none |
+| Hvidovre (Zealand) | 66 | 67 | 67 | 81 | 15 | none |
+| Hummervikholmen (Agder, Søgne nor) | 67 | 70 | 80 | 99 | 32 | none |
+| Hessum (Funen Region) | 68 | 41 | 15 | 162 | 94 | none |
+| Skomsta (Uppsala län, Uppsala) | 69 | 83 | 118 | 66 | 49 | none |
+| L Beddinge 56 (Skåne län, Trelleborg) | 70 | 141 | 172 | 34 | 102 | none |
+| Dösemarken (Skåne län, Malmö) | 71 | 146 | 177 | 36 | 106 | none |
+| Sigtuna, cemetery 3 (Kållandet) | 72 | 86 | 132 | 68 | 60 | none |
+| Kastanjegården (Skåne län, Malmö) | 73 | 150 | 181 | 35 | 108 | none |
+| Tværvejen etape III, Asperup sogn sb nr 56, Båg Herred, Odense Amt (Funen) | 74 | 78 | 56 | 75 | 18 | none |
+| Ängdala (Skåne län, Malmö) | 75 | 153 | 188 | 38 | 113 | none |
+| Oxie 7 (Skåne län, Vellinge) | 76 | 155 | 190 | 39 | 114 | none |
+| Fredriksberg (Skåne län, Malmö) | 77 | 159 | 193 | 41 | 116 | none |
+| Höja gård (Southern Sweden/ Skåne) | 78 | 156 | 189 | 42 | 111 | none |
+| Skateholm-1 (Skåne län, Trelleborg) | 79 | 152 | 184 | 43 | 105 | none |
+| Illerup_weapon_sacrifice_site (Jutland) | 80 | 87 | 131 | 78 | 51 | none |
+| Bergsgraven (Östergötlands län, Linköping) | 81 | 93 | 156 | 73 | 75 | none |
+| Døjringe (Zealand Region) | 82 | 133 | 162 | 53 | 80 | none |
+| Vattenledningen (Skåne län, Vellinge) | 83 | 160 | 194 | 49 | 111 | none |
+| Kaarebjerg Agre, Tørslev Hage, Gerlev Sogn (Zealand) | 84 | 77 | 78 | 101 | 17 | none |
+| Vor Frue Kirkegård (Aalborg) | 85 | 56 | 71 | 232 | 147 | none |
+| Tissøe (Zealand Region) | 86 | 151 | 174 | 57 | 88 | none |
+| Strandby (Jutland) | 87 | 69 | 41 | 119 | 46 | none |
+| Nygaard_Mose (Jutland) | 88 | 73 | 43 | 118 | 45 | none |
+| Kyndelöse (Sjælland, Lejre) | 89 | 80 | 99 | 105 | 16 | none |
+| Varpelev (Zealand) | 90 | 46 | 20 | 202 | 112 | none |
+| Ruds Vedby (Zealand/ Holbæk, Løve,) | 91 | 143 | 160 | 65 | 69 | none |
+| Bogøvej (Langelands Sønder) | 92 | 58 | 73 | 236 | 144 | none |
+| Gannor (Gotlands län, Gotland) | 93 | 139 | 155 | 71 | 62 | none |
+| Ringsaker nor (Nor South, Innlandet, Hedmark) | 94 | 71 | 65 | 158 | 64 | none |
+| Kirkebakkegård (Zealand) | 95 | 100 | 91 | 90 | 5 | none |
+| Værløse (Alugod) (Zealand/ Smørum) | 96 | 105 | 102 | 93 | 9 | none |
+| Højstrupvej (Funen/ Odense) | 97 | 110 | 103 | 97 | 13 | none |
+| Lillestrand, Bogense sb 21 (Funen) | 98 | 85 | 66 | 124 | 32 | none |
+| Almager (Zealand) | 99 | 111 | 104 | 100 | 12 | none |
+| Højgård (Zealand) | 100 | 115 | 115 | 94 | 15 | none |
+| Alpegard (Zealand) | 101 | 117 | 116 | 95 | 16 | none |
+| Sigersdal Mose (Zealand Region) | 102 | 118 | 117 | 98 | 16 | none |
+| Sondrup Østergaard, Ulstrup sogn (Jutland) | 103 | 89 | 126 | 148 | 45 | none |
+| Bengtstorp (Oland) | 104 | 197 | 220 | 74 | 116 | none |
+| Egedal Mose (Zealand) | 105 | 114 | 107 | 104 | 9 | none |
+| Fårevejlegård (Funen) | 106 | 95 | 143 | 137 | 37 | none |
+| Norsminde (Jutland Region) | 107 | 101 | 92 | 120 | 15 | none |
+| Roskilde Fjord (south of Jyllinge) (Zealand Region) | 108 | 113 | 106 | 112 | 5 | none |
+| Mörbylånga (Oland) | 109 | 206 | 227 | 80 | 118 | none |
+| Sörby_Störlinge (Oland) | 110 | 209 | 228 | 79 | 118 | none |
+| Jorløse Mose (Zealand Region) | 111 | 184 | 202 | 85 | 91 | none |
+| Sperrestrup (Zealand) | 112 | 116 | 110 | 114 | 4 | none |
+| Vedbaek Boldbaner (Zealand Region) | 113 | 186 | 203 | 86 | 90 | none |
+| Stenlille (Zealand) | 114 | 174 | 187 | 88 | 73 | none |
+| Kirkebjerggaard (Zealand) | 115 | 131 | 138 | 103 | 23 | none |
+| Hove A (Zealand Region) | 116 | 124 | 122 | 107 | 9 | none |
+| Viby (Skåne län, Kristianstad) | 117 | 211 | 229 | 82 | 112 | none |
+| Kragehave Odetofter (Zealand Region) | 118 | 104 | 94 | 127 | 24 | none |
+| Engbjerg (Zealand/ Smørum) | 119 | 106 | 95 | 129 | 24 | none |
+| Hablingbo Havor (Gotlands län, Gotland) | 120 | 205 | 218 | 84 | 98 | none |
+| Jørlundegard (Zealand Region) | 121 | 120 | 112 | 122 | 9 | none |
+| Gadevang Mose (Zealand) | 122 | 147 | 144 | 106 | 25 | none |
+| Kalvehavegaard (Funen) | 123 | 68 | 68 | 230 | 107 | none |
+| Eksta Kvie (Gotlands län, Gotland) | 124 | 212 | 232 | 87 | 108 | none |
+| Ubby (Zealand) | 125 | 188 | 201 | 89 | 76 | none |
+| Sigersdal Mose 2 (Zealand Region) | 126 | 134 | 134 | 116 | 10 | none |
+| Viksø Mose (Zealand Region) | 127 | 149 | 146 | 110 | 22 | none |
+| Bredebjerggård 8 (Zealand/ Smørum) | 128 | 112 | 97 | 150 | 31 | none |
+| Vester Klodske (Jutland/ Venneberg) | 129 | 90 | 74 | 173 | 55 | none |
+| Ladby (Funen Region) | 130 | 51 | 26 | 223 | 104 | none |
+| Sejlsbjerg (Zealand/ Smørum) | 131 | 122 | 109 | 142 | 22 | none |
+| Ravnsbjerggard II (Zealand Region) | 132 | 163 | 167 | 109 | 35 | none |
+| Rolund (Funen/ Odense) | 133 | 165 | 168 | 111 | 35 | none |
+| Hastrup (Zealand) | 134 | 99 | 81 | 171 | 53 | none |
+| Allerslev (Zealand) | 135 | 138 | 133 | 132 | 3 | none |
+| Alsted (Zealand) | 136 | 173 | 175 | 113 | 39 | none |
+| Trekroner-Grydehøj (Zealand) | 137 | 129 | 128 | 140 | 9 | none |
+| Marbjerg (Sjælland, Roskilde) | 138 | 128 | 127 | 141 | 11 | none |
+| Landlystvej (Zealand) | 139 | 137 | 130 | 136 | 9 | none |
+| Maderne (Zealand) | 140 | 194 | 209 | 102 | 69 | none |
+| Mellemholm (Jutland/ Hornum) | 141 | 82 | 98 | 211 | 70 | none |
+| Gerlev STR. Vej 10 Indiv 1 MFG 114/97 (Zealand) | 142 | 107 | 89 | 169 | 53 | none |
+| Gerlev STR. Vej 10 Indiv 2 MFG 114/97 (Zealand) | 143 | 108 | 90 | 170 | 53 | none |
+| Brondsager Torsiinre (Zealand Region) | 144 | 123 | 113 | 156 | 31 | none |
+| Kyndby (Zealand) | 145 | 126 | 119 | 153 | 26 | none |
+| Klokkehøj (Funen Region) | 146 | 182 | 192 | 108 | 46 | none |
+| Tysmose (Zealand Region) | 147 | 158 | 153 | 128 | 19 | none |
+| Lilla_Smedby (Oland) | 148 | 217 | 238 | 96 | 90 | none |
+| Vibygards Mose (Zealand Region) | 149 | 142 | 135 | 143 | 14 | none |
+| Nørrebjerg (Funen) | 150 | 144 | 137 | 145 | 13 | none |
+| Kildehus (Zealand) | 151 | 127 | 121 | 155 | 30 | none |
+| Trekroner-Grydehej (Zealand Region) | 152 | 135 | 129 | 151 | 23 | none |
+| Storelyng (Østrup Homo II) (Zealand Region) | 153 | 190 | 197 | 115 | 44 | none |
+| Gevninge Overdrev (Zealand) | 154 | 157 | 150 | 149 | 5 | none |
+| Storelyng (Øgarde boat III) (Zealand) | 155 | 191 | 198 | 117 | 43 | none |
+| Ølby (Zealand) | 156 | 102 | 86 | 188 | 70 | none |
+| Sdr.Tranders (Jutland/ Aalborg) | 157 | 94 | 140 | 210 | 63 | none |
+| Fullero (Uppsala län, Uppsala) | 158 | 198 | 208 | 123 | 50 | none |
+| Store Grandløse (Zealand) | 159 | 178 | 178 | 144 | 19 | none |
+| Egebjerg (Zealand) | 160 | 109 | 149 | 197 | 51 | none |
+| Bilidt (Zealand) | 161 | 136 | 123 | 181 | 38 | none |
+| Aamosen-Gammelvind (Zealand) | 162 | 199 | 205 | 131 | 43 | none |
+| Sala (Västmanlands län, Sala) | 163 | 203 | 206 | 133 | 43 | none |
+| Sandlyngmose (Zealand) | 164 | 204 | 207 | 134 | 43 | none |
+| Sigtuna, cemetery 2 (Kålsängen) | 165 | 222 | 234 | 121 | 69 | none |
+| Rosenaeen (Sjaelland) | 166 | 154 | 141 | 177 | 25 | none |
+| Salpetermosen syd 8 (Zealand Region) | 167 | 177 | 170 | 161 | 10 | none |
+| Madesø (Zealand Region) | 168 | 216 | 219 | 130 | 51 | none |
+| Strandlunden II Gerlev MFG 191/02 (Zealand) | 169 | 140 | 125 | 187 | 44 | none |
+| Sigtuna (Stockholms län, Upplands-Bro) | 170 | 225 | 236 | 126 | 66 | none |
+| Norrsunda (Stockholms län, Sigtuna) | 171 | 232 | 240 | 125 | 69 | none |
+| Neverkær Mose Høgholm (Funen/ Båg) | 172 | 187 | 183 | 163 | 15 | none |
+| Alken Enge (Jutland Region) | 173 | 224 | 231 | 138 | 58 | none |
+| Haraldsted (Zealand) | 174 | 200 | 199 | 159 | 26 | none |
+| Tveje Merløse (Zealand) | 175 | 201 | 200 | 160 | 26 | none |
+| Skregeskov (Funen/ Hillerslev) | 176 | 214 | 214 | 152 | 38 | none |
+| Tybjerg Mose (Zealand) | 177 | 220 | 224 | 146 | 47 | none |
+| Kongemose (Zealand Region) | 178 | 228 | 235 | 139 | 57 | none |
+| Gedebjerg (Zealand) | 179 | 215 | 215 | 154 | 36 | none |
+| Neverkær Mose (Funen Region) | 180 | 189 | 186 | 168 | 12 | none |
+| Vanløse Mose (Zealand Region) | 181 | 192 | 195 | 165 | 16 | none |
+| Lollikehuse (Zealand Region) | 182 | 171 | 163 | 183 | 19 | none |
+| Lille Bjerggård, Sønderholm (Jutland/ Aalborg) | 183 | 181 | 173 | 176 | 10 | none |
+| Bodal K (Zealand Region) | 184 | 230 | 237 | 147 | 53 | none |
+| Strøby (Avlebjerg) | 185 | 84 | 85 | 216 | 101 | none |
+| Lovö (Stockholms län, Ekerö) | 186 | 239 | 262 | 135 | 76 | none |
+| Bøgebjerggård, Røstofte (Zealand/ Bårse) | 187 | 119 | 158 | 206 | 68 | none |
+| Koelbjerg (Funen Region) | 188 | 221 | 221 | 157 | 33 | none |
+| Regstrup (Funen/ Odense) | 189 | 185 | 179 | 185 | 10 | none |
+| Museums garden (Jutland) | 190 | 208 | 204 | 172 | 18 | none |
+| Hørby Skov (Zealand) | 191 | 193 | 191 | 179 | 12 | none |
+| Gammel Hasseris Grusgrav (Jutland) | 192 | 219 | 217 | 164 | 28 | none |
+| Føre 1 (Northern Norway/ Nordland) | 193 | 59 | 36 | 243 | 157 | none |
+| Skivum VI (Jutland) | 194 | 213 | 212 | 174 | 20 | none |
+| Mandemarke Bakker (Zealand) | 195 | 167 | 147 | 192 | 48 | none |
+| Mandemarke (Mön Region) | 196 | 166 | 148 | 193 | 48 | none |
+| Enbacken (Örebro län, Örebro) | 197 | 233 | 233 | 166 | 36 | none |
+| Baunehøj (Zealand) | 198 | 202 | 196 | 189 | 9 | none |
+| Tollestrup_Mose (Jutland) | 199 | 92 | 120 | 233 | 107 | none |
+| Skole Samling (Jutland) | 200 | 226 | 222 | 178 | 26 | none |
+| Svinninge Vejle (Zealand Region) | 201 | 227 | 225 | 180 | 26 | none |
+| Dalmosegaard (Møn Region) | 202 | 168 | 151 | 199 | 51 | none |
+| Maglebjerghøj (Zealand) | 203 | 169 | 152 | 200 | 51 | none |
+| Engeldrup Bro, Melby Sb 19 (Funen) | 204 | 148 | 124 | 204 | 80 | none |
+| Scheelsminde (Jutland/ Aalborg) | 205 | 229 | 226 | 182 | 24 | none |
+| Bybjerg (Zealand Region) | 206 | 183 | 169 | 194 | 37 | none |
+| Varpelev Vest (Zealand) | 207 | 81 | 46 | 227 | 161 | none |
+| Illemose (Funen) | 208 | 121 | 154 | 215 | 87 | none |
+| Sasta (Stockholms län, Täby) | 209 | 245 | 272 | 175 | 63 | none |
+| Lohals (Langeland Region) | 210 | 240 | 254 | 186 | 44 | none |
+| Borre_Enge (Moen) | 211 | 180 | 159 | 205 | 52 | none |
+| Hyldebjerg, Vaarst (Jutland/ Aalborg) | 212 | 125 | 161 | 218 | 87 | none |
+| Langdyssegård (Zealand) | 213 | 195 | 180 | 203 | 33 | none |
+| Tanderup | 214 | 243 | 260 | 190 | 46 | none |
+| Keldeklinte_Mose (Zealand) | 215 | 238 | 239 | 191 | 24 | none |
+| Sønderup XI (Jutland) | 216 | 234 | 223 | 198 | 18 | none |
+| Læbrogård (Zealand) | 217 | 164 | 136 | 213 | 81 | none |
+| Glerup (Jutland) | 218 | 130 | 166 | 228 | 88 | none |
+| Sludegaard Sømose (Funen) | 219 | 246 | 269 | 195 | 50 | none |
+| Sludegard Sømose (Funen Region) | 220 | 247 | 270 | 196 | 50 | none |
+| Forlev \Forlev I\"" (Zealand/ Sorø) | 221 | 231 | 213 | 207 | 14 | none |
+| Barup Sandgrav (Zealand) | 222 | 175 | 142 | 217 | 80 | none |
+| Stokke (79/1) (Nordland, Tjelsund) | 223 | 88 | 53 | 240 | 170 | none |
+| Gammelbyn Börstil (Uppsala län, Östhammar) | 224 | 258 | 279 | 201 | 55 | none |
+| Hamar nor (Nor South, Innlandet, Hedmark) | 225 | 179 | 145 | 221 | 80 | none |
+| Stubberup, Oue sogn (Jutland) | 226 | 242 | 242 | 208 | 18 | none |
+| Bygholm Nørremark (Jutland Region) | 227 | 244 | 243 | 209 | 18 | none |
+| Jarlsberg Herregaard (Southern Norway/ Vestfold) | 228 | 91 | 55 | 244 | 173 | none |
+| Korsør Nor (Zealand Region) | 229 | 103 | 111 | 249 | 126 | none |
+| Lejrhøje (Jutland) | 230 | 132 | 157 | 242 | 98 | none |
+| Lund, Namsos M (Central Norway/ Trøndelag) | 231 | 96 | 60 | 252 | 171 | none |
+| Nymarksgaard (Funen) | 232 | 97 | 61 | 253 | 171 | none |
+| Solsem (Central Norway/ Leka, Trøndelag) | 233 | 98 | 62 | 254 | 171 | none |
+| Borritshoved (Zealand/ Broskov) | 234 | 145 | 164 | 246 | 89 | none |
+| Hyllebjerg X (Jutland) | 235 | 241 | 230 | 219 | 16 | none |
+| Mærkebækgård Syd (Zealand) | 236 | 236 | 210 | 226 | 26 | none |
+| Stengade I (Langeland Region) | 237 | 264 | 278 | 214 | 41 | none |
+| Vasagard (Bornholm) | 238 | 162 | 114 | 241 | 124 | none |
+| Vilsted Sogn IX (Jutland) | 239 | 248 | 248 | 222 | 17 | none |
+| Sebber skole | 240 | 237 | 211 | 231 | 29 | none |
+| Falshöj (Nordjylland, Mariagerfjord) | 241 | 251 | 263 | 220 | 22 | none |
+| Sæsing (Jutland) | 242 | 207 | 165 | 237 | 77 | none |
+| Aastofte (Zealand) | 243 | 254 | 267 | 224 | 24 | none |
+| Lekkende (Zealand) | 244 | 250 | 255 | 225 | 19 | none |
+| Porsmose (Zealand Region) | 245 | 252 | 259 | 229 | 16 | none |
+| Næs (Falster Region) | 246 | 249 | 244 | 235 | 11 | none |
+| Eksercérpladsen (Zealand/ Bårse) | 247 | 257 | 266 | 234 | 19 | none |
+| Barhøj (Zealand Region, Strøby Egede) | 248 | 218 | 171 | 245 | 77 | none |
+| Strøby Ladeplads (Zealand Region) | 249 | 223 | 176 | 248 | 73 | none |
+| Kumle Høje (Langelands Sønder) | 250 | 172 | 182 | 269 | 78 | none |
+| Græsbjerg (Zealand/ Bårse) | 251 | 265 | 271 | 238 | 20 | none |
+| Smidie (Jutland/ Hellum) | 252 | 256 | 256 | 239 | 13 | none |
+| Hellevad (Jutland) | 253 | 196 | 139 | 264 | 114 | none |
+| Hestehavens mose (Jutland) | 254 | 235 | 185 | 256 | 69 | none |
+| Grønhøjgård, Vaarst (Jutland/ Aalborg) | 255 | 266 | 265 | 247 | 11 | none |
+| Tudse Hage (Zealand Region) | 256 | 253 | 241 | 255 | 15 | none |
+| Nr. Hedegård (Jutland/ Fleskum) | 257 | 274 | 275 | 250 | 18 | none |
+| Bøgebjerg (Zealand) | 258 | 275 | 277 | 251 | 19 | none |
+| Lygtebæk (Jutland) | 259 | 259 | 245 | 257 | 14 | none |
+| Vibsig Mose (Jutland) | 260 | 260 | 246 | 258 | 14 | none |
+| Juellinge (Lolland/ Juellinge) | 261 | 261 | 247 | 259 | 14 | none |
+| Vendsyssel_Svennum (Jutland) | 262 | 262 | 249 | 260 | 13 | none |
+| Stistrup kær VII (Jutland) | 263 | 263 | 251 | 263 | 12 | none |
+| Kornum Bro (Jutland) | 264 | 267 | 252 | 265 | 12 | none |
+| Stenum (Jutland) | 265 | 268 | 253 | 266 | 12 | none |
+| Aalstrup, Mellergaard (Jutland) | 266 | 269 | 257 | 267 | 9 | none |
+| Endegaarde (Zealand) | 267 | 270 | 258 | 268 | 9 | none |
+| Romdrup, Christianshøj (Jutland/ Fleskum) | 268 | 276 | 273 | 261 | 8 | none |
+| Romdrupgård (Jutland/ Fleskum) | 269 | 277 | 274 | 262 | 8 | none |
+| Klæsterupholm Mose (Jutland Region) | 270 | 271 | 261 | 271 | 9 | none |
+| Pandebjerg (Zealand Region) | 271 | 279 | 276 | 270 | 8 | none |
+| Hestbek III (Jutland) | 272 | 272 | 264 | 272 | 8 | none |
+| Mors (Jutland) | 273 | 161 | 82 | 275 | 191 | none |
+| Vemmetofte Skovridergård (Zealand) | 274 | 273 | 268 | 273 | 6 | none |
+| Hamahus (Jutland/ Hornum) | 275 | 170 | 87 | 276 | 188 | none |
+| Langø Skaldynge (Funen Region) | 276 | 255 | 216 | 274 | 60 | none |
+| Vængesø II (Jutland Region) | 277 | 176 | 88 | 278 | 189 | none |
+| Balsnes (Northern Norway/ Troms) | 278 | 210 | 105 | 279 | 173 | none |
+| Vig Femhøve (Zealand Region) | 279 | 278 | 250 | 277 | 29 | none |
+| Falköping-5 (Västra Götalands län, Falköping) | 280 | 280 | 281 | 280 | 1 | none |
+| Västerbjers (Gotland, Gothem parish) | 281 | 281 | 283 | 282 | 2 | none |
+| Nästegården (Västra Götalands län, Falköping) | 282 | 282 | 284 | 283 | 2 | none |
+| Vasterhus (Jämtlands län, Östersund) | 283 | 283 | 280 | 286 | 3 | none |
+| Kanaljorden (Östergötlands län, Motala) | 284 | 284 | 285 | 284 | 1 | none |
+| Stora Förvar (Gotland, Eksta socken, Stora Karlsö) | 285 | 285 | 286 | 281 | 4 | none |
+| Hemmor (Gotland, När parish) | 286 | 286 | 291 | 285 | 5 | none |
+| Tjærby (Randers Municipality) | 287 | 287 | 292 | 308 | 21 | none |
+| Romback (Västernorrlands län, Ånge) | 288 | 290 | 282 | 296 | 8 | none |
+| Hemmeshøj (Zealand) | 289 | 291 | 294 | 290 | 5 | none |
+| Slusegård (Bornholms Sønder) | 290 | 288 | 293 | 309 | 19 | none |
+| Gorla (Stockholms län, Norrtälje) | 291 | 292 | 295 | 291 | 4 | none |
+| Hanaskede (Västra Götalands län, Skara) | 292 | 301 | 302 | 287 | 10 | none |
+| Rislev (Zealand) | 293 | 293 | 297 | 294 | 4 | none |
+| Bredgården (Västra Götalands län, Ulricehamn) | 294 | 304 | 305 | 288 | 11 | none |
+| Firse sten (Västra Götalands län, Falköping, Falbygden) | 295 | 305 | 306 | 289 | 11 | none |
+| Stora Bjers (Gotland, Stenkyrka) | 296 | 309 | 314 | 292 | 18 | none |
+| Bogevej (Langeland Region) | 297 | 289 | 296 | 324 | 27 | none |
+| Grøfte (Zealand Region) | 298 | 311 | 315 | 293 | 17 | none |
+| Frösön (Jämtlands län, Östersund) | 299 | 307 | 287 | 300 | 12 | none |
+| Espe (Zealand) | 300 | 297 | 300 | 303 | 3 | none |
+| Arnestad store (24/1) (Nor South, Hedmark, Åmot) | 301 | 298 | 301 | 304 | 3 | none |
+| Over Vindinge (Zealand/ Region Hovedstaden) | 302 | 294 | 298 | 312 | 10 | none |
+| Sillvik (Västra Götalands län, Gothenburg) | 303 | 317 | 319 | 295 | 16 | none |
+| Øbjergaard (Zealand) | 304 | 295 | 299 | 315 | 11 | none |
+| Blæsenborgvej (Zealand) | 305 | 319 | 320 | 297 | 15 | none |
+| Hälsingland (Gävleborgs län, Hudiksvall) | 306 | 313 | 288 | 306 | 18 | none |
+| Skåne (Gävleborgs län, Hudiksvall) | 307 | 314 | 289 | 305 | 18 | none |
+| Vendel (Uppsala) | 308 | 320 | 322 | 298 | 14 | none |
+| Hedegaard (Jutland Region, Bislev) | 309 | 322 | 324 | 299 | 15 | none |
+| Fauskland (Central Norway/ Hitra, Trøndelag) | 310 | 321 | 290 | 307 | 20 | none |
+| Læsten Mose (Jutland Region) | 311 | 324 | 328 | 301 | 17 | none |
+| Hundstrup Mose (Zealand Region) | 312 | 299 | 304 | 314 | 13 | none |
+| Evensås (Västra Götalands län, Uddevalla) | 313 | 325 | 329 | 302 | 16 | none |
+| Øsjergaard (Zealand) | 314 | 300 | 313 | 318 | 14 | none |
+| Koed (Jutland Region) | 315 | 303 | 316 | 311 | 12 | none |
+| Bulbjerg (Jutland) | 316 | 296 | 303 | 359 | 43 | none |
+| Kolind (Jutland Region) | 317 | 306 | 317 | 313 | 11 | none |
+| Borreby (Zealand Region) | 318 | 310 | 321 | 317 | 8 | none |
+| Skovgårde (Zealand/ Bårse) | 319 | 302 | 318 | 340 | 21 | none |
+| Arnestad lille (25/1) (Nor South, Hedmark, Åmot) | 320 | 331 | 337 | 310 | 17 | none |
+| Vester Egesborg (Zealand) | 321 | 312 | 325 | 325 | 9 | none |
+| Vik, Klepp (Western Norway/ Rogaland) | 322 | 308 | 323 | 332 | 14 | none |
+| Ertebølle (Jutland Region) | 323 | 315 | 326 | 326 | 8 | none |
+| Næstved Mark (Zealand) | 324 | 316 | 327 | 327 | 8 | none |
+| Orehoved Sejlrende (Falster Region) | 325 | 318 | 330 | 328 | 7 | none |
+| Magleø (Zealand Region) | 326 | 332 | 339 | 316 | 13 | none |
+| Tybrind Vig (Funen Region) | 327 | 333 | 340 | 319 | 13 | none |
+| Bjørnsholm (Jutland Region) | 328 | 334 | 341 | 321 | 13 | none |
+| Skafterup Mark (Zealand) | 329 | 335 | 342 | 322 | 13 | none |
+| Gjerrild Cist (Eastern Jutland, Djursland) | 330 | 323 | 332 | 334 | 7 | none |
+| Lundby-Falster (Falster Region) | 331 | 326 | 333 | 338 | 7 | none |
+| Skeie, Klepp (Western Norway/ Rogaland) | 332 | 327 | 334 | 341 | 9 | none |
+| Sdr. Trander, Aalborg (Jutland) | 333 | 328 | 335 | 342 | 9 | none |
+| Broskov (Zealand) | 334 | 329 | 336 | 347 | 13 | none |
+| Sdr. Tostrup (Sønder Tåstrup) (Falsters Nørre) | 335 | 330 | 338 | 352 | 17 | none |
+| Havnø (Jutland Region) | 336 | 336 | 348 | 329 | 12 | none |
+| Borse (Zealand Region) | 337 | 337 | 349 | 330 | 12 | none |
+| Nederst (Jutland Region) | 338 | 338 | 350 | 331 | 12 | none |
+| Hammer Strandhuse (Zealand) | 339 | 339 | 351 | 333 | 12 | none |
+| Strøby Grøftemar (Zealand Region) | 340 | 340 | 352 | 335 | 12 | none |
+| Fannerup F (Jutland Region) | 341 | 341 | 353 | 336 | 12 | none |
+| Fannerup D (Jutland Region) | 342 | 342 | 354 | 337 | 12 | none |
+| Fannerup E (Jutland Region) | 343 | 343 | 355 | 339 | 12 | none |
+| Vittrup (Jutland Region) | 344 | 344 | 356 | 343 | 12 | none |
+| Rønsten (Jutland Region) | 345 | 345 | 367 | 344 | 22 | none |
+| Kongsted_Lyng_(Store_Lyng) (Zealand) | 346 | 346 | 369 | 346 | 23 | none |
+| Køge Sønakke (Zealand Region) | 347 | 347 | 368 | 345 | 21 | none |
+| Toksværd By (Zealand) | 348 | 348 | 370 | 348 | 22 | none |
+| Skyttemarksvej (Zealand) | 349 | 349 | 371 | 349 | 22 | none |
+| Sølager (Zealand Region) | 350 | 350 | 372 | 350 | 22 | none |
+| Neder Vindinge (Zealand) | 351 | 351 | 373 | 351 | 22 | none |
+| Assistens Kirkegård (Zealand/ Sokkelund) | 352 | 393 | 446 | 320 | 94 | none |
+| Kainsbakke II (Jutland Region) | 353 | 352 | 374 | 353 | 21 | none |
+| Bårse (Zealand/ Bårse) | 354 | 353 | 375 | 354 | 21 | none |
+| Vendsyssel_(Holger_Friis_kaelder) (Jutland) | 355 | 354 | 376 | 355 | 21 | none |
+| Borremose (Falsters Nørre) | 356 | 355 | 377 | 356 | 21 | none |
+| Sørup Sø (Sørup Mose) (Falsters Nørre) | 357 | 356 | 378 | 357 | 21 | none |
+| Stenderup Hage (Funen Region) | 358 | 357 | 379 | 358 | 21 | none |
+| Lauritshoej (Jutland) | 359 | 358 | 380 | 360 | 21 | none |
+| Oustrup (Tåderup mose) (Fasters Nørre) | 360 | 359 | 381 | 361 | 21 | none |
+| Rjoa, Sola (Western Norway/ Rogland) | 361 | 360 | 382 | 362 | 21 | none |
 | Kumle hoje (Langeland Region) | 362 | 361 | 383 | 363 | 21 | none |
 | Nørre Vedby (Falsters Nørre) | 363 | 362 | 437 | 364 | 74 | none |
 | Elkenoere (Falster) | 364 | 363 | 438 | 365 | 74 | none |
 | Elkenøre (Falster Region) | 365 | 364 | 439 | 366 | 74 | none |
-| Kongens Nytorv (Zealand) | 366 | 412 | 447 | 326 | 81 | none |
+| Kongens Nytorv (Zealand) | 366 | 412 | 447 | 323 | 81 | none |
 | Aunvollen (Central Norway/ Trøndelag) | 367 | 365 | 440 | 367 | 73 | none |
 | Vigsnaes (Lolland) | 368 | 366 | 441 | 368 | 73 | none |
-| Finland, modern | 369 | 370 | 311 | 388 | 58 | none |
-| Kaagarden (Langeland Region) | 370 | 371 | 312 | 400 | 58 | none |
-| Kaagården (Langelands Sønder) | 371 | 372 | 313 | 401 | 58 | none |
-| Levanluhta (Isokyro) | 372 | 373 | 314 | 406 | 58 | none |
-| Public Library Site/Folkebibliotekstomten (Trondheim) | 373 | 374 | 315 | 416 | 58 | none |
-| Sund (Central Norway/ Trøndelag) | 374 | 375 | 316 | 430 | 58 | none |
+| Finland, modern | 369 | 370 | 307 | 388 | 62 | none |
+| Kaagarden (Langeland Region) | 370 | 371 | 308 | 400 | 62 | none |
+| Kaagården (Langelands Sønder) | 371 | 372 | 309 | 401 | 62 | none |
+| Levanluhta (Isokyro) | 372 | 373 | 310 | 406 | 62 | none |
+| Public Library Site/Folkebibliotekstomten (Trondheim) | 373 | 374 | 311 | 416 | 62 | none |
+| Sund (Central Norway/ Trøndelag) | 374 | 375 | 312 | 430 | 62 | none |
 | Trundholm Mose (Zealand/ Ods) | 375 | 368 | 442 | 369 | 67 | none |
 | Holmegard-Djursland (Jutland Region) | 376 | 369 | 443 | 370 | 67 | none |
-| Trundholm II (Sjælland, Odsherred) | 377 | 367 | 333 | 373 | 44 | none |
+| Trundholm II (Sjælland, Odsherred) | 377 | 367 | 331 | 373 | 46 | none |
 | Kavslunde Eng (Funen/ Vindinge) | 378 | 376 | 444 | 371 | 66 | none |
 | Gammellung (Langeland Region) | 379 | 377 | 445 | 372 | 66 | none |
-| Joa (Central Norway/ Trøndelag) | 380 | 378 | 344 | 398 | 36 | none |
-| Joa, Namsos M (Central Norway/ Trøndelag) | 381 | 379 | 345 | 399 | 36 | none |
-| Skjeggesnes (Northern Norway/ Nordland) | 382 | 380 | 346 | 424 | 42 | none |
-| Toldnes (Central Norway/ Trøndelag) | 383 | 381 | 347 | 433 | 50 | none |
-| Tomeide, Nesna M (Northern Norway/ Nordland) | 384 | 382 | 348 | 434 | 50 | none |
-| Bergvin (Central Norway/ Trøndelag) | 385 | 383 | 358 | 374 | 27 | none |
-| Bodkergarden (Langeland Region) | 386 | 384 | 359 | 377 | 27 | none |
-| Bødkergårds mark (Langelands Sønder) | 387 | 385 | 360 | 379 | 27 | none |
-| Eid (Central Norway/ Lines, Trøndelag) | 388 | 386 | 361 | 383 | 27 | none |
-| Jevnaker nor (Nor South, Viken, Oppland) | 389 | 387 | 362 | 397 | 27 | none |
-| Nord-Rollnes (Central Norway/ Trøndelag) | 390 | 388 | 363 | 412 | 27 | none |
-| Rønvik nedre (32/100, Rønvik) (Nordland, Bodø) | 391 | 389 | 364 | 419 | 28 | none |
-| Trygstad i Bø (188/10) (Troms, Tromsø, Tussøy) | 392 | 390 | 365 | 436 | 44 | none |
-| Tyrifjorden (Southern Norway/ Buskerud) | 393 | 391 | 366 | 438 | 45 | none |
-| Utsjoki | 394 | 392 | 367 | 440 | 46 | none |
+| Joa (Central Norway/ Trøndelag) | 380 | 378 | 343 | 398 | 37 | none |
+| Joa, Namsos M (Central Norway/ Trøndelag) | 381 | 379 | 344 | 399 | 37 | none |
+| Skjeggesnes (Northern Norway/ Nordland) | 382 | 380 | 345 | 424 | 42 | none |
+| Toldnes (Central Norway/ Trøndelag) | 383 | 381 | 346 | 433 | 50 | none |
+| Tomeide, Nesna M (Northern Norway/ Nordland) | 384 | 382 | 347 | 434 | 50 | none |
+| Bergvin (Central Norway/ Trøndelag) | 385 | 383 | 357 | 374 | 28 | none |
+| Bodkergarden (Langeland Region) | 386 | 384 | 358 | 377 | 28 | none |
+| Bødkergårds mark (Langelands Sønder) | 387 | 385 | 359 | 379 | 28 | none |
+| Eid (Central Norway/ Lines, Trøndelag) | 388 | 386 | 360 | 383 | 28 | none |
+| Jevnaker nor (Nor South, Viken, Oppland) | 389 | 387 | 361 | 397 | 28 | none |
+| Nord-Rollnes (Central Norway/ Trøndelag) | 390 | 388 | 362 | 412 | 28 | none |
+| Rønvik nedre (32/100, Rønvik) (Nordland, Bodø) | 391 | 389 | 363 | 419 | 28 | none |
+| Trygstad i Bø (188/10) (Troms, Tromsø, Tussøy) | 392 | 390 | 364 | 436 | 44 | none |
+| Tyrifjorden (Southern Norway/ Buskerud) | 393 | 391 | 365 | 438 | 45 | none |
+| Utsjoki | 394 | 392 | 366 | 440 | 46 | none |
 | Besser (Zealand Region) | 395 | 394 | 384 | 375 | 20 | none |
 | Bjoernstrupgaard (Zealand) | 396 | 395 | 385 | 376 | 20 | none |
 | Bomo, Snåsa M (Central Norway/Trøndelag) | 397 | 396 | 386 | 378 | 19 | none |

@@ -1,6 +1,69 @@
 # Animal point evidence review
 
-- Published point count: `151`
+- Published point count: `170`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-barchedisolferinonearmantova-italy
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-barguzinriverbaikal-russia
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-bedburgknigshoven-germany
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-borly4pavlodarregion-kazakhstan
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-grottadelluzzosicily-italy
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-gyumridistrict-armenia
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-herxheim-germany
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
 
 ## animal-atlas-feature:bos-taurus-locality-prjeb75467-hjrringtoftebk-denmark
 
@@ -29,7 +92,106 @@
 - Coordinate confidence: `approximate`
 - Sample rows: `1`
 
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-novoilinkavivi-russia
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `2`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-ocourelgalicia-spain
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `3`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-padova-italy
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-palidorolatium-italy
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-roshchinskoe-kazakhstan
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `2`
+
 ## animal-atlas-feature:bos-taurus-locality-prjeb75467-skne-sweden
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-trierbrderkrankenhaus-germany
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-tuladistrict-russia
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `1`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-upperrhinevalley-germany
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `3`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-varfolomeevka-russia
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `2`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-vratsa-bulgaria
+
+- Species: `Bos taurus`
+- Project accession: `PRJEB75467`
+- Paper DOI: `10.1038/s41586-024-08112-6`
+- Coordinate basis: `supplementary_proximal_site_coordinates`
+- Coordinate confidence: `approximate`
+- Sample rows: `2`
+
+## animal-atlas-feature:bos-taurus-locality-prjeb75467-yorkshire-britain
 
 - Species: `Bos taurus`
 - Project accession: `PRJEB75467`
@@ -226,6 +388,15 @@
 - Coordinate basis: `supplementary_table_coordinates`
 - Coordinate confidence: `exact`
 - Sample rows: `4`
+
+## animal-atlas-feature:capra-hircus-locality-prjeb90261-lobos-lobos
+
+- Species: `Capra hircus`
+- Project accession: `PRJEB90261`
+- Paper DOI: `10.1016/j.isci.2025.113771`
+- Coordinate basis: `supplementary_table_coordinates`
+- Coordinate confidence: `exact`
+- Sample rows: `17`
 
 ## animal-atlas-feature:capra-hircus-locality-prjeb90261-losriscosdeifara-tenerife
 

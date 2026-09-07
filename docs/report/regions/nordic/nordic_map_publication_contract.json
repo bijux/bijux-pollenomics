@@ -461,9 +461,9 @@
   },
   "animal_sample_chronology_context": {
     "artifact": "nordic_animal_sample_chronology_context.json",
-    "content_sha256": "591dcc7ee5d9227550ab5feb05840eca5aabbd4e75ebf2120ee218319c3c1868",
-    "input_identity_sha256": "699ba2f922552b6e292d1b981d09f707f5b93eeba0c120effb5cd0fa0065d6c2",
-    "corpus_identity_sha256": "a8706e0c8aa05e4cc759f53f79142105055c4b30c8270492b1b91cac55bc1a6d",
+    "content_sha256": "b3e7c260e12e871d4f27b6a894778283e347877dfeead9f05fc340368ac03785",
+    "input_identity_sha256": "5b220aa1bf9199d6001179f64aaf679e577f7936a585068c24e6ee370c17a2ab",
+    "corpus_identity_sha256": "dce6a8a6382d9a5f17d4b88330f0f879b010e38ade52e6deb51fe9346f8a62e7",
     "scope": {
       "key": "nordic",
       "kind": "region",
@@ -474,10 +474,10 @@
         "Denmark"
       ]
     },
-    "global_admitted_node_count": 531,
+    "global_admitted_node_count": 557,
     "projected_node_count": 14,
-    "excluded_by_scope_count": 517,
-    "refusal_count": 944,
+    "excluded_by_scope_count": 543,
+    "refusal_count": 918,
     "governed_country_rows": [
       {
         "country_name": "Denmark",

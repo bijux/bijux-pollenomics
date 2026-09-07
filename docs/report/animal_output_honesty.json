@@ -2,9 +2,9 @@
   "schema_version": "animal-output-honesty.v2",
   "totals": {
     "tracked_sample_count": 1450,
-    "mapped_sample_count": 288,
-    "blocked_sample_count": 1162,
-    "unresolved_sample_count": 90,
+    "mapped_sample_count": 331,
+    "blocked_sample_count": 1119,
+    "unresolved_sample_count": 402,
     "country_published_sample_count": 12
   },
   "rows": [
@@ -12,9 +12,9 @@
       "species_latin_name": "Bos taurus",
       "species_common_name": "cattle",
       "tracked_sample_count": 132,
-      "mapped_sample_count": 5,
-      "blocked_sample_count": 127,
-      "unresolved_sample_count": 62,
+      "mapped_sample_count": 31,
+      "blocked_sample_count": 101,
+      "unresolved_sample_count": 33,
       "country_published_sample_count": 5
     },
     {
@@ -39,8 +39,8 @@
       "species_latin_name": "Capra hircus",
       "species_common_name": "goat",
       "tracked_sample_count": 82,
-      "mapped_sample_count": 65,
-      "blocked_sample_count": 17,
+      "mapped_sample_count": 82,
+      "blocked_sample_count": 0,
       "unresolved_sample_count": 0,
       "country_published_sample_count": 0
     },
@@ -86,7 +86,7 @@
       "tracked_sample_count": 343,
       "mapped_sample_count": 2,
       "blocked_sample_count": 341,
-      "unresolved_sample_count": 0,
+      "unresolved_sample_count": 341,
       "country_published_sample_count": 2
     }
   ]

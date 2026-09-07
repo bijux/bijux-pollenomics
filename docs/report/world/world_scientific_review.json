@@ -649,9 +649,18 @@
     },
     {
       "species_latin_name": "Bos taurus",
-      "period_label": "6001+ BP",
+      "period_label": "3001-6000 BP",
       "evidence_scope": "mapped_direct",
       "mapped_locality_count": 4,
+      "contextual_project_count": 1,
+      "chronology_confidence": "mapped_locality_bp_windows_available",
+      "caution_note": "Mapped animal chronology remains bounded by locality-lead precision and support-class caveats."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "period_label": "6001+ BP",
+      "evidence_scope": "mapped_direct",
+      "mapped_locality_count": 18,
       "contextual_project_count": 1,
       "chronology_confidence": "mapped_locality_bp_windows_available",
       "caution_note": "Mapped animal chronology remains bounded by locality-lead precision and support-class caveats."
@@ -696,7 +705,7 @@
       "species_latin_name": "Capra hircus",
       "period_label": "project_level_or_unresolved",
       "evidence_scope": "mapped_direct",
-      "mapped_locality_count": 21,
+      "mapped_locality_count": 22,
       "contextual_project_count": 3,
       "chronology_confidence": "mapped_locality_points_with_partial_chronology",
       "caution_note": "Mapped animal chronology remains bounded by locality-lead precision and support-class caveats."
@@ -860,8 +869,8 @@
       "species_latin_name": "Homo sapiens",
       "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
       "overlap_status": "locality_level_overlap_available",
-      "overlapping_direct_localities": 25,
-      "non_overlapping_direct_localities": 420,
+      "overlapping_direct_localities": 158,
+      "non_overlapping_direct_localities": 287,
       "noncomparable_records": 2,
       "rationale": "Human locality chronology can be compared directly with time-aware context points."
     },
@@ -1103,261 +1112,261 @@
       "species_latin_name": "Bos taurus",
       "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
       "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 22,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "animal-capra-hircus",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 2,
+      "non_overlapping_direct_localities": 20,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "animal-capra-hircus-wild-or-progenitor-context",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 2,
+      "non_overlapping_direct_localities": 20,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "animal-equus-caballus",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 1,
+      "non_overlapping_direct_localities": 21,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "animal-equus-caballus-wild-or-progenitor-context",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 6,
+      "non_overlapping_direct_localities": 16,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "animal-felis-catus",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 22,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "animal-felis-catus-wild-or-progenitor-context",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 7,
+      "non_overlapping_direct_localities": 15,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "animal-ovis-aries",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 1,
+      "non_overlapping_direct_localities": 21,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Bos taurus",
+      "context_layer_key": "animal-sus-scrofa-domesticus",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 2,
+      "non_overlapping_direct_localities": 20,
+      "noncomparable_records": 0,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "animal-capra-hircus",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "animal-capra-hircus-wild-or-progenitor-context",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "animal-equus-caballus",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "animal-equus-caballus-wild-or-progenitor-context",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "animal-felis-catus",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "animal-felis-catus-wild-or-progenitor-context",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "animal-ovis-aries",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "context_layer_key": "animal-sus-scrofa-domesticus",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 2,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "animal-capra-hircus",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "animal-capra-hircus-wild-or-progenitor-context",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "animal-equus-caballus",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "animal-equus-caballus-wild-or-progenitor-context",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "animal-felis-catus",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "animal-felis-catus-wild-or-progenitor-context",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "animal-ovis-aries",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Canis lupus familiaris",
+      "context_layer_key": "animal-sus-scrofa-domesticus",
+      "overlap_status": "not_comparable_project_level_only",
+      "overlapping_direct_localities": 0,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 3,
+      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
+      "overlap_status": "mapped_locality_overlap_with_caution",
+      "overlapping_direct_localities": 5,
+      "non_overlapping_direct_localities": 0,
+      "noncomparable_records": 22,
+      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
+    },
+    {
+      "species_latin_name": "Capra hircus",
+      "context_layer_key": "animal-capra-hircus",
+      "overlap_status": "mapped_locality_overlap_with_caution",
       "overlapping_direct_localities": 4,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "animal-capra-hircus",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 1,
-      "non_overlapping_direct_localities": 3,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "animal-capra-hircus-wild-or-progenitor-context",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 4,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "animal-equus-caballus",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 4,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "animal-equus-caballus-wild-or-progenitor-context",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 4,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "animal-felis-catus",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 4,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "animal-felis-catus-wild-or-progenitor-context",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 3,
       "non_overlapping_direct_localities": 1,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "animal-ovis-aries",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 4,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Bos taurus",
-      "context_layer_key": "animal-sus-scrofa-domesticus",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 4,
-      "noncomparable_records": 0,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Camelus dromedarius",
-      "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 2,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Camelus dromedarius",
-      "context_layer_key": "animal-capra-hircus",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 2,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Camelus dromedarius",
-      "context_layer_key": "animal-capra-hircus-wild-or-progenitor-context",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 2,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Camelus dromedarius",
-      "context_layer_key": "animal-equus-caballus",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 2,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Camelus dromedarius",
-      "context_layer_key": "animal-equus-caballus-wild-or-progenitor-context",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 2,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Camelus dromedarius",
-      "context_layer_key": "animal-felis-catus",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 2,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Camelus dromedarius",
-      "context_layer_key": "animal-felis-catus-wild-or-progenitor-context",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 2,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Camelus dromedarius",
-      "context_layer_key": "animal-ovis-aries",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 2,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Camelus dromedarius",
-      "context_layer_key": "animal-sus-scrofa-domesticus",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 2,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Canis lupus familiaris",
-      "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Canis lupus familiaris",
-      "context_layer_key": "animal-capra-hircus",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Canis lupus familiaris",
-      "context_layer_key": "animal-capra-hircus-wild-or-progenitor-context",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Canis lupus familiaris",
-      "context_layer_key": "animal-equus-caballus",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Canis lupus familiaris",
-      "context_layer_key": "animal-equus-caballus-wild-or-progenitor-context",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Canis lupus familiaris",
-      "context_layer_key": "animal-felis-catus",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Canis lupus familiaris",
-      "context_layer_key": "animal-felis-catus-wild-or-progenitor-context",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Canis lupus familiaris",
-      "context_layer_key": "animal-ovis-aries",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Canis lupus familiaris",
-      "context_layer_key": "animal-sus-scrofa-domesticus",
-      "overlap_status": "not_comparable_project_level_only",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 0,
-      "noncomparable_records": 3,
-      "rationale": "Non-human chronology is still project-level and cannot be aligned to atlas localities honestly."
-    },
-    {
-      "species_latin_name": "Capra hircus",
-      "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 2,
-      "non_overlapping_direct_localities": 3,
-      "noncomparable_records": 21,
-      "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
-    },
-    {
-      "species_latin_name": "Capra hircus",
-      "context_layer_key": "animal-capra-hircus",
-      "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 4,
-      "non_overlapping_direct_localities": 1,
-      "noncomparable_records": 21,
+      "noncomparable_records": 22,
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },
     {
@@ -1366,7 +1375,7 @@
       "overlap_status": "mapped_locality_overlap_with_caution",
       "overlapping_direct_localities": 1,
       "non_overlapping_direct_localities": 4,
-      "noncomparable_records": 21,
+      "noncomparable_records": 22,
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },
     {
@@ -1375,7 +1384,7 @@
       "overlap_status": "mapped_locality_overlap_with_caution",
       "overlapping_direct_localities": 2,
       "non_overlapping_direct_localities": 3,
-      "noncomparable_records": 21,
+      "noncomparable_records": 22,
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },
     {
@@ -1384,7 +1393,7 @@
       "overlap_status": "mapped_locality_overlap_with_caution",
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 5,
-      "noncomparable_records": 21,
+      "noncomparable_records": 22,
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },
     {
@@ -1393,7 +1402,7 @@
       "overlap_status": "mapped_locality_overlap_with_caution",
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 5,
-      "noncomparable_records": 21,
+      "noncomparable_records": 22,
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },
     {
@@ -1402,7 +1411,7 @@
       "overlap_status": "mapped_locality_overlap_with_caution",
       "overlapping_direct_localities": 2,
       "non_overlapping_direct_localities": 3,
-      "noncomparable_records": 21,
+      "noncomparable_records": 22,
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },
     {
@@ -1411,7 +1420,7 @@
       "overlap_status": "mapped_locality_overlap_with_caution",
       "overlapping_direct_localities": 1,
       "non_overlapping_direct_localities": 4,
-      "noncomparable_records": 21,
+      "noncomparable_records": 22,
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },
     {
@@ -1420,7 +1429,7 @@
       "overlap_status": "mapped_locality_overlap_with_caution",
       "overlapping_direct_localities": 0,
       "non_overlapping_direct_localities": 5,
-      "noncomparable_records": 21,
+      "noncomparable_records": 22,
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },
     {
@@ -1508,8 +1517,8 @@
       "species_latin_name": "Equus caballus",
       "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
       "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 78,
+      "overlapping_direct_localities": 38,
+      "non_overlapping_direct_localities": 40,
       "noncomparable_records": 0,
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },
@@ -1589,8 +1598,8 @@
       "species_latin_name": "Felis catus",
       "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
       "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 6,
-      "non_overlapping_direct_localities": 19,
+      "overlapping_direct_localities": 8,
+      "non_overlapping_direct_localities": 17,
       "noncomparable_records": 14,
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },
@@ -1913,8 +1922,8 @@
       "species_latin_name": "Ovis aries",
       "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
       "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 2,
+      "overlapping_direct_localities": 1,
+      "non_overlapping_direct_localities": 1,
       "noncomparable_records": 0,
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },
@@ -2075,8 +2084,8 @@
       "species_latin_name": "Sus scrofa domesticus",
       "context_layer_key": "animal-bos-taurus-wild-or-progenitor-context",
       "overlap_status": "mapped_locality_overlap_with_caution",
-      "overlapping_direct_localities": 0,
-      "non_overlapping_direct_localities": 2,
+      "overlapping_direct_localities": 1,
+      "non_overlapping_direct_localities": 1,
       "noncomparable_records": 0,
       "rationale": "Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats."
     },
@@ -2154,7 +2163,7 @@
     }
   ],
   "animal_coordinate_review": {
-    "direct_coordinate_feature_count": 149,
+    "direct_coordinate_feature_count": 168,
     "named_site_geocoded_feature_count": 2,
     "weaker_geography_feature_count": 0
   },

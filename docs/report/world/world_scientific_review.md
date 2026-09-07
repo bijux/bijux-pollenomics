@@ -96,12 +96,13 @@
 | Homo sapiens | 6001+ BP | mapped_direct | 41 | 0 | locality_level_bp_window | Human period coverage remains locality-based metadata, not genotype-aware chronology. |
 | Anas platyrhynchos domesticus | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
 | Bos indicus | project_level_or_unresolved | too_weak | 0 | 0 | no_curated_nonhuman_chronology | Non-human chronology is not yet resolved to mapped locality periods. |
-| Bos taurus | 6001+ BP | mapped_direct | 4 | 1 | mapped_locality_bp_windows_available | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
+| Bos taurus | 3001-6000 BP | mapped_direct | 4 | 1 | mapped_locality_bp_windows_available | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
+| Bos taurus | 6001+ BP | mapped_direct | 18 | 1 | mapped_locality_bp_windows_available | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
 | Camelus dromedarius | project_level_or_unresolved | direct | 0 | 2 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
 | Canis lupus familiaris | project_level_or_unresolved | direct | 0 | 3 | project_level_bp_capable_but_not_locality_bound | Non-human chronology is not yet resolved to mapped locality periods. |
 | Capra hircus | 3001-6000 BP | mapped_direct | 2 | 3 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
 | Capra hircus | 6001+ BP | mapped_direct | 3 | 3 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
-| Capra hircus | project_level_or_unresolved | mapped_direct | 21 | 3 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
+| Capra hircus | project_level_or_unresolved | mapped_direct | 22 | 3 | mapped_locality_points_with_partial_chronology | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
 | Equus asinus | project_level_or_unresolved | contextual | 0 | 0 | project_level_chronology_without_locality_alignment | Non-human chronology is not yet resolved to mapped locality periods. |
 | Equus caballus | 1001-3000 BP | mapped_direct | 32 | 4 | mapped_locality_bp_windows_available | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
 | Equus caballus | 3001-6000 BP | mapped_direct | 32 | 4 | mapped_locality_bp_windows_available | Mapped animal chronology remains bounded by locality-lead precision and support-class caveats. |
@@ -124,7 +125,7 @@
 
 | Species | Context layer | Overlap status | Overlapping direct localities | Non-overlapping direct localities | Noncomparable records | Rationale |
 | --- | --- | --- | ---: | ---: | ---: | --- |
-| Homo sapiens | animal-bos-taurus-wild-or-progenitor-context | locality_level_overlap_available | 25 | 420 | 2 | Human locality chronology can be compared directly with time-aware context points. |
+| Homo sapiens | animal-bos-taurus-wild-or-progenitor-context | locality_level_overlap_available | 158 | 287 | 2 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | animal-capra-hircus | locality_level_overlap_available | 51 | 394 | 2 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | animal-capra-hircus-wild-or-progenitor-context | locality_level_overlap_available | 0 | 445 | 2 | Human locality chronology can be compared directly with time-aware context points. |
 | Homo sapiens | animal-equus-caballus | locality_level_overlap_available | 105 | 340 | 2 | Human locality chronology can be compared directly with time-aware context points. |
@@ -151,15 +152,15 @@
 | Bos indicus | animal-felis-catus-wild-or-progenitor-context | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos indicus | animal-ovis-aries | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Bos indicus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Bos taurus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 4 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | animal-capra-hircus | mapped_locality_overlap_with_caution | 1 | 3 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | animal-capra-hircus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 4 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | animal-equus-caballus | mapped_locality_overlap_with_caution | 0 | 4 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | animal-equus-caballus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 4 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | animal-felis-catus | mapped_locality_overlap_with_caution | 0 | 4 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | animal-felis-catus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 3 | 1 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | animal-ovis-aries | mapped_locality_overlap_with_caution | 0 | 4 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Bos taurus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 4 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Bos taurus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 22 | 0 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Bos taurus | animal-capra-hircus | mapped_locality_overlap_with_caution | 2 | 20 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Bos taurus | animal-capra-hircus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 2 | 20 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Bos taurus | animal-equus-caballus | mapped_locality_overlap_with_caution | 1 | 21 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Bos taurus | animal-equus-caballus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 6 | 16 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Bos taurus | animal-felis-catus | mapped_locality_overlap_with_caution | 0 | 22 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Bos taurus | animal-felis-catus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 7 | 15 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Bos taurus | animal-ovis-aries | mapped_locality_overlap_with_caution | 1 | 21 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Bos taurus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 2 | 20 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Camelus dromedarius | animal-bos-taurus-wild-or-progenitor-context | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Camelus dromedarius | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Camelus dromedarius | animal-capra-hircus-wild-or-progenitor-context | not_comparable_project_level_only | 0 | 0 | 2 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
@@ -178,15 +179,15 @@
 | Canis lupus familiaris | animal-felis-catus-wild-or-progenitor-context | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Canis lupus familiaris | animal-ovis-aries | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Canis lupus familiaris | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 3 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Capra hircus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 2 | 3 | 21 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Capra hircus | animal-capra-hircus | mapped_locality_overlap_with_caution | 4 | 1 | 21 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Capra hircus | animal-capra-hircus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 1 | 4 | 21 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Capra hircus | animal-equus-caballus | mapped_locality_overlap_with_caution | 2 | 3 | 21 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Capra hircus | animal-equus-caballus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 5 | 21 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Capra hircus | animal-felis-catus | mapped_locality_overlap_with_caution | 0 | 5 | 21 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Capra hircus | animal-felis-catus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 2 | 3 | 21 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Capra hircus | animal-ovis-aries | mapped_locality_overlap_with_caution | 1 | 4 | 21 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Capra hircus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 5 | 21 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Capra hircus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 5 | 0 | 22 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Capra hircus | animal-capra-hircus | mapped_locality_overlap_with_caution | 4 | 1 | 22 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Capra hircus | animal-capra-hircus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 1 | 4 | 22 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Capra hircus | animal-equus-caballus | mapped_locality_overlap_with_caution | 2 | 3 | 22 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Capra hircus | animal-equus-caballus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 5 | 22 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Capra hircus | animal-felis-catus | mapped_locality_overlap_with_caution | 0 | 5 | 22 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Capra hircus | animal-felis-catus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 2 | 3 | 22 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Capra hircus | animal-ovis-aries | mapped_locality_overlap_with_caution | 1 | 4 | 22 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Capra hircus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 5 | 22 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus asinus | animal-bos-taurus-wild-or-progenitor-context | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Equus asinus | animal-capra-hircus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Equus asinus | animal-capra-hircus-wild-or-progenitor-context | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
@@ -196,7 +197,7 @@
 | Equus asinus | animal-felis-catus-wild-or-progenitor-context | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Equus asinus | animal-ovis-aries | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Equus asinus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Equus caballus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 78 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Equus caballus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 38 | 40 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | animal-capra-hircus | mapped_locality_overlap_with_caution | 7 | 71 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | animal-capra-hircus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 78 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | animal-equus-caballus | mapped_locality_overlap_with_caution | 63 | 15 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
@@ -205,7 +206,7 @@
 | Equus caballus | animal-felis-catus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 3 | 75 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | animal-ovis-aries | mapped_locality_overlap_with_caution | 17 | 61 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Equus caballus | animal-sus-scrofa-domesticus | mapped_locality_overlap_with_caution | 0 | 78 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
-| Felis catus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 6 | 19 | 14 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Felis catus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 8 | 17 | 14 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Felis catus | animal-capra-hircus | mapped_locality_overlap_with_caution | 2 | 23 | 14 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Felis catus | animal-capra-hircus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 25 | 14 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Felis catus | animal-equus-caballus | mapped_locality_overlap_with_caution | 2 | 23 | 14 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
@@ -241,7 +242,7 @@
 | Oryctolagus cuniculus | animal-felis-catus-wild-or-progenitor-context | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Oryctolagus cuniculus | animal-ovis-aries | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Oryctolagus cuniculus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Ovis aries | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Ovis aries | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 1 | 1 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Ovis aries | animal-capra-hircus | mapped_locality_overlap_with_caution | 1 | 1 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Ovis aries | animal-capra-hircus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Ovis aries | animal-equus-caballus | mapped_locality_overlap_with_caution | 1 | 1 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
@@ -259,7 +260,7 @@
 | Rangifer tarandus | animal-felis-catus-wild-or-progenitor-context | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | animal-ovis-aries | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
 | Rangifer tarandus | animal-sus-scrofa-domesticus | not_comparable_project_level_only | 0 | 0 | 1 | Non-human chronology is still project-level and cannot be aligned to atlas localities honestly. |
-| Sus scrofa domesticus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
+| Sus scrofa domesticus | animal-bos-taurus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 1 | 1 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Sus scrofa domesticus | animal-capra-hircus | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Sus scrofa domesticus | animal-capra-hircus-wild-or-progenitor-context | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
 | Sus scrofa domesticus | animal-equus-caballus | mapped_locality_overlap_with_caution | 0 | 2 | 0 | Mapped animal locality leads can be compared with context layers, but only with their stated chronology and precision caveats. |
@@ -273,7 +274,7 @@
 
 | Direct coordinates | Named-site geocoded | Weaker geography visible |
 | ---: | ---: | ---: |
-| 149 | 2 | 0 |
+| 168 | 2 | 0 |
 
 ## Uncertainty Register
 

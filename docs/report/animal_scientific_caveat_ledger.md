@@ -2,6 +2,6 @@
 
 - Missing supplements: `0`
 - Unreadable tables: `3`
-- Uncertain site assignments: `434`
+- Uncertain site assignments: `87`
 - Region-only geography rows: `4`
 - Comparator-only evidence rows: `0`

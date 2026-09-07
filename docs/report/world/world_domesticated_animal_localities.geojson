@@ -4782,6 +4782,259 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
+          -13.825055,
+          28.741962
+        ]
+      },
+      "properties": {
+        "name": "Lobos",
+        "feature_id": "animal-atlas-feature:capra-hircus-locality-prjeb90261-lobos-lobos",
+        "evidence_row_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-lobos-lobos",
+        "site_record_id": "capra_hircus:locality:prjeb90261:lobos:lobos",
+        "category": "Goat atlas evidence row",
+        "country": "Lobos",
+        "layer_key": "domesticated-animal-localities",
+        "layer_label": "Domesticated-core animal aDNA atlas evidence",
+        "source_url": "https://doi.org/10.1016/j.isci.2025.113771",
+        "popup_rows": [
+          {
+            "label": "Species",
+            "value": "Capra hircus"
+          },
+          {
+            "label": "Support class",
+            "value": "accepted"
+          },
+          {
+            "label": "Animal scope",
+            "value": "domesticated core"
+          },
+          {
+            "label": "Mapped sample count",
+            "value": "17"
+          },
+          {
+            "label": "Mapped sample identifiers",
+            "value": "capra_hircus:sample:prjeb90261:pgull-1295, capra_hircus:sample:prjeb90261:pgull-1296, capra_hircus:sample:prjeb90261:pgull-1299, capra_hircus:sample:prjeb90261:pgull-1300, capra_hircus:sample:prjeb90261:pgull-1301, capra_hircus:sample:prjeb90261:pgull-1302, capra_hircus:sample:prjeb90261:pgull-1304, capra_hircus:sample:prjeb90261:pgull-1305, capra_hircus:sample:prjeb90261:pgull-1307, capra_hircus:sample:prjeb90261:pgull-1308, capra_hircus:sample:prjeb90261:pgull-1309, capra_hircus:sample:prjeb90261:pgull-1314, capra_hircus:sample:prjeb90261:pgull-1315, capra_hircus:sample:prjeb90261:pgull-1316, capra_hircus:sample:prjeb90261:pgull-1317, capra_hircus:sample:prjeb90261:pgull-1319, capra_hircus:sample:prjeb90261:pgull-1868"
+          },
+          {
+            "label": "Taxon alignment",
+            "value": "not reported"
+          },
+          {
+            "label": "Project accession",
+            "value": "PRJEB90261"
+          },
+          {
+            "label": "Paper title",
+            "value": "Paleogenomic evidence on the temporal continuity of indigenous goat exploitation in the Canary Islands"
+          },
+          {
+            "label": "Paper DOI",
+            "value": "10.1016/j.isci.2025.113771"
+          },
+          {
+            "label": "Publication year",
+            "value": "2025"
+          },
+          {
+            "label": "Journal",
+            "value": "iScience"
+          },
+          {
+            "label": "Chronology",
+            "value": "1st century BCE - 3rd century CE (site)"
+          },
+          {
+            "label": "Chronology evidence class",
+            "value": "historical or recent date"
+          },
+          {
+            "label": "Chronology precision posture",
+            "value": "sample approximate or modeled"
+          },
+          {
+            "label": "Temporal window",
+            "value": "Unresolved time window"
+          },
+          {
+            "label": "Temporal comparison posture",
+            "value": "contextual label only"
+          },
+          {
+            "label": "Temporal comparison note",
+            "value": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date."
+          },
+          {
+            "label": "Support note",
+            "value": "admissible_for_curated_support"
+          },
+          {
+            "label": "Coordinate basis",
+            "value": "supplementary_table_coordinates"
+          },
+          {
+            "label": "Coordinate confidence",
+            "value": "exact"
+          },
+          {
+            "label": "Coordinate method",
+            "value": "direct_supplementary_coordinate_capture"
+          },
+          {
+            "label": "Coordinate gazetteer",
+            "value": "not required because the supplementary table ships coordinates"
+          },
+          {
+            "label": "Original place text",
+            "value": "Lobos"
+          },
+          {
+            "label": "Resolved place text",
+            "value": "Lobos"
+          },
+          {
+            "label": "Coordinate rationale",
+            "value": "The published supplementary table provides direct coordinates for this locality."
+          },
+          {
+            "label": "Source locator",
+            "value": "Table S2!row60"
+          },
+          {
+            "label": "Source support status",
+            "value": "supplementary_table_row"
+          },
+          {
+            "label": "Source evidence text",
+            "value": "58 | CHIC-0058 | PGULL-1295 | LLD-0497 | Lobos | Lobos | 28.741962000000001 | -13.825055000000001 | 1st century BCE - 3rd century CE (site) | Yes | No | No | 4.7E-2 | 42.363500000000002 | 0.33942600000000001 | 10681 | 0.98678100000000002 | 26.2804 | No | A8a | - | 0.87881299999999996 | 20.2514 | No"
+          },
+          {
+            "label": "Nordic relevance",
+            "value": "non_nordic_or_comparator"
+          },
+          {
+            "label": "Nordic note",
+            "value": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record."
+          },
+          {
+            "label": "Interpretation",
+            "value": "Sample-level locality comes directly from the recovered sample source row."
+          },
+          {
+            "label": "Warning",
+            "value": "This locality is outside the Nordic lead set and remains atlas context, not Nordic-localized support."
+          },
+          {
+            "label": "Warning",
+            "value": "admissible_for_curated_support"
+          }
+        ],
+        "species_latin_name": "Capra hircus",
+        "species_common_name": "goat",
+        "animal_scope": "domesticated_core",
+        "support_class": "accepted",
+        "temporal_semantics": {
+          "schema_version": "temporal-semantics.v1",
+          "source_family": "animal_adna",
+          "evidence_class": "historical_or_recent_date",
+          "precision_posture": "sample_approximate_or_modeled",
+          "comparability_posture": "contextual_label_only",
+          "summary_label": "1st century BCE - 3rd century CE (site)",
+          "temporal_window_key": "unresolved",
+          "temporal_window_label": "Unresolved time window",
+          "time_start_bp": null,
+          "time_end_bp": null,
+          "time_mean_bp": null,
+          "duration_years": null,
+          "comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
+          "refusal_reason_code": "",
+          "provenance_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+          "provenance_locator": "Table S2!row60",
+          "provenance_excerpt": "58 | CHIC-0058 | PGULL-1295 | LLD-0497 | Lobos | Lobos | 28.741962000000001 | -13.825055000000001 | 1st century BCE - 3rd century CE (site) | Yes | No | No | 4.7E-2 | 42.363500000000002 | 0.33942600000000001 | 10681 | 0.98678100000000002 | 26.2804 | No | A8a | - | 0.87881299999999996 | 20.2514 | No",
+          "original_labels": [
+            "1st century BCE - 3rd century CE (site)"
+          ],
+          "normalized_labels": [],
+          "uncertainty_notes": []
+        },
+        "temporal_window_key": "unresolved",
+        "temporal_window_label": "Unresolved time window",
+        "temporal_comparability_posture": "contextual_label_only",
+        "temporal_comparison_note": "This chronology is text-led or period-led and should not be compared as a sample-owned numeric date.",
+        "nordic_inclusion": false,
+        "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+        "coordinate_basis": "supplementary_table_coordinates",
+        "coordinate_confidence": "exact",
+        "sample_count": 17,
+        "sample_record_ids": [
+          "capra_hircus:sample:prjeb90261:pgull-1295",
+          "capra_hircus:sample:prjeb90261:pgull-1296",
+          "capra_hircus:sample:prjeb90261:pgull-1299",
+          "capra_hircus:sample:prjeb90261:pgull-1300",
+          "capra_hircus:sample:prjeb90261:pgull-1301",
+          "capra_hircus:sample:prjeb90261:pgull-1302",
+          "capra_hircus:sample:prjeb90261:pgull-1304",
+          "capra_hircus:sample:prjeb90261:pgull-1305",
+          "capra_hircus:sample:prjeb90261:pgull-1307",
+          "capra_hircus:sample:prjeb90261:pgull-1308",
+          "capra_hircus:sample:prjeb90261:pgull-1309",
+          "capra_hircus:sample:prjeb90261:pgull-1314",
+          "capra_hircus:sample:prjeb90261:pgull-1315",
+          "capra_hircus:sample:prjeb90261:pgull-1316",
+          "capra_hircus:sample:prjeb90261:pgull-1317",
+          "capra_hircus:sample:prjeb90261:pgull-1319",
+          "capra_hircus:sample:prjeb90261:pgull-1868"
+        ],
+        "sample_group_ids": [
+          "PRJEB90261"
+        ],
+        "source_native_taxon_labels": [],
+        "source_native_tax_ids": [],
+        "source_native_scientific_names": [],
+        "taxon_alignment_statuses": [
+          "not_reported"
+        ],
+        "sample_namespace": "capra_hircus:sample_locality",
+        "inclusion_notes": [
+          "Sample-level locality comes directly from the recovered sample source row."
+        ],
+        "latitude_text": "28.741962000000001",
+        "longitude_text": "-13.825055000000001",
+        "geocoding_method": "direct_supplementary_coordinate_capture",
+        "geocoder_or_gazetteer": "not required because the supplementary table ships coordinates",
+        "confidence_rationale": "The published supplementary table provides direct coordinates for this locality.",
+        "original_place_text": "Lobos",
+        "resolved_place_text": "Lobos",
+        "paper_title": "Paleogenomic evidence on the temporal continuity of indigenous goat exploitation in the Canary Islands",
+        "paper_doi": "10.1016/j.isci.2025.113771",
+        "journal_title": "iScience",
+        "publication_year": "2025",
+        "supplementary_sources": [],
+        "project_accessions": [
+          "PRJEB90261"
+        ],
+        "primary_project_accession": "PRJEB90261",
+        "inclusion_statuses": [
+          "site_curated"
+        ],
+        "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+        "source_artifact_kind": "supplementary_spreadsheet_row",
+        "source_locator": "Table S2!row60",
+        "source_support_status": "supplementary_table_row",
+        "exact_source_text": "58 | CHIC-0058 | PGULL-1295 | LLD-0497 | Lobos | Lobos | 28.741962000000001 | -13.825055000000001 | 1st century BCE - 3rd century CE (site) | Yes | No | No | 4.7E-2 | 42.363500000000002 | 0.33942600000000001 | 10681 | 0.98678100000000002 | 26.2804 | No | A8a | - | 0.87881299999999996 | 20.2514 | No",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "time_year_bp": null,
+        "time_label": "1st century BCE - 3rd century CE (site)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           -16.5289,
           28.0842
         ]
@@ -27526,7 +27779,7 @@
           },
           {
             "label": "Source evidence text",
-            "value": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | Bunds\u00f8 | Denmark | 2800-2600 BC | 4700 BP | Domestic"
+            "value": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | previous_extraction_code=GL468 | mtdna_accession=- | source=Kim Aaris-S\u00f8rensen | museum_or_sample_code=ZMK 17 | additional_sample_information=- | location=Bunds\u00f8 | country=Denmark | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=2800-2600 BC | source_mean_years_bp=4700 | period=Middle Neolithic A phase III | group=EUD-A | zooarch_status=Domestic | combined_status=Domestic | secondary_zooarch_status=Domestic | published=N | chronology_disposition=admitted_existing_context_point | domestication_disposition=admitted_domesticated_core"
           },
           {
             "label": "Nordic relevance",
@@ -27574,7 +27827,7 @@
           "refusal_reason_code": "",
           "provenance_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
           "provenance_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
-          "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | Bunds\u00f8 | Denmark | 2800-2600 BC | 4700 BP | Domestic",
+          "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | previous_extraction_code=GL468 | mtdna_accession=- | source=Kim Aaris-S\u00f8rensen | museum_or_sample_code=ZMK 17 | additional_sample_information=- | location=Bunds\u00f8 | country=Denmark | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=2800-2600 BC | source_mean_years_bp=4700 | period=Middle Neolithic A phase III | group=EUD-A | zooarch_status=Domestic | combined_status=Domestic | secondary_zooarch_status=Domestic | published=N | chronology_disposition=admitted_existing_context_point | domestication_disposition=admitted_domesticated_core",
           "original_labels": [
             "4700 BP"
           ],
@@ -27638,7 +27891,7 @@
         "source_artifact_kind": "supplementary_spreadsheet_row",
         "source_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
         "source_support_status": "supplementary_table_row",
-        "exact_source_text": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | Bunds\u00f8 | Denmark | 2800-2600 BC | 4700 BP | Domestic",
+        "exact_source_text": "ENA archive metadata identifies sample SAMEA5160867 as Sus scrofa (tax_id 9823). || AA015 | previous_extraction_code=GL468 | mtdna_accession=- | source=Kim Aaris-S\u00f8rensen | museum_or_sample_code=ZMK 17 | additional_sample_information=- | location=Bunds\u00f8 | country=Denmark | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=2800-2600 BC | source_mean_years_bp=4700 | period=Middle Neolithic A phase III | group=EUD-A | zooarch_status=Domestic | combined_status=Domestic | secondary_zooarch_status=Domestic | published=N | chronology_disposition=admitted_existing_context_point | domestication_disposition=admitted_domesticated_core",
         "time_start_bp": 4700,
         "time_end_bp": 4700,
         "time_mean_bp": 4700,
@@ -27784,7 +28037,7 @@
           },
           {
             "label": "Source evidence text",
-            "value": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | Trelleborg | Denmark | c. AD 1000 | 1000 BP | Domestic"
+            "value": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | previous_extraction_code=GL306 | mtdna_accession=- | source=Kim Aaris-S\u00f8rensen | museum_or_sample_code=ZMK 25 | additional_sample_information=- | location=Trelleborg | country=Denmark | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=c. AD 1000 | source_mean_years_bp=1000 | period=Early Medieval | group=EUD-A | zooarch_status=Domestic | combined_status=Domestic | secondary_zooarch_status=Domestic | published=N | chronology_disposition=admitted_existing_context_point | domestication_disposition=admitted_domesticated_core"
           },
           {
             "label": "Nordic relevance",
@@ -27832,7 +28085,7 @@
           "refusal_reason_code": "",
           "provenance_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
           "provenance_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
-          "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | Trelleborg | Denmark | c. AD 1000 | 1000 BP | Domestic",
+          "provenance_excerpt": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | previous_extraction_code=GL306 | mtdna_accession=- | source=Kim Aaris-S\u00f8rensen | museum_or_sample_code=ZMK 25 | additional_sample_information=- | location=Trelleborg | country=Denmark | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=c. AD 1000 | source_mean_years_bp=1000 | period=Early Medieval | group=EUD-A | zooarch_status=Domestic | combined_status=Domestic | secondary_zooarch_status=Domestic | published=N | chronology_disposition=admitted_existing_context_point | domestication_disposition=admitted_domesticated_core",
           "original_labels": [
             "1000 BP"
           ],
@@ -27896,7 +28149,7 @@
         "source_artifact_kind": "supplementary_spreadsheet_row",
         "source_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
         "source_support_status": "supplementary_table_row",
-        "exact_source_text": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | Trelleborg | Denmark | c. AD 1000 | 1000 BP | Domestic",
+        "exact_source_text": "ENA archive metadata identifies sample SAMEA5160868 as Sus scrofa (tax_id 9823). || AA016 | previous_extraction_code=GL306 | mtdna_accession=- | source=Kim Aaris-S\u00f8rensen | museum_or_sample_code=ZMK 25 | additional_sample_information=- | location=Trelleborg | country=Denmark | radiocarbon_lab=- | uncalibrated_date=- | uncalibrated_error=- | calibrated_from_bp=- | calibrated_to_bp=- | source_age=c. AD 1000 | source_mean_years_bp=1000 | period=Early Medieval | group=EUD-A | zooarch_status=Domestic | combined_status=Domestic | secondary_zooarch_status=Domestic | published=N | chronology_disposition=admitted_existing_context_point | domestication_disposition=admitted_domesticated_core",
         "time_start_bp": 1000,
         "time_end_bp": 1000,
         "time_mean_bp": 1000,

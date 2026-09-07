@@ -3,18 +3,18 @@
   "title": "World Evidence Surface",
   "scope_key": "world",
   "scope_label": "World",
-  "row_count": 1913,
+  "row_count": 1958,
   "layer_counts": {
     "aadr": 1231,
-    "animal-bos-taurus-wild-or-progenitor-context": 4,
-    "animal-capra-hircus": 25,
+    "animal-bos-taurus-wild-or-progenitor-context": 22,
+    "animal-capra-hircus": 26,
     "animal-capra-hircus-wild-or-progenitor-context": 1,
     "animal-equus-caballus": 63,
     "animal-equus-caballus-wild-or-progenitor-context": 15,
     "animal-felis-catus": 24,
     "animal-felis-catus-wild-or-progenitor-context": 15,
     "animal-ovis-aries": 2,
-    "animal-source-chronology-bos-taurus": 5,
+    "animal-source-chronology-bos-taurus": 31,
     "animal-source-chronology-capra-hircus": 9,
     "animal-source-chronology-equus-caballus": 476,
     "animal-source-chronology-felis-catus": 35,
@@ -7435,14 +7435,14 @@
       "source_name": "Tracked animal aDNA localities",
       "source_artifact": "world_animal_point_traceability.json",
       "source_reference": "",
-      "row_count": 4,
+      "row_count": 22,
       "field_counts": {
-        "title": 4,
-        "country": 4,
-        "source_url": 4,
-        "species_latin_name": 4,
-        "animal_scope": 4,
-        "coordinate_confidence": 4
+        "title": 22,
+        "country": 22,
+        "source_url": 22,
+        "species_latin_name": 22,
+        "animal_scope": 22,
+        "coordinate_confidence": 22
       },
       "records": [
         {
@@ -7480,6 +7480,168 @@
           "species_latin_name": "Bos taurus",
           "animal_scope": "wild_or_progenitor_context",
           "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-barchedisolferinonearmantova-italy",
+          "title": "Barche di Solferino, near Mantova",
+          "country": "Italy",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-barguzinriverbaikal-russia",
+          "title": "Barguzin river, Baikal",
+          "country": "Russia",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-bedburgknigshoven-germany",
+          "title": "Bedburg-K\u00f6nigshoven",
+          "country": "Germany",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-borly4pavlodarregion-kazakhstan",
+          "title": "Borly 4, Pavlodar region",
+          "country": "Kazakhstan",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-grottadelluzzosicily-italy",
+          "title": "Grotta dell'Uzzo, Sicily",
+          "country": "Italy",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-gyumridistrict-armenia",
+          "title": "Gyumri district",
+          "country": "Armenia",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-herxheim-germany",
+          "title": "Herxheim",
+          "country": "Germany",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-novoilinkavivi-russia",
+          "title": "Novoil`inka-VI (\u041d\u043e\u0432\u043e\u0438\u043b\u044c\u0438\u043d\u043a\u0430-VI)",
+          "country": "Russia",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-ocourelgalicia-spain",
+          "title": "O Courel, Galicia",
+          "country": "Spain",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-padova-italy",
+          "title": "Padova",
+          "country": "Italy",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-palidorolatium-italy",
+          "title": "Palidoro, Latium",
+          "country": "Italy",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-roshchinskoe-kazakhstan",
+          "title": "Roshchinskoe",
+          "country": "Kazakhstan",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-trierbrderkrankenhaus-germany",
+          "title": "Trier-Br\u00fcderkrankenhaus",
+          "country": "Germany",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-tuladistrict-russia",
+          "title": "Tula district",
+          "country": "Russia",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-upperrhinevalley-germany",
+          "title": "Upper Rhine Valley",
+          "country": "Germany",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-varfolomeevka-russia",
+          "title": "Varfolomeevka",
+          "country": "Russia",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-vratsa-bulgaria",
+          "title": "Vratsa",
+          "country": "Bulgaria",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-yorkshire-britain",
+          "title": "Yorkshire",
+          "country": "Britain",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "species_latin_name": "Bos taurus",
+          "animal_scope": "wild_or_progenitor_context",
+          "coordinate_confidence": "approximate"
         }
       ]
     },
@@ -7490,14 +7652,14 @@
       "source_name": "Tracked animal aDNA localities",
       "source_artifact": "world_animal_point_traceability.json",
       "source_reference": "",
-      "row_count": 25,
+      "row_count": 26,
       "field_counts": {
-        "title": 25,
-        "country": 25,
-        "source_url": 25,
-        "species_latin_name": 25,
-        "animal_scope": 25,
-        "coordinate_confidence": 25
+        "title": 26,
+        "country": 26,
+        "source_url": 26,
+        "species_latin_name": 26,
+        "animal_scope": 26,
+        "coordinate_confidence": 26
       },
       "records": [
         {
@@ -7675,6 +7837,15 @@
           "record_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-llanodelsombrero-fuerteventura",
           "title": "Llano del Sombrero",
           "country": "Fuerteventura",
+          "source_url": "https://doi.org/10.1016/j.isci.2025.113771",
+          "species_latin_name": "Capra hircus",
+          "animal_scope": "domesticated_core",
+          "coordinate_confidence": "exact"
+        },
+        {
+          "record_id": "animal-atlas-row:capra-hircus-prjeb90261-capra-hircus-locality-prjeb90261-lobos-lobos",
+          "title": "Lobos",
+          "country": "Lobos",
           "source_url": "https://doi.org/10.1016/j.isci.2025.113771",
           "species_latin_name": "Capra hircus",
           "animal_scope": "domesticated_core",
@@ -8928,20 +9099,146 @@
       "source_name": "Governed animal project sample chronology",
       "source_artifact": "world_animal_sample_chronology_context.json",
       "source_reference": "",
-      "row_count": 5,
+      "row_count": 31,
       "field_counts": {
-        "title": 5,
-        "country": 5,
-        "source_url": 5,
+        "title": 31,
+        "country": 31,
+        "source_url": 31,
         "species_latin_name": 0,
         "animal_scope": 0,
-        "coordinate_confidence": 5
+        "coordinate_confidence": 31
       },
       "records": [
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574404",
+          "title": "Baikal1",
+          "country": "Russia",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574405",
+          "title": "Bed4",
+          "country": "Germany",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574407",
+          "title": "Borly4b",
+          "country": "Kazakhstan",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574415",
+          "title": "Galicia1",
+          "country": "Spain",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574416",
+          "title": "Galicia2",
+          "country": "Spain",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574417",
+          "title": "Galicia3",
+          "country": "Spain",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574418",
+          "title": "Gyu1",
+          "country": "Armenia",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
         {
           "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574419",
           "title": "Hjo1",
           "country": "Denmark",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574420",
+          "title": "Hxh2",
+          "country": "Germany",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574423",
+          "title": "Mantova1",
+          "country": "Italy",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574428",
+          "title": "NVL1",
+          "country": "Russia",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574429",
+          "title": "NVL3",
+          "country": "Russia",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574430",
+          "title": "Padova1",
+          "country": "Italy",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574432",
+          "title": "Palidoro1",
+          "country": "Italy",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574433",
+          "title": "Rhi1",
+          "country": "Germany",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574434",
+          "title": "Rhi2",
+          "country": "Germany",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574435",
+          "title": "Rhi3",
+          "country": "Germany",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574436",
+          "title": "ROS001",
+          "country": "Kazakhstan",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574437",
+          "title": "ROS002",
+          "country": "Kazakhstan",
           "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
           "coordinate_confidence": "approximate"
         },
@@ -8956,6 +9253,62 @@
           "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574442",
           "title": "Ska3",
           "country": "Sweden",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574445",
+          "title": "Tri1",
+          "country": "Germany",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574446",
+          "title": "Tula1",
+          "country": "Russia",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574448",
+          "title": "Uzzo1",
+          "country": "Italy",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574449",
+          "title": "Var1",
+          "country": "Russia",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574450",
+          "title": "Var2",
+          "country": "Russia",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574452",
+          "title": "Vratsa1",
+          "country": "Bulgaria",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574454",
+          "title": "Vratsa2",
+          "country": "Bulgaria",
+          "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
+          "coordinate_confidence": "approximate"
+        },
+        {
+          "record_id": "animal-source-chronology:PRJEB75467:prjeb75467:samea115574455",
+          "title": "YoA",
+          "country": "Britain",
           "source_url": "https://doi.org/10.1038/s41586-024-08112-6",
           "coordinate_confidence": "approximate"
         },

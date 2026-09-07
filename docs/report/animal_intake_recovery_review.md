@@ -9,9 +9,9 @@
 ## Sample Evidence Depth
 
 - sample identity only: `0`
-- sample with site: `586`
-- sample with site and chronology: `333`
-- sample with site chronology and coordinates: `531`
+- sample with site: `558`
+- sample with site and chronology: `335`
+- sample with site chronology and coordinates: `557`
 
 ## Top Gap Projects
 

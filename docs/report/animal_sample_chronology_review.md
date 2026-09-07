@@ -1,16 +1,16 @@
 # Animal sample chronology review
 
 - Sample chronology rows: `1455`
-- Normalized intervals: `338`
+- Normalized intervals: `366`
 - Normalized points: `528`
 - Text-only rows: `136`
-- Unresolved rows: `453`
-- Direct radiocarbon rows: `776`
-- Modeled rows: `2`
+- Unresolved rows: `425`
+- Direct radiocarbon rows: `800`
+- Modeled rows: `6`
 - Contextual rows: `101`
 - Broad period rows: `1`
-- Numeric interval rows: `750`
-- Numeric rows with caveat: `116`
+- Numeric interval rows: `774`
+- Numeric rows with caveat: `120`
 - Context-only rows: `136`
 
 | Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology |
@@ -93,48 +93,48 @@
 | Bos taurus | PRJEB31621 | prjeb31621:samea5577409 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2800 BP |
 | Bos taurus | PRJEB31621 | prjeb31621:samea5605818 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB31621 | prjeb31621:supplement:men1 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 8050 BP |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574404 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574405 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574404 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 11941-12455 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574405 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 11402-11875 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574406 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574407 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574407 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 4839-5025 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574408 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574409 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574411 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574412 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574415 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574416 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574417 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574418 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574415 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 9035-9464 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574416 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 9026-9407 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574417 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 9039-9474 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574418 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 13789-14023 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574419 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7976-8173 BP |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574420 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574420 | sample_owned_interval | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 3321-8989 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574421 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574422 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574423 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574423 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 12931-13172 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574424 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574426 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574428 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574429 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574430 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574432 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574433 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574434 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574435 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574436 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574437 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574428 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 4990-5308 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574429 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 5041-5300 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574430 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 13793-14216 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574432 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 17798-18236 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574433 | sample_owned_interval | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 45005-68764 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574434 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 45238-46935 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574435 | sample_owned_interval | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 10048-14942 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574436 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 5298-5465 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574437 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 5307-5465 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574440 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574441 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 9133-9536 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574442 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 9434-9657 BP |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574443 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574444 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574445 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574446 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574443 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3840-4068 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574444 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 4305-4525 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574445 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 9902-10217 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574446 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 40672-42386 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574447 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574448 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574449 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574450 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574452 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574454 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJEB75467 | prjeb75467:samea115574455 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574448 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 9429-9542 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574449 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7426-7567 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574450 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7164-7412 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574452 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 5932-6184 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574454 | sample_owned_interval | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6007-6244 BP |
+| Bos taurus | PRJEB75467 | prjeb75467:samea115574455 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 4584-4835 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574456 | sample_owned_interval | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6754-7744 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574457 | sample_owned_interval | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6748-7744 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:supplement:fre1 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 10422-10751 BP |
