@@ -133,7 +133,7 @@ class CountryReportTests(unittest.TestCase):
             self.assertIn("summarizeAnimalMetrics", map_html)
             self.assertIn("renderAnimalEvidencePanel", map_html)
             self.assertIn("Coordinate trust", map_html)
-            self.assertIn("Tracked species", map_html)
+            self.assertIn("Visible species", map_html)
             self.assertIn("popup-section-title", map_html)
             self.assertIn("Citation and provenance", map_html)
             self.assertIn("Sample and locality detail", map_html)
