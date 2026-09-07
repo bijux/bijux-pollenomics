@@ -18,6 +18,7 @@ from bijux_pollenomics.analysis.propagation.outputs import (
     PROPAGATION_PRODUCER_SOURCE_PATHS,
     PROPAGATION_PRODUCER_VERSION,
     PropagationMaterializationResult,
+    PropagationOutputRefusalError,
     materialize_propagation_outputs,
 )
 from bijux_pollenomics.analysis.propagation.outputs.models import (
@@ -29,6 +30,7 @@ from bijux_pollenomics.analysis.propagation.outputs.models import (
 from bijux_pollenomics.evidence.classification.audit_outputs import (
     ClassificationAuditMaterializationResult,
     ClassificationAuditOutputPaths,
+    ClassificationAuditRefusalError,
     materialize_classification_audit,
 )
 from bijux_pollenomics.evidence.classification.audit_outputs.constants import (
@@ -666,7 +668,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     arguments = parser.parse_args(argv)
     try:
         result = materialize_scientific_evidence(arguments.repository_root)
-    except ScientificEvidenceMaterializationError as error:
+    except (
+        ScientificEvidenceMaterializationError,
+        ClassificationAuditRefusalError,
+        PropagationOutputRefusalError,
+    ) as error:
         print(f"{error.reason_code}: {error}", file=sys.stderr)
         return 2
     print(json.dumps(result.as_json(), sort_keys=True, separators=(",", ":")))

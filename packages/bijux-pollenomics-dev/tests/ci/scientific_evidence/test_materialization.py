@@ -10,9 +10,11 @@ from typing import Any, cast
 import pytest
 from bijux_pollenomics.analysis.propagation.outputs import (
     PropagationMaterializationResult,
+    PropagationOutputRefusalError,
 )
 from bijux_pollenomics.evidence.classification.audit_outputs import (
     ClassificationAuditMaterializationResult,
+    ClassificationAuditRefusalError,
 )
 from bijux_pollenomics_dev.ci import scientific_evidence
 from bijux_pollenomics_dev.ci.scientific_evidence import (
@@ -261,3 +263,30 @@ def test_nonzero_accepted_universe_requires_an_explicit_event_producer(
         refusal.value.reason_code == "accepted_classification_events_not_materialized"
     )
     assert propagated == []
+
+
+@pytest.mark.parametrize(
+    "refusal_type",
+    [ClassificationAuditRefusalError, PropagationOutputRefusalError],
+)
+def test_cli_reports_product_publisher_refusals_without_a_traceback(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: pytest.CaptureFixture[str],
+    refusal_type: type[ValueError],
+) -> None:
+    def refuse(
+        _root: Path,
+    ) -> scientific_evidence.ScientificEvidenceMaterializationResult:
+        raise refusal_type("governed_refusal", "publication refused")
+
+    monkeypatch.setattr(scientific_evidence, "materialize_scientific_evidence", refuse)
+
+    exit_code = scientific_evidence.main(
+        ["--repository-root", str(tmp_path.absolute())]
+    )
+
+    captured = capsys.readouterr()
+    assert exit_code == 2
+    assert captured.out == ""
+    assert captured.err == "governed_refusal: publication refused\n"
