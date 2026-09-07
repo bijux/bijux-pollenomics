@@ -28,8 +28,8 @@
   "source_artifacts": [
     {
       "path": "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
-      "sha256": "5d5ce85e6b504f0d893a2588e544ef94da195b29eea98fea1c94699d4c558575",
-      "bytes": 1560205
+      "sha256": "674f64d75a150424eacb47b2b777b03fff477c792cc5ff39f0425c21e58ca19e",
+      "bytes": 1583525
     },
     {
       "path": "data/landclim/raw/landclim_i_land_cover_types.xlsx",

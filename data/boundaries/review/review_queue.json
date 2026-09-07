@@ -47,7 +47,7 @@
       "qualified_reviewed_at": null
     }
   ],
-  "point_decision_count": 146,
+  "point_decision_count": 147,
   "point_decisions": [
     {
       "decision_id": "sha256:00b89425421428d096d4dff169a3806afeb0ec209c26649aeffadbb091c727ae",
@@ -137,6 +137,18 @@
       "decision_id": "sha256:13f00e1aa7635fd643b4635163fd1efad74468ee1f035ec77f99fcfc0281ed98",
       "source_family": "sead",
       "source_record_id": "sead:site:4911",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:14cd7e18ae6fe21700374f2d1bb46f513ad7276602dc5250d4409bc7d8d1b058",
+      "source_family": "animal_adna",
+      "source_record_id": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
       "country_decision_status": "review",
       "review_reason_codes": [
         "near_boundary_without_containment"

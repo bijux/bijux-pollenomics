@@ -4,7 +4,7 @@
     "id": "bijux-pollenomics.boundary-country-review",
     "version": "1",
     "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/boundaries/review/publication.py",
-    "sha256": "7badf5fddde8712db84a983a5b0dc3cb9fe5e33fe153df38e2e06d3e5ced8146"
+    "sha256": "437f54f14bd3efa88cffce45be070c6ff1f5c7e0b9446fb4cf74174fc9307a40"
   },
   "boundary_authority": {
     "source": "Natural Earth",
@@ -48,8 +48,8 @@
     "landclim": [
       {
         "path": "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
-        "sha256": "5d5ce85e6b504f0d893a2588e544ef94da195b29eea98fea1c94699d4c558575",
-        "bytes": 1560205
+        "sha256": "674f64d75a150424eacb47b2b777b03fff477c792cc5ff39f0425c21e58ca19e",
+        "bytes": 1583525
       },
       {
         "path": "data/landclim/raw/landclim_i_land_cover_types.xlsx",
@@ -72,8 +72,8 @@
     "animal_adna": [
       {
         "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
-        "sha256": "ba13c79c336634f05f4522643c670e0674759a89179879f356b0184b2705f857",
-        "bytes": 1066312
+        "sha256": "eae1fffbff2449637f7b2c816130b7b88bf913a9eac5be994fa8f5600a0f2509",
+        "bytes": 611058
       },
       {
         "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
@@ -89,6 +89,11 @@
         "path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
         "sha256": "e6367f3a2b877d7940e520dd90bc3066b9530b7dac738de5b35ade9ba4a91640",
         "bytes": 233005
+      },
+      {
+        "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+        "sha256": "2c4676aef05f1d9cc272eba1dabfc3d30fb7604c8fa3fc0713518414e213655f",
+        "bytes": 305785
       },
       {
         "path": "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
@@ -114,6 +119,16 @@
         "path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html.gz",
         "sha256": "cfaa4c900639c89d96bfc4096db90df964881c77d7434c045ad891dabddcd3b2",
         "bytes": 24701
+      },
+      {
+        "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+        "sha256": "e1541763210d77411992559dc9fcda4771db57931cb2f98ae0f682b052ca12dd",
+        "bytes": 2691
+      },
+      {
+        "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+        "sha256": "d72e70066adb82e6ecc0f8262973773753acef80a86fe21bd7341d51161febc2",
+        "bytes": 2694
       }
     ]
   },
@@ -123,8 +138,8 @@
     "NO",
     "FI"
   ],
-  "point_count": 3149,
-  "point_review_count": 146,
+  "point_count": 3029,
+  "point_review_count": 147,
   "point_surface_scope": {
     "denominator_policy": "Enumerate each source-owned point once from its most complete governed local surface; do not recount publication derivatives.",
     "included_source_families": [
@@ -158,24 +173,27 @@
   },
   "source_summaries": {
     "animal_adna": {
-      "row_count": 271,
+      "row_count": 151,
       "country_counts": {
-        "SE": 1,
-        "DK": 3,
+        "SE": 2,
+        "DK": 4,
         "NO": 0,
         "FI": 0,
-        "UNASSIGNED": 267
+        "UNASSIGNED": 145
       },
       "decision_status_counts": {
-        "assigned": 4,
-        "unassigned": 267
+        "assigned": 6,
+        "review": 1,
+        "unassigned": 144
       },
       "decision_method_counts": {
-        "no_boundary_containment": 267,
-        "strict_boundary_containment": 4
+        "boundary_proximity": 1,
+        "no_boundary_containment": 144,
+        "strict_boundary_containment": 6
       },
       "review_requirement_counts": {
-        "no_point_review_required": 271
+        "no_point_review_required": 150,
+        "qualified_review_required": 1
       }
     },
     "landclim": {
@@ -254,12 +272,12 @@
     },
     {
       "path": "data/boundaries/review/country-decisions/animal_adna.json",
-      "sha256": "7119a40eea922deb3e7011adb8f317edfa96be193d05776dffc8b2a40928805b",
-      "bytes": 600496
+      "sha256": "2ff6996acc90eacc9565e635349145ffdab05663c9298cd68ff5986e27ebe3a6",
+      "bytes": 338836
     },
     {
       "path": "data/boundaries/review/country-decisions/landclim.json",
-      "sha256": "0c929d5114c3ae62ce325853d4786a699c6d8f461b1e7acb61851cfcbfaf6471",
+      "sha256": "ea326add7fd9f5ad1684b213df0a3470eece7feaeb4b94056cf620140e09d474",
       "bytes": 1031076
     },
     {
@@ -274,8 +292,8 @@
     },
     {
       "path": "data/boundaries/review/review_queue.json",
-      "sha256": "5c94f0a9a664b63a0f490d6be54ae75ab94fd6034d398c7e447d9fb12bf7215e",
-      "bytes": 64070
+      "sha256": "141a11056bd6d2329cb92813cc38e10db01d509d9385c7190b0640b4bcd4841b",
+      "bytes": 64526
     }
   ],
   "release_posture": "blocked_pending_qualified_boundary_review",
