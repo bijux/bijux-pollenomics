@@ -399,9 +399,12 @@ def build_map_point_traceability(
     point_layers: list[dict[str, object]],
 ) -> dict[str, object]:
     """Build one scope-aware traceability ledger for every visible point layer."""
-    rows: list[dict[str, object]] = []
+    layers: list[dict[str, object]] = []
+    layer_counts: dict[str, int] = {}
     for layer in point_layers:
         layer_key = str(layer.get("key", "")).strip()
+        if layer_key in layer_counts:
+            raise ValueError(f"map point layer key is duplicated: {layer_key}")
         layer_label = str(layer.get("label", "")).strip()
         source_name = str(layer.get("source_name", "")).strip()
         group = str(layer.get("group", "")).strip()
@@ -410,6 +413,7 @@ def build_map_point_traceability(
         features = layer.get("features")
         if not isinstance(features, list):
             continue
+        records: list[dict[str, object]] = []
         for index, feature in enumerate(features, start=1):
             if not isinstance(feature, dict):
                 continue
@@ -418,16 +422,8 @@ def build_map_point_traceability(
                 or str(feature.get("title", "")).strip()
                 or f"{layer_key}:{index}"
             )
-            rows.append(
+            records.append(
                 {
-                    "scope_key": report.scope_key,
-                    "scope_label": report.scope_label or report.title,
-                    "layer_key": layer_key,
-                    "layer_label": layer_label,
-                    "group": group,
-                    "source_name": source_name,
-                    "source_artifact": source_artifact,
-                    "source_reference": source_reference,
                     "record_id": record_id,
                     "title": str(feature.get("title", "")).strip(),
                     "country": str(feature.get("country", "")).strip(),
@@ -441,30 +437,58 @@ def build_map_point_traceability(
                     ).strip(),
                 }
             )
-    layer_counts = {
-        layer_key: sum(1 for row in rows if row["layer_key"] == layer_key)
-        for layer_key in sorted({row["layer_key"] for row in rows})
-    }
+        layers.append(
+            {
+                "layer_key": layer_key,
+                "layer_label": layer_label,
+                "group": group,
+                "source_name": source_name,
+                "source_artifact": source_artifact,
+                "source_reference": source_reference,
+                "row_count": len(records),
+                "records": records,
+            }
+        )
+        layer_counts[layer_key] = len(records)
+    layers.sort(key=lambda value: str(value["layer_key"]))
+    layer_counts = dict(sorted(layer_counts.items()))
     return {
-        "schema_version": "map-point-traceability.v1",
+        "schema_version": "map-point-traceability.v2",
         "title": report.title,
         "scope_key": report.scope_key,
         "scope_label": report.scope_label or report.title,
-        "row_count": len(rows),
+        "row_count": sum(layer_counts.values()),
         "layer_counts": layer_counts,
-        "rows": rows,
+        "layers": layers,
     }
 
 
 def render_map_point_traceability_markdown(payload: dict[str, object]) -> str:
     """Render a compact human-facing summary of bundle point traceability."""
-    rows = (
-        "\n".join(
-            f"| {escape_pipes(str(row['layer_label']))} | {escape_pipes(str(row['record_id']))} | {escape_pipes(str(row['country'] or '-'))} | {escape_pipes(str(row['source_artifact'] or row['source_reference'] or '-'))} |"
-            for row in payload["rows"][:40]
-        )
-        or "| No visible point rows | - | - | - |"
-    )
+    example_rows: list[str] = []
+    layers = payload.get("layers")
+    if not isinstance(layers, list):
+        raise ValueError("map point traceability layers must be a list")
+    for layer in layers:
+        if not isinstance(layer, dict):
+            raise ValueError("map point traceability layer must be an object")
+        records = layer.get("records")
+        if not isinstance(records, list):
+            raise ValueError("map point traceability records must be a list")
+        for record in records:
+            if not isinstance(record, dict):
+                raise ValueError("map point traceability record must be an object")
+            example_rows.append(
+                f"| {escape_pipes(str(layer.get('layer_label', '')))} | "
+                f"{escape_pipes(str(record.get('record_id', '')))} | "
+                f"{escape_pipes(str(record.get('country') or '-'))} | "
+                f"{escape_pipes(str(layer.get('source_artifact') or layer.get('source_reference') or '-'))} |"
+            )
+            if len(example_rows) == 40:
+                break
+        if len(example_rows) == 40:
+            break
+    rows = "\n".join(example_rows) or "| No visible point rows | - | - | - |"
     return f"""# {payload["title"]} Point Traceability
 
 This ledger keeps one governed traceability chain for every visible point layer in
@@ -475,7 +499,7 @@ for deeper source-family review files.
 
 - Scope key: `{payload["scope_key"]}`
 - Visible point rows: `{payload["row_count"]}`
-- Visible point layers: `{len(payload["layer_counts"])}`
+- Visible point layers: `{len(layers)}`
 
 ## Example Rows
 
