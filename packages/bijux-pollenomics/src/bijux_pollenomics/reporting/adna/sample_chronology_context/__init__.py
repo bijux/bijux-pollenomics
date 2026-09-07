@@ -19,8 +19,21 @@ __all__ = [
     "AnimalSampleChronologyContextProjection",
     "AnimalSampleChronologyNode",
     "AnimalSampleChronologyRefusal",
+    "animal_sample_chronology_context_available",
     "build_animal_sample_chronology_context",
 ]
+
+
+def animal_sample_chronology_context_available(data_root: Path) -> bool:
+    """Return whether the governed chronology corpus is declared in this data root."""
+    registry_path = (
+        Path(data_root)
+        / "adna"
+        / "governance"
+        / "source_library"
+        / "project_registry.json"
+    )
+    return registry_path.exists() or registry_path.is_symlink()
 
 
 def build_animal_sample_chronology_context(

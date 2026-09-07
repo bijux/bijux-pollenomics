@@ -128,6 +128,7 @@ def test_prepare_layers_publishes_default_disabled_animal_chronology_before_stat
                 weaker_geography_feature_count=0,
             ),
         ),
+        animal_sample_chronology_context_available=lambda root: True,
         build_animal_sample_chronology_context=build_animal_context,
         build_sweden_lake_atlas_layers=lambda **kwargs: [],
         _attach_traceability_surfaces=lambda point_layers, paths: None,

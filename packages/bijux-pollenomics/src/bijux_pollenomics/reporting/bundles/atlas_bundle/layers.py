@@ -85,11 +85,12 @@ def prepare_layers(
         )
         point_layers.extend(animal_bundle.point_layers)
         extra_artifacts.extend(animal_bundle.extra_artifacts)
-        animal_chronology_context = surface.build_animal_sample_chronology_context(
-            data_root=context_root,
-            geography_scope=geography_scope,
-        )
-        point_layers.extend(animal_chronology_context.point_layers)
+        if surface.animal_sample_chronology_context_available(context_root):
+            animal_chronology_context = surface.build_animal_sample_chronology_context(
+                data_root=context_root,
+                geography_scope=geography_scope,
+            )
+            point_layers.extend(animal_chronology_context.point_layers)
         animal_localities = animal_bundle.localities
         animal_coordinate_review = surface.AnimalCoordinateVisibilityReview(
             direct_coordinate_feature_count=animal_bundle.coordinate_review.direct_coordinate_feature_count,

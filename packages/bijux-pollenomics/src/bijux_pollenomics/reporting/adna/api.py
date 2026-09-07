@@ -30,6 +30,7 @@ from .sample_chronology_context import (
     AnimalSampleChronologyContextProjection,
     AnimalSampleChronologyNode,
     AnimalSampleChronologyRefusal,
+    animal_sample_chronology_context_available,
     build_animal_sample_chronology_context,
 )
 
@@ -43,6 +44,7 @@ __all__ = [
     "AnimalSampleChronologyRefusal",
     "CountryAnimalOutputBundle",
     "SchemaError",
+    "animal_sample_chronology_context_available",
     "build_animal_sample_chronology_context",
     "build_country_animal_output_bundle",
     "build_tracked_animal_atlas_bundle",

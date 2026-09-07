@@ -10,6 +10,7 @@ import pytest
 
 from bijux_pollenomics.reporting.adna.sample_chronology_context import (
     AnimalSampleChronologyContextProjection,
+    animal_sample_chronology_context_available,
     build_animal_sample_chronology_context,
 )
 from bijux_pollenomics.reporting.adna.sample_chronology_context.contracts import (
@@ -30,6 +31,24 @@ def _data_root() -> Path:
         if (candidate / "adna" / "governance").is_dir():
             return candidate
     raise AssertionError("repository data root is unavailable")
+
+
+def test_chronology_context_is_available_only_when_project_registry_is_declared(
+    tmp_path: Path,
+) -> None:
+    registry_path = (
+        tmp_path
+        / "adna"
+        / "governance"
+        / "source_library"
+        / "project_registry.json"
+    )
+    assert not animal_sample_chronology_context_available(tmp_path)
+
+    registry_path.parent.mkdir(parents=True)
+    registry_path.write_text("{}\n", encoding="utf-8")
+
+    assert animal_sample_chronology_context_available(tmp_path)
 
 
 @pytest.fixture(scope="module")

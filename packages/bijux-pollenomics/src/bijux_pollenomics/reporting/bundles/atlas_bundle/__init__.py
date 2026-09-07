@@ -33,6 +33,9 @@ from ....evidence import (
 )
 from ...aadr import summarize_localities
 from ...adna import (
+    animal_sample_chronology_context_available as animal_sample_chronology_context_available,
+)
+from ...adna import (
     build_animal_sample_chronology_context as build_animal_sample_chronology_context,
 )
 from ...adna import (
