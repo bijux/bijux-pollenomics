@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
-import hashlib
-import json
 from typing import Any
+
+from .animal_chronology_publication import (
+    build_animal_chronology_publication as _animal_chronology_publication,
+)
 
 
 def publish_contracts(
@@ -82,41 +84,3 @@ def publish_contracts(
         encoding="utf-8",
     )
     return map_policy, map_publication_contract
-
-
-def _animal_chronology_publication(
-    projection: Any, *, artifact_name: str
-) -> tuple[dict[str, object], dict[str, object]]:
-    input_identity = projection.input_identity.as_dict()
-    accountability = dict(projection.accountability)
-    refusals = [refusal.as_dict() for refusal in projection.refusals]
-    if accountability.get("input_identity") != input_identity:
-        raise ValueError("animal chronology accountability input identity differs")
-    if accountability.get("refusal_count") != len(refusals):
-        raise ValueError("animal chronology accountability refusal count differs")
-    content: dict[str, object] = {
-        "schema_version": "animal-sample-chronology-context-publication.v1",
-        "accountability": accountability,
-        "refusals": refusals,
-        "input_identity": input_identity,
-    }
-    content_sha256 = hashlib.sha256(
-        json.dumps(
-            content,
-            ensure_ascii=False,
-            sort_keys=True,
-            separators=(",", ":"),
-        ).encode("utf-8")
-    ).hexdigest()
-    payload = {**content, "content_sha256": content_sha256}
-    return payload, {
-        "artifact": artifact_name,
-        "content_sha256": content_sha256,
-        "input_identity_sha256": input_identity["combined_sha256"],
-        "scope": accountability["scope"],
-        "global_admitted_node_count": accountability["global_admitted_node_count"],
-        "projected_node_count": accountability["projected_node_count"],
-        "excluded_by_scope_count": accountability["excluded_by_scope_count"],
-        "refusal_count": accountability["refusal_count"],
-        "governed_country_rows": accountability["governed_country_rows"],
-    }

@@ -218,6 +218,27 @@ def test_projection_does_not_invent_scientific_classification_or_animal_scope(
     )
 
 
+def test_projection_requires_the_exact_grounded_species_set() -> None:
+    corpus = load_animal_sample_chronology_corpus(_data_root())
+    nodes = tuple(
+        replace(
+            node,
+            project_species_latin_name="Fabricatus animalis",
+            project_species_common_name="fabricated animal",
+        )
+        if node.project_species_latin_name == "Bos taurus"
+        else node
+        for node in corpus.nodes
+    )
+    contradictory = replace(corpus, nodes=nodes)
+
+    with pytest.raises(ValueError, match="grounded species differ"):
+        project_animal_sample_chronology_context(
+            contradictory,
+            geography_scope=None,
+        )
+
+
 def test_four_country_scope_reconciles_zero_norway_and_null_bounds() -> None:
     scope = GeographicScope(
         key="nordic-four",

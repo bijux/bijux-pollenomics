@@ -131,6 +131,7 @@ class AnimalSampleChronologyContextProjection:
     accountability: JsonObject
     refusals: tuple[AnimalSampleChronologyRefusal, ...]
     input_identity: AnimalChronologyInputIdentity
+    corpus_identity: JsonObject
 
 
 __all__ = [

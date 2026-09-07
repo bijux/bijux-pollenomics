@@ -13,6 +13,7 @@ from .contracts import (
     AnimalSampleChronologyNode,
     JsonObject,
 )
+from .integrity import build_corpus_identity, refusal_rows_sha256
 
 _GOVERNED_COUNTRIES = ("Denmark", "Finland", "Norway", "Sweden")
 _SPECIES_STYLES = {
@@ -40,11 +41,16 @@ def project_animal_sample_chronology_context(
     visible_ids = {node.feature_id for node in visible}
     if len(visible_ids) != len(visible):
         raise ValueError("animal source chronology feature identities are not unique")
+    grounded_species = {node.project_species_latin_name for node in corpus.nodes}
+    if grounded_species != set(_SPECIES_STYLES):
+        raise ValueError(
+            "animal source chronology grounded species differ; "
+            f"missing={sorted(set(_SPECIES_STYLES) - grounded_species)}, "
+            f"unexpected={sorted(grounded_species - set(_SPECIES_STYLES))}"
+        )
     point_layers = tuple(
         _species_layer(species, corpus.nodes, visible)
-        for species in sorted(
-            {node.project_species_latin_name for node in corpus.nodes}
-        )
+        for species in sorted(grounded_species)
     )
     if len(point_layers) != 6:
         raise ValueError(
@@ -56,6 +62,7 @@ def project_animal_sample_chronology_context(
         accountability=accountability,
         refusals=corpus.refusals,
         input_identity=corpus.input_identity,
+        corpus_identity=build_corpus_identity(corpus),
     )
 
 
@@ -282,6 +289,7 @@ def _accountability(
     native_available = sum(
         node.source_native_taxonomy_status == "available" for node in visible
     )
+    refusal_rows = [row.as_dict() for row in corpus.refusals]
     return {
         "schema_version": "animal-sample-chronology-context-accountability.v1",
         "status": "reconciled",
@@ -296,6 +304,7 @@ def _accountability(
         "source_counts": dict(corpus.source_counts),
         "refusal_counts": dict(corpus.refusal_counts),
         "refusal_count": len(corpus.refusals),
+        "refusal_rows_sha256": refusal_rows_sha256(refusal_rows),
         "global_admitted_node_count": len(corpus.nodes),
         "projected_node_count": len(visible),
         "excluded_by_scope_count": len(corpus.nodes) - len(visible),
