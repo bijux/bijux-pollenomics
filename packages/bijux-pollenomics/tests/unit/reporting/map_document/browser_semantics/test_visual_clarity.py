@@ -103,6 +103,9 @@ def test_expanded_legend_scrolls_inside_its_bounded_surface() -> None:
 def test_legend_uses_rendered_layer_and_country_colors() -> None:
     block = template_block("function renderLegend", "function sourceChronologyPopupHtml")
 
+    assert "visiblePointEntries.map(({ layer }) => layer.key)" in block
+    assert "visiblePolygonFeatureEntries.map(({ layer }) => layer.key)" in block
+    assert "renderedLayerKeys.has(layer.key)" in block
     assert "data-legend-country" in block
     assert "countryStyle(country)" in block
     assert "data-legend-layer" in block
@@ -113,6 +116,41 @@ def test_legend_uses_rendered_layer_and_country_colors() -> None:
     assert "concentrationLayer.style.stroke" in block
     assert "current zoom" in block
     assert "not abundance" in block
+    assert "Animal scope" not in block
+    assert "Coordinate trust" not in block
+    assert "Tracked species" not in block
+    assert "visibleScientificSignalIds.has(signal.signal_id)" in block
+    assert "visiblePolygonFeatureEntries.some" in block
+
+
+def test_collapsed_chrome_preserves_map_space_and_open_surfaces_are_exclusive() -> None:
+    assert ".floating-legend:has(.legend-body.is-collapsed)" in MAP_DOCUMENT_TEMPLATE
+    assert "width: auto;\n        max-height: none;\n        padding: 8px 10px;" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "let legendCollapsed = initialState.legend !== 'expanded';" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+    assert "function defaultPanelCollapsed() {\n        return true;" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
+
+    panel = template_block("function setPanelCollapsed", "function closeMobilePanel")
+    legend = template_block("function setLegendCollapsed", "function setSearchOpen")
+    search = template_block("function setSearchOpen", "function openHelpDialog")
+    assert "setLegendCollapsed(true, false)" in panel
+    assert "setSearchOpen(false)" in panel
+    assert "setPanelCollapsed(true, false)" in legend
+    assert "setSearchOpen(false)" in legend
+    assert "setPanelCollapsed(true, false)" in search
+    assert "setLegendCollapsed(true, false)" in search
+
+    capture_hidden = template_block(
+        "html.atlas-capture-mode .map-topbar", ".atlas-capture-overlay"
+    )
+    assert "html.atlas-capture-mode .floating-legend" in capture_hidden
+    assert "html.atlas-capture-mode .control-panel" in capture_hidden
+    assert "html.atlas-capture-mode .map-status" in capture_hidden
 
 
 def test_status_strip_uses_one_column_per_desktop_status() -> None:

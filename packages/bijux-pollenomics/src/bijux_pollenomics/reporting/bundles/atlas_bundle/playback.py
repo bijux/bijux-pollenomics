@@ -37,11 +37,11 @@ def publish_playback_storyboards(
         return
 
     canonical_countries = tuple(sorted(countries))
-    source_stories, exact_taxa = build_source_chronology_storyboards(
+    source_chronology = build_source_chronology_storyboards(
         point_layers,
         countries=canonical_countries,
     )
-    if not source_stories:
+    if not source_chronology.stories:
         return
     modeled_stories = build_modeled_context_storyboards(
         build_modeled_context_manifest(polygon_layers),
@@ -65,9 +65,8 @@ def publish_playback_storyboards(
         )
 
     manifest = build_playback_manifest(
-        source_stories=source_stories,
+        source_chronology=source_chronology,
         modeled_stories=modeled_stories,
-        exact_taxa=exact_taxa,
         candidate_succession=refuse_candidate_succession_storyboard(
             {
                 "propagation_status": "refused",

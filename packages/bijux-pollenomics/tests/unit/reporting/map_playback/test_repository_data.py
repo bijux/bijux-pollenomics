@@ -31,12 +31,39 @@ def test_committed_neotoma_projection_builds_complete_real_story_inventory() -> 
         REPOSITORY_ROOT / "data", base_layer
     )
 
-    stories, exact_taxa = build_source_chronology_storyboards(
+    result = build_source_chronology_storyboards(
         layers,
         countries=NORDIC_COUNTRIES,
     )
+    stories, exact_taxa = result
     frame_counts = {story.selector_value: len(story.frames) for story in stories}
-    assert frame_counts == {"all": 230, "TRSH": 230, "UPHE": 230, "AQVP": 192}
+    assert frame_counts == {
+        "all": 230,
+        "TRSH": 230,
+        "UPHE": 230,
+        "AQVP": 192,
+        "avena": 140,
+        "hordeum": 124,
+        "triticum": 107,
+        "secale": 45,
+        "cerealia": 119,
+    }
+    preset_denominators = {
+        story.selector_value: (
+            story.site_count,
+            story.node_count,
+            story.observation_denominator,
+        )
+        for story in stories
+        if story.selector_kind == "source_label_preset"
+    }
+    assert preset_denominators == {
+        "avena": (36, 110, 110),
+        "hordeum": (57, 572, 572),
+        "triticum": (49, 375, 375),
+        "secale": (66, 707, 707),
+        "cerealia": (56, 676, 676),
+    }
     assert len(exact_taxa) == 972
     assert len({taxon.feature_key for taxon in exact_taxa}) == 972
 

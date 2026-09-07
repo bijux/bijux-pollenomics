@@ -27,10 +27,12 @@ def test_source_taxon_identity_accepts_governed_numeric_feature_ids() -> None:
     observed = run_node_json(
         """
 let activeSourceChronologyCode='all',activeSourceChronologyTaxon='source:neotoma:taxon:338';
+let activeSourceChronologyPreset='none';
 function sourceChronologyLayerIsValid(){return true}
-const taxonLayer={semantic_role:'source_chronology_context',node_level:'source_taxon'};
+const taxonLayer={semantic_role:'source_chronology_context',node_level:'source_taxon',source_snapshot_id:'sha256:snapshot',build_id:'sha256:build'};
 const posture={
   semantic_role:'source_chronology_context',node_level:'source_taxon',
+  source_snapshot_id:'sha256:snapshot',build_id:'sha256:build',node_id:'node:338',record_id:'site:338',
   propagation_eligible:false,candidate_generation_status:'refused',
   candidate_refusal_reason:'source_taxon_equivalence_not_reviewed',
   feature_key:'source:neotoma:taxon:338',source_unit:'percent',

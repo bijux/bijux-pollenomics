@@ -50,7 +50,7 @@ def _assert_committed_source_chronology_contract(
         assert layer["interval_semantics"] == "[younger_bp, older_bp]"
         assert layer["propagation_status"] == "refused"
         assert layer["edge_count"] == 0
-        assert facets["schema_version"] == "neotoma-source-chronology-facets.v3"
+        assert facets["schema_version"] == "neotoma-source-chronology-facets.v4"
         assert facets["time_min_bp"] == 0
         assert facets["time_max_bp"] == 22_911
         assert {

@@ -12,7 +12,7 @@ from bijux_pollenomics.reporting.source_chronology.validation import (
     validate_source_chronology_atlas_projection,
 )
 
-from .support import DETAIL_ID, projection
+from .support import BUILD, DETAIL_ID, SNAPSHOT, projection
 
 
 def test_three_intent_owned_layers_preserve_source_semantics() -> None:
@@ -74,13 +74,50 @@ def test_selector_facets_carry_exact_node_and_observation_denominators() -> None
     code_facets = cast(
         dict[str, object], layers["source_ecological_code"]["facet_metadata"]
     )
-    assert code_facets["schema_version"] == "neotoma-source-chronology-facets.v3"
+    assert code_facets["schema_version"] == "neotoma-source-chronology-facets.v4"
+    assert code_facets["site_count"] == 1
     assert (code_facets["time_min_bp"], code_facets["time_max_bp"]) == (100, 125)
     assert code_facets["country_counts"] == [
-        {"value": "Sweden", "node_count": 1, "observation_denominator": 1},
-        {"value": "Denmark", "node_count": 0, "observation_denominator": 0},
-        {"value": "Norway", "node_count": 0, "observation_denominator": 0},
-        {"value": "Finland", "node_count": 0, "observation_denominator": 0},
+        {
+            "country_code": "SE",
+            "value": "Sweden",
+            "site_count_semantics": "unique_site_union",
+            "site_count": 1,
+            "node_count": 1,
+            "observation_denominator": 1,
+            "time_min_bp": 100,
+            "time_max_bp": 125,
+        },
+        {
+            "country_code": "DK",
+            "value": "Denmark",
+            "site_count_semantics": "unique_site_union",
+            "site_count": 0,
+            "node_count": 0,
+            "observation_denominator": 0,
+            "time_min_bp": None,
+            "time_max_bp": None,
+        },
+        {
+            "country_code": "NO",
+            "value": "Norway",
+            "site_count_semantics": "unique_site_union",
+            "site_count": 0,
+            "node_count": 0,
+            "observation_denominator": 0,
+            "time_min_bp": None,
+            "time_max_bp": None,
+        },
+        {
+            "country_code": "FI",
+            "value": "Finland",
+            "site_count_semantics": "unique_site_union",
+            "site_count": 0,
+            "node_count": 0,
+            "observation_denominator": 0,
+            "time_min_bp": None,
+            "time_max_bp": None,
+        },
     ]
     code_rows = cast(list[dict[str, object]], code_facets["source_ecological_codes"])
     assert len(code_rows) == 1
@@ -93,14 +130,17 @@ def test_selector_facets_carry_exact_node_and_observation_denominators() -> None
             "label": "Trees and Shrubs",
             "source_code": "TRSH",
             "feature_key": "source:neotoma:ecological-code:TRSH",
+            "site_count_semantics": "unique_site_union",
+            "site_count": 1,
             "node_count": 1,
             "observation_denominator": 1,
             "time_min_bp": 100,
             "time_max_bp": 125,
+            "country_counts": code_facets["country_counts"],
         }
     ]
     assert cast(dict[str, object], code_density)["node_count"] == 1
-    assert len(cast(dict[str, object], code_density)["bins"]) == 12
+    assert len(cast(list[object], cast(dict[str, object], code_density)["bins"])) == 12
     taxon_facets = cast(dict[str, object], layers["source_taxon"]["facet_metadata"])
     taxon_rows = cast(list[dict[str, object]], taxon_facets["source_taxa"])
     assert len(taxon_rows) == 1
@@ -112,20 +152,31 @@ def test_selector_facets_carry_exact_node_and_observation_denominators() -> None
             "value": "source:neotoma:taxon:1",
             "source_taxon_id": "1",
             "label": "Abies",
+            "site_count_semantics": "unique_site_union",
+            "site_count": 1,
             "node_count": 1,
             "observation_denominator": 1,
             "time_min_bp": 100,
             "time_max_bp": 125,
+            "country_counts": taxon_facets["country_counts"],
         }
     ]
     assert cast(dict[str, object], taxon_density)["node_count"] == 1
-    assert len(cast(dict[str, object], taxon_density)["bins"]) == 12
+    assert (
+        len(cast(list[object], cast(dict[str, object], taxon_density)["bins"])) == 12
+    )
 
 
 def test_empty_facet_metadata_has_no_invented_time_extent() -> None:
-    metadata = build_facet_metadata([], node_level="source_taxon")
+    metadata = build_facet_metadata(
+        [],
+        node_level="source_taxon",
+        source_snapshot_id=SNAPSHOT,
+        build_id=BUILD,
+    )
 
-    assert metadata["schema_version"] == "neotoma-source-chronology-facets.v3"
+    assert metadata["schema_version"] == "neotoma-source-chronology-facets.v4"
+    assert metadata["site_count"] == 0
     assert metadata["node_count"] == 0
     assert metadata["observation_denominator"] == 0
     assert metadata["time_min_bp"] is None
@@ -145,6 +196,7 @@ def test_selectable_facets_preserve_exact_independent_time_extents() -> None:
             replace(
                 trsh,
                 node_id="code-uphe",
+                observation_ids=("observation-2",),
                 feature_key="source:neotoma:ecological-code:UPHE",
                 source_ecological_group="UPHE",
                 younger_bp=20.5,
@@ -152,6 +204,8 @@ def test_selectable_facets_preserve_exact_independent_time_extents() -> None:
             ),
         ],
         node_level="source_ecological_code",
+        source_snapshot_id=SNAPSHOT,
+        build_id=BUILD,
     )
     taxon_metadata = build_facet_metadata(
         [
@@ -159,6 +213,7 @@ def test_selectable_facets_preserve_exact_independent_time_extents() -> None:
             replace(
                 acer,
                 node_id="taxon-abies",
+                observation_ids=("observation-2",),
                 feature_key="source:neotoma:taxon:2",
                 source_taxon_id=2,
                 source_reported_name="Abies",
@@ -167,9 +222,11 @@ def test_selectable_facets_preserve_exact_independent_time_extents() -> None:
             ),
         ],
         node_level="source_taxon",
+        source_snapshot_id=SNAPSHOT,
+        build_id=BUILD,
     )
 
-    assert code_metadata["schema_version"] == ("neotoma-source-chronology-facets.v3")
+    assert code_metadata["schema_version"] == ("neotoma-source-chronology-facets.v4")
     assert (code_metadata["time_min_bp"], code_metadata["time_max_bp"]) == (
         0.75,
         878.26,

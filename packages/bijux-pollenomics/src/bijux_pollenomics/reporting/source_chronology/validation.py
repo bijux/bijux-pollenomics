@@ -41,9 +41,11 @@ def validate_source_chronology_atlas_projection(
             raise ValueError("source chronology layer default visibility is invalid")
         if layer.get("propagation_status") != "refused" or layer.get("edge_count") != 0:
             raise ValueError("source chronology layer was promoted to propagation")
-        level_nodes = [node for node in result.nodes if node.node_level == level]
         if layer.get("facet_metadata") != build_facet_metadata(
-            level_nodes, node_level=level
+            result.nodes,
+            node_level=level,
+            source_snapshot_id=result.context.source_snapshot_id,
+            build_id=result.context.build_id,
         ):
             raise ValueError("source chronology facet metadata does not reconcile")
         raw_features = layer.get("features")

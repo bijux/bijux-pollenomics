@@ -846,6 +846,14 @@
           linear-gradient(180deg, rgba(255, 255, 255, 0.50), rgba(255, 255, 255, 0)),
           var(--surface);
       }
+      .floating-legend:has(.legend-body.is-collapsed) {
+        width: auto;
+        max-height: none;
+        padding: 8px 10px;
+      }
+      .floating-legend:has(.legend-body.is-collapsed) .legend-head {
+        margin-bottom: 0;
+      }
       .control-panel {
         position: absolute;
         top: 116px;
@@ -1952,7 +1960,6 @@
           <div id="legend-body" class="legend-body is-collapsed">
             <div id="legend-items" class="legend-list"></div>
             <div id="density-ramp" class="density-ramp">
-              <div class="legend-item"><span>Acceptance rings use each active layer's marker colors and remain translucent so overlap is visible.</span></div>
               <div class="legend-item"><span class="legend-swatch" style="background: rgba(239, 68, 68, 0.22); border-color: #7f1d1d;"></span><span>RAÄ archaeology density shows Swedish `Fornlämning` counts in 1° grid cells.</span></div>
               <div class="density-bar"><span></span><span></span><span></span><span></span><span></span><span></span></div>
               <div class="density-labels"><span>Lower density</span><span>Higher density</span></div>
@@ -2032,7 +2039,11 @@
                     <button class="inline-button" type="button" data-source-shortcut="UPHE">UPHE</button>
                     <button class="inline-button" type="button" data-source-shortcut="AQVP">AQVP</button>
                     <button class="inline-button" type="button" data-source-shortcut="taxa">All exact labels</button>
-                    <button class="inline-button" type="button" data-source-shortcut="cereals">Find cereal-like labels</button>
+                    <button class="inline-button" type="button" data-source-preset="avena">Avena labels</button>
+                    <button class="inline-button" type="button" data-source-preset="hordeum">Hordeum labels</button>
+                    <button class="inline-button" type="button" data-source-preset="triticum">Triticum labels</button>
+                    <button class="inline-button" type="button" data-source-preset="secale">Secale labels</button>
+                    <button class="inline-button" type="button" data-source-preset="cerealia">Cerealia labels</button>
                   </div>
                 </div>
               </details>
@@ -2054,6 +2065,8 @@ __CHRONOLOGY_PLAYBACK_ACTION__
                     <select id="source-chronology-code" class="search-input" aria-label="Filter by literal Neotoma ecological code"></select>
                   </div>
                   <div id="source-chronology-taxon-fields" hidden>
+                    <div id="source-label-preset-controls" class="source-shortcuts" aria-label="Governed exact-ID source-label presets"></div>
+                    <div id="source-label-preset-state" class="search-meta" aria-live="polite">No source-label preset selected.</div>
                     <label class="field-label" for="source-chronology-taxon-query"><span>Find source-reported taxon or pollen type</span><span>not a species assertion</span></label>
                     <input id="source-chronology-taxon-query" class="search-input" type="search" autocomplete="off" placeholder="Search source labels; use | for alternatives" aria-controls="source-chronology-taxon">
                     <label class="field-label" for="source-chronology-taxon"><span>Exact source label</span><span>all by default</span></label>
@@ -3028,6 +3041,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const sourceChronologyCodeFields = document.getElementById('source-chronology-code-fields');
       const sourceChronologyCode = document.getElementById('source-chronology-code');
       const sourceChronologyTaxonFields = document.getElementById('source-chronology-taxon-fields');
+      const sourceLabelPresetControls = document.getElementById('source-label-preset-controls');
+      const sourceLabelPresetState = document.getElementById('source-label-preset-state');
       const sourceChronologyTaxonQuery = document.getElementById('source-chronology-taxon-query');
       const sourceChronologyTaxon = document.getElementById('source-chronology-taxon');
       const sourceChronologyTaxonShortcuts = document.getElementById('source-chronology-taxon-shortcuts');
@@ -3098,6 +3113,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           sourceChronologyLevel: params.get('source_chronology_level'),
           sourceChronologyCode: params.get('source_ecological_code'),
           sourceChronologyTaxon: params.get('source_taxon'),
+          sourceChronologyPreset: params.get('source_label_preset'),
           sourceRecordConcentration: params.get('source_record_concentration'),
           density: params.get('density'),
           basemap: params.get('basemap'),
@@ -3757,6 +3773,43 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (nodeCount === 0) return row.time_min_bp === null && row.time_max_bp === null;
         return minimum !== null && maximum !== null && minimum <= maximum;
       }
+      function sourceChronologyAggregateIsValid(row, { density = true } = {}) {
+        if (!row || typeof row !== 'object' || Array.isArray(row)) return false;
+        const siteCount = sourceChronologyCount(row.site_count);
+        const nodeCount = sourceChronologyCount(row.node_count);
+        const observationCount = sourceChronologyCount(row.observation_denominator);
+        if (siteCount === null || nodeCount === null || observationCount === null) return false;
+        if (row.site_count_semantics !== 'unique_site_union' || !sourceChronologyExtentIsValid(row)) return false;
+        if (nodeCount === 0) {
+          if (siteCount !== 0 || observationCount !== 0) return false;
+        } else if (siteCount === 0 || siteCount > nodeCount || observationCount === 0) return false;
+        return !density || sourceChronologyTimeDensityIsValid(row.time_density, row);
+      }
+      const SOURCE_CHRONOLOGY_COUNTRIES = Object.freeze([
+        Object.freeze(['SE', 'Sweden']),
+        Object.freeze(['DK', 'Denmark']),
+        Object.freeze(['NO', 'Norway']),
+        Object.freeze(['FI', 'Finland']),
+      ]);
+      function sourceChronologyCountryRowsAreValid(rows, aggregate) {
+        if (!Array.isArray(rows) || rows.length !== SOURCE_CHRONOLOGY_COUNTRIES.length) return false;
+        if (!rows.every((row, index) => (
+          row?.country_code === SOURCE_CHRONOLOGY_COUNTRIES[index][0]
+          && row.value === SOURCE_CHRONOLOGY_COUNTRIES[index][1]
+          && sourceChronologyAggregateIsValid(row, { density: false })
+        ))) return false;
+        for (const field of ['site_count', 'node_count', 'observation_denominator']) {
+          if (rows.reduce((total, row) => total + row[field], 0) !== aggregate[field]) return false;
+        }
+        const populated = rows.filter((row) => row.node_count > 0);
+        if (aggregate.node_count === 0) return populated.length === 0;
+        return Math.min(...populated.map((row) => row.time_min_bp)) === aggregate.time_min_bp
+          && Math.max(...populated.map((row) => row.time_max_bp)) === aggregate.time_max_bp;
+      }
+      function sourceChronologyAccountabilityIsValid(row, { density = true } = {}) {
+        return sourceChronologyAggregateIsValid(row, { density })
+          && sourceChronologyCountryRowsAreValid(row.country_counts, row);
+      }
       function sourceChronologyTimeDensityIsValid(density, facet) {
         if (!density || density.schema_version !== 'source-chronology-time-density.v1') return false;
         if (density.temporal_direction !== 'oldest_to_present' || density.interval_semantics !== '[younger_bp, older_bp]') return false;
@@ -3778,43 +3831,170 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           return true;
         });
       }
-      function sourceChronologyFacetRowsAreValid(rows, { featureKey = false, taxon = false, timeExtent = false } = {}) {
+      function sourceChronologyFacetRowsAreValid(rows, { featureKey = false, taxon = false } = {}) {
         if (!Array.isArray(rows)) return false;
         const values = new Set();
         return rows.every((row) => {
           if (!row || typeof row !== 'object' || typeof row.value !== 'string' || !row.value.trim() || values.has(row.value)) return false;
           values.add(row.value);
-          if (sourceChronologyCount(row.node_count) === null || sourceChronologyCount(row.observation_denominator) === null) return false;
-          if (timeExtent && (
-            !sourceChronologyExtentIsValid(row)
-            || !sourceChronologyTimeDensityIsValid(row.time_density, row)
-          )) return false;
+          if (!sourceChronologyAccountabilityIsValid(row)) return false;
           if (featureKey && (typeof row.feature_key !== 'string' || !row.feature_key.trim())) return false;
-          if (taxon && (typeof row.source_taxon_id !== 'string' || !row.source_taxon_id.trim() || typeof row.label !== 'string' || !row.label.trim())) return false;
+          if (taxon && (typeof row.source_taxon_id !== 'string' || !/^\d+$/.test(row.source_taxon_id) || typeof row.label !== 'string' || !row.label.trim())) return false;
           return true;
         });
       }
-      function sourceChronologyLayerIsValid(layer) {
+      function sourceChronologyUnitRowsAreValid(rows, aggregate) {
+        if (!Array.isArray(rows)) return false;
+        const values = new Set();
+        if (!rows.every((row) => {
+          if (!row || typeof row.value !== 'string' || !row.value.trim() || values.has(row.value)) return false;
+          values.add(row.value);
+          return sourceChronologyCount(row.node_count) !== null
+            && sourceChronologyCount(row.observation_denominator) !== null;
+        })) return false;
+        return rows.reduce((total, row) => total + row.node_count, 0) === aggregate.node_count
+          && rows.reduce((total, row) => total + row.observation_denominator, 0) === aggregate.observation_denominator;
+      }
+      function sourceChronologySha256IdentityIsValid(value) {
+        return typeof value === 'string' && /^sha256:[0-9a-f]{64}$/.test(value);
+      }
+      function sourceChronologyLiteralPostureIsValid(row) {
+        return row?.membership_semantics === 'literal_source_label_membership'
+          && row.accepted_classification === false
+          && row.aggregation_is_abundance === false
+          && row.propagation_allowed === false;
+      }
+      function sourceChronologyIntegerIdsAreValid(values) {
+        return Array.isArray(values)
+          && values.every((value) => Number.isSafeInteger(value) && value >= 0)
+          && new Set(values).size === values.length;
+      }
+      function sourceChronologyDerivedFacet(rows) {
+        const populated = rows.filter((row) => row.node_count > 0);
+        return {
+          node_count: rows.reduce((total, row) => total + row.node_count, 0),
+          observation_denominator: rows.reduce((total, row) => total + row.observation_denominator, 0),
+          time_min_bp: populated.length ? Math.min(...populated.map((row) => row.time_min_bp)) : null,
+          time_max_bp: populated.length ? Math.max(...populated.map((row) => row.time_max_bp)) : null,
+        };
+      }
+      function sourceChronologyDerivedCountsMatch(actual, rows) {
+        const expected = sourceChronologyDerivedFacet(rows);
+        return ['node_count', 'observation_denominator', 'time_min_bp', 'time_max_bp']
+          .every((field) => actual[field] === expected[field]);
+      }
+      function sourceChronologyDerivedSiteBoundsMatch(actual, rows) {
+        const lowerBound = rows.length ? Math.max(...rows.map((row) => row.site_count)) : 0;
+        const upperBound = rows.reduce((total, row) => total + row.site_count, 0);
+        return actual.site_count >= lowerBound && actual.site_count <= upperBound;
+      }
+      function sourceChronologyPresetContractIsValid(layer) {
+        const facets = layer.facet_metadata;
+        const catalog = facets.source_label_preset_catalog;
+        const accountability = facets.source_label_preset_accountability;
+        const expectedPresetKeys = ['avena', 'hordeum', 'triticum', 'secale', 'cerealia'];
+        if (!catalog || !accountability) return false;
+        if (catalog.schema_version !== 'neotoma-source-label-presets.v1' || catalog.source !== 'neotoma') return false;
+        if (!sourceChronologyLiteralPostureIsValid(catalog) || !sourceChronologyLiteralPostureIsValid(accountability)) return false;
+        if (catalog.source_snapshot_id !== layer.source_snapshot_id || catalog.build_id !== layer.build_id) return false;
+        if (![catalog.definition_sha256, catalog.content_sha256].every(sourceChronologySha256IdentityIsValid)) return false;
+        if (accountability.schema_version !== 'neotoma-source-label-preset-accountability.v1' || accountability.catalog_content_sha256 !== catalog.content_sha256) return false;
+        if (catalog.source_taxon_count !== 21 || catalog.preset_count !== 5 || catalog.membership_count !== 24) return false;
+        if (accountability.source_taxon_count !== catalog.source_taxon_count || accountability.preset_count !== catalog.preset_count || accountability.membership_count !== catalog.membership_count) return false;
+        if (!Array.isArray(catalog.source_taxa) || catalog.source_taxa.length !== catalog.source_taxon_count) return false;
+        if (!Array.isArray(catalog.presets) || !Array.isArray(accountability.presets) || catalog.presets.length !== 5 || accountability.presets.length !== 5) return false;
+        const presetKeys = catalog.presets.map((row) => row?.key);
+        if (presetKeys.join('|') !== expectedPresetKeys.join('|') || accountability.presets.map((row) => row?.key).join('|') !== presetKeys.join('|')) return false;
+        const taxaById = new Map();
+        for (const taxon of catalog.source_taxa) {
+          if (!taxon || !Number.isSafeInteger(taxon.source_taxon_id) || taxon.source_taxon_id < 0 || taxaById.has(taxon.source_taxon_id)) return false;
+          if (typeof taxon.source_reported_name !== 'string' || !taxon.source_reported_name.trim()) return false;
+          if (!Array.isArray(taxon.preset_keys) || new Set(taxon.preset_keys).size !== taxon.preset_keys.length || taxon.preset_keys.some((key) => !expectedPresetKeys.includes(key))) return false;
+          taxaById.set(taxon.source_taxon_id, taxon);
+        }
+        if (taxaById.size !== catalog.source_taxon_count) return false;
+        const exactFacetsById = new Map(facets.source_taxa.map((row) => [Number(row.source_taxon_id), row]));
+        if (exactFacetsById.size !== facets.source_taxa.length) return false;
+        for (const [taxonId, taxon] of taxaById) {
+          const exactFacet = exactFacetsById.get(taxonId);
+          if (exactFacet && exactFacet.label !== taxon.source_reported_name) return false;
+        }
+        for (let index = 0; index < catalog.presets.length; index += 1) {
+          const definition = catalog.presets[index];
+          const account = accountability.presets[index];
+          if (!sourceChronologyLiteralPostureIsValid(definition) || !sourceChronologyLiteralPostureIsValid(account)) return false;
+          if (typeof definition.label !== 'string' || !definition.label.trim() || account.label !== definition.label || account.key !== definition.key) return false;
+          if (!sourceChronologyIntegerIdsAreValid(definition.member_taxon_ids) || definition.member_taxon_count !== definition.member_taxon_ids.length) return false;
+          if (account.member_taxon_count !== definition.member_taxon_count || JSON.stringify(account.member_taxon_ids) !== JSON.stringify(definition.member_taxon_ids)) return false;
+          if (!sourceChronologyAccountabilityIsValid(account)) return false;
+          if (definition.member_taxon_ids.some((taxonId) => !taxaById.has(taxonId) || !taxaById.get(taxonId).preset_keys.includes(definition.key))) return false;
+          if ([...taxaById.values()].some((taxon) => taxon.preset_keys.includes(definition.key) !== definition.member_taxon_ids.includes(taxon.source_taxon_id))) return false;
+          const memberFacets = definition.member_taxon_ids.map((taxonId) => exactFacetsById.get(taxonId)).filter(Boolean);
+          if (!sourceChronologyDerivedCountsMatch(account, memberFacets) || !sourceChronologyDerivedSiteBoundsMatch(account, memberFacets)) return false;
+          for (let countryIndex = 0; countryIndex < SOURCE_CHRONOLOGY_COUNTRIES.length; countryIndex += 1) {
+            const countryFacets = memberFacets.map((row) => row.country_counts[countryIndex]);
+            if (!sourceChronologyDerivedCountsMatch(account.country_counts[countryIndex], countryFacets) || !sourceChronologyDerivedSiteBoundsMatch(account.country_counts[countryIndex], countryFacets)) return false;
+          }
+        }
+        const union = accountability.union;
+        const allTaxonIds = [...taxaById.keys()];
+        if (!sourceChronologyLiteralPostureIsValid(union) || union?.key !== 'all-governed-source-labels' || typeof union.label !== 'string' || !union.label.trim()) return false;
+        if (!sourceChronologyIntegerIdsAreValid(union.member_taxon_ids) || union.member_taxon_count !== catalog.source_taxon_count || JSON.stringify(union.member_taxon_ids) !== JSON.stringify(allTaxonIds)) return false;
+        if (!sourceChronologyAccountabilityIsValid(union)) return false;
+        const unionFacets = allTaxonIds.map((taxonId) => exactFacetsById.get(taxonId)).filter(Boolean);
+        if (!sourceChronologyDerivedCountsMatch(union, unionFacets) || !sourceChronologyDerivedSiteBoundsMatch(union, unionFacets)) return false;
+        for (let countryIndex = 0; countryIndex < SOURCE_CHRONOLOGY_COUNTRIES.length; countryIndex += 1) {
+          const countryFacets = unionFacets.map((row) => row.country_counts[countryIndex]);
+          if (!sourceChronologyDerivedCountsMatch(union.country_counts[countryIndex], countryFacets) || !sourceChronologyDerivedSiteBoundsMatch(union.country_counts[countryIndex], countryFacets)) return false;
+        }
+        return true;
+      }
+      function sourceChronologyLayerContractIsValid(layer) {
         if (!layer || layer.semantic_role !== 'source_chronology_context') return false;
         if (!SOURCE_CHRONOLOGY_LEVEL_ORDER.includes(layer.node_level)) return false;
         if (layer.propagation_status !== 'refused' || layer.edge_count !== 0) return false;
         if (layer.temporal_direction !== 'oldest_to_present' || layer.interval_semantics !== '[younger_bp, older_bp]') return false;
         const facets = layer.facet_metadata;
-        if (!facets || facets.schema_version !== 'neotoma-source-chronology-facets.v3' || facets.node_level !== layer.node_level) return false;
-        if (sourceChronologyCount(facets.node_count) === null || sourceChronologyCount(facets.observation_denominator) === null) return false;
-        if (!sourceChronologyExtentIsValid(facets)) return false;
-        if (!sourceChronologyTimeDensityIsValid(facets.time_density, facets)) return false;
+        if (!facets || facets.schema_version !== 'neotoma-source-chronology-facets.v4' || facets.node_level !== layer.node_level) return false;
+        if (!sourceChronologyAccountabilityIsValid(facets)) return false;
         if (sourceChronologyCount(layer.count) !== facets.node_count) return false;
-        if (!sourceChronologyFacetRowsAreValid(facets.country_counts) || !sourceChronologyFacetRowsAreValid(facets.source_unit_counts)) return false;
-        if (facets.country_counts.map((row) => row.value).join('|') !== 'Sweden|Denmark|Norway|Finland') return false;
+        if (!sourceChronologyUnitRowsAreValid(facets.source_unit_counts, facets)) return false;
         if (layer.node_level === 'source_sample_presence' && layer.default_enabled !== true) return false;
         if (layer.node_level === 'source_ecological_code') {
-          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_ecological_codes, { featureKey: true, timeExtent: true })) return false;
+          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_ecological_codes, { featureKey: true })) return false;
         } else if (!Array.isArray(facets.source_ecological_codes) || facets.source_ecological_codes.length !== 0) return false;
         if (layer.node_level === 'source_taxon') {
-          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_taxa, { taxon: true, timeExtent: true })) return false;
+          if (layer.default_enabled !== false || !sourceChronologyFacetRowsAreValid(facets.source_taxa, { taxon: true }) || !sourceChronologyPresetContractIsValid(layer)) return false;
         } else if (!Array.isArray(facets.source_taxa) || facets.source_taxa.length !== 0) return false;
         return true;
+      }
+      const SOURCE_CHRONOLOGY_LAYER_VALIDATION_CACHE = new WeakMap();
+      function freezeSourceChronologyMetadata(value, seen = new WeakSet()) {
+        if (!value || typeof value !== 'object' || seen.has(value)) return value;
+        seen.add(value);
+        Object.values(value).forEach((child) => freezeSourceChronologyMetadata(child, seen));
+        return Object.freeze(value);
+      }
+      function sourceChronologyLayerIsValid(layer) {
+        if (!layer || typeof layer !== 'object') return false;
+        const fingerprint = [
+          layer.semantic_role,
+          layer.node_level,
+          layer.default_enabled,
+          layer.propagation_status,
+          layer.edge_count,
+          layer.temporal_direction,
+          layer.interval_semantics,
+          layer.count,
+          layer.source_snapshot_id,
+          layer.build_id,
+        ].join('|');
+        const cached = SOURCE_CHRONOLOGY_LAYER_VALIDATION_CACHE.get(layer);
+        if (cached && cached.facet_metadata === layer.facet_metadata && cached.fingerprint === fingerprint) return cached.valid;
+        const valid = sourceChronologyLayerContractIsValid(layer);
+        if (valid) freezeSourceChronologyMetadata(layer.facet_metadata);
+        SOURCE_CHRONOLOGY_LAYER_VALIDATION_CACHE.set(layer, { facet_metadata: layer.facet_metadata, fingerprint, valid });
+        return valid;
       }
       function sourceChronologyLayers() {
         return POINT_LAYERS
@@ -3825,9 +4005,16 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return sourceChronologyLayers().find((layer) => layer.node_level === level) || null;
       }
       function sourceChronologyTaxonIdentifierIsValid(value) {
-        return (typeof value === 'string' && Boolean(value.trim())) || (Number.isSafeInteger(value) && value >= 0);
+        return (typeof value === 'string' && /^\d+$/.test(value)) || (Number.isSafeInteger(value) && value >= 0);
       }
-      function sourceChronologyFacetForSelection(layer, code, taxon) {
+      function sourceChronologyTaxonIdentifier(value) {
+        return sourceChronologyTaxonIdentifierIsValid(value) ? Number(value) : null;
+      }
+      function sourceChronologyPresetForSelection(layer, presetKey) {
+        if (!layer || layer.node_level !== 'source_taxon' || presetKey === 'none') return null;
+        return layer.facet_metadata.source_label_preset_accountability.presets.find((row) => row.key === presetKey) || null;
+      }
+      function sourceChronologyFacetForSelection(layer, code, taxon, presetKey = typeof activeSourceChronologyPreset === 'undefined' ? 'none' : activeSourceChronologyPreset) {
         if (!layer) return null;
         const facets = layer.facet_metadata;
         if (layer.node_level === 'source_ecological_code' && code !== 'all') {
@@ -3836,12 +4023,18 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (layer.node_level === 'source_taxon' && taxon !== 'all') {
           return facets.source_taxa.find((row) => row.value === taxon) || null;
         }
+        if (layer.node_level === 'source_taxon' && presetKey !== 'none') {
+          return sourceChronologyPresetForSelection(layer, presetKey);
+        }
         return {
+          site_count_semantics: facets.site_count_semantics,
+          site_count: facets.site_count,
           node_count: facets.node_count,
           observation_denominator: facets.observation_denominator,
           time_min_bp: facets.time_min_bp,
           time_max_bp: facets.time_max_bp,
           time_density: facets.time_density,
+          country_counts: facets.country_counts,
         };
       }
       function sourceChronologyPlaybackSelection() {
@@ -3855,7 +4048,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return {
           time_min_bp: minimum,
           time_max_bp: maximum,
-          selection_key: [layer.key, activeSourceChronologyCode, activeSourceChronologyTaxon, minimum, maximum].join('|'),
+          selection_key: [layer.key, activeSourceChronologyCode, activeSourceChronologyTaxon, activeSourceChronologyPreset, minimum, maximum].join('|'),
         };
       }
       function genericUntimedExclusion() {
@@ -3962,16 +4155,18 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         });
         const exactFacetSelected = (
           (layer.node_level === 'source_ecological_code' && activeSourceChronologyCode !== 'all')
-          || (layer.node_level === 'source_taxon' && activeSourceChronologyTaxon !== 'all')
+          || (layer.node_level === 'source_taxon' && (activeSourceChronologyTaxon !== 'all' || activeSourceChronologyPreset !== 'none'))
         );
         if (ambiguous || (exactFacetSelected && count > 0)) return { status: 'unavailable', count: null, split_status: 'unavailable' };
         return { status: 'available', count, split_status: splitUnavailable ? 'unavailable' : 'available', absent_count: splitUnavailable ? null : classified.absent, refused_count: splitUnavailable ? null : classified.refused, contextual_count: splitUnavailable ? null : classified.contextual };
       }
-      function sourceChronologyFeatureMatches(layer, feature, code = activeSourceChronologyCode, taxon = activeSourceChronologyTaxon) {
+      function sourceChronologyFeatureMatches(layer, feature, code = activeSourceChronologyCode, taxon = activeSourceChronologyTaxon, presetKey = typeof activeSourceChronologyPreset === 'undefined' ? 'none' : activeSourceChronologyPreset) {
         if (layer.semantic_role !== 'source_chronology_context') return true;
         if (!sourceChronologyLayerIsValid(layer) || !feature || feature.semantic_role !== 'source_chronology_context') return false;
         if (feature.node_level !== layer.node_level || feature.propagation_eligible !== false || feature.candidate_generation_status !== 'refused') return false;
         if (typeof feature.candidate_refusal_reason !== 'string' || !feature.candidate_refusal_reason.trim()) return false;
+        if (feature.source_snapshot_id !== layer.source_snapshot_id || feature.build_id !== layer.build_id) return false;
+        if (typeof feature.node_id !== 'string' || !feature.node_id.trim() || typeof feature.record_id !== 'string' || !feature.record_id.trim()) return false;
         if (typeof feature.feature_key !== 'string' || !feature.feature_key.trim() || typeof feature.source_unit !== 'string' || !feature.source_unit.trim()) return false;
         if (layer.node_level === 'source_ecological_code') {
           if (typeof feature.source_ecological_code !== 'string' || !feature.source_ecological_code.trim()) return false;
@@ -3982,7 +4177,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (typeof feature.source_reported_name !== 'string' || !feature.source_reported_name.trim()) return false;
           if (!sourceChronologyTaxonIdentifierIsValid(feature.source_taxon_id)) return false;
           if (feature.source_ecological_code !== null) return false;
-          return taxon === 'all' || feature.feature_key === taxon;
+          if (taxon !== 'all') return feature.feature_key === taxon;
+          const preset = sourceChronologyPresetForSelection(layer, presetKey);
+          return !preset || preset.member_taxon_ids.includes(sourceChronologyTaxonIdentifier(feature.source_taxon_id));
         }
         return feature.source_ecological_code === null && feature.source_taxon_id === null && feature.source_reported_name === null;
       }
@@ -4000,7 +4197,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const activeSourceLayers = sourceChronologyLayers().filter((candidate) => activeLayerKeys.has(candidate.key));
         if (activeSourceLayers.length !== 1 || activeSourceLayers[0].key !== layer.key) return null;
         if (layer.node_level === 'source_ecological_code' && activeSourceChronologyCode === 'all') return null;
-        if (layer.node_level === 'source_taxon' && activeSourceChronologyTaxon === 'all') return null;
+        if (layer.node_level === 'source_taxon' && activeSourceChronologyTaxon === 'all' && activeSourceChronologyPreset === 'none') return null;
         const facet = sourceChronologyFacetForSelection(layer, activeSourceChronologyCode, activeSourceChronologyTaxon);
         if (!facet || sourceChronologyCount(facet.node_count) === null || sourceChronologyCount(facet.observation_denominator) === null) return null;
         return facet;
@@ -4009,6 +4206,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if (!layer) return 'unavailable facet';
         if (layer.node_level === 'source_ecological_code') return `literal source code ${activeSourceChronologyCode}`;
         if (layer.node_level === 'source_taxon') {
+          const preset = sourceChronologyPresetForSelection(layer, activeSourceChronologyPreset);
+          if (preset) return `${preset.label} exact-ID union`;
           const row = layer.facet_metadata.source_taxa.find((candidate) => candidate.value === activeSourceChronologyTaxon);
           return row ? `exact source label ${row.label} (${row.source_taxon_id})` : 'unavailable exact source label';
         }
@@ -4033,7 +4232,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         [...features]
           .sort((left, right) => sourceRecordConcentrationCompareText(left?.node_id || '', right?.node_id || ''))
           .forEach((feature) => {
-            if (!sourceChronologyFeatureMatches(layer, feature, 'all', 'all')) sourceRecordConcentrationFailure('a loaded source node violates the active-level contract');
+            if (!sourceChronologyFeatureMatches(layer, feature, 'all', 'all', 'none')) sourceRecordConcentrationFailure('a loaded source node violates the active-level contract');
             const nodeId = typeof feature.node_id === 'string' ? feature.node_id.trim() : '';
             const siteId = typeof feature.record_id === 'string' ? feature.record_id.trim() : '';
             const observationCount = sourceChronologyCount(feature.observation_denominator);
@@ -4104,6 +4303,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       );
       let activeSourceChronologyCode = 'all';
       let activeSourceChronologyTaxon = 'all';
+      let activeSourceChronologyPreset = 'none';
       const initialSourceChronologyLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
       if (initialSourceChronologyLayer && initialSourceChronologyLayer.node_level === 'source_ecological_code') {
         activeSourceChronologyCode = normalizedSingleValue(
@@ -4118,6 +4318,13 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           ['all', ...initialSourceChronologyLayer.facet_metadata.source_taxa.map((row) => row.value)],
           'all'
         );
+        if (activeSourceChronologyTaxon === 'all') {
+          activeSourceChronologyPreset = normalizedSingleValue(
+            initialState.sourceChronologyPreset,
+            ['none', ...initialSourceChronologyLayer.facet_metadata.source_label_preset_accountability.presets.map((row) => row.key)],
+            'none'
+          );
+        }
       }
       let sourceChronologyTaxonSearch = '';
       let sourceRecordConcentrationActive = initialState.sourceRecordConcentration === 'captured';
@@ -4531,6 +4738,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (activeSourceChronologyLevel !== defaultSourceChronologyLevel) params.set('source_chronology_level', activeSourceChronologyLevel);
           if (activeSourceChronologyCode !== 'all') params.set('source_ecological_code', activeSourceChronologyCode);
           if (activeSourceChronologyTaxon !== 'all') params.set('source_taxon', activeSourceChronologyTaxon);
+          if (activeSourceChronologyPreset !== 'none') params.set('source_label_preset', activeSourceChronologyPreset);
           if (sourceRecordConcentrationActive) params.set('source_record_concentration', 'captured');
         }
         if (Number(slider.value) !== __INITIAL_DIAMETER__) params.set('diameter', String(Number(slider.value)));
@@ -4957,6 +5165,14 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         sourceChronologyShortcuts.querySelectorAll('[data-source-shortcut]').forEach((button) => {
           button.disabled = !sourceChronologyAvailable;
         });
+        const presetLayer = sourceChronologyLayers().find((layer) => layer.node_level === 'source_taxon') || null;
+        if (presetLayer) {
+          sourceChronologyShortcuts.querySelectorAll('[data-source-preset]').forEach((button) => {
+            button.disabled = false;
+            button.classList.toggle('is-primary', button.dataset.sourcePreset === activeSourceChronologyPreset);
+            button.setAttribute('aria-pressed', String(button.dataset.sourcePreset === activeSourceChronologyPreset));
+          });
+        }
         scientificStatus.textContent = available
           ? 'Only accepted, versioned classifications are selectable. Color is always paired with a shape cue.'
           : sourceChronologyAvailable
@@ -5002,6 +5218,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         stopTimePlayback();
         if (activeSourceChronologyLevel !== layer.node_level) sourceRecordConcentrationActive = false;
         activeSourceChronologyLevel = layer.node_level;
+        if (layer.node_level !== 'source_taxon') activeSourceChronologyPreset = 'none';
         sourceChronologyLayers().forEach((candidate) => activeLayerKeys.delete(candidate.key));
         activeLayerKeys.add(layer.key);
         return true;
@@ -5072,6 +5289,13 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const taxonRows = selectedLayer.node_level === 'source_taxon' ? selectedLayer.facet_metadata.source_taxa : [];
         const validTaxa = ['all', ...taxonRows.map((row) => row.value)];
         activeSourceChronologyTaxon = normalizedSingleValue(activeSourceChronologyTaxon, validTaxa, 'all');
+        const presetRows = selectedLayer.node_level === 'source_taxon'
+          ? selectedLayer.facet_metadata.source_label_preset_accountability.presets
+          : [];
+        activeSourceChronologyPreset = normalizedSingleValue(activeSourceChronologyPreset, ['none', ...presetRows.map((row) => row.key)], 'none');
+        if (activeSourceChronologyTaxon !== 'all') activeSourceChronologyPreset = 'none';
+        const selectedPreset = sourceChronologyPresetForSelection(selectedLayer, activeSourceChronologyPreset);
+        const selectedPresetTaxonIds = new Set(selectedPreset?.member_taxon_ids || []);
         const query = sourceChronologyTaxonSearch.trim().toLowerCase();
         const queryAlternatives = query
           .split('|')
@@ -5079,6 +5303,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           .filter((alternative) => alternative.length);
         const visibleTaxa = taxonRows.filter((row) => (
           row.value === activeSourceChronologyTaxon
+          || selectedPresetTaxonIds.has(Number(row.source_taxon_id))
           || !queryAlternatives.length
           || queryAlternatives.some((alternative) => {
             const searchable = `${row.label} ${row.source_taxon_id}`.toLowerCase();
@@ -5086,6 +5311,24 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           })
         ));
         sourceChronologyTaxonFields.hidden = selectedLayer.node_level !== 'source_taxon';
+        sourceLabelPresetControls.innerHTML = presetRows.map((row) => `<button class="inline-button ${row.key === activeSourceChronologyPreset ? 'is-primary' : ''}" type="button" data-source-label-preset="${escapeHtml(row.key)}" aria-pressed="${String(row.key === activeSourceChronologyPreset)}">${escapeHtml(row.label)} · ${row.member_taxon_count} IDs · ${row.site_count} sites · ${row.node_count} nodes</button>`).join('');
+        sourceLabelPresetState.textContent = selectedPreset
+          ? `${selectedPreset.label}: exact union of ${selectedPreset.member_taxon_count} governed Neotoma taxon IDs · ${selectedPreset.site_count} unique sites · ${selectedPreset.node_count} nodes · ${selectedPreset.observation_denominator} contributing observations · literal labels only; not an accepted classification, abundance surface, flow, or propagation.`
+          : 'No source-label preset selected. Exact source labels remain individually selectable; presets are literal exact-ID unions, not accepted classifications.';
+        sourceLabelPresetControls.querySelectorAll('[data-source-label-preset]').forEach((button) => {
+          button.addEventListener('click', () => {
+            stopTimePlayback();
+            activeSourceChronologyPreset = button.dataset.sourceLabelPreset === activeSourceChronologyPreset
+              ? 'none'
+              : normalizedSingleValue(button.dataset.sourceLabelPreset, ['none', ...presetRows.map((row) => row.key)], 'none');
+            activeSourceChronologyTaxon = 'all';
+            sourceChronologyTaxonSearch = '';
+            sourceChronologyTaxonQuery.value = '';
+            sourceRecordConcentrationActive = false;
+            focusSourceChronologyNavigation();
+            renderMapState();
+          });
+        });
         sourceChronologyTaxon.innerHTML = `<option value="all">All source-reported labels · ${taxonRows.length} facets</option>` + visibleTaxa.map((row) => `<option value="${escapeHtml(row.value)}" ${row.value === activeSourceChronologyTaxon ? 'selected' : ''}>${escapeHtml(row.label)} · source taxon ${escapeHtml(row.source_taxon_id)} · ${row.node_count} nodes · ${row.observation_denominator} observations</option>`).join('');
         sourceChronologyTaxonShortcuts.innerHTML = queryAlternatives.length
           ? visibleTaxa.map((row) => `<button class="inline-button ${row.value === activeSourceChronologyTaxon ? 'is-primary' : ''}" type="button" data-source-taxon-facet="${escapeHtml(row.value)}">${escapeHtml(row.label)} · ${escapeHtml(row.source_taxon_id)}</button>`).join('')
@@ -5098,6 +5341,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
               validTaxa,
               'all'
             );
+            activeSourceChronologyPreset = 'none';
             sourceRecordConcentrationActive = false;
             focusSourceChronologyNavigation();
             renderMapState();
@@ -5128,7 +5372,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             ? `${untimedExclusion.count} source nodes without admitted numeric chronology excluded (${untimedExclusion.absent_count} absent, ${untimedExclusion.refused_count} refused, ${untimedExclusion.contextual_count} contextual)`
             : `${untimedExclusion.count} source nodes without admitted numeric chronology excluded; absent/refused/contextual split unavailable for this legacy report`
           : 'source-node count without admitted numeric chronology unavailable for this exact filtered selection';
-        sourceChronologySummary.textContent = `${visibleSourceEntries.length} of ${selectedFacet.node_count} nodes visible · ${activeWindowLabel}`;
+        sourceChronologySummary.textContent = `${visibleSourceEntries.length} of ${selectedFacet.node_count} nodes visible · ${selectedFacet.site_count} unique sites · ${activeWindowLabel}`;
         const concentrationEligible = sourceRecordConcentrationSelection(selectedLayer) !== null;
         sourceRecordConcentrationToggle.disabled = !concentrationEligible;
         sourceRecordConcentrationToggle.setAttribute('aria-pressed', String(sourceRecordConcentrationActive));
@@ -5138,7 +5382,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         sourceRecordConcentrationToggle.title = concentrationEligible
           ? 'Group admitted records at identical source sites without interpolation or value weighting.'
           : 'Choose exactly one active source level and, for code or taxon views, one exact source facet.';
-        sourceChronologyGlobalDenominator.textContent = `Global pre-filter denominator: ${selectedFacet.node_count} source nodes and ${selectedFacet.observation_denominator} contributing observations for ${sourceRecordConcentrationFacetLabel(selectedLayer)} · ${untimedLabel}.`;
+        const countryAccountability = selectedFacet.country_counts.map((row) => `${row.country_code}: ${row.site_count} sites / ${row.node_count} nodes / ${row.observation_denominator} observations`).join(' · ');
+        sourceChronologyGlobalDenominator.textContent = `Global pre-filter denominator: ${selectedFacet.site_count} unique sites, ${selectedFacet.node_count} source nodes, and ${selectedFacet.observation_denominator} contributing observations for ${sourceRecordConcentrationFacetLabel(selectedLayer)} · ${countryAccountability} · ${untimedLabel}.`;
         if (sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'available') {
           const snapshot = sourceRecordConcentrationSnapshot;
           const countryLabel = activeCountries.size ? [...activeCountries].sort().join(', ') : 'no active countries';
@@ -5146,7 +5391,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         } else if (sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'refused') {
           sourceChronologyState.textContent = `${sourceRecordConcentrationSnapshot.reason} No concentration symbols were rendered.`;
         } else {
-          sourceChronologyState.textContent = `${visibleSourceEntries.length} source nodes and ${visibleObservationLabel} contributing observations visible in ${activeWindowLabel} · ${selectedFacet.node_count} nodes and ${selectedFacet.observation_denominator} observations in the global selected-facet denominator before country and BP-window filters · ${unitCount} literal source units · source playback extent ${extentLabel} · ${untimedLabel} · chronology context only`;
+          sourceChronologyState.textContent = `${visibleSourceEntries.length} source nodes and ${visibleObservationLabel} contributing observations visible in ${activeWindowLabel} · ${selectedFacet.site_count} unique sites, ${selectedFacet.node_count} nodes, and ${selectedFacet.observation_denominator} observations in the global selected-facet denominator before country and BP-window filters · ${unitCount} literal source units · source playback extent ${extentLabel} · ${untimedLabel} · chronology context only`;
         }
       }
       function refreshTimeStepperStatus() {
@@ -5346,10 +5591,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         renderMapState();
       }
       function renderLegend() {
-        const activeLegendLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key));
-        const activeAnimalLayers = activeLegendLayers.filter((layer) => isAnimalLayer(layer));
+        const renderedLayerKeys = new Set([
+          ...visiblePointEntries.map(({ layer }) => layer.key),
+          ...visiblePolygonFeatureEntries.map(({ layer }) => layer.key),
+        ]);
+        const activeLegendLayers = ALL_LAYERS.filter((layer) => renderedLayerKeys.has(layer.key));
         const concentrationLayer = sourceChronologyLayerForLevel(activeSourceChronologyLevel);
-        const animalMetrics = summarizeAnimalMetrics();
         const renderLayerCue = (layer) => {
           if (layer.kind === 'country-boundaries') {
             return [...activeCountries].sort().map((country) => {
@@ -5361,7 +5608,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const stroke = layer.style.stroke || fill;
           const acceptanceFill = layer.style.circleFill || fill;
           const acceptanceStroke = layer.style.circleStroke || stroke;
-          const acceptanceCue = POINT_LAYERS.includes(layer)
+          const acceptanceCue = POINT_LAYERS.includes(layer) && layer.circle_enabled && Number(slider.value) > 0
             ? `<span class="legend-acceptance-cue" data-legend-acceptance-layer="${escapeHtml(layer.key)}" title="Acceptance ring for ${escapeHtml(layer.label)}" style="color:${escapeHtml(acceptanceStroke)};background:${escapeHtml(acceptanceFill)};"></span>`
             : '';
           return `<div class="legend-item" data-legend-layer="${escapeHtml(layer.key)}"><span class="legend-swatch" style="background:${escapeHtml(fill)};border-color:${escapeHtml(stroke)};"></span>${acceptanceCue}<span>${escapeHtml(layer.label)}: ${escapeHtml(layer.description)} ${layer.coverage_label ? `(${escapeHtml(layer.coverage_label)})` : ''}</span></div>`;
@@ -5369,26 +5616,24 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const renderGroup = (label, layers) => layers.length
           ? `<div class="legend-group"><div class="legend-group-label">${escapeHtml(label)}</div><div class="legend-list">${layers.map(renderLayerCue).join('')}</div></div>`
           : '';
-        const clusterLegendSection = activeLegendLayers.some((layer) => POINT_LAYERS.includes(layer))
+        const clusterLegendSection = visiblePointEntries.length > 0
           ? '<div class="legend-group"><div class="legend-group-label">Map grouping</div><div class="legend-item legend-item--compact"><span class="legend-cluster-cue">12</span><span>Numbered circles group same-layer records at the current zoom; the number is a record count, not abundance.</span></div></div>'
           : '';
-        const animalLegendSections = activeAnimalLayers.length
-          ? [
-              `<div class="legend-group"><div class="legend-group-label">Animal scope</div><div class="legend-pill-list"><span class="legend-pill"><span class="legend-swatch" style="background: rgba(176, 133, 42, 0.18); border-color: #8a5b11;"></span><span>Domesticated-core</span><span class="legend-pill-note">tracked support surface</span></span><span class="legend-pill"><span class="legend-swatch" style="background: rgba(20, 184, 166, 0.18); border-color: #0f766e;"></span><span>Comparator</span><span class="legend-pill-note">comparison only</span></span></div></div>`,
-              `<div class="legend-group"><div class="legend-group-label">Coordinate trust</div><div class="legend-list">${Object.entries(animalMetrics.confidenceCounts).sort((left, right) => right[1] - left[1]).map(([confidence, count]) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background: rgba(20, 33, 61, 0.08); border-color: rgba(20, 33, 61, 0.22);"></span><span class="legend-item-copy"><span class="legend-item-title">${escapeHtml(formatCoordinateConfidence(confidence))}</span><span class="legend-item-meta">${escapeHtml(String(count))} visible points</span></span></div>`).join('') || '<div class="legend-item"><span>No visible animal points for the current filter state.</span></div>'}</div></div>`,
-              `<div class="legend-group"><div class="legend-group-label">Tracked species</div><div class="legend-list">${activeAnimalLayers.map((layer) => `<div class="legend-item legend-item--compact"><span class="legend-swatch" style="background:${escapeHtml(layerColor(layer))};border-color:${escapeHtml(layer.style.stroke || layerColor(layer))};"></span><span class="legend-item-copy"><span class="legend-item-title">${escapeHtml(layer.species_common_name || layer.label)}</span><span class="legend-item-meta">${escapeHtml(formatAnimalScope(layer.animal_scope || ''))} · ${escapeHtml(mappedPointCountLabel(layer.count))}</span></span></div>`).join('')}</div></div>`,
-            ].join('')
-          : '';
-        const scientificLegendSection = SCIENTIFIC_SIGNALS.length
-          ? `<div class="legend-group"><div class="legend-group-label">Accepted scientific comparison</div><div class="legend-list">${SCIENTIFIC_SIGNALS.filter((signal) => activeScientificSignalIds.has(signal.signal_id)).map((signal) => `<div class="legend-item"><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span><span>${escapeHtml(signal.label)} · ${escapeHtml(signal.resolution)} · ${escapeHtml(signal.feature_key)}</span></div>`).join('') || '<div class="legend-item"><span>No accepted scientific signals selected.</span></div>'}</div></div>`
+        const visibleScientificSignalIds = new Set([
+          ...visiblePointEntries.flatMap(({ feature }) => Array.isArray(feature.scientific_signal_ids) ? feature.scientific_signal_ids : []),
+          ...visibleGovernedEdges().map((edge) => edge.signal_id),
+        ]);
+        const visibleScientificSignals = SCIENTIFIC_SIGNALS.filter((signal) => activeScientificSignalIds.has(signal.signal_id) && visibleScientificSignalIds.has(signal.signal_id));
+        const scientificLegendSection = visibleScientificSignals.length
+          ? `<div class="legend-group"><div class="legend-group-label">Accepted scientific comparison</div><div class="legend-list">${visibleScientificSignals.map((signal) => `<div class="legend-item"><span class="scientific-cue" data-cue="${escapeHtml(signal.non_color_cue)}" style="color:${escapeHtml(signal.color)}">${escapeHtml(scientificCueGlyph(signal.non_color_cue))}</span><span>${escapeHtml(signal.label)} · ${escapeHtml(signal.resolution)} · ${escapeHtml(signal.feature_key)}</span></div>`).join('')}</div></div>`
           : '';
         const sourceConcentrationLegendSection = concentrationLayer && sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'available'
           ? `<div class="legend-group"><div class="legend-group-label">Captured source-record concentration</div><div class="legend-list">${[[7, '1 raw visible node at one source site'], [10, '2–4 nodes'], [13, '5–9 nodes'], [16, '10–24 nodes'], [19, '25+ nodes']].map(([size, label]) => `<div class="legend-item"><span class="legend-swatch" data-legend-concentration-size="${size}" style="width:${size}px;height:${size}px;background:${escapeHtml(layerColor(concentrationLayer))};border-color:${escapeHtml(concentrationLayer.style.stroke || layerColor(concentrationLayer))};"></span><span>${label}</span></div>`).join('')}<div class="legend-item"><span>${sourceRecordConcentrationSnapshot.visible_observation_denominator} contributing observations for visible symbols; ${sourceRecordConcentrationSnapshot.global_observation_denominator} in the global pre-filter facet denominator. Values are not weighted.</span></div></div></div>`
           : '';
-        legendItems.innerHTML = `${clusterLegendSection}${scientificLegendSection}${sourceConcentrationLegendSection}${animalLegendSections}${LAYER_GROUP_DEFINITIONS
+        legendItems.innerHTML = `${clusterLegendSection}${scientificLegendSection}${sourceConcentrationLegendSection}${LAYER_GROUP_DEFINITIONS
           .map((group) => renderGroup(group.label, activeLegendLayers.filter((layer) => layer.group === group.key)))
           .join('')}` || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
-        densityRamp.hidden = !activeLayerKeys.has('raa-archaeology');
+        densityRamp.hidden = !visiblePolygonFeatureEntries.some(({ layer }) => layer.key === 'raa-archaeology');
       }
       function sourceChronologyPopupHtml(feature) {
         if (!feature || feature.semantic_role !== 'source_chronology_context') return '';
@@ -6102,6 +6347,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           if (!sourceLayer) throw new Error('capture source_level is unavailable');
           let sourceCode = 'all';
           let sourceTaxon = 'all';
+          let sourcePreset = 'none';
           if (sourceLevel === 'source_ecological_code') {
             const validCodes = ['all', ...sourceLayer.facet_metadata.source_ecological_codes.map((row) => row.value)];
             sourceCode = String(frameSpec.source_code || 'all');
@@ -6110,14 +6356,18 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             const validTaxa = ['all', ...sourceLayer.facet_metadata.source_taxa.map((row) => row.value)];
             sourceTaxon = String(frameSpec.source_taxon || 'all');
             if (!validTaxa.includes(sourceTaxon)) throw new Error('capture source_taxon is unavailable');
+            const validPresets = ['none', ...sourceLayer.facet_metadata.source_label_preset_accountability.presets.map((row) => row.key)];
+            sourcePreset = String(frameSpec.source_preset || 'none');
+            if (!validPresets.includes(sourcePreset)) throw new Error('capture source_preset is unavailable');
+            if (sourceTaxon !== 'all' && sourcePreset !== 'none') throw new Error('capture cannot combine an exact source taxon and a source-label preset');
           }
           const frameWindow = captureFrameWindow(frameSpec);
-          const facet = sourceChronologyFacetForSelection(sourceLayer, sourceCode, sourceTaxon);
+          const facet = sourceChronologyFacetForSelection(sourceLayer, sourceCode, sourceTaxon, sourcePreset);
           if (!facet || !sourceChronologyExtentIsValid(facet) || facet.node_count === 0) throw new Error('capture source facet has no chronological evidence');
           const minimum = sourceChronologyTimeValue(facet.time_min_bp);
           const maximum = sourceChronologyTimeValue(facet.time_max_bp);
           if (frameWindow.youngerBp < minimum || frameWindow.olderBp > maximum) throw new Error('capture BP interval exceeds the selected source extent');
-          return { ...common, sourceLevel, sourceCode, sourceTaxon, frameWindow };
+          return { ...common, sourceLevel, sourceCode, sourceTaxon, sourcePreset, frameWindow };
         }
         if (!modeledContextAvailable()) throw new Error('modeled_context_capture_not_available');
         const sourceWindowLabel = String(frameSpec.source_window_label || '');
@@ -6165,6 +6415,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           ? sourceChronologyFacetForSelection(sourceLayer, activeSourceChronologyCode, activeSourceChronologyTaxon)
           : null;
         const visibleSourceEntries = visiblePointEntries.filter(({ layer }) => layer.semantic_role === 'source_chronology_context');
+        const visibleSourceSiteCount = new Set(visibleSourceEntries.map(({ feature }) => feature.record_id)).size;
         const visibleSourceObservationValues = visibleSourceEntries.map(({ feature }) => sourceChronologyCount(feature.observation_denominator));
         const visibleSourceObservationDenominator = visibleSourceObservationValues.every((value) => value !== null)
           ? visibleSourceObservationValues.reduce((total, value) => total + value, 0)
@@ -6214,8 +6465,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             level: activeSourceChronologyLevel,
             source_code: activeSourceChronologyLevel === 'source_ecological_code' ? activeSourceChronologyCode : null,
             source_taxon: activeSourceChronologyLevel === 'source_taxon' ? activeSourceChronologyTaxon : null,
+            source_preset: activeSourceChronologyLevel === 'source_taxon' && activeSourceChronologyPreset !== 'none' ? activeSourceChronologyPreset : null,
+            facet_site_count: sourceFacet ? sourceFacet.site_count : null,
             facet_node_count: sourceFacet ? sourceFacet.node_count : null,
             facet_observation_denominator: sourceFacet ? sourceFacet.observation_denominator : null,
+            visible_site_count: visibleSourceSiteCount,
             visible_node_count: visibleSourceEntries.length,
             visible_observation_denominator: visibleSourceObservationDenominator,
           } : null,
@@ -6282,6 +6536,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           return row ? `Neotoma ${row.value} — ${row.label}` : `Neotoma ${activeSourceChronologyCode}`;
         }
         if (sourceLayer.node_level === 'source_taxon') {
+          const preset = sourceChronologyPresetForSelection(sourceLayer, activeSourceChronologyPreset);
+          if (preset) return `Neotoma literal exact-ID union — ${preset.label}`;
           const row = sourceLayer.facet_metadata.source_taxa.find((candidate) => candidate.value === activeSourceChronologyTaxon);
           return row ? `Neotoma exact source-reported taxon — ${row.label}` : 'Neotoma exact source-reported taxon';
         }
@@ -6365,7 +6621,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             role_label: 'Observed source chronology',
             title: atlasCaptureSourceTitle(sourceLayer),
             time_label: timeLabel,
-            counts_label: `${snapshot.source_chronology.visible_node_count}/${snapshot.source_chronology.facet_node_count} governed source nodes in this interval · ${visibleObservationLabel}/${snapshot.source_chronology.facet_observation_denominator} contributing observations`,
+            counts_label: `${snapshot.source_chronology.visible_site_count}/${snapshot.source_chronology.facet_site_count} unique source sites · ${snapshot.source_chronology.visible_node_count}/${snapshot.source_chronology.facet_node_count} governed source nodes in this interval · ${visibleObservationLabel}/${snapshot.source_chronology.facet_observation_denominator} contributing observations`,
             caveat: 'Observed source records only · display clusters are not abundance · no interpolation, flow, or propagation inference.',
           }, keyItems);
           return;
@@ -6416,6 +6672,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             activeSourceChronologyCode = captureFrame.sourceCode;
           } else if (captureFrame.sourceLevel === 'source_taxon') {
             activeSourceChronologyTaxon = captureFrame.sourceTaxon;
+            activeSourceChronologyPreset = captureFrame.sourcePreset;
             sourceChronologyTaxonSearch = '';
           }
           timeStartBp = captureFrame.frameWindow.youngerBp;
@@ -6521,6 +6778,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         activeSourceChronologyLevel = defaultSourceChronologyLevel;
         activeSourceChronologyCode = 'all';
         activeSourceChronologyTaxon = 'all';
+        activeSourceChronologyPreset = 'none';
         sourceChronologyTaxonSearch = '';
         sourceRecordConcentrationActive = false;
         sourceRecordConcentrationSnapshot = null;
@@ -6561,11 +6819,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const shortcut = button.dataset.sourceShortcut;
           const targetLevel = shortcut === 'sample'
             ? 'source_sample_presence'
-            : (shortcut === 'taxa' || shortcut === 'cereals' ? 'source_taxon' : 'source_ecological_code');
+            : (shortcut === 'taxa' ? 'source_taxon' : 'source_ecological_code');
           if (!selectSourceChronologyLevel(targetLevel)) return;
-          sourceChronologyTaxonSearch = shortcut === 'cereals' ? 'cereal|secale' : '';
+          sourceChronologyTaxonSearch = '';
           sourceChronologyTaxonQuery.value = sourceChronologyTaxonSearch;
           if (targetLevel === 'source_ecological_code') {
+            activeSourceChronologyPreset = 'none';
             const layer = sourceChronologyLayerForLevel(targetLevel);
             activeSourceChronologyCode = normalizedSingleValue(
               shortcut,
@@ -6574,14 +6833,24 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             );
           } else if (shortcut === 'taxa') {
             activeSourceChronologyTaxon = 'all';
-          } else if (shortcut === 'cereals') {
-            const layer = sourceChronologyLayerForLevel(targetLevel);
-            const cerealFacets = layer.facet_metadata.source_taxa.filter((row) => /cereal|secale/i.test(row.label));
-            const preferredCerealFacet = cerealFacets.find((row) => row.label.trim().toLowerCase() === 'secale')
-              || cerealFacets.find((row) => row.source_taxon_id === '967')
-              || cerealFacets[0];
-            activeSourceChronologyTaxon = preferredCerealFacet?.value || 'all';
+            activeSourceChronologyPreset = 'none';
           }
+          focusSourceChronologyNavigation();
+          renderLayerControls();
+          renderMapState();
+          sourceChronologyControls.open = true;
+        });
+      });
+      document.querySelectorAll('[data-source-preset]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const layer = sourceChronologyLayerForLevel('source_taxon');
+          if (!layer || !selectSourceChronologyLevel('source_taxon')) return;
+          const validPresetKeys = layer.facet_metadata.source_label_preset_accountability.presets.map((row) => row.key);
+          activeSourceChronologyPreset = normalizedSingleValue(button.dataset.sourcePreset, validPresetKeys, 'none');
+          activeSourceChronologyTaxon = 'all';
+          sourceChronologyTaxonSearch = '';
+          sourceChronologyTaxonQuery.value = '';
+          sourceRecordConcentrationActive = false;
           focusSourceChronologyNavigation();
           renderLayerControls();
           renderMapState();
@@ -6745,6 +7014,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       });
       sourceChronologyTaxonQuery.addEventListener('input', () => {
         sourceChronologyTaxonSearch = sourceChronologyTaxonQuery.value;
+        if (sourceChronologyTaxonSearch.trim()) activeSourceChronologyPreset = 'none';
         renderSourceChronologyControls();
       });
       sourceChronologyTaxon.addEventListener('change', () => {
@@ -6756,6 +7026,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           ['all', ...layer.facet_metadata.source_taxa.map((row) => row.value)],
           'all'
         );
+        activeSourceChronologyPreset = 'none';
         sourceRecordConcentrationActive = false;
         focusSourceChronologyNavigation();
         renderMapState();

@@ -16,8 +16,10 @@ SelectorKind = Literal[
     "source_sample_presence",
     "source_ecological_code",
     "source_taxon",
+    "source_label_preset",
     "modeled_metric",
 ]
+SOURCE_LABEL_PRESET_FAMILY = "literal_source_label_membership"
 PLAYBACK_COUNTRY_VOCABULARY = frozenset({"Denmark", "Finland", "Norway", "Sweden"})
 
 
@@ -132,6 +134,7 @@ class PlaybackStory:
     frames: tuple[PlaybackFrame, ...]
     countries: tuple[str, ...]
     selector_family: str | None = None
+    site_count: int | None = None
     node_count: int | None = None
     observation_denominator: int | None = None
     interpolation_allowed: bool = False
@@ -159,6 +162,7 @@ class PlaybackStory:
             "source_sample_presence",
             "source_ecological_code",
             "source_taxon",
+            "source_label_preset",
             "modeled_metric",
         }:
             raise PlaybackContractError("story has an unsupported selector kind")
@@ -176,6 +180,7 @@ class PlaybackStory:
                 "observation/context playback cannot contain propagation edges"
             )
         for field, value in (
+            ("site_count", self.site_count),
             ("node_count", self.node_count),
             ("observation_denominator", self.observation_denominator),
         ):
@@ -183,6 +188,22 @@ class PlaybackStory:
                 isinstance(value, bool) or not isinstance(value, int) or value <= 0
             ):
                 raise PlaybackContractError(f"story {field} must be positive or null")
+        if self.evidence_role == "observation_chronology" and self.site_count is None:
+            raise PlaybackContractError("source chronology story requires site_count")
+        if self.evidence_role == "modeled_context" and self.site_count is not None:
+            raise PlaybackContractError("modeled context story cannot claim site_count")
+        if self.selector_kind == "source_label_preset":
+            if (
+                self.evidence_role != "observation_chronology"
+                or self.selector_family != SOURCE_LABEL_PRESET_FAMILY
+            ):
+                raise PlaybackContractError(
+                    "source-label preset story requires literal membership semantics"
+                )
+        elif self.selector_family == SOURCE_LABEL_PRESET_FAMILY:
+            raise PlaybackContractError(
+                "literal source-label membership belongs only to preset stories"
+            )
         if tuple(frame.ordinal for frame in self.frames) != tuple(
             range(len(self.frames))
         ):
@@ -211,6 +232,7 @@ class PlaybackStory:
             "interpolation_allowed": self.interpolation_allowed,
             "propagation_claim_allowed": self.propagation_claim_allowed,
             "edge_count": self.edge_count,
+            "site_count": self.site_count,
             "node_count": self.node_count,
             "observation_denominator": self.observation_denominator,
             "frame_count": len(self.frames),
@@ -225,13 +247,20 @@ class PlaybackStory:
             serialized.update(
                 {
                     "story_kind": "source_chronology",
-                    "source_level": self.selector_kind,
+                    "source_level": (
+                        "source_taxon"
+                        if self.selector_kind == "source_label_preset"
+                        else self.selector_kind
+                    ),
                 }
             )
             if self.selector_kind == "source_ecological_code":
                 serialized["source_code"] = self.selector_value
             elif self.selector_kind == "source_taxon":
                 serialized["source_taxon"] = self.selector_value
+            elif self.selector_kind == "source_label_preset":
+                serialized["source_taxon"] = "all"
+                serialized["source_preset"] = self.selector_value
         else:
             serialized.update(
                 {
@@ -251,6 +280,7 @@ class ExactTaxonDiscovery:
     feature_key: str
     source_taxon_id: str
     label: str
+    site_count: int
     node_count: int
     observation_denominator: int
     younger_bp: float | int
@@ -266,6 +296,12 @@ class ExactTaxonDiscovery:
             raise PlaybackContractError("exact taxon source identity must not be empty")
         if not isinstance(self.label, str) or not self.label.strip():
             raise PlaybackContractError("exact taxon label must not be empty")
+        if (
+            isinstance(self.site_count, bool)
+            or not isinstance(self.site_count, int)
+            or self.site_count <= 0
+        ):
+            raise PlaybackContractError("exact taxon site_count must be positive")
         if (
             isinstance(self.node_count, bool)
             or not isinstance(self.node_count, int)
@@ -293,6 +329,7 @@ class ExactTaxonDiscovery:
             "feature_key": self.feature_key,
             "source_taxon_id": self.source_taxon_id,
             "label": self.label,
+            "site_count": self.site_count,
             "node_count": self.node_count,
             "observation_denominator": self.observation_denominator,
             "time_start_bp": self.younger_bp,
@@ -337,6 +374,7 @@ class PlaybackRefusal:
 
 __all__ = [
     "PLAYBACK_COUNTRY_VOCABULARY",
+    "SOURCE_LABEL_PRESET_FAMILY",
     "ExactTaxonDiscovery",
     "PlaybackContractError",
     "PlaybackFrame",

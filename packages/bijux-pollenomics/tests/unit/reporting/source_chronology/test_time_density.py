@@ -2,11 +2,15 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 from dataclasses import replace
+
+import pytest
 
 from bijux_pollenomics.reporting.source_chronology.time_density import (
     TIME_DENSITY_BIN_COUNT,
     build_time_density,
+    time_density_matches_facet,
 )
 
 from .support import source_result
@@ -77,3 +81,36 @@ def test_spanning_density_is_oldest_first_and_non_additive() -> None:
     assert density["observation_denominator"] == 3
     assert sum(row["node_count"] for row in bins) == 14
     assert sum(row["observation_denominator"] for row in bins) == 16
+
+
+@pytest.mark.parametrize(
+    ("field", "value"),
+    [
+        ("node_count", True),
+        ("node_count", 1.0),
+        ("observation_denominator", "1"),
+        ("node_count", 2),
+        ("observation_denominator", 2),
+    ],
+)
+def test_density_rejects_malformed_or_impossible_bin_counts(
+    field: str, value: object
+) -> None:
+    node = next(
+        node
+        for node in source_result().nodes
+        if node.node_level == "source_sample_presence"
+    )
+    density = build_time_density([node])
+    facet = {
+        "node_count": 1,
+        "observation_denominator": 1,
+        "time_min_bp": 100,
+        "time_max_bp": 125,
+    }
+    tampered = deepcopy(density)
+    bins = tampered["bins"]
+    assert isinstance(bins, list) and isinstance(bins[0], dict)
+    bins[0][field] = value
+
+    assert time_density_matches_facet(tampered, facet) is False

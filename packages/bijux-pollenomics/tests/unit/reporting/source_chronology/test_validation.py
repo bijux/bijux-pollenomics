@@ -3,12 +3,14 @@
 from __future__ import annotations
 
 from copy import deepcopy
+from dataclasses import replace
 from typing import cast
 
 import pytest
 
 from bijux_pollenomics.reporting.source_chronology import (
     SourceChronologyAtlasProjection,
+    build_source_chronology_atlas_projection,
     validate_source_chronology_atlas_projection,
 )
 
@@ -65,5 +67,40 @@ def test_projection_rejects_chronology_selection_accounting_tampering() -> None:
                 point_layers=atlas.point_layers,
                 reconciliation=reconciliation,
             ),
+            detail_record_ids={DETAIL_ID},
+        )
+
+
+def test_projection_recomputes_country_and_preset_accountability() -> None:
+    result, atlas = projection()
+    layers = deepcopy(atlas.point_layers)
+    taxon_facets = cast(dict[str, object], layers[2]["facet_metadata"])
+    accountability = cast(
+        dict[str, object], taxon_facets["source_label_preset_accountability"]
+    )
+    union = cast(dict[str, object], accountability["union"])
+    countries = cast(list[dict[str, object]], union["country_counts"])
+    countries[0]["time_min_bp"] = 0
+
+    with pytest.raises(ValueError, match="facet metadata does not reconcile"):
+        validate_source_chronology_atlas_projection(
+            result,
+            SourceChronologyAtlasProjection(
+                point_layers=layers,
+                reconciliation=atlas.reconciliation,
+            ),
+            detail_record_ids={DETAIL_ID},
+        )
+
+
+def test_projection_rejects_observation_reuse_across_same_level_nodes() -> None:
+    result, _atlas = projection()
+    taxon = next(node for node in result.nodes if node.node_level == "source_taxon")
+    duplicate_observation = replace(taxon, node_id=taxon.node_id + ":other")
+    tampered = replace(result, nodes=(*result.nodes, duplicate_observation))
+
+    with pytest.raises(ValueError, match="duplicate observation identity"):
+        build_source_chronology_atlas_projection(
+            tampered,
             detail_record_ids={DETAIL_ID},
         )

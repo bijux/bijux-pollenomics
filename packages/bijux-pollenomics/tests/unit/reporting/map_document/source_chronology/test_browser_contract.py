@@ -24,6 +24,7 @@ from .support import (
     compressed_provenance_asset,
     sharded_index_payload,
 )
+from ...source_chronology.support import projection
 
 
 def test_mobile_scrim_stays_below_interactive_controls() -> None:
@@ -91,6 +92,8 @@ def test_controls_are_accessible_source_native_and_separate_from_modeled_context
     assert 'aria-controls="source-chronology-taxon"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="source-chronology-taxon"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="source-chronology-taxon-shortcuts"' in MAP_DOCUMENT_TEMPLATE
+    assert 'id="source-label-preset-controls"' in MAP_DOCUMENT_TEMPLATE
+    assert 'id="source-label-preset-state"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="source-chronology-state"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="source-time-density"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="source-time-density-bars"' in MAP_DOCUMENT_TEMPLATE
@@ -137,65 +140,26 @@ def test_metadata_contract_fails_closed_and_dense_layers_are_opt_in() -> None:
         "const SOURCE_CHRONOLOGY_LEVEL_ORDER",
         "let activeCountries",
     )
+    layers = list(projection()[1].point_layers)
     observed = run_node_json(
         """
-function facets(level, rows={}) {
-  const withExtent=(row)=>{
-    const extended={...row,time_min_bp:row.node_count ? 100 : null,time_max_bp:row.node_count ? 900 : null};
-    if (!row.node_count) return extended;
-    return {...extended,time_density:{
-      schema_version:'source-chronology-time-density.v1',temporal_direction:'oldest_to_present',
-      interval_semantics:'[younger_bp, older_bp]',bin_admission:'closed_interval_overlap',bins_are_additive:false,
-      node_count:row.node_count,observation_denominator:row.observation_denominator,time_min_bp:100,time_max_bp:900,
-      bins:Array.from({length:12},(_,ordinal)=>({ordinal,younger_bp:100+((11-ordinal)*800/12),older_bp:100+((12-ordinal)*800/12),node_count:row.node_count,observation_denominator:row.observation_denominator})),
-    }};
-  };
-  const overall=withExtent({node_count:2,observation_denominator:7});
-  return {
-    schema_version:'neotoma-source-chronology-facets.v3',
-    node_level:level,
-    ...overall,
-    country_counts:[
-      {value:'Sweden',node_count:2,observation_denominator:7},
-      {value:'Denmark',node_count:0,observation_denominator:0},
-      {value:'Norway',node_count:0,observation_denominator:0},
-      {value:'Finland',node_count:0,observation_denominator:0},
-    ].map(withExtent),
-    source_unit_counts:[{value:'percent',node_count:2,observation_denominator:7}].map(withExtent),
-    source_ecological_codes:(rows.codes || []).map(withExtent),
-    source_taxa:(rows.taxa || []).map(withExtent),
-  };
-}
-function layer(level, key, defaultEnabled, rows={}) {
-  return {
-    key, node_level:level, default_enabled:defaultEnabled, count:2,
-    semantic_role:'source_chronology_context', propagation_status:'refused',
-    edge_count:0, temporal_direction:'oldest_to_present',
-    interval_semantics:'[younger_bp, older_bp]',
-    facet_metadata:facets(level, rows),
-  };
-}
-const sample=layer('source_sample_presence','sample',true);
-const code=layer('source_ecological_code','code',false,{codes:[
-  {value:'AQVP',label:'AQVP',feature_key:'source:code:AQVP',node_count:1,observation_denominator:2},
-  {value:'TRSH',label:'TRSH',feature_key:'source:code:TRSH',node_count:1,observation_denominator:3},
-  {value:'UPHE',label:'UPHE',feature_key:'source:code:UPHE',node_count:1,observation_denominator:2},
-]});
-const taxon=layer('source_taxon','taxon',false,{taxa:[
-  {value:'source:taxon:41',source_taxon_id:'41',label:'Cerealia-type',node_count:2,observation_denominator:7},
-]});
+const POINT_LAYERS="""
+        + json.dumps(layers)
+        + """;
+const sample=POINT_LAYERS.find((layer)=>layer.node_level==='source_sample_presence');
+const code=POINT_LAYERS.find((layer)=>layer.node_level==='source_ecological_code');
+const taxon=POINT_LAYERS.find((layer)=>layer.node_level==='source_taxon');
 const invalidDense={...code,default_enabled:true};
 const invalidDirection={...sample,temporal_direction:'present_to_oldest'};
 const invalidDensity={...sample,facet_metadata:{...sample.facet_metadata,time_density:{...sample.facet_metadata.time_density,node_count:3}}};
-const POINT_LAYERS=[sample,code,taxon];
 let activeSourceChronologyCode='all';
 let activeSourceChronologyTaxon='all';
+let activeSourceChronologyPreset='none';
 """
         + helpers
         + """
-const sourcePosture={semantic_role:'source_chronology_context',propagation_eligible:false,candidate_generation_status:'refused',candidate_refusal_reason:'source_chronology_context_only'};
-const codeFeature={...sourcePosture,node_level:'source_ecological_code',feature_key:'source:code:TRSH',source_unit:'percent',source_ecological_code:'TRSH',source_reported_name:null,source_taxon_id:null};
-const taxonFeature={...sourcePosture,node_level:'source_taxon',feature_key:'source:taxon:41',source_unit:'percent',source_ecological_code:null,source_reported_name:'Cerealia-type',source_taxon_id:'41'};
+const codeFeature=code.features[0];
+const taxonFeature=taxon.features[0];
 console.log(JSON.stringify({
   levels:sourceChronologyLayers().map((entry)=>entry.node_level),
   literals:code.facet_metadata.source_ecological_codes.map((row)=>row.value),
@@ -203,14 +167,27 @@ console.log(JSON.stringify({
   directionRejected:sourceChronologyLayerIsValid(invalidDirection),
   densityDriftRejected:sourceChronologyLayerIsValid(invalidDensity),
   countryOrderRejected:sourceChronologyLayerIsValid({...sample,facet_metadata:{...sample.facet_metadata,country_counts:[...sample.facet_metadata.country_counts].reverse()}}),
+  countryOmissionRejected:sourceChronologyLayerIsValid({...sample,facet_metadata:{...sample.facet_metadata,country_counts:sample.facet_metadata.country_counts.slice(0,3)}}),
+  countryNameDriftRejected:sourceChronologyLayerIsValid({...sample,facet_metadata:{...sample.facet_metadata,country_counts:sample.facet_metadata.country_counts.map((row,index)=>index===0?{...row,value:'Sverige'}:row)}}),
+  countrySiteDriftRejected:sourceChronologyLayerIsValid({...sample,facet_metadata:{...sample.facet_metadata,country_counts:sample.facet_metadata.country_counts.map((row,index)=>index===0?{...row,site_count:2}:row)}}),
+  emptyCountryBoundsRejected:sourceChronologyLayerIsValid({...sample,facet_metadata:{...sample.facet_metadata,country_counts:sample.facet_metadata.country_counts.map((row,index)=>index===1?{...row,time_min_bp:0}:row)}}),
+  booleanCountRejected:sourceChronologyLayerIsValid({...sample,facet_metadata:{...sample.facet_metadata,site_count:true}}),
   malformedRejected:sourceChronologyLayerIsValid({...code,facet_metadata:null}),
   stringExtentRejected:sourceChronologyLayerIsValid({...code,facet_metadata:{...code.facet_metadata,time_min_bp:'100'}}),
+  presetIdentityDriftRejected:sourceChronologyLayerIsValid({...taxon,facet_metadata:{...taxon.facet_metadata,source_label_preset_catalog:{...taxon.facet_metadata.source_label_preset_catalog,build_id:'sha256:'+'c'.repeat(64)}}}),
+  presetSnapshotDriftRejected:sourceChronologyLayerIsValid({...taxon,facet_metadata:{...taxon.facet_metadata,source_label_preset_catalog:{...taxon.facet_metadata.source_label_preset_catalog,source_snapshot_id:'sha256:'+'c'.repeat(64)}}}),
+  catalogPropagationRejected:sourceChronologyLayerIsValid({...taxon,facet_metadata:{...taxon.facet_metadata,source_label_preset_catalog:{...taxon.facet_metadata.source_label_preset_catalog,propagation_allowed:true}}}),
+  accountabilityPropagationRejected:sourceChronologyLayerIsValid({...taxon,facet_metadata:{...taxon.facet_metadata,source_label_preset_accountability:{...taxon.facet_metadata.source_label_preset_accountability,propagation_allowed:true}}}),
+  presetPropagationRejected:sourceChronologyLayerIsValid({...taxon,facet_metadata:{...taxon.facet_metadata,source_label_preset_accountability:{...taxon.facet_metadata.source_label_preset_accountability,presets:taxon.facet_metadata.source_label_preset_accountability.presets.map((row,index)=>index===0?{...row,propagation_allowed:true}:row)}}}),
+  unionPropagationRejected:sourceChronologyLayerIsValid({...taxon,facet_metadata:{...taxon.facet_metadata,source_label_preset_accountability:{...taxon.facet_metadata.source_label_preset_accountability,union:{...taxon.facet_metadata.source_label_preset_accountability.union,propagation_allowed:true}}}}),
   codeSelected:sourceChronologyFeatureMatches(code,codeFeature,'TRSH','all'),
   codeExcluded:sourceChronologyFeatureMatches(code,codeFeature,'AQVP','all'),
   codeNullRejected:sourceChronologyFeatureMatches(code,{...codeFeature,source_ecological_code:null},'all','all'),
-  taxonSelected:sourceChronologyFeatureMatches(taxon,taxonFeature,'all','source:taxon:41'),
+  taxonSelected:sourceChronologyFeatureMatches(taxon,taxonFeature,'all',taxonFeature.feature_key),
   taxonExcluded:sourceChronologyFeatureMatches(taxon,taxonFeature,'all','source:taxon:99'),
   taxonNullRejected:sourceChronologyFeatureMatches(taxon,{...taxonFeature,source_taxon_id:null},'all','all'),
+  featureSnapshotRejected:sourceChronologyFeatureMatches(taxon,{...taxonFeature,source_snapshot_id:'sha256:'+'c'.repeat(64)},'all',taxonFeature.feature_key),
+  featureBuildRejected:sourceChronologyFeatureMatches(taxon,{...taxonFeature,build_id:'sha256:'+'c'.repeat(64)},'all',taxonFeature.feature_key),
   crossLevelRejected:sourceChronologyFeatureMatches(code,{...codeFeature,node_level:'source_taxon'},'all','all'),
   postureRejected:sourceChronologyFeatureMatches(code,{...codeFeature,propagation_eligible:true},'all','all'),
   unrelatedUnaffected:sourceChronologyFeatureMatches({semantic_role:'other'},{},'all','all'),
@@ -224,22 +201,79 @@ console.log(JSON.stringify({
             "source_ecological_code",
             "source_taxon",
         ],
-        "literals": ["AQVP", "TRSH", "UPHE"],
+        "literals": ["TRSH"],
         "denseDefaultRejected": False,
         "directionRejected": False,
         "densityDriftRejected": False,
         "countryOrderRejected": False,
+        "countryOmissionRejected": False,
+        "countryNameDriftRejected": False,
+        "countrySiteDriftRejected": False,
+        "emptyCountryBoundsRejected": False,
+        "booleanCountRejected": False,
         "malformedRejected": False,
         "stringExtentRejected": False,
+        "presetIdentityDriftRejected": False,
+        "presetSnapshotDriftRejected": False,
+        "catalogPropagationRejected": False,
+        "accountabilityPropagationRejected": False,
+        "presetPropagationRejected": False,
+        "unionPropagationRejected": False,
         "codeSelected": True,
         "codeExcluded": False,
         "codeNullRejected": False,
         "taxonSelected": True,
         "taxonExcluded": False,
         "taxonNullRejected": False,
+        "featureSnapshotRejected": False,
+        "featureBuildRejected": False,
         "crossLevelRejected": False,
         "postureRejected": False,
         "unrelatedUnaffected": True,
+    }
+
+
+def test_source_label_presets_filter_exact_multi_id_unions_without_regex() -> None:
+    helpers = template_block(
+        "const SOURCE_CHRONOLOGY_LEVEL_ORDER",
+        "function sourceRecordConcentrationFailure",
+    )
+    taxon_layer = next(
+        layer
+        for layer in projection()[1].point_layers
+        if layer["node_level"] == "source_taxon"
+    )
+    observed = run_node_json(
+        "const POINT_LAYERS="
+        + json.dumps([taxon_layer])
+        + ";let activeSourceChronologyCode='all';let activeSourceChronologyTaxon='all';let activeSourceChronologyPreset='none';"
+        + helpers
+        + """
+const layer=POINT_LAYERS[0];
+const base=layer.features[0];
+const feature=(source_taxon_id,source_reported_name)=>({...base,source_taxon_id,source_reported_name,feature_key:`source:neotoma:taxon:${source_taxon_id}`});
+console.log(JSON.stringify({
+  avenaDirect:sourceChronologyFeatureMatches(layer,feature(414,'Avena-type'),'all','all','avena'),
+  avenaOverlap:sourceChronologyFeatureMatches(layer,feature(415,'Avena/Triticum'),'all','all','avena'),
+  triticumOverlap:sourceChronologyFeatureMatches(layer,feature(415,'Avena/Triticum'),'all','all','triticum'),
+  hordeumOverlap:sourceChronologyFeatureMatches(layer,feature(3924,'Hordeum/Secale'),'all','all','hordeum'),
+  secaleOverlap:sourceChronologyFeatureMatches(layer,feature(3924,'Hordeum/Secale'),'all','all','secale'),
+  wrongFamily:sourceChronologyFeatureMatches(layer,feature(3924,'Hordeum/Secale'),'all','all','avena'),
+  labelLookalike:sourceChronologyFeatureMatches(layer,feature(4150,'Avena/Triticum lookalike'),'all','all','avena'),
+  malformedId:sourceChronologyFeatureMatches(layer,feature('415x','Avena/Triticum'),'all','all','avena'),
+}));
+"""
+    )
+
+    assert observed == {
+        "avenaDirect": True,
+        "avenaOverlap": True,
+        "triticumOverlap": True,
+        "hordeumOverlap": True,
+        "secaleOverlap": True,
+        "wrongFamily": False,
+        "labelLookalike": False,
+        "malformedId": False,
     }
 
 
@@ -267,6 +301,9 @@ def test_hash_filters_are_distinct_and_source_selection_drives_playback() -> Non
     assert "sourceChronologyTaxon: params.get('source_taxon')" in (
         MAP_DOCUMENT_TEMPLATE
     )
+    assert "sourceChronologyPreset: params.get('source_label_preset')" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
     hash_block = template_block(
         "function syncHashState()", "function clearHighlightedPoint"
     )
@@ -278,6 +315,10 @@ def test_hash_filters_are_distinct_and_source_selection_drives_playback() -> Non
         "params.set('source_ecological_code', activeSourceChronologyCode)" in hash_block
     )
     assert "params.set('source_taxon', activeSourceChronologyTaxon)" in hash_block
+    assert (
+        "params.set('source_label_preset', activeSourceChronologyPreset)"
+        in hash_block
+    )
     assert (
         "initialState.sourceChronologyLevel && initialSourceChronologyLayer && "
         "initialState.layers === null" in MAP_DOCUMENT_TEMPLATE
@@ -321,22 +362,21 @@ def test_hash_filters_are_distinct_and_source_selection_drives_playback() -> Non
 
 def test_source_shortcuts_preserve_literal_semantics_and_reset_exact_taxa() -> None:
     assert "Source sample presence" in MAP_DOCUMENT_TEMPLATE
-    assert "Find cereal-like labels" in MAP_DOCUMENT_TEMPLATE
+    assert "Find cereal-like labels" not in MAP_DOCUMENT_TEMPLATE
     assert "Whole pollen sites" not in MAP_DOCUMENT_TEMPLATE
     handlers = template_block(
         "document.querySelectorAll('[data-source-shortcut]')",
         "countryPairFilter.addEventListener",
     )
-    assert (
-        "sourceChronologyTaxonSearch = shortcut === 'cereals' ? 'cereal|secale'"
-        in handlers
-    )
+    assert "cereal|secale" not in handlers
+    assert "/cereal|secale/i" not in handlers
     assert "sourceChronologyTaxonQuery.value = sourceChronologyTaxonSearch" in handlers
     assert "shortcut === 'taxa'" in handlers
     assert "activeSourceChronologyTaxon = 'all'" in handlers
-    assert "row.label.trim().toLowerCase() === 'secale'" in handlers
-    assert "row.source_taxon_id === '967'" in handlers
-    assert "preferredCerealFacet?.value" in handlers
+    assert "document.querySelectorAll('[data-source-preset]')" in handlers
+    assert "source_label_preset_accountability.presets" in handlers
+    assert "button.dataset.sourcePreset" in handlers
+    assert "activeSourceChronologyPreset" in handlers
 
 
 def test_taxon_search_exposes_distinct_exact_source_identity_shortcuts() -> None:
@@ -403,15 +443,15 @@ console.log(JSON.stringify({extent,frames:automaticPlaybackFrameCount(100),start
     }
 
 
-def test_source_shortcuts_open_real_chronology_levels_and_cereal_labels() -> None:
+def test_source_shortcuts_open_real_chronology_levels_and_governed_presets() -> None:
     assert 'data-source-shortcut="sample"' in MAP_DOCUMENT_TEMPLATE
     for source_code in ("TRSH", "UPHE", "AQVP"):
         assert f'data-source-shortcut="{source_code}"' in MAP_DOCUMENT_TEMPLATE
-    assert 'data-source-shortcut="cereals"' in MAP_DOCUMENT_TEMPLATE
-    assert "sourceChronologyTaxonSearch = shortcut === 'cereals' ? 'cereal|secale'" in (
-        MAP_DOCUMENT_TEMPLATE
-    )
-    assert "/cereal|secale/i.test(row.label)" in MAP_DOCUMENT_TEMPLATE
+    for preset in ("avena", "hordeum", "triticum", "secale", "cerealia"):
+        assert f'data-source-preset="{preset}"' in MAP_DOCUMENT_TEMPLATE
+    assert 'data-source-shortcut="cereals"' not in MAP_DOCUMENT_TEMPLATE
+    assert "literal_source_label_membership" in MAP_DOCUMENT_TEMPLATE
+    assert "preset.member_taxon_ids.includes" in MAP_DOCUMENT_TEMPLATE
     assert "focusSourceChronologyNavigation();" in MAP_DOCUMENT_TEMPLATE
 
 
@@ -537,61 +577,39 @@ def test_untimed_exclusion_uses_previewport_asset_counts_and_refuses_ambiguity()
         "const SOURCE_CHRONOLOGY_LEVEL_ORDER",
         "let activeCountries",
     )
+    source_layer = next(
+        layer
+        for layer in projection()[1].point_layers
+        if layer["node_level"] == "source_ecological_code"
+    )
     observed = run_node_json(
         """
-const sourceLayer={
-  key:'source-code',node_level:'source_ecological_code',default_enabled:false,count:2,
-  semantic_role:'source_chronology_context',propagation_status:'refused',edge_count:0,
-  temporal_direction:'oldest_to_present',interval_semantics:'[younger_bp, older_bp]',
-  applies_country_filter:true,
-  facet_metadata:{
-    schema_version:'neotoma-source-chronology-facets.v3',node_level:'source_ecological_code',
-    node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900,
-    time_density:{
-      schema_version:'source-chronology-time-density.v1',temporal_direction:'oldest_to_present',
-      interval_semantics:'[younger_bp, older_bp]',bin_admission:'closed_interval_overlap',bins_are_additive:false,
-      node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900,
-      bins:Array.from({length:12},(_,ordinal)=>({ordinal,younger_bp:100+((11-ordinal)*800/12),older_bp:100+((12-ordinal)*800/12),node_count:2,observation_denominator:2})),
-    },
-    country_counts:[
-      {value:'Sweden',node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900},
-      {value:'Denmark',node_count:0,observation_denominator:0,time_min_bp:null,time_max_bp:null},
-      {value:'Norway',node_count:0,observation_denominator:0,time_min_bp:null,time_max_bp:null},
-      {value:'Finland',node_count:0,observation_denominator:0,time_min_bp:null,time_max_bp:null},
-    ],
-    source_unit_counts:[{value:'percent',node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900}],
-    source_ecological_codes:[{value:'TRSH',label:'TRSH',feature_key:'source:code:TRSH',node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900,time_density:{
-      schema_version:'source-chronology-time-density.v1',temporal_direction:'oldest_to_present',
-      interval_semantics:'[younger_bp, older_bp]',bin_admission:'closed_interval_overlap',bins_are_additive:false,
-      node_count:2,observation_denominator:2,time_min_bp:100,time_max_bp:900,
-      bins:Array.from({length:12},(_,ordinal)=>({ordinal,younger_bp:100+((11-ordinal)*800/12),older_bp:100+((12-ordinal)*800/12),node_count:2,observation_denominator:2})),
-    }}],
-    source_taxa:[],
-  },
-};
+const sourceLayer="""
+        + json.dumps(source_layer)
+        + """;
 const POINT_LAYERS=[sourceLayer];
 const STATIC_ATLAS_INLINE=false;
 let STATIC_ATLAS_BOOTSTRAP={assets:[
-  {asset_key:'sweden',domain:'nodes',layer_key:'source-code',country_keys:['Sweden'],record_count:2,untimed_record_count:1},
-  {asset_key:'norway',domain:'nodes',layer_key:'source-code',country_keys:['Norway'],record_count:2,untimed_record_count:2},
+  {asset_key:'sweden',domain:'nodes',layer_key:sourceLayer.key,country_keys:['Sweden'],record_count:2,untimed_record_count:1},
+  {asset_key:'norway',domain:'nodes',layer_key:sourceLayer.key,country_keys:['Norway'],record_count:2,untimed_record_count:2},
 ]};
-const activeLayerKeys=new Set(['source-code']);
+const activeLayerKeys=new Set([sourceLayer.key]);
 let activeCountries=new Set(['Sweden']);
 let activeSourceChronologyLevel='source_ecological_code';
 let activeSourceChronologyCode='all';
 let activeSourceChronologyTaxon='all';
+let activeSourceChronologyPreset='none';
 function staticAtlasNonnegativeInteger(value){return Number(value)}
-function featureTimeWindow(){return null}
 """
         + helpers
         + """
 const exact=sourceChronologyUntimedExclusion(sourceLayer);
 STATIC_ATLAS_BOOTSTRAP={assets:[
-  {asset_key:'mixed',domain:'nodes',layer_key:'source-code',country_keys:['Sweden','Norway'],record_count:4,untimed_record_count:1},
+  {asset_key:'mixed',domain:'nodes',layer_key:sourceLayer.key,country_keys:['Sweden','Norway'],record_count:4,untimed_record_count:1},
 ]};
 const mixed=sourceChronologyUntimedExclusion(sourceLayer);
 STATIC_ATLAS_BOOTSTRAP={assets:[
-  {asset_key:'sweden',domain:'nodes',layer_key:'source-code',country_keys:['Sweden'],record_count:2,untimed_record_count:1},
+  {asset_key:'sweden',domain:'nodes',layer_key:sourceLayer.key,country_keys:['Sweden'],record_count:2,untimed_record_count:1},
 ]};
 activeSourceChronologyCode='TRSH';
 const facet=sourceChronologyUntimedExclusion(sourceLayer);
@@ -635,7 +653,36 @@ def test_restore_defaults_returns_to_sample_presence_and_all_source_facets() -> 
     assert "activeSourceChronologyLevel = defaultSourceChronologyLevel" in restore
     assert "activeSourceChronologyCode = 'all'" in restore
     assert "activeSourceChronologyTaxon = 'all'" in restore
+    assert "activeSourceChronologyPreset = 'none'" in restore
     assert "sourceChronologyTaxonSearch = ''" in restore
+
+
+def test_capture_contract_validates_and_restores_exact_preset_state() -> None:
+    normalization = template_block(
+        "function normalizeAtlasCaptureFrame", "async function awaitAtlasCaptureReady"
+    )
+    application = template_block(
+        "async function applyAtlasCaptureFrame", "globalThis.BijuxPollenomicsAtlasCapture"
+    )
+    snapshot = template_block(
+        "function atlasCaptureSnapshot", "function atlasCaptureOrientationKeys"
+    )
+
+    assert "frameSpec.source_preset || 'none'" in normalization
+    assert "source_label_preset_accountability.presets" in normalization
+    assert "capture source_preset is unavailable" in normalization
+    assert (
+        "capture cannot combine an exact source taxon and a source-label preset"
+        in normalization
+    )
+    assert "sourceChronologyFacetForSelection(sourceLayer, sourceCode, sourceTaxon, sourcePreset)" in normalization
+    assert "activeSourceChronologyPreset = captureFrame.sourcePreset" in application
+    assert "source_preset:" in snapshot
+    assert "facet_site_count:" in snapshot
+    assert "visible_site_count:" in snapshot
+    assert "sourceChronologyPreset: params.get('source_label_preset')" in (
+        MAP_DOCUMENT_TEMPLATE
+    )
 
 
 def test_generic_layer_toggle_preserves_one_source_level_and_allows_off() -> None:
@@ -654,6 +701,7 @@ const other={key:'other',node_level:null,semantic_role:'other'};
 const ALL_LAYERS=[...sourceLayers,other];
 const activeLayerKeys=new Set(['sample','code','taxon']);
 let activeSourceChronologyLevel='source_sample_presence';
+let activeSourceChronologyPreset='none';
 function sourceChronologyLayers(){return sourceLayers}
 function sourceChronologyLayerForLevel(level){return sourceLayers.find((layer)=>layer.node_level===level)||null}
 function stopTimePlayback(){}

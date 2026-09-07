@@ -64,7 +64,7 @@ def test_nordic_publication_writes_identity_bound_storyboards(
         "version": "v66",
         "countries": ["Denmark", "Finland", "Norway", "Sweden"],
     }
-    assert manifest["source_chronology"]["story_count"] == 4
+    assert manifest["source_chronology"]["story_count"] == 9
     assert manifest["modeled_context"]["story_count"] == 47
     assert artifacts == [
         (

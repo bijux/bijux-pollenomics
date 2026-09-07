@@ -112,17 +112,27 @@ def time_density_matches_facet(
     if not isinstance(bins, list) or len(bins) != expected_bin_count:
         return False
     previous_younger: float | int | None = None
+    covered_node_references = 0
+    covered_observation_references = 0
     for ordinal, row in enumerate(bins):
         if not isinstance(row, Mapping) or row.get("ordinal") != ordinal:
             return False
         younger_bp = _nonnegative_number(row.get("younger_bp"))
         older_bp = _nonnegative_number(row.get("older_bp"))
+        bin_node_count = _nonnegative_integer(row.get("node_count"))
+        bin_observation_denominator = _nonnegative_integer(
+            row.get("observation_denominator")
+        )
         if (
             younger_bp is None
             or older_bp is None
             or younger_bp > older_bp
-            or _nonnegative_integer(row.get("node_count")) is None
-            or _nonnegative_integer(row.get("observation_denominator")) is None
+            or bin_node_count is None
+            or bin_observation_denominator is None
+            or bin_node_count > node_count
+            or bin_observation_denominator > observation_denominator
+            or bin_observation_denominator < bin_node_count
+            or (bin_node_count == 0) != (bin_observation_denominator == 0)
         ):
             return False
         if ordinal == 0 and older_bp != time_max_bp:
@@ -130,7 +140,15 @@ def time_density_matches_facet(
         if previous_younger is not None and older_bp != previous_younger:
             return False
         previous_younger = younger_bp
-    return not bins or previous_younger == time_min_bp
+        covered_node_references += bin_node_count
+        covered_observation_references += bin_observation_denominator
+    return (not bins or previous_younger == time_min_bp) and (
+        node_count == 0
+        or (
+            covered_node_references >= node_count
+            and covered_observation_references >= observation_denominator
+        )
+    )
 
 
 def _nonnegative_integer(value: object) -> int | None:

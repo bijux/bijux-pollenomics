@@ -44,6 +44,7 @@ def test_every_modeled_metric_keeps_all_exact_source_windows() -> None:
     assert all(story.interpolation_allowed is False for story in stories)
     assert all(story.propagation_claim_allowed is False for story in stories)
     serialized = open_land.as_dict()
+    assert serialized["site_count"] is None
     frames = serialized["frames"]
     assert isinstance(frames, list)
     assert frames[0]["story_kind"] == "modeled_context"

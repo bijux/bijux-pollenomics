@@ -2,15 +2,22 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
+from collections.abc import Iterator, Mapping, Sequence
+from copy import deepcopy
+from dataclasses import dataclass
 import math
-from typing import cast
+from typing import Any, cast
 
+from bijux_pollenomics.reporting.source_chronology.facets import FACET_SCHEMA_VERSION
+from bijux_pollenomics.reporting.source_chronology.facet_accountability import (
+    validate_facet_accountability,
+)
 from bijux_pollenomics.reporting.source_chronology.time_density import (
     time_density_matches_facet,
 )
 
 from .contracts import (
+    SOURCE_LABEL_PRESET_FAMILY,
     ExactTaxonDiscovery,
     PlaybackContractError,
     PlaybackFrame,
@@ -22,12 +29,29 @@ SOURCE_PLAYBACK_CODES = ("TRSH", "UPHE", "AQVP")
 SOURCE_FRAME_WIDTH_BP = 100
 
 
+@dataclass(frozen=True, slots=True)
+class SourceChronologyPlayback:
+    """Identity-bound source stories, discovery facets, and preset authority."""
+
+    stories: tuple[PlaybackStory, ...]
+    exact_taxa: tuple[ExactTaxonDiscovery, ...]
+    source_snapshot_id: str
+    build_id: str
+    source_label_preset_catalog: dict[str, object]
+    source_label_preset_accountability: dict[str, object]
+
+    def __iter__(self) -> Iterator[Any]:
+        """Preserve the established two-value unpacking API for downstream callers."""
+        yield self.stories
+        yield self.exact_taxa
+
+
 def build_source_chronology_storyboards(
     point_layers: Sequence[Mapping[str, object]],
     *,
     countries: tuple[str, ...],
-) -> tuple[tuple[PlaybackStory, ...], tuple[ExactTaxonDiscovery, ...]]:
-    """Build four core stories and the complete exact-taxon discovery index."""
+) -> SourceChronologyPlayback:
+    """Build identity-bound core, preset, and exact-taxon chronology playback."""
     layers = {
         str(layer.get("node_level")): layer
         for layer in point_layers
@@ -45,11 +69,46 @@ def build_source_chronology_storyboards(
     for layer in layers.values():
         _validate_refused_source_layer(layer)
 
-    facets_by_level = {
-        level: _facet_metadata(layer, level) for level, layer in layers.items()
+    identities = {
+        (
+            _required_text(layer, "source_snapshot_id"),
+            _required_text(layer, "build_id"),
+        )
+        for layer in layers.values()
     }
+    if len(identities) != 1:
+        raise PlaybackContractError(
+            "source chronology layers do not share one source identity"
+        )
+    source_snapshot_id, build_id = next(iter(identities))
+
+    facets_by_level = {
+        level: _facet_metadata(
+            layer,
+            level,
+            source_snapshot_id=source_snapshot_id,
+            build_id=build_id,
+        )
+        for level, layer in layers.items()
+    }
+    for level, layer in layers.items():
+        _reconcile_facet_metadata_to_features(layer, facets_by_level[level])
+    taxon_facets = facets_by_level["source_taxon"]
+    catalog = _required_mapping(
+        taxon_facets, "source_label_preset_catalog"
+    )
+    accountability = _required_mapping(
+        taxon_facets, "source_label_preset_accountability"
+    )
     if all(_is_explicit_empty_facet(facet) for facet in facets_by_level.values()):
-        return (), ()
+        return SourceChronologyPlayback(
+            stories=(),
+            exact_taxa=(),
+            source_snapshot_id=source_snapshot_id,
+            build_id=build_id,
+            source_label_preset_catalog=deepcopy(dict(catalog)),
+            source_label_preset_accountability=deepcopy(dict(accountability)),
+        )
 
     sample_facets = facets_by_level["source_sample_presence"]
     stories = [
@@ -86,9 +145,37 @@ def build_source_chronology_storyboards(
             )
         )
 
-    taxon_facets = facets_by_level["source_taxon"]
     taxa = _exact_taxa(taxon_facets.get("source_taxa"))
-    return tuple(stories), taxa
+    preset_rows = _rows_by_key(accountability.get("presets"), field="key")
+    expected_preset_keys = ("avena", "hordeum", "triticum", "secale", "cerealia")
+    if tuple(preset_rows) != expected_preset_keys:
+        raise PlaybackContractError(
+            "source-label preset playback inventory is not canonical"
+        )
+    for preset_key in expected_preset_keys:
+        row = preset_rows[preset_key]
+        stories.append(
+            _source_story(
+                story_id=f"neotoma-source-preset-{preset_key}",
+                title=(
+                    "Neotoma literal exact-ID union — "
+                    f"{_required_text(row, 'label')}"
+                ),
+                selector_kind="source_label_preset",
+                selector_value=preset_key,
+                selector_family=SOURCE_LABEL_PRESET_FAMILY,
+                facet=row,
+                countries=countries,
+            )
+        )
+    return SourceChronologyPlayback(
+        stories=tuple(stories),
+        exact_taxa=taxa,
+        source_snapshot_id=source_snapshot_id,
+        build_id=build_id,
+        source_label_preset_catalog=deepcopy(dict(catalog)),
+        source_label_preset_accountability=deepcopy(dict(accountability)),
+    )
 
 
 def build_exact_taxon_storyboard(
@@ -110,6 +197,7 @@ def build_exact_taxon_storyboard(
             width_bp=SOURCE_FRAME_WIDTH_BP,
         ),
         countries=countries,
+        site_count=taxon.site_count,
         node_count=taxon.node_count,
         observation_denominator=taxon.observation_denominator,
     )
@@ -128,16 +216,31 @@ def _validate_refused_source_layer(layer: Mapping[str, object]) -> None:
 
 
 def _facet_metadata(
-    layer: Mapping[str, object], expected_level: str
+    layer: Mapping[str, object],
+    expected_level: str,
+    *,
+    source_snapshot_id: str,
+    build_id: str,
 ) -> Mapping[str, object]:
     facets = layer.get("facet_metadata")
     if not isinstance(facets, Mapping):
         raise PlaybackContractError("source chronology layer lacks facet metadata")
     if (
-        facets.get("schema_version") != "neotoma-source-chronology-facets.v3"
+        facets.get("schema_version") != FACET_SCHEMA_VERSION
         or facets.get("node_level") != expected_level
     ):
         raise PlaybackContractError("source chronology facet contract is incompatible")
+    try:
+        validate_facet_accountability(
+            facets,
+            expected_node_level=expected_level,
+            source_snapshot_id=source_snapshot_id,
+            build_id=build_id,
+        )
+    except (TypeError, ValueError) as error:
+        raise PlaybackContractError(
+            "source chronology facet accountability is incompatible"
+        ) from error
     if not time_density_matches_facet(facets.get("time_density"), facets):
         raise PlaybackContractError("source chronology time density is incompatible")
     return cast(Mapping[str, object], facets)
@@ -158,6 +261,7 @@ def _source_story(
     title: str,
     selector_kind: SelectorKind,
     selector_value: str,
+    selector_family: str | None = None,
     facet: Mapping[str, object],
     countries: tuple[str, ...],
 ) -> PlaybackStory:
@@ -174,8 +278,10 @@ def _source_story(
         evidence_role="observation_chronology",
         selector_kind=selector_kind,
         selector_value=selector_value,
+        selector_family=selector_family,
         frames=frames,
         countries=countries,
+        site_count=_positive_int(facet, "site_count"),
         node_count=_positive_int(facet, "node_count"),
         observation_denominator=_positive_int(facet, "observation_denominator"),
     )
@@ -258,6 +364,7 @@ def _exact_taxa(value: object) -> tuple[ExactTaxonDiscovery, ...]:
             feature_key=feature_key,
             source_taxon_id=_required_text(row, "source_taxon_id"),
             label=_required_text(row, "label"),
+            site_count=_positive_int(row, "site_count"),
             node_count=_positive_int(row, "node_count"),
             observation_denominator=_positive_int(row, "observation_denominator"),
             younger_bp=_closed_interval(row)[0],
@@ -296,9 +403,204 @@ def _positive_int(row: Mapping[str, object], field: str) -> int:
     return value
 
 
+def _required_mapping(
+    row: Mapping[str, object], field: str
+) -> Mapping[str, object]:
+    value = row.get(field)
+    if not isinstance(value, Mapping):
+        raise PlaybackContractError(f"source chronology {field} must be an object")
+    return value
+
+
+def _rows_by_key(value: object, *, field: str) -> dict[str, Mapping[str, object]]:
+    if not isinstance(value, list):
+        raise PlaybackContractError("source chronology preset rows must be a list")
+    rows: dict[str, Mapping[str, object]] = {}
+    for value_row in value:
+        if not isinstance(value_row, Mapping):
+            raise PlaybackContractError("source chronology preset row must be an object")
+        key = _required_text(value_row, field)
+        if key in rows:
+            raise PlaybackContractError("source chronology preset key is duplicated")
+        rows[key] = value_row
+    return rows
+
+
+def _reconcile_facet_metadata_to_features(
+    layer: Mapping[str, object], facets: Mapping[str, object]
+) -> None:
+    raw_features = layer.get("features")
+    if not isinstance(raw_features, list) or any(
+        not isinstance(feature, Mapping) for feature in raw_features
+    ):
+        raise PlaybackContractError(
+            "source chronology playback requires its exact layer features"
+        )
+    features = cast(list[Mapping[str, object]], raw_features)
+    if layer.get("count") != len(features):
+        raise PlaybackContractError("source chronology layer count differs from features")
+    expected_level = _required_text(layer, "node_level")
+    source_snapshot_id = _required_text(layer, "source_snapshot_id")
+    build_id = _required_text(layer, "build_id")
+    node_ids: set[str] = set()
+    for feature in features:
+        node_id = _required_text(feature, "node_id")
+        if node_id in node_ids:
+            raise PlaybackContractError("source chronology feature node is duplicated")
+        node_ids.add(node_id)
+        if (
+            feature.get("node_level") != expected_level
+            or feature.get("source_snapshot_id") != source_snapshot_id
+            or feature.get("build_id") != build_id
+            or feature.get("semantic_role") != "source_chronology_context"
+            or feature.get("propagation_eligible") is not False
+        ):
+            raise PlaybackContractError("source chronology feature identity differs")
+        _feature_interval(feature)
+        _positive_int(feature, "observation_denominator")
+        _required_text(feature, "record_id")
+        _required_text(feature, "country")
+    _compare_feature_aggregate(facets, features)
+    _compare_source_unit_counts(facets, features)
+
+    if expected_level == "source_ecological_code":
+        for row in _rows_by_value(facets.get("source_ecological_codes")).values():
+            source_code = _required_text(row, "source_code")
+            _compare_feature_aggregate(
+                row,
+                [
+                    feature
+                    for feature in features
+                    if feature.get("source_ecological_code") == source_code
+                ],
+            )
+    if expected_level == "source_taxon":
+        taxon_rows = _rows_by_value(facets.get("source_taxa"))
+        for feature_key, row in taxon_rows.items():
+            _compare_feature_aggregate(
+                row,
+                [feature for feature in features if feature.get("feature_key") == feature_key],
+            )
+        accountability = _required_mapping(
+            facets, "source_label_preset_accountability"
+        )
+        for row in _rows_by_key(accountability.get("presets"), field="key").values():
+            member_ids = _integer_ids(row.get("member_taxon_ids"))
+            _compare_feature_aggregate(
+                row,
+                [
+                    feature
+                    for feature in features
+                    if type(feature.get("source_taxon_id")) is int
+                    and feature.get("source_taxon_id") in member_ids
+                ],
+            )
+        union = _required_mapping(accountability, "union")
+        union_ids = _integer_ids(union.get("member_taxon_ids"))
+        _compare_feature_aggregate(
+            union,
+            [
+                feature
+                for feature in features
+                if type(feature.get("source_taxon_id")) is int
+                and feature.get("source_taxon_id") in union_ids
+            ],
+        )
+
+
+def _compare_source_unit_counts(
+    facets: Mapping[str, object], features: Sequence[Mapping[str, object]]
+) -> None:
+    declared = _rows_by_value(facets.get("source_unit_counts"))
+    feature_units = {_required_text(feature, "source_unit") for feature in features}
+    if set(declared) != feature_units:
+        raise PlaybackContractError("source chronology source-unit inventory differs")
+    for source_unit, row in declared.items():
+        selected = [
+            feature for feature in features if feature.get("source_unit") == source_unit
+        ]
+        expected = {
+            "node_count": len(selected),
+            "observation_denominator": sum(
+                _positive_int(feature, "observation_denominator")
+                for feature in selected
+            ),
+        }
+        if any(row.get(field) != value for field, value in expected.items()):
+            raise PlaybackContractError(
+                "source chronology source-unit feature aggregate differs"
+            )
+
+
+def _integer_ids(value: object) -> frozenset[int]:
+    if not isinstance(value, list) or any(type(item) is not int for item in value):
+        raise PlaybackContractError("source-label preset member IDs are invalid")
+    ids = frozenset(cast(list[int], value))
+    if len(ids) != len(value):
+        raise PlaybackContractError("source-label preset member IDs are duplicated")
+    return ids
+
+
+def _compare_feature_aggregate(
+    declared: Mapping[str, object], features: Sequence[Mapping[str, object]]
+) -> None:
+    expected = _feature_aggregate(features)
+    if any(declared.get(field) != value for field, value in expected.items()):
+        raise PlaybackContractError("source chronology feature aggregate differs")
+    raw_countries = declared.get("country_counts")
+    if not isinstance(raw_countries, list):
+        raise PlaybackContractError("source chronology country rows are unavailable")
+    country_names = ("Sweden", "Denmark", "Norway", "Finland")
+    for row, country in zip(raw_countries, country_names, strict=True):
+        if not isinstance(row, Mapping) or row.get("value") != country:
+            raise PlaybackContractError("source chronology country identity differs")
+        country_expected = _feature_aggregate(
+            [feature for feature in features if feature.get("country") == country]
+        )
+        if any(row.get(field) != value for field, value in country_expected.items()):
+            raise PlaybackContractError(
+                "source chronology country feature aggregate differs"
+            )
+
+
+def _feature_aggregate(
+    features: Sequence[Mapping[str, object]],
+) -> dict[str, object]:
+    if not features:
+        return {
+            "site_count": 0,
+            "node_count": 0,
+            "observation_denominator": 0,
+            "time_min_bp": None,
+            "time_max_bp": None,
+        }
+    intervals = [_feature_interval(feature) for feature in features]
+    return {
+        "site_count": len({_required_text(feature, "record_id") for feature in features}),
+        "node_count": len(features),
+        "observation_denominator": sum(
+            _positive_int(feature, "observation_denominator") for feature in features
+        ),
+        "time_min_bp": min(interval[0] for interval in intervals),
+        "time_max_bp": max(interval[1] for interval in intervals),
+    }
+
+
+def _feature_interval(
+    feature: Mapping[str, object],
+) -> tuple[float | int, float | int]:
+    return _closed_interval(
+        {
+            "time_min_bp": feature.get("time_start_bp"),
+            "time_max_bp": feature.get("time_end_bp"),
+        }
+    )
+
+
 __all__ = [
     "SOURCE_FRAME_WIDTH_BP",
     "SOURCE_PLAYBACK_CODES",
+    "SourceChronologyPlayback",
     "build_exact_taxon_storyboard",
     "build_source_chronology_storyboards",
 ]

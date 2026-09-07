@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 import hashlib
+from copy import deepcopy
+from dataclasses import replace
 
 import pytest
 
@@ -29,7 +31,7 @@ def _manifest(
     version: str = "v66",
     countries: tuple[str, ...] = NORDIC_COUNTRIES,
 ) -> dict[str, object]:
-    source_stories, taxa = build_source_chronology_storyboards(
+    source_chronology = build_source_chronology_storyboards(
         source_layers(), countries=NORDIC_COUNTRIES
     )
     modeled_stories = build_modeled_context_storyboards(
@@ -43,13 +45,15 @@ def _manifest(
         }
     )
     if reverse:
-        source_stories = tuple(reversed(source_stories))
+        source_chronology = replace(
+            source_chronology,
+            stories=tuple(reversed(source_chronology.stories)),
+            exact_taxa=tuple(reversed(source_chronology.exact_taxa)),
+        )
         modeled_stories = tuple(reversed(modeled_stories))
-        taxa = tuple(reversed(taxa))
     return build_playback_manifest(
-        source_stories=source_stories,
+        source_chronology=source_chronology,
         modeled_stories=modeled_stories,
-        exact_taxa=taxa,
         candidate_succession=refusal,
         atlas_build_id=atlas_build_id,
         scope_slug=scope_slug,
@@ -74,6 +78,25 @@ def test_manifest_is_canonical_and_input_order_independent() -> None:
     assert digest == hashlib.sha256(canonical_json_bytes(manifest)).hexdigest()
     source = manifest["source_chronology"]
     assert isinstance(source, dict)
+    assert source["story_count"] == 9
+    catalog = source["source_label_preset_catalog"]
+    accountability = source["source_label_preset_accountability"]
+    assert isinstance(catalog, dict)
+    assert isinstance(accountability, dict)
+    assert catalog["content_sha256"] == accountability["catalog_content_sha256"]
+    stories = source["stories"]
+    assert isinstance(stories, list)
+    preset_stories = [
+        story
+        for story in stories
+        if isinstance(story, dict)
+        and story["selector"]["kind"] == "source_label_preset"
+    ]
+    assert len(preset_stories) == 5
+    assert all(
+        isinstance(story["site_count"], int) and story["site_count"] > 0
+        for story in preset_stories
+    )
     discovery = source["exact_taxon_discovery"]
     assert isinstance(discovery, dict)
     assert discovery["facet_count"] == 972
@@ -127,3 +150,40 @@ def test_candidate_succession_cannot_be_published_from_edges() -> None:
 def test_canonical_encoder_rejects_nonstandard_numbers() -> None:
     with pytest.raises(ValueError):
         canonical_json_bytes({"scientific_value": float("nan")})
+
+
+def test_manifest_rejects_post_build_preset_accountability_tampering() -> None:
+    source_chronology = build_source_chronology_storyboards(
+        source_layers(), countries=NORDIC_COUNTRIES
+    )
+    accountability = deepcopy(
+        source_chronology.source_label_preset_accountability
+    )
+    presets = accountability["presets"]
+    assert isinstance(presets, list) and isinstance(presets[0], dict)
+    presets[0]["site_count"] = 1
+    tampered = replace(
+        source_chronology,
+        source_label_preset_accountability=accountability,
+    )
+    modeled_stories = build_modeled_context_storyboards(
+        modeled_manifest(), countries=NORDIC_COUNTRIES
+    )
+    refusal = refuse_candidate_succession_storyboard(
+        {
+            "propagation_status": "refused",
+            "edge_count": 0,
+            "reason_code": "accepted_scientific_classifications_not_available",
+        }
+    )
+
+    with pytest.raises(PlaybackContractError, match="identity or denominator differs"):
+        build_playback_manifest(
+            source_chronology=tampered,
+            modeled_stories=modeled_stories,
+            candidate_succession=refusal,
+            atlas_build_id="atlas-" + ("a" * 64),
+            scope_slug="nordic",
+            version="v66",
+            countries=NORDIC_COUNTRIES,
+        )

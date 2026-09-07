@@ -146,7 +146,12 @@ def _layer(result: SourceNodeDerivationResult, node_level: str) -> JsonObject:
         "interval_semantics": "[younger_bp, older_bp]",
         "propagation_status": "refused",
         "edge_count": 0,
-        "facet_metadata": build_facet_metadata(result.nodes, node_level=node_level),
+        "facet_metadata": build_facet_metadata(
+            result.nodes,
+            node_level=node_level,
+            source_snapshot_id=result.context.source_snapshot_id,
+            build_id=result.context.build_id,
+        ),
         "features": [build_atlas_feature(node) for node in nodes],
     }
 
