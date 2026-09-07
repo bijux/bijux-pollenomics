@@ -35,7 +35,7 @@ def _count_git_tracked_regular_files(
             capture_output=True,
             shell=False,
         )
-    except (OSError, subprocess.CalledProcessError):
+    except (OSError, ValueError, subprocess.CalledProcessError):
         return None
 
     count = 0

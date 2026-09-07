@@ -91,3 +91,12 @@ def test_uninspectable_index_is_unavailable(
         )
         is None
     )
+
+
+def test_external_data_root_has_no_claimed_repository_count(tmp_path: Path) -> None:
+    assert (
+        sustainability._count_git_tracked_regular_files(
+            tmp_path / "external-data", repository_root=tmp_path / "publication"
+        )
+        is None
+    )
