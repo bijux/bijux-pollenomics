@@ -295,13 +295,23 @@ class PublicationContractTests(MapPublicationTestCase):
             "propagation_reason_code": "display_only_source_chronology",
             "edge_count": 0,
         }
-        for field in ("animal_scope", "species_latin_name"):
+        forbidden = (
+            "animal_scope",
+            "classification_id",
+            "classification_status",
+            "scientific_signal_ids",
+            "species_common_name",
+            "species_latin_name",
+            "taxon_alignment_status",
+            "taxon_alignment_statuses",
+        )
+        for field in forbidden:
             layer = self._animal_chronology_layer()
             layer[field] = "forbidden"
             with self.subTest(surface="layer", field=field):
                 with self.assertRaisesRegex(ValueError, "forbidden scientific fields"):
                     _serialize_layer_contract_row(layer, policy=policy)
-        for field in ("animal_scope", "classification_id", "species_latin_name"):
+        for field in forbidden:
             layer = self._animal_chronology_layer()
             invalid_feature = dict(feature)
             invalid_feature[field] = "forbidden"

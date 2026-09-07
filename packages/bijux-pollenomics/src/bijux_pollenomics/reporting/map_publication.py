@@ -232,12 +232,23 @@ _ANIMAL_CHRONOLOGY_FEATURE_POSTURE = {
 }
 _ANIMAL_CHRONOLOGY_LAYER_FORBIDDEN_FIELDS = (
     "animal_scope",
+    "classification_id",
+    "classification_status",
+    "scientific_signal_ids",
+    "species_common_name",
     "species_latin_name",
+    "taxon_alignment_status",
+    "taxon_alignment_statuses",
 )
 _ANIMAL_CHRONOLOGY_FEATURE_FORBIDDEN_FIELDS = (
     "animal_scope",
     "classification_id",
+    "classification_status",
+    "scientific_signal_ids",
+    "species_common_name",
     "species_latin_name",
+    "taxon_alignment_status",
+    "taxon_alignment_statuses",
 )
 
 

@@ -4705,7 +4705,13 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           && Boolean(layer.project_species_latin_name.trim())
           && layer.species_attribution_basis === 'governed_project_registry'
           && !Object.prototype.hasOwnProperty.call(layer, 'species_latin_name')
+          && !Object.prototype.hasOwnProperty.call(layer, 'species_common_name')
           && !Object.prototype.hasOwnProperty.call(layer, 'animal_scope')
+          && !Object.prototype.hasOwnProperty.call(layer, 'classification_id')
+          && !Object.prototype.hasOwnProperty.call(layer, 'classification_status')
+          && !Object.prototype.hasOwnProperty.call(layer, 'taxon_alignment_status')
+          && !Object.prototype.hasOwnProperty.call(layer, 'taxon_alignment_statuses')
+          && !Object.prototype.hasOwnProperty.call(layer, 'scientific_signal_ids')
           && animalSourceChronologyPostureIsValid(layer)
         );
       }
@@ -4716,8 +4722,13 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           && Boolean(feature.project_species_latin_name.trim())
           && feature.species_attribution_basis === 'governed_project_registry'
           && !Object.prototype.hasOwnProperty.call(feature, 'species_latin_name')
+          && !Object.prototype.hasOwnProperty.call(feature, 'species_common_name')
           && !Object.prototype.hasOwnProperty.call(feature, 'animal_scope')
           && !Object.prototype.hasOwnProperty.call(feature, 'classification_id')
+          && !Object.prototype.hasOwnProperty.call(feature, 'classification_status')
+          && !Object.prototype.hasOwnProperty.call(feature, 'taxon_alignment_status')
+          && !Object.prototype.hasOwnProperty.call(feature, 'taxon_alignment_statuses')
+          && !Object.prototype.hasOwnProperty.call(feature, 'scientific_signal_ids')
           && animalSourceChronologyPostureIsValid(feature)
         );
       }

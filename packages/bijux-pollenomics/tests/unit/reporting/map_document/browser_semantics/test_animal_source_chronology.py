@@ -42,10 +42,21 @@ def test_animal_source_chronology_layer_posture_fails_closed() -> None:
         "layer.species_attribution_basis === 'governed_project_registry'",
         "feature.species_attribution_basis === 'governed_project_registry'",
         "hasOwnProperty.call(layer, 'species_latin_name')",
+        "hasOwnProperty.call(layer, 'species_common_name')",
         "hasOwnProperty.call(layer, 'animal_scope')",
+        "hasOwnProperty.call(layer, 'classification_id')",
+        "hasOwnProperty.call(layer, 'classification_status')",
+        "hasOwnProperty.call(layer, 'taxon_alignment_status')",
+        "hasOwnProperty.call(layer, 'taxon_alignment_statuses')",
+        "hasOwnProperty.call(layer, 'scientific_signal_ids')",
         "hasOwnProperty.call(feature, 'species_latin_name')",
+        "hasOwnProperty.call(feature, 'species_common_name')",
         "hasOwnProperty.call(feature, 'animal_scope')",
         "hasOwnProperty.call(feature, 'classification_id')",
+        "hasOwnProperty.call(feature, 'classification_status')",
+        "hasOwnProperty.call(feature, 'taxon_alignment_status')",
+        "hasOwnProperty.call(feature, 'taxon_alignment_statuses')",
+        "hasOwnProperty.call(feature, 'scientific_signal_ids')",
     ):
         assert expected in block
 
