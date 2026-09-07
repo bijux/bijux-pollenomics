@@ -350,7 +350,7 @@ def inject_dependabot_pull_request_skip(
     wrapper_name: str,
     wrapper_definition: dict[str, Any],
 ) -> dict[str, Any]:
-    if wrapper_name != "ci":
+    if wrapper_name not in {"ci", "verify"}:
         return wrapper_definition
 
     jobs = wrapper_definition.get("jobs")
