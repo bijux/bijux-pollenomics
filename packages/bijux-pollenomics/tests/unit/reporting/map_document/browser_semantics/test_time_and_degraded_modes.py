@@ -235,7 +235,7 @@ def test_overlays_yield_to_the_surface_the_user_opened() -> None:
 
 def test_focused_point_identity_survives_rendered_entry_replacement() -> None:
     focus_identity = template_block(
-        "function pointFocusIdentity", "function unavailableDetailTabs"
+        "function stableFeatureRecordId", "function unavailableDetailTabs"
     )
     focus_render = template_block("function renderFocusCard", "function countActiveOverrides")
     focus_navigation = template_block(
@@ -252,12 +252,14 @@ const entries=[
   {layer,feature:{record_id:'site:99',evidence_row_id:'row:early'}},
   {layer,feature:{record_id:'site:99',evidence_row_id:'row:late'}},
   {layer,feature:{record_id:'site:100'}},
+  {layer,feature:{evidence_row_id:'row:only'}},
 ];
 const early=pointFocusIdentity(layer,entries[0].feature);
 const late=pointFocusIdentity(layer,entries[1].feature);
 const evidenceEarly=pointFocusIdentity(layer,entries[2].feature);
 const evidenceLate=pointFocusIdentity(layer,entries[3].feature);
 const record=pointFocusIdentity(layer,entries[4].feature);
+const evidenceOnly=pointFocusIdentity(layer,entries[5].feature);
 let duplicateRefused=false;
 try { uniquePointEntryForFocus([entries[0],entries[0]],{kind:'point',...early}); }
 catch (error) { duplicateRefused=error.message === 'point focus identity is not unique'; }
@@ -267,10 +269,12 @@ console.log(JSON.stringify({
   evidenceEarly,
   evidenceLate,
   record,
+  evidenceOnly,
   resolvedEarly:uniquePointEntryForFocus(entries,{kind:'point',...early})?.feature.node_id,
   resolvedLate:uniquePointEntryForFocus(entries,{kind:'point',...late})?.feature.node_id,
   resolvedEvidenceEarly:uniquePointEntryForFocus(entries,{kind:'point',...evidenceEarly})?.feature.evidence_row_id,
   resolvedEvidenceLate:uniquePointEntryForFocus(entries,{kind:'point',...evidenceLate})?.feature.evidence_row_id,
+  resolvedEvidenceOnly:uniquePointEntryForFocus(entries,{kind:'point',...evidenceOnly})?.feature.evidence_row_id,
   missingRecord:pointFocusIdentity(layer,{node_id:'orphan'}),
   duplicateRefused,
 }));
@@ -303,10 +307,16 @@ console.log(JSON.stringify({
             "featureKey": "record:site:100",
             "recordId": "site:100",
         },
+        "evidenceOnly": {
+            "layerKey": "source-taxon",
+            "featureKey": "evidence:row:only",
+            "recordId": "row:only",
+        },
         "resolvedEarly": "node:early",
         "resolvedLate": "node:late",
         "resolvedEvidenceEarly": "row:early",
         "resolvedEvidenceLate": "row:late",
+        "resolvedEvidenceOnly": "row:only",
         "missingRecord": None,
         "duplicateRefused": True,
     }
@@ -342,7 +352,11 @@ def test_populated_search_and_mobile_focus_preserve_map_space() -> None:
     assert "width: min(360px, 100%);" in MAP_DOCUMENT_TEMPLATE
     assert "max-height: min(18vh, 140px);" in MAP_DOCUMENT_TEMPLATE
     assert "width: min(240px, 46vw);" in MAP_DOCUMENT_TEMPLATE
-    assert "max-height: min(26vh, 260px);" in MAP_DOCUMENT_TEMPLATE
+    assert "width: min(340px, 46vw);" in MAP_DOCUMENT_TEMPLATE
+    assert "max-height: min(32vh, 320px);" in MAP_DOCUMENT_TEMPLATE
+    assert "max-height: min(22vh, 220px);" in MAP_DOCUMENT_TEMPLATE
+    assert "width: min(188px, 46vw);" in MAP_DOCUMENT_TEMPLATE
+    assert "max-height: min(18vh, 152px);" in MAP_DOCUMENT_TEMPLATE
     assert MAP_DOCUMENT_TEMPLATE.index('class="time-stepper topbar-time-stepper"') < (
         MAP_DOCUMENT_TEMPLATE.index('id="topbar-search" class="topbar-search"')
     )

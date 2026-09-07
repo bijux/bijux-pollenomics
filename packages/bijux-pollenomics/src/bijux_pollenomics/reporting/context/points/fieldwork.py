@@ -62,6 +62,7 @@ def build_fieldwork_point_layer(
         },
         "features": [
             {
+                "record_id": "bijux:fieldwork:lyngsjon-lake:2026-02-26",
                 "latitude": LYNGSJON_FIELDWORK_LATITUDE,
                 "longitude": LYNGSJON_FIELDWORK_LONGITUDE,
                 "country": "Sweden",

@@ -40,6 +40,10 @@ class FieldworkLayerTests(unittest.TestCase):
         )
         self.assertEqual(fieldwork_features[0]["title"], "Lyngsjön Lake field sampling")
         self.assertEqual(
+            fieldwork_features[0]["record_id"],
+            "bijux:fieldwork:lyngsjon-lake:2026-02-26",
+        )
+        self.assertEqual(
             media_links[0]["url"],
             "../../gallery/2026-02-26-data-collection.JPG",
         )

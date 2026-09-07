@@ -1682,8 +1682,10 @@
         }
         .focus-card {
           left: 12px;
+          right: auto;
           bottom: 76px;
-          width: min(340px, calc(100vw - 24px));
+          width: min(340px, 46vw);
+          max-height: min(32vh, 320px);
         }
       }
       @media (max-width: 900px) {
@@ -1749,10 +1751,10 @@
         }
         .focus-card {
           left: 10px;
-          right: 10px;
+          right: auto;
           bottom: 76px;
-          width: auto;
-          max-height: min(26vh, 260px);
+          width: min(340px, 46vw);
+          max-height: min(22vh, 220px);
           transition: opacity 160ms ease, transform 160ms ease;
         }
         .map-status {
@@ -1818,8 +1820,11 @@
         }
         .focus-card {
           left: 8px;
-          right: 8px;
+          right: auto;
           bottom: 72px;
+          width: min(188px, 46vw);
+          max-height: min(18vh, 152px);
+          padding: 12px;
         }
         .focus-meta-row {
           grid-template-columns: 1fr;
@@ -4494,9 +4499,14 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         }
         highlightedPointEntry = entry;
       }
+      function stableFeatureRecordId(feature) {
+        const recordId = String(feature?.record_id ?? '').trim();
+        if (recordId) return recordId;
+        return String(feature?.evidence_row_id ?? '').trim();
+      }
       function pointFocusIdentity(layer, feature) {
         const layerKey = String(layer?.key ?? '').trim();
-        const recordId = String(feature?.record_id ?? '').trim();
+        const recordId = stableFeatureRecordId(feature);
         const nodeId = String(feature?.node_id ?? '').trim();
         const evidenceRowId = String(feature?.evidence_row_id ?? '').trim();
         if (!layerKey || !recordId) return null;
@@ -4585,7 +4595,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return loaded && loaded.tabs ? loaded.tabs : unavailableDetailTabs('detail_record_missing_from_chunk');
       }
       async function detailTabsForFeature(feature) {
-        const recordId = String(feature.record_id || '');
+        const recordId = stableFeatureRecordId(feature);
         return detailTabsForRecordId(recordId);
       }
       function detailTableShape(value) {
