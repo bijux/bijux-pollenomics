@@ -136,6 +136,118 @@ def test_missing_source_native_identity_kind_fails_closed(tmp_path: Path) -> Non
         load_animal_sample_chronology_corpus(tmp_path)
 
 
+@pytest.mark.parametrize(
+    ("field", "value", "message"),
+    (
+        (
+            "chronology_precision_posture",
+            "unresolved",
+            "numeric chronology has incompatible precision",
+        ),
+        (
+            "chronology_precision_posture",
+            "broad_period_only",
+            "numeric chronology has incompatible precision",
+        ),
+        (
+            "chronology_normalization_status",
+            "normalized_point",
+            "normalized point chronology is not a point",
+        ),
+    ),
+)
+def test_numeric_chronology_rejects_incompatible_controlled_combinations(
+    tmp_path: Path, field: str, value: str, message: str
+) -> None:
+    master, chronology, site = (deepcopy(row) for row in base_rows())
+    chronology[field] = value
+    write_source_repository(
+        tmp_path,
+        masters=[master],
+        chronologies=[chronology],
+        sites=[site],
+    )
+
+    with pytest.raises(ValueError, match=message):
+        load_animal_sample_chronology_corpus(tmp_path)
+
+
+@pytest.mark.parametrize(
+    ("status", "precision", "message"),
+    (
+        (
+            "normalized_point",
+            "sample_precise_interval",
+            "normalized point has interval precision",
+        ),
+        (
+            "normalized_interval",
+            "sample_precise_point",
+            "normalized interval has point precision",
+        ),
+    ),
+)
+def test_precise_chronology_posture_matches_normalization_shape(
+    tmp_path: Path, status: str, precision: str, message: str
+) -> None:
+    master, chronology, site = (deepcopy(row) for row in base_rows())
+    chronology["chronology_normalization_status"] = status
+    chronology["chronology_precision_posture"] = precision
+    if status == "normalized_point":
+        chronology["time_start_bp"] = 1100
+        chronology["time_end_bp"] = 1100
+    write_source_repository(
+        tmp_path,
+        masters=[master],
+        chronologies=[chronology],
+        sites=[site],
+    )
+
+    with pytest.raises(ValueError, match=message):
+        load_animal_sample_chronology_corpus(tmp_path)
+
+
+@pytest.mark.parametrize(
+    ("field", "value", "message"),
+    (
+        (
+            "coordinate_basis",
+            "unresolved_location_state",
+            "mappable coordinate has incompatible basis",
+        ),
+        (
+            "coordinate_basis",
+            "region_centroid_fallback",
+            "mappable coordinate has incompatible basis",
+        ),
+        (
+            "coordinate_confidence",
+            "withheld",
+            "mappable coordinate has incompatible confidence",
+        ),
+        (
+            "coordinate_confidence",
+            "unknown",
+            "mappable coordinate has incompatible confidence",
+        ),
+    ),
+)
+def test_mappable_coordinates_reject_nonlocating_controlled_values(
+    tmp_path: Path, field: str, value: str, message: str
+) -> None:
+    master, chronology, site = (deepcopy(row) for row in base_rows())
+    site[field] = value
+    write_source_repository(
+        tmp_path,
+        masters=[master],
+        chronologies=[chronology],
+        sites=[site],
+    )
+
+    with pytest.raises(ValueError, match=message):
+        load_animal_sample_chronology_corpus(tmp_path)
+
+
 def test_valid_content_change_changes_path_and_byte_identity(tmp_path: Path) -> None:
     write_source_repository(tmp_path)
     before = load_animal_sample_chronology_corpus(tmp_path).input_identity

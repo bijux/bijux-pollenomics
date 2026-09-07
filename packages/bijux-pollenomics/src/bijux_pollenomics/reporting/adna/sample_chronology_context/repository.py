@@ -45,6 +45,25 @@ _SURFACE_SCHEMAS = {
 _CHRONOLOGY_STATUSES = set(ADNA_CHRONOLOGY_NORMALIZATION_STATUSES)
 _IDENTITY_STATUSES = set(ADNA_SAMPLE_IDENTITY_RESOLUTIONS)
 _MAPPABLE_POSTURE = "mappable_point"
+_MAPPABLE_COORDINATE_BASES = {
+    "archive_coordinates",
+    "direct_published_coordinates",
+    "named_site_geocoding",
+    "supplementary_proximal_site_coordinates",
+    "supplementary_table_coordinates",
+}
+_MAPPABLE_COORDINATE_CONFIDENCE = {
+    "approximate",
+    "exact",
+    "inferred",
+    "source_reported_two_decimal_degrees",
+}
+_NUMERIC_CHRONOLOGY_PRECISION_POSTURES = {
+    "contextual_interval",
+    "sample_approximate_or_modeled",
+    "sample_precise_interval",
+    "sample_precise_point",
+}
 _REFUSAL_ORDER = (
     "sequencing_experiment_identity",
     "sample_identity_not_final",
@@ -382,6 +401,9 @@ def _validate_chronology_shape(row: Mapping[str, object], *, key: _SampleKey) ->
         if any(value is not None for value in values):
             raise ValueError(f"noncomparable chronology exposes numeric BP for {key!r}")
         return
+    precision = _required_text(row, "chronology_precision_posture")
+    if precision not in _NUMERIC_CHRONOLOGY_PRECISION_POSTURES:
+        raise ValueError(f"numeric chronology has incompatible precision for {key!r}")
     if any(isinstance(value, bool) or not isinstance(value, int) for value in values):
         raise ValueError(f"normalized chronology requires integer BP for {key!r}")
     younger, older, mean = cast(tuple[int, int, int], values)
@@ -391,6 +413,10 @@ def _validate_chronology_shape(row: Mapping[str, object], *, key: _SampleKey) ->
         raise ValueError(f"normalized point chronology is not a point for {key!r}")
     if status == "normalized_interval" and younger == older:
         raise ValueError(f"normalized interval chronology is a point for {key!r}")
+    if status == "normalized_point" and precision == "sample_precise_interval":
+        raise ValueError(f"normalized point has interval precision for {key!r}")
+    if status == "normalized_interval" and precision == "sample_precise_point":
+        raise ValueError(f"normalized interval has point precision for {key!r}")
 
 
 def _validate_coordinate_claim(
@@ -401,8 +427,14 @@ def _validate_coordinate_claim(
         raise ValueError(f"unsupported coordinate mapping posture for {key!r}")
     if posture != _MAPPABLE_POSTURE:
         return
-    _required_text(site, "coordinate_basis")
-    _required_text(site, "coordinate_confidence")
+    basis = _required_text(site, "coordinate_basis")
+    confidence = _required_text(site, "coordinate_confidence")
+    if basis not in _MAPPABLE_COORDINATE_BASES:
+        raise ValueError(f"mappable coordinate has incompatible basis for {key!r}")
+    if confidence not in _MAPPABLE_COORDINATE_CONFIDENCE:
+        raise ValueError(
+            f"mappable coordinate has incompatible confidence for {key!r}"
+        )
     _coordinate(master.get("latitude_text"), -90.0, 90.0, key, "latitude")
     _coordinate(master.get("longitude_text"), -180.0, 180.0, key, "longitude")
 
