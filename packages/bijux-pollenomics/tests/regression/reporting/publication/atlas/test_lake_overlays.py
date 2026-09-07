@@ -118,7 +118,8 @@ class CountryReportTests(unittest.TestCase):
                 self.assertIn(label, atlas_payload_text)
             self.assertIn('"default_enabled":false', atlas_payload_text)
             self.assertIn('"applies_time_filter":true', atlas_payload_text)
-            self.assertIn('"time_start_bp":3600', atlas_payload_text)
+            self.assertIn('"time_start_bp":2400', atlas_payload_text)
+            self.assertIn('"time_end_bp":3600', atlas_payload_text)
             self.assertIn("neotoma-pollen:alpha", atlas_payload_text)
             self.assertIn("Optional Sweden lake ranking overlay", atlas_payload_text)
             self.assertIn(
