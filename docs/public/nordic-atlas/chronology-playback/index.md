@@ -9,13 +9,13 @@ last_reviewed: 2026-09-07
 
 # Nordic Chronology Playback
 
-These twenty governed animations replay dated evidence from the oldest window
+These twenty-five governed animations replay dated evidence from the oldest window
 toward the present. Denmark, Finland, Norway, and Sweden remain available as
 the same four filter scopes used by the interactive Nordic atlas; a country
 with no evidence for a selected taxon remains empty and is not presented as
 covered.
 
-The twelve Neotoma animations show discrete dated source observations. Changing
+The seventeen Neotoma animations show discrete dated source observations. Changing
 spatial visibility through time can look flow-like, but it is not evidence of
 movement, migration, causation, or propagation. The eight PANGAEA animations
 show non-interpolated modeled taxon, land-cover, and plant-functional-type
@@ -45,14 +45,19 @@ labels, and provider failures cannot obscure or compete with the evidence.
 | TRSH — trees and shrubs | 9,978 nodes / 114,225 observations | 230 contiguous windows; 100 years except the terminal window |
 | UPHE — upland herbs | 9,928 nodes / 91,739 observations | 230 contiguous windows; 100 years except the terminal window |
 | AQVP — aquatic vascular plants | 4,991 nodes / 9,666 observations | 192 contiguous windows; 100 years except the terminal window |
-| exact taxon: Poaceae (Cerealia) | 28 nodes / 28 observations | 24 contiguous windows; 2,337–0 BP; source taxon 416 only |
-| exact taxon: Poaceae (Cerealia) undiff. | 257 nodes / 257 observations | 90 contiguous windows; 8,954.761–0 BP; source taxon 427 only |
-| exact taxon: Poaceae (Cerealia-type) | 375 nodes / 375 observations | 119 contiguous windows; 11,891–2 BP; source taxon 1947 only |
-| exact taxon: *Hordeum/Secale* | 2 nodes / 2 observations | 14 contiguous windows; 1,751–376 BP; source taxon 3924 only |
-| exact taxon: *Secale* | 469 nodes / 469 observations | 45 contiguous windows; 100 years except the terminal window; source taxon 967 only |
-| exact taxon: *Secale cereale* | 191 nodes / 191 observations | 31 contiguous windows; 3,067–0 BP; source taxon 3926 only |
-| exact taxon: *Secale*-type | 45 nodes / 45 observations | 38 contiguous windows; 3,808–29 BP; source taxon 488 only |
+| Avena source-label preset | 110 nodes / 110 observations | 140 contiguous windows; 13,907–6.3 BP |
+| Hordeum source-label preset | 572 nodes / 572 observations | 124 contiguous windows; 12,318–2.780076 BP |
+| Triticum source-label preset | 375 nodes / 375 observations | 107 contiguous windows; 10,646–2.780076 BP |
+| Secale source-label preset | 707 nodes / 707 observations | 45 contiguous windows; 4,461–0 BP |
+| Cerealia source-label preset | 676 nodes / 676 observations | 119 contiguous windows; 11,891–0 BP |
+| exact taxon: *Avena* | 7 nodes / 7 observations | 18 contiguous windows; 1,725–6.3 BP; source taxon 3915 only |
+| exact taxon: *Hordeum* | 87 nodes / 87 observations | 67 contiguous windows; 6,645–11 BP; source taxon 3923 only |
 | exact taxon: *Triticum* | 153 nodes / 153 observations | 72 contiguous windows; 7,197.5–11 BP; source taxon 969 only |
+| exact taxon: *Secale* | 469 nodes / 469 observations | 45 contiguous windows; 100 years except the terminal window; source taxon 967 only |
+| exact taxon: Poaceae (Cerealia) | 28 nodes / 28 observations | 24 contiguous windows; 2,337–0 BP; source taxon 416 only |
+| exact taxon: *Avena/Triticum* | 34 nodes / 34 observations | 92 contiguous windows; 9,138–24 BP; source taxon 415 only |
+| exact taxon: *Hordeum/Secale* | 2 nodes / 2 observations | 14 contiguous windows; 1,751–376 BP; source taxon 3924 only |
+| exact taxon: *Secale cereale* | 191 nodes / 191 observations | 31 contiguous windows; 3,067–0 BP; source taxon 3926 only |
 | modeled cereal type (Cerealia.t) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
 | modeled *Secale cereale* | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
 | open land (OL) | 75 modeled cells per frame | 25 source-defined windows; no interpolation |
@@ -68,18 +73,32 @@ pollen-observation count. Each Neotoma taxon label remains bound to its distinct
 source taxon ID; similar cereal labels are not merged or silently resolved to a
 species.
 
+### Country Availability for Source-Label Presets
+
+| Source-label preset | Denmark | Finland | Norway | Sweden |
+| --- | ---: | ---: | ---: | ---: |
+| Avena | 6 | 6 | 40 | 58 |
+| Hordeum | 23 | 20 | 88 | 441 |
+| Triticum | 6 | 9 | 60 | 300 |
+| Secale | 15 | 79 | 49 | 564 |
+| Cerealia | 0 | 117 | 45 | 514 |
+
+These are literal source-label memberships rather than accepted taxonomic
+classifications. A source taxon may belong to more than one preset, so preset
+rows must not be added together as a unique-observation total.
+
 ### Country Availability for Exact Taxa
 
 | Exact source taxon | Denmark | Finland | Norway | Sweden |
 | --- | ---: | ---: | ---: | ---: |
-| Poaceae (Cerealia), 416 | 0 | 2 | 0 | 26 |
-| Poaceae (Cerealia) undiff., 427 | 0 | 11 | 35 | 211 |
-| Poaceae (Cerealia-type), 1947 | 0 | 104 | 10 | 261 |
-| *Hordeum/Secale*, 3924 | 0 | 0 | 0 | 2 |
-| *Secale*, 967 | 15 | 76 | 13 | 365 |
-| *Secale cereale*, 3926 | 0 | 3 | 36 | 152 |
-| *Secale*-type, 488 | 0 | 0 | 0 | 45 |
+| *Avena*, 3915 | 0 | 0 | 1 | 6 |
+| *Hordeum*, 3923 | 0 | 19 | 7 | 61 |
 | *Triticum*, 969 | 0 | 3 | 2 | 148 |
+| *Secale*, 967 | 15 | 76 | 13 | 365 |
+| Poaceae (Cerealia), 416 | 0 | 2 | 0 | 26 |
+| *Avena/Triticum*, 415 | 6 | 0 | 28 | 0 |
+| *Hordeum/Secale*, 3924 | 0 | 0 | 0 | 2 |
+| *Secale cereale*, 3926 | 0 | 3 | 36 | 152 |
 
 Values are source-observation counts, and each row reconciles to its governed
 population above. Zero means no admitted observation for that exact source
@@ -125,44 +144,84 @@ taxon in that country; it does not mean absence in the past environment.
   <figcaption>Source-native AQVP observations only. Empty windows remain empty instead of being filled or interpolated.</figcaption>
 </figure>
 
-## Exact Taxon — Poaceae (Cerealia)
+## Avena Source-Label Preset
 
 <figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-416.poster.png">
-    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-416.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-416.mp4">Open the exact Poaceae (Cerealia) chronology video.</a>
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-avena.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-avena.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-avena.mp4">Open the Avena source-label chronology video.</a>
   </video>
-  <figcaption>Only Neotoma source taxon 416, Poaceae (Cerealia): 28 nodes and 28 observations.</figcaption>
+  <figcaption>All observations whose literal source labels belong to the governed Avena preset: 110 nodes and 110 observations. This is not an accepted taxonomic classification.</figcaption>
 </figure>
 
-## Exact Taxon — Poaceae (Cerealia) Undifferentiated
+## Hordeum Source-Label Preset
 
 <figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-427.poster.png">
-    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-427.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-427.mp4">Open the exact undifferentiated Poaceae (Cerealia) chronology video.</a>
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-hordeum.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-hordeum.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-hordeum.mp4">Open the Hordeum source-label chronology video.</a>
   </video>
-  <figcaption>Only Neotoma source taxon 427, Poaceae (Cerealia) undifferentiated: 257 nodes and 257 observations.</figcaption>
+  <figcaption>All observations whose literal source labels belong to the governed Hordeum preset: 572 nodes and 572 observations. Ambiguous labels remain visibly ambiguous.</figcaption>
 </figure>
 
-## Exact Taxon — Poaceae (Cerealia-Type)
+## Triticum Source-Label Preset
 
 <figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-1947.poster.png">
-    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-1947.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-1947.mp4">Open the exact Poaceae (Cerealia-type) chronology video.</a>
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-triticum.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-triticum.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-triticum.mp4">Open the Triticum source-label chronology video.</a>
   </video>
-  <figcaption>Only Neotoma source taxon 1947, Poaceae (Cerealia-type): 375 nodes and 375 observations.</figcaption>
+  <figcaption>All observations whose literal source labels belong to the governed Triticum preset: 375 nodes and 375 observations. The sequence does not infer movement.</figcaption>
 </figure>
 
-## Exact Taxon — *Hordeum/Secale*
+## Secale Source-Label Preset
 
 <figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3924.poster.png">
-    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3924.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3924.mp4">Open the exact <em>Hordeum/Secale</em> chronology video.</a>
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-secale.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-secale.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-secale.mp4">Open the Secale source-label chronology video.</a>
   </video>
-  <figcaption>Only Neotoma source taxon 3924 (<em>Hordeum/Secale</em>): 2 nodes and 2 observations. It is not merged into either genus.</figcaption>
+  <figcaption>All observations whose literal source labels belong to the governed Secale preset: 707 nodes and 707 observations. Exact and ambiguous labels stay independently inspectable.</figcaption>
+</figure>
+
+## Cerealia Source-Label Preset
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-cerealia.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-cerealia.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-preset-cerealia.mp4">Open the Cerealia source-label chronology video.</a>
+  </video>
+  <figcaption>All observations whose literal source labels belong to the governed Cerealia preset: 676 nodes and 676 observations. This source-label view remains separate from modeled cereal context.</figcaption>
+</figure>
+
+## Exact Taxon — *Avena*
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3915.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3915.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3915.mp4">Open the exact <em>Avena</em> chronology video.</a>
+  </video>
+  <figcaption>Only Neotoma source taxon 3915 (<em>Avena</em>): 7 nodes and 7 observations.</figcaption>
+</figure>
+
+## Exact Taxon — *Hordeum*
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3923.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3923.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3923.mp4">Open the exact <em>Hordeum</em> chronology video.</a>
+  </video>
+  <figcaption>Only Neotoma source taxon 3923 (<em>Hordeum</em>): 87 nodes and 87 observations.</figcaption>
+</figure>
+
+## Exact Taxon — *Triticum*
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-969.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-969.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-969.mp4">Open the exact <em>Triticum</em> chronology video.</a>
+  </video>
+  <figcaption>Only Neotoma source taxon 969 (<em>Triticum</em>): 153 nodes and 153 observations.</figcaption>
 </figure>
 
 ## Exact Taxon — *Secale*
@@ -175,6 +234,36 @@ taxon in that country; it does not mean absence in the past environment.
   <figcaption>Only Neotoma source taxon 967 (<em>Secale</em>): 469 nodes and 469 observations. Broader cereal categories are not silently merged into this exact-taxon view.</figcaption>
 </figure>
 
+## Exact Taxon — Poaceae (Cerealia)
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-416.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-416.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-416.mp4">Open the exact Poaceae (Cerealia) chronology video.</a>
+  </video>
+  <figcaption>Only Neotoma source taxon 416, Poaceae (Cerealia): 28 nodes and 28 observations.</figcaption>
+</figure>
+
+## Exact Taxon — *Avena/Triticum*
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-415.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-415.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-415.mp4">Open the exact <em>Avena/Triticum</em> chronology video.</a>
+  </video>
+  <figcaption>Only Neotoma source taxon 415 (<em>Avena/Triticum</em>): 34 nodes and 34 observations. It is not resolved to either genus.</figcaption>
+</figure>
+
+## Exact Taxon — *Hordeum/Secale*
+
+<figure class="bijux-media-card">
+  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3924.poster.png">
+    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3924.mp4" type="video/mp4">
+    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3924.mp4">Open the exact <em>Hordeum/Secale</em> chronology video.</a>
+  </video>
+  <figcaption>Only Neotoma source taxon 3924 (<em>Hordeum/Secale</em>): 2 nodes and 2 observations. It is not merged into either genus.</figcaption>
+</figure>
+
 ## Exact Taxon — *Secale cereale*
 
 <figure class="bijux-media-card">
@@ -183,26 +272,6 @@ taxon in that country; it does not mean absence in the past environment.
     <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-3926.mp4">Open the exact <em>Secale cereale</em> chronology video.</a>
   </video>
   <figcaption>Only Neotoma source taxon 3926 (<em>Secale cereale</em>): 191 nodes and 191 observations. This observed source category remains separate from the modeled PANGAEA metric below.</figcaption>
-</figure>
-
-## Exact Taxon — *Secale*-Type
-
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-488.poster.png">
-    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-488.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-488.mp4">Open the exact <em>Secale</em>-type chronology video.</a>
-  </video>
-  <figcaption>Only Neotoma source taxon 488 (<em>Secale</em>-type): 45 nodes and 45 observations.</figcaption>
-</figure>
-
-## Exact Taxon — *Triticum*
-
-<figure class="bijux-media-card">
-  <video controls preload="metadata" muted playsinline loop poster="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-969.poster.png">
-    <source src="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-969.mp4" type="video/mp4">
-    <a href="../../../gallery/nordic-atlas/chronology/media/neotoma-source-taxon-969.mp4">Open the exact <em>Triticum</em> chronology video.</a>
-  </video>
-  <figcaption>Only Neotoma source taxon 969 (<em>Triticum</em>): 153 nodes and 153 observations.</figcaption>
 </figure>
 
 ## PANGAEA Modeled Cereal Type — Cerealia.t

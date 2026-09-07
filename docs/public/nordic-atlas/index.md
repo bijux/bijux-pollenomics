@@ -115,7 +115,7 @@ TRSH, UPHE, and AQVP codes, and exact source taxa such as *Secale*. The atlas
 reports both the selected facet denominator and the count visible in the active
 window, so an empty view can be distinguished from missing source data.
 
-The [chronology playback page](./chronology-playback/) provides 20 pre-rendered
+The [chronology playback page](./chronology-playback/) provides 25 pre-rendered
 views for readers who want to inspect the same change through time without
 operating the map controls. Both surfaces preserve the rule that observation
 chronology and modeled context are not propagation claims.

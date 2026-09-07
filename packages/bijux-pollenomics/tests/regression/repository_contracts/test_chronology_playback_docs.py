@@ -18,14 +18,19 @@ EXPECTED_STORIES = (
     "neotoma-source-code-trsh",
     "neotoma-source-code-uphe",
     "neotoma-source-code-aqvp",
-    "neotoma-source-taxon-416",
-    "neotoma-source-taxon-427",
-    "neotoma-source-taxon-1947",
-    "neotoma-source-taxon-3924",
-    "neotoma-source-taxon-967",
-    "neotoma-source-taxon-3926",
-    "neotoma-source-taxon-488",
+    "neotoma-source-preset-avena",
+    "neotoma-source-preset-hordeum",
+    "neotoma-source-preset-triticum",
+    "neotoma-source-preset-secale",
+    "neotoma-source-preset-cerealia",
+    "neotoma-source-taxon-3915",
+    "neotoma-source-taxon-3923",
     "neotoma-source-taxon-969",
+    "neotoma-source-taxon-967",
+    "neotoma-source-taxon-416",
+    "neotoma-source-taxon-415",
+    "neotoma-source-taxon-3924",
+    "neotoma-source-taxon-3926",
     "pangaea-937075-metric-cerealia-t",
     "pangaea-937075-metric-secale",
     "pangaea-937075-metric-ol",
@@ -68,6 +73,62 @@ EXPECTED_PUBLIC_ROWS = {
         "last_interval": (0, 90),
         "page_row": "| AQVP — aquatic vascular plants | 4,991 nodes / 9,666 observations | 192 contiguous windows; 100 years except the terminal window |",
     },
+    "neotoma-source-preset-avena": {
+        "node_count": 110,
+        "observation_denominator": 110,
+        "frame_count": 140,
+        "first_interval": (13807, 13907),
+        "last_interval": (6.3, 7),
+        "page_row": "| Avena source-label preset | 110 nodes / 110 observations | 140 contiguous windows; 13,907–6.3 BP |",
+    },
+    "neotoma-source-preset-hordeum": {
+        "node_count": 572,
+        "observation_denominator": 572,
+        "frame_count": 124,
+        "first_interval": (12218, 12318),
+        "last_interval": (2.780076, 18),
+        "page_row": "| Hordeum source-label preset | 572 nodes / 572 observations | 124 contiguous windows; 12,318–2.780076 BP |",
+    },
+    "neotoma-source-preset-triticum": {
+        "node_count": 375,
+        "observation_denominator": 375,
+        "frame_count": 107,
+        "first_interval": (10546, 10646),
+        "last_interval": (2.780076, 46),
+        "page_row": "| Triticum source-label preset | 375 nodes / 375 observations | 107 contiguous windows; 10,646–2.780076 BP |",
+    },
+    "neotoma-source-preset-secale": {
+        "node_count": 707,
+        "observation_denominator": 707,
+        "frame_count": 45,
+        "first_interval": (4361, 4461),
+        "last_interval": (0, 61),
+        "page_row": "| Secale source-label preset | 707 nodes / 707 observations | 45 contiguous windows; 4,461–0 BP |",
+    },
+    "neotoma-source-preset-cerealia": {
+        "node_count": 676,
+        "observation_denominator": 676,
+        "frame_count": 119,
+        "first_interval": (11791, 11891),
+        "last_interval": (0, 91),
+        "page_row": "| Cerealia source-label preset | 676 nodes / 676 observations | 119 contiguous windows; 11,891–0 BP |",
+    },
+    "neotoma-source-taxon-3915": {
+        "node_count": 7,
+        "observation_denominator": 7,
+        "frame_count": 18,
+        "first_interval": (1625, 1725),
+        "last_interval": (6.3, 25),
+        "page_row": "| exact taxon: *Avena* | 7 nodes / 7 observations | 18 contiguous windows; 1,725–6.3 BP; source taxon 3915 only |",
+    },
+    "neotoma-source-taxon-3923": {
+        "node_count": 87,
+        "observation_denominator": 87,
+        "frame_count": 67,
+        "first_interval": (6545, 6645),
+        "last_interval": (11, 45),
+        "page_row": "| exact taxon: *Hordeum* | 87 nodes / 87 observations | 67 contiguous windows; 6,645–11 BP; source taxon 3923 only |",
+    },
     "neotoma-source-taxon-416": {
         "node_count": 28,
         "observation_denominator": 28,
@@ -76,21 +137,13 @@ EXPECTED_PUBLIC_ROWS = {
         "last_interval": (0, 37),
         "page_row": "| exact taxon: Poaceae (Cerealia) | 28 nodes / 28 observations | 24 contiguous windows; 2,337–0 BP; source taxon 416 only |",
     },
-    "neotoma-source-taxon-427": {
-        "node_count": 257,
-        "observation_denominator": 257,
-        "frame_count": 90,
-        "first_interval": (8854.761, 8954.761),
-        "last_interval": (0, 54.76100000000042),
-        "page_row": "| exact taxon: Poaceae (Cerealia) undiff. | 257 nodes / 257 observations | 90 contiguous windows; 8,954.761–0 BP; source taxon 427 only |",
-    },
-    "neotoma-source-taxon-1947": {
-        "node_count": 375,
-        "observation_denominator": 375,
-        "frame_count": 119,
-        "first_interval": (11791, 11891),
-        "last_interval": (2, 91),
-        "page_row": "| exact taxon: Poaceae (Cerealia-type) | 375 nodes / 375 observations | 119 contiguous windows; 11,891–2 BP; source taxon 1947 only |",
+    "neotoma-source-taxon-415": {
+        "node_count": 34,
+        "observation_denominator": 34,
+        "frame_count": 92,
+        "first_interval": (9038, 9138),
+        "last_interval": (24, 38),
+        "page_row": "| exact taxon: *Avena/Triticum* | 34 nodes / 34 observations | 92 contiguous windows; 9,138–24 BP; source taxon 415 only |",
     },
     "neotoma-source-taxon-3924": {
         "node_count": 2,
@@ -115,14 +168,6 @@ EXPECTED_PUBLIC_ROWS = {
         "first_interval": (2967, 3067),
         "last_interval": (0, 67),
         "page_row": "| exact taxon: *Secale cereale* | 191 nodes / 191 observations | 31 contiguous windows; 3,067–0 BP; source taxon 3926 only |",
-    },
-    "neotoma-source-taxon-488": {
-        "node_count": 45,
-        "observation_denominator": 45,
-        "frame_count": 38,
-        "first_interval": (3708, 3808),
-        "last_interval": (29, 108),
-        "page_row": "| exact taxon: *Secale*-type | 45 nodes / 45 observations | 38 contiguous windows; 3,808–29 BP; source taxon 488 only |",
     },
     "neotoma-source-taxon-969": {
         "node_count": 153,
@@ -221,7 +266,7 @@ def test_chronology_page_embeds_the_exact_governed_media_inventory() -> None:
         (PUBLICATION_ROOT / "publication-manifest.json").read_text(encoding="utf-8")
     )
 
-    assert manifest["schema_version"] == "atlas-media-publication.v4"
+    assert manifest["schema_version"] == "atlas-media-publication.v5"
     assert manifest["story_count"] == len(EXPECTED_STORIES)
     assert manifest["publication_budget"]["published_asset_count"] == (
         2 * len(EXPECTED_STORIES)
@@ -232,7 +277,7 @@ def test_chronology_page_embeds_the_exact_governed_media_inventory() -> None:
     ) == len(EXPECTED_STORIES)
     assert "autoplay" not in page
     assert 'href="./chronology-playback/"' in atlas_index
-    assert "provides 20 pre-rendered views" in " ".join(atlas_index.split())
+    assert "provides 25 pre-rendered views" in " ".join(atlas_index.split())
     for story in manifest["stories"]:
         expected = EXPECTED_PUBLIC_ROWS[story["story_id"]]
         assert story["node_count"] == expected["node_count"]
