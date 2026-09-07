@@ -8,12 +8,30 @@ from typing import cast
 from .dependencies import SampleTruthDependencies
 
 
+def _sample_source_backed_locality_count(
+    sample_rows: list[dict[str, object]],
+) -> int:
+    """Count distinct localities asserted by sample-owned source evidence."""
+    locality_tokens: set[str] = set()
+    for row in sample_rows:
+        locality = row.get("locality")
+        if not isinstance(locality, str) or not locality.strip():
+            continue
+        locality_identity = row.get("locality_identity")
+        if not isinstance(locality_identity, dict):
+            continue
+        token = str(locality_identity.get("stable_token", "")).strip()
+        if token:
+            locality_tokens.add(token)
+    return len(locality_tokens)
+
+
 def build_project_locality_count_drift(
     data_root: Path,
     *,
     dependencies: SampleTruthDependencies,
 ) -> tuple[dict[str, object], ...]:
-    """Compare project locality summaries against sample-backed site counts."""
+    """Compare project summaries with source-backed sample localities."""
     rows: list[dict[str, object]] = []
     for species_name in dependencies.TRACKED_ADNA_SPECIES:
         species = dependencies.resolve_species_definition(species_name)
@@ -23,6 +41,9 @@ def build_project_locality_count_drift(
         grouped_samples = dependencies._group_sample_rows_by_project(sample_rows)
         for project_accession, project_sample_rows in sorted(grouped_samples.items()):
             sample_site_count = dependencies._sample_backed_site_count(
+                project_sample_rows
+            )
+            source_backed_locality_count = _sample_source_backed_locality_count(
                 project_sample_rows
             )
             locality_summary_count = sum(
@@ -36,15 +57,16 @@ def build_project_locality_count_drift(
                     if str(item).strip()
                 }
             )
-            drift_detected = (
-                sample_site_count > 0 and locality_summary_count != sample_site_count
-            )
+            drift_detected = locality_summary_count != source_backed_locality_count
             rows.append(
                 {
                     "species_latin_name": species.latin_name,
                     "project_accession": project_accession,
                     "sample_row_count": len(project_sample_rows),
                     "sample_backed_site_count": sample_site_count,
+                    "sample_source_backed_locality_count": (
+                        source_backed_locality_count
+                    ),
                     "project_locality_summary_count": locality_summary_count,
                     "drift_detected": drift_detected,
                 }

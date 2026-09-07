@@ -54,11 +54,11 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertEqual(summary["tracked_species_count"], 10)
         self.assertEqual(summary["tracked_project_count"], 21)
         self.assertEqual(summary["sample_row_count"], 1450)
-        self.assertEqual(summary["fully_grounded_count"], 531)
-        self.assertEqual(summary["partially_grounded_count"], 333)
+        self.assertEqual(summary["fully_grounded_count"], 557)
+        self.assertEqual(summary["partially_grounded_count"], 335)
         self.assertEqual(summary["blocked_missing_metadata_count"], 11)
-        self.assertEqual(summary["blocked_missing_location_detail_count"], 79)
-        self.assertEqual(summary["blocked_weak_chronology_count"], 496)
+        self.assertEqual(summary["blocked_missing_location_detail_count"], 391)
+        self.assertEqual(summary["blocked_weak_chronology_count"], 156)
         self.assertEqual(
             sum(
                 int(summary[field])
@@ -145,6 +145,139 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertEqual(len(drift_rows), 1)
         self.assertEqual(drift_rows[0]["project_accession"], "PRJTEST")
         self.assertEqual(drift_rows[0]["sample_backed_site_count"], 2)
+        self.assertEqual(drift_rows[0]["sample_source_backed_locality_count"], 2)
+        self.assertEqual(drift_rows[0]["project_locality_summary_count"], 1)
+
+    def test_project_locality_drift_uses_source_backed_locality_population(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            data_root = Path(tmp) / "data"
+            normalized_root = (
+                data_root / "adna" / "species" / "ovis_aries" / "normalized"
+            )
+            sample_rows = [
+                _sample_row(
+                    stable_token=f"ovis_aries:sample:{index}",
+                    locality_token=f"ovis_aries:sample-site:{index}",
+                    locality_text=f"Site {index}",
+                    project_accession="PRJTEST",
+                )
+                for index in (1, 2)
+            ]
+            sample_rows[1]["inclusion_status"] = "sample_context_blocked"
+            _write_json(
+                normalized_root / "sample_records.json",
+                {"samples": sample_rows},
+            )
+            _write_json(
+                normalized_root / "locality_summaries.json",
+                {
+                    "localities": [
+                        {
+                            "identity": {
+                                "stable_token": f"ovis_aries:sample-site:{index}",
+                            },
+                            "locality": f"Site {index}",
+                            "project_accessions": ["PRJTEST"],
+                            "sample_namespace": "ovis_aries:sample_locality",
+                        }
+                        for index in (1, 2)
+                    ]
+                },
+            )
+
+            drift_rows = build_project_locality_count_drift(data_root)
+
+        self.assertEqual(drift_rows, ())
+
+    def test_project_locality_drift_reports_missing_source_backed_summary(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            data_root = Path(tmp) / "data"
+            normalized_root = (
+                data_root / "adna" / "species" / "ovis_aries" / "normalized"
+            )
+            sample_rows = [
+                _sample_row(
+                    stable_token=f"ovis_aries:sample:{index}",
+                    locality_token=f"ovis_aries:sample-site:{index}",
+                    locality_text=f"Site {index}",
+                    project_accession="PRJTEST",
+                )
+                for index in (1, 2)
+            ]
+            for row in sample_rows:
+                row["inclusion_status"] = "sample_context_blocked"
+            _write_json(
+                normalized_root / "sample_records.json",
+                {"samples": sample_rows},
+            )
+            _write_json(
+                normalized_root / "locality_summaries.json",
+                {
+                    "localities": [
+                        {
+                            "identity": {
+                                "stable_token": "ovis_aries:sample-site:1",
+                            },
+                            "locality": "Site 1",
+                            "project_accessions": ["PRJTEST"],
+                            "sample_namespace": "ovis_aries:sample_locality",
+                        }
+                    ]
+                },
+            )
+
+            drift_rows = build_project_locality_count_drift(data_root)
+
+        self.assertEqual(len(drift_rows), 1)
+        self.assertEqual(drift_rows[0]["sample_backed_site_count"], 0)
+        self.assertEqual(drift_rows[0]["sample_source_backed_locality_count"], 2)
+        self.assertEqual(drift_rows[0]["project_locality_summary_count"], 1)
+
+    def test_project_locality_drift_reports_summary_without_source_locality(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            data_root = Path(tmp) / "data"
+            normalized_root = (
+                data_root / "adna" / "species" / "ovis_aries" / "normalized"
+            )
+            sample_row = _sample_row(
+                stable_token="ovis_aries:sample:one",
+                locality_token="ovis_aries:sample-site:placeholder",
+                locality_text="Site detail unavailable",
+                project_accession="PRJTEST",
+            )
+            sample_row["locality"] = None
+            sample_row["inclusion_status"] = "sample_context_blocked"
+            _write_json(
+                normalized_root / "sample_records.json",
+                {"samples": [sample_row]},
+            )
+            _write_json(
+                normalized_root / "locality_summaries.json",
+                {
+                    "localities": [
+                        {
+                            "identity": {
+                                "stable_token": "ovis_aries:sample-site:orphan",
+                            },
+                            "locality": "Orphan Summary",
+                            "project_accessions": ["PRJTEST"],
+                            "sample_namespace": "ovis_aries:sample_locality",
+                        }
+                    ]
+                },
+            )
+
+            drift_rows = build_project_locality_count_drift(data_root)
+
+        self.assertEqual(len(drift_rows), 1)
+        self.assertEqual(drift_rows[0]["sample_backed_site_count"], 0)
+        self.assertEqual(drift_rows[0]["sample_source_backed_locality_count"], 0)
         self.assertEqual(drift_rows[0]["project_locality_summary_count"], 1)
 
     def test_sample_aggregation_warnings_confirm_sample_backed_truth(self) -> None:
@@ -248,6 +381,7 @@ def _sample_row(
             "stable_token": locality_token,
             "locality_text": locality_text,
         },
+        "locality": locality_text,
         "project_accession": project_accession,
         "paper_doi": "10.1000/test",
         "paper_url": "https://doi.org/10.1000/test",
