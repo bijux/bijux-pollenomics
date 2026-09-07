@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-07
 ---
 
 # Filters And Popups
@@ -69,7 +69,7 @@ Filter eligibility is declared per layer. In the current world contract:
 | AADR | yes | yes | release rows carry country and admitted temporal fields |
 | goat | yes | yes | admitted goat features carry scope and numeric time posture |
 | horse | yes | yes | admitted horse features carry scope and numeric time posture |
-| dromedary context | yes | no | the single feature is project-anchored context and must not enter numeric time filtering |
+| animal source-sample chronology | yes | yes | explicitly typed source chronology is display-only and does not enter propagation or accepted scientific comparison |
 | boundaries | yes | no | polygons frame scope and carry no scientific chronology |
 
 A disabled time filter is not missing interface work when the layer contract
@@ -155,9 +155,9 @@ supplementary-table coordinate, and sample-owned chronology. Wadi Halfa must
 not receive a point popup: it is retained only as a not-materialized readiness
 row with reason `no_admitted_sample_backed_locality_candidate`.
 
-The two features may share marker styling, but their popups must not share an
-unqualified “sample” assertion. Presentation that erases this difference
-would make the dromedary point appear stronger than its traceability record.
+The admitted goat point and the excluded dromedary context do not share map
+membership. Readiness details must preserve the exclusion reason; a popup or
+marker style cannot substitute for the missing sample-backed admission.
 
 ## Interpretive Guardrails
 

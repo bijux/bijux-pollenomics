@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-07
 ---
 
 # Animal Source Intake
@@ -236,8 +236,8 @@ flowchart TB
 
 This fan-out is the central curation operation. A final identity can coexist
 with unresolved chronology; an exact coordinate can coexist with text-only
-time; and a project-context feature can remain visibly distinct from a final
-sample-backed member.
+time; and project-only context remains separately inspectable in the refusal
+records without becoming a sample-backed map member.
 
 ## What Is Captured
 

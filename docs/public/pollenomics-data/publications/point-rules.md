@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-07
 ---
 
 # Point Publication Rules
@@ -41,7 +41,7 @@ that needs uniform ascertainment remain outside that claim.
 
 | Reader question | Answer supported by an admitted marker | Claim not established by the marker |
 | --- | --- | --- |
-| What is it? | a stable feature linked to species and project, plus final sample evidence when recovered | that every admitted feature is a recovered sample or an exhaustive inventory |
+| What is it? | a stable locality feature linked to species, project, and at least one final admitted sample | one feature per sample or an exhaustive inventory |
 | Why is it here? | a locality and coordinate decision with recorded provenance | survey-grade positional accuracy unless the source establishes it |
 | How certain is the position? | the published `exact` or `approximate` coordinate class | identical precision across all markers |
 | When is it from? | only the chronology posture and fields admitted for that row | a numeric date where the evidence is contextual, broad, or conflicting |
@@ -116,16 +116,15 @@ flowchart LR
     Direkli["final sample packet"] --> SamplePoint["sample-backed point"]
     Wadi["project context without admitted sample"] --> Excluded["not materialized"]
     SamplePoint --> Layer["animal point layer"]
-    ContextPoint --> Layer
     Layer --> Analysis{"declared analysis unit"}
     Analysis -->|sample required| SamplesOnly["final sample-backed members only"]
     Analysis -->|context accepted| DeclaredMix["classes retained separately"]
 ```
 
-Both packets can satisfy the spatial product, but they answer different
-questions. Any export or analysis that drops `sample_identity_resolution`,
-`sample_evidence_status`, coordinate class, or evidence role destroys the
-distinction on which their joint visibility depends.
+Only the Direkli packet satisfies the point product. Wadi Halfa remains in
+the refusal accounting without a map marker. Exports and analyses must retain
+`sample_identity_resolution`, `sample_evidence_status`, coordinate class, and
+evidence role so that source context cannot be mistaken for an admitted point.
 
 ## Admission And Field Qualification
 
@@ -266,8 +265,7 @@ editing popup text cannot turn a refused row into an admitted one.
 
 The animal publication gate verifies the whole emitted surface, including:
 
-- required member, site, coordinate, and citation traceability, including the
-  explicit identity posture of project-anchored context;
+- required member, admitted sample, site, coordinate, and citation traceability;
 - no project-level substitution for blocked sample sites;
 - no leakage of unresolved or conflicting chronology into country or atlas
   outputs;
@@ -279,9 +277,9 @@ The animal publication gate verifies the whole emitted surface, including:
 Passing those protections means the published subset obeys its contracts. It
 does not mean all tracked projects or species are fully recovered, and it does
 not justify stronger collection-wide completeness language. In particular,
-the passing `published_points_keep_required_traceability` check proves that
-the dromedary context feature retains its provisional sample status; it does
-not convert that status to final sample recovery.
+the passing `published_points_keep_required_traceability` check requires
+traceability for admitted members; it does not admit the excluded Wadi Halfa
+context or convert project evidence into final sample recovery.
 
 ```mermaid
 flowchart LR

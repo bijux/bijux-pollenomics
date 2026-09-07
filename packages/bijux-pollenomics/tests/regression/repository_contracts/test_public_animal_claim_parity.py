@@ -125,6 +125,16 @@ class PublicAnimalClaimParityTests(unittest.TestCase):
     def test_public_docs_reject_superseded_animal_count_semantics(self) -> None:
         public_root = REPO_ROOT / "docs" / "public"
         stale_patterns = {
+            "excluded project context described as a published member": re.compile(
+                r"(?:one dromedary context feature|"
+                r"single feature is project-anchored context|"
+                r"Both packets can satisfy the spatial product|"
+                r"current animal candidate population also contains a "
+                r"dromedary-camel member|"
+                r"point surface also contains one explicitly qualified "
+                r"project-anchored context feature)",
+                re.IGNORECASE,
+            ),
             "legacy point publication total": re.compile(
                 r"(?:\b(?:233|234)\b.{0,120}\b(?:animal|point|publication|"
                 r"candidate|sample-backed)\b|\b(?:animal|point|publication|"

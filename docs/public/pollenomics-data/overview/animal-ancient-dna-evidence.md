@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-07
 ---
 
 # Animal Ancient DNA Evidence
@@ -12,9 +12,9 @@ last_reviewed: 2026-07-22
 Animal ancient-DNA publication normally begins with a source-backed sample,
 not a project title or species mention. Papers, archive projects, supplements,
 sample tables, sites, chronology statements, and coordinates remain distinct
-evidence units until their relationships are explicitly curated. The current
-point surface also contains one explicitly qualified project-anchored context
-feature; it must not be described as a recovered sample.
+evidence units until their relationships are explicitly curated. Every current
+animal point is backed by admitted sample identities. Project-only context
+remains inspectable in the source and refusal records, not as a published point.
 
 ## Evidence Chain
 

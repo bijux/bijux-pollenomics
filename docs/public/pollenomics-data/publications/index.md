@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-07
 ---
 
 # Evidence Publications
@@ -261,17 +261,19 @@ The checked-in world manifest makes the reading order concrete:
 
 | Surface | Governed fact | Reader decision |
 | --- | --- | --- |
-| `world_bundle.json` | `scope_key: world`, version `v66`, generated `2026-06-22` | select the product identity before opening a rendering |
-| `world_map_publication_contract.json` | five declared layer rows and their filter behavior | determine which roles are eligible at world scope |
+| `world_bundle.json` | `scope_key: world`, version `v66`, and the bundle's recorded generation identity | select the product identity before opening a rendering |
+| `world_map_publication_contract.json` | declared layer rows, counts, roles, and filter behavior | determine which roles are eligible at world scope |
 | `world_point_traceability.json` | visible feature-to-evidence relations | resolve a marker to its governing row |
 | `world_scientific_review.json` | qualifications and comparison limits | constrain interpretation |
 | `world_map.html` | interactive rendering of the governed members | explore after scope and role are known |
 
-The map contract currently declares 1,231 AADR features, one dromedary context
-feature, 26 goat features, 207 horse features, and four boundary features.
-Those counts are not one population: they mix human samples, differently
-qualified animal evidence features, and geographic framing. The manifest binds
-them into one product without making their observation units equivalent.
+The map contract separates AADR sample features, sample-backed animal
+localities by biological role, display-only animal source chronology, and
+boundary framing. Wadi Halfa has no admitted sample-backed locality candidate
+and is not a map member (`no_admitted_sample_backed_locality_candidate`).
+Layer counts are not one population: the manifest binds them into one product
+without making their observation units equivalent. Read `layer_rows` in the
+contract for the current counts and filter eligibility.
 
 ```mermaid
 flowchart LR
