@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import base64
 from collections.abc import Mapping
-import gzip
 import hashlib
 import json
 from math import isfinite
@@ -12,7 +11,7 @@ import zlib
 
 from .budgets import ATLAS_CHUNK_MAX_BYTES, ATLAS_CHUNK_TARGET_BYTES
 from .indexes import index_reference_count
-from .serialization import canonical_json
+from .serialization import canonical_gzip_compress, canonical_json
 
 INDEX_BUNDLE_SCHEMA = "atlas-static-indexes.v3"
 INDEX_SHARD_SCHEMA = "atlas-static-index-shard.v1"
@@ -52,7 +51,7 @@ def build_index_bundle(indexes: Mapping[str, object]) -> dict[str, object]:
                     "record_count": len(part),
                     "payload_sha256": hashlib.sha256(payload).hexdigest(),
                     "payload_gzip_base64": base64.b64encode(
-                        gzip.compress(payload, compresslevel=9, mtime=0)
+                        canonical_gzip_compress(payload)
                     ).decode("ascii"),
                 }
             )

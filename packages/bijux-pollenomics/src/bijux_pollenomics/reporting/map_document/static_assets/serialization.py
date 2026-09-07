@@ -42,7 +42,7 @@ def chunk_script_bytes(
         envelope["payload_json"] = payload_json
     elif payload_encoding == "gzip_base64":
         envelope["payload_gzip_base64"] = base64.b64encode(
-            _canonical_gzip_compress(payload_json.encode("utf-8"))
+            canonical_gzip_compress(payload_json.encode("utf-8"))
         ).decode("ascii")
     else:
         raise ValueError("static atlas payload encoding is unsupported")
@@ -55,7 +55,7 @@ def chunk_script_bytes(
     return statement.encode("utf-8")
 
 
-def _canonical_gzip_compress(payload: bytes) -> bytes:
+def canonical_gzip_compress(payload: bytes) -> bytes:
     """Compress bytes without leaking the producer operating system."""
     compressed = bytearray(gzip.compress(payload, compresslevel=9, mtime=0))
     compressed[_GZIP_OPERATING_SYSTEM_OFFSET] = _GZIP_OPERATING_SYSTEM_UNKNOWN
@@ -166,6 +166,7 @@ def write_immutable(path: Path, payload: bytes) -> None:
 
 
 __all__ = [
+    "canonical_gzip_compress",
     "canonical_json",
     "chunk_script_bytes",
     "decode_chunk_script",

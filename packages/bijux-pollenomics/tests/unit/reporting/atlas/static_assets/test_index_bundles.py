@@ -46,6 +46,12 @@ def test_multi_shard_bundle_reconstructs_exact_logical_v2_indexes() -> None:
 
     assert isinstance(bundle["shard_count"], int)
     assert bundle["shard_count"] >= len(INDEX_KINDS)
+    shards = bundle["shards"]
+    assert isinstance(shards, list)
+    for shard in shards:
+        assert isinstance(shard, dict)
+        compressed = base64.b64decode(shard["payload_gzip_base64"])
+        assert compressed[9] == 255
     assert canonical_json(decoded) == canonical_json(logical)
     assert decoded["scope_slug"] == "nordic"
     assert decoded["version"] == "v66"
