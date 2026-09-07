@@ -14,16 +14,32 @@ from ....core.geospatial.geojson import (
 )
 from .boundary_distance import (
     geometry_boundary_distance as _geometry_boundary_distance,
+)
+from .boundary_distance import (
     point_on_geometry_boundary as _point_on_geometry_boundary,
+)
+from .boundary_distance import (
     point_to_segment_distance as _point_to_segment_distance,
+)
+from .boundary_distance import (
     polygon_boundary_distance as _polygon_boundary_distance,
+)
+from .boundary_distance import (
     ring_boundary_distance as _ring_boundary_distance,
 )
 from .containment import (
     point_in_geometry as _point_in_geometry,
+)
+from .containment import (
     point_in_geometry_ignoring_holes as _point_in_geometry_ignoring_holes,
+)
+from .containment import (
     point_in_outer_ring as _point_in_outer_ring,
+)
+from .containment import (
     point_in_polygon as _point_in_polygon,
+)
+from .containment import (
     point_in_ring as _point_in_ring,
 )
 from .decision import classify_country as _classify_country

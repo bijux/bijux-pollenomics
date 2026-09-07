@@ -11,11 +11,9 @@ import pytest
 
 from bijux_pollenomics.collection.spatial import country_classification
 from bijux_pollenomics.collection.spatial.country_classification import (
+    CountryAttributionDecision,
     boundary_distance,
     topology,
-)
-from bijux_pollenomics.collection.spatial.country_classification import (
-    CountryAttributionDecision,
 )
 from bijux_pollenomics.core.geospatial.geojson import JsonObject
 
