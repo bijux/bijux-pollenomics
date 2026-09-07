@@ -549,6 +549,7 @@ const activeLayerKeys=new Set(['animals']);
 const activeCountries=new Set(['Sweden']);
 function isAnimalLayer(){return true}
 function pointFeatureInTimeWindow(){return true}
+function animalSourceChronologyCountryFilterBypassed(){return false}
 """
         + helper
         + """
