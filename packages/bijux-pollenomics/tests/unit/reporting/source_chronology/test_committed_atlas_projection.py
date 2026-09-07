@@ -7,6 +7,8 @@ import json
 from pathlib import Path
 from typing import cast
 
+import pytest
+
 from bijux_pollenomics.reporting.context.points import build_external_point_layer
 from bijux_pollenomics.reporting.map_document.evidence_projection.neotoma import (
     _project_neotoma,
@@ -32,6 +34,7 @@ from .static_proof import (
 
 ROOT = Path(__file__).resolve().parents[6]
 SOURCE_COUNTRIES = {"Sweden", "Denmark", "Norway", "Finland"}
+pytestmark = pytest.mark.generated_artifacts
 
 
 def _assert_committed_source_chronology_contract(
