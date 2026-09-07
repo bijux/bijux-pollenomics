@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from collections.abc import Callable
-from dataclasses import replace
 import json
 import os
 from pathlib import Path
@@ -16,7 +15,6 @@ from ..geography import (
     GeographicScope,
     PublishedGeographyPlan,
     build_geography_onboarding_contract,
-    build_published_geography_plan,
     render_geography_onboarding_contract_markdown,
     render_geography_scope_registry_markdown,
     render_geography_subset_validation_markdown,
@@ -32,6 +30,7 @@ from .paths import (
     build_country_bundle_paths,
     serialize_publication_path,
 )
+from .report_partitions.planning import build_report_partition_plan
 
 __all__ = ["publish_published_reports_tree"]
 
@@ -59,15 +58,12 @@ def publish_published_reports_tree(
         if published_output_root is not None
         else output_root
     )
-    default_plan = build_published_geography_plan(normalized_countries)
-    plan = replace(
-        default_plan,
-        world_scope=replace(
-            default_plan.world_scope,
-            slug=slugify_fn(atlas_slug),
-            map_title=title,
-        ),
-    )
+    plan = build_report_partition_plan(
+        normalized_countries,
+        title=title,
+        slug=atlas_slug,
+        slugify_fn=slugify_fn,
+    ).geography
     data_root = (
         context_root if context_root is not None else output_root.parents[1] / "data"
     )
