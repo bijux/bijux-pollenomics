@@ -64,15 +64,15 @@ def _features(
     return result
 
 
-def test_global_projection_has_six_display_only_layers_and_531_unique_samples(
+def test_global_projection_has_six_display_only_layers_and_unique_samples(
     global_projection: AnimalSampleChronologyContextProjection,
 ) -> None:
     projection = global_projection
     layers = projection.point_layers
     assert len(layers) == 6
-    assert sum(cast(int, layer["count"]) for layer in layers) == 531
+    assert sum(cast(int, layer["count"]) for layer in layers) == 557
     features = _features(projection)
-    assert len({feature["feature_id"] for feature in features}) == 531
+    assert len({feature["feature_id"] for feature in features}) == 557
     for row in [*layers, *features]:
         assert row["semantic_role"] == "animal_source_chronology_context"
         assert row["contribution_role"] == "display_only"
@@ -270,7 +270,7 @@ def test_four_country_scope_reconciles_zero_norway_and_null_bounds() -> None:
     )
     accountability = projection.accountability
     assert accountability["projected_node_count"] == 14
-    assert accountability["excluded_by_scope_count"] == 517
+    assert accountability["excluded_by_scope_count"] == 543
     assert (accountability["time_min_bp"], accountability["time_max_bp"]) == (
         340,
         9657,
@@ -323,13 +323,13 @@ def test_accountability_binds_counts_taxonomy_and_input_identity(
     global_projection: AnimalSampleChronologyContextProjection,
 ) -> None:
     accountability = global_projection.accountability
-    assert accountability["global_admitted_node_count"] == 531
-    assert accountability["projected_node_count"] == 531
-    assert accountability["refusal_count"] == 944
+    assert accountability["global_admitted_node_count"] == 557
+    assert accountability["projected_node_count"] == 557
+    assert accountability["refusal_count"] == 918
     assert accountability["source_native_taxonomy"] == {
-        "available_count": 46,
+        "available_count": 72,
         "unavailable_count": 485,
-        "denominator": 531,
+        "denominator": 557,
     }
     input_identity = cast(dict[str, object], accountability["input_identity"])
     assert input_identity["artifact_count"] == 121

@@ -260,4 +260,4 @@ def test_world_plan_country_filters_do_not_reduce_global_chronology() -> None:
         "kind": "world",
         "countries": ["Sweden", "Norway", "Finland", "Denmark"],
     }
-    assert accountability["projected_node_count"] == 531
+    assert accountability["projected_node_count"] == 557
