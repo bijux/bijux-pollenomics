@@ -56,6 +56,7 @@ def test_animal_source_chronology_layer_posture_fails_closed() -> None:
     assert "animalSourceChronologyFeatureIsValid(feature)" in visibility
     candidates = template_block("function animalCandidateEntries", "function animalEntryMatchesFilters")
     assert "!animalSourceChronologyLayerIsValid(layer)" in candidates
+    assert "!animalSourceChronologyFeatureIsValid(feature)" in candidates
 
 
 def test_invalid_animal_source_chronology_layer_cannot_be_enabled() -> None:
@@ -85,6 +86,36 @@ def test_project_species_attribution_is_filterable_without_taxonomic_alias() -> 
     assert "excluded from candidate ranking" in popup
     assert "layer?.traceability_artifact" in popup
     assert "Open chronology accountability and refusals" in popup
+
+
+def test_project_species_attribution_selects_unloaded_static_chunks() -> None:
+    helper = template_block(
+        "function staticAtlasSignalNeeded", "function staticAtlasViewportNeeded"
+    )
+    observed = run_node_json(
+        """
+const activeAnimalScope='all';
+const activeScientificSignalIds=new Set();
+const SCIENTIFIC_SIGNALS=[];
+function isAnimalLayer(layer){return layer.group==='animal-chronology-context'}
+"""
+        + helper
+        + """
+const row={scientific_signal_ids:[]};
+const layer={
+  group:'animal-chronology-context',
+  project_species_latin_name:'Equus caballus',
+  scientific_selection_enabled:false,
+};
+let activeAnimalSpecies='Equus caballus';
+const selected=staticAtlasSignalNeeded(row,layer);
+activeAnimalSpecies='Felis catus';
+const rejected=staticAtlasSignalNeeded(row,layer);
+console.log(JSON.stringify({selected,rejected}));
+"""
+    )
+
+    assert observed == {"selected": True, "rejected": False}
 
 
 def test_animal_metrics_do_not_merge_atlas_evidence_and_source_chronology() -> None:

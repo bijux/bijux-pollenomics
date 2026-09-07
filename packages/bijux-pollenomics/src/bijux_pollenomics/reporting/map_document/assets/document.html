@@ -4468,7 +4468,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function staticAtlasSignalNeeded(row, layer) {
         if (isAnimalLayer(layer)) {
-          if (activeAnimalSpecies !== 'all' && layer.species_latin_name !== activeAnimalSpecies) return false;
+          const layerSpecies = layer.species_latin_name || layer.project_species_latin_name || '';
+          if (activeAnimalSpecies !== 'all' && layerSpecies !== activeAnimalSpecies) return false;
           if (activeAnimalScope !== 'all' && layer.animal_scope !== activeAnimalScope) return false;
         }
         if (!layer.scientific_selection_enabled || !SCIENTIFIC_SIGNALS.length) return true;
@@ -4589,8 +4590,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const entries = [];
         POINT_LAYERS.forEach((layer) => {
           if (!isAnimalLayer(layer) || !activeLayerKeys.has(layer.key)) return;
-          if ((layer.semantic_role === 'animal_source_chronology_context' || layer.group === 'animal-chronology-context') && !animalSourceChronologyLayerIsValid(layer)) return;
+          const sourceChronology = layer.semantic_role === 'animal_source_chronology_context' || layer.group === 'animal-chronology-context';
+          if (sourceChronology && !animalSourceChronologyLayerIsValid(layer)) return;
           (layer.features || []).forEach((feature) => {
+            if (sourceChronology && !animalSourceChronologyFeatureIsValid(feature)) return;
             if (layer.applies_country_filter && !activeCountries.has(feature.country)) return;
             if (!pointFeatureInTimeWindow(layer, feature)) return;
             entries.push({ layer, feature });
