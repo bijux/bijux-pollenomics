@@ -208,6 +208,7 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
     scopeReceipts.push(path);
   }
   await normal.cdp.send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+  const fitActive = await fitActiveJourney(normal.cdp);
   const chronologyJourneys = {};
   await shortcutFrame(normal.cdp, 'sample');
   chronologyJourneys.sample = await sliderChronologyJourney(normal.cdp);
@@ -241,6 +242,7 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
     capture_null_refusals: captureNullRefusals,
     signed_capture_view: signedCaptureView,
     no_basemap: noBasemap,
+    fit_active: fitActive,
     responsive,
     runtime_failures: normal.runtimeFailures,
     assertions: {
@@ -295,7 +297,8 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
         === JSON.stringify(['time_start_bp', 'time_end_bp', 'time_start_bp.negative', 'time_end_bp.negative', 'view', 'view.latitude', 'view.longitude', 'view.zoom'])
         && captureNullRefusals.every((row) => row.refused && row.evidence_unchanged),
       signed_capture_view_preserved: signedCaptureViewPreserved(signedCaptureView),
-      responsive_1440: desktopLayoutPasses(responsive[1440]),
+      fit_active_evidence_framed: fitActivePasses(fitActive),
+      responsive_1440: desktopLayoutPasses(responsive[1440]) && fitActivePasses(fitActive),
       responsive_1024: desktopLayoutPasses(responsive[1024]),
       responsive_768: mobileLayoutPasses(responsive[768]),
       responsive_390: mobileLayoutPasses(responsive[390]),
@@ -425,6 +428,7 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
     scopeReceipts.push(path);
   }
   await normal.cdp.send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
+  const fitActive = await fitActiveJourney(normal.cdp);
   const timeJourney = await genericTimeJourney(normal.cdp, manifestFacts.point_record_count);
   const invalidCaptureInputs = await captureInvalidCommonInputs(normal.cdp);
   const normalResult = {
@@ -435,6 +439,7 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
     manifest_facts: manifestFacts,
     time_journey: timeJourney,
     invalid_capture_inputs: invalidCaptureInputs,
+    fit_active: fitActive,
     responsive,
     runtime_failures: normal.runtimeFailures,
     assertions: {
@@ -473,7 +478,8 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
       capture_invalid_inputs_refused: JSON.stringify(invalidCaptureInputs.map((row) => row.field))
         === JSON.stringify(['frame', 'story_kind', 'basemap', 'view', 'view.latitude', 'view.longitude', 'view.zoom'])
         && invalidCaptureInputs.every((row) => row.refused && row.evidence_unchanged),
-      responsive_1440: desktopLayoutPasses(responsive[1440]),
+      fit_active_evidence_framed: fitActivePasses(fitActive),
+      responsive_1440: desktopLayoutPasses(responsive[1440]) && fitActivePasses(fitActive),
       responsive_1024: desktopLayoutPasses(responsive[1024]),
       responsive_768: mobileLayoutPasses(responsive[768]),
       responsive_390: mobileLayoutPasses(responsive[390]),
@@ -1589,6 +1595,141 @@ async function responsiveFacts(cdp, width) {
   })()`);
 }
 
+async function fitActiveJourney(cdp) {
+  return evaluate(cdp, `(async () => {
+    const api = globalThis.BijuxPollenomicsAtlasCapture;
+    const mapElement = document.getElementById('map');
+    const fitActive = document.getElementById('fit-active');
+    const zoomOut = document.querySelector('.leaflet-control-zoom-out');
+    if (!api || typeof api.snapshot !== 'function' || typeof api.awaitReady !== 'function') {
+      throw new Error('atlas capture API is unavailable for fit-active verification');
+    }
+    if (!mapElement || !fitActive || !zoomOut) throw new Error('fit-active controls are unavailable');
+    const viewIsFinite = (view) => view
+      && typeof view.latitude === 'number' && Number.isFinite(view.latitude)
+      && typeof view.longitude === 'number' && Number.isFinite(view.longitude)
+      && typeof view.zoom === 'number' && Number.isFinite(view.zoom);
+    const waitForStableView = () => new Promise((resolve, reject) => {
+      const started = performance.now();
+      let previousView = '';
+      let stableFrameCount = 0;
+      const inspect = () => {
+        const snapshot = api.snapshot();
+        if (!viewIsFinite(snapshot?.view)) {
+          reject(new Error('fit-active produced an invalid map view'));
+          return;
+        }
+        const transforms = [...mapElement.querySelectorAll('.leaflet-map-pane, .leaflet-zoom-animated')]
+          .map((element) => getComputedStyle(element).transform).join('|');
+        const view = JSON.stringify({ view: snapshot.view, transforms });
+        const animating = mapElement.classList.contains('leaflet-zoom-anim')
+          || Boolean(mapElement.querySelector('.leaflet-zoom-anim'));
+        stableFrameCount = !animating && view === previousView ? stableFrameCount + 1 : 0;
+        previousView = view;
+        if (stableFrameCount >= 2) {
+          Promise.resolve().then(() => api.awaitReady()).then(resolve, reject);
+          return;
+        }
+        if (performance.now() - started > 3000) {
+          reject(new Error('fit-active map view did not settle'));
+          return;
+        }
+        requestAnimationFrame(inspect);
+      };
+      requestAnimationFrame(inspect);
+    });
+    const evidenceGeometry = () => {
+      const mapBox = mapElement.getBoundingClientRect();
+      const selectors = [
+        '.leaflet-point-pane path',
+        '.leaflet-point-pane .leaflet-marker-icon',
+        '.leaflet-marker-pane .leaflet-marker-icon',
+      ];
+      const elements = [...new Set(selectors.flatMap((selector) => [...document.querySelectorAll(selector)]))];
+      const centers = elements.flatMap((element) => {
+        const style = getComputedStyle(element);
+        const box = element.getBoundingClientRect();
+        const x = box.left + (box.width / 2);
+        const y = box.top + (box.height / 2);
+        const visible = style.display !== 'none' && style.visibility !== 'hidden'
+          && Number.parseFloat(style.opacity) > 0 && box.width > 0 && box.height > 0
+          && x >= mapBox.left && x <= mapBox.right && y >= mapBox.top && y <= mapBox.bottom;
+        return visible ? [{ x, y }] : [];
+      });
+      if (!centers.length || mapBox.width <= 0 || mapBox.height <= 0) {
+        return {
+          rendered_element_count: centers.length,
+          horizontal_span_ratio: null,
+          vertical_span_ratio: null,
+          envelope_center_offset_ratio: null,
+        };
+      }
+      const xValues = centers.map(({ x }) => x);
+      const yValues = centers.map(({ y }) => y);
+      const minimumX = Math.min(...xValues);
+      const maximumX = Math.max(...xValues);
+      const minimumY = Math.min(...yValues);
+      const maximumY = Math.max(...yValues);
+      const envelopeCenterX = (minimumX + maximumX) / 2;
+      const envelopeCenterY = (minimumY + maximumY) / 2;
+      return {
+        rendered_element_count: centers.length,
+        horizontal_span_ratio: (maximumX - minimumX) / mapBox.width,
+        vertical_span_ratio: (maximumY - minimumY) / mapBox.height,
+        envelope_center_offset_ratio: Math.hypot(
+          (envelopeCenterX - (mapBox.left + (mapBox.width / 2))) / mapBox.width,
+          (envelopeCenterY - (mapBox.top + (mapBox.height / 2))) / mapBox.height,
+        ),
+      };
+    };
+    const visible = (element) => {
+      const style = getComputedStyle(element);
+      const box = element.getBoundingClientRect();
+      return style.display !== 'none' && style.visibility !== 'hidden'
+        && Number.parseFloat(style.opacity) > 0 && box.width > 0 && box.height > 0;
+    };
+    const controlBox = fitActive.getBoundingClientRect();
+    const controlHit = document.elementFromPoint(
+      controlBox.left + (controlBox.width / 2),
+      controlBox.top + (controlBox.height / 2),
+    );
+    const before = await api.awaitReady();
+    let zoomOutClickCount = 0;
+    const zoomOutDisabled = () => zoomOut.classList.contains('leaflet-disabled')
+      || zoomOut.getAttribute('aria-disabled') === 'true';
+    while (!zoomOutDisabled() && zoomOutClickCount < 12) {
+      zoomOut.click();
+      zoomOutClickCount += 1;
+      await waitForStableView();
+    }
+    const collapsed = await api.awaitReady();
+    const collapsedToMinimum = zoomOutDisabled();
+    let clickObserved = false;
+    fitActive.addEventListener('click', () => { clickObserved = true; }, { once: true });
+    fitActive.click();
+    const fitted = await waitForStableView();
+    return {
+      control_visible: visible(fitActive),
+      control_enabled: !fitActive.disabled,
+      control_bounded: controlBox.left >= 0 && controlBox.right <= innerWidth
+        && controlBox.top >= 0 && controlBox.bottom <= innerHeight,
+      control_uncovered: controlHit === fitActive || fitActive.contains(controlHit),
+      action_triggered: clickObserved,
+      zoom_out_click_count: zoomOutClickCount,
+      collapsed_to_minimum_zoom: collapsedToMinimum,
+      before_view: before.view,
+      collapsed_view: collapsed.view,
+      fitted_view: fitted.view,
+      snapshot: {
+        ready: fitted.ready,
+        countries: fitted.countries,
+        visible_point_count: fitted.visible_point_count,
+      },
+      evidence_geometry: evidenceGeometry(),
+    };
+  })()`);
+}
+
 async function helpDialogFacts(cdp, width) {
   const opened = await evaluate(cdp, `(async () => {
     const settle = () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
@@ -1903,6 +2044,45 @@ function signedCaptureViewPreserved(result) {
   const halfPixelTolerance = 0.5 + 1e-9;
   return Math.abs(observedPixel.x - requestedPixel.x) <= halfPixelTolerance
     && Math.abs(observedPixel.y - requestedPixel.y) <= halfPixelTolerance;
+}
+
+function fitActivePasses(result) {
+  const validView = (view) => view
+    && typeof view.latitude === 'number' && Number.isFinite(view.latitude)
+    && typeof view.longitude === 'number' && Number.isFinite(view.longitude)
+    && typeof view.zoom === 'number' && Number.isFinite(view.zoom);
+  const geometry = result?.evidence_geometry;
+  const snapshot = result?.snapshot;
+  const countries = snapshot?.countries;
+  const nordicSelection = Array.isArray(countries) && countries.length === 4
+    && ['DK', 'FI', 'NO', 'SE'].every((country) => countries.includes(country));
+  const fittedView = result?.fitted_view;
+  const collapsedView = result?.collapsed_view;
+  return result?.control_visible === true
+    && result.control_enabled === true
+    && result.control_bounded === true
+    && result.control_uncovered === true
+    && result.action_triggered === true
+    && result.collapsed_to_minimum_zoom === true
+    && Number.isInteger(result.zoom_out_click_count)
+    && result.zoom_out_click_count >= 0
+    && validView(result.before_view)
+    && validView(collapsedView)
+    && validView(fittedView)
+    && snapshot?.ready === true
+    && Number.isInteger(snapshot.visible_point_count)
+    && snapshot.visible_point_count > 0
+    && Number.isInteger(geometry?.rendered_element_count)
+    && geometry.rendered_element_count >= 2
+    && Number.isFinite(geometry.horizontal_span_ratio)
+    && geometry.horizontal_span_ratio >= 0 && geometry.horizontal_span_ratio <= 1
+    && Number.isFinite(geometry.vertical_span_ratio)
+    && geometry.vertical_span_ratio >= 0 && geometry.vertical_span_ratio <= 1
+    && Math.max(geometry.horizontal_span_ratio, geometry.vertical_span_ratio) >= 0.2
+    && Number.isFinite(geometry.envelope_center_offset_ratio)
+    && geometry.envelope_center_offset_ratio >= 0
+    && geometry.envelope_center_offset_ratio <= 0.35
+    && (!nordicSelection || fittedView.zoom >= collapsedView.zoom + 1);
 }
 
 function renderedEvidenceChangesWithCounts(frames, countField) {

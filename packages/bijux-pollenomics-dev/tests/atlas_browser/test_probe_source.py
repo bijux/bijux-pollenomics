@@ -163,6 +163,36 @@ process.stdout.write(JSON.stringify(result));
     )
 
 
+def _run_fit_active_checks(
+    scenarios: dict[str, dict[str, object]],
+) -> subprocess.CompletedProcess[str]:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    match = re.search(
+        r"function fitActivePasses.*?\n}\n\nfunction renderedEvidenceChangesWithCounts",
+        probe,
+        re.DOTALL,
+    )
+    assert match is not None
+    function_source = match.group(0).removesuffix(
+        "\n\nfunction renderedEvidenceChangesWithCounts"
+    )
+    script = (
+        f"{function_source}\n"
+        f"const scenarios = {json.dumps(scenarios)};\n"
+        "const results = Object.fromEntries(Object.entries(scenarios).map("
+        "([name, facts]) => [name, fitActivePasses(facts)]));\n"
+        "process.stdout.write(JSON.stringify(results));\n"
+    )
+    return subprocess.run(
+        ("node", "--input-type=module", "--eval", script),
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+
+
 def _run_rendered_evidence_checks(
     scenarios: dict[str, dict[str, object]],
 ) -> subprocess.CompletedProcess[str]:
@@ -558,6 +588,117 @@ def test_provider_failure_waits_for_capture_readiness_and_propagates_failure() -
             },
         },
         "rejection": "readiness failed",
+    }
+
+
+def test_fit_active_journey_uses_control_and_evidence_geometry() -> None:
+    probe = (
+        Path(atlas_browser.__file__).with_name("probe.mjs").read_text(encoding="utf-8")
+    )
+    journey = re.search(
+        r"async function fitActiveJourney.*?\n}\n\nasync function helpDialogFacts",
+        probe,
+        re.DOTALL,
+    )
+
+    assert journey is not None
+    source = journey.group(0)
+    assert "document.getElementById('fit-active')" in source
+    assert "zoomOut.click()" in source
+    assert "fitActive.click()" in source
+    assert "await waitForStableView()" in source
+    assert "api.awaitReady()" in source
+    assert "evidence_geometry: evidenceGeometry()" in source
+    assert ".leaflet-point-pane path" in source
+    assert ".leaflet-marker-pane .leaflet-marker-icon" in source
+    assert ".leaflet-boundary-pane" not in source
+    assert probe.count("const fitActive = await fitActiveJourney(normal.cdp);") == 2
+    assert probe.count(
+        "desktopLayoutPasses(responsive[1440]) && fitActivePasses(fitActive)"
+    ) == 2
+    assert probe.count("fit_active_evidence_framed: fitActivePasses(fitActive)") == 2
+
+
+def test_fit_active_contract_rejects_near_world_nordic_collapse() -> None:
+    valid_geometry: dict[str, object] = {
+        "rendered_element_count": 12,
+        "horizontal_span_ratio": 0.62,
+        "vertical_span_ratio": 0.78,
+        "envelope_center_offset_ratio": 0.04,
+    }
+    valid_nordic: dict[str, object] = {
+        "control_visible": True,
+        "control_enabled": True,
+        "control_bounded": True,
+        "control_uncovered": True,
+        "action_triggered": True,
+        "zoom_out_click_count": 4,
+        "collapsed_to_minimum_zoom": True,
+        "before_view": {"latitude": 62.0, "longitude": 18.0, "zoom": 4},
+        "collapsed_view": {"latitude": 62.0, "longitude": 18.0, "zoom": 0},
+        "fitted_view": {"latitude": 62.0, "longitude": 18.0, "zoom": 4},
+        "snapshot": {
+            "ready": True,
+            "countries": ["DK", "FI", "NO", "SE"],
+            "visible_point_count": 195,
+        },
+        "evidence_geometry": valid_geometry,
+    }
+    valid_world = deepcopy(valid_nordic)
+    valid_world["collapsed_view"] = {
+        "latitude": 12.0,
+        "longitude": 0.0,
+        "zoom": 0,
+    }
+    valid_world["fitted_view"] = {
+        "latitude": 12.0,
+        "longitude": 0.0,
+        "zoom": 0,
+    }
+    valid_world["snapshot"] = {
+        "ready": True,
+        "countries": ["AU", "DK", "US"],
+        "visible_point_count": 1239,
+    }
+    scenarios = {
+        "valid_nordic": valid_nordic,
+        "valid_world": valid_world,
+        "nordic_near_world_zoom": {
+            **valid_nordic,
+            "fitted_view": {"latitude": 62.0, "longitude": 18.0, "zoom": 0},
+        },
+        "orientation_outlier_collapse": {
+            **valid_nordic,
+            "fitted_view": {"latitude": 20.0, "longitude": 0.0, "zoom": 0},
+            "evidence_geometry": {
+                "rendered_element_count": 1,
+                "horizontal_span_ratio": 0.0,
+                "vertical_span_ratio": 0.0,
+                "envelope_center_offset_ratio": 0.31,
+            },
+        },
+        "off_center_evidence": {
+            **valid_nordic,
+            "evidence_geometry": {
+                **valid_geometry,
+                "envelope_center_offset_ratio": 0.5,
+            },
+        },
+        "hidden_control": {**valid_nordic, "control_visible": False},
+        "missing_geometry": {**valid_nordic, "evidence_geometry": None},
+    }
+
+    completed = _run_fit_active_checks(scenarios)
+
+    assert completed.returncode == 0, completed.stderr
+    assert json.loads(completed.stdout) == {
+        "valid_nordic": True,
+        "valid_world": True,
+        "nordic_near_world_zoom": False,
+        "orientation_outlier_collapse": False,
+        "off_center_evidence": False,
+        "hidden_control": False,
+        "missing_geometry": False,
     }
 
 
