@@ -323,7 +323,10 @@ def _validate_country_accountability(
         for feature in _mapping_rows(layer.get("features"), "layer features")
     ]
     if scope_kind == "world":
-        if scope_countries:
+        if scope_countries_value and (
+            len(scope_countries_value) != len(_GOVERNED_COUNTRIES)
+            or set(scope_countries_value) != set(_GOVERNED_COUNTRIES)
+        ):
             raise ValueError("animal chronology world scope countries differ")
         observed = _country_rows_from_features(features)
         if observed != country_rows:

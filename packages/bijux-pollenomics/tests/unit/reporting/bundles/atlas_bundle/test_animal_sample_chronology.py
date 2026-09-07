@@ -20,7 +20,10 @@ from bijux_pollenomics.reporting.bundles import atlas_bundle
 from bijux_pollenomics.reporting.bundles.atlas_bundle import contracts
 from bijux_pollenomics.reporting.bundles.atlas_bundle.contracts import publish_contracts
 from bijux_pollenomics.reporting.bundles.atlas_bundle.layers import prepare_layers
-from bijux_pollenomics.reporting.geography import GeographicScope
+from bijux_pollenomics.reporting.geography import (
+    GeographicScope,
+    build_published_geography_plan,
+)
 from bijux_pollenomics.reporting.map_document.static_assets import (
     validate_static_atlas_assets,
     write_static_atlas_assets,
@@ -516,3 +519,35 @@ def test_publication_requires_canonical_project_sample_feature_identity() -> Non
             contradictory,
             artifact_name="animal-context.json",
         )
+
+
+def test_world_plan_country_filters_do_not_reduce_global_chronology() -> None:
+    scope = build_published_geography_plan(
+        ("Sweden", "Norway", "Finland", "Denmark")
+    ).world_scope
+    projection = build_animal_sample_chronology_context(
+        REPOSITORY_ROOT / "data", geography_scope=scope
+    )
+    layers = [dict(layer) for layer in projection.point_layers]
+    for layer in layers:
+        layer["traceability_artifact"] = "animal-context.json"
+    production_shaped = SimpleNamespace(
+        accountability=projection.accountability,
+        input_identity=projection.input_identity,
+        refusals=projection.refusals,
+        point_layers=layers,
+        corpus_identity=projection.corpus_identity,
+    )
+
+    payload, _identity = contracts._animal_chronology_publication(
+        production_shaped,
+        artifact_name="animal-context.json",
+    )
+
+    accountability = cast(dict[str, object], payload["accountability"])
+    assert accountability["scope"] == {
+        "key": "world",
+        "kind": "world",
+        "countries": ["Sweden", "Norway", "Finland", "Denmark"],
+    }
+    assert accountability["projected_node_count"] == 531
