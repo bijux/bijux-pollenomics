@@ -1,7 +1,7 @@
 {
   "schema_version": "map-playback-manifest.v1",
   "atlas_identity": {
-    "build_id": "atlas-baa1f05978b427083a424b2ed06c3ad6fb5048904b195ca51573251b7179cc0a",
+    "build_id": "atlas-0cc0bbf50e65c11e2572eac8c9267c1214d71902b96263ad056b7c795cd6d139",
     "scope_slug": "nordic",
     "version": "v66",
     "countries": [
@@ -28933,7 +28933,7 @@
       },
       {
         "story_id": "pangaea-937075-metric-al",
-        "title": "PANGAEA 937075 modeled context \u2014 AL",
+        "title": "PANGAEA 937075 modeled context \u2014 Agricultural land - cereals (AL)",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
         "countries": [
@@ -37969,7 +37969,7 @@
       },
       {
         "story_id": "pangaea-937075-metric-gl",
-        "title": "PANGAEA 937075 modeled context \u2014 GL",
+        "title": "PANGAEA 937075 modeled context \u2014 Grassland - all herbs (GL)",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
         "countries": [
@@ -38471,7 +38471,7 @@
       },
       {
         "story_id": "pangaea-937075-metric-ibe",
-        "title": "PANGAEA 937075 modeled context \u2014 IBE",
+        "title": "PANGAEA 937075 modeled context \u2014 Shade-intolerant evergreen trees (IBE)",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
         "countries": [
@@ -38973,7 +38973,7 @@
       },
       {
         "story_id": "pangaea-937075-metric-ibs",
-        "title": "PANGAEA 937075 modeled context \u2014 IBS",
+        "title": "PANGAEA 937075 modeled context \u2014 Shade-intolerant summer-green trees (IBS)",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
         "countries": [
@@ -39475,7 +39475,7 @@
       },
       {
         "story_id": "pangaea-937075-metric-ists",
-        "title": "PANGAEA 937075 modeled context \u2014 ISTS",
+        "title": "PANGAEA 937075 modeled context \u2014 ISTS (definition unavailable)",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
         "countries": [
@@ -40479,7 +40479,7 @@
       },
       {
         "story_id": "pangaea-937075-metric-lse",
-        "title": "PANGAEA 937075 modeled context \u2014 LSE",
+        "title": "PANGAEA 937075 modeled context \u2014 Low shrub, broadleaved evergreen (LSE)",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
         "countries": [
@@ -40981,7 +40981,7 @@
       },
       {
         "story_id": "pangaea-937075-metric-mtbe",
-        "title": "PANGAEA 937075 modeled context \u2014 MTBE",
+        "title": "PANGAEA 937075 modeled context \u2014 Mediterranean shade-tolerant broadleaved evergreen trees (MTBE)",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
         "countries": [
@@ -41483,7 +41483,7 @@
       },
       {
         "story_id": "pangaea-937075-metric-mtse",
-        "title": "PANGAEA 937075 modeled context \u2014 MTSE",
+        "title": "PANGAEA 937075 modeled context \u2014 Mediterranean broadleaved tall shrubs, evergreen (MTSE)",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
         "countries": [
@@ -48511,7 +48511,7 @@
       },
       {
         "story_id": "pangaea-937075-metric-tbe1",
-        "title": "PANGAEA 937075 modeled context \u2014 TBE1",
+        "title": "PANGAEA 937075 modeled context \u2014 Shade-tolerant evergreen trees (TBE1)",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
         "countries": [
@@ -49013,7 +49013,7 @@
       },
       {
         "story_id": "pangaea-937075-metric-tbe2",
-        "title": "PANGAEA 937075 modeled context \u2014 TBE2",
+        "title": "PANGAEA 937075 modeled context \u2014 Shade-tolerant evergreen trees (TBE2)",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
         "countries": [
@@ -49515,7 +49515,7 @@
       },
       {
         "story_id": "pangaea-937075-metric-tbs",
-        "title": "PANGAEA 937075 modeled context \u2014 TBS",
+        "title": "PANGAEA 937075 modeled context \u2014 Shade-tolerant summer-green trees (TBS)",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
         "countries": [
@@ -50519,7 +50519,7 @@
       },
       {
         "story_id": "pangaea-937075-metric-tsd",
-        "title": "PANGAEA 937075 modeled context \u2014 TSD",
+        "title": "PANGAEA 937075 modeled context \u2014 Tall shrub, summer-green (TSD)",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
         "countries": [
@@ -51021,7 +51021,7 @@
       },
       {
         "story_id": "pangaea-937075-metric-tse",
-        "title": "PANGAEA 937075 modeled context \u2014 TSE",
+        "title": "PANGAEA 937075 modeled context \u2014 Tall shrub, evergreen (TSE)",
         "dataset_id": "937075",
         "evidence_role": "modeled_context",
         "countries": [
@@ -52033,5 +52033,5 @@
     "story_count": 0,
     "edge_count": 0
   },
-  "content_sha256": "a4ae01fa5adf2aa8097a28a67b82318ea1aed293f45f91d77c63ef758d42bafb"
+  "content_sha256": "7ce08c67db0b4b20b45350cdaa018b9fcb1199ecd6e74423ce84cbbcc0f2034f"
 }
