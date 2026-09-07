@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
 import csv
 import json
-from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any
 from uuid import UUID
