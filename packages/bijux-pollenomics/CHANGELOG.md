@@ -39,6 +39,9 @@ All notable changes for `bijux-pollenomics` are recorded here.
 - Reused validated chronology intervals, exact-coordinate distance results,
   and grouped ranking contexts without changing closed-interval comparisons
   or merging distinct source records.
+- Kept alternate Neotoma chronology display facets out of candidate-ranking
+  weights while preserving their map visibility and descriptive chronology
+  comparisons.
 
 ## 0.1.7 - 2026-06-29
 

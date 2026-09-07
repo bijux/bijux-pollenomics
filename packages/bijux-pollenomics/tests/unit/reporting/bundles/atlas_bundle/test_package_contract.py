@@ -164,6 +164,7 @@ def test_package_is_bounded_and_grouped_by_publication_intent() -> None:
         "layers.py",
         "operations_api.py",
         "playback.py",
+        "ranking_context.py",
         "workflow.py",
     ]
     assert len(modules) <= 10
@@ -213,6 +214,11 @@ def test_package_refusals_are_explicit_and_bounded() -> None:
         "ValueError('animal source chronology context posture differs')",
         "ValueError('candidate-succession playback cannot ignore governed atlas edges')",
         "ValueError('candidate-succession playback requires explicit unavailable classification evidence')",
+        "ValueError('source chronology candidate-ranking count differs')",
+        "ValueError('source chronology candidate-ranking edge count differs')",
+        "ValueError('source chronology candidate-ranking feature posture differs')",
+        "ValueError('source chronology candidate-ranking identity differs')",
+        "ValueError('source chronology candidate-ranking posture differs')",
         "ValueError('static atlas manifest path does not match bundle ownership')",
         "ValueError(f'static atlas {field} contract is unavailable')",
         "ValueError(f'static atlas {field} identity is unavailable')",

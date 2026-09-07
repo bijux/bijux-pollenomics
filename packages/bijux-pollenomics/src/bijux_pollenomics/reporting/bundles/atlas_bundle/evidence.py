@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
+from .ranking_context import candidate_ranking_context_points
+
 
 def publish_evidence_and_rankings(
     *,
@@ -51,14 +53,17 @@ def publish_evidence_and_rankings(
         surface.render_scientific_review_surface_markdown(scientific_review),
         encoding="utf-8",
     )
+    ranking_context_points = candidate_ranking_context_points(
+        point_layers, context_points
+    )
     ranked_sites = surface.rank_localities(
         summarized_localities,
-        context_points,
+        ranking_context_points,
         profile_name="atlas_exploration",
     )
     sensitivity_report = surface.build_ranking_sensitivity_report(
         summarized_localities,
-        context_points,
+        ranking_context_points,
     )
     ranking_engine_manifest = surface.build_ranking_engine_manifest()
     surface.write_candidate_sites_csv(
