@@ -133,7 +133,7 @@ class AdnaSourceRecoveryUnitTests(unittest.TestCase):
             for row in payload["manual_curation_work_units"]
             if "coordinate" in row["downstream_impact"]
         ]
-        self.assertEqual(sum(row["open_item_count"] for row in coordinate_blockers), 78)
+        self.assertEqual(sum(row["open_item_count"] for row in coordinate_blockers), 20)
 
     def test_generated_markdown_has_one_terminal_newline(self) -> None:
         paths = (

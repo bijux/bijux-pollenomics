@@ -5,12 +5,16 @@ from types import SimpleNamespace
 import unittest
 
 from bijux_pollenomics.adna import AdnaChronology, build_species_normalization_bundle
+from bijux_pollenomics.adna.projects.evidence.chronology import (
+    build_project_sample_chronology_rows,
+)
 from bijux_pollenomics.adna.workflow.normalization import (
     RECOVERED_SAMPLE_EVIDENCE_STATUSES,
 )
 from bijux_pollenomics.adna.workflow.normalization.samples import (
     _chronology_with_source_mean,
 )
+from tests.support.repository import REPOSITORY_ROOT
 
 from .marks import GENERATED_ARTIFACTS
 
@@ -209,15 +213,20 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             for sample in samples
             if sample.inclusion_status == "sample_context_blocked"
         ]
-        self.assertEqual(len(blocked_context), 90)
+        self.assertEqual(
+            Counter(sample.inclusion_status for sample in samples),
+            {
+                "site_curated": 1043,
+                "sample_context_blocked": 402,
+                "nordic_lead_site_curated": 5,
+            },
+        )
         self.assertTrue(
-            all(
-                sample.coordinates.latitude is None
-                and sample.coordinates.longitude is None
-                and sample.chronology.time_start_bp is None
-                and sample.chronology.time_end_bp is None
-                for sample in blocked_context
-            )
+            all(sample.inclusion_note.strip() for sample in blocked_context)
+        )
+        self.assertEqual(
+            sum(sample.locality is not None for sample in blocked_context),
+            318,
         )
         for bundle in bundles:
             payload = bundle.as_dict()
@@ -295,12 +304,37 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
 
     def test_pig_site_localities_preserve_admitted_archaeological_basis(self) -> None:
         bundle = build_species_normalization_bundle("pig")
-        pig_sites = {
+        source_sites = {
             locality.locality: locality
             for locality in bundle.locality_records
             if locality.project_accessions == ("PRJEB30282",)
         }
+        samples = {sample.master_id: sample for sample in bundle.sample_records}
+        admitted_statuses = {
+            "comparator_site_curated",
+            "nordic_lead_site_curated",
+            "site_curated",
+        }
+        pig_sites = {
+            name: locality
+            for name, locality in source_sites.items()
+            if any(
+                samples[sample_id].inclusion_status in admitted_statuses
+                for sample_id in locality.sample_ids
+            )
+        }
 
+        self.assertEqual(len(source_sites), 105)
+        self.assertEqual(
+            sum(
+                all(
+                    samples[sample_id].inclusion_status == "sample_context_blocked"
+                    for sample_id in locality.sample_ids
+                )
+                for locality in source_sites.values()
+            ),
+            103,
+        )
         self.assertEqual(set(pig_sites), {"Bundsø", "Trelleborg"})
         self.assertEqual(
             {
@@ -342,11 +376,32 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             and sample.archive_native_sample_id
         }
 
+        normalized_means = {
+            accession: sample.time_mean_bp
+            for accession, sample in samples.items()
+            if sample.time_mean_bp is not None
+        }
+        source_means = {
+            row.repo_stable_sample_id.rsplit(":", 1)[-1].upper(): row.time_mean_bp
+            for row in build_project_sample_chronology_rows(
+                REPOSITORY_ROOT / "data", "PRJEB75467"
+            )
+            if row.time_mean_bp is not None
+            and row.sample_identity_resolution == "final"
+        }
+
+        self.assertEqual(len(source_means), 33)
+        self.assertEqual(normalized_means, source_means)
         self.assertEqual(
             {
-                accession: sample.time_mean_bp
-                for accession, sample in samples.items()
-                if sample.time_mean_bp is not None
+                accession: normalized_means[accession]
+                for accession in (
+                    "SAMEA115574419",
+                    "SAMEA115574441",
+                    "SAMEA115574442",
+                    "SAMEA115574456",
+                    "SAMEA115574457",
+                )
             },
             {
                 "SAMEA115574419": 8074,
@@ -356,6 +411,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
                 "SAMEA115574457": 7296,
             },
         )
+        self.assertNotIn("SAMEA115574447", normalized_means)
         self.assertTrue(
             all(
                 sample.time_start_bp <= sample.time_mean_bp <= sample.time_end_bp

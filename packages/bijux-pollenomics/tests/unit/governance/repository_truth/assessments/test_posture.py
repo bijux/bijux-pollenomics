@@ -31,7 +31,7 @@ class RepositoryPostureTests(RepositoryTruthTestCase):
         self.assertEqual(
             payload["counts"]["papers_with_local_reference_supplements"], 0
         )
-        self.assertEqual(payload["counts"]["published_atlas_point_count"], 151)
+        self.assertEqual(payload["counts"]["published_atlas_point_count"], 170)
         self.assertTrue(
             any(
                 "unresolved" in row or "refused" in row

@@ -7,6 +7,10 @@ from pathlib import Path
 
 import pytest
 
+from bijux_pollenomics.adna.governance.atlas_candidates.sample_support import (
+    _atlas_admitted_sample_rows,
+)
+
 pytestmark = pytest.mark.generated_artifacts
 
 
@@ -15,7 +19,6 @@ def test_sample_rows_require_matching_coordinate_provenance_for_mapping(
 ) -> None:
     admitted_sample_count = 0
     refused_sample_count = 0
-
     for species_root in (tracked_data_root / "adna" / "species").iterdir():
         if not species_root.is_dir() or species_root.name == "homo_sapiens":
             continue
@@ -29,6 +32,10 @@ def test_sample_rows_require_matching_coordinate_provenance_for_mapping(
         assert not sample_payload["pollen_propagation_eligible"]
         admitted_sample_count += sample_payload["admitted_sample_count"]
         refused_sample_count += sample_payload["refused_sample_count"]
+        atlas_admitted_sample_ids = {
+            row["identity"]["stable_token"]
+            for row in _atlas_admitted_sample_rows(tuple(sample_payload["samples"]))
+        }
         assert sample_payload["refused_sample_count"] == len(
             sample_payload["sample_refusals"]
         )
@@ -50,10 +57,10 @@ def test_sample_rows_require_matching_coordinate_provenance_for_mapping(
                 coordinates["latitude_text"] and coordinates["longitude_text"]
             )
             if sample["inclusion_status"] == "sample_context_blocked":
-                assert not has_coordinates
-                assert sample["locality"] is None
-                assert sample["chronology"]["time_start_bp"] is None
-                assert sample["chronology"]["time_end_bp"] is None
+                assert (
+                    sample["identity"]["stable_token"] not in atlas_admitted_sample_ids
+                )
+                assert sample["inclusion_note"]
                 continue
             if has_coordinates:
                 assert provenance is not None, species_root.name

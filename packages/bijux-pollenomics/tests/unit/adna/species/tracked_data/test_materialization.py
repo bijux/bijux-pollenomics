@@ -24,7 +24,7 @@ def test_tracked_species_materialization_reaches_a_fixed_point_in_one_run(
         if path.is_file()
     }
     cattle_readme = first[Path("adna/species/bos_taurus/README.md")].decode("utf-8")
-    assert "- Direct-coordinate rows: `5`" in cattle_readme
+    assert "- Direct-coordinate rows: `24`" in cattle_readme
 
     materialize_tracked_species_adna(data_root)
     second = {
