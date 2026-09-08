@@ -45,12 +45,16 @@ coverage must not be described as coverage of the complete suite.
 
 ### Shared Workflow Exception And Removal Plan
 
-The bounded-job configuration is a repository-local exception to the generated
-Bijux workflow templates for the v0.1.8 CI unblock. It covers the test matrix,
-compact test uploads, preserving the final test-check identity, and ten-minute
-runner-job limits. It does not change publication permissions, scientific
-admission rules, or the selected tests. The shared checksum manifest still
-binds every declared managed file and must pass validation.
+The bounded-job configuration is a repository-local exception to the shared
+Bijux workflow templates for the v0.1.8 CI unblock. Its authoritative local
+configuration is the `bijux-pollenomics` `workflow_wrappers` entry in
+`.github/standards/repo-config.manifest.json`; the repository renderer derives
+`.github/workflows/ci.yml` and `.github/workflows/verify.yml` from that entry.
+It covers the test matrix, compact test uploads, preserving the final
+test-check identity, and ten-minute runner-job limits. It does not change
+publication permissions, scientific admission rules, or the selected tests.
+The shared checksum manifest still binds every declared managed file and must
+pass validation.
 
 The durable owner of the reusable workflow changes is `bijux-std`. The
 upstream follow-through is to parameterize bounded test partitions and compact

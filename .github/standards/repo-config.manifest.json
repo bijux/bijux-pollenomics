@@ -3101,6 +3101,16 @@
                   "required": false,
                   "type": "string",
                   "default": ""
+                },
+                "test_shards": {
+                  "required": false,
+                  "type": "string",
+                  "default": "[0]"
+                },
+                "test_shard_count": {
+                  "required": false,
+                  "type": "number",
+                  "default": 1
                 }
               }
             }
@@ -3113,13 +3123,14 @@
             "cancel-in-progress": true
           },
           "jobs": {
-            "tests": {
-              "name": "tests-${{ inputs.package_slug }}-py${{ matrix.python-version }}",
+            "test-shards": {
+              "name": "test-shard-${{ inputs.package_slug }}-py${{ matrix.python-version }}-${{ matrix.shard }}",
               "runs-on": "ubuntu-latest",
               "strategy": {
                 "fail-fast": false,
                 "matrix": {
-                  "python-version": "${{ fromJson(inputs.test_python_versions) }}"
+                  "python-version": "${{ fromJson(inputs.test_python_versions) }}",
+                  "shard": "${{ fromJson(inputs.test_shards) }}"
                 }
               },
               "steps": [
@@ -3147,7 +3158,13 @@
                 {
                   "name": "Run tests",
                   "shell": "bash",
-                  "run": "set -euo pipefail; makefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename '${{ inputs.package_dir }}').mk\"; make -f \"$makefile\" -C \"${{ inputs.package_dir }}\" test "
+                  "run": "set -euo pipefail\nexport PYTHONPATH=\"${GITHUB_WORKSPACE}/packages/bijux-pollenomics-dev/src${PYTHONPATH:+:${PYTHONPATH}}\"\nmakefile=\"${GITHUB_WORKSPACE}/makes/packages/$(basename \"${PACKAGE_DIR}\").mk\"\nmake -f \"${makefile}\" -C \"${PACKAGE_DIR}\" test \\\n  PYTEST_ADDOPTS_EXTRA=\"-p bijux_pollenomics_dev.ci.test_shards.plugin --bijux-shard-count=${SHARD_COUNT} --bijux-shard-index=${SHARD_INDEX} --bijux-shard-receipt=${GITHUB_WORKSPACE}/${ARTIFACTS_DIR}/test/shard-receipt.json\"",
+                  "env": {
+                    "SHARD_INDEX": "${{ matrix.shard }}",
+                    "SHARD_COUNT": "${{ inputs.test_shard_count }}",
+                    "PACKAGE_DIR": "${{ inputs.package_dir }}",
+                    "ARTIFACTS_DIR": "${{ inputs.artifacts_dir }}"
+                  }
                 },
                 {
                   "name": "Run post-test validation",
@@ -3163,11 +3180,47 @@
                   "if": "${{ always() }}",
                   "uses": "actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
                   "with": {
-                    "name": "${{ inputs.package_slug }}-test-py${{ matrix.python-version }}",
-                    "path": "${{ inputs.artifacts_dir }}/test",
-                    "if-no-files-found": "ignore",
-                    "retention-days": 14
+                    "name": "${{ inputs.package_slug }}-test-py${{ matrix.python-version }}-shard-${{ matrix.shard }}",
+                    "path": "${{ inputs.artifacts_dir }}/test/junit.xml\n${{ inputs.artifacts_dir }}/test/coverage.xml\n${{ inputs.artifacts_dir }}/test/.coverage\n${{ inputs.artifacts_dir }}/test/shard-receipt.json",
+                    "if-no-files-found": "error",
+                    "retention-days": 14,
+                    "include-hidden-files": true
                   }
+                }
+              ],
+              "timeout-minutes": 10
+            },
+            "tests": {
+              "name": "tests-${{ inputs.package_slug }}-py${{ matrix.python-version }}",
+              "needs": "test-shards",
+              "if": "${{ always() }}",
+              "runs-on": "ubuntu-latest",
+              "timeout-minutes": 10,
+              "strategy": {
+                "fail-fast": false,
+                "matrix": {
+                  "python-version": "${{ fromJson(inputs.test_python_versions) }}"
+                }
+              },
+              "steps": [
+                {
+                  "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
+                },
+                {
+                  "uses": "actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c",
+                  "with": {
+                    "pattern": "${{ inputs.package_slug }}-test-py${{ matrix.python-version }}-shard-*",
+                    "path": "artifacts/test-shard-reconciliation"
+                  }
+                },
+                {
+                  "name": "Reconcile every test partition",
+                  "shell": "bash",
+                  "env": {
+                    "SHARDS_RESULT": "${{ needs.test-shards.result }}",
+                    "SHARD_COUNT": "${{ inputs.test_shard_count }}"
+                  },
+                  "run": "set -euo pipefail\ntest \"${SHARDS_RESULT}\" = success\nPYTHONPATH=packages/bijux-pollenomics-dev/src \\\n  python3 -m bijux_pollenomics_dev.ci.test_shards \\\n  --receipt-root artifacts/test-shard-reconciliation \\\n  --count \"${SHARD_COUNT}\" --revision \"${GITHUB_SHA}\""
                 }
               ]
             },
@@ -3233,7 +3286,8 @@
                     "retention-days": 14
                   }
                 }
-              ]
+              ],
+              "timeout-minutes": 10
             },
             "lint": {
               "name": "lint-${{ inputs.package_slug }}",
@@ -3276,7 +3330,8 @@
                     "retention-days": 14
                   }
                 }
-              ]
+              ],
+              "timeout-minutes": 10
             }
           }
         },
@@ -3339,7 +3394,7 @@
             "repository": {
               "name": "repository-contracts",
               "runs-on": "ubuntu-latest",
-              "timeout-minutes": 45,
+              "timeout-minutes": 10,
               "steps": [
                 {
                   "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1"
@@ -3380,7 +3435,9 @@
                       "package_slug": "bijux-pollenomics",
                       "package_dir": "packages/bijux-pollenomics",
                       "artifacts_dir": "artifacts/bijux-pollenomics",
-                      "check_targets": "[\"quality\", \"security\", \"api\", \"openapi-drift\", \"build\", \"sbom\"]"
+                      "check_targets": "[\"quality\", \"security\", \"api\", \"openapi-drift\", \"build\", \"sbom\"]",
+                      "test_shards": "[0,1,2,3,4,5,6,7]",
+                      "test_shard_count": 8
                     },
                     {
                       "package_slug": "pollenomics",
@@ -3403,6 +3460,8 @@
                 "package_dir": "${{ matrix.package_dir }}",
                 "artifacts_dir": "${{ matrix.artifacts_dir }}",
                 "test_python_versions": "${{ matrix.test_python_versions || '[\"3.11\"]' }}",
+                "test_shards": "${{ matrix.test_shards || '[0]' }}",
+                "test_shard_count": "${{ matrix.test_shard_count || 1 }}",
                 "check_targets": "${{ matrix.check_targets || '[\"quality\", \"security\", \"docs\", \"api\", \"build\", \"sbom\"]' }}",
                 "api_toolchain_targets": "${{ matrix.api_toolchain_targets || '[\"api\", \"openapi-drift\"]' }}",
                 "post_test_command": "${{ matrix.post_test_command || '' }}"
