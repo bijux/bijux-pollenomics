@@ -259,18 +259,21 @@ def _parse_archive_evidence(archive_text: str) -> dict[str, AurochsArchiveEviden
         for line_number, row in enumerate(reader, start=2)
     )
     _validate_archive_accession_provenance(archive_rows)
+    labels = (*expected, PAPER_ONLY_SAMPLE_LABEL)
+    claimed_labels_by_line: dict[int, tuple[str, ...]] = {}
     fre1_matches: list[int] = []
     for line_number, _, basenames in archive_rows:
-        matched = [
+        matched = tuple(
             label
-            for label in (*expected, PAPER_ONLY_SAMPLE_LABEL)
+            for label in labels
             if any(_basename_has_label(name, label) for name in basenames)
-        ]
+        )
+        claimed_labels_by_line[line_number] = matched
         if len(matched) > 1:
             raise ValueError(
                 f"PRJEB75467 archive line {line_number} has cross-contaminated labels"
             )
-        if matched == [PAPER_ONLY_SAMPLE_LABEL]:
+        if matched == (PAPER_ONLY_SAMPLE_LABEL,):
             fre1_matches.append(line_number)
     if fre1_matches:
         raise ValueError(
@@ -299,9 +302,9 @@ def _parse_archive_evidence(archive_text: str) -> dict[str, AurochsArchiveEviden
             )
         foreign_claims = tuple(
             line_number
-            for line_number, row, basenames in archive_rows
+            for line_number, row, _ in archive_rows
             if row["sample_accession"] != expected_accession
-            and any(_basename_has_label(name, label) for name in basenames)
+            and label in claimed_labels_by_line[line_number]
         )
         if foreign_claims:
             raise ValueError(

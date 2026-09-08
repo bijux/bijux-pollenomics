@@ -42,4 +42,7 @@ def _submitted_basenames(value: str) -> tuple[str, ...]:
 
 
 def _basename_has_label(basename: str, label: str) -> bool:
-    return re.match(rf"^{re.escape(label)}(?:[_\-.]|$)", basename) is not None
+    if not basename.startswith(label):
+        return False
+    suffix = basename[len(label) :]
+    return not suffix or suffix[0] in "_-." or suffix == "\n"
