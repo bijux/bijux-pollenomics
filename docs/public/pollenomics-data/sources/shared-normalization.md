@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-07-31
 ---
 
 # Shared Normalization
@@ -238,7 +238,7 @@ flowchart TB
 | --- | --- | --- | --- |
 | LandClim | site-sequence point or REVEALS grid | sequence interval where captured | primary pollen context |
 | Neotoma | pollen-site point | site span where present; uneven coverage | primary pollen context |
-| SEAD | environmental-archaeology site | not uniformly time-resolved in the capture | contextual domain |
+| SEAD | environmental-archaeology site | numeric site envelope where linked chronology supports it; otherwise label-only or unresolved | contextual domain |
 | RAÄ | registry point or density surface | no repository-owned uniform time window | contextual domain |
 | SVAR | current lake, catchment, or water body | present-day sampling context | sampling context |
 | boundaries | country or regional polygon | no temporal evidence claim | geographic framing |

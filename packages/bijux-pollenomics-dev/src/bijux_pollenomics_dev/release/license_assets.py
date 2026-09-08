@@ -108,10 +108,10 @@ def main(argv: list[str] | None = None) -> int:
 
 __all__ = [
     "ManagedAsset",
+    "main",
     "managed_assets",
     "parse_args",
     "synchronize_license_assets",
-    "main",
 ]
 
 

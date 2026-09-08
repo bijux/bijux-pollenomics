@@ -2,10 +2,31 @@ from __future__ import annotations
 
 from collections.abc import Callable
 import json
+from typing import TYPE_CHECKING
 
-from ...core.geojson import JsonObject
+from ...core.geospatial.geojson import JsonObject
 from ..map_publication import MapScopePolicy
+from ..modeled_context import build_modeled_context_manifest
+from ..modeled_context.publication_projection import project_modeled_context_layers
 from .state import build_map_document_state
+from .static_assets.budgets import ATLAS_FILTER_MAIN_THREAD_MAX_MS
+
+if TYPE_CHECKING:
+    from .static_assets import StaticAtlasAssets
+
+from .static_assets import validate_atlas_release_id
+
+
+def serialize_json_for_script(value: object) -> str:
+    """Serialize JSON without raw characters that can escape an HTML script node."""
+    return (
+        json.dumps(value, ensure_ascii=False, separators=(",", ":"))
+        .replace("&", "\\u0026")
+        .replace("<", "\\u003c")
+        .replace(">", "\\u003e")
+        .replace("\u2028", "\\u2028")
+        .replace("\u2029", "\\u2029")
+    )
 
 
 def build_map_document_payload(
@@ -19,23 +40,57 @@ def build_map_document_payload(
     polygon_layers: list[JsonObject],
     asset_base_path: str,
     escape_html_fn: Callable[[str], str],
+    static_assets: StaticAtlasAssets | None = None,
 ) -> dict[str, str]:
     """Build placeholder replacements for the standalone map document template."""
+    validate_atlas_release_id(version)
     state = build_map_document_state(
         policy=policy,
         point_layers=point_layers,
         polygon_layers=polygon_layers,
     )
+    publication_polygon_layers = project_modeled_context_layers(polygon_layers)
+    if static_assets is None:
+        bootstrap_json = serialize_json_for_script(
+            {
+                "schema_version": "atlas-inline-bootstrap.v1",
+                "status": "inline_test_fixture",
+                "budgets": {
+                    "filter_main_thread_max_ms": ATLAS_FILTER_MAIN_THREAD_MAX_MS,
+                },
+            },
+        )
+        chunk_script_tags = ""
+        point_layers_json = serialize_json_for_script(point_layers)
+        polygon_layers_json = serialize_json_for_script(publication_polygon_layers)
+    else:
+        bootstrap_json = serialize_json_for_script(static_assets.manifest)
+        chunk_script_tags = static_assets.script_tags
+        point_layers_json = "hydrateStaticAtlasLayers('point')"
+        polygon_layers_json = "hydrateStaticAtlasLayers('polygon')"
     return {
         "__TITLE__": escape_html_fn(title),
         "__SCOPE_BADGE__": escape_html_fn(policy.eyebrow_label),
+        "__SCOPE_KEY_JSON__": serialize_json_for_script(policy.key),
         "__SCOPE_NOTE__": escape_html_fn(policy.summary),
-        "__VERSION__": escape_html_fn(version),
+        "__CHRONOLOGY_PLAYBACK_ACTION__": (
+            '<div class="inline-actions">'
+            f'<a class="inline-button is-primary" href="{escape_html_fn(policy.chronology_playback_href)}">'
+            "Open prepared chronology playback</a></div>"
+            if policy.chronology_playback_href is not None
+            else ""
+        ),
+        "__VERSION_JSON__": serialize_json_for_script(version),
         "__GENERATED_ON__": escape_html_fn(generated_on),
-        "__COUNTRIES_JSON__": json.dumps(list(countries), ensure_ascii=False),
-        "__POINT_LAYERS_JSON__": json.dumps(point_layers, ensure_ascii=False),
-        "__POLYGON_LAYERS_JSON__": json.dumps(polygon_layers, ensure_ascii=False),
-        "__BOUNDS_JSON__": json.dumps(state.bounds),
+        "__COUNTRIES_JSON__": serialize_json_for_script(list(countries)),
+        "__POINT_LAYERS_JSON__": point_layers_json,
+        "__POLYGON_LAYERS_JSON__": polygon_layers_json,
+        "__MODELED_CONTEXT_JSON__": serialize_json_for_script(
+            build_modeled_context_manifest(polygon_layers)
+        ),
+        "__STATIC_BOOTSTRAP_JSON__": bootstrap_json,
+        "__STATIC_CHUNK_SCRIPT_TAGS__": chunk_script_tags,
+        "__BOUNDS_JSON__": serialize_json_for_script(state.bounds),
         "__ASSET_BASE_PATH__": asset_base_path,
         "__INITIAL_BASEMAP__": escape_html_fn(policy.default_basemap),
         "__INITIAL_DIAMETER__": str(state.initial_diameter_km),
@@ -48,3 +103,6 @@ def build_map_document_payload(
         "__INITIAL_TIME_INTERVAL__": str(state.initial_time_interval_years),
         "__TIME_INTERVAL_MAX__": str(state.max_time_span),
     }
+
+
+__all__ = ["build_map_document_payload", "serialize_json_for_script"]

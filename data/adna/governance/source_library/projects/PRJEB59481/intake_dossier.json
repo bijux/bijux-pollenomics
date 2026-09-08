@@ -9,46 +9,55 @@
   "stage_statuses": {
     "project_admission": "complete",
     "paper_capture": "complete",
-    "supplement_capture": "not_required",
-    "sample_identity_recovery": "in_progress",
-    "site_recovery": "blocked",
-    "chronology_recovery": "blocked",
-    "coordinate_derivation": "blocked",
-    "publication_readiness": "blocked"
+    "supplement_capture": "complete",
+    "sample_identity_recovery": "complete",
+    "site_recovery": "complete",
+    "chronology_recovery": "complete",
+    "coordinate_derivation": "complete",
+    "publication_readiness": "complete"
   },
-  "blocking_stages": [
-    "site_recovery",
-    "chronology_recovery",
-    "coordinate_derivation",
-    "publication_readiness"
-  ],
-  "next_required_stage": "sample_identity_recovery",
-  "publication_readiness_status": "blocked",
+  "blocking_stages": [],
+  "next_required_stage": null,
+  "publication_readiness_status": "complete",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
   "expected_sample_count_artifact_path": "",
   "minimum_expected_sample_count": 1,
-  "recovered_sample_count": 0,
-  "final_sample_count": 0,
+  "recovered_sample_count": 5,
+  "final_sample_count": 5,
   "unresolved_sample_count": null,
-  "minimum_gap_count": 1,
-  "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-  "implausibly_low_recovery": true,
-  "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
+  "material_evidence_expected_count": 5,
+  "material_evidence_conflict_count": 5,
+  "minimum_gap_count": 0,
+  "recovery_gap_status": "minimum_expected_floor_met",
+  "implausibly_low_recovery": false,
+  "implausibly_low_recovery_reason": "",
   "known_assets": [
     "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf",
     "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx",
+    "adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml",
+    "adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml.metadata.json",
     "adna/governance/source_library/papers/10.1093-gbe-evae114/crossref.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960292.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960292.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960294.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960294.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960295.xml",
+    "adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960295.xml.metadata.json",
     "adna/governance/source_library/projects/PRJEB59481/archive_metadata.html",
+    "adna/governance/source_library/projects/PRJEB59481/material_evidence_conflicts.csv",
+    "adna/governance/source_library/projects/PRJEB59481/material_evidence_conflicts.json",
     "data/adna/governance/source_library/projects/PRJEB59481/sample_master.json",
     "data/adna/governance/source_library/projects/PRJEB59481/sample_sites.json",
     "data/adna/governance/source_library/projects/PRJEB59481/sample_chronology.json",
     "data/adna/governance/source_library/projects/PRJEB59481/sample_locality_evidence.json"
   ],
-  "missing_assets": [
-    "No final governed sample rows are published yet."
-  ],
+  "missing_assets": [],
   "expected_contributions": [
     "sample_identities",
     "taxonomic_context"
@@ -59,12 +68,24 @@
     "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf",
     "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx"
   ],
-  "contradictory_evidence": [],
+  "contradictory_evidence": [
+    "5 of 5 material claim pairs retain unresolved source disagreement."
+  ],
   "inferred_claims": [],
-  "manual_curation_work_units": [],
-  "major_deficit_reasons": [
-    "implausibly_low_sample_recovery",
-    "sample_recovery_gap",
-    "coordinate_precision_gap"
-  ]
+  "manual_curation_work_units": [
+    {
+      "project_accession": "PRJEB59481",
+      "species_latin_name": "Ovis aries",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 2,
+      "rationale": "broad_period_labels_still_need_stronger_date_support",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB59481/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJEB59481/intake_dossier.json"
+      ]
+    }
+  ],
+  "major_deficit_reasons": []
 }

@@ -4,7 +4,7 @@ audience: reader
 type: how-to
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-07
 ---
 
 # Querying Governed Evidence
@@ -142,37 +142,33 @@ flowchart LR
     Candidate --> Feature["world product member"]
 ```
 
-### Query A Visible Accountability Gap
+### Query An Accounted Publication Exclusion
 
-The current animal candidate population also contains a dromedary-camel member
-whose sample row, site evidence, chronology evidence, and coordinate
-provenance are present while sample lineage is not. Query the failed dimension
-directly rather than inferring completeness from visibility:
+Wadi Halfa dromedary context is retained outside the animal candidate
+population because no admitted sample-backed locality candidate exists. Query
+the readiness exclusion directly; an empty candidate-failure query would not
+show records refused before admission:
 
 ```bash
 python3 - <<'PY'
 import json
 from pathlib import Path
 
-accountability = json.loads(
-    Path("data/adna/final/atlas/animal_atlas_candidate_accountability.json")
+readiness = json.loads(
+    Path("data/adna/governance/cross_species_map_readiness.json")
     .read_text()
 )
-for row in accountability["rows"]:
-    if not row["fully_accountable"]:
-        print(row["evidence_row_id"])
-        print(f"  sample rows: {row['sample_rows_present']}")
-        print(f"  sample lineage: {row['sample_lineage_present']}")
-        print(f"  site evidence: {row['site_evidence_present']}")
-        print(f"  chronology evidence: {row['chronology_evidence_present']}")
-        print(f"  coordinate provenance: {row['coordinate_provenance_present']}")
+for row in readiness["not_materialized_rows"]:
+    if row["project_accession"] == "SRP073444":
+        print(row["site_label"])
+        print(row["reason_code"])
 PY
 ```
 
-The answer is a dimensioned failure, not an instruction to discard the other
-evidence or promote the missing relation. The row stays addressable so source
-recovery can repair exactly the lineage boundary and dependent decisions can
-then be reevaluated.
+The answer is `no_admitted_sample_backed_locality_candidate`, not an
+instruction to discard the retained source context or promote the missing
+relation. The row stays addressable so new sample evidence can trigger a
+review of the dependent publication decision.
 
 ## Audit An Expected Non-Member
 

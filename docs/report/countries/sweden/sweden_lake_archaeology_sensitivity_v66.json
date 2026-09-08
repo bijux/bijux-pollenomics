@@ -1,0 +1,56 @@
+{
+  "schema_version": "sweden-lake-archaeology-sensitivity.v1",
+  "country": "Sweden",
+  "candidate_count": 0,
+  "profiles": [
+    {
+      "profile_key": "context_conservative",
+      "archaeology_weight": 0.03,
+      "weights": {
+        "human": 0.61537634,
+        "direct_pollen": 0.14602151,
+        "nearby_pollen": 0.07301075,
+        "sampling": 0.07301075,
+        "archaeology": 0.03,
+        "animal": 0.04172043,
+        "diversity": 0.02086022
+      }
+    },
+    {
+      "profile_key": "baseline",
+      "archaeology_weight": 0.07,
+      "weights": {
+        "human": 0.59,
+        "direct_pollen": 0.14,
+        "nearby_pollen": 0.07,
+        "sampling": 0.07,
+        "archaeology": 0.07,
+        "animal": 0.04,
+        "diversity": 0.02
+      }
+    },
+    {
+      "profile_key": "context_emphasis",
+      "archaeology_weight": 0.15,
+      "weights": {
+        "human": 0.53924731,
+        "direct_pollen": 0.12795699,
+        "nearby_pollen": 0.06397849,
+        "sampling": 0.06397849,
+        "archaeology": 0.15,
+        "animal": 0.03655914,
+        "diversity": 0.01827957
+      }
+    }
+  ],
+  "methodology": {
+    "baseline_justification": "Archaeology receives 0.07 because it is contextual rather than direct lake or sampling evidence. It equals nearby-pollen and area-screen weight, remains below direct pollen, and remains far below human aDNA.",
+    "archaeology_signal_contract": "SEAD site density contributes 0.40 inside the archaeology signal, numeric SEAD chronology 0.20, SEAD chronology overlapping nearby human aDNA 0.20, and coarse RA\u00c4 density 0.20.",
+    "renormalization_rule": "When archaeology weight changes, every non-archaeology component is scaled proportionally so profile weights continue to sum to 1.00.",
+    "decision_rule": "A lake should move upward on archaeology grounds only when linked SEAD records are inspected and temporally compatible. RA\u00c4 density alone is a discovery prompt, never sufficient promotion evidence.",
+    "temporal_qualification_rule": "Each sensitivity row publishes the candidate's available temporal context windows and the count of nearby numeric SEAD records. A weight change remains a static robustness check; interpretation in a particular period requires a matching SEAD context window.",
+    "ranking_note": "Sensitivity rank is score-ordered for isolating weight effects; the published engine rank separately applies direct-evidence tie-breakers."
+  },
+  "maximum_absolute_rank_shift": 0,
+  "rows": []
+}

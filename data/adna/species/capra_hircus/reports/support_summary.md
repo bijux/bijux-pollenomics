@@ -17,4 +17,3 @@ Paper-pinned core domestication support exists for this species. Curated project
 ## Blocking reasons
 
 - none
-

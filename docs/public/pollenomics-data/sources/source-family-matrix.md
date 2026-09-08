@@ -4,7 +4,7 @@ audience: reader
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-08-01
 ---
 
 # Source Family Matrix
@@ -55,20 +55,21 @@ The current stage matrix reports this materialized state:
 
 | Family | Raw | Normalized | Reviewed | Published | Checked-in metric and interpretation |
 | --- | --- | --- | --- | --- | --- |
-| LandClim | present | present | missing | present | 492 sequences and 88 model cells; the source-specific review artifact is absent |
+| LandClim | present | present | present | present | 490 sequences, 77 model cells, and 2,515 temporal model features under source-specific review |
 | Neotoma | present | present | present | present | 200 normalized points; temporal capability remains member-specific |
-| SEAD | present | present | present | present | 2,172 normalized points; review supports a contextual, not uniformly dated, role |
-| RAÄ | present | present | missing | present | 761,917 registry and 318,265 heritage records; source-specific review is absent |
+| SEAD | present | present | present | present | 2,069 assigned site points and 25,109 chronology claims; review supports a contextual, not uniformly dated, role |
+| RAÄ | present | present | missing | refused | authority is refused; source-scale counts and density files remain excluded until raw inventory, summary, and scientific review reconcile |
 | boundaries | present | present | missing | present | four country geometries frame membership without scientific weight |
-| SVAR | present | missing | missing | present | a 40,565-lake summary and retained products exist without the contracted normalized registry and review |
-| AADR | present | missing | missing | present | three v66 capture files and retained products exist without governed Homo sapiens normalized and review members |
-| animal aDNA | present | present | present | present | 10 species, 40 projects, and 894 species-owned sample-foundation rows are materialized |
+| SVAR | present | missing | partial | refused | authority is refused; a source-reported summary and 99-member review registry exist, but the complete contracted normalized registry is absent |
+| AADR | present | missing | present | present | three v66 capture files and a compact accountability receipt reconcile 51,005 rows into 27,755 Genetic IDs; normalized membership and qualified scientific review remain unavailable |
+| animal aDNA | present | present | present | present | 10 species and 1,450 final sample-foundation rows from 21 contributing projects are materialized within a 40-project registry |
 
-The animal lifecycle count is the population of species-owned foundation rows,
-not the 868 recovered project sample-master identities or the 234 admitted
-point-evidence rows. All three quantities are valid only with their governing
-unit. The corrected metric no longer reports zero merely because it was
-reading a field name that the foundation summary does not own.
+The animal lifecycle count is the population of final species-owned foundation
+rows, not the 1,455 recovered raw project sample-master rows or the 170
+published locality features representing 331 samples. Each quantity is valid
+only with its governing unit. The corrected metric no longer reports zero
+merely because it was reading a field name that the foundation summary does
+not own.
 
 ### Read The Matrix As An Evaluated Snapshot
 
@@ -157,9 +158,9 @@ flowchart LR
 Reading across one family shows which lifecycle evidence is materialized. Reading down
 one claim compares only the dimensions needed for that claim. Neither reading
 authorizes a global family ranking. LandClim can be mature for pollen context
-while AADR has a governed release capture but lacks its contracted normalized
-and review members; their record counts and roles are not competing measures
-of quality.
+while AADR has a governed release capture and non-admitting accountability
+review but lacks contracted normalized members and qualified scientific
+acceptance; their record counts and roles are not competing measures of quality.
 
 This distinction also prevents lifecycle completion from being mistaken for
 scientific readiness. A family may have captured, normalized, reviewed, and

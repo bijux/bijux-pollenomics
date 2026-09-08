@@ -41,7 +41,7 @@
       "docs_paths": [
         "docs/public/pollenomics-data/sources/landclim.md"
       ],
-      "visible_count": 580,
+      "visible_count": 567,
       "acquisition_posture": "tracked_context_layer",
       "main_gap": "LandClim remains real pollen context and should keep explicit links to its normalized files and REVEALS posture"
     },
@@ -83,9 +83,9 @@
       "docs_paths": [
         "docs/public/pollenomics-data/sources/raa.md"
       ],
-      "visible_count": 761917,
-      "acquisition_posture": "tracked_context_layer",
-      "main_gap": "RA\u00c4 remains Sweden-scoped archaeology context and should keep its explicit national scope"
+      "visible_count": 0,
+      "acquisition_posture": "refused_not_publication_ready",
+      "main_gap": "RA\u00c4 density is excluded until raw inventory, normalized counts, and qualified review reconcile: missing_raw_inventory, missing_raw_summary, missing_scientific_review"
     },
     {
       "source_key": "boundaries",

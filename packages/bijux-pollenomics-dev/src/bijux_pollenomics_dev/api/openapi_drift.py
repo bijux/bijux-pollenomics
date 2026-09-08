@@ -10,7 +10,7 @@ from typing import Any
 
 import yaml
 
-from bijux_pollenomics_dev.trusted_process import run_text
+from bijux_pollenomics_dev.trusted_process import TrustedCommandError, run_text
 
 Schema = dict[str, Any]
 
@@ -39,9 +39,7 @@ def _git_show(repo_root: Path, path: str) -> str | None:
             check=True,
             capture_output=True,
         )
-    except (FileNotFoundError, ValueError):
-        return None
-    except Exception:
+    except (FileNotFoundError, TrustedCommandError, ValueError):
         return None
     return completed.stdout
 

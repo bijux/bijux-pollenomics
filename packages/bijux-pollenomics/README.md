@@ -99,7 +99,7 @@ flowchart LR
 
 | Boundary | Python ownership | Persistent meaning |
 | --- | --- | --- |
-| collection | `bijux_pollenomics.data_downloader` | captured identity, retrieval context, and normalized family state |
+| collection | `bijux_pollenomics.collection` | captured identity, retrieval context, and normalized family state |
 | animal evidence | `bijux_pollenomics.adna` | project, paper, supplement, sample, locality, chronology, and coordinate lineage |
 | review and ranking | `bijux_pollenomics.evidence`, `bijux_pollenomics.analysis` | fitness, conflicts, qualifications, exclusions, and decision support |
 | publication | `bijux_pollenomics.reporting` | scope, manifest membership, traceability, maps, tables, and reports |

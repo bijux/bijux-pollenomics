@@ -13,7 +13,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 7,
       "recovery_status": "archived_and_parseable"
     },
@@ -25,7 +25,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 4,
       "recovery_status": "archived_and_parseable"
     },
@@ -37,7 +37,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 8,
       "recovery_status": "archived_and_parseable"
     },
@@ -51,7 +51,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 2,
       "recovery_status": "archived_and_parseable"
     },
@@ -63,7 +63,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 4,
       "recovery_status": "archived_and_parseable"
     },
@@ -75,7 +75,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 5,
       "recovery_status": "archived_and_parseable"
     },
@@ -87,7 +87,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 4,
       "recovery_status": "archived_and_parseable"
     },
@@ -99,7 +99,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 1,
       "recovery_status": "archived_and_parseable"
     },
@@ -111,7 +111,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "zip_member_inventory_published",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 5,
       "recovery_status": "archived_and_parseable"
     },
@@ -123,7 +123,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 3,
       "recovery_status": "archived_and_parseable"
     },
@@ -135,7 +135,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 2,
       "recovery_status": "archived_and_parseable"
     },
@@ -147,7 +147,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 2,
       "recovery_status": "archived_and_parseable"
     },
@@ -160,7 +160,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 1,
       "recovery_status": "archived_and_parseable"
     },
@@ -172,7 +172,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 6,
       "recovery_status": "archived_and_parseable"
     },
@@ -184,7 +184,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 12,
       "recovery_status": "archived_and_parseable"
     },
@@ -196,7 +196,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 1,
       "recovery_status": "archived_and_parseable"
     },
@@ -208,7 +208,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "zip_member_inventory_published",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 3,
       "recovery_status": "archived_and_parseable"
     },
@@ -220,7 +220,7 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 2,
       "recovery_status": "archived_and_parseable"
     }

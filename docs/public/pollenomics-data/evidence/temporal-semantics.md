@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-08-01
 ---
 
 # Temporal Semantics
@@ -152,11 +152,11 @@ coverage of the collection.
 
 | Source family | Records | Numeric intervals | Time-aware use |
 | --- | ---: | ---: | --- |
-| LandClim | 492 site sequences | 482 | supporting pollen context at the sequence interval |
+| LandClim | 490 site sequences | 368 | supporting pollen context at the sequence interval; 112 negative-BP and 10 partial source intervals remain explicit refusals |
 | Neotoma | 200 sites | 175 | supporting pollen context where a site span exists |
-| SEAD | 2,172 normalized sites | 0 | archaeology context only in the current capture |
-| RAÄ | 761,917 published sites in the density source | 0 | coarse spatial archaeology context |
-| SVAR | 40,565 lakes | 0 | candidate-lake identity and location |
+| SEAD | 2,069 assigned four-country sites; 25,109 chronology claims | 14,264 claims | comparison is claim-specific; 10,144 context-only, 60 explicitly refused, and 641 unresolved claims remain ineligible |
+| RAÄ | unavailable; authority refused | not applicable | retained density files are excluded from governed evidence |
+| SVAR | unavailable; authority refused | not applicable | source-reported receipt is provenance only until the normalized registry exists |
 | boundaries | 4 polygons | 0 | geographic framing only |
 
 Record volume is not temporal capability. The largest contextual collection
@@ -211,12 +211,15 @@ not acquire the same interval.
 The checked-in collection currently carries different temporal capability by
 source family:
 
-- **LandClim** site sequences usually carry numeric BP windows and can
-  contribute pollen context to time-aware comparison;
+- **LandClim** site sequences usually carry numeric BP windows, while REVEALS
+  values are retained as separate dataset-cell-window features with numeric
+  bounds; both can contribute time-aware context, but the modeled grid windows
+  are not sample-owned chronologies;
 - **Neotoma** includes many numeric site spans, but the review surface records
   uneven chronology-row capture and sites without BP ranges;
-- **SEAD** currently functions as a site-inventory context layer in the
-  Sweden-facing capture and must not be treated as uniformly time-resolved;
+- **SEAD** publishes linked chronology as interval-preserving temporal
+  features while keeping upstream-undated sites in a separate spatial
+  inventory; the inventory must not be treated as uniformly time-resolved;
 - **RAÄ** contributes spatial archaeology density without repository-owned time
   windows;
 - **SVAR** and boundary layers provide lake identity and geographic framing,

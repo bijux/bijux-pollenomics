@@ -4,8 +4,8 @@ from dataclasses import dataclass
 from typing import Final
 
 __all__ = [
-    "ADNA_SUPPORT_STATUSES",
     "ADNA_MODALITIES",
+    "ADNA_SUPPORT_STATUSES",
     "AdnaSpeciesDefinition",
     "build_species_support_matrix",
     "resolve_species_definition",

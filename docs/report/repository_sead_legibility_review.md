@@ -4,19 +4,26 @@ This report-root packet explains what the repository can currently claim about S
 
 - Source family: `SEAD archaeology context`
 - Current posture: `contextual_archaeology_layer_with_explicit_temporal_and_access_limits`
-- Reviewed rows: `2195`
+- Reviewed rows: `2069`
 
 ## Normalization Risk
 
-- high thin site inventory: `2195`
+- medium access constrained: `1360`
+- medium contextual numeric mix: `707`
+- medium period label interpretation: `2`
 
 ## Access Visibility
 
-- site page only: `2195`
+- site page only: `2066`
+- site page with reference links: `3`
 
 ## Temporal Postures
 
-- unresolved: `2195`
+- contextual label only: `2`
+- mixed interval and context: `476`
+- numeric interval: `143`
+- numeric interval with caveat: `231`
+- unresolved: `1217`
 
 ## Direct Links
 
@@ -31,7 +38,7 @@ This report-root packet explains what the repository can currently claim about S
 
 | Requirement | Required evidence | Satisfaction signal |
 | --- | --- | --- |
-| linked_temporal_capture | Capture linked dating-range, relative-period, and uncertainty tables into checked-in raw SEAD inventory refreshes. | Checked-in raw SEAD rows carry temporal linked tables often enough that the thin-site-inventory risk no longer dominates the review packet. |
-| reference_link_capture | Preserve stable bibliography or DOI links wherever SEAD linked records expose them, so readers do not have to begin every review from the generic site page. | The access review shows a meaningful shift away from site-page-only visibility. |
+| unresolved_chronology_boundary | Retain sites without captured upstream chronology as an explicit spatial-only population; add dates only when a linked SEAD chronology record supplies defensible bounds. | Every captured chronology row has normalized BP bounds, the temporal-evidence layer is fully time-filterable, and upstream-undated sites remain visibly unresolved. |
+| unreferenced_site_boundary | Retain site-page-only access where captured bibliography rows expose no directly followable DOI or URL; add links only from identified SEAD bibliography values. | All captured bibliography relations preserve their source relation and sites without directly followable upstream links remain explicit instead of receiving inferred URLs. |
 | context_layer_republication | Republish the normalized SEAD context layer with explicit temporal semantics, access posture, and context-only caveats on every feature. | Normalized and published SEAD GeoJSON no longer trigger missing-temporal-semantics findings in report review surfaces. |
 | published_scope_refresh | Refresh published world, Europe-plus, and Nordic report bundles so SEAD appears as a bounded archaeology context layer rather than a generic environmental blob. | Published map and review bundles expose SEAD with stable caveats, access wording, and bounded contextual role labels. |

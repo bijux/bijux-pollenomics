@@ -3,14 +3,14 @@
   "bundle_type": "country_aadr_report",
   "country": "Sweden",
   "version": "v66",
-  "generated_on": "2026-06-22",
+  "generated_on": "2026-09-08",
   "dataset_row_counts": {
     "1240k": 416,
     "ho": 416
   },
   "total_unique_samples": 416,
   "total_unique_localities": 77,
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/sweden",
+  "output_dir": "docs/report/countries/sweden",
   "artifacts": {
     "readme": "README.md",
     "samples_csv": "sweden_aadr_v66_samples.csv",
@@ -41,5 +41,15 @@
     "json": "sweden_lake_fieldwork_preparation_v66.json",
     "csv": "sweden_lake_fieldwork_preparation_v66.csv",
     "markdown": "sweden_lake_fieldwork_preparation_v66.md"
+  },
+  "lake_archaeology_sensitivity": {
+    "json": "sweden_lake_archaeology_sensitivity_v66.json",
+    "csv": "sweden_lake_archaeology_sensitivity_v66.csv",
+    "markdown": "sweden_lake_archaeology_sensitivity_v66.md"
+  },
+  "land_use_synthesis": {
+    "json": "sweden_land_use_synthesis_v66.json",
+    "csv": "sweden_land_use_synthesis_v66.csv",
+    "markdown": "sweden_land_use_synthesis_v66.md"
   }
 }

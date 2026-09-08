@@ -4,7 +4,7 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-07
 ---
 
 # Nordic Evidence Atlas
@@ -60,33 +60,37 @@ flowchart TB
 
 ## Current Nordic Bundle
 
-The checked-in `v66` Nordic bundle was generated on `2026-06-28`. Its map
+The checked-in `v66` Nordic bundle was generated on `2026-09-06`. Its map
 contract publishes these governed layer populations:
 
 | Layer | Features | Role |
 | --- | ---: | --- |
 | AADR human samples | 1,231 | shared direct evidence |
-| admitted horse aDNA localities | 2 | shared animal evidence |
-| LandClim pollen sequences | 492 | Nordic environmental context |
-| Neotoma pollen sites | 200 | Nordic environmental context |
-| SEAD sites | 2,172 | Nordic archaeology context |
+| admitted cattle progenitor-context, sheep, and pig aDNA localities | 8 | shared animal evidence; cattle remains wild-or-progenitor context rather than domesticated-core support |
+| LandClim pollen sites | 490 | Nordic environmental context |
+| Neotoma pollen sites | 193 | Nordic environmental context |
+| Neotoma sample-presence nodes | 9,988 | dated source-observation chronology |
+| Neotoma ecological-code nodes | 25,165 | literal source-code chronology, including TRSH, UPHE, and AQVP |
+| Neotoma exact-taxon nodes | 215,751 | source-native taxa without inferred equivalence |
+| SEAD sites | 2,069 | Nordic archaeology context |
+| Sweden archaeology discovery sites | 9,727 | Sweden-specific archaeology context |
 | Lyngsjön fieldwork | 1 | Nordic direct-visit evidence |
-| LandClim REVEALS cells | 88 | vegetation-reconstruction context |
-| RAÄ density cells | 106 | Sweden-specific archaeology context |
+| LandClim REVEALS time-window cells | 2,515 | vegetation-reconstruction context |
 | country boundaries | 4 | filtered geographic framing |
 
 The map also carries optional Sweden lake overlays: aggregate and consensus
 top 40, five radius-specific top 40 layers, and a fieldwork-preparation top 20.
 Those overlays are derived decision support and are disabled by default.
 
-Counts remain typed by layer. Adding 1,231 samples, 492 sequences, 2,172 sites,
-and 106 density cells would not produce a meaningful total because the units,
-roles, and admission contracts differ.
+Counts remain typed by layer. Adding samples, source observations, sites,
+localities, and modeled cells would not produce a meaningful total because the
+units, roles, and admission contracts differ.
 
 ## Explore the atlas
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="../../report/regions/nordic/nordic_map.html">Open the Nordic evidence atlas</a>
+  <a class="md-button" href="./chronology-playback/">Watch chronology playback</a>
   <a class="md-button" href="../../report/">Open the report portal</a>
   <a class="md-button" href="../../report/world/world_map.html">Open the world parent</a>
   <a class="md-button" href="../../report/regions/europe-plus/europe-plus_map.html">Open Europe-plus</a>
@@ -101,6 +105,20 @@ roles, and admission contracts differ.
 <div class="bijux-map-frame">
   <iframe src="../../report/regions/nordic/nordic_map.html" title="Nordic Evidence Atlas"></iframe>
 </div>
+
+### Navigate Chronology
+
+The top-bar **Older**, **Newer**, and **Play** controls move the active BP
+window from older evidence toward the present without changing scientific
+eligibility. The source selector exposes all admitted Neotoma samples, literal
+TRSH, UPHE, and AQVP codes, and exact source taxa such as *Secale*. The atlas
+reports both the selected facet denominator and the count visible in the active
+window, so an empty view can be distinguished from missing source data.
+
+The [chronology playback page](./chronology-playback/) provides 25 pre-rendered
+views for readers who want to inspect the same change through time without
+operating the map controls. Both surfaces preserve the rule that observation
+chronology and modeled context are not propagation claims.
 
 ### Choose A Question Before A Layer
 

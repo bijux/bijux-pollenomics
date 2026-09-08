@@ -1,0 +1,303 @@
+{
+  "schema_version": "boundary-country-review-manifest.v1",
+  "producer": {
+    "id": "bijux-pollenomics.boundary-country-review",
+    "version": "1",
+    "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/boundaries/review/publication.py",
+    "sha256": "437f54f14bd3efa88cffce45be070c6ff1f5c7e0b9446fb4cf74174fc9307a40"
+  },
+  "boundary_authority": {
+    "source": "Natural Earth",
+    "dataset": "Admin 0 - Countries",
+    "version": "5.1.1",
+    "source_revision": "5.1.1",
+    "source_revision_date": null,
+    "source_revision_date_status": "not_published_in_local_receipt",
+    "source_capture_date": "2026-09-04",
+    "release_page_url": "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/",
+    "asset_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.1/geojson/ne_10m_admin_0_countries.geojson",
+    "source_asset_sha256": "239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255",
+    "license": "public_domain",
+    "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "source_crs": "EPSG:4326",
+    "coordinate_transformation": "none",
+    "country_selection_field": "ADM0_A3",
+    "geometry_inclusion_policy": "retain_all_geometry_parts_from_each_selected_admin0_feature",
+    "source_manifest_sha256": "3855c31c227b8e9600d4f3956ea2f4f866a62cb55620f39d9e979834528b7373",
+    "normalized_artifact_sha256": "bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+    "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f"
+  },
+  "source_artifacts": {
+    "neotoma": [
+      {
+        "path": "data/neotoma/raw/neotoma_pollen_sites.json",
+        "sha256": "dedaf0388ef4b0503df34c6b616b39079b88dcfc030ef7e5957da17fdf907565",
+        "bytes": 581872
+      },
+      {
+        "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
+        "sha256": "21c20db0766ea1391d13d6a851ff96255447256ab2655cccf7057194aa85184c",
+        "bytes": 925942
+      },
+      {
+        "path": "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "sha256": "b6ca4e49d0aec59aee576fc540c77b6c2e21601ce28338227e98717ee0bb93e9",
+        "bytes": 307210
+      }
+    ],
+    "landclim": [
+      {
+        "path": "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
+        "sha256": "674f64d75a150424eacb47b2b777b03fff477c792cc5ff39f0425c21e58ca19e",
+        "bytes": 1583525
+      },
+      {
+        "path": "data/landclim/raw/landclim_i_land_cover_types.xlsx",
+        "sha256": "851774cece8fb87928028a0da0e9ab7314ac083fdcca2d1565c00a7aa24d7081",
+        "bytes": 221898
+      }
+    ],
+    "sead": [
+      {
+        "path": "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/country-decisions.json",
+        "sha256": "e08c2fa2f70d9a3491b95a87b81c992ec3902051aa6e30c35dbcb0f86e214528",
+        "bytes": 1211916
+      },
+      {
+        "path": "data/sead/raw/acquisitions/sead-live-d1fd2058913372eda1c12e526e0eb7c8a6cec415e9f9e9b5b92b8896597b35ac/payloads/tbl_sites.json",
+        "sha256": "b5cb28e935fdd2293999ffce7fe72c064571d4f7fc9e98b5e8bc4681a2b93479",
+        "bytes": 601136
+      }
+    ],
+    "animal_adna": [
+      {
+        "path": "data/adna/final/atlas/animal_atlas_point_candidates.json",
+        "sha256": "5d2a53b27c83d856eb6f033531ecba932d739355d7127fc27f360d32ed7cc6bc",
+        "bytes": 700614
+      },
+      {
+        "path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+        "sha256": "e37e1720c160cc0d7eaa4037ece22c1d9f8812f0cb31635647f26ca93137dd29",
+        "bytes": 81103
+      },
+      {
+        "path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+        "sha256": "f8dcf0155fe3a1352c02a86bae8db1085e6429ddac25ca6e29b07d6be605db6b",
+        "bytes": 171355
+      },
+      {
+        "path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+        "sha256": "e6367f3a2b877d7940e520dd90bc3066b9530b7dac738de5b35ade9ba4a91640",
+        "bytes": 233005
+      },
+      {
+        "path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+        "sha256": "2c4676aef05f1d9cc272eba1dabfc3d30fb7604c8fa3fc0713518414e213655f",
+        "bytes": 305785
+      },
+      {
+        "path": "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+        "sha256": "aaa7a6db334acdb81ac4c9f205a31e7dc746c40faa8bdd43e232425f4eb7f7a1",
+        "bytes": 511536
+      },
+      {
+        "path": "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+        "sha256": "da5eeb7f8f63110b572621df8d66fa06ffbaa2291df018a01656c93350f5010f",
+        "bytes": 2557869
+      },
+      {
+        "path": "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+        "sha256": "79e5fe0ba0bf86a217bb4d91dd8a350a27e89c976866c6ec067c700bb5eda0d2",
+        "bytes": 185895
+      },
+      {
+        "path": "data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+        "sha256": "b0aded81cd60083c3e387dc8edebf3c3a5fd24bde06a5b55fd266bec8b85378f",
+        "bytes": 42068
+      },
+      {
+        "path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html.gz",
+        "sha256": "cfaa4c900639c89d96bfc4096db90df964881c77d7434c045ad891dabddcd3b2",
+        "bytes": 24701
+      },
+      {
+        "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+        "sha256": "e1541763210d77411992559dc9fcda4771db57931cb2f98ae0f682b052ca12dd",
+        "bytes": 2691
+      },
+      {
+        "path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+        "sha256": "d72e70066adb82e6ecc0f8262973773753acef80a86fe21bd7341d51161febc2",
+        "bytes": 2694
+      }
+    ]
+  },
+  "country_order": [
+    "SE",
+    "DK",
+    "NO",
+    "FI"
+  ],
+  "point_count": 3048,
+  "point_review_count": 147,
+  "point_surface_scope": {
+    "denominator_policy": "Enumerate each source-owned point once from its most complete governed local surface; do not recount publication derivatives.",
+    "included_source_families": [
+      "animal_adna",
+      "landclim",
+      "neotoma",
+      "sead"
+    ],
+    "excluded_duplicate_or_nonpoint_surfaces": [
+      {
+        "path": "data/sead/normalized/nordic_environmental_sites.geojson",
+        "reason": "assigned-only derivative of the complete SEAD decision denominator"
+      },
+      {
+        "path": "data/neotoma/normalized/nordic_pollen_sites.geojson",
+        "reason": "used for geometry but counted through the Neotoma relational site denominator"
+      },
+      {
+        "path": "data/landclim/normalized/nordic_reveals_grid_cells.geojson",
+        "reason": "polygon surface; not a point-decision denominator"
+      },
+      {
+        "path": "data/raa/normalized/sweden_archaeology_density.geojson",
+        "reason": "polygon surface; not a point-decision denominator"
+      },
+      {
+        "path": "data/svar/review/sweden_lake_candidate_registry.geojson",
+        "reason": "orphaned review surface without governing source authority"
+      }
+    ]
+  },
+  "source_summaries": {
+    "animal_adna": {
+      "row_count": 170,
+      "country_counts": {
+        "SE": 2,
+        "DK": 4,
+        "NO": 0,
+        "FI": 0,
+        "UNASSIGNED": 164
+      },
+      "decision_status_counts": {
+        "assigned": 6,
+        "review": 1,
+        "unassigned": 163
+      },
+      "decision_method_counts": {
+        "boundary_proximity": 1,
+        "no_boundary_containment": 163,
+        "strict_boundary_containment": 6
+      },
+      "review_requirement_counts": {
+        "no_point_review_required": 169,
+        "qualified_review_required": 1
+      }
+    },
+    "landclim": {
+      "row_count": 490,
+      "country_counts": {
+        "SE": 194,
+        "DK": 127,
+        "NO": 87,
+        "FI": 66,
+        "UNASSIGNED": 16
+      },
+      "decision_status_counts": {
+        "assigned": 470,
+        "review": 18,
+        "unassigned": 2
+      },
+      "decision_method_counts": {
+        "boundary_proximity": 14,
+        "no_boundary_containment": 2,
+        "strict_boundary_containment": 474
+      },
+      "review_requirement_counts": {
+        "no_point_review_required": 470,
+        "qualified_review_required": 20
+      }
+    },
+    "neotoma": {
+      "row_count": 193,
+      "country_counts": {
+        "SE": 98,
+        "DK": 5,
+        "NO": 58,
+        "FI": 32,
+        "UNASSIGNED": 0
+      },
+      "decision_status_counts": {
+        "assigned": 193
+      },
+      "decision_method_counts": {
+        "strict_boundary_containment": 193
+      },
+      "review_requirement_counts": {
+        "no_point_review_required": 193
+      }
+    },
+    "sead": {
+      "row_count": 2195,
+      "country_counts": {
+        "SE": 1925,
+        "DK": 59,
+        "NO": 45,
+        "FI": 40,
+        "UNASSIGNED": 126
+      },
+      "decision_status_counts": {
+        "assigned": 2069,
+        "review": 103,
+        "unassigned": 23
+      },
+      "decision_method_counts": {
+        "boundary_proximity": 103,
+        "no_boundary_containment": 23,
+        "strict_boundary_containment": 2069
+      },
+      "review_requirement_counts": {
+        "no_point_review_required": 2069,
+        "qualified_review_required": 126
+      }
+    }
+  },
+  "outputs": [
+    {
+      "path": "data/boundaries/review/boundary_review.json",
+      "sha256": "ab8ad8c4e402cf59d2285be8012d156d33ee2366e3c167a9de5070329514b3e1",
+      "bytes": 115373
+    },
+    {
+      "path": "data/boundaries/review/country-decisions/animal_adna.json",
+      "sha256": "e77dd526ef217414fb19da2c0d9e92ab6be3e6a6f9abac4a91572235c653bb7c",
+      "bytes": 380963
+    },
+    {
+      "path": "data/boundaries/review/country-decisions/landclim.json",
+      "sha256": "ea326add7fd9f5ad1684b213df0a3470eece7feaeb4b94056cf620140e09d474",
+      "bytes": 1031076
+    },
+    {
+      "path": "data/boundaries/review/country-decisions/neotoma.json",
+      "sha256": "526f28320e98652d0ac7a807453a892ec62379086b5a362eb0f89e5f535b78e8",
+      "bytes": 429539
+    },
+    {
+      "path": "data/boundaries/review/country-decisions/sead.json",
+      "sha256": "5f74c5b8eeb02e28e0ff0b5abdb96a8fb0dc7fa32427055dce0c1967e07ad643",
+      "bytes": 4772196
+    },
+    {
+      "path": "data/boundaries/review/review_queue.json",
+      "sha256": "141a11056bd6d2329cb92813cc38e10db01d509d9385c7190b0640b4bcd4841b",
+      "bytes": 64526
+    }
+  ],
+  "release_posture": "blocked_pending_qualified_boundary_review",
+  "release_reason_codes": [
+    "qualified_boundary_inclusion_review_missing"
+  ]
+}

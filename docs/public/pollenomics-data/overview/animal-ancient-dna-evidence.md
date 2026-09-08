@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-07
 ---
 
 # Animal Ancient DNA Evidence
@@ -12,9 +12,9 @@ last_reviewed: 2026-07-22
 Animal ancient-DNA publication normally begins with a source-backed sample,
 not a project title or species mention. Papers, archive projects, supplements,
 sample tables, sites, chronology statements, and coordinates remain distinct
-evidence units until their relationships are explicitly curated. The current
-point surface also contains one explicitly qualified project-anchored context
-feature; it must not be described as a recovered sample.
+evidence units until their relationships are explicitly curated. Every current
+animal point is backed by admitted sample identities. Project-only context
+remains inspectable in the source and refusal records, not as a published point.
 
 ## Evidence Chain
 
@@ -67,38 +67,35 @@ result. It records what is known about the source and what remains unavailable.
 
 ## Current Evidence Depth
 
-The governed foundation currently contains **894 preparation rows** across
-**10 species and 40 archive projects**. Of those rows, 502 are fully grounded,
-256 are partly grounded, 29 are blocked by missing metadata, four by missing
-location detail, and 103 by weak chronology. This is the evidence-preparation
-population, not a sample or publication count.
+The governed foundation currently contains **1,450 final sample rows** across
+**10 species and 21 contributing projects**. Of those rows, 557 are fully
+grounded, 335 are partly grounded, 11 are blocked by missing metadata, 391 by
+missing location detail, and 156 by weak chronology. This is the final sample
+evidence-preparation population, not a publication-feature count.
 
-The generated project intake review separately contains **868 recovered
-sample-master rows** across the 40 tracked projects. Only four projects have
-an exact expected-sample denominator, 22 have a defensible minimum floor, and
-eight are flagged for implausibly low recovery. The repository therefore does
-not present 868 as a complete census of the tracked projects or as a row-for-row
-subset of the foundation.
+The generated project intake review separately covers **40 tracked projects**
+and contains **1,455 recovered raw sample-master rows**, of which **1,450 enter
+the final sample population**. Only four projects have an exact expected-sample
+denominator. The repository therefore does not present either total as a
+complete census of every deposited sample.
 
-The point-evidence review contains **234 admitted rows**. Of these, 233 retain
-supplementary-table coordinates and one uses documented named-site geocoding
-at approximate confidence. These are admitted evidence rows, not proof that
-every project, species, locality, or chronology has reached the same maturity.
+The point-evidence review contains **170 published locality features**
+representing **331 distinct admitted samples**. The features comprise 117
+`domesticated_core` localities and 53 `wild_or_progenitor_context` localities.
+These are admitted evidence features, not proof that every project, species,
+locality, or chronology has reached the same maturity.
 
-The same split applies to identity. The 233 supplementary-coordinate rows have
-final sample identity backed by directly extracted table rows. The remaining
-feature, the Wadi Halfa dromedary context for project `SRP073444`, has
-provisional project-anchored identity and `not_yet_recoverable` sample status.
-Its paper names Site 1040 near Wadi Halfa, and its published geometry is an
-approximate named-place resolution. The supported statement is therefore that
-the product carries a qualified dromedary context feature—not that a recovered
-sample row has exact excavation coordinates.
+All 170 published features are backed by at least one admitted sample. Wadi
+Halfa dromedary context for project `SRP073444` remains useful source context,
+but it is not published. Map-readiness accounting retains it among the 134
+not-materialized rows with reason
+`no_admitted_sample_backed_locality_candidate`.
 
 | Point population | Rows | Identity and coordinate posture |
 | --- | ---: | --- |
-| directly extracted sample evidence | 233 | final sample identity and supplementary-table coordinates |
-| project-anchored dromedary context | 1 | provisional identity and approximate Wadi Halfa named-place geocode |
-| total admitted point-evidence rows | 234 | mixed evidence surface; preserve the class of each row |
+| domesticated-core localities | 117 | admitted sample backing and product scope retained |
+| wild or progenitor context localities | 53 | admitted sample backing with context role retained |
+| total published locality features | 170 | represents 331 distinct admitted samples |
 
 ### Three Ledgers Answer Three Questions
 
@@ -106,11 +103,12 @@ sample row has exact excavation coordinates.
 | --- | --- | --- |
 | foundation truth | curated preparation row | how completely is the available identity, locality, chronology, and metadata evidence grounded? |
 | project sample master | recovered sample identity | which source labels resolve to a stable sample within a project? |
-| point publication | product member | which sample-backed or qualified context claims satisfy this map contract? |
+| point publication | locality feature and represented sample | which sample-backed domesticated-core or wild/progenitor-context localities satisfy this map contract? |
 
 No universal completeness percentage spans all three. A preparation blocker is
 not necessarily an identity ambiguity; a final identity is not necessarily
-point-ready; and a qualified context point is not a recovered sample.
+point-ready; and retained project context is not a published sample-backed
+locality.
 
 ### Evidence Depth Is Dimension-Specific
 
@@ -131,13 +129,12 @@ different states instead of averaging them into one quality label.
 
 ```mermaid
 flowchart LR
-    Inventory["40 tracked projects"] --> Foundation["894 preparation rows"]
-    Foundation -. "related, not one-to-one" .-> Recovery["868 recovered sample identities"]
-    Recovery --> Review["identity, locality, chronology, coordinate review"]
-    Review --> Samples["233 final sample-backed points"]
-    Inventory --> Context["1 qualified project-anchored context point"]
-    Samples --> Points["234 admitted point-evidence rows"]
-    Context --> Points
+    Inventory["40 tracked projects"] --> Recovery["1,455 recovered raw rows"]
+    Recovery --> Foundation["1,450 final sample rows"]
+    Foundation --> Review["identity, locality, chronology, coordinate review"]
+    Review --> Samples["331 distinct admitted samples"]
+    Samples --> Points["170 published locality features"]
+    Review --> Excluded["134 coordinate-ready rows not materialized"]
     Inventory --> Gaps["blocked, under-recovered, and unresolved projects"]
     Gaps --> Accountability["recovery review and refusal surfaces"]
 ```
@@ -153,13 +150,13 @@ a product-specific projection over separately governed evidence:
 
 | Point field | Governing owner | Projection rule |
 | --- | --- | --- |
-| feature identity | publication manifest and evidence-row identity | stable within the named product and linked to the governed sample or qualified context member |
+| feature identity | publication manifest and evidence-row identity | stable within the named product and linked to one or more admitted governed samples |
 | sample label and accession | project sample master | display the admitted identity without replacing source-native aliases |
 | species | species-normalized sample record and taxonomy decision | use the governed taxon posture, including qualification or conflict |
 | locality label | sample locality and site evidence | display at the admitted resolution; broad text remains broad |
 | geometry | coordinate-provenance decision | supplied, resolved, approximate, substituted, or withheld posture travels with the pair |
 | time label or interval | sample chronology evidence | preserve source wording, normalized basis, ownership, and comparability caveat |
-| admission posture | named product rule | distinguish sample-backed, qualified context, excluded, and deferred populations |
+| admission posture | named product rule | distinguish sample-backed scope classes from excluded and deferred populations |
 
 ```mermaid
 flowchart LR
@@ -208,12 +205,11 @@ project. The release posture records the narrower claim that the admitted
 subset satisfies its point contract while project-level recovery denominators,
 blocked sources, and unresolved evidence remain visible outside that subset.
 
-The Wadi Halfa context feature is the concrete reason publication type must
-travel with the row. It is spatially admitted under the current product but
-does not satisfy the stronger recovered-sample identity posture of the other
-233 rows. Analyses requiring sample-level independence or recovered sample
-denominators must exclude or separately classify it and account for that
-decision.
+Wadi Halfa is a concrete example of why publication decisions must travel with
+the evidence row. Its source context and approximate named-place coordinate
+remain traceable, but the current product does not materialize it without an
+admitted sample-backed locality candidate. Analyses must preserve that explicit
+exclusion rather than infer a point from retained context.
 
 Continue with [animal source intake](../sources/animal-source-intake.md),
 [sample records](../evidence/sample-records.md), [locality evidence](../evidence/localities.md),

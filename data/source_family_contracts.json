@@ -24,7 +24,9 @@
         "purpose": "tracked pollen-site and grid outputs prepared for interpretation",
         "example_artifacts": [
           "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
-          "data/landclim/normalized/nordic_reveals_grid_cells.geojson"
+          "data/landclim/normalized/nordic_reveals_grid_cells.geojson",
+          "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+          "data/landclim/normalized/landclim_bibliography.json"
         ]
       },
       "reviewed_layer": {
@@ -42,12 +44,14 @@
         "required": true,
         "purpose": "published pollen-context layers used in atlas outputs",
         "example_artifacts": [
-          "docs/report/regions/nordic/nordic_pollen_sites.geojson"
+          "docs/report/regions/nordic/nordic_pollen_sites.geojson",
+          "docs/report/regions/nordic/nordic_reveals_temporal_grid_cells.geojson"
         ]
       },
       "coverage_metric_keys": [
         "landclim_site_count",
-        "landclim_grid_cell_count"
+        "landclim_grid_cell_count",
+        "landclim_temporal_grid_feature_count"
       ],
       "layer_contracts": {
         "raw": {
@@ -66,7 +70,9 @@
           "purpose": "tracked pollen-site and grid outputs prepared for interpretation",
           "example_artifacts": [
             "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
-            "data/landclim/normalized/nordic_reveals_grid_cells.geojson"
+            "data/landclim/normalized/nordic_reveals_grid_cells.geojson",
+            "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+            "data/landclim/normalized/landclim_bibliography.json"
           ]
         },
         "reviewed": {
@@ -84,7 +90,8 @@
           "required": true,
           "purpose": "published pollen-context layers used in atlas outputs",
           "example_artifacts": [
-            "docs/report/regions/nordic/nordic_pollen_sites.geojson"
+            "docs/report/regions/nordic/nordic_pollen_sites.geojson",
+            "docs/report/regions/nordic/nordic_reveals_temporal_grid_cells.geojson"
           ]
         }
       }
@@ -183,9 +190,10 @@
         "layer_key": "raw",
         "repository_path": "data/sead/raw",
         "required": true,
-        "purpose": "tracked SEAD site inventory and source payload capture",
+        "purpose": "admitted SEAD acquisition and exact site payload capture",
         "example_artifacts": [
-          "data/sead/raw/nordic_sites.json"
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+          "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json"
         ]
       },
       "normalized_layer": {
@@ -194,7 +202,8 @@
         "required": true,
         "purpose": "tracked normalized SEAD context ready for downstream use",
         "example_artifacts": [
-          "data/sead/normalized/nordic_environmental_sites.geojson"
+          "data/sead/normalized/nordic_environmental_sites.geojson",
+          "data/sead/normalized/nordic_temporal_evidence.geojson"
         ]
       },
       "reviewed_layer": {
@@ -224,9 +233,10 @@
           "layer_key": "raw",
           "repository_path": "data/sead/raw",
           "required": true,
-          "purpose": "tracked SEAD site inventory and source payload capture",
+          "purpose": "admitted SEAD acquisition and exact site payload capture",
           "example_artifacts": [
-            "data/sead/raw/nordic_sites.json"
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json"
           ]
         },
         "normalized": {
@@ -235,7 +245,8 @@
           "required": true,
           "purpose": "tracked normalized SEAD context ready for downstream use",
           "example_artifacts": [
-            "data/sead/normalized/nordic_environmental_sites.geojson"
+            "data/sead/normalized/nordic_environmental_sites.geojson",
+            "data/sead/normalized/nordic_temporal_evidence.geojson"
           ]
         },
         "reviewed": {
@@ -374,7 +385,12 @@
         "required": true,
         "purpose": "source-specific review of geometry coverage and framing limits",
         "example_artifacts": [
-          "data/boundaries/review/framing_review.json"
+          "data/boundaries/review/boundary_review.json",
+          "data/boundaries/review/manifest.json",
+          "data/boundaries/review/country-decisions/animal_adna.json",
+          "data/boundaries/review/country-decisions/landclim.json",
+          "data/boundaries/review/country-decisions/neotoma.json",
+          "data/boundaries/review/country-decisions/sead.json"
         ]
       },
       "published_layer": {
@@ -414,7 +430,12 @@
           "required": true,
           "purpose": "source-specific review of geometry coverage and framing limits",
           "example_artifacts": [
-            "data/boundaries/review/framing_review.json"
+            "data/boundaries/review/boundary_review.json",
+            "data/boundaries/review/manifest.json",
+            "data/boundaries/review/country-decisions/animal_adna.json",
+            "data/boundaries/review/country-decisions/landclim.json",
+            "data/boundaries/review/country-decisions/neotoma.json",
+            "data/boundaries/review/country-decisions/sead.json"
           ]
         },
         "published": {
@@ -456,9 +477,10 @@
         "layer_key": "reviewed",
         "repository_path": "data/svar/review",
         "required": true,
-        "purpose": "source-specific review of lake-registry freshness and coverage",
+        "purpose": "source-specific review of evidence-linked lake identity, area, and sampling readiness",
         "example_artifacts": [
-          "data/svar/review/lake_registry_review.json"
+          "data/svar/review/lake_candidate_registry_review.json",
+          "data/svar/review/sweden_lake_candidate_registry.geojson"
         ]
       },
       "published_layer": {
@@ -496,9 +518,10 @@
           "layer_key": "reviewed",
           "repository_path": "data/svar/review",
           "required": true,
-          "purpose": "source-specific review of lake-registry freshness and coverage",
+          "purpose": "source-specific review of evidence-linked lake identity, area, and sampling readiness",
           "example_artifacts": [
-            "data/svar/review/lake_registry_review.json"
+            "data/svar/review/lake_candidate_registry_review.json",
+            "data/svar/review/sweden_lake_candidate_registry.geojson"
           ]
         },
         "published": {
@@ -520,7 +543,7 @@
       "primary_question": "Which tracked human ancient-DNA inputs and normalized records exist under the governed AADR program?",
       "raw_layer": {
         "layer_key": "raw",
-        "repository_path": "data/aadr",
+        "repository_path": "data/aadr/v66",
         "required": true,
         "purpose": "tracked AADR versioned source files",
         "example_artifacts": [
@@ -540,9 +563,9 @@
         "layer_key": "reviewed",
         "repository_path": "data/adna/species/homo_sapiens/review",
         "required": true,
-        "purpose": "review-ready Homo sapiens package artifacts",
+        "purpose": "compact, non-admitting AADR source-accountability evidence",
         "example_artifacts": [
-          "data/adna/species/homo_sapiens/review"
+          "data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json"
         ]
       },
       "published_layer": {
@@ -560,7 +583,7 @@
       "layer_contracts": {
         "raw": {
           "layer_key": "raw",
-          "repository_path": "data/aadr",
+          "repository_path": "data/aadr/v66",
           "required": true,
           "purpose": "tracked AADR versioned source files",
           "example_artifacts": [
@@ -580,9 +603,9 @@
           "layer_key": "reviewed",
           "repository_path": "data/adna/species/homo_sapiens/review",
           "required": true,
-          "purpose": "review-ready Homo sapiens package artifacts",
+          "purpose": "compact, non-admitting AADR source-accountability evidence",
           "example_artifacts": [
-            "data/adna/species/homo_sapiens/review"
+            "data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json"
           ]
         },
         "published": {
@@ -682,5 +705,712 @@
         }
       }
     }
-  ]
+  ],
+  "capability_contract": {
+    "schema_version": "source-capability-contract.v1",
+    "dimension_count": 17,
+    "source_count": 8,
+    "normative_contract": {
+      "contract_id": "bijux-pollenomics-source-capability-matrix",
+      "schema_version": "1.0.0",
+      "source_count": 7,
+      "source_keys": [
+        "animal_adna",
+        "boundaries",
+        "landclim",
+        "neotoma",
+        "raa",
+        "sead",
+        "svar"
+      ]
+    },
+    "extension_sources": [
+      "aadr"
+    ],
+    "dimensions": [
+      "site_identity",
+      "coordinates",
+      "four_country_coverage",
+      "within_site_hierarchy",
+      "numeric_chronology",
+      "chronology_uncertainty",
+      "relative_chronology",
+      "taxon_identity",
+      "native_ecological_class",
+      "derived_pollen_group",
+      "derived_ecological_role",
+      "crop_cereal_resolution",
+      "quantitative_observation",
+      "observation_unit",
+      "dataset_provenance",
+      "pollen_propagation_event",
+      "non_pollen_context"
+    ],
+    "sources": [
+      {
+        "source_key": "landclim",
+        "evidence_class": "modelled_vegetation_or_land_cover",
+        "allowed_role": "modelled vegetation and land-cover context",
+        "prohibited_claims": [
+          "model output is an observed pollen find",
+          "model gradients prove migration or causation"
+        ],
+        "support_by_dimension": {
+          "site_identity": "supported",
+          "coordinates": "supported",
+          "four_country_coverage": "partial",
+          "within_site_hierarchy": "partial",
+          "numeric_chronology": "supported",
+          "chronology_uncertainty": "partial",
+          "relative_chronology": "unsupported",
+          "taxon_identity": "partial",
+          "native_ecological_class": "supported",
+          "derived_pollen_group": "partial",
+          "derived_ecological_role": "partial",
+          "crop_cereal_resolution": "partial",
+          "quantitative_observation": "supported",
+          "observation_unit": "supported",
+          "dataset_provenance": "partial",
+          "pollen_propagation_event": "partial",
+          "non_pollen_context": "supported"
+        },
+        "evidence_paths_by_dimension": {
+          "site_identity": [
+            "data/landclim/normalized/nordic_pollen_site_sequences.geojson"
+          ],
+          "coordinates": [
+            "data/landclim/normalized/nordic_pollen_site_sequences.geojson"
+          ],
+          "four_country_coverage": [
+            "data/country_dimension_coverage.json"
+          ],
+          "within_site_hierarchy": [
+            "data/landclim/normalized/site_hierarchy.json"
+          ],
+          "numeric_chronology": [
+            "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+            "data/landclim/review/spatiotemporal_review.json"
+          ],
+          "chronology_uncertainty": [
+            "data/landclim/review/spatiotemporal_review.json"
+          ],
+          "relative_chronology": [],
+          "taxon_identity": [
+            "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"
+          ],
+          "native_ecological_class": [
+            "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"
+          ],
+          "derived_pollen_group": [
+            "data/landclim/derived/pollen_group_assignments.json"
+          ],
+          "derived_ecological_role": [
+            "data/landclim/derived/ecological_role_assignments.json"
+          ],
+          "crop_cereal_resolution": [
+            "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"
+          ],
+          "quantitative_observation": [
+            "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson"
+          ],
+          "observation_unit": [
+            "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson"
+          ],
+          "dataset_provenance": [
+            "data/landclim/raw/landclim_sources.json"
+          ],
+          "pollen_propagation_event": [
+            "data/landclim/derived/pollen_propagation_events.json"
+          ],
+          "non_pollen_context": [
+            "data/landclim/normalized/nordic_reveals_grid_cells.geojson"
+          ]
+        },
+        "human_review_required": true,
+        "human_review_reason": "qualified_model_semantics_review_missing"
+      },
+      {
+        "source_key": "neotoma",
+        "evidence_class": "observed_paleoecological",
+        "allowed_role": "sample- and taxon-resolved observed pollen evidence",
+        "prohibited_claims": [
+          "site envelopes are first-occurrence events",
+          "incompatible observation units are interchangeable"
+        ],
+        "support_by_dimension": {
+          "site_identity": "supported",
+          "coordinates": "supported",
+          "four_country_coverage": "partial",
+          "within_site_hierarchy": "supported",
+          "numeric_chronology": "supported",
+          "chronology_uncertainty": "partial",
+          "relative_chronology": "partial",
+          "taxon_identity": "supported",
+          "native_ecological_class": "supported",
+          "derived_pollen_group": "partial",
+          "derived_ecological_role": "partial",
+          "crop_cereal_resolution": "supported",
+          "quantitative_observation": "supported",
+          "observation_unit": "supported",
+          "dataset_provenance": "supported",
+          "pollen_propagation_event": "supported",
+          "non_pollen_context": "supported"
+        },
+        "evidence_paths_by_dimension": {
+          "site_identity": [
+            "data/neotoma/relational/surfaces/sites/part-00001.json"
+          ],
+          "coordinates": [
+            "data/neotoma/relational/surfaces/sites/part-00001.json"
+          ],
+          "four_country_coverage": [
+            "data/country_dimension_coverage.json"
+          ],
+          "within_site_hierarchy": [
+            "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+            "data/neotoma/relational/surfaces/samples/part-00001.json"
+          ],
+          "numeric_chronology": [
+            "data/neotoma/relational/surfaces/age_claims/part-00001.json"
+          ],
+          "chronology_uncertainty": [
+            "data/neotoma/relational/surfaces/chronology_controls/part-00001.json"
+          ],
+          "relative_chronology": [
+            "data/neotoma/relational/surfaces/relative_chronology/part-00001.json"
+          ],
+          "taxon_identity": [
+            "data/neotoma/relational/surfaces/variables/part-00001.json"
+          ],
+          "native_ecological_class": [
+            "data/neotoma/review/classification_evidence.json"
+          ],
+          "derived_pollen_group": [
+            "data/neotoma/review/classification_evidence.json"
+          ],
+          "derived_ecological_role": [
+            "data/neotoma/review/classification_evidence.json"
+          ],
+          "crop_cereal_resolution": [
+            "data/neotoma/review/classification_evidence.json"
+          ],
+          "quantitative_observation": [
+            "data/neotoma/relational/surfaces/observations/part-00001.json",
+            "data/neotoma/relational/surfaces/observations/part-00002.json",
+            "data/neotoma/relational/surfaces/observations/part-00003.json",
+            "data/neotoma/relational/surfaces/observations/part-00004.json",
+            "data/neotoma/relational/surfaces/observations/part-00005.json",
+            "data/neotoma/relational/surfaces/observations/part-00006.json",
+            "data/neotoma/relational/surfaces/observations/part-00007.json",
+            "data/neotoma/relational/surfaces/observations/part-00008.json"
+          ],
+          "observation_unit": [
+            "data/neotoma/relational/surfaces/variables/part-00001.json",
+            "data/neotoma/relational/surfaces/observations/part-00001.json",
+            "data/neotoma/relational/surfaces/observations/part-00002.json",
+            "data/neotoma/relational/surfaces/observations/part-00003.json",
+            "data/neotoma/relational/surfaces/observations/part-00004.json",
+            "data/neotoma/relational/surfaces/observations/part-00005.json",
+            "data/neotoma/relational/surfaces/observations/part-00006.json",
+            "data/neotoma/relational/surfaces/observations/part-00007.json",
+            "data/neotoma/relational/surfaces/observations/part-00008.json"
+          ],
+          "dataset_provenance": [
+            "data/neotoma/relational/manifest.json"
+          ],
+          "pollen_propagation_event": [
+            "data/neotoma/derived/pollen_propagation_evidence.json"
+          ],
+          "non_pollen_context": [
+            "data/neotoma/relational/surfaces/non_pollen_context/part-00001.json"
+          ]
+        },
+        "human_review_required": true,
+        "human_review_reason": "qualified_ecological_classification_review_missing"
+      },
+      {
+        "source_key": "sead",
+        "evidence_class": "observed_archaeological_environmental",
+        "allowed_role": "multidisciplinary environmental archaeology evidence",
+        "prohibited_claims": [
+          "site inventory presence is chronology",
+          "context-only dates are pollen propagation events"
+        ],
+        "support_by_dimension": {
+          "site_identity": "supported",
+          "coordinates": "supported",
+          "four_country_coverage": "partial",
+          "within_site_hierarchy": "supported",
+          "numeric_chronology": "supported",
+          "chronology_uncertainty": "partial",
+          "relative_chronology": "supported",
+          "taxon_identity": "supported",
+          "native_ecological_class": "supported",
+          "derived_pollen_group": "partial",
+          "derived_ecological_role": "partial",
+          "crop_cereal_resolution": "partial",
+          "quantitative_observation": "supported",
+          "observation_unit": "supported",
+          "dataset_provenance": "supported",
+          "pollen_propagation_event": "partial",
+          "non_pollen_context": "supported"
+        },
+        "evidence_paths_by_dimension": {
+          "site_identity": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json"
+          ],
+          "coordinates": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json"
+          ],
+          "four_country_coverage": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/country_dimension_coverage.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
+          ],
+          "within_site_hierarchy": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_groups.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_physical_samples.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+          ],
+          "numeric_chronology": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entity_ages.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
+          ],
+          "chronology_uncertainty": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dating_uncertainty.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
+          ],
+          "relative_chronology": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_ages.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_dates.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json"
+          ],
+          "taxon_identity": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_taxa_tree_master.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+          ],
+          "native_ecological_class": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocodes.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_definitions.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_groups.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_ecocode_systems.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+          ],
+          "derived_pollen_group": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+            "data/sead/derived/pollen_groups.json"
+          ],
+          "derived_ecological_role": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+            "data/sead/derived/ecological_roles.json"
+          ],
+          "crop_cereal_resolution": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+            "data/sead/derived/crop_cereal_resolution.json"
+          ],
+          "quantitative_observation": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_numerical_values.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_integer_values.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_categorical_values.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_boolean_values.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_measured_values.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
+          ],
+          "observation_unit": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_types.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_dimensions.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_units.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json"
+          ],
+          "dataset_provenance": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json"
+          ],
+          "pollen_propagation_event": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events.json",
+            "data/sead/derived/pollen_propagation_events.json"
+          ],
+          "non_pollen_context": [
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+            "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+            "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json"
+          ]
+        },
+        "human_review_required": true,
+        "human_review_reason": "qualified_sead_ecological_classification_review_missing"
+      },
+      {
+        "source_key": "raa",
+        "evidence_class": "archaeological_context",
+        "allowed_role": "Sweden-only archaeological context",
+        "prohibited_claims": [
+          "named periods are numeric BP without a governed crosswalk",
+          "archaeological density is population or pollen presence"
+        ],
+        "support_by_dimension": {
+          "site_identity": "supported",
+          "coordinates": "supported",
+          "four_country_coverage": "unsupported",
+          "within_site_hierarchy": "partial",
+          "numeric_chronology": "partial",
+          "chronology_uncertainty": "partial",
+          "relative_chronology": "supported",
+          "taxon_identity": "unsupported",
+          "native_ecological_class": "unsupported",
+          "derived_pollen_group": "unsupported",
+          "derived_ecological_role": "unsupported",
+          "crop_cereal_resolution": "unsupported",
+          "quantitative_observation": "partial",
+          "observation_unit": "partial",
+          "dataset_provenance": "supported",
+          "pollen_propagation_event": "unsupported",
+          "non_pollen_context": "supported"
+        },
+        "evidence_paths_by_dimension": {
+          "site_identity": [
+            "data/raa/normalized/sweden_archaeology_layer.json"
+          ],
+          "coordinates": [
+            "data/raa/normalized/sweden_archaeology_layer.json"
+          ],
+          "four_country_coverage": [],
+          "within_site_hierarchy": [
+            "data/raa/normalized/site_hierarchy.json"
+          ],
+          "numeric_chronology": [
+            "data/raa/review/spatiotemporal_review.json"
+          ],
+          "chronology_uncertainty": [
+            "data/raa/review/spatiotemporal_review.json"
+          ],
+          "relative_chronology": [
+            "data/raa/review/spatiotemporal_review.json"
+          ],
+          "taxon_identity": [],
+          "native_ecological_class": [],
+          "derived_pollen_group": [],
+          "derived_ecological_role": [],
+          "crop_cereal_resolution": [],
+          "quantitative_observation": [
+            "data/raa/normalized/sweden_archaeology_density.geojson"
+          ],
+          "observation_unit": [
+            "data/raa/review/spatiotemporal_review.json"
+          ],
+          "dataset_provenance": [
+            "data/raa/raw/fornsok_domains.json"
+          ],
+          "pollen_propagation_event": [],
+          "non_pollen_context": [
+            "data/raa/normalized/sweden_archaeology_layer.json"
+          ]
+        },
+        "human_review_required": true,
+        "human_review_reason": "qualified_raa_source_review_missing"
+      },
+      {
+        "source_key": "svar",
+        "evidence_class": "modern_environmental_context",
+        "allowed_role": "Sweden lake identity and sampling context",
+        "prohibited_claims": [
+          "modern lake attributes are historical pollen chronology",
+          "environmental similarity is propagation"
+        ],
+        "support_by_dimension": {
+          "site_identity": "supported",
+          "coordinates": "supported",
+          "four_country_coverage": "unsupported",
+          "within_site_hierarchy": "partial",
+          "numeric_chronology": "unsupported",
+          "chronology_uncertainty": "unsupported",
+          "relative_chronology": "unsupported",
+          "taxon_identity": "unsupported",
+          "native_ecological_class": "unsupported",
+          "derived_pollen_group": "unsupported",
+          "derived_ecological_role": "unsupported",
+          "crop_cereal_resolution": "unsupported",
+          "quantitative_observation": "supported",
+          "observation_unit": "supported",
+          "dataset_provenance": "partial",
+          "pollen_propagation_event": "unsupported",
+          "non_pollen_context": "supported"
+        },
+        "evidence_paths_by_dimension": {
+          "site_identity": [
+            "data/svar/review/sweden_lake_candidate_registry.geojson"
+          ],
+          "coordinates": [
+            "data/svar/review/sweden_lake_candidate_registry.geojson"
+          ],
+          "four_country_coverage": [],
+          "within_site_hierarchy": [
+            "data/svar/normalized/sweden_lake_hierarchy.json"
+          ],
+          "numeric_chronology": [],
+          "chronology_uncertainty": [],
+          "relative_chronology": [],
+          "taxon_identity": [],
+          "native_ecological_class": [],
+          "derived_pollen_group": [],
+          "derived_ecological_role": [],
+          "crop_cereal_resolution": [],
+          "quantitative_observation": [
+            "data/svar/review/sweden_lake_candidate_registry.geojson"
+          ],
+          "observation_unit": [
+            "data/svar/review/sweden_lake_candidate_registry.geojson"
+          ],
+          "dataset_provenance": [
+            "data/svar/raw/svar_lake_registry_manifest.json"
+          ],
+          "pollen_propagation_event": [],
+          "non_pollen_context": [
+            "data/svar/review/sweden_lake_candidate_registry.geojson"
+          ]
+        },
+        "human_review_required": true,
+        "human_review_reason": "qualified_svar_publication_review_missing"
+      },
+      {
+        "source_key": "aadr",
+        "evidence_class": "human_ancient_dna",
+        "allowed_role": "human ancient-DNA sample and locality context",
+        "prohibited_claims": [
+          "human ancient DNA is pollen evidence",
+          "co-occurrence proves ecological or demographic causation"
+        ],
+        "support_by_dimension": {
+          "site_identity": "supported",
+          "coordinates": "supported",
+          "four_country_coverage": "partial",
+          "within_site_hierarchy": "supported",
+          "numeric_chronology": "supported",
+          "chronology_uncertainty": "partial",
+          "relative_chronology": "partial",
+          "taxon_identity": "supported",
+          "native_ecological_class": "unsupported",
+          "derived_pollen_group": "unsupported",
+          "derived_ecological_role": "unsupported",
+          "crop_cereal_resolution": "unsupported",
+          "quantitative_observation": "partial",
+          "observation_unit": "partial",
+          "dataset_provenance": "supported",
+          "pollen_propagation_event": "unsupported",
+          "non_pollen_context": "supported"
+        },
+        "evidence_paths_by_dimension": {
+          "site_identity": [
+            "docs/report/countries/sweden/sweden_aadr_v66_localities.csv"
+          ],
+          "coordinates": [
+            "docs/report/countries/sweden/sweden_aadr_v66_samples.geojson"
+          ],
+          "four_country_coverage": [
+            "data/country_dimension_coverage.json"
+          ],
+          "within_site_hierarchy": [
+            "docs/report/countries/sweden/sweden_aadr_v66_localities.csv"
+          ],
+          "numeric_chronology": [
+            "docs/report/countries/sweden/sweden_aadr_v66_samples.csv"
+          ],
+          "chronology_uncertainty": [
+            "docs/report/countries/sweden/sweden_aadr_v66_bundle.json"
+          ],
+          "relative_chronology": [
+            "docs/report/countries/sweden/sweden_aadr_v66_relative_chronology.json"
+          ],
+          "taxon_identity": [
+            "data/aadr/v66/taxon_identity.json"
+          ],
+          "native_ecological_class": [],
+          "derived_pollen_group": [],
+          "derived_ecological_role": [],
+          "crop_cereal_resolution": [],
+          "quantitative_observation": [
+            "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno"
+          ],
+          "observation_unit": [
+            "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno"
+          ],
+          "dataset_provenance": [
+            "data/aadr/v66/release_manifest.json"
+          ],
+          "pollen_propagation_event": [],
+          "non_pollen_context": [
+            "docs/report/countries/sweden/sweden_aadr_v66_bundle.json"
+          ]
+        },
+        "human_review_required": true,
+        "human_review_reason": "qualified_human_adna_source_review_missing"
+      },
+      {
+        "source_key": "animal_adna",
+        "evidence_class": "observed_genetic_or_zooarchaeological",
+        "allowed_role": "animal genetic and zooarchaeological context",
+        "prohibited_claims": [
+          "animal ancient DNA is pollen evidence",
+          "animal-human-pollen co-occurrence proves causation"
+        ],
+        "support_by_dimension": {
+          "site_identity": "supported",
+          "coordinates": "supported",
+          "four_country_coverage": "partial",
+          "within_site_hierarchy": "supported",
+          "numeric_chronology": "supported",
+          "chronology_uncertainty": "partial",
+          "relative_chronology": "partial",
+          "taxon_identity": "supported",
+          "native_ecological_class": "partial",
+          "derived_pollen_group": "unsupported",
+          "derived_ecological_role": "unsupported",
+          "crop_cereal_resolution": "unsupported",
+          "quantitative_observation": "partial",
+          "observation_unit": "partial",
+          "dataset_provenance": "supported",
+          "pollen_propagation_event": "unsupported",
+          "non_pollen_context": "supported"
+        },
+        "evidence_paths_by_dimension": {
+          "site_identity": [
+            "data/adna/governance/source_library/project_sample_site_review.json"
+          ],
+          "coordinates": [
+            "data/adna/governance/coordinate_caveat_surface.json"
+          ],
+          "four_country_coverage": [
+            "data/country_dimension_coverage.json"
+          ],
+          "within_site_hierarchy": [
+            "data/adna/governance/source_library/project_locality_completeness.json"
+          ],
+          "numeric_chronology": [
+            "data/adna/governance/source_library/sample_chronology_normalization_audit.json"
+          ],
+          "chronology_uncertainty": [
+            "data/adna/governance/source_library/sample_chronology_precision_audit.json"
+          ],
+          "relative_chronology": [
+            "data/adna/governance/source_library/sample_chronology_review.json"
+          ],
+          "taxon_identity": [
+            "data/adna/governance/source_library/project_registry.json"
+          ],
+          "native_ecological_class": [
+            "data/adna/governance/native_ecological_classification.json"
+          ],
+          "derived_pollen_group": [],
+          "derived_ecological_role": [],
+          "crop_cereal_resolution": [],
+          "quantitative_observation": [
+            "data/adna/governance/animal_quantitative_observations.json"
+          ],
+          "observation_unit": [
+            "data/adna/governance/animal_observation_units.json"
+          ],
+          "dataset_provenance": [
+            "data/adna/governance/source_library/source_artifact_index.json"
+          ],
+          "pollen_propagation_event": [],
+          "non_pollen_context": [
+            "data/adna/governance/animal_sample_foundation_truth.json"
+          ]
+        },
+        "human_review_required": true,
+        "human_review_reason": "qualified_animal_adna_source_review_missing"
+      },
+      {
+        "source_key": "boundaries",
+        "evidence_class": "geographic_framing",
+        "allowed_role": "map framing and governed country assignment",
+        "prohibited_claims": [
+          "modern borders are historical ecological barriers",
+          "country framing supplies observations or chronology"
+        ],
+        "support_by_dimension": {
+          "site_identity": "supported",
+          "coordinates": "supported",
+          "four_country_coverage": "supported",
+          "within_site_hierarchy": "unsupported",
+          "numeric_chronology": "unsupported",
+          "chronology_uncertainty": "unsupported",
+          "relative_chronology": "unsupported",
+          "taxon_identity": "unsupported",
+          "native_ecological_class": "unsupported",
+          "derived_pollen_group": "unsupported",
+          "derived_ecological_role": "unsupported",
+          "crop_cereal_resolution": "unsupported",
+          "quantitative_observation": "unsupported",
+          "observation_unit": "unsupported",
+          "dataset_provenance": "supported",
+          "pollen_propagation_event": "unsupported",
+          "non_pollen_context": "supported"
+        },
+        "evidence_paths_by_dimension": {
+          "site_identity": [
+            "data/boundaries/normalized/nordic_country_boundaries.geojson"
+          ],
+          "coordinates": [
+            "data/boundaries/normalized/nordic_country_boundaries.geojson"
+          ],
+          "four_country_coverage": [
+            "data/boundaries/normalized/nordic_country_boundaries.geojson",
+            "data/country_dimension_coverage.json"
+          ],
+          "within_site_hierarchy": [],
+          "numeric_chronology": [],
+          "chronology_uncertainty": [],
+          "relative_chronology": [],
+          "taxon_identity": [],
+          "native_ecological_class": [],
+          "derived_pollen_group": [],
+          "derived_ecological_role": [],
+          "crop_cereal_resolution": [],
+          "quantitative_observation": [],
+          "observation_unit": [],
+          "dataset_provenance": [
+            "data/boundaries/raw/source_manifest.json"
+          ],
+          "pollen_propagation_event": [],
+          "non_pollen_context": [
+            "data/boundaries/normalized/nordic_country_boundaries.geojson"
+          ]
+        },
+        "human_review_required": true,
+        "human_review_reason": "qualified_boundary_inclusion_review_missing"
+      }
+    ]
+  }
 }

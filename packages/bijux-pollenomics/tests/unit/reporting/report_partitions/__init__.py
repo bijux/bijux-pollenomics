@@ -1,0 +1,1 @@
+"""Partitioned report publication tests."""

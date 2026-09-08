@@ -27,8 +27,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -53,8 +53,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -79,8 +79,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -105,8 +105,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -125,14 +125,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "Table S2!row20",
-      "chronology_provenance_text": "18 | CHIC-0018 | PGULL-0529 | LLD-0471 | La_Gomera | Cuevas de Herrera González | 28.174384 | -17.323678999999998 | 15th century CE (SU6) | Yes | Yes | Yes | 2.5270000000000001E-2 | 49.3108 | 0.228326 | 106005 | 1 | 306.40699999999998 | Yes | A8a |  15120A | 1 | 279.37599999999998 | Yes | [16498dC] ",
+      "chronology_provenance_text": "18 | CHIC-0018 | PGULL-0529 | LLD-0471 | La_Gomera | Cuevas de Herrera González | 28.174384 | -17.323678999999998 | 15th century CE (SU6) | Yes | Yes | Yes | 2.5270000000000001E-2 | 49.3108 | 0.228326 | 106005 | 1 | 306.40699999999998 | Yes | A8a |  15120A | 1 | 279.37599999999998 | Yes | [16498dC]",
       "chronology_normalization_status": "text_only_unparsed",
       "time_start_bp": null,
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -157,8 +157,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -183,8 +183,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -209,8 +209,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -235,8 +235,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -261,8 +261,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -287,8 +287,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -313,8 +313,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -339,8 +339,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -365,8 +365,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -391,8 +391,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -417,8 +417,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -443,8 +443,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -469,8 +469,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -495,8 +495,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -521,8 +521,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -541,14 +541,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "Table S2!row45",
-      "chronology_provenance_text": "43 | CHIC-0043 | PGULL-1249 | LLD-0106 | Fuerteventura | Cueva de Villaverde | 28.637195999999999 | -13.899853999999999 | 6th - 12th centuries CE (site) | Yes | No | No | 8.3169999999999994E-2 | 52.210700000000003 | 0.27404899999999999 | 21348 | 0.99789700000000003 | 65.646900000000002 | Yes | A8 | ",
+      "chronology_provenance_text": "43 | CHIC-0043 | PGULL-1249 | LLD-0106 | Fuerteventura | Cueva de Villaverde | 28.637195999999999 | -13.899853999999999 | 6th - 12th centuries CE (site) | Yes | No | No | 8.3169999999999994E-2 | 52.210700000000003 | 0.27404899999999999 | 21348 | 0.99789700000000003 | 65.646900000000002 | Yes | A8 |",
       "chronology_normalization_status": "text_only_unparsed",
       "time_start_bp": null,
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -573,8 +573,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -599,8 +599,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -619,14 +619,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "Table S2!row60",
-      "chronology_provenance_text": "58 | CHIC-0058 | PGULL-1295 | LLD-0497 | Lobos | Lobos | 28.741962000000001 | -13.825055000000001 | 1st century BCE - 3rd century CE (site) | Yes | No | No | 4.7E-2 | 42.363500000000002 | 0.33942600000000001 | 10681 | 0.98678100000000002 | 26.2804 | No | A8a | - | 0.87881299999999996 | 20.2514 | No ",
+      "chronology_provenance_text": "58 | CHIC-0058 | PGULL-1295 | LLD-0497 | Lobos | Lobos | 28.741962000000001 | -13.825055000000001 | 1st century BCE - 3rd century CE (site) | Yes | No | No | 4.7E-2 | 42.363500000000002 | 0.33942600000000001 | 10681 | 0.98678100000000002 | 26.2804 | No | A8a | - | 0.87881299999999996 | 20.2514 | No",
       "chronology_normalization_status": "text_only_unparsed",
       "time_start_bp": null,
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -645,14 +645,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "Table S2!row61",
-      "chronology_provenance_text": "59 | CHIC-0059 | PGULL-1296 | LLD-0498 | Lobos | Lobos | 28.741962000000001 | -13.825055000000001 | 1st century BCE - 3rd century CE (site) | Yes | No | No | 1.2880000000000001E-2 | 44.390599999999999 | 0.32841799999999999 | 16071 | 0.99783699999999997 | 41.5366 | No | A8a | - | 0.97774099999999997 ",
+      "chronology_provenance_text": "59 | CHIC-0059 | PGULL-1296 | LLD-0498 | Lobos | Lobos | 28.741962000000001 | -13.825055000000001 | 1st century BCE - 3rd century CE (site) | Yes | No | No | 1.2880000000000001E-2 | 44.390599999999999 | 0.32841799999999999 | 16071 | 0.99783699999999997 | 41.5366 | No | A8a | - | 0.97774099999999997",
       "chronology_normalization_status": "text_only_unparsed",
       "time_start_bp": null,
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -677,8 +677,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -703,8 +703,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -729,8 +729,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -755,8 +755,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -781,8 +781,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -807,8 +807,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -833,8 +833,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -859,8 +859,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -885,8 +885,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -911,8 +911,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -937,8 +937,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -963,8 +963,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -989,8 +989,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1015,8 +1015,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1041,8 +1041,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1067,8 +1067,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1093,8 +1093,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1113,14 +1113,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "Table S2!row28",
-      "chronology_provenance_text": "26 | CHIC-0026 | PGULL-1688 | LLD-0650 | Gran_Canaria | Hospital de San Martin - Calle San Marcial | 28.101313749999999 | -15.4148534 | 15th - 16th centuries CE (R1; SU86) | Yes | Yes | Yes | 2.8840000000000001E-2 | 43.5227 | 0.27858500000000003 | 15721 | 1 | 39.021799999999999 | Yes | A8 |  12107C ",
+      "chronology_provenance_text": "26 | CHIC-0026 | PGULL-1688 | LLD-0650 | Gran_Canaria | Hospital de San Martin - Calle San Marcial | 28.101313749999999 | -15.4148534 | 15th - 16th centuries CE (R1; SU86) | Yes | Yes | Yes | 2.8840000000000001E-2 | 43.5227 | 0.27858500000000003 | 15721 | 1 | 39.021799999999999 | Yes | A8 |  12107C",
       "chronology_normalization_status": "text_only_unparsed",
       "time_start_bp": null,
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1145,8 +1145,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1171,8 +1171,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1191,7 +1191,7 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "Table S2!row31",
-      "chronology_provenance_text": "29 | CHIC-0028 | PGULL-1961 | LLD-1061 | Gran_Canaria | Aguadulce | 27.963740999999999 | -15.381411999999999 | 11th - 12th centuries CE (SUII) | Yes | No | Yes | 8.4459999999999993E-2 | 46.513300000000001 | 9.3582399999999996E-2 | 28271 | 1 | 78.129800000000003 | Yes | A8 |  108G [1230iA] 2705T | 1 ",
+      "chronology_provenance_text": "29 | CHIC-0028 | PGULL-1961 | LLD-1061 | Gran_Canaria | Aguadulce | 27.963740999999999 | -15.381411999999999 | 11th - 12th centuries CE (SUII) | Yes | No | Yes | 8.4459999999999993E-2 | 46.513300000000001 | 9.3582399999999996E-2 | 28271 | 1 | 78.129800000000003 | Yes | A8 |  108G [1230iA] 2705T | 1",
       "chronology_normalization_status": "text_only_unparsed",
       "time_start_bp": null,
       "time_end_bp": null,
@@ -1223,8 +1223,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1249,8 +1249,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1275,8 +1275,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1295,14 +1295,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "Table S2!row4",
-      "chronology_provenance_text": "2 | CHIC-0002 | PGULL-1965 | LLD-1064 | El_Hierro | Cueva de la Herradura | 27.640201000000001 | -17.989809000000001 | 6th -7th centuies CE (SU1) | Yes | Yes | Yes | 0.39085999999999999 | 56.978299999999997 | 0.13154399999999999 | 51929 | 1 | 175.428 | Yes | A8a | - | 1 | 155.04499999999999 | Yes | ",
+      "chronology_provenance_text": "2 | CHIC-0002 | PGULL-1965 | LLD-1064 | El_Hierro | Cueva de la Herradura | 27.640201000000001 | -17.989809000000001 | 6th -7th centuies CE (SU1) | Yes | Yes | Yes | 0.39085999999999999 | 56.978299999999997 | 0.13154399999999999 | 51929 | 1 | 175.428 | Yes | A8a | - | 1 | 155.04499999999999 | Yes |",
       "chronology_normalization_status": "text_only_unparsed",
       "time_start_bp": null,
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1327,8 +1327,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1353,8 +1353,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1379,8 +1379,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1405,8 +1405,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1431,8 +1431,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1457,8 +1457,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1483,8 +1483,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1509,8 +1509,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1529,14 +1529,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "Table S2!row11",
-      "chronology_provenance_text": "9 | CHIC-0009 | PGULL-2146 | LLD-1395 | La_Palma | Tigalate | 28.552054999999999 | -17.812253999999999 | 15th - 17th centuries CE (site) | Yes | No | Yes | 2.1430000000000001E-2 | 48.599299999999999 | 6.4298800000000003E-2 | 6594 | 0.998197 | 19.055499999999999 | Yes | A8a | - | 0.99093200000000004 ",
+      "chronology_provenance_text": "9 | CHIC-0009 | PGULL-2146 | LLD-1395 | La_Palma | Tigalate | 28.552054999999999 | -17.812253999999999 | 15th - 17th centuries CE (site) | Yes | No | Yes | 2.1430000000000001E-2 | 48.599299999999999 | 6.4298800000000003E-2 | 6594 | 0.998197 | 19.055499999999999 | Yes | A8a | - | 0.99093200000000004",
       "chronology_normalization_status": "text_only_unparsed",
       "time_start_bp": null,
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1555,14 +1555,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "Table S2!row6",
-      "chronology_provenance_text": "4 | CHIC-0004 | PGULL-2197 | LLD-1402 | La_Palma | Belmaco | 28.578600000000002 | -17.776199999999999 | 11th - 12th centuries CE (SU17-18) | Yes | No | Yes | 0.50455000000000005 | 68.465100000000007 | 0.197329 | 57938 | 1 | 223.239 | Yes | A2a  |  6138T 7886C 8457A 11981T 15145C | 1 | 191.321 | Yes ",
+      "chronology_provenance_text": "4 | CHIC-0004 | PGULL-2197 | LLD-1402 | La_Palma | Belmaco | 28.578600000000002 | -17.776199999999999 | 11th - 12th centuries CE (SU17-18) | Yes | No | Yes | 0.50455000000000005 | 68.465100000000007 | 0.197329 | 57938 | 1 | 223.239 | Yes | A2a  |  6138T 7886C 8457A 11981T 15145C | 1 | 191.321 | Yes",
       "chronology_normalization_status": "text_only_unparsed",
       "time_start_bp": null,
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1587,8 +1587,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1613,8 +1613,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1639,8 +1639,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1665,8 +1665,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1691,8 +1691,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1717,8 +1717,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1743,8 +1743,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1769,8 +1769,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1795,8 +1795,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1821,8 +1821,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1847,8 +1847,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1873,8 +1873,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Capra hircus",
@@ -1899,8 +1899,8 @@
       "time_end_bp": null,
       "time_mean_bp": null,
       "dating_basis": "historical_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology text disagrees with the project-level chronology wording.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     }
   ]
 }

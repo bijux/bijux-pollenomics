@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bijux.io/schemas/pollenomics/phenomenon-event.v1.json",
+  "title": "Bijux Pollenomics Phenomenon Event v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "event_id",
+    "source_family",
+    "evidence_domain",
+    "source_snapshot_id",
+    "source_record_id",
+    "site_id",
+    "observation_ids",
+    "country_code",
+    "latitude",
+    "longitude",
+    "coordinate_quality",
+    "event_type",
+    "resolution",
+    "feature_key",
+    "chronology_claim_id",
+    "younger_bp",
+    "older_bp",
+    "comparability_status",
+    "threshold_profile_id",
+    "classification_contract_version",
+    "provenance_record_id",
+    "input_digest",
+    "config_digest",
+    "producer_version",
+    "build_id"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "event_id": {"type": "string", "minLength": 1},
+    "source_family": {"type": "string", "minLength": 1},
+    "evidence_domain": {"enum": ["pollen_context", "human_ancient_dna", "animal_ancient_dna"]},
+    "source_snapshot_id": {"type": "string", "minLength": 1},
+    "source_record_id": {"type": "string", "minLength": 1},
+    "source_object_ids": {"type": "object", "additionalProperties": {"type": ["string", "integer"]}},
+    "site_id": {"type": "string", "minLength": 1},
+    "dataset_id": {"type": ["string", "null"]},
+    "collection_unit_id": {"type": ["string", "null"]},
+    "sample_id": {"type": ["string", "null"]},
+    "observation_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "country_code": {"enum": ["SE", "DK", "NO", "FI"]},
+    "latitude": {"type": "number", "minimum": -90, "maximum": 90},
+    "longitude": {"type": "number", "minimum": -180, "maximum": 180},
+    "coordinate_uncertainty_m": {"type": ["number", "null"], "minimum": 0},
+    "coordinate_quality": {"enum": ["exact", "reported", "approximate", "centroid", "unresolved"]},
+    "event_type": {"enum": ["reported_positive_observation", "derived_first_observed", "derived_threshold_crossing"]},
+    "resolution": {"enum": ["whole_pollen", "ecological_group", "ecological_subgroup", "ecological_role", "taxon"]},
+    "feature_key": {"type": "string", "pattern": "^(whole|group|subgroup|role|taxon):.+$"},
+    "source_feature_id": {"type": ["string", "null"]},
+    "source_feature_name": {"type": ["string", "null"]},
+    "accepted_taxon_concept_id": {"type": ["string", "null"]},
+    "taxonomic_qualifier": {"type": ["string", "null"]},
+    "classification_contract_version": {"type": ["string", "null"]},
+    "chronology_claim_id": {"type": ["string", "null"]},
+    "point_age_bp": {"type": ["number", "null"], "minimum": 0},
+    "younger_bp": {"type": ["number", "null"], "minimum": 0},
+    "older_bp": {"type": ["number", "null"], "minimum": 0},
+    "comparability_status": {"enum": ["comparable", "context_only", "unresolved", "not_provided_by_source", "refused"]},
+    "threshold_profile_id": {"type": "string", "minLength": 1},
+    "measurement_value": {"type": ["number", "null"]},
+    "measurement_unit": {"type": ["string", "null"]},
+    "denominator_id": {"type": ["string", "null"]},
+    "depth": {"type": ["number", "null"]},
+    "depth_unit": {"type": ["string", "null"]},
+    "admission_reason_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "provenance_record_id": {"type": "string", "minLength": 1},
+    "input_digest": {"type": "string", "minLength": 1},
+    "config_digest": {"type": "string", "minLength": 1},
+    "producer_version": {"type": "string", "minLength": 1},
+    "build_id": {"type": "string", "minLength": 1}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"comparability_status": {"const": "comparable"}}},
+      "then": {
+        "properties": {
+          "chronology_claim_id": {"type": "string", "minLength": 1},
+          "younger_bp": {"type": "number", "minimum": 0},
+          "older_bp": {"type": "number", "minimum": 0}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"resolution": {"const": "whole_pollen"}}, "required": ["resolution"]},
+      "then": {
+        "properties": {
+          "feature_key": {"type": "string", "pattern": "^whole:.+$"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"resolution": {"const": "ecological_group"}}, "required": ["resolution"]},
+      "then": {
+        "properties": {
+          "feature_key": {"type": "string", "pattern": "^group:.+$"},
+          "classification_contract_version": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"resolution": {"const": "ecological_subgroup"}}, "required": ["resolution"]},
+      "then": {
+        "properties": {
+          "feature_key": {"type": "string", "pattern": "^subgroup:.+$"},
+          "classification_contract_version": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"resolution": {"const": "ecological_role"}}, "required": ["resolution"]},
+      "then": {
+        "properties": {
+          "feature_key": {"type": "string", "pattern": "^role:.+$"},
+          "classification_contract_version": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"resolution": {"const": "taxon"}}, "required": ["resolution"]},
+      "then": {
+        "required": ["accepted_taxon_concept_id", "taxonomic_qualifier"],
+        "properties": {
+          "feature_key": {"type": "string", "pattern": "^taxon:.+$"},
+          "accepted_taxon_concept_id": {"type": "string", "minLength": 1},
+          "taxonomic_qualifier": {"type": "string", "minLength": 1},
+          "classification_contract_version": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  ]
+}

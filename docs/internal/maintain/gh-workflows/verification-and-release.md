@@ -4,7 +4,7 @@ audience: maintainer
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-07
 ---
 
 # Verification and Release
@@ -22,6 +22,59 @@ documentation, data, and publication contracts selected by the workflow. Its
 evidence includes the source SHA, resolved environment, invoked gates, exact
 results, warnings, and retained artifacts. It does not publish a distribution
 or waive a scientific refusal.
+
+### Bounded Jobs And Complete Test Evidence
+
+Runner jobs must have a ten-minute timeout, with eight minutes as the operating
+target. A timeout is a failed gate, not evidence that the work fits its budget.
+Retain measured checkout, installation, execution, and upload durations when
+assessing the budget; test duration alone does not describe job latency.
+
+The runtime package uses eight deterministic test shards per Python version.
+The existing marker selection runs before partitioning. Each shard records
+the complete selected test universe, its assigned node IDs, completed node
+IDs, exit status, and workflow revision. The final `tests-<package>-py<version>`
+job preserves the required-check identity and refuses missing, overlapping,
+unfinished, failed, or revision-inconsistent partitions. Other packages use
+the same reconciliation with one shard unless explicitly configured otherwise.
+
+Test uploads contain JUnit, XML coverage, the hidden coverage database, and the
+partition receipt. Fixture directories and caches are not release evidence
+and are not uploaded. Coverage remains available per shard; a single shard's
+coverage must not be described as coverage of the complete suite.
+
+### Shared Workflow Exception And Removal Plan
+
+The bounded-job configuration is a repository-local exception to the shared
+Bijux workflow templates for the v0.1.8 CI unblock. Its authoritative local
+configuration is the `bijux-pollenomics` `workflow_wrappers` entry in
+`.github/standards/repo-config.manifest.json`; the repository renderer derives
+`.github/workflows/ci.yml` and `.github/workflows/verify.yml` from that entry.
+It covers the test matrix, compact test uploads, preserving the final
+test-check identity, and ten-minute runner-job limits. It does not change
+publication permissions, scientific admission rules, or the selected tests.
+The shared checksum manifest still binds every declared managed file and must
+pass validation.
+
+The durable owner of the reusable workflow changes is `bijux-std`. The
+upstream follow-through is to parameterize bounded test partitions and compact
+artifact paths in its workflow templates, add corresponding template tests,
+and carry the runner-job budget in generated repository configuration. After
+that change is accepted, consume an exact accepted upstream commit, regenerate
+this repository's workflows and shared checksums, compare required-check names
+and test-universe receipts, and remove the local exception annotations. Do not
+erase this exception through an ordinary standards refresh before equivalent
+upstream behavior exists. No upstream issue or publication is implied by this
+local removal plan.
+
+The release builder carries a second narrow exception: all three artifact-mode
+release callers pass the requested tag into `release-artifacts.yml`. Before
+upload, the builder requires the peeled tag, checkout, and workflow SHA to
+agree, invokes the existing package publication guard, and requires the
+resolved version to equal the tag version. Its upstream follow-through is to
+add this input and fail-closed guard to the shared artifact builder and its
+callers, with tag/revision/version mismatch fixtures. Remove the local wiring
+only after an exact accepted upstream refresh preserves those checks.
 
 ## Release Surface
 
@@ -91,6 +144,11 @@ workflows. For each selected package it:
 4. stages all distribution files and recognized production/development SBOMs
    as `<package>-release`; and
 5. retains both Actions artifacts for 14 days.
+
+Before either artifact upload, the builder checks the requested release tag
+against both `HEAD` and the workflow SHA and applies the package version and
+distribution-version guard. Dispatching from a different revision or attempting
+to label development artifacts with a final release tag fails at this boundary.
 
 The staged artifacts are the handoff between build and publication jobs. A
 publication lane must consume the artifacts from its own run or explicitly

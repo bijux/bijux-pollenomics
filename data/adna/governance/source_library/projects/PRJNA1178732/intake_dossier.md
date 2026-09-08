@@ -4,24 +4,24 @@
 - Archive status: `paper_pinned_core`
 - Inventory disposition: `tracked_intake_candidate`
 - Paper DOI: `10.1016/j.xgen.2025.101099`
-- Publication readiness: `blocked`
-- Next required stage: `sample_identity_recovery`
+- Publication readiness: `complete`
+- Next required stage: `coordinate_derivation`
 - Exact expected sample count: `unknown`
 - Minimum expected sample count: `1`
-- Final recovered sample rows: `0`
-- Minimum recovery gap: `1`
-- Implausibly low recovery: `true`
+- Final recovered sample rows: `22`
+- Minimum recovery gap: `0`
+- Implausibly low recovery: `false`
 
 ## Stage Statuses
 
 - `project_admission`: `complete`
 - `paper_capture`: `complete`
-- `supplement_capture`: `not_required`
-- `sample_identity_recovery`: `in_progress`
-- `site_recovery`: `blocked`
-- `chronology_recovery`: `blocked`
-- `coordinate_derivation`: `blocked`
-- `publication_readiness`: `blocked`
+- `supplement_capture`: `complete`
+- `sample_identity_recovery`: `complete`
+- `site_recovery`: `complete`
+- `chronology_recovery`: `complete`
+- `coordinate_derivation`: `in_progress`
+- `publication_readiness`: `complete`
 
 ## Expected Contributions
 
@@ -48,4 +48,4 @@
 
 ## Missing Assets
 
-- No final governed sample rows are published yet.
+- none

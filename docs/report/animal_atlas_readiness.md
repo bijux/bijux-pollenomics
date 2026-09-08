@@ -1,16 +1,16 @@
 # Animal atlas readiness
 
-- Status counts: `{'publishable': 2, 'blocked': 7, 'thin': 1}`
+- Status counts: `{'publishable': 4, 'thin': 2, 'blocked': 4}`
 
-| Species | Status | Candidate points | Mapped samples | Blocked samples | Unresolved rows | Region-refused rows | Map-ready share | Reason |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| Equus caballus | publishable | 207 | 489 | 63 | 4 | 0 | 0.9811 | 207 candidate point rows now survive the current atlas contract. |
-| Sus scrofa domesticus | blocked | 0 | 0 | 4 | 3 | 1 | 0.0000 | 4 blocked sample rows still fail atlas publication. |
-| Ovis aries | blocked | 0 | 0 | 195 | 4 | 1 | 0.0000 | 195 blocked sample rows still fail atlas publication. |
-| Bos taurus | blocked | 0 | 0 | 13 | 2 | 1 | 0.0000 | 13 blocked sample rows still fail atlas publication. |
-| Capra hircus | publishable | 26 | 65 | 17 | 0 | 0 | 1.0000 | 26 candidate point rows now survive the current atlas contract. |
-| Canis lupus familiaris | blocked | 0 | 0 | 4 | 0 | 1 | 0.0000 | 4 blocked sample rows still fail atlas publication. |
-| Felis catus | blocked | 0 | 0 | 2 | 1 | 1 | 0.0000 | 2 blocked sample rows still fail atlas publication. |
-| Camelus dromedarius | thin | 1 | 1 | 13 | 0 | 0 | 1.0000 | 1 candidate point rows remain too thin for broad atlas claims. |
-| Rangifer tarandus | blocked | 0 | 0 | 23 | 3 | 1 | 0.0000 | 23 blocked sample rows still fail atlas publication. |
-| Equus asinus | blocked | 0 | 0 | 5 | 4 | 1 | 0.0000 | 5 blocked sample rows still fail atlas publication. |
+| Species | Status | Candidate points | Mapped samples | Blocked samples | Unresolved samples | Mappable coordinate provenance | Refused coordinate provenance | Coordinate-provenance denominator | Mappable share | Publication share of mappable coordinates | Reason |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Equus caballus | publishable | 78 | 157 | 393 | 2 | 208 | 0 | 208 | 1.0000 | 0.3750 | 78 candidate point rows now survive the current atlas contract. |
+| Sus scrofa domesticus | thin | 2 | 2 | 341 | 341 | 2 | 0 | 2 | 1.0000 | 1.0000 | 2 candidate point rows remain too thin for broad atlas claims. |
+| Ovis aries | thin | 2 | 5 | 195 | 5 | 2 | 0 | 2 | 1.0000 | 1.0000 | 2 candidate point rows remain too thin for broad atlas claims. |
+| Bos taurus | publishable | 22 | 31 | 101 | 33 | 24 | 1 | 25 | 0.9600 | 0.9167 | 22 candidate point rows now survive the current atlas contract. |
+| Capra hircus | publishable | 27 | 82 | 0 | 0 | 27 | 0 | 27 | 1.0000 | 1.0000 | 27 candidate point rows now survive the current atlas contract. |
+| Canis lupus familiaris | blocked | 0 | 0 | 4 | 1 | 0 | 1 | 1 | 0.0000 | N/A | 4 blocked sample rows and 1 refused coordinate-provenance rows still prevent atlas publication. |
+| Felis catus | publishable | 39 | 54 | 52 | 0 | 40 | 0 | 40 | 1.0000 | 0.9750 | 39 candidate point rows now survive the current atlas contract. |
+| Camelus dromedarius | blocked | 0 | 0 | 13 | 0 | 1 | 0 | 1 | 1.0000 | 0.0000 | 13 blocked sample rows and 0 refused coordinate-provenance rows still prevent atlas publication. |
+| Rangifer tarandus | blocked | 0 | 0 | 20 | 20 | 0 | 1 | 1 | 0.0000 | N/A | 20 blocked sample rows and 1 refused coordinate-provenance rows still prevent atlas publication. |
+| Equus asinus | blocked | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0.0000 | N/A | 0 blocked sample rows and 1 refused coordinate-provenance rows still prevent atlas publication. |

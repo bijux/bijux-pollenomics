@@ -5,7 +5,9 @@
   "content_type": "text/plain",
   "byte_size": 172426,
   "project_accession": "PRJEB30282",
-  "storage_byte_size": 24723,
+  "storage_byte_size": 24701,
   "storage_path": "adna/governance/source_library/projects/PRJEB30282/archive_metadata.html.gz",
-  "content_encoding": "gzip"
+  "content_encoding": "gzip",
+  "content_sha256": "6ceeb9e5dd9d6c574fe69d308bb9fe0af4067cb1ff8e8895d52a41ecbc9a16b8",
+  "storage_sha256": "cfaa4c900639c89d96bfc4096db90df964881c77d7434c045ad891dabddcd3b2"
 }

@@ -9,33 +9,30 @@
   "stage_statuses": {
     "project_admission": "complete",
     "paper_capture": "complete",
-    "supplement_capture": "not_required",
-    "sample_identity_recovery": "in_progress",
-    "site_recovery": "blocked",
-    "chronology_recovery": "blocked",
-    "coordinate_derivation": "blocked",
-    "publication_readiness": "blocked"
+    "supplement_capture": "complete",
+    "sample_identity_recovery": "complete",
+    "site_recovery": "complete",
+    "chronology_recovery": "complete",
+    "coordinate_derivation": "in_progress",
+    "publication_readiness": "complete"
   },
-  "blocking_stages": [
-    "site_recovery",
-    "chronology_recovery",
-    "coordinate_derivation",
-    "publication_readiness"
-  ],
-  "next_required_stage": "sample_identity_recovery",
-  "publication_readiness_status": "blocked",
+  "blocking_stages": [],
+  "next_required_stage": "coordinate_derivation",
+  "publication_readiness_status": "complete",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "The project is paper-pinned, but the expected sample count still needs to be recovered from the listed article or supplementary targets.",
   "expected_sample_count_artifact_path": "",
   "minimum_expected_sample_count": 1,
-  "recovered_sample_count": 0,
-  "final_sample_count": 0,
+  "recovered_sample_count": 22,
+  "final_sample_count": 22,
   "unresolved_sample_count": null,
-  "minimum_gap_count": 1,
-  "recovery_gap_status": "extractable_sources_but_no_governed_samples",
-  "implausibly_low_recovery": true,
-  "implausibly_low_recovery_reason": "Readable paper or supplementary capture exists, but the governed sample master still publishes zero recovered rows.",
+  "material_evidence_expected_count": 0,
+  "material_evidence_conflict_count": 0,
+  "minimum_gap_count": 0,
+  "recovery_gap_status": "minimum_expected_floor_met",
+  "implausibly_low_recovery": false,
+  "implausibly_low_recovery_reason": "",
   "known_assets": [
     "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc1.pdf",
     "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc2.pdf",
@@ -53,9 +50,7 @@
     "data/adna/governance/source_library/projects/PRJNA1178732/sample_chronology.json",
     "data/adna/governance/source_library/projects/PRJNA1178732/sample_locality_evidence.json"
   ],
-  "missing_assets": [
-    "No final governed sample rows are published yet."
-  ],
+  "missing_assets": [],
   "expected_contributions": [
     "sample_identities",
     "taxonomic_context"
@@ -75,8 +70,5 @@
   "contradictory_evidence": [],
   "inferred_claims": [],
   "manual_curation_work_units": [],
-  "major_deficit_reasons": [
-    "implausibly_low_sample_recovery",
-    "sample_recovery_gap"
-  ]
+  "major_deficit_reasons": []
 }

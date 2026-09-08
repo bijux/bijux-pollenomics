@@ -1,4 +1,4 @@
-# Nordic Evidence Atlas Map Publication Contract
+# Nordic Evidence Surface Map Publication Contract
 
 Nordic is the regional detail surface. It keeps the shared human and animal evidence layers, then adds Nordic-only environmental, archaeology, boundary, and fieldwork overlays that remain interpretable at this scale.
 
@@ -11,7 +11,7 @@ One shared map document engine serves every published scope. Scope differences m
 - Scope key: `nordic`
 - Scope kind: `region`
 - Parent scope: `europe_plus`
-- Default basemap: `voyager`
+- Default basemap: `street`
 - Default distance circle diameter: `20 km`
 
 The opening extent stays tight on Nordic countries so lake, site, and archaeology context reads as map content rather than background noise.
@@ -22,21 +22,24 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 | --- | --- | --- | --- | ---: |
 | AADR-v66 aDNA samples | `shared_world_scale_layer` | Allen Ancient DNA Resource | Country assignment follows the AADR political entity field. | `1231` |
 | Fieldwork documentation | `scope_specific_overlay` | Bijux fieldwork | Observed sampling location documented on 2026-02-26 at Lyngsjön Lake. | `1` |
-| LandClim pollen sites | `scope_specific_overlay` | LandClim | Pollen sequences staged from the LandClim normalization bundle. | `492` |
-| Neotoma pollen sites | `scope_specific_overlay` | Neotoma | Pollen and paleoecology sites staged from the Neotoma normalization bundle. | `200` |
-| SEAD sites | `scope_specific_overlay` | SEAD | Environmental archaeology sites staged from the SEAD normalization bundle. | `2172` |
-| Horse aDNA site evidence | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
-| Sweden lake aggregate top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the aggregate evidence ranking. | `40` |
-| Sweden lake consensus top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes that recur across scenario rankings. | `40` |
-| Sweden lake fieldwork shortlist | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the published Sweden fieldwork shortlist. | `20` |
-| Sweden lake 10 km top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 10 km evidence scenario. | `40` |
-| Sweden lake 20 km top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 20 km evidence scenario. | `40` |
-| Sweden lake 30 km top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 30 km evidence scenario. | `40` |
-| Sweden lake 40 km top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 40 km evidence scenario. | `40` |
-| Sweden lake 50 km top 40 | `scope_specific_overlay` | Sweden lake evidence | Optional Nordic atlas overlay for the top 40 Sweden lakes in the 50 km evidence scenario. | `40` |
+| LandClim pollen sites | `scope_specific_overlay` | LandClim | Pollen sequences staged from the LandClim normalization bundle. | `490` |
+| Neotoma pollen sites | `scope_specific_overlay` | Neotoma | Pollen and paleoecology sites staged from the Neotoma normalization bundle. | `193` |
+| SEAD sites | `scope_specific_overlay` | SEAD | Environmental archaeology sites staged from the SEAD normalization bundle. | `2069` |
+| Sweden archaeology site discovery | `scope_specific_overlay` | SEAD with RAÄ density context | Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record. | `9727` |
+| Cattle aDNA site evidence (wild or progenitor context) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `4` |
+| Sheep aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
+| Pig aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |
+| Cattle source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `5` |
+| Goat source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `0` |
+| Horse source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `3` |
+| Cat source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `0` |
+| Sheep source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `4` |
+| Pig source-sample chronology | `shared_world_scale_layer` | Governed animal project sample chronology |  | `2` |
+| Neotoma sample pollen-presence context | `scope_specific_overlay` | Neotoma | Dated source samples with positive reported pollen observations; not reviewed pollen-sum events. | `9988` |
+| Neotoma literal ecological codes | `scope_specific_overlay` | Neotoma | Literal source ecological codes without cross-source equivalence or propagation claims. | `25165` |
+| Neotoma exact source taxa | `scope_specific_overlay` | Neotoma | Exact source taxon identities without accepted ecological classification or propagation claims. | `215751` |
 | Country boundaries | `region_filtered_layer` | Natural Earth country boundaries | Published country outlines used for framing and scope-aware map filtering. | `4` |
-| LandClim REVEALS grid cells | `scope_specific_overlay` | LandClim | REVEALS grid cells compiled from published LandClim PANGAEA datasets. | `88` |
-| RAÄ archaeology density | `scope_specific_overlay` | RAÄ Fornsök | Sweden only. Density cells summarize `Fornlämning` counts. | `106` |
+| LandClim REVEALS time-window grids | `scope_specific_overlay` | LandClim | Time-window-specific REVEALS grid estimates from published LandClim PANGAEA datasets. | `2515` |
 
 ## Filter Surfaces
 
@@ -46,6 +49,11 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 - Time window
 - Distance circles
 - Basemap switch
+- Accepted scientific comparison when qualified classifications are available
+- Neotoma source-sample, literal-code, and exact-label chronology
+- Oldest-to-present BP window navigation and playback
+- PANGAEA 937075 exact-window modeled context
+- Modeled-context visible-frame export
 - Animal species focus when animal layers are present
 - Animal scope when animal layers are present
 - Animal coordinate confidence when animal layers are present

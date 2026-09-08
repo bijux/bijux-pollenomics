@@ -1,0 +1,50 @@
+{
+  "schema_version": "natural-earth-boundary-receipt.v1",
+  "generated_on": "2026-09-04",
+  "source": "Natural Earth",
+  "dataset": "Admin 0 - Countries",
+  "version": "5.1.1",
+  "release_page_url": "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/",
+  "asset_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.1/geojson/ne_10m_admin_0_countries.geojson",
+  "sha256": "239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255",
+  "license": "public_domain",
+  "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+  "source_crs": "EPSG:4326",
+  "coordinate_transformation": "none",
+  "country_selection_field": "ADM0_A3",
+  "geometry_inclusion_policy": "retain_all_geometry_parts_from_each_selected_admin0_feature",
+  "feature_count": 258,
+  "country_codes": {
+    "Sweden": "SWE",
+    "Norway": "NOR",
+    "Finland": "FIN",
+    "Denmark": "DNK"
+  },
+  "country_artifacts": {
+    "Sweden": {
+      "path": "sweden.geojson",
+      "sha256": "20e2ca00f348cddb95a41ca8e8f22a92390a8210618a525e2cef98d3069fc00d",
+      "feature_count": 1
+    },
+    "Norway": {
+      "path": "norway.geojson",
+      "sha256": "c51db9962996c0cd570c1e0b5c9528413b387f80f77a5fe96f8e8c9b57f5317a",
+      "feature_count": 1
+    },
+    "Finland": {
+      "path": "finland.geojson",
+      "sha256": "2aa1b2df5366ac377a6835b3e6667743f9c9c57a077ea79066c187d487104316",
+      "feature_count": 1
+    },
+    "Denmark": {
+      "path": "denmark.geojson",
+      "sha256": "90b4fb95c8368020620ccd1e94182304530bc79b4251b115fc496b52a35098b3",
+      "feature_count": 1
+    }
+  },
+  "normalized_artifact": {
+    "path": "normalized/nordic_country_boundaries.geojson",
+    "sha256": "bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+    "feature_count": 4
+  }
+}

@@ -1,0 +1,182 @@
+from __future__ import annotations
+
+from collections.abc import Callable, Iterable
+from pathlib import Path
+
+from ...adna.species.tracked_data import materialize_tracked_species_adna
+from ...config import DEFAULT_AADR_VERSION
+from ..catalog.hashes import build_source_hashes
+from ..catalog.metadata import build_source_metadata
+from ..catalog.provenance import build_source_provenance
+from ..catalog.replacement import build_source_replacement_rules
+from ..catalog.traceability import build_source_traceability_records
+from ..catalog.validation import validate_source_snapshot
+from ..contracts.layout import (
+    build_source_layout_contract,
+    validate_source_layout_contract,
+)
+from ..contracts.models import DataCollectionReport
+from ..sources.aadr import download_aadr_anno_files
+from ..sources.boundaries import resolve_country_boundaries
+from ..sources.boundaries.collection import (
+    collect_boundaries_data,
+    fetch_country_boundaries,
+    load_country_boundaries,
+)
+from ..sources.landclim.collection import collect_landclim_data
+from ..sources.neotoma.collection import collect_neotoma_data
+from ..sources.raa.collection import collect_raa_data
+from ..sources.sead.collection import collect_sead_data
+from ..sources.svar.collection import collect_svar_data
+from .context_collection import collect_context_source
+from .materialization.contracts import write_data_contract_surfaces
+from .materialization.reports import (
+    build_data_collection_report,
+    build_data_collection_summary,
+    initialize_source_counts,
+)
+from .materialization.staging import build_staging_output_dir, collect_into_staging_dir
+from .materialization.summary import write_collection_summary
+from .planning.layout import (
+    AVAILABLE_SOURCES,
+    build_source_output_roots,
+    ensure_curated_species_adna_layout,
+    ensure_homo_sapiens_adna_layout,
+    write_data_directory_readme,
+)
+from .planning.requests import normalize_requested_sources
+from .planning.source_registry import CONTEXT_SOURCE_SPECS
+
+__all__ = [
+    "AVAILABLE_SOURCES",
+    "DataCollectionReport",
+    "build_staging_output_dir",
+    "collect_data",
+    "normalize_requested_sources",
+]
+
+
+def collect_data(
+    output_root: Path,
+    sources: Iterable[str],
+    version: str = DEFAULT_AADR_VERSION,
+) -> DataCollectionReport:
+    """Collect one or more tracked data sources into the project data tree."""
+    selected_sources = normalize_requested_sources(sources)
+    output_root = Path(output_root)
+    source_output_roots = build_source_output_roots(
+        output_root=output_root, version=version
+    )
+    source_metadata = build_source_metadata(
+        selected_sources=selected_sources, version=version
+    )
+
+    counts = initialize_source_counts()
+    boundary_source: str | None = None
+
+    if "aadr" in selected_sources:
+        aadr_report = collect_into_staging_dir(
+            final_output_root=output_root / "aadr",
+            collect=lambda staging_root: download_aadr_anno_files(
+                output_root=staging_root, version=version
+            ),
+        )
+        counts["aadr_file_count"] = len(aadr_report.downloaded_files)
+
+    country_boundaries, boundary_source = resolve_country_boundaries(
+        output_root=output_root,
+        selected_sources=selected_sources,
+        context_source_names=tuple(CONTEXT_SOURCE_SPECS),
+        collect_boundaries_data=collect_boundaries_data,
+        collect_into_staging_dir=collect_into_staging_dir,
+        fetch_country_boundaries=fetch_country_boundaries,
+        load_country_boundaries=load_country_boundaries,
+    )
+
+    if country_boundaries is not None:
+        for source_name in selected_sources:
+            spec = CONTEXT_SOURCE_SPECS.get(source_name)
+            if spec is None:
+                continue
+            counts.update(
+                collect_context_source(
+                    collect_function=resolve_context_collect_function(source_name),
+                    spec=spec,
+                    output_root=output_root,
+                    country_boundaries=country_boundaries,
+                )
+            )
+
+    source_hashes = {
+        source: {
+            "snapshot_sha256": hashes.snapshot_sha256,
+            "normalized_sha256": hashes.normalized_sha256,
+        }
+        for source, hashes in build_source_hashes(
+            source_output_roots=source_output_roots,
+            selected_sources=selected_sources,
+        ).items()
+    }
+    source_provenance = build_source_provenance(
+        selected_sources=selected_sources,
+        source_output_roots=source_output_roots,
+        source_metadata=source_metadata,
+        source_hashes=source_hashes,
+    )
+    source_replacement_rules = build_source_replacement_rules(
+        selected_sources=selected_sources,
+        source_output_roots=source_output_roots,
+    )
+    source_traceability = build_source_traceability_records(
+        selected_sources=selected_sources,
+        source_metadata=source_metadata,
+        source_hashes=source_hashes,
+    )
+
+    summary = build_data_collection_summary(
+        output_root=output_root,
+        version=version,
+        collected_sources=selected_sources,
+        source_output_roots=source_output_roots,
+        source_metadata=source_metadata,
+        source_hashes=source_hashes,
+        source_provenance=source_provenance,
+        source_replacement_rules=source_replacement_rules,
+        source_traceability=source_traceability,
+        boundary_source=boundary_source,
+        counts=counts,
+    )
+    output_root.mkdir(parents=True, exist_ok=True)
+    for source_dir in AVAILABLE_SOURCES:
+        (output_root / source_dir).mkdir(parents=True, exist_ok=True)
+    ensure_homo_sapiens_adna_layout(output_root, version=version)
+    ensure_curated_species_adna_layout(output_root)
+    materialize_tracked_species_adna(output_root)
+    write_data_directory_readme(output_root, version=version)
+    write_data_contract_surfaces(summary)
+    write_collection_summary(summary)
+    validate_source_layout_contract(build_source_layout_contract(output_root))
+    validate_source_snapshot(
+        output_root=output_root,
+        selected_sources=selected_sources,
+        source_output_roots=source_output_roots,
+        source_metadata=source_metadata,
+        boundary_source=boundary_source,
+    )
+
+    return build_data_collection_report(summary)
+
+
+def resolve_context_collect_function(name: str) -> Callable[..., object]:
+    """Resolve a context-source collector function by tracked source name."""
+    functions: dict[str, Callable[..., object]] = {
+        "landclim": collect_landclim_data,
+        "neotoma": collect_neotoma_data,
+        "raa": collect_raa_data,
+        "sead": collect_sead_data,
+        "svar": collect_svar_data,
+    }
+    try:
+        return functions[name]
+    except KeyError as exc:
+        raise ValueError(f"Unsupported context source: {name}") from exc

@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-07
 ---
 
 # Animal Source Intake
@@ -26,13 +26,12 @@ The current recovery review records:
 | Measure | Current value | Interpretation |
 | --- | ---: | --- |
 | tracked archive projects | 40 | declared project inventory, not sample count |
-| sample-foundation truth rows | 894 | curated source-row grounding and blocker population across 10 species |
-| recovered final sample rows | 868 | extracted governed rows, not a complete source census |
+| recovered raw sample-master rows | 1,455 | extracted project rows before final identity admission |
+| final sample-foundation rows | 1,450 | governed final sample population across 10 species and 21 contributing projects |
 | projects with exact expected counts | 4 | projects for which exact recovery completeness can be measured |
-| projects with a minimum expected floor | 22 | projects for which recovery can be tested against a lower bound |
-| projects with implausibly low recovery | 8 | source or extraction work still blocks a stronger claim |
-| projects ready for publication review | 8 | projects that reached this lifecycle checkpoint |
-| blocked projects | 26 | tracked projects held before that checkpoint |
+| projects with implausibly low recovery | 0 | no current project is assigned this specific recovery status |
+| projects ready for publication review | 10 | projects that reached this lifecycle checkpoint |
+| blocked projects | 24 | tracked projects held before that checkpoint |
 
 These measures are published together because no one of them is an honest
 summary of the collection. In particular, dividing the recovered sample total
@@ -72,20 +71,21 @@ foundation row has enough attributed evidence to support downstream curation:
 
 | Foundation posture | Rows | Intake meaning |
 | --- | ---: | --- |
-| fully grounded | 502 | identity and required evidence dimensions are attributable at the declared scope |
-| partially grounded | 256 | useful evidence exists, but one or more dimensions remain materially limited |
-| blocked: missing metadata | 29 | source metadata required to establish the governed row is absent |
-| blocked: missing location detail | 4 | locality evidence cannot support the requested spatial claim |
-| blocked: weak chronology | 103 | temporal evidence remains too weak for the stronger chronology claim |
+| fully grounded | 557 | identity and required evidence dimensions are attributable at the declared scope |
+| partially grounded | 335 | useful evidence exists, but one or more dimensions remain materially limited |
+| blocked: missing metadata | 11 | source metadata required to establish the governed row is absent |
+| blocked: missing location detail | 391 | locality evidence cannot support the requested spatial claim |
+| blocked: weak chronology | 156 | temporal evidence remains too weak for the stronger chronology claim |
 
-These 894 rows are not interchangeable with the 868 project sample-master
-identities. The foundation classifies preparation evidence; the sample master
-governs recovered identity. A row can be valuable in one population without
-having a one-to-one counterpart in the other.
+The 1,450 final foundation rows are not interchangeable with the 1,455
+recovered raw project sample-master rows. The foundation classifies admitted
+sample evidence; the sample master also preserves rows that do not enter the
+final identity population.
 
 ```mermaid
 flowchart LR
-    SourceRows["captured source rows"] --> Foundation["894-row preparation ledger"]
+    SourceRows["captured source rows"] --> Raw["1,455 recovered raw rows"]
+    Raw --> Foundation["1,450-row final preparation ledger"]
     Foundation --> Grounded["fully or partly grounded"]
     Foundation --> Blocked["metadata, location, or chronology blocker"]
     Grounded --> Identity["project-owned sample identity where supported"]
@@ -100,24 +100,24 @@ from a published point.
 
 ### Intake And Point Populations Are Not The Same
 
-The current point-evidence surface combines two identity postures:
+The current point-evidence surface separates two scientific scope postures
+while requiring admitted sample backing for every feature:
 
 | Population | Count | Intake basis | Permitted description |
 | --- | ---: | --- | --- |
-| final extracted samples with supplementary coordinates | 233 | directly extracted sample rows with final identity | sample-backed publication points |
-| Wadi Halfa dromedary context | 1 | project `SRP073444`, paper-pinned place statement, provisional sample identity | qualified project-anchored context point |
+| domesticated-core locality features | 117 | admitted samples with locality, coordinate, chronology, and scope support | domesticated-animal publication points |
+| wild or progenitor context locality features | 53 | admitted samples with the same evidence chain and an explicit context role | wild/progenitor-context publication points |
+| distinct samples represented | 331 | final admitted sample identities aggregated into the 170 locality features | sample denominator for the published layer |
 
-The second row is not part of the 868 recovered sample population merely
-because it appears in the 234-row point review. Its stable token anchors the
-project context, while `sample_evidence_status: not_yet_recoverable` and
-`sample_identity_resolution: provisional` preserve the missing sample-level
-link.
+Wadi Halfa is not part of this point surface. Its stable project and place
+evidence remain in readiness accounting, but the current publication decision
+is `no_admitted_sample_backed_locality_candidate`.
 
 This distinction prevents two inverse errors: dropping useful paper-backed
 context because sample recovery is incomplete, and reporting that context as
 if a sample-bearing table had been recovered. A query that requires samples
-uses the first population. A map that accepts qualified project context may use
-both, but must expose the identity class.
+uses the published sample population. The current map does not accept
+project-only context; it preserves that evidence as a not-materialized row.
 
 ## From Project To Publishable Sample
 
@@ -146,15 +146,15 @@ For project `PRJEB90141`, supplementary workbook Table S2 supplies four final
 goat sample rows—Direkli1-2, Blagotin3, Semnan3, and Acem2—with distinct archive
 identifiers, localities, coordinates, and chronology. The project accession is
 shared; the sample claims are not. For `SRP073444`, the paper supplies a named
-Wadi Halfa context while a recoverable sample-master row remains absent. These
-two projects therefore follow different branches of the intake contract.
+Wadi Halfa context while a recoverable sample-backed locality candidate remains
+absent. The latter remains excluded from point publication.
 
 ```mermaid
 flowchart LR
     Goat["PRJEB90141 + Table S2"] --> GoatRows["4 final extracted sample rows"]
     GoatRows --> GoatPoints["sample-backed points"]
     Camel["SRP073444 + paper place statement"] --> CamelGap["sample row not yet recoverable"]
-    CamelGap --> CamelPoint["qualified project-context point"]
+    CamelGap --> CamelExcluded["not materialized"]
 ```
 
 ## Governed Intake Surfaces
@@ -236,8 +236,8 @@ flowchart TB
 
 This fan-out is the central curation operation. A final identity can coexist
 with unresolved chronology; an exact coordinate can coexist with text-only
-time; and a project-context feature can remain visibly distinct from a final
-sample-backed member.
+time; and project-only context remains separately inspectable in the refusal
+records without becoming a sample-backed map member.
 
 ## What Is Captured
 

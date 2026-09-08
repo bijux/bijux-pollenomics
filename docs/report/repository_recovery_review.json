@@ -1,12 +1,18 @@
 {
-  "schema_version": "repository-recovery-review.v1",
+  "schema_version": "repository-recovery-review.v2",
   "score_max": 4,
   "overall_recovery_posture": "recovery_required",
   "average_dimension_scores": {
     "data_completeness": 2.86,
-    "provenance_clarity": 2.86,
+    "provenance_clarity": 3.0,
     "documentation_clarity": 3.57,
     "output_honesty": 3.43
+  },
+  "average_dimension_denominators": {
+    "data_completeness": 7,
+    "provenance_clarity": 7,
+    "documentation_clarity": 7,
+    "output_honesty": 7
   },
   "rows": [
     {
@@ -17,7 +23,7 @@
       "documentation_clarity": 4,
       "output_honesty": 3,
       "metrics": {
-        "normalized_file_count": 6,
+        "normalized_file_count": 8,
         "source_pages": 2
       },
       "note": "LandClim and Neotoma are real tracked context layers and now have direct explainer pages."
@@ -30,7 +36,7 @@
       "documentation_clarity": 4,
       "output_honesty": 3,
       "metrics": {
-        "normalized_file_count": 4,
+        "normalized_file_count": 7,
         "source_pages": 2
       },
       "note": "SEAD and RA\u00c4 are present and documented, but they remain contextual rather than fully synthesized outputs."
@@ -43,7 +49,7 @@
       "documentation_clarity": 4,
       "output_honesty": 4,
       "metrics": {
-        "raw_file_count": 4,
+        "raw_file_count": 5,
         "normalized_file_count": 1
       },
       "note": "Boundary geometry is one of the strongest and clearest non-aDNA surfaces in the repository."
@@ -64,14 +70,20 @@
       "surface_key": "ancient_dna_context",
       "display_name": "Ancient DNA context",
       "data_completeness": 4,
-      "provenance_clarity": 1,
+      "provenance_clarity": 2,
       "documentation_clarity": 3,
       "output_honesty": 3,
       "metrics": {
         "tracked_papers": 18,
+        "sample_accounting_available": true,
+        "coordinate_accounting_available": true,
         "papers_with_archived_supplements": 18,
-        "published_atlas_points": 234,
-        "unresolved_rows": 21
+        "published_atlas_points": 170,
+        "tracked_samples": 1450,
+        "mapped_samples": 331,
+        "unresolved_samples": 402,
+        "mappable_coordinate_provenance": 304,
+        "refused_coordinate_provenance": 4
       },
       "note": "The animal aDNA program has real tracked structure but still weak evidence depth relative to its public surfaces."
     },
@@ -83,8 +95,9 @@
       "documentation_clarity": 3,
       "output_honesty": 3,
       "metrics": {
-        "published_atlas_points": 234,
-        "published_country_bundles": 4
+        "published_atlas_points": 170,
+        "published_country_bundles": 4,
+        "sample_accounting_available": true
       },
       "note": "The publication tree is reviewable and traceable, but the animal point surface remains too thin for stronger readiness language."
     },

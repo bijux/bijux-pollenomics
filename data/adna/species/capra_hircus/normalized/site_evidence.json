@@ -25,7 +25,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -51,7 +51,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -77,7 +77,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -103,7 +103,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -115,7 +115,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "Table S2!row31",
-      "exact_source_text": "29 | CHIC-0028 | PGULL-1961 | LLD-1061 | Gran_Canaria | Aguadulce | 27.963740999999999 | -15.381411999999999 | 11th - 12th centuries CE (SUII) | Yes | No | Yes | 8.4459999999999993E-2 | 46.513300000000001 | 9.3582399999999996E-2 | 28271 | 1 | 78.129800000000003 | Yes | A8 |  108G [1230iA] 2705T | 1 ",
+      "exact_source_text": "29 | CHIC-0028 | PGULL-1961 | LLD-1061 | Gran_Canaria | Aguadulce | 27.963740999999999 | -15.381411999999999 | 11th - 12th centuries CE (SUII) | Yes | No | Yes | 8.4459999999999993E-2 | 46.513300000000001 | 9.3582399999999996E-2 | 28271 | 1 | 78.129800000000003 | Yes | A8 |  108G [1230iA] 2705T | 1",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1016/j.isci.2025.113771",
       "paper_url": "https://doi.org/10.1016/j.isci.2025.113771",
@@ -129,7 +129,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -141,7 +141,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "Table S2!row6",
-      "exact_source_text": "4 | CHIC-0004 | PGULL-2197 | LLD-1402 | La_Palma | Belmaco | 28.578600000000002 | -17.776199999999999 | 11th - 12th centuries CE (SU17-18) | Yes | No | Yes | 0.50455000000000005 | 68.465100000000007 | 0.197329 | 57938 | 1 | 223.239 | Yes | A2a  |  6138T 7886C 8457A 11981T 15145C | 1 | 191.321 | Yes ",
+      "exact_source_text": "4 | CHIC-0004 | PGULL-2197 | LLD-1402 | La_Palma | Belmaco | 28.578600000000002 | -17.776199999999999 | 11th - 12th centuries CE (SU17-18) | Yes | No | Yes | 0.50455000000000005 | 68.465100000000007 | 0.197329 | 57938 | 1 | 223.239 | Yes | A2a  |  6138T 7886C 8457A 11981T 15145C | 1 | 191.321 | Yes",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1016/j.isci.2025.113771",
       "paper_url": "https://doi.org/10.1016/j.isci.2025.113771",
@@ -155,7 +155,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -181,7 +181,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -207,7 +207,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -233,7 +233,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -259,7 +259,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -279,13 +279,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "27.640201000000001",
       "longitude_text": "-17.989809000000001",
-      "chronology_text": "3rd - 4th centuries CE (SU110)",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -297,7 +297,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "Table S2!row20",
-      "exact_source_text": "18 | CHIC-0018 | PGULL-0529 | LLD-0471 | La_Gomera | Cuevas de Herrera González | 28.174384 | -17.323678999999998 | 15th century CE (SU6) | Yes | Yes | Yes | 2.5270000000000001E-2 | 49.3108 | 0.228326 | 106005 | 1 | 306.40699999999998 | Yes | A8a |  15120A | 1 | 279.37599999999998 | Yes | [16498dC] ",
+      "exact_source_text": "18 | CHIC-0018 | PGULL-0529 | LLD-0471 | La_Gomera | Cuevas de Herrera González | 28.174384 | -17.323678999999998 | 15th century CE (SU6) | Yes | Yes | Yes | 2.5270000000000001E-2 | 49.3108 | 0.228326 | 106005 | 1 | 306.40699999999998 | Yes | A8a |  15120A | 1 | 279.37599999999998 | Yes | [16498dC]",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1016/j.isci.2025.113771",
       "paper_url": "https://doi.org/10.1016/j.isci.2025.113771",
@@ -311,7 +311,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -337,7 +337,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -357,13 +357,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "28.085573",
       "longitude_text": "-17.149227",
-      "chronology_text": "7th - 8th centuries CE (SU2)",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -389,7 +389,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -409,13 +409,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "28.787616",
       "longitude_text": "-17.765601",
-      "chronology_text": "11th - 12th centuries CE (SU104)",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -441,7 +441,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -461,13 +461,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "28.101313749999999",
       "longitude_text": "-15.4148534",
-      "chronology_text": "17th - 18th centuries CE (R3; SU72)",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -487,13 +487,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "28.178343999999999",
       "longitude_text": "-17.193563999999999",
-      "chronology_text": "10th - 11th centuries CE (site)",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -519,7 +519,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -539,13 +539,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "28.408760999999998",
       "longitude_text": "-14.125189000000001",
-      "chronology_text": "11th - 12th centuries (A; SU11)",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -557,7 +557,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "Table S2!row60",
-      "exact_source_text": "58 | CHIC-0058 | PGULL-1295 | LLD-0497 | Lobos | Lobos | 28.741962000000001 | -13.825055000000001 | 1st century BCE - 3rd century CE (site) | Yes | No | No | 4.7E-2 | 42.363500000000002 | 0.33942600000000001 | 10681 | 0.98678100000000002 | 26.2804 | No | A8a | - | 0.87881299999999996 | 20.2514 | No ",
+      "exact_source_text": "58 | CHIC-0058 | PGULL-1295 | LLD-0497 | Lobos | Lobos | 28.741962000000001 | -13.825055000000001 | 1st century BCE - 3rd century CE (site) | Yes | No | No | 4.7E-2 | 42.363500000000002 | 0.33942600000000001 | 10681 | 0.98678100000000002 | 26.2804 | No | A8a | - | 0.87881299999999996 | 20.2514 | No",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1016/j.isci.2025.113771",
       "paper_url": "https://doi.org/10.1016/j.isci.2025.113771",
@@ -571,7 +571,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -597,7 +597,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -617,13 +617,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "28.151167000000001",
       "longitude_text": "-15.696242",
-      "chronology_text": "12th - 13th centuries CE (Zone 1; SU2)",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -643,13 +643,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "28.665572999999998",
       "longitude_text": "-14.008963",
-      "chronology_text": "5th - 6th centuries (C; SU12)",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -661,7 +661,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "Table S2!row11",
-      "exact_source_text": "9 | CHIC-0009 | PGULL-2146 | LLD-1395 | La_Palma | Tigalate | 28.552054999999999 | -17.812253999999999 | 15th - 17th centuries CE (site) | Yes | No | Yes | 2.1430000000000001E-2 | 48.599299999999999 | 6.4298800000000003E-2 | 6594 | 0.998197 | 19.055499999999999 | Yes | A8a | - | 0.99093200000000004 ",
+      "exact_source_text": "9 | CHIC-0009 | PGULL-2146 | LLD-1395 | La_Palma | Tigalate | 28.552054999999999 | -17.812253999999999 | 15th - 17th centuries CE (site) | Yes | No | Yes | 2.1430000000000001E-2 | 48.599299999999999 | 6.4298800000000003E-2 | 6594 | 0.998197 | 19.055499999999999 | Yes | A8a | - | 0.99093200000000004",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1016/j.isci.2025.113771",
       "paper_url": "https://doi.org/10.1016/j.isci.2025.113771",
@@ -675,7 +675,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -701,7 +701,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     }
   ]

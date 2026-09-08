@@ -108,7 +108,7 @@ test-all: TEST_MAIN_ARGS =
 test-all: PYTEST_ADDOPTS_EXTRA = -o timeout=0
 test-all:
 	@$(SELF_MAKE) test
-	@$(SELF_MAKE) test-generated-artifacts
+	@$(SELF_MAKE) test-generated-artifacts PYTEST_ADDOPTS_EXTRA="$(PYTEST_ADDOPTS_EXTRA)"
 	@echo "✔ Full test categories completed"
 .PHONY: test-all
 
@@ -116,7 +116,7 @@ test-all-plus-run-time: TEST_MAIN_ARGS =
 test-all-plus-run-time: PYTEST_ADDOPTS_EXTRA = -o timeout=0 --durations=0 --durations-min=0
 test-all-plus-run-time:
 	@$(SELF_MAKE) test
-	@$(SELF_MAKE) test-generated-artifacts
+	@$(SELF_MAKE) test-generated-artifacts PYTEST_ADDOPTS_EXTRA="$(PYTEST_ADDOPTS_EXTRA)"
 	@echo "✔ Full test categories completed"
 .PHONY: test-all-plus-run-time
 

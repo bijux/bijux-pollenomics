@@ -1,5 +1,5 @@
 {
-  "schema_version": "repository-atlas-input-audit.v1",
+  "schema_version": "repository-atlas-input-audit.v2",
   "row_count": 6,
   "rows": [
     {
@@ -11,16 +11,18 @@
       ],
       "normalized_paths": [
         "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
-        "data/landclim/normalized/nordic_reveals_grid_cells.geojson"
+        "data/landclim/normalized/nordic_reveals_grid_cells.geojson",
+        "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+        "data/landclim/normalized/landclim_bibliography.json"
       ],
       "published_paths": [
         "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
-        "docs/report/regions/nordic/nordic_reveals_grid_cells.geojson"
+        "docs/report/regions/nordic/nordic_reveals_temporal_grid_cells.geojson"
       ],
       "refresh_anchor": "data/landclim/normalized/landclim_summary.json",
       "metrics": {
-        "site_count": 492,
-        "grid_cell_count": 88
+        "site_count": 490,
+        "grid_cell_count": 77
       },
       "note": "LandClim is a first-class pollen context family, not generic map decoration."
     },
@@ -75,13 +77,18 @@
         "data/raa/normalized/sweden_archaeology_layer.json"
       ],
       "published_paths": [
-        "docs/report/regions/nordic/sweden_archaeology_density.geojson",
         "docs/report/regions/nordic/sweden_archaeology_layer.json"
       ],
       "refresh_anchor": "data/raa/normalized/sweden_archaeology_layer.json",
       "metrics": {
-        "published_site_count": 761917,
-        "density_cell_count": 106
+        "publication_status": "refused_not_publication_ready",
+        "published_site_count": null,
+        "density_cell_count": null,
+        "reason_codes": [
+          "missing_raw_inventory",
+          "missing_raw_summary",
+          "missing_scientific_review"
+        ]
       },
       "note": "RA\u00c4 is explicitly Sweden-scoped and should never be mistaken for Nordic-wide archaeology coverage."
     },
@@ -125,8 +132,13 @@
       ],
       "refresh_anchor": "docs/report/animal_sample_database_review.json",
       "metrics": {
-        "published_point_count": 234,
-        "unresolved_row_count": 21
+        "sample_accounting_available": true,
+        "coordinate_accounting_available": true,
+        "published_point_count": 170,
+        "tracked_sample_count": 1450,
+        "unresolved_sample_count": 402,
+        "coordinate_provenance_count": 308,
+        "refused_coordinate_provenance_count": 4
       },
       "note": "Animal aDNA is still a partial recovery program whose public map surface depends on sample-owned support reviews and release gates."
     }

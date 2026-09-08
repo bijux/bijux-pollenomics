@@ -39,6 +39,4 @@
 
 ## Nordic-relevant leads not yet mapped confidently
 
-| accession | archive status | support class | nordic relevance | reason |
-| --- | --- | --- | --- | --- |
-| PRJEB59481 | paper_pinned_core | accepted | nordic_relevant_unmapped | admissible_for_curated_support |
+- none

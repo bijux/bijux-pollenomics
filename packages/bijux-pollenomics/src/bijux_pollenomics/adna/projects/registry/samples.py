@@ -1,0 +1,508 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from pathlib import Path
+
+from bijux_pollenomics.adna.projects.registry.context import (
+    AdnaProjectContext,
+    resolve_project_context,
+)
+from bijux_pollenomics.adna.projects.registry.localities import (
+    AdnaProjectLocalityLead,
+    resolve_project_locality_leads,
+)
+from bijux_pollenomics.adna.projects.registry.sample_classification import (
+    _data_type_for,
+    _inclusion_status_for,
+    _provenance_quality_for,
+    _record_modality_for,
+    _review_strength_for,
+    _sample_basis_for,
+)
+
+from ....core.repository import repository_data_root
+from ...sources.archive import AdnaArchiveProject, build_species_archive_projects
+from ...species.definitions import resolve_species_definition
+from ..sample_master import AdnaProjectSampleMasterRow, build_project_sample_master_rows
+
+__all__ = [
+    "AdnaCuratedSampleRow",
+    "build_species_curated_sample_rows",
+]
+
+
+@dataclass(frozen=True)
+class AdnaCuratedSampleRow:
+    """One curated animal aDNA sample row built from the project sample master."""
+
+    species_latin_name: str
+    species_common_name: str
+    stable_sample_id: str
+    project_accession: str
+    sample_basis: str
+    source_family: str
+    source_release: str
+    record_modality: str
+    review_strength: str
+    provenance_quality: str
+    site_label: str
+    political_entity: str | None
+    latitude_text: str
+    longitude_text: str
+    coordinate_basis: str
+    chronology_text: str
+    time_start_bp: int | None
+    time_end_bp: int | None
+    dating_basis: str
+    publication: str
+    publication_year: str
+    paper_doi: str
+    paper_url: str
+    supplementary_source: str
+    inclusion_status: str
+    inclusion_note: str
+    data_type: str
+    archive_native_sample_id: str
+    paper_native_sample_label: str
+    supplementary_table_sample_label: str
+    sample_evidence_status: str
+    sample_lineage_path: str
+    sample_lineage_locator: str
+    sample_lineage_excerpt: str
+    sample_identity_resolution: str
+    sample_ambiguity_note: str
+    source_native_tax_id: str
+    source_native_scientific_name: str
+    taxon_alignment_status: str
+    archive_native_experiment_id: str = ""
+    source_native_identity_kind: str = "biological_sample"
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "species_latin_name": self.species_latin_name,
+            "species_common_name": self.species_common_name,
+            "stable_sample_id": self.stable_sample_id,
+            "project_accession": self.project_accession,
+            "sample_basis": self.sample_basis,
+            "source_family": self.source_family,
+            "source_release": self.source_release,
+            "record_modality": self.record_modality,
+            "review_strength": self.review_strength,
+            "provenance_quality": self.provenance_quality,
+            "site_label": self.site_label,
+            "political_entity": self.political_entity,
+            "latitude_text": self.latitude_text,
+            "longitude_text": self.longitude_text,
+            "coordinate_basis": self.coordinate_basis,
+            "chronology_text": self.chronology_text,
+            "time_start_bp": self.time_start_bp,
+            "time_end_bp": self.time_end_bp,
+            "dating_basis": self.dating_basis,
+            "publication": self.publication,
+            "publication_year": self.publication_year,
+            "paper_doi": self.paper_doi,
+            "paper_url": self.paper_url,
+            "supplementary_source": self.supplementary_source,
+            "inclusion_status": self.inclusion_status,
+            "inclusion_note": self.inclusion_note,
+            "data_type": self.data_type,
+            "archive_native_sample_id": self.archive_native_sample_id,
+            "paper_native_sample_label": self.paper_native_sample_label,
+            "supplementary_table_sample_label": self.supplementary_table_sample_label,
+            "sample_evidence_status": self.sample_evidence_status,
+            "sample_lineage_path": self.sample_lineage_path,
+            "sample_lineage_locator": self.sample_lineage_locator,
+            "sample_lineage_excerpt": self.sample_lineage_excerpt,
+            "sample_identity_resolution": self.sample_identity_resolution,
+            "sample_ambiguity_note": self.sample_ambiguity_note,
+            "source_native_tax_id": self.source_native_tax_id,
+            "source_native_scientific_name": self.source_native_scientific_name,
+            "taxon_alignment_status": self.taxon_alignment_status,
+            "archive_native_experiment_id": self.archive_native_experiment_id,
+            "source_native_identity_kind": self.source_native_identity_kind,
+        }
+
+
+_SUPPLEMENTARY_SOURCE_BY_DOI: dict[str, str] = {
+    "10.1038/s42003-021-02794-8": (
+        "data/adna/governance/source_library/papers/10.1038-s42003-021-02794-8/"
+        "supplementary/42003_2021_2794_MOESM4_ESM.zip"
+    ),
+}
+
+_PIG_GOVERNED_SITE_ADMISSIONS = frozenset(
+    {
+        ("SAMEA5160867", "AA015"),
+        ("SAMEA5160868", "AA016"),
+    }
+)
+
+
+def build_species_curated_sample_rows(
+    species_name: str,
+    *,
+    output_root: Path | None = None,
+) -> tuple[AdnaCuratedSampleRow, ...]:
+    """Build the species-owned sample rows from the project sample-master layer."""
+    species = resolve_species_definition(species_name)
+    data_root = _default_data_root() if output_root is None else Path(output_root)
+    rows: list[AdnaCuratedSampleRow] = []
+    for project in build_species_archive_projects(species_name):
+        linkage = project.paper_linkage
+        leads = resolve_project_locality_leads(project.project_accession)
+        project_context = resolve_project_context(project)
+        paper_doi = "" if linkage is None or linkage.doi is None else linkage.doi
+        paper_url = f"https://doi.org/{paper_doi}" if paper_doi else ""
+        master_rows = build_project_sample_master_rows(
+            data_root, project.project_accession
+        )
+        if master_rows:
+            for master_row in master_rows:
+                lead = _matching_locality_lead(
+                    leads,
+                    master_row.locality_text,
+                    master_row.political_entity,
+                )
+                (
+                    site_label,
+                    political_entity,
+                    latitude_text,
+                    longitude_text,
+                    coordinate_basis,
+                    chronology_text,
+                    time_start_bp,
+                    time_end_bp,
+                    inclusion_status,
+                    inclusion_note,
+                ) = _resolve_row_context(
+                    master_row=master_row,
+                    lead=lead,
+                    project=project,
+                    project_context=project_context,
+                )
+                if (
+                    project.project_accession == "PRJEB30282"
+                    and not _pig_site_publication_admitted(master_row)
+                ):
+                    inclusion_status = "sample_context_blocked"
+                    inclusion_note = (
+                        "Sample-owned locality is retained from the exact "
+                        "archive-to-supplement join, but no governed sample coordinate "
+                        "or domesticated-core publication admission exists."
+                        if master_row.locality_text
+                        else "Archive and supplement identity are retained, but the "
+                        "source reports no sample-owned locality or date and no "
+                        "domesticated-core publication admission exists."
+                    )
+                rows.append(
+                    AdnaCuratedSampleRow(
+                        species_latin_name=species.latin_name,
+                        species_common_name=species.common_name,
+                        stable_sample_id=master_row.repo_stable_sample_id,
+                        project_accession=project.project_accession,
+                        sample_basis=master_row.sample_basis,
+                        source_family=project.source_family,
+                        source_release=project.project_accession,
+                        record_modality=_record_modality_for(project),
+                        review_strength=_review_strength_for(
+                            project.archive_status, bool(paper_doi)
+                        ),
+                        provenance_quality=_provenance_quality_for(
+                            project.accession_scope, lead is not None
+                        ),
+                        site_label=site_label,
+                        political_entity=political_entity,
+                        latitude_text=latitude_text,
+                        longitude_text=longitude_text,
+                        coordinate_basis=coordinate_basis,
+                        chronology_text=chronology_text,
+                        time_start_bp=time_start_bp,
+                        time_end_bp=time_end_bp,
+                        dating_basis=(
+                            master_row.chronology_dating_basis
+                            or project.dating_basis
+                            or "unknown"
+                        ),
+                        publication="" if linkage is None else linkage.paper_title,
+                        publication_year=""
+                        if linkage is None or linkage.publication_year is None
+                        else str(linkage.publication_year),
+                        paper_doi=paper_doi,
+                        paper_url=paper_url,
+                        supplementary_source=_SUPPLEMENTARY_SOURCE_BY_DOI.get(
+                            paper_doi, ""
+                        ),
+                        inclusion_status=inclusion_status,
+                        inclusion_note=inclusion_note,
+                        data_type=_data_type_for(
+                            project.accession_scope,
+                            sample_basis=master_row.sample_basis,
+                        ),
+                        archive_native_sample_id=master_row.archive_native_sample_id,
+                        paper_native_sample_label=master_row.paper_native_sample_label,
+                        supplementary_table_sample_label=master_row.supplementary_table_sample_label,
+                        sample_evidence_status=master_row.sample_evidence_status,
+                        sample_lineage_path=master_row.sample_lineage_path,
+                        sample_lineage_locator=master_row.sample_lineage_locator,
+                        sample_lineage_excerpt=master_row.sample_lineage_excerpt,
+                        sample_identity_resolution=master_row.sample_identity_resolution,
+                        sample_ambiguity_note=master_row.sample_ambiguity_note,
+                        source_native_tax_id=master_row.source_native_tax_id,
+                        source_native_scientific_name=(
+                            master_row.source_native_scientific_name
+                        ),
+                        taxon_alignment_status=master_row.taxon_alignment_status,
+                        archive_native_experiment_id=(
+                            master_row.archive_native_experiment_id
+                        ),
+                        source_native_identity_kind=(
+                            master_row.source_native_identity_kind
+                        ),
+                    )
+                )
+            continue
+
+        lead = leads[0] if len(leads) == 1 else None
+        (
+            site_label,
+            political_entity,
+            latitude_text,
+            longitude_text,
+            coordinate_basis,
+            chronology_text,
+            time_start_bp,
+            time_end_bp,
+            inclusion_status,
+            inclusion_note,
+        ) = _resolve_row_context(
+            master_row=None,
+            lead=lead,
+            project=project,
+            project_context=project_context,
+        )
+        rows.append(
+            AdnaCuratedSampleRow(
+                species_latin_name=species.latin_name,
+                species_common_name=species.common_name,
+                stable_sample_id=project.project_accession,
+                project_accession=project.project_accession,
+                sample_basis=_sample_basis_for(project.accession_scope),
+                source_family=project.source_family,
+                source_release=project.project_accession,
+                record_modality=_record_modality_for(project),
+                review_strength=_review_strength_for(
+                    project.archive_status, bool(paper_doi)
+                ),
+                provenance_quality=_provenance_quality_for(
+                    project.accession_scope, lead is not None
+                ),
+                site_label=site_label,
+                political_entity=political_entity,
+                latitude_text=latitude_text,
+                longitude_text=longitude_text,
+                coordinate_basis=coordinate_basis,
+                chronology_text=chronology_text,
+                time_start_bp=time_start_bp,
+                time_end_bp=time_end_bp,
+                dating_basis=project.dating_basis or "unknown",
+                publication="" if linkage is None else linkage.paper_title,
+                publication_year=""
+                if linkage is None or linkage.publication_year is None
+                else str(linkage.publication_year),
+                paper_doi=paper_doi,
+                paper_url=paper_url,
+                supplementary_source=_SUPPLEMENTARY_SOURCE_BY_DOI.get(paper_doi, ""),
+                inclusion_status=inclusion_status,
+                inclusion_note=inclusion_note,
+                data_type=_data_type_for(
+                    project.accession_scope,
+                    sample_basis=_sample_basis_for(project.accession_scope),
+                ),
+                archive_native_sample_id="",
+                paper_native_sample_label="",
+                supplementary_table_sample_label="",
+                sample_evidence_status="not_yet_recoverable",
+                sample_lineage_path="",
+                sample_lineage_locator="",
+                sample_lineage_excerpt="",
+                sample_identity_resolution="provisional",
+                sample_ambiguity_note="No recoverable project sample-master row is published yet for this project.",
+                source_native_tax_id="",
+                source_native_scientific_name="",
+                taxon_alignment_status="not_reported",
+            )
+        )
+    rows.sort(key=lambda item: (item.project_accession, item.stable_sample_id))
+    return tuple(rows)
+
+
+def _pig_site_publication_admitted(row: AdnaProjectSampleMasterRow) -> bool:
+    """Admit only governed pig identities carrying their source-bound coordinates."""
+    identity = (
+        row.archive_native_sample_id,
+        row.supplementary_table_sample_label,
+    )
+    return (
+        identity in _PIG_GOVERNED_SITE_ADMISSIONS
+        and bool(row.latitude_text)
+        and bool(row.longitude_text)
+    )
+
+
+def _resolve_row_context(
+    *,
+    master_row: AdnaProjectSampleMasterRow | None,
+    lead: AdnaProjectLocalityLead | None,
+    project: AdnaArchiveProject,
+    project_context: AdnaProjectContext,
+) -> tuple[str, str | None, str, str, str, str, int | None, int | None, str, str]:
+    if lead is None:
+        site_label = "site detail not yet extracted from tracked source support"
+        political_entity = None
+        latitude_text = ""
+        longitude_text = ""
+        coordinate_basis = "withheld_site_detail_unextracted"
+        chronology_text = "chronology not yet extracted from tracked source support"
+        time_start_bp = None
+        time_end_bp = None
+        inclusion_status = "sample_context_blocked"
+        inclusion_note = (
+            "This sample row is curated into the species master table, "
+            "but site and chronology extraction are still blocked until a project-owned "
+            "site evidence row is curated from paper or supplementary support."
+        )
+    else:
+        site_label = lead.locality_text
+        political_entity = lead.political_entity
+        latitude_text = lead.latitude_text
+        longitude_text = lead.longitude_text
+        coordinate_basis = lead.coordinate_basis
+        chronology_text = lead.chronology_text
+        time_start_bp = lead.time_start_bp
+        time_end_bp = lead.time_end_bp
+        inclusion_status = _inclusion_status_for(
+            project.archive_status, project_context.nordic_relevance
+        )
+        inclusion_note = lead.interpretation_note
+        if inclusion_status == "comparator_site_curated":
+            inclusion_note = (f"Comparator context only. {inclusion_note}").strip()
+
+    if master_row is not None:
+        if getattr(master_row, "locality_text", ""):
+            site_label = master_row.locality_text
+        if getattr(master_row, "political_entity", ""):
+            political_entity = master_row.political_entity
+        if getattr(master_row, "latitude_text", "") and getattr(
+            master_row, "longitude_text", ""
+        ):
+            latitude_text = master_row.latitude_text
+            longitude_text = master_row.longitude_text
+            if project.project_accession == "PRJEB59481":
+                coordinate_basis = "archive_coordinates"
+                inclusion_status = _inclusion_status_for(
+                    project.archive_status, project_context.nordic_relevance
+                )
+                inclusion_note = (
+                    "The official ENA sample record supplies a two-decimal-degree "
+                    "lat_lon pair; this supports map placement without implying an "
+                    "exact specimen findspot."
+                )
+            elif project.project_accession == "PRJEB75467":
+                coordinate_basis = "supplementary_proximal_site_coordinates"
+                inclusion_note = (
+                    "The supplementary workbook identifies this coordinate as "
+                    "proximal to the site; it supports approximate locality "
+                    "placement without implying an exact specimen findspot."
+                )
+            elif not coordinate_basis:
+                coordinate_basis = "supplementary_table_coordinates"
+        if getattr(master_row, "chronology_text", ""):
+            chronology_text = master_row.chronology_text
+            from ...workflow.normalization import normalize_chronology_text
+
+            chronology = normalize_chronology_text(
+                chronology_text,
+                dating_basis=(
+                    master_row.chronology_dating_basis
+                    or project.dating_basis
+                    or "unknown"
+                ),
+            )
+            time_start_bp = chronology.time_start_bp
+            time_end_bp = chronology.time_end_bp
+            if lead is None:
+                inclusion_note = (
+                    "This sample row keeps chronology recovered from the sample-owned source row, "
+                    "but site extraction is still blocked until a project-owned site evidence row "
+                    "is curated from paper or supplementary support."
+                )
+        if getattr(master_row, "sample_identity_resolution", "") == "ambiguous":
+            inclusion_note = (
+                f"{inclusion_note} Sample identity remains ambiguous across source surfaces."
+            ).strip()
+        if project.project_accession == "PRJEB81815" and (
+            not master_row.latitude_text or not master_row.longitude_text
+        ):
+            # The cat supplement has explicit modern omissions and coordinate-order
+            # anomalies. Neither may inherit another sample's same-site coordinate.
+            latitude_text = ""
+            longitude_text = ""
+            coordinate_basis = "withheld_sample_coordinate"
+    return (
+        site_label,
+        political_entity,
+        latitude_text,
+        longitude_text,
+        coordinate_basis,
+        chronology_text,
+        time_start_bp,
+        time_end_bp,
+        inclusion_status,
+        inclusion_note,
+    )
+
+
+def _matching_locality_lead(
+    leads: tuple[AdnaProjectLocalityLead, ...],
+    locality_text: str,
+    political_entity: str,
+) -> AdnaProjectLocalityLead | None:
+    target_locality = _normalize_place(locality_text)
+    target_entity = _normalize_place(political_entity)
+    if target_entity == target_locality:
+        target_entity = ""
+    if not target_locality:
+        return None
+
+    locality_matches = tuple(
+        lead
+        for lead in leads
+        if _normalize_place(lead.locality_text) == target_locality
+    )
+    if not locality_matches:
+        return None
+    if len(locality_matches) == 1:
+        lead = locality_matches[0]
+        lead_entity = _normalize_place(lead.political_entity)
+        if target_entity and lead_entity and target_entity != lead_entity:
+            return None
+        return lead
+    entity_matches = tuple(
+        lead
+        for lead in locality_matches
+        if _normalize_place(lead.political_entity) == target_entity
+    )
+    if len(entity_matches) == 1:
+        return entity_matches[0]
+    raise ValueError("Multiple locality leads match the same sample locality")
+
+
+def _normalize_place(value: str) -> str:
+    normalized = "".join(
+        character for character in value.casefold() if character.isalnum()
+    )
+    return "" if normalized in {"na", "notavailable", "unknown"} else normalized
+
+
+def _default_data_root() -> Path:
+    return repository_data_root(__file__)

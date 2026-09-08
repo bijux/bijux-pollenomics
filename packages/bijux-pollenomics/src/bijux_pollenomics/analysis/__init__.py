@@ -1,12 +1,27 @@
 """Analysis exports for harmonization, scoring, and reporting helpers."""
 
-from .engine_manifest import (
+from bijux_pollenomics.analysis.classification.events import (
+    ClassificationEventContext,
+    ClassificationEventDerivationResult,
+    ClassificationEventReconciliation,
+    ClassificationEventRefusal,
+    derive_classification_events,
+)
+from bijux_pollenomics.analysis.classification.harmonization import (
+    HarmonizationRule,
+    default_harmonization_rules,
+)
+from bijux_pollenomics.analysis.fieldwork.candidate_registry import (
+    SOUTHERN_SWEDEN_LAKE_REVIEW_TARGETS,
+    build_sweden_lake_candidate_registry,
+    write_sweden_lake_candidate_registry,
+)
+from bijux_pollenomics.analysis.fieldwork.engine_manifest import (
     LakeSelectionRequirement,
     RankingEngineManifest,
     build_ranking_engine_manifest,
 )
-from .harmonization import HarmonizationRule, default_harmonization_rules
-from .lake_evidence_richness import (
+from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
     DEFAULT_LAKE_EVIDENCE_RADII_KM,
     LakeEvidenceBandScore,
     LakeEvidenceCandidate,
@@ -15,7 +30,13 @@ from .lake_evidence_richness import (
     LakeEvidenceSourceAnchor,
     build_sweden_lake_evidence_richness_report,
 )
-from .ranking import (
+from bijux_pollenomics.analysis.fieldwork.land_use import (
+    build_sweden_land_use_synthesis,
+    render_sweden_land_use_synthesis_markdown,
+    write_sweden_land_use_synthesis_csv,
+    write_sweden_land_use_synthesis_json,
+)
+from bijux_pollenomics.analysis.fieldwork.ranking import (
     CandidateSensitivityReport,
     CandidateSensitivityRow,
     build_candidate_context,
@@ -23,11 +44,22 @@ from .ranking import (
     rank_localities,
     temporal_overlap,
 )
-from .review import (
+from bijux_pollenomics.analysis.propagation.candidates import (
+    CandidateRankingProfile,
+    CandidateSiteContext,
+    CandidateSiteScore,
+    ScoringWeights,
+    build_ranking_profiles,
+    resolve_ranking_profile,
+    score_candidate_site,
+)
+from bijux_pollenomics.analysis.review.fieldwork import (
+    build_lake_archaeology_sensitivity_payload,
     build_lake_evidence_richness_geojson,
     build_lake_fieldwork_preparation_payload,
     render_candidate_site_markdown,
     render_candidate_site_sensitivity_markdown,
+    render_lake_archaeology_sensitivity_markdown,
     render_lake_evidence_richness_map_html,
     render_lake_evidence_richness_markdown,
     render_lake_evidence_richness_section,
@@ -36,6 +68,8 @@ from .review import (
     write_candidate_site_sensitivity_json,
     write_candidate_sites_csv,
     write_candidate_sites_json,
+    write_lake_archaeology_sensitivity_csv,
+    write_lake_archaeology_sensitivity_json,
     write_lake_evidence_richness_band_csv,
     write_lake_evidence_richness_geojson,
     write_lake_evidence_richness_json,
@@ -45,60 +79,67 @@ from .review import (
     write_lake_fieldwork_preparation_csv,
     write_lake_fieldwork_preparation_json,
 )
-from .site_candidates import (
-    CandidateRankingProfile,
-    CandidateSiteContext,
-    CandidateSiteScore,
-    ScoringWeights,
-    build_ranking_profiles,
-    resolve_ranking_profile,
-    score_candidate_site,
-)
 
 __all__ = [
+    "DEFAULT_LAKE_EVIDENCE_RADII_KM",
+    "SOUTHERN_SWEDEN_LAKE_REVIEW_TARGETS",
     "CandidateRankingProfile",
     "CandidateSensitivityReport",
     "CandidateSensitivityRow",
-    "DEFAULT_LAKE_EVIDENCE_RADII_KM",
+    "CandidateSiteContext",
+    "CandidateSiteScore",
+    "ClassificationEventContext",
+    "ClassificationEventDerivationResult",
+    "ClassificationEventReconciliation",
+    "ClassificationEventRefusal",
     "HarmonizationRule",
-    "LakeSelectionRequirement",
     "LakeEvidenceBandScore",
     "LakeEvidenceCandidate",
     "LakeEvidenceRichnessAssessment",
     "LakeEvidenceRichnessReport",
     "LakeEvidenceSourceAnchor",
+    "LakeSelectionRequirement",
     "RankingEngineManifest",
-    "CandidateSiteContext",
-    "CandidateSiteScore",
+    "ScoringWeights",
     "build_candidate_context",
-    "build_lake_fieldwork_preparation_payload",
+    "build_lake_archaeology_sensitivity_payload",
     "build_lake_evidence_richness_geojson",
+    "build_lake_fieldwork_preparation_payload",
     "build_ranking_engine_manifest",
     "build_ranking_profiles",
     "build_ranking_sensitivity_report",
+    "build_sweden_lake_candidate_registry",
     "build_sweden_lake_evidence_richness_report",
+    "build_sweden_land_use_synthesis",
     "default_harmonization_rules",
+    "derive_classification_events",
     "rank_localities",
     "render_candidate_site_markdown",
     "render_candidate_site_sensitivity_markdown",
-    "render_lake_fieldwork_preparation_markdown",
-    "render_lake_fieldwork_preparation_section",
+    "render_lake_archaeology_sensitivity_markdown",
     "render_lake_evidence_richness_map_html",
     "render_lake_evidence_richness_markdown",
     "render_lake_evidence_richness_section",
+    "render_lake_fieldwork_preparation_markdown",
+    "render_lake_fieldwork_preparation_section",
+    "render_sweden_land_use_synthesis_markdown",
     "resolve_ranking_profile",
-    "ScoringWeights",
     "score_candidate_site",
     "temporal_overlap",
     "write_candidate_site_sensitivity_json",
     "write_candidate_sites_csv",
     "write_candidate_sites_json",
-    "write_lake_fieldwork_preparation_csv",
-    "write_lake_fieldwork_preparation_json",
+    "write_lake_archaeology_sensitivity_csv",
+    "write_lake_archaeology_sensitivity_json",
     "write_lake_evidence_richness_band_csv",
     "write_lake_evidence_richness_geojson",
     "write_lake_evidence_richness_json",
     "write_lake_evidence_richness_map_html",
     "write_lake_evidence_richness_registry_csv",
     "write_lake_evidence_richness_scenario_csv",
+    "write_lake_fieldwork_preparation_csv",
+    "write_lake_fieldwork_preparation_json",
+    "write_sweden_lake_candidate_registry",
+    "write_sweden_land_use_synthesis_csv",
+    "write_sweden_land_use_synthesis_json",
 ]

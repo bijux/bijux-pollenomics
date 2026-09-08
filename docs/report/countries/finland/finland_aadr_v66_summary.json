@@ -2,14 +2,14 @@
   "schema_version": "country-report-summary.v1",
   "country": "Finland",
   "version": "v66",
-  "generated_on": "2026-06-22",
+  "generated_on": "2026-09-08",
   "total_unique_samples": 32,
   "total_unique_localities": 6,
   "dataset_row_counts": {
     "1240k": 23,
     "ho": 32
   },
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/finland",
+  "output_dir": "docs/report/countries/finland",
   "artifacts": {
     "bundle_manifest": "finland_aadr_v66_bundle.json",
     "readme": "README.md",
@@ -20,9 +20,9 @@
     "summary_json": "finland_aadr_v66_summary.json"
   },
   "animal_adna": {
-    "total_species": 0,
-    "total_localities": 0,
-    "total_sample_rows": 0,
+    "total_species": 1,
+    "total_localities": 1,
+    "total_sample_rows": 2,
     "artifacts": {
       "summary_json": "finland_animal_adna_v66_summary.json",
       "samples_csv": "finland_animal_adna_v66_samples.csv",

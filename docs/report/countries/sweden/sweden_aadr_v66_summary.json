@@ -2,14 +2,14 @@
   "schema_version": "country-report-summary.v1",
   "country": "Sweden",
   "version": "v66",
-  "generated_on": "2026-06-22",
+  "generated_on": "2026-09-08",
   "total_unique_samples": 416,
   "total_unique_localities": 77,
   "dataset_row_counts": {
     "1240k": 416,
     "ho": 416
   },
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/countries/sweden",
+  "output_dir": "docs/report/countries/sweden",
   "artifacts": {
     "bundle_manifest": "sweden_aadr_v66_bundle.json",
     "readme": "README.md",
@@ -20,9 +20,9 @@
     "summary_json": "sweden_aadr_v66_summary.json"
   },
   "animal_adna": {
-    "total_species": 1,
-    "total_localities": 1,
-    "total_sample_rows": 1,
+    "total_species": 2,
+    "total_localities": 3,
+    "total_sample_rows": 5,
     "artifacts": {
       "summary_json": "sweden_animal_adna_v66_summary.json",
       "samples_csv": "sweden_animal_adna_v66_samples.csv",
@@ -46,5 +46,15 @@
     "json": "sweden_lake_fieldwork_preparation_v66.json",
     "csv": "sweden_lake_fieldwork_preparation_v66.csv",
     "markdown": "sweden_lake_fieldwork_preparation_v66.md"
+  },
+  "lake_archaeology_sensitivity": {
+    "json": "sweden_lake_archaeology_sensitivity_v66.json",
+    "csv": "sweden_lake_archaeology_sensitivity_v66.csv",
+    "markdown": "sweden_lake_archaeology_sensitivity_v66.md"
+  },
+  "land_use_synthesis": {
+    "json": "sweden_land_use_synthesis_v66.json",
+    "csv": "sweden_land_use_synthesis_v66.csv",
+    "markdown": "sweden_land_use_synthesis_v66.md"
   }
 }

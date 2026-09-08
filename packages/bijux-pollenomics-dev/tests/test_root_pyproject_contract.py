@@ -17,7 +17,7 @@ def test_root_pyproject_uses_shared_workspace_build_contract() -> None:
     pyproject = _root_pyproject()
 
     assert pyproject["build-system"] == {
-        "requires": ["hatchling>=1.27.0,<1.32", "hatch-vcs>=0.4.0,<1.0"],
+        "requires": ["hatchling>=1.27.0,<1.33", "hatch-vcs>=0.4.0,<1.0"],
         "build-backend": "hatchling.build",
     }
 
@@ -32,7 +32,8 @@ def test_root_pyproject_uses_shared_workspace_build_contract() -> None:
 
     assert tool_section["uv"]["workspace"]["members"] == ["packages/*"]
     assert tool_section["hatch"]["build"]["targets"]["wheel"] == {
-        "bypass-selection": True
+        "bypass-selection": True,
+        "skip-excluded-dirs": True,
     }
 
 

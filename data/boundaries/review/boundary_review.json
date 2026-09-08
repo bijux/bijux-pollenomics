@@ -1,0 +1,3448 @@
+{
+  "schema_version": "nordic-boundary-review.v1",
+  "boundary_authority": {
+    "source": "Natural Earth",
+    "dataset": "Admin 0 - Countries",
+    "version": "5.1.1",
+    "source_revision": "5.1.1",
+    "source_revision_date": null,
+    "source_revision_date_status": "not_published_in_local_receipt",
+    "source_capture_date": "2026-09-04",
+    "release_page_url": "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/",
+    "asset_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.1/geojson/ne_10m_admin_0_countries.geojson",
+    "source_asset_sha256": "239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255",
+    "license": "public_domain",
+    "license_url": "https://www.naturalearthdata.com/about/terms-of-use/",
+    "source_crs": "EPSG:4326",
+    "coordinate_transformation": "none",
+    "country_selection_field": "ADM0_A3",
+    "geometry_inclusion_policy": "retain_all_geometry_parts_from_each_selected_admin0_feature",
+    "source_manifest_sha256": "3855c31c227b8e9600d4f3956ea2f4f866a62cb55620f39d9e979834528b7373",
+    "normalized_artifact_sha256": "bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+    "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f"
+  },
+  "country_order": [
+    "SE",
+    "DK",
+    "NO",
+    "FI"
+  ],
+  "country_count": 4,
+  "countries": [
+    {
+      "country_code": "SE",
+      "country_name": "Sweden",
+      "admin0_code": "SWE",
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_transformation": "none",
+      "artifact_path": "data/boundaries/raw/sweden.geojson",
+      "artifact_sha256": "20e2ca00f348cddb95a41ca8e8f22a92390a8210618a525e2cef98d3069fc00d",
+      "feature_count": 1,
+      "polygon_part_count": 41,
+      "ring_count": 41,
+      "interior_ring_count": 0,
+      "coordinate_count": 4665,
+      "bbox": [
+        11.108165,
+        55.342678,
+        24.163414,
+        69.036356
+      ],
+      "polygon_part_inventory": [
+        {
+          "geometry_part_id": "SE:polygon-part:001",
+          "sha256": "0928af1aa1b75fdde83018454c697149ad5c55dd90097ee80d2242888cb36747",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 3388,
+          "bbox": [
+            11.108165,
+            55.342678,
+            24.163414,
+            69.036356
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:002",
+          "sha256": "eb482a62469914063240e658c3605b1c050e263bb58e27b2a4b55338a93fe5b4",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 130,
+          "bbox": [
+            16.391449,
+            56.217963,
+            17.124522,
+            57.358222
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:003",
+          "sha256": "c63ba96e6800bdf4eaec743e00de24e3e6842b8ad084e2f0867884004718eb6f",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 205,
+          "bbox": [
+            18.099376,
+            56.912014,
+            19.085216,
+            57.923
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:004",
+          "sha256": "9111e37e39f72a796c4082c530527b35fcff6050f5304a71bb7b6e8a7381c3d9",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 42,
+          "bbox": [
+            19.036794,
+            57.846869,
+            19.338552,
+            57.99022
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:005",
+          "sha256": "a2b7e975ee663d88ac80a3f67cf54b840a72f98a718d1616b4541993e22819eb",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 46,
+          "bbox": [
+            11.497895,
+            57.935614,
+            11.745616,
+            58.064521
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:006",
+          "sha256": "35107781aef37de56009c9ee82706b696752f6acef7d0ffd8126e3f727702b59",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 48,
+          "bbox": [
+            11.406586,
+            58.07217,
+            11.815278,
+            58.291246
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:007",
+          "sha256": "b7c78c9a1b483795ce3c98290e48b996a9e9ee9b9f9f547e5ef435bf12957d3c",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 9,
+          "bbox": [
+            19.187755,
+            58.342841,
+            19.331716,
+            58.394965
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:008",
+          "sha256": "46f2ff0dcee369a360b3b8baa6ade287f9ce9d21893d1c1ac5ab3687a2c37087",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 19,
+          "bbox": [
+            18.344737,
+            59.225898,
+            18.612315,
+            59.299262
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:009",
+          "sha256": "68702ab239c6db0ea3c2883c4c7ebc0178d20aff65af35e0f0e25cd4830cc7db",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 40,
+          "bbox": [
+            18.375173,
+            60.307196,
+            18.570649,
+            60.510077
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:010",
+          "sha256": "dc2f67cf0819b527614c3e3f0307065f51974a4ca1407aafd96d7bffdb878fa2",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 10,
+          "bbox": [
+            20.839203,
+            63.753974,
+            20.920421,
+            63.79682
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:011",
+          "sha256": "885ce4ff89e1fe84f4fa09df025f06c483cf57e9caea8c4bd0f2e483b4aa8017",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 42,
+          "bbox": [
+            18.341319,
+            59.006903,
+            18.490082,
+            59.117255
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:012",
+          "sha256": "4b1a7d4c280d91cc8a85d7e38148dced0c7627858837eecdc50682dca19a82b2",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 11,
+          "bbox": [
+            18.659679,
+            59.174262,
+            18.750011,
+            59.211493
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:013",
+          "sha256": "99e322b5e58487513068a060240f8603812d1780d14d49aca86aae47f751181e",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 23,
+          "bbox": [
+            18.722667,
+            59.2508,
+            18.810802,
+            59.297797
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:014",
+          "sha256": "4e27b4f2f73b527bfeec905229991af76bfde39ef40cb613fdc7a2cd64bb0ed3",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 27,
+          "bbox": [
+            18.638031,
+            59.299547,
+            18.747081,
+            59.373725
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:015",
+          "sha256": "bdab6471e0a615aa90b7697ac61aff6c54a48828b4549ddc90ce8feb28c71354",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 18,
+          "bbox": [
+            18.105317,
+            59.338365,
+            18.249278,
+            59.389106
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:016",
+          "sha256": "b93336b33a035c7a6111937ee73ed1db2ec93708e26cc0dc5b5ad51bce5baaed",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 8,
+          "bbox": [
+            18.846528,
+            59.385932,
+            18.869477,
+            59.402533
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:017",
+          "sha256": "68b54945367a0c30a800061ebb6e65cb7e20ed56856c338e891c83bfbee4d147",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 13,
+          "bbox": [
+            18.899425,
+            59.373236,
+            18.948253,
+            59.406317
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:018",
+          "sha256": "0fa2ce9228dcfced22c97cd6f0e2e915e210bb72841b7c479f0f1237251aa421",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 11,
+          "bbox": [
+            18.860606,
+            59.407172,
+            18.925792,
+            59.447211
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:019",
+          "sha256": "8b898fe8e4be78294d25fbf81c868bd4e8f4e491b58df921ca39db590a92b29e",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 62,
+          "bbox": [
+            18.510509,
+            59.422309,
+            18.739106,
+            59.550035
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:020",
+          "sha256": "b169cfaa993216c73bc7d36f21da8211806f613eb477a40c6f8fbe083a5a3098",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 21,
+          "bbox": [
+            18.858572,
+            59.578599,
+            18.986339,
+            59.652981
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:021",
+          "sha256": "11b120003e8772e5798298e6d8235c79c265250537cb5584aefcfc105f288eed",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 21,
+          "bbox": [
+            18.756602,
+            59.572008,
+            18.924327,
+            59.656928
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:022",
+          "sha256": "171778e845085db0df9670288469cc94103fd78012f35c3ff2e84b093c4f7930",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 28,
+          "bbox": [
+            18.885753,
+            59.78559,
+            19.002289,
+            59.863715
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:023",
+          "sha256": "bfad4ac002c349228ac516c7cdcf0af9d1e24b7fa386c3448df9cf11d56e0b60",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 30,
+          "bbox": [
+            18.71225,
+            60.150051,
+            18.806895,
+            60.216457
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:024",
+          "sha256": "42981175df26da1e3afcd011a670af7f6465252feacc489c04ddd72faf5cb396",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 21,
+          "bbox": [
+            15.642345,
+            56.074286,
+            15.726899,
+            56.123928
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:025",
+          "sha256": "2604c5e3658f1653b4373208535d089c803cbfca023e004e9b9a0dbf70ae728f",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 11,
+          "bbox": [
+            16.83253,
+            58.271877,
+            16.880626,
+            58.31037
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:026",
+          "sha256": "04de8e6b0952b968f3ad0ddba53ee0a3e90604a0be7e9b4185d84f7fe8bb99fe",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 40,
+          "bbox": [
+            16.785167,
+            58.316718,
+            16.918956,
+            58.402004
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:027",
+          "sha256": "6660ebe3d91d55eda3f9252c9259f0c6fe04017529fdb7f88d766cbd2de3eaaf",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 29,
+          "bbox": [
+            18.193614,
+            58.905422,
+            18.357107,
+            58.979682
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:028",
+          "sha256": "924643fd337f2956196cf71df51ef73983b22693d77ba762325e3f3ca354292e",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 41,
+          "bbox": [
+            18.050548,
+            58.959418,
+            18.216563,
+            59.02733
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:029",
+          "sha256": "bd8864aaeb07abcad7996fab6b934b92bd9e863863fece1b9634afa7289370cb",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 39,
+          "bbox": [
+            17.624278,
+            58.900824,
+            17.707286,
+            59.071967
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:030",
+          "sha256": "6a1275d68e35f7e5e2b35a5f1a5eb1e5e1fac505c4a3670e07fd6169163634d8",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 26,
+          "bbox": [
+            18.006114,
+            62.679755,
+            18.161143,
+            62.75788
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:031",
+          "sha256": "7cafc77cadbca6056782917f327f705f60e304651b06a050b801adf0d9a45ccb",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 9,
+          "bbox": [
+            20.825938,
+            63.643622,
+            20.87086,
+            63.676744
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:032",
+          "sha256": "6d226a385304c9a3820a4b5ac1e700804dda527f7e173c25ea86d07a75d66dd9",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 25,
+          "bbox": [
+            20.862071,
+            63.683092,
+            20.948497,
+            63.774604
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:033",
+          "sha256": "2ef4f01944153fe6fdf4fb67b4eb2d4b98419a92966719a5f3d57c9f12b0d757",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 17,
+          "bbox": [
+            22.285167,
+            65.428168,
+            22.417817,
+            65.45954
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:034",
+          "sha256": "39690341b0c73eae1930641cfbd34c46b89d87e67b03983cecf51910e6a136e8",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 21,
+          "bbox": [
+            22.142589,
+            65.418118,
+            22.233165,
+            65.474351
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:035",
+          "sha256": "8b45bca43ec958a806f8a9b82fe17bb2d2f13383ee42a33b872a2752a1b0eedf",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 12,
+          "bbox": [
+            22.552989,
+            65.510321,
+            22.617198,
+            65.538275
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:036",
+          "sha256": "df3b46a62b40468b7b5789472cc459e6b30453b9084881f1459433a9cbac37e8",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 29,
+          "bbox": [
+            22.186778,
+            65.478217,
+            22.358735,
+            65.545111
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:037",
+          "sha256": "9704737b2f61ff1c7ffa01dbff10c0f2bd999c13b3bd04d8e149d176c35af462",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 21,
+          "bbox": [
+            22.529145,
+            65.553941,
+            22.641449,
+            65.593411
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:038",
+          "sha256": "baa39fee41e693c92d47e36e63ddbe85bfc91722649894754a456d89ffcc4ac9",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 8,
+          "bbox": [
+            22.554454,
+            65.593736,
+            22.604503,
+            65.612982
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:039",
+          "sha256": "c31568aa86461ab13996c3fc39804a381f5a914416a67763f61cf5f24073b19b",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 21,
+          "bbox": [
+            22.882172,
+            65.66706,
+            22.985118,
+            65.742743
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:040",
+          "sha256": "bf75c61c5dd95726c69540c7c919342584b9619427e930fc1539b9d2bc575ef5",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 29,
+          "bbox": [
+            23.681488,
+            65.696723,
+            23.802745,
+            65.753892
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "SE:polygon-part:041",
+          "sha256": "c5ac199627c125ff9dc5c2223f2a9754a0e75cd84a0d35611884062557d3da49",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 14,
+          "bbox": [
+            22.725759,
+            65.705227,
+            22.811371,
+            65.770413
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        }
+      ],
+      "all_geometry_parts_retained_status": "passed",
+      "machine_structural_validation_status": "passed",
+      "machine_polygon_part_inventory_status": "passed",
+      "qualified_review_status": "pending",
+      "qualified_review_reason_codes": [
+        "named_island_inclusion_review_missing",
+        "boundary_suitability_review_missing"
+      ],
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "country_code": "DK",
+      "country_name": "Denmark",
+      "admin0_code": "DNK",
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_transformation": "none",
+      "artifact_path": "data/boundaries/raw/denmark.geojson",
+      "artifact_sha256": "90b4fb95c8368020620ccd1e94182304530bc79b4251b115fc496b52a35098b3",
+      "feature_count": 1,
+      "polygon_part_count": 15,
+      "ring_count": 15,
+      "interior_ring_count": 0,
+      "coordinate_count": 2180,
+      "bbox": [
+        8.094005,
+        54.56859,
+        15.151378,
+        57.751166
+      ],
+      "polygon_part_inventory": [
+        {
+          "geometry_part_id": "DK:polygon-part:001",
+          "sha256": "a6105246bbceee13c320a1bb1621c2313c4ac9dbab6d1d00b9e35e16a4f0c985",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 970,
+          "bbox": [
+            8.094005,
+            54.801617,
+            10.964122,
+            57.751166
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:002",
+          "sha256": "d369a26c707575aa1d5f5afc58713e8e17673aa69f555313b274df197556f8a8",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 69,
+          "bbox": [
+            10.999197,
+            54.626125,
+            11.855479,
+            54.961249
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:003",
+          "sha256": "5bb0865851887e17d8ace85aba1d282646b9f6ce0458f1b26996cfd2518f6cf6",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 31,
+          "bbox": [
+            10.18922,
+            54.824693,
+            10.518565,
+            54.977484
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:004",
+          "sha256": "27fbf0c905a5017555854925c3bf84dc4b01f9234138b5854d3c61b2db7eb63b",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 50,
+          "bbox": [
+            12.115001,
+            54.886176,
+            12.553722,
+            55.064276
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:005",
+          "sha256": "8b59447ed8a28038250597dd385d45d23d4b76be23a96e1f10faccc7580ce612",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 68,
+          "bbox": [
+            9.628429,
+            54.859524,
+            10.065115,
+            55.085395
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:006",
+          "sha256": "5eb148c1221f67f8f02796ca757147332180bef38f247fa60860f16eb444c4ee",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 37,
+          "bbox": [
+            10.601085,
+            54.735297,
+            10.956716,
+            55.159654
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:007",
+          "sha256": "1bb7891730cf7206a256e9c2578dd6d7cf52448212a3ef1b09a6041fda658d4c",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 47,
+          "bbox": [
+            14.684173,
+            54.991638,
+            15.151378,
+            55.309272
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:008",
+          "sha256": "b0cb2c689429c851f1243fe85e6a595945b4220b55055ea3a9cafe33b552e32e",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 18,
+          "bbox": [
+            8.364268,
+            55.339748,
+            8.47641,
+            55.468411
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:009",
+          "sha256": "8812b5f5c9cacdd26abd52b87c664d887e4448e0949492bc0ac46768fc0748c8",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 222,
+          "bbox": [
+            9.67628,
+            55.029731,
+            10.834321,
+            55.618232
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:010",
+          "sha256": "f3fccba7cb54c797c892d1fab1df8c298445fb923b87960dacbbe2b04dfcbb6b",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 22,
+          "bbox": [
+            12.520193,
+            55.550482,
+            12.674571,
+            55.701117
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:011",
+          "sha256": "0729f0010fc5b3dc5e279f121528e225b3800d700a343cb43e0524f4c65fe2c7",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 38,
+          "bbox": [
+            10.511567,
+            55.759752,
+            10.669281,
+            55.997992
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:012",
+          "sha256": "f8ab04d7bcdc3058560ac88805629ab682c60479f634e896ebee39b274964689",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 475,
+          "bbox": [
+            10.875499,
+            54.56859,
+            12.621918,
+            56.12873
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:013",
+          "sha256": "d3e2c73ad808e6e32740d0d54851f532ac83c77aada190f70be01d053cd3f654",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 17,
+          "bbox": [
+            11.509532,
+            56.677436,
+            11.649425,
+            56.729641
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:014",
+          "sha256": "0a27f143a983a87689a6205afbfeb00f7b3273b25e07f7d9fee568b5bc46b174",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 83,
+          "bbox": [
+            8.514659,
+            56.678127,
+            8.928884,
+            56.979071
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "DK:polygon-part:015",
+          "sha256": "7b37d8ec94ef067d99101b3d5bc233f96b2187922cf2cabb2398cb75df6c77ea",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 33,
+          "bbox": [
+            10.854991,
+            57.19791,
+            11.197276,
+            57.332709
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        }
+      ],
+      "all_geometry_parts_retained_status": "passed",
+      "machine_structural_validation_status": "passed",
+      "machine_polygon_part_inventory_status": "passed",
+      "qualified_review_status": "pending",
+      "qualified_review_reason_codes": [
+        "named_island_inclusion_review_missing",
+        "boundary_suitability_review_missing"
+      ],
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "country_code": "NO",
+      "country_name": "Norway",
+      "admin0_code": "NOR",
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_transformation": "none",
+      "artifact_path": "data/boundaries/raw/norway.geojson",
+      "artifact_sha256": "c51db9962996c0cd570c1e0b5c9528413b387f80f77a5fe96f8e8c9b57f5317a",
+      "feature_count": 1,
+      "polygon_part_count": 120,
+      "ring_count": 120,
+      "interior_ring_count": 0,
+      "coordinate_count": 15817,
+      "bbox": [
+        -9.117421,
+        -54.462498,
+        33.640391,
+        80.770087
+      ],
+      "polygon_part_inventory": [
+        {
+          "geometry_part_id": "NO:polygon-part:001",
+          "sha256": "a4c7d5ea72d26bf452ff80356ffc82e21df86a6d622c32fca81a24e8de186a57",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 7911,
+          "bbox": [
+            4.926768,
+            57.99315,
+            31.076996,
+            71.127102
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:002",
+          "sha256": "8743b82d19ff86e92ff932a5e4d67de7bc0022cb64940d78b6a56443c54ebb41",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 10,
+          "bbox": [
+            14.795584,
+            68.222724,
+            14.953136,
+            68.302151
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:003",
+          "sha256": "cf2f1b87b8b16a32099dd791c4ca7852b12401339ce1de3d1e8e460a622659be",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 18,
+          "bbox": [
+            14.040375,
+            68.248765,
+            14.26824,
+            68.337307
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:004",
+          "sha256": "e95782c78d2bc53d421c98a0ebb239ac3d1a3d2927fa1c1d9e2889ef3738be1a",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 108,
+          "bbox": [
+            13.456716,
+            68.040513,
+            14.158865,
+            68.341213
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:005",
+          "sha256": "5dc54568687dcdea0f11b7b7a38c3b11eb7d1eec63c94c1074ceb0dc3b591b9e",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 112,
+          "bbox": [
+            14.604177,
+            68.490953,
+            15.000011,
+            68.587307
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:006",
+          "sha256": "0650e9759fb2e75598d3ea211c5001b08245bd3f1290c2bfba3e875f3d82d5aa",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 40,
+          "bbox": [
+            5.164431,
+            59.141058,
+            5.317929,
+            59.415961
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:007",
+          "sha256": "9bf657a720220403e8cfb68406e41930d744ef785788cb399420180ae4442c1c",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 92,
+          "bbox": [
+            5.070649,
+            59.59162,
+            5.344981,
+            59.874986
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:008",
+          "sha256": "ae249ae2b1360b1ef17bdfddfd85e0d098e4f757a7e573f24dfec29e125d1d8a",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 47,
+          "bbox": [
+            5.250173,
+            59.758612,
+            5.497813,
+            59.978217
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:009",
+          "sha256": "2f73144f15d11f3685887893ea41d646c07c5943e241f41718636d2fb0e6ba50",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 50,
+          "bbox": [
+            5.361827,
+            59.899115,
+            5.660411,
+            60.080146
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:010",
+          "sha256": "731de60005045e8bca81f6cbb888758bedf08844b545aeb0bb7d09bc961a47ea",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 49,
+          "bbox": [
+            4.935802,
+            60.188951,
+            5.111664,
+            60.443793
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:011",
+          "sha256": "e840747a7ae09b1874cf97b177c6a5f68579ece3e180f713a0b933f393fc5562",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 33,
+          "bbox": [
+            4.960785,
+            60.401842,
+            5.204763,
+            60.559882
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:012",
+          "sha256": "bf0a0fd525d2c1a6859e0c4ac90302d154e436fbbe2ac72d0a073bec50925562",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 39,
+          "bbox": [
+            5.323985,
+            60.435045,
+            5.687673,
+            60.692613
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:013",
+          "sha256": "4e846b9bb3b048c9c4ac332aa941c3c8ba45958e328bc98d8531c259da45ebb4",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 52,
+          "bbox": [
+            4.790212,
+            61.046536,
+            4.987315,
+            61.203437
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:014",
+          "sha256": "3c3975970a5c604f54f7771ab200db9d6f976f6903595f6c4a70ef1be35b4a21",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 30,
+          "bbox": [
+            4.803233,
+            61.780951,
+            5.22283,
+            61.898179
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:015",
+          "sha256": "0c17f15db49174f9c56eaeabbb9841f2b3f5d9b916313a68c8362221d5bcff31",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 47,
+          "bbox": [
+            5.502126,
+            62.191067,
+            5.804454,
+            62.301663
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:016",
+          "sha256": "4ea10bbcec7ace6ced9c1f9187f1657dcb942e6ef6d1d95353249adc49dd6402",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 31,
+          "bbox": [
+            5.804454,
+            62.245673,
+            6.078787,
+            62.429877
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:017",
+          "sha256": "460d7d2444170d6df7ab35e2b408d05ee9d47c21463991f22cff4fdaff22d7c6",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 14,
+          "bbox": [
+            6.023448,
+            62.396552,
+            6.33253,
+            62.444892
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:018",
+          "sha256": "d18e808f30f7a0877eca5b991d2dec70674a758518928ecfc4da6d7489b50fd5",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 25,
+          "bbox": [
+            6.646658,
+            62.655992,
+            6.919444,
+            62.745917
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:019",
+          "sha256": "a29d276190d98412990e64fa6f9cf50936381bed23304c487301fb36800df47e",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 26,
+          "bbox": [
+            6.770356,
+            62.775092,
+            6.942149,
+            62.857652
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:020",
+          "sha256": "dd8a607e4d0215a05f24c5892f8d7807ac89f95f09c965a82892c4fbc2226d66",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 24,
+          "bbox": [
+            7.681326,
+            63.02025,
+            7.914724,
+            63.099758
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:021",
+          "sha256": "969689a2f14756341f5d79a2224c55fe4aed225a27e8e5dff3bacf6ace867916",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 54,
+          "bbox": [
+            7.366547,
+            62.942857,
+            7.706309,
+            63.117621
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:022",
+          "sha256": "462c3c4ddfe9fe72763f85031dc3606dacbfe6ab086b094cf4876639b3e071a1",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 16,
+          "bbox": [
+            7.928396,
+            63.137926,
+            8.188487,
+            63.241156
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:023",
+          "sha256": "2d8937c7ac50dded0b92b797303a3037276d4e2d395e835dc9ba89312d24da41",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 31,
+          "bbox": [
+            8.264171,
+            63.161078,
+            8.574718,
+            63.287787
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:024",
+          "sha256": "342b1bc94319782486a8437bc8c0c6c9fddf1d262167a7116c02d49ebce649af",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 34,
+          "bbox": [
+            7.778168,
+            63.315131,
+            8.181651,
+            63.473293
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:025",
+          "sha256": "ad0c31c5a7cce083c5e2bf60e045be62d1002894457abe51d0eac9ad3ba18202",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 70,
+          "bbox": [
+            8.277843,
+            63.43122,
+            9.176036,
+            63.657416
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:026",
+          "sha256": "04a1b405a4c49e31c76aa44472d66da0bc334066dd28b82a739717d190a34db1",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 41,
+          "bbox": [
+            8.271739,
+            63.664293,
+            8.825857,
+            63.815375
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:027",
+          "sha256": "2bb4a3d4025f528a700ad5fbb6a190ad2decdbd0522a698e744afbc838aa64c7",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 30,
+          "bbox": [
+            11.037364,
+            64.472724,
+            11.451427,
+            64.652045
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:028",
+          "sha256": "32bfe575c0e1bf628cb7be563013993571ba54652c4fbb4da1afc37fdb4a0ae7",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 38,
+          "bbox": [
+            10.826915,
+            64.835842,
+            11.266368,
+            64.953111
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:029",
+          "sha256": "142d3d675aa5a3923fc17500c53e82a80ec978e2a1a3b635e1fa833f657c1b75",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 26,
+          "bbox": [
+            10.710948,
+            64.850084,
+            11.115001,
+            64.990424
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:030",
+          "sha256": "aca0fd71c4522ee6ac4dfb5a16cc3913dd196c594c8e3c753afe8eaf1417f4f0",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 40,
+          "bbox": [
+            11.979015,
+            65.055487,
+            12.309093,
+            65.213813
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:031",
+          "sha256": "46a846772409b35c8ccbabdc153f4473066772d8886cb559a7162c8b1c64f52a",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 81,
+          "bbox": [
+            12.053477,
+            65.215033,
+            12.506602,
+            65.581732
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:032",
+          "sha256": "71e79be4cb4bd77220daeceee4f04c65cda9359e5bb598fe371eb7717f9df8be",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 33,
+          "bbox": [
+            11.759288,
+            65.589993,
+            12.005138,
+            65.708726
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:033",
+          "sha256": "59c6559eb5781330acec0a2429b6a3ee19f4149954c8f5b0b25be83957eafe6f",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 34,
+          "bbox": [
+            12.368826,
+            65.87108,
+            12.903819,
+            66.026801
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:034",
+          "sha256": "da26fb112971d8297530bdb387998b38a55c3f5eee80c3ab50ea2ccd7ce543f9",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 56,
+          "bbox": [
+            12.2942,
+            66.015082,
+            12.656912,
+            66.221137
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:035",
+          "sha256": "bff776ce416afd779a17653244f8a0e56fd18a61b711018f3c5315aae5948cb3",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 34,
+          "bbox": [
+            13.993012,
+            66.999905,
+            14.273692,
+            67.173733
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:036",
+          "sha256": "03cb24774a086f4f91cc8cf55707474b36bcc6e4ecc14b3dc912c9b4847fc54f",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 82,
+          "bbox": [
+            12.78712,
+            67.810126,
+            13.156993,
+            68.104967
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:037",
+          "sha256": "0d0fc39358578e1933006442bb73c51ef416589e1bf235b8d3b74a29737c2092",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 42,
+          "bbox": [
+            13.163748,
+            67.985541,
+            13.437673,
+            68.155748
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:038",
+          "sha256": "52e2b9d1600fd5ce46fef250a792514eb9d69d5051b4a6686dab28a7b384c1a2",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 139,
+          "bbox": [
+            14.198497,
+            68.152777,
+            15.172374,
+            68.454413
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:039",
+          "sha256": "ab32c97fed8118d7a7c9dc194a1b208b4ce83899428aa9a9e4f83d62854126de",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 34,
+          "bbox": [
+            16.0949,
+            68.379218,
+            16.466563,
+            68.537014
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:040",
+          "sha256": "78790c246151bb1605c88ed404b923114eceecc9915728840538568e13ece05a",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 20,
+          "bbox": [
+            16.816661,
+            68.725409,
+            17.145681,
+            68.860012
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:041",
+          "sha256": "7e036b9f00ef3026e627d91b312af61e7c2f07e6073e23e9d9cb5576286e701c",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 28,
+          "bbox": [
+            17.083507,
+            68.793036,
+            17.44044,
+            68.925035
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:042",
+          "sha256": "3c5d8b63252d44bbc19ebac3365c9a2965564b9ecfd84e6fb13727da5833b57d",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 361,
+          "bbox": [
+            14.986827,
+            68.253323,
+            16.576996,
+            68.97016
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:043",
+          "sha256": "139f96f9b1a85a9009699f2df40380887bdd0064dc165cfa7d49567b09813e56",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 19,
+          "bbox": [
+            16.261729,
+            68.88581,
+            16.601899,
+            68.995307
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:044",
+          "sha256": "198a3cf643fe125cd1c83800ffbd84d7ce5b37e691f998a0f4b99198a260e6e3",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 212,
+          "bbox": [
+            14.369884,
+            68.578518,
+            15.397716,
+            69.015326
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:045",
+          "sha256": "3f4e69c1091afff2f8bf02af0ef07ac94bc83a1de0268583dc7838563f46c533",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 65,
+          "bbox": [
+            15.418793,
+            68.882066,
+            16.149913,
+            69.315253
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:046",
+          "sha256": "478d68fe8c3e917fe8fe1d01fc35d574d40f6996ddde1d102c2d85d4164eecf5",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 274,
+          "bbox": [
+            16.773123,
+            69.008124,
+            18.098643,
+            69.603461
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:047",
+          "sha256": "508cbffb6beb502d809b0bbd6ec7f27ec52597b60c665c6ba4fd66abdb0ffcba",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 129,
+          "bbox": [
+            17.995372,
+            69.530585,
+            19.060802,
+            69.887397
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:048",
+          "sha256": "fb660f5f177d4cec279de1e28d102553188dd01f6320bfcb89300d9ca6a3acee",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 13,
+          "bbox": [
+            21.667979,
+            69.927924,
+            21.736176,
+            69.954779
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:049",
+          "sha256": "da3973674143cfb34ecbe8698eafa680ec61d87f09109e1eaa9d8264b0726dab",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 9,
+          "bbox": [
+            19.900157,
+            70.009711,
+            19.99586,
+            70.026801
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:050",
+          "sha256": "b1db55f3e1be162820a642732abb9e2b93f4cb88ea2eac97946b70f29a5d02af",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 18,
+          "bbox": [
+            20.760509,
+            69.937812,
+            21.099376,
+            70.044013
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:051",
+          "sha256": "d3b04ccf0e155c1baee1759d20022e8ed580355dbf847800666d233850566b6f",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 8,
+          "bbox": [
+            20.955333,
+            70.024115,
+            21.046641,
+            70.063544
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:052",
+          "sha256": "16489d58d6031f5e9740c550d09d546f3ca0344d2fa38fd5173eb7db65532929",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 89,
+          "bbox": [
+            18.728852,
+            69.787828,
+            19.684825,
+            70.098578
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:053",
+          "sha256": "df36bff2ab503d81926af5256bdbbfa50e0fed922358b3a3648f775728b7c4e7",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 64,
+          "bbox": [
+            20.389903,
+            70.044013,
+            20.824392,
+            70.236721
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:054",
+          "sha256": "ac2f81e46d437ff112a79fb1294485d297e4ed1429a522938d2a98cd92723367",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 54,
+          "bbox": [
+            19.53712,
+            70.060126,
+            20.154063,
+            70.290432
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:055",
+          "sha256": "e1011401019e408245e7d4eb19e561cc9cb9e06f61883bac2838b5924c86f691",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 53,
+          "bbox": [
+            22.373709,
+            70.249172,
+            23.019054,
+            70.398871
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:056",
+          "sha256": "800ffa072e2ea33c1297d13259f7a1d589685024bd1cc01940df1a32a6a38509",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 115,
+          "bbox": [
+            22.854015,
+            70.27733,
+            23.662283,
+            70.624945
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:057",
+          "sha256": "ece3d1206eb51d3d566afa57a02737a694b1ae911beedb36e0c7a2efca25f9cd",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 53,
+          "bbox": [
+            23.635509,
+            70.512397,
+            24.128429,
+            70.751166
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:058",
+          "sha256": "afc9a8f80aef11aefe3da631992559e4cf657a9cf325e02bfe4909343eeeebff",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 270,
+          "bbox": [
+            21.950369,
+            70.472317,
+            23.484141,
+            70.8664
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:059",
+          "sha256": "83c1a1bf0b54433e0b5dc7d4b89300c2b1f01ad3cf7088c76e183a8a14453981",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 49,
+          "bbox": [
+            23.885753,
+            70.91413,
+            24.245128,
+            71.028632
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:060",
+          "sha256": "a6c34548911c717c0eb782b808087bce1c1582bff51774dc4d0e077c8c658cb7",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 106,
+          "bbox": [
+            25.292491,
+            70.927883,
+            26.21811,
+            71.165269
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:061",
+          "sha256": "30cd96597bd86789822395868ce2fb6b392e8c56e16bc7790ea844fbe2fc78ae",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 35,
+          "bbox": [
+            12.700206,
+            66.215888,
+            12.886892,
+            66.311957
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:062",
+          "sha256": "f0ffe81091cdb8a23c740b724bd8233faf880c4bd2ac063eb8f292d5473c8ab6",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 46,
+          "bbox": [
+            12.800792,
+            66.355048,
+            12.966482,
+            66.460191
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:063",
+          "sha256": "98a0d0c00af4904b1235ba9e7e50418cfdc98c92b7f396e7cc6d580d2e37c167",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 43,
+          "bbox": [
+            14.961192,
+            67.910631,
+            15.304861,
+            68.000718
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:064",
+          "sha256": "a100fd879363ad380205d4289ca79552b712f9b6340739f13d7ac31ff9027536",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 28,
+          "bbox": [
+            15.482432,
+            67.98371,
+            15.933604,
+            68.027493
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:065",
+          "sha256": "d4b0d9a55e4ee8b8360cfa0e54c0ff60fb797f31305c51b418d967d2842f14a0",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 19,
+          "bbox": [
+            15.159679,
+            67.966783,
+            15.286632,
+            68.037258
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:066",
+          "sha256": "e1714ba1fe9cdc5d5c32139304bd9bd7c7728070f012ba5c451bcf81beacd963",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 17,
+          "bbox": [
+            14.840099,
+            68.872301,
+            14.996593,
+            68.930854
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:067",
+          "sha256": "6b678b331e3dc25bc3b6824dfd3102d87fc2694da669da9eb060f61b2b8fc78a",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 25,
+          "bbox": [
+            20.522634,
+            69.793769,
+            20.722504,
+            69.909613
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:068",
+          "sha256": "3396d9b7b654cc702397dca4a3cbf3f33cfd1eb422189c26d406c405dcf8545d",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 33,
+          "bbox": [
+            29.713227,
+            69.756008,
+            30.107432,
+            69.914252
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:069",
+          "sha256": "b610e00c50a56fa49cc075ddbeddc5bbe7b0944584de5efb479e5383febfca2d",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 21,
+          "bbox": [
+            19.434255,
+            69.838324,
+            19.856456,
+            70.004828
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:070",
+          "sha256": "47973f08bf2b8c84b53e1bd93c55e15162cb1f4bd0def0502fb9564e8093be57",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 39,
+          "bbox": [
+            18.657237,
+            69.984687,
+            18.975597,
+            70.116034
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:071",
+          "sha256": "e31a6d7f7db6ea1ba6114ff244d8cf37b38965bf37123002e5d3fafad0ea53f9",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 12,
+          "bbox": [
+            20.792979,
+            70.068996,
+            20.915212,
+            70.150946
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:072",
+          "sha256": "73fcaf23c00efbc15a9cbf6f82327b14b23458efd543783adfcdf48a85969607",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 15,
+          "bbox": [
+            19.334972,
+            70.093695,
+            19.573253,
+            70.162055
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:073",
+          "sha256": "6ecbd3f01c9705075356ae44cfa137cea006d7320a727d6b07635d4e4bdbf039",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 51,
+          "bbox": [
+            18.99586,
+            70.110785,
+            19.252208,
+            70.257025
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:074",
+          "sha256": "190ad9a1fa8d6e8ba5cff68d1c8c4046765dfbce512683c7dc6b56cff344f4c2",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 23,
+          "bbox": [
+            21.676931,
+            70.259996,
+            21.799164,
+            70.389228
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:075",
+          "sha256": "ec71d336a6f85ac65ba465876daf0d397111a663640a63120e0d527dcf32dc86",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 75,
+          "bbox": [
+            -9.117421,
+            70.806708,
+            -7.938466,
+            71.180365
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:076",
+          "sha256": "0596763adb8415435b928f276d7a8cf08f5b37e62c489ad89d2146cd48e94e65",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 35,
+          "bbox": [
+            18.789806,
+            74.347357,
+            19.297374,
+            74.527289
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:077",
+          "sha256": "671eb5287d000fe907db72c247e0027d849c3de7cc4eba98c2147f25a95b24c3",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 35,
+          "bbox": [
+            24.94337,
+            76.436469,
+            25.580821,
+            76.714301
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:078",
+          "sha256": "0b33675d2304fd70ffb1c33f04bb99265dab30f571193d1f0c17012c9b79ca7b",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 171,
+          "bbox": [
+            20.831798,
+            77.23728,
+            24.424765,
+            78.256293
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:079",
+          "sha256": "a75bb7aa363d6e3996b617f932bd46977d99bde59128355e1a69840978236e08",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 106,
+          "bbox": [
+            20.153575,
+            78.190334,
+            22.271251,
+            78.627753
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:080",
+          "sha256": "ca61515275bd2bce66c8c41dc25789ecc5a6e7e79b9ca39486d8e0e9e70bd5bc",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 29,
+          "bbox": [
+            26.396332,
+            78.626451,
+            27.020763,
+            78.815579
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:081",
+          "sha256": "dc862c30bfa38b8cfbad3789e46cfc91d800f546342b918c9c4ad64e2d78097d",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 102,
+          "bbox": [
+            10.484386,
+            78.199205,
+            12.162852,
+            78.909125
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:082",
+          "sha256": "fdc27604079dcac36b0a8aa1f7c694e0cc56a4af92202b6944007930defb9155",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 31,
+          "bbox": [
+            27.84197,
+            78.821967,
+            29.707042,
+            78.966986
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:083",
+          "sha256": "99774928601039a2708e1b3c8ad2540c173d3d5672c48d8d0fdc742981dd7131",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 13,
+          "bbox": [
+            30.069591,
+            78.966742,
+            30.337087,
+            79.008002
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:084",
+          "sha256": "224e4e7f12dc3ec320ed9669fb756cfbe27facb50462a64f09a999b1bf84d56c",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 33,
+          "bbox": [
+            20.0442,
+            78.994696,
+            20.831798,
+            79.131659
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:085",
+          "sha256": "3b03e53987ffcf54684226f09f955362887ada54e4ab1d694c41d8fd79649f36",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 21,
+          "bbox": [
+            19.626475,
+            79.33515,
+            20.177989,
+            79.407782
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:086",
+          "sha256": "b2f96bddf0ec06cd7a4e3bbd2e69a07a396e5fc0ff644ad592fe7f45a5899e7d",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 23,
+          "bbox": [
+            10.710948,
+            79.650539,
+            11.073985,
+            79.727362
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:087",
+          "sha256": "d8320871849f2653c50e410b59e0909fb2e0ff932f0f9c405458d45906bea40f",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 10,
+          "bbox": [
+            10.645763,
+            79.731391,
+            11.011974,
+            79.782457
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:088",
+          "sha256": "3326915536e38f31ae46102c39540066eb3c1c3c908448a56f1083778ef8c794",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 1499,
+          "bbox": [
+            10.676768,
+            76.56684,
+            21.551931,
+            80.067369
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:089",
+          "sha256": "50443db1a80eebf727583fde682d154749977a3085a7c3fb1d1eaf3a15886d40",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 22,
+          "bbox": [
+            31.477061,
+            80.072699,
+            33.640391,
+            80.248114
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:090",
+          "sha256": "a85cdabba267dd35db0d0805723c788ff829beb5b79c6f05afa65b71fad8e044",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 26,
+          "bbox": [
+            18.118826,
+            80.238837,
+            18.755626,
+            80.364203
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:091",
+          "sha256": "225f823430aaefaa6b66b0356007bbd6880f514cad14580b8cd4d7c282cc4381",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 14,
+          "bbox": [
+            24.128429,
+            80.383368,
+            24.381602,
+            80.459052
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:092",
+          "sha256": "1e5506f5f2a0e07b1306804b12869667d55847da81eb1b5cc7880d5103c58fab",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 13,
+          "bbox": [
+            23.97755,
+            80.46955,
+            24.292247,
+            80.512356
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:093",
+          "sha256": "4c21b8f2e3bf09550205b0e6a0c849e34b9e3043b0b2927a25e3eea77d409ab5",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 703,
+          "bbox": [
+            17.78297,
+            79.18887,
+            27.239106,
+            80.517279
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:094",
+          "sha256": "f0d1243ad4a019d102c43c7bde660ad6dc053139b16bd78c5a2a03777e38987a",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 14,
+          "bbox": [
+            19.852224,
+            80.488349,
+            20.133556,
+            80.542467
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:095",
+          "sha256": "32dc9702f64674c89047c8b6e1a9b938ed322177dad2904751967856d4365453",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 13,
+          "bbox": [
+            20.496104,
+            80.624905,
+            20.791515,
+            80.665839
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:096",
+          "sha256": "6233a8946b1b93f7acbc55b78d96886bc50c90d688d3575bf7207a182f2bb8d2",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 17,
+          "bbox": [
+            21.024262,
+            80.656195,
+            21.366954,
+            80.711249
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:097",
+          "sha256": "4e9f00c20ebcca2ad7fa140dde7ed3b88fa1615d44edc7e6d3b34a0f98722fbc",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 34,
+          "bbox": [
+            20.517833,
+            80.680121,
+            21.003184,
+            80.770087
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:098",
+          "sha256": "c664506c3f576f74d84b264afef084b9c051a2b093909a659a6849e9db6ee870",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 18,
+          "bbox": [
+            3.345551,
+            -54.462498,
+            3.486664,
+            -54.380141
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:099",
+          "sha256": "3cd036f9b293bdc2634abe9013030792b5e707296b03b3a79d2725bd27e1b328",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 29,
+          "bbox": [
+            10.991466,
+            59.019355,
+            11.083018,
+            59.091254
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:100",
+          "sha256": "63f80d12a8aa200c85ffedfa86fa4c2b1d5734904d2c783ad86d0ba76d6f14f3",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 25,
+          "bbox": [
+            10.829112,
+            59.071234,
+            10.914399,
+            59.116604
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:101",
+          "sha256": "1d312c94dd608a4480379a3546bc0078376f22ac47c8af5fa59b9f50c15d9dbd",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 58,
+          "bbox": [
+            5.171723,
+            59.993109,
+            5.300059,
+            60.118476
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:102",
+          "sha256": "452706f92d3cbad427ac9f933c5bb8f7599fdb1f2df916d72ab37227d129bc4d",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 49,
+          "bbox": [
+            4.776866,
+            60.855373,
+            4.929373,
+            60.943183
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:103",
+          "sha256": "3e869e94811aec9cb441f11fdfa25d3acd495ea5d91a80cb71c8d6b48f46a4c0",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 40,
+          "bbox": [
+            4.643809,
+            60.988511,
+            4.739594,
+            61.082343
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:104",
+          "sha256": "d2afdab7e12b982707cbfaefd5f0fb32540be5575c83a3204165a66c083f64ed",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 36,
+          "bbox": [
+            4.984141,
+            61.927191,
+            5.15211,
+            62.035061
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:105",
+          "sha256": "dd064ab8e938436590b06eaaf1d5e8e84c0d8c9a096508f6867ccd0147b63592",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 29,
+          "bbox": [
+            5.603038,
+            62.319281,
+            5.742361,
+            62.36518
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:106",
+          "sha256": "6e374e02b990ed112bfebc1e106a8375188529552308b0290fd309cf7348e35f",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 15,
+          "bbox": [
+            5.509939,
+            62.331732,
+            5.597667,
+            62.369696
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:107",
+          "sha256": "d86dd366bd19b1ee1d18ff64b37cad318c700c7bf195c1a357961e37dccc6418",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 19,
+          "bbox": [
+            8.165294,
+            63.159573,
+            8.325369,
+            63.227362
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:108",
+          "sha256": "35fd41a7cb3e4ad635c207d97fa48502d092c2d79b0a1b762808be86d6ce0867",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 26,
+          "bbox": [
+            9.014008,
+            63.612982,
+            9.170909,
+            63.661811
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:109",
+          "sha256": "75113932d52481824e8255959fd3b430295b5f751a00845b8b60c68ae09517be",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 26,
+          "bbox": [
+            9.843761,
+            63.997016,
+            9.943858,
+            64.049058
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:110",
+          "sha256": "ae04a51b5ab2fa98154a2ad65e5cf41368846d1552fd763e3ad97badb1650cc7",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 26,
+          "bbox": [
+            11.344493,
+            64.542426,
+            11.4817,
+            64.634426
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:111",
+          "sha256": "9a1a5f910782d2bfdd056a2afbc60964f14e3ec81110510c58388f02efbca908",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 33,
+          "bbox": [
+            11.167979,
+            64.599677,
+            11.355724,
+            64.692084
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:112",
+          "sha256": "e59bc6c5bc0a6f37fb393fc6640bdbedb2092c93be0ffd5d30f3c86121bc643c",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 45,
+          "bbox": [
+            11.518809,
+            65.04206,
+            11.777192,
+            65.119371
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:113",
+          "sha256": "d1e6f3d2a77a94b34c5e012339e49352baecb2ae4b95ad4858d83cde266033ec",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 28,
+          "bbox": [
+            17.344086,
+            68.989325,
+            17.572113,
+            69.092108
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:114",
+          "sha256": "5c0776b41771bb2d8eab1732120ee0d5fa994ce6c1c573bffd63fe3b44f88fa1",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 40,
+          "bbox": [
+            24.614268,
+            71.025336,
+            24.836925,
+            71.108791
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:115",
+          "sha256": "26ddabfd086a74d92b6d6288cacc4915969d0bdc097fe03ce4c1d4cc80120e52",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 19,
+          "bbox": [
+            5.575206,
+            59.072333,
+            5.778494,
+            59.134426
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:116",
+          "sha256": "25909123aeb1bb9e5a2e2503a5a26434d214b0ec595ba39f19bbe509f5a8d493",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 26,
+          "bbox": [
+            5.375336,
+            59.158922,
+            5.46811,
+            59.242092
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:117",
+          "sha256": "a72c7ed70cade0e6ac17ed19d7175953bbe7fa3a455f9538e846f776c51250bf",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 12,
+          "bbox": [
+            5.929861,
+            59.227851,
+            6.099864,
+            59.292182
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:118",
+          "sha256": "285ecbdd0bd97474ccabc52cdf8384807b12f43d3d9f072781946494ede34db9",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 37,
+          "bbox": [
+            4.77947,
+            60.584418,
+            4.851817,
+            60.667182
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:119",
+          "sha256": "5d95b4f897c52d449b994ce8f0fdc358b731045d30aa5bf8d779a8870587f521",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 27,
+          "bbox": [
+            4.830251,
+            61.652493,
+            4.904796,
+            61.714667
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "NO:polygon-part:120",
+          "sha256": "32cd67d2ba763417829e36b102cafe1135d5ec3024e6f01d017fa5950dbf303c",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 26,
+          "bbox": [
+            14.226736,
+            67.373847,
+            14.4192,
+            67.44123
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        }
+      ],
+      "all_geometry_parts_retained_status": "passed",
+      "machine_structural_validation_status": "passed",
+      "machine_polygon_part_inventory_status": "passed",
+      "qualified_review_status": "pending",
+      "qualified_review_reason_codes": [
+        "named_island_inclusion_review_missing",
+        "boundary_suitability_review_missing"
+      ],
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "country_code": "FI",
+      "country_name": "Finland",
+      "admin0_code": "FIN",
+      "coordinate_reference_system": "EPSG:4326",
+      "coordinate_transformation": "none",
+      "artifact_path": "data/boundaries/raw/finland.geojson",
+      "artifact_sha256": "2aa1b2df5366ac377a6835b3e6667743f9c9c57a077ea79066c187d487104316",
+      "feature_count": 1,
+      "polygon_part_count": 42,
+      "ring_count": 42,
+      "interior_ring_count": 0,
+      "coordinate_count": 3225,
+      "bbox": [
+        20.623165,
+        59.811225,
+        31.569525,
+        70.07531
+      ],
+      "polygon_part_inventory": [
+        {
+          "geometry_part_id": "FI:polygon-part:001",
+          "sha256": "77d24c00a43eec4a2fc595a7231f4462a9ddba84ed064a6863305bb25259cf79",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 2199,
+          "bbox": [
+            20.623165,
+            59.811225,
+            31.569525,
+            70.07531
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:002",
+          "sha256": "4e16b09de9515ac5fa5e25ad9188be0cd27ad859fc2fa240fc65b8fd77b376fc",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 25,
+          "bbox": [
+            22.348888,
+            59.99258,
+            22.449718,
+            60.085191
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:003",
+          "sha256": "b7bfe5808f60aea81c0db9365a5311a75313aee8a0c9bb68ae47951294348714",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 28,
+          "bbox": [
+            21.48227,
+            60.097357,
+            21.654307,
+            60.170356
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:004",
+          "sha256": "8e024e1dd44d085940137e01fdeb18c46ed76d0cf1deb66e56ee595a783c4fd9",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 32,
+          "bbox": [
+            21.695811,
+            60.113715,
+            21.887706,
+            60.196763
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:005",
+          "sha256": "c5b7993008dc9374ad9b5ffb6d99255ae8facf8e0183169e853f919a57ccae32",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 19,
+          "bbox": [
+            21.270681,
+            60.162665,
+            21.448904,
+            60.211086
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:006",
+          "sha256": "807d6a0b333a004313ddedbeee149091124d191cd366e6eaa3d511cbaf045824",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 15,
+          "bbox": [
+            21.935395,
+            60.135484,
+            22.072032,
+            60.211412
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:007",
+          "sha256": "4bc986384eb366b37547d55c15d18fa55c567ef6a16c80b5062904c232b881ba",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 9,
+          "bbox": [
+            25.81422,
+            60.196031,
+            25.876231,
+            60.218817
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:008",
+          "sha256": "75bec17a958901d3980fa1eb1432b407f422d7b744eb9c184e52fa49c4b5a67c",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 9,
+          "bbox": [
+            22.209239,
+            60.184963,
+            22.296886,
+            60.252997
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:009",
+          "sha256": "00b12d930f5488629f2921289cb04c86818870848f817fd6cc48022f218cb419",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 16,
+          "bbox": [
+            25.564464,
+            60.20425,
+            25.684418,
+            60.296373
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:010",
+          "sha256": "fa01cf21fd0f5a4652263877d840b6b5b2f14e1e0580be744b86695821c882b0",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 86,
+          "bbox": [
+            22.415212,
+            59.984524,
+            22.956391,
+            60.296698
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:011",
+          "sha256": "fa8f30509762d00a28b82351ed2a6453e7f8c5d9ce2f7a91bc6899d165a40d71",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 31,
+          "bbox": [
+            22.076671,
+            60.253119,
+            22.33961,
+            60.31566
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:012",
+          "sha256": "ef5bbc87aad764590a8c86df55b82a4c0ad1a6af9a8f204b8fee48af1facd241",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 24,
+          "bbox": [
+            22.312836,
+            60.292955,
+            22.477306,
+            60.355048
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:013",
+          "sha256": "4562bdbf4537dbec513fec64f3db972bd3d445f3fc74212af53c70c2acefd185",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 53,
+          "bbox": [
+            21.78533,
+            60.326728,
+            21.997569,
+            60.471991
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:014",
+          "sha256": "0f0160eee74b1a3859a73464024cdd23f53848871be9e9301667fe31ced515d1",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 12,
+          "bbox": [
+            21.681651,
+            60.455308,
+            21.764171,
+            60.526435
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:015",
+          "sha256": "ddf470ef5e618394e175610d8574b12b50f395745ee79649895090bd9107c749",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 14,
+          "bbox": [
+            21.229177,
+            60.481676,
+            21.32488,
+            60.559882
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:016",
+          "sha256": "e9c70d3825a434f403bc675b13f00acd831d1d6cbe5b73afd45fa81051345ed8",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 27,
+          "bbox": [
+            21.325938,
+            60.471137,
+            21.48227,
+            60.561835
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:017",
+          "sha256": "585b6bfca97ec0661e1ae940c83026aab1a6d025de6b23fe4c77af730a5c1736",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 24,
+          "bbox": [
+            21.213878,
+            60.566352,
+            21.298676,
+            60.647528
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:018",
+          "sha256": "86b49415e3c00365b5881675d92685640bb1961d8f592b7ec19cd6eff6206f42",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 31,
+          "bbox": [
+            21.202403,
+            60.879136,
+            21.374278,
+            60.971991
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:019",
+          "sha256": "be9a4d50010bbdd295e586e604e3472abef634ece6067cd59fe275c31c14b3e3",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 59,
+          "bbox": [
+            21.078949,
+            63.150702,
+            21.428396,
+            63.287787
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:020",
+          "sha256": "66d024650714f57b2eb71c3c7555355031a8c348766226acb6c02bf555042cae",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 16,
+          "bbox": [
+            21.229177,
+            63.287787,
+            21.374278,
+            63.363756
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:021",
+          "sha256": "28e9dd26d78d5810621e7b13012d1def334b6da2da96213e00ec8dc01e3ff71b",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 43,
+          "bbox": [
+            24.562755,
+            64.950914,
+            25.061818,
+            65.0948
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:022",
+          "sha256": "0f62dc6c785f1435da17c6a06211ea17b02d0500ebb44f8601d4d4c52237cc35",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 17,
+          "bbox": [
+            23.847423,
+            59.946723,
+            23.923513,
+            59.976508
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:023",
+          "sha256": "b4dab7e8b013091778f98b567606614dda4cbde8b50388e5de7fcbdf26e74b74",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 22,
+          "bbox": [
+            22.851085,
+            60.006049,
+            22.926606,
+            60.068671
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:024",
+          "sha256": "4e6e38215ba59c6a59ce10fd82be1a52df120b10d40183d089cf4005e1996d5c",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 24,
+          "bbox": [
+            22.845063,
+            60.081,
+            22.963145,
+            60.125067
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:025",
+          "sha256": "93b6e54fd9487766384d6ca0d0538a73e34caa6d510810dbfe151164664a6495",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 14,
+          "bbox": [
+            21.929942,
+            60.111396,
+            22.01238,
+            60.137885
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:026",
+          "sha256": "1fb291d4470c73aac67e5f9364aa236ca9e57654e8344d8b9d7b1e86f6b184e7",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 21,
+          "bbox": [
+            22.288341,
+            60.146877,
+            22.38559,
+            60.204047
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:027",
+          "sha256": "5bc6e8980ed0c439184bfa000910747b13c0297291c0e9e87dffe88ffd33aa0e",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 9,
+          "bbox": [
+            21.972911,
+            60.284573,
+            22.008311,
+            60.297309
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:028",
+          "sha256": "06abd8458302f5c55c1b8a2b2c0c1a617f8cdaf456920b79d4a03b972596037f",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 15,
+          "bbox": [
+            21.875336,
+            60.277086,
+            21.975352,
+            60.312649
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:029",
+          "sha256": "c41237063a700dfd6d23e43097e309489de09190f9cb4d78badd52f01873c960",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 11,
+          "bbox": [
+            22.157074,
+            60.341742,
+            22.299653,
+            60.374986
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:030",
+          "sha256": "cc5c2a9117777b2a23e53866998ec48f25bab5ed2a3d9a29fed33bf054b7da63",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 8,
+          "bbox": [
+            22.104259,
+            60.352932,
+            22.20753,
+            60.382554
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:031",
+          "sha256": "f275f7cf46d2d907f15aec67a8f14f8e85e3cb3337cefd0c08b26fe67118ecc1",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 18,
+          "bbox": [
+            21.294444,
+            60.35163,
+            21.357107,
+            60.391506
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:032",
+          "sha256": "7f8e51e671708b823fa054e316a2af3d7510eca6ace8b5c5953deafc03be6ebd",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 19,
+          "bbox": [
+            26.507172,
+            60.378079,
+            26.652599,
+            60.446519
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:033",
+          "sha256": "5aef382b7592ddc970715a625c6a8ce82c2ccf57c63ed11a9eac41f0646097fa",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 29,
+          "bbox": [
+            21.974376,
+            63.277167,
+            22.060802,
+            63.326239
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:034",
+          "sha256": "e36d4d0e3632efceed7f1075020543f946bc884ad48e5b458a0560af1a249521",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 55,
+          "bbox": [
+            22.067068,
+            63.250556,
+            22.246267,
+            63.340644
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:035",
+          "sha256": "b2e63482b6e8a2f397431d40aa74fa62e7a796dfd513aa2a16e59a7b216f4f13",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 36,
+          "bbox": [
+            21.947276,
+            63.33161,
+            22.096039,
+            63.388373
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:036",
+          "sha256": "bb3a5df741663dea9704f7436cde60637290012ba70704080ee567d2cb56d87a",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 36,
+          "bbox": [
+            22.681488,
+            63.720526,
+            22.828868,
+            63.791449
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:037",
+          "sha256": "8ec3c52327e08e84b39b22e3eb25a97726b4e459252668dd8dc5611820235af7",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 15,
+          "bbox": [
+            22.413829,
+            59.849514,
+            22.512869,
+            59.877631
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:038",
+          "sha256": "667dfdb162b4b88537734d012ce53829c67c4bd414500808eb9ba6cde2395006",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 18,
+          "bbox": [
+            21.562266,
+            60.221625,
+            21.62672,
+            60.269355
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:039",
+          "sha256": "b96a911c3316d62103045b164a32e9adf42d84a6d52980734ed76aa669cbea59",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 21,
+          "bbox": [
+            21.18629,
+            60.830268,
+            21.267589,
+            60.863186
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:040",
+          "sha256": "fa36119fb47aedbc9da52eba49265043a166db1bfb2ec53f1a3f863b71c18097",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 22,
+          "bbox": [
+            21.342947,
+            61.171454,
+            21.431651,
+            61.214016
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:041",
+          "sha256": "c9ee558dd4f5371c4cbda3f1cb69bb304e89843dd56c1f229cce581da1c1b081",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 14,
+          "bbox": [
+            21.459972,
+            61.617743,
+            21.526134,
+            61.640448
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        },
+        {
+          "geometry_part_id": "FI:polygon-part:042",
+          "sha256": "2ce5f26221443350a49689a3e42bed9c53158f14a25a2e8d7c578deaffba6615",
+          "ring_count": 1,
+          "interior_ring_count": 0,
+          "coordinate_count": 29,
+          "bbox": [
+            21.130382,
+            62.94599,
+            21.221934,
+            63.010321
+          ],
+          "machine_structural_validation_status": "passed",
+          "qualified_inclusion_review_status": "pending"
+        }
+      ],
+      "all_geometry_parts_retained_status": "passed",
+      "machine_structural_validation_status": "passed",
+      "machine_polygon_part_inventory_status": "passed",
+      "qualified_review_status": "pending",
+      "qualified_review_reason_codes": [
+        "named_island_inclusion_review_missing",
+        "boundary_suitability_review_missing"
+      ],
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    }
+  ],
+  "inclusion_policy": "retain_all_geometry_parts_from_each_selected_admin0_feature",
+  "point_assignment_policy": {
+    "strict_containment": "assign",
+    "point_on_boundary": "review",
+    "multiple_country_containment": "review",
+    "boundary_proximity": "review",
+    "outside_governed_boundaries": "unassigned",
+    "proximity_tolerance_coordinate_degrees": 0.15,
+    "proximity_measurement_posture": "Planar distance in the pinned EPSG:4326 coordinate space is used only to detect a review band; it is not a published geodesic distance.",
+    "offshore_policy": "unassigned_or_review; never silently snapped"
+  },
+  "machine_validation_status": "passed",
+  "qualified_review_status": "pending",
+  "release_status": "blocked_pending_qualified_boundary_review",
+  "release_reason_codes": [
+    "qualified_boundary_inclusion_review_missing"
+  ]
+}

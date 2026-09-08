@@ -1,0 +1,187 @@
+from __future__ import annotations
+
+from collections.abc import Mapping
+from dataclasses import dataclass
+from pathlib import Path
+
+from ....core.files import write_json, write_text
+from ....core.geospatial.geojson import as_mapping
+from ....core.http import fetch_json
+from ....core.text import clean_optional_text
+from ...contracts.artifacts import RAA_DENSITY_GEOJSON, RAA_LAYER_METADATA
+from .outputs import (
+    RAA_FEATURE_TYPE,
+    RAA_WFS_URL,
+    build_raa_density_geojson,
+    build_raa_inventory_summary,
+    count_raa_features,
+    fetch_raa_archaeology_metadata,
+    iter_raa_features,
+)
+
+RAA_FEATURE_PAGE_SIZE = 10000
+RAA_FEATURE_SORT_KEY = "lamningsnummer"
+
+
+@dataclass(frozen=True)
+class RaaDataReport:
+    output_dir: Path
+    total_site_count: int
+    heritage_site_count: int
+    metadata_path: Path
+    density_path: Path
+    raw_points_path: Path
+
+
+def fetch_raa_feature_page(
+    *,
+    start_index: int,
+    count: int = RAA_FEATURE_PAGE_SIZE,
+    cql_filter: str | None = None,
+) -> Mapping[str, object]:
+    """Fetch one page of published archaeology point features as GeoJSON."""
+    params = {
+        "service": "WFS",
+        "version": "2.0.0",
+        "request": "GetFeature",
+        "typeNames": RAA_FEATURE_TYPE,
+        "outputFormat": "application/json",
+        "srsName": "EPSG:4326",
+        "startIndex": str(start_index),
+        "count": str(count),
+        "sortBy": RAA_FEATURE_SORT_KEY,
+    }
+    if cql_filter:
+        params["CQL_FILTER"] = cql_filter
+    payload = fetch_json(RAA_WFS_URL, params=params)
+    if not isinstance(payload, dict):
+        raise ValueError("RAÄ feature response must be a GeoJSON object")
+    return payload
+
+
+def fetch_raa_feature_inventory(cql_filter: str | None = None) -> dict[str, object]:
+    """Fetch the full published archaeology point inventory with WFS paging."""
+    first_page = fetch_raa_feature_page(start_index=0, cql_filter=cql_filter)
+    features = [dict(feature) for feature in iter_raa_features(first_page)]
+    total_features = int_or_default(
+        first_page.get("numberMatched") or first_page.get("totalFeatures"),
+        default=len(features),
+    )
+    start_index = len(features)
+    while start_index < total_features:
+        page = fetch_raa_feature_page(start_index=start_index, cql_filter=cql_filter)
+        page_features = [dict(feature) for feature in iter_raa_features(page)]
+        if not page_features:
+            raise ValueError(
+                "RAÄ feature paging ended before the reported numberMatched was archived"
+            )
+        features.extend(page_features)
+        start_index += len(page_features)
+    feature_inventory = {
+        "type": "FeatureCollection",
+        "features": features,
+        "numberMatched": total_features,
+        "crs": first_page.get("crs"),
+        "timeStamp": first_page.get("timeStamp"),
+    }
+    validate_raa_feature_inventory(feature_inventory)
+    return feature_inventory
+
+
+def validate_raa_feature_inventory(feature_inventory: dict[str, object]) -> None:
+    """Validate that archived RAÄ paging covered the reported feature inventory exactly once."""
+    features = iter_raa_features(feature_inventory)
+    number_matched = int_or_default(
+        feature_inventory.get("numberMatched"), default=len(features)
+    )
+    if len(features) != number_matched:
+        raise ValueError(
+            f"RAÄ feature archive count mismatch: expected {number_matched}, archived {len(features)}"
+        )
+    feature_ids = [
+        clean_optional_text(mapping.get("lamningsnummer"))
+        if mapping is not None
+        else ""
+        for feature in features
+        for mapping in (as_mapping(feature.get("properties")),)
+    ]
+    populated_feature_ids = [feature_id for feature_id in feature_ids if feature_id]
+    if len(populated_feature_ids) != len(set(populated_feature_ids)):
+        raise ValueError("RAÄ feature archive contains duplicate lamningsnummer values")
+
+
+def collect_raa_data(
+    output_root: Path,
+    country_boundaries: Mapping[str, Mapping[str, object]],
+) -> RaaDataReport:
+    """Download and write the RAÄ dataset under data/raa."""
+    output_root = Path(output_root)
+    raw_dir = output_root / "raw"
+    normalized_dir = output_root / "normalized"
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    normalized_dir.mkdir(parents=True, exist_ok=True)
+
+    raw_points_path = raw_dir / "publicerade_lamningar_centrumpunkt.geojson"
+    feature_inventory = fetch_raa_feature_inventory()
+    write_json(raw_points_path, feature_inventory)
+    write_json(
+        raw_dir / "publicerade_lamningar_centrumpunkt_summary.json",
+        build_raa_inventory_summary(feature_inventory),
+    )
+    metadata = fetch_raa_archaeology_metadata(
+        feature_inventory=feature_inventory,
+        country_boundaries=country_boundaries,
+    )
+    capabilities_xml = clean_optional_text(metadata.get("capabilities_xml"))
+    schema_xml = clean_optional_text(metadata.get("schema_xml"))
+    if not capabilities_xml or not schema_xml:
+        raise ValueError("RAÄ metadata must include XML capability and schema payloads")
+    write_text(raw_dir / "arkreg_v1_0_wfs_capabilities.xml", capabilities_xml)
+    write_text(raw_dir / "publicerade_lamningar_centrumpunkt_schema.xml", schema_xml)
+    write_json(raw_dir / "fornsok_domains.json", metadata.get("domain_payload", {}))
+    metadata_path = RAA_LAYER_METADATA.source_path_under(output_root)
+    density_path = RAA_DENSITY_GEOJSON.source_path_under(output_root)
+    layer_metadata = as_mapping(metadata.get("layer_metadata"))
+    density_geojson = as_mapping(metadata.get("density_geojson"))
+    if layer_metadata is None or density_geojson is None:
+        raise ValueError("RAÄ metadata payload is missing structured map artifacts")
+    write_json(metadata_path, dict(layer_metadata))
+    write_json(density_path, dict(density_geojson))
+
+    counts = as_mapping(layer_metadata.get("counts"))
+    if counts is None:
+        raise ValueError("RAÄ metadata payload is missing count statistics")
+
+    return RaaDataReport(
+        output_dir=output_root,
+        total_site_count=int_or_default(counts.get("all_published_sites"), default=0),
+        heritage_site_count=int_or_default(counts.get("fornlamning"), default=0),
+        metadata_path=metadata_path,
+        density_path=density_path,
+        raw_points_path=raw_points_path,
+    )
+
+
+__all__ = [
+    "RaaDataReport",
+    "build_raa_density_geojson",
+    "collect_raa_data",
+    "count_raa_features",
+    "fetch_raa_archaeology_metadata",
+    "fetch_raa_feature_inventory",
+]
+
+
+def int_or_default(value: object, *, default: int) -> int:
+    """Convert one optional numeric payload field to an integer with fallback."""
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        return int(value)
+    text = clean_optional_text(value)
+    if not text:
+        return default
+    try:
+        return int(text)
+    except ValueError:
+        return default

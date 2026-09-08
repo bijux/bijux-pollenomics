@@ -48,7 +48,7 @@
       ],
       "layer_role": "mapped_direct",
       "mapped": true,
-      "feature_count": 2,
+      "feature_count": 8,
       "evidence_posture": "mapped_species_owned_locality_evidence",
       "provenance_posture": "tracked_species_locality_summaries",
       "popup_contract": [
@@ -71,7 +71,6 @@
       "layer_key": "animal_comparator_direct",
       "label": "Comparator animal direct evidence",
       "species_scope": [
-        "Equus asinus",
         "Rangifer tarandus"
       ],
       "layer_role": "mapped_direct_comparator",
@@ -98,7 +97,9 @@
     {
       "layer_key": "animal_adna_species_context",
       "label": "Animal aDNA species context",
-      "species_scope": [],
+      "species_scope": [
+        "Equus asinus"
+      ],
       "layer_role": "unmapped_contextual_review",
       "mapped": false,
       "feature_count": 0,
@@ -135,7 +136,7 @@
       "species_scope": [],
       "layer_role": "mapped_context",
       "mapped": true,
-      "feature_count": 2,
+      "feature_count": 8,
       "evidence_posture": "non_adna_context",
       "provenance_posture": "normalized_context_layers",
       "popup_contract": [
@@ -161,7 +162,9 @@
       "chronology_posture": "mapped_sample_chronology_available",
       "geography_posture": "mapped_locality_points",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -183,7 +186,9 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -204,7 +209,9 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [
         "missing_archive_projects",
@@ -223,13 +230,15 @@
       "dataset_bucket": "archive_verified_needs_paper_pinning",
       "contribution_role": "direct",
       "interaction_posture": "decreases_confidence",
-      "mapped_direct_record_count": 0,
+      "mapped_direct_record_count": 4,
       "curated_project_count": 1,
       "study_summary_count": 3,
-      "chronology_posture": "project_level_chronology_without_locality_alignment",
-      "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -257,7 +266,9 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -278,7 +289,9 @@
       "chronology_posture": "project_level_bp_capable_but_not_locality_bound",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -299,7 +312,9 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -312,19 +327,23 @@
       "support_status": "comparator_only",
       "product_role": "comparator",
       "dataset_bucket": "comparator_only",
-      "contribution_role": "direct",
-      "interaction_posture": "increases_confidence",
+      "contribution_role": "contextual",
+      "interaction_posture": "suggestive_only",
       "mapped_direct_record_count": 0,
       "curated_project_count": 0,
       "study_summary_count": 5,
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
       "rationale": [
-        "This species now has tracked mapped locality rows and can act as direct atlas evidence with explicit locality caveats."
+        "This species contributes as contextual review evidence because the runtime owns curated projects and studies, not mapped sample rows.",
+        "Atlas proximity must not be read as co-localized animal evidence until species-owned locality rows exist.",
+        "Non-human geography is still project-level or withheld, so map-level locality claims would overstate the data."
       ]
     },
     {
@@ -335,13 +354,15 @@
       "dataset_bucket": "archive_verified_needs_paper_pinning",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 2,
+      "mapped_direct_record_count": 0,
       "curated_project_count": 4,
       "study_summary_count": 8,
-      "chronology_posture": "mapped_locality_bp_windows_available",
-      "geography_posture": "mapped_locality_points",
+      "chronology_posture": "project_level_chronology_without_locality_alignment",
+      "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -366,7 +387,9 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_sites_known_but_not_runtime_mapped",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -387,7 +410,9 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -408,7 +433,9 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -429,7 +456,9 @@
       "chronology_posture": "no_curated_nonhuman_chronology",
       "geography_posture": "no_curated_nonhuman_geography",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -444,13 +473,15 @@
       "dataset_bucket": "archive_verified_needs_paper_pinning",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 0,
+      "mapped_direct_record_count": 2,
       "curated_project_count": 3,
       "study_summary_count": 6,
-      "chronology_posture": "project_level_chronology_without_locality_alignment",
-      "geography_posture": "project_level_geography_requires_manual_review",
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -475,7 +506,9 @@
       "chronology_posture": "project_level_chronology_without_locality_alignment",
       "geography_posture": "project_level_geography_requires_manual_review",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [],
       "rationale": [
@@ -490,13 +523,15 @@
       "dataset_bucket": "archive_verified_needs_paper_pinning",
       "contribution_role": "direct",
       "interaction_posture": "increases_confidence",
-      "mapped_direct_record_count": 0,
+      "mapped_direct_record_count": 2,
       "curated_project_count": 1,
       "study_summary_count": 4,
-      "chronology_posture": "project_level_chronology_without_locality_alignment",
-      "geography_posture": "project_level_geography_requires_manual_review",
+      "chronology_posture": "mapped_locality_bp_windows_available",
+      "geography_posture": "mapped_locality_points_with_mixed_precision",
       "contextual_layer_dependencies": [
-        "animal-equus-caballus"
+        "animal-bos-taurus-wild-or-progenitor-context",
+        "animal-ovis-aries",
+        "animal-sus-scrofa-domesticus"
       ],
       "blocking_reasons": [
         "missing_primary_paper_pins",
@@ -512,12 +547,16 @@
       "country": "Sweden",
       "mapped_direct_species": [
         "Homo sapiens",
-        "Equus caballus"
+        "Bos taurus",
+        "Ovis aries"
       ],
       "mapped_animal_direct_species": [
-        "Equus caballus"
+        "Bos taurus",
+        "Ovis aries"
       ],
-      "unmapped_animal_context_species": [],
+      "unmapped_animal_context_species": [
+        "Equus asinus"
+      ],
       "too_weak_animal_species": [
         "Anas platyrhynchos domesticus",
         "Bos indicus",
@@ -527,7 +566,7 @@
       ],
       "human_locality_count": 77,
       "human_sample_count": 416,
-      "mapped_animal_locality_count": 1,
+      "mapped_animal_locality_count": 3,
       "evidence_posture": "human_direct_plus_mapped_animal_direct",
       "caution_note": "Mapped animal localities can now appear in the atlas, but many remain approximate, regional, comparator-only, or not country-resolved. Do not read this profile as excavation-grade support without the popup caveats."
     },
@@ -537,7 +576,9 @@
         "Homo sapiens"
       ],
       "mapped_animal_direct_species": [],
-      "unmapped_animal_context_species": [],
+      "unmapped_animal_context_species": [
+        "Equus asinus"
+      ],
       "too_weak_animal_species": [
         "Anas platyrhynchos domesticus",
         "Bos indicus",
@@ -548,16 +589,21 @@
       "human_locality_count": 69,
       "human_sample_count": 130,
       "mapped_animal_locality_count": 0,
-      "evidence_posture": "human_only_direct",
+      "evidence_posture": "human_direct_plus_unmapped_animal_context",
       "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
     },
     {
       "country": "Finland",
       "mapped_direct_species": [
-        "Homo sapiens"
+        "Homo sapiens",
+        "Ovis aries"
       ],
-      "mapped_animal_direct_species": [],
-      "unmapped_animal_context_species": [],
+      "mapped_animal_direct_species": [
+        "Ovis aries"
+      ],
+      "unmapped_animal_context_species": [
+        "Equus asinus"
+      ],
       "too_weak_animal_species": [
         "Anas platyrhynchos domesticus",
         "Bos indicus",
@@ -567,20 +613,24 @@
       ],
       "human_locality_count": 6,
       "human_sample_count": 32,
-      "mapped_animal_locality_count": 0,
-      "evidence_posture": "human_only_direct",
-      "caution_note": "Animal aDNA remains atlas-wide unmapped context unless species-owned locality rows exist. This country profile must not be read as country-assigned animal support."
+      "mapped_animal_locality_count": 1,
+      "evidence_posture": "human_direct_plus_mapped_animal_direct",
+      "caution_note": "Mapped animal localities can now appear in the atlas, but many remain approximate, regional, comparator-only, or not country-resolved. Do not read this profile as excavation-grade support without the popup caveats."
     },
     {
       "country": "Denmark",
       "mapped_direct_species": [
         "Homo sapiens",
-        "Equus caballus"
+        "Bos taurus",
+        "Sus scrofa domesticus"
       ],
       "mapped_animal_direct_species": [
-        "Equus caballus"
+        "Bos taurus",
+        "Sus scrofa domesticus"
       ],
-      "unmapped_animal_context_species": [],
+      "unmapped_animal_context_species": [
+        "Equus asinus"
+      ],
       "too_weak_animal_species": [
         "Anas platyrhynchos domesticus",
         "Bos indicus",
@@ -590,7 +640,7 @@
       ],
       "human_locality_count": 295,
       "human_sample_count": 653,
-      "mapped_animal_locality_count": 1,
+      "mapped_animal_locality_count": 4,
       "evidence_posture": "human_direct_plus_mapped_animal_direct",
       "caution_note": "Mapped animal localities can now appear in the atlas, but many remain approximate, regional, comparator-only, or not country-resolved. Do not read this profile as excavation-grade support without the popup caveats."
     }
@@ -608,11 +658,6 @@
     },
     {
       "subject": "Bos taurus",
-      "reason": "mapped_animal_chronology_requires_caution",
-      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
-    },
-    {
-      "subject": "Bos taurus",
       "reason": "mapped_animal_geography_requires_caution",
       "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
     },
@@ -648,11 +693,16 @@
     },
     {
       "subject": "Equus asinus",
+      "reason": "atlas_proximity_is_not_locality_evidence",
+      "detail": "Curated animal project support cannot be promoted to mapped locality evidence without species-owned sample or locality records."
+    },
+    {
+      "subject": "Equus caballus",
       "reason": "mapped_animal_chronology_requires_caution",
       "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
     },
     {
-      "subject": "Equus asinus",
+      "subject": "Equus caballus",
       "reason": "mapped_animal_geography_requires_caution",
       "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
     },
@@ -683,11 +733,6 @@
     },
     {
       "subject": "Ovis aries",
-      "reason": "mapped_animal_chronology_requires_caution",
-      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
-    },
-    {
-      "subject": "Ovis aries",
       "reason": "mapped_animal_geography_requires_caution",
       "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
     },
@@ -700,11 +745,6 @@
       "subject": "Rangifer tarandus",
       "reason": "mapped_animal_geography_requires_caution",
       "detail": "Mapped animal localities remain approximate, inferred, or regional and must keep their visible caveat warnings."
-    },
-    {
-      "subject": "Sus scrofa domesticus",
-      "reason": "mapped_animal_chronology_requires_caution",
-      "detail": "Mapped animal localities exist, but their chronology remains too partial or mixed to support strong time-alignment claims."
     },
     {
       "subject": "Sus scrofa domesticus",

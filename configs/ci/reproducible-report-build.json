@@ -1,0 +1,65 @@
+{
+  "schema_version": "reproducible-report-build-policy.v2",
+  "generator": {
+    "module": "bijux_pollenomics",
+    "arguments": [
+      "publish-reports",
+      "--aadr-root",
+      "{repo_root}/data/aadr",
+      "--version",
+      "v66",
+      "--output-root",
+      "{output_root}",
+      "--published-output-root",
+      "docs/report",
+      "--context-root",
+      "{repo_root}/data"
+    ]
+  },
+  "input_paths": [
+    ".github/workflows/scientific-verification.yml",
+    "configs/ci/reproducible-report-build.json",
+    "data",
+    "packages/bijux-pollenomics/pyproject.toml",
+    "packages/bijux-pollenomics/src/bijux_pollenomics",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/rebuild_reports.py",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild",
+    "makes/pollenomics-verification.mk",
+    "pyproject.toml",
+    "uv.lock"
+  ],
+  "allowed_input_symlinks": {
+    "data/adna/species/homo_sapiens/raw/aadr": "../../../../aadr"
+  },
+  "excluded_input_globs": [
+    "**/__pycache__",
+    "**/__pycache__/**",
+    "**/*.pyc"
+  ],
+  "require_clean_repository": true,
+  "partitioning": {
+    "schema_version": "published-report-partition-policy.v1",
+    "country_group_size": 2
+  },
+  "tracked_report_root": "docs/report",
+  "volatile_text_rules": [
+    {
+      "id": "json-generated-on-date",
+      "path_globs": ["**/*.json"],
+      "pattern": "(\"generated_on\"\\s*:\\s*\")\\d{4}-\\d{2}-\\d{2}(\")",
+      "replacement": "\\1<GENERATED-DATE>\\2"
+    },
+    {
+      "id": "prose-generated-on-date",
+      "path_globs": ["**/*.json", "**/*.md"],
+      "pattern": "([Gg]enerated on `)\\d{4}-\\d{2}-\\d{2}(`)",
+      "replacement": "\\1<GENERATED-DATE>\\2"
+    },
+    {
+      "id": "html-generated-date",
+      "path_globs": ["**/*.html"],
+      "pattern": "(generated )\\d{4}-\\d{2}-\\d{2}",
+      "replacement": "\\1<GENERATED-DATE>"
+    }
+  ]
+}

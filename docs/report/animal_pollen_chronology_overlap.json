@@ -3,8 +3,34 @@
   "rows": [
     {
       "country": "Sweden",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "animal_scope": "wild_or_progenitor_context",
+      "animal_locality_count": 2,
+      "pollen_record_count": 0,
+      "overlapping_pollen_records": 0,
+      "non_overlapping_pollen_records": 0,
+      "noncomparable_pollen_records": 0,
+      "assignment_confidence": "exact_country",
+      "overlap_status": "no_context_rows"
+    },
+    {
+      "country": "Sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "animal_locality_count": 1,
+      "pollen_record_count": 0,
+      "overlapping_pollen_records": 0,
+      "non_overlapping_pollen_records": 0,
+      "noncomparable_pollen_records": 0,
+      "assignment_confidence": "exact_country",
+      "overlap_status": "no_context_rows"
+    },
+    {
+      "country": "Finland",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
       "animal_scope": "domesticated_core",
       "animal_locality_count": 1,
       "pollen_record_count": 0,
@@ -16,10 +42,23 @@
     },
     {
       "country": "Denmark",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "animal_scope": "wild_or_progenitor_context",
+      "animal_locality_count": 2,
+      "pollen_record_count": 0,
+      "overlapping_pollen_records": 0,
+      "non_overlapping_pollen_records": 0,
+      "noncomparable_pollen_records": 0,
+      "assignment_confidence": "exact_country",
+      "overlap_status": "no_context_rows"
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
       "animal_scope": "domesticated_core",
-      "animal_locality_count": 1,
+      "animal_locality_count": 2,
       "pollen_record_count": 0,
       "overlapping_pollen_records": 0,
       "non_overlapping_pollen_records": 0,
@@ -27,5 +66,58 @@
       "assignment_confidence": "exact_country",
       "overlap_status": "no_context_rows"
     }
-  ]
+  ],
+  "comparison_contract": {
+    "contract_id": "animal-pollen-chronology-overlap",
+    "contract_version": "1.1.0",
+    "output_schema_version": "animal-pollen-chronology-overlap.v1",
+    "left_evidence_class": "animal_ancient_dna_locality",
+    "right_evidence_class": "pollen_context_record",
+    "input_surface_patterns": [
+      "data/adna/final/countries/country_publication_index.json",
+      "docs/report/regions/nordic/nordic_bundle.json"
+    ],
+    "comparison_unit": "country-partitioned locality and pollen chronology interval",
+    "identity_rule": "Animal sample/locality identities and pollen source-record identities remain separate throughout the comparison.",
+    "temporal_rule": "Compare only valid closed [younger_bp, older_bp] intervals; endpoint contact counts as overlap and missing or reversed bounds are non-comparable.",
+    "spatial_rule": "Rows are compared only within the same governed modern-country partition; this contract performs no distance or site-coincidence inference.",
+    "denominator_rule": "For each animal country/species row, every available pollen record is exactly one of overlapping, non-overlapping, or non-comparable. The reported right-record comparison denominator sums those row-scoped partitions and is not a unique-pollen-record count.",
+    "uncertainty_rule": "Interval overlap is descriptive; source uncertainty and observation-unit differences are not converted into a shared quantitative measure.",
+    "lineage_rule": "Animal and pollen evidence never merge identities, totals, ecological classes, or event domains.",
+    "coverage_limitations": [
+      "Only admitted pollen-context rows with numeric intervals are comparable.",
+      "Country-level interval overlap is not spatial co-location.",
+      "Absence of admitted pollen rows is unavailable evidence, not zero pollen."
+    ],
+    "output_metrics": [
+      "animal_locality_count",
+      "pollen_record_count",
+      "overlapping_pollen_records",
+      "non_overlapping_pollen_records",
+      "noncomparable_pollen_records",
+      "right_record_comparison_denominator",
+      "comparable_right_record_comparison_denominator"
+    ],
+    "interpretation_posture": "exploratory_descriptive_implemented_unverified",
+    "allowed_claims": [
+      "country-partitioned chronology intervals overlap"
+    ],
+    "prohibited_claims": [
+      "animal evidence is pollen evidence",
+      "co-occurrence proves cultivation, migration, or causation",
+      "no admitted context rows means observed absence"
+    ],
+    "qualified_scientific_review_required": true,
+    "contract_digest": "sha256:de90abcc8fc6ae3b66aef4443cc8f1c511b2998c5ead50dd57241c1c4f382895"
+  },
+  "comparison_disposition": {
+    "status": "refused",
+    "reason_codes": [
+      "required_comparison_dimension_unavailable",
+      "qualified_comparison_review_missing"
+    ],
+    "right_record_comparison_denominator": 0,
+    "comparable_right_record_comparison_denominator": 0,
+    "qualified_scientific_review_required": true
+  }
 }

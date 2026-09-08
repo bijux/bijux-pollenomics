@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-08-01
 ---
 
 # Maps
@@ -166,6 +166,15 @@ with numeric non-overlap, preserve or separately classify rows with unavailable
 chronology, and leave non-temporal framing untouched according to the contract.
 It must not silently interpret missing time as outside the selected period.
 
+The Nordic LandClim layer demonstrates the distinction. Its filter operates on
+2,515 separate modeled grid-window features, not on 77 aggregate cells assigned
+one artificial full-Holocene interval. The Sweden archaeology discovery layer
+likewise filters 8,172 linked SEAD chronology features while retaining 1,555
+sites without comparable chronology as explicit unresolved spatial context at
+full extent.
+A time control is scientifically meaningful only when the published layer
+preserves those source-owned temporal units and refuses invented dates.
+
 When a filtered view is empty, distinguish four cases: no product members in
 scope, no members matching the declared condition, members without comparable
 fields, and members hidden by another active control. Those states support
@@ -181,10 +190,9 @@ different conclusions and should not share one “no data” interpretation.
 5. check the exclusion output when an expected feature is absent.
 
 If a visible symbol represents an aggregate, continue from the symbol to its
-member or denominator surface before making a record-level statement. A cell
-with 27,450 registry records is one rendered aggregate and 27,450 selected
-source members; it is neither one archaeological site nor 27,450 independent
-historical events.
+member or denominator surface before making a record-level statement. RAÄ
+density is currently withheld because its retained files lack admitted source
+authority; those files support no current aggregate or record-level claim.
 
 A cluster supports a statement about the visible product, not necessarily
 sampling intensity or historical abundance. An empty area may mean no admitted

@@ -2,6 +2,27 @@
   "schema_version": "animal-project-locality-worksheet.v1",
   "project_accession": "PRJEB41594",
   "species_latin_name": "Ovis aries",
-  "row_count": 0,
-  "rows": []
+  "row_count": 1,
+  "rows": [
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "source_surface": "tracked_source_artifact",
+      "source_claim_scope": "project_context_site",
+      "supporting_sample_count": 5,
+      "original_locality_text": "",
+      "resolved_locality_text": "",
+      "locality_class": "unresolved",
+      "site_name": "",
+      "municipality_name": "",
+      "region_name": "",
+      "country_name": "",
+      "broader_geography": "",
+      "geocoding_safe_token": "",
+      "source_artifact_path": "",
+      "source_artifact_kind": "",
+      "source_locator": "",
+      "source_excerpt": ""
+    }
+  ]
 }

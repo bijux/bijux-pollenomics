@@ -1,0 +1,71 @@
+from __future__ import annotations
+
+
+def representative_payload() -> dict[str, object]:
+    return {
+        "landclim_covered_target_count": 1,
+        "target_count": 2,
+        "landclim_uncovered_target_count": 1,
+        "time_row_count": 2,
+        "target_decisions": [
+            {
+                "requested_name": "Finjasjön",
+                "target_class": "registered_lake",
+                "lake_decision": "include_lake_review",
+                "registry_id": "SE-1",
+                "lake_area_km2": 1.25,
+                "landclim_coverage_posture": "covered_by_governed_grid",
+                "landclim_window_count": 2,
+                "decision_reason": "Governed.",
+            },
+            {
+                "requested_name": "Gullåkra",
+                "target_class": "archaeological_wetland_context",
+                "lake_decision": "exclude_lake_ranking_include_context",
+                "registry_id": "",
+                "lake_area_km2": None,
+                "landclim_coverage_posture": "outside_governed_grid",
+                "landclim_window_count": 0,
+                "decision_reason": "Context only.",
+            },
+        ],
+        "rows": [
+            {
+                "target_name": "Finjasjön",
+                "time_start_bp": 1000,
+                "time_label": "1000-2000 BP",
+                "quality_class": "high",
+                "forest_cover": 50.0,
+                "open_land_cover": 45.0,
+                "agricultural_land_cover": 10.0,
+                "cereal_type_pollen_cover": 3.0,
+                "rye_pollen_cover": 1.0,
+                "sead_site_count_20km": 1,
+                "human_adna_locality_count_20km": 2,
+                "animal_adna_locality_count_20km": 0,
+                "cross_proxy_posture": "pollen_archaeology_human_context",
+            },
+            {
+                "target_name": "Finjasjön",
+                "time_start_bp": 0,
+                "time_label": "0-1000 BP",
+                "quality_class": "no_pollen_data",
+                "forest_cover": None,
+                "open_land_cover": None,
+                "agricultural_land_cover": None,
+                "cereal_type_pollen_cover": None,
+                "rye_pollen_cover": None,
+                "sead_site_count_20km": 2,
+                "human_adna_locality_count_20km": 1,
+                "animal_adna_locality_count_20km": 1,
+                "cross_proxy_posture": "archaeology_human_animal_context",
+            },
+        ],
+        "methodology": {
+            "land_cover_rule": "Land rule.",
+            "cereal_rule": "Cereal rule.",
+            "temporal_join_rule": "Temporal rule.",
+            "target_coverage_rule": "Coverage rule.",
+            "interpretation_rule": "Interpretation rule.",
+        },
+    }

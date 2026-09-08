@@ -39,6 +39,18 @@ def test_root_pyproject_declares_shared_quality_tooling() -> None:
     }
 
 
+def test_developer_package_binds_shared_documentation_policy() -> None:
+    """Keep package-context quality runs on the repository threshold."""
+    package_make = (
+        REPO_ROOT / "makes" / "packages" / "bijux-pollenomics-dev.mk"
+    ).read_text(encoding="utf-8")
+
+    assert (
+        'QUALITY_INTERROGATE_FLAGS = --config "$(MONOREPO_ROOT)/pyproject.toml"'
+        in package_make
+    )
+
+
 def test_root_pyproject_uses_only_the_shared_dev_group() -> None:
     dependency_groups = cast(dict[str, object], _root_pyproject()["dependency-groups"])
     assert set(dependency_groups) == {"dev"}

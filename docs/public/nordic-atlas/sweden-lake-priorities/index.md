@@ -4,16 +4,18 @@ audience: reader
 type: explainer
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-08-01
 ---
 
 # Sweden Lake Priorities
 
-The Sweden lake priority surface ranks 6,763 SMHI SVAR registry lakes that
-have at least one human ancient-DNA locality within 50 km. It asks where the
-current collection offers the richest combination of direct human evidence,
-pollen context, archaeology context, animal context, and basic lake
-suitability. It does not select a coring site.
+The Sweden lake priority surface ranks 26 evidence-linked SMHI SVAR lakes that
+have at least one human ancient-DNA locality within 50 km. The compact review
+registry is derived from the full 40,565-lake capture, the governed pollen
+inventory, and named southern Sweden targets. It asks where the current
+collection offers the richest combination of direct human evidence, pollen
+context, archaeology context, animal context, and basic lake screening. It
+does not select a coring site.
 
 Every candidate uses a representative point derived from the official lake
 polygon. Pollen-site coordinates never substitute for lake identity. Registry
@@ -27,19 +29,24 @@ visible as required review actions.
 flowchart LR
     A[40,565 SVAR lake records] --> B[Official polygon representative points]
     B --> C[Exclude non-lake identity classes]
-    C --> D[Require human aDNA within 50 km]
-    D --> E[6,763 ranked candidates]
-    E --> F[Score 10, 20, 30, 40, and 50 km bands]
-    F --> G[Weighted aggregate rank]
-    F --> H[Cross-scenario consensus]
-    G --> I[Fieldwork-preparation screen]
-    H --> I
-    I --> J[Identity, limnology, access, and permit review]
+    C --> D[Join evidence-linked and named candidates]
+    D --> E[Require human aDNA within 50 km]
+    E --> F[26 ranked candidates]
+    F --> G[Score 10, 20, 30, 40, and 50 km bands]
+    G --> H[Weighted aggregate rank]
+    G --> I[Cross-scenario consensus]
+    H --> J[Fieldwork review screen]
+    I --> J
+    J --> K[Bathymetry, sediment, access, permit, and hazard review]
 ```
 
-The public atlas exposes aggregate and consensus top-40 layers, top-40 layers
-for each radius, and a fieldwork-preparation top 20. The overlays are disabled
-by default because they are interpretations over the base evidence layers.
+The public atlas exposes aggregate, consensus, per-radius, and fieldwork-review
+layers. Lake features are repeated for each direct-pollen source interval, so
+the map's time control changes which lake evidence is visible instead of
+leaving a static point on every date. A row with unresolved chronology remains
+explicitly unresolved and cannot gain same-period credit. The overlays are
+disabled by default because they are interpretations over the base evidence
+layers.
 
 ## Evidence Weights Within A Radius
 
@@ -57,11 +64,15 @@ Within each band, human aDNA locality and sample coverage determine ordering
 first. Direct pollen breaks the next tie, followed by broader pollen and
 archaeology context. Sampling fit and the blended score resolve later ties.
 
-Temporal credit is conditional. Neotoma and LandClim records gain stronger
-chronology contribution only when numeric BP intervals overlap nearby human
-locality windows. The current Sweden-facing SEAD capture is a site inventory
-without numeric chronology rows, so it contributes spatial archaeology context
-but not same-period evidence.
+Temporal credit is conditional. Neotoma, LandClim, and SEAD records gain
+stronger chronology contribution only when numeric BP intervals overlap nearby
+human locality windows. The current SEAD evidence contains 25,109 chronology
+claims, of which 14,264 are comparable. The Swedish discovery layer renders
+8,172 numeric interval features from 370 sites and retains 1,555 sites as
+explicitly unresolved features. Those unresolved sites contribute spatial
+archaeology context but receive no same-period credit. Sixty source-native
+post-1950 BP claims are explicitly refused by the canonical nonnegative-BP
+contract rather than coerced into comparable intervals.
 
 ### Score And Rank Are Separate Contracts
 
@@ -156,25 +167,26 @@ high-scoring lake without contradicting the ranking.
 
 ## A Concrete Reordering
 
-The current fieldwork-preparation screen places **Sjötorpasjön first** even
-though it is third in the aggregate evidence ranking. The screen retains both
+The current fieldwork-review screen places **Flarken first** even though it is
+fifth in the aggregate evidence ranking. The screen retains both
 facts:
 
 | Field | Current value |
 | --- | --- |
 | fieldwork rank | 1 |
-| aggregate rank | 3 |
-| aggregate score | 0.5862 |
+| aggregate rank | 5 |
+| aggregate score | 0.3726 |
 | scenario consistency | high; present in six tested top-20 slices |
 | sampling posture | `sampling_lake_candidate` |
-| preparation posture | `identity_resolution_required` |
-| identity issue | duplicate Swedish lake name |
-| required review | confirm the exact registry match and inspect linked SEAD records |
+| preparation posture | `fieldwork_review_ready` |
+| identity posture | `registry_clear` |
+| required review | inspect linked SEAD records; complete bathymetry, sediment, access, permit, hazard, and logistics review |
 
 This is not a contradiction or a hidden override. Aggregate rank answers the
 weighted evidence-richness question. Fieldwork rank applies a separate
 human-context, sampling, scenario-consistency, and identity-review contract.
-The unresolved name prevents the top fieldwork row from becoming a sampling
+`fieldwork_review_ready` means ready for the next review, not ready to sample.
+The five missing field domains prevent the top row from becoming a sampling
 instruction.
 
 ## Reading Candidate Fields
@@ -204,20 +216,54 @@ membership, or PalaeOpen endorsement.
 
 | Rank | Lake | Score | Area km² | Sampling posture |
 | ---: | --- | ---: | ---: | --- |
-| 1 | Bergsjön | 0.5947 | 0.063346 | `compact_lake_candidate` |
-| 2 | Hulesjön | 0.5875 | 0.037617 | `small_lake_review` |
-| 3 | Sjötorpasjön | 0.5862 | 0.603122 | `sampling_lake_candidate` |
-| 4 | Hornborgasjön | 0.5037 | 27.925549 | `sampling_lake_candidate` |
-| 5 | Skårsjön | 0.4818 | 0.021492 | `small_lake_review` |
-| 6 | Rösjön | 0.4651 | 0.956929 | `sampling_lake_candidate` |
-| 7 | Bjärsjön | 0.4573 | 0.132579 | `compact_lake_candidate` |
-| 8 | Tresjö | 0.4433 | 0.104225 | `compact_lake_candidate` |
+| 1 | Bjärsjön | 0.7070 | 0.132579 | `compact_lake_candidate` |
+| 2 | Häckebergasjön | 0.4204 | 0.758820 | `sampling_lake_candidate` |
+| 3 | Sigvaldeträsk | 0.3981 | 0.087327 | `compact_lake_candidate` |
+| 4 | Krageholmssjön | 0.3843 | 2.051341 | `sampling_lake_candidate` |
+| 5 | Flarken | 0.3726 | 0.165887 | `sampling_lake_candidate` |
+| 6 | Bjäresjö | 0.3505 | 0.022251 | `small_lake_review` |
+| 7 | Havgårdssjön | 0.3454 | 0.501745 | `sampling_lake_candidate` |
+| 8 | Mullsjön | 0.2534 | 3.917566 | `sampling_lake_candidate` |
 
 Aggregate rank is evidence-richness ordering. The fieldwork-preparation screen
 reorders candidates by near-lake human evidence, sampling posture, scenario
 consistency, and identity risk. It also emits required actions such as resolving
 duplicate registry names or inspecting SEAD context before narrowing an
 interpretation.
+
+## Why Archaeology Cannot Quietly Control The Ranking
+
+The baseline archaeology weight is 0.07: equal to nearby pollen and lake-area
+screening, below direct pollen, and far below human aDNA. The sensitivity
+report repeats the ranking at archaeology weights 0.03, 0.07, and 0.15 while
+scaling every other component proportionally so each profile still sums to
+1.00. The largest observed movement is five ranks.
+
+Finjasjön moves upward under archaeology emphasis, but the decision rule does
+not permit that movement to become a recommendation by itself. A promotion
+requires inspected SEAD records with a compatible interval. Coarse RAÄ density
+is a discovery prompt, never sufficient promotion evidence.
+
+## Named Southern Sweden Targets
+
+Four requested lakes now resolve to official SVAR identities and mapped areas:
+
+| Requested name | Official registry name | SVAR ID | Area km² | Ranking decision |
+| --- | --- | --- | ---: | --- |
+| Finjasjön | Finjasjön | `622731-136920` | 10.497234 | include in lake review |
+| Östra Ringsjön | Östra Ringsjön | `619626-135565` | 24.728453 | include in lake review |
+| Havgårdssjön | Havgårdssjön | `615365-134524` | 0.501745 | include in lake review |
+| Bjäresjösjön | Bjäresjö | `614958-137018` | 0.022251 | include under the official SVAR name |
+
+Gullåkra and Vesums mossar are retained in the southern Sweden temporal
+synthesis as archaeological wetland context. They are excluded from the lake
+ranking because the archaeological report describes mosses/wetlands and no
+unique SVAR lake identity was established. Exclusion from one product does not
+erase them from the research question.
+
+Continue to [southern Sweden land-use synthesis](../southern-sweden-land-use/)
+to read these places through LandClim windows, SEAD intervals, and aDNA
+chronology rather than as static map labels.
 
 ## Evidence Still Required Before Fieldwork
 
@@ -302,5 +348,7 @@ reproduce or interpret after a source refresh.
 - [Per-radius scenarios](../../../report/countries/sweden/sweden_lake_evidence_richness_v66_scenarios.csv)
 - [Evidence bands](../../../report/countries/sweden/sweden_lake_evidence_richness_v66_bands.csv)
 - [Fieldwork-preparation screen](../../../report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md)
+- [Archaeology-weight sensitivity](../../../report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.md)
+- [Southern Sweden temporal synthesis](../../../report/countries/sweden/sweden_land_use_synthesis_v66.md)
 - [Temporal semantics](../../pollenomics-data/evidence/temporal-semantics.md)
 - [Nordic atlas](../index.md)

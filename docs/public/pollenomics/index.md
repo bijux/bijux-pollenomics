@@ -191,25 +191,30 @@ not have to infer product status from prose.
 
 The checked-in state demonstrates all four responsibilities at meaningful
 scale. Collection spans seven independently governed source families. The
-normalized context includes 492 LandClim site sequences, 200 Neotoma sites,
-2,172 SEAD sites, a RAÄ density source representing 761,917 published Swedish
-sites, and 40,565 SVAR lakes.
+normalized context includes 490 LandClim site sequences, 200 Neotoma sites,
+and 2,069 assigned four-country SEAD sites. RAÄ authority is refused because its source inventory,
+summary, and scientific review do not reconcile in the repository. SVAR
+authority is refused because the governing normalized lake registry is absent.
+Their retained receipts and derived review material remain provenance, not
+admitted scientific evidence.
 
-Animal aDNA demonstrates the deeper evidence model. Forty tracked projects
-currently contribute 868 recovered sample rows. The public animal point review
-admits 234 rows: 233 backed by supplementary-table coordinates and one by a
-documented approximate named-site resolution. Only four projects have a
-trustworthy expected sample count, so identity recovery is auditable without
-being misrepresented as collection completeness.
+Animal aDNA demonstrates the deeper evidence model. The 40-project registry
+contains 1,455 recovered raw sample rows and 1,450 final sample rows from 21
+contributing projects. The public animal point review admits 170 locality
+features representing 331 distinct samples: 117 domesticated-core and 53
+wild/progenitor-context features. Only four projects have a trustworthy
+expected sample count, so identity recovery is auditable without being
+misrepresented as collection completeness.
 
 ```mermaid
 flowchart LR
-    Project["40 animal projects"] --> Sample["868 recovered sample rows"]
+    Project["40 tracked animal projects"] --> Raw["1,455 recovered raw rows"]
+    Raw --> Sample["1,450 final sample rows"]
     Sample --> Place["locality and coordinate review"]
     Sample --> Time["chronology review"]
     Place --> Admission{"point-product admission"}
     Time --> Admission
-    Admission -->|accepted| Point["234 reviewed point rows"]
+    Admission -->|accepted| Point["170 locality features<br/>331 distinct samples"]
     Admission -->|not supported| VisibleGap["exclusion, refusal, or recovery evidence"]
 ```
 

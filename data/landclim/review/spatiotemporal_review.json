@@ -1,0 +1,151 @@
+{
+  "schema_version": "landclim-spatiotemporal-review.v1",
+  "generated_on": "2026-09-06",
+  "source": "LandClim",
+  "site_sequence_count": 490,
+  "numeric_site_interval_count": 368,
+  "unresolved_site_interval_count": 122,
+  "temporal_grid_feature_count": 2515,
+  "numeric_temporal_grid_feature_count": 2515,
+  "bibliography_linked_temporal_grid_feature_count": 2515,
+  "dataset_count": 3,
+  "reference_count": 4,
+  "all_site_rows_have_explicit_temporal_posture": true,
+  "all_temporal_grid_rows_have_numeric_bounds": true,
+  "all_temporal_grid_rows_have_bibliography_links": true,
+  "rows": [
+    {
+      "dataset_id": "900966",
+      "dataset_label": "Marquer et al. 2019 REVEALS taxa grid cells",
+      "dataset_doi": "https://doi.org/10.1594/PANGAEA.900966",
+      "dataset_citation": "Marquer, Laurent et al. (2019): Pollen-based REVEALS estimates of plant cover in Europe for 36 grid-cells and the last 11700 years [dataset]. PANGAEA.",
+      "site_sequence_count": 54,
+      "numeric_site_interval_count": 54,
+      "unresolved_site_interval_count": 0,
+      "temporal_grid_feature_count": 309,
+      "temporal_grid_cell_count": 13,
+      "temporal_window_count": 25,
+      "temporal_windows": [
+        "0-100 BP",
+        "100-350 BP",
+        "350-700 BP",
+        "700-1200 BP",
+        "1200-1700 BP",
+        "1700-2200 BP",
+        "2200-2700 BP",
+        "2700-3200 BP",
+        "3200-3700 BP",
+        "3700-4200 BP",
+        "4200-4700 BP",
+        "4700-5200 BP",
+        "5200-5700 BP",
+        "5700-6200 BP",
+        "6200-6700 BP",
+        "6700-7200 BP",
+        "7200-7700 BP",
+        "7700-8200 BP",
+        "8200-8700 BP",
+        "8700-9200 BP",
+        "9200-9700 BP",
+        "9700-10200 BP",
+        "10200-10700 BP",
+        "10700-11200 BP",
+        "11200 - 11700 BP"
+      ],
+      "bibliography_reference_keys": [
+        "marquer-et-al-2017",
+        "sugita-2007-reveals"
+      ],
+      "temporal_grid_reference_keys": [
+        "marquer-et-al-2017",
+        "sugita-2007-reveals"
+      ],
+      "bibliography_linkage_complete": true,
+      "temporal_posture": "site_intervals_and_modeled_grid_windows"
+    },
+    {
+      "dataset_id": "897303",
+      "dataset_label": "Gaillard 2019 LandClim I REVEALS grids",
+      "dataset_doi": "https://doi.org/10.1594/PANGAEA.897303",
+      "dataset_citation": "Gaillard, Marie-José (2019): First pollen-based REVEALS reconstruction of vegetation abundance in Europe for five time windows between 6k years BP and present [dataset]. PANGAEA.",
+      "site_sequence_count": 213,
+      "numeric_site_interval_count": 213,
+      "unresolved_site_interval_count": 0,
+      "temporal_grid_feature_count": 331,
+      "temporal_grid_cell_count": 74,
+      "temporal_window_count": 5,
+      "temporal_windows": [
+        "0-100 BP",
+        "100-350 BP",
+        "350-700 BP",
+        "2700-3200 BP",
+        "5700-6200 BP"
+      ],
+      "bibliography_reference_keys": [
+        "sugita-2007-reveals",
+        "trondman-et-al-2015"
+      ],
+      "temporal_grid_reference_keys": [
+        "sugita-2007-reveals",
+        "trondman-et-al-2015"
+      ],
+      "bibliography_linkage_complete": true,
+      "temporal_posture": "site_intervals_and_modeled_grid_windows"
+    },
+    {
+      "dataset_id": "937075",
+      "dataset_label": "Fyfe et al. 2021 LandClim II REVEALS grids",
+      "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+      "dataset_citation": "Fyfe, Ralph M et al. (2021): A full Holocene record of transient gridded vegetation cover in Europe [dataset]. PANGAEA.",
+      "site_sequence_count": 223,
+      "numeric_site_interval_count": 101,
+      "unresolved_site_interval_count": 122,
+      "temporal_grid_feature_count": 1875,
+      "temporal_grid_cell_count": 75,
+      "temporal_window_count": 25,
+      "temporal_windows": [
+        "0-100 BP",
+        "100-350 BP",
+        "350-700 BP",
+        "700-1200 BP",
+        "1200-1700 BP",
+        "1700-2200 BP",
+        "2200-2700 BP",
+        "2700-3200 BP",
+        "3200-3700 BP",
+        "3700-4200 BP",
+        "4200-4700 BP",
+        "4700-5200 BP",
+        "5200-5700 BP",
+        "5700-6200 BP",
+        "6200-6700 BP",
+        "6700-7200 BP",
+        "7200-7700 BP",
+        "7700-8200 BP",
+        "8200-8700 BP",
+        "8700-9200 BP",
+        "9200-9700 BP",
+        "9700-10200 BP",
+        "10200-10700 BP",
+        "10700-11200 BP",
+        "11200-11700 BP"
+      ],
+      "bibliography_reference_keys": [
+        "githumbi-et-al-2022",
+        "sugita-2007-reveals",
+        "trondman-et-al-2015"
+      ],
+      "temporal_grid_reference_keys": [
+        "githumbi-et-al-2022",
+        "sugita-2007-reveals"
+      ],
+      "bibliography_linkage_complete": true,
+      "temporal_posture": "site_intervals_and_modeled_grid_windows"
+    }
+  ],
+  "interpretation_caveats": [
+    "REVEALS windows are modeled vegetation estimates, not sample-owned chronologies.",
+    "Separate published windows do not imply continuous values between windows.",
+    "Upstream-undated site sequences remain explicit spatial context and are not assigned synthetic ages."
+  ]
+}

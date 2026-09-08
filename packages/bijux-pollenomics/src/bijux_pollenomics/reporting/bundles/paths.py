@@ -10,7 +10,23 @@ __all__ = [
     "CountryBundlePaths",
     "build_atlas_bundle_paths",
     "build_country_bundle_paths",
+    "serialize_publication_path",
 ]
+
+
+def serialize_publication_path(path: Path) -> str:
+    """Serialize a public report path without leaking its build-machine prefix."""
+    candidate = Path(path)
+    parts = candidate.parts
+    for index in range(len(parts) - 1):
+        if parts[index : index + 2] == ("docs", "report"):
+            return Path(*parts[index:]).as_posix()
+    if not candidate.is_absolute():
+        return candidate.as_posix()
+    try:
+        return candidate.relative_to(Path.cwd()).as_posix()
+    except ValueError:
+        return candidate.name
 
 
 @dataclass(frozen=True)
@@ -42,6 +58,12 @@ class CountryBundlePaths:
     lake_fieldwork_preparation_json_path: Path
     lake_fieldwork_preparation_csv_path: Path
     lake_fieldwork_preparation_markdown_path: Path
+    lake_archaeology_sensitivity_json_path: Path
+    lake_archaeology_sensitivity_csv_path: Path
+    lake_archaeology_sensitivity_markdown_path: Path
+    land_use_synthesis_json_path: Path
+    land_use_synthesis_csv_path: Path
+    land_use_synthesis_markdown_path: Path
 
 
 @dataclass(frozen=True)
@@ -52,6 +74,8 @@ class AtlasBundlePaths:
     readme_path: Path
     bundle_manifest_path: Path
     map_html_path: Path
+    map_static_assets_manifest_path: Path
+    playback_storyboards_path: Path
     samples_geojson_path: Path
     animal_localities_geojson_path: Path
     domesticated_animal_localities_geojson_path: Path
@@ -59,6 +83,7 @@ class AtlasBundlePaths:
     animal_atlas_evidence_csv_path: Path
     animal_atlas_evidence_json_path: Path
     animal_point_traceability_json_path: Path
+    animal_sample_chronology_context_json_path: Path
     map_point_traceability_json_path: Path
     map_point_traceability_markdown_path: Path
     map_publication_contract_json_path: Path
@@ -129,6 +154,18 @@ def build_country_bundle_paths(
         / f"{country_slug}_lake_fieldwork_preparation_{version}.csv",
         lake_fieldwork_preparation_markdown_path=output_dir
         / f"{country_slug}_lake_fieldwork_preparation_{version}.md",
+        lake_archaeology_sensitivity_json_path=output_dir
+        / f"{country_slug}_lake_archaeology_sensitivity_{version}.json",
+        lake_archaeology_sensitivity_csv_path=output_dir
+        / f"{country_slug}_lake_archaeology_sensitivity_{version}.csv",
+        lake_archaeology_sensitivity_markdown_path=output_dir
+        / f"{country_slug}_lake_archaeology_sensitivity_{version}.md",
+        land_use_synthesis_json_path=output_dir
+        / f"{country_slug}_land_use_synthesis_{version}.json",
+        land_use_synthesis_csv_path=output_dir
+        / f"{country_slug}_land_use_synthesis_{version}.csv",
+        land_use_synthesis_markdown_path=output_dir
+        / f"{country_slug}_land_use_synthesis_{version}.md",
     )
 
 
@@ -145,6 +182,9 @@ def build_atlas_bundle_paths(
         readme_path=output_dir / "README.md",
         bundle_manifest_path=output_dir / f"{atlas_slug}_bundle.json",
         map_html_path=output_dir / f"{atlas_slug}_map.html",
+        map_static_assets_manifest_path=output_dir / f"{atlas_slug}_map_assets.json",
+        playback_storyboards_path=output_dir
+        / f"{atlas_slug}_playback_storyboards.json",
         samples_geojson_path=output_dir / f"{atlas_slug}_samples.geojson",
         animal_localities_geojson_path=output_dir
         / f"{atlas_slug}_animal_localities.geojson",
@@ -158,6 +198,8 @@ def build_atlas_bundle_paths(
         / f"{atlas_slug}_animal_atlas_evidence.json",
         animal_point_traceability_json_path=output_dir
         / f"{atlas_slug}_animal_point_traceability.json",
+        animal_sample_chronology_context_json_path=output_dir
+        / f"{atlas_slug}_animal_sample_chronology_context.json",
         map_point_traceability_json_path=output_dir
         / f"{atlas_slug}_point_traceability.json",
         map_point_traceability_markdown_path=output_dir

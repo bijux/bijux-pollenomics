@@ -4,13 +4,12 @@
 
 | Species | Sample rows | Atlas rows | Country sample rows | Drift |
 | --- | ---: | ---: | ---: | --- |
-| Bos taurus | 13 | 0 | 0 | `false` |
-| Camelus dromedarius | 14 | 1 | 0 | `false` |
+| Bos taurus | 132 | 22 | 5 | `false` |
+| Camelus dromedarius | 13 | 0 | 0 | `false` |
 | Canis lupus familiaris | 4 | 0 | 0 | `false` |
-| Capra hircus | 82 | 26 | 0 | `false` |
-| Equus asinus | 5 | 0 | 0 | `false` |
-| Equus caballus | 552 | 207 | 3 | `false` |
-| Felis catus | 2 | 0 | 0 | `false` |
-| Ovis aries | 195 | 0 | 0 | `false` |
-| Rangifer tarandus | 23 | 0 | 0 | `false` |
-| Sus scrofa domesticus | 4 | 0 | 0 | `false` |
+| Capra hircus | 82 | 27 | 0 | `false` |
+| Equus caballus | 550 | 78 | 0 | `false` |
+| Felis catus | 106 | 39 | 0 | `false` |
+| Ovis aries | 200 | 2 | 5 | `false` |
+| Rangifer tarandus | 20 | 0 | 0 | `false` |
+| Sus scrofa domesticus | 343 | 2 | 2 | `false` |

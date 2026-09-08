@@ -314,7 +314,7 @@ def build_species_source_snapshots(
     species_name: str,
 ) -> tuple[AdnaArchiveSourceSnapshot, ...]:
     """Return source snapshots for one tracked species root."""
-    from .ena import build_species_archive_projects
+    from .archive import build_species_archive_projects
 
     return tuple(
         resolve_archive_source_snapshot(project)

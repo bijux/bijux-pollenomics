@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from ....core.geojson import JsonObject, feature_list
+from ....core.geospatial.geojson import JsonObject, feature_list
 
 
 def build_country_boundary_layer(geojson: JsonObject) -> dict[str, object]:

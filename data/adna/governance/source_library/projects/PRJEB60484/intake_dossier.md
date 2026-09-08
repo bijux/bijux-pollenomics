@@ -16,10 +16,10 @@
 
 - `project_admission`: `complete`
 - `paper_capture`: `complete`
-- `supplement_capture`: `not_required`
+- `supplement_capture`: `complete`
 - `sample_identity_recovery`: `complete`
 - `site_recovery`: `in_progress`
-- `chronology_recovery`: `complete`
+- `chronology_recovery`: `in_progress`
 - `coordinate_derivation`: `blocked`
 - `publication_readiness`: `blocked`
 
@@ -29,6 +29,7 @@
 - `taxonomic_context`
 - `site_evidence`
 - `coordinate_candidates`
+- `sample_chronology`
 
 ## Known Assets
 
@@ -44,6 +45,7 @@
 ## Missing Assets
 
 - Some recovered sample rows still lack a defensible site assignment.
+- Some recovered sample rows still lack sample-level chronology.
 
 ## Contradictory Evidence
 
@@ -51,6 +53,6 @@
 
 ## Manual Curation Work Units
 
-- `chronology_recovery`: 20 item(s), blocks chronology honesty and publication precision
+- `chronology_recovery`: 40 item(s), blocks chronology honesty and publication precision
 - `locality_string_resolution`: 20 item(s), blocks coordinate derivation and exact locality publication
 - `site_resolution`: 20 item(s), blocks exact site, coordinate, and publication recovery

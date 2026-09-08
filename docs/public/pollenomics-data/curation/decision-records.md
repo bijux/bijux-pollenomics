@@ -34,11 +34,12 @@ flowchart LR
     Member --> Release{"release decision"}
 ```
 
-These decisions can legitimately differ. A location claim can be strong
-enough for a qualified context marker while the object remains ineligible for
-a recovered-sample count. A retained publication can remain inspectable while
-the current database snapshot refuses stronger release language because a
-contracted lifecycle stage is absent.
+These decisions can legitimately differ. A hypothetical product contract could
+permit a qualified context marker, but the current animal point contract does
+not: context without an admitted sample-backed locality remains in
+not-materialized accounting. A retained publication can remain inspectable
+while the current database snapshot refuses stronger release language because
+a contracted lifecycle stage is absent.
 
 ## Anatomy Of A Decision Record
 
@@ -107,7 +108,7 @@ The Wadi Halfa dromedary context illustrates why decisions remain scoped:
 | source context | paper-backed Site 1040 wording supplies a recoverable named-place claim |
 | sample identity | a final sample-master identity is not yet recoverable |
 | coordinate claim | named-place geocoding supports an approximate point, not a supplied excavation coordinate |
-| point product | admitted as a visibly qualified project-context feature |
+| point product | not published; retained in map-readiness accounting as `no_admitted_sample_backed_locality_candidate` |
 | recovered-sample population | not admitted as a final recovered sample |
 | release posture | incomplete recovery remains part of the repository release refusal |
 
@@ -115,15 +116,15 @@ The Wadi Halfa dromedary context illustrates why decisions remain scoped:
 flowchart TB
     Project["SRP073444 project"] --> Context["paper-backed place context"]
     Context --> Approximate["approximate named-place coordinate"]
-    Approximate --> ContextMember["qualified context member"]
+    Approximate --> Excluded["not-materialized evidence row"]
     Project --> Missing["final sample evidence missing"]
     Missing --> Recovery["recovery condition"]
     Recovery --> Release["stronger release language refused"]
 ```
 
-The context member and recovery failure are not contradictory. They answer
-different questions and remain linked so readers do not count the marker as a
-fully recovered sample.
+The retained context and publication refusal are not contradictory. They answer
+different questions and remain linked so readers do not count the evidence row
+as a published point or recovered sample.
 
 ## Decision Surfaces In The Checked-In Database
 
@@ -143,16 +144,15 @@ are distinct observation units.
 
 ## Read Candidate Accountability Correctly
 
-The current animal accountability surface contains 234 candidates and 233
-rows that pass its complete sample-accountability test. The remaining Wadi
-Halfa context feature is intentionally represented under a different point
-class. Its presence does not turn the failed sample-accountability predicate
-into a pass.
+The current animal accountability surface contains 170 locality candidates,
+and all 170 pass its complete sample-accountability test. Together they
+represent 331 distinct admitted samples. Wadi Halfa is outside that candidate
+surface and remains visible only in not-materialized readiness accounting.
 
 | Question | Correct authority |
 | --- | --- |
 | Is the candidate fully sample-accountable? | candidate accountability row |
-| May a qualified project-context marker appear? | point publication contract and traceability row |
+| Why is the Wadi Halfa context not published? | map-readiness row and its `no_admitted_sample_backed_locality_candidate` reason |
 | May it enter a recovered-sample count? | sample-foundation and sample-master population contract |
 | Does the overall repository permit final-release language? | repository release-refusal surface |
 

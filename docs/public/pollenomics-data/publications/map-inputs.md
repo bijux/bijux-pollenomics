@@ -26,7 +26,7 @@ precision, publication member, and product scope.
 | SEAD | contextual archaeology | `data/sead/normalized/nordic_environmental_sites.geojson` | environmental archaeology context, not uniformly dated evidence |
 | RAÄ | contextual archaeology | `data/raa/normalized/sweden_archaeology_layer.json` | Sweden-scoped density context, not Nordic-wide site coverage |
 | Nordic boundaries | geographic framing | `data/boundaries/normalized/nordic_country_boundaries.geojson` | scope and clipping only; contributes no evidence score |
-| Animal aDNA | sample-backed evidence plus visibly qualified project context and explicit refusals | `data/adna/final/atlas/animal_atlas_point_candidates.json` | point classes must remain distinct within an incomplete recovery program |
+| Animal aDNA | sample-backed domesticated-core and wild/progenitor-context localities plus explicit non-member accounting | `data/adna/final/atlas/animal_atlas_point_candidates.json` | scope classes and excluded context must remain distinct within an incomplete recovery program |
 
 Summary files and raw captures remain important refresh and review anchors,
 but they do not replace the normalized or admitted surface that governs a
@@ -167,11 +167,13 @@ This rule prevents a downstream map layer from being treated as a convenient
 backup of its own source. Recovery begins at the governing input or review
 surface and then regenerates the scoped export and bundle.
 
-The current input scale is intentionally heterogeneous: 492 LandClim site
-sequences, 200 Neotoma sites, 2,172 normalized SEAD sites, a RAÄ density source
-covering 761,917 published Swedish sites, four Nordic boundary polygons, and
-234 reviewed animal publication points. These counts describe different units
-and roles and must never be summed into one evidence total.
+The current input scale is intentionally heterogeneous: 490 LandClim site
+sequences, 200 Neotoma sites, 2,069 assigned four-country SEAD sites, four Nordic boundary
+polygons, and 170 reviewed animal publication localities representing 331
+distinct admitted samples. RAÄ is withheld because its source authority is
+refused; retained density files are audit material, not governed map input.
+Available counts describe different units and roles and must never be summed
+into one evidence total.
 
 ## One Viewport, Different Scientific Objects
 
@@ -184,7 +186,7 @@ density cell may overlap visually while answering different questions:
 | Neotoma point | one database site such as Abborrtjärnen with nested collections and samples | compare site-level coverage under its temporal posture | count nested samples as independent map points |
 | SEAD point | one captured environmental-archaeology site inventory row | report a declared spatial relation | infer same-period association without recovered chronology |
 | animal point | one product-admitted animal evidence feature | follow sample or project identity and qualification | treat all admitted points as equally complete samples |
-| RAÄ cell | aggregate count of selected registry records in one grid cell | compare declared density cells | reconstruct synthetic archaeological site coordinates |
+| retained RAÄ cell | unauthorised aggregate retained for audit | none until source authority is admitted | present the cell as current public archaeology evidence |
 
 The correct cross-layer join is therefore a typed relation between two named
 members, not a merge on marker position. Its result records the two source

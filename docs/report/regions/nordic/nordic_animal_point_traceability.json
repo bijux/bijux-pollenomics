@@ -2,45 +2,222 @@
   "schema_version": "animal-atlas-point-traceability.v1",
   "rows": [
     {
-      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb31613-uppsala-sweden",
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb31613-equus-caballus-locality-prjeb31613-uppsala-sweden",
-      "site_record_id": "equus_caballus:locality:prjeb31613:uppsala:sweden",
-      "species_latin_name": "Equus caballus",
-      "primary_project_accession": "PRJEB31613",
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-hjrringtoftebk-denmark",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-hjrringtoftebk-denmark",
+      "site_record_id": "bos_taurus:locality:prjeb75467:hjrringtoftebk:denmark",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
       "sample_record_ids": [
-        "equus_caballus:sample:prjeb31613:cgg_1_018490"
+        "bos_taurus:sample:prjeb75467:samea115574419"
       ],
       "sample_group_ids": [
-        "PRJEB31613"
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
       ],
       "sample_count": 1,
-      "coordinate_basis": "supplementary_table_coordinates",
-      "coordinate_confidence": "exact",
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
-      "source_locator": "Sheet1!row226",
-      "paper_doi": "10.1016/j.cell.2019.03.049",
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A26:Y26",
+      "paper_doi": "10.1038/s41586-024-08112-6",
       "supplementary_sources": []
     },
     {
-      "feature_id": "animal-atlas-feature:equus-caballus-locality-prjeb44430-ginnerup-denmark",
-      "evidence_row_id": "animal-atlas-row:equus-caballus-prjeb44430-equus-caballus-locality-prjeb44430-ginnerup-denmark",
-      "site_record_id": "equus_caballus:locality:prjeb44430:ginnerup:denmark",
-      "species_latin_name": "Equus caballus",
-      "primary_project_accession": "PRJEB44430",
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-lundbyi-denmark",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-lundbyi-denmark",
+      "site_record_id": "bos_taurus:locality:prjeb75467:lundbyi:denmark",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
       "sample_record_ids": [
-        "equus_caballus:sample:prjeb44430:samea9533224",
-        "equus_caballus:sample:prjeb44430:samea9533225"
+        "bos_taurus:sample:prjeb75467:samea115574456",
+        "bos_taurus:sample:prjeb75467:samea115574457"
       ],
       "sample_group_ids": [
-        "PRJEB44430"
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
       ],
       "sample_count": 2,
-      "coordinate_basis": "supplementary_table_coordinates",
-      "coordinate_confidence": "exact",
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
-      "source_locator": "SI Table 1!row252",
-      "paper_doi": "10.1038/s41586-021-04018-9",
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A36:Y36 || Supplementary Data 1!A41:Y41",
+      "paper_doi": "10.1038/s41586-024-08112-6",
       "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-nevishg-sweden",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-nevishg-sweden",
+      "site_record_id": "bos_taurus:locality:prjeb75467:nevishg:sweden",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574441"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A34:Y34",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:bos-taurus-locality-prjeb75467-skne-sweden",
+      "evidence_row_id": "animal-atlas-row:bos-taurus-prjeb75467-bos-taurus-locality-prjeb75467-skne-sweden",
+      "site_record_id": "bos_taurus:locality:prjeb75467:skne:sweden",
+      "species_latin_name": "Bos taurus",
+      "primary_project_accession": "PRJEB75467",
+      "sample_record_ids": [
+        "bos_taurus:sample:prjeb75467:samea115574442"
+      ],
+      "sample_group_ids": [
+        "PRJEB75467"
+      ],
+      "source_native_taxon_labels": [
+        "Bos primigenius (tax_id 9909)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "supplementary_proximal_site_coordinates",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+      "source_locator": "Supplementary Data 1!A33:Y33",
+      "paper_doi": "10.1038/s41586-024-08112-6",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:ovis-aries-locality-prjeb59481-kastelholm-finland",
+      "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-kastelholm-finland",
+      "site_record_id": "ovis_aries:locality:prjeb59481:kastelholm:finland",
+      "species_latin_name": "Ovis aries",
+      "primary_project_accession": "PRJEB59481",
+      "sample_record_ids": [
+        "ovis_aries:sample:prjeb59481:samea112960291",
+        "ovis_aries:sample:prjeb59481:samea112960292"
+      ],
+      "sample_group_ids": [
+        "PRJEB59481"
+      ],
+      "source_native_taxon_labels": [
+        "Ovis aries (tax_id 9940)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 2,
+      "coordinate_basis": "archive_coordinates",
+      "coordinate_confidence": "source_reported_two_decimal_degrees",
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+      "source_locator": "./SAMPLE[@accession='SAMEA112960291']/DESCRIPTION",
+      "paper_doi": "10.1093/gbe/evae114",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "evidence_row_id": "animal-atlas-row:ovis-aries-prjeb59481-ovis-aries-locality-prjeb59481-storafrvar-sweden",
+      "site_record_id": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
+      "species_latin_name": "Ovis aries",
+      "primary_project_accession": "PRJEB59481",
+      "sample_record_ids": [
+        "ovis_aries:sample:prjeb59481:samea112960293",
+        "ovis_aries:sample:prjeb59481:samea112960294",
+        "ovis_aries:sample:prjeb59481:samea112960295"
+      ],
+      "sample_group_ids": [
+        "PRJEB59481"
+      ],
+      "source_native_taxon_labels": [
+        "Ovis aries (tax_id 9940)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_match"
+      ],
+      "sample_count": 3,
+      "coordinate_basis": "archive_coordinates",
+      "coordinate_confidence": "source_reported_two_decimal_degrees",
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+      "source_locator": "./SAMPLE[@accession='SAMEA112960293']/DESCRIPTION",
+      "paper_doi": "10.1093/gbe/evae114",
+      "supplementary_sources": []
+    },
+    {
+      "feature_id": "animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
+      "evidence_row_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-bunds-denmark",
+      "site_record_id": "sus_scrofa_domesticus:locality:prjeb30282:bunds:denmark",
+      "species_latin_name": "Sus scrofa domesticus",
+      "primary_project_accession": "PRJEB30282",
+      "sample_record_ids": [
+        "sus_scrofa_domesticus:sample:prjeb30282:samea5160867"
+      ],
+      "sample_group_ids": [
+        "PRJEB30282"
+      ],
+      "source_native_taxon_labels": [
+        "Sus scrofa (tax_id 9823)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "named_site_geocoding",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+      "source_locator": "sample_accession:SAMEA5160867 || Sheet1!row1212",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "supplementary_sources": [
+        "https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf",
+        "https://www.kulturarv.dk/ffpublic/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=fundogfortidsminder:fundogfortidsminder_punkt_ikkefredet&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=systemnr%3D86607"
+      ]
+    },
+    {
+      "feature_id": "animal-atlas-feature:sus-scrofa-domesticus-locality-prjeb30282-trelleborg-denmark",
+      "evidence_row_id": "animal-atlas-row:sus-scrofa-domesticus-prjeb30282-sus-scrofa-domesticus-locality-prjeb30282-trelleborg-denmark",
+      "site_record_id": "sus_scrofa_domesticus:locality:prjeb30282:trelleborg:denmark",
+      "species_latin_name": "Sus scrofa domesticus",
+      "primary_project_accession": "PRJEB30282",
+      "sample_record_ids": [
+        "sus_scrofa_domesticus:sample:prjeb30282:samea5160868"
+      ],
+      "sample_group_ids": [
+        "PRJEB30282"
+      ],
+      "source_native_taxon_labels": [
+        "Sus scrofa (tax_id 9823)"
+      ],
+      "taxon_alignment_statuses": [
+        "project_species_mismatch"
+      ],
+      "sample_count": 1,
+      "coordinate_basis": "named_site_geocoding",
+      "coordinate_confidence": "approximate",
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB30282/archive_metadata.html || data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+      "source_locator": "sample_accession:SAMEA5160868 || Sheet1!row1215",
+      "paper_doi": "10.1073/pnas.1901169116",
+      "supplementary_sources": [
+        "https://en.natmus.dk/fileadmin/user_upload/Editor/ManagementPlan_Web_lille.pdf",
+        "https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf"
+      ]
     }
   ]
 }

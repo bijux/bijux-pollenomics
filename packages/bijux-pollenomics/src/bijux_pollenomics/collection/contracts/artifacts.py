@@ -1,0 +1,128 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from pathlib import Path
+
+
+@dataclass(frozen=True)
+class DataArtifactContract:
+    source: str
+    label: str
+    relative_parts: tuple[str, ...]
+
+    @property
+    def filename(self) -> str:
+        return self.relative_parts[-1]
+
+    def path_under(self, output_root: Path) -> Path:
+        """Resolve this artifact under a full data root."""
+        return Path(output_root).joinpath(self.source, *self.relative_parts)
+
+    def source_path_under(self, source_output_root: Path) -> Path:
+        """Resolve this artifact under one source output directory."""
+        return Path(source_output_root).joinpath(*self.relative_parts)
+
+
+BOUNDARY_COLLECTION = DataArtifactContract(
+    source="boundaries",
+    label="Nordic country boundaries",
+    relative_parts=("normalized", "nordic_country_boundaries.geojson"),
+)
+LANDCLIM_SITE_CSV = DataArtifactContract(
+    source="landclim",
+    label="LandClim pollen site CSV",
+    relative_parts=("normalized", "nordic_pollen_site_sequences.csv"),
+)
+LANDCLIM_SITE_GEOJSON = DataArtifactContract(
+    source="landclim",
+    label="LandClim pollen site GeoJSON",
+    relative_parts=("normalized", "nordic_pollen_site_sequences.geojson"),
+)
+LANDCLIM_GRID_GEOJSON = DataArtifactContract(
+    source="landclim",
+    label="LandClim REVEALS grid GeoJSON",
+    relative_parts=("normalized", "nordic_reveals_grid_cells.geojson"),
+)
+LANDCLIM_TEMPORAL_GRID_GEOJSON = DataArtifactContract(
+    source="landclim",
+    label="LandClim REVEALS temporal grid GeoJSON",
+    relative_parts=("normalized", "nordic_reveals_temporal_grid_cells.geojson"),
+)
+LANDCLIM_BIBLIOGRAPHY_JSON = DataArtifactContract(
+    source="landclim",
+    label="LandClim bibliography",
+    relative_parts=("normalized", "landclim_bibliography.json"),
+)
+NEOTOMA_POINT_CSV = DataArtifactContract(
+    source="neotoma",
+    label="Neotoma pollen CSV",
+    relative_parts=("normalized", "nordic_pollen_sites.csv"),
+)
+NEOTOMA_POINT_GEOJSON = DataArtifactContract(
+    source="neotoma",
+    label="Neotoma pollen GeoJSON",
+    relative_parts=("normalized", "nordic_pollen_sites.geojson"),
+)
+SEAD_POINT_CSV = DataArtifactContract(
+    source="sead",
+    label="SEAD site CSV",
+    relative_parts=("normalized", "nordic_environmental_sites.csv"),
+)
+SEAD_POINT_GEOJSON = DataArtifactContract(
+    source="sead",
+    label="SEAD site GeoJSON",
+    relative_parts=("normalized", "nordic_environmental_sites.geojson"),
+)
+SEAD_TEMPORAL_EVIDENCE_CSV = DataArtifactContract(
+    source="sead",
+    label="SEAD temporal evidence CSV",
+    relative_parts=("normalized", "nordic_temporal_evidence.csv"),
+)
+SEAD_TEMPORAL_EVIDENCE_GEOJSON = DataArtifactContract(
+    source="sead",
+    label="SEAD temporal evidence GeoJSON",
+    relative_parts=("normalized", "nordic_temporal_evidence.geojson"),
+)
+SEAD_ARCHAEOLOGY_DISCOVERY_JSON = DataArtifactContract(
+    source="sead",
+    label="Sweden archaeology site discovery registry",
+    relative_parts=("derived", "sweden_archaeology_site_discovery.json"),
+)
+SEAD_ARCHAEOLOGY_DISCOVERY_CSV = DataArtifactContract(
+    source="sead",
+    label="Sweden archaeology site discovery table",
+    relative_parts=("derived", "sweden_archaeology_site_discovery.csv"),
+)
+SEAD_ARCHAEOLOGY_DISCOVERY_GEOJSON = DataArtifactContract(
+    source="sead",
+    label="Sweden archaeology site discovery GeoJSON",
+    relative_parts=("derived", "sweden_archaeology_site_discovery.geojson"),
+)
+SEAD_ARCHAEOLOGY_DISCOVERY_MARKDOWN = DataArtifactContract(
+    source="sead",
+    label="Sweden archaeology site discovery guide",
+    relative_parts=("derived", "sweden_archaeology_site_discovery.md"),
+)
+RAA_LAYER_METADATA = DataArtifactContract(
+    source="raa",
+    label="RAÄ archaeology layer metadata",
+    relative_parts=("normalized", "sweden_archaeology_layer.json"),
+)
+RAA_DENSITY_GEOJSON = DataArtifactContract(
+    source="raa",
+    label="RAÄ archaeology density",
+    relative_parts=("normalized", "sweden_archaeology_density.geojson"),
+)
+SVAR_LAKE_GEOJSON = DataArtifactContract(
+    source="svar",
+    label="SMHI SVAR Sweden lake registry",
+    relative_parts=("normalized", "sweden_lake_registry.geojson"),
+)
+
+ATLAS_POINT_ARTIFACTS = (
+    LANDCLIM_SITE_GEOJSON,
+    NEOTOMA_POINT_GEOJSON,
+    SEAD_POINT_GEOJSON,
+    SEAD_TEMPORAL_EVIDENCE_GEOJSON,
+    SEAD_ARCHAEOLOGY_DISCOVERY_GEOJSON,
+)

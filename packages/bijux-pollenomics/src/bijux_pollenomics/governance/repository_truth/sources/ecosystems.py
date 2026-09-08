@@ -1,0 +1,134 @@
+"""External source-ecosystem role and collaboration assessments."""
+
+from __future__ import annotations
+
+from pathlib import Path
+from typing import TypedDict, cast
+
+__all__ = [
+    "build_repository_source_ecosystem_review",
+    "render_repository_source_ecosystem_review_markdown",
+]
+
+
+class _EcosystemRow(TypedDict):
+    display_name: str
+    ecosystem_role: str
+    fit_posture: str
+    repository_role: str
+    official_entry_points: list[str]
+    recommended_repository_actions: list[str]
+
+
+class _EcosystemPayload(TypedDict):
+    row_count: int
+    rows: list[_EcosystemRow]
+
+
+def build_repository_source_ecosystem_review(
+    *,
+    data_root: Path,
+    docs_root: Path,
+    report_root: Path,
+) -> dict[str, object]:
+    """Describe high-value source ecosystems that shape repository reuse."""
+    _ = data_root
+    _ = docs_root
+    _ = report_root
+    rows = [
+        {
+            "ecosystem_key": "sead",
+            "display_name": "SEAD",
+            "ecosystem_role": "direct_source_infrastructure",
+            "fit_posture": "high_value_direct_context_partner",
+            "repository_role": (
+                "environmental archaeology context with strong Sweden, "
+                "Scandinavia, and wider European relevance"
+            ),
+            "official_entry_points": [
+                "https://www.sead.se/",
+                "https://browser.sead.se/",
+                "https://www.umu.se/en/staff/philip-buckland/",
+            ],
+            "strengths": [
+                "direct environmental-archaeology source infrastructure rather than a loose index",
+                "good fit for Sweden lake context enrichment because repository rankings already use SEAD site density",
+                "supports broader archaeology interpretation beyond a Sweden-only registry",
+            ],
+            "limits": [
+                "context layer, not sample-owned proof of lake identity, chronology, or coordinates",
+                "temporal resolution and reference visibility remain uneven across individual SEAD sites even when linked rows are preserved in the checked-in inventory",
+            ],
+            "recommended_repository_actions": [
+                "keep linked temporal and bibliography fields refreshed in checked-in SEAD inventories and surface them in Sweden review products with explicit context-only caveats",
+                "use SEAD-rich top Sweden lake candidates as review anchors for context validation and ambiguity checks",
+            ],
+        },
+        {
+            "ecosystem_key": "palaeopen",
+            "display_name": "PalaeOpen",
+            "ecosystem_role": "open_data_network",
+            "fit_posture": "high_value_interoperability_network",
+            "repository_role": (
+                "metadata, taxonomy, and multi-repository palaeoecology alignment "
+                "for cross-proxy lake comparison"
+            ),
+            "official_entry_points": [
+                "https://palaeopen.github.io/",
+                "https://palaeopen.github.io/About/about.html",
+                "https://palaeopen.github.io/join_us.html",
+            ],
+            "strengths": [
+                "explicitly targets open palaeoecological data, taxonomy harmonization, and metadata alignment",
+                "bridges terrestrial and aquatic palaeoecology, which matches lake-centered comparison work",
+                "useful for turning Sweden lake ranking outputs into broader interoperable comparison surfaces",
+            ],
+            "limits": [
+                "not a direct evidence family and should not be described as one",
+                "does not replace local source capture from SEAD, Neotoma, LandClim, or ancient DNA programs",
+            ],
+            "recommended_repository_actions": [
+                "use top-ranked multi-proxy Sweden lakes as concrete interoperability examples rather than vague collaboration claims",
+                "align lake registry fields, source-name variants, and cross-proxy terminology with wider palaeoecological metadata practice",
+            ],
+        },
+    ]
+    return {
+        "schema_version": "repository-source-ecosystem-review.v1",
+        "row_count": len(rows),
+        "rows": rows,
+    }
+
+
+def render_repository_source_ecosystem_review_markdown(
+    payload: dict[str, object],
+) -> str:
+    review = cast(_EcosystemPayload, payload)
+    lines = [
+        "# Repository source ecosystem review",
+        "",
+        "This packet names upstream source ecosystems that matter to repository",
+        "growth even when they are not all direct checked-in evidence families.",
+        "",
+        f"- Ecosystem rows: `{review['row_count']}`",
+        "",
+        "| Ecosystem | Role | Fit posture | Repository role |",
+        "| --- | --- | --- | --- |",
+    ]
+    for row in review["rows"]:
+        lines.append(
+            f"| {row['display_name']} | `{row['ecosystem_role']}` | "
+            f"`{row['fit_posture']}` | {row['repository_role']} |"
+        )
+    lines.extend(["", "## Recommended Actions", ""])
+    for row in review["rows"]:
+        lines.append(f"### {row['display_name']}")
+        lines.append("")
+        lines.append(
+            "- Official entry points: "
+            + ", ".join(f"`{value}`" for value in row["official_entry_points"])
+        )
+        for action in row["recommended_repository_actions"]:
+            lines.append(f"- {action}")
+        lines.append("")
+    return "\n".join(lines).rstrip() + "\n"

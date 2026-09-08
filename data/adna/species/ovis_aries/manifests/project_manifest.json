@@ -61,9 +61,9 @@
       "public_release_date": null,
       "domestication_scope": "domesticated_core",
       "notes": "Baltic ancient sheep genomes across four millennia.",
-      "nordic_relevance": "nordic_relevant_unmapped",
-      "nordic_relevance_reason": "The Baltic Sea Region sheep dataset is Nordic-relevant, but the repository still lacks shipped animal locality rows and atlas points for it.",
-      "last_checked_on": "2026-05-07"
+      "nordic_relevance": "nordic_relevant_mapped",
+      "nordic_relevance_reason": "Official ENA sample records supply source-native two-decimal-degree coordinates for Kastelholm and Stora Förvar; the Åland records are governed as Finland and the Gotland records as Sweden.",
+      "last_checked_on": "2026-09-06"
     },
     {
       "project_accession": "PRJEB61808",

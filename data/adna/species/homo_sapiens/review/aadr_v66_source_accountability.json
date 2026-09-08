@@ -1,0 +1,1872 @@
+{
+  "accountability_projection": {
+    "stream": {
+      "byte_count": 108908116,
+      "line_count": 27756,
+      "materialized": false,
+      "media_type": "application/x-ndjson",
+      "schema_version": "aadr-panel-accountability-review.v1",
+      "sha256": "872b0c1b87702359fb9d88b7cea59762752f7c74ccea2169caad9ee45f08051b",
+      "storage_class": "reproducible_untracked_artifact",
+      "tracked": false
+    },
+    "summary": {
+      "dataset_counts": {
+        "genetic_id_memberships": {
+          "1240k": 23250,
+          "ho": 27755
+        },
+        "source_rows": {
+          "1240k": 23250,
+          "ho": 27755
+        }
+      },
+      "dataset_names": [
+        "1240k",
+        "ho"
+      ],
+      "denominators": {
+        "chronology_evidence_group_count": 27755,
+        "coordinate_evidence_group_count": 27755,
+        "genetic_id_count": 27755,
+        "keyed_source_row_count": 51005,
+        "source_file_count": 2,
+        "source_row_count": 51005,
+        "unkeyed_source_row_count": 0
+      },
+      "record_kind": "accountability_summary",
+      "schema_version": "aadr-panel-accountability-review.v1",
+      "scientifically_admitted": false,
+      "scientifically_admitted_chronology_group_count": 0,
+      "source_files": [
+        {
+          "column_names": [
+            "Genetic ID (suffices: \".DG\" is a high coverage shotgun genome with diploid genotype calls; \".SG\" is a high coverage shotgun genome with diploid genotype calls; \".AG,  .TW, .BY, .AA, .EC, .WGC\"  are Agilent 1240K or Twist Ancient DNA or \"Big Yoruba\" or \"Archaic Admixture\" or \"Exome\" or \"Whole-Genome Capture\" data respectively; each analyzed position is represented by a randomly chosen sequence allowing for combinations when merged (separable by readgroups if possible).  \".HO\" is Affymetrix Human Origins genotype data and \"REF\" is reference haploid data.",
+            "Persistent Genetic ID",
+            "Individual ID",
+            "Skeletal code",
+            "Skeletal element",
+            "First publication: Abbreviation for earliest paper that reported data from this individual (this is not always the same as the data being analyzed, which may be from a different or improved dataset)",
+            "Publication abbreviation",
+            "doi for publication of this representation of the data",
+            "Link to the most permanent repository hosting these data",
+            "Method for Determining Date; unless otherwise specified, calibrations use 95.4% intervals from OxCal v4.4.2 Bronk Ramsey (2009); r5; Atmospheric data from Reimer et al (2020)",
+            "Date mean in BP in years before 1950 CE [OxCal mu for a direct radiocarbon date, and average of range for a contextual date]",
+            "Date standard deviation in BP [OxCal sigma for a direct radiocarbon date, and standard deviation of the uniform distribution between the two bounds for a contextual date]",
+            "Full Date One of two formats. (Format 1) 95.4% CI calibrated radiocarbon age (Conventional Radiocarbon Age BP, Lab number) e.g. 2624-2350 calBCE (3990+-40 BP, Ua-35016). (Format 2) Archaeological context range, e.g. 2500-1700 BCE",
+            "Age at death, Morphological sex from physical anthropology",
+            "Group ID",
+            "Locality",
+            "Political Entity",
+            "Latitude",
+            "Longitude",
+            "Pulldown Strategy",
+            "Suffices (indicating data types used for sources which can be a subset of that in bam)",
+            "Data type",
+            "No. Libraries",
+            "Mean coverage on 1.15M autosomal targets for full bam (if no off-target entry not up-to-date)",
+            "Mean coverage on non-targeted autosomal SNPs for full bam - not yet computed if \"\"..\"\" and bam restricted to on-target SNPs if \"\"0\"\"",
+            "SNPs hit on autosomal targets (Computed using easystats on enhance 2M capture subset) ",
+            "SNPs hit on autosomal targets (Computed using easystats on 1240k snpset)",
+            "SNPs hit on autosomal targets (Computed using easystats on HO snpset)",
+            "SNPs hit on autosomal targets (Computed using easystats on Compatibility snpset)",
+            "SNPs hit on autosomal targets (Computed using easystats on Compatibility_HO snpset)",
+            "Molecular Sex",
+            "Family relations",
+            "Sum total of ROH segments >20cM",
+            "Sum total of ROH segments >20cM",
+            "Y haplogroup in terminal mutation notation automatically called based on Y-full 12.03 with the software described in Lazaridis et al. Science 2022",
+            "Y haplogroup  in ISOGG notation automatically called based on Yfull 12.03 with the software described in Lazaridis et al. Science 2022",
+            "Y haplogroup manually called if different from automatic",
+            "mtDNA coverage (merged data)",
+            "mtDNA haplogroup if >2x or published",
+            "mtDNA match to consensus if >10x (merged data) [estimates are typically off by (uncorrected + power(10,-0.271*LOG(mt-coverage)-1.120)]",
+            "Damage rate in first nucleotide on sequences overlapping 1240k targets (merged data)",
+            "Sex ratio [Y/(Y+X) counts] (merged data)",
+            "ANGSD MOM 95% CI truncated at 0 (only if male and >=200 SNPs) [estimates are typically 0.005 too high]",
+            "hapConX 95% CI truncated at 0 (only if male and >=2000 SNPs covered on X chromosome) [estimates are typically 0.005 too high]",
+            "Library type (minus=no.damage.correction, half=damage.retained.at.last.position, plus=damage.fully.corrected, ds=double.stranded.library.preparation, ss=single.stranded.library.preparation)",
+            "Libraries",
+            "endogenous by library (computed on shotgun data)",
+            "ASSESSMENT",
+            "ASSESSMENT WARNINGS: X contamination interval is listed if lower bound is >=0.005 for either ANGSD or hapConX, \"QUESTIONABLE\" if lower bound is 0.015-0.035 for hapConX (or ANGSD if no hapConX computation), \"CRITICAL\" or \"FAIL\" if lower bound is >0.03  for hapConX (or ANGSD if no hapConX computation) |mtcontam confidence interval is listed if coverage >10 and upper bound is <0.98, \"QUESTIONABLE\" if upper bound is 0.9-0.95; \"CRITICAL\" if upper bound is <0.9, QUESTIONABLE status gets overriden by ANGSD or hapConX if upper bound of contamination estimate is <0.01 | damage for ds.half is \"CRITICAL/FAIL\" if <0.01, and recorded but passed if 0.01-0.03; libraries with untreated last base are \"CRITICAL\" or \"FAIL\" if <0.01, \"QUESTIONABLE\" if 0.01-0.03, and recorded but passed if 0.03-0.1 | sex.ratio is QUESTIONABLE if [0.03,0.1) or (0.30,0.32]; CRITICAL/FAIL if [0.1,0.3] | f4(All,Damage;CEU,CHB) for non-damage-restricted samples is \"CRITICAL/FAIL\" if |Z|>=3.5, QUESTIONABLE if 3.5>Z>=3.0, listed if Z>=2.0"
+          ],
+          "dataset_name": "ho",
+          "source_byte_count": 15540394,
+          "source_file_key": "source-file:08c5db48b3e3f49a4bd0c82d877775258369deaaba047e483f2ded8c9a77a4fc",
+          "source_path": "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+          "source_release": "v66",
+          "source_row_count": 27755,
+          "source_sha256": "3f571288de0578478d91126d46c30e80bd06193769ffa3e7cf50bd2885e8fdbe"
+        },
+        {
+          "column_names": [
+            "Genetic ID (suffices: \".DG\" is a high coverage shotgun genome with diploid genotype calls; \".SG\" is a high coverage shotgun genome with diploid genotype calls; \".AG,  .TW, .BY, .AA, .EC, .WGC\"  are Agilent 1240K or Twist Ancient DNA or \"Big Yoruba\" or \"Archaic Admixture\" or \"Exome\" or \"Whole-Genome Capture\" data respectively; each analyzed position is represented by a randomly chosen sequence allowing for combinations when merged (separable by readgroups if possible).  \".HO\" is Affymetrix Human Origins genotype data and \"REF\" is reference haploid data.",
+            "Persistent Genetic ID",
+            "Individual ID",
+            "Skeletal code",
+            "Skeletal element",
+            "First publication: Abbreviation for earliest paper that reported data from this individual (this is not always the same as the data being analyzed, which may be from a different or improved dataset)",
+            "Publication abbreviation",
+            "doi for publication of this representation of the data",
+            "Link to the most permanent repository hosting these data",
+            "Method for Determining Date; unless otherwise specified, calibrations use 95.4% intervals from OxCal v4.4.2 Bronk Ramsey (2009); r5; Atmospheric data from Reimer et al (2020)",
+            "Date mean in BP in years before 1950 CE [OxCal mu for a direct radiocarbon date, and average of range for a contextual date]",
+            "Date standard deviation in BP [OxCal sigma for a direct radiocarbon date, and standard deviation of the uniform distribution between the two bounds for a contextual date]",
+            "Full Date One of two formats. (Format 1) 95.4% CI calibrated radiocarbon age (Conventional Radiocarbon Age BP, Lab number) e.g. 2624-2350 calBCE (3990+-40 BP, Ua-35016). (Format 2) Archaeological context range, e.g. 2500-1700 BCE",
+            "Age at death, Morphological sex from physical anthropology",
+            "Group ID",
+            "Locality",
+            "Political Entity",
+            "Latitude",
+            "Longitude",
+            "Pulldown Strategy",
+            "Suffices (indicating data types used for sources which can be a subset of that in bam)",
+            "Data type",
+            "No. Libraries",
+            "Mean coverage on 1.15M autosomal targets for full bam (if no off-target entry not up-to-date)",
+            "Mean coverage on non-targeted autosomal SNPs for full bam - not yet computed if \"\"..\"\" and bam restricted to on-target SNPs if \"\"0\"\"",
+            "SNPs hit on autosomal targets (Computed using easystats on enhance 2M capture subset) ",
+            "SNPs hit on autosomal targets (Computed using easystats on 1240k snpset)",
+            "SNPs hit on autosomal targets (Computed using easystats on HO snpset)",
+            "SNPs hit on autosomal targets (Computed using easystats on Compatibility snpset)",
+            "SNPs hit on autosomal targets (Computed using easystats on Compatibility_HO snpset)",
+            "Molecular Sex",
+            "Family relations",
+            "Sum total of ROH segments >20cM",
+            "Sum total of ROH segments >20cM",
+            "Y haplogroup in terminal mutation notation automatically called based on Y-full 12.03 with the software described in Lazaridis et al. Science 2022",
+            "Y haplogroup  in ISOGG notation automatically called based on Yfull 12.03 with the software described in Lazaridis et al. Science 2022",
+            "Y haplogroup manually called if different from automatic",
+            "mtDNA coverage (merged data)",
+            "mtDNA haplogroup if >2x or published",
+            "mtDNA match to consensus if >10x (merged data) [estimates are typically off by (uncorrected + power(10,-0.271*LOG(mt-coverage)-1.120)]",
+            "Damage rate in first nucleotide on sequences overlapping 1240k targets (merged data)",
+            "Sex ratio [Y/(Y+X) counts] (merged data)",
+            "ANGSD MOM 95% CI truncated at 0 (only if male and >=200 SNPs) [estimates are typically 0.005 too high]",
+            "hapConX 95% CI truncated at 0 (only if male and >=2000 SNPs covered on X chromosome) [estimates are typically 0.005 too high]",
+            "Library type (minus=no.damage.correction, half=damage.retained.at.last.position, plus=damage.fully.corrected, ds=double.stranded.library.preparation, ss=single.stranded.library.preparation)",
+            "Libraries",
+            "endogenous by library (computed on shotgun data)",
+            "ASSESSMENT",
+            "ASSESSMENT WARNINGS: X contamination interval is listed if lower bound is >=0.005 for either ANGSD or hapConX, \"QUESTIONABLE\" if lower bound is 0.015-0.035 for hapConX (or ANGSD if no hapConX computation), \"CRITICAL\" or \"FAIL\" if lower bound is >0.03  for hapConX (or ANGSD if no hapConX computation) |mtcontam confidence interval is listed if coverage >10 and upper bound is <0.98, \"QUESTIONABLE\" if upper bound is 0.9-0.95; \"CRITICAL\" if upper bound is <0.9, QUESTIONABLE status gets overriden by ANGSD or hapConX if upper bound of contamination estimate is <0.01 | damage for ds.half is \"CRITICAL/FAIL\" if <0.01, and recorded but passed if 0.01-0.03; libraries with untreated last base are \"CRITICAL\" or \"FAIL\" if <0.01, \"QUESTIONABLE\" if 0.01-0.03, and recorded but passed if 0.03-0.1 | sex.ratio is QUESTIONABLE if [0.03,0.1) or (0.30,0.32]; CRITICAL/FAIL if [0.1,0.3] | f4(All,Damage;CEU,CHB) for non-damage-restricted samples is \"CRITICAL/FAIL\" if |Z|>=3.5, QUESTIONABLE if 3.5>Z>=3.0, listed if Z>=2.0"
+          ],
+          "dataset_name": "1240k",
+          "source_byte_count": 13518214,
+          "source_file_key": "source-file:86c75b6a7075ed4d6b58019d883e4de8be01f1901b1fa528e640828d41f80207",
+          "source_path": "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+          "source_release": "v66",
+          "source_row_count": 23250,
+          "source_sha256": "a2b204a4d1bedb9d2e2930c1402f8414c1176afb2a1634ad3d6c7b38aaf288b3"
+        }
+      ],
+      "status_counts": {
+        "chronology": {
+          "complementary": 0,
+          "conflict": 0,
+          "exact": 27755
+        },
+        "chronology_evaluation": {
+          "refused": 0,
+          "review_required": 27755
+        },
+        "chronology_refusal_reason": {
+          "invalid_numeric_evidence": 0,
+          "method_specific_policy_required": 27755,
+          "source_chronology_missing": 0
+        },
+        "coordinate": {
+          "complementary": 0,
+          "conflict": 0,
+          "exact": 27755
+        },
+        "coordinate_evidence": {
+          "admitted": 26906,
+          "invalid_numeric": 0,
+          "missing": 849,
+          "non_finite": 0,
+          "out_of_range": 0,
+          "partial": 0
+        },
+        "panel": {
+          "complementary": 4505,
+          "conflict": 0,
+          "exact": 23250
+        },
+        "reconciliation": {
+          "complementary": 4505,
+          "conflict": 0,
+          "exact": 23250
+        },
+        "taxon_scope_genetic_ids": {
+          "not_asserted_by_source": 27755
+        },
+        "taxon_scope_unkeyed_rows": {
+          "not_asserted_by_source": 0
+        },
+        "unkeyed_refusal_reason": {
+          "genetic_id_missing": 0
+        }
+      },
+      "taxon_scope_status": "not_asserted_by_source"
+    }
+  },
+  "country_assignment_admitted": false,
+  "input_artifacts": [
+    {
+      "byte_count": 13518214,
+      "path": "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+      "sha256": "a2b204a4d1bedb9d2e2930c1402f8414c1176afb2a1634ad3d6c7b38aaf288b3"
+    },
+    {
+      "byte_count": 15540394,
+      "path": "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+      "sha256": "3f571288de0578478d91126d46c30e80bd06193769ffa3e7cf50bd2885e8fdbe"
+    },
+    {
+      "byte_count": 754,
+      "path": "data/aadr/v66/release_manifest.json",
+      "sha256": "317d71cbf82354be73e83bdd01bd382cdd8c7b1c1d536a04b0f642544e0ddde3"
+    }
+  ],
+  "map_admitted": false,
+  "record_kind": "source_accountability_receipt",
+  "release_manifest": {
+    "byte_count": 754,
+    "logical_path": "data/aadr/v66/release_manifest.json",
+    "sha256": "317d71cbf82354be73e83bdd01bd382cdd8c7b1c1d536a04b0f642544e0ddde3"
+  },
+  "schema_version": "aadr-source-accountability.v1",
+  "scientifically_admitted": false,
+  "source_family": "AADR",
+  "source_release": "v66",
+  "source_reported_political_entity": {
+    "denominators": {
+      "genetic_id_count": 27755,
+      "keyed_source_row_count": 51005,
+      "source_row_count": 51005,
+      "unkeyed_source_row_count": 0
+    },
+    "evidence_status_counts": {
+      "column_unavailable": 0,
+      "reported": 51005,
+      "token_missing": 0,
+      "value_missing": 0
+    },
+    "exact_source_values": [
+      {
+        "country_code": "DK",
+        "source_value": "Denmark"
+      },
+      {
+        "country_code": "FI",
+        "source_value": "Finland"
+      },
+      {
+        "country_code": "NO",
+        "source_value": "Norway"
+      },
+      {
+        "country_code": "SE",
+        "source_value": "Sweden"
+      }
+    ],
+    "genetic_id_disposition_counts": {
+      "DK": 654,
+      "FI": 124,
+      "NO": 131,
+      "SE": 416,
+      "conflict": 0,
+      "missing": 0,
+      "other": 26430
+    },
+    "matching_rule": "outer_trimmed_case_sensitive_exact_source_value",
+    "physical_source_row_exact_value_counts": {
+      "DK": 1308,
+      "FI": 239,
+      "NO": 251,
+      "SE": 832,
+      "missing": 0,
+      "other": 48375
+    },
+    "policy_version": "aadr-source-political-entity-exact.v1",
+    "reconciliation_status_counts": {
+      "complementary": 0,
+      "conflict": 0,
+      "exact": 27755
+    },
+    "record_linked_source_row_disposition_counts": {
+      "DK": 1308,
+      "FI": 239,
+      "NO": 251,
+      "SE": 832,
+      "conflict": 0,
+      "missing": 0,
+      "other": 48375,
+      "unkeyed": 0
+    },
+    "review_partitions": [
+      {
+        "chronology_review": {
+          "date_mean_sign_counts": {
+            "negative": 0,
+            "null": 0,
+            "positive": 654,
+            "zero": 0
+          },
+          "date_mean_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 654
+          },
+          "date_method_family_counts": {
+            "contextual": 189,
+            "direct": 465,
+            "known_historical": 0,
+            "modeled_relational": 0,
+            "modern": 0,
+            "unclassified": 0
+          },
+          "date_stddev_sign_counts": {
+            "negative": 0,
+            "null": 0,
+            "positive": 654,
+            "zero": 0
+          },
+          "date_stddev_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 654
+          },
+          "evaluation_status_counts": {
+            "refused": 0,
+            "review_required": 654
+          },
+          "evidence_group_count": 654,
+          "full_date_status_counts": {
+            "missing": 0,
+            "parsed": 654,
+            "unparsed": 0
+          },
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 654
+          },
+          "refusal_reason_counts": {
+            "invalid_numeric_evidence": 0,
+            "method_specific_policy_required": 654,
+            "source_chronology_missing": 0
+          },
+          "scientifically_admitted": false,
+          "scientifically_admitted_count": 0
+        },
+        "coordinate_review": {
+          "country_assignment_admitted": false,
+          "evidence_group_count": 654,
+          "genetic_id_availability_counts": {
+            "missing": 1,
+            "present": 653,
+            "unusable": 0
+          },
+          "map_admitted": false,
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 654
+          },
+          "source_parse_status_counts": {
+            "admitted": 653,
+            "invalid_numeric": 0,
+            "missing": 1,
+            "non_finite": 0,
+            "out_of_range": 0,
+            "partial": 0
+          }
+        },
+        "country_assignment_admitted": false,
+        "country_code": "DK",
+        "dataset_genetic_id_membership_counts": {
+          "1240k": 654,
+          "ho": 654
+        },
+        "disposition": "DK",
+        "exact_source_value": "Denmark",
+        "genetic_id_count": 654,
+        "linked_source_row_count": 1308,
+        "map_admitted": false,
+        "scientifically_admitted": false,
+        "taxon_scope_status": "not_asserted_by_source"
+      },
+      {
+        "chronology_review": {
+          "date_mean_sign_counts": {
+            "negative": 0,
+            "null": 0,
+            "positive": 10,
+            "zero": 114
+          },
+          "date_mean_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 124
+          },
+          "date_method_family_counts": {
+            "contextual": 7,
+            "direct": 3,
+            "known_historical": 0,
+            "modeled_relational": 0,
+            "modern": 114,
+            "unclassified": 0
+          },
+          "date_stddev_sign_counts": {
+            "negative": 0,
+            "null": 0,
+            "positive": 10,
+            "zero": 114
+          },
+          "date_stddev_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 124
+          },
+          "evaluation_status_counts": {
+            "refused": 0,
+            "review_required": 124
+          },
+          "evidence_group_count": 124,
+          "full_date_status_counts": {
+            "missing": 0,
+            "parsed": 10,
+            "unparsed": 114
+          },
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 124
+          },
+          "refusal_reason_counts": {
+            "invalid_numeric_evidence": 0,
+            "method_specific_policy_required": 124,
+            "source_chronology_missing": 0
+          },
+          "scientifically_admitted": false,
+          "scientifically_admitted_count": 0
+        },
+        "coordinate_review": {
+          "country_assignment_admitted": false,
+          "evidence_group_count": 124,
+          "genetic_id_availability_counts": {
+            "missing": 92,
+            "present": 32,
+            "unusable": 0
+          },
+          "map_admitted": false,
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 124
+          },
+          "source_parse_status_counts": {
+            "admitted": 32,
+            "invalid_numeric": 0,
+            "missing": 92,
+            "non_finite": 0,
+            "out_of_range": 0,
+            "partial": 0
+          }
+        },
+        "country_assignment_admitted": false,
+        "country_code": "FI",
+        "dataset_genetic_id_membership_counts": {
+          "1240k": 115,
+          "ho": 124
+        },
+        "disposition": "FI",
+        "exact_source_value": "Finland",
+        "genetic_id_count": 124,
+        "linked_source_row_count": 239,
+        "map_admitted": false,
+        "scientifically_admitted": false,
+        "taxon_scope_status": "not_asserted_by_source"
+      },
+      {
+        "chronology_review": {
+          "date_mean_sign_counts": {
+            "negative": 0,
+            "null": 0,
+            "positive": 119,
+            "zero": 12
+          },
+          "date_mean_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 131
+          },
+          "date_method_family_counts": {
+            "contextual": 42,
+            "direct": 77,
+            "known_historical": 0,
+            "modeled_relational": 0,
+            "modern": 12,
+            "unclassified": 0
+          },
+          "date_stddev_sign_counts": {
+            "negative": 0,
+            "null": 0,
+            "positive": 119,
+            "zero": 12
+          },
+          "date_stddev_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 131
+          },
+          "evaluation_status_counts": {
+            "refused": 0,
+            "review_required": 131
+          },
+          "evidence_group_count": 131,
+          "full_date_status_counts": {
+            "missing": 0,
+            "parsed": 119,
+            "unparsed": 12
+          },
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 131
+          },
+          "refusal_reason_counts": {
+            "invalid_numeric_evidence": 0,
+            "method_specific_policy_required": 131,
+            "source_chronology_missing": 0
+          },
+          "scientifically_admitted": false,
+          "scientifically_admitted_count": 0
+        },
+        "coordinate_review": {
+          "country_assignment_admitted": false,
+          "evidence_group_count": 131,
+          "genetic_id_availability_counts": {
+            "missing": 1,
+            "present": 130,
+            "unusable": 0
+          },
+          "map_admitted": false,
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 131
+          },
+          "source_parse_status_counts": {
+            "admitted": 130,
+            "invalid_numeric": 0,
+            "missing": 1,
+            "non_finite": 0,
+            "out_of_range": 0,
+            "partial": 0
+          }
+        },
+        "country_assignment_admitted": false,
+        "country_code": "NO",
+        "dataset_genetic_id_membership_counts": {
+          "1240k": 120,
+          "ho": 131
+        },
+        "disposition": "NO",
+        "exact_source_value": "Norway",
+        "genetic_id_count": 131,
+        "linked_source_row_count": 251,
+        "map_admitted": false,
+        "scientifically_admitted": false,
+        "taxon_scope_status": "not_asserted_by_source"
+      },
+      {
+        "chronology_review": {
+          "date_mean_sign_counts": {
+            "negative": 0,
+            "null": 0,
+            "positive": 416,
+            "zero": 0
+          },
+          "date_mean_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 416
+          },
+          "date_method_family_counts": {
+            "contextual": 175,
+            "direct": 222,
+            "known_historical": 12,
+            "modeled_relational": 7,
+            "modern": 0,
+            "unclassified": 0
+          },
+          "date_stddev_sign_counts": {
+            "negative": 0,
+            "null": 0,
+            "positive": 404,
+            "zero": 12
+          },
+          "date_stddev_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 416
+          },
+          "evaluation_status_counts": {
+            "refused": 0,
+            "review_required": 416
+          },
+          "evidence_group_count": 416,
+          "full_date_status_counts": {
+            "missing": 0,
+            "parsed": 404,
+            "unparsed": 12
+          },
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 416
+          },
+          "refusal_reason_counts": {
+            "invalid_numeric_evidence": 0,
+            "method_specific_policy_required": 416,
+            "source_chronology_missing": 0
+          },
+          "scientifically_admitted": false,
+          "scientifically_admitted_count": 0
+        },
+        "coordinate_review": {
+          "country_assignment_admitted": false,
+          "evidence_group_count": 416,
+          "genetic_id_availability_counts": {
+            "missing": 0,
+            "present": 416,
+            "unusable": 0
+          },
+          "map_admitted": false,
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 416
+          },
+          "source_parse_status_counts": {
+            "admitted": 416,
+            "invalid_numeric": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "out_of_range": 0,
+            "partial": 0
+          }
+        },
+        "country_assignment_admitted": false,
+        "country_code": "SE",
+        "dataset_genetic_id_membership_counts": {
+          "1240k": 416,
+          "ho": 416
+        },
+        "disposition": "SE",
+        "exact_source_value": "Sweden",
+        "genetic_id_count": 416,
+        "linked_source_row_count": 832,
+        "map_admitted": false,
+        "scientifically_admitted": false,
+        "taxon_scope_status": "not_asserted_by_source"
+      },
+      {
+        "chronology_review": {
+          "date_mean_sign_counts": {
+            "negative": 1,
+            "null": 0,
+            "positive": 17920,
+            "zero": 8509
+          },
+          "date_mean_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 26430
+          },
+          "date_method_family_counts": {
+            "contextual": 9069,
+            "direct": 8409,
+            "known_historical": 46,
+            "modeled_relational": 380,
+            "modern": 8509,
+            "unclassified": 17
+          },
+          "date_stddev_sign_counts": {
+            "negative": 0,
+            "null": 0,
+            "positive": 17873,
+            "zero": 8557
+          },
+          "date_stddev_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 26430
+          },
+          "evaluation_status_counts": {
+            "refused": 0,
+            "review_required": 26430
+          },
+          "evidence_group_count": 26430,
+          "full_date_status_counts": {
+            "missing": 0,
+            "parsed": 17558,
+            "unparsed": 8872
+          },
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 26430
+          },
+          "refusal_reason_counts": {
+            "invalid_numeric_evidence": 0,
+            "method_specific_policy_required": 26430,
+            "source_chronology_missing": 0
+          },
+          "scientifically_admitted": false,
+          "scientifically_admitted_count": 0
+        },
+        "coordinate_review": {
+          "country_assignment_admitted": false,
+          "evidence_group_count": 26430,
+          "genetic_id_availability_counts": {
+            "missing": 755,
+            "present": 25675,
+            "unusable": 0
+          },
+          "map_admitted": false,
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 26430
+          },
+          "source_parse_status_counts": {
+            "admitted": 25675,
+            "invalid_numeric": 0,
+            "missing": 755,
+            "non_finite": 0,
+            "out_of_range": 0,
+            "partial": 0
+          }
+        },
+        "country_assignment_admitted": false,
+        "country_code": null,
+        "dataset_genetic_id_membership_counts": {
+          "1240k": 21945,
+          "ho": 26430
+        },
+        "disposition": "other",
+        "exact_source_value": null,
+        "genetic_id_count": 26430,
+        "linked_source_row_count": 48375,
+        "map_admitted": false,
+        "scientifically_admitted": false,
+        "taxon_scope_status": "not_asserted_by_source"
+      },
+      {
+        "chronology_review": {
+          "date_mean_sign_counts": {
+            "negative": 0,
+            "null": 0,
+            "positive": 0,
+            "zero": 0
+          },
+          "date_mean_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 0
+          },
+          "date_method_family_counts": {
+            "contextual": 0,
+            "direct": 0,
+            "known_historical": 0,
+            "modeled_relational": 0,
+            "modern": 0,
+            "unclassified": 0
+          },
+          "date_stddev_sign_counts": {
+            "negative": 0,
+            "null": 0,
+            "positive": 0,
+            "zero": 0
+          },
+          "date_stddev_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 0
+          },
+          "evaluation_status_counts": {
+            "refused": 0,
+            "review_required": 0
+          },
+          "evidence_group_count": 0,
+          "full_date_status_counts": {
+            "missing": 0,
+            "parsed": 0,
+            "unparsed": 0
+          },
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 0
+          },
+          "refusal_reason_counts": {
+            "invalid_numeric_evidence": 0,
+            "method_specific_policy_required": 0,
+            "source_chronology_missing": 0
+          },
+          "scientifically_admitted": false,
+          "scientifically_admitted_count": 0
+        },
+        "coordinate_review": {
+          "country_assignment_admitted": false,
+          "evidence_group_count": 0,
+          "genetic_id_availability_counts": {
+            "missing": 0,
+            "present": 0,
+            "unusable": 0
+          },
+          "map_admitted": false,
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 0
+          },
+          "source_parse_status_counts": {
+            "admitted": 0,
+            "invalid_numeric": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "out_of_range": 0,
+            "partial": 0
+          }
+        },
+        "country_assignment_admitted": false,
+        "country_code": null,
+        "dataset_genetic_id_membership_counts": {},
+        "disposition": "missing",
+        "exact_source_value": null,
+        "genetic_id_count": 0,
+        "linked_source_row_count": 0,
+        "map_admitted": false,
+        "scientifically_admitted": false,
+        "taxon_scope_status": "not_asserted_by_source"
+      },
+      {
+        "chronology_review": {
+          "date_mean_sign_counts": {
+            "negative": 0,
+            "null": 0,
+            "positive": 0,
+            "zero": 0
+          },
+          "date_mean_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 0
+          },
+          "date_method_family_counts": {
+            "contextual": 0,
+            "direct": 0,
+            "known_historical": 0,
+            "modeled_relational": 0,
+            "modern": 0,
+            "unclassified": 0
+          },
+          "date_stddev_sign_counts": {
+            "negative": 0,
+            "null": 0,
+            "positive": 0,
+            "zero": 0
+          },
+          "date_stddev_status_counts": {
+            "invalid": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "parsed": 0
+          },
+          "evaluation_status_counts": {
+            "refused": 0,
+            "review_required": 0
+          },
+          "evidence_group_count": 0,
+          "full_date_status_counts": {
+            "missing": 0,
+            "parsed": 0,
+            "unparsed": 0
+          },
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 0
+          },
+          "refusal_reason_counts": {
+            "invalid_numeric_evidence": 0,
+            "method_specific_policy_required": 0,
+            "source_chronology_missing": 0
+          },
+          "scientifically_admitted": false,
+          "scientifically_admitted_count": 0
+        },
+        "coordinate_review": {
+          "country_assignment_admitted": false,
+          "evidence_group_count": 0,
+          "genetic_id_availability_counts": {
+            "missing": 0,
+            "present": 0,
+            "unusable": 0
+          },
+          "map_admitted": false,
+          "reconciliation_status_counts": {
+            "complementary": 0,
+            "conflict": 0,
+            "exact": 0
+          },
+          "source_parse_status_counts": {
+            "admitted": 0,
+            "invalid_numeric": 0,
+            "missing": 0,
+            "non_finite": 0,
+            "out_of_range": 0,
+            "partial": 0
+          }
+        },
+        "country_assignment_admitted": false,
+        "country_code": null,
+        "dataset_genetic_id_membership_counts": {},
+        "disposition": "conflict",
+        "exact_source_value": null,
+        "genetic_id_count": 0,
+        "linked_source_row_count": 0,
+        "map_admitted": false,
+        "scientifically_admitted": false,
+        "taxon_scope_status": "not_asserted_by_source"
+      }
+    ],
+    "source_value_counts": [
+      {
+        "raw_value": "..",
+        "source_row_count": 26,
+        "status": "reported",
+        "trimmed_value": ".."
+      },
+      {
+        "raw_value": "Abkhazia",
+        "source_row_count": 13,
+        "status": "reported",
+        "trimmed_value": "Abkhazia"
+      },
+      {
+        "raw_value": "Afghanistan",
+        "source_row_count": 2,
+        "status": "reported",
+        "trimmed_value": "Afghanistan"
+      },
+      {
+        "raw_value": "Albania",
+        "source_row_count": 72,
+        "status": "reported",
+        "trimmed_value": "Albania"
+      },
+      {
+        "raw_value": "Algeria",
+        "source_row_count": 105,
+        "status": "reported",
+        "trimmed_value": "Algeria"
+      },
+      {
+        "raw_value": "Angola",
+        "source_row_count": 3,
+        "status": "reported",
+        "trimmed_value": "Angola"
+      },
+      {
+        "raw_value": "Argentina",
+        "source_row_count": 560,
+        "status": "reported",
+        "trimmed_value": "Argentina"
+      },
+      {
+        "raw_value": "Armenia",
+        "source_row_count": 501,
+        "status": "reported",
+        "trimmed_value": "Armenia"
+      },
+      {
+        "raw_value": "Australia",
+        "source_row_count": 31,
+        "status": "reported",
+        "trimmed_value": "Australia"
+      },
+      {
+        "raw_value": "Austria",
+        "source_row_count": 1756,
+        "status": "reported",
+        "trimmed_value": "Austria"
+      },
+      {
+        "raw_value": "Azerbaijan",
+        "source_row_count": 26,
+        "status": "reported",
+        "trimmed_value": "Azerbaijan"
+      },
+      {
+        "raw_value": "Bahamas",
+        "source_row_count": 74,
+        "status": "reported",
+        "trimmed_value": "Bahamas"
+      },
+      {
+        "raw_value": "Bahrain",
+        "source_row_count": 8,
+        "status": "reported",
+        "trimmed_value": "Bahrain"
+      },
+      {
+        "raw_value": "Bangladesh",
+        "source_row_count": 184,
+        "status": "reported",
+        "trimmed_value": "Bangladesh"
+      },
+      {
+        "raw_value": "Barbados",
+        "source_row_count": 192,
+        "status": "reported",
+        "trimmed_value": "Barbados"
+      },
+      {
+        "raw_value": "Belarus",
+        "source_row_count": 10,
+        "status": "reported",
+        "trimmed_value": "Belarus"
+      },
+      {
+        "raw_value": "Belgium",
+        "source_row_count": 938,
+        "status": "reported",
+        "trimmed_value": "Belgium"
+      },
+      {
+        "raw_value": "Belize",
+        "source_row_count": 48,
+        "status": "reported",
+        "trimmed_value": "Belize"
+      },
+      {
+        "raw_value": "Bolivia",
+        "source_row_count": 49,
+        "status": "reported",
+        "trimmed_value": "Bolivia"
+      },
+      {
+        "raw_value": "Bosnia-Herzegovina",
+        "source_row_count": 7,
+        "status": "reported",
+        "trimmed_value": "Bosnia-Herzegovina"
+      },
+      {
+        "raw_value": "Botswana",
+        "source_row_count": 8,
+        "status": "reported",
+        "trimmed_value": "Botswana"
+      },
+      {
+        "raw_value": "Brazil",
+        "source_row_count": 196,
+        "status": "reported",
+        "trimmed_value": "Brazil"
+      },
+      {
+        "raw_value": "Brunei",
+        "source_row_count": 24,
+        "status": "reported",
+        "trimmed_value": "Brunei"
+      },
+      {
+        "raw_value": "Bulgaria",
+        "source_row_count": 374,
+        "status": "reported",
+        "trimmed_value": "Bulgaria"
+      },
+      {
+        "raw_value": "Cambodia",
+        "source_row_count": 34,
+        "status": "reported",
+        "trimmed_value": "Cambodia"
+      },
+      {
+        "raw_value": "Cameroon",
+        "source_row_count": 20,
+        "status": "reported",
+        "trimmed_value": "Cameroon"
+      },
+      {
+        "raw_value": "Canada",
+        "source_row_count": 36,
+        "status": "reported",
+        "trimmed_value": "Canada"
+      },
+      {
+        "raw_value": "Canary Islands",
+        "source_row_count": 10,
+        "status": "reported",
+        "trimmed_value": "Canary Islands"
+      },
+      {
+        "raw_value": "Central African Republic",
+        "source_row_count": 71,
+        "status": "reported",
+        "trimmed_value": "Central African Republic"
+      },
+      {
+        "raw_value": "Channel Islands",
+        "source_row_count": 28,
+        "status": "reported",
+        "trimmed_value": "Channel Islands"
+      },
+      {
+        "raw_value": "Chile",
+        "source_row_count": 40,
+        "status": "reported",
+        "trimmed_value": "Chile"
+      },
+      {
+        "raw_value": "China",
+        "source_row_count": 3474,
+        "status": "reported",
+        "trimmed_value": "China"
+      },
+      {
+        "raw_value": "Colombia",
+        "source_row_count": 253,
+        "status": "reported",
+        "trimmed_value": "Colombia"
+      },
+      {
+        "raw_value": "Congo",
+        "source_row_count": 52,
+        "status": "reported",
+        "trimmed_value": "Congo"
+      },
+      {
+        "raw_value": "Crimea",
+        "source_row_count": 24,
+        "status": "reported",
+        "trimmed_value": "Crimea"
+      },
+      {
+        "raw_value": "Croatia",
+        "source_row_count": 636,
+        "status": "reported",
+        "trimmed_value": "Croatia"
+      },
+      {
+        "raw_value": "Cuba",
+        "source_row_count": 140,
+        "status": "reported",
+        "trimmed_value": "Cuba"
+      },
+      {
+        "raw_value": "Curacao",
+        "source_row_count": 10,
+        "status": "reported",
+        "trimmed_value": "Curacao"
+      },
+      {
+        "raw_value": "Cyprus",
+        "source_row_count": 16,
+        "status": "reported",
+        "trimmed_value": "Cyprus"
+      },
+      {
+        "raw_value": "Czechia",
+        "source_row_count": 1008,
+        "status": "reported",
+        "trimmed_value": "Czechia"
+      },
+      {
+        "raw_value": "Democratic Republic of the Congo",
+        "source_row_count": 10,
+        "status": "reported",
+        "trimmed_value": "Democratic Republic of the Congo"
+      },
+      {
+        "raw_value": "Denmark",
+        "source_row_count": 1308,
+        "status": "reported",
+        "trimmed_value": "Denmark"
+      },
+      {
+        "raw_value": "Dominican Republic",
+        "source_row_count": 264,
+        "status": "reported",
+        "trimmed_value": "Dominican Republic"
+      },
+      {
+        "raw_value": "Egypt",
+        "source_row_count": 30,
+        "status": "reported",
+        "trimmed_value": "Egypt"
+      },
+      {
+        "raw_value": "Eritrea",
+        "source_row_count": 3,
+        "status": "reported",
+        "trimmed_value": "Eritrea"
+      },
+      {
+        "raw_value": "Estonia",
+        "source_row_count": 186,
+        "status": "reported",
+        "trimmed_value": "Estonia"
+      },
+      {
+        "raw_value": "Ethiopia",
+        "source_row_count": 20,
+        "status": "reported",
+        "trimmed_value": "Ethiopia"
+      },
+      {
+        "raw_value": "Faroe Islands",
+        "source_row_count": 34,
+        "status": "reported",
+        "trimmed_value": "Faroe Islands"
+      },
+      {
+        "raw_value": "Federated States of Micronesia",
+        "source_row_count": 32,
+        "status": "reported",
+        "trimmed_value": "Federated States of Micronesia"
+      },
+      {
+        "raw_value": "Finland",
+        "source_row_count": 239,
+        "status": "reported",
+        "trimmed_value": "Finland"
+      },
+      {
+        "raw_value": "France",
+        "source_row_count": 1376,
+        "status": "reported",
+        "trimmed_value": "France"
+      },
+      {
+        "raw_value": "French Polynesia",
+        "source_row_count": 6,
+        "status": "reported",
+        "trimmed_value": "French Polynesia"
+      },
+      {
+        "raw_value": "Gambia",
+        "source_row_count": 236,
+        "status": "reported",
+        "trimmed_value": "Gambia"
+      },
+      {
+        "raw_value": "Georgia",
+        "source_row_count": 79,
+        "status": "reported",
+        "trimmed_value": "Georgia"
+      },
+      {
+        "raw_value": "Germany",
+        "source_row_count": 1540,
+        "status": "reported",
+        "trimmed_value": "Germany"
+      },
+      {
+        "raw_value": "Gibraltar",
+        "source_row_count": 8,
+        "status": "reported",
+        "trimmed_value": "Gibraltar"
+      },
+      {
+        "raw_value": "Greece",
+        "source_row_count": 418,
+        "status": "reported",
+        "trimmed_value": "Greece"
+      },
+      {
+        "raw_value": "Greenland",
+        "source_row_count": 48,
+        "status": "reported",
+        "trimmed_value": "Greenland"
+      },
+      {
+        "raw_value": "Guadeloupe",
+        "source_row_count": 8,
+        "status": "reported",
+        "trimmed_value": "Guadeloupe"
+      },
+      {
+        "raw_value": "Guam",
+        "source_row_count": 212,
+        "status": "reported",
+        "trimmed_value": "Guam"
+      },
+      {
+        "raw_value": "Haiti",
+        "source_row_count": 4,
+        "status": "reported",
+        "trimmed_value": "Haiti"
+      },
+      {
+        "raw_value": "Honduras",
+        "source_row_count": 14,
+        "status": "reported",
+        "trimmed_value": "Honduras"
+      },
+      {
+        "raw_value": "Hungary",
+        "source_row_count": 2970,
+        "status": "reported",
+        "trimmed_value": "Hungary"
+      },
+      {
+        "raw_value": "Iceland",
+        "source_row_count": 106,
+        "status": "reported",
+        "trimmed_value": "Iceland"
+      },
+      {
+        "raw_value": "India",
+        "source_row_count": 481,
+        "status": "reported",
+        "trimmed_value": "India"
+      },
+      {
+        "raw_value": "Indonesia",
+        "source_row_count": 300,
+        "status": "reported",
+        "trimmed_value": "Indonesia"
+      },
+      {
+        "raw_value": "Iran",
+        "source_row_count": 408,
+        "status": "reported",
+        "trimmed_value": "Iran"
+      },
+      {
+        "raw_value": "Iraq",
+        "source_row_count": 42,
+        "status": "reported",
+        "trimmed_value": "Iraq"
+      },
+      {
+        "raw_value": "Ireland",
+        "source_row_count": 208,
+        "status": "reported",
+        "trimmed_value": "Ireland"
+      },
+      {
+        "raw_value": "Israel",
+        "source_row_count": 665,
+        "status": "reported",
+        "trimmed_value": "Israel"
+      },
+      {
+        "raw_value": "Italy",
+        "source_row_count": 2006,
+        "status": "reported",
+        "trimmed_value": "Italy"
+      },
+      {
+        "raw_value": "Japan",
+        "source_row_count": 367,
+        "status": "reported",
+        "trimmed_value": "Japan"
+      },
+      {
+        "raw_value": "Jordan",
+        "source_row_count": 120,
+        "status": "reported",
+        "trimmed_value": "Jordan"
+      },
+      {
+        "raw_value": "Kazakhstan",
+        "source_row_count": 590,
+        "status": "reported",
+        "trimmed_value": "Kazakhstan"
+      },
+      {
+        "raw_value": "Kenya",
+        "source_row_count": 623,
+        "status": "reported",
+        "trimmed_value": "Kenya"
+      },
+      {
+        "raw_value": "Kyrgyzstan",
+        "source_row_count": 172,
+        "status": "reported",
+        "trimmed_value": "Kyrgyzstan"
+      },
+      {
+        "raw_value": "Laos",
+        "source_row_count": 18,
+        "status": "reported",
+        "trimmed_value": "Laos"
+      },
+      {
+        "raw_value": "Latvia",
+        "source_row_count": 134,
+        "status": "reported",
+        "trimmed_value": "Latvia"
+      },
+      {
+        "raw_value": "Lebanon",
+        "source_row_count": 118,
+        "status": "reported",
+        "trimmed_value": "Lebanon"
+      },
+      {
+        "raw_value": "Lesotho",
+        "source_row_count": 3,
+        "status": "reported",
+        "trimmed_value": "Lesotho"
+      },
+      {
+        "raw_value": "Libya",
+        "source_row_count": 14,
+        "status": "reported",
+        "trimmed_value": "Libya"
+      },
+      {
+        "raw_value": "Lithuania",
+        "source_row_count": 78,
+        "status": "reported",
+        "trimmed_value": "Lithuania"
+      },
+      {
+        "raw_value": "Luxembourg",
+        "source_row_count": 4,
+        "status": "reported",
+        "trimmed_value": "Luxembourg"
+      },
+      {
+        "raw_value": "Malawi",
+        "source_row_count": 58,
+        "status": "reported",
+        "trimmed_value": "Malawi"
+      },
+      {
+        "raw_value": "Malaysia",
+        "source_row_count": 10,
+        "status": "reported",
+        "trimmed_value": "Malaysia"
+      },
+      {
+        "raw_value": "Malta",
+        "source_row_count": 14,
+        "status": "reported",
+        "trimmed_value": "Malta"
+      },
+      {
+        "raw_value": "Mexico",
+        "source_row_count": 493,
+        "status": "reported",
+        "trimmed_value": "Mexico"
+      },
+      {
+        "raw_value": "Moldova",
+        "source_row_count": 181,
+        "status": "reported",
+        "trimmed_value": "Moldova"
+      },
+      {
+        "raw_value": "Mongolia",
+        "source_row_count": 642,
+        "status": "reported",
+        "trimmed_value": "Mongolia"
+      },
+      {
+        "raw_value": "Montenegro",
+        "source_row_count": 61,
+        "status": "reported",
+        "trimmed_value": "Montenegro"
+      },
+      {
+        "raw_value": "Morocco",
+        "source_row_count": 94,
+        "status": "reported",
+        "trimmed_value": "Morocco"
+      },
+      {
+        "raw_value": "Myanmar",
+        "source_row_count": 14,
+        "status": "reported",
+        "trimmed_value": "Myanmar"
+      },
+      {
+        "raw_value": "Namibia",
+        "source_row_count": 49,
+        "status": "reported",
+        "trimmed_value": "Namibia"
+      },
+      {
+        "raw_value": "Nepal",
+        "source_row_count": 145,
+        "status": "reported",
+        "trimmed_value": "Nepal"
+      },
+      {
+        "raw_value": "Netherlands",
+        "source_row_count": 348,
+        "status": "reported",
+        "trimmed_value": "Netherlands"
+      },
+      {
+        "raw_value": "New Zealand",
+        "source_row_count": 2,
+        "status": "reported",
+        "trimmed_value": "New Zealand"
+      },
+      {
+        "raw_value": "Nigeria",
+        "source_row_count": 592,
+        "status": "reported",
+        "trimmed_value": "Nigeria"
+      },
+      {
+        "raw_value": "North Macedonia",
+        "source_row_count": 53,
+        "status": "reported",
+        "trimmed_value": "North Macedonia"
+      },
+      {
+        "raw_value": "Norway",
+        "source_row_count": 251,
+        "status": "reported",
+        "trimmed_value": "Norway"
+      },
+      {
+        "raw_value": "Pakistan",
+        "source_row_count": 1231,
+        "status": "reported",
+        "trimmed_value": "Pakistan"
+      },
+      {
+        "raw_value": "Palau",
+        "source_row_count": 36,
+        "status": "reported",
+        "trimmed_value": "Palau"
+      },
+      {
+        "raw_value": "Panama",
+        "source_row_count": 32,
+        "status": "reported",
+        "trimmed_value": "Panama"
+      },
+      {
+        "raw_value": "Papua New Guinea",
+        "source_row_count": 266,
+        "status": "reported",
+        "trimmed_value": "Papua New Guinea"
+      },
+      {
+        "raw_value": "Paraguay",
+        "source_row_count": 2,
+        "status": "reported",
+        "trimmed_value": "Paraguay"
+      },
+      {
+        "raw_value": "Peru",
+        "source_row_count": 365,
+        "status": "reported",
+        "trimmed_value": "Peru"
+      },
+      {
+        "raw_value": "Philippines",
+        "source_row_count": 27,
+        "status": "reported",
+        "trimmed_value": "Philippines"
+      },
+      {
+        "raw_value": "Poland",
+        "source_row_count": 1035,
+        "status": "reported",
+        "trimmed_value": "Poland"
+      },
+      {
+        "raw_value": "Portugal",
+        "source_row_count": 280,
+        "status": "reported",
+        "trimmed_value": "Portugal"
+      },
+      {
+        "raw_value": "Puerto Rico",
+        "source_row_count": 260,
+        "status": "reported",
+        "trimmed_value": "Puerto Rico"
+      },
+      {
+        "raw_value": "Republic of Korea",
+        "source_row_count": 42,
+        "status": "reported",
+        "trimmed_value": "Republic of Korea"
+      },
+      {
+        "raw_value": "Romania",
+        "source_row_count": 490,
+        "status": "reported",
+        "trimmed_value": "Romania"
+      },
+      {
+        "raw_value": "Russia",
+        "source_row_count": 4952,
+        "status": "reported",
+        "trimmed_value": "Russia"
+      },
+      {
+        "raw_value": "Saint Helena",
+        "source_row_count": 40,
+        "status": "reported",
+        "trimmed_value": "Saint Helena"
+      },
+      {
+        "raw_value": "Saint Lucia",
+        "source_row_count": 24,
+        "status": "reported",
+        "trimmed_value": "Saint Lucia"
+      },
+      {
+        "raw_value": "Saudi Arabia",
+        "source_row_count": 10,
+        "status": "reported",
+        "trimmed_value": "Saudi Arabia"
+      },
+      {
+        "raw_value": "Senegal",
+        "source_row_count": 74,
+        "status": "reported",
+        "trimmed_value": "Senegal"
+      },
+      {
+        "raw_value": "Serbia",
+        "source_row_count": 521,
+        "status": "reported",
+        "trimmed_value": "Serbia"
+      },
+      {
+        "raw_value": "Sierra Leone",
+        "source_row_count": 182,
+        "status": "reported",
+        "trimmed_value": "Sierra Leone"
+      },
+      {
+        "raw_value": "Singapore",
+        "source_row_count": 9,
+        "status": "reported",
+        "trimmed_value": "Singapore"
+      },
+      {
+        "raw_value": "Sint Maarten",
+        "source_row_count": 6,
+        "status": "reported",
+        "trimmed_value": "Sint Maarten"
+      },
+      {
+        "raw_value": "Slovakia",
+        "source_row_count": 234,
+        "status": "reported",
+        "trimmed_value": "Slovakia"
+      },
+      {
+        "raw_value": "Slovenia",
+        "source_row_count": 74,
+        "status": "reported",
+        "trimmed_value": "Slovenia"
+      },
+      {
+        "raw_value": "Solomon Islands",
+        "source_row_count": 2,
+        "status": "reported",
+        "trimmed_value": "Solomon Islands"
+      },
+      {
+        "raw_value": "South Africa",
+        "source_row_count": 82,
+        "status": "reported",
+        "trimmed_value": "South Africa"
+      },
+      {
+        "raw_value": "South Sudan",
+        "source_row_count": 2,
+        "status": "reported",
+        "trimmed_value": "South Sudan"
+      },
+      {
+        "raw_value": "Spain",
+        "source_row_count": 1795,
+        "status": "reported",
+        "trimmed_value": "Spain"
+      },
+      {
+        "raw_value": "Sri Lanka",
+        "source_row_count": 206,
+        "status": "reported",
+        "trimmed_value": "Sri Lanka"
+      },
+      {
+        "raw_value": "Sudan",
+        "source_row_count": 137,
+        "status": "reported",
+        "trimmed_value": "Sudan"
+      },
+      {
+        "raw_value": "Sweden",
+        "source_row_count": 832,
+        "status": "reported",
+        "trimmed_value": "Sweden"
+      },
+      {
+        "raw_value": "Switzerland",
+        "source_row_count": 160,
+        "status": "reported",
+        "trimmed_value": "Switzerland"
+      },
+      {
+        "raw_value": "Syria",
+        "source_row_count": 50,
+        "status": "reported",
+        "trimmed_value": "Syria"
+      },
+      {
+        "raw_value": "Taiwan",
+        "source_row_count": 130,
+        "status": "reported",
+        "trimmed_value": "Taiwan"
+      },
+      {
+        "raw_value": "Tajikistan",
+        "source_row_count": 73,
+        "status": "reported",
+        "trimmed_value": "Tajikistan"
+      },
+      {
+        "raw_value": "Tanzania",
+        "source_row_count": 72,
+        "status": "reported",
+        "trimmed_value": "Tanzania"
+      },
+      {
+        "raw_value": "Thailand",
+        "source_row_count": 236,
+        "status": "reported",
+        "trimmed_value": "Thailand"
+      },
+      {
+        "raw_value": "Tonga",
+        "source_row_count": 8,
+        "status": "reported",
+        "trimmed_value": "Tonga"
+      },
+      {
+        "raw_value": "Tunisia",
+        "source_row_count": 157,
+        "status": "reported",
+        "trimmed_value": "Tunisia"
+      },
+      {
+        "raw_value": "Turkey",
+        "source_row_count": 1181,
+        "status": "reported",
+        "trimmed_value": "Turkey"
+      },
+      {
+        "raw_value": "Turkmenistan",
+        "source_row_count": 198,
+        "status": "reported",
+        "trimmed_value": "Turkmenistan"
+      },
+      {
+        "raw_value": "USA",
+        "source_row_count": 1208,
+        "status": "reported",
+        "trimmed_value": "USA"
+      },
+      {
+        "raw_value": "Uganda",
+        "source_row_count": 2,
+        "status": "reported",
+        "trimmed_value": "Uganda"
+      },
+      {
+        "raw_value": "Ukraine",
+        "source_row_count": 893,
+        "status": "reported",
+        "trimmed_value": "Ukraine"
+      },
+      {
+        "raw_value": "United Arab Emirates",
+        "source_row_count": 10,
+        "status": "reported",
+        "trimmed_value": "United Arab Emirates"
+      },
+      {
+        "raw_value": "United Kingdom",
+        "source_row_count": 3019,
+        "status": "reported",
+        "trimmed_value": "United Kingdom"
+      },
+      {
+        "raw_value": "Uruguay",
+        "source_row_count": 4,
+        "status": "reported",
+        "trimmed_value": "Uruguay"
+      },
+      {
+        "raw_value": "Uzbekistan",
+        "source_row_count": 231,
+        "status": "reported",
+        "trimmed_value": "Uzbekistan"
+      },
+      {
+        "raw_value": "Vanuatu",
+        "source_row_count": 82,
+        "status": "reported",
+        "trimmed_value": "Vanuatu"
+      },
+      {
+        "raw_value": "Venezuela",
+        "source_row_count": 18,
+        "status": "reported",
+        "trimmed_value": "Venezuela"
+      },
+      {
+        "raw_value": "Vietnam",
+        "source_row_count": 270,
+        "status": "reported",
+        "trimmed_value": "Vietnam"
+      },
+      {
+        "raw_value": "Yemen",
+        "source_row_count": 185,
+        "status": "reported",
+        "trimmed_value": "Yemen"
+      },
+      {
+        "raw_value": "Zambia",
+        "source_row_count": 2,
+        "status": "reported",
+        "trimmed_value": "Zambia"
+      }
+    ]
+  },
+  "taxon_scope_status": "not_asserted_by_source"
+}

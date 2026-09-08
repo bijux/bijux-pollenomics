@@ -4,7 +4,7 @@
   "title": "World Evidence Surface",
   "slug": "world",
   "version": "v66",
-  "generated_on": "2026-06-22",
+  "generated_on": "2026-09-08",
   "scope_key": "world",
   "scope_label": "World",
   "scope_kind": "world",
@@ -22,10 +22,11 @@
     "Denmark": 653
   },
   "total_unique_samples": 1231,
-  "output_dir": "/Users/bijan/bijux/bijux-pollenomics/docs/report/world",
+  "output_dir": "docs/report/world",
   "artifacts": {
     "readme": "README.md",
     "map_html": "world_map.html",
+    "map_static_assets_manifest": "world_map_assets.json",
     "samples_geojson": "world_samples.geojson",
     "map_publication_contract_json": "world_map_publication_contract.json",
     "map_publication_contract_markdown": "world_map_publication_contract.md",
@@ -60,6 +61,10 @@
         "filename": "world_comparator_animal_localities.geojson"
       },
       {
+        "label": "Wild and progenitor animal locality GeoJSON",
+        "filename": "world_progenitor_animal_localities.geojson"
+      },
+      {
         "label": "Animal atlas evidence CSV",
         "filename": "world_animal_atlas_evidence.csv"
       },
@@ -70,6 +75,546 @@
       {
         "label": "Animal point traceability JSON",
         "filename": "world_animal_point_traceability.json"
+      },
+      {
+        "label": "Static atlas bootstrap manifest",
+        "filename": "world_map_assets.json"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-provenance.0000.9184fbb3af782691.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0001.3ce74b842a039975.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0002.8149edfaa10509d6.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0003.bf07cccc41311978.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0004.276b0b9319a604b5.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0005.45c29350d1d26e7d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0006.94a3f3b10289b64e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0007.6a875131d45647ec.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0008.a77906833fa3a051.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0009.abe808f27c4feb6f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0010.0899b366d8b90651.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0011.4e720789464ce279.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0012.ab9e1f64b2360910.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0013.08501b79e217d760.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0014.746c2a25d0115882.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0015.41cbdc6cc1906688.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0016.a107e7f3a07a0080.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0017.f5556ccbc31795cd.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0018.27db8a770b3b5786.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0019.418d9c9b6ec42274.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0020.ccf1c9f789927004.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0021.17beed4867b91c94.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0022.b317a7a876dab4c9.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0023.31c587b5c0093713.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0024.5960ccbd2b84c1b1.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0025.f8f7329020a27e07.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0026.7217a2860b7810b2.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0027.0cea635936ad9693.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0028.6b7a0cf4c86f3e81.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0029.dbce39b733e24c4c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0030.3acc0ea85706050a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0031.9c246068342bf359.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0032.d4e6e5df89eb149a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0033.131ace2874c9cddd.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0034.d42c080cd90fb20e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0035.63861106958d60b0.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0036.9f80f2881e50984b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0037.0c793de74da35f59.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0038.69026509a809af00.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0039.631f2b1e9af2c71e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0040.784a8714f962496a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0041.577244364a952f34.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0042.4901492f5a3e52c2.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0043.7d58100048034e24.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0044.09e5694ebee56286.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0045.b5f91d80dffbcc08.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0046.c10c8d71643df6ca.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0047.492af91b5d18f609.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0048.32a308bb4cc7fa56.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0049.c8b12d0adfab7376.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0050.a12506f4fc01e566.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0051.442b02bf4f7441f3.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0052.c2ef940ce7ee2c77.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0053.8059e6f4282a09f6.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0054.67a1a7f379a171e6.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0055.7bd3dae70140f309.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0056.61b1b50fd5d76ff0.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0057.2de8148637464c29.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0058.52bdcbcfcce962b4.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0059.24b4685b071ac668.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0060.f6dea488de2b98e4.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0061.a73987d17d27f799.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0062.e15dc55dd47fb752.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0063.8685a97b4bf6888f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0064.977725e53d685723.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0065.5437728525c5fef1.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0066.70e45a06b9ee56db.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0067.c0e5d7cdc5cb95e2.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0068.4f79a62baa8bfc68.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0069.5a5faac8bb286c85.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0070.ea4307d46f40a614.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0071.2a20b65ea01498fe.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0072.1e4426a4dbdefd5c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0073.868d866c68de8398.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0074.26b1954bb4a36c2c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0075.c4772802669caa7f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0076.ff978864531f7170.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0077.9ec9aec230ad86fb.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0078.c8cc7fa93658cc9c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0079.1d4333d0aaa3d281.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0080.1046732c3154de58.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0081.8abe6d562d5ea5b6.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0082.5f8f2a1d5e23f8e0.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0083.f177e462a59fedcc.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0084.bb4ea699ec3cedb1.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0085.e66bf3db9d306741.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0086.9c5d0db9741758e8.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0087.ec01043a14d04f9e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0088.c00a080f7f64149f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0089.2aba2e3e4a096e9d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0090.447cfd1015f6307c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0091.c0fcf30f64ce10f3.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0092.15ccec67ffc3e156.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0093.46b64696f2d42a19.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0094.bff749443867eed5.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0095.f98e00e68d6f58d3.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0096.86539ea3fc570f93.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0097.47e936c425a94b21.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0098.0a833b5c0864d614.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0099.6d97b1927378d414.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0100.490d6d8dd86bf4fc.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0101.674c1ffe9f15d88a.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0102.1623eb3b311205de.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0103.8dbb2d9af03d98bc.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0104.98ae39f1c322bf88.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0105.bdd973cab9590543.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0106.b4ab84c624bbc504.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0107.72a587e94f465e64.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0108.e96b52ca0ed4cbee.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0109.7a09544e0750037b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0110.32eca7151c16b18b.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0111.0010ebc86ea3428f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0112.9d140f28a43843e8.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0113.fd90016cfb5b9808.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0114.55a2a8aaffd0e42d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0115.9e6193f911b3832d.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0116.c516e904417158d9.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0117.41a62b5ad963f840.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0118.8598925a42a0ad8f.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0119.522bbdaa19328730.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0120.06089adfd060edf7.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0121.5d9b14e5c610f09c.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0122.1a2e6ab2e8dcfd68.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0123.d79e2173f98d3e28.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0124.7d7f86b6482d5a78.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0125.51acfcf074d09321.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0126.d3da635686540153.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0127.8a33b0e2f9d41495.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0128.35c2564a930ab6a5.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-nodes.0129.711d558a5e800c70.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-edges.0130.f00ab78ebf00fb26.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-sequences.0131.dfa02067e45fbd8e.js"
+      },
+      {
+        "label": "Static atlas data chunk",
+        "filename": "world.atlas-indexes.0132.e3d34e67e945961d.js"
+      },
+      {
+        "label": "Animal source-sample chronology accountability",
+        "filename": "world_animal_sample_chronology_context.json"
       },
       {
         "label": "Candidate site ranking CSV",
@@ -132,7 +677,7 @@
       "Finland",
       "Denmark"
     ],
-    "default_basemap": "voyager",
+    "default_basemap": "street",
     "initial_diameter_km": 40,
     "minimum_bounds": [
       [
@@ -172,7 +717,7 @@
       "point_traceability_json": "world_point_traceability.json"
     },
     "role_counts": {
-      "shared_world_scale_layer": 4,
+      "shared_world_scale_layer": 16,
       "region_filtered_layer": 1,
       "scope_specific_overlay": 0
     },
@@ -191,21 +736,21 @@
         "scope_caveat": "Shared evidence layer across every governed scope."
       },
       {
-        "key": "animal-camelus-dromedarius",
-        "label": "Dromedary Camel aDNA site evidence",
+        "key": "animal-bos-taurus-wild-or-progenitor-context",
+        "label": "Cattle aDNA site evidence (wild or progenitor context)",
         "source_name": "Tracked animal aDNA localities",
         "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
-        "count": 1,
+        "count": 22,
         "publication_role": "shared_world_scale_layer",
         "scope_visibility": "shared_default",
         "default_enabled": true,
         "applies_country_filter": true,
-        "applies_time_filter": false,
+        "applies_time_filter": true,
         "scope_caveat": "Shared evidence layer across every governed scope."
       },
       {
         "key": "animal-capra-hircus",
-        "label": "Goat aDNA site evidence",
+        "label": "Goat aDNA site evidence (domesticated core)",
         "source_name": "Tracked animal aDNA localities",
         "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
         "count": 26,
@@ -217,17 +762,251 @@
         "scope_caveat": "Shared evidence layer across every governed scope."
       },
       {
-        "key": "animal-equus-caballus",
-        "label": "Horse aDNA site evidence",
+        "key": "animal-capra-hircus-wild-or-progenitor-context",
+        "label": "Goat aDNA site evidence (wild or progenitor context)",
         "source_name": "Tracked animal aDNA localities",
         "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
-        "count": 207,
+        "count": 1,
         "publication_role": "shared_world_scale_layer",
         "scope_visibility": "shared_default",
         "default_enabled": true,
         "applies_country_filter": true,
         "applies_time_filter": true,
         "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "animal-equus-caballus",
+        "label": "Horse aDNA site evidence (domesticated core)",
+        "source_name": "Tracked animal aDNA localities",
+        "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+        "count": 63,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": true,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "animal-equus-caballus-wild-or-progenitor-context",
+        "label": "Horse aDNA site evidence (wild or progenitor context)",
+        "source_name": "Tracked animal aDNA localities",
+        "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+        "count": 15,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": true,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "animal-felis-catus",
+        "label": "Cat aDNA site evidence (domesticated core)",
+        "source_name": "Tracked animal aDNA localities",
+        "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+        "count": 24,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": true,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "animal-felis-catus-wild-or-progenitor-context",
+        "label": "Cat aDNA site evidence (wild or progenitor context)",
+        "source_name": "Tracked animal aDNA localities",
+        "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+        "count": 15,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": true,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "animal-ovis-aries",
+        "label": "Sheep aDNA site evidence (domesticated core)",
+        "source_name": "Tracked animal aDNA localities",
+        "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+        "count": 2,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": true,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "animal-sus-scrofa-domesticus",
+        "label": "Pig aDNA site evidence (domesticated core)",
+        "source_name": "Tracked animal aDNA localities",
+        "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+        "count": 2,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": true,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared evidence layer across every governed scope."
+      },
+      {
+        "key": "animal-source-chronology-bos-taurus",
+        "label": "Cattle source-sample chronology",
+        "source_name": "Governed animal project sample chronology",
+        "coverage_label": "",
+        "count": 31,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+        "group": "animal-chronology-context",
+        "semantic_role": "animal_source_chronology_context",
+        "contribution_role": "display_only",
+        "candidate_ranking_eligible": false,
+        "scientific_classification_eligible": false,
+        "scientific_selection_enabled": false,
+        "propagation_status": "refused",
+        "propagation_reason_code": "display_only_source_chronology",
+        "edge_count": 0,
+        "circle_enabled": false,
+        "project_species_latin_name": "Bos taurus",
+        "project_species_common_name": "cattle",
+        "species_attribution_basis": "governed_project_registry"
+      },
+      {
+        "key": "animal-source-chronology-capra-hircus",
+        "label": "Goat source-sample chronology",
+        "source_name": "Governed animal project sample chronology",
+        "coverage_label": "",
+        "count": 9,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+        "group": "animal-chronology-context",
+        "semantic_role": "animal_source_chronology_context",
+        "contribution_role": "display_only",
+        "candidate_ranking_eligible": false,
+        "scientific_classification_eligible": false,
+        "scientific_selection_enabled": false,
+        "propagation_status": "refused",
+        "propagation_reason_code": "display_only_source_chronology",
+        "edge_count": 0,
+        "circle_enabled": false,
+        "project_species_latin_name": "Capra hircus",
+        "project_species_common_name": "goat",
+        "species_attribution_basis": "governed_project_registry"
+      },
+      {
+        "key": "animal-source-chronology-equus-caballus",
+        "label": "Horse source-sample chronology",
+        "source_name": "Governed animal project sample chronology",
+        "coverage_label": "",
+        "count": 476,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+        "group": "animal-chronology-context",
+        "semantic_role": "animal_source_chronology_context",
+        "contribution_role": "display_only",
+        "candidate_ranking_eligible": false,
+        "scientific_classification_eligible": false,
+        "scientific_selection_enabled": false,
+        "propagation_status": "refused",
+        "propagation_reason_code": "display_only_source_chronology",
+        "edge_count": 0,
+        "circle_enabled": false,
+        "project_species_latin_name": "Equus caballus",
+        "project_species_common_name": "horse",
+        "species_attribution_basis": "governed_project_registry"
+      },
+      {
+        "key": "animal-source-chronology-felis-catus",
+        "label": "Cat source-sample chronology",
+        "source_name": "Governed animal project sample chronology",
+        "coverage_label": "",
+        "count": 35,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+        "group": "animal-chronology-context",
+        "semantic_role": "animal_source_chronology_context",
+        "contribution_role": "display_only",
+        "candidate_ranking_eligible": false,
+        "scientific_classification_eligible": false,
+        "scientific_selection_enabled": false,
+        "propagation_status": "refused",
+        "propagation_reason_code": "display_only_source_chronology",
+        "edge_count": 0,
+        "circle_enabled": false,
+        "project_species_latin_name": "Felis catus",
+        "project_species_common_name": "cat",
+        "species_attribution_basis": "governed_project_registry"
+      },
+      {
+        "key": "animal-source-chronology-ovis-aries",
+        "label": "Sheep source-sample chronology",
+        "source_name": "Governed animal project sample chronology",
+        "coverage_label": "",
+        "count": 4,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+        "group": "animal-chronology-context",
+        "semantic_role": "animal_source_chronology_context",
+        "contribution_role": "display_only",
+        "candidate_ranking_eligible": false,
+        "scientific_classification_eligible": false,
+        "scientific_selection_enabled": false,
+        "propagation_status": "refused",
+        "propagation_reason_code": "display_only_source_chronology",
+        "edge_count": 0,
+        "circle_enabled": false,
+        "project_species_latin_name": "Ovis aries",
+        "project_species_common_name": "sheep",
+        "species_attribution_basis": "governed_project_registry"
+      },
+      {
+        "key": "animal-source-chronology-sus-scrofa-domesticus",
+        "label": "Pig source-sample chronology",
+        "source_name": "Governed animal project sample chronology",
+        "coverage_label": "",
+        "count": 2,
+        "publication_role": "shared_world_scale_layer",
+        "scope_visibility": "shared_default",
+        "default_enabled": false,
+        "applies_country_filter": true,
+        "applies_time_filter": true,
+        "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+        "group": "animal-chronology-context",
+        "semantic_role": "animal_source_chronology_context",
+        "contribution_role": "display_only",
+        "candidate_ranking_eligible": false,
+        "scientific_classification_eligible": false,
+        "scientific_selection_enabled": false,
+        "propagation_status": "refused",
+        "propagation_reason_code": "display_only_source_chronology",
+        "edge_count": 0,
+        "circle_enabled": false,
+        "project_species_latin_name": "Sus scrofa domesticus",
+        "project_species_common_name": "pig",
+        "species_attribution_basis": "governed_project_registry"
       },
       {
         "key": "country-boundaries",
@@ -242,19 +1021,168 @@
         "applies_time_filter": false,
         "scope_caveat": "Derived filter framing layer that follows the active scope country roster."
       }
-    ]
+    ],
+    "static_assets": {
+      "schema_version": "atlas-static-bootstrap.v2",
+      "manifest": "world_map_assets.json",
+      "budgets": {
+        "bootstrap_max_bytes": 262144,
+        "chunk_max_bytes": 4194304,
+        "document_max_bytes": 524288,
+        "static_assets_max_bytes": 134217728,
+        "static_assets_max_files": 512,
+        "initial_max_requests": 4,
+        "initial_max_bytes": 1048576,
+        "interaction_max_requests": 128,
+        "interaction_max_bytes": 67108864,
+        "filter_main_thread_max_ms": 50
+      },
+      "domains": {
+        "nodes": {
+          "status": "available",
+          "record_count": 1962
+        },
+        "edges": {
+          "status": "unavailable",
+          "record_count": 0,
+          "reason_code": "governed_map_edge_model_not_available"
+        },
+        "sequences": {
+          "status": "unavailable",
+          "record_count": 0,
+          "reason_code": "governed_sequence_detail_model_not_available"
+        },
+        "provenance": {
+          "status": "layer_metadata_only",
+          "record_count": 17,
+          "reason_code": "record_level_provenance_model_not_available"
+        },
+        "details": {
+          "status": "unavailable",
+          "record_count": 0,
+          "reason_code": "record_level_evidence_not_available"
+        },
+        "classifications": {
+          "status": "unavailable",
+          "record_count": 0,
+          "reason_code": "accepted_scientific_classifications_not_available"
+        },
+        "indexes": {
+          "status": "available",
+          "record_count": 1958
+        }
+      }
+    },
+    "animal_sample_chronology_context": {
+      "artifact": "world_animal_sample_chronology_context.json",
+      "content_sha256": "10dee8b43da3eab5adea5a40fac2c0ae0b3ae7344d784d3de2e891713634cb88",
+      "input_identity_sha256": "5b220aa1bf9199d6001179f64aaf679e577f7936a585068c24e6ee370c17a2ab",
+      "corpus_identity_sha256": "dce6a8a6382d9a5f17d4b88330f0f879b010e38ade52e6deb51fe9346f8a62e7",
+      "scope": {
+        "key": "world",
+        "kind": "world",
+        "countries": [
+          "Sweden",
+          "Norway",
+          "Finland",
+          "Denmark"
+        ]
+      },
+      "global_admitted_node_count": 557,
+      "projected_node_count": 557,
+      "excluded_by_scope_count": 0,
+      "refusal_count": 918,
+      "governed_country_rows": [
+        {
+          "country_name": "Denmark",
+          "node_count": 7,
+          "time_min_bp": 1000,
+          "time_max_bp": 8173
+        },
+        {
+          "country_name": "Finland",
+          "node_count": 2,
+          "time_min_bp": 340,
+          "time_max_bp": 527
+        },
+        {
+          "country_name": "Norway",
+          "node_count": 0,
+          "time_min_bp": null,
+          "time_max_bp": null
+        },
+        {
+          "country_name": "Sweden",
+          "node_count": 5,
+          "time_min_bp": 1217,
+          "time_max_bp": 9657
+        }
+      ]
+    },
+    "detail_projection": {
+      "schema_version": "atlas-evidence-projection.v2",
+      "status": "reconciled",
+      "source_layer_count": 0,
+      "source_feature_count": 0,
+      "matched_feature_count": 0,
+      "detail_record_count": 0,
+      "unique_feature_record_id_count": 0,
+      "repeated_feature_reference_count": 0,
+      "unmatched_feature_count": 0,
+      "unreferenced_detail_count": 0,
+      "tab_availability": {
+        "overview": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        },
+        "samples": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        },
+        "chronology": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        },
+        "pollen_composition": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        },
+        "relation": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        },
+        "classification": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        },
+        "provenance": {
+          "available": 0,
+          "unavailable": 0,
+          "denominator": 0
+        }
+      },
+      "sources": {}
+    }
   },
   "animal_atlas": {
-    "total_locality_points": 234,
-    "direct_coordinate_feature_count": 233,
-    "named_site_geocoded_feature_count": 1,
+    "total_locality_points": 170,
+    "direct_coordinate_feature_count": 168,
+    "named_site_geocoded_feature_count": 2,
     "weaker_geography_feature_count": 0,
-    "total_species": 3,
-    "domesticated_species_count": 3,
+    "total_species": 6,
+    "domesticated_species_count": 5,
     "comparator_species_count": 0,
+    "wild_or_progenitor_species_count": 4,
     "layer_groups": [
       "Domesticated-core animal evidence",
-      "Comparator animal evidence"
+      "Comparator animal evidence",
+      "Wild and progenitor animal evidence"
     ],
     "filter_surfaces": [
       "Species focus",
@@ -276,21 +1204,23 @@
       "Unresolved time window"
     ],
     "coordinate_confidence_counts": {
-      "approximate": 1,
-      "exact": 233
+      "approximate": 24,
+      "exact": 144,
+      "source_reported_two_decimal_degrees": 2
     },
     "visible_caveats": [
       "Approximate or inferred coordinates remain visible with explicit warnings.",
       "Comparator-only evidence remains visible without being counted as domesticated-core support.",
+      "Wild or progenitor evidence remains visible in its own scope and is not farming support.",
       "Weak or rejected support classes remain labeled in point popups instead of being silently hidden.",
       "Nordic relevance can remain regional rather than one exact named country."
     ],
     "species_layers": [
       {
-        "latin_name": "Camelus dromedarius",
-        "common_name": "dromedary camel",
-        "animal_scope": "domesticated_core",
-        "locality_count": 1
+        "latin_name": "Bos taurus",
+        "common_name": "cattle",
+        "animal_scope": "wild_or_progenitor_context",
+        "locality_count": 22
       },
       {
         "latin_name": "Capra hircus",
@@ -299,10 +1229,46 @@
         "locality_count": 26
       },
       {
+        "latin_name": "Capra hircus",
+        "common_name": "goat",
+        "animal_scope": "wild_or_progenitor_context",
+        "locality_count": 1
+      },
+      {
         "latin_name": "Equus caballus",
         "common_name": "horse",
         "animal_scope": "domesticated_core",
-        "locality_count": 207
+        "locality_count": 63
+      },
+      {
+        "latin_name": "Equus caballus",
+        "common_name": "horse",
+        "animal_scope": "wild_or_progenitor_context",
+        "locality_count": 15
+      },
+      {
+        "latin_name": "Felis catus",
+        "common_name": "cat",
+        "animal_scope": "domesticated_core",
+        "locality_count": 24
+      },
+      {
+        "latin_name": "Felis catus",
+        "common_name": "cat",
+        "animal_scope": "wild_or_progenitor_context",
+        "locality_count": 15
+      },
+      {
+        "latin_name": "Ovis aries",
+        "common_name": "sheep",
+        "animal_scope": "domesticated_core",
+        "locality_count": 2
+      },
+      {
+        "latin_name": "Sus scrofa domesticus",
+        "common_name": "pig",
+        "animal_scope": "domesticated_core",
+        "locality_count": 2
       }
     ]
   }

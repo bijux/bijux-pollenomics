@@ -5,25 +5,32 @@ import json
 import os
 from pathlib import Path
 
-from ...adna.catalogs import (
+from ...adna.governance.audit_catalogs import (
     build_public_animal_output_audit,
     render_public_animal_output_audit_markdown,
 )
 from ..adna.foundation_outputs import publish_animal_foundation_outputs
 from ..adna.public_outputs import publish_public_animal_reporting_outputs
-from ..foundation import publish_repository_truth_outputs
 from ..geography import (
     GeographicScope,
     PublishedGeographyPlan,
     build_geography_onboarding_contract,
-    build_published_geography_plan,
     render_geography_onboarding_contract_markdown,
     render_geography_scope_registry_markdown,
     render_geography_subset_validation_markdown,
 )
 from ..models import CountryReport, MultiCountryMapReport, PublishedReportsReport
 from ..presentation import publish_report_portal
-from .paths import AtlasBundlePaths, build_country_bundle_paths
+from ..review.repository_truth_outputs import publish_repository_truth_outputs
+from ..review.sustainability_outputs import (
+    publish_repository_output_sustainability_review,
+)
+from .paths import (
+    AtlasBundlePaths,
+    build_country_bundle_paths,
+    serialize_publication_path,
+)
+from .report_partitions.planning import build_report_partition_plan
 
 __all__ = ["publish_published_reports_tree"]
 
@@ -33,6 +40,7 @@ def publish_published_reports_tree(
     *,
     version_dir: Path,
     output_root: Path,
+    published_output_root: Path | None = None,
     normalized_countries: tuple[str, ...],
     title: str,
     atlas_slug: str,
@@ -45,11 +53,21 @@ def publish_published_reports_tree(
     write_summary_json_fn: Callable[[Path, dict[str, object]], None],
 ) -> PublishedReportsReport:
     """Publish the full report tree as one world surface plus derived regional and country views."""
-    plan = build_published_geography_plan(normalized_countries)
+    published_output_root = (
+        Path(published_output_root)
+        if published_output_root is not None
+        else output_root
+    )
+    plan = build_report_partition_plan(
+        normalized_countries,
+        title=title,
+        slug=atlas_slug,
+        slugify_fn=slugify_fn,
+    ).geography
     data_root = (
         context_root if context_root is not None else output_root.parents[1] / "data"
     )
-    docs_root = output_root.parent
+    docs_root = published_output_root.parent
     enforce_release_gates = _looks_like_repository_publication_run(
         data_root=Path(data_root),
         docs_root=docs_root,
@@ -64,7 +82,9 @@ def publish_published_reports_tree(
         title=world_scope.map_title,
         slug=world_scope.slug,
         context_root=context_root,
-        published_output_dir=output_root.joinpath(*world_scope.output_dir_parts),
+        published_output_dir=published_output_root.joinpath(
+            *world_scope.output_dir_parts
+        ),
         geography_scope=world_scope,
     )
     scope_reports[world_scope.key] = map_report
@@ -79,7 +99,9 @@ def publish_published_reports_tree(
             title=scope.map_title,
             slug=scope.slug,
             context_root=context_root,
-            published_output_dir=output_root.joinpath(*scope.output_dir_parts),
+            published_output_dir=published_output_root.joinpath(
+                *scope.output_dir_parts
+            ),
             geography_scope=scope,
         )
         scope_reports[scope.key] = scope_report
@@ -112,7 +134,9 @@ def publish_published_reports_tree(
             country=country_scope.countries[0],
             output_dir=country_dir,
             map_reference=(parent_report.title, parent_map_path),
-            published_output_dir=output_root.joinpath(*country_scope.output_dir_parts),
+            published_output_dir=published_output_root.joinpath(
+                *country_scope.output_dir_parts
+            ),
             context_root=context_root,
         )
         country_output_dirs.append(country_dir)
@@ -132,6 +156,20 @@ def publish_published_reports_tree(
         staging_output_root,
         data_root=data_root,
         docs_root=docs_root,
+    )
+    animal_output_audit = build_public_animal_output_audit(
+        data_root, staging_output_root
+    )
+    animal_output_audit["report_root"] = serialize_publication_path(
+        published_output_root
+    )
+    write_summary_json_fn(
+        staging_output_root / "animal_output_audit.json",
+        animal_output_audit,
+    )
+    (staging_output_root / "animal_output_audit.md").write_text(
+        render_public_animal_output_audit_markdown(animal_output_audit),
+        encoding="utf-8",
     )
     repository_truth_artifacts = publish_repository_truth_outputs(
         staging_output_root,
@@ -158,17 +196,17 @@ def publish_published_reports_tree(
         version=map_report.version,
         generated_on=map_report.generated_on,
         countries=normalized_countries,
-        shared_map_dir=output_root.joinpath(*world_scope.output_dir_parts),
+        shared_map_dir=published_output_root.joinpath(*world_scope.output_dir_parts),
         country_output_dirs=tuple(
-            output_root.joinpath(*scope.output_dir_parts)
+            published_output_root.joinpath(*scope.output_dir_parts)
             for scope in plan.country_scopes
         ),
-        summary_path=output_root / summary_path.name,
+        summary_path=published_output_root / summary_path.name,
         regional_output_dirs=tuple(
-            output_root.joinpath(*scope.output_dir_parts)
+            published_output_root.joinpath(*scope.output_dir_parts)
             for scope in plan.regional_scopes
         ),
-        country_output_root=output_root.joinpath("countries"),
+        country_output_root=published_output_root.joinpath("countries"),
     )
     write_summary_json_fn(
         summary_path,
@@ -180,19 +218,12 @@ def publish_published_reports_tree(
             repository_truth_artifacts=repository_truth_artifacts,
         ),
     )
-    animal_output_audit = build_public_animal_output_audit(
-        data_root, staging_output_root
-    )
-    animal_output_audit["report_root"] = str(output_root)
-    write_summary_json_fn(
-        staging_output_root / "animal_output_audit.json",
-        animal_output_audit,
-    )
-    (staging_output_root / "animal_output_audit.md").write_text(
-        render_public_animal_output_audit_markdown(animal_output_audit),
-        encoding="utf-8",
-    )
     report_portal_artifacts = publish_report_portal(staging_output_root)
+    publish_repository_output_sustainability_review(
+        staging_output_root,
+        data_root=Path(data_root),
+        docs_root=docs_root,
+    )
     repository_claim_audit = json.loads(
         (staging_output_root / "repository_claim_audit.json").read_text(
             encoding="utf-8"
@@ -276,6 +307,7 @@ def _write_geography_packets(
         render_geography_subset_validation_markdown(subset_payload),
         encoding="utf-8",
     )
+    _require_valid_geography_subsets(subset_rows)
 
     onboarding_payload = build_geography_onboarding_contract(
         published_countries=plan.world_scope.countries,
@@ -288,6 +320,25 @@ def _write_geography_packets(
         render_geography_onboarding_contract_markdown(onboarding_payload),
         encoding="utf-8",
     )
+
+
+def _require_valid_geography_subsets(
+    subset_rows: list[dict[str, object]],
+) -> None:
+    """Refuse publication when any governed parent-child subset has drifted."""
+    invalid_subset_rows = [
+        row
+        for row in subset_rows
+        if not all(
+            row.get(field) is True
+            for field in ("country_subset_ok", "animal_subset_ok", "human_subset_ok")
+        )
+    ]
+    if invalid_subset_rows:
+        invalid_scopes = ", ".join(str(row["scope"]) for row in invalid_subset_rows)
+        raise ValueError(
+            f"Publication geography subset validation failed for: {invalid_scopes}"
+        )
 
 
 def _build_subset_validation_row(
@@ -375,10 +426,15 @@ def _load_animal_evidence_ids(
     payload = json.loads(
         bundle_paths.animal_atlas_evidence_json_path.read_text(encoding="utf-8")
     )
-    if not isinstance(payload, list):
-        return set()
+    if not isinstance(payload, dict):
+        raise ValueError("Animal atlas evidence must be a JSON object")
+    if payload.get("schema_version") != "animal-atlas-evidence-rows.v1":
+        raise ValueError("Animal atlas evidence schema version is unsupported")
+    rows = payload.get("rows")
+    if not isinstance(rows, list):
+        raise ValueError("Animal atlas evidence rows must be a list")
     identifiers: set[str] = set()
-    for row in payload:
+    for row in rows:
         if not isinstance(row, dict):
             continue
         evidence_row_id = str(row.get("evidence_row_id", "")).strip()

@@ -9,7 +9,7 @@
   "stage_statuses": {
     "project_admission": "complete",
     "paper_capture": "complete",
-    "supplement_capture": "not_required",
+    "supplement_capture": "complete",
     "sample_identity_recovery": "complete",
     "site_recovery": "complete",
     "chronology_recovery": "complete",
@@ -27,6 +27,8 @@
   "recovered_sample_count": 4,
   "final_sample_count": 4,
   "unresolved_sample_count": null,
+  "material_evidence_expected_count": 0,
+  "material_evidence_conflict_count": 0,
   "minimum_gap_count": 0,
   "recovery_gap_status": "minimum_expected_floor_met",
   "implausibly_low_recovery": false,
@@ -52,9 +54,7 @@
     "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
     "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_review_Supplementary_Figures_S1-41_NotesS1-7_Goat_Imputation-compressed.pdf"
   ],
-  "contradictory_evidence": [
-    "3 chronology row(s) still disagree between sample-owned and context-level evidence."
-  ],
+  "contradictory_evidence": [],
   "inferred_claims": [],
   "manual_curation_work_units": [],
   "major_deficit_reasons": []

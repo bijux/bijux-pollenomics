@@ -19,10 +19,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "xlsx_table"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -39,11 +37,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -60,11 +55,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -83,10 +75,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "pdf_appendix"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -103,11 +93,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -124,12 +111,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "image_appendix",
-        "pdf_appendix",
-        "xlsx_table"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -146,11 +129,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -167,10 +147,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "pdf_appendix"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -189,11 +167,9 @@
       "supplement_parse_status": "zip_member_inventory_published",
       "expected_supplementary_file_families": [
         "pdf_appendix",
-        "tree_payload",
-        "xlsx_table",
         "zip_bundle"
       ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -210,11 +186,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -231,11 +204,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -252,11 +222,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -274,10 +241,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "docx_appendix"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -294,11 +259,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -315,11 +277,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -336,10 +295,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "pdf_appendix"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -356,11 +313,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "zip_member_inventory_published",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "zip_bundle"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     },
     {
@@ -377,11 +331,8 @@
       "supplementary_verification_status": "supplement_archived_in_repo",
       "repository_supplement_capture_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
-      "local_reference_supplement_status": "local_reference_staged",
+      "expected_supplementary_file_families": [],
+      "local_reference_supplement_status": "missing",
       "acquisition_check_status": "repo_archived"
     }
   ]

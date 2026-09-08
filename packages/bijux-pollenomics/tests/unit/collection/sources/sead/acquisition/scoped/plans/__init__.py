@@ -1,0 +1,1 @@
+"""Scoped acquisition-plan tests."""

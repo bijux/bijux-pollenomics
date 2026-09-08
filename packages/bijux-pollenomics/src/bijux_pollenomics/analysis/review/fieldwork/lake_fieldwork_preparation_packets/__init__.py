@@ -1,0 +1,121 @@
+"""Review-first preparation packets for Swedish lake fieldwork."""
+
+from __future__ import annotations
+
+import csv as csv
+import json as json
+from pathlib import Path as Path
+from statistics import mean as mean
+from typing import Any as Any
+
+from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
+    LakeEvidenceRichnessAssessment as LakeEvidenceRichnessAssessment,
+)
+from bijux_pollenomics.analysis.fieldwork.evidence_richness import (
+    LakeEvidenceRichnessReport as LakeEvidenceRichnessReport,
+)
+
+from ..lake_fieldwork_priority import (
+    band_score as band_score,
+)
+from ..lake_fieldwork_priority import (
+    fieldwork_rows as fieldwork_rows,
+)
+from ..lake_fieldwork_priority import (
+    fieldwork_shortlist_score as fieldwork_shortlist_score,
+)
+from ..lake_fieldwork_priority import (
+    human_context_posture as human_context_posture,
+)
+from .candidate_row import build_candidate_row as build_candidate_row
+from .csv_output import write_csv as write_csv
+from .json_output import write_json as write_json
+from .markdown_output import (
+    render_markdown as render_markdown,
+)
+from .markdown_output import (
+    render_section as render_section,
+)
+from .operations_api import (
+    _build_fieldwork_preparation_row as _build_fieldwork_preparation_row,
+)
+from .operations_api import _google_maps_url as _google_maps_url
+from .operations_api import _identity_posture as _identity_posture
+from .operations_api import (
+    _palaeopen_alignment_posture as _palaeopen_alignment_posture,
+)
+from .operations_api import _preparation_posture as _preparation_posture
+from .operations_api import _required_actions as _required_actions
+from .operations_api import (
+    _scenario_consistency_posture as _scenario_consistency_posture,
+)
+from .operations_api import (
+    _scenario_top20_presence_count as _scenario_top20_presence_count,
+)
+from .operations_api import _sead_context_posture as _sead_context_posture
+from .operations_api import (
+    build_lake_fieldwork_preparation_payload as build_lake_fieldwork_preparation_payload,
+)
+from .operations_api import (
+    render_lake_fieldwork_preparation_markdown as render_lake_fieldwork_preparation_markdown,
+)
+from .operations_api import (
+    render_lake_fieldwork_preparation_section as render_lake_fieldwork_preparation_section,
+)
+from .operations_api import (
+    write_lake_fieldwork_preparation_csv as write_lake_fieldwork_preparation_csv,
+)
+from .operations_api import (
+    write_lake_fieldwork_preparation_json as write_lake_fieldwork_preparation_json,
+)
+from .payloads import build_payload as build_payload
+from .postures import (
+    google_maps_url as google_maps_url,
+)
+from .postures import (
+    identity_posture as identity_posture,
+)
+from .postures import (
+    palaeopen_alignment_posture as palaeopen_alignment_posture,
+)
+from .postures import (
+    preparation_posture as preparation_posture,
+)
+from .postures import (
+    required_actions as required_actions,
+)
+from .postures import (
+    scenario_consistency_posture as scenario_consistency_posture,
+)
+from .postures import (
+    scenario_top20_presence_count as scenario_top20_presence_count,
+)
+from .postures import (
+    sead_context_posture as sead_context_posture,
+)
+
+__all__ = [
+    "build_lake_fieldwork_preparation_payload",
+    "render_lake_fieldwork_preparation_markdown",
+    "render_lake_fieldwork_preparation_section",
+    "write_lake_fieldwork_preparation_csv",
+    "write_lake_fieldwork_preparation_json",
+]
+
+for _definition in (
+    build_lake_fieldwork_preparation_payload,
+    write_lake_fieldwork_preparation_json,
+    write_lake_fieldwork_preparation_csv,
+    render_lake_fieldwork_preparation_markdown,
+    render_lake_fieldwork_preparation_section,
+    _build_fieldwork_preparation_row,
+    _identity_posture,
+    _sead_context_posture,
+    _palaeopen_alignment_posture,
+    _preparation_posture,
+    _required_actions,
+    _scenario_top20_presence_count,
+    _scenario_consistency_posture,
+    _google_maps_url,
+):
+    _definition.__module__ = __name__

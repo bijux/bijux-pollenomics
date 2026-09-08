@@ -1,5 +1,5 @@
 {
-  "schema_version": "repository-product-model.v1",
+  "schema_version": "repository-product-model.v2",
   "product_name": "bijux-pollenomics",
   "governing_model": "world_parent_with_filtered_regional_and_country_derivatives",
   "mission": "collect world-scale tracked evidence families once, keep Europe-plus and Nordic as governed filtered specializations, and publish country bundles as narrower views of the same accountable repository state",
@@ -52,8 +52,9 @@
     "country bundles answer geography-first reader questions and must remain derivations of one broader evidence state"
   ],
   "current_state_counts": {
+    "animal_sample_accounting_available": true,
     "published_country_bundle_count": 4,
-    "published_world_animal_points": 234,
+    "published_world_animal_points": 170,
     "source_explainer_count": 15
   },
   "evidence_anchors": [

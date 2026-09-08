@@ -9,10 +9,10 @@
   "stage_statuses": {
     "project_admission": "complete",
     "paper_capture": "complete",
-    "supplement_capture": "not_required",
+    "supplement_capture": "complete",
     "sample_identity_recovery": "complete",
     "site_recovery": "in_progress",
-    "chronology_recovery": "complete",
+    "chronology_recovery": "in_progress",
     "coordinate_derivation": "blocked",
     "publication_readiness": "blocked"
   },
@@ -30,6 +30,8 @@
   "recovered_sample_count": 1,
   "final_sample_count": 1,
   "unresolved_sample_count": 0,
+  "material_evidence_expected_count": 0,
+  "material_evidence_conflict_count": 0,
   "minimum_gap_count": 0,
   "recovery_gap_status": "recovered_to_exact_expected_count",
   "implausibly_low_recovery": false,
@@ -46,13 +48,15 @@
     "data/adna/governance/source_library/projects/SRS1407451/sample_locality_evidence.json"
   ],
   "missing_assets": [
-    "Some recovered sample rows still lack a defensible site assignment."
+    "Some recovered sample rows still lack a defensible site assignment.",
+    "Some recovered sample rows still lack sample-level chronology."
   ],
   "expected_contributions": [
     "sample_identities",
     "taxonomic_context",
     "site_evidence",
-    "coordinate_candidates"
+    "coordinate_candidates",
+    "sample_chronology"
   ],
   "expected_contribution_surfaces": [
     "data/adna/governance/source_library/projects/SRS1407451/archive_metadata.html",
@@ -68,8 +72,8 @@
       "species_latin_name": "Canis lupus familiaris",
       "work_unit_type": "chronology_recovery",
       "work_unit_state": "pending_source_recovery",
-      "open_item_count": 1,
-      "rationale": "no_sample_owned_chronology_recovered; project_context_dates_still_dominate",
+      "open_item_count": 2,
+      "rationale": "no_sample_owned_chronology_recovered; missing_sample_level_date_evidence",
       "downstream_impact": "blocks chronology honesty and publication precision",
       "recommended_source_surfaces": [
         "data/adna/governance/source_library/projects/SRS1407451/sample_chronology.json",
@@ -82,11 +86,12 @@
       "work_unit_type": "locality_string_resolution",
       "work_unit_state": "pending_manual_curation",
       "open_item_count": 1,
-      "rationale": "region_only",
+      "rationale": "unresolved",
       "downstream_impact": "blocks coordinate derivation and exact locality publication",
       "recommended_source_surfaces": [
         "article_text",
-        "coordinate_resolution"
+        "coordinate_resolution",
+        "tracked_source_artifact"
       ]
     },
     {
@@ -95,13 +100,14 @@
       "work_unit_type": "site_resolution",
       "work_unit_state": "pending_manual_curation",
       "open_item_count": 1,
-      "rationale": "region_only_rows_require_finer_location_evidence",
+      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
       "downstream_impact": "blocks exact site, coordinate, and publication recovery",
       "recommended_source_surfaces": []
     }
   ],
   "major_deficit_reasons": [
     "site_assignment_gap",
+    "chronology_gap",
     "coordinate_precision_gap"
   ]
 }

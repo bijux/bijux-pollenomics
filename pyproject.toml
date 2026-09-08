@@ -1,12 +1,12 @@
 [build-system]
-requires = ["hatchling>=1.27.0,<1.32", "hatch-vcs>=0.4.0,<1.0"]
+requires = ["hatchling>=1.27.0,<1.33", "hatch-vcs>=0.4.0,<1.0"]
 build-backend = "hatchling.build"
 
 [project]
 name = "bijux-pollenomics-repository"
 description = "Repository workspace for bijux-pollenomics."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<4"
 dependencies = []
 dynamic = ["version"]
 
@@ -37,11 +37,16 @@ tag_format = "v$version"
 update_changelog_on_bump = false
 
 [tool.bijux_pollenomics]
+repository = "bijux-pollenomics"
 api_dir = "apis"
 packages = [
     "bijux-pollenomics",
     "pollenomics",
     "bijux-pollenomics-dev",
+]
+badge_packages = [
+    "bijux-pollenomics",
+    "pollenomics",
 ]
 docs_package = "bijux-pollenomics-dev"
 config_dir = "configs"
@@ -71,3 +76,4 @@ raw-options = { git_describe_command = "git describe --dirty --tags --long --mat
 
 [tool.hatch.build.targets.wheel]
 bypass-selection = true
+skip-excluded-dirs = true

@@ -27,8 +27,8 @@
       "time_end_bp": 4408,
       "time_mean_bp": 4408,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -47,14 +47,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row26",
-      "chronology_provenance_text": "18ELTu18_Spa_m588 | 38.949334 N, -6.064916 E | El Turuñuelo | Spain | DOM2 | sacrificial level in settlement, Iron Age Tartessos Culture | 208899 | 2460 | 15 | -753 | -423 | 588 | 2538 | M | this study | 1 | 3 | 3 | 134327799 | 29203846 | 163531645 | - | - | - | 47.4390653086 | 1.4292106341099999 | ",
+      "chronology_provenance_text": "18ELTu18_Spa_m588 | 38.949334 N, -6.064916 E | El Turuñuelo | Spain | DOM2 | sacrificial level in settlement, Iron Age Tartessos Culture | 208899 | 2460 | 15 | -753 | -423 | 588 | 2538 | M | this study | 1 | 3 | 3 | 134327799 | 29203846 | 163531645 | - | - | - | 47.4390653086 | 1.4292106341099999 |",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 2538,
       "time_end_bp": 2538,
       "time_mean_bp": 2538,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -105,8 +105,8 @@
       "time_end_bp": 4075,
       "time_mean_bp": 4075,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -125,14 +125,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row25",
-      "chronology_provenance_text": "AC9016_Tur_m1900 | 38.411227 N, 33.835694 E | Acemhoyuk | Turkey | DOM2 | settlement, Bronze Age, ~1,900 BCE | - | - | - | - | - | 1900 | 3850 | M | this study | 1 | 6 | 6 | 429180744 | 216939898 | 646120642 | - | - | - | 125.520011983 | 1.76361847095 | 1.0399999999999999E-3 | 0.93841435696099995 | ",
+      "chronology_provenance_text": "AC9016_Tur_m1900 | 38.411227 N, 33.835694 E | Acemhoyuk | Turkey | DOM2 | settlement, Bronze Age, ~1,900 BCE | - | - | - | - | - | 1900 | 3850 | M | this study | 1 | 6 | 6 | 429180744 | 216939898 | 646120642 | - | - | - | 125.520011983 | 1.76361847095 | 1.0399999999999999E-3 | 0.93841435696099995 |",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 3850,
       "time_end_bp": 3850,
       "time_mean_bp": 3850,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -157,8 +157,8 @@
       "time_end_bp": 2600,
       "time_mean_bp": 2600,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -183,8 +183,8 @@
       "time_end_bp": 2804,
       "time_mean_bp": 2804,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -209,8 +209,8 @@
       "time_end_bp": 2531,
       "time_mean_bp": 2531,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -229,14 +229,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row176",
-      "chronology_provenance_text": "Arz1x14_Rus_m800 | 52.066389 N, 93.5225 E | Arzhan-I | Russia | DOM2 | burial site, Iron Age, Early Scythian Culture | - | - | - | - | - | 800 | 2750 | M | this study | 1 | 1 | 1 | 154734245 | 14229892 | 168964137 | - | - | - | 96.567465548200005 | 3.6076353999599999 | 1.165E-3 | 2.3553246576400002 ",
+      "chronology_provenance_text": "Arz1x14_Rus_m800 | 52.066389 N, 93.5225 E | Arzhan-I | Russia | DOM2 | burial site, Iron Age, Early Scythian Culture | - | - | - | - | - | 800 | 2750 | M | this study | 1 | 1 | 1 | 154734245 | 14229892 | 168964137 | - | - | - | 96.567465548200005 | 3.6076353999599999 | 1.165E-3 | 2.3553246576400002",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 2750,
       "time_end_bp": 2750,
       "time_mean_bp": 2750,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -261,8 +261,8 @@
       "time_end_bp": 3842,
       "time_mean_bp": 3842,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -287,8 +287,8 @@
       "time_end_bp": 2611,
       "time_mean_bp": 2611,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -313,8 +313,8 @@
       "time_end_bp": 5082,
       "time_mean_bp": 5082,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -339,8 +339,8 @@
       "time_end_bp": 2575,
       "time_mean_bp": 2575,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -365,8 +365,8 @@
       "time_end_bp": 6399,
       "time_mean_bp": 6399,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -391,8 +391,8 @@
       "time_end_bp": 6449,
       "time_mean_bp": 6449,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -417,8 +417,8 @@
       "time_end_bp": 6586,
       "time_mean_bp": 6586,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -443,8 +443,8 @@
       "time_end_bp": 6240,
       "time_mean_bp": 6240,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -469,8 +469,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -495,8 +495,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -521,8 +521,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -541,14 +541,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row214",
-      "chronology_provenance_text": "Botai18x13_Kaz_m3328 | 53.303942 N, 67.645786 E | Botai | Kazakhstan | BOTAI | settlement, Eneolithic Botai Culture (*1) | - | - | - | - | - | 3328 | 5278 | F | this study | 1 | 1 | 1 | 147644115 | 24155208 | 171799323 | - | - | - | 130.95919712400001 | 3.0998402107 | 8.43E-4 | 2.0197887102499998 | ",
+      "chronology_provenance_text": "Botai18x13_Kaz_m3328 | 53.303942 N, 67.645786 E | Botai | Kazakhstan | BOTAI | settlement, Eneolithic Botai Culture (*1) | - | - | - | - | - | 3328 | 5278 | F | this study | 1 | 1 | 1 | 147644115 | 24155208 | 171799323 | - | - | - | 130.95919712400001 | 3.0998402107 | 8.43E-4 | 2.0197887102499998 |",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 5278,
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -573,8 +573,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -593,14 +593,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row216",
-      "chronology_provenance_text": "Botai18x15_Kaz_m3328 | 53.303942 N, 67.645786 E | Botai | Kazakhstan | BOTAI | settlement, Eneolithic Botai Culture (*1) | - | - | - | - | - | 3328 | 5278 | F | this study | 1 | 1 | 1 | 93206464 | 24027982 | 117234446 | - | - | - | 94.118633912500002 | 2.62519962403 | 7.54E-4 | 1.7672697397899999 | ",
+      "chronology_provenance_text": "Botai18x15_Kaz_m3328 | 53.303942 N, 67.645786 E | Botai | Kazakhstan | BOTAI | settlement, Eneolithic Botai Culture (*1) | - | - | - | - | - | 3328 | 5278 | F | this study | 1 | 1 | 1 | 93206464 | 24027982 | 117234446 | - | - | - | 94.118633912500002 | 2.62519962403 | 7.54E-4 | 1.7672697397899999 |",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 5278,
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -625,8 +625,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -651,8 +651,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -677,8 +677,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -703,8 +703,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -729,8 +729,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -755,8 +755,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -781,8 +781,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -807,8 +807,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -833,8 +833,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -859,8 +859,8 @@
       "time_end_bp": 5278,
       "time_mean_bp": 5278,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -885,8 +885,8 @@
       "time_end_bp": 5171,
       "time_mean_bp": 5171,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -911,8 +911,8 @@
       "time_end_bp": 5132,
       "time_mean_bp": 5132,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -937,8 +937,8 @@
       "time_end_bp": 13750,
       "time_mean_bp": 13750,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -963,8 +963,8 @@
       "time_end_bp": 5400,
       "time_mean_bp": 5400,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -989,8 +989,8 @@
       "time_end_bp": 2821,
       "time_mean_bp": 2821,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1015,8 +1015,8 @@
       "time_end_bp": 3249,
       "time_mean_bp": 3249,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1041,8 +1041,8 @@
       "time_end_bp": 6482,
       "time_mean_bp": 6482,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1067,8 +1067,8 @@
       "time_end_bp": 2935,
       "time_mean_bp": 2935,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1093,8 +1093,8 @@
       "time_end_bp": 7130,
       "time_mean_bp": 7130,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1119,8 +1119,8 @@
       "time_end_bp": 2815,
       "time_mean_bp": 2815,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1145,8 +1145,8 @@
       "time_end_bp": 2424,
       "time_mean_bp": 2424,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1171,8 +1171,8 @@
       "time_end_bp": 2760,
       "time_mean_bp": 2760,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1197,8 +1197,8 @@
       "time_end_bp": 2575,
       "time_mean_bp": 2575,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1223,8 +1223,8 @@
       "time_end_bp": 12350,
       "time_mean_bp": 12350,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1249,8 +1249,8 @@
       "time_end_bp": 3833,
       "time_mean_bp": 3833,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1275,8 +1275,8 @@
       "time_end_bp": 17009,
       "time_mean_bp": 17009,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1301,8 +1301,8 @@
       "time_end_bp": 4961,
       "time_mean_bp": 4961,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1327,8 +1327,8 @@
       "time_end_bp": 4944,
       "time_mean_bp": 4944,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1353,8 +1353,8 @@
       "time_end_bp": 2611,
       "time_mean_bp": 2611,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1379,8 +1379,8 @@
       "time_end_bp": 2609,
       "time_mean_bp": 2609,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1405,8 +1405,8 @@
       "time_end_bp": 2604,
       "time_mean_bp": 2604,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1425,14 +1425,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row80",
-      "chronology_provenance_text": "Etiolles4_Fra_m13759 | 48.63324 N, 2.465916 E | Etiolles | France | LP-NFR | Magdalenian site, Bølling-Allerød interstadial period | 218226 | 13100 | 45 | -13922 | -13596 | 13759 | 15709 | F | this study | 2 | 8 | 8 | 636845142 | 49592426 | 686437568 | - | - | - | 200.744577591 | 7.0732214748200004 ",
+      "chronology_provenance_text": "Etiolles4_Fra_m13759 | 48.63324 N, 2.465916 E | Etiolles | France | LP-NFR | Magdalenian site, Bølling-Allerød interstadial period | 218226 | 13100 | 45 | -13922 | -13596 | 13759 | 15709 | F | this study | 2 | 8 | 8 | 636845142 | 49592426 | 686437568 | - | - | - | 200.744577591 | 7.0732214748200004",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 15709,
       "time_end_bp": 15709,
       "time_mean_bp": 15709,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1451,14 +1451,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row81",
-      "chronology_provenance_text": "Etiolles6_Fra_m13608 | 48.63324 N, 2.465916 E | Etiolles | France | LP-NFR | Magdalenian site, Bølling-Allerød interstadial period | 218227 | 13010 | 45 | -13798 | -13418 | 13608 | 15558 | F | this study | 2 | 8 | 8 | 420944181 | 50590604 | 471534785 | - | - | - | 108.848591971 | 4.0274090169500001 ",
+      "chronology_provenance_text": "Etiolles6_Fra_m13608 | 48.63324 N, 2.465916 E | Etiolles | France | LP-NFR | Magdalenian site, Bølling-Allerød interstadial period | 218227 | 13010 | 45 | -13798 | -13418 | 13608 | 15558 | F | this study | 2 | 8 | 8 | 420944181 | 50590604 | 471534785 | - | - | - | 108.848591971 | 4.0274090169500001",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 15558,
       "time_end_bp": 15558,
       "time_mean_bp": 15558,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1483,8 +1483,8 @@
       "time_end_bp": 15765,
       "time_mean_bp": 15765,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1509,8 +1509,8 @@
       "time_end_bp": 15643,
       "time_mean_bp": 15643,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1535,8 +1535,8 @@
       "time_end_bp": 2425,
       "time_mean_bp": 2425,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1561,8 +1561,8 @@
       "time_end_bp": 2725,
       "time_mean_bp": 2725,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1587,8 +1587,8 @@
       "time_end_bp": 2725,
       "time_mean_bp": 2725,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1613,8 +1613,8 @@
       "time_end_bp": 20874,
       "time_mean_bp": 20874,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1639,8 +1639,8 @@
       "time_end_bp": 18450,
       "time_mean_bp": 18450,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1665,8 +1665,8 @@
       "time_end_bp": 23605,
       "time_mean_bp": 23605,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1691,8 +1691,8 @@
       "time_end_bp": 18051,
       "time_mean_bp": 18051,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1717,8 +1717,8 @@
       "time_end_bp": 20874,
       "time_mean_bp": 20874,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1743,8 +1743,8 @@
       "time_end_bp": 20874,
       "time_mean_bp": 20874,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1769,8 +1769,8 @@
       "time_end_bp": 20874,
       "time_mean_bp": 20874,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1795,8 +1795,8 @@
       "time_end_bp": 20874,
       "time_mean_bp": 20874,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1821,8 +1821,8 @@
       "time_end_bp": 20874,
       "time_mean_bp": 20874,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1847,8 +1847,8 @@
       "time_end_bp": 21620,
       "time_mean_bp": 21620,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1873,8 +1873,8 @@
       "time_end_bp": 20874,
       "time_mean_bp": 20874,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1899,8 +1899,8 @@
       "time_end_bp": 20874,
       "time_mean_bp": 20874,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1925,8 +1925,8 @@
       "time_end_bp": 3007,
       "time_mean_bp": 3007,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1945,14 +1945,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row71",
-      "chronology_provenance_text": "GVA9035_Mon_m1024 | 47.750843 N, 101.369458 E | Tatsyn Ereg | Mongolia | DOM2 | burial site, Bronze Age Deer Stone Complex | - | 2860 | 25 | -1117 | -931 | 1024 | 2974 | F | this study | 1 | 4 | 4 | 800392170 | 127023012 | 927415182 | - | - | - | 371.08633912499999 | 9.1519664289500007 | 1.142E-3 | ",
+      "chronology_provenance_text": "GVA9035_Mon_m1024 | 47.750843 N, 101.369458 E | Tatsyn Ereg | Mongolia | DOM2 | burial site, Bronze Age Deer Stone Complex | - | 2860 | 25 | -1117 | -931 | 1024 | 2974 | F | this study | 1 | 4 | 4 | 800392170 | 127023012 | 927415182 | - | - | - | 371.08633912499999 | 9.1519664289500007 | 1.142E-3 |",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 2974,
       "time_end_bp": 2974,
       "time_mean_bp": 2974,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1977,8 +1977,8 @@
       "time_end_bp": 2963,
       "time_mean_bp": 2963,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2003,8 +2003,8 @@
       "time_end_bp": 2963,
       "time_mean_bp": 2963,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2029,8 +2029,8 @@
       "time_end_bp": 3018,
       "time_mean_bp": 3018,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2055,8 +2055,8 @@
       "time_end_bp": 3806,
       "time_mean_bp": 3806,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2081,8 +2081,8 @@
       "time_end_bp": 3806,
       "time_mean_bp": 3806,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2107,8 +2107,8 @@
       "time_end_bp": 2725,
       "time_mean_bp": 2725,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2133,8 +2133,8 @@
       "time_end_bp": 2718,
       "time_mean_bp": 2718,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2159,8 +2159,8 @@
       "time_end_bp": 2718,
       "time_mean_bp": 2718,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2185,8 +2185,8 @@
       "time_end_bp": 2718,
       "time_mean_bp": 2718,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2211,8 +2211,8 @@
       "time_end_bp": 4629,
       "time_mean_bp": 4629,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2231,14 +2231,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row113",
-      "chronology_provenance_text": "Hohler1x2_Ger_m2681 | 50.06053 N, 11.104783 E | Hohler Stein bei Schwabthal | Germany | CWC | settlement, Late Neolithic Corded Ware Culture (*6) | - | - | - | - | - | 2681 | 4631 | F | this study | 1 | 4 | 4 | 208723025 | 85829400 | 294552425 | - | - | - | 2016.8085679999999 | 1.2149707302099999 | ",
+      "chronology_provenance_text": "Hohler1x2_Ger_m2681 | 50.06053 N, 11.104783 E | Hohler Stein bei Schwabthal | Germany | CWC | settlement, Late Neolithic Corded Ware Culture (*6) | - | - | - | - | - | 2681 | 4631 | F | this study | 1 | 4 | 4 | 208723025 | 85829400 | 294552425 | - | - | - | 2016.8085679999999 | 1.2149707302099999 |",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 4631,
       "time_end_bp": 4631,
       "time_mean_bp": 4631,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2263,8 +2263,8 @@
       "time_end_bp": 4669,
       "time_mean_bp": 4669,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2289,8 +2289,8 @@
       "time_end_bp": 4626,
       "time_mean_bp": 4626,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2315,8 +2315,8 @@
       "time_end_bp": 4631,
       "time_mean_bp": 4631,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2341,8 +2341,8 @@
       "time_end_bp": 4631,
       "time_mean_bp": 4631,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2361,14 +2361,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row41",
-      "chronology_provenance_text": "Kan22_Tur_m2386 | 41.721357 N, 27.225306 E | Kirklareli-Kanligecit | Turkey | Kan22 | settlement, Early Bronze Age | 199247 | 3905 | 15 | -2466 | -2306 | 2386 | 4336 | M | this study | 1 | 5 | 5 | 1252124037 | 469098988 | 1721223025 | - | - | - | 645.49346914299997 | 4.0166719450099997 | 1.077E-3 | ",
+      "chronology_provenance_text": "Kan22_Tur_m2386 | 41.721357 N, 27.225306 E | Kirklareli-Kanligecit | Turkey | Kan22 | settlement, Early Bronze Age | 199247 | 3905 | 15 | -2466 | -2306 | 2386 | 4336 | M | this study | 1 | 5 | 5 | 1252124037 | 469098988 | 1721223025 | - | - | - | 645.49346914299997 | 4.0166719450099997 | 1.077E-3 |",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 4336,
       "time_end_bp": 4336,
       "time_mean_bp": 4336,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2393,8 +2393,8 @@
       "time_end_bp": 31606,
       "time_mean_bp": 31606,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2419,8 +2419,8 @@
       "time_end_bp": 36148,
       "time_mean_bp": 36148,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2445,8 +2445,8 @@
       "time_end_bp": 44425,
       "time_mean_bp": 44425,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2471,8 +2471,8 @@
       "time_end_bp": 26159,
       "time_mean_bp": 26159,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2497,8 +2497,8 @@
       "time_end_bp": 36148,
       "time_mean_bp": 36148,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2523,8 +2523,8 @@
       "time_end_bp": 3416,
       "time_mean_bp": 3416,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2549,8 +2549,8 @@
       "time_end_bp": 3424,
       "time_mean_bp": 3424,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2575,8 +2575,8 @@
       "time_end_bp": 3444,
       "time_mean_bp": 3444,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2601,8 +2601,8 @@
       "time_end_bp": 3413,
       "time_mean_bp": 3413,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2627,8 +2627,8 @@
       "time_end_bp": 3426,
       "time_mean_bp": 3426,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2647,14 +2647,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row99",
-      "chronology_provenance_text": "Kozhai_Kaz_m3342 | 49.4 N, 66.75 E | Kozhai | Kazakhstan | TERSEK | settlement, Eneolithic Tersek Culture | 199238 | 4585 | 20 | -3492 | -3191 | 3342 | 5292 | M | this study | 2 | 7 | 7 | 1317317179 | 375887236 | 1693204415 | - | - | - | 108.468783703 | 1.6849891251 | 1.127E-3 | 0.94387987889400005 ",
+      "chronology_provenance_text": "Kozhai_Kaz_m3342 | 49.4 N, 66.75 E | Kozhai | Kazakhstan | TERSEK | settlement, Eneolithic Tersek Culture | 199238 | 4585 | 20 | -3492 | -3191 | 3342 | 5292 | M | this study | 2 | 7 | 7 | 1317317179 | 375887236 | 1693204415 | - | - | - | 108.468783703 | 1.6849891251 | 1.127E-3 | 0.94387987889400005",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 5292,
       "time_end_bp": 5292,
       "time_mean_bp": 5292,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2679,8 +2679,8 @@
       "time_end_bp": 8269,
       "time_mean_bp": 8269,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2705,8 +2705,8 @@
       "time_end_bp": 2530,
       "time_mean_bp": 2530,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2731,8 +2731,8 @@
       "time_end_bp": 5194,
       "time_mean_bp": 5194,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2757,8 +2757,8 @@
       "time_end_bp": 2243,
       "time_mean_bp": 2243,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2771,20 +2771,20 @@
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "chronology_text": ">49900 BP",
-      "chronology_strength": "sample_owned_interval",
+      "chronology_strength": "sample_owned_text_only",
       "chronology_evidence_class": "direct_radiocarbon_date",
-      "chronology_precision_posture": "sample_precise_point",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row145",
       "chronology_provenance_text": "Logx1_Rus_INF | 51.17025 N, 82.967972 E | Hyena's Lair | Russia | LP-SWSIB | cave, Late Pleistocene, Infinite radiocarbon dating | 224887 | >49900 BP | - | - | - | >49900 BP | >49900 BP | M | this study | 1 | 4 | 4 | 261096900 | 88478964 | 349575864 | - | - | - | 222.926902337 | 1.21453631623 | 1.05",
-      "chronology_normalization_status": "normalized_point",
-      "time_start_bp": 49900,
-      "time_end_bp": 49900,
-      "time_mean_bp": 49900,
+      "chronology_normalization_status": "text_only_unparsed",
+      "time_start_bp": null,
+      "time_end_bp": null,
+      "time_mean_bp": null,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2797,20 +2797,20 @@
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "chronology_text": ">52200 BP",
-      "chronology_strength": "sample_owned_interval",
+      "chronology_strength": "sample_owned_text_only",
       "chronology_evidence_class": "direct_radiocarbon_date",
-      "chronology_precision_posture": "sample_precise_point",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row146",
       "chronology_provenance_text": "Logx3_Rus_INF | 51.17025 N, 82.967972 E | Hyena's Lair | Russia | LP-SWSIB | cave, Late Pleistocene, Infinite radiocarbon dating | 224888 | >52200 BP | - | - | - | >52200 BP | >52200 BP | F | this study | 1 | 4 | 4 | 281094105 | 70573678 | 351667783 | - | - | - | 97.643678849599993 | 1.35926255007 |",
-      "chronology_normalization_status": "normalized_point",
-      "time_start_bp": 52200,
-      "time_end_bp": 52200,
-      "time_mean_bp": 52200,
+      "chronology_normalization_status": "text_only_unparsed",
+      "time_start_bp": null,
+      "time_end_bp": null,
+      "time_mean_bp": null,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2835,8 +2835,8 @@
       "time_end_bp": 5039,
       "time_mean_bp": 5039,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2861,8 +2861,8 @@
       "time_end_bp": 4945,
       "time_mean_bp": 4945,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2887,8 +2887,8 @@
       "time_end_bp": 4713,
       "time_mean_bp": 4713,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2913,8 +2913,8 @@
       "time_end_bp": 4736,
       "time_mean_bp": 4736,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2939,8 +2939,8 @@
       "time_end_bp": 7301,
       "time_mean_bp": 7301,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2965,8 +2965,8 @@
       "time_end_bp": 3746,
       "time_mean_bp": 3746,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2991,8 +2991,8 @@
       "time_end_bp": 3735,
       "time_mean_bp": 3735,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3017,8 +3017,8 @@
       "time_end_bp": 7356,
       "time_mean_bp": 7356,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3043,8 +3043,8 @@
       "time_end_bp": 3748,
       "time_mean_bp": 3748,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3069,8 +3069,8 @@
       "time_end_bp": 3059,
       "time_mean_bp": 3059,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3095,8 +3095,8 @@
       "time_end_bp": 3794,
       "time_mean_bp": 3794,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3121,8 +3121,8 @@
       "time_end_bp": 3799,
       "time_mean_bp": 3799,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3147,8 +3147,8 @@
       "time_end_bp": 2892,
       "time_mean_bp": 2892,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3173,8 +3173,8 @@
       "time_end_bp": 2608,
       "time_mean_bp": 2608,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3199,8 +3199,8 @@
       "time_end_bp": 3066,
       "time_mean_bp": 3066,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3225,8 +3225,8 @@
       "time_end_bp": 3086,
       "time_mean_bp": 3086,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3251,8 +3251,8 @@
       "time_end_bp": 2937,
       "time_mean_bp": 2937,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3277,8 +3277,8 @@
       "time_end_bp": 3095,
       "time_mean_bp": 3095,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3303,8 +3303,8 @@
       "time_end_bp": 2889,
       "time_mean_bp": 2889,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3329,8 +3329,8 @@
       "time_end_bp": 2960,
       "time_mean_bp": 2960,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3349,14 +3349,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row67",
-      "chronology_provenance_text": "M17x199_Mon_m865 | 46.94125 N, 98.595817 E | Morin Mort | Mongolia | DOM2 | burial site, Iron Age Deer Stone Complex | 190019 | 2725 | 15 | -907 | -822 | 865 | 2815 | F | this study | 1 | 4 | 4 | 42314678 | 10835992 | 53150670 | - | - | - | 37.576033553000002 | 1.26017777668 | 7.7700000000000002E-4 ",
+      "chronology_provenance_text": "M17x199_Mon_m865 | 46.94125 N, 98.595817 E | Morin Mort | Mongolia | DOM2 | burial site, Iron Age Deer Stone Complex | 190019 | 2725 | 15 | -907 | -822 | 865 | 2815 | F | this study | 1 | 4 | 4 | 42314678 | 10835992 | 53150670 | - | - | - | 37.576033553000002 | 1.26017777668 | 7.7700000000000002E-4",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 2815,
       "time_end_bp": 2815,
       "time_mean_bp": 2815,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3381,8 +3381,8 @@
       "time_end_bp": 2959,
       "time_mean_bp": 2959,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3401,14 +3401,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row74",
-      "chronology_provenance_text": "Mic2_Mol_m1250 | 47.987105 N, 27.788329 E | Miciurin | Moldova | DOM2 | settlement, Middle/Late Bronze Age, Noua Culture, ~1,500-1,000 BCE | - | - | - | - | - | 1250 | 3200 | M | this study | 1 | 1 | 1 | 16181401 | 1778330 | 17959731 | - | - | - | 12.895446375100001 | 0.23968254782000001 | 1.072E-3 ",
+      "chronology_provenance_text": "Mic2_Mol_m1250 | 47.987105 N, 27.788329 E | Miciurin | Moldova | DOM2 | settlement, Middle/Late Bronze Age, Noua Culture, ~1,500-1,000 BCE | - | - | - | - | - | 1250 | 3200 | M | this study | 1 | 1 | 1 | 16181401 | 1778330 | 17959731 | - | - | - | 12.895446375100001 | 0.23968254782000001 | 1.072E-3",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 3200,
       "time_end_bp": 3200,
       "time_mean_bp": 3200,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3433,8 +3433,8 @@
       "time_end_bp": 3969,
       "time_mean_bp": 3969,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3459,8 +3459,8 @@
       "time_end_bp": 3323,
       "time_mean_bp": 3323,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3485,8 +3485,8 @@
       "time_end_bp": 4013,
       "time_mean_bp": 4013,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3511,8 +3511,8 @@
       "time_end_bp": 3050,
       "time_mean_bp": 3050,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3537,8 +3537,8 @@
       "time_end_bp": 2968,
       "time_mean_bp": 2968,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3563,8 +3563,8 @@
       "time_end_bp": 2976,
       "time_mean_bp": 2976,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3589,8 +3589,8 @@
       "time_end_bp": 2725,
       "time_mean_bp": 2725,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3615,8 +3615,8 @@
       "time_end_bp": 4962,
       "time_mean_bp": 4962,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3635,14 +3635,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row156",
-      "chronology_provenance_text": "NB15_Kaz_m3150 | 51.52 N, 62.55 E | Belkaragay | Kazakhstan | TERSEK | settlement, Eneolithic Botai-Tersek Culture, ~3,150 BCE | - | - | - | - | - | 3150 | 5100 | F | this study | 1 | 4 | 4 | 26101407 | 6832382 | 32933789 | - | - | - | 27.9919712403 | 0.23459917861900001 | 1.312E-3 | 0.145911711079 ",
+      "chronology_provenance_text": "NB15_Kaz_m3150 | 51.52 N, 62.55 E | Belkaragay | Kazakhstan | TERSEK | settlement, Eneolithic Botai-Tersek Culture, ~3,150 BCE | - | - | - | - | - | 3150 | 5100 | F | this study | 1 | 4 | 4 | 26101407 | 6832382 | 32933789 | - | - | - | 27.9919712403 | 0.23459917861900001 | 1.312E-3 | 0.145911711079",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 5100,
       "time_end_bp": 5100,
       "time_mean_bp": 5100,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3667,8 +3667,8 @@
       "time_end_bp": 3806,
       "time_mean_bp": 3806,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3693,8 +3693,8 @@
       "time_end_bp": 3815,
       "time_mean_bp": 3815,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3719,8 +3719,8 @@
       "time_end_bp": 3633,
       "time_mean_bp": 3633,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3739,14 +3739,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row240",
-      "chronology_provenance_text": "Nov3x10_Rus_m3443 | 53.546361 N, 79.350056 E | Novoilinka-III | Russia | BOTAI | settlement, Eneolithic | 199241 | 4665 | 20 | -3516 | -3370 | 3443 | 5393 | F | this study | 1 | 4 | 4 | 2604894329 | 446053154 | 3050947483 | - | - | - | 269.27801078499999 | 4.9366489462400001 | 9.2000000000000003E-4 ",
+      "chronology_provenance_text": "Nov3x10_Rus_m3443 | 53.546361 N, 79.350056 E | Novoilinka-III | Russia | BOTAI | settlement, Eneolithic | 199241 | 4665 | 20 | -3516 | -3370 | 3443 | 5393 | F | this study | 1 | 4 | 4 | 2604894329 | 446053154 | 3050947483 | - | - | - | 269.27801078499999 | 4.9366489462400001 | 9.2000000000000003E-4",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 5393,
       "time_end_bp": 5393,
       "time_mean_bp": 5393,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3771,8 +3771,8 @@
       "time_end_bp": 5401,
       "time_mean_bp": 5401,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3791,14 +3791,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row242",
-      "chronology_provenance_text": "Nov6x11_Rus_m3217 | 53.546361 N, 79.350056 E | Novoilinka-VI | Russia | BOTAI | settlement, Eneolithic | 224901 | 4485 | 20 | -3340 | -3093 | 3217 | 5167 | F | this study | 1 | 4 | 4 | 126119449 | 41045450 | 167164899 | - | - | - | 75.1270820851 | 1.4296478699199999 | 1.039E-3 | 0.90283402725299999 ",
+      "chronology_provenance_text": "Nov6x11_Rus_m3217 | 53.546361 N, 79.350056 E | Novoilinka-VI | Russia | BOTAI | settlement, Eneolithic | 224901 | 4485 | 20 | -3340 | -3093 | 3217 | 5167 | F | this study | 1 | 4 | 4 | 126119449 | 41045450 | 167164899 | - | - | - | 75.1270820851 | 1.4296478699199999 | 1.039E-3 | 0.90283402725299999",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 5167,
       "time_end_bp": 5167,
       "time_mean_bp": 5167,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3823,8 +3823,8 @@
       "time_end_bp": 5174,
       "time_mean_bp": 5174,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3849,8 +3849,8 @@
       "time_end_bp": 5167,
       "time_mean_bp": 5167,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3875,8 +3875,8 @@
       "time_end_bp": 3782,
       "time_mean_bp": 3782,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3901,8 +3901,8 @@
       "time_end_bp": 3782,
       "time_mean_bp": 3782,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3927,8 +3927,8 @@
       "time_end_bp": 14616,
       "time_mean_bp": 14616,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3953,8 +3953,8 @@
       "time_end_bp": 4911,
       "time_mean_bp": 4911,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3979,8 +3979,8 @@
       "time_end_bp": 4909,
       "time_mean_bp": 4909,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4005,8 +4005,8 @@
       "time_end_bp": 6375,
       "time_mean_bp": 6375,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4031,8 +4031,8 @@
       "time_end_bp": 3704,
       "time_mean_bp": 3704,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4057,8 +4057,8 @@
       "time_end_bp": 3500,
       "time_mean_bp": 3500,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4083,8 +4083,8 @@
       "time_end_bp": 3430,
       "time_mean_bp": 3430,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4109,8 +4109,8 @@
       "time_end_bp": 3500,
       "time_mean_bp": 3500,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4135,8 +4135,8 @@
       "time_end_bp": 3500,
       "time_mean_bp": 3500,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4161,8 +4161,8 @@
       "time_end_bp": 3500,
       "time_mean_bp": 3500,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4187,8 +4187,8 @@
       "time_end_bp": 3500,
       "time_mean_bp": 3500,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4207,14 +4207,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row135",
-      "chronology_provenance_text": "PLMie18_Pol_m1483 | 50.35749 N, 20.04609 E | Miechów 3 | Poland | DOM2 | settlement, Eneolithic Funnel Beaker Culture | 218292 | 3230 | 30 | -1541 | -1425 | 1483 | 3433 | M | this study | 1 | 3 | 3 | 446867670 | 103564748 | 550432418 | - | - | - | 492.44541641699999 | 2.5293577804699998 | 9.59E-4 | ",
+      "chronology_provenance_text": "PLMie18_Pol_m1483 | 50.35749 N, 20.04609 E | Miechów 3 | Poland | DOM2 | settlement, Eneolithic Funnel Beaker Culture | 218292 | 3230 | 30 | -1541 | -1425 | 1483 | 3433 | M | this study | 1 | 3 | 3 | 446867670 | 103564748 | 550432418 | - | - | - | 492.44541641699999 | 2.5293577804699998 | 9.59E-4 |",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 3433,
       "time_end_bp": 3433,
       "time_mean_bp": 3433,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4239,8 +4239,8 @@
       "time_end_bp": 2599,
       "time_mean_bp": 2599,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4265,8 +4265,8 @@
       "time_end_bp": 5455,
       "time_mean_bp": 5455,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4291,8 +4291,8 @@
       "time_end_bp": 5751,
       "time_mean_bp": 5751,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4317,8 +4317,8 @@
       "time_end_bp": 3482,
       "time_mean_bp": 3482,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4343,8 +4343,8 @@
       "time_end_bp": 5176,
       "time_mean_bp": 5176,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4369,8 +4369,8 @@
       "time_end_bp": 3191,
       "time_mean_bp": 3191,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4395,8 +4395,8 @@
       "time_end_bp": 2737,
       "time_mean_bp": 2737,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4421,8 +4421,8 @@
       "time_end_bp": 3987,
       "time_mean_bp": 3987,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4447,8 +4447,8 @@
       "time_end_bp": 3199,
       "time_mean_bp": 3199,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4473,8 +4473,8 @@
       "time_end_bp": 3060,
       "time_mean_bp": 3060,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4499,8 +4499,8 @@
       "time_end_bp": 3260,
       "time_mean_bp": 3260,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4525,8 +4525,8 @@
       "time_end_bp": 2574,
       "time_mean_bp": 2574,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4551,8 +4551,8 @@
       "time_end_bp": 5186,
       "time_mean_bp": 5186,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4577,8 +4577,8 @@
       "time_end_bp": 3795,
       "time_mean_bp": 3795,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4591,20 +4591,20 @@
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "chronology_text": ">51700 BP",
-      "chronology_strength": "sample_owned_interval",
+      "chronology_strength": "sample_owned_text_only",
       "chronology_evidence_class": "direct_radiocarbon_date",
-      "chronology_precision_posture": "sample_precise_point",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row272",
       "chronology_provenance_text": "R17x2_Rus_INF | 70.723611 N, 135.413056 E | Yana | Russia | ELEN | natural depression, Late Pleistocene, Infinite radiocarbon dating | 199284 | >51700 | - | - | - | >51700 BP | >51700 BP | M | this study | 1 | 5 | 5 | 48481511 | 72876866 | 121358377 | - | - | - | 82.083702816100001 | 2.9829138843099",
-      "chronology_normalization_status": "normalized_point",
-      "time_start_bp": 51700,
-      "time_end_bp": 51700,
-      "time_mean_bp": 51700,
+      "chronology_normalization_status": "text_only_unparsed",
+      "time_start_bp": null,
+      "time_end_bp": null,
+      "time_mean_bp": null,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4617,20 +4617,20 @@
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "chronology_text": ">51700 BP",
-      "chronology_strength": "sample_owned_interval",
+      "chronology_strength": "sample_owned_text_only",
       "chronology_evidence_class": "direct_radiocarbon_date",
-      "chronology_precision_posture": "sample_precise_point",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row273",
-      "chronology_provenance_text": "R17x3_Rus_INF | 70.723611 N, 135.413056 E | Yana | Russia | ELEN | natural depression, Late Pleistocene, Infinite radiocarbon dating | 199625 | >51700 | - | - | - | >51700 BP | >51700 BP | M | this study | 1 | 5 | 5 | 41340455 | 54555374 | 95895829 | - | - | - | 86.8297183942 | 2.4332116287000001 | ",
-      "chronology_normalization_status": "normalized_point",
-      "time_start_bp": 51700,
-      "time_end_bp": 51700,
-      "time_mean_bp": 51700,
+      "chronology_provenance_text": "R17x3_Rus_INF | 70.723611 N, 135.413056 E | Yana | Russia | ELEN | natural depression, Late Pleistocene, Infinite radiocarbon dating | 199625 | >51700 | - | - | - | >51700 BP | >51700 BP | M | this study | 1 | 5 | 5 | 41340455 | 54555374 | 95895829 | - | - | - | 86.8297183942 | 2.4332116287000001 |",
+      "chronology_normalization_status": "text_only_unparsed",
+      "time_start_bp": null,
+      "time_end_bp": null,
+      "time_mean_bp": null,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4643,20 +4643,20 @@
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "chronology_text": ">51700 BP",
-      "chronology_strength": "sample_owned_interval",
+      "chronology_strength": "sample_owned_text_only",
       "chronology_evidence_class": "direct_radiocarbon_date",
-      "chronology_precision_posture": "sample_precise_point",
+      "chronology_precision_posture": "sample_approximate_or_modeled",
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row274",
       "chronology_provenance_text": "R17x5_Rus_INF | 70.723611 N, 135.413056 E | Yana | Russia | ELEN | natural depression, Late Pleistocene, Infinite radiocarbon dating | 199629 | >51700 | - | - | - | >51700 BP | >51700 BP | F | this study | 1 | 5 | 5 | 42725297 | 56976680 | 99701977 | - | - | - | 90.073217495500003 | 2.69249724715999",
-      "chronology_normalization_status": "normalized_point",
-      "time_start_bp": 51700,
-      "time_end_bp": 51700,
-      "time_mean_bp": 51700,
+      "chronology_normalization_status": "text_only_unparsed",
+      "time_start_bp": null,
+      "time_end_bp": null,
+      "time_mean_bp": null,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4681,8 +4681,8 @@
       "time_end_bp": 30517,
       "time_mean_bp": 30517,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4707,8 +4707,8 @@
       "time_end_bp": 2650,
       "time_mean_bp": 2650,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4733,8 +4733,8 @@
       "time_end_bp": 2650,
       "time_mean_bp": 2650,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4759,8 +4759,8 @@
       "time_end_bp": 3812,
       "time_mean_bp": 3812,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4785,8 +4785,8 @@
       "time_end_bp": 3775,
       "time_mean_bp": 3775,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4811,8 +4811,8 @@
       "time_end_bp": 3801,
       "time_mean_bp": 3801,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4837,8 +4837,8 @@
       "time_end_bp": 3739,
       "time_mean_bp": 3739,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4863,8 +4863,8 @@
       "time_end_bp": 3801,
       "time_mean_bp": 3801,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4889,8 +4889,8 @@
       "time_end_bp": 15427,
       "time_mean_bp": 15427,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4915,8 +4915,8 @@
       "time_end_bp": 23963,
       "time_mean_bp": 23963,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4941,8 +4941,8 @@
       "time_end_bp": 16677,
       "time_mean_bp": 16677,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4967,8 +4967,8 @@
       "time_end_bp": 15928,
       "time_mean_bp": 15928,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4993,8 +4993,8 @@
       "time_end_bp": 17199,
       "time_mean_bp": 17199,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5019,8 +5019,8 @@
       "time_end_bp": 16686,
       "time_mean_bp": 16686,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5045,8 +5045,8 @@
       "time_end_bp": 32142,
       "time_mean_bp": 32142,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5071,8 +5071,8 @@
       "time_end_bp": 23370,
       "time_mean_bp": 23370,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5097,8 +5097,8 @@
       "time_end_bp": 44950,
       "time_mean_bp": 44950,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5123,8 +5123,8 @@
       "time_end_bp": 38491,
       "time_mean_bp": 38491,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5149,8 +5149,8 @@
       "time_end_bp": 23095,
       "time_mean_bp": 23095,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5175,8 +5175,8 @@
       "time_end_bp": 19719,
       "time_mean_bp": 19719,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5201,8 +5201,8 @@
       "time_end_bp": 4735,
       "time_mean_bp": 4735,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5227,8 +5227,8 @@
       "time_end_bp": 4708,
       "time_mean_bp": 4708,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5253,8 +5253,8 @@
       "time_end_bp": 6536,
       "time_mean_bp": 6536,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5279,8 +5279,8 @@
       "time_end_bp": 6247,
       "time_mean_bp": 6247,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5305,8 +5305,8 @@
       "time_end_bp": 6259,
       "time_mean_bp": 6259,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5331,8 +5331,8 @@
       "time_end_bp": 5745,
       "time_mean_bp": 5745,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5357,8 +5357,8 @@
       "time_end_bp": 36751,
       "time_mean_bp": 36751,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5383,8 +5383,8 @@
       "time_end_bp": 5385,
       "time_mean_bp": 5385,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5409,8 +5409,8 @@
       "time_end_bp": 3052,
       "time_mean_bp": 3052,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5435,8 +5435,8 @@
       "time_end_bp": 12408,
       "time_mean_bp": 12408,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5461,8 +5461,8 @@
       "time_end_bp": 9450,
       "time_mean_bp": 9450,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5487,8 +5487,8 @@
       "time_end_bp": 2535,
       "time_mean_bp": 2535,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5513,8 +5513,8 @@
       "time_end_bp": 2531,
       "time_mean_bp": 2531,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5539,8 +5539,8 @@
       "time_end_bp": 2593,
       "time_mean_bp": 2593,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5565,8 +5565,8 @@
       "time_end_bp": 2610,
       "time_mean_bp": 2610,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5591,8 +5591,8 @@
       "time_end_bp": 82,
       "time_mean_bp": 82,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5617,8 +5617,8 @@
       "time_end_bp": 2607,
       "time_mean_bp": 2607,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5643,8 +5643,8 @@
       "time_end_bp": 2567,
       "time_mean_bp": 2567,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5669,8 +5669,8 @@
       "time_end_bp": 2614,
       "time_mean_bp": 2614,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5695,8 +5695,8 @@
       "time_end_bp": 2688,
       "time_mean_bp": 2688,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5721,8 +5721,8 @@
       "time_end_bp": 2267,
       "time_mean_bp": 2267,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5747,8 +5747,8 @@
       "time_end_bp": 6135,
       "time_mean_bp": 6135,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5773,8 +5773,8 @@
       "time_end_bp": 3818,
       "time_mean_bp": 3818,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5799,8 +5799,8 @@
       "time_end_bp": 3306,
       "time_mean_bp": 3306,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5825,8 +5825,8 @@
       "time_end_bp": 3327,
       "time_mean_bp": 3327,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5851,8 +5851,8 @@
       "time_end_bp": 3327,
       "time_mean_bp": 3327,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5877,8 +5877,8 @@
       "time_end_bp": 3410,
       "time_mean_bp": 3410,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5903,8 +5903,8 @@
       "time_end_bp": 4701,
       "time_mean_bp": 4701,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5929,8 +5929,8 @@
       "time_end_bp": 3803,
       "time_mean_bp": 3803,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5955,8 +5955,8 @@
       "time_end_bp": 3813,
       "time_mean_bp": 3813,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5981,8 +5981,8 @@
       "time_end_bp": 3795,
       "time_mean_bp": 3795,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6007,8 +6007,8 @@
       "time_end_bp": 3804,
       "time_mean_bp": 3804,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6033,8 +6033,8 @@
       "time_end_bp": 3811,
       "time_mean_bp": 3811,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6059,8 +6059,8 @@
       "time_end_bp": 3842,
       "time_mean_bp": 3842,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6079,14 +6079,14 @@
       "chronology_provenance_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "chronology_provenance_kind": "supplementary_spreadsheet_row",
       "chronology_provenance_locator": "SI Table 1!row185",
-      "chronology_provenance_text": "UR17x3_Rus_m1815 | 52.65 N, 59.566667 E | Bol'shekaraganskii | Russia | DOM2 | burial site, Bronze Age Srubnaya Culture | 199613 | 3490 | 20 | -1883 | -1747 | 1815 | 3765 | M | this study | 1 | 5 | 5 | 184097652 | 13166384 | 197264036 | - | - | - | 47.956381066500001 | 3.0744671060000002 | 1.039E-3 ",
+      "chronology_provenance_text": "UR17x3_Rus_m1815 | 52.65 N, 59.566667 E | Bol'shekaraganskii | Russia | DOM2 | burial site, Bronze Age Srubnaya Culture | 199613 | 3490 | 20 | -1883 | -1747 | 1815 | 3765 | M | this study | 1 | 5 | 5 | 184097652 | 13166384 | 197264036 | - | - | - | 47.956381066500001 | 3.0744671060000002 | 1.039E-3",
       "chronology_normalization_status": "normalized_point",
       "time_start_bp": 3765,
       "time_end_bp": 3765,
       "time_mean_bp": 3765,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6111,8 +6111,8 @@
       "time_end_bp": 3867,
       "time_mean_bp": 3867,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6137,8 +6137,8 @@
       "time_end_bp": 3904,
       "time_mean_bp": 3904,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6163,8 +6163,8 @@
       "time_end_bp": 3806,
       "time_mean_bp": 3806,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6189,8 +6189,8 @@
       "time_end_bp": 3770,
       "time_mean_bp": 3770,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6215,8 +6215,8 @@
       "time_end_bp": 3901,
       "time_mean_bp": 3901,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6241,8 +6241,8 @@
       "time_end_bp": 4724,
       "time_mean_bp": 4724,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6267,8 +6267,8 @@
       "time_end_bp": 4724,
       "time_mean_bp": 4724,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6293,8 +6293,8 @@
       "time_end_bp": 4703,
       "time_mean_bp": 4703,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6319,8 +6319,8 @@
       "time_end_bp": 4740,
       "time_mean_bp": 4740,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6345,8 +6345,8 @@
       "time_end_bp": 5185,
       "time_mean_bp": 5185,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6371,8 +6371,8 @@
       "time_end_bp": 2725,
       "time_mean_bp": 2725,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6397,8 +6397,8 @@
       "time_end_bp": 7494,
       "time_mean_bp": 7494,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6423,8 +6423,8 @@
       "time_end_bp": 7499,
       "time_mean_bp": 7499,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     },
     {
       "species_latin_name": "Equus caballus",
@@ -6449,8 +6449,8 @@
       "time_end_bp": 4509,
       "time_mean_bp": 4509,
       "dating_basis": "mixed_radiocarbon_and_archaeological_context",
-      "chronology_conflict_note": "Sample-owned chronology disagrees with the project-level chronology interval.",
-      "review_note": "Chronology keeps the sample-owned claim because it conflicts with the project-level context row."
+      "chronology_conflict_note": "",
+      "review_note": "Chronology comes from the recovered sample-owned source row."
     }
   ]
 }

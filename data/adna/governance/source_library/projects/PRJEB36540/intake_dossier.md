@@ -4,8 +4,8 @@
 - Archive status: `paper_pinned_core`
 - Inventory disposition: `tracked_intake_candidate`
 - Paper DOI: `10.1038/s42003-021-02794-8`
-- Publication readiness: `complete`
-- Next required stage: `coordinate_derivation`
+- Publication readiness: `blocked`
+- Next required stage: `chronology_recovery`
 - Exact expected sample count: `unknown`
 - Minimum expected sample count: `1`
 - Final recovered sample rows: `190`
@@ -19,14 +19,15 @@
 - `supplement_capture`: `complete`
 - `sample_identity_recovery`: `complete`
 - `site_recovery`: `complete`
-- `chronology_recovery`: `complete`
+- `chronology_recovery`: `in_progress`
 - `coordinate_derivation`: `in_progress`
-- `publication_readiness`: `complete`
+- `publication_readiness`: `blocked`
 
 ## Expected Contributions
 
 - `sample_identities`
 - `taxonomic_context`
+- `sample_chronology`
 
 ## Known Assets
 
@@ -45,12 +46,8 @@
 
 ## Missing Assets
 
-- none
-
-## Contradictory Evidence
-
-- 161 chronology row(s) still disagree between sample-owned and context-level evidence.
+- Some recovered sample rows still lack sample-level chronology.
 
 ## Manual Curation Work Units
 
-- `chronology_recovery`: 332 item(s), blocks chronology honesty and publication precision
+- `chronology_recovery`: 33 item(s), blocks chronology honesty and publication precision

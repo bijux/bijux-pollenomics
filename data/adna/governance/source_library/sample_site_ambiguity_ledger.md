@@ -1,54 +1,93 @@
 # Sample site ambiguity ledger
 
-- Ambiguous or weak site rows: `48`
+- Ambiguous or weak site rows: `87`
 
 | Project accession | Sample id | Status | Locality | Note |
 | --- | --- | --- | --- | --- |
-| PRJNA705960 | prjna705960:samn18106827 | region_only | Galician mountain cave cattle context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJNA705960 | prjna705960:samn18106828 | region_only | Galician mountain cave cattle context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJNA705960 | prjna705960:samn18106829 | region_only | Galician mountain cave cattle context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJNA705960 | prjna705960:samn18106830 | region_only | Galician mountain cave cattle context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJNA705960 | prjna705960:samn18106831 | region_only | Galician mountain cave cattle context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJNA705960 | prjna705960:samn18106832 | region_only | Galician mountain cave cattle context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJNA705960 | prjna705960:samn18106833 | region_only | Galician mountain cave cattle context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJNA705960 | prjna705960:samn18106834 | region_only | Galician mountain cave cattle context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJNA705960 | prjna705960:samn18106835 | region_only | Galician mountain cave cattle context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJNA705960 | prjna705960:samn18106836 | region_only | Galician mountain cave cattle context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJNA705960 | prjna705960:samn18106837 | region_only | Galician mountain cave cattle context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| SRS1407451 | srs1407451:srs1407451 | region_only | Ancient European dog CTC sample context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| SRS1407453 | srs1407453:srs1407453 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KX379528-KX379529 | kx379528-kx379529:kx379528 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KX379528-KX379529 | kx379528-kx379529:kx379529 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605068 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605069 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605070 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605071 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605072 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605073 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605074 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605075 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605076 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605077 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605078 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605079 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| KU605068-KU605080 | ku605068-ku605080:ku605080 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757323 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757324 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757325 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757326 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757327 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757328 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757329 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757330 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757331 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757332 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757333 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757334 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757335 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757336 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757337 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757338 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757339 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea112757340 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea114857470 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
-| PRJEB60484 | prjeb60484:samea114857471 | region_only | Svalbard ancient reindeer context | Current evidence stays at region or transect scale and must not masquerade as exact sample-site truth. |
+| PRJEB19970 | prjeb19970:connemara_0004a | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB19970 | prjeb19970:somali_0226a | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB41594 | prjeb41594:samea8022720 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB41594 | prjeb41594:samea8022721 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB41594 | prjeb41594:samea8022722 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB41594 | prjeb41594:samea8022723 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB41594 | prjeb41594:samea8022724 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772905 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772906 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772907 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772908 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772909 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772910 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772911 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772912 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772913 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772914 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772915 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772916 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772917 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772918 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772919 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772920 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772921 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772922 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772923 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772924 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772925 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772926 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB30282 | prjeb30282:samea5772927 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB31621 | prjeb31621:samea5577008 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB31621 | prjeb31621:samea5577009 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB31621 | prjeb31621:samea5577010 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB31621 | prjeb31621:samea5577011 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB31621 | prjeb31621:samea5577012 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB31621 | prjeb31621:samea5577149 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB31621 | prjeb31621:samea5577150 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB31621 | prjeb31621:samea5577151 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB31621 | prjeb31621:samea5577153 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB31621 | prjeb31621:samea5577154 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB31621 | prjeb31621:samea5577376 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB31621 | prjeb31621:samea5605818 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB75467 | prjeb75467:samea115574406 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB75467 | prjeb75467:samea115574408 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB75467 | prjeb75467:samea115574409 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB75467 | prjeb75467:samea115574411 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB75467 | prjeb75467:samea115574412 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB75467 | prjeb75467:samea115574421 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB75467 | prjeb75467:samea115574422 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB75467 | prjeb75467:samea115574424 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB75467 | prjeb75467:samea115574426 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB75467 | prjeb75467:samea115574440 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJNA705960 | prjna705960:samn18106827 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJNA705960 | prjna705960:samn18106828 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJNA705960 | prjna705960:samn18106829 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJNA705960 | prjna705960:samn18106830 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJNA705960 | prjna705960:samn18106831 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJNA705960 | prjna705960:samn18106832 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJNA705960 | prjna705960:samn18106833 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJNA705960 | prjna705960:samn18106834 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJNA705960 | prjna705960:samn18106835 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJNA705960 | prjna705960:samn18106836 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJNA705960 | prjna705960:samn18106837 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB81815 | prjeb81815:samea120246597 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB81815 | prjeb81815:samea120246598 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB81815 | prjeb81815:samea120246599 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| SRS1407451 | srs1407451:srs1407451 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757323 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757324 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757325 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757326 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757327 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757328 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757329 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757330 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757331 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757332 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757333 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757334 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757335 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757336 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757337 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757338 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757339 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea112757340 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea114857470 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
+| PRJEB60484 | prjeb60484:samea114857471 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |

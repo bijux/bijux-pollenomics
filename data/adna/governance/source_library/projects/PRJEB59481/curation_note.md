@@ -8,14 +8,28 @@
 - Paper download status: `archived`
 - Supplement download status: `archived`
 
-Paper-level evidence is required for this project, but no supplementary artifact is currently curated.
+Paper-level evidence is required; locally curated supplementary evidence is also available.
 
 ## Local artifacts
 
 - `adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf`
 - `adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx`
+- `adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml`
+- `adna/governance/source_library/papers/10.1093-gbe-evae114/article_full_text.xml.metadata.json`
 - `adna/governance/source_library/papers/10.1093-gbe-evae114/crossref.json`
+- `adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml`
+- `adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960292.xml`
+- `adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960292.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml`
+- `adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960294.xml`
+- `adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960294.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960295.xml`
+- `adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960295.xml.metadata.json`
 - `adna/governance/source_library/projects/PRJEB59481/archive_metadata.html`
+- `adna/governance/source_library/projects/PRJEB59481/material_evidence_conflicts.csv`
+- `adna/governance/source_library/projects/PRJEB59481/material_evidence_conflicts.json`
 
 ## Blockers
 

@@ -5,14 +5,20 @@ import json
 from pathlib import Path
 import shutil
 
-from ...core.geojson import as_mapping
-from ...data_downloader.contracts import (
+from ...collection.contracts.artifacts import (
     ATLAS_POINT_ARTIFACTS,
     BOUNDARY_COLLECTION,
     LANDCLIM_GRID_GEOJSON,
+    LANDCLIM_TEMPORAL_GRID_GEOJSON,
     RAA_DENSITY_GEOJSON,
     RAA_LAYER_METADATA,
+    SEAD_ARCHAEOLOGY_DISCOVERY_CSV,
+    SEAD_ARCHAEOLOGY_DISCOVERY_GEOJSON,
+    SEAD_ARCHAEOLOGY_DISCOVERY_JSON,
+    SEAD_ARCHAEOLOGY_DISCOVERY_MARKDOWN,
 )
+from ...collection.sources.raa import assess_raa_density_authority
+from ...core.geospatial.geojson import as_mapping
 from ..map_publication import map_allows_context_layer
 
 __all__ = ["stage_context_point_layers", "stage_context_polygon_layers"]
@@ -28,7 +34,15 @@ def stage_context_point_layers(
     """Copy external point layers into the bundle and return rendered layer configs."""
     point_layers: list[dict[str, object]] = []
     extra_artifacts: list[tuple[str, str]] = []
+    discovery_available = SEAD_ARCHAEOLOGY_DISCOVERY_GEOJSON.path_under(
+        context_root
+    ).exists()
+    superseded_sead_filenames = {
+        "nordic_temporal_evidence.geojson",
+    }
     for contract in ATLAS_POINT_ARTIFACTS:
+        if discovery_available and contract.filename in superseded_sead_filenames:
+            continue
         layer_key = _layer_key_for_point_contract(contract.filename)
         if not map_allows_context_layer(scope_key=scope_key, layer_key=layer_key):
             continue
@@ -43,6 +57,19 @@ def stage_context_point_layers(
             build_external_point_layer_fn(geojson, source_path=destination_path)
         )
         extra_artifacts.append((contract.label, destination_path.name))
+        if contract is SEAD_ARCHAEOLOGY_DISCOVERY_GEOJSON:
+            for companion in (
+                SEAD_ARCHAEOLOGY_DISCOVERY_JSON,
+                SEAD_ARCHAEOLOGY_DISCOVERY_CSV,
+                SEAD_ARCHAEOLOGY_DISCOVERY_MARKDOWN,
+            ):
+                companion_path = companion.path_under(context_root)
+                if not companion_path.exists():
+                    continue
+                staged_companion = stage_context_artifact(
+                    source_path=companion_path, output_dir=output_dir
+                )
+                extra_artifacts.append((companion.label, staged_companion.name))
     return point_layers, extra_artifacts
 
 
@@ -72,10 +99,23 @@ def stage_context_polygon_layers(
         )
         extra_artifacts.append((BOUNDARY_COLLECTION.label, destination_path.name))
 
-    landclim_grid_path = LANDCLIM_GRID_GEOJSON.path_under(context_root)
+    temporal_landclim_grid_path = LANDCLIM_TEMPORAL_GRID_GEOJSON.path_under(
+        context_root
+    )
+    landclim_grid_contract = (
+        LANDCLIM_TEMPORAL_GRID_GEOJSON
+        if temporal_landclim_grid_path.exists()
+        else LANDCLIM_GRID_GEOJSON
+    )
+    landclim_grid_path = landclim_grid_contract.path_under(context_root)
+    landclim_layer_key = (
+        "landclim-reveals-temporal-grid"
+        if landclim_grid_contract is LANDCLIM_TEMPORAL_GRID_GEOJSON
+        else "landclim-reveals-grid"
+    )
     if landclim_grid_path.exists() and map_allows_context_layer(
         scope_key=scope_key,
-        layer_key="landclim-reveals-grid",
+        layer_key=landclim_layer_key,
     ):
         destination_path = stage_context_artifact(
             source_path=landclim_grid_path, output_dir=output_dir
@@ -85,7 +125,7 @@ def stage_context_polygon_layers(
                 load_context_geojson(destination_path), source_path=destination_path
             )
         )
-        extra_artifacts.append((LANDCLIM_GRID_GEOJSON.label, destination_path.name))
+        extra_artifacts.append((landclim_grid_contract.label, destination_path.name))
 
     archaeology_path = RAA_LAYER_METADATA.path_under(context_root)
     if archaeology_path.exists() and map_allows_context_layer(
@@ -98,7 +138,8 @@ def stage_context_polygon_layers(
         extra_artifacts.append((RAA_LAYER_METADATA.label, destination_path.name))
 
     archaeology_density_path = RAA_DENSITY_GEOJSON.path_under(context_root)
-    if archaeology_density_path.exists() and map_allows_context_layer(
+    raa_authority = assess_raa_density_authority(context_root)
+    if raa_authority.admitted and map_allows_context_layer(
         scope_key=scope_key,
         layer_key="raa-archaeology",
     ):
@@ -136,4 +177,8 @@ def _layer_key_for_point_contract(filename: str) -> str:
         return "neotoma-pollen"
     if filename == "nordic_environmental_sites.geojson":
         return "sead-sites"
+    if filename == "nordic_temporal_evidence.geojson":
+        return "sead-temporal-evidence"
+    if filename == "sweden_archaeology_site_discovery.geojson":
+        return "sweden-archaeology-site-discovery"
     raise ValueError(f"Unhandled point artifact contract filename: {filename}")

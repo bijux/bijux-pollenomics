@@ -34,7 +34,16 @@
       "political_entity": "Taurus Mountains, Turkey",
       "latitude_text": "37.857799999999997",
       "longitude_text": "36.653883",
-      "chronology_text": "11367-11220 BCE"
+      "chronology_text": "11367-11220 BCE",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Capra hircus",
@@ -56,7 +65,16 @@
       "political_entity": "Trstenik, Serbia",
       "latitude_text": "43.723286000000002",
       "longitude_text": "21.099449",
-      "chronology_text": "6081-5891 BCE"
+      "chronology_text": "6081-5891 BCE",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Capra hircus",
@@ -78,7 +96,16 @@
       "political_entity": "Semnan, Iran",
       "latitude_text": "36.504157999999997",
       "longitude_text": "55.000785999999998",
-      "chronology_text": "6221-5990 BCE"
+      "chronology_text": "6221-5990 BCE",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Capra hircus",
@@ -100,7 +127,16 @@
       "political_entity": "Aksaray Plain, Turkey",
       "latitude_text": "38.540978000000003",
       "longitude_text": "33.771234",
-      "chronology_text": "2035-1884 BCE"
+      "chronology_text": "2035-1884 BCE",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     }
   ]
 }

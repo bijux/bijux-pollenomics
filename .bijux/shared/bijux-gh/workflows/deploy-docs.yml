@@ -185,7 +185,7 @@ jobs:
 
       - name: Setup uv
         if: ${{ steps.config.outputs.setup_uv == 'true' }}
-        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
         with:
           enable-cache: true
           cache-dependency-glob: uv.lock
@@ -198,13 +198,13 @@ jobs:
 
       - name: Install Rust toolchain
         if: ${{ steps.config.outputs.setup_rust == 'true' }}
-        uses: dtolnay/rust-toolchain@e97e2d8cc328f1b50210efc529dca0028893a2d9 # v1
+        uses: dtolnay/rust-toolchain@6c977a6ca4077a0ceb28ffbe03f59d46e9ac8772 # v1
         with:
           toolchain: ${{ steps.config.outputs.rust_toolchain }}
 
       - name: Restore Rust cache
         if: ${{ steps.config.outputs.setup_rust == 'true' }}
-        uses: Swatinem/rust-cache@c19371144df3bb44fab255c43d04cbc2ab54d1c4 # v2.9.1
+        uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2.9.2
 
       - name: Install docs toolchain
         if: ${{ steps.config.outputs.install_command != '' }}
@@ -325,4 +325,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5

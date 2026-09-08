@@ -4,11 +4,11 @@
 - Archive status: `paper_pinned_core`
 - Inventory disposition: `tracked_intake_candidate`
 - Paper DOI: `10.1126/science.aam5298`
-- Publication readiness: `complete`
-- Next required stage: `coordinate_derivation`
+- Publication readiness: `blocked`
+- Next required stage: `site_recovery`
 - Exact expected sample count: `unknown`
 - Minimum expected sample count: `1`
-- Final recovered sample rows: `14`
+- Final recovered sample rows: `15`
 - Minimum recovery gap: `0`
 - Implausibly low recovery: `false`
 
@@ -16,17 +16,20 @@
 
 - `project_admission`: `complete`
 - `paper_capture`: `complete`
-- `supplement_capture`: `not_required`
+- `supplement_capture`: `complete`
 - `sample_identity_recovery`: `complete`
-- `site_recovery`: `complete`
-- `chronology_recovery`: `complete`
-- `coordinate_derivation`: `in_progress`
-- `publication_readiness`: `complete`
+- `site_recovery`: `in_progress`
+- `chronology_recovery`: `in_progress`
+- `coordinate_derivation`: `blocked`
+- `publication_readiness`: `blocked`
 
 ## Expected Contributions
 
 - `sample_identities`
 - `taxonomic_context`
+- `site_evidence`
+- `coordinate_candidates`
+- `sample_chronology`
 
 ## Known Assets
 
@@ -47,8 +50,11 @@
 
 ## Missing Assets
 
-- none
+- Some recovered sample rows still lack a defensible site assignment.
+- Some recovered sample rows still lack sample-level chronology.
 
-## Contradictory Evidence
+## Manual Curation Work Units
 
-- 12 chronology row(s) still disagree between sample-owned and context-level evidence.
+- `chronology_recovery`: 4 item(s), blocks chronology honesty and publication precision
+- `locality_string_resolution`: 2 item(s), blocks coordinate derivation and exact locality publication
+- `site_resolution`: 2 item(s), blocks exact site, coordinate, and publication recovery

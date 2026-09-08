@@ -50,9 +50,11 @@
         "time_end_bp": 3984,
         "time_mean_bp": 3908,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -111,9 +113,11 @@
         "time_end_bp": 8030,
         "time_mean_bp": 7935,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -172,9 +176,11 @@
         "time_end_bp": 13316,
         "time_mean_bp": 13242,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -233,9 +239,11 @@
         "time_end_bp": 8170,
         "time_mean_bp": 8054,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -294,9 +302,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -355,9 +365,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -416,9 +428,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -478,9 +492,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -539,9 +555,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -602,9 +620,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -675,9 +695,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -736,9 +758,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -797,9 +821,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -860,9 +886,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -921,9 +949,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -984,9 +1014,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -1045,9 +1077,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -1108,9 +1142,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -1173,9 +1209,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -1234,9 +1272,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -1298,9 +1338,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -1314,13 +1356,13 @@
     {
       "identity": {
         "namespace": "capra_hircus:project_locality",
-        "stable_token": "capra_hircus:locality:prjeb90261:lobos",
+        "stable_token": "capra_hircus:locality:prjeb90261:lobos:lobos",
         "locality_text": "Lobos",
-        "political_entity": "",
+        "political_entity": "Lobos",
         "source_anchor_tokens": [
           "PRJEB90261",
-          "",
-          ""
+          "28.741962000000001",
+          "-13.825055000000001"
         ]
       },
       "species_latin_name": "Capra hircus",
@@ -1340,10 +1382,10 @@
       ],
       "locality": "Lobos",
       "coordinates": {
-        "latitude": null,
-        "longitude": null,
-        "latitude_text": "",
-        "longitude_text": "",
+        "latitude": 28.741962,
+        "longitude": -13.825055,
+        "latitude_text": "28.741962000000001",
+        "longitude_text": "-13.825055000000001",
         "confidence": "exact"
       },
       "sample_count": 17,
@@ -1375,9 +1417,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -1436,9 +1480,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -1502,9 +1548,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -1565,9 +1613,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -1626,9 +1676,11 @@
         "time_end_bp": null,
         "time_mean_bp": null,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "historical_and_archaeological_context",
         "evidence_class": "historical_or_recent_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [
@@ -1691,9 +1743,11 @@
         "time_end_bp": 3580,
         "time_mean_bp": 3530,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "archaeological_period_assignment",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "capra_hircus:sample_locality",
       "project_accessions": [

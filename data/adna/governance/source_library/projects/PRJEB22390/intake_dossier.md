@@ -16,7 +16,7 @@
 
 - `project_admission`: `complete`
 - `paper_capture`: `complete`
-- `supplement_capture`: `not_required`
+- `supplement_capture`: `complete`
 - `sample_identity_recovery`: `complete`
 - `site_recovery`: `complete`
 - `chronology_recovery`: `complete`
@@ -54,7 +54,3 @@
 ## Missing Assets
 
 - none
-
-## Contradictory Evidence
-
-- 41 chronology row(s) still disagree between sample-owned and context-level evidence.

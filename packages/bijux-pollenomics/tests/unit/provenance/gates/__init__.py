@@ -1,0 +1,1 @@
+"""Recorded-gate component tests."""

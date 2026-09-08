@@ -35,28 +35,6 @@
       "support_gap_note": "No local paper is pinned yet for this project, so the current coordinate posture cannot go beyond refused regional context."
     },
     {
-      "species_latin_name": "Felis catus",
-      "species_common_name": "cat",
-      "project_accession": "PRJEB81815",
-      "site_label": "North Africa to Europe domestic cat dispersal transect",
-      "original_place_text": "North Africa to Europe domestic cat dispersal transect",
-      "resolved_place_text": "North Africa to Europe dispersal extent",
-      "coordinate_basis": "region_centroid_fallback",
-      "confidence_rationale": "The source supports a North Africa to Europe dispersal process, not one cat excavation point.",
-      "support_gap_note": "The current cat row is explicitly transregional and therefore refused from point publication."
-    },
-    {
-      "species_latin_name": "Ovis aries",
-      "species_common_name": "sheep",
-      "project_accession": "PRJEB59481",
-      "site_label": "Baltic Sea Region short-tailed sheep context",
-      "original_place_text": "Baltic Sea Region short-tailed sheep context",
-      "resolved_place_text": "Baltic Sea Region",
-      "coordinate_basis": "region_centroid_fallback",
-      "confidence_rationale": "The local source archive currently supports Baltic-region posture, not one named sheep excavation site with defensible coordinates.",
-      "support_gap_note": "A readable local article or parsed supplement table is still missing for exact site extraction."
-    },
-    {
       "species_latin_name": "Rangifer tarandus",
       "species_common_name": "reindeer",
       "project_accession": "PRJEB60484",
@@ -66,17 +44,6 @@
       "coordinate_basis": "region_centroid_fallback",
       "confidence_rationale": "The local archive supports Svalbard archipelago context rather than one named reindeer site, so the row stays refused from point mapping.",
       "support_gap_note": ""
-    },
-    {
-      "species_latin_name": "Sus scrofa domesticus",
-      "species_common_name": "pig",
-      "project_accession": "PRJEB30282",
-      "site_label": "Near East and Europe pig domestication transect",
-      "original_place_text": "Near East and Europe pig domestication transect",
-      "resolved_place_text": "Near East to Europe regional study extent",
-      "coordinate_basis": "region_centroid_fallback",
-      "confidence_rationale": "The archived source supports a domestication transect across the Near East and Europe rather than one site, so point-level mapping would bluff precision.",
-      "support_gap_note": "The current pig lead is explicitly regional and therefore refused from point publication."
     }
   ]
 }

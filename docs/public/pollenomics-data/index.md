@@ -132,7 +132,7 @@ summary, or the matrix itself as evidence for a stage.
 | RAÄ | present | present | missing | present | normalized and published; source-specific review is not materialized |
 | boundaries | present | present | missing | present | framing output exists without its contracted review artifact |
 | SVAR | present | missing | missing | present | retained publication exists, but current normalization and review prerequisites are blocked |
-| AADR | present | missing | missing | present | v66 capture and retained publication exist without materialized Homo sapiens normalization and review |
+| AADR | present | missing | present | present | v66 capture and compact source accountability exist; normalized membership and qualified scientific review remain unavailable |
 | animal ancient DNA | present | present | present | present | contracted project, sample, review, and atlas evidence is materialized |
 
 `published` means that a contracted publication artifact exists. It does not

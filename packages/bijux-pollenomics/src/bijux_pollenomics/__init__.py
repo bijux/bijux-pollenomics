@@ -2,13 +2,7 @@
 
 from importlib import metadata
 
-from .data_downloader.api import (
-    ContextDataReport,
-    DataCollectionReport,
-    collect_context_data,
-    collect_data,
-)
-from .foundation import (
+from .architecture import (
     CompatibilityAliasContract,
     OwnershipMapEntry,
     ProductScope,
@@ -19,6 +13,12 @@ from .foundation import (
     build_surface_map,
     compatibility_alias_contract,
     runtime_surface_contract,
+)
+from .collection.api import (
+    ContextDataReport,
+    DataCollectionReport,
+    collect_context_data,
+    collect_data,
 )
 from .reporting.api import (
     CountryReport,
@@ -36,24 +36,24 @@ except metadata.PackageNotFoundError:
 
 __all__ = [
     "CompatibilityAliasContract",
-    "OwnershipMapEntry",
-    "ProductScope",
-    "RuntimeSurfaceContract",
-    "SurfaceMap",
     "ContextDataReport",
     "CountryReport",
     "DataCollectionReport",
     "MultiCountryMapReport",
+    "OwnershipMapEntry",
+    "ProductScope",
     "PublishedReportsReport",
+    "RuntimeSurfaceContract",
+    "SurfaceMap",
     "__version__",
-    "collect_data",
-    "collect_context_data",
     "build_ownership_map",
     "build_product_scope",
     "build_surface_map",
+    "collect_context_data",
+    "collect_data",
+    "compatibility_alias_contract",
     "generate_country_report",
     "generate_multi_country_map",
     "generate_published_reports",
     "runtime_surface_contract",
-    "compatibility_alias_contract",
 ]

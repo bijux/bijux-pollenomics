@@ -1,0 +1,273 @@
+from __future__ import annotations
+
+from collections.abc import Iterable, Mapping, Sequence
+
+from bijux_pollenomics.collection.contracts.models import ContextPointRecord
+from bijux_pollenomics.collection.spatial import (
+    CountryAttributionDecision,
+    point_in_bbox,
+)
+from bijux_pollenomics.core.temporal_semantics import build_temporal_semantics
+from bijux_pollenomics.core.text import clean_optional_text
+
+from ..chronology import (
+    AgeRangeAggregate,
+    format_neotoma_age_range,
+    merge_age_ranges,
+    neotoma_age_range_system,
+    neotoma_time_interval,
+    neotoma_time_label,
+)
+from ..country import (
+    build_neotoma_context_country_decisions,
+    neotoma_site_representative_point,
+)
+from ..site_inventory.merging import (
+    dataset_key,
+    normalize_collection_units,
+    normalize_datasets,
+    parse_int_or_default,
+)
+
+
+def normalize_neotoma_rows(
+    rows: Iterable[dict[str, object]],
+    bbox: tuple[float, float, float, float],
+    country_boundaries: Mapping[str, Mapping[str, object]],
+    *,
+    country_decisions: Mapping[str, CountryAttributionDecision] | None = None,
+    raw_country_aliases: Mapping[str, str] | None = None,
+) -> list[ContextPointRecord]:
+    """Convert raw Neotoma rows into compact Nordic pollen site records."""
+    source_rows = tuple(rows)
+    resolved_decisions = country_decisions
+    if resolved_decisions is None:
+        resolved_decisions = build_neotoma_context_country_decisions(
+            source_rows,
+            country_boundaries,
+            raw_country_aliases=raw_country_aliases,
+        )
+    records: list[ContextPointRecord] = []
+    for row in source_rows:
+        representative_point = neotoma_site_representative_point(row)
+        if representative_point is None:
+            continue
+        longitude, latitude, geometry_type = representative_point
+        if not point_in_bbox(longitude=longitude, latitude=latitude, bbox=bbox):
+            continue
+        site_id = clean_optional_text(row.get("siteid"))
+        decision = resolved_decisions.get(site_id)
+        if (
+            decision is None
+            or decision.decision_status != "assigned"
+            or decision.derived_country is None
+        ):
+            continue
+        country = decision.derived_country
+
+        collection_units = normalize_collection_units(row.get("collectionunits"))
+        datasets = [
+            dataset
+            for unit in collection_units
+            for dataset in normalize_datasets(unit.get("datasets"))
+        ]
+
+        dataset_types = row.get("dataset_types")
+        if not isinstance(dataset_types, list):
+            dataset_types = sorted(
+                {
+                    clean_optional_text(dataset.get("datasettype"))
+                    for dataset in datasets
+                    if clean_optional_text(dataset.get("datasettype"))
+                }
+            )
+
+        dataset_count = parse_int_or_default(
+            row.get("dataset_count"),
+            default=len({dataset_key(dataset) for dataset in datasets}),
+        )
+        collection_unit_count = len(collection_units)
+        sample_count = parse_int_or_default(row.get("sample_count"))
+        chronology_count = parse_int_or_default(row.get("chronology_count"))
+        taxon_count = parse_int_or_default(row.get("taxon_count"))
+        databases = row.get("databases")
+        if not isinstance(databases, list):
+            databases = sorted(
+                {
+                    clean_optional_text(dataset.get("database"))
+                    for dataset in datasets
+                    if clean_optional_text(dataset.get("database"))
+                }
+            )
+        age_ranges = row.get("age_ranges")
+        if not isinstance(age_ranges, list):
+            age_ranges_by_units: dict[str, AgeRangeAggregate] = {}
+            for dataset in datasets:
+                merge_age_ranges(age_ranges_by_units, dataset.get("agerange"))
+                samples = dataset.get("samples", [])
+                if not isinstance(samples, list):
+                    continue
+                for sample in samples:
+                    if isinstance(sample, dict):
+                        merge_age_ranges(age_ranges_by_units, sample.get("ages"))
+            age_ranges = sorted(
+                age_ranges_by_units.values(),
+                key=lambda item: clean_optional_text(item.get("units")),
+            )
+        age_ranges = [
+            age_range for age_range in age_ranges if isinstance(age_range, dict)
+        ]
+        time_interval = neotoma_time_interval(age_ranges)
+        time_label = neotoma_time_label(age_ranges, time_interval)
+        temporal_semantics = _build_site_context_temporal_semantics(
+            age_ranges, time_label=time_label
+        )
+        site_name = str(row.get("sitename", "")).strip() or f"Neotoma site {site_id}"
+        source_url = f"https://apps.neotomadb.org/explorer/#/record/site/{site_id}"
+        description = clean_optional_text(
+            row.get("sitedescription")
+        ) or clean_optional_text(row.get("notes"))
+        altitude = clean_optional_text(row.get("altitude"))
+
+        popup_rows = [
+            ("Site ID", site_id),
+            ("Category", "Pollen"),
+            ("Source", "Neotoma"),
+            ("Country", country),
+            ("Country decision", decision.decision_status),
+            ("Country method", decision.decision_method),
+            ("Boundary version", decision.boundary_version),
+            ("Boundary digest", decision.boundary_artifact_digest),
+            ("Geometry", geometry_type),
+            ("Collection units", str(collection_unit_count)),
+            ("Datasets", str(dataset_count)),
+        ]
+        if sample_count:
+            popup_rows.append(("Samples", str(sample_count)))
+        if chronology_count:
+            popup_rows.append(("Chronologies", str(chronology_count)))
+        if taxon_count:
+            popup_rows.append(("Taxa", str(taxon_count)))
+        if dataset_types:
+            popup_rows.append(("Dataset types", ", ".join(dataset_types)))
+        if databases:
+            popup_rows.append(("Databases", ", ".join(databases)))
+        for age_range in age_ranges:
+            units = clean_optional_text(age_range.get("units"))
+            value = format_neotoma_age_range(age_range)
+            if units and value:
+                popup_rows.append((f"Age coverage ({units})", value))
+        comparability_posture = str(
+            temporal_semantics.get("comparability_posture", "")
+        ).strip()
+        if comparability_posture:
+            popup_rows.append(
+                (
+                    "Temporal comparison posture",
+                    comparability_posture.replace("_", " "),
+                )
+            )
+        comparison_note = str(temporal_semantics.get("comparison_note", "")).strip()
+        if comparison_note:
+            popup_rows.append(("Temporal comparison note", comparison_note))
+        window_label = str(temporal_semantics.get("temporal_window_label", "")).strip()
+        if window_label:
+            popup_rows.append(("Temporal window", window_label))
+        if altitude:
+            popup_rows.append(("Altitude", altitude))
+        if description:
+            popup_rows.append(("Description", description))
+
+        records.append(
+            ContextPointRecord(
+                source="Neotoma",
+                layer_key="neotoma-pollen",
+                layer_label="Neotoma pollen sites",
+                category="Pollen",
+                country=country,
+                record_id=site_id,
+                name=site_name,
+                latitude=latitude,
+                longitude=longitude,
+                geometry_type=geometry_type,
+                subtitle="Nordic pollen sites with samples and chronologies",
+                description=description,
+                source_url=source_url,
+                record_count=dataset_count,
+                popup_rows=tuple(popup_rows),
+                time_start_bp=None,
+                time_end_bp=None,
+                time_mean_bp=None,
+                time_label=time_label,
+                temporal_semantics=temporal_semantics,
+            )
+        )
+
+    return sorted(records, key=lambda item: (item.name.casefold(), item.record_id))
+
+
+def _build_site_context_temporal_semantics(
+    age_ranges: Sequence[Mapping[str, object]],
+    *,
+    time_label: str,
+) -> dict[str, object]:
+    uncertainty_notes: tuple[str, ...]
+    original_labels = tuple(
+        clean_optional_text(age_range.get("units"))
+        for age_range in age_ranges
+        if clean_optional_text(age_range.get("units"))
+    )
+    normalized_labels = tuple(
+        sorted(
+            {
+                system
+                for age_range in age_ranges
+                if (
+                    system := neotoma_age_range_system(
+                        clean_optional_text(age_range.get("units"))
+                    )
+                )
+                is not None
+            }
+        )
+    )
+    if age_ranges:
+        evidence_class = "neotoma_site_age_range_context"
+        precision_posture = "site_extrema_without_continuity"
+        comparability_posture = "contextual_label_only"
+        comparison_note = (
+            "Site-level age ranges aggregate extrema across datasets and samples; "
+            "they do not prove continuous evidence between endpoints. Use the "
+            "sample-owned Neotoma chronology layers for numeric time filtering."
+        )
+        uncertainty_notes = (
+            (
+                "Compact site chronology is withheld because one interval would fill "
+                "unobserved gaps between source records."
+            ),
+        )
+    else:
+        evidence_class = "unresolved"
+        precision_posture = "unresolved"
+        comparability_posture = "unresolved"
+        comparison_note = (
+            "Neotoma did not publish site age-range context for this compact point; "
+            "sample-owned chronology remains available only where relational claims "
+            "support it."
+        )
+        uncertainty_notes = ()
+    return build_temporal_semantics(
+        source_family="neotoma",
+        evidence_class=evidence_class,
+        precision_posture=precision_posture,
+        comparability_posture=comparability_posture,
+        time_start_bp=None,
+        time_end_bp=None,
+        time_mean_bp=None,
+        summary_label=time_label,
+        comparison_note=comparison_note,
+        provenance_locator="site_age_ranges",
+        original_labels=original_labels,
+        normalized_labels=normalized_labels,
+        uncertainty_notes=uncertainty_notes,
+    ).as_dict()

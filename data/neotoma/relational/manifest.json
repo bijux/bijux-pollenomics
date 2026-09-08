@@ -1,0 +1,248 @@
+{
+  "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+  "materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
+  "reconciliation": {
+    "path": "reconciliation.json",
+    "schema_version": "neotoma-relational-reconciliation.v2",
+    "sha256": "aac2a173efe0729787396b6957a3609cda33322d23b93aa80bd7b8847172a875"
+  },
+  "relational_snapshot_schema_version": "neotoma-relational-snapshot.v2",
+  "rows_per_part": 50000,
+  "schema_version": "neotoma-relational-materialization-manifest.v1",
+  "source_family": "neotoma",
+  "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+  "surfaces": {
+    "age_claims": {
+      "id_field": "chronology_claim_id",
+      "part_count": 1,
+      "parts": [
+        {
+          "part_number": 1,
+          "path": "surfaces/age_claims/part-00001.json",
+          "row_count": 23281,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "6b8983b43138ec68895d96070508218d0b7c4f9908bf87860f96b79d2725c558",
+          "surface_schema_version": "neotoma-relational-age-claims.v2"
+        }
+      ],
+      "row_count": 23281,
+      "schema_version": "neotoma-relational-age-claims.v2"
+    },
+    "chronologies": {
+      "id_field": "chronology_id",
+      "part_count": 1,
+      "parts": [
+        {
+          "part_number": 1,
+          "path": "surfaces/chronologies/part-00001.json",
+          "row_count": 384,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "0703828826bde8a4860d5ea03100cf85145702a042bb3d29dafcb8a3bef4f569",
+          "surface_schema_version": "neotoma-relational-chronologies.v2"
+        }
+      ],
+      "row_count": 384,
+      "schema_version": "neotoma-relational-chronologies.v2"
+    },
+    "chronology_controls": {
+      "id_field": "chronology_control_id",
+      "part_count": 1,
+      "parts": [
+        {
+          "part_number": 1,
+          "path": "surfaces/chronology_controls/part-00001.json",
+          "row_count": 2798,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "bb84e43a97c3ac548505ad34e489c551ce44ab6c072d28aaa88bc287dbeeac84",
+          "surface_schema_version": "neotoma-relational-chronology-controls.v2"
+        }
+      ],
+      "row_count": 2798,
+      "schema_version": "neotoma-relational-chronology-controls.v2"
+    },
+    "collection_units": {
+      "id_field": "collection_unit_id",
+      "part_count": 1,
+      "parts": [
+        {
+          "part_number": 1,
+          "path": "surfaces/collection_units/part-00001.json",
+          "row_count": 206,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "dea88b9cadd08256b94f537a5d6a48c8b6b6c5820e5f340ae4786c3e28066780",
+          "surface_schema_version": "neotoma-relational-collection-units.v2"
+        }
+      ],
+      "row_count": 206,
+      "schema_version": "neotoma-relational-collection-units.v2"
+    },
+    "conflicts": {
+      "id_field": "conflict_id",
+      "part_count": 1,
+      "parts": [
+        {
+          "part_number": 1,
+          "path": "surfaces/conflicts/part-00001.json",
+          "row_count": 144,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "fd9a3ee06afff0e2592d4a007d5fef35d18e44a7d6ea9949ad2b47587e167356",
+          "surface_schema_version": "neotoma-relational-conflicts.v2"
+        }
+      ],
+      "row_count": 144,
+      "schema_version": "neotoma-relational-conflicts.v2"
+    },
+    "datasets": {
+      "id_field": "dataset_id",
+      "part_count": 1,
+      "parts": [
+        {
+          "part_number": 1,
+          "path": "surfaces/datasets/part-00001.json",
+          "row_count": 209,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "be7fccfa6e0284ac7984e64c844618a6d8682c03282296cef5cabaab594e27e9",
+          "surface_schema_version": "neotoma-relational-datasets.v2"
+        }
+      ],
+      "row_count": 209,
+      "schema_version": "neotoma-relational-datasets.v2"
+    },
+    "observations": {
+      "id_field": "observation_id",
+      "part_count": 8,
+      "parts": [
+        {
+          "part_number": 1,
+          "path": "surfaces/observations/part-00001.json",
+          "row_count": 50000,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "6afa864a9e06384678e63e9f85b13ca79882a87f5c14751cb27af46df60539be",
+          "surface_schema_version": "neotoma-relational-observations.v2"
+        },
+        {
+          "part_number": 2,
+          "path": "surfaces/observations/part-00002.json",
+          "row_count": 50000,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "571b55edc7ce7b6472cacc0db41c41c0e5ccb7d11f0890f88e7ba5f99ef3c719",
+          "surface_schema_version": "neotoma-relational-observations.v2"
+        },
+        {
+          "part_number": 3,
+          "path": "surfaces/observations/part-00003.json",
+          "row_count": 50000,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "a96543819902f5cf5b2b2de355558fd1dd85946c2c08254ec84fad6f9e43fcb5",
+          "surface_schema_version": "neotoma-relational-observations.v2"
+        },
+        {
+          "part_number": 4,
+          "path": "surfaces/observations/part-00004.json",
+          "row_count": 50000,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "b78776421961eb1bf64d886340e2e0f5a42dfe6d0a4ca937d028eb66b1ca0219",
+          "surface_schema_version": "neotoma-relational-observations.v2"
+        },
+        {
+          "part_number": 5,
+          "path": "surfaces/observations/part-00005.json",
+          "row_count": 50000,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "c4705ced69897dcb8f154435d0ba6bdfb0baa942642de94b18f3c856cbfc2e3a",
+          "surface_schema_version": "neotoma-relational-observations.v2"
+        },
+        {
+          "part_number": 6,
+          "path": "surfaces/observations/part-00006.json",
+          "row_count": 50000,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "a33597470799a6b85add81bb699c8a32ec6b55881809345f44351f5530d4d2b7",
+          "surface_schema_version": "neotoma-relational-observations.v2"
+        },
+        {
+          "part_number": 7,
+          "path": "surfaces/observations/part-00007.json",
+          "row_count": 50000,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "48a285e8be25f0ffc9d41feb0cd08ac8c2b6ba54783cf7f3ceeb57e4595ef1bf",
+          "surface_schema_version": "neotoma-relational-observations.v2"
+        },
+        {
+          "part_number": 8,
+          "path": "surfaces/observations/part-00008.json",
+          "row_count": 20936,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "517a9b6fd807cd420dbaf7f2d09a5c93d6a4d4374bc823d25fba7307bc0852dd",
+          "surface_schema_version": "neotoma-relational-observations.v2"
+        }
+      ],
+      "row_count": 370936,
+      "schema_version": "neotoma-relational-observations.v2"
+    },
+    "orphans": {
+      "id_field": "orphan_id",
+      "part_count": 1,
+      "parts": [
+        {
+          "part_number": 1,
+          "path": "surfaces/orphans/part-00001.json",
+          "row_count": 52,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "2c3ab2f1f701e686b04b537d15ae68a4bda3d3e0c967d6d035f0bb8b4ccf4aaa",
+          "surface_schema_version": "neotoma-relational-orphans.v2"
+        }
+      ],
+      "row_count": 52,
+      "schema_version": "neotoma-relational-orphans.v2"
+    },
+    "samples": {
+      "id_field": "sample_id",
+      "part_count": 1,
+      "parts": [
+        {
+          "part_number": 1,
+          "path": "surfaces/samples/part-00001.json",
+          "row_count": 12388,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c",
+          "surface_schema_version": "neotoma-relational-samples.v2"
+        }
+      ],
+      "row_count": 12388,
+      "schema_version": "neotoma-relational-samples.v2"
+    },
+    "sites": {
+      "id_field": "site_id",
+      "part_count": 1,
+      "parts": [
+        {
+          "part_number": 1,
+          "path": "surfaces/sites/part-00001.json",
+          "row_count": 200,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "b6ca4e49d0aec59aee576fc540c77b6c2e21601ce28338227e98717ee0bb93e9",
+          "surface_schema_version": "neotoma-relational-sites.v2"
+        }
+      ],
+      "row_count": 200,
+      "schema_version": "neotoma-relational-sites.v2"
+    },
+    "variables": {
+      "id_field": "variable_id",
+      "part_count": 1,
+      "parts": [
+        {
+          "part_number": 1,
+          "path": "surfaces/variables/part-00001.json",
+          "row_count": 1262,
+          "schema_version": "neotoma-relational-part.v1",
+          "sha256": "1f7cd85136c69aba3937dfa45ceb326aadd339e2eee5922e8417d1727756cea0",
+          "surface_schema_version": "neotoma-relational-variables.v2"
+        }
+      ],
+      "row_count": 1262,
+      "schema_version": "neotoma-relational-variables.v2"
+    }
+  }
+}

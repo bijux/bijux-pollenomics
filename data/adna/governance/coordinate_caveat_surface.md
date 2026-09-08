@@ -1,8 +1,8 @@
 # Coordinate caveat surface
 
-- Direct-coordinate points: `234`
-- Place-name resolved points: `2`
-- Still-weak geography rows: `7`
+- Direct-coordinate points: `300`
+- Place-name resolved points: `4`
+- Still-weak geography rows: `4`
 
 ## Direct-coordinate points
 
@@ -215,6 +215,32 @@
 | Equus caballus | PRJEB44430 | Zuunkhangai 257 | supplementary_table_coordinates | exact |
 | Equus caballus | PRJEB44430 | Çadır Höyük | supplementary_table_coordinates | exact |
 | Equus caballus | PRJEB44430 | Černý Vůl | supplementary_table_coordinates | exact |
+| Ovis aries | PRJEB59481 | Kastelholm | archive_coordinates | source_reported_two_decimal_degrees |
+| Ovis aries | PRJEB59481 | Stora Förvar | archive_coordinates | source_reported_two_decimal_degrees |
+| Bos taurus | PRJEB75467 | Barche di Solferino, near Mantova | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Barguzin river, Baikal | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Bedburg-Königshoven | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Borly 4, Pavlodar region | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Frederiksborg, Alsønderup | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Grotta dell'Uzzo, Sicily | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Gyumri district | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Herxheim | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Hjørring, Tofte Bæk | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Lundby I | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Nevishög | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Novoil`inka-VI (Новоильинка-VI) | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | O Courel, Galicia | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Padova | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Palidoro, Latium | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Roshchinskoe | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Skåne | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Trier-Brüderkrankenhaus | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Tula district | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Upper Rhine Valley | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Uralsk | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Varfolomeevka | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Vratsa | supplementary_proximal_site_coordinates | approximate |
+| Bos taurus | PRJEB75467 | Yorkshire | supplementary_proximal_site_coordinates | approximate |
 | Capra hircus | PRJEB90141 | Acemhöyük | supplementary_table_coordinates | exact |
 | Capra hircus | PRJEB90141 | Blagotin-Poljna | supplementary_table_coordinates | exact |
 | Capra hircus | PRJEB90141 | Direkli Cave | supplementary_table_coordinates | exact |
@@ -242,22 +268,61 @@
 | Capra hircus | PRJEB90261 | Punta del Mallorquín | supplementary_table_coordinates | exact |
 | Capra hircus | PRJEB90261 | Tigalate | supplementary_table_coordinates | exact |
 | Capra hircus | PRJNA1328209 | Lake Qinghai basin | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Alba Fucens -Cisterna (Fucino, Abruzzi) | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Arene Candide (Finale Ligure, Savona, Liguria) | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Aşıklı Höyük | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Bademağacı | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Bank of Portugal | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Bernhardsthal | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Bremen; 201-Altstadt, Marktplatz | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Bremen; 253-Altstadt, Am Wall | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Castiglione in Sabina | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Cova de Els Trocs, Huesca | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Demircihüyük | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Durankulak | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Genoni Santu Antine, Sardinia | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Graffignano (Viterbo, Latium) | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Grotta del Cocci (Narni, Umbria) | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Iznik - Roman theatre | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Kassope | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Koprivec | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Labastida | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Mautern - vicus Ost | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Menteşe | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Musarna (Viterbo, Latium) | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Nardò “torre santa Caterina” | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Padova Via Cesare Battisti (Veneto) | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Palatino North East slope (Rome) | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Palmela Castle | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Parking 58, Brussels | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Petronell-Carnuntum | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Rome, S. Cecilia in Trastevere | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Sagalassos | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Salzburg - Residenz | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Saracena (Cosenza, Calabria) | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Sassari, palazzo ducale, Sardinia | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Tabernas, Spain | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Tertenia, Sardinia | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Tongeren, Industrie Oost | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Traismauer | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Viminacium-Nad Klepačkom | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Viminacium/Amphitheatre | supplementary_table_coordinates | exact |
+| Felis catus | PRJEB81815 | Yenikapı, Marmaray exc. | supplementary_table_coordinates | exact |
 
 ## Place-name resolved points
 
 | Species | Project | Site | Basis | Confidence |
 | --- | --- | --- | --- | --- |
 | Equus caballus | PRJEB22390 | Botai archaeological site horse context | named_site_geocoding | approximate |
+| Sus scrofa domesticus | PRJEB30282 | Bundsø | named_site_geocoding | approximate |
+| Sus scrofa domesticus | PRJEB30282 | Trelleborg | named_site_geocoding | approximate |
 | Camelus dromedarius | SRP073444 | Site 1040 near Wadi Halfa dromedary context | named_site_geocoding | approximate |
 
 ## Still-weak geography
 
 | Species | Project | Original place text | Resolved place | Posture |
 | --- | --- | --- | --- | --- |
-| Sus scrofa domesticus | PRJEB30282 | Near East and Europe pig domestication transect | Near East to Europe regional study extent | refused_region_only |
-| Ovis aries | PRJEB59481 | Baltic Sea Region short-tailed sheep context | Baltic Sea Region | refused_region_only |
 | Bos taurus | PRJNA705960 | different mountain caves in Galicia | Galicia, Spain | refused_region_only |
 | Canis lupus familiaris | SRS1407451 | Herxheim and Cherry Tree Cave ancient dog contexts | Central Europe multi-site dog context | refused_region_only |
-| Felis catus | PRJEB81815 | North Africa to Europe domestic cat dispersal transect | North Africa to Europe dispersal extent | refused_region_only |
 | Rangifer tarandus | PRJEB60484 | Svalbard archipelago reindeer context | Svalbard archipelago | refused_region_only |
 | Equus asinus | PRJEB52849 | Africa to Europe and Asia donkey spread context | North Africa and Levant dispersal extent | refused_region_only |

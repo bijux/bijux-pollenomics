@@ -17,21 +17,23 @@ from ...adna.api import (
     build_species_support_matrix,
 )
 from ...adna.species.tracked_species import TRACKED_ADNA_SPECIES
-from ...data_downloader import (
+from ...architecture import (
+    build_ownership_map,
+    build_product_scope,
+    build_surface_map,
+)
+from ...collection import (
     build_source_support_matrix,
     collect_data,
     validate_collection_summary_file,
 )
-from ...data_downloader.repository_snapshot import (
+from ...collection.sources.aadr.materialization.accountability import (
+    materialize_aadr_source_accountability,
+)
+from ...collection.workflow.materialization.repository_snapshot import (
     materialize_repository_collection_snapshot,
 )
-from ...foundation import (
-    build_ownership_map,
-    build_product_scope,
-    build_release_bar,
-    build_release_readiness_report,
-    build_surface_map,
-)
+from ...governance import build_release_bar, build_release_readiness_report
 from ...reporting import (
     generate_country_report,
     generate_multi_country_map,
@@ -46,18 +48,19 @@ __all__ = [
     "run_adna_curation_manifest",
     "run_adna_domestication_coverage",
     "run_adna_layout",
-    "run_adna_release_bar",
     "run_adna_normalization_bundle",
-    "run_adna_runtime_manifest",
+    "run_adna_release_bar",
     "run_adna_release_readiness",
+    "run_adna_runtime_manifest",
     "run_adna_species",
     "run_adna_species_review",
     "run_collect_data",
-    "run_refresh_animal_adna_foundation",
-    "run_publish_reports",
-    "run_refresh_data_contract_surfaces",
     "run_ownership_map",
     "run_product_scope",
+    "run_publish_reports",
+    "run_refresh_aadr_source_accountability",
+    "run_refresh_animal_adna_foundation",
+    "run_refresh_data_contract_surfaces",
     "run_report_country",
     "run_report_multi_country_map",
     "run_source_support",
@@ -300,6 +303,7 @@ def run_report_country(
         country=args.country,
         output_dir=output_dir,
         map_reference=map_reference,
+        context_root=args.context_root,
     )
     print(
         f"Wrote {report.country} Homo sapiens aDNA {report.version} report with "
@@ -354,6 +358,7 @@ def run_publish_reports(args: argparse.Namespace) -> int:
         title=args.title,
         slug=args.name,
         context_root=args.context_root,
+        published_output_root=args.published_output_root,
     )
     print(
         f"Wrote published report bundles for {', '.join(report.countries)} to {args.output_root} "
@@ -455,5 +460,18 @@ def run_refresh_data_contract_surfaces(args: argparse.Namespace) -> int:
     print(
         "Refreshed data contract surfaces at "
         f"{summary.summary_path} for {len(summary.source_family_state_rows)} source families"
+    )
+    return 0
+
+
+def run_refresh_aadr_source_accountability(args: argparse.Namespace) -> int:
+    """Materialize the compact AADR source-accountability receipt."""
+    result = materialize_aadr_source_accountability(
+        args.data_root,
+        version=args.version,
+    )
+    print(
+        f"Wrote AADR {args.version} source accountability to {result.output_path} "
+        f"({result.byte_count} bytes; sha256={result.sha256})"
     )
     return 0

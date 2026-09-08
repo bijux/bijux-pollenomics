@@ -21,12 +21,13 @@ evidence boundary is `src/bijux_pollenomics/adna/`.
 | Namespace | Durable responsibility | Governed outputs or decisions |
 | --- | --- | --- |
 | `command_line/` | parsing, dispatch, and the durable command registry | selected action, validated arguments, exit behavior, and declared write root |
-| `data_downloader/` | source-family acquisition and context normalization | capture metadata, normalized context, traceability, hashes, and collection summary |
+| `collection/` | source-family acquisition and context normalization | capture metadata, normalized context, traceability, hashes, and collection summary |
 | `adna/` | animal project recovery and sample-owned evidence | project library, sample identity, locality, chronology, coordinates, species records, and archive findings |
 | `evidence/` | product-facing evidence fitness and evidence rows | scientific review and atlas evidence surfaces |
 | `analysis/` | explicit comparison and ranking methods | candidate rankings, sensitivity, lake evidence, and review packets |
 | `reporting/` | scope selection, bundle assembly, rendering, and review publication | world, regional, country, atlas, lake, traceability, and truth-review products |
-| `foundation/` | product scope, ownership, architecture, credibility, and release posture | runtime contracts and repository-level claim boundaries |
+| `architecture/` | product scope, ownership, runtime boundaries, and repository structure | runtime contracts and repository-level ownership boundaries |
+| `governance/` | credibility, release posture, country accountability, and public claim language | release and claim-readiness assessments |
 | `core/` | mechanics shared without transferring domain ownership | time, GeoJSON, distance, HTTP, file, and text primitives |
 
 Three top-level modules are deliberate boundary adapters rather than new
@@ -36,12 +37,24 @@ publication rules. Scientific behavior still belongs to the domain package
 that owns the decision.
 
 `command_line/` owns parsing, dispatch, and the durable command registry.
-Within acquisition, `data_downloader/pipeline/`, `data_downloader/sources/`,
-`data_downloader/intake/`, and `data_downloader/exports/` separate orchestration,
-source interpretation, payload decoding, and owned output writing.
+Within acquisition, `collection/contracts/` defines stable boundary shapes,
+`collection/catalog/` owns source identity and provenance, and
+`collection/workflow/planning/` and `collection/workflow/materialization/`
+separate execution planning from repository writes. `collection/sources/`,
+`collection/intake/`, and `collection/exports/` separate source interpretation,
+payload decoding, and source-owned output writing.
+`collection/sources/sead/catalog/site_inventory/` further separates table
+reading, relationship and vocabulary indexes, chronology and bibliography
+projection, and repository-row refresh behind one stable catalog facade.
 
-Within analysis, `analysis/review/` owns candidate-site ranking reviews and
-their sensitivity evidence. Within publication, `reporting/bundles/` owns
+`evidence/sources/` owns validated readers for those governed source
+materializations, so publication code consumes evidence contracts without
+depending on collection implementation modules.
+
+Within analysis, `analysis/classification/`, `analysis/propagation/`, and
+`analysis/fieldwork/` separate classification, candidate propagation, and
+fieldwork decisions. `analysis/review/fieldwork/` owns candidate-site review
+packets and their sensitivity evidence. Within publication, `reporting/bundles/` owns
 bundle assembly, `reporting/presentation/` owns human-facing formatting,
 `reporting/rendering/` writes structured and narrative artifacts, and
 `reporting/review/` publishes repository-truth surfaces.
@@ -50,7 +63,7 @@ bundle assembly, `reporting/presentation/` owns human-facing formatting,
 
 ```mermaid
 flowchart TB
-    Command["command_line"] --> Collection["data_downloader"]
+    Command["command_line"] --> Collection["collection"]
     Command --> Animal["adna"]
     Command --> Publication["reporting"]
     Collection --> Evidence["evidence"]
@@ -62,7 +75,8 @@ flowchart TB
     Core --> Animal
     Core --> Analysis
     Core --> Publication
-    Foundation["foundation"] -. "scope and posture contracts" .-> Publication
+    Architecture["architecture"] -. "scope contracts" .-> Publication
+    Governance["governance"] -. "release posture" .-> Publication
 ```
 
 Coordination does not transfer fact ownership. `command_line/` selects work;
@@ -96,12 +110,12 @@ it happens to read or write:
 
 | Invariant | Owning boundary |
 | --- | --- |
-| an upstream member is acquired with recoverable identity and bytes | `data_downloader/` or `adna/sources/` |
+| an upstream member is acquired with recoverable identity and bytes | `collection/` or `adna/sources/` |
 | a sample, place, chronology, coordinate, or relation retains scientific meaning | `adna/` and its evidence contracts |
 | a record supports a declared use or remains qualified | `evidence/` |
 | a declared population is ranked under explicit features and scenarios | `analysis/` |
 | admitted members form a coherent geographic or purpose-specific product | `reporting/` |
-| a product claim remains inside the implemented and releasable boundary | `foundation/` |
+| a product claim remains inside the implemented and releasable boundary | `architecture/` and `governance/` |
 
 For example, GeoJSON serialization is a mechanical concern, coordinate
 precision is an evidence concern, geographic admission is a product concern,
@@ -116,7 +130,7 @@ flowchart LR
     Sources["adna/sources"] --> Projects["adna/projects"]
     Projects --> Species["adna/species"]
     Species --> Fitness["evidence"]
-    Fitness --> Review["analysis/review"]
+    Fitness --> Review["analysis/review/fieldwork"]
     Fitness --> Reports["reporting"]
     Review --> Reports
 ```
@@ -149,10 +163,10 @@ Start from the observable surface and move inward:
 | Observation | First owner | Continue with |
 | --- | --- | --- |
 | command option or exit | `command_line/` | resolved handler, then the invoked domain API |
-| collected family file | `data_downloader/` | family source adapter, normalization, and export contract |
+| collected family file | `collection/` | family source adapter, normalization, and export contract |
 | animal sample claim | `adna/` | project, paper, sample, locality, chronology, and coordinate evidence |
 | evidence qualification | `evidence/` | governing record and target product rule |
-| ranking or sensitivity result | `analysis/review/` | declared inputs, scenarios, and stability output |
+| ranking or sensitivity result | `analysis/fieldwork/` | declared inputs, scenarios, and stability output |
 | bundle member or map feature | `reporting/` | manifest, admission decision, evidence row, and source identity |
 
 This route follows ownership instead of filename similarity. It is the safest
@@ -166,12 +180,12 @@ the earliest decision that is wrong and correct it there:
 
 | Observed mismatch | Owning correction | Downstream consequence |
 | --- | --- | --- |
-| source version, retrieval URL, or payload hash is wrong | `data_downloader/` capture and family contract | normalize again, then rebuild affected evidence and products |
+| source version, retrieval URL, or payload hash is wrong | `collection/` capture and family contract | normalize again, then rebuild affected evidence and products |
 | recovered animal identifier, locality, chronology, or coordinate is wrong | `adna/` project or sample evidence | review admission again before republishing |
 | evidence role or fitness posture is wrong | `evidence/` and its product rule | regenerate review and every product that consumes the decision |
-| ranking changes under the wrong scenario or interval rule | `analysis/review/` | regenerate ranking, sensitivity, and fieldwork-preparation packets |
+| ranking changes under the wrong scenario or interval rule | `analysis/fieldwork/` | regenerate ranking, sensitivity, and fieldwork-preparation packets |
 | correct evidence is selected but serialized or rendered incorrectly | `reporting/` | rebuild the affected bundle without rewriting upstream evidence |
-| public release wording overstates a governed result | the release-posture producer in `foundation/` or the owning report builder | regenerate the gate or review surface; do not patch generated prose |
+| public release wording overstates a governed result | the release-posture producer in `governance/` or the owning report builder | regenerate the gate or review surface; do not patch generated prose |
 
 ```mermaid
 flowchart LR

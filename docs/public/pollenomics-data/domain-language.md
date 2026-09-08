@@ -99,12 +99,11 @@ their observation units, precision, or inferential strength equivalent.
 
 Every count should therefore read as a typed statement, for example:
 
-> 234 animal sample rows admitted to the exact-or-qualified point product under
-> the checked-in review contract.
+> 170 animal locality features, representing 331 distinct admitted samples,
+> published under the checked-in point-product contract.
 
-That wording is stronger than “234 records” because it names the observation
-unit, decision, product, and governing snapshot without implying complete
-source recovery.
+That wording names both observation units, the decision, the product, and the
+governing snapshot without implying complete source recovery.
 
 ## False Equivalences To Refuse
 

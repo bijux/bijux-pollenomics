@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from ....core.geojson import JsonObject, as_mapping
+from ....core.geospatial.geojson import JsonObject, as_mapping
 from ..time import extract_layer_identity, feature_has_time, validate_feature_collection
 from .shared import POLYGON_LAYER_METADATA, POLYGON_LAYER_STYLES
 

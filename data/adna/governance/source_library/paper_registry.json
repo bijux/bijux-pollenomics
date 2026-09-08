@@ -20,16 +20,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 7,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
       "sample_table_extraction_status": "project_sample_master_published",
       "evidence_acquisition_state": "sample_tables_published",
-      "expected_supplementary_file_families": [
-        "xlsx_table"
-      ],
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
         "adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc2.xlsx",
@@ -88,17 +86,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 4,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
       "sample_table_extraction_status": "project_sample_master_published",
       "evidence_acquisition_state": "sample_tables_published",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc1.pdf",
         "adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc2.xlsx",
@@ -145,17 +140,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 8,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
-      "sample_table_extraction_status": "published_empty",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
+      "sample_table_extraction_status": "project_sample_master_published",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc1.pdf",
         "adna/governance/source_library/papers/10.1016-j.xgen.2025.101099/supplementary/1-s2.0-S2666979X25003556-mmc2.pdf",
@@ -220,16 +212,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 2,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
       "sample_table_extraction_status": "project_sample_master_published",
       "evidence_acquisition_state": "sample_tables_published",
-      "expected_supplementary_file_families": [
-        "pdf_appendix"
-      ],
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM109_ESM.pdf",
         "adna/governance/source_library/papers/10.1038-ncomms16082/supplementary/41467_2017_BFncomms16082_MOESM110_ESM.pdf"
@@ -268,17 +258,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 4,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
-      "sample_table_extraction_status": "published_empty",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
+      "sample_table_extraction_status": "project_sample_master_published",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf",
         "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM2_ESM.pdf",
@@ -325,18 +312,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 5,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
       "sample_table_extraction_status": "project_sample_master_published",
       "evidence_acquisition_state": "sample_tables_published",
-      "expected_supplementary_file_families": [
-        "image_appendix",
-        "pdf_appendix",
-        "xlsx_table"
-      ],
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM1_ESM.pdf",
         "adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM2_ESM.pdf",
@@ -387,17 +370,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 4,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
-      "sample_table_extraction_status": "published_empty",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
+      "sample_table_extraction_status": "project_sample_master_published",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM1_ESM.pdf",
         "adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM2_ESM.pdf",
@@ -444,16 +424,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 1,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
       "sample_table_extraction_status": "project_sample_master_published",
       "evidence_acquisition_state": "sample_tables_published",
-      "expected_supplementary_file_families": [
-        "pdf_appendix"
-      ],
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf"
       ],
@@ -488,8 +466,8 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "zip_member_inventory_published",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 5,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
@@ -497,8 +475,6 @@
       "evidence_acquisition_state": "sample_tables_published",
       "expected_supplementary_file_families": [
         "pdf_appendix",
-        "tree_payload",
-        "xlsx_table",
         "zip_bundle"
       ],
       "expected_supplementary_artifacts": [
@@ -551,17 +527,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 3,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
-      "sample_table_extraction_status": "published_empty",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
+      "sample_table_extraction_status": "project_sample_master_published",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf",
         "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
@@ -604,17 +577,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 2,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
-      "sample_table_extraction_status": "published_empty",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
+      "sample_table_extraction_status": "project_sample_master_published",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/Supplementary Figures Baltic Sheep.pdf",
         "adna/governance/source_library/papers/10.1093-gbe-evae114/supplementary/SupplementaryTables_Revision2.xlsx"
@@ -653,17 +623,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 2,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
       "sample_table_extraction_status": "project_sample_master_published",
       "evidence_acquisition_state": "sample_tables_published",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
         "adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_review_Supplementary_Figures_S1-41_NotesS1-7_Goat_Imputation-compressed.pdf"
@@ -703,16 +670,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 1,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
       "sample_table_extraction_status": "project_sample_master_published",
       "evidence_acquisition_state": "sample_tables_published",
-      "expected_supplementary_file_families": [
-        "docx_appendix"
-      ],
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
       ],
@@ -747,17 +712,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 6,
       "parsing_status": "full_paper_download_blocked",
       "sample_extractability": "supplement_extractable",
       "sample_table_extraction_status": "project_sample_master_published",
       "evidence_acquisition_state": "sample_tables_published",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/aam5298_librado.sm.pdf",
         "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables27.xlsx",
@@ -812,17 +774,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 12,
       "parsing_status": "full_paper_download_blocked",
       "sample_extractability": "supplement_extractable",
       "sample_table_extraction_status": "project_sample_master_published",
       "evidence_acquisition_state": "sample_tables_published",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_gaunitz_sm.pdf",
         "adna/governance/source_library/papers/10.1126-science.aao3297/supplementary/aao3297_tables10.xls",
@@ -901,16 +860,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 1,
       "parsing_status": "full_paper_download_blocked",
       "sample_extractability": "supplement_extractable",
-      "sample_table_extraction_status": "published_empty",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
-      "expected_supplementary_file_families": [
-        "pdf_appendix"
-      ],
+      "sample_table_extraction_status": "project_sample_master_published",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1126-science.aav1002/supplementary/aav1002_verdugo_sm.pdf"
       ],
@@ -945,17 +902,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "zip_member_inventory_published",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 3,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
-      "sample_table_extraction_status": "published_empty",
-      "evidence_acquisition_state": "repository_supplement_captured_needs_extraction",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "zip_bundle"
-      ],
+      "sample_table_extraction_status": "project_sample_master_published",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_mdar_reproducibility_checklist.pdf",
         "adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_sm.pdf",
@@ -998,17 +952,14 @@
       "supplementary_download_status": "archived",
       "supplement_parse_status": "repository_supplement_archived",
       "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "local_reference_staged",
-      "local_reference_supplement_status": "local_reference_staged",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
       "supplementary_count": 2,
       "parsing_status": "ready_for_project_sample_extraction",
       "sample_extractability": "supplement_extractable",
       "sample_table_extraction_status": "project_sample_master_published",
       "evidence_acquisition_state": "sample_tables_published",
-      "expected_supplementary_file_families": [
-        "pdf_appendix",
-        "xlsx_table"
-      ],
+      "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
         "adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/ZR-2025-080-Supplementary Materials.pdf"

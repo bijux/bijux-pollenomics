@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-08-01
 ---
 
 # SMHI SVAR
@@ -26,25 +26,36 @@ source families even when they contribute to a lake ranking.
 | source surface | `https://vattenwebb.smhi.se/svarwebb/` |
 | acquisition interface | WFS `lakes` type |
 | capture date | `2026-06-22` |
-| matched lakes | 40,565 |
-| normalized count reported by the capture | 40,565 |
-| publication layer key | `svar-lakes` |
+| authority status | refused |
+| admitted lake denominator | unavailable |
+| source-reported count | retained in the capture receipt, not admitted as a governed denominator |
+| publication layer key | withheld until authority admission |
 | temporal posture | no time dimension |
 
-The count describes registry members in the governed capture. It is not a
-count of palaeolakes, sampled basins, accessible sites, or viable coring
-locations.
+SVAR authority is refused because the governing normalized registry is absent.
+This unavailable governed denominator is not a claim of zero lakes or zero
+scientific relevance. It prevents source-reported summary counts from being
+promoted into current analytical or publication coverage.
 
 ## Shipped And Declared Surfaces
 
 The source-family contract declares a normalized registry at
 `data/svar/normalized/sweden_lake_registry.geojson`. The current repository
-snapshot does not ship that file. It ships:
+snapshot does not ship that complete registry file. It ships:
 
 - `data/svar/raw/svar_lake_registry_manifest.json`, which records source,
   interface, acquisition date, and matched and normalized counts; and
-- `data/svar/normalized/svar_summary.json`, which records the 40,565-member
-  count and `svar-lakes` layer identity.
+- `data/svar/normalized/svar_summary.json`, which retains a source-reported
+  count and `svar-lakes` layer identity without establishing current authority;
+  and
+- `data/svar/review/sweden_lake_candidate_registry.geojson`, a compact
+  evidence-linked review registry with 99 unique official lakes, mapped areas,
+  stable identities, and sampling-readiness gaps.
+
+The compact review registry contains 96 evidence-linked official lakes plus
+the official matches for four named southern Sweden targets; overlap between
+those sets produces 99 unique members. It is deliberately a review surface,
+not a misleading partial replacement for the complete normalized registry.
 
 Published Sweden ranking tables retain member-level SVAR identifiers,
 representative coordinates, source URLs, name diagnostics, water identities,
@@ -54,18 +65,20 @@ complete normalized registry.
 
 ```mermaid
 flowchart LR
-    WFS["SMHI SVAR WFS"] --> Capture["capture manifest<br/>40,565 matched lakes"]
+    WFS["SMHI SVAR WFS"] --> Capture["capture manifest<br/>source-reported count"]
     WFS --> Registry["declared normalized registry"]
     Capture --> Summary["checked-in count summary"]
-    Registry --> Candidate["stable lake candidate identity"]
+    Registry --> Authority["authority admission"]
+    Authority --> Review["99-lake evidence-linked review registry"]
+    Review --> Candidate["stable lake candidate identity"]
     Candidate --> Ranking["Sweden ranking and sensitivity products"]
     Ranking --> FieldReview["identity, basin, access, permit, and field review"]
 ```
 
-The trust boundary is explicit: the manifest and summary establish
-source-scale counts, while a published candidate row
-establishes the identity retained for that product. Neither establishes the
-unpublished members of the absent normalized registry file.
+The trust boundary is explicit: the manifest and summary preserve a historical
+source-reported count, while the compact registry establishes only its 99
+reviewed members. Neither establishes the absent complete normalized registry
+or authorizes a source-wide SVAR publication denominator.
 
 ## Lake Identity Contract
 
@@ -150,6 +163,8 @@ to “the lake.”
 - `data/svar/raw/svar_lake_registry_manifest.json` governs capture identity and
   source-scale counts;
 - `data/svar/normalized/svar_summary.json` governs the checked-in summary;
+- `data/svar/review/sweden_lake_candidate_registry.geojson` governs the
+  evidence-linked candidate population, mapped areas, and sampling gaps;
 - `data/source_family_contracts.json` declares lifecycle ownership;
 - `data/source_spatiotemporal_posture_registry.json` declares sampling-domain,
   distance, and no-time postures; and

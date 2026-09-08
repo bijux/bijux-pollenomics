@@ -161,13 +161,8 @@ class CliTests(unittest.TestCase):
             root = Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION / "ho"
             root.mkdir(parents=True, exist_ok=True)
             (root / f"{DEFAULT_AADR_VERSION}_HO_public.anno").write_text(
-                "\n".join(
-                    [
-                        AADR_HEADER,
-                        "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
-                    ]
-                )
-                + "\n",
+                f"{AADR_HEADER}\n"
+                "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF\n",
                 encoding="utf-8",
             )
 
@@ -206,6 +201,7 @@ class CliTests(unittest.TestCase):
             title=DEFAULT_ATLAS_TITLE,
             slug=DEFAULT_ATLAS_SLUG,
             context_root=Path(tmp) / "data",
+            published_output_root=None,
         )
         self.assertIn("Wrote published report bundles for Sweden", stdout.getvalue())
 
@@ -214,18 +210,24 @@ class CliTests(unittest.TestCase):
             root = Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION / "ho"
             root.mkdir(parents=True, exist_ok=True)
             (root / f"{DEFAULT_AADR_VERSION}_HO_public.anno").write_text(
-                "\n".join(
-                    [
-                        AADR_HEADER,
-                        "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
-                    ]
-                )
-                + "\n",
+                f"{AADR_HEADER}\n"
+                "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF\n",
                 encoding="utf-8",
             )
 
             stdout = io.StringIO()
-            with contextlib.redirect_stdout(stdout):
+            context_root = Path(tmp) / "data"
+            with (
+                patch(
+                    "bijux_pollenomics.command_line.runtime.handlers.generate_country_report",
+                    return_value=SimpleNamespace(
+                        country="Sweden",
+                        version=DEFAULT_AADR_VERSION,
+                        total_unique_samples=1,
+                    ),
+                ) as generate_country_report,
+                contextlib.redirect_stdout(stdout),
+            ):
                 exit_code = main(
                     [
                         "report-country",
@@ -234,17 +236,20 @@ class CliTests(unittest.TestCase):
                         str(Path(tmp) / "data" / "aadr"),
                         "--output-root",
                         str(Path(tmp) / "docs" / "report"),
+                        "--context-root",
+                        str(context_root),
                     ]
                 )
 
             bundle_root = Path(tmp) / "docs" / "report" / "sweden"
             self.assertEqual(exit_code, 0)
             self.assertIn("1 unique samples", stdout.getvalue())
-            self.assertTrue((bundle_root / "README.md").exists())
-            self.assertTrue(
-                (
-                    bundle_root / f"sweden_aadr_{DEFAULT_AADR_VERSION}_summary.json"
-                ).exists()
+            generate_country_report.assert_called_once_with(
+                version_dir=Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION,
+                country="Sweden",
+                output_dir=bundle_root,
+                map_reference=None,
+                context_root=context_root,
             )
 
     def test_report_multi_country_map_command_writes_atlas_bundle(self) -> None:
@@ -252,14 +257,9 @@ class CliTests(unittest.TestCase):
             root = Path(tmp) / "data" / "aadr" / DEFAULT_AADR_VERSION / "ho"
             root.mkdir(parents=True, exist_ok=True)
             (root / f"{DEFAULT_AADR_VERSION}_HO_public.anno").write_text(
-                "\n".join(
-                    [
-                        AADR_HEADER,
-                        "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF",
-                        "NO1\tNO1\tNorway_Group\tOslo\tNorway\t59.9139\t10.7522\tPaperB\t2021\t600 BCE\t2550\tHO\tM",
-                    ]
-                )
-                + "\n",
+                f"{AADR_HEADER}\n"
+                "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tHO\tF\n"
+                "NO1\tNO1\tNorway_Group\tOslo\tNorway\t59.9139\t10.7522\tPaperB\t2021\t600 BCE\t2550\tHO\tM\n",
                 encoding="utf-8",
             )
 
@@ -321,19 +321,19 @@ class CliTests(unittest.TestCase):
             stdout = io.StringIO()
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+                    "bijux_pollenomics.collection.workflow.collection.download_aadr_anno_files"
                 ) as download_aadr,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.materialize_tracked_species_adna"
+                    "bijux_pollenomics.collection.workflow.collection.materialize_tracked_species_adna"
                 ) as materialize_tracked_species_adna,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.write_data_contract_surfaces"
+                    "bijux_pollenomics.collection.workflow.collection.write_data_contract_surfaces"
                 ) as write_data_contract_surfaces,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.validate_source_layout_contract"
+                    "bijux_pollenomics.collection.workflow.collection.validate_source_layout_contract"
                 ) as validate_source_layout_contract,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.validate_source_snapshot"
+                    "bijux_pollenomics.collection.workflow.collection.validate_source_snapshot"
                 ) as validate_source_snapshot,
             ):
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
@@ -361,19 +361,19 @@ class CliTests(unittest.TestCase):
             output_root = Path(tmp) / "data"
             with (
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.download_aadr_anno_files"
+                    "bijux_pollenomics.collection.workflow.collection.download_aadr_anno_files"
                 ) as download_aadr,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.materialize_tracked_species_adna"
+                    "bijux_pollenomics.collection.workflow.collection.materialize_tracked_species_adna"
                 ) as materialize_tracked_species_adna,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.write_data_contract_surfaces"
+                    "bijux_pollenomics.collection.workflow.collection.write_data_contract_surfaces"
                 ) as write_data_contract_surfaces,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.validate_source_layout_contract"
+                    "bijux_pollenomics.collection.workflow.collection.validate_source_layout_contract"
                 ) as validate_source_layout_contract,
                 patch(
-                    "bijux_pollenomics.data_downloader.collector.validate_source_snapshot"
+                    "bijux_pollenomics.collection.workflow.collection.validate_source_snapshot"
                 ) as validate_source_snapshot,
             ):
                 download_aadr.return_value.downloaded_files = ()

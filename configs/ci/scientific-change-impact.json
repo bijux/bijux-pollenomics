@@ -1,0 +1,248 @@
+{
+  "schema_version": "scientific-change-impact.v1",
+  "unknown_path_policy": "all_declared_gates",
+  "gate_order": [
+    "path-selection",
+    "science",
+    "data",
+    "rebuild",
+    "provenance",
+    "doc-counts",
+    "map"
+  ],
+  "gates": {
+    "path-selection": {
+      "availability": "available",
+      "target": "focused path-selection contract test"
+    },
+    "science": {
+      "availability": "available",
+      "target": "verify-science"
+    },
+    "data": {
+      "availability": "available",
+      "target": "verify-data"
+    },
+    "rebuild": {
+      "availability": "available",
+      "target": "verify-rebuild"
+    },
+    "provenance": {
+      "availability": "available",
+      "target": "verify-provenance"
+    },
+    "doc-counts": {
+      "availability": "available",
+      "target": "verify-doc-counts"
+    },
+    "map": {
+      "availability": "available",
+      "target": "verify-map"
+    }
+  },
+  "surfaces": [
+    {
+      "id": "raw-data-and-receipts",
+      "paths": [
+        "data/**/raw/**",
+        "data/**/receipts/**"
+      ],
+      "gates": [
+        "path-selection",
+        "science",
+        "data",
+        "rebuild",
+        "provenance",
+        "doc-counts",
+        "map"
+      ]
+    },
+    {
+      "id": "normalized-derived-and-review-data",
+      "paths": [
+        "data/**/normalized/**",
+        "data/**/derived/**",
+        "data/**/review/**"
+      ],
+      "gates": [
+        "path-selection",
+        "science",
+        "data",
+        "rebuild",
+        "provenance",
+        "doc-counts",
+        "map"
+      ]
+    },
+    {
+      "id": "governed-data",
+      "paths": [
+        "data/**"
+      ],
+      "gates": [
+        "path-selection",
+        "science",
+        "data",
+        "rebuild",
+        "provenance",
+        "doc-counts",
+        "map"
+      ]
+    },
+    {
+      "id": "source-adapters-and-normalizers",
+      "paths": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/**",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/adna/**"
+      ],
+      "gates": [
+        "path-selection",
+        "science",
+        "data",
+        "rebuild",
+        "provenance",
+        "doc-counts",
+        "map"
+      ]
+    },
+    {
+      "id": "temporal-and-spatial-core",
+      "paths": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/**",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/**",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/**"
+      ],
+      "gates": [
+        "path-selection",
+        "science",
+        "data",
+        "rebuild",
+        "provenance",
+        "doc-counts",
+        "map"
+      ]
+    },
+    {
+      "id": "taxon-group-role-classification",
+      "paths": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/classification/**",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/classification/events",
+        "data/**/*crosswalk*",
+        "data/**/*classification*"
+      ],
+      "gates": [
+        "path-selection",
+        "science",
+        "data",
+        "rebuild",
+        "provenance",
+        "doc-counts",
+        "map"
+      ]
+    },
+    {
+      "id": "scientific-scenarios-and-configuration",
+      "paths": [
+        "configs/science/**",
+        "configs/**/*scenario*",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/**/*scenario*.py",
+        "data/**/*scenario*"
+      ],
+      "gates": [
+        "path-selection",
+        "science",
+        "data",
+        "rebuild",
+        "provenance",
+        "doc-counts",
+        "map"
+      ]
+    },
+    {
+      "id": "country-boundaries-and-scope",
+      "paths": [
+        "data/boundaries/**",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/boundaries/collection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/geography.py"
+      ],
+      "gates": [
+        "path-selection",
+        "science",
+        "data",
+        "rebuild",
+        "provenance",
+        "doc-counts",
+        "map"
+      ]
+    },
+    {
+      "id": "map-payload-template-and-provider",
+      "paths": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/**",
+        "docs/report/**/*map*",
+        "docs/report/**/_map_assets/**"
+      ],
+      "gates": [
+        "path-selection",
+        "science",
+        "data",
+        "rebuild",
+        "provenance",
+        "doc-counts",
+        "map"
+      ]
+    },
+    {
+      "id": "evidence-contracts-and-manifests",
+      "paths": [
+        "data/evidence_artifact_contracts.json",
+        "data/source_fact_ownership_registry.json",
+        "data/source_family_contracts.json",
+        "data/source_family_evidence_stage_matrix.json",
+        "data/source_spatiotemporal_posture_registry.json",
+        "configs/release_evidence_policy.json",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/scientific_evidence.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/**"
+      ],
+      "gates": [
+        "path-selection",
+        "science",
+        "data",
+        "rebuild",
+        "provenance",
+        "doc-counts",
+        "map"
+      ]
+    },
+    {
+      "id": "documentation-counts-and-claims",
+      "paths": [
+        "docs/**",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/repository_truth/**",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/**"
+      ],
+      "gates": [
+        "path-selection",
+        "rebuild",
+        "provenance",
+        "doc-counts",
+        "map"
+      ]
+    },
+    {
+      "id": "ci-change-impact-contract",
+      "paths": [
+        ".github/workflows/scientific-verification.yml",
+        "configs/ci/**",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/**",
+        "packages/bijux-pollenomics-dev/tests/test_reproducible_report_build.py",
+        "packages/bijux-pollenomics-dev/tests/test_scientific_change_impact.py",
+        "makes/pollenomics-verification.mk"
+      ],
+      "gates": [
+        "path-selection",
+        "rebuild"
+      ]
+    }
+  ]
+}

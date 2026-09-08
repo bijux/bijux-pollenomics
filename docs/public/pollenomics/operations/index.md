@@ -33,6 +33,7 @@ flowchart LR
 | inspection | `product-scope`, `source-support`, `adna-species-review` | no | prints current contracts or evidence posture |
 | validation | `validate-collection-summary` | no | accepts or rejects an existing summary without recollection |
 | collection | `collect-data` | normally yes | captures and normalizes selected source families under a data root |
+| source accountability | `refresh-aadr-source-accountability` | no | reconciles tracked AADR panels into a compact, non-admitting review receipt |
 | contract materialization | `refresh-data-contract-surfaces` | no | derives collection contracts from the current data tree |
 | publication | country, multi-country, and complete report commands | no when inputs are local | writes scoped products beneath a report root |
 | animal foundation refresh | `refresh-animal-adna-foundation` | may use the network | refreshes linked animal evidence and its dependent publications |

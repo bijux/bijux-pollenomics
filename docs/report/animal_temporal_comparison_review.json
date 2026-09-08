@@ -5,25 +5,33 @@
     {
       "family_key": "animal_adna",
       "display_name": "Animal aDNA chronology",
-      "row_count": 868,
+      "row_count": 1455,
       "comparability_counts": {
-        "unresolved": 16,
-        "numeric_interval": 715,
-        "numeric_interval_with_caveat": 137
+        "numeric_interval": 774,
+        "unresolved": 425,
+        "numeric_interval_with_caveat": 120,
+        "contextual_label_only": 136
       },
       "comparison_policy": "Animal rows only support interval comparison when sample-owned chronology survives publication without false precision."
     },
     {
       "family_key": "sead_context",
       "display_name": "SEAD archaeology context",
-      "row_count": 2195,
+      "row_count": 2069,
       "comparability_counts": {
-        "unresolved": 2195
+        "unresolved": 1217,
+        "mixed_interval_and_context": 476,
+        "numeric_interval": 143,
+        "numeric_interval_with_caveat": 231,
+        "contextual_label_only": 2
       },
       "comparison_policy": "SEAD rows remain site-level archaeology context even when numeric spans are available."
     }
   ],
-  "unsafe_comparison_findings": [],
+  "unsafe_comparison_findings": [
+    "Animal broad-period chronology rows remain visible in governance outputs and must not be treated as sample-owned numeric dates.",
+    "SEAD rows that mix numeric spans with cultural or geologic labels remain contextual archaeology evidence, not direct event dates."
+  ],
   "published_feature_guard_findings": [],
   "direct_links": {
     "animal_provenance_review": "data/adna/governance/source_library/sample_chronology_provenance_review.json",

@@ -30,8 +30,8 @@
     {
       "project_accession": "PRJEB31613",
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 244,
-      "direct_sample_site_count": 244,
+      "recovered_sample_row_count": 245,
+      "direct_sample_site_count": 245,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
@@ -43,15 +43,17 @@
     {
       "project_accession": "PRJEB19970",
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 14,
-      "direct_sample_site_count": 14,
+      "recovered_sample_row_count": 15,
+      "direct_sample_site_count": 13,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
       "region_only_count": 0,
-      "unresolved_count": 0,
-      "lacking_defensible_site_assignment_count": 0,
-      "missing_reasons": []
+      "unresolved_count": 2,
+      "lacking_defensible_site_assignment_count": 2,
+      "missing_reasons": [
+        "unresolved"
+      ]
     },
     {
       "project_accession": "PRJEB56293",
@@ -121,21 +123,23 @@
     {
       "project_accession": "PRJEB41594",
       "species_latin_name": "Ovis aries",
-      "recovered_sample_row_count": 0,
+      "recovered_sample_row_count": 5,
       "direct_sample_site_count": 0,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
       "region_only_count": 0,
-      "unresolved_count": 0,
-      "lacking_defensible_site_assignment_count": 0,
-      "missing_reasons": []
+      "unresolved_count": 5,
+      "lacking_defensible_site_assignment_count": 5,
+      "missing_reasons": [
+        "unresolved"
+      ]
     },
     {
       "project_accession": "PRJEB59481",
       "species_latin_name": "Ovis aries",
-      "recovered_sample_row_count": 0,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 5,
+      "direct_sample_site_count": 5,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
@@ -186,15 +190,17 @@
     {
       "project_accession": "PRJEB30282",
       "species_latin_name": "Sus scrofa domesticus",
-      "recovered_sample_row_count": 0,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 343,
+      "direct_sample_site_count": 320,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
       "region_only_count": 0,
-      "unresolved_count": 0,
-      "lacking_defensible_site_assignment_count": 0,
-      "missing_reasons": []
+      "unresolved_count": 23,
+      "lacking_defensible_site_assignment_count": 23,
+      "missing_reasons": [
+        "unresolved"
+      ]
     },
     {
       "project_accession": "PRJNA788987",
@@ -238,28 +244,32 @@
     {
       "project_accession": "PRJEB31621",
       "species_latin_name": "Bos taurus",
-      "recovered_sample_row_count": 0,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 78,
+      "direct_sample_site_count": 66,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
       "region_only_count": 0,
-      "unresolved_count": 0,
-      "lacking_defensible_site_assignment_count": 0,
-      "missing_reasons": []
+      "unresolved_count": 12,
+      "lacking_defensible_site_assignment_count": 12,
+      "missing_reasons": [
+        "unresolved"
+      ]
     },
     {
       "project_accession": "PRJEB75467",
       "species_latin_name": "Bos taurus",
-      "recovered_sample_row_count": 0,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 45,
+      "direct_sample_site_count": 35,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
       "region_only_count": 0,
-      "unresolved_count": 0,
-      "lacking_defensible_site_assignment_count": 0,
-      "missing_reasons": []
+      "unresolved_count": 10,
+      "lacking_defensible_site_assignment_count": 10,
+      "missing_reasons": [
+        "unresolved"
+      ]
     },
     {
       "project_accession": "PRJNA705960",
@@ -269,11 +279,11 @@
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
-      "region_only_count": 11,
-      "unresolved_count": 0,
+      "region_only_count": 0,
+      "unresolved_count": 11,
       "lacking_defensible_site_assignment_count": 11,
       "missing_reasons": [
-        "region_only"
+        "unresolved"
       ]
     },
     {
@@ -318,21 +328,23 @@
     {
       "project_accession": "PRJEB81815",
       "species_latin_name": "Felis catus",
-      "recovered_sample_row_count": 0,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 87,
+      "direct_sample_site_count": 84,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
       "region_only_count": 0,
-      "unresolved_count": 0,
-      "lacking_defensible_site_assignment_count": 0,
-      "missing_reasons": []
+      "unresolved_count": 3,
+      "lacking_defensible_site_assignment_count": 3,
+      "missing_reasons": [
+        "unresolved"
+      ]
     },
     {
       "project_accession": "PRJNA1178732",
       "species_latin_name": "Felis catus",
-      "recovered_sample_row_count": 0,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 22,
+      "direct_sample_site_count": 22,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
@@ -349,21 +361,6 @@
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
-      "region_only_count": 1,
-      "unresolved_count": 0,
-      "lacking_defensible_site_assignment_count": 1,
-      "missing_reasons": [
-        "region_only"
-      ]
-    },
-    {
-      "project_accession": "SRS1407453",
-      "species_latin_name": "Canis lupus familiaris",
-      "recovered_sample_row_count": 1,
-      "direct_sample_site_count": 0,
-      "sample_group_site_count": 0,
-      "project_level_site_only_count": 0,
-      "named_place_inferred_count": 0,
       "region_only_count": 0,
       "unresolved_count": 1,
       "lacking_defensible_site_assignment_count": 1,
@@ -372,19 +369,30 @@
       ]
     },
     {
-      "project_accession": "KX379528-KX379529",
+      "project_accession": "SRS1407453",
       "species_latin_name": "Canis lupus familiaris",
-      "recovered_sample_row_count": 2,
-      "direct_sample_site_count": 0,
+      "recovered_sample_row_count": 1,
+      "direct_sample_site_count": 1,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
       "region_only_count": 0,
-      "unresolved_count": 2,
-      "lacking_defensible_site_assignment_count": 2,
-      "missing_reasons": [
-        "unresolved"
-      ]
+      "unresolved_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_reasons": []
+    },
+    {
+      "project_accession": "KX379528-KX379529",
+      "species_latin_name": "Canis lupus familiaris",
+      "recovered_sample_row_count": 2,
+      "direct_sample_site_count": 2,
+      "sample_group_site_count": 0,
+      "project_level_site_only_count": 0,
+      "named_place_inferred_count": 0,
+      "region_only_count": 0,
+      "unresolved_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_reasons": []
     },
     {
       "project_accession": "SRP073444",
@@ -403,16 +411,14 @@
       "project_accession": "KU605068-KU605080",
       "species_latin_name": "Camelus dromedarius",
       "recovered_sample_row_count": 13,
-      "direct_sample_site_count": 0,
+      "direct_sample_site_count": 13,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
       "region_only_count": 0,
-      "unresolved_count": 13,
-      "lacking_defensible_site_assignment_count": 13,
-      "missing_reasons": [
-        "unresolved"
-      ]
+      "unresolved_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_reasons": []
     },
     {
       "project_accession": "PRJEB50952",
@@ -487,11 +493,11 @@
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
-      "region_only_count": 20,
-      "unresolved_count": 0,
+      "region_only_count": 0,
+      "unresolved_count": 20,
       "lacking_defensible_site_assignment_count": 20,
       "missing_reasons": [
-        "region_only"
+        "unresolved"
       ]
     },
     {

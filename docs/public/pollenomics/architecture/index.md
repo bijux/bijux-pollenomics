@@ -19,11 +19,11 @@ that can be inspected without trusting the final rendering.
 
 ```mermaid
 flowchart TB
-    CLI["command_line\nparse and dispatch"] --> Collect["data_downloader\ncollect source families"]
+    CLI["command_line\nparse and dispatch"] --> Collect["collection\ncollect source families"]
     CLI --> Animal["adna\ncurate animal evidence"]
     Collect --> Data[("tracked data state")]
     Animal --> Data
-    Data --> Evidence["evidence + analysis/review\nevaluate scientific fitness"]
+    Data --> Evidence["evidence + analysis/review/fieldwork\nevaluate scientific fitness"]
     Evidence --> Gate{"publication policy"}
     Gate -->|admit with posture| Reporting["reporting\nassemble and render"]
     Gate -->|refuse or qualify| Reviews["caveats, ledgers, and recovery surfaces"]
@@ -61,12 +61,13 @@ flowchart LR
 | Boundary | Responsibility | Representative outputs |
 | --- | --- | --- |
 | `command_line/` | CLI parsing, subcommand registration, runtime dispatch | exit status and selected action |
-| `data_downloader/` | source acquisition, staging swaps, normalization, hashes, provenance, and source-family contracts | raw and normalized source trees, `collection_summary.json` |
+| `collection/` | source acquisition, staging swaps, normalization, hashes, provenance, and source-family contracts | raw and normalized source trees, `collection_summary.json` |
 | `adna/` | animal project intake, supplement recovery, sample identity, locality, chronology, coordinate provenance, species normalization, and integrity checks | project evidence surfaces and species records |
-| `analysis/review/` | candidate ranking, sensitivity analysis, and review-oriented comparisons | ranking and sensitivity records |
+| `analysis/review/fieldwork/` | candidate ranking, sensitivity analysis, and review-oriented comparisons | ranking and sensitivity records |
 | `evidence/` | atlas evidence rows and scientific review surfaces | evidence tables and fitness assessments |
 | `reporting/` | geography selection, bundle assembly, map documents, reports, and review publication | world, region, country, and lake outputs |
-| `foundation/` | architecture contracts, ownership, repository truth, release posture, and public claim language | release and credibility assessments |
+| `architecture/` | product, ownership, runtime, and repository-structure contracts | stable architectural boundaries |
+| `governance/` | repository truth, release posture, country accountability, and public claim language | release and credibility assessments |
 
 ## Persisted Authority Surfaces
 
@@ -167,7 +168,8 @@ second outcome is a scientific refusal, not a runtime defect.
 Read-only inspection commands stop before state replacement. Commands such as
 `product-scope`, `surface-map`, `ownership-map`, and the animal review commands
 serialize existing contracts or governed state. Materializing commands such as
-`collect-data`, `refresh-data-contract-surfaces`, and `publish-reports` may
+`collect-data`, `refresh-aadr-source-accountability`,
+`refresh-data-contract-surfaces`, and `publish-reports` may
 change an owned tree and therefore require explicit roots and replacement
 semantics. The shared command registry gives both classes one discoverable
 entry point without pretending that they have the same impact.
@@ -193,19 +195,19 @@ its marker appears.
 
 ### The Same Layer Can Carry Different Evidence Units
 
-The animal map demonstrates why ownership cannot be inferred from geometry.
-Two markers can share a layer while resolving through different evidence
-chains:
+The animal map demonstrates why ownership cannot be inferred from available
+geometry. Two evidence records can resolve through different chains and reach
+different publication dispositions:
 
-| Visible member | Evidence unit | Required reverse trace | Permitted claim |
+| Evidence record | Evidence unit | Required reverse trace | Publication disposition |
 | --- | --- | --- | --- |
 | final sample-backed feature | recovered sample | feature → evidence row → final sample identity → supplementary row and coordinate → project capture | qualified sample presence at the recorded locality |
-| Wadi Halfa provisional feature | project context | feature → evidence row → provisional identity → paper-backed named place → project capture | spatial project context at an approximate geocode |
+| Wadi Halfa retained context | project context | readiness row → paper-backed named place → project capture | not published: `no_admitted_sample_backed_locality_candidate` |
 
-`reporting/` is allowed to place both members because the point-class contract
-preserves their difference. It is not allowed to collapse them into one sample
-population. Recovering a source-native Wadi sample would begin in `adna/`, flow
-through `evidence/`, and only then change the published class.
+`reporting/` may place only the admitted sample-backed member. It preserves the
+Wadi context in exclusion and readiness reporting without turning it into map
+geometry. Recovering a source-native Wadi sample would begin in `adna/`, flow
+through `evidence/`, and only then permit reevaluation under the point contract.
 
 ```mermaid
 flowchart TB
@@ -213,8 +215,8 @@ flowchart TB
     SampleRecord --> SampleReview["evidence sample admission"]
     SampleReview --> SamplePoint["reporting final sample-backed feature"]
     PlaceSource["paper-backed named place"] --> ContextRecord["adna provisional project record"]
-    ContextRecord --> ContextReview["evidence context admission"]
-    ContextReview --> ContextPoint["reporting provisional context feature"]
+    ContextRecord --> ContextReview["evidence readiness review"]
+    ContextReview --> Excluded["not materialized without admitted sample-backed locality"]
 ```
 
 ## Architecture References

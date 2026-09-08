@@ -25,7 +25,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -51,33 +51,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
-      "support_gap_note": ""
-    },
-    {
-      "project_accession": "PRJEB19970",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
-      "site_label": "N/A",
-      "political_entity": "N/A",
-      "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc3.xlsx",
-      "source_artifact_kind": "supplementary_spreadsheet_row",
-      "source_locator": "Sheet1!row46 || Sheet1!row75",
-      "exact_source_text": "Connemara_0004A | N/A | modern | N/A | Connemara Pony | N/A | N/A | male | PRJEB19970 | Finno et al. 2015 | 173 | 5.38 || Somali_0226A | N/A | modern | N/A | Somali wild ass | N/A | N/A | female | PRJEB19970 | Jónsson et al. 2014 | 88 | 21.5",
-      "source_support_status": "supplementary_table_row",
-      "paper_doi": "10.1126/science.aam5298",
-      "paper_url": "https://doi.org/10.1126/science.aam5298",
-      "supplementary_source": "",
-      "coordinate_basis": "site_level_localities",
-      "latitude_text": "",
-      "longitude_text": "",
-      "chronology_text": "N/A",
-      "time_start_bp": null,
-      "time_end_bp": null,
-      "dating_basis": "unknown",
-      "comparator_context": false,
-      "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -103,7 +77,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -129,7 +103,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -155,7 +129,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -175,13 +149,13 @@
       "coordinate_basis": "site_level_localities",
       "latitude_text": "",
       "longitude_text": "",
-      "chronology_text": "4974 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -207,7 +181,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -233,7 +207,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -259,7 +233,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -285,7 +259,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -311,7 +285,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -337,7 +311,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -363,7 +337,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -389,7 +363,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -415,7 +389,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -441,7 +415,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -467,7 +441,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -493,7 +467,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -519,7 +493,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -545,7 +519,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -571,7 +545,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -597,7 +571,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -623,7 +597,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -649,7 +623,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -675,7 +649,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -701,7 +675,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -727,7 +701,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -747,13 +721,13 @@
       "coordinate_basis": "site_level_localities",
       "latitude_text": "",
       "longitude_text": "",
-      "chronology_text": "3123 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -779,7 +753,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -805,7 +779,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -825,13 +799,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "50.31503",
       "longitude_text": "2.8217970000000001",
-      "chronology_text": "2143 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -857,7 +831,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -883,7 +857,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -903,13 +877,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "52.058888899999999",
       "longitude_text": "93.603888900000001",
-      "chronology_text": "2727 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -929,13 +903,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "52.058888899999999",
       "longitude_text": "93.603888900000001",
-      "chronology_text": "2617-2667 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -961,7 +935,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -981,13 +955,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "47.536085",
       "longitude_text": "7.7220154000000001",
-      "chronology_text": "1617-1817 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1013,7 +987,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1039,7 +1013,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1065,7 +1039,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1085,13 +1059,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "54.623611099999998",
       "longitude_text": "90.944999999999993",
-      "chronology_text": "3318 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1117,7 +1091,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1143,7 +1117,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1169,7 +1143,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1195,7 +1169,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1221,7 +1195,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1247,7 +1221,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1267,13 +1241,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "52.287303199999997",
       "longitude_text": "76.967402300000003",
-      "chronology_text": "4974 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1293,13 +1267,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "53.303942399999997",
       "longitude_text": "67.645786400000006",
-      "chronology_text": "4692 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1325,7 +1299,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1351,7 +1325,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1371,13 +1345,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "58.964098999999997",
       "longitude_text": "-2.704933",
-      "chronology_text": "1317-1517 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1403,7 +1377,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1429,7 +1403,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1455,7 +1429,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1481,7 +1455,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1507,7 +1481,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1533,7 +1507,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1559,7 +1533,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1585,7 +1559,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1611,7 +1585,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1631,13 +1605,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "39.024444000000003",
       "longitude_text": "-2.0280559999999999",
-      "chronology_text": "4058 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1663,7 +1637,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1689,7 +1663,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1715,7 +1689,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1741,7 +1715,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1767,7 +1741,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1793,7 +1767,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1813,13 +1787,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "48.017777780000003",
       "longitude_text": "101.3533333",
-      "chronology_text": "2007 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1845,7 +1819,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1871,7 +1845,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1897,7 +1871,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1923,7 +1897,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1949,7 +1923,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -1975,7 +1949,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2001,7 +1975,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2027,7 +2001,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2053,7 +2027,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2079,7 +2053,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2105,7 +2079,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2131,7 +2105,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2157,7 +2131,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2183,7 +2157,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2209,7 +2183,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2235,7 +2209,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2255,13 +2229,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "54.896740000000001",
       "longitude_text": "23.872479999999999",
-      "chronology_text": "1087-1189 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2287,7 +2261,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2313,7 +2287,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2339,7 +2313,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2365,7 +2339,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2391,7 +2365,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2411,13 +2385,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "47.966666699999998",
       "longitude_text": "43.643611100000001",
-      "chronology_text": "830 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2443,7 +2417,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2469,7 +2443,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2495,7 +2469,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2521,7 +2495,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2547,7 +2521,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2573,7 +2547,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2599,7 +2573,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2625,7 +2599,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2651,7 +2625,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2677,7 +2651,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2703,7 +2677,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2729,7 +2703,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2749,13 +2723,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "35.961666999999998",
       "longitude_text": "54.037500000000001",
-      "chronology_text": "1557 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2775,13 +2749,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "55.1644419",
       "longitude_text": "61.436843099999997",
-      "chronology_text": "3550-3604 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2801,13 +2775,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "47.2333",
       "longitude_text": "7.5167000000000002",
-      "chronology_text": "1717-1917 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2833,7 +2807,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2853,13 +2827,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "48.583055999999999",
       "longitude_text": "88.393528000000003",
-      "chronology_text": "2317 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2885,7 +2859,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2911,7 +2885,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2931,13 +2905,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "73.046000000000006",
       "longitude_text": "109.708",
-      "chronology_text": "42758 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2957,13 +2931,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "37.004486",
       "longitude_text": "45.458817000000003",
-      "chronology_text": "2417-2287 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -2989,7 +2963,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3015,7 +2989,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3035,13 +3009,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "49.6561667",
       "longitude_text": "99.912205599999993",
-      "chronology_text": "3039-3130 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3067,7 +3041,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3093,7 +3067,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3119,7 +3093,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3139,13 +3113,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "53.193018000000002",
       "longitude_text": "-2.882844",
-      "chronology_text": "117-317 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3165,13 +3139,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "41.005209999999998",
       "longitude_text": "28.951720000000002",
-      "chronology_text": "1289 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3197,7 +3171,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3223,7 +3197,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3231,7 +3205,7 @@
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
       "site_label": "museum specimen",
-      "political_entity": "N/A",
+      "political_entity": null,
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "Sheet1!row170",
@@ -3243,13 +3217,13 @@
       "coordinate_basis": "site_level_localities",
       "latitude_text": "",
       "longitude_text": "",
-      "chronology_text": "89 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3275,7 +3249,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3295,13 +3269,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "38.411227",
       "longitude_text": "33.835694",
-      "chronology_text": "2240 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3321,13 +3295,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "53.974236",
       "longitude_text": "74.884425",
-      "chronology_text": "4724 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3353,7 +3327,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3373,13 +3347,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "35.873429",
       "longitude_text": "8.78621",
-      "chronology_text": "2531 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3399,13 +3373,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "52.066389",
       "longitude_text": "93.5225",
-      "chronology_text": "2804 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3431,7 +3405,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3457,7 +3431,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3477,13 +3451,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "58.410926",
       "longitude_text": "23.016137",
-      "chronology_text": "2611 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3509,7 +3483,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3535,7 +3509,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3555,13 +3529,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "51.52",
       "longitude_text": "62.55",
-      "chronology_text": "4962 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3581,13 +3555,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "51.575646",
       "longitude_text": "64.724468",
-      "chronology_text": "3842 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3613,7 +3587,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3633,13 +3607,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "52.65",
       "longitude_text": "59.566667",
-      "chronology_text": "3818 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3665,7 +3639,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3685,13 +3659,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "51.826192",
       "longitude_text": "77.948253",
-      "chronology_text": "6399 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3711,13 +3685,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "51.824694",
       "longitude_text": "77.945111",
-      "chronology_text": "4911 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3737,13 +3711,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3769,7 +3743,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3795,7 +3769,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3821,7 +3795,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3841,13 +3815,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "51.330592",
       "longitude_text": "1.389657",
-      "chronology_text": "2815 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3873,7 +3847,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3899,7 +3873,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3925,7 +3899,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3945,13 +3919,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "44.12731",
       "longitude_text": "26.4696",
-      "chronology_text": "6247 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3977,7 +3951,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -3989,7 +3963,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "SI Table 1!row26",
-      "exact_source_text": "18ELTu18_Spa_m588 | 38.949334 N, -6.064916 E | El Turuñuelo | Spain | DOM2 | sacrificial level in settlement, Iron Age Tartessos Culture | 208899 | 2460 | 15 | -753 | -423 | 588 | 2538 | M | this study | 1 | 3 | 3 | 134327799 | 29203846 | 163531645 | - | - | - | 47.4390653086 | 1.4292106341099999 | ",
+      "exact_source_text": "18ELTu18_Spa_m588 | 38.949334 N, -6.064916 E | El Turuñuelo | Spain | DOM2 | sacrificial level in settlement, Iron Age Tartessos Culture | 208899 | 2460 | 15 | -753 | -423 | 588 | 2538 | M | this study | 1 | 3 | 3 | 134327799 | 29203846 | 163531645 | - | - | - | 47.4390653086 | 1.4292106341099999 |",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1038/s41586-021-04018-9",
       "paper_url": "https://doi.org/10.1038/s41586-021-04018-9",
@@ -4003,7 +3977,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4023,13 +3997,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "41.57",
       "longitude_text": "0.95",
-      "chronology_text": "2425 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4041,7 +4015,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "SI Table 1!row80",
-      "exact_source_text": "Etiolles4_Fra_m13759 | 48.63324 N, 2.465916 E | Etiolles | France | LP-NFR | Magdalenian site, Bølling-Allerød interstadial period | 218226 | 13100 | 45 | -13922 | -13596 | 13759 | 15709 | F | this study | 2 | 8 | 8 | 636845142 | 49592426 | 686437568 | - | - | - | 200.744577591 | 7.0732214748200004 ",
+      "exact_source_text": "Etiolles4_Fra_m13759 | 48.63324 N, 2.465916 E | Etiolles | France | LP-NFR | Magdalenian site, Bølling-Allerød interstadial period | 218226 | 13100 | 45 | -13922 | -13596 | 13759 | 15709 | F | this study | 2 | 8 | 8 | 636845142 | 49592426 | 686437568 | - | - | - | 200.744577591 | 7.0732214748200004",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1038/s41586-021-04018-9",
       "paper_url": "https://doi.org/10.1038/s41586-021-04018-9",
@@ -4049,13 +4023,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "48.63324",
       "longitude_text": "2.465916",
-      "chronology_text": "15709 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4081,7 +4055,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4101,13 +4075,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "56.41134",
       "longitude_text": "10.74481",
-      "chronology_text": "4961 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4133,7 +4107,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4159,7 +4133,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4179,13 +4153,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "50.06053",
       "longitude_text": "11.104783",
-      "chronology_text": "4629 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4211,7 +4185,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4231,13 +4205,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "51.17025",
       "longitude_text": "82.967972",
-      "chronology_text": ">49900 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4257,13 +4231,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "44.499039",
       "longitude_text": "1.692232",
-      "chronology_text": "20874 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4283,13 +4257,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "52.833333",
       "longitude_text": "60.366667",
-      "chronology_text": "3803 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4315,7 +4289,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4335,13 +4309,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "50.2741",
       "longitude_text": "20.4654",
-      "chronology_text": "3500 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4361,13 +4335,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "49.202561",
       "longitude_text": "75.940728",
-      "chronology_text": "3416 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4393,7 +4367,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4419,7 +4393,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4431,7 +4405,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "SI Table 1!row41",
-      "exact_source_text": "Kan22_Tur_m2386 | 41.721357 N, 27.225306 E | Kirklareli-Kanligecit | Turkey | Kan22 | settlement, Early Bronze Age | 199247 | 3905 | 15 | -2466 | -2306 | 2386 | 4336 | M | this study | 1 | 5 | 5 | 1252124037 | 469098988 | 1721223025 | - | - | - | 645.49346914299997 | 4.0166719450099997 | 1.077E-3 | ",
+      "exact_source_text": "Kan22_Tur_m2386 | 41.721357 N, 27.225306 E | Kirklareli-Kanligecit | Turkey | Kan22 | settlement, Early Bronze Age | 199247 | 3905 | 15 | -2466 | -2306 | 2386 | 4336 | M | this study | 1 | 5 | 5 | 1252124037 | 469098988 | 1721223025 | - | - | - | 645.49346914299997 | 4.0166719450099997 | 1.077E-3 |",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1038/s41586-021-04018-9",
       "paper_url": "https://doi.org/10.1038/s41586-021-04018-9",
@@ -4445,7 +4419,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4471,7 +4445,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4483,7 +4457,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "SI Table 1!row99",
-      "exact_source_text": "Kozhai_Kaz_m3342 | 49.4 N, 66.75 E | Kozhai | Kazakhstan | TERSEK | settlement, Eneolithic Tersek Culture | 199238 | 4585 | 20 | -3492 | -3191 | 3342 | 5292 | M | this study | 2 | 7 | 7 | 1317317179 | 375887236 | 1693204415 | - | - | - | 108.468783703 | 1.6849891251 | 1.127E-3 | 0.94387987889400005 ",
+      "exact_source_text": "Kozhai_Kaz_m3342 | 49.4 N, 66.75 E | Kozhai | Kazakhstan | TERSEK | settlement, Eneolithic Tersek Culture | 199238 | 4585 | 20 | -3492 | -3191 | 3342 | 5292 | M | this study | 2 | 7 | 7 | 1317317179 | 375887236 | 1693204415 | - | - | - | 108.468783703 | 1.6849891251 | 1.127E-3 | 0.94387987889400005",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1038/s41586-021-04018-9",
       "paper_url": "https://doi.org/10.1038/s41586-021-04018-9",
@@ -4491,13 +4465,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "49.4",
       "longitude_text": "66.75",
-      "chronology_text": "5292 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4517,13 +4491,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "51.497056",
       "longitude_text": "85.9745",
-      "chronology_text": "3748 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4549,7 +4523,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4575,7 +4549,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4601,7 +4575,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4627,7 +4601,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4653,7 +4627,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4679,7 +4653,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4705,7 +4679,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4725,13 +4699,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "62.083",
       "longitude_text": "58.083",
-      "chronology_text": "36148 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4757,7 +4731,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4769,7 +4743,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "SI Table 1!row74",
-      "exact_source_text": "Mic2_Mol_m1250 | 47.987105 N, 27.788329 E | Miciurin | Moldova | DOM2 | settlement, Middle/Late Bronze Age, Noua Culture, ~1,500-1,000 BCE | - | - | - | - | - | 1250 | 3200 | M | this study | 1 | 1 | 1 | 16181401 | 1778330 | 17959731 | - | - | - | 12.895446375100001 | 0.23968254782000001 | 1.072E-3 ",
+      "exact_source_text": "Mic2_Mol_m1250 | 47.987105 N, 27.788329 E | Miciurin | Moldova | DOM2 | settlement, Middle/Late Bronze Age, Noua Culture, ~1,500-1,000 BCE | - | - | - | - | - | 1250 | 3200 | M | this study | 1 | 1 | 1 | 16181401 | 1778330 | 17959731 | - | - | - | 12.895446375100001 | 0.23968254782000001 | 1.072E-3",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1038/s41586-021-04018-9",
       "paper_url": "https://doi.org/10.1038/s41586-021-04018-9",
@@ -4777,13 +4751,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "47.987105",
       "longitude_text": "27.788329",
-      "chronology_text": "3200 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4795,7 +4769,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "SI Table 1!row135",
-      "exact_source_text": "PLMie18_Pol_m1483 | 50.35749 N, 20.04609 E | Miechów 3 | Poland | DOM2 | settlement, Eneolithic Funnel Beaker Culture | 218292 | 3230 | 30 | -1541 | -1425 | 1483 | 3433 | M | this study | 1 | 3 | 3 | 446867670 | 103564748 | 550432418 | - | - | - | 492.44541641699999 | 2.5293577804699998 | 9.59E-4 | ",
+      "exact_source_text": "PLMie18_Pol_m1483 | 50.35749 N, 20.04609 E | Miechów 3 | Poland | DOM2 | settlement, Eneolithic Funnel Beaker Culture | 218292 | 3230 | 30 | -1541 | -1425 | 1483 | 3433 | M | this study | 1 | 3 | 3 | 446867670 | 103564748 | 550432418 | - | - | - | 492.44541641699999 | 2.5293577804699998 | 9.59E-4 |",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1038/s41586-021-04018-9",
       "paper_url": "https://doi.org/10.1038/s41586-021-04018-9",
@@ -4803,13 +4777,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "50.35749",
       "longitude_text": "20.04609",
-      "chronology_text": "3433 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4829,13 +4803,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "49.553253",
       "longitude_text": "103.277861",
-      "chronology_text": "3050 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4847,7 +4821,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "SI Table 1!row67",
-      "exact_source_text": "M17x199_Mon_m865 | 46.94125 N, 98.595817 E | Morin Mort | Mongolia | DOM2 | burial site, Iron Age Deer Stone Complex | 190019 | 2725 | 15 | -907 | -822 | 865 | 2815 | F | this study | 1 | 4 | 4 | 42314678 | 10835992 | 53150670 | - | - | - | 37.576033553000002 | 1.26017777668 | 7.7700000000000002E-4 ",
+      "exact_source_text": "M17x199_Mon_m865 | 46.94125 N, 98.595817 E | Morin Mort | Mongolia | DOM2 | burial site, Iron Age Deer Stone Complex | 190019 | 2725 | 15 | -907 | -822 | 865 | 2815 | F | this study | 1 | 4 | 4 | 42314678 | 10835992 | 53150670 | - | - | - | 37.576033553000002 | 1.26017777668 | 7.7700000000000002E-4",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1038/s41586-021-04018-9",
       "paper_url": "https://doi.org/10.1038/s41586-021-04018-9",
@@ -4861,7 +4835,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4881,13 +4855,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "50.44378",
       "longitude_text": "20.51853",
-      "chronology_text": "5455 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4913,7 +4887,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4939,7 +4913,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4959,13 +4933,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "55.466667",
       "longitude_text": "59.45",
-      "chronology_text": "44950 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -4991,7 +4965,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5017,7 +4991,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5029,7 +5003,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "SI Table 1!row240",
-      "exact_source_text": "Nov3x10_Rus_m3443 | 53.546361 N, 79.350056 E | Novoilinka-III | Russia | BOTAI | settlement, Eneolithic | 199241 | 4665 | 20 | -3516 | -3370 | 3443 | 5393 | F | this study | 1 | 4 | 4 | 2604894329 | 446053154 | 3050947483 | - | - | - | 269.27801078499999 | 4.9366489462400001 | 9.2000000000000003E-4 ",
+      "exact_source_text": "Nov3x10_Rus_m3443 | 53.546361 N, 79.350056 E | Novoilinka-III | Russia | BOTAI | settlement, Eneolithic | 199241 | 4665 | 20 | -3516 | -3370 | 3443 | 5393 | F | this study | 1 | 4 | 4 | 2604894329 | 446053154 | 3050947483 | - | - | - | 269.27801078499999 | 4.9366489462400001 | 9.2000000000000003E-4",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1038/s41586-021-04018-9",
       "paper_url": "https://doi.org/10.1038/s41586-021-04018-9",
@@ -5037,13 +5011,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "53.546361",
       "longitude_text": "79.350056",
-      "chronology_text": "5393 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5055,7 +5029,7 @@
       "source_artifact_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "SI Table 1!row242",
-      "exact_source_text": "Nov6x11_Rus_m3217 | 53.546361 N, 79.350056 E | Novoilinka-VI | Russia | BOTAI | settlement, Eneolithic | 224901 | 4485 | 20 | -3340 | -3093 | 3217 | 5167 | F | this study | 1 | 4 | 4 | 126119449 | 41045450 | 167164899 | - | - | - | 75.1270820851 | 1.4296478699199999 | 1.039E-3 | 0.90283402725299999 ",
+      "exact_source_text": "Nov6x11_Rus_m3217 | 53.546361 N, 79.350056 E | Novoilinka-VI | Russia | BOTAI | settlement, Eneolithic | 224901 | 4485 | 20 | -3340 | -3093 | 3217 | 5167 | F | this study | 1 | 4 | 4 | 126119449 | 41045450 | 167164899 | - | - | - | 75.1270820851 | 1.4296478699199999 | 1.039E-3 | 0.90283402725299999",
       "source_support_status": "supplementary_table_row",
       "paper_doi": "10.1038/s41586-021-04018-9",
       "paper_url": "https://doi.org/10.1038/s41586-021-04018-9",
@@ -5063,13 +5037,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "53.546361",
       "longitude_text": "79.350056",
-      "chronology_text": "5167 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5095,7 +5069,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5121,7 +5095,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5141,13 +5115,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "53.44725",
       "longitude_text": "48.942667",
-      "chronology_text": "3746 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5167,13 +5141,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "57.45",
       "longitude_text": "61.45",
-      "chronology_text": "15427 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5199,7 +5173,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5225,7 +5199,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5245,13 +5219,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "53.658",
       "longitude_text": "50.668444",
-      "chronology_text": "3833 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5271,13 +5245,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "49.215583",
       "longitude_text": "43.904556",
-      "chronology_text": "5039 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5297,13 +5271,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "58.4552",
       "longitude_text": "23.0326",
-      "chronology_text": "2604 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5329,7 +5303,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5355,7 +5329,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5381,7 +5355,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5407,7 +5381,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5433,7 +5407,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5459,7 +5433,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5485,7 +5459,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5505,13 +5479,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "52.486359",
       "longitude_text": "60.187925",
-      "chronology_text": "3806 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5531,13 +5505,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "51.566667",
       "longitude_text": "45.783333",
-      "chronology_text": "3306 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5563,7 +5537,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5589,7 +5563,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5609,13 +5583,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "47.750843",
       "longitude_text": "101.369458",
-      "chronology_text": "3007 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5641,7 +5615,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5667,7 +5641,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5693,7 +5667,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5719,7 +5693,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5745,7 +5719,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5771,7 +5745,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5791,13 +5765,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "52.80375",
       "longitude_text": "53.793639",
-      "chronology_text": "4713 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5823,7 +5797,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5849,7 +5823,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5875,7 +5849,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5895,13 +5869,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "52.918694",
       "longitude_text": "50.962611",
-      "chronology_text": "3775 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5927,7 +5901,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5947,13 +5921,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "50.133333",
       "longitude_text": "48.05",
-      "chronology_text": "7494 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -5973,13 +5947,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "58.883333",
       "longitude_text": "57.633333",
-      "chronology_text": "32142 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -6005,7 +5979,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -6025,13 +5999,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "70.723611",
       "longitude_text": "135.413056",
-      "chronology_text": ">51700 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -6057,7 +6031,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -6083,7 +6057,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -6109,7 +6083,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -6129,13 +6103,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "49.309444",
       "longitude_text": "99.849722",
-      "chronology_text": "2937 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -6161,7 +6135,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -6187,7 +6161,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -6207,13 +6181,13 @@
       "coordinate_basis": "supplementary_table_coordinates",
       "latitude_text": "39.676776",
       "longitude_text": "35.1436",
-      "chronology_text": "3249 BP",
+      "chronology_text": "",
       "time_start_bp": null,
       "time_end_bp": null,
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     },
     {
@@ -6239,7 +6213,7 @@
       "dating_basis": "unknown",
       "comparator_context": false,
       "domestication_context": "domesticated_core",
-      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table.",
+      "interpretation_note": "This locality is backed by direct sample rows recovered from the supplementary table; chronology remains sample-owned when its records have different dates.",
       "support_gap_note": ""
     }
   ]

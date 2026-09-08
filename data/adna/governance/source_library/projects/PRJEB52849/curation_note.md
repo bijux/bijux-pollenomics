@@ -8,7 +8,7 @@
 - Paper download status: `missing`
 - Supplement download status: `missing`
 
-Paper-level evidence is required for this project, but no supplementary artifact is currently curated.
+Paper-level evidence is required, and no supplementary artifact is currently curated.
 
 ## Local artifacts
 

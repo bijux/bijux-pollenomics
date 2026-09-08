@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from ....core.geojson import JsonObject, as_mapping, feature_list
+from ....core.geospatial.geojson import JsonObject, as_mapping, feature_list
 
 
 def build_density_polygon_layer(geojson: JsonObject) -> dict[str, object]:

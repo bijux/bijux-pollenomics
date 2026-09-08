@@ -10,9 +10,9 @@
       "findings": []
     },
     {
-      "check_id": "project_recovery_guard_still_blocks_overclaim",
+      "check_id": "project_recovery_guard_passes",
       "passed": true,
-      "description": "The intake recovery guard still blocks stronger publication claims until project-level under-recovery is brought under control.",
+      "description": "The intake recovery guard confirms that no tracked project remains implausibly under-recovered; separate scientific-review and completeness blockers remain independently enforced.",
       "finding_count": 0,
       "findings": []
     },
@@ -33,7 +33,7 @@
     {
       "check_id": "unresolved_sample_chronology_does_not_publish_in_country_or_atlas_outputs",
       "passed": true,
-      "description": "Published country and atlas outputs do not carry unresolved or conflicting sample chronology rows.",
+      "description": "Published country and atlas outputs do not expose numeric chronology for unresolved or conflicting sample chronology rows.",
       "finding_count": 0,
       "findings": []
     },
@@ -45,9 +45,9 @@
       "findings": []
     },
     {
-      "check_id": "broad_or_contextual_chronology_does_not_publish_numeric_windows",
+      "check_id": "numeric_chronology_keeps_supported_precision_posture",
       "passed": true,
-      "description": "Public country and atlas outputs do not expose numeric chronology windows when the underlying chronology posture is broad, contextual, or approximate.",
+      "description": "Public numeric chronology is limited to precise or explicitly caveated intervals; broad, unresolved, missing, and unknown precision postures remain nonnumeric.",
       "finding_count": 0,
       "findings": []
     },

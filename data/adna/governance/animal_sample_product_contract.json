@@ -15,6 +15,14 @@
       "meaning": "archive project or accession family anchor for the sample"
     },
     {
+      "field": "source_native_identity_kind",
+      "meaning": "whether the source identity is a biological sample; sequencing experiments without an authoritative sample mapping are refused"
+    },
+    {
+      "field": "archive_native_sample_id",
+      "meaning": "archive biological-sample accession only; experiment accessions must never populate this field"
+    },
+    {
       "field": "paper_doi_or_paper_url",
       "meaning": "primary publication anchor for the sample claim"
     },
@@ -32,11 +40,11 @@
     },
     {
       "field": "chronology.time_start_bp",
-      "meaning": "older bound of the normalized BP interval when defensible"
+      "meaning": "younger bound of the normalized BP interval when defensible"
     },
     {
       "field": "chronology.time_end_bp",
-      "meaning": "younger bound of the normalized BP interval when defensible"
+      "meaning": "older bound of the normalized BP interval when defensible"
     },
     {
       "field": "coordinates.latitude_text",

@@ -3,29 +3,120 @@
   "rows": [
     {
       "country": "Sweden",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
-      "animal_scope": "domesticated_core",
-      "animal_locality_count": 1,
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "animal_scope": "wild_or_progenitor_context",
+      "animal_locality_count": 2,
       "human_locality_count": 77,
-      "overlapping_human_localities": 10,
-      "non_overlapping_human_localities": 67,
+      "overlapping_human_localities": 3,
+      "non_overlapping_human_localities": 74,
       "noncomparable_human_localities": 0,
       "assignment_confidence": "exact_country",
       "overlap_status": "overlap_detected"
     },
     {
-      "country": "Denmark",
-      "species_latin_name": "Equus caballus",
-      "species_common_name": "horse",
+      "country": "Sweden",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
       "animal_scope": "domesticated_core",
       "animal_locality_count": 1,
-      "human_locality_count": 295,
-      "overlapping_human_localities": 8,
-      "non_overlapping_human_localities": 287,
+      "human_locality_count": 77,
+      "overlapping_human_localities": 14,
+      "non_overlapping_human_localities": 63,
       "noncomparable_human_localities": 0,
       "assignment_confidence": "exact_country",
       "overlap_status": "overlap_detected"
+    },
+    {
+      "country": "Finland",
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "animal_scope": "domesticated_core",
+      "animal_locality_count": 1,
+      "human_locality_count": 6,
+      "overlapping_human_localities": 0,
+      "non_overlapping_human_localities": 6,
+      "noncomparable_human_localities": 0,
+      "assignment_confidence": "exact_country",
+      "overlap_status": "no_overlap_detected"
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Bos taurus",
+      "species_common_name": "cattle",
+      "animal_scope": "wild_or_progenitor_context",
+      "animal_locality_count": 2,
+      "human_locality_count": 295,
+      "overlapping_human_localities": 15,
+      "non_overlapping_human_localities": 278,
+      "noncomparable_human_localities": 2,
+      "assignment_confidence": "exact_country",
+      "overlap_status": "overlap_detected"
+    },
+    {
+      "country": "Denmark",
+      "species_latin_name": "Sus scrofa domesticus",
+      "species_common_name": "pig",
+      "animal_scope": "domesticated_core",
+      "animal_locality_count": 2,
+      "human_locality_count": 295,
+      "overlapping_human_localities": 40,
+      "non_overlapping_human_localities": 253,
+      "noncomparable_human_localities": 2,
+      "assignment_confidence": "exact_country",
+      "overlap_status": "overlap_detected"
     }
-  ]
+  ],
+  "comparison_contract": {
+    "contract_id": "animal-human-chronology-overlap",
+    "contract_version": "1.1.0",
+    "output_schema_version": "animal-human-chronology-overlap.v1",
+    "left_evidence_class": "animal_ancient_dna_locality",
+    "right_evidence_class": "human_ancient_dna_locality",
+    "input_surface_patterns": [
+      "data/adna/final/countries/country_publication_index.json",
+      "docs/report/countries/<country>/<country>_aadr_v66_bundle.json"
+    ],
+    "comparison_unit": "country-partitioned locality chronology interval",
+    "identity_rule": "Animal localities retain species and sample-owned locality identity; human localities retain AADR genetic and locality identity.",
+    "temporal_rule": "Compare only valid closed [younger_bp, older_bp] intervals; endpoint contact counts as overlap and missing or reversed bounds are non-comparable.",
+    "spatial_rule": "Rows are compared only within the same governed modern-country partition; this contract performs no distance or site-coincidence inference.",
+    "denominator_rule": "For each animal country/species row, every governed human locality is exactly one of overlapping, non-overlapping, or non-comparable. The reported right-record comparison denominator sums those row-scoped partitions and is not a unique-human-locality count.",
+    "uncertainty_rule": "Interval overlap is descriptive and does not propagate calibration or sampling uncertainty beyond the stored bounds.",
+    "lineage_rule": "Source-family identities remain distinct; repeated locality names do not create independent corroboration.",
+    "coverage_limitations": [
+      "Only countries with admitted animal publication rows are evaluated.",
+      "Country-level interval overlap is not spatial co-location.",
+      "Source ascertainment and recovery differ between species and countries."
+    ],
+    "output_metrics": [
+      "animal_locality_count",
+      "human_locality_count",
+      "overlapping_human_localities",
+      "non_overlapping_human_localities",
+      "noncomparable_human_localities",
+      "right_record_comparison_denominator",
+      "comparable_right_record_comparison_denominator"
+    ],
+    "interpretation_posture": "exploratory_descriptive_implemented_unverified",
+    "allowed_claims": [
+      "country-partitioned chronology intervals overlap"
+    ],
+    "prohibited_claims": [
+      "co-occurrence proves migration or causation",
+      "country-level overlap proves site co-location",
+      "the compared sources have equal sampling completeness"
+    ],
+    "qualified_scientific_review_required": true,
+    "contract_digest": "sha256:584dfd6c87de4ffbf0b14131e9dca5055c28928c9ec30c5da34e3a53d6c6798d"
+  },
+  "comparison_disposition": {
+    "status": "implemented_unverified",
+    "reason_codes": [
+      "qualified_comparison_review_missing"
+    ],
+    "right_record_comparison_denominator": 750,
+    "comparable_right_record_comparison_denominator": 746,
+    "qualified_scientific_review_required": true
+  }
 }

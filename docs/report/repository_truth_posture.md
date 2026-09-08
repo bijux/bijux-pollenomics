@@ -9,14 +9,16 @@
 
 - Tracked paper count: `18`
 - Papers with archived supplements: `18`
-- Published animal atlas points: `234`
-- Unresolved animal map rows: `21`
-- Refused animal map rows: `7`
+- Published animal atlas points: `170`
+- Unresolved animal samples: `402 of 1450`
+- Refused animal coordinate-provenance rows: `4 of 308`
 - Source-family explainer count: `15`
 
 ## Claim Freeze Reasons
 
-- tracked animal geography still leaves unresolved or refused rows outside the published surface
+- tracked animal samples still include unresolved locality assignments
+- animal coordinate provenance still includes refused or unpublished rows
+- RAÄ density remains refused until source inventory and qualified review reconcile
 
 ## Recovery Priorities
 

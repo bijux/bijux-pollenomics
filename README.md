@@ -299,8 +299,9 @@ successful products. In particular:
 
 - animal source recovery is not yet sufficiently region-agnostic for final
   release wording;
-- SEAD chronology and bibliography remain too thin for temporal-comparison
-  claims;
+- SEAD chronology is now linked where the source exposes it, but many SEAD
+  rows remain contextual archaeology support rather than uniform
+  temporal-comparison evidence;
 - RAÄ is Sweden-specific and cannot imply equivalent Nordic archaeology
   coverage;
 - boundary geometry frames publication scope but adds no scientific support;

@@ -21,18 +21,20 @@ the stable sample identifier.
 
 ## Current Evidence Posture
 
-The governed snapshot contains a 894-row sample-foundation truth surface across
-10 species and 40 projects. It classifies 502 rows as fully grounded, 256 as
-partially grounded, 29 as blocked by missing metadata, four as blocked by
-missing location detail, and 103 as blocked by weak chronology.
+The governed snapshot contains a 1,450-row final sample-foundation truth
+surface across 10 species and 21 contributing projects. It classifies 557 rows
+as fully grounded, 335 as partially grounded, 11 as blocked by missing
+metadata, 391 as blocked by missing location detail, and 156 as blocked by weak
+chronology.
 
-The project sample-master population contains 868 recovered sample rows across
-the same 40 tracked projects. All 868 currently have a final identity
-resolution and the identity ambiguity ledger is empty. The two populations
-have different curation contracts and are not expected to match row for row.
-Neither count proves that every sample deposited by every project has been
-recovered. Only four projects currently have a trustworthy expected sample
-count, so project completeness remains unknown for most of the collection.
+The project sample-master registry covers 40 tracked projects and contains
+1,455 recovered raw rows, of which 1,450 enter the final sample population.
+Twenty-one projects contribute final rows, and the identity ambiguity ledger
+retains three review rows. These populations have different curation contracts
+and must be named separately. Neither count proves that every sample deposited
+by every project has been recovered. Only four projects currently have a
+trustworthy expected sample count, so project completeness remains unknown for
+most of the collection.
 
 This distinction is intentional:
 
@@ -288,8 +290,8 @@ strengthen any row's locality or chronology.
 
 | Claim | Required denominator or evidence |
 | --- | --- |
-| percentage of foundation rows fully grounded | all 894 governed foundation rows |
-| percentage of recovered sample identities resolved | all 868 project sample-master rows |
+| percentage of foundation rows fully grounded | all 1,450 final governed foundation rows |
+| percentage of recovered raw identities admitted to final | all 1,455 recovered raw project sample-master rows |
 | project recovery completeness | project-specific expected sample population with provenance |
 | point publication rate | explicitly defined eligible candidate population and point contract |
 

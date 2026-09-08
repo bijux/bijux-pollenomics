@@ -1,5 +1,11 @@
 """Review-oriented reporting outputs for repository truth surfaces."""
 
-from .repository_truth_outputs import publish_repository_truth_outputs
+from .repository_truth_outputs import (
+    publish_repository_output_sustainability_review,
+    publish_repository_truth_outputs,
+)
 
-__all__ = ["publish_repository_truth_outputs"]
+__all__ = [
+    "publish_repository_output_sustainability_review",
+    "publish_repository_truth_outputs",
+]

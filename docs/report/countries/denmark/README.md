@@ -1,6 +1,6 @@
 # Denmark Homo sapiens aDNA v66 Report
 
-This bundle was generated from Homo sapiens ancient-DNA release metadata published in AADR `v66` on `2026-06-22`.
+This bundle was generated from Homo sapiens ancient-DNA release metadata published in AADR `v66` on `2026-09-08`.
 It inventories only Homo sapiens aDNA sample rows that match the `Denmark` country filter. Environmental and archaeology context layers are published in the shared map bundle, not duplicated here.
 
 ## Summary
@@ -55,13 +55,13 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 ## Animal aDNA Country Outputs
 
-- Tracked animal species represented: `1`
-- Country-resolved animal sample rows: `2`
-- Country-resolved animal locality rows: `1`
-- Supporting tracked projects: `1`
-- Sample evidence-backed rows: `2`
-- Chronology-provenance-backed rows: `2`
-- Coordinate-provenance-backed rows: `2`
+- Tracked animal species represented: `2`
+- Country-resolved animal sample rows: `5`
+- Country-resolved animal locality rows: `4`
+- Supporting tracked projects: `2`
+- Sample evidence-backed rows: `5`
+- Chronology-provenance-backed rows: `5`
+- Coordinate-provenance-backed rows: `5`
 
 ### Animal Output Files
 
@@ -77,7 +77,8 @@ The report deduplicates samples by `genetic_id` across datasets. Dataset row cou
 
 | Common name | Latin name | Animal scope | Locality rows | Assignment posture | Caution |
 | --- | --- | --- | ---: | --- | --- |
-| horse | Equus caballus | domesticated_core | 1 | exact_country | sample support remains sparse |
+| cattle | Bos taurus | wild_or_progenitor_context | 2 | exact_country | wild or progenitor context; not domesticated-core support; coordinates remain approximate or inferred |
+| pig | Sus scrofa domesticus | domesticated_core | 2 | exact_country | sample support remains sparse; point surface relies on named-site geocoding rather than direct coordinates; coordinates remain approximate or inferred |
 
 
 

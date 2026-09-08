@@ -1,0 +1,378 @@
+{
+  "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+  "part_count": 1,
+  "part_number": 1,
+  "relational_snapshot_schema_version": "neotoma-relational-snapshot.v2",
+  "row_count": 52,
+  "rows": [
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:0b0e7ac837ea259dd05eeb27",
+      "parent_id": "neotoma:collection-unit:4036",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:1b3a9f169cf42177a2c47129",
+      "parent_id": "neotoma:chronology:16191:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:1d141d21b2c20b6fffae52e2",
+      "parent_id": "neotoma:collection-unit:3807",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:1df7136fe0d3560dea291009",
+      "parent_id": "neotoma:collection-unit:4190",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:1f9c466ec9875157a04b6ab7",
+      "parent_id": "neotoma:chronology:4370:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:2158877f62ebb8c149b607df",
+      "parent_id": "neotoma:collection-unit:4075",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:28f18ed83340273c0476c1d6",
+      "parent_id": "neotoma:chronology:4190:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:2aa12103635446ea11cc5882",
+      "parent_id": "neotoma:chronology:38413:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:2bf0cb397f723845c2275c4c",
+      "parent_id": "neotoma:collection-unit:4376",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:308ca3b00de9495438f3fe59",
+      "parent_id": "neotoma:chronology:38411:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:3213e38b949e3a427624218d",
+      "parent_id": "neotoma:collection-unit:4277",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:3a67f8810cbaa2f886820ed5",
+      "parent_id": "neotoma:collection-unit:4370",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:3fa469282cdf203c0a28ea8c",
+      "parent_id": "neotoma:chronology:4036:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:3fcd7acf7840b98dad94beeb",
+      "parent_id": "neotoma:chronology:4277:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:43e31fe9eb4c8aa0af1b146a",
+      "parent_id": "neotoma:chronology:4181:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:44d68d7a2968f2dbc9774995",
+      "parent_id": "neotoma:chronology:16388:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:51056629105b13f7375c9909",
+      "parent_id": "neotoma:chronology:4376:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:55802f0006045900bc21e574",
+      "parent_id": "neotoma:collection-unit:27894",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:561534446ac348a612b1f0b9",
+      "parent_id": "neotoma:collection-unit:4134",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:5a4ef56ab67c8d3dbdc2bf7e",
+      "parent_id": "neotoma:collection-unit:3888",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:6101c119ca92469f424ab7d4",
+      "parent_id": "neotoma:collection-unit:4371",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:649a7a5dc7601087709db3b0",
+      "parent_id": "neotoma:collection-unit:15826",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:70669bb2074d457b7e6e1b5f",
+      "parent_id": "neotoma:chronology:4075:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:7111b3009239fe5749dc9655",
+      "parent_id": "neotoma:collection-unit:38413",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:7189b2204de3100dd9e9cd23",
+      "parent_id": "neotoma:collection-unit:4181",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:77509304ec3d88a3a22c13c2",
+      "parent_id": "neotoma:chronology:4162:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:8557ea6c8da744f2e573b8ac",
+      "parent_id": "neotoma:chronology:15826:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:8991b1bf1f3d8883ddb131e2",
+      "parent_id": "neotoma:collection-unit:4162",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:8a6bdb551059a2cb316bdde0",
+      "parent_id": "neotoma:collection-unit:4291",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:8dbe3cdd07f729ccbe2ad065",
+      "parent_id": "neotoma:chronology:3807:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:967750b524059e9b6512c116",
+      "parent_id": "neotoma:chronology:4313:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:984b183cb4ba8cb589ef2b00",
+      "parent_id": "neotoma:collection-unit:4365",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:9b0593dc142d33b393110be4",
+      "parent_id": "neotoma:collection-unit:38411",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:9bd5c36034dd6996926c4c7f",
+      "parent_id": "neotoma:chronology:4291:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:9f35fd7c0d89bcc75d2725f0",
+      "parent_id": "neotoma:chronology:3888:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:a0b69056465c930c1fed4b97",
+      "parent_id": "neotoma:collection-unit:4313",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:b0278b25feade6722d03a91e",
+      "parent_id": "neotoma:chronology:3808:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:b9c3b50aada1ff0ffa15a7b8",
+      "parent_id": "neotoma:chronology:27894:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:bff0ee27ca4c4730c2c09625",
+      "parent_id": "neotoma:collection-unit:3736",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:c69ac11c5806516e2d2538da",
+      "parent_id": "neotoma:chronology:3736:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:c79e4c20bc1e623b1f7d8279",
+      "parent_id": "neotoma:chronology:4134:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:cab565e84aef7c18b9d59339",
+      "parent_id": "neotoma:collection-unit:3808",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:de5d70b4154077adb0aaf700",
+      "parent_id": "neotoma:collection-unit:4135",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:dfe4e4339dea6a59fc2447eb",
+      "parent_id": "neotoma:chronology:35286:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:e7930b9d7f871d08934e8226",
+      "parent_id": "neotoma:collection-unit:3766",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:ec5fd53877fe9724b61ccbb6",
+      "parent_id": "neotoma:chronology:4371:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:f25b7dfb32995f5d4f88016e",
+      "parent_id": "neotoma:collection-unit:16388",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:fa11e1ceb507d42174c5b76a",
+      "parent_id": "neotoma:chronology:4135:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:fbe5459a00b7bcfa00192890",
+      "parent_id": "neotoma:collection-unit:35286",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:fbfd79417bfc10ad2720a805",
+      "parent_id": "neotoma:chronology:3766:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology_control",
+      "orphan_id": "neotoma:orphan:fe225c00158d9cb22ec0863f",
+      "parent_id": "neotoma:chronology:4365:unidentified:c523fd6a7b59c6099e24",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    },
+    {
+      "entity_type": "chronology",
+      "orphan_id": "neotoma:orphan:fe3d90e46454f54d2cb4e9f7",
+      "parent_id": "neotoma:collection-unit:16191",
+      "reason": "missing_source_identifier",
+      "source_value": null
+    }
+  ],
+  "schema_version": "neotoma-relational-part.v1",
+  "source_family": "neotoma",
+  "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+  "surface": "orphans",
+  "surface_schema_version": "neotoma-relational-orphans.v2"
+}

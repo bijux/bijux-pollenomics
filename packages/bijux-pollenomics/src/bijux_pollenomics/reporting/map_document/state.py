@@ -1,9 +1,12 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import math
 
-from ...core.geojson import JsonObject, as_mapping, feature_list
+from ...core.geospatial.geojson import JsonObject, as_mapping, feature_list
 from ..map_publication import MapScopePolicy
+from .coordinates import point_coordinate_pair
+from .temporal_admission import feature_interval
 
 
 @dataclass(frozen=True)
@@ -20,19 +23,12 @@ class MapDocumentState:
 
 
 def collect_feature_time_candidates(
-    time_candidates: set[int], feature: JsonObject
+    time_candidates: set[float], feature: JsonObject
 ) -> None:
-    """Collect all numeric BP candidates exposed by one point or polygon feature."""
-    for key in ("time_start_bp", "time_end_bp", "time_mean_bp", "time_year_bp"):
-        raw = feature.get(key)
-        if raw is None:
-            continue
-        if not isinstance(raw, (int, float, str)):
-            continue
-        try:
-            time_candidates.add(int(round(float(raw))))
-        except (TypeError, ValueError):
-            continue
+    """Collect only chronology admitted by the shared static/browser contract."""
+    interval = feature_interval(feature)
+    if interval is not None:
+        time_candidates.update(interval)
 
 
 def build_map_document_state(
@@ -43,7 +39,7 @@ def build_map_document_state(
 ) -> MapDocumentState:
     """Build the shared derived state needed by the standalone map document."""
     initial_diameter_km = policy.initial_diameter_km
-    time_candidates: set[int] = set()
+    time_candidates: set[float] = set()
     map_points = [feature for layer in point_layers for feature in feature_list(layer)]
     for layer in point_layers:
         for feature in feature_list(layer):
@@ -60,8 +56,8 @@ def build_map_document_state(
     time_values = sorted(time_candidates)
     has_time_data = bool(time_values)
     if time_values:
-        time_min_bp = min(time_values)
-        time_max_bp = max(time_values)
+        time_min_bp = math.floor(min(time_values))
+        time_max_bp = math.ceil(max(time_values))
         max_time_span = max(1, time_max_bp - time_min_bp)
         initial_time_interval_years = max_time_span
         initial_time_start_bp = time_min_bp
@@ -75,19 +71,14 @@ def build_map_document_state(
         time_max_bp, initial_time_start_bp + initial_time_interval_years
     )
     if map_points:
-        latitude_values = [
-            float(latitude)
+        coordinate_pairs = [
+            pair
             for feature in map_points
-            for latitude in [feature.get("latitude")]
-            if isinstance(latitude, (int, float, str))
+            if (pair := point_coordinate_pair(feature)) is not None
         ]
-        longitude_values = [
-            float(longitude)
-            for feature in map_points
-            for longitude in [feature.get("longitude")]
-            if isinstance(longitude, (int, float, str))
-        ]
-        if latitude_values and longitude_values:
+        if coordinate_pairs:
+            latitude_values = [latitude for latitude, _longitude in coordinate_pairs]
+            longitude_values = [longitude for _latitude, longitude in coordinate_pairs]
             data_bounds = [
                 [min(latitude_values), min(longitude_values)],
                 [max(latitude_values), max(longitude_values)],

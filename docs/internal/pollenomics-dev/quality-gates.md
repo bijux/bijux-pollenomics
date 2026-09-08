@@ -75,16 +75,30 @@ affected contract.
 | end to end | `tests/e2e/` | installed command paths and complete operator-visible effects |
 
 Representative anchors include
-`tests/unit/test_command_line.py`, `tests/unit/test_data_layout.py`,
-`tests/unit/test_reporting_artifacts.py`,
-`tests/regression/test_repository_contracts.py`, and
+`tests/unit/command_line/command_line/`, `tests/unit/collection/workflow/planning/test_layout.py`,
+`tests/unit/architecture/test_topology.py`,
+`tests/unit/reporting/portal/test_reporting_artifacts.py`,
+`tests/regression/repository_contracts/`, and
 `tests/e2e/test_cli.py`.
+
+The topology contract keeps package ownership enforceable. It rejects crowded
+module directories, ambiguous catch-all package names, wildcard package
+exports, unowned facade modules, missing package markers, flat unit tests, and
+top-level test domains without an explicit production owner. When a durable
+domain needs a new facade module or an exceptional test owner, change the
+policy and its contract tests in the same reviewable unit.
+
+The companion dependency contract rejects imports that form a cycle during
+module initialization. Type-only imports and function-local deferred imports
+remain outside that graph because they do not participate in eager package
+startup.
 
 ## Select Proof By Changed Boundary
 
 | Changed surface | First proof | Expansion condition |
 | --- | --- | --- |
 | parser, helper, or normalization rule | owning unit test module | add regression coverage when a tracked contract changes |
+| package or test-tree ownership | architecture topology contract | add import and affected-domain tests when modules move |
 | repository or documentation contract | focused regression test | add a strict site build when navigation, links, or rendering can change |
 | command wiring or installed behavior | focused end-to-end case | add unit coverage when the defect belongs to an internal rule |
 | package metadata or distribution | package check and source-install smoke | add release checks when published metadata changes |

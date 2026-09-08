@@ -5,9 +5,772 @@
     {
       "identity": {
         "namespace": "felis_catus:project_locality",
-        "stable_token": "felis_catus:locality:prjeb81815:northafricatoeuropedomesticcatdispersaltransect:northafricaandeurope",
-        "locality_text": "North Africa to Europe domestic cat dispersal transect",
-        "political_entity": "North Africa and Europe",
+        "stable_token": "felis_catus:locality:prjeb81815:aklhyk:turkey",
+        "locality_text": "Aşıklı Höyük",
+        "political_entity": "Turkey",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "38.35",
+          "34.23"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Aşıklı Höyük",
+      "coordinates": {
+        "latitude": 38.35,
+        "longitude": 34.23,
+        "latitude_text": "38.35",
+        "longitude_text": "34.23",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246517"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "9559-9899 BP",
+        "time_start_bp": 9559,
+        "time_end_bp": 9899,
+        "time_mean_bp": 9729,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Aşıklı Höyük",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:albafucenscisternafucinoabruzzi:italy",
+        "locality_text": "Alba Fucens -Cisterna (Fucino, Abruzzi)",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "42.08",
+          "13.41"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Alba Fucens -Cisterna (Fucino, Abruzzi)",
+      "coordinates": {
+        "latitude": 42.08,
+        "longitude": 13.41,
+        "latitude_text": "42.08",
+        "longitude_text": "13.41",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246516"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "1610-1740 BP",
+        "time_start_bp": 1610,
+        "time_end_bp": 1740,
+        "time_mean_bp": 1675,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Alba Fucens -Cisterna (Fucino, Abruzzi)",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:arenecandidefinaleliguresavonaliguria:italy",
+        "locality_text": "Arene Candide (Finale Ligure, Savona, Liguria)",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "44.16",
+          "8.33"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Arene Candide (Finale Ligure, Savona, Liguria)",
+      "coordinates": {
+        "latitude": 44.16,
+        "longitude": 8.33,
+        "latitude_text": "44.16",
+        "longitude_text": "8.33",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246515"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "10-11 ka (Epigravettian)",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Arene Candide (Finale Ligure, Savona, Liguria)",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:bademaac:turkey",
+        "locality_text": "Bademağacı",
+        "political_entity": "Turkey",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "37.21",
+          "30.47"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Bademağacı",
+      "coordinates": {
+        "latitude": 37.21,
+        "longitude": 30.47,
+        "latitude_text": "37.21",
+        "longitude_text": "30.47",
+        "confidence": "exact"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb81815:samea120246518",
+        "prjeb81815:samea120246519"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "8039-8379 BP",
+        "time_start_bp": 8039,
+        "time_end_bp": 8379,
+        "time_mean_bp": 8209,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Bademağacı",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:bankofportugal:portugal",
+        "locality_text": "Bank of Portugal",
+        "political_entity": "Portugal",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "38.71",
+          "-9.14"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Bank of Portugal",
+      "coordinates": {
+        "latitude": 38.71,
+        "longitude": -9.14,
+        "latitude_text": "38.71",
+        "longitude_text": "-9.14",
+        "confidence": "exact"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "prjeb81815:samea120246522",
+        "prjeb81815:samea120246523",
+        "prjeb81815:samea120246524"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "910-1060 BP",
+        "time_start_bp": 910,
+        "time_end_bp": 1060,
+        "time_mean_bp": 985,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Bank of Portugal",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:bernhardsthal:austria",
+        "locality_text": "Bernhardsthal",
+        "political_entity": "Austria",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "48.69",
+          "16.87"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Bernhardsthal",
+      "coordinates": {
+        "latitude": 48.69,
+        "longitude": 16.87,
+        "latitude_text": "48.69",
+        "longitude_text": "16.87",
+        "confidence": "exact"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb81815:samea120246520",
+        "prjeb81815:samea120246521"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "970-1180 BP",
+        "time_start_bp": 970,
+        "time_end_bp": 1180,
+        "time_mean_bp": 1075,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Bernhardsthal",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:bremen201altstadtmarktplatz:germany",
+        "locality_text": "Bremen; 201-Altstadt, Marktplatz",
+        "political_entity": "Germany",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "53.10",
+          "8.83"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Bremen; 201-Altstadt, Marktplatz",
+      "coordinates": {
+        "latitude": 53.1,
+        "longitude": 8.83,
+        "latitude_text": "53.10",
+        "longitude_text": "8.83",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246525"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "320-510 BP",
+        "time_start_bp": 320,
+        "time_end_bp": 510,
+        "time_mean_bp": 415,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Bremen; 201-Altstadt, Marktplatz",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:bremen253altstadtamwall:germany",
+        "locality_text": "Bremen; 253-Altstadt, Am Wall",
+        "political_entity": "Germany",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "53.10",
+          "8.83"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Bremen; 253-Altstadt, Am Wall",
+      "coordinates": {
+        "latitude": 53.1,
+        "longitude": 8.83,
+        "latitude_text": "53.10",
+        "longitude_text": "8.83",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246526"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "16th",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Bremen; 253-Altstadt, Am Wall",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:castiglioneinsabina:italy",
+        "locality_text": "Castiglione in Sabina",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "42.11",
+          "12.78"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Castiglione in Sabina",
+      "coordinates": {
+        "latitude": 42.11,
+        "longitude": 12.78,
+        "latitude_text": "42.11",
+        "longitude_text": "12.78",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246529"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "11-12th c AD",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Castiglione in Sabina",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:covadeelstrocshuesca:spain",
+        "locality_text": "Cova de Els Trocs, Huesca",
+        "political_entity": "Spain",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "42.47",
+          "0.53"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Cova de Els Trocs, Huesca",
+      "coordinates": {
+        "latitude": 42.47,
+        "longitude": 0.53,
+        "latitude_text": "42.47",
+        "longitude_text": "0.53",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246531"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "6989-7249 BP",
+        "time_start_bp": 6989,
+        "time_end_bp": 7249,
+        "time_mean_bp": 7119,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Cova de Els Trocs, Huesca",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:demircihyk:turkey",
+        "locality_text": "Demircihüyük",
+        "political_entity": "Turkey",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "40.17",
+          "29.98"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Demircihüyük",
+      "coordinates": {
+        "latitude": 40.17,
+        "longitude": 29.98,
+        "latitude_text": "40.17",
+        "longitude_text": "29.98",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246533"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "550-650 BP",
+        "time_start_bp": 550,
+        "time_end_bp": 650,
+        "time_mean_bp": 600,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Demircihüyük",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:durankulak:bulgaria",
+        "locality_text": "Durankulak",
+        "political_entity": "Bulgaria",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "43.70",
+          "28.54"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Durankulak",
+      "coordinates": {
+        "latitude": 43.7,
+        "longitude": 28.54,
+        "latitude_text": "43.70",
+        "longitude_text": "28.54",
+        "confidence": "exact"
+      },
+      "sample_count": 4,
+      "sample_ids": [
+        "prjeb81815:samea120246536",
+        "prjeb81815:samea120246537",
+        "prjeb81815:samea120246538",
+        "prjeb81815:samea120246539"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "6049-6399 BP",
+        "time_start_bp": 6049,
+        "time_end_bp": 6399,
+        "time_mean_bp": 6224,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Durankulak",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:ecly:france",
+        "locality_text": "Ecly",
+        "political_entity": "France",
         "source_anchor_tokens": [
           "PRJEB81815",
           "",
@@ -29,39 +792,3971 @@
       "provenance_qualities": [
         "primary_paper_pinned"
       ],
-      "locality": "North Africa to Europe domestic cat dispersal transect",
+      "locality": "Ecly",
       "coordinates": {
         "latitude": null,
         "longitude": null,
         "latitude_text": "",
         "longitude_text": "",
-        "confidence": "withheld"
+        "confidence": "unknown"
       },
       "sample_count": 1,
       "sample_ids": [
-        "PRJEB81815"
+        "prjeb81815:samea120246540"
       ],
       "datasets": [
         "felis_catus:project:PRJEB81815"
       ],
       "chronology": {
-        "original_text": "Holocene cat dispersal across North Africa and Europe",
-        "time_start_bp": 1200,
-        "time_end_bp": 4000,
-        "time_mean_bp": 2600,
+        "original_text": "1740-1930 BP",
+        "time_start_bp": 1740,
+        "time_end_bp": 1930,
+        "time_mean_bp": 1835,
         "date_stddev_bp": "",
-        "dating_basis": "historical_and_archaeological_context",
-        "evidence_class": "historical_or_recent_date",
-        "precision_posture": "contextual_interval"
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "felis_catus:sample_locality",
       "project_accessions": [
         "PRJEB81815"
       ],
-      "original_location_text": "North Africa to Europe domestic cat dispersal transect",
+      "original_location_text": "Ecly",
       "nordic_inclusion": false,
-      "nordic_inclusion_reason": "The Europe-facing cat dispersal paper is relevant to northern dispersal questions, but the current project summary does not justify a Nordic-mapped claim.",
-      "interpretation_note": "Cat remains a broad dispersal signal, not a point-ready site lead."
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:galgenbheldosdelaforcasalorno:italy",
+        "locality_text": "Galgenbühel/Dos de la Forca-Salorno",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Galgenbühel/Dos de la Forca-Salorno",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb81815:samea120246534",
+        "prjeb81815:samea120246535"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "9449-10449 BP",
+        "time_start_bp": 9449,
+        "time_end_bp": 10449,
+        "time_mean_bp": 9949,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "mixed_radiocarbon_and_archaeological_context",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Galgenbühel/Dos de la Forca-Salorno",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:genonisantuantinesardinia:italy",
+        "locality_text": "Genoni Santu Antine, Sardinia",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "39.80",
+          "9.00"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Genoni Santu Antine, Sardinia",
+      "coordinates": {
+        "latitude": 39.8,
+        "longitude": 9.0,
+        "latitude_text": "39.80",
+        "longitude_text": "9.00",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246544"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "1999-2289 BP",
+        "time_start_bp": 1999,
+        "time_end_bp": 2289,
+        "time_mean_bp": 2144,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Genoni Santu Antine, Sardinia",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:glencurrancavecoclare:ireland",
+        "locality_text": "Glencurran Cave, Co. Clare",
+        "political_entity": "Ireland",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Glencurran Cave, Co. Clare",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246542"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "5475-5583 BP",
+        "time_start_bp": 5475,
+        "time_end_bp": 5583,
+        "time_mean_bp": 5529,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Glencurran Cave, Co. Clare",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:graffignanoviterbolatium:italy",
+        "locality_text": "Graffignano (Viterbo, Latium)",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "42.57",
+          "12.20"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Graffignano (Viterbo, Latium)",
+      "coordinates": {
+        "latitude": 42.57,
+        "longitude": 12.2,
+        "latitude_text": "42.57",
+        "longitude_text": "12.20",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246543"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "Late 15th-Early 16th cent AD",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Graffignano (Viterbo, Latium)",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:grottadelcoccinarniumbria:italy",
+        "locality_text": "Grotta del Cocci (Narni, Umbria)",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "42.52",
+          "12.52"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Grotta del Cocci (Narni, Umbria)",
+      "coordinates": {
+        "latitude": 42.52,
+        "longitude": 12.52,
+        "latitude_text": "42.52",
+        "longitude_text": "12.52",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246532"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "7159-7319 BP",
+        "time_start_bp": 7159,
+        "time_end_bp": 7319,
+        "time_mean_bp": 7239,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Grotta del Cocci (Narni, Umbria)",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:haithabusettlementarea:germany",
+        "locality_text": "Haithabu, settlement area",
+        "political_entity": "Germany",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Haithabu, settlement area",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "prjeb81815:samea120246545",
+        "prjeb81815:samea120246546",
+        "prjeb81815:samea120246547"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "900-1150 BP",
+        "time_start_bp": 900,
+        "time_end_bp": 1150,
+        "time_mean_bp": 1025,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Haithabu, settlement area",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:iznikromantheatre:turkey",
+        "locality_text": "Iznik - Roman theatre",
+        "political_entity": "Turkey",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "40.42",
+          "29.72"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Iznik - Roman theatre",
+      "coordinates": {
+        "latitude": 40.42,
+        "longitude": 29.72,
+        "latitude_text": "40.42",
+        "longitude_text": "29.72",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246548"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "1300-1375 BP",
+        "time_start_bp": 1300,
+        "time_end_bp": 1375,
+        "time_mean_bp": 1338,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Iznik - Roman theatre",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:kassope:greece",
+        "locality_text": "Kassope",
+        "political_entity": "Greece",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "39.15",
+          "20.67"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Kassope",
+      "coordinates": {
+        "latitude": 39.15,
+        "longitude": 20.67,
+        "latitude_text": "39.15",
+        "longitude_text": "20.67",
+        "confidence": "exact"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb81815:samea120246549",
+        "prjeb81815:samea120246550"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "2149-2349 BP",
+        "time_start_bp": 2149,
+        "time_end_bp": 2349,
+        "time_mean_bp": 2249,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Kassope",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:koprivec:bulgaria",
+        "locality_text": "Koprivec",
+        "political_entity": "Bulgaria",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "43.41",
+          "25.88"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Koprivec",
+      "coordinates": {
+        "latitude": 43.41,
+        "longitude": 25.88,
+        "latitude_text": "43.41",
+        "longitude_text": "25.88",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246551"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "7309-7429 BP",
+        "time_start_bp": 7309,
+        "time_end_bp": 7429,
+        "time_mean_bp": 7369,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Koprivec",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:labastida:spain",
+        "locality_text": "Labastida",
+        "political_entity": "Spain",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "42.58",
+          "-2.78"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Labastida",
+      "coordinates": {
+        "latitude": 42.58,
+        "longitude": -2.78,
+        "latitude_text": "42.58",
+        "longitude_text": "-2.78",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246552"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "end 15th-early 16th c.",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Labastida",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:lauchheimmittelhofen:germany",
+        "locality_text": "Lauchheim-Mittelhofen",
+        "political_entity": "Germany",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Lauchheim-Mittelhofen",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb81815:samea120246553",
+        "prjeb81815:samea120246554"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "8th/9th century CE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Lauchheim-Mittelhofen",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:mauternvicusost:austria",
+        "locality_text": "Mautern - vicus Ost",
+        "political_entity": "Austria",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "48.39",
+          "15.58"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Mautern - vicus Ost",
+      "coordinates": {
+        "latitude": 48.39,
+        "longitude": 15.58,
+        "latitude_text": "48.39",
+        "longitude_text": "15.58",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246560"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "1870-1999 BP",
+        "time_start_bp": 1870,
+        "time_end_bp": 1999,
+        "time_mean_bp": 1934,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Mautern - vicus Ost",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:mentee:turkey",
+        "locality_text": "Menteşe",
+        "political_entity": "Turkey",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "40.28",
+          "29.52"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Menteşe",
+      "coordinates": {
+        "latitude": 40.28,
+        "longitude": 29.52,
+        "latitude_text": "40.28",
+        "longitude_text": "29.52",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246555"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "7929-8024 BP",
+        "time_start_bp": 7929,
+        "time_end_bp": 8024,
+        "time_mean_bp": 7976,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Menteşe",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:musarnaviterbolatium:italy",
+        "locality_text": "Musarna (Viterbo, Latium)",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "42.41",
+          "11.98"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Musarna (Viterbo, Latium)",
+      "coordinates": {
+        "latitude": 42.41,
+        "longitude": 11.98,
+        "latitude_text": "42.41",
+        "longitude_text": "11.98",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246561"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "1410-1590 BP",
+        "time_start_bp": 1410,
+        "time_end_bp": 1590,
+        "time_mean_bp": 1500,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Musarna (Viterbo, Latium)",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:nardtorresantacaterina:italy",
+        "locality_text": "Nardò “torre santa Caterina”",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "40.14",
+          "17.99"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Nardò “torre santa Caterina”",
+      "coordinates": {
+        "latitude": 40.14,
+        "longitude": 17.99,
+        "latitude_text": "40.14",
+        "longitude_text": "17.99",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246576"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "17-18th c AD",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Nardò “torre santa Caterina”",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:nuragheflumenelongusardinia:italy",
+        "locality_text": "nuraghe Flumenelongu, Sardinia",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "nuraghe Flumenelongu, Sardinia",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246541"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "1170-1350 BP",
+        "time_start_bp": 1170,
+        "time_end_bp": 1350,
+        "time_mean_bp": 1260,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "nuraghe Flumenelongu, Sardinia",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:padovaviacesarebattistiveneto:italy",
+        "locality_text": "Padova Via Cesare Battisti (Veneto)",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "45.41",
+          "11.87"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Padova Via Cesare Battisti (Veneto)",
+      "coordinates": {
+        "latitude": 45.41,
+        "longitude": 11.87,
+        "latitude_text": "45.41",
+        "longitude_text": "11.87",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246562"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "510-550 BP",
+        "time_start_bp": 510,
+        "time_end_bp": 550,
+        "time_mean_bp": 530,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Padova Via Cesare Battisti (Veneto)",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:palatinonortheastsloperome:italy",
+        "locality_text": "Palatino North East slope (Rome)",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "41.89",
+          "12.49"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Palatino North East slope (Rome)",
+      "coordinates": {
+        "latitude": 41.89,
+        "longitude": 12.49,
+        "latitude_text": "41.89",
+        "longitude_text": "12.49",
+        "confidence": "exact"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb81815:samea120246567",
+        "prjeb81815:samea120246568"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "1580-1720 BP",
+        "time_start_bp": 1580,
+        "time_end_bp": 1720,
+        "time_mean_bp": 1650,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Palatino North East slope (Rome)",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:palmelacastle:portugal",
+        "locality_text": "Palmela Castle",
+        "political_entity": "Portugal",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "38.57",
+          "-8.90"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Palmela Castle",
+      "coordinates": {
+        "latitude": 38.57,
+        "longitude": -8.9,
+        "latitude_text": "38.57",
+        "longitude_text": "-8.90",
+        "confidence": "exact"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb81815:samea120246563",
+        "prjeb81815:samea120246564"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "12-13th c",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Palmela Castle",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:parcodelledolomitilucane:italy",
+        "locality_text": "Parco delle Dolomiti Lucane",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Parco delle Dolomiti Lucane",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246596"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "modern",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Parco delle Dolomiti Lucane",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:parking58brussels:belgium",
+        "locality_text": "Parking 58, Brussels",
+        "political_entity": "Belgium",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "50.85",
+          "4.35"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Parking 58, Brussels",
+      "coordinates": {
+        "latitude": 50.85,
+        "longitude": 4.35,
+        "latitude_text": "50.85",
+        "longitude_text": "4.35",
+        "confidence": "exact"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb81815:samea120246527",
+        "prjeb81815:samea120246528"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "end 14th - 15th cent. AD",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Parking 58, Brussels",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:partannacdacapodacqua:italy",
+        "locality_text": "Partanna C. da Capo d'acqua",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Partanna C. da Capo d'acqua",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246569"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "Early Bronze Age",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "broad_period_label",
+        "precision_posture": "broad_period_only",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Partanna C. da Capo d'acqua",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:petronellcarnuntum:austria",
+        "locality_text": "Petronell-Carnuntum",
+        "political_entity": "Austria",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "48.12",
+          "16.85"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Petronell-Carnuntum",
+      "coordinates": {
+        "latitude": 48.12,
+        "longitude": 16.85,
+        "latitude_text": "48.12",
+        "longitude_text": "16.85",
+        "confidence": "exact"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb81815:samea120246565",
+        "prjeb81815:samea120246566"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "1630-1930 BP",
+        "time_start_bp": 1630,
+        "time_end_bp": 1930,
+        "time_mean_bp": 1780,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Petronell-Carnuntum",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:pomorieforestrystation:bulgaria",
+        "locality_text": "Pomorie, Forestry station (Поморие, горско стопанство)",
+        "political_entity": "Bulgaria",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Pomorie, Forestry station (Поморие, горско стопанство)",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246601"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "20th century",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Pomorie, Forestry station (Поморие, горско стопанство)",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:probabillysicily:italy",
+        "locality_text": "Probabilly Sicily",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Probabilly Sicily",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246590"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "modern",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Probabilly Sicily",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:rocavecchiamelendugnolecce:italy",
+        "locality_text": "Roca vecchia (Melendugno, Lecce)",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Roca vecchia (Melendugno, Lecce)",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "prjeb81815:samea120246570",
+        "prjeb81815:samea120246571",
+        "prjeb81815:samea120246572"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "3169-3449 BP",
+        "time_start_bp": 3169,
+        "time_end_bp": 3449,
+        "time_mean_bp": 3309,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Roca vecchia (Melendugno, Lecce)",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:romesceciliaintrastevere:italy",
+        "locality_text": "Rome, S. Cecilia in Trastevere",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "41.89",
+          "12.48"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Rome, S. Cecilia in Trastevere",
+      "coordinates": {
+        "latitude": 41.89,
+        "longitude": 12.48,
+        "latitude_text": "41.89",
+        "longitude_text": "12.48",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246530"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "12-13th c AD",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Rome, S. Cecilia in Trastevere",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:rugostortofannapn:italy",
+        "locality_text": "Rugo Storto, Fanna, PN",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Rugo Storto, Fanna, PN",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246593"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "modern",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Rugo Storto, Fanna, PN",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:sagalassos:turkey",
+        "locality_text": "Sagalassos",
+        "political_entity": "Turkey",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "37.68",
+          "30.52"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Sagalassos",
+      "coordinates": {
+        "latitude": 37.68,
+        "longitude": 30.52,
+        "latitude_text": "37.68",
+        "longitude_text": "30.52",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246573"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "Early Byzantine",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Sagalassos",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:salzburgresidenz:austria",
+        "locality_text": "Salzburg - Residenz",
+        "political_entity": "Austria",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "47.80",
+          "13.05"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Salzburg - Residenz",
+      "coordinates": {
+        "latitude": 47.8,
+        "longitude": 13.05,
+        "latitude_text": "47.80",
+        "longitude_text": "13.05",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246575"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "15/16th centuries",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Salzburg - Residenz",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:saracenacosenzacalabria:italy",
+        "locality_text": "Saracena (Cosenza, Calabria)",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "39.77",
+          "16.15"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Saracena (Cosenza, Calabria)",
+      "coordinates": {
+        "latitude": 39.77,
+        "longitude": 16.15,
+        "latitude_text": "39.77",
+        "longitude_text": "16.15",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246574"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "Early Neolithic",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "broad_period_label",
+        "precision_posture": "broad_period_only",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Saracena (Cosenza, Calabria)",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:sardinia:italy",
+        "locality_text": "Sardinia",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Sardinia",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246585"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "modern",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Sardinia",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:sardiniamontearcosu:italy",
+        "locality_text": "Sardinia, Monte Arcosu",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Sardinia, Monte Arcosu",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb81815:samea120246586",
+        "prjeb81815:samea120246587"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "modern",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Sardinia, Monte Arcosu",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:sardinianuoroaroundbitti:italy",
+        "locality_text": "Sardinia, Nuoro - around Bitti",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Sardinia, Nuoro - around Bitti",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246588"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "modern",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Sardinia, Nuoro - around Bitti",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:sassaripalazzoducalesardinia:italy",
+        "locality_text": "Sassari, palazzo ducale, Sardinia",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "40.73",
+          "8.55"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Sassari, palazzo ducale, Sardinia",
+      "coordinates": {
+        "latitude": 40.73,
+        "longitude": 8.55,
+        "latitude_text": "40.73",
+        "longitude_text": "8.55",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246577"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "19th AD",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Sassari, palazzo ducale, Sardinia",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:sicilymontinebrodi:italy",
+        "locality_text": "Sicily, monti Nebrodi",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Sicily, monti Nebrodi",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246591"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "modern",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Sicily, monti Nebrodi",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:tabernasspain:spain",
+        "locality_text": "Tabernas, Spain",
+        "political_entity": "Spain",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "37.05",
+          "-2.39"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tabernas, Spain",
+      "coordinates": {
+        "latitude": 37.05,
+        "longitude": -2.39,
+        "latitude_text": "37.05",
+        "longitude_text": "-2.39",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246578"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "4349-4649 BP",
+        "time_start_bp": 4349,
+        "time_end_bp": 4649,
+        "time_mean_bp": 4499,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Tabernas, Spain",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:terteniasardinia:italy",
+        "locality_text": "Tertenia, Sardinia",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "39.69",
+          "9.58"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tertenia, Sardinia",
+      "coordinates": {
+        "latitude": 39.69,
+        "longitude": 9.58,
+        "latitude_text": "39.69",
+        "longitude_text": "9.58",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246579"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "4th-5th c AD",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Tertenia, Sardinia",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:tongerenindustrieoost:belgium",
+        "locality_text": "Tongeren, Industrie Oost",
+        "political_entity": "Belgium",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "50.78",
+          "5.46"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tongeren, Industrie Oost",
+      "coordinates": {
+        "latitude": 50.78,
+        "longitude": 5.46,
+        "latitude_text": "50.78",
+        "longitude_text": "5.46",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246580"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "1820-1989 BP",
+        "time_start_bp": 1820,
+        "time_end_bp": 1989,
+        "time_mean_bp": 1904,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Tongeren, Industrie Oost",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:traismauer:austria",
+        "locality_text": "Traismauer",
+        "political_entity": "Austria",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "48.35",
+          "15.74"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Traismauer",
+      "coordinates": {
+        "latitude": 48.35,
+        "longitude": 15.74,
+        "latitude_text": "48.35",
+        "longitude_text": "15.74",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246581"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "1730-1890 BP",
+        "time_start_bp": 1730,
+        "time_end_bp": 1890,
+        "time_mean_bp": 1810,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Traismauer",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:tuscany:italy",
+        "locality_text": "Tuscany",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tuscany",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246592"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "modern",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Tuscany",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:tuscanymaremmabiviogavorrano:italy",
+        "locality_text": "Tuscany - Maremma - Bivio Gavorrano",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tuscany - Maremma - Bivio Gavorrano",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246589"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "modern",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Tuscany - Maremma - Bivio Gavorrano",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:umbriaperugiacascia:italy",
+        "locality_text": "Umbria - Perugia - Cascia",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Umbria - Perugia - Cascia",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246594"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "modern",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Umbria - Perugia - Cascia",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:umbriaperugiavallodinera:italy",
+        "locality_text": "Umbria - Perugia - Vallo di Nera",
+        "political_entity": "Italy",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Umbria - Perugia - Vallo di Nera",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246595"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "modern",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Umbria - Perugia - Vallo di Nera",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:villagebelenesvishtovdistrict:bulgaria",
+        "locality_text": "village Belene, Svishtov district (с. Белене, Свищовско)",
+        "political_entity": "Bulgaria",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "village Belene, Svishtov district (с. Белене, Свищовско)",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246600"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "20th century",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "village Belene, Svishtov district (с. Белене, Свищовско)",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:viminaciumamphitheatre:serbia",
+        "locality_text": "Viminacium/Amphitheatre",
+        "political_entity": "Serbia",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "44.74",
+          "21.23"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Viminacium/Amphitheatre",
+      "coordinates": {
+        "latitude": 44.74,
+        "longitude": 21.23,
+        "latitude_text": "44.74",
+        "longitude_text": "21.23",
+        "confidence": "exact"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb81815:samea120246582",
+        "prjeb81815:samea120246583"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "1530-1930 BP",
+        "time_start_bp": 1530,
+        "time_end_bp": 1930,
+        "time_mean_bp": 1730,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Viminacium/Amphitheatre",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:viminaciumnadklepakom:serbia",
+        "locality_text": "Viminacium-Nad Klepačkom",
+        "political_entity": "Serbia",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "44.74",
+          "21.23"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Viminacium-Nad Klepačkom",
+      "coordinates": {
+        "latitude": 44.74,
+        "longitude": 21.23,
+        "latitude_text": "44.74",
+        "longitude_text": "21.23",
+        "confidence": "exact"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb81815:samea120246584"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "790-960 BP",
+        "time_start_bp": 790,
+        "time_end_bp": 960,
+        "time_mean_bp": 875,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Viminacium-Nad Klepačkom",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjeb81815:yenikapmarmarayexc:turkey",
+        "locality_text": "Yenikapı, Marmaray exc.",
+        "political_entity": "Turkey",
+        "source_anchor_tokens": [
+          "PRJEB81815",
+          "41.00",
+          "28.95"
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB81815"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Yenikapı, Marmaray exc.",
+      "coordinates": {
+        "latitude": 41.0,
+        "longitude": 28.95,
+        "latitude_text": "41.00",
+        "longitude_text": "28.95",
+        "confidence": "exact"
+      },
+      "sample_count": 4,
+      "sample_ids": [
+        "prjeb81815:samea120246556",
+        "prjeb81815:samea120246557",
+        "prjeb81815:samea120246558",
+        "prjeb81815:samea120246559"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJEB81815"
+      ],
+      "chronology": {
+        "original_text": "1170-1310 BP",
+        "time_start_bp": 1170,
+        "time_end_bp": 1310,
+        "time_mean_bp": 1240,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJEB81815"
+      ],
+      "original_location_text": "Yenikapı, Marmaray exc.",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The primary supplement resolves ancient and modern cat samples across Europe and adjacent regions, but it contains no Nordic sample and does not justify a Nordic-mapped claim.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:hanchangancity:china",
+        "locality_text": "Han Chang'an City",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Han Chang'an City",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs24"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "44 cal. BCE - 76 cal. CE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Han Chang'an City",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:huoshiliang:china",
+        "locality_text": "Huoshiliang",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Huoshiliang",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs7"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "3749 BP",
+        "time_start_bp": 3749,
+        "time_end_bp": 3749,
+        "time_mean_bp": 3749,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Huoshiliang",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:laoniupo:china",
+        "locality_text": "Laoniupo",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Laoniupo",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs10"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "3149 BP",
+        "time_start_bp": 3149,
+        "time_end_bp": 3149,
+        "time_mean_bp": 3149,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_point",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Laoniupo",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:puyangsongtomb:china",
+        "locality_text": "Puyang Song Tomb",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Puyang Song Tomb",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs18"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "980-1332 BP",
+        "time_start_bp": 980,
+        "time_end_bp": 1332,
+        "time_mean_bp": 1156,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Puyang Song Tomb",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:quanhucun:china",
+        "locality_text": "Quanhucun",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Quanhucun",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs15"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "4649-5949 BP",
+        "time_start_bp": 4649,
+        "time_end_bp": 5949,
+        "time_mean_bp": 5299,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Quanhucun",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:shaliangzi:china",
+        "locality_text": "Shaliangzi",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Shaliangzi",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs17"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "1797 - 1944 cal. CE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Shaliangzi",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:tongwancity:china",
+        "locality_text": "Tongwan City",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tongwan City",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs12"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "706 - 883 cal. CE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Tongwan City",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:wuzhuangguoliang:china",
+        "locality_text": "Wuzhuangguoliang",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Wuzhuangguoliang",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs8"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "2170-4949 BP",
+        "time_start_bp": 2170,
+        "time_end_bp": 4949,
+        "time_mean_bp": 3560,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Wuzhuangguoliang",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:xinjie:china",
+        "locality_text": "Xinjie",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Xinjie",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs14"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "3749-5449 BP",
+        "time_start_bp": 3749,
+        "time_end_bp": 5449,
+        "time_mean_bp": 4599,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Xinjie",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:xinxiangsongtomb:china",
+        "locality_text": "Xinxiang Song Tomb",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Xinxiang Song Tomb",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs6"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "823-990 BP",
+        "time_start_bp": 823,
+        "time_end_bp": 990,
+        "time_mean_bp": 906,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Xinxiang Song Tomb",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:xituchengcity:china",
+        "locality_text": "Xitucheng City",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Xitucheng City",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 5,
+      "sample_ids": [
+        "prjna1178732:fs1",
+        "prjna1178732:fs2",
+        "prjna1178732:fs3",
+        "prjna1178732:fs4",
+        "prjna1178732:fs5"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "716-835 BP",
+        "time_start_bp": 716,
+        "time_end_bp": 835,
+        "time_mean_bp": 776,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Xitucheng City",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:yangling:china",
+        "locality_text": "Yangling",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Yangling",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs13"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "168 - 48 cal. BCE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Yangling",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:zhengandhancity:china",
+        "locality_text": "Zheng and Han City",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Zheng and Han City",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 5,
+      "sample_ids": [
+        "prjna1178732:fs19",
+        "prjna1178732:fs20",
+        "prjna1178732:fs21",
+        "prjna1178732:fs22",
+        "prjna1178732:fs23"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "582-1925 BP",
+        "time_start_bp": 582,
+        "time_end_bp": 1925,
+        "time_mean_bp": 1254,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Zheng and Han City",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "felis_catus:project_locality",
+        "stable_token": "felis_catus:locality:prjna1178732:zhengzhoushangcity:china",
+        "locality_text": "Zhengzhoushang City",
+        "political_entity": "China",
+        "source_anchor_tokens": [
+          "PRJNA1178732",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Felis catus",
+      "species_common_name": "cat",
+      "source_family": "BioProject",
+      "source_releases": [
+        "PRJNA1178732"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Zhengzhoushang City",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjna1178732:fs16"
+      ],
+      "datasets": [
+        "felis_catus:project:PRJNA1178732"
+      ],
+      "chronology": {
+        "original_text": "1413 - 1480 cal. CE",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "historical_or_recent_date",
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "felis_catus:sample_locality",
+      "project_accessions": [
+        "PRJNA1178732"
+      ],
+      "original_location_text": "Zhengzhoushang City",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     }
   ]
 }

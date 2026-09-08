@@ -57,7 +57,8 @@ The checked-in authority currently has two layers with different persistence:
 | --- | --- | --- |
 | AADR release capture | `data/aadr/v66/` contains the release manifest and both annotation members | release identity, file membership, checksums, and source rows are directly inspectable |
 | species-owned raw route | `data/adna/species/homo_sapiens/raw/aadr` links to the AADR capture | human species ownership is visible without copying the release |
-| species-owned normalized and review roots | the governed directories exist but contain no checked-in member or review artifacts | do not claim a persisted human normalization or review database from those roots |
+| compact source-accountability review | `data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json` reconciles both panels | inspect source-row, Genetic-ID, panel, and source-reported political-entity denominators without treating them as scientific or product admission |
+| species-owned normalized root | the governed directory exists but contains no checked-in member artifact | do not claim a persisted human normalized database from this root |
 | country publication bundles | checked-in country CSV, GeoJSON, Markdown, summary, and manifest outputs | publication rows are derived directly through the release-aware annotation runtime and must be audited against both bundle membership and the AADR source row |
 
 ```mermaid
@@ -65,14 +66,17 @@ flowchart LR
     Capture["AADR v66 manifest and annotation rows"] --> Runtime["release-aware metadata projection"]
     Runtime --> Bundle["country bundle and manifest"]
     Capture --> RawRoute["Homo sapiens raw source route"]
-    RawRoute -. no persisted members .-> Species["species normalized and review roots"]
+    Capture --> Accountability["compact source-accountability receipt"]
+    RawRoute -. no persisted members .-> Species["species normalized root"]
+    Accountability -. no admission .-> Bundle
     Bundle --> Audit["publication member to release row"]
 ```
 
 This boundary is narrower than a fully materialized human evidence database.
 The country products are reproducible from the governed release and runtime,
-but a consumer must not cite the empty species-owned roots as proof that a
-separate normalized or reviewed population was checked in.
+but a consumer must not cite the empty normalized root or the non-admitting
+accountability receipt as proof that a normalized or scientifically accepted
+population was checked in.
 
 ### Publication Readiness Is Route-Specific
 
@@ -85,7 +89,8 @@ persisted. Those are separate statements:
 | Can a source annotation row be inspected? | yes | named release member and checksum in `release_manifest.json` |
 | Can a country feature be traced to its source row? | yes | country bundle membership plus the release-aware projection route |
 | Is there a checked-in species-normalized human member database? | no | the species normalized root contains no governed members |
-| Is there a checked-in species review population? | no | the species review root contains no governed review artifacts |
+| Are the captured panels and source labels reconciled? | yes | compact source-accountability receipt with 51,005 source rows and 27,755 Genetic IDs |
+| Is there a scientifically accepted species review population? | no | every admission boolean in the accountability receipt is false and qualified review remains outstanding |
 | Does a published feature prove genotype processing? | no | the runtime consumes annotation metadata only |
 
 The route can therefore reproduce a publication without pretending that a
@@ -173,15 +178,20 @@ geographic comparison. It does not establish contemporaneity, association, or
 a shared archaeological context unless those dimensions are evaluated
 separately.
 
-### Review A Refresh As Population Reconciliation
+### Review A Full Refresh As Population Reconciliation
 
-An AADR refresh reconciles release members, annotation rows, projected Homo
-sapiens records, and product members as distinct populations. The receipt
-accounts for stable and changed identities, aliases across `1240K` and `HO`,
-locality and chronology differences, projection refusals, country membership,
-and affected publications. It must explain both additions and removals. Equal
-release row counts do not establish equal people, equal projections, or equal
-country products.
+A complete AADR release refresh must reconcile release members, annotation
+rows, projected *Homo sapiens* records, and product members as distinct
+populations. It must account for stable and changed identities, aliases across
+`1240K` and `HO`, locality and chronology differences, projection refusals,
+country membership, affected publications, additions, and removals.
+
+The current compact receipt is narrower. It reconciles the captured panels and
+records current-release source-row, Genetic-ID, coordinate, chronology, and
+source-reported political-entity denominators. It does not record cross-release
+deltas, projected product membership, projection refusals, or affected
+publications. Equal release row counts do not establish equal people, equal
+projections, or equal country products.
 
 ## Governing Surfaces
 
@@ -193,6 +203,9 @@ country products.
   annotation population;
 - `data/adna/species/homo_sapiens/raw/aadr` exposes the release through the
   species-owned source boundary; and
+- `data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json`
+  governs compact panel and source-label reconciliation without granting
+  scientific, country, map, or product admission; and
 - `docs/report/countries/<country>/` contains the derived AADR publication
   bundles whose manifests govern country membership.
 

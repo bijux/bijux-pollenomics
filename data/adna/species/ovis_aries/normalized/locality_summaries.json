@@ -93,9 +93,11 @@
         "time_end_bp": 8549,
         "time_mean_bp": 8299,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -158,9 +160,11 @@
         "time_end_bp": 10349,
         "time_mean_bp": 10049,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -223,9 +227,11 @@
         "time_end_bp": 9349,
         "time_mean_bp": 9199,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -300,9 +306,11 @@
         "time_end_bp": 15949,
         "time_mean_bp": 11949,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_approximate_or_modeled"
+        "precision_posture": "sample_approximate_or_modeled",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -434,9 +442,11 @@
         "time_end_bp": 9449,
         "time_mean_bp": 8599,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -539,9 +549,11 @@
         "time_end_bp": 8949,
         "time_mean_bp": 8249,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "sample_precise_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
@@ -555,13 +567,13 @@
     {
       "identity": {
         "namespace": "ovis_aries:project_locality",
-        "stable_token": "ovis_aries:locality:prjeb59481:balticsearegionshorttailedsheepcontext:balticsearegion",
-        "locality_text": "Baltic Sea Region short-tailed sheep context",
-        "political_entity": "Baltic Sea Region",
+        "stable_token": "ovis_aries:locality:prjeb59481:kastelholm:finland",
+        "locality_text": "Kastelholm",
+        "political_entity": "Finland",
         "source_anchor_tokens": [
           "PRJEB59481",
-          "",
-          ""
+          "60.23",
+          "20.08"
         ]
       },
       "species_latin_name": "Ovis aries",
@@ -579,39 +591,107 @@
       "provenance_qualities": [
         "primary_paper_pinned"
       ],
-      "locality": "Baltic Sea Region short-tailed sheep context",
+      "locality": "Kastelholm",
       "coordinates": {
-        "latitude": null,
-        "longitude": null,
-        "latitude_text": "",
-        "longitude_text": "",
-        "confidence": "withheld"
+        "latitude": 60.23,
+        "longitude": 20.08,
+        "latitude_text": "60.23",
+        "longitude_text": "20.08",
+        "confidence": "approximate"
       },
-      "sample_count": 1,
+      "sample_count": 2,
       "sample_ids": [
-        "PRJEB59481"
+        "prjeb59481:samea112960291",
+        "prjeb59481:samea112960292"
       ],
       "datasets": [
         "ovis_aries:project:PRJEB59481"
       ],
       "chronology": {
-        "original_text": "Four millennia of Baltic sheep history",
-        "time_start_bp": 0,
-        "time_end_bp": 4000,
-        "time_mean_bp": 2000,
+        "original_text": "340-527 BP",
+        "time_start_bp": 340,
+        "time_end_bp": 527,
+        "time_mean_bp": 434,
         "date_stddev_bp": "",
+        "source_mean_bp_text": "",
         "dating_basis": "mixed_radiocarbon_and_archaeological_context",
         "evidence_class": "direct_radiocarbon_date",
-        "precision_posture": "contextual_interval"
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
       },
       "sample_namespace": "ovis_aries:sample_locality",
       "project_accessions": [
         "PRJEB59481"
       ],
-      "original_location_text": "Baltic Sea Region short-tailed sheep context",
+      "original_location_text": "Kastelholm",
       "nordic_inclusion": true,
-      "nordic_inclusion_reason": "This locality is retained for Nordic publication because the Baltic Sea Region bundle is explicitly assigned into Nordic country outputs.",
-      "interpretation_note": "The sheep lead remains Nordic-relevant but not point-ready."
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Finland sample evidence.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "ovis_aries:project_locality",
+        "stable_token": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
+        "locality_text": "Stora Förvar",
+        "political_entity": "Sweden",
+        "source_anchor_tokens": [
+          "PRJEB59481",
+          "57.29",
+          "17.97"
+        ]
+      },
+      "species_latin_name": "Ovis aries",
+      "species_common_name": "sheep",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB59481"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Stora Förvar",
+      "coordinates": {
+        "latitude": 57.29,
+        "longitude": 17.97,
+        "latitude_text": "57.29",
+        "longitude_text": "17.97",
+        "confidence": "approximate"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "prjeb59481:samea112960293",
+        "prjeb59481:samea112960294",
+        "prjeb59481:samea112960295"
+      ],
+      "datasets": [
+        "ovis_aries:project:PRJEB59481"
+      ],
+      "chronology": {
+        "original_text": "3699-4151 BP",
+        "time_start_bp": 3699,
+        "time_end_bp": 4151,
+        "time_mean_bp": 3925,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "ovis_aries:sample_locality",
+      "project_accessions": [
+        "PRJEB59481"
+      ],
+      "original_location_text": "Stora Förvar",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Sweden sample evidence.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     }
   ]
 }

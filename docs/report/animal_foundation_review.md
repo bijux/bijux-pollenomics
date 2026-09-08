@@ -2,11 +2,11 @@
 
 - Public posture: `governed_metadata_foundation_not_reference_grade`
 - Strongest claim allowed: `false`
-- Published point count: `234`
-- Direct-coordinate point count: `234`
-- Geocoded point count: `2`
-- Unresolved sample count: `21`
-- Region-only refusal count: `7`
+- Published point count: `170`
+- Direct-coordinate point count: `300`
+- Geocoded point count: `4`
+- Unresolved sample count: `402`
+- Coordinate-provenance refusal count: `4`
 
 ## Strengths
 
@@ -18,6 +18,6 @@
 
 - foundation_validation_not_yet_clean
 - unresolved_site_assignment_rows_remain
-- region_only_geography_rows_remain
+- coordinate_provenance_refusals_remain
 - published_points_still_depend_on_named_site_geocoding
 

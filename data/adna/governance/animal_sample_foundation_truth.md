@@ -1,25 +1,25 @@
 # Animal sample foundation truth
 
 - Tracked species: `10`
-- Tracked projects: `40`
-- Sample rows: `894`
-- Fully grounded rows: `502`
-- Partially grounded rows: `256`
-- Blocked by missing metadata: `29`
-- Blocked by missing location detail: `4`
-- Blocked by weak chronology: `103`
+- Tracked projects: `21`
+- Sample rows: `1450`
+- Fully grounded rows: `557`
+- Partially grounded rows: `335`
+- Blocked by missing metadata: `11`
+- Blocked by missing location detail: `391`
+- Blocked by weak chronology: `156`
 
 ## Species rows
 
 | Species | Sample rows | Fully grounded | Missing metadata | Missing location detail | Weak chronology |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Equus caballus | 552 | 492 | 4 | 0 | 1 |
-| Sus scrofa domesticus | 4 | 0 | 3 | 0 | 0 |
-| Ovis aries | 195 | 0 | 3 | 1 | 13 |
-| Bos taurus | 13 | 0 | 11 | 2 | 0 |
+| Equus caballus | 550 | 476 | 0 | 2 | 13 |
+| Sus scrofa domesticus | 343 | 2 | 0 | 341 | 0 |
+| Ovis aries | 200 | 4 | 0 | 5 | 24 |
+| Bos taurus | 132 | 31 | 11 | 22 | 2 |
 | Capra hircus | 82 | 9 | 0 | 0 | 73 |
-| Canis lupus familiaris | 4 | 0 | 0 | 0 | 3 |
-| Felis catus | 2 | 0 | 0 | 1 | 0 |
-| Camelus dromedarius | 14 | 1 | 0 | 0 | 13 |
-| Rangifer tarandus | 23 | 0 | 3 | 0 | 0 |
-| Equus asinus | 5 | 0 | 5 | 0 | 0 |
+| Canis lupus familiaris | 4 | 0 | 0 | 1 | 0 |
+| Felis catus | 106 | 35 | 0 | 0 | 44 |
+| Camelus dromedarius | 13 | 0 | 0 | 0 | 0 |
+| Rangifer tarandus | 20 | 0 | 0 | 20 | 0 |
+| Equus asinus | 0 | 0 | 0 | 0 | 0 |

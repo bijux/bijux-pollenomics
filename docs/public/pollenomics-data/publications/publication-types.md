@@ -128,16 +128,16 @@ The broader artifact can orient the reader, but it cannot replace the narrower
 authority. Conversely, a row-level fact cannot establish that the product as a
 whole is complete or representative.
 
-## Four Features In One Product
+## Evidence Records And Product Roles
 
 The world surface demonstrates why publication type belongs to each member:
 
-| Visible feature | Publication type | Supported claim | Required restraint |
+| Evidence record | Publication type | Supported claim | Required restraint |
 | --- | --- | --- | --- |
 | AADR `RISE175.SG` | direct evidence | one release-resolved human sample belongs to its scoped bundle | two panel memberships do not mean two people |
 | goat `Direkli1-2` | direct sample evidence | one final sample has supplement-backed identity, place, coordinate, and chronology | project accession does not collapse the other three project samples into this row |
-| Wadi Halfa dromedary | qualified project context | one paper-backed named-place context feature is spatially admitted | do not describe it as a recovered sample or apply numeric time filtering |
-| RAÄ cell `17-18°E, 59-60°N` | contextual aggregate | 27,450 selected registry records fall in the declared cell | do not turn the polygon or count into synthetic sites |
+| Wadi Halfa dromedary | not-materialized context | paper-backed named-place evidence remains traceable outside the point product under `no_admitted_sample_backed_locality_candidate` | do not render it as a point; admission requires a sample-backed locality candidate |
+| RAÄ density (withheld) | refused authority | retained files document an earlier derived surface, not a current governed member | do not display, analyze, or turn retained cells into synthetic sites |
 | Sweden boundary | framing | the polygon participates in geographic scope selection | do not treat it as scientific evidence or historical affiliation |
 
 This table is also an authority order. When a generic layer label or popup
@@ -201,10 +201,11 @@ publication claim = product + version + scope + member + role + evidence posture
 | governing evidence identity | allowing the projection to become authority for source facts |
 | qualification and admission posture | reusing a visible member at stronger precision or certainty |
 
-This receipt is especially important for the 234-member animal point surface:
-233 members are final sample-backed evidence and one is qualified
-project-context evidence. Dropping role or posture preserves the count while
-destroying the scientific distinction.
+This receipt is especially important for the 170-member animal locality
+surface, which represents 331 distinct admitted samples: 117 features are
+`domesticated_core` and 53 are `wild_or_progenitor_context`. Dropping scope or
+observation unit preserves a count while destroying the scientific
+distinction.
 
 ## Scope And Version Are Part Of Meaning
 

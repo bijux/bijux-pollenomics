@@ -92,7 +92,7 @@ explicit denominator or contract.
 | Avoid | Prefer | Why |
 | --- | --- | --- |
 | “The database has 1,231 Nordic records.” | “The current Nordic bundle admits 1,231 AADR human-sample rows from Sweden, Norway, Finland, and Denmark.” | names product, family, unit, and geography |
-| “SEAD coverage is complete.” | “The reviewed SEAD inventory has 2,195 rows; 2,172 have country assignment and are mapped in the Nordic bundle.” | exposes denominator and non-members |
+| “SEAD coverage is complete.” | “The SEAD bounding-box review has 2,195 sites; 2,069 are assigned to the four publication countries, 103 require country review, and 23 remain unassigned.” | exposes denominator and non-members |
 | “The animal dataset is validated.” | “The named animal product passes its admission and traceability contracts; project recovery remains uneven.” | distinguishes product validity from source completeness |
 | “Pollen explains the archaeological pattern.” | “LandClim and Neotoma provide primary pollen context for comparison with archaeological layers.” | preserves evidence role and avoids causal promotion |
 | “Coordinates are exact.” | “The published coordinate uses source-supplied site precision recorded in coordinate provenance.” | anchors precision to its source |

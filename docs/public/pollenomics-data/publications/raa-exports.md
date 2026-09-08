@@ -4,82 +4,64 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-04
 ---
 
 # RAÄ Exports
 
-RAÄ exports provide Sweden-specific archaeology context from
-Riksantikvarieämbetet/Fornsök Open Data. The public map uses an aggregated
-density layer so national context remains legible without rendering hundreds
-of thousands of point markers. This is a **Sweden-scoped** source and product
-surface; it supplies no equivalent registry coverage for the other Nordic
-countries.
+RAÄ is intended to provide Sweden-specific archaeology context from
+Riksantikvarieämbetet/Fornsök Open Data. The repository retains capture
+metadata and derived density files for audit, but RAÄ is not currently an
+admitted export. Source authority is refused until the raw inventory, raw
+summary, normalized counts, and qualified scientific review reconcile.
 
 ## Current Governed Surface
 
-`data/raa/normalized/sweden_archaeology_layer.json` records:
+| Measure | Governed value |
+| --- | --- |
+| source inventory denominator | unavailable |
+| classified-record denominators | unavailable |
+| admitted public density features | none |
+| temporal evidence | not applicable while authority is refused |
 
-| Measure | Value |
-| --- | ---: |
-| all published sites represented by the source | 761,917 |
-| records classified `Fornlämning` | 318,265 |
-| `Fornlämning` or possible ancient remains | 416,913 |
-| one-degree density features rendered | 106 |
-
-The public density GeoJSON is
-`data/raa/normalized/sweden_archaeology_density.geojson`. Its cells summarize
-the `Fornlämning` selection for national-scale rendering. A density feature is
-therefore an aggregate display object, not an archaeological site and not a
-sample.
+`data/raa/normalized/sweden_archaeology_layer.json` and
+`data/raa/normalized/sweden_archaeology_density.geojson` are retained evidence
+of an earlier derived surface. They do not establish a current source
+population and are excluded from governed maps, reports, and analytical
+counts. Unavailable denominators are not zeroes.
 
 ```mermaid
 flowchart LR
-    OpenData["published RAÄ site records"] --> Classify["heritage classification"]
-    Classify --> Select["Fornlämning selection"]
-    Select --> Aggregate["one-degree cell counts"]
-    Aggregate --> Context["Sweden archaeology density layer"]
-    Context --> Product["map and report context"]
+    OpenData["RAÄ source interface"] --> Capture["partial retained capture"]
+    Capture --> Refusal["authority refused"]
+    Refusal --> Missing["inventory, summary, and review required"]
+    Missing --> Future["future governed export assessment"]
 ```
 
-## Three Counts, Three Meanings
+## Retained Aggregate Semantics
 
-The 761,917 total describes the broad published source population represented
-by the layer metadata. The 318,265 count describes the `Fornlämning` subset
-used for density rendering. The 106 count describes grid cells that carry
-aggregated map features. Comparing those numbers as though they shared an
-observation unit would confuse source records, selected records, and rendered
-geometry.
-
-## Worked Aggregate: The Densest Published Cell
-
-The largest checked-in density feature covers the one-degree cell from
-longitude `17` to `18` and latitude `59` to `60`. Its published count is
-**27,450** selected `Fornlämning` records.
-
-That feature establishes one aggregate statement: 27,450 source records in the
-selected classification were assigned to this grid cell under the current
-normalization. It does not identify 27,450 coordinates in the export, and the
-cell centroid or polygon must not be treated as the location of any individual
-record.
+If authority is admitted in a future capture, a one-degree density feature
+will remain an aggregate display object, not an archaeological site or sample.
+Until then, values inside the retained files are historical provenance only
+and cannot support current source-wide or cell-level claims.
 
 | Reuse operation | Defensible result | Information lost or invented |
 | --- | --- | --- |
-| preserve the cell polygon and count | comparable aggregate under the same grid and selection | none beyond source-level detail already abstracted by the layer |
-| convert the cell to one point | coarse visualization only, if labelled as an aggregate | polygon extent and within-cell distribution |
+| preserve the retained file unchanged | auditable historical input pending authority review | no current analytical claim is admitted |
+| convert a retained cell to one point | no defensible current result | polygon extent, within-cell distribution, and source authority |
 | expand the count into repeated points | no defensible scientific result | synthetic coordinates and false independence |
-| compare with another grid size | only after recomputing both populations | direct count comparability across unequal areas |
+| compare with another grid size | no defensible current result | source-population and area comparability |
 
-The grid definition is therefore part of the observation. A density count
-without its cell geometry, selection class, and source population cannot be
-reconstructed or compared responsibly.
+The grid definition remains part of the observation. Even after future
+admission, a density count without its cell geometry, selection class, and
+source population cannot be reconstructed or compared responsibly.
 
 ## Supported Interpretation
 
-The layer supports questions about the spatial density of published Swedish
-archaeology records under the declared classification and grid. It helps
-identify where admitted aDNA, pollen, or lake candidates sit relative to that
-registry context.
+No current public or analytical interpretation is supported. After a future
+authority admission, a regenerated layer may support questions about the
+spatial density of published Swedish archaeology records under a declared
+classification and grid.
 
 It does not establish:
 
@@ -89,16 +71,16 @@ It does not establish:
 - equivalent archaeology coverage outside Sweden; or
 - exact site chronology from a density cell.
 
-The current normalized RAÄ layer carries **no numeric temporal intervals**.
-Spatial co-occurrence with a cell must therefore remain archaeology context,
-not a time-aligned event claim.
+The refused surface cannot contribute numeric temporal evidence. Its absence
+from a governed view means “authority refused,” not “no archaeology observed.”
 
 ## Reuse Contract
 
-Carry the layer metadata, selection class, source population counts,
-one-degree grid definition, density GeoJSON, source identity, and non-numeric
-temporal posture together. Preserve cell counts as aggregates and do not
-expand a cell into synthetic site points.
+Do not publish or analyze the retained density files as current RAÄ evidence.
+Preserve them unchanged for audit. A future admitted export must bind its raw
+inventory, normalized population, classification, grid definition, source
+identity, review decision, and temporal posture, and must be regenerated from
+that authority rather than recovered from a downstream map.
 
 Continue to [RAÄ source guidance](../sources/raa.md) for source semantics,
 [maps](maps.md) for role-aware spatial reading, and

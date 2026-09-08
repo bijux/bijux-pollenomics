@@ -24,16 +24,16 @@ flowchart LR
 - Curation class: `paper_pinned_core`
 - Curated sample rows: `4`
 - Curated projects: `3`
-- Curated site rows: `1`
+- Curated site rows: `4`
 - Direct-coordinate rows: `0`
 - Geocoded rows: `0`
-- Unresolved sample rows: `0`
+- Unresolved sample rows: `1`
 - Mapped Nordic rows: `0`
 - Tracked intake projects: `3`
 - Projects with sample recovery gaps: `0`
-- Projects with site-recovery gaps: `3`
-- Projects with chronology gaps: `2`
-- Projects blocked before publication review: `3`
+- Projects with site-recovery gaps: `1`
+- Projects with chronology gaps: `1`
+- Projects blocked before publication review: `1`
 - Pending projects: `0`
 - Rejected projects: `0`
 

@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-07
 ---
 
 # Evidence Publications
@@ -261,23 +261,25 @@ The checked-in world manifest makes the reading order concrete:
 
 | Surface | Governed fact | Reader decision |
 | --- | --- | --- |
-| `world_bundle.json` | `scope_key: world`, version `v66`, generated `2026-06-22` | select the product identity before opening a rendering |
-| `world_map_publication_contract.json` | five declared layer rows and their filter behavior | determine which roles are eligible at world scope |
+| `world_bundle.json` | `scope_key: world`, version `v66`, and the bundle's recorded generation identity | select the product identity before opening a rendering |
+| `world_map_publication_contract.json` | declared layer rows, counts, roles, and filter behavior | determine which roles are eligible at world scope |
 | `world_point_traceability.json` | visible feature-to-evidence relations | resolve a marker to its governing row |
 | `world_scientific_review.json` | qualifications and comparison limits | constrain interpretation |
 | `world_map.html` | interactive rendering of the governed members | explore after scope and role are known |
 
-The map contract currently declares 1,231 AADR features, one dromedary context
-feature, 26 goat features, 207 horse features, and four boundary features.
-Those counts are not one population: they mix human samples, differently
-qualified animal evidence features, and geographic framing. The manifest binds
-them into one product without making their observation units equivalent.
+The map contract separates AADR sample features, sample-backed animal
+localities by biological role, display-only animal source chronology, and
+boundary framing. Wadi Halfa has no admitted sample-backed locality candidate
+and is not a map member (`no_admitted_sample_backed_locality_candidate`).
+Layer counts are not one population: the manifest binds them into one product
+without making their observation units equivalent. Read `layer_rows` in the
+contract for the current counts and filter eligibility.
 
 ```mermaid
 flowchart LR
     Bundle["world_bundle.json / v66"] --> Contract["world map contract"]
     Contract --> AADR["1,231 human sample features"]
-    Contract --> Animal["234 animal evidence features"]
+    Contract --> Animal["170 animal locality features<br/>331 admitted samples"]
     Contract --> Boundaries["4 framing features"]
     AADR --> Trace["point traceability"]
     Animal --> Trace
@@ -293,9 +295,9 @@ distinguish a human sample, animal context feature, or boundary polygon.
 
 Animal publication checks currently enforce that:
 
-- published points retain the identity support declared by their point class:
-  final sample lineage or visibly provisional project context;
-- provisional project context does not become recovered sample evidence;
+- every published point retains final admitted sample lineage;
+- retained project context without an admitted sample-backed locality remains
+  a not-materialized readiness row rather than point evidence;
 - sample-site disagreement is not flattened into one project locality;
 - blocked sample-site rows do not publish as exact sites;
 - unresolved or conflicting chronology does not enter country or atlas output;
@@ -339,8 +341,9 @@ narrowest evidence member that supports the statement. If that member cannot
 be named, the statement is not yet traceable enough for scientific reuse.
 
 For a count, also retain the observation unit, numerator, eligible population,
-exclusions, and scope. “234 points” is a product-membership statement; it is
-not a recovery rate until a defensible denominator and recovery rule are named.
+exclusions, and scope. “170 locality features representing 331 samples” is a
+product-membership statement; it is not a recovery rate until a defensible
+denominator and recovery rule are named.
 
 The [revision and state model](../database/revision-and-state-model.md)
 defines the database snapshot from which a projection receives its authority.

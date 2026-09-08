@@ -1,0 +1,56 @@
+"""Repository structure, ownership, and public compatibility contracts."""
+
+from .compatibility import CompatibilityAliasContract, compatibility_alias_contract
+from .dependencies import (
+    ImportCycle,
+    assert_acyclic_package_imports,
+    find_package_import_cycles,
+)
+from .ownership import OwnershipMapEntry, build_ownership_map
+from .product import ProductScope, build_product_scope
+from .repository import (
+    ArchitectureStage,
+    CrossTreeSurfaceContract,
+    PackageOwnershipContract,
+    RepositoryArchitectureContract,
+    build_repository_architecture_contract,
+)
+from .runtime import RuntimeSurfaceContract, runtime_surface_contract
+from .surfaces import SurfaceMap, build_surface_map
+from .topology import (
+    PackageFacadePolicy,
+    RepositoryTopologyPolicy,
+    TopologyViolation,
+    UnitTestDomainPolicy,
+    assert_repository_topology,
+    audit_repository_topology,
+    repository_topology_policy,
+)
+
+__all__ = [
+    "ArchitectureStage",
+    "CompatibilityAliasContract",
+    "CrossTreeSurfaceContract",
+    "ImportCycle",
+    "OwnershipMapEntry",
+    "PackageFacadePolicy",
+    "PackageOwnershipContract",
+    "ProductScope",
+    "RepositoryArchitectureContract",
+    "RepositoryTopologyPolicy",
+    "RuntimeSurfaceContract",
+    "SurfaceMap",
+    "TopologyViolation",
+    "UnitTestDomainPolicy",
+    "assert_acyclic_package_imports",
+    "assert_repository_topology",
+    "audit_repository_topology",
+    "build_ownership_map",
+    "build_product_scope",
+    "build_repository_architecture_contract",
+    "build_surface_map",
+    "compatibility_alias_contract",
+    "find_package_import_cycles",
+    "repository_topology_policy",
+    "runtime_surface_contract",
+]

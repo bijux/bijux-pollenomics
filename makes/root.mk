@@ -16,6 +16,8 @@ ROOT_PACKAGE_TARGETS += test-all-plus-run-time
 ROOT_TARGET_GROUPS_test-all-plus-run-time ?= check
 ROOT_TARGET_SHARED_ENV_test-all-plus-run-time ?= 1
 
+include $(ROOT_MAKEFILE_DIR)/pollenomics-verification.mk
+
 include $(ROOT_MAKEFILE_DIR)/bijux-py/repository/root.mk
 
 include $(ROOT_MAKEFILE_DIR)/bijux-py/root/package-dispatch.mk
@@ -34,7 +36,7 @@ DOCS_SERVE_PREPARE_TARGETS := bijux-docs-sync docs-render-serve-config
 
 .PHONY: \
 	help list list-all install lock lock-check lint quality security test test-all test-all-plus-run-time docs docs-check docs-serve api build sbom clean all \
-	check app-state data-prep reports package-check package-smoke package-source-smoke package-verify sync-badges sync-license-assets \
+	check app-state data-prep aadr-source-accountability reports package-check package-smoke package-source-smoke package-verify sync-badges sync-license-assets \
 	clean-root-artifacts root-check-env check-shared-bijux-py
 
 check: sync-license-assets lock-check lint test quality security docs build sbom api ## Run the full repository verification flow
@@ -52,6 +54,12 @@ sync-license-assets: root-check-env ## Sync package LICENSE and NOTICE files fro
 
 data-prep: root-check-env ## Refresh tracked source data under data/
 	@BIJUX_POLLENOMICS_ALLOW_INSECURE_TLS=1 "$(CLI)" collect-data all --version "$$($(ROOT_CHECK_PYTHON) -c 'from bijux_pollenomics.config import DEFAULT_AADR_VERSION; print(DEFAULT_AADR_VERSION)')" --output-root "$(CURDIR)/data"
+	@"$(CLI)" refresh-aadr-source-accountability --data-root "$(CURDIR)/data" --version "$$($(ROOT_CHECK_PYTHON) -c 'from bijux_pollenomics.config import DEFAULT_AADR_VERSION; print(DEFAULT_AADR_VERSION)')"
+	@"$(CLI)" refresh-data-contract-surfaces --data-root "$(CURDIR)/data" --version "$$($(ROOT_CHECK_PYTHON) -c 'from bijux_pollenomics.config import DEFAULT_AADR_VERSION; print(DEFAULT_AADR_VERSION)')"
+
+aadr-source-accountability: root-check-env ## Refresh the compact tracked AADR source-accountability receipt
+	@"$(CLI)" refresh-aadr-source-accountability --data-root "$(CURDIR)/data" --version "$$($(ROOT_CHECK_PYTHON) -c 'from bijux_pollenomics.config import DEFAULT_AADR_VERSION; print(DEFAULT_AADR_VERSION)')"
+	@"$(CLI)" refresh-data-contract-surfaces --data-root "$(CURDIR)/data" --version "$$($(ROOT_CHECK_PYTHON) -c 'from bijux_pollenomics.config import DEFAULT_AADR_VERSION; print(DEFAULT_AADR_VERSION)')"
 
 reports: root-check-env ## Refresh tracked report outputs under docs/report
 	@"$(CLI)" publish-reports --aadr-root "$(CURDIR)/data/aadr" --version "$$($(ROOT_CHECK_PYTHON) -c 'from bijux_pollenomics.config import DEFAULT_AADR_VERSION; print(DEFAULT_AADR_VERSION)')" --output-root "$(CURDIR)/docs/report" --context-root "$(CURDIR)/data"

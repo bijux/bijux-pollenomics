@@ -1,0 +1,1 @@
+"""Scoped SEAD acquisition tests."""

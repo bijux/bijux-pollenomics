@@ -9,24 +9,29 @@
   "stage_statuses": {
     "project_admission": "complete",
     "paper_capture": "complete",
-    "supplement_capture": "not_required",
+    "supplement_capture": "complete",
     "sample_identity_recovery": "complete",
-    "site_recovery": "complete",
-    "chronology_recovery": "complete",
-    "coordinate_derivation": "in_progress",
-    "publication_readiness": "complete"
+    "site_recovery": "in_progress",
+    "chronology_recovery": "in_progress",
+    "coordinate_derivation": "blocked",
+    "publication_readiness": "blocked"
   },
-  "blocking_stages": [],
-  "next_required_stage": "coordinate_derivation",
-  "publication_readiness_status": "complete",
+  "blocking_stages": [
+    "coordinate_derivation",
+    "publication_readiness"
+  ],
+  "next_required_stage": "site_recovery",
+  "publication_readiness_status": "blocked",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
   "expected_sample_count_artifact_path": "data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
   "minimum_expected_sample_count": 1,
-  "recovered_sample_count": 14,
-  "final_sample_count": 14,
+  "recovered_sample_count": 15,
+  "final_sample_count": 15,
   "unresolved_sample_count": null,
+  "material_evidence_expected_count": 0,
+  "material_evidence_conflict_count": 0,
   "minimum_gap_count": 0,
   "recovery_gap_status": "minimum_expected_floor_met",
   "implausibly_low_recovery": false,
@@ -47,10 +52,16 @@
     "data/adna/governance/source_library/projects/PRJEB19970/sample_chronology.json",
     "data/adna/governance/source_library/projects/PRJEB19970/sample_locality_evidence.json"
   ],
-  "missing_assets": [],
+  "missing_assets": [
+    "Some recovered sample rows still lack a defensible site assignment.",
+    "Some recovered sample rows still lack sample-level chronology."
+  ],
   "expected_contributions": [
     "sample_identities",
-    "taxonomic_context"
+    "taxonomic_context",
+    "site_evidence",
+    "coordinate_candidates",
+    "sample_chronology"
   ],
   "expected_contribution_surfaces": [
     "data/adna/governance/source_library/projects/PRJEB19970/archive_metadata.html",
@@ -62,10 +73,47 @@
     "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables30.xlsx",
     "adna/governance/source_library/papers/10.1126-science.aam5298/supplementary/tables31.xlsx"
   ],
-  "contradictory_evidence": [
-    "12 chronology row(s) still disagree between sample-owned and context-level evidence."
-  ],
+  "contradictory_evidence": [],
   "inferred_claims": [],
-  "manual_curation_work_units": [],
-  "major_deficit_reasons": []
+  "manual_curation_work_units": [
+    {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "work_unit_type": "chronology_recovery",
+      "work_unit_state": "pending_source_recovery",
+      "open_item_count": 4,
+      "rationale": "missing_sample_level_date_evidence",
+      "downstream_impact": "blocks chronology honesty and publication precision",
+      "recommended_source_surfaces": [
+        "data/adna/governance/source_library/projects/PRJEB19970/sample_chronology.json",
+        "data/adna/governance/source_library/projects/PRJEB19970/intake_dossier.json"
+      ]
+    },
+    {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "work_unit_type": "locality_string_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 2,
+      "rationale": "unresolved",
+      "downstream_impact": "blocks coordinate derivation and exact locality publication",
+      "recommended_source_surfaces": [
+        "tracked_source_artifact"
+      ]
+    },
+    {
+      "project_accession": "PRJEB19970",
+      "species_latin_name": "Equus caballus",
+      "work_unit_type": "site_resolution",
+      "work_unit_state": "pending_manual_curation",
+      "open_item_count": 2,
+      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
+      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
+      "recommended_source_surfaces": []
+    }
+  ],
+  "major_deficit_reasons": [
+    "site_assignment_gap",
+    "chronology_gap"
+  ]
 }

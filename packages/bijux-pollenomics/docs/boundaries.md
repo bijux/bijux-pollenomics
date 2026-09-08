@@ -11,10 +11,10 @@ compatibility forwarding does not own runtime behavior.
 
 ```mermaid
 flowchart LR
-    Command["command_line"] --> Intake["data_downloader and adna.sources"]
-    Intake --> Evidence["adna.projects and adna.normalization"]
-    Evidence --> Review["evidence and analysis.review"]
-    Review --> Product["foundation and analysis"]
+    Command["command_line"] --> Intake["collection and adna.sources"]
+    Intake --> Evidence["adna.projects and adna.workflow"]
+    Evidence --> Review["evidence and analysis.review.fieldwork"]
+    Review --> Product["architecture, governance, and analysis"]
     Product --> Assembly["reporting assembly and bundles"]
     Assembly --> Render["reporting presentation and rendering"]
     Render -. no authority flows backward .-> Evidence
@@ -44,19 +44,25 @@ the runtime.
 
 Primary modules:
 
-- `bijux_pollenomics.data_downloader.pipeline`
-- `bijux_pollenomics.data_downloader.sources`
-- `bijux_pollenomics.data_downloader.intake`
-- `bijux_pollenomics.data_downloader.exports`
+- `bijux_pollenomics.collection.contracts`
+- `bijux_pollenomics.collection.catalog`
+- `bijux_pollenomics.collection.workflow`
+- `bijux_pollenomics.collection.sources`
+- `bijux_pollenomics.collection.intake`
+- `bijux_pollenomics.collection.exports`
 - `bijux_pollenomics.adna.sources.library`
 - `bijux_pollenomics.adna.sources.ena`
 
-### `data_downloader` Intent
+### `collection` Intent
 
-`data_downloader` should read like the source-admission side of the runtime,
+`collection` should read like the source-admission side of the runtime,
 with subtrees that answer different intake questions cleanly:
 
-- `pipeline/`: orchestration and collection-flow assembly
+- `contracts/`: stable data shapes, artifact names, and source-family capability rules
+- `catalog/`: source identity, provenance, support, replacement, and validation state
+- `sources/sead/catalog/site_inventory/`: admitted-table readers, source-key
+  relationships, chronology and bibliography projection, and site summaries
+- `workflow/`: orchestration, staging, and repository materialization
 - `sources/`: one subtree per external source family
 - `intake/`: workbook, archive, or payload decoding helpers
 - `shared/` and `spatial/`: truly shared source-intake utilities only
@@ -75,13 +81,13 @@ publish honestly.
 Primary modules:
 
 - `bijux_pollenomics.adna.projects.sample_master`
-- `bijux_pollenomics.adna.projects.sample_truth`
-- `bijux_pollenomics.adna.projects.sample_sites`
-- `bijux_pollenomics.adna.projects.sample_chronology`
-- `bijux_pollenomics.adna.projects.sample_locality_evidence`
-- `bijux_pollenomics.adna.projects.coordinate_provenance`
-- `bijux_pollenomics.adna.normalization`
-- `bijux_pollenomics.adna.catalogs`
+- `bijux_pollenomics.adna.projects.registry.sample_truth`
+- `bijux_pollenomics.adna.projects.registry.sites`
+- `bijux_pollenomics.adna.projects.evidence.chronology`
+- `bijux_pollenomics.adna.projects.evidence.localities`
+- `bijux_pollenomics.adna.projects.evidence.coordinates`
+- `bijux_pollenomics.adna.workflow.normalization`
+- `bijux_pollenomics.adna.governance.audit_catalogs`
 
 ## Evidence Review
 
@@ -90,10 +96,12 @@ and which review surfaces or ranking surfaces must exist before publication.
 
 Primary modules:
 
-- `bijux_pollenomics.adna.reviews`
+- `bijux_pollenomics.adna.governance.reviews`
 - `bijux_pollenomics.evidence`
-- `bijux_pollenomics.analysis.review`
-- `bijux_pollenomics.foundation`
+- `bijux_pollenomics.evidence.sources` validates governed source materializations
+  before governance or publication consumers read them
+- `bijux_pollenomics.analysis.review.fieldwork`
+- `bijux_pollenomics.governance`
 
 ### `adna` Intent
 
@@ -101,9 +109,14 @@ Primary modules:
 should separate responsibilities that answer different evidence questions:
 
 - `sources/`: source-library intake and acquisition-side recovery work
-- `projects/`: project- and sample-level evidence shaping
+- `projects/evidence/`: project chronology, coordinate, locality, and site claims
+- `projects/registry/`: project, sample, locality, and site identity registries
 - `species/`: species-aware runtime and curated species surfaces
-- top-level review and normalization modules: cross-project evidence decisions
+- `domain/`: scientific value objects and locality semantics
+- `governance/`: admission, curation, integrity, and review decisions
+- `workflow/`: repository layout, normalization, rebuild, and runtime orchestration
+
+Only `api.py` and the package initializer belong at the `adna` package root.
 
 That means `adna` should not blur source acquisition, sample truth, cross-
 species review, and publication-facing outputs into one flat module story. The

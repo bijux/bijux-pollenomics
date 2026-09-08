@@ -104,8 +104,10 @@ its governing evidence or parent publication family.
 The stage matrix evaluates each contracted artifact independently. In the
 current snapshot, Neotoma, SEAD, and animal aDNA have materialized evidence at
 all four stages. LandClim, RAÄ, and boundaries lack their contracted
-source-specific review artifacts. SVAR and AADR retain publications while
-their contracted normalized and review members are absent.
+source-specific review artifacts. SVAR retains publication evidence without
+its contracted normalized or review members. AADR retains publication evidence
+and a compact, non-admitting source-accountability review, while normalized
+membership and qualified scientific review remain unavailable.
 
 This is why the lifecycle is stored as four statuses rather than one maturity
 label. `published` answers whether the publication artifact exists.
@@ -114,11 +116,12 @@ the declared authorities that should support a rebuild. A missing earlier
 stage blocks the stronger rebuildability claim without deleting the retained
 product or pretending it never existed.
 
-Animal aDNA also demonstrates why metrics are typed. Its lifecycle row counts
-894 species-owned sample-foundation rows. Project recovery currently counts
-868 recovered sample-master identities, while point publication admits 234
-rows. These are foundation, recovery, and product populations—not three
-estimates of one interchangeable total.
+Animal aDNA also demonstrates why metrics are typed. Its lifecycle contains
+1,450 final sample-foundation rows across 21 contributing projects. The wider
+40-project registry contains 1,455 recovered raw sample-master rows and 1,450
+final rows, while point publication contains 170 locality features representing
+331 distinct admitted samples. These are recovery, foundation, sample, and
+product populations—not estimates of one interchangeable total.
 
 ### Readiness Has Independent Dimensions
 
@@ -241,7 +244,7 @@ distinct:
 | --- | --- | --- |
 | captured | What material did the repository acquire? | two AADR annotation panels or 2,195 SEAD inventory rows |
 | normalized and reviewed | Which records have a stable repository representation and evidence posture? | 200 Neotoma site records with temporal review |
-| published | Which records satisfy one named product contract? | 2,172 mapped Nordic SEAD features or 2 Nordic animal localities |
+| published | Which records satisfy one named product contract? | 2,069 assigned four-country SEAD sites or 2 Nordic animal localities |
 
 A smaller published population can be the honest result of stronger review,
 geographic scope, or missing evidence. It must not be described as failed

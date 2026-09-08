@@ -1,16 +1,22 @@
 {
+  "schema_version": "landclim-raw-receipt.v1",
   "generated_on": "2026-03-31",
   "source": "LandClim",
+  "asset_count": 7,
   "datasets": [
     {
+      "dataset_id": "900966",
       "doi": "https://doi.org/10.1594/PANGAEA.900966",
+      "source_url": "https://doi.org/10.1594/PANGAEA.900966",
       "label": "Marquer et al. 2019 REVEALS taxa grid cells",
       "files": [
         "marquer_2017_reveals_taxa_grid_cells.xlsx"
       ]
     },
     {
+      "dataset_id": "897303",
       "doi": "https://doi.org/10.1594/PANGAEA.897303",
+      "source_url": "https://doi.org/10.1594/PANGAEA.897303",
       "label": "Gaillard 2019 LandClim I REVEALS grids",
       "files": [
         "landclim_i_land_cover_types.xlsx",
@@ -18,13 +24,111 @@
       ]
     },
     {
+      "dataset_id": "937075",
       "doi": "https://doi.org/10.1594/PANGAEA.937075",
+      "source_url": "https://doi.org/10.1594/PANGAEA.937075",
       "label": "Fyfe et al. 2021 LandClim II REVEALS grids",
       "files": [
-        "landclim_ii_reveals_results.zip",
         "landclim_ii_grid_cell_quality.xlsx",
+        "landclim_ii_reveals_results.zip",
         "landclim_ii_site_metadata.xlsx",
         "landclim_ii_taxa_pft_ppe_fsp_values.csv"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "filename": "landclim_i_land_cover_types.xlsx",
+      "dataset_id": "897303",
+      "dataset_doi": "https://doi.org/10.1594/PANGAEA.897303",
+      "source_url": "https://store.pangaea.de/Publications/Gaillard-Lemdahl_2019/LandClimILCTs.xlsx",
+      "size_bytes": 221898,
+      "sha256": "851774cece8fb87928028a0da0e9ab7314ac083fdcca2d1565c00a7aa24d7081"
+    },
+    {
+      "filename": "landclim_i_plant_functional_types.xlsx",
+      "dataset_id": "897303",
+      "dataset_doi": "https://doi.org/10.1594/PANGAEA.897303",
+      "source_url": "https://store.pangaea.de/Publications/Gaillard-Lemdahl_2019/LandClimIPFTs.xlsx",
+      "size_bytes": 352510,
+      "sha256": "49146055ab0244bb77967304f39161392dbec0b70e7f8ec6f35776b73b4daee8"
+    },
+    {
+      "filename": "landclim_ii_grid_cell_quality.xlsx",
+      "dataset_id": "937075",
+      "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+      "source_url": "https://download.pangaea.de/dataset/937075/files/GC_quality_by_TW.xlsx",
+      "size_bytes": 49189,
+      "sha256": "6b805ee27f07d3d047bb785ae5315388b1d3a4b123d510a27f77a86915bc7488"
+    },
+    {
+      "filename": "landclim_ii_reveals_results.zip",
+      "dataset_id": "937075",
+      "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+      "source_url": "https://download.pangaea.de/dataset/937075/files/LANDCLIMII.RV.results.JUN2021.zip",
+      "size_bytes": 4007032,
+      "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+    },
+    {
+      "filename": "landclim_ii_site_metadata.xlsx",
+      "dataset_id": "937075",
+      "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+      "source_url": "https://download.pangaea.de/dataset/937075/files/LandClimII_metadata.xlsx",
+      "size_bytes": 264067,
+      "sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb"
+    },
+    {
+      "filename": "landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "dataset_id": "937075",
+      "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+      "source_url": "https://download.pangaea.de/dataset/937075/files/Taxa_to_PFT_PPE_and_FSP_values.csv",
+      "size_bytes": 1773,
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    },
+    {
+      "filename": "marquer_2017_reveals_taxa_grid_cells.xlsx",
+      "dataset_id": "900966",
+      "dataset_doi": "https://doi.org/10.1594/PANGAEA.900966",
+      "source_url": "https://store.pangaea.de/Publications/Marquer-etal_2017/MARQUER_QSR2017.xlsx",
+      "size_bytes": 401595,
+      "sha256": "d3076ebfc87a9a8f4bfa08698e49e95bf7c307a89990d1825f1d1ccddf719a05"
+    }
+  ],
+  "archive_summaries": [
+    {
+      "filename": "landclim_ii_reveals_results.zip",
+      "member_count": 50,
+      "uncompressed_size_bytes": 9964310,
+      "member_manifest_sha256": "0d09ed48245409eca0d8551ef5e25bf60ef49f3e5c807e7e2487e15e7f1a3bfe",
+      "member_digest_basis": "sha256-canonical-json-path-size-sha256",
+      "mean_file_count": 25,
+      "standard_error_file_count": 25,
+      "time_windows": [
+        "0-100 BP",
+        "100-350 BP",
+        "350-700 BP",
+        "700-1200 BP",
+        "1200-1700 BP",
+        "1700-2200 BP",
+        "2200-2700 BP",
+        "2700-3200 BP",
+        "3200-3700 BP",
+        "3700-4200 BP",
+        "4200-4700 BP",
+        "4700-5200 BP",
+        "5200-5700 BP",
+        "5700-6200 BP",
+        "6200-6700 BP",
+        "6700-7200 BP",
+        "7200-7700 BP",
+        "7700-8200 BP",
+        "8200-8700 BP",
+        "8700-9200 BP",
+        "9200-9700 BP",
+        "9700-10200 BP",
+        "10200-10700 BP",
+        "10700-11200 BP",
+        "11200-11700 BP"
       ]
     }
   ]

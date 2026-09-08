@@ -3,39 +3,39 @@
   "rows": [
     {
       "species_latin_name": "Bos taurus",
-      "recovered_sample_row_count": 11,
-      "normalized_row_count": 11,
-      "exact_sample_date_count": 0,
+      "recovered_sample_row_count": 134,
+      "normalized_row_count": 99,
+      "exact_sample_date_count": 28,
+      "modeled_or_approximate_sample_date_count": 64,
+      "contextual_date_count": 7,
+      "broad_label_count": 0,
+      "text_only_unparsed_count": 0,
+      "unresolved_count": 35,
+      "chronology_completeness_ratio": 0.7388
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "recovered_sample_row_count": 13,
+      "normalized_row_count": 13,
+      "exact_sample_date_count": 13,
       "modeled_or_approximate_sample_date_count": 0,
-      "contextual_date_count": 11,
+      "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
       "unresolved_count": 0,
       "chronology_completeness_ratio": 1.0
     },
     {
-      "species_latin_name": "Camelus dromedarius",
-      "recovered_sample_row_count": 13,
-      "normalized_row_count": 0,
-      "exact_sample_date_count": 0,
+      "species_latin_name": "Canis lupus familiaris",
+      "recovered_sample_row_count": 4,
+      "normalized_row_count": 3,
+      "exact_sample_date_count": 3,
       "modeled_or_approximate_sample_date_count": 0,
       "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 13,
-      "chronology_completeness_ratio": 0.0
-    },
-    {
-      "species_latin_name": "Canis lupus familiaris",
-      "recovered_sample_row_count": 4,
-      "normalized_row_count": 1,
-      "exact_sample_date_count": 0,
-      "modeled_or_approximate_sample_date_count": 0,
-      "contextual_date_count": 1,
-      "broad_label_count": 0,
-      "text_only_unparsed_count": 0,
-      "unresolved_count": 3,
-      "chronology_completeness_ratio": 0.25
+      "unresolved_count": 1,
+      "chronology_completeness_ratio": 0.75
     },
     {
       "species_latin_name": "Capra hircus",
@@ -51,39 +51,63 @@
     },
     {
       "species_latin_name": "Equus caballus",
-      "recovered_sample_row_count": 548,
-      "normalized_row_count": 548,
-      "exact_sample_date_count": 539,
-      "modeled_or_approximate_sample_date_count": 1,
-      "contextual_date_count": 8,
+      "recovered_sample_row_count": 550,
+      "normalized_row_count": 540,
+      "exact_sample_date_count": 535,
+      "modeled_or_approximate_sample_date_count": 5,
+      "contextual_date_count": 0,
       "broad_label_count": 0,
-      "text_only_unparsed_count": 1,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "text_only_unparsed_count": 5,
+      "unresolved_count": 10,
+      "chronology_completeness_ratio": 0.9818
+    },
+    {
+      "species_latin_name": "Felis catus",
+      "recovered_sample_row_count": 109,
+      "normalized_row_count": 67,
+      "exact_sample_date_count": 16,
+      "modeled_or_approximate_sample_date_count": 43,
+      "contextual_date_count": 8,
+      "broad_label_count": 39,
+      "text_only_unparsed_count": 44,
+      "unresolved_count": 3,
+      "chronology_completeness_ratio": 0.6147
     },
     {
       "species_latin_name": "Ovis aries",
-      "recovered_sample_row_count": 190,
-      "normalized_row_count": 190,
-      "exact_sample_date_count": 167,
+      "recovered_sample_row_count": 200,
+      "normalized_row_count": 184,
+      "exact_sample_date_count": 170,
       "modeled_or_approximate_sample_date_count": 13,
-      "contextual_date_count": 10,
-      "broad_label_count": 0,
-      "text_only_unparsed_count": 13,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "contextual_date_count": 1,
+      "broad_label_count": 1,
+      "text_only_unparsed_count": 14,
+      "unresolved_count": 15,
+      "chronology_completeness_ratio": 0.92
     },
     {
       "species_latin_name": "Rangifer tarandus",
       "recovered_sample_row_count": 20,
-      "normalized_row_count": 20,
+      "normalized_row_count": 0,
       "exact_sample_date_count": 0,
       "modeled_or_approximate_sample_date_count": 0,
-      "contextual_date_count": 20,
+      "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "unresolved_count": 20,
+      "chronology_completeness_ratio": 0.0
+    },
+    {
+      "species_latin_name": "Sus scrofa domesticus",
+      "recovered_sample_row_count": 343,
+      "normalized_row_count": 2,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 2,
+      "contextual_date_count": 0,
+      "broad_label_count": 0,
+      "text_only_unparsed_count": 0,
+      "unresolved_count": 341,
+      "chronology_completeness_ratio": 0.0058
     }
   ]
 }

@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-08
 ---
 
 # Reports
@@ -44,6 +44,14 @@ establish collection completeness.
 | sensitivity analysis | show whether conclusions survive plausible model changes |
 | scientific review | evaluate evidential strength and unresolved risk |
 | warnings and exclusions | account for records that did not publish |
+
+The Neotoma sample-presence, literal-code, and exact-taxon chronology layers
+remain visible map context and participate in descriptive interval comparisons.
+They are alternate views of shared source observations, not three independent
+analytical inputs. Candidate-site ranking and sensitivity therefore exclude
+these display facets until an explicit analytical eligibility and weighting
+contract exists. Their exclusion from ranking does not remove source records
+or imply that their chronology is unavailable.
 
 ### Typed Report Members
 

@@ -4,6 +4,45 @@ All notable changes for `bijux-pollenomics` are recorded here.
 
 ## Unreleased
 
+## 0.1.8 - 2026-09-08
+
+### Added
+
+- Added source-native chronology, locality, classification, and accountability
+  models for pollen, environmental, human, and species-owned animal ancient-DNA
+  evidence used by the Nordic publication surfaces.
+- Added responsive chronological atlas layers, evidence controls, and governed
+  story media that preserve explicit source and temporal lineage.
+- Added canonical release-evidence construction for artifact closure, recorded
+  scientific gates, count reconciliation, and release-posture assessment.
+
+### Changed
+
+- Separated collection, curation, analysis, provenance, governance, and report
+  materialization into narrower owned modules with explicit data contracts.
+- Expanded country, species, chronology, coordinate, and source-family reports
+  while keeping contextual or unresolved evidence distinct from mapped facts.
+- Refreshed the runtime documentation around source intake, temporal semantics,
+  atlas behavior, evidence limits, and publication accountability.
+
+### Fixed
+
+- Release decisions now preserve source-specific scientific refusals and reject
+  missing, contradictory, or unreconciled evidence instead of inferring approval
+  from passing software gates or zero counts.
+- Corrected animal source identity, locality, coordinate, domestication, and
+  chronology admission so only source-supported sample facts reach registries
+  and atlas outputs.
+- Hardened source parsing, offline acquisition metadata, deterministic report
+  generation, and browser-visible atlas behavior against malformed, stale, or
+  ambiguous inputs.
+- Reused validated chronology intervals, exact-coordinate distance results,
+  and grouped ranking contexts without changing closed-interval comparisons
+  or merging distinct source records.
+- Kept alternate Neotoma chronology display facets out of candidate-ranking
+  weights while preserving their map visibility and descriptive chronology
+  comparisons.
+
 ## 0.1.7 - 2026-06-29
 
 ### Added

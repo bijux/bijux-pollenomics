@@ -1,5 +1,5 @@
 {
-  "schema_version": "adna-cross-species-coverage-dashboard.v1",
+  "schema_version": "adna-cross-species-coverage-dashboard.v2",
   "rows": [
     {
       "species_latin_name": "Equus caballus",
@@ -12,11 +12,11 @@
       "normalized_locality_artifact_present": true,
       "review_markdown_present": true,
       "review_json_present": true,
-      "country_output_count": 2,
-      "atlas_layer_count": 207,
-      "map_ready_sample_count": 208,
-      "region_refused_sample_count": 0,
-      "unresolved_sample_count": 4,
+      "country_output_count": 0,
+      "atlas_locality_count": 78,
+      "mappable_coordinate_count": 208,
+      "region_refused_coordinate_count": 0,
+      "unresolved_sample_count": 2,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -30,11 +30,11 @@
       "normalized_locality_artifact_present": true,
       "review_markdown_present": true,
       "review_json_present": true,
-      "country_output_count": 0,
-      "atlas_layer_count": 2,
-      "map_ready_sample_count": 0,
-      "region_refused_sample_count": 1,
-      "unresolved_sample_count": 3,
+      "country_output_count": 1,
+      "atlas_locality_count": 2,
+      "mappable_coordinate_count": 2,
+      "region_refused_coordinate_count": 0,
+      "unresolved_sample_count": 341,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -48,12 +48,12 @@
       "normalized_locality_artifact_present": true,
       "review_markdown_present": true,
       "review_json_present": true,
-      "country_output_count": 0,
-      "atlas_layer_count": 2,
-      "map_ready_sample_count": 0,
-      "region_refused_sample_count": 1,
-      "unresolved_sample_count": 4,
-      "nordic_unmapped_lead_count": 1
+      "country_output_count": 2,
+      "atlas_locality_count": 2,
+      "mappable_coordinate_count": 2,
+      "region_refused_coordinate_count": 0,
+      "unresolved_sample_count": 5,
+      "nordic_unmapped_lead_count": 0
     },
     {
       "species_latin_name": "Bos taurus",
@@ -66,11 +66,11 @@
       "normalized_locality_artifact_present": true,
       "review_markdown_present": true,
       "review_json_present": true,
-      "country_output_count": 0,
-      "atlas_layer_count": 2,
-      "map_ready_sample_count": 0,
-      "region_refused_sample_count": 1,
-      "unresolved_sample_count": 2,
+      "country_output_count": 2,
+      "atlas_locality_count": 22,
+      "mappable_coordinate_count": 24,
+      "region_refused_coordinate_count": 1,
+      "unresolved_sample_count": 33,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -85,9 +85,9 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 26,
-      "map_ready_sample_count": 27,
-      "region_refused_sample_count": 0,
+      "atlas_locality_count": 27,
+      "mappable_coordinate_count": 27,
+      "region_refused_coordinate_count": 0,
       "unresolved_sample_count": 0,
       "nordic_unmapped_lead_count": 0
     },
@@ -103,10 +103,10 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 2,
-      "map_ready_sample_count": 0,
-      "region_refused_sample_count": 1,
-      "unresolved_sample_count": 0,
+      "atlas_locality_count": 0,
+      "mappable_coordinate_count": 0,
+      "region_refused_coordinate_count": 1,
+      "unresolved_sample_count": 1,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -121,10 +121,10 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 2,
-      "map_ready_sample_count": 0,
-      "region_refused_sample_count": 1,
-      "unresolved_sample_count": 1,
+      "atlas_locality_count": 39,
+      "mappable_coordinate_count": 40,
+      "region_refused_coordinate_count": 0,
+      "unresolved_sample_count": 0,
       "nordic_unmapped_lead_count": 0
     },
     {
@@ -139,9 +139,9 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 1,
-      "map_ready_sample_count": 1,
-      "region_refused_sample_count": 0,
+      "atlas_locality_count": 0,
+      "mappable_coordinate_count": 1,
+      "region_refused_coordinate_count": 0,
       "unresolved_sample_count": 0,
       "nordic_unmapped_lead_count": 0
     },
@@ -157,10 +157,10 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 2,
-      "map_ready_sample_count": 0,
-      "region_refused_sample_count": 1,
-      "unresolved_sample_count": 3,
+      "atlas_locality_count": 0,
+      "mappable_coordinate_count": 0,
+      "region_refused_coordinate_count": 1,
+      "unresolved_sample_count": 20,
       "nordic_unmapped_lead_count": 1
     },
     {
@@ -175,10 +175,10 @@
       "review_markdown_present": true,
       "review_json_present": true,
       "country_output_count": 0,
-      "atlas_layer_count": 2,
-      "map_ready_sample_count": 0,
-      "region_refused_sample_count": 1,
-      "unresolved_sample_count": 4,
+      "atlas_locality_count": 0,
+      "mappable_coordinate_count": 0,
+      "region_refused_coordinate_count": 1,
+      "unresolved_sample_count": 0,
       "nordic_unmapped_lead_count": 0
     }
   ]

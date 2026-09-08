@@ -1,0 +1,46 @@
+{
+  "schema_version": "pig-sample-site-coordinate-evidence.v1",
+  "project_accession": "PRJEB30282",
+  "records": [
+    {
+      "sample_label": "AA015",
+      "archive_native_sample_id": "SAMEA5160867",
+      "locality_text": "Bundsø",
+      "political_entity": "Denmark",
+      "latitude_text": "55.02158609",
+      "longitude_text": "9.77344984",
+      "coordinate_basis": "named_site_geocoding",
+      "coordinate_confidence": "approximate",
+      "spatial_scope": "official_archaeological_register_site_point_not_specimen_findspot",
+      "sample_site_source_path": "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf",
+      "sample_site_source_locator": "PDF page 9, Bundsø, Denmark; one domestic pig specimen (AA015)",
+      "sample_site_source_url": "https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf",
+      "coordinate_source_url": "https://www.kulturarv.dk/ffpublic/wfs?service=WFS&version=1.1.0&request=GetFeature&typeName=fundogfortidsminder:fundogfortidsminder_punkt_ikkefredet&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=systemnr%3D86607",
+      "coordinate_context_url": "https://www.kulturarv.dk/fundogfortidsminder/Lokalitet/86607",
+      "coordinate_source_locator": "Fund og Fortidsminder systemnr 86607, stednr 230102, loknr 48; WFS feature fundogfortidsminder_punkt_ikkefredet.1509047",
+      "coordinate_source_kind": "official_danish_archaeological_register_wfs_point",
+      "coordinate_source_sha256": "c01946e8e5bb3232d18c7a42342d2f29aa72d4d843873e0bd38fc523cea6f966",
+      "confidence_rationale": "The primary supplement places AA015 at the Bundsø settlement on the Flintholm peninsula. The official Danish archaeological register identifies the matching southern Bundsø settlement as 230102-48 and publishes this site point. It is a site-level anchor, not an excavated specimen coordinate."
+    },
+    {
+      "sample_label": "AA016",
+      "archive_native_sample_id": "SAMEA5160868",
+      "locality_text": "Trelleborg",
+      "political_entity": "Denmark",
+      "latitude_text": "55.39416667",
+      "longitude_text": "11.26527778",
+      "coordinate_basis": "named_site_geocoding",
+      "coordinate_confidence": "approximate",
+      "spatial_scope": "official_nominated_property_central_point_not_specimen_findspot",
+      "sample_site_source_path": "adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sapp.pdf",
+      "sample_site_source_locator": "PDF page 46, Trelleborg, Denmark; domestic pig specimen AA016",
+      "sample_site_source_url": "https://eprints.bournemouth.ac.uk/32649/13/Franz%20et%20al.%2C%202019%20-%20PNAS%20-%20Suppl%20Info.pdf",
+      "coordinate_source_url": "https://en.natmus.dk/fileadmin/user_upload/Editor/ManagementPlan_Web_lille.pdf",
+      "coordinate_context_url": "https://en.natmus.dk/viking-age-ring-fortresses/",
+      "coordinate_source_locator": "Management Plan page 22, component part 4 Trelleborg, central point N55°23′39″ E11°15′55″",
+      "coordinate_source_kind": "official_national_museum_component_central_point",
+      "coordinate_source_sha256": "5b9a603db41043a6bab07ed0775ed470a05fec8a0e041f002b609c60b36fbaa4",
+      "confidence_rationale": "The primary supplement identifies AA016 as a Trelleborg domestic pig. The National Museum of Denmark management plan publishes the central point of the Trelleborg component to the nearest second. It is a site-level anchor, not an excavated specimen coordinate."
+    }
+  ]
+}

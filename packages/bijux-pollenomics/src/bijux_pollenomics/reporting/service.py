@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 from datetime import date
 from pathlib import Path
 
@@ -13,9 +13,13 @@ from ..adna import (
 )
 from ..adna.sources.library import build_project_registry, refresh_source_library
 from ..adna.species.tracked_data import materialize_tracked_species_adna
+from ..adna.species.tracked_data.governance import (
+    _materialize_cross_species_adna_artifacts,
+)
 from ..adna.species.tracked_species import TRACKED_ADNA_SPECIES
 from ..config import DEFAULT_ATLAS_SLUG, DEFAULT_ATLAS_TITLE
 from .adna.atlas_evidence_rows import build_tracked_animal_atlas_evidence_rows
+from .adna.materialization import materialize_animal_publication_artifacts
 from .bundles.atlas_bundle import publish_multi_country_map_bundle
 from .bundles.country_bundle import publish_country_report_bundle
 from .bundles.country_selection import normalize_requested_countries
@@ -197,10 +201,16 @@ def generate_published_reports(
     title: str = DEFAULT_ATLAS_TITLE,
     slug: str = DEFAULT_ATLAS_SLUG,
     context_root: Path | None = None,
+    published_output_root: Path | None = None,
 ) -> PublishedReportsReport:
     """Generate the current published report set: one shared map and one bundle per country."""
     version_dir = Path(version_dir)
     output_root = Path(output_root)
+    published_output_root = (
+        Path(published_output_root)
+        if published_output_root is not None
+        else output_root
+    )
 
     normalized_countries = normalize_requested_countries(countries)
     if not normalized_countries:
@@ -213,6 +223,7 @@ def generate_published_reports(
             staging_output_root,
             version_dir=version_dir,
             output_root=output_root,
+            published_output_root=published_output_root,
             normalized_countries=normalized_countries,
             title=title,
             atlas_slug=atlas_slug,
@@ -236,7 +247,7 @@ def refresh_animal_adna_foundation(
     version: str,
     context_root: Path | None = None,
     species_names: Iterable[str] = TRACKED_ADNA_SPECIES,
-    source_downloader=None,
+    source_downloader: Callable[[str], tuple[bytes, str]] | None = None,
 ) -> AnimalFoundationRefreshReport:
     """Refresh tracked animal source capture, normalized data roots, and published report outputs."""
     data_root = Path(data_root)
@@ -248,6 +259,7 @@ def refresh_animal_adna_foundation(
         refresh_kwargs["downloader"] = source_downloader
     refresh_source_library(data_root, **refresh_kwargs)
     materialize_tracked_species_adna(data_root, species_names=normalized_species)
+    materialize_animal_publication_artifacts(data_root)
     generate_published_reports(
         version_dir=aadr_root / version,
         countries=countries,
@@ -256,6 +268,8 @@ def refresh_animal_adna_foundation(
         slug=DEFAULT_ATLAS_SLUG,
         context_root=context_root if context_root is not None else data_root,
     )
+    # Publication counts must describe the newly written atlas and country outputs.
+    _materialize_cross_species_adna_artifacts(data_root, report_root=report_root)
     atlas_rows = build_tracked_animal_atlas_evidence_rows(data_root)
     refreshed_species_latin_names = tuple(
         resolve_species_definition(name).latin_name for name in normalized_species

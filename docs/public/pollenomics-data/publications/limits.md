@@ -55,10 +55,11 @@ flowchart LR
     Release -. "does not erase" .-> Member
 ```
 
-This is why the 233 final sample-backed animal points remain usable under
+This is why the 170 sample-backed animal locality features remain usable under
 their product contracts while the repository refuses final-release language.
-Reuse cites the narrowest passing decision and carries every broader blocker
-that limits the proposed interpretation.
+They represent 331 distinct admitted samples. Reuse cites the narrowest passing
+decision and carries every broader blocker that limits the proposed
+interpretation.
 
 ## Quantified Boundaries
 
@@ -66,12 +67,12 @@ The current governed state makes several limits measurable:
 
 | Surface | Current signal | Consequence |
 | --- | --- | --- |
-| Animal foundation preparation | 894 rows: 502 fully grounded, 256 partially grounded, 29 blocked by metadata, four by location detail, and 103 by chronology | preparation depth is measurable, but grounding posture is not sample identity or point eligibility |
-| Animal sample recovery | 868 recovered rows across 40 projects; only four projects have a trustworthy expected count | recovered rows are auditable, but collection completeness is usually unknown |
-| Animal locality | 820 direct sample-site assignments; 32 region-only; 16 unresolved | 48 samples cannot be described as exact sample sites |
-| Animal publication points | 234 accepted point-evidence rows; 233 final sample-backed features and one provisional project-context feature | the point subset is traceable but identity and spatial support are mixed |
-| Neotoma time | 175 of 200 sites have numeric BP spans; chronology rows are not captured | site-span comparison requires the Neotoma temporal caveat |
-| SEAD time | 2,172 normalized sites and no numeric intervals in the current capture | use as archaeology context, not same-period support |
+| Animal foundation preparation | 1,450 final rows: 557 fully grounded, 335 partially grounded, 11 blocked by metadata, 391 by location detail, and 156 by chronology | preparation depth is measurable, but grounding posture is not point eligibility |
+| Animal sample recovery | 1,455 recovered raw rows and 1,450 final rows across a 40-project registry; only four projects have a trustworthy expected count | recovered rows are auditable, but collection completeness is usually unknown |
+| Animal locality | 1,368 direct sample-site assignments and 87 unresolved among 1,455 raw review rows | unresolved samples cannot be described as exact sample sites; a place-name assignment alone does not admit map coordinates |
+| Animal publication points | 170 sample-backed locality features representing 331 samples; 117 domesticated-core and 53 wild/progenitor-context | the point subset is traceable but not a complete recovery census |
+| Neotoma time | 23,281 captured age claims: 11,526 comparable, 10,622 context-only, 294 refused, and 839 unresolved | sample-level temporal admission is separate from site-span context and accepted taxonomic classification |
+| SEAD time | 25,109 claims: 14,264 comparable, 10,144 context-only, 60 explicitly refused, and 641 unresolved | use comparable interval overlap as archaeology context; never infer same-period support from ineligible claims |
 | RAÄ scope | Sweden-specific density source | do not generalize its coverage to the Nordic region |
 
 These numbers are a snapshot of the governed artifacts, not permanent project
@@ -79,10 +80,11 @@ constants. The applicable manifests and review surfaces remain authoritative
 when the data state changes.
 
 The animal counts cannot be placed into one percentage without changing their
-meaning. The 894-row foundation classifies preparation, the 868-row sample
-master governs recovered identities, and the 234-row point surface governs
-product membership. A publication limit must name which population is blocked
-and which stronger claim the blocker prevents.
+meaning. The 1,450-row foundation classifies final sample preparation, the
+1,455-row raw sample master governs recovery before final admission, and the
+170-feature point surface governs locality-level product membership for 331
+samples. A publication limit must name which population is blocked and which
+stronger claim the blocker prevents.
 
 ## Limits By Dimension
 
@@ -136,26 +138,25 @@ These are claim boundaries, not defects hidden behind a generic disclaimer.
 Each boundary names the additional evidence or validation that a stronger
 interpretation would require.
 
-### Known Point-Surface Exception
+### Known Not-Materialized Context
 
-The single dromedary feature for Site 1040 near Wadi Halfa is admitted as
-qualified project context. Its paper-backed place statement and approximate
-named-place resolution support a visible spatial context feature. Its sample
-identity remains provisional and its source-native sample row remains
-unrecovered.
+The Site 1040 context near Wadi Halfa is not published on the animal point
+surface. Its paper-backed place statement and approximate named-place
+resolution remain traceable in readiness accounting, where the governing
+reason is `no_admitted_sample_backed_locality_candidate`.
 
 | Proposed use | Current decision | Evidence needed for stronger use |
 | --- | --- | --- |
-| show qualified dromedary project context | supported with approximate and provisional labels | current evidence is sufficient for this bounded product role |
-| count recovered animal samples | exclude this feature from the recovered-sample population | recover and resolve the source-native sample row |
+| show dromedary context as a published point | not supported | recover and admit a sample-backed locality candidate under the point contract |
+| count recovered animal samples | exclude this context from the recovered-sample population | recover and resolve the source-native sample row |
 | compare sample chronology numerically | not supported | sample-owned chronology with eligible numeric semantics |
 | claim exact excavation location | not supported | source-supplied or otherwise defensible site-level coordinate provenance |
 | infer an independent biological observation | not supported | final sample identity and evidence separating the observation from project context |
 
-This is a visible limit, not a reason to discard the other 233 point features.
-It is also not a license to average the exception away. Downstream work either
-uses the context feature under its declared role or excludes it with an
-accounted reason.
+This explicit exclusion is not a reason to discard the 170 admitted locality
+features. It is also not a license to average the missing evidence away.
+Downstream work must keep the context outside the published feature population
+until its admission reason changes.
 
 ## Visible Absence
 

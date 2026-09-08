@@ -1,7 +1,7 @@
 """Shared infrastructure used across package domains."""
 
-from .geo_distance import EARTH_RADIUS_KM, haversine_km
-from .geojson import (
+from .geospatial.distance import EARTH_RADIUS_KM, haversine_km
+from .geospatial.geojson import (
     CountryBoundaryCollection,
     GeoJsonFeature,
     GeoJsonFeatureCollection,
@@ -20,7 +20,9 @@ from .geojson import (
 from .temporal_semantics import (
     TEMPORAL_COMPARABILITY_POSTURES,
     TEMPORAL_WINDOW_ROWS,
+    BpIntervalAdmission,
     TemporalSemantics,
+    admit_bp_interval,
     build_temporal_semantics,
     normalize_temporal_semantics_payload,
     resolve_temporal_window,
@@ -29,6 +31,9 @@ from .temporal_semantics import (
 
 __all__ = [
     "EARTH_RADIUS_KM",
+    "TEMPORAL_COMPARABILITY_POSTURES",
+    "TEMPORAL_WINDOW_ROWS",
+    "BpIntervalAdmission",
     "CountryBoundaryCollection",
     "GeoJsonFeature",
     "GeoJsonFeatureCollection",
@@ -37,9 +42,8 @@ __all__ = [
     "MultiPolygon",
     "Polygon",
     "Position",
-    "TEMPORAL_COMPARABILITY_POSTURES",
-    "TEMPORAL_WINDOW_ROWS",
     "TemporalSemantics",
+    "admit_bp_interval",
     "as_mapping",
     "build_temporal_semantics",
     "feature_list",

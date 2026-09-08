@@ -6,10 +6,10 @@ import unittest
 
 import pytest
 
-from bijux_pollenomics.adna.governance_contracts import (
+from bijux_pollenomics.adna.governance.contracts import (
     validate_source_library_project_surfaces,
 )
-from bijux_pollenomics.data_downloader.collection_summary_schema import (
+from bijux_pollenomics.collection.contracts.summary import (
     validate_collection_summary_file,
 )
 
@@ -51,10 +51,41 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
         )
         self.assertEqual(
             matrix_payload["schema_version"],
-            "source-family-evidence-stage-matrix.v1",
+            "source-family-evidence-stage-matrix.v2",
         )
         self.assertEqual(contract_keys, matrix_keys)
         self.assertEqual(contract_payload["row_count"], matrix_payload["row_count"])
+        rows = {row["source_key"]: row for row in matrix_payload["rows"]}
+        self.assertEqual(
+            rows["landclim"]["coverage_metrics"],
+            {
+                "landclim_site_count": 490,
+                "landclim_grid_cell_count": 77,
+                "landclim_temporal_grid_feature_count": 2_515,
+            },
+        )
+        self.assertEqual(rows["raa"]["authority_status"], "refused")
+        self.assertEqual(rows["raa"]["published_status"], "refused")
+        self.assertIsNone(rows["raa"]["coverage_metrics"]["raa_total_site_count"])
+        self.assertEqual(rows["svar"]["authority_status"], "refused")
+        self.assertIsNone(rows["svar"]["coverage_metrics"]["svar_lake_count"])
+        self.assertEqual(rows["boundaries"]["authority_status"], "review_required")
+        self.assertEqual(rows["aadr"]["reviewed_status"], "present")
+        self.assertEqual(rows["aadr"]["normalized_status"], "missing")
+        self.assertEqual(rows["aadr"]["authority_status"], "review_required")
+        self.assertIn(
+            "qualified_human_adna_source_review_missing",
+            rows["aadr"]["blocking_reasons"],
+        )
+        self.assertEqual(rows["sead"]["published_status"], "present")
+        self.assertEqual(
+            rows["sead"]["publication_posture"],
+            "published_with_review_support",
+        )
+        self.assertNotIn(
+            "missing_published_surface",
+            rows["sead"]["blocking_reasons"],
+        )
 
     def test_checked_in_spatiotemporal_registry_keeps_source_limits_explicit(
         self,
@@ -68,19 +99,32 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
 
         self.assertEqual(
             posture_payload["schema_version"],
-            "source-spatiotemporal-posture-registry.v1",
+            "source-spatiotemporal-posture-registry.v2",
         )
         self.assertEqual(
             rows["neotoma"]["temporal_support_posture"],
-            "bp_site_spans_without_chronology_rows",
+            "calendar_comparable_system_context_without_compact_chronology",
+        )
+        self.assertEqual(rows["neotoma"]["numeric_interval_record_count"], 0)
+        self.assertEqual(
+            rows["sead"]["temporal_support_posture"], "linked_chronology_captured"
+        )
+        self.assertEqual(rows["sead"]["numeric_interval_record_count"], 8_172)
+        self.assertEqual(
+            rows["sead"]["detail_metrics"]["captured_chronology_record_count"],
+            25_109,
         )
         self.assertEqual(
-            rows["sead"]["temporal_support_posture"], "site_inventory_only"
+            rows["sead"]["detail_metrics"]["mapped_chronology_record_count"],
+            14_264,
         )
         self.assertEqual(
             rows["svar"]["distance_scoring_posture"],
-            "candidate_lake_anchor",
+            "refused_missing_authority",
         )
+        self.assertIsNone(rows["svar"]["record_count"])
+        self.assertEqual(rows["raa"]["availability_status"], "refused")
+        self.assertEqual(rows["boundaries"]["availability_status"], "review_required")
 
     def test_fact_and_artifact_contract_registries_keep_durable_keys(self) -> None:
         fact_payload = json.loads(

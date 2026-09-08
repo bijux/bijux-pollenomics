@@ -1,0 +1,1843 @@
+{
+  "schema_version": "boundary-country-review-queue.v1",
+  "boundary_artifact_digest": "sha256:bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f",
+  "boundary_items": [
+    {
+      "country_code": "SE",
+      "country_name": "Sweden",
+      "review_status": "pending",
+      "review_reason_codes": [
+        "named_island_inclusion_review_missing",
+        "boundary_suitability_review_missing"
+      ],
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "country_code": "DK",
+      "country_name": "Denmark",
+      "review_status": "pending",
+      "review_reason_codes": [
+        "named_island_inclusion_review_missing",
+        "boundary_suitability_review_missing"
+      ],
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "country_code": "NO",
+      "country_name": "Norway",
+      "review_status": "pending",
+      "review_reason_codes": [
+        "named_island_inclusion_review_missing",
+        "boundary_suitability_review_missing"
+      ],
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "country_code": "FI",
+      "country_name": "Finland",
+      "review_status": "pending",
+      "review_reason_codes": [
+        "named_island_inclusion_review_missing",
+        "boundary_suitability_review_missing"
+      ],
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    }
+  ],
+  "point_decision_count": 147,
+  "point_decisions": [
+    {
+      "decision_id": "sha256:00b89425421428d096d4dff169a3806afeb0ec209c26649aeffadbb091c727ae",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6337",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:02caca012ed5fa6828173c8abd9409d12e8a42ad9eaed13efb7e2e2a596eb36c",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6298",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:09a35d1ea0b8dac70f60f9071d8344503f64dfe47016e422272c65abb74352e4",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6302",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:0ad24a6ce85b861e501b084ec0ac20b4a680b4f4d130d282a5f9bf879f173ba2",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6380",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_multiple_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:0e236020ab8b202672936c424bbf78b9f9fa5a656f4fd0e0193b629d55f6c85c",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4084",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_multiple_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:0e5c9263de124ebac0d1897e71f7bd7745567e6ece30226b55c3f9cd7519f7ef",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3723",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:1193045933a599520cfc71f2f7f9cf70e76dc84c4276f528733d915c3c66e2af",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6414",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:13f00e1aa7635fd643b4635163fd1efad74468ee1f035ec77f99fcfc0281ed98",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4911",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:14cd7e18ae6fe21700374f2d1bb46f513ad7276602dc5250d4409bc7d8d1b058",
+      "source_family": "animal_adna",
+      "source_record_id": "ovis_aries:locality:prjeb59481:storafrvar:sweden",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:186b0b64ba2175ddb16bc1f385c9fc12dd90275419586fdac23b5f5d32a60fe7",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3719",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:1abfed4280c41b75bd09590c8a5c0ab42ff1e9237b88e53888cfb8d5734a4e8c",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4886",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:1b8b234bbdff0c257f638428d61e361ff620becd2010ecd72e814720690d0e0d",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4430",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:24b2c73c4058021249500081eed4544fc69c9f686e1dfae6c30a675fa7c7fa4b",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6327",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_multiple_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:25f981cf3efdf42f8a3214cfc22aa7ffe6d182b8f85c880064f21b1320088916",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3876",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:28af1764f6291e08dec0aa8d9f1376b59731625ffbe3926a416a5d04254c6097",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3505",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:29eb01002ae956d8d2f3259f3616d0883830c04b05bf80d8c35b530ff3fb964d",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6435",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:2ee2fbcc700a664ac7f22af7fc311404e19ec5f8801f9850404f39b37ea5a673",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4487",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:32fbc06848632f3f18c6cdd14c1f6795070e78a8ea1b1d02ad3e8eb9b3bd1e7f",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3437",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:33e93fe8ff0cec84f4eafcc57b80cd8b08c32f5ae44e419567bef61a5c458d12",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4562",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:343f2208b6b9139663ad944bc216f3046f7565c95f764c5ffa3f8165b8456c21",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:897303:Isokärret:60.216667:22.133333",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:361f34328e26fe7eb8a6388a9cf1c2a496c8f54686c87135e83044fbb7a4bd99",
+      "source_family": "sead",
+      "source_record_id": "sead:site:12",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:365f71c00ae716fae18d732e8e76acf3fe037b98304eafafd43698846806997b",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3932",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:3792d75742e0ed24233592533f0a641d2f4d9135c15e2dd64f6149fd82cc3a7b",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:937075:LAL",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:388352d44d38799292070b632e62df8b8d8f5ca1b0a6194f7e92d00a79222b50",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4958",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:428279d5a3ea8b59676b3bb32a69aaafa1cfd8cf6bf7c4b2527ac5fe48a70c9d",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:897303:Kattatjørn:60.283333:5.100000",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:450d6b9a76dde9619e6ec916d3a87064498947709ce7d5f93b79eba38b382c21",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4248",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:4a0cf927494c08a6c786c3a122e2a92e883446b375fe092183c1e5f4ff2c1465",
+      "source_family": "sead",
+      "source_record_id": "sead:site:305",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:4bd2293a229caf5bf73f8e135c9c7b75de470022931622449803aa2b2dccef4c",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4079",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:4bff392d1a2ba9d836d2348ade3c2c651e26fd84b7ddaee1c05e70bcb69761b3",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5932",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:4d6d955b74d95caafed3f7225ee0ce27ba702c323f4eff30b306b0cbe46286f5",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4569",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:4eb99a7813abc77bf0ec2d720eff9249095d8923b4695addbd5a321df9824e83",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3457",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:50785cfadd549da81848979f9e001066fad2b78ef299cbb4d7eca35d47f2dc00",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3666",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:52c3197bcba894a56e0fb949c40844432c104210b009ff3bdb0e232d28c8aba1",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5724",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:52d98726107e08c4a08e38b0022818626ee1708b44c5d4376e93a46cda3757ba",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4605",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:52f8fb42ea126a08bf9b88a223b3c2b0f02149852c896631e06aacff021d9445",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4022",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_multiple_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:55a87b47bcc1cbef464b06871c979a07319d3b71b4bf54a9b82dd3f123ff2a54",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6166",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:568c0242bc64ac35df75e28837c2ee5d2f38c4c6db44d377433b1a4dcaa576bf",
+      "source_family": "sead",
+      "source_record_id": "sead:site:349",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:5a48967170e0c8be35f5e8062394473766935abd6f391138d645ebcec132b478",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6311",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:5cced6a513958d7373f7cb4559cb1bf503fd294a75e55903d02f152f2f3cf25a",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3486",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:5dfb98b9f788025c0697232a3e01dc605c2987e5a4b5acbf0904efc3ff1208aa",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3409",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:5e556c52bf7c76e6a958ed0fb3912381fa07e8f34ad058146d1f102e5226502b",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:897303:Afstjørna:61.650000:9.883333",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "raw_country_conflict"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:5e7245214294fc9901016df92dc32a3e7e873ecc765100efc5ef6c4079e4cc20",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6425",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:5eaea2c872282416449910c6c9fb398ee3d3fe5911f27cea45e95832f9953322",
+      "source_family": "sead",
+      "source_record_id": "sead:site:258",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:5f345571ca834e1b936606424aac4a21735c48f2a5a6c9ff53ecf612544daa2f",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5098",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:61f5c9a4c9d59196984309bd71d1036a05a90576b84d6f9bc94fc07217a81394",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4784",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:6290d0d02482475991176e405722cf032f7dbf95be1a771e8c25afbeeffb924a",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4432",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:63d46da913a6f0f2477fb2855f63c5bd5f81562951d670cf2e154ea0e0f15e5a",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3441",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:65f61b0a8ffe44c15b6cad55d4921d39fa810dafc3914a59a6d8821b0ff6d618",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6462",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:69545c4d4885055b6a4d9b560262a948bede1a8eae66058adb99badcfa1ba7be",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4416",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:6aadfd87fbd409fe155f6a46f0f556402496a04b080af327a16d6cea5ef1a525",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5310",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:6c5377026385e009da8d96c6f0f34885c59be2d810722596455a283373fe1527",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4572",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:6e1f704139d3b4ddf7f1baa2c67d4b2f4c03b49b94bac0296ede692cc1978fd6",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5683",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:6edf55fde70ec8d6e710ec31fd5f5b302089107957272ba2f51add3efb14d4a2",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:897303:Domsvatnet:70.316667:31.033333",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:700511a7d8d5180df0457d71f71e630836333dd9522e3125a9b9073e0b4fcc2c",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4026",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:72b8ebc2926cb5d7d7671c8896ea21601ae62bd66e27e2da5f68883836608e3f",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6457",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:78f400d55f6eb8172ef3f0655a5921f822f116117e3a389f97395352b7c32f81",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6329",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:7ffc9f1bd5d9cfc3de38fe2461969cabf0b26ac2ed039a1ab8a52f74e45cd046",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:937075:Hall",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:816090dd98cff7052db5911f5ea2f148c744da25695225da55d833f0abc70685",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:937075:ISO",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:81cde98296a33e2782bb2fe5ae785b87d26099161ac96d281e748c8cdbb3e33e",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4148",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:83d778dcbcd236a9b8fe461ece3475e6fe99513869786f7d73bf6e95871b0790",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3717",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:855defd470ac592b0c02bc9321d518a40800afe95c9b8eeec1b29625199fe847",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5295",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:8d2eda199c564601c7ac522b9ef9912b78efa826b6c6e3b6abc268194a7cdf44",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3545",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:8d76c975a94e7c3f981cd3645f12879268d343c356472f91beec155a3ec58491",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3529",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:8e2403561b444cd5d443ea10766d85e4525ffc000ba99a7b72f77f6eec981a67",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:897303:Aholami:61.883333:25.216667",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "raw_country_conflict"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:8f6d749aa256bbc68dea41de99ca08f8792fdeba6a01809703ed65912e2214d1",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:937075:kattasjoen",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:9087f0fbb983e7844389418a2145834662e97bea4e26f6baf5fd3b8748e77e54",
+      "source_family": "sead",
+      "source_record_id": "sead:site:374",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:90b4982b491f2839fadd4ef8d3a6955b56a281eb8007c06924711d5177767c68",
+      "source_family": "sead",
+      "source_record_id": "sead:site:358",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:9171bcb07ee8b6992f7795a387e43a9161e2d98be310477e3c451201d4f2eed1",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3447",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:93b7a5341987f2a13529b529a6b77eeb1636c37770be0128bc5f558d4ca5a026",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3668",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:93cdfd72524c65f212c94617c5694a15ac9d14da366876c17576c01359964db8",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:897303:Abborrtjärnen:63.883333:14.450000",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "raw_country_conflict"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:94e3c11c96215cf4fa298a6ac3c017f3982e838c917e5ab05ce0b43c8a0e2f55",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3468",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:96de369ac8023d2ed6ac04af8e4af3f8f71d7cd9e04774e898b1b942b5099c8d",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6455",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:9744993f95b820c861a9b67ae3c0df492c236fc7abeb3dd80bea146abd0f6415",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3528",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:99161bdafbe91f1ddffa6034b88391d163d1e434d2ff168af4217c21e344d6ec",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6382",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_multiple_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:9948c97ab6d0de8f1661bc768484579701bdbd98905420f83f5f4bdfb332175f",
+      "source_family": "sead",
+      "source_record_id": "sead:site:320",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:9bc6696cbc67e69bb11b134658f3e13f45e69c9a2846be6ee366e9fd53810385",
+      "source_family": "sead",
+      "source_record_id": "sead:site:289",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:9cb16e9a5b5097902a722f0b5ea19ddf0153ae2b61e8dd24f8b0693d7e6f6ada",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6318",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:9d7499369e496bf43dafa832f4f1332332445e85be6ddcf5452447c2e72e4449",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:897303:Møllesø:54.845556:11.982222",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "raw_country_conflict"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:9d9dd676b42aa845bc57d8783f4fa5f269926f6c171ba13711128e74c92f912b",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:937075:DOMS",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:9dcd1463c22552bcbfbb5a104e208928e82ec74370c75812cda032e9f367f73e",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4885",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:9ee09084e7aff1b45a35fd70c282116484c1738753cdf2ea8e23c405356fddd0",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3492",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:a1fc02bc21a89ed80ad73026949baeb3ee5f21d649f9da71fa34785e2cc8c566",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6285",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:a208679fb5ebd33ca48ee39edf3c24fcf402a0afe10360ea5c6523ed7011a09b",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5836",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:a46fbdb71029ede7b2f64033167cea0ce75e05390d4edb5395b7ed6b5c3b9c21",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5737",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:a5dc861ecfd29e8c7afe78f2e05ffb5ed15b6749d344ffbd914028691bc46acb",
+      "source_family": "sead",
+      "source_record_id": "sead:site:239",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:a880d9dcd8f9eb42d4c4e2f93ff0b5b78673cda69a9569daede707bd9fc5e790",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5524",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:a95cf957eb726f307925779505391fc85abcc52992912e7875380fc44590f593",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3504",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:a9f44cf1850b728081216d970898fe13e57235c19d9346c4677ae807c1ef32cd",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4888",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:aa675c8fd60c8ae9feea237a704fc7750d49bb670e95aa8ef8bbfdf4cd4c8d1c",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6384",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:aa6b40c965fdfbfc037f15bec9893d55497623b7d71fde06e55e4c2f40dae455",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4479",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:aafc2c076b6a760d2b20dc834b155279cf6d5e5ef868a574af030c73ca9b8ad0",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4086",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:ae757b52b45ee7907d85c32a908c0428858aa408b81c51a1504bc12b21124114",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5614",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:afbe1f6d27eb9d572075c7e10f694c60cff3e033864e80c127c8c25454a73ea0",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:937075:krakenes",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:b01f2a5b5ea2ae1b77b4a4792bc99d3a1542f640bbab4087ffe90a2faac77cd5",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4032",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:b08fc33635376bd849f4d3f2b601f4b9c354552e9b2bc94aa655bf1ec5ed1007",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4392",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:b226144b7a9edeb2c78db73a662563ca4fadbdb556eec62a245c22fe1fd7a672",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4188",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:b337f2eb9637a8e118635d59af8e18b216e21c7824c7f69d7a5ed835b216705b",
+      "source_family": "sead",
+      "source_record_id": "sead:site:123",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:b65bd0d8cc894d5d0298745ebeb8eedf2c6e6d26567b1626dd5eee29173dcba5",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4137",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:b8c9461802ec4976e8b3e3636140bc0df27c41a632a7c2d2b834b4563ba05def",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4210",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:ba8b5f34507622d6306a77b65db4fe2c1e94541c8c8807542140bce8404e90d3",
+      "source_family": "sead",
+      "source_record_id": "sead:site:300",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:bad715ba10d60c85fadf521674e2c5013ec3b692263af017e8eddb96aa5c71e1",
+      "source_family": "sead",
+      "source_record_id": "sead:site:2",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:bdbd1b16d7d60539d3c03a9f97bfbe24cd433e276ed54bc08f299a58e4ec639e",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3868",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:bfe95fb88a468f35e430b83600331f71ca098abf1886b599e1bcba2f86b8ba14",
+      "source_family": "sead",
+      "source_record_id": "sead:site:127",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:c01d95395c379fae15f56f88764363237c87accb47b13fa740bcde602c44495d",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6356",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:c1fb32be9996e52b90956e08c95be5a3ced45d210400205a73597e0f3e4e0007",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5988",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:c5e75fe2e4c9b374721537622856b4e9dca59468428d64e93a3d18f1598ae9ab",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:897303:Hälledammen:56.440000:12.556111",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:c7e6f84b28d57042a60858cd5fb93d7929fc65b826102a73b3298df5845f5296",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6246",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:c975a0b9d8642756582e8dcbee6f600b14c1bd602f773d4fbd3e09a97d4d02d6",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4981",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:cc2e41b41eceebbd818d307fae203ded07b870ce0772ff8c4ad0a5c1dc942dae",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:897303:Kråkenes:62.033333:5.000000",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:cd9af5796fefa1f4d8b4a2ffaf67786b546e98f37c2ee2c262be1c3c74454c5a",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6017",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:cda3da87a2dbbcb381e4ea5db90b3ad7c423824aa2e9a780e5e98f195f5fa4e8",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:897303:Lake Kolmilaträsk:60.283333:20.150000",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:cdbb09243c9f5a528e7327d3564ce67d81712ca00c8aff8a0e7df30abb8c6567",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5082",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:ce47bfa1582978bce37bd857aceaed598a5ccadb542ce31def06d2dff5f59116",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4889",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:cf12973fa3925d2c6acd9b295a083afd0a63385d67e380ada2e3617750d8c07c",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4029",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:d1b15416064dcefb7c665f0e2590ea9df8d56a3f3c863e374eeb444bf58e09f1",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5662",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:d33a989b4584431f2f15c20a0585db0841c84cc08442ad852ca01351b6f71996",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3453",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:d465e9c70df5af39114d459b33f404ec2b532fc17806912f42d3a4f3f22a281b",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6213",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_multiple_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:d49d8ae1596b3b89fd44b90951b7f27e365ab01cb26e180ab54478616f9b23a2",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3654",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:d591998fb6ea07a204c548b1a650afd3049417f1e4d210246f7a9d883098a9c2",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3858",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:d86a19c831be3bf3a6b5331f07ace3b7e32b2890b7f8ab648cfc22389f3c4d0f",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5154",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:d8a2ff2a43b2a05e72431a831a75a60b1ba280dc5b55b269b5c33f80d909160a",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4057",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_multiple_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:d8e6d3cbe30e2c0ef243afa2a68789b868923fafbfc750b85401b2752d0ab2ba",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:897303:Kullaberg:56.300000:12.500000",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:d99e1ae0928195140c85d5c25cbda61d7bbf12f828ced39616be7fcb3b6a49d4",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3575",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:dadce97a56becc5bee549faa14fcb874082afcd2a4b6c7358da05e38601ef1f7",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:dcd28a55a299ed1f4263c8e6f9b534f911afd9b1f0457b8e237b9f9ed732c35a",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3877",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:decb709004a9ef60e3cbe63d7533de6814ffbb0c364169ddf5ee3e136b9b24bb",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3500",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:def37b98f7eea44fdd210a6a247a1000b1c7e2749960e5f48221133764556bcd",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6432",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:e2d2ae76765f23617d5e4ce1c4ce5432a19cfba53f9836dd5580586fcbb4793f",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5448",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:e44b07d7c89ea4f2d2a695f7026e25ec0b39bd192e90fc2aac8034282afdfa0c",
+      "source_family": "sead",
+      "source_record_id": "sead:site:135",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:e4b2049cddcdaebe02032fde8e08ff92ecde4ce8ab4cf39890358e46055aae7e",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:937075:KOLM",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:e5eadae17329ed69f23a83c3b8b92bbb48f7e0186c8585693586086aeadfc523",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:897303:Lalaxkärret:60.150000:21.866667",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:e74b84f198ffec06ddc769cf41279fe70b04d7b9cbdcbb9a692e7e14d4ac986f",
+      "source_family": "sead",
+      "source_record_id": "sead:site:350",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:e81617f74005d417bff50d90298a367585b752f6d7d3bdadf09287828d923144",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3979",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:ea15f4ae6a909e7164c5b86ac4c7c09e1ae54141daff7876d90f3c1a678c3c28",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3867",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:eba135942d284a54f87ccd6515a0bd1d67bb15104a9bd3bf945d5d924434e42f",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3652",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:ecf62a4ec8cd38e6b4b932dffc06032d49d26fb6084ae9e5bf7594df6fe30514",
+      "source_family": "sead",
+      "source_record_id": "sead:site:332",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:ed7d27a2d2a0fef223a51efe49a4c200eb4121aec2e69a9abb757679355dc75a",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3697",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:ef88ed58d2c6ee951a6f599ed713c15ab9b4e34acd4285d743b5c300da163de7",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5309",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:f21fd285ef697124db7a5594601246317aed99c5a6a9e7c46f5550df4ab2dd1e",
+      "source_family": "landclim",
+      "source_record_id": "landclim:site-sequence:937075:KULL",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:f24d1ee86ec8a1eb5c0336fdd4ee030ea316c28d9ac5cb94c55b939f9e0491b0",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5277",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:f5ae0f068d2b56a1df1f3bb16532592047718dd9c5a998184f3357c4a521ef3b",
+      "source_family": "sead",
+      "source_record_id": "sead:site:6484",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:f6368df9ccb855e6cbcc9e6291bc985885f7f21515e4f7941c2120eb809c6f6b",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3487",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:f79a298c8bb6c23eceb3aa5d5dcb776caee5181cbc17f958a8d0945718fc7716",
+      "source_family": "sead",
+      "source_record_id": "sead:site:3891",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:f96a9949fa605121d05cf86f3cb55c602bca79808bb8ab014dd8bfb81e44dd69",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4720",
+      "country_decision_status": "unassigned",
+      "review_reason_codes": [
+        "expected_four_country_point_unassigned",
+        "outside_governed_boundaries"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:fbd4ef6db5e705ac5dc5387e2c0ef4a8a75e5b69477c7e055255e1e2a88909f7",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5294",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:fc34fdeaf7cfb20013dd0e4286394aeddef0b2956f1531705d1852906d4e50a4",
+      "source_family": "sead",
+      "source_record_id": "sead:site:5436",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    },
+    {
+      "decision_id": "sha256:fff302623aedb5058e52df9a6da224a72fd5909ec71856fdda086f115926cad2",
+      "source_family": "sead",
+      "source_record_id": "sead:site:4077",
+      "country_decision_status": "review",
+      "review_reason_codes": [
+        "near_boundary_without_containment"
+      ],
+      "review_status": "pending",
+      "qualified_reviewer": null,
+      "qualified_reviewed_at": null
+    }
+  ],
+  "approval_posture": "No qualified boundary or country-decision approval is inferred by machine validation."
+}

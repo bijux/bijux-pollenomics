@@ -34,7 +34,16 @@
       "political_entity": "Hungary",
       "latitude_text": "46.362",
       "longitude_text": "17.731",
-      "chronology_text": "4408 BP"
+      "chronology_text": "4408 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -49,14 +58,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row26",
-      "sample_lineage_excerpt": "18ELTu18_Spa_m588 | 38.949334 N, -6.064916 E | El Turuñuelo | Spain | DOM2 | sacrificial level in settlement, Iron Age Tartessos Culture | 208899 | 2460 | 15 | -753 | -423 | 588 | 2538 | M | this study | 1 | 3 | 3 | 134327799 | 29203846 | 163531645 | - | - | - | 47.4390653086 | 1.4292106341099999 | ",
+      "sample_lineage_excerpt": "18ELTu18_Spa_m588 | 38.949334 N, -6.064916 E | El Turuñuelo | Spain | DOM2 | sacrificial level in settlement, Iron Age Tartessos Culture | 208899 | 2460 | 15 | -753 | -423 | 588 | 2538 | M | this study | 1 | 3 | 3 | 134327799 | 29203846 | 163531645 | - | - | - | 47.4390653086 | 1.4292106341099999 |",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "El Turuñuelo",
       "political_entity": "Spain",
       "latitude_text": "38.949334",
       "longitude_text": "6.064916",
-      "chronology_text": "2538 BP"
+      "chronology_text": "2538 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -78,7 +96,16 @@
       "political_entity": "Turkey",
       "latitude_text": "38.411227",
       "longitude_text": "33.835694",
-      "chronology_text": "2240 BP"
+      "chronology_text": "2240 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -100,7 +127,16 @@
       "political_entity": "Turkey",
       "latitude_text": "38.411227",
       "longitude_text": "33.835694",
-      "chronology_text": "4075 BP"
+      "chronology_text": "4075 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -115,14 +151,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row25",
-      "sample_lineage_excerpt": "AC9016_Tur_m1900 | 38.411227 N, 33.835694 E | Acemhoyuk | Turkey | DOM2 | settlement, Bronze Age, ~1,900 BCE | - | - | - | - | - | 1900 | 3850 | M | this study | 1 | 6 | 6 | 429180744 | 216939898 | 646120642 | - | - | - | 125.520011983 | 1.76361847095 | 1.0399999999999999E-3 | 0.93841435696099995 | ",
+      "sample_lineage_excerpt": "AC9016_Tur_m1900 | 38.411227 N, 33.835694 E | Acemhoyuk | Turkey | DOM2 | settlement, Bronze Age, ~1,900 BCE | - | - | - | - | - | 1900 | 3850 | M | this study | 1 | 6 | 6 | 429180744 | 216939898 | 646120642 | - | - | - | 125.520011983 | 1.76361847095 | 1.0399999999999999E-3 | 0.93841435696099995 |",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Acemhoyuk",
       "political_entity": "Turkey",
       "latitude_text": "38.411227",
       "longitude_text": "33.835694",
-      "chronology_text": "3850 BP"
+      "chronology_text": "3850 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -144,7 +189,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.066389",
       "longitude_text": "93.5225",
-      "chronology_text": "2600 BP"
+      "chronology_text": "2600 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -166,7 +220,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.066389",
       "longitude_text": "93.5225",
-      "chronology_text": "2804 BP"
+      "chronology_text": "2804 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -188,7 +251,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.066389",
       "longitude_text": "93.5225",
-      "chronology_text": "2531 BP"
+      "chronology_text": "2531 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -203,14 +275,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row176",
-      "sample_lineage_excerpt": "Arz1x14_Rus_m800 | 52.066389 N, 93.5225 E | Arzhan-I | Russia | DOM2 | burial site, Iron Age, Early Scythian Culture | - | - | - | - | - | 800 | 2750 | M | this study | 1 | 1 | 1 | 154734245 | 14229892 | 168964137 | - | - | - | 96.567465548200005 | 3.6076353999599999 | 1.165E-3 | 2.3553246576400002 ",
+      "sample_lineage_excerpt": "Arz1x14_Rus_m800 | 52.066389 N, 93.5225 E | Arzhan-I | Russia | DOM2 | burial site, Iron Age, Early Scythian Culture | - | - | - | - | - | 800 | 2750 | M | this study | 1 | 1 | 1 | 154734245 | 14229892 | 168964137 | - | - | - | 96.567465548200005 | 3.6076353999599999 | 1.165E-3 | 2.3553246576400002",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Arzhan-I",
       "political_entity": "Russia",
       "latitude_text": "52.066389",
       "longitude_text": "93.5225",
-      "chronology_text": "2750 BP"
+      "chronology_text": "2750 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -232,7 +313,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "51.575646",
       "longitude_text": "64.724468",
-      "chronology_text": "3842 BP"
+      "chronology_text": "3842 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -254,7 +344,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "51.575646",
       "longitude_text": "64.724468",
-      "chronology_text": "2611 BP"
+      "chronology_text": "2611 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -276,7 +375,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "51.575646",
       "longitude_text": "64.724468",
-      "chronology_text": "5082 BP"
+      "chronology_text": "5082 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -298,7 +406,16 @@
       "political_entity": "Russia",
       "latitude_text": "51.164483",
       "longitude_text": "86.139367",
-      "chronology_text": "2575 BP"
+      "chronology_text": "2575 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -320,7 +437,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "51.826192",
       "longitude_text": "77.948253",
-      "chronology_text": "6399 BP"
+      "chronology_text": "6399 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -342,7 +468,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "51.826192",
       "longitude_text": "77.948253",
-      "chronology_text": "6449 BP"
+      "chronology_text": "6449 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -364,7 +499,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "51.826192",
       "longitude_text": "77.948253",
-      "chronology_text": "6586 BP"
+      "chronology_text": "6586 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -386,7 +530,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "51.826192",
       "longitude_text": "77.948253",
-      "chronology_text": "6240 BP"
+      "chronology_text": "6240 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -408,7 +561,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -430,7 +592,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -452,7 +623,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -467,14 +647,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row214",
-      "sample_lineage_excerpt": "Botai18x13_Kaz_m3328 | 53.303942 N, 67.645786 E | Botai | Kazakhstan | BOTAI | settlement, Eneolithic Botai Culture (*1) | - | - | - | - | - | 3328 | 5278 | F | this study | 1 | 1 | 1 | 147644115 | 24155208 | 171799323 | - | - | - | 130.95919712400001 | 3.0998402107 | 8.43E-4 | 2.0197887102499998 | ",
+      "sample_lineage_excerpt": "Botai18x13_Kaz_m3328 | 53.303942 N, 67.645786 E | Botai | Kazakhstan | BOTAI | settlement, Eneolithic Botai Culture (*1) | - | - | - | - | - | 3328 | 5278 | F | this study | 1 | 1 | 1 | 147644115 | 24155208 | 171799323 | - | - | - | 130.95919712400001 | 3.0998402107 | 8.43E-4 | 2.0197887102499998 |",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Botai",
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -496,7 +685,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -511,14 +709,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row216",
-      "sample_lineage_excerpt": "Botai18x15_Kaz_m3328 | 53.303942 N, 67.645786 E | Botai | Kazakhstan | BOTAI | settlement, Eneolithic Botai Culture (*1) | - | - | - | - | - | 3328 | 5278 | F | this study | 1 | 1 | 1 | 93206464 | 24027982 | 117234446 | - | - | - | 94.118633912500002 | 2.62519962403 | 7.54E-4 | 1.7672697397899999 | ",
+      "sample_lineage_excerpt": "Botai18x15_Kaz_m3328 | 53.303942 N, 67.645786 E | Botai | Kazakhstan | BOTAI | settlement, Eneolithic Botai Culture (*1) | - | - | - | - | - | 3328 | 5278 | F | this study | 1 | 1 | 1 | 93206464 | 24027982 | 117234446 | - | - | - | 94.118633912500002 | 2.62519962403 | 7.54E-4 | 1.7672697397899999 |",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Botai",
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -540,7 +747,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -562,7 +778,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -584,7 +809,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -606,7 +840,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -628,7 +871,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -650,7 +902,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -672,7 +933,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -694,7 +964,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -716,7 +995,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -738,7 +1026,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5278 BP"
+      "chronology_text": "5278 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -760,7 +1057,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5171 BP"
+      "chronology_text": "5171 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -782,7 +1088,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.303942",
       "longitude_text": "67.645786",
-      "chronology_text": "5132 BP"
+      "chronology_text": "5132 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -804,7 +1119,16 @@
       "political_entity": "France",
       "latitude_text": "48.387245",
       "longitude_text": "3.007653",
-      "chronology_text": "13750 BP"
+      "chronology_text": "13750 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -826,7 +1150,16 @@
       "political_entity": "Russia",
       "latitude_text": "45.69",
       "longitude_text": "43.262",
-      "chronology_text": "5400 BP"
+      "chronology_text": "5400 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -848,7 +1181,16 @@
       "political_entity": "Russia",
       "latitude_text": "43.79028",
       "longitude_text": "42.7278",
-      "chronology_text": "2821 BP"
+      "chronology_text": "2821 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -870,7 +1212,16 @@
       "political_entity": "Turkey",
       "latitude_text": "39.676776",
       "longitude_text": "35.1436",
-      "chronology_text": "3249 BP"
+      "chronology_text": "3249 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -892,7 +1243,16 @@
       "political_entity": "Turkey",
       "latitude_text": "39.676776",
       "longitude_text": "35.1436",
-      "chronology_text": "6482 BP"
+      "chronology_text": "6482 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -914,7 +1274,16 @@
       "political_entity": "Turkey",
       "latitude_text": "39.676776",
       "longitude_text": "35.1436",
-      "chronology_text": "2935 BP"
+      "chronology_text": "2935 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -936,7 +1305,16 @@
       "political_entity": "Spain",
       "latitude_text": "40.42019",
       "longitude_text": "0.12547",
-      "chronology_text": "7130 BP"
+      "chronology_text": "7130 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -958,7 +1336,16 @@
       "political_entity": "United Kingdom",
       "latitude_text": "51.330592",
       "longitude_text": "1.389657",
-      "chronology_text": "2815 BP"
+      "chronology_text": "2815 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -980,7 +1367,16 @@
       "political_entity": "United Kingdom",
       "latitude_text": "51.330592",
       "longitude_text": "1.389657",
-      "chronology_text": "2424 BP"
+      "chronology_text": "2424 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1002,7 +1398,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.067083",
       "longitude_text": "93.464806",
-      "chronology_text": "2760 BP"
+      "chronology_text": "2760 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1024,7 +1429,16 @@
       "political_entity": "Russia",
       "latitude_text": "51.173733",
       "longitude_text": "86.113083",
-      "chronology_text": "2575 BP"
+      "chronology_text": "2575 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1046,7 +1460,16 @@
       "political_entity": "France",
       "latitude_text": "48.871883",
       "longitude_text": "2.157139",
-      "chronology_text": "12350 BP"
+      "chronology_text": "12350 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1068,7 +1491,16 @@
       "political_entity": "Russia",
       "latitude_text": "53.658",
       "longitude_text": "50.668444",
-      "chronology_text": "3833 BP"
+      "chronology_text": "3833 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1090,7 +1522,16 @@
       "political_entity": "Russia",
       "latitude_text": "50.963242",
       "longitude_text": "39.29496",
-      "chronology_text": "17009 BP"
+      "chronology_text": "17009 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1112,7 +1553,16 @@
       "political_entity": "Denmark",
       "latitude_text": "56.41134",
       "longitude_text": "10.74481",
-      "chronology_text": "4961 BP"
+      "chronology_text": "4961 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1134,7 +1584,16 @@
       "political_entity": "Denmark",
       "latitude_text": "56.41134",
       "longitude_text": "10.74481",
-      "chronology_text": "4944 BP"
+      "chronology_text": "4944 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1156,7 +1615,16 @@
       "political_entity": "Estonia",
       "latitude_text": "58.410926",
       "longitude_text": "23.016137",
-      "chronology_text": "2611 BP"
+      "chronology_text": "2611 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1178,7 +1646,16 @@
       "political_entity": "Estonia",
       "latitude_text": "58.410926",
       "longitude_text": "23.016137",
-      "chronology_text": "2609 BP"
+      "chronology_text": "2609 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1200,7 +1677,16 @@
       "political_entity": "Estonia",
       "latitude_text": "58.4552",
       "longitude_text": "23.0326",
-      "chronology_text": "2604 BP"
+      "chronology_text": "2604 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1215,14 +1701,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row80",
-      "sample_lineage_excerpt": "Etiolles4_Fra_m13759 | 48.63324 N, 2.465916 E | Etiolles | France | LP-NFR | Magdalenian site, Bølling-Allerød interstadial period | 218226 | 13100 | 45 | -13922 | -13596 | 13759 | 15709 | F | this study | 2 | 8 | 8 | 636845142 | 49592426 | 686437568 | - | - | - | 200.744577591 | 7.0732214748200004 ",
+      "sample_lineage_excerpt": "Etiolles4_Fra_m13759 | 48.63324 N, 2.465916 E | Etiolles | France | LP-NFR | Magdalenian site, Bølling-Allerød interstadial period | 218226 | 13100 | 45 | -13922 | -13596 | 13759 | 15709 | F | this study | 2 | 8 | 8 | 636845142 | 49592426 | 686437568 | - | - | - | 200.744577591 | 7.0732214748200004",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Etiolles",
       "political_entity": "France",
       "latitude_text": "48.63324",
       "longitude_text": "2.465916",
-      "chronology_text": "15709 BP"
+      "chronology_text": "15709 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1237,14 +1732,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row81",
-      "sample_lineage_excerpt": "Etiolles6_Fra_m13608 | 48.63324 N, 2.465916 E | Etiolles | France | LP-NFR | Magdalenian site, Bølling-Allerød interstadial period | 218227 | 13010 | 45 | -13798 | -13418 | 13608 | 15558 | F | this study | 2 | 8 | 8 | 420944181 | 50590604 | 471534785 | - | - | - | 108.848591971 | 4.0274090169500001 ",
+      "sample_lineage_excerpt": "Etiolles6_Fra_m13608 | 48.63324 N, 2.465916 E | Etiolles | France | LP-NFR | Magdalenian site, Bølling-Allerød interstadial period | 218227 | 13010 | 45 | -13798 | -13418 | 13608 | 15558 | F | this study | 2 | 8 | 8 | 420944181 | 50590604 | 471534785 | - | - | - | 108.848591971 | 4.0274090169500001",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Etiolles",
       "political_entity": "France",
       "latitude_text": "48.63324",
       "longitude_text": "2.465916",
-      "chronology_text": "15558 BP"
+      "chronology_text": "15558 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1266,7 +1770,16 @@
       "political_entity": "France",
       "latitude_text": "48.63324",
       "longitude_text": "2.465916",
-      "chronology_text": "15765 BP"
+      "chronology_text": "15765 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1288,7 +1801,16 @@
       "political_entity": "France",
       "latitude_text": "48.63324",
       "longitude_text": "2.465916",
-      "chronology_text": "15643 BP"
+      "chronology_text": "15643 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1310,7 +1832,16 @@
       "political_entity": "Spain",
       "latitude_text": "41.57",
       "longitude_text": "0.95",
-      "chronology_text": "2425 BP"
+      "chronology_text": "2425 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1332,7 +1863,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.572897",
       "longitude_text": "103.251933",
-      "chronology_text": "2725 BP"
+      "chronology_text": "2725 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1354,7 +1894,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.572897",
       "longitude_text": "103.251933",
-      "chronology_text": "2725 BP"
+      "chronology_text": "2725 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1376,7 +1925,16 @@
       "political_entity": "France",
       "latitude_text": "44.499039",
       "longitude_text": "1.692232",
-      "chronology_text": "20874 BP"
+      "chronology_text": "20874 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1398,7 +1956,16 @@
       "political_entity": "France",
       "latitude_text": "44.499039",
       "longitude_text": "1.692232",
-      "chronology_text": "18450 BP"
+      "chronology_text": "18450 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1420,7 +1987,16 @@
       "political_entity": "France",
       "latitude_text": "44.499039",
       "longitude_text": "1.692232",
-      "chronology_text": "23605 BP"
+      "chronology_text": "23605 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1442,7 +2018,16 @@
       "political_entity": "France",
       "latitude_text": "44.499039",
       "longitude_text": "1.692232",
-      "chronology_text": "18051 BP"
+      "chronology_text": "18051 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1464,7 +2049,16 @@
       "political_entity": "France",
       "latitude_text": "44.499039",
       "longitude_text": "1.692232",
-      "chronology_text": "20874 BP"
+      "chronology_text": "20874 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1486,7 +2080,16 @@
       "political_entity": "France",
       "latitude_text": "44.499039",
       "longitude_text": "1.692232",
-      "chronology_text": "20874 BP"
+      "chronology_text": "20874 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1508,7 +2111,16 @@
       "political_entity": "France",
       "latitude_text": "44.499039",
       "longitude_text": "1.692232",
-      "chronology_text": "20874 BP"
+      "chronology_text": "20874 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1530,7 +2142,16 @@
       "political_entity": "France",
       "latitude_text": "44.499039",
       "longitude_text": "1.692232",
-      "chronology_text": "20874 BP"
+      "chronology_text": "20874 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1552,7 +2173,16 @@
       "political_entity": "France",
       "latitude_text": "44.499039",
       "longitude_text": "1.692232",
-      "chronology_text": "20874 BP"
+      "chronology_text": "20874 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1574,7 +2204,16 @@
       "political_entity": "France",
       "latitude_text": "44.499039",
       "longitude_text": "1.692232",
-      "chronology_text": "21620 BP"
+      "chronology_text": "21620 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1596,7 +2235,16 @@
       "political_entity": "France",
       "latitude_text": "44.499039",
       "longitude_text": "1.692232",
-      "chronology_text": "20874 BP"
+      "chronology_text": "20874 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1618,7 +2266,16 @@
       "political_entity": "France",
       "latitude_text": "44.499039",
       "longitude_text": "1.692232",
-      "chronology_text": "20874 BP"
+      "chronology_text": "20874 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1640,7 +2297,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "47.750843",
       "longitude_text": "101.369458",
-      "chronology_text": "3007 BP"
+      "chronology_text": "3007 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1655,14 +2321,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row71",
-      "sample_lineage_excerpt": "GVA9035_Mon_m1024 | 47.750843 N, 101.369458 E | Tatsyn Ereg | Mongolia | DOM2 | burial site, Bronze Age Deer Stone Complex | - | 2860 | 25 | -1117 | -931 | 1024 | 2974 | F | this study | 1 | 4 | 4 | 800392170 | 127023012 | 927415182 | - | - | - | 371.08633912499999 | 9.1519664289500007 | 1.142E-3 | ",
+      "sample_lineage_excerpt": "GVA9035_Mon_m1024 | 47.750843 N, 101.369458 E | Tatsyn Ereg | Mongolia | DOM2 | burial site, Bronze Age Deer Stone Complex | - | 2860 | 25 | -1117 | -931 | 1024 | 2974 | F | this study | 1 | 4 | 4 | 800392170 | 127023012 | 927415182 | - | - | - | 371.08633912499999 | 9.1519664289500007 | 1.142E-3 |",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Tatsyn Ereg",
       "political_entity": "Mongolia",
       "latitude_text": "47.750843",
       "longitude_text": "101.369458",
-      "chronology_text": "2974 BP"
+      "chronology_text": "2974 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1684,7 +2359,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "47.750843",
       "longitude_text": "101.369458",
-      "chronology_text": "2963 BP"
+      "chronology_text": "2963 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1706,7 +2390,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "47.750843",
       "longitude_text": "101.369458",
-      "chronology_text": "2963 BP"
+      "chronology_text": "2963 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1728,7 +2421,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.830833",
       "longitude_text": "89.99",
-      "chronology_text": "3018 BP"
+      "chronology_text": "3018 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1750,7 +2452,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "52.843",
       "longitude_text": "62.9029",
-      "chronology_text": "3806 BP"
+      "chronology_text": "3806 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1772,7 +2483,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "52.843",
       "longitude_text": "62.9029",
-      "chronology_text": "3806 BP"
+      "chronology_text": "3806 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1794,7 +2514,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.56105",
       "longitude_text": "103.2428",
-      "chronology_text": "2725 BP"
+      "chronology_text": "2725 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1816,7 +2545,16 @@
       "political_entity": "Iran",
       "latitude_text": "37.004486",
       "longitude_text": "45.458817",
-      "chronology_text": "2718 BP"
+      "chronology_text": "2718 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1838,7 +2576,16 @@
       "political_entity": "Iran",
       "latitude_text": "37.004486",
       "longitude_text": "45.458817",
-      "chronology_text": "2718 BP"
+      "chronology_text": "2718 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1860,7 +2607,16 @@
       "political_entity": "Iran",
       "latitude_text": "37.004486",
       "longitude_text": "45.458817",
-      "chronology_text": "2718 BP"
+      "chronology_text": "2718 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1882,7 +2638,16 @@
       "political_entity": "Germany",
       "latitude_text": "50.06053",
       "longitude_text": "11.104783",
-      "chronology_text": "4629 BP"
+      "chronology_text": "4629 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1897,14 +2662,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row113",
-      "sample_lineage_excerpt": "Hohler1x2_Ger_m2681 | 50.06053 N, 11.104783 E | Hohler Stein bei Schwabthal | Germany | CWC | settlement, Late Neolithic Corded Ware Culture (*6) | - | - | - | - | - | 2681 | 4631 | F | this study | 1 | 4 | 4 | 208723025 | 85829400 | 294552425 | - | - | - | 2016.8085679999999 | 1.2149707302099999 | ",
+      "sample_lineage_excerpt": "Hohler1x2_Ger_m2681 | 50.06053 N, 11.104783 E | Hohler Stein bei Schwabthal | Germany | CWC | settlement, Late Neolithic Corded Ware Culture (*6) | - | - | - | - | - | 2681 | 4631 | F | this study | 1 | 4 | 4 | 208723025 | 85829400 | 294552425 | - | - | - | 2016.8085679999999 | 1.2149707302099999 |",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Hohler Stein bei Schwabthal",
       "political_entity": "Germany",
       "latitude_text": "50.06053",
       "longitude_text": "11.104783",
-      "chronology_text": "4631 BP"
+      "chronology_text": "4631 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1926,7 +2700,16 @@
       "political_entity": "Germany",
       "latitude_text": "50.06053",
       "longitude_text": "11.104783",
-      "chronology_text": "4669 BP"
+      "chronology_text": "4669 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1948,7 +2731,16 @@
       "political_entity": "Germany",
       "latitude_text": "50.06053",
       "longitude_text": "11.104783",
-      "chronology_text": "4626 BP"
+      "chronology_text": "4626 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1970,7 +2762,16 @@
       "political_entity": "Germany",
       "latitude_text": "50.06053",
       "longitude_text": "11.104783",
-      "chronology_text": "4631 BP"
+      "chronology_text": "4631 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -1992,7 +2793,16 @@
       "political_entity": "Germany",
       "latitude_text": "50.06053",
       "longitude_text": "11.104783",
-      "chronology_text": "4631 BP"
+      "chronology_text": "4631 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2007,14 +2817,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row41",
-      "sample_lineage_excerpt": "Kan22_Tur_m2386 | 41.721357 N, 27.225306 E | Kirklareli-Kanligecit | Turkey | Kan22 | settlement, Early Bronze Age | 199247 | 3905 | 15 | -2466 | -2306 | 2386 | 4336 | M | this study | 1 | 5 | 5 | 1252124037 | 469098988 | 1721223025 | - | - | - | 645.49346914299997 | 4.0166719450099997 | 1.077E-3 | ",
+      "sample_lineage_excerpt": "Kan22_Tur_m2386 | 41.721357 N, 27.225306 E | Kirklareli-Kanligecit | Turkey | Kan22 | settlement, Early Bronze Age | 199247 | 3905 | 15 | -2466 | -2306 | 2386 | 4336 | M | this study | 1 | 5 | 5 | 1252124037 | 469098988 | 1721223025 | - | - | - | 645.49346914299997 | 4.0166719450099997 | 1.077E-3 |",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Kirklareli-Kanligecit",
       "political_entity": "Turkey",
       "latitude_text": "41.721357",
       "longitude_text": "27.225306",
-      "chronology_text": "4336 BP"
+      "chronology_text": "4336 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2036,7 +2855,16 @@
       "political_entity": "Russia",
       "latitude_text": "51.376",
       "longitude_text": "39.071",
-      "chronology_text": "31606 BP"
+      "chronology_text": "31606 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2058,7 +2886,16 @@
       "political_entity": "Russia",
       "latitude_text": "62.083",
       "longitude_text": "58.083",
-      "chronology_text": "36148 BP"
+      "chronology_text": "36148 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2080,7 +2917,16 @@
       "political_entity": "Russia",
       "latitude_text": "62.083",
       "longitude_text": "58.083",
-      "chronology_text": "44425 BP"
+      "chronology_text": "44425 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2102,7 +2948,16 @@
       "political_entity": "Russia",
       "latitude_text": "62.083",
       "longitude_text": "58.083",
-      "chronology_text": "26159 BP"
+      "chronology_text": "26159 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2124,7 +2979,16 @@
       "political_entity": "Russia",
       "latitude_text": "62.083",
       "longitude_text": "58.083",
-      "chronology_text": "36148 BP"
+      "chronology_text": "36148 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2146,7 +3010,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "49.202561",
       "longitude_text": "75.940728",
-      "chronology_text": "3416 BP"
+      "chronology_text": "3416 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2168,7 +3041,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "49.202561",
       "longitude_text": "75.940728",
-      "chronology_text": "3424 BP"
+      "chronology_text": "3424 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2190,7 +3072,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "49.202561",
       "longitude_text": "75.940728",
-      "chronology_text": "3444 BP"
+      "chronology_text": "3444 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2212,7 +3103,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "49.202561",
       "longitude_text": "75.940728",
-      "chronology_text": "3413 BP"
+      "chronology_text": "3413 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2234,7 +3134,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "49.202561",
       "longitude_text": "75.940728",
-      "chronology_text": "3426 BP"
+      "chronology_text": "3426 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2249,14 +3158,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row99",
-      "sample_lineage_excerpt": "Kozhai_Kaz_m3342 | 49.4 N, 66.75 E | Kozhai | Kazakhstan | TERSEK | settlement, Eneolithic Tersek Culture | 199238 | 4585 | 20 | -3492 | -3191 | 3342 | 5292 | M | this study | 2 | 7 | 7 | 1317317179 | 375887236 | 1693204415 | - | - | - | 108.468783703 | 1.6849891251 | 1.127E-3 | 0.94387987889400005 ",
+      "sample_lineage_excerpt": "Kozhai_Kaz_m3342 | 49.4 N, 66.75 E | Kozhai | Kazakhstan | TERSEK | settlement, Eneolithic Tersek Culture | 199238 | 4585 | 20 | -3492 | -3191 | 3342 | 5292 | M | this study | 2 | 7 | 7 | 1317317179 | 375887236 | 1693204415 | - | - | - | 108.468783703 | 1.6849891251 | 1.127E-3 | 0.94387987889400005",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Kozhai",
       "political_entity": "Kazakhstan",
       "latitude_text": "49.4",
       "longitude_text": "66.75",
-      "chronology_text": "5292 BP"
+      "chronology_text": "5292 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2278,7 +3196,16 @@
       "political_entity": "Turkey",
       "latitude_text": "37.847803",
       "longitude_text": "34.611841",
-      "chronology_text": "8269 BP"
+      "chronology_text": "8269 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2300,7 +3227,16 @@
       "political_entity": "Russia",
       "latitude_text": "51.497292",
       "longitude_text": "85.971322",
-      "chronology_text": "2530 BP"
+      "chronology_text": "2530 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2322,7 +3258,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "53.325935",
       "longitude_text": "69.260924",
-      "chronology_text": "5194 BP"
+      "chronology_text": "5194 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2344,7 +3289,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "47.237169",
       "longitude_text": "84.542033",
-      "chronology_text": "2243 BP"
+      "chronology_text": "2243 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2366,7 +3320,16 @@
       "political_entity": "Russia",
       "latitude_text": "51.17025",
       "longitude_text": "82.967972",
-      "chronology_text": ">49900 BP"
+      "chronology_text": ">49900 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2388,7 +3351,16 @@
       "political_entity": "Russia",
       "latitude_text": "51.17025",
       "longitude_text": "82.967972",
-      "chronology_text": ">52200 BP"
+      "chronology_text": ">52200 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2410,7 +3382,16 @@
       "political_entity": "Russia",
       "latitude_text": "49.215583",
       "longitude_text": "43.904556",
-      "chronology_text": "5039 BP"
+      "chronology_text": "5039 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2432,7 +3413,16 @@
       "political_entity": "Russia",
       "latitude_text": "49.215583",
       "longitude_text": "43.904556",
-      "chronology_text": "4945 BP"
+      "chronology_text": "4945 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2454,7 +3444,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.80375",
       "longitude_text": "53.793639",
-      "chronology_text": "4713 BP"
+      "chronology_text": "4713 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2476,7 +3475,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.80375",
       "longitude_text": "53.793639",
-      "chronology_text": "4736 BP"
+      "chronology_text": "4736 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2498,7 +3506,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.80375",
       "longitude_text": "53.793639",
-      "chronology_text": "7301 BP"
+      "chronology_text": "7301 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2520,7 +3537,16 @@
       "political_entity": "Russia",
       "latitude_text": "53.44725",
       "longitude_text": "48.942667",
-      "chronology_text": "3746 BP"
+      "chronology_text": "3746 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2542,7 +3568,16 @@
       "political_entity": "Russia",
       "latitude_text": "53.44725",
       "longitude_text": "48.942667",
-      "chronology_text": "3735 BP"
+      "chronology_text": "3735 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2564,7 +3599,16 @@
       "political_entity": "Russia",
       "latitude_text": "50.156028",
       "longitude_text": "48.526306",
-      "chronology_text": "7356 BP"
+      "chronology_text": "7356 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2586,7 +3630,16 @@
       "political_entity": "Russia",
       "latitude_text": "51.497056",
       "longitude_text": "85.9745",
-      "chronology_text": "3748 BP"
+      "chronology_text": "3748 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2608,7 +3661,16 @@
       "political_entity": "Russia",
       "latitude_text": "51.497056",
       "longitude_text": "85.9745",
-      "chronology_text": "3059 BP"
+      "chronology_text": "3059 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2630,7 +3692,16 @@
       "political_entity": "Russia",
       "latitude_text": "53.338939",
       "longitude_text": "51.870031",
-      "chronology_text": "3794 BP"
+      "chronology_text": "3794 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2652,7 +3723,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.429072",
       "longitude_text": "55.227878",
-      "chronology_text": "3799 BP"
+      "chronology_text": "3799 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2674,7 +3754,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.931778",
       "longitude_text": "99.804167",
-      "chronology_text": "2892 BP"
+      "chronology_text": "2892 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2696,7 +3785,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "46.4",
       "longitude_text": "100.68",
-      "chronology_text": "2608 BP"
+      "chronology_text": "2608 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2718,7 +3816,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.325583",
       "longitude_text": "95.442278",
-      "chronology_text": "3066 BP"
+      "chronology_text": "3066 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2740,7 +3847,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "51.421361",
       "longitude_text": "99.364611",
-      "chronology_text": "3086 BP"
+      "chronology_text": "3086 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2762,7 +3878,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.309444",
       "longitude_text": "99.849722",
-      "chronology_text": "2937 BP"
+      "chronology_text": "2937 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2784,7 +3909,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.309444",
       "longitude_text": "99.849722",
-      "chronology_text": "3095 BP"
+      "chronology_text": "3095 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2806,7 +3940,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.309444",
       "longitude_text": "99.849722",
-      "chronology_text": "2889 BP"
+      "chronology_text": "2889 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2828,7 +3971,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.325583",
       "longitude_text": "95.442278",
-      "chronology_text": "2960 BP"
+      "chronology_text": "2960 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2843,14 +3995,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row67",
-      "sample_lineage_excerpt": "M17x199_Mon_m865 | 46.94125 N, 98.595817 E | Morin Mort | Mongolia | DOM2 | burial site, Iron Age Deer Stone Complex | 190019 | 2725 | 15 | -907 | -822 | 865 | 2815 | F | this study | 1 | 4 | 4 | 42314678 | 10835992 | 53150670 | - | - | - | 37.576033553000002 | 1.26017777668 | 7.7700000000000002E-4 ",
+      "sample_lineage_excerpt": "M17x199_Mon_m865 | 46.94125 N, 98.595817 E | Morin Mort | Mongolia | DOM2 | burial site, Iron Age Deer Stone Complex | 190019 | 2725 | 15 | -907 | -822 | 865 | 2815 | F | this study | 1 | 4 | 4 | 42314678 | 10835992 | 53150670 | - | - | - | 37.576033553000002 | 1.26017777668 | 7.7700000000000002E-4",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Morin Mort",
       "political_entity": "Mongolia",
       "latitude_text": "46.94125",
       "longitude_text": "98.595817",
-      "chronology_text": "2815 BP"
+      "chronology_text": "2815 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2872,7 +4033,16 @@
       "political_entity": "United Kingdom",
       "latitude_text": "51.578275",
       "longitude_text": "2.829228",
-      "chronology_text": "2959 BP"
+      "chronology_text": "2959 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2887,14 +4057,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row74",
-      "sample_lineage_excerpt": "Mic2_Mol_m1250 | 47.987105 N, 27.788329 E | Miciurin | Moldova | DOM2 | settlement, Middle/Late Bronze Age, Noua Culture, ~1,500-1,000 BCE | - | - | - | - | - | 1250 | 3200 | M | this study | 1 | 1 | 1 | 16181401 | 1778330 | 17959731 | - | - | - | 12.895446375100001 | 0.23968254782000001 | 1.072E-3 ",
+      "sample_lineage_excerpt": "Mic2_Mol_m1250 | 47.987105 N, 27.788329 E | Miciurin | Moldova | DOM2 | settlement, Middle/Late Bronze Age, Noua Culture, ~1,500-1,000 BCE | - | - | - | - | - | 1250 | 3200 | M | this study | 1 | 1 | 1 | 16181401 | 1778330 | 17959731 | - | - | - | 12.895446375100001 | 0.23968254782000001 | 1.072E-3",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Miciurin",
       "political_entity": "Moldova",
       "latitude_text": "47.987105",
       "longitude_text": "27.788329",
-      "chronology_text": "3200 BP"
+      "chronology_text": "3200 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2916,7 +4095,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "52.447098",
       "longitude_text": "76.794851",
-      "chronology_text": "3969 BP"
+      "chronology_text": "3969 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2938,7 +4126,16 @@
       "political_entity": "Moldova",
       "latitude_text": "47.987105",
       "longitude_text": "27.788329",
-      "chronology_text": "3323 BP"
+      "chronology_text": "3323 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2960,7 +4157,16 @@
       "political_entity": "Moldova",
       "latitude_text": "48.159923",
       "longitude_text": "27.169232",
-      "chronology_text": "4013 BP"
+      "chronology_text": "4013 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -2982,7 +4188,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.553253",
       "longitude_text": "103.277861",
-      "chronology_text": "3050 BP"
+      "chronology_text": "3050 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3004,7 +4219,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.553253",
       "longitude_text": "103.277861",
-      "chronology_text": "2968 BP"
+      "chronology_text": "2968 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3026,7 +4250,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.553253",
       "longitude_text": "103.277861",
-      "chronology_text": "2976 BP"
+      "chronology_text": "2976 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3048,7 +4281,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.553253",
       "longitude_text": "103.277861",
-      "chronology_text": "2725 BP"
+      "chronology_text": "2725 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3070,7 +4312,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "51.52",
       "longitude_text": "62.55",
-      "chronology_text": "4962 BP"
+      "chronology_text": "4962 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3085,14 +4336,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row156",
-      "sample_lineage_excerpt": "NB15_Kaz_m3150 | 51.52 N, 62.55 E | Belkaragay | Kazakhstan | TERSEK | settlement, Eneolithic Botai-Tersek Culture, ~3,150 BCE | - | - | - | - | - | 3150 | 5100 | F | this study | 1 | 4 | 4 | 26101407 | 6832382 | 32933789 | - | - | - | 27.9919712403 | 0.23459917861900001 | 1.312E-3 | 0.145911711079 ",
+      "sample_lineage_excerpt": "NB15_Kaz_m3150 | 51.52 N, 62.55 E | Belkaragay | Kazakhstan | TERSEK | settlement, Eneolithic Botai-Tersek Culture, ~3,150 BCE | - | - | - | - | - | 3150 | 5100 | F | this study | 1 | 4 | 4 | 26101407 | 6832382 | 32933789 | - | - | - | 27.9919712403 | 0.23459917861900001 | 1.312E-3 | 0.145911711079",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Belkaragay",
       "political_entity": "Kazakhstan",
       "latitude_text": "51.52",
       "longitude_text": "62.55",
-      "chronology_text": "5100 BP"
+      "chronology_text": "5100 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3114,7 +4374,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.486359",
       "longitude_text": "60.187925",
-      "chronology_text": "3806 BP"
+      "chronology_text": "3806 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3136,7 +4405,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.486359",
       "longitude_text": "60.187925",
-      "chronology_text": "3815 BP"
+      "chronology_text": "3815 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3158,7 +4436,16 @@
       "political_entity": "Slovakia",
       "latitude_text": "48.069502",
       "longitude_text": "18.200384",
-      "chronology_text": "3633 BP"
+      "chronology_text": "3633 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3173,14 +4460,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row240",
-      "sample_lineage_excerpt": "Nov3x10_Rus_m3443 | 53.546361 N, 79.350056 E | Novoilinka-III | Russia | BOTAI | settlement, Eneolithic | 199241 | 4665 | 20 | -3516 | -3370 | 3443 | 5393 | F | this study | 1 | 4 | 4 | 2604894329 | 446053154 | 3050947483 | - | - | - | 269.27801078499999 | 4.9366489462400001 | 9.2000000000000003E-4 ",
+      "sample_lineage_excerpt": "Nov3x10_Rus_m3443 | 53.546361 N, 79.350056 E | Novoilinka-III | Russia | BOTAI | settlement, Eneolithic | 199241 | 4665 | 20 | -3516 | -3370 | 3443 | 5393 | F | this study | 1 | 4 | 4 | 2604894329 | 446053154 | 3050947483 | - | - | - | 269.27801078499999 | 4.9366489462400001 | 9.2000000000000003E-4",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Novoilinka-III",
       "political_entity": "Russia",
       "latitude_text": "53.546361",
       "longitude_text": "79.350056",
-      "chronology_text": "5393 BP"
+      "chronology_text": "5393 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3202,7 +4498,16 @@
       "political_entity": "Russia",
       "latitude_text": "53.546361",
       "longitude_text": "79.350056",
-      "chronology_text": "5401 BP"
+      "chronology_text": "5401 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3217,14 +4522,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row242",
-      "sample_lineage_excerpt": "Nov6x11_Rus_m3217 | 53.546361 N, 79.350056 E | Novoilinka-VI | Russia | BOTAI | settlement, Eneolithic | 224901 | 4485 | 20 | -3340 | -3093 | 3217 | 5167 | F | this study | 1 | 4 | 4 | 126119449 | 41045450 | 167164899 | - | - | - | 75.1270820851 | 1.4296478699199999 | 1.039E-3 | 0.90283402725299999 ",
+      "sample_lineage_excerpt": "Nov6x11_Rus_m3217 | 53.546361 N, 79.350056 E | Novoilinka-VI | Russia | BOTAI | settlement, Eneolithic | 224901 | 4485 | 20 | -3340 | -3093 | 3217 | 5167 | F | this study | 1 | 4 | 4 | 126119449 | 41045450 | 167164899 | - | - | - | 75.1270820851 | 1.4296478699199999 | 1.039E-3 | 0.90283402725299999",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Novoilinka-VI",
       "political_entity": "Russia",
       "latitude_text": "53.546361",
       "longitude_text": "79.350056",
-      "chronology_text": "5167 BP"
+      "chronology_text": "5167 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3246,7 +4560,16 @@
       "political_entity": "Russia",
       "latitude_text": "53.546361",
       "longitude_text": "79.350056",
-      "chronology_text": "5174 BP"
+      "chronology_text": "5174 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3268,7 +4591,16 @@
       "political_entity": "Russia",
       "latitude_text": "53.546361",
       "longitude_text": "79.350056",
-      "chronology_text": "5167 BP"
+      "chronology_text": "5167 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3290,7 +4622,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "52.6401793",
       "longitude_text": "62.7610338",
-      "chronology_text": "3782 BP"
+      "chronology_text": "3782 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3312,7 +4653,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "52.6401793",
       "longitude_text": "62.7610338",
-      "chronology_text": "3782 BP"
+      "chronology_text": "3782 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3334,7 +4684,16 @@
       "political_entity": "United Kingdom",
       "latitude_text": "50.467709",
       "longitude_text": "3.502667",
-      "chronology_text": "14616 BP"
+      "chronology_text": "14616 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3356,7 +4715,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "51.824694",
       "longitude_text": "77.945111",
-      "chronology_text": "4911 BP"
+      "chronology_text": "4911 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3378,7 +4746,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "51.824694",
       "longitude_text": "77.945111",
-      "chronology_text": "4909 BP"
+      "chronology_text": "4909 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3400,7 +4777,16 @@
       "political_entity": "Romania",
       "latitude_text": "44.067779",
       "longitude_text": "26.156737",
-      "chronology_text": "6375 BP"
+      "chronology_text": "6375 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3422,7 +4808,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "49.916667",
       "longitude_text": "74.216667",
-      "chronology_text": "3704 BP"
+      "chronology_text": "3704 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3444,7 +4839,16 @@
       "political_entity": "Poland",
       "latitude_text": "50.2741",
       "longitude_text": "20.4654",
-      "chronology_text": "3500 BP"
+      "chronology_text": "3500 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3466,7 +4870,16 @@
       "political_entity": "Poland",
       "latitude_text": "50.2741",
       "longitude_text": "20.4654",
-      "chronology_text": "3430 BP"
+      "chronology_text": "3430 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3488,7 +4901,16 @@
       "political_entity": "Poland",
       "latitude_text": "50.2741",
       "longitude_text": "20.4654",
-      "chronology_text": "3500 BP"
+      "chronology_text": "3500 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3510,7 +4932,16 @@
       "political_entity": "Poland",
       "latitude_text": "50.2741",
       "longitude_text": "20.4654",
-      "chronology_text": "3500 BP"
+      "chronology_text": "3500 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3532,7 +4963,16 @@
       "political_entity": "Poland",
       "latitude_text": "50.2741",
       "longitude_text": "20.4654",
-      "chronology_text": "3500 BP"
+      "chronology_text": "3500 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3554,7 +4994,16 @@
       "political_entity": "Poland",
       "latitude_text": "50.2741",
       "longitude_text": "20.4654",
-      "chronology_text": "3500 BP"
+      "chronology_text": "3500 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3569,14 +5018,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row135",
-      "sample_lineage_excerpt": "PLMie18_Pol_m1483 | 50.35749 N, 20.04609 E | Miechów 3 | Poland | DOM2 | settlement, Eneolithic Funnel Beaker Culture | 218292 | 3230 | 30 | -1541 | -1425 | 1483 | 3433 | M | this study | 1 | 3 | 3 | 446867670 | 103564748 | 550432418 | - | - | - | 492.44541641699999 | 2.5293577804699998 | 9.59E-4 | ",
+      "sample_lineage_excerpt": "PLMie18_Pol_m1483 | 50.35749 N, 20.04609 E | Miechów 3 | Poland | DOM2 | settlement, Eneolithic Funnel Beaker Culture | 218292 | 3230 | 30 | -1541 | -1425 | 1483 | 3433 | M | this study | 1 | 3 | 3 | 446867670 | 103564748 | 550432418 | - | - | - | 492.44541641699999 | 2.5293577804699998 | 9.59E-4 |",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Miechów 3",
       "political_entity": "Poland",
       "latitude_text": "50.35749",
       "longitude_text": "20.04609",
-      "chronology_text": "3433 BP"
+      "chronology_text": "3433 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3598,7 +5056,16 @@
       "political_entity": "Poland",
       "latitude_text": "50.35749",
       "longitude_text": "20.04609",
-      "chronology_text": "2599 BP"
+      "chronology_text": "2599 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3620,7 +5087,16 @@
       "political_entity": "Poland",
       "latitude_text": "50.44378",
       "longitude_text": "20.51853",
-      "chronology_text": "5455 BP"
+      "chronology_text": "5455 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3642,7 +5118,16 @@
       "political_entity": "Poland",
       "latitude_text": "50.44378",
       "longitude_text": "20.51853",
-      "chronology_text": "5751 BP"
+      "chronology_text": "5751 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3664,7 +5149,16 @@
       "political_entity": "Poland",
       "latitude_text": "50.143",
       "longitude_text": "20.04672",
-      "chronology_text": "3482 BP"
+      "chronology_text": "3482 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3686,7 +5180,16 @@
       "political_entity": "Czech Republic",
       "latitude_text": "50.08088",
       "longitude_text": "14.23425",
-      "chronology_text": "5176 BP"
+      "chronology_text": "5176 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3708,7 +5211,16 @@
       "political_entity": "Czech Republic",
       "latitude_text": "50.35784",
       "longitude_text": "13.74354",
-      "chronology_text": "3191 BP"
+      "chronology_text": "3191 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3730,7 +5242,16 @@
       "political_entity": "Czech Republic",
       "latitude_text": "50.14943",
       "longitude_text": "14.33203",
-      "chronology_text": "2737 BP"
+      "chronology_text": "2737 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3752,7 +5273,16 @@
       "political_entity": "Czech Republic",
       "latitude_text": "50.20132",
       "longitude_text": "14.29183",
-      "chronology_text": "3987 BP"
+      "chronology_text": "3987 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3774,7 +5304,16 @@
       "political_entity": "Czech Republic",
       "latitude_text": "49.313",
       "longitude_text": "17.15314",
-      "chronology_text": "3199 BP"
+      "chronology_text": "3199 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3796,7 +5335,16 @@
       "political_entity": "Czech Republic",
       "latitude_text": "50.13493",
       "longitude_text": "14.28531",
-      "chronology_text": "3060 BP"
+      "chronology_text": "3060 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3818,7 +5366,16 @@
       "political_entity": "Czech Republic",
       "latitude_text": "50.12523",
       "longitude_text": "14.26973",
-      "chronology_text": "3260 BP"
+      "chronology_text": "3260 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3840,7 +5397,16 @@
       "political_entity": "Czech Republic",
       "latitude_text": "50.36361",
       "longitude_text": "14.44931",
-      "chronology_text": "2574 BP"
+      "chronology_text": "2574 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3862,7 +5428,16 @@
       "political_entity": "Czech Republic",
       "latitude_text": "49.19081",
       "longitude_text": "16.6764",
-      "chronology_text": "5186 BP"
+      "chronology_text": "5186 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3884,7 +5459,16 @@
       "political_entity": "Czech Republic",
       "latitude_text": "50.16813",
       "longitude_text": "14.72267",
-      "chronology_text": "3795 BP"
+      "chronology_text": "3795 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3906,7 +5490,16 @@
       "political_entity": "Russia",
       "latitude_text": "70.723611",
       "longitude_text": "135.413056",
-      "chronology_text": ">51700 BP"
+      "chronology_text": ">51700 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3921,14 +5514,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row273",
-      "sample_lineage_excerpt": "R17x3_Rus_INF | 70.723611 N, 135.413056 E | Yana | Russia | ELEN | natural depression, Late Pleistocene, Infinite radiocarbon dating | 199625 | >51700 | - | - | - | >51700 BP | >51700 BP | M | this study | 1 | 5 | 5 | 41340455 | 54555374 | 95895829 | - | - | - | 86.8297183942 | 2.4332116287000001 | ",
+      "sample_lineage_excerpt": "R17x3_Rus_INF | 70.723611 N, 135.413056 E | Yana | Russia | ELEN | natural depression, Late Pleistocene, Infinite radiocarbon dating | 199625 | >51700 | - | - | - | >51700 BP | >51700 BP | M | this study | 1 | 5 | 5 | 41340455 | 54555374 | 95895829 | - | - | - | 86.8297183942 | 2.4332116287000001 |",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Yana",
       "political_entity": "Russia",
       "latitude_text": "70.723611",
       "longitude_text": "135.413056",
-      "chronology_text": ">51700 BP"
+      "chronology_text": ">51700 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3950,7 +5552,16 @@
       "political_entity": "Russia",
       "latitude_text": "70.723611",
       "longitude_text": "135.413056",
-      "chronology_text": ">51700 BP"
+      "chronology_text": ">51700 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3972,7 +5583,16 @@
       "political_entity": "Russia",
       "latitude_text": "70.723611",
       "longitude_text": "135.413056",
-      "chronology_text": "30517 BP"
+      "chronology_text": "30517 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -3994,7 +5614,16 @@
       "political_entity": "Estonia",
       "latitude_text": "58.4552",
       "longitude_text": "23.0326",
-      "chronology_text": "2650 BP"
+      "chronology_text": "2650 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4016,7 +5645,16 @@
       "political_entity": "Estonia",
       "latitude_text": "58.4552",
       "longitude_text": "23.0326",
-      "chronology_text": "2650 BP"
+      "chronology_text": "2650 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4038,7 +5676,16 @@
       "political_entity": "Russia",
       "latitude_text": "53.658",
       "longitude_text": "50.668444",
-      "chronology_text": "3812 BP"
+      "chronology_text": "3812 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4060,7 +5707,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.918694",
       "longitude_text": "50.962611",
-      "chronology_text": "3775 BP"
+      "chronology_text": "3775 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4082,7 +5738,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.918694",
       "longitude_text": "50.962611",
-      "chronology_text": "3801 BP"
+      "chronology_text": "3801 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4104,7 +5769,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.918694",
       "longitude_text": "50.962611",
-      "chronology_text": "3739 BP"
+      "chronology_text": "3739 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4126,7 +5800,16 @@
       "political_entity": "Russia",
       "latitude_text": "53.116583",
       "longitude_text": "48.351833",
-      "chronology_text": "3801 BP"
+      "chronology_text": "3801 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4148,7 +5831,16 @@
       "political_entity": "Russia",
       "latitude_text": "57.45",
       "longitude_text": "61.45",
-      "chronology_text": "15427 BP"
+      "chronology_text": "15427 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4170,7 +5862,16 @@
       "political_entity": "Russia",
       "latitude_text": "57.45",
       "longitude_text": "61.45",
-      "chronology_text": "23963 BP"
+      "chronology_text": "23963 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4192,7 +5893,16 @@
       "political_entity": "Russia",
       "latitude_text": "57.45",
       "longitude_text": "61.45",
-      "chronology_text": "16677 BP"
+      "chronology_text": "16677 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4214,7 +5924,16 @@
       "political_entity": "Russia",
       "latitude_text": "57.45",
       "longitude_text": "61.45",
-      "chronology_text": "15928 BP"
+      "chronology_text": "15928 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4236,7 +5955,16 @@
       "political_entity": "Russia",
       "latitude_text": "57.45",
       "longitude_text": "61.45",
-      "chronology_text": "17199 BP"
+      "chronology_text": "17199 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4258,7 +5986,16 @@
       "political_entity": "Russia",
       "latitude_text": "57.45",
       "longitude_text": "61.45",
-      "chronology_text": "16686 BP"
+      "chronology_text": "16686 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4280,7 +6017,16 @@
       "political_entity": "Russia",
       "latitude_text": "58.883333",
       "longitude_text": "57.633333",
-      "chronology_text": "32142 BP"
+      "chronology_text": "32142 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4302,7 +6048,16 @@
       "political_entity": "Russia",
       "latitude_text": "58.883333",
       "longitude_text": "57.633333",
-      "chronology_text": "23370 BP"
+      "chronology_text": "23370 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4324,7 +6079,16 @@
       "political_entity": "Russia",
       "latitude_text": "55.466667",
       "longitude_text": "59.45",
-      "chronology_text": "44950 BP"
+      "chronology_text": "44950 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4346,7 +6110,16 @@
       "political_entity": "Russia",
       "latitude_text": "55.466667",
       "longitude_text": "59.45",
-      "chronology_text": "38491 BP"
+      "chronology_text": "38491 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4368,7 +6141,16 @@
       "political_entity": "Russia",
       "latitude_text": "55.466667",
       "longitude_text": "59.45",
-      "chronology_text": "23095 BP"
+      "chronology_text": "23095 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4390,7 +6172,16 @@
       "political_entity": "Russia",
       "latitude_text": "54.833333",
       "longitude_text": "57.883333",
-      "chronology_text": "19719 BP"
+      "chronology_text": "19719 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4412,7 +6203,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.80375",
       "longitude_text": "53.793639",
-      "chronology_text": "4735 BP"
+      "chronology_text": "4735 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4434,7 +6234,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.80375",
       "longitude_text": "53.793639",
-      "chronology_text": "4708 BP"
+      "chronology_text": "4708 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4456,7 +6265,16 @@
       "political_entity": "Russia",
       "latitude_text": "50.157528",
       "longitude_text": "48.527694",
-      "chronology_text": "6536 BP"
+      "chronology_text": "6536 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4478,7 +6296,16 @@
       "political_entity": "Romania",
       "latitude_text": "44.12731",
       "longitude_text": "26.4696",
-      "chronology_text": "6247 BP"
+      "chronology_text": "6247 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4500,7 +6327,16 @@
       "political_entity": "Romania",
       "latitude_text": "44.12731",
       "longitude_text": "26.4696",
-      "chronology_text": "6259 BP"
+      "chronology_text": "6259 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4522,7 +6358,16 @@
       "political_entity": "Romania",
       "latitude_text": "44.12731",
       "longitude_text": "26.4696",
-      "chronology_text": "5745 BP"
+      "chronology_text": "5745 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4544,7 +6389,16 @@
       "political_entity": "Romania",
       "latitude_text": "45.807945",
       "longitude_text": "22.812173",
-      "chronology_text": "36751 BP"
+      "chronology_text": "36751 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4566,7 +6420,16 @@
       "political_entity": "Russia",
       "latitude_text": "72.69086",
       "longitude_text": "142.821769",
-      "chronology_text": "5385 BP"
+      "chronology_text": "5385 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4588,7 +6451,16 @@
       "political_entity": "Iran",
       "latitude_text": "35.773",
       "longitude_text": "49.938",
-      "chronology_text": "3052 BP"
+      "chronology_text": "3052 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4610,7 +6482,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "51.639256",
       "longitude_text": "74.654947",
-      "chronology_text": "12408 BP"
+      "chronology_text": "12408 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4632,7 +6513,16 @@
       "political_entity": "Russia",
       "latitude_text": "55.883333",
       "longitude_text": "47.491667",
-      "chronology_text": "9450 BP"
+      "chronology_text": "9450 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4654,7 +6544,16 @@
       "political_entity": "Austria",
       "latitude_text": "48.451361",
       "longitude_text": "16.599992",
-      "chronology_text": "2535 BP"
+      "chronology_text": "2535 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4676,7 +6575,16 @@
       "political_entity": "Tunisia",
       "latitude_text": "35.873429",
       "longitude_text": "8.78621",
-      "chronology_text": "2531 BP"
+      "chronology_text": "2531 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4698,7 +6606,16 @@
       "political_entity": "Tunisia",
       "latitude_text": "35.873429",
       "longitude_text": "8.78621",
-      "chronology_text": "2593 BP"
+      "chronology_text": "2593 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4720,7 +6637,16 @@
       "political_entity": "Tunisia",
       "latitude_text": "35.873429",
       "longitude_text": "8.78621",
-      "chronology_text": "2610 BP"
+      "chronology_text": "2610 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4742,7 +6668,16 @@
       "political_entity": "-",
       "latitude_text": "",
       "longitude_text": "",
-      "chronology_text": "82 BP"
+      "chronology_text": "82 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4764,7 +6699,16 @@
       "political_entity": "Italy",
       "latitude_text": "42.249167",
       "longitude_text": "11.756111",
-      "chronology_text": "2607 BP"
+      "chronology_text": "2607 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4786,7 +6730,16 @@
       "political_entity": "France",
       "latitude_text": "43.3667",
       "longitude_text": "3.4167",
-      "chronology_text": "2567 BP"
+      "chronology_text": "2567 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4808,7 +6761,16 @@
       "political_entity": "Spain",
       "latitude_text": "41.57",
       "longitude_text": "0.95",
-      "chronology_text": "2614 BP"
+      "chronology_text": "2614 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4830,7 +6792,16 @@
       "political_entity": "Spain",
       "latitude_text": "41.57",
       "longitude_text": "0.95",
-      "chronology_text": "2688 BP"
+      "chronology_text": "2688 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4852,7 +6823,16 @@
       "political_entity": "Spain",
       "latitude_text": "41.7075",
       "longitude_text": "1.54222",
-      "chronology_text": "2267 BP"
+      "chronology_text": "2267 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4874,7 +6854,16 @@
       "political_entity": "Ukraine",
       "latitude_text": "46.86888889",
       "longitude_text": "35.43305556",
-      "chronology_text": "6135 BP"
+      "chronology_text": "6135 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4896,7 +6885,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.65",
       "longitude_text": "59.566667",
-      "chronology_text": "3818 BP"
+      "chronology_text": "3818 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4918,7 +6916,16 @@
       "political_entity": "Russia",
       "latitude_text": "51.566667",
       "longitude_text": "45.783333",
-      "chronology_text": "3306 BP"
+      "chronology_text": "3306 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4940,7 +6947,16 @@
       "political_entity": "Russia",
       "latitude_text": "51.566667",
       "longitude_text": "45.783333",
-      "chronology_text": "3327 BP"
+      "chronology_text": "3327 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4962,7 +6978,16 @@
       "political_entity": "Russia",
       "latitude_text": "51.566667",
       "longitude_text": "45.783333",
-      "chronology_text": "3327 BP"
+      "chronology_text": "3327 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -4984,7 +7009,16 @@
       "political_entity": "Russia",
       "latitude_text": "51.566667",
       "longitude_text": "45.783333",
-      "chronology_text": "3410 BP"
+      "chronology_text": "3410 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5006,7 +7040,16 @@
       "political_entity": "Russia",
       "latitude_text": "51.566667",
       "longitude_text": "45.783333",
-      "chronology_text": "4701 BP"
+      "chronology_text": "4701 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5028,7 +7071,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.833333",
       "longitude_text": "60.366667",
-      "chronology_text": "3803 BP"
+      "chronology_text": "3803 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5050,7 +7102,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.833333",
       "longitude_text": "60.366667",
-      "chronology_text": "3813 BP"
+      "chronology_text": "3813 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5072,7 +7133,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.833333",
       "longitude_text": "60.366667",
-      "chronology_text": "3795 BP"
+      "chronology_text": "3795 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5094,7 +7164,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.833333",
       "longitude_text": "60.366667",
-      "chronology_text": "3804 BP"
+      "chronology_text": "3804 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5116,7 +7195,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.833333",
       "longitude_text": "60.366667",
-      "chronology_text": "3811 BP"
+      "chronology_text": "3811 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5138,7 +7226,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.833333",
       "longitude_text": "60.366667",
-      "chronology_text": "3842 BP"
+      "chronology_text": "3842 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5153,14 +7250,23 @@
       "sample_evidence_status": "direct_table_extracted",
       "sample_lineage_path": "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
       "sample_lineage_locator": "SI Table 1!row185",
-      "sample_lineage_excerpt": "UR17x3_Rus_m1815 | 52.65 N, 59.566667 E | Bol'shekaraganskii | Russia | DOM2 | burial site, Bronze Age Srubnaya Culture | 199613 | 3490 | 20 | -1883 | -1747 | 1815 | 3765 | M | this study | 1 | 5 | 5 | 184097652 | 13166384 | 197264036 | - | - | - | 47.956381066500001 | 3.0744671060000002 | 1.039E-3 ",
+      "sample_lineage_excerpt": "UR17x3_Rus_m1815 | 52.65 N, 59.566667 E | Bol'shekaraganskii | Russia | DOM2 | burial site, Bronze Age Srubnaya Culture | 199613 | 3490 | 20 | -1883 | -1747 | 1815 | 3765 | M | this study | 1 | 5 | 5 | 184097652 | 13166384 | 197264036 | - | - | - | 47.956381066500001 | 3.0744671060000002 | 1.039E-3",
       "sample_identity_resolution": "final",
       "sample_ambiguity_note": "",
       "locality_text": "Bol'shekaraganskii",
       "political_entity": "Russia",
       "latitude_text": "52.65",
       "longitude_text": "59.566667",
-      "chronology_text": "3765 BP"
+      "chronology_text": "3765 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5182,7 +7288,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.833333",
       "longitude_text": "60.366667",
-      "chronology_text": "3867 BP"
+      "chronology_text": "3867 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5204,7 +7319,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.833333",
       "longitude_text": "60.366667",
-      "chronology_text": "3904 BP"
+      "chronology_text": "3904 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5226,7 +7350,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.833333",
       "longitude_text": "60.366667",
-      "chronology_text": "3806 BP"
+      "chronology_text": "3806 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5248,7 +7381,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.65",
       "longitude_text": "59.566667",
-      "chronology_text": "3770 BP"
+      "chronology_text": "3770 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5270,7 +7412,16 @@
       "political_entity": "Russia",
       "latitude_text": "52.65",
       "longitude_text": "59.566667",
-      "chronology_text": "3901 BP"
+      "chronology_text": "3901 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5292,7 +7443,16 @@
       "political_entity": "Russia",
       "latitude_text": "53.974236",
       "longitude_text": "74.884425",
-      "chronology_text": "4724 BP"
+      "chronology_text": "4724 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5314,7 +7474,16 @@
       "political_entity": "Russia",
       "latitude_text": "53.974236",
       "longitude_text": "74.884425",
-      "chronology_text": "4724 BP"
+      "chronology_text": "4724 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5336,7 +7505,16 @@
       "political_entity": "Russia",
       "latitude_text": "53.974236",
       "longitude_text": "74.884425",
-      "chronology_text": "4703 BP"
+      "chronology_text": "4703 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5358,7 +7536,16 @@
       "political_entity": "Russia",
       "latitude_text": "53.974236",
       "longitude_text": "74.884425",
-      "chronology_text": "4740 BP"
+      "chronology_text": "4740 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5380,7 +7567,16 @@
       "political_entity": "Kazakhstan",
       "latitude_text": "49.4",
       "longitude_text": "66.75",
-      "chronology_text": "5185 BP"
+      "chronology_text": "5185 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5402,7 +7598,16 @@
       "political_entity": "Mongolia",
       "latitude_text": "49.655567",
       "longitude_text": "99.9271",
-      "chronology_text": "2725 BP"
+      "chronology_text": "2725 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5424,7 +7629,16 @@
       "political_entity": "Russia",
       "latitude_text": "50.133333",
       "longitude_text": "48.05",
-      "chronology_text": "7494 BP"
+      "chronology_text": "7494 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5446,7 +7660,16 @@
       "political_entity": "Russia",
       "latitude_text": "50.133333",
       "longitude_text": "48.05",
-      "chronology_text": "7499 BP"
+      "chronology_text": "7499 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     },
     {
       "species_latin_name": "Equus caballus",
@@ -5468,7 +7691,16 @@
       "political_entity": "Portugal",
       "latitude_text": "39.0744",
       "longitude_text": "9.2857",
-      "chronology_text": "4509 BP"
+      "chronology_text": "4509 BP",
+      "chronology_dating_basis": "",
+      "chronology_evidence_class": "",
+      "chronology_precision_posture": "",
+      "source_native_tax_id": "",
+      "source_native_scientific_name": "",
+      "taxon_alignment_status": "not_reported",
+      "archive_native_experiment_id": "",
+      "source_native_identity_kind": "biological_sample",
+      "chronology_time_mean_bp": null
     }
   ]
 }

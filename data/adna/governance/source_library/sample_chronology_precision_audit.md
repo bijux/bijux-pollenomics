@@ -1,24 +1,30 @@
 # Sample chronology precision audit
 
-- Rows audited: `868`
-- Precise point rows: `461`
-- Precise interval rows: `254`
-- Approximate or modeled rows: `87`
-- Contextual rows: `50`
-- Broad period rows: `0`
-- Unresolved rows: `16`
+- Rows audited: `1455`
+- Precise point rows: `468`
+- Precise interval rows: `306`
+- Approximate or modeled rows: `200`
+- Contextual rows: `16`
+- Broad period rows: `40`
+- Unresolved rows: `425`
 
 | Project accession | Sample id | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- |
-| PRJEB31613 | prjeb31613:cgg_1_016994 | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
-| PRJEB31613 | prjeb31613:cgg_1_016996 | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
-| PRJEB31613 | prjeb31613:cgg_1_017005 | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
-| PRJEB31613 | prjeb31613:cgg_1_017007 | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
-| PRJEB31613 | prjeb31613:cgg_1_017023 | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
-| PRJEB31613 | prjeb31613:cgg_1_017027 | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
-| PRJEB31613 | prjeb31613:cgg_1_018522 | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
-| PRJEB31613 | prjeb31613:cgg_1_018533 | archaeological_context_date | contextual_interval | normalized_point | 2143 BP |
-| PRJEB19970 | prjeb19970:n/a | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | N/A |
+| PRJEB44430 | prjeb44430:samea9533291 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >49900 BP |
+| PRJEB44430 | prjeb44430:samea9533292 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >52200 BP |
+| PRJEB44430 | prjeb44430:samea9533361 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >51700 BP |
+| PRJEB44430 | prjeb44430:samea9533362 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >51700 BP |
+| PRJEB44430 | prjeb44430:samea9533363 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | >51700 BP |
+| PRJEB31613 | prjeb31613:cgg_1_016994 | unresolved | unresolved | unresolved |  |
+| PRJEB31613 | prjeb31613:cgg_1_016996 | unresolved | unresolved | unresolved |  |
+| PRJEB31613 | prjeb31613:cgg_1_017005 | unresolved | unresolved | unresolved |  |
+| PRJEB31613 | prjeb31613:cgg_1_017007 | unresolved | unresolved | unresolved |  |
+| PRJEB31613 | prjeb31613:cgg_1_017023 | unresolved | unresolved | unresolved |  |
+| PRJEB31613 | prjeb31613:cgg_1_017027 | unresolved | unresolved | unresolved |  |
+| PRJEB31613 | prjeb31613:cgg_1_018522 | unresolved | unresolved | unresolved |  |
+| PRJEB31613 | prjeb31613:cgg_1_018533 | unresolved | unresolved | unresolved |  |
+| PRJEB19970 | prjeb19970:connemara_0004a | unresolved | unresolved | unresolved |  |
+| PRJEB19970 | prjeb19970:somali_0226a | unresolved | unresolved | unresolved |  |
 | PRJEB36540 | prjeb36540:bh 45 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | - |
 | PRJEB36540 | prjeb36540:bh 50 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | - |
 | PRJEB36540 | prjeb36540:bh 51 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | - |
@@ -32,27 +38,472 @@
 | PRJEB36540 | prjeb36540:pb31 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | Epipaleolithic |
 | PRJEB36540 | prjeb36540:pb32 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | Epipaleolithic |
 | PRJEB36540 | prjeb36540:pb9 | direct_radiocarbon_date | sample_approximate_or_modeled | text_only_unparsed | 7. M cal BCE |
-| PRJEB36540 | prjeb36540:tep02 | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| PRJEB36540 | prjeb36540:tep03 | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| PRJEB36540 | prjeb36540:tep05 | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| PRJEB36540 | prjeb36540:tep09 | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| PRJEB36540 | prjeb36540:tep83 | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| PRJEB36540 | prjeb36540:ulu04 | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| PRJEB36540 | prjeb36540:ulu06 | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| PRJEB36540 | prjeb36540:ulu09 | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| PRJEB36540 | prjeb36540:ulu16 | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| PRJEB36540 | prjeb36540:ulu30 | archaeological_context_date | contextual_interval | normalized_interval | 6300-6200 cal  BCE |
-| PRJNA705960 | prjna705960:samn18106827 | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| PRJNA705960 | prjna705960:samn18106828 | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| PRJNA705960 | prjna705960:samn18106829 | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| PRJNA705960 | prjna705960:samn18106830 | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| PRJNA705960 | prjna705960:samn18106831 | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| PRJNA705960 | prjna705960:samn18106832 | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| PRJNA705960 | prjna705960:samn18106833 | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| PRJNA705960 | prjna705960:samn18106834 | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| PRJNA705960 | prjna705960:samn18106835 | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| PRJNA705960 | prjna705960:samn18106836 | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
-| PRJNA705960 | prjna705960:samn18106837 | archaeological_context_date | contextual_interval | normalized_interval | Neolithic to later Galician cattle sequence |
+| PRJEB36540 | prjeb36540:tep02 | unresolved | unresolved | unresolved |  |
+| PRJEB36540 | prjeb36540:tep03 | unresolved | unresolved | unresolved |  |
+| PRJEB36540 | prjeb36540:tep05 | unresolved | unresolved | unresolved |  |
+| PRJEB36540 | prjeb36540:tep09 | unresolved | unresolved | unresolved |  |
+| PRJEB36540 | prjeb36540:tep83 | unresolved | unresolved | unresolved |  |
+| PRJEB36540 | prjeb36540:ulu04 | unresolved | unresolved | unresolved |  |
+| PRJEB36540 | prjeb36540:ulu06 | unresolved | unresolved | unresolved |  |
+| PRJEB36540 | prjeb36540:ulu09 | unresolved | unresolved | unresolved |  |
+| PRJEB36540 | prjeb36540:ulu16 | unresolved | unresolved | unresolved |  |
+| PRJEB36540 | prjeb36540:ulu30 | unresolved | unresolved | unresolved |  |
+| PRJEB41594 | prjeb41594:samea8022720 | unresolved | unresolved | unresolved |  |
+| PRJEB41594 | prjeb41594:samea8022721 | unresolved | unresolved | unresolved |  |
+| PRJEB41594 | prjeb41594:samea8022722 | unresolved | unresolved | unresolved |  |
+| PRJEB41594 | prjeb41594:samea8022723 | unresolved | unresolved | unresolved |  |
+| PRJEB41594 | prjeb41594:samea8022724 | unresolved | unresolved | unresolved |  |
+| PRJEB59481 | prjeb59481:samea112960292 | archaeological_context_date | contextual_interval | normalized_interval | 400-450 BP |
+| PRJEB59481 | prjeb59481:samea112960295 | broad_period_label | broad_period_only | text_only_unparsed | Late Neolithic |
+| PRJEB30282 | prjeb30282:samea5160866 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160867 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | 4700 BP |
+| PRJEB30282 | prjeb30282:samea5160868 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | 1000 BP |
+| PRJEB30282 | prjeb30282:samea5160869 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160870 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160871 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160872 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160873 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160874 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160875 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160876 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160877 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160878 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160879 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160880 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160881 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160882 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160883 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160884 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160885 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160886 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160887 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160888 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160889 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160890 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160891 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160892 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160893 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160894 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160895 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160896 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160897 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160898 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160899 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160900 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160901 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160902 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160903 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160904 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160905 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160906 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160907 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160908 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160909 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160910 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160911 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160912 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160913 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160914 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160915 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160916 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160917 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160918 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160919 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160920 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160921 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160922 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160923 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160924 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160925 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160926 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160927 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160928 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160929 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160930 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160931 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160932 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160933 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160934 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160935 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160936 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160937 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160938 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160939 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160940 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160941 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160942 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160943 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160944 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160945 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160946 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160947 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160948 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160949 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160950 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160951 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160952 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160953 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160954 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160955 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160956 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160957 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160958 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160959 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160960 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160961 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160962 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160963 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160964 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160965 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160966 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160967 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160968 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160969 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160970 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160971 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160972 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160973 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160974 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160975 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160976 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160977 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160978 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160979 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160980 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160981 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160982 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160983 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160984 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160985 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160986 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160987 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160988 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160989 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160990 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160991 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160992 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160993 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160994 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160995 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160996 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160997 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160998 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5160999 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161000 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161001 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161002 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161003 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161004 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161005 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161006 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161007 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161008 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161009 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161010 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161011 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161012 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161013 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161014 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161015 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161016 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161017 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161018 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161019 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161020 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161021 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161022 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161023 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161024 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161025 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161026 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161027 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161028 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161029 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161030 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161031 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161032 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161033 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161034 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161035 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161036 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161037 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161038 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161039 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161040 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161041 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161042 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161043 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161044 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161045 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161046 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161047 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161048 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161049 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161050 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161051 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161052 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161053 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161054 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161055 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161056 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161057 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161058 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161059 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161060 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161061 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161062 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161063 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161064 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161065 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161066 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161067 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161068 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161069 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161070 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161071 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161072 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161073 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161074 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161075 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161076 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161077 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161078 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161079 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161080 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161081 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161082 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161083 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161084 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161085 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161086 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161087 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161088 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161089 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161090 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161091 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161092 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161093 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161094 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161095 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161096 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161097 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161098 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161099 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161100 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161101 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161102 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161103 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161104 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161105 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161106 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161107 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161108 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161109 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161110 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161111 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161112 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161113 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161114 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161115 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161116 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161117 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161118 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161119 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161120 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161121 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161122 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161123 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161124 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161125 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161126 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161127 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161128 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161129 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161130 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161131 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161132 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161133 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161134 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161135 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161136 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161137 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161138 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161139 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161140 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161141 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161142 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161143 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161144 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161145 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161146 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161147 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161148 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161149 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161150 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161151 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161152 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161153 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161154 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161155 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161156 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161157 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161158 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161159 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161160 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161161 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161162 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161163 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161164 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161165 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161166 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161167 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161169 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161170 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161171 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161172 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161173 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161174 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161175 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161176 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161177 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161178 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161179 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161187 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161188 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161189 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161191 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161192 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161194 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5161197 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772905 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772906 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772907 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772908 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772909 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772910 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772911 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772912 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772913 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772914 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772915 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772916 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772917 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772918 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772919 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772920 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772921 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772922 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772923 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772924 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772925 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772926 | unresolved | unresolved | unresolved |  |
+| PRJEB30282 | prjeb30282:samea5772927 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577008 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577009 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577010 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577011 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577012 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577149 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577150 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577151 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577153 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577154 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577344 | archaeological_context_date | contextual_interval | normalized_interval | 7949-9449 BP |
+| PRJEB31621 | prjeb31621:samea5577345 | archaeological_context_date | contextual_interval | normalized_interval | 7949-9449 BP |
+| PRJEB31621 | prjeb31621:samea5577346 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4200 BP |
+| PRJEB31621 | prjeb31621:samea5577347 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3100 BP |
+| PRJEB31621 | prjeb31621:samea5577348 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6100 BP |
+| PRJEB31621 | prjeb31621:samea5577349 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6900 BP |
+| PRJEB31621 | prjeb31621:samea5577350 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6900 BP |
+| PRJEB31621 | prjeb31621:samea5577351 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2800 BP |
+| PRJEB31621 | prjeb31621:samea5577352 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 629 BP |
+| PRJEB31621 | prjeb31621:samea5577353 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 8100 BP |
+| PRJEB31621 | prjeb31621:samea5577354 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 8100 BP |
+| PRJEB31621 | prjeb31621:samea5577355 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7600 BP |
+| PRJEB31621 | prjeb31621:samea5577356 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3800 BP |
+| PRJEB31621 | prjeb31621:samea5577357 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1400 BP |
+| PRJEB31621 | prjeb31621:samea5577358 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7600 BP |
+| PRJEB31621 | prjeb31621:samea5577359 | archaeological_context_date | contextual_interval | normalized_interval | 4949-5449 BP |
+| PRJEB31621 | prjeb31621:samea5577360 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7700 BP |
+| PRJEB31621 | prjeb31621:samea5577361 | archaeological_context_date | contextual_interval | normalized_interval | 5249-6249 BP |
+| PRJEB31621 | prjeb31621:samea5577362 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7040 BP |
+| PRJEB31621 | prjeb31621:samea5577363 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3700 BP |
+| PRJEB31621 | prjeb31621:samea5577364 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4470 BP |
+| PRJEB31621 | prjeb31621:samea5577365 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2900 BP |
+| PRJEB31621 | prjeb31621:samea5577366 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2300 BP |
+| PRJEB31621 | prjeb31621:samea5577367 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1000 BP |
+| PRJEB31621 | prjeb31621:samea5577368 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1050 BP |
+| PRJEB31621 | prjeb31621:samea5577369 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1350 BP |
+| PRJEB31621 | prjeb31621:samea5577370 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1200 BP |
+| PRJEB31621 | prjeb31621:samea5577371 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1290 BP |
+| PRJEB31621 | prjeb31621:samea5577372 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1400 BP |
+| PRJEB31621 | prjeb31621:samea5577373 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3500 BP |
+| PRJEB31621 | prjeb31621:samea5577374 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6150 BP |
+| PRJEB31621 | prjeb31621:samea5577375 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3100 BP |
+| PRJEB31621 | prjeb31621:samea5577376 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577377 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7920 BP |
+| PRJEB31621 | prjeb31621:samea5577378 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7200 BP |
+| PRJEB31621 | prjeb31621:samea5577379 | archaeological_context_date | contextual_interval | normalized_interval | 4999-5249 BP |
+| PRJEB31621 | prjeb31621:samea5577380 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7125 BP |
+| PRJEB31621 | prjeb31621:samea5577381 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6950 BP |
+| PRJEB31621 | prjeb31621:samea5577382 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7025 BP |
+| PRJEB31621 | prjeb31621:samea5577383 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7000 BP |
+| PRJEB31621 | prjeb31621:samea5577384 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6650 BP |
+| PRJEB31621 | prjeb31621:samea5577385 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7126 BP |
+| PRJEB31621 | prjeb31621:samea5577386 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7000 BP |
+| PRJEB31621 | prjeb31621:samea5577387 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7001 BP |
+| PRJEB31621 | prjeb31621:samea5577388 | archaeological_context_date | contextual_interval | normalized_interval | 7019-7269 BP |
+| PRJEB31621 | prjeb31621:samea5577389 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4760 BP |
+| PRJEB31621 | prjeb31621:samea5577390 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7373 BP |
+| PRJEB31621 | prjeb31621:samea5577391 | archaeological_context_date | contextual_interval | normalized_interval | 7549-7699 BP |
+| PRJEB31621 | prjeb31621:samea5577392 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6600 BP |
+| PRJEB31621 | prjeb31621:samea5577393 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:samea5577394 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 5050 BP |
+| PRJEB31621 | prjeb31621:samea5577395 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 7993 BP |
+| PRJEB31621 | prjeb31621:samea5577396 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 6700 BP |
+| PRJEB31621 | prjeb31621:samea5577397 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3150 BP |
+| PRJEB31621 | prjeb31621:samea5577398 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3150 BP |
+| PRJEB31621 | prjeb31621:samea5577399 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2925 BP |
+| PRJEB31621 | prjeb31621:samea5577400 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3300 BP |
+| PRJEB31621 | prjeb31621:samea5577401 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4800 BP |
+| PRJEB31621 | prjeb31621:samea5577402 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4800 BP |
+| PRJEB31621 | prjeb31621:samea5577403 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 4800 BP |
+| PRJEB31621 | prjeb31621:samea5577404 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2200 BP |
+| PRJEB31621 | prjeb31621:samea5577405 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2050 BP |
+| PRJEB31621 | prjeb31621:samea5577406 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 1850 BP |
+| PRJEB31621 | prjeb31621:samea5577407 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2820 BP |
+| PRJEB31621 | prjeb31621:samea5577408 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 3100 BP |
+| PRJEB31621 | prjeb31621:samea5577409 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 2800 BP |
+| PRJEB31621 | prjeb31621:samea5605818 | unresolved | unresolved | unresolved |  |
+| PRJEB31621 | prjeb31621:supplement:men1 | archaeological_context_date | sample_approximate_or_modeled | normalized_point | approx. 8050 BP |
+| PRJEB75467 | prjeb75467:samea115574406 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574408 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574409 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574411 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574412 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574420 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 3321-8989 BP |
+| PRJEB75467 | prjeb75467:samea115574421 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574422 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574424 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574426 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574433 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 45005-68764 BP |
+| PRJEB75467 | prjeb75467:samea115574435 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 10048-14942 BP |
+| PRJEB75467 | prjeb75467:samea115574440 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574447 | unresolved | unresolved | unresolved |  |
+| PRJEB75467 | prjeb75467:samea115574454 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6007-6244 BP |
+| PRJEB75467 | prjeb75467:samea115574456 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6754-7744 BP |
+| PRJEB75467 | prjeb75467:samea115574457 | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6748-7744 BP |
+| PRJNA705960 | prjna705960:samn18106827 | unresolved | unresolved | unresolved |  |
+| PRJNA705960 | prjna705960:samn18106828 | unresolved | unresolved | unresolved |  |
+| PRJNA705960 | prjna705960:samn18106829 | unresolved | unresolved | unresolved |  |
+| PRJNA705960 | prjna705960:samn18106830 | unresolved | unresolved | unresolved |  |
+| PRJNA705960 | prjna705960:samn18106831 | unresolved | unresolved | unresolved |  |
+| PRJNA705960 | prjna705960:samn18106832 | unresolved | unresolved | unresolved |  |
+| PRJNA705960 | prjna705960:samn18106833 | unresolved | unresolved | unresolved |  |
+| PRJNA705960 | prjna705960:samn18106834 | unresolved | unresolved | unresolved |  |
+| PRJNA705960 | prjna705960:samn18106835 | unresolved | unresolved | unresolved |  |
+| PRJNA705960 | prjna705960:samn18106836 | unresolved | unresolved | unresolved |  |
+| PRJNA705960 | prjna705960:samn18106837 | unresolved | unresolved | unresolved |  |
 | PRJEB90261 | prjeb90261:apor012 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 86-237 cal CE (sample) |
 | PRJEB90261 | prjeb90261:pgull-0515 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 7th - 8th centuries CE (SU2) |
 | PRJEB90261 | prjeb90261:pgull-0518 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 8th - 9th centuries CE (SU6) |
@@ -126,40 +577,117 @@
 | PRJEB90261 | prjeb90261:pgull-2228 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 12th - 13th centuries CE (SU3) |
 | PRJEB90261 | prjeb90261:pgull-2230 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 17th - 18th centuries CE (SU201) |
 | PRJEB90261 | prjeb90261:pgull-2235 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 11th - 12th centuries (A; SU15) |
-| SRS1407451 | srs1407451:srs1407451 | archaeological_context_date | contextual_interval | normalized_interval | Ancient European dog genomic context |
-| SRS1407453 | srs1407453:srs1407453 | unresolved | unresolved | unresolved |  |
-| KX379528-KX379529 | kx379528-kx379529:kx379528 | unresolved | unresolved | unresolved |  |
-| KX379528-KX379529 | kx379528-kx379529:kx379529 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605068 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605069 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605070 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605071 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605072 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605073 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605074 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605075 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605076 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605077 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605078 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605079 | unresolved | unresolved | unresolved |  |
-| KU605068-KU605080 | ku605068-ku605080:ku605080 | unresolved | unresolved | unresolved |  |
-| PRJEB60484 | prjeb60484:samea112757323 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757324 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757325 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757326 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757327 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757328 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757329 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757330 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757331 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757332 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757333 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757334 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757335 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757336 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757337 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757338 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757339 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea112757340 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea114857470 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
-| PRJEB60484 | prjeb60484:samea114857471 | historical_or_recent_date | contextual_interval | normalized_interval | Ancient Arctic archipelago reindeer context |
+| PRJEB81815 | prjeb81815:samea120246515 | archaeological_context_date | broad_period_only | text_only_unparsed | 10-11 ka (Epigravettian) |
+| PRJEB81815 | prjeb81815:samea120246516 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1610-1740 BP |
+| PRJEB81815 | prjeb81815:samea120246517 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 9559-9899 BP |
+| PRJEB81815 | prjeb81815:samea120246518 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 8189-8379 BP |
+| PRJEB81815 | prjeb81815:samea120246519 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 8039-8339 BP |
+| PRJEB81815 | prjeb81815:samea120246520 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 970-1180 BP |
+| PRJEB81815 | prjeb81815:samea120246521 | archaeological_context_date | broad_period_only | text_only_unparsed | Roman |
+| PRJEB81815 | prjeb81815:samea120246522 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 930-1060 BP |
+| PRJEB81815 | prjeb81815:samea120246523 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 910-1050 BP |
+| PRJEB81815 | prjeb81815:samea120246524 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 920-1060 BP |
+| PRJEB81815 | prjeb81815:samea120246525 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 320-510 BP |
+| PRJEB81815 | prjeb81815:samea120246526 | archaeological_context_date | broad_period_only | text_only_unparsed | 16th |
+| PRJEB81815 | prjeb81815:samea120246527 | archaeological_context_date | broad_period_only | text_only_unparsed | end 14th - 15th cent. AD |
+| PRJEB81815 | prjeb81815:samea120246528 | archaeological_context_date | broad_period_only | text_only_unparsed | end 14th - 15th cent. AD |
+| PRJEB81815 | prjeb81815:samea120246529 | archaeological_context_date | broad_period_only | text_only_unparsed | 11-12th c AD |
+| PRJEB81815 | prjeb81815:samea120246530 | archaeological_context_date | broad_period_only | text_only_unparsed | 12-13th c AD |
+| PRJEB81815 | prjeb81815:samea120246531 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 6989-7249 BP |
+| PRJEB81815 | prjeb81815:samea120246532 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 7159-7319 BP |
+| PRJEB81815 | prjeb81815:samea120246533 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 550-650 BP |
+| PRJEB81815 | prjeb81815:samea120246534 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 9889-10189 BP |
+| PRJEB81815 | prjeb81815:samea120246535 | archaeological_context_date | contextual_interval | normalized_interval | 9449-10449 BP |
+| PRJEB81815 | prjeb81815:samea120246536 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 6279-6399 BP |
+| PRJEB81815 | prjeb81815:samea120246537 | archaeological_context_date | contextual_interval | normalized_interval | 6049-6149 BP |
+| PRJEB81815 | prjeb81815:samea120246538 | archaeological_context_date | contextual_interval | normalized_interval | 6049-6149 BP |
+| PRJEB81815 | prjeb81815:samea120246539 | archaeological_context_date | contextual_interval | normalized_interval | 6049-6149 BP |
+| PRJEB81815 | prjeb81815:samea120246540 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1740-1930 BP |
+| PRJEB81815 | prjeb81815:samea120246541 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1170-1350 BP |
+| PRJEB81815 | prjeb81815:samea120246542 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 5475-5583 BP |
+| PRJEB81815 | prjeb81815:samea120246543 | archaeological_context_date | broad_period_only | text_only_unparsed | Late 15th-Early 16th cent AD |
+| PRJEB81815 | prjeb81815:samea120246544 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1999-2289 BP |
+| PRJEB81815 | prjeb81815:samea120246545 | archaeological_context_date | contextual_interval | normalized_interval | 900-1150 BP |
+| PRJEB81815 | prjeb81815:samea120246546 | archaeological_context_date | contextual_interval | normalized_interval | 900-1150 BP |
+| PRJEB81815 | prjeb81815:samea120246547 | archaeological_context_date | contextual_interval | normalized_interval | 900-1150 BP |
+| PRJEB81815 | prjeb81815:samea120246548 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1300-1375 BP |
+| PRJEB81815 | prjeb81815:samea120246549 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 2149-2349 BP |
+| PRJEB81815 | prjeb81815:samea120246550 | archaeological_context_date | broad_period_only | text_only_unparsed | 4th-1st cent BC |
+| PRJEB81815 | prjeb81815:samea120246551 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 7309-7429 BP |
+| PRJEB81815 | prjeb81815:samea120246552 | archaeological_context_date | broad_period_only | text_only_unparsed | end 15th-early 16th c. |
+| PRJEB81815 | prjeb81815:samea120246553 | archaeological_context_date | broad_period_only | text_only_unparsed | 8th/9th century CE |
+| PRJEB81815 | prjeb81815:samea120246554 | archaeological_context_date | broad_period_only | text_only_unparsed | 8th/9th century CE |
+| PRJEB81815 | prjeb81815:samea120246555 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 7929-8024 BP |
+| PRJEB81815 | prjeb81815:samea120246556 | archaeological_context_date | broad_period_only | text_only_unparsed | 4th-14th cent AD? |
+| PRJEB81815 | prjeb81815:samea120246557 | archaeological_context_date | broad_period_only | text_only_unparsed | 4th-14th cent AD? |
+| PRJEB81815 | prjeb81815:samea120246558 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1170-1300 BP |
+| PRJEB81815 | prjeb81815:samea120246559 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1170-1310 BP |
+| PRJEB81815 | prjeb81815:samea120246560 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1870-1999 BP |
+| PRJEB81815 | prjeb81815:samea120246561 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1410-1590 BP |
+| PRJEB81815 | prjeb81815:samea120246562 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 510-550 BP |
+| PRJEB81815 | prjeb81815:samea120246563 | archaeological_context_date | broad_period_only | text_only_unparsed | 12-13th c |
+| PRJEB81815 | prjeb81815:samea120246564 | archaeological_context_date | broad_period_only | text_only_unparsed | 11-12th c |
+| PRJEB81815 | prjeb81815:samea120246565 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1630-1830 BP |
+| PRJEB81815 | prjeb81815:samea120246566 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1740-1930 BP |
+| PRJEB81815 | prjeb81815:samea120246567 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1580-1720 BP |
+| PRJEB81815 | prjeb81815:samea120246568 | archaeological_context_date | broad_period_only | text_only_unparsed | End 4th cent.-beg. 5th cent AD (Roman) |
+| PRJEB81815 | prjeb81815:samea120246569 | archaeological_context_date | broad_period_only | text_only_unparsed | Early Bronze Age |
+| PRJEB81815 | prjeb81815:samea120246570 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 3259-3449 BP |
+| PRJEB81815 | prjeb81815:samea120246571 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 3169-3359 BP |
+| PRJEB81815 | prjeb81815:samea120246572 | archaeological_context_date | broad_period_only | text_only_unparsed | Medieval |
+| PRJEB81815 | prjeb81815:samea120246573 | archaeological_context_date | broad_period_only | text_only_unparsed | Early Byzantine |
+| PRJEB81815 | prjeb81815:samea120246574 | archaeological_context_date | broad_period_only | text_only_unparsed | Early Neolithic |
+| PRJEB81815 | prjeb81815:samea120246575 | archaeological_context_date | broad_period_only | text_only_unparsed | 15/16th centuries |
+| PRJEB81815 | prjeb81815:samea120246576 | archaeological_context_date | broad_period_only | text_only_unparsed | 17-18th c AD |
+| PRJEB81815 | prjeb81815:samea120246577 | archaeological_context_date | broad_period_only | text_only_unparsed | 19th AD |
+| PRJEB81815 | prjeb81815:samea120246578 | archaeological_context_date | contextual_interval | normalized_interval | 4349-4649 BP |
+| PRJEB81815 | prjeb81815:samea120246579 | archaeological_context_date | broad_period_only | text_only_unparsed | 4th-5th c AD |
+| PRJEB81815 | prjeb81815:samea120246580 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1820-1989 BP |
+| PRJEB81815 | prjeb81815:samea120246581 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1730-1890 BP |
+| PRJEB81815 | prjeb81815:samea120246582 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1530-1700 BP |
+| PRJEB81815 | prjeb81815:samea120246583 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 1740-1930 BP |
+| PRJEB81815 | prjeb81815:samea120246584 | direct_radiocarbon_date | sample_approximate_or_modeled | normalized_interval | 790-960 BP |
+| PRJEB81815 | prjeb81815:samea120246585 | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| PRJEB81815 | prjeb81815:samea120246586 | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| PRJEB81815 | prjeb81815:samea120246587 | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| PRJEB81815 | prjeb81815:samea120246588 | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| PRJEB81815 | prjeb81815:samea120246589 | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| PRJEB81815 | prjeb81815:samea120246590 | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| PRJEB81815 | prjeb81815:samea120246591 | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| PRJEB81815 | prjeb81815:samea120246592 | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| PRJEB81815 | prjeb81815:samea120246593 | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| PRJEB81815 | prjeb81815:samea120246594 | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| PRJEB81815 | prjeb81815:samea120246595 | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| PRJEB81815 | prjeb81815:samea120246596 | historical_or_recent_date | broad_period_only | text_only_unparsed | modern |
+| PRJEB81815 | prjeb81815:samea120246597 | unresolved | unresolved | unresolved |  |
+| PRJEB81815 | prjeb81815:samea120246598 | unresolved | unresolved | unresolved |  |
+| PRJEB81815 | prjeb81815:samea120246599 | unresolved | unresolved | unresolved |  |
+| PRJEB81815 | prjeb81815:samea120246600 | historical_or_recent_date | broad_period_only | text_only_unparsed | 20th century |
+| PRJEB81815 | prjeb81815:samea120246601 | historical_or_recent_date | broad_period_only | text_only_unparsed | 20th century |
+| PRJNA1178732 | prjna1178732:fs12 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 706 - 883 cal. CE |
+| PRJNA1178732 | prjna1178732:fs13 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 168 - 48 cal. BCE |
+| PRJNA1178732 | prjna1178732:fs14 | historical_or_recent_date | sample_approximate_or_modeled | normalized_interval | ~3500 - 1800 BCE |
+| PRJNA1178732 | prjna1178732:fs16 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 1413 - 1480 cal. CE |
+| PRJNA1178732 | prjna1178732:fs17 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 1797 - 1944 cal. CE |
+| PRJNA1178732 | prjna1178732:fs24 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 44 cal. BCE - 76 cal. CE |
+| SRS1407451 | srs1407451:srs1407451 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757323 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757324 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757325 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757326 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757327 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757328 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757329 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757330 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757331 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757332 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757333 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757334 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757335 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757336 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757337 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757338 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757339 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea112757340 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea114857470 | unresolved | unresolved | unresolved |  |
+| PRJEB60484 | prjeb60484:samea114857471 | unresolved | unresolved | unresolved |  |

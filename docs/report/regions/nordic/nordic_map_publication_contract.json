@@ -1,6 +1,6 @@
 {
   "schema_version": "map-publication-contract.v1",
-  "title": "Nordic Evidence Atlas",
+  "title": "Nordic Evidence Surface",
   "scope_key": "nordic",
   "scope_label": "Nordic",
   "scope_kind": "region",
@@ -11,7 +11,7 @@
     "Finland",
     "Denmark"
   ],
-  "default_basemap": "voyager",
+  "default_basemap": "street",
   "initial_diameter_km": 20,
   "minimum_bounds": [
     [
@@ -33,6 +33,11 @@
     "Time window",
     "Distance circles",
     "Basemap switch",
+    "Accepted scientific comparison when qualified classifications are available",
+    "Neotoma source-sample, literal-code, and exact-label chronology",
+    "Oldest-to-present BP window navigation and playback",
+    "PANGAEA 937075 exact-window modeled context",
+    "Modeled-context visible-frame export",
     "Animal species focus when animal layers are present",
     "Animal scope when animal layers are present",
     "Animal coordinate confidence when animal layers are present",
@@ -59,9 +64,9 @@
     "point_traceability_json": "nordic_point_traceability.json"
   },
   "role_counts": {
-    "shared_world_scale_layer": 2,
+    "shared_world_scale_layer": 10,
     "region_filtered_layer": 1,
-    "scope_specific_overlay": 14
+    "scope_specific_overlay": 9
   },
   "layer_rows": [
     {
@@ -95,7 +100,7 @@
       "label": "LandClim pollen sites",
       "source_name": "LandClim",
       "coverage_label": "Pollen sequences staged from the LandClim normalization bundle.",
-      "count": 492,
+      "count": 490,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
       "default_enabled": true,
@@ -108,12 +113,12 @@
       "label": "Neotoma pollen sites",
       "source_name": "Neotoma",
       "coverage_label": "Pollen and paleoecology sites staged from the Neotoma normalization bundle.",
-      "count": 200,
+      "count": 193,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
       "default_enabled": true,
       "applies_country_filter": true,
-      "applies_time_filter": true,
+      "applies_time_filter": false,
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
@@ -121,7 +126,20 @@
       "label": "SEAD sites",
       "source_name": "SEAD",
       "coverage_label": "Environmental archaeology sites staged from the SEAD normalization bundle.",
-      "count": 2172,
+      "count": 2069,
+      "publication_role": "scope_specific_overlay",
+      "scope_visibility": "scope_owned",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
+    },
+    {
+      "key": "sweden-archaeology-site-discovery",
+      "label": "Sweden archaeology site discovery",
+      "source_name": "SEAD with RA\u00c4 density context",
+      "coverage_label": "Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record.",
+      "count": 9727,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
       "default_enabled": true,
@@ -130,8 +148,21 @@
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
-      "key": "animal-equus-caballus",
-      "label": "Horse aDNA site evidence",
+      "key": "animal-bos-taurus-wild-or-progenitor-context",
+      "label": "Cattle aDNA site evidence (wild or progenitor context)",
+      "source_name": "Tracked animal aDNA localities",
+      "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+      "count": 4,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared evidence layer across every governed scope."
+    },
+    {
+      "key": "animal-ovis-aries",
+      "label": "Sheep aDNA site evidence (domesticated core)",
       "source_name": "Tracked animal aDNA localities",
       "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
       "count": 2,
@@ -143,11 +174,193 @@
       "scope_caveat": "Shared evidence layer across every governed scope."
     },
     {
-      "key": "sweden-lake-aggregate-top40",
-      "label": "Sweden lake aggregate top 40",
-      "source_name": "Sweden lake evidence",
-      "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the aggregate evidence ranking.",
-      "count": 40,
+      "key": "animal-sus-scrofa-domesticus",
+      "label": "Pig aDNA site evidence (domesticated core)",
+      "source_name": "Tracked animal aDNA localities",
+      "coverage_label": "Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces.",
+      "count": 2,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared evidence layer across every governed scope."
+    },
+    {
+      "key": "animal-source-chronology-bos-taurus",
+      "label": "Cattle source-sample chronology",
+      "source_name": "Governed animal project sample chronology",
+      "coverage_label": "",
+      "count": 5,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+      "group": "animal-chronology-context",
+      "semantic_role": "animal_source_chronology_context",
+      "contribution_role": "display_only",
+      "candidate_ranking_eligible": false,
+      "scientific_classification_eligible": false,
+      "scientific_selection_enabled": false,
+      "propagation_status": "refused",
+      "propagation_reason_code": "display_only_source_chronology",
+      "edge_count": 0,
+      "circle_enabled": false,
+      "project_species_latin_name": "Bos taurus",
+      "project_species_common_name": "cattle",
+      "species_attribution_basis": "governed_project_registry"
+    },
+    {
+      "key": "animal-source-chronology-capra-hircus",
+      "label": "Goat source-sample chronology",
+      "source_name": "Governed animal project sample chronology",
+      "coverage_label": "",
+      "count": 0,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+      "group": "animal-chronology-context",
+      "semantic_role": "animal_source_chronology_context",
+      "contribution_role": "display_only",
+      "candidate_ranking_eligible": false,
+      "scientific_classification_eligible": false,
+      "scientific_selection_enabled": false,
+      "propagation_status": "refused",
+      "propagation_reason_code": "display_only_source_chronology",
+      "edge_count": 0,
+      "circle_enabled": false,
+      "project_species_latin_name": "Capra hircus",
+      "project_species_common_name": "goat",
+      "species_attribution_basis": "governed_project_registry"
+    },
+    {
+      "key": "animal-source-chronology-equus-caballus",
+      "label": "Horse source-sample chronology",
+      "source_name": "Governed animal project sample chronology",
+      "coverage_label": "",
+      "count": 3,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+      "group": "animal-chronology-context",
+      "semantic_role": "animal_source_chronology_context",
+      "contribution_role": "display_only",
+      "candidate_ranking_eligible": false,
+      "scientific_classification_eligible": false,
+      "scientific_selection_enabled": false,
+      "propagation_status": "refused",
+      "propagation_reason_code": "display_only_source_chronology",
+      "edge_count": 0,
+      "circle_enabled": false,
+      "project_species_latin_name": "Equus caballus",
+      "project_species_common_name": "horse",
+      "species_attribution_basis": "governed_project_registry"
+    },
+    {
+      "key": "animal-source-chronology-felis-catus",
+      "label": "Cat source-sample chronology",
+      "source_name": "Governed animal project sample chronology",
+      "coverage_label": "",
+      "count": 0,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+      "group": "animal-chronology-context",
+      "semantic_role": "animal_source_chronology_context",
+      "contribution_role": "display_only",
+      "candidate_ranking_eligible": false,
+      "scientific_classification_eligible": false,
+      "scientific_selection_enabled": false,
+      "propagation_status": "refused",
+      "propagation_reason_code": "display_only_source_chronology",
+      "edge_count": 0,
+      "circle_enabled": false,
+      "project_species_latin_name": "Felis catus",
+      "project_species_common_name": "cat",
+      "species_attribution_basis": "governed_project_registry"
+    },
+    {
+      "key": "animal-source-chronology-ovis-aries",
+      "label": "Sheep source-sample chronology",
+      "source_name": "Governed animal project sample chronology",
+      "coverage_label": "",
+      "count": 4,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+      "group": "animal-chronology-context",
+      "semantic_role": "animal_source_chronology_context",
+      "contribution_role": "display_only",
+      "candidate_ranking_eligible": false,
+      "scientific_classification_eligible": false,
+      "scientific_selection_enabled": false,
+      "propagation_status": "refused",
+      "propagation_reason_code": "display_only_source_chronology",
+      "edge_count": 0,
+      "circle_enabled": false,
+      "project_species_latin_name": "Ovis aries",
+      "project_species_common_name": "sheep",
+      "species_attribution_basis": "governed_project_registry"
+    },
+    {
+      "key": "animal-source-chronology-sus-scrofa-domesticus",
+      "label": "Pig source-sample chronology",
+      "source_name": "Governed animal project sample chronology",
+      "coverage_label": "",
+      "count": 2,
+      "publication_role": "shared_world_scale_layer",
+      "scope_visibility": "shared_default",
+      "default_enabled": false,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "Shared display-only source chronology across governed scopes; excluded from candidate ranking, accepted classification, and propagation.",
+      "group": "animal-chronology-context",
+      "semantic_role": "animal_source_chronology_context",
+      "contribution_role": "display_only",
+      "candidate_ranking_eligible": false,
+      "scientific_classification_eligible": false,
+      "scientific_selection_enabled": false,
+      "propagation_status": "refused",
+      "propagation_reason_code": "display_only_source_chronology",
+      "edge_count": 0,
+      "circle_enabled": false,
+      "project_species_latin_name": "Sus scrofa domesticus",
+      "project_species_common_name": "pig",
+      "species_attribution_basis": "governed_project_registry"
+    },
+    {
+      "key": "neotoma-source-sample-pollen-context",
+      "label": "Neotoma sample pollen-presence context",
+      "source_name": "Neotoma",
+      "coverage_label": "Dated source samples with positive reported pollen observations; not reviewed pollen-sum events.",
+      "count": 9988,
+      "publication_role": "scope_specific_overlay",
+      "scope_visibility": "shared_default",
+      "default_enabled": true,
+      "applies_country_filter": true,
+      "applies_time_filter": true,
+      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
+    },
+    {
+      "key": "neotoma-source-ecological-code",
+      "label": "Neotoma literal ecological codes",
+      "source_name": "Neotoma",
+      "coverage_label": "Literal source ecological codes without cross-source equivalence or propagation claims.",
+      "count": 25165,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "shared_default",
       "default_enabled": false,
@@ -156,89 +369,11 @@
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
-      "key": "sweden-lake-consensus-top40",
-      "label": "Sweden lake consensus top 40",
-      "source_name": "Sweden lake evidence",
-      "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes that recur across scenario rankings.",
-      "count": 40,
-      "publication_role": "scope_specific_overlay",
-      "scope_visibility": "shared_default",
-      "default_enabled": false,
-      "applies_country_filter": true,
-      "applies_time_filter": true,
-      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-    },
-    {
-      "key": "sweden-lake-fieldwork-shortlist",
-      "label": "Sweden lake fieldwork shortlist",
-      "source_name": "Sweden lake evidence",
-      "coverage_label": "Optional Nordic atlas overlay for the published Sweden fieldwork shortlist.",
-      "count": 20,
-      "publication_role": "scope_specific_overlay",
-      "scope_visibility": "shared_default",
-      "default_enabled": false,
-      "applies_country_filter": true,
-      "applies_time_filter": true,
-      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-    },
-    {
-      "key": "sweden-lake-10km-top40",
-      "label": "Sweden lake 10 km top 40",
-      "source_name": "Sweden lake evidence",
-      "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 10 km evidence scenario.",
-      "count": 40,
-      "publication_role": "scope_specific_overlay",
-      "scope_visibility": "shared_default",
-      "default_enabled": false,
-      "applies_country_filter": true,
-      "applies_time_filter": true,
-      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-    },
-    {
-      "key": "sweden-lake-20km-top40",
-      "label": "Sweden lake 20 km top 40",
-      "source_name": "Sweden lake evidence",
-      "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 20 km evidence scenario.",
-      "count": 40,
-      "publication_role": "scope_specific_overlay",
-      "scope_visibility": "shared_default",
-      "default_enabled": false,
-      "applies_country_filter": true,
-      "applies_time_filter": true,
-      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-    },
-    {
-      "key": "sweden-lake-30km-top40",
-      "label": "Sweden lake 30 km top 40",
-      "source_name": "Sweden lake evidence",
-      "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 30 km evidence scenario.",
-      "count": 40,
-      "publication_role": "scope_specific_overlay",
-      "scope_visibility": "shared_default",
-      "default_enabled": false,
-      "applies_country_filter": true,
-      "applies_time_filter": true,
-      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-    },
-    {
-      "key": "sweden-lake-40km-top40",
-      "label": "Sweden lake 40 km top 40",
-      "source_name": "Sweden lake evidence",
-      "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 40 km evidence scenario.",
-      "count": 40,
-      "publication_role": "scope_specific_overlay",
-      "scope_visibility": "shared_default",
-      "default_enabled": false,
-      "applies_country_filter": true,
-      "applies_time_filter": true,
-      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-    },
-    {
-      "key": "sweden-lake-50km-top40",
-      "label": "Sweden lake 50 km top 40",
-      "source_name": "Sweden lake evidence",
-      "coverage_label": "Optional Nordic atlas overlay for the top 40 Sweden lakes in the 50 km evidence scenario.",
-      "count": 40,
+      "key": "neotoma-source-exact-taxon",
+      "label": "Neotoma exact source taxa",
+      "source_name": "Neotoma",
+      "coverage_label": "Exact source taxon identities without accepted ecological classification or propagation claims.",
+      "count": 215751,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "shared_default",
       "default_enabled": false,
@@ -260,30 +395,323 @@
       "scope_caveat": "Derived filter framing layer that follows the active scope country roster."
     },
     {
-      "key": "landclim-reveals-grid",
-      "label": "LandClim REVEALS grid cells",
+      "key": "landclim-reveals-temporal-grid",
+      "label": "LandClim REVEALS time-window grids",
       "source_name": "LandClim",
-      "coverage_label": "REVEALS grid cells compiled from published LandClim PANGAEA datasets.",
-      "count": 88,
+      "coverage_label": "Time-window-specific REVEALS grid estimates from published LandClim PANGAEA datasets.",
+      "count": 2515,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
       "default_enabled": true,
       "applies_country_filter": true,
       "applies_time_filter": true,
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
-    },
-    {
-      "key": "raa-archaeology",
-      "label": "RA\u00c4 archaeology density",
-      "source_name": "RA\u00c4 Forns\u00f6k",
-      "coverage_label": "Sweden only. Density cells summarize `Fornl\u00e4mning` counts.",
-      "count": 106,
-      "publication_role": "scope_specific_overlay",
-      "scope_visibility": "scope_owned",
-      "default_enabled": true,
-      "applies_country_filter": true,
-      "applies_time_filter": false,
-      "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     }
-  ]
+  ],
+  "static_assets": {
+    "schema_version": "atlas-static-bootstrap.v2",
+    "manifest": "nordic_map_assets.json",
+    "budgets": {
+      "bootstrap_max_bytes": 262144,
+      "chunk_max_bytes": 4194304,
+      "document_max_bytes": 524288,
+      "static_assets_max_bytes": 134217728,
+      "static_assets_max_files": 512,
+      "initial_max_requests": 4,
+      "initial_max_bytes": 1048576,
+      "interaction_max_requests": 128,
+      "interaction_max_bytes": 67108864,
+      "filter_main_thread_max_ms": 50
+    },
+    "domains": {
+      "nodes": {
+        "status": "available",
+        "record_count": 267156
+      },
+      "edges": {
+        "status": "unavailable",
+        "record_count": 0,
+        "reason_code": "governed_map_edge_model_not_available"
+      },
+      "sequences": {
+        "status": "unavailable",
+        "record_count": 0,
+        "reason_code": "governed_sequence_detail_model_not_available"
+      },
+      "provenance": {
+        "status": "record_level_available",
+        "record_count": 2262,
+        "reason_code": null
+      },
+      "details": {
+        "status": "available",
+        "record_count": 2262,
+        "reason_code": null
+      },
+      "classifications": {
+        "status": "unavailable",
+        "record_count": 0,
+        "reason_code": "accepted_scientific_classifications_not_available"
+      },
+      "indexes": {
+        "status": "available",
+        "record_count": 266899
+      }
+    }
+  },
+  "animal_sample_chronology_context": {
+    "artifact": "nordic_animal_sample_chronology_context.json",
+    "content_sha256": "b3e7c260e12e871d4f27b6a894778283e347877dfeead9f05fc340368ac03785",
+    "input_identity_sha256": "5b220aa1bf9199d6001179f64aaf679e577f7936a585068c24e6ee370c17a2ab",
+    "corpus_identity_sha256": "dce6a8a6382d9a5f17d4b88330f0f879b010e38ade52e6deb51fe9346f8a62e7",
+    "scope": {
+      "key": "nordic",
+      "kind": "region",
+      "countries": [
+        "Sweden",
+        "Norway",
+        "Finland",
+        "Denmark"
+      ]
+    },
+    "global_admitted_node_count": 557,
+    "projected_node_count": 14,
+    "excluded_by_scope_count": 543,
+    "refusal_count": 918,
+    "governed_country_rows": [
+      {
+        "country_name": "Denmark",
+        "node_count": 7,
+        "time_min_bp": 1000,
+        "time_max_bp": 8173
+      },
+      {
+        "country_name": "Finland",
+        "node_count": 2,
+        "time_min_bp": 340,
+        "time_max_bp": 527
+      },
+      {
+        "country_name": "Norway",
+        "node_count": 0,
+        "time_min_bp": null,
+        "time_max_bp": null
+      },
+      {
+        "country_name": "Sweden",
+        "node_count": 5,
+        "time_min_bp": 1217,
+        "time_max_bp": 9657
+      }
+    ]
+  },
+  "detail_projection": {
+    "schema_version": "atlas-evidence-projection.v2",
+    "status": "reconciled",
+    "source_layer_count": 6,
+    "source_feature_count": 262893,
+    "matched_feature_count": 262893,
+    "detail_record_count": 2262,
+    "unique_feature_record_id_count": 2262,
+    "repeated_feature_reference_count": 260631,
+    "unmatched_feature_count": 0,
+    "unreferenced_detail_count": 0,
+    "tab_availability": {
+      "overview": {
+        "available": 2262,
+        "unavailable": 0,
+        "denominator": 2262
+      },
+      "samples": {
+        "available": 1429,
+        "unavailable": 833,
+        "denominator": 2262
+      },
+      "chronology": {
+        "available": 1046,
+        "unavailable": 1216,
+        "denominator": 2262
+      },
+      "pollen_composition": {
+        "available": 1280,
+        "unavailable": 982,
+        "denominator": 2262
+      },
+      "relation": {
+        "available": 2069,
+        "unavailable": 193,
+        "denominator": 2262
+      },
+      "classification": {
+        "available": 0,
+        "unavailable": 2262,
+        "denominator": 2262
+      },
+      "provenance": {
+        "available": 2262,
+        "unavailable": 0,
+        "denominator": 2262
+      }
+    },
+    "sources": {
+      "neotoma": {
+        "source_feature_count": 193,
+        "source_site_denominator": 200,
+        "governed_country_site_denominator": 193,
+        "governed_country_code_counts": {
+          "DK": 5,
+          "FI": 32,
+          "NO": 58,
+          "SE": 98
+        },
+        "projected_site_count": 193,
+        "unprojected_source_site_count": 7,
+        "excluded_unassigned_site_count": 7,
+        "excluded_unassigned_site_ids": [
+          "neotoma:site:13395",
+          "neotoma:site:26118",
+          "neotoma:site:3025",
+          "neotoma:site:3138",
+          "neotoma:site:3221",
+          "neotoma:site:3311",
+          "neotoma:site:700"
+        ],
+        "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+        "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+        "materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
+        "detail_row_counts": {
+          "collection_units": 206,
+          "datasets": 209,
+          "samples": 12388,
+          "age_claims": 23281,
+          "observations": 370936,
+          "variables": 1262
+        },
+        "detail_row_denominators": {
+          "collection_units": 206,
+          "datasets": 209,
+          "samples": 12388,
+          "age_claims": 23281,
+          "observations": 370936,
+          "variables": 1262
+        },
+        "source_chronology": {
+          "schema_version": "neotoma-source-chronology-atlas-reconciliation.v2",
+          "status": "reconciled",
+          "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+          "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+          "result_digest": "21e029835d32b510a7b942ae245d440701c1477903159b37bf416b49d702752d",
+          "input_observation_denominator": 370936,
+          "eligible_observation_denominator": 215903,
+          "selected_sample_count": 9988,
+          "selected_default_chronology_count": 3569,
+          "selected_nondefault_chronology_count": 6419,
+          "selected_named_chronology_count": 9988,
+          "chronology_selection_posture_counts": {
+            "selected_source_default": 3569,
+            "selected_unique_nondefault": 6419
+          },
+          "refused_observation_count": 155033,
+          "facet_refusal_count": 0,
+          "source_node_count": 250904,
+          "layer_feature_count": 250904,
+          "layer_counts": {
+            "source_ecological_code": 25165,
+            "source_sample_presence": 9988,
+            "source_taxon": 215751
+          },
+          "country_counts": {
+            "Sweden": 118704,
+            "Denmark": 3769,
+            "Norway": 93727,
+            "Finland": 34704
+          },
+          "propagation_eligible_event_count": 0,
+          "edge_count": 0,
+          "temporal_direction": "oldest_to_present",
+          "interval_semantics": "[younger_bp, older_bp]"
+        }
+      },
+      "sead": {
+        "source_feature_count": 11796,
+        "source_site_denominator": 2069,
+        "source_site_uuid_denominator": 2069,
+        "bbox_site_denominator": 2195,
+        "assigned_site_count": 2069,
+        "excluded_site_count": 126,
+        "decision_status_counts": {
+          "assigned": 2069,
+          "review": 103,
+          "unassigned": 23
+        },
+        "projected_site_count": 2069,
+        "unprojected_source_site_count": 0,
+        "source_claim_denominator": 25109,
+        "source_observation_denominator": 177763,
+        "source_taxon_relation_denominator": 1974,
+        "source_dimension_relation_denominator": 2639,
+        "source_event_refusal_denominator": 177763,
+        "projected_site_claim_count": 25109,
+        "projected_site_observation_count": 177763,
+        "projected_unique_taxon_relation_count": 1974,
+        "projected_dimension_relation_count": 2639,
+        "unprojected_dimension_relation_count": 0,
+        "projected_unique_dataset_semantic_count": 31901,
+        "projected_unique_value_semantic_count": 52,
+        "eligible_event_count": 0,
+        "claim_country_counts": {
+          "DK": 1939,
+          "FI": 59,
+          "NO": 468,
+          "SE": 22643
+        },
+        "observation_country_counts": {
+          "DK": 5264,
+          "FI": 442,
+          "NO": 8950,
+          "SE": 163107
+        },
+        "eligible_event_country_counts": {
+          "DK": 0,
+          "FI": 0,
+          "NO": 0,
+          "SE": 0
+        },
+        "propagation_status": "refused",
+        "propagation_reason_code": "source_classification_not_accepted",
+        "detail_row_counts": {
+          "chronology_claims": 25109,
+          "observations": 177763,
+          "dimension_relations": 2639,
+          "taxon_relations_unique": 1974,
+          "event_refusals": 177763
+        },
+        "detail_row_denominators": {
+          "chronology_claims": 25109,
+          "observations": 177763,
+          "dimension_relations": 2639,
+          "taxon_relations_unique": 1974,
+          "event_refusals": 177763
+        },
+        "source_run_id": "sead-full-evidence-39bfff6a-ce80714e",
+        "build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
+        "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+        "parent_admission_sha256": "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1",
+        "acquisition_release_status": "refused",
+        "evidence_file_set_sha256": "3a18b6e11ccccdc61f3c1fcbc5f301fd1132313ad14c8dba2fa87c6a9b3174cf",
+        "country_site_counts": {
+          "Denmark": 59,
+          "Finland": 40,
+          "Norway": 45,
+          "Sweden": 1925
+        },
+        "map_feature_country_counts": {
+          "Denmark": 59,
+          "Finland": 40,
+          "Norway": 45,
+          "Sweden": 11652
+        }
+      }
+    }
+  }
 }
