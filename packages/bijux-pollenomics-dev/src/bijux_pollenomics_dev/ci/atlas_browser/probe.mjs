@@ -451,6 +451,7 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
   const failureDom = await pageFacts(failure.cdp);
   await screenshot(failure.cdp, `${scope.name}/provider-failure.png`);
   scopeReceipts.push(`${scope.name}/provider-failure.png`);
+  await closeAtlas(failure, debuggerOrigin);
   const failureResult = {
     scope: scope.name,
     name: 'provider-failure',
@@ -472,7 +473,6 @@ async function verifyNordicSourceChronologyScope(scope, debuggerOrigin) {
       runtime_console_clean: failure.runtimeFailures.length === 0,
     },
   };
-  await closeAtlas(failure, debuggerOrigin);
   await writeScenario(scope, failureResult, scopeReceipts);
   scopeScenarios.push(failureResult);
 
@@ -625,6 +625,7 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
   const failureDom = await pageFacts(failure.cdp);
   await screenshot(failure.cdp, `${scope.name}/provider-failure.png`);
   scopeReceipts.push(`${scope.name}/provider-failure.png`);
+  await closeAtlas(failure, debuggerOrigin);
   const failureResult = {
     scope: scope.name,
     name: 'provider-failure',
@@ -646,7 +647,6 @@ async function verifyGenericTimeAwareScope(scope, debuggerOrigin) {
       runtime_console_clean: failure.runtimeFailures.length === 0,
     },
   };
-  await closeAtlas(failure, debuggerOrigin);
   await writeScenario(scope, failureResult, scopeReceipts);
   scopeScenarios.push(failureResult);
 
@@ -1019,6 +1019,51 @@ async function basemapDiscoverabilityFacts(cdp, width) {
   })()`);
 }
 
+function providerInterception(cdp, providerRequests, runtimeFailures, enabled) {
+  const pending = new Set();
+  const canceled = new Set();
+  const rejected = [];
+  return {
+    handle(event) {
+      if (event.method === 'Network.loadingFailed' && event.params.canceled === true) {
+        canceled.add(event.params.requestId);
+      }
+      if (event.method !== 'Fetch.requestPaused') return;
+      const row = {
+        url: event.params.request.url,
+        request_id: event.params.requestId,
+        network_id: event.params.networkId ?? null,
+        intercepted: true,
+      };
+      providerRequests.push(row);
+      const operation = cdp.send('Fetch.failRequest', {
+        requestId: row.request_id,
+        errorReason: 'Failed',
+      }).catch((error) => rejected.push({ row, error }))
+        .finally(() => pending.delete(operation));
+      pending.add(operation);
+    },
+    async settle() {
+      // Stop new interceptions and drain command replies before the verdict.
+      if (enabled) await cdp.send('Fetch.disable');
+      while (pending.size) await Promise.all([...pending]);
+      for (const { row, error } of rejected.splice(0)) {
+        let protocolError;
+        try { protocolError = JSON.parse(error.message); } catch { protocolError = null; }
+        const staleCanceledRequest = protocolError?.code === -32602
+          && ['Invalid InterceptionId', 'Invalid InterceptionId.'].includes(protocolError.message)
+          && typeof row.network_id === 'string' && canceled.has(row.network_id);
+        row.interception_status = staleCanceledRequest ? 'canceled_before_failure_reply' : 'failed';
+        row.interception_error = String(error);
+        if (!staleCanceledRequest) runtimeFailures.push({
+          kind: 'provider-interception', detail: String(error),
+          request_id: row.request_id, network_id: row.network_id,
+        });
+      }
+    },
+  };
+}
+
 async function openAtlas(scope, debuggerOrigin, options) {
   activeScenario = `${scope.name}:${options.name}`;
   const response = await fetch(`${debuggerOrigin}/json/new?about:blank`, { method: 'PUT' });
@@ -1027,21 +1072,15 @@ async function openAtlas(scope, debuggerOrigin, options) {
   const cdp = await connectCdp(target.webSocketDebuggerUrl);
   const runtimeFailures = [];
   const providerRequests = [];
+  const interception = providerInterception(cdp, providerRequests, runtimeFailures, options.blockProviders === true);
   cdp.onEvent((event) => {
+    interception.handle(event);
     if (event.method === 'Runtime.exceptionThrown') runtimeFailures.push({ kind: 'exception', detail: event.params.exceptionDetails?.text || '' });
     if (event.method === 'Runtime.consoleAPICalled' && event.params.type === 'error') runtimeFailures.push({
       kind: 'console-error', detail: (event.params.args || []).map((arg) => arg.description || arg.value || '').join(' '),
     });
     if (event.method === 'Network.requestWillBeSent' && providerHosts.some((host) => event.params.request.url.includes(host))) {
       providerRequests.push({ url: event.params.request.url, request_id: event.params.requestId });
-    }
-    if (event.method === 'Fetch.requestPaused') {
-      const url = event.params.request.url;
-      providerRequests.push({ url, request_id: event.params.requestId, intercepted: true });
-      void cdp.send('Fetch.failRequest', {
-        requestId: event.params.requestId,
-        errorReason: 'Failed',
-      }).catch((error) => runtimeFailures.push({ kind: 'provider-interception', detail: String(error) }));
     }
   });
   await cdp.send('Page.enable');
@@ -1057,10 +1096,11 @@ async function openAtlas(scope, debuggerOrigin, options) {
   const url = `http://127.0.0.1:${serverPort}/${scope.document}${options.hash || ''}`;
   await cdp.send('Page.navigate', { url });
   await loaded;
-  return { cdp, target, runtimeFailures, providerRequests };
+  return { cdp, target, runtimeFailures, providerRequests, interception };
 }
 
 async function closeAtlas(atlas, debuggerOrigin) {
+  await atlas.interception.settle();
   atlas.cdp.close();
   await fetch(`${debuggerOrigin}/json/close/${atlas.target.id}`);
 }
