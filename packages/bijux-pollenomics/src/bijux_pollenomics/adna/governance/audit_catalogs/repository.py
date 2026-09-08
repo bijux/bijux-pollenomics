@@ -48,7 +48,7 @@ def _load_all_sample_rows_by_id(data_root: Path) -> dict[str, dict[str, object]]
 
 
 def _load_mapped_sample_ids_by_species(data_root: Path) -> dict[str, set[str]]:
-    from bijux_pollenomics.reporting.adna import (
+    from bijux_pollenomics.adna.governance.atlas_candidates import (
         build_tracked_animal_atlas_evidence_rows,
     )
 

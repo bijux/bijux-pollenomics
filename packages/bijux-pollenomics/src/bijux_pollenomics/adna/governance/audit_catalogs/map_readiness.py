@@ -221,7 +221,7 @@ def _build_species_map_readiness_row(
 def _map_publication_accounting(
     data_root: Path,
 ) -> tuple[Counter[str], list[dict[str, object]]]:
-    from bijux_pollenomics.reporting.adna import (
+    from bijux_pollenomics.adna.governance.atlas_candidates import (
         build_tracked_animal_atlas_evidence_rows,
     )
 
@@ -305,18 +305,18 @@ def _not_materialized_reason_code(
     sample_rows: list[dict[str, object]],
     locality_rows: list[dict[str, object]],
 ) -> str:
-    from bijux_pollenomics.reporting.adna.atlas_evidence_rows.chronology import (
+    from bijux_pollenomics.adna.governance.atlas_candidates.chronology import (
         _atlas_chronology_supports_publication,
         _atlas_public_chronology,
         _parse_chronology,
     )
-    from bijux_pollenomics.reporting.adna.atlas_evidence_rows.sample_support import (
+    from bijux_pollenomics.adna.governance.atlas_candidates.sample_support import (
         _atlas_admitted_sample_rows,
     )
-    from bijux_pollenomics.reporting.adna.atlas_evidence_rows.source_records import (
+    from bijux_pollenomics.adna.governance.atlas_candidates.source_records import (
         _load_project_animal_scope_lookup,
     )
-    from bijux_pollenomics.reporting.adna.atlas_evidence_rows.validation import (
+    from bijux_pollenomics.adna.governance.atlas_candidates.validation import (
         _project_sample_animal_scope_resolution_for,
     )
 

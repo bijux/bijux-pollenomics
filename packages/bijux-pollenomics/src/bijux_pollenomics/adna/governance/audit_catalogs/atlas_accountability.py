@@ -8,7 +8,7 @@ from .repository import _load_all_sample_rows_by_id, _nested_string
 
 def build_animal_atlas_candidate_accountability(data_root: Path) -> AtlasAccountability:
     """Require every checked-in final atlas candidate row to keep full evidence anchors."""
-    from bijux_pollenomics.reporting.adna import (
+    from bijux_pollenomics.adna.governance.atlas_candidates import (
         build_tracked_animal_atlas_evidence_rows,
     )
 

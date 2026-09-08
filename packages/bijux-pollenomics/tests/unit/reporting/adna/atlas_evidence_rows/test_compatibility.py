@@ -3,8 +3,15 @@
 from __future__ import annotations
 
 import inspect
+import pickle
 
+from bijux_pollenomics.adna.governance.atlas_candidates import (
+    service as domain_service,
+)
 from bijux_pollenomics.reporting.adna import atlas_evidence_rows
+from bijux_pollenomics.reporting.adna.atlas_evidence_rows import (
+    service as compatibility_service,
+)
 
 _PUBLIC_API = (
     "AnimalAtlasCoordinateReview",
@@ -119,3 +126,25 @@ def test_legacy_function_signatures_remain_stable() -> None:
         name: str(inspect.signature(getattr(atlas_evidence_rows, name)))
         for name in _LEGACY_FUNCTION_SIGNATURES
     } == _LEGACY_FUNCTION_SIGNATURES
+
+
+def test_public_pickle_identities_remain_on_compatibility_paths() -> None:
+    evidence_type = atlas_evidence_rows.AnimalAtlasEvidenceRow
+    review_type = atlas_evidence_rows.AnimalAtlasCoordinateReview
+    builder = atlas_evidence_rows.build_tracked_animal_atlas_evidence_rows
+
+    assert evidence_type.__module__ == (
+        "bijux_pollenomics.reporting.adna.atlas_evidence_rows.models"
+    )
+    assert review_type.__module__ == evidence_type.__module__
+    assert builder.__module__ == (
+        "bijux_pollenomics.reporting.adna.atlas_evidence_rows.service"
+    )
+    for value in (evidence_type, review_type, builder):
+        assert pickle.loads(pickle.dumps(value, protocol=5)) is value
+    review = review_type(1, 2, 3)
+    assert pickle.loads(pickle.dumps(review, protocol=5)) == review
+
+
+def test_legacy_service_module_is_the_domain_owner() -> None:
+    assert compatibility_service is domain_service

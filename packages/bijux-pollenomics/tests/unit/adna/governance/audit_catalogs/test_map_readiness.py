@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pytest
 
+from bijux_pollenomics.adna.governance import atlas_candidates
 from bijux_pollenomics.adna.governance.audit_catalogs import map_readiness
 from bijux_pollenomics.adna.governance.audit_catalogs.map_readiness import (
     _build_species_map_readiness_row,
@@ -14,7 +15,6 @@ from bijux_pollenomics.adna.governance.audit_catalogs.map_readiness import (
     _map_publication_key,
     build_cross_species_map_readiness,
 )
-from bijux_pollenomics.reporting import adna as reporting_adna
 
 pytestmark = pytest.mark.generated_artifacts
 
@@ -65,7 +65,7 @@ def _install_accounting_scenario(
     coordinate_rows: list[dict[str, object]],
 ) -> None:
     monkeypatch.setattr(
-        reporting_adna,
+        atlas_candidates,
         "build_tracked_animal_atlas_evidence_rows",
         lambda _root: publication_rows,
     )
