@@ -132,14 +132,17 @@ def reconcile_facet_metadata_to_features(
             )
     if expected_level == "source_taxon":
         taxon_rows = _rows_by_value(facets.get("source_taxa"))
+        features_by_key: dict[str, list[Mapping[str, object]]] = {
+            feature_key: [] for feature_key in taxon_rows
+        }
+        for feature in features:
+            feature_key = feature.get("feature_key")
+            if isinstance(feature_key, str) and feature_key in features_by_key:
+                features_by_key[feature_key].append(feature)
         for feature_key, row in taxon_rows.items():
             _compare_feature_aggregate(
                 row,
-                [
-                    feature
-                    for feature in features
-                    if feature.get("feature_key") == feature_key
-                ],
+                features_by_key[feature_key],
             )
         accountability = _required_mapping(facets, "source_label_preset_accountability")
         for row in _rows_by_key(accountability.get("presets"), field="key").values():
