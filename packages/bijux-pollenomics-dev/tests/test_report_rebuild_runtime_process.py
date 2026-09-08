@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import sys
 from types import SimpleNamespace
 
 import pytest
@@ -143,7 +144,7 @@ def test_runtime_process_uses_exact_argv_and_bounds(
     assert isinstance(command, tuple)
     assert command[:3] == (
         runtime_process._ENV_EXECUTABLE,
-        runtime_process.sys.executable,
+        sys.executable,
         "-m",
     )
     assert command[3] == "bijux_pollenomics.reporting.bundles.report_partitions"
