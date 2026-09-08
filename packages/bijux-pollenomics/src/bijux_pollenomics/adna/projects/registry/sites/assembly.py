@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import TypeVar
+from typing import Generic, TypeVar
 
 from ....sources.archive import build_archive_project_catalog
 from ...evidence.coordinates import resolve_project_coordinate_provenance
@@ -20,6 +20,19 @@ from .records import AdnaProjectSampleSiteRow
 _RowT = TypeVar("_RowT")
 
 
+class _LocalityRowIndex(Generic[_RowT]):
+    def __init__(self, rows: tuple[_RowT, ...]) -> None:
+        rows_by_key: dict[tuple[str, str], list[_RowT]] = {}
+        for row in rows:
+            row_locality = str(
+                getattr(row, "site_label", getattr(row, "locality_text", ""))
+            )
+            row_entity = str(getattr(row, "political_entity", "") or "")
+            key = (_normalize_text(row_locality), _normalize_text(row_entity))
+            rows_by_key.setdefault(key, []).append(row)
+        self.rows_by_key = rows_by_key
+
+
 def build_project_sample_site_rows(
     output_root: Path,
     project_accession: str,
@@ -28,6 +41,8 @@ def build_project_sample_site_rows(
     master_rows = build_project_sample_master_rows(output_root, project_accession)
     site_rows = resolve_project_site_evidence(project_accession)
     provenance_rows = resolve_project_coordinate_provenance(project_accession)
+    site_rows_by_locality = _LocalityRowIndex(site_rows)
+    provenance_rows_by_locality = _LocalityRowIndex(provenance_rows)
     hierarchy_profiles = _project_hierarchy_profiles(output_root, project_accession)
 
     rows: list[AdnaProjectSampleSiteRow] = []
@@ -36,11 +51,11 @@ def build_project_sample_site_rows(
             continue
         locality_text = master_row.locality_text.strip()
         chronology_text = master_row.chronology_text.strip()
-        site_row = _matching_locality_row(
-            site_rows, locality_text, master_row.political_entity
+        site_row = _matching_indexed_locality_row(
+            site_rows_by_locality, locality_text, master_row.political_entity
         )
-        provenance_row = _matching_locality_row(
-            provenance_rows, locality_text, master_row.political_entity
+        provenance_row = _matching_indexed_locality_row(
+            provenance_rows_by_locality, locality_text, master_row.political_entity
         )
         if locality_text:
             hierarchy = _resolve_hierarchy(
@@ -151,15 +166,16 @@ def build_project_sample_site_rows(
 def _matching_locality_row(
     rows: tuple[_RowT, ...], locality_text: str, political_entity: str
 ) -> _RowT | None:
+    return _matching_indexed_locality_row(
+        _LocalityRowIndex(rows), locality_text, political_entity
+    )
+
+
+def _matching_indexed_locality_row(
+    index: _LocalityRowIndex[_RowT], locality_text: str, political_entity: str
+) -> _RowT | None:
     target = (_normalize_text(locality_text), _normalize_text(political_entity))
-    matches: list[_RowT] = []
-    for row in rows:
-        row_locality = str(
-            getattr(row, "site_label", getattr(row, "locality_text", ""))
-        )
-        row_entity = str(getattr(row, "political_entity", "") or "")
-        if (_normalize_text(row_locality), _normalize_text(row_entity)) == target:
-            matches.append(row)
+    matches = index.rows_by_key.get(target, ())
     if len(matches) > 1:
         raise ValueError("Multiple site evidence rows match the same sample locality")
     if matches:
