@@ -17,6 +17,7 @@ from bijux_pollenomics.adna.workflow.normalization.samples import (
 from tests.support.repository import REPOSITORY_ROOT
 
 from .marks import GENERATED_ARTIFACTS
+from .support import build_tracked_animal_normalization_bundles
 
 pytestmark = GENERATED_ARTIFACTS
 
@@ -155,21 +156,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
             RECOVERED_SAMPLE_EVIDENCE_STATUSES,
             {"archive_native", "article_text_extracted", "direct_table_extracted"},
         )
-        bundles = [
-            build_species_normalization_bundle(species)
-            for species in (
-                "horse",
-                "pig",
-                "sheep",
-                "cattle",
-                "goat",
-                "dog",
-                "cat",
-                "camel",
-                "reindeer",
-                "donkey",
-            )
-        ]
+        bundles = build_tracked_animal_normalization_bundles()
         samples = [sample for bundle in bundles for sample in bundle.sample_records]
 
         self.assertEqual(len(samples), 1450)
@@ -237,21 +224,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
     def test_locality_summaries_require_identity_and_unique_sample_membership(
         self,
     ) -> None:
-        bundles = [
-            build_species_normalization_bundle(species)
-            for species in (
-                "horse",
-                "pig",
-                "sheep",
-                "cattle",
-                "goat",
-                "dog",
-                "cat",
-                "camel",
-                "reindeer",
-                "donkey",
-            )
-        ]
+        bundles = build_tracked_animal_normalization_bundles()
 
         self.assertTrue(
             all(
