@@ -45,6 +45,15 @@ class CollectionOrchestrationTests(unittest.TestCase):
                 patch(
                     "bijux_pollenomics.collection.workflow.collection.collect_raa_data"
                 ) as collect_raa,
+                patch(
+                    "bijux_pollenomics.collection.workflow.collection.collect_svar_data"
+                ) as collect_svar,
+                patch(
+                    "socket.socket.connect",
+                    side_effect=AssertionError(
+                        "Orchestration tests must remain offline"
+                    ),
+                ),
             ):
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
                 fetch_boundaries.return_value = {"Sweden": {"features": []}}
@@ -69,6 +78,7 @@ class CollectionOrchestrationTests(unittest.TestCase):
             collect_landclim.assert_not_called()
             collect_neotoma.assert_not_called()
             collect_sead.assert_not_called()
+            collect_svar.assert_not_called()
             collect_raa.assert_called_once_with(
                 output_root=build_staging_output_dir(output_root / "raa"),
                 country_boundaries={"Sweden": {"features": []}},
@@ -297,6 +307,15 @@ class CollectionOrchestrationTests(unittest.TestCase):
                 patch(
                     "bijux_pollenomics.collection.workflow.collection.collect_raa_data"
                 ) as collect_raa,
+                patch(
+                    "bijux_pollenomics.collection.workflow.collection.collect_svar_data"
+                ) as collect_svar,
+                patch(
+                    "socket.socket.connect",
+                    side_effect=AssertionError(
+                        "Orchestration tests must remain offline"
+                    ),
+                ),
             ):
                 download_aadr.return_value.downloaded_files = (Path("a"), Path("b"))
                 collect_boundaries.return_value = (
@@ -309,6 +328,7 @@ class CollectionOrchestrationTests(unittest.TestCase):
                 collect_sead.return_value.point_count = 1937
                 collect_raa.return_value.total_site_count = 761786
                 collect_raa.return_value.heritage_site_count = 318230
+                collect_svar.return_value.lake_count = 7
 
                 report = collect_data(
                     output_root=output_root, sources=("all",), version="v62.0"
@@ -323,6 +343,11 @@ class CollectionOrchestrationTests(unittest.TestCase):
             collect_neotoma.assert_called_once()
             collect_sead.assert_called_once()
             collect_raa.assert_called_once()
+            collect_svar.assert_called_once_with(
+                output_root=build_staging_output_dir(output_root / "svar"),
+                country_boundaries={"Sweden": {"features": []}},
+            )
+            self.assertEqual(report.svar_lake_count, 7)
             self.assertEqual(report.boundary_source, "collected")
             self.assertTrue(
                 (output_root / "adna" / "species" / "equus_asinus" / "raw").is_dir()
