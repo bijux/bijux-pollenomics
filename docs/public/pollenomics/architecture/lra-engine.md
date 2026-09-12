@@ -242,6 +242,30 @@ with uncertainty, parameter selection and final evaluation left to separately
 governed experiment stages. The current baseline experiment runner does not
 silently substitute this fitted model for any named baseline.
 
+`bijux_pollenomics_lra.sample_pollen_observations` supplies a separate conditional
+observation model. It accepts predicted pollen fractions, declared counting
+effort, seed, nominal coverage and the host's prediction/effort evidence hashes.
+The host must freeze those declarations before observation access; the numerical
+function cannot authenticate their origin. It accepts no target count vector.
+
+Joint multinomial draws retain their draw IDs, taxon dependence and total effort.
+The result binds nominal and effective probabilities, the explicit binary64
+closure operation, numerical backend and dependency versions. Independent
+returned dictionaries cannot mutate its canonical result. The sampler uses
+[NumPy's Generator.multinomial](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.multinomial.html).
+Internal sequential subtraction remains subject to floating-point rounding.
+
+Binomial marginal predictive bounds condition on fixed probabilities and effort.
+For effort at most 256, exact rational CDF checks resolve discrete probability
+ties in the provider's returned quantiles. Larger supports use
+[SciPy's binomial CDF and quantiles](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binom.html)
+with an explicitly recorded numerical boundary check; ambiguous endpoints refuse.
+Discrete marginal coverage may exceed nominal coverage. Simultaneous coverage,
+empirical calibration and R-source parity are not claimed. These bounds omit
+spatial fitting, PPE, chronology, geometry, reconstruction and overdispersion
+uncertainty, and do not provide vegetation prediction intervals. The experiment
+runner still requires a separately governed integration of those uncertainties.
+
 `analysis.lra_validation.evaluation.api` evaluates a complete, separately
 frozen observation ledger against an explicit v2 policy. The policy supplies
 reviewed reference identities, per-target thresholds, independent site/block

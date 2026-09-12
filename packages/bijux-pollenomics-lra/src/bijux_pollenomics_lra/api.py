@@ -18,6 +18,7 @@ from bijux_pollenomics_lra.models.errors import (
     LRAError,
     ValidationError,
 )
+from bijux_pollenomics_lra.models.observation import PollenObservationDraws
 from bijux_pollenomics_lra.models.results import (
     ForwardResult,
     LoveResult,
@@ -29,6 +30,7 @@ from bijux_pollenomics_lra.models.results import (
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
 from bijux_pollenomics_lra.workflows.forward import prepare_forward_inputs
 from bijux_pollenomics_lra.workflows.local import run_love
+from bijux_pollenomics_lra.workflows.observation import sample_pollen_observations
 from bijux_pollenomics_lra.workflows.paired import run_lra
 from bijux_pollenomics_lra.workflows.regional import run_reveals
 from bijux_pollenomics_lra.workflows.series import run_lra_series
@@ -55,6 +57,7 @@ def extension_descriptor() -> dict[str, Any]:
             "lra.series.exact-coordinate",
             "lra.forward.homogeneous-local",
             "lra.forward.prepare-target-geometry",
+            "lra.observation.conditional-multinomial",
         ],
         "extension_group": "bijux_pollenomics.extensions",
         "extension_name": "lra",
@@ -64,26 +67,28 @@ def extension_descriptor() -> dict[str, Any]:
 
 __all__ = [
     "BasinType",
+    "ConvergenceError",
     "DistanceWeighting",
+    "ForwardConfig",
+    "ForwardResult",
     "LRAConfig",
     "LRAError",
-    "ForwardResult",
-    "ForwardConfig",
-    "PreparedForwardInputs",
-    "prepare_forward_inputs",
-    "forward_deposition",
-    "ConvergenceError",
     "LRAResult",
     "LRASeriesResult",
     "LoveConfig",
     "LoveMethod",
     "LoveResult",
+    "PollenObservationDraws",
+    "PreparedForwardInputs",
     "RevealsConfig",
     "RevealsResult",
     "ValidationError",
+    "extension_descriptor",
+    "forward_deposition",
+    "prepare_forward_inputs",
     "run_love",
     "run_lra",
     "run_lra_series",
     "run_reveals",
-    "extension_descriptor",
+    "sample_pollen_observations",
 ]
