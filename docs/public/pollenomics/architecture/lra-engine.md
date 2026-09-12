@@ -137,6 +137,32 @@ The primitive contracts are documented by the
 [Linux rename manual](https://www.man7.org/linux/man-pages/man2/renameat2.2.html)
 and [Apple's rename flag definitions](https://github.com/apple-oss-distributions/xnu/blob/main/bsd/sys/stdio.h).
 
+## Source admission and experiment ownership
+
+`analysis.lra.materialization` owns the source-to-request boundary. Its Neotoma
+admission audit retains exact source cells, count units, chronology alternatives,
+conflicts and per-sample refusals. Necessary numeric count eligibility does not
+authorize taxon grouping, PPE, chronology or basin geometry. Source audits remain
+separate products until those scientific requirements have actual evidence.
+
+`analysis.lra_validation.experiments` owns training-fold reconstruction and
+subsequent observation scoring. Its first profile is explicitly synthetic:
+`prepare_experiment_predictions` runs the existing batch/cache service, reopens
+training products, applies a named baseline and prepares target-specific forward
+geometry. The regional anchor retains its full training ancestry and is separately
+identified from local predictor sites. Both inversion and forward grids declare
+the same physical basin and selected outer support radius.
+
+Prediction publication precedes `score_experiment_predictions`, which accepts a
+separate outcome inventory and records attempted outcome access. Every requested
+fold, baseline and target receives a score or explicit failure/exclusion result.
+Changing held-out pollen cannot affect that site's training fit or frozen
+prediction. Vegetation and pollen are scored separately; training mean, nearest
+site and inverse-distance-squared are named baselines. Their deterministic
+predictions have no predictive intervals, and overlapping-fold scores do not
+constitute independent fixed-model evaluation units. The first profile does not
+admit final evaluation or empirical source observations.
+
 ## Saved-product reporting
 
 `bijux_pollenomics.reporting.lra_products.api` owns the bridge from verified saved

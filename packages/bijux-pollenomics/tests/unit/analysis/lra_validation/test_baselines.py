@@ -1,6 +1,6 @@
 """Synthetic ten-site checks prove isolation, not empirical LRA accuracy."""
 
-from typing import Any
+from typing import Any, Literal
 
 import pytest
 
@@ -225,3 +225,57 @@ def test_inverse_distance_squared_refuses_invalid_distance(distance: float) -> N
             dependency_graph={"a": ()},
             distances_km={"A": distance},
         )
+
+
+@pytest.mark.parametrize(
+    "method", ["training_mean", "nearest_site", "inverse_distance_squared"]
+)
+def test_explicit_local_predictors_keep_regional_anchor_in_training_lineage(
+    method: Literal["training_mean", "nearest_site", "inverse_distance_squared"],
+) -> None:
+    fold = Fold(
+        "outer",
+        ("anchor", "local-a", "local-b"),
+        ("target",),
+        ("ga", "gb", "gr"),
+        ("gt",),
+    )
+    graph = dict.fromkeys(fold.train_record_ids, ())
+    result = predict_spatial_baseline(
+        fold,
+        {"ga": {"tree": 0.2, "grass": 0.8}, "gb": {"tree": 0.8, "grass": 0.2}},
+        method=method,
+        input_ids=fold.train_record_ids,
+        dependency_graph=graph,
+        distances_km={"ga": 1.0, "gb": 2.0},
+        predictor_group_ids=("ga", "gb"),
+    )
+    assert "gr" not in result.selected_group_ids
+    with pytest.raises(ValidationRefusal) as raised:
+        predict_spatial_baseline(
+            fold,
+            {"ga": {"tree": 0.2, "grass": 0.8}, "gb": {"tree": 0.8, "grass": 0.2}},
+            method=method,
+            input_ids=("local-a", "local-b"),
+            dependency_graph=graph,
+            distances_km={"ga": 1.0, "gb": 2.0},
+            predictor_group_ids=("ga", "gb"),
+        )
+    assert raised.value.reason_code == "incomplete_training_lineage"
+
+
+@pytest.mark.parametrize("subset", [(), ("ga", "ga"), ("gt",), ("unknown",)])
+def test_invalid_predictor_subset_does_not_relax_outer_split(
+    subset: tuple[str, ...],
+) -> None:
+    fold = Fold("outer", ("anchor", "local"), ("target",), ("ga", "gr"), ("gt",))
+    with pytest.raises(ValidationRefusal) as raised:
+        predict_spatial_baseline(
+            fold,
+            {"ga": {"tree": 0.2, "grass": 0.8}},
+            method="training_mean",
+            input_ids=fold.train_record_ids,
+            dependency_graph=dict.fromkeys(fold.train_record_ids, ()),
+            predictor_group_ids=subset,
+        )
+    assert raised.value.reason_code == "invalid_predictor_groups"

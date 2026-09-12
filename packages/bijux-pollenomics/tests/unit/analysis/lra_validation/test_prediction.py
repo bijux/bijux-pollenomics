@@ -259,3 +259,25 @@ def test_withheld_inverse_distance_predictions_remain_outcome_independent() -> N
         )
         == first
     )
+
+
+def test_predictor_subset_binds_role_without_modifying_outer_fold() -> None:
+    fold = Fold("outer", ("anchor", "local"), ("target",), ("ga", "gr"), ("gt",))
+    model = RecordingForward()
+    result = predict_withheld_site(
+        fold,
+        "gt",
+        {"ga": {"tree": 0.7, "grass": 0.3}},
+        context(),
+        model,
+        spatial_method="training_mean",
+        training_input_ids=fold.train_record_ids,
+        dependency_graph=graph_for(fold),
+        admitted_external_ids=("regional", "parameters", "geometry", "time-support"),
+        predictor_group_ids=("ga",),
+    )
+    manifest = json.loads(result.input_manifest_json)
+    assert manifest["fold"]["train_group_ids"] == ["ga", "gr"]
+    assert manifest["predictor_group_ids"] == ["ga"]
+    assert "anchor" in manifest["allowed_input_closure"]
+    assert model.covers == [(0.7, 0.3)]

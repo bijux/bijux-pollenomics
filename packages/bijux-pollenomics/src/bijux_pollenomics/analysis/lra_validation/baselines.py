@@ -37,10 +37,13 @@ def predict_spatial_baseline(
     dependency_graph: Mapping[str, Iterable[str]],
     admitted_external_ids: Iterable[str] = (),
     distances_km: Mapping[str, float] | None = None,
+    predictor_group_ids: Iterable[str] | None = None,
 ) -> BaselinePrediction:
     """Predict compatible cover using explicitly named training-only baselines.
 
-    Keys are Fold.train_group_ids, with exactly one governed composition per site
+    Keys are all Fold.train_group_ids by default, or an explicit predictor subset.
+    Every outer training record remains required in the lineage, including a
+    regional anchor that contributes no local composition. There is one composition per site
     group. The caller documents upstream aggregation, matching temporal/footprint
     support and supplies unrounded WGS84 distances after coordinate admission.
     Equidistant nearest groups are averaged deterministically. Inverse-distance-
@@ -52,7 +55,21 @@ def predict_spatial_baseline(
     """
     if method not in {"training_mean", "nearest_site", "inverse_distance_squared"}:
         raise ValidationRefusal("unsupported_baseline", "Unknown baseline method")
-    if set(training_compositions) != set(fold.train_group_ids):
+    predictor_groups = (
+        fold.train_group_ids
+        if predictor_group_ids is None
+        else identity_values(predictor_group_ids)
+    )
+    if (
+        not predictor_groups
+        or len(set(predictor_groups)) != len(predictor_groups)
+        or not set(predictor_groups).issubset(fold.train_group_ids)
+    ):
+        raise ValidationRefusal(
+            "invalid_predictor_groups",
+            "Predictors must be a nonempty unique subset of outer training groups",
+        )
+    if set(training_compositions) != set(predictor_groups):
         raise ValidationRefusal(
             "baseline_group_mismatch",
             "Require exactly one composition per training site group",
@@ -127,6 +144,11 @@ def predict_spatial_baseline(
             "allowed_input_closure": closure,
             "input_lineage": {key: sorted(set(graph[key])) for key in closure},
             "distances_km": distances,
+            **(
+                {"predictor_group_ids": sorted(predictor_groups)}
+                if predictor_group_ids is not None
+                else {}
+            ),
         }
     )
     return BaselinePrediction(method, values, digest, selected, nearest)

@@ -138,6 +138,7 @@ def predict_withheld_site(
     dependency_graph: Mapping[str, Iterable[str]],
     admitted_external_ids: Iterable[str],
     distances_km: Mapping[str, float] | None = None,
+    predictor_group_ids: Iterable[str] | None = None,
 ) -> HeldoutPrediction:
     """Freeze p10 vegetation and pollen predictions using admitted training data.
 
@@ -155,6 +156,9 @@ def predict_withheld_site(
         raise ValidationRefusal(
             "target_not_held_out", "Prediction target must be a held-out site group"
         )
+    predictor_groups = (
+        None if predictor_group_ids is None else identity_values(predictor_group_ids)
+    )
     graph = {key: identity_values(values) for key, values in dependency_graph.items()}
     training_ids = identity_values(training_input_ids)
     externals = identity_values(admitted_external_ids)
@@ -175,6 +179,7 @@ def predict_withheld_site(
         dependency_graph=graph,
         admitted_external_ids=externals,
         distances_km=distances_km,
+        predictor_group_ids=predictor_groups,
     )
     vegetation = dict(baseline.fractions)
     if set(vegetation) != set(context.taxa):
@@ -219,6 +224,11 @@ def predict_withheld_site(
         "pollen_fraction": pollen,
         "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
         "scientific_acceptance": "not_evaluated_by_prediction",
+        **(
+            {"predictor_group_ids": sorted(predictor_groups)}
+            if predictor_groups is not None
+            else {}
+        ),
     }
     return HeldoutPrediction(
         target_group_id,
