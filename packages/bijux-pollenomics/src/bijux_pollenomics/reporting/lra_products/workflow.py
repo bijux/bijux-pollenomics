@@ -17,6 +17,7 @@ from ...analysis.lra.inputs.schema import REQUEST_SCHEMA
 from ...core.geospatial.geojson import JsonObject
 from ...core.owned_tree import publish_new_output_tree
 from ..map_document import render_multi_country_map_html
+from ..map_document.native_lra import bind_native_view
 from ..map_document.static_assets import write_static_atlas_assets
 from ..rendering.artifacts import copy_map_assets
 from ..scope_policy import MAP_SCOPE_POLICIES
@@ -127,7 +128,9 @@ def _report(
     )
 
 
-def _map(stage: Path, layers: list[dict[str, Any]]) -> str | None:
+def _map(
+    stage: Path, layers: list[dict[str, Any]], native_view: dict[str, Any]
+) -> str | None:
     if not layers:
         return None
     assets = write_static_atlas_assets(
@@ -155,6 +158,7 @@ def _map(stage: Path, layers: list[dict[str, Any]]) -> str | None:
         polygon_layers=[],
         asset_base_path="_map_assets",
         static_assets=assets,
+        native_lra=native_view,
     )
     (stage / "map.html").write_text(document)
     return str(assets.manifest["build_id"])
@@ -225,7 +229,57 @@ def render_lra_report(
         (stage / "display-geometry.json").write_bytes(geometry_bytes)
         (stage / "site-accounting.json").write_bytes(canonical(sites))
         (stage / "model-layers.json").write_bytes(canonical(layers))
-        map_build_id = _map(stage, layers)
+        anchors = {
+            row_id: (layer["key"], feature["record_id"])
+            for layer in layers
+            for feature in layer["features"]
+            for row_id in feature["model_row_ids"]
+        }
+        native_view = {
+            "schema_version": "lra-atlas-view.v1",
+            "product_manifest_sha256": expected_manifest_sha256,
+            "request_sha256": manifest["request_sha256"],
+            "scientific_content_sha256": manifest["scientific_content_sha256"],
+            "geometry_sha256": expected_geometry_sha256,
+            "data_kind": request["data_kind"],
+            "operation": request["operation"],
+            "method": {
+                "profile": request["method_profile"],
+                "configuration": request["configuration"],
+                "versions": request["versions"],
+            },
+            "scientific_acceptance": "not_evaluated",
+            "uncertainty_omissions": manifest["uncertainty_omissions"],
+            "exclusions": request["exclusions"],
+            "rows": rows,
+            "sites": [
+                dict(
+                    site,
+                    layer_key=next(
+                        (
+                            anchors[row_id][0]
+                            for row_id in site["model_row_ids"]
+                            if row_id in anchors
+                        ),
+                        None,
+                    ),
+                    anchor_id=next(
+                        (
+                            anchors[row_id][1]
+                            for row_id in site["model_row_ids"]
+                            if row_id in anchors
+                        ),
+                        None,
+                    ),
+                )
+                for site in sites
+            ],
+        }
+        native_binding = bind_native_view(native_view)
+        (stage / "native-view.json").write_text(
+            native_binding["bytes"], encoding="ascii"
+        )
+        map_build_id = _map(stage, layers, native_view)
         (stage / "index.html").write_text(
             _report(manifest, request, rows, tables, sites, map_available=bool(layers))
         )
@@ -247,8 +301,10 @@ def render_lra_report(
             "display_geometry_sha256": expected_geometry_sha256,
             "download_selection": "complete_product_and_all_rows_no_interactive_subset",
             "map_build_id": map_build_id,
+            "native_view_sha256": native_binding["sha256"],
+            "selected_download_serialization": "ECMAScript JSON.stringify + LF; UTF-8",
             "capabilities": {
-                "native_selection_filters": False,
+                "native_selection_filters": bool(layers),
                 "browser_acceptance": False,
                 "regional_footprint": False,
                 "geographic_ring_values": False,

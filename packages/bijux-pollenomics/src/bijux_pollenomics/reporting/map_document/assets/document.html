@@ -2281,6 +2281,7 @@ __CHRONOLOGY_PLAYBACK_ACTION__
               </details>
             </div>
           </div>
+          __NATIVE_LRA_CONTROLS__
         </aside>
         <section id="focus-card" class="focus-card" hidden aria-live="polite">
           <div class="focus-card-head">
@@ -2899,6 +2900,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       const SCOPE_KEY = __SCOPE_KEY_JSON__;
       const COUNTRIES = __COUNTRIES_JSON__;
+      __NATIVE_LRA_CONTROLLER__
+      const NATIVE_LRA_BINDING = __NATIVE_LRA_BINDING__;
+      let nativeLraController = null;
       const POINT_LAYERS = __POINT_LAYERS_JSON__;
       const POLYGON_LAYERS = __POLYGON_LAYERS_JSON__;
       const MODELED_CONTEXT = __MODELED_CONTEXT_JSON__;
@@ -4879,6 +4883,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           params.set('panel', sidebar.classList.contains('is-collapsed') ? 'collapsed' : 'open');
         }
         if (!legendCollapsed) params.set('legend', 'expanded');
+        if (nativeLraController) nativeLraController.writeHash(params);
         const nextHash = params.toString();
         const desiredHash = nextHash ? `#${nextHash}` : '';
         if (window.location.hash !== desiredHash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${desiredHash}`);
@@ -5991,6 +5996,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       function pointFeatureVisible(layer, feature) {
         return (
           activeLayerKeys.has(layer.key)
+          && (layer.semantic_role !== 'exploratory_lra_model_anchor' || (nativeLraController && nativeLraController.anchorVisible(feature.record_id)))
           && (!((layer.semantic_role === 'animal_source_chronology_context' || layer.group === 'animal-chronology-context')) || (animalSourceChronologyLayerIsValid(layer) && animalSourceChronologyFeatureIsValid(feature)))
           && featureCoordinatePair(feature) !== null
           && (!layer.applies_country_filter || animalSourceChronologyCountryFilterBypassed(layer) || activeCountries.has(feature.country))
@@ -6119,7 +6125,12 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             if (!coordinates) return;
             const latLng = [coordinates.latitude, coordinates.longitude];
             const scientificSignals = scientificSignalsForFeature(feature);
-            const marker = scientificSignals.length
+            const nativeModel = layer.semantic_role === 'exploratory_lra_model_anchor';
+            const nativeRole = nativeModel && nativeLraController.selectedRowsForAnchor(feature.record_id)[0]?.role;
+            const marker = nativeModel
+              ? L.marker(latLng, {pane: 'pointPane', title: `Exploratory ${nativeRole} model; synthetic display anchor`,
+                  icon: L.divIcon({className: 'atlas-native-lra-marker', html: `<span data-lra-anchor-id="${escapeHtml(feature.record_id)}" data-lra-role="${escapeHtml(nativeRole)}" style="display:block;background:white;border:2px solid #111827;border-radius:4px;text-align:center;font-weight:bold;color:#111827">${nativeRole === 'regional' ? 'R' : 'L'}</span>`, iconSize: [26, 26]})})
+              : scientificSignals.length
               ? L.marker(latLng, {
                   pane: 'pointPane',
                   icon: L.divIcon({
@@ -6129,7 +6140,14 @@ __STATIC_CHUNK_SCRIPT_TAGS__
                   }),
                 })
               : L.circleMarker(latLng, { pane: 'pointPane', radius: layer.key === 'aadr' ? 4.5 : 6, color: layer.style.stroke, weight: 1.3, fillColor: layer.style.fill, fillOpacity: 0.92 });
-            marker.bindPopup(popupHtml(feature, layer), { maxWidth: 360 });
+            const popupFeature = nativeModel ? {...feature, popup_rows: [
+              ...(feature.popup_rows || []).filter(row => !String(row.label).startsWith('Mean ')),
+              ...nativeLraController.selectedRowsForAnchor(feature.record_id).filter(row => row.statistic === 'mean').map(row => ({
+                label: `Mean ${row.taxon}${row.spatial_support.ring ? ` · ring ${row.spatial_support.ring.inner_m}–${row.spatial_support.ring.outer_m} m` : ''} (${row.native_unit})`,
+                value: row.native_value === null ? 'N/A (source statistic unavailable)' : row.native_value,
+              })),
+            ]} : feature;
+            marker.bindPopup(popupHtml(popupFeature, layer), { maxWidth: 360 });
             const entry = { layer, feature, marker };
             marker.on('click', () => {
               focusPointAtVisibleIndex(visiblePointEntries.indexOf(entry));
@@ -6423,6 +6441,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function renderLoadedMapState() {
         refreshTimeControls();
+        if (nativeLraController) nativeLraController.render();
         removeRenderedLayers();
         renderPointLayers();
         renderEdgeLayers();
@@ -7337,6 +7356,18 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       });
       legendToggleButton.addEventListener('click', () => setLegendCollapsed(!legendCollapsed));
       window.addEventListener('resize', () => window.setTimeout(() => map.invalidateSize(), 120));
+      if (NATIVE_LRA_BINDING !== null) {
+        if (await staticAtlasSha256(NATIVE_LRA_BINDING.bytes) !== NATIVE_LRA_BINDING.sha256) throw Error('Native LRA view byte identity mismatch.');
+        const nativeView = JSON.parse(NATIVE_LRA_BINDING.bytes);
+        nativeLraController = createNativeLraController(nativeView, NATIVE_LRA_BINDING.sha256, {
+          sha256: staticAtlasSha256,
+          globalContext: () => ({time_window_bp: [timeStartBp, timeWindowEndBp()], active_layer_keys: [...activeLayerKeys]}),
+          changed: () => renderMapState(),
+        });
+        nativeLraController.restoreHash(new URLSearchParams(window.location.hash.slice(1)));
+        nativeLraController.mount();
+        window.__BIJUX_LRA_VIEW__ = Object.freeze({snapshot: nativeLraController.snapshot, setSelection: nativeLraController.setSelection, exportSelection: nativeLraController.exportSelection});
+      }
       densityOpacitySlider.value = String(Math.round(densityOpacity * 100));
       slider.value = String(clampDiameter(initialState.diameter));
       setPanelCollapsed(panelPreferenceFromHash() ?? defaultPanelCollapsed(), false);

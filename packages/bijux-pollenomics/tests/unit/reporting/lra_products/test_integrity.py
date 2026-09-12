@@ -66,8 +66,10 @@ def test_changed_or_ambiguous_inputs_cannot_publish(
     else:
         original = workflow._map
 
-        def mutate(stage: Path, layers: list[dict[str, object]]) -> str | None:
-            result = original(stage, layers)
+        def mutate(
+            stage: Path, layers: list[dict[str, object]], native_view: dict[str, object]
+        ) -> str | None:
+            result = original(stage, layers, native_view)
             if change == "geometry":
                 geometry.write_bytes(geometry.read_bytes() + b" ")
             else:

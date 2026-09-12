@@ -128,3 +128,30 @@ execution evidence does not certify the other operating systems.
 The primitive contracts are documented by the
 [Linux rename manual](https://www.man7.org/linux/man-pages/man2/renameat2.2.html)
 and [Apple's rename flag definitions](https://github.com/apple-oss-distributions/xnu/blob/main/bsd/sys/stdio.h).
+
+## Saved-product reporting
+
+`bijux_pollenomics.reporting.lra_products.api` owns the bridge from verified saved
+products to exploratory reports. It uses the host's existing static atlas writer,
+map renderer and shared exclusive-output publisher. Reporting never invokes the
+numerical engine. Display geometry is a separate, hash-pinned input bound to the
+product and site identities; reconstruction ring coordinates do not become map
+locations or geographic footprints.
+
+The first mapped profile admits synthetic paired reconstructions with one
+nonnegative, typed BP bin and explicit point anchors. Unsupported geography,
+profiles or temporal support remain in the tables and refusal accounting.
+Regional and local model anchors carry textual R/L cues. These are model context,
+not measured vegetation, propagation edges or accepted scientific reconstructions.
+
+One native selection controls roles, sites, taxa and bins across the table,
+anchors, URL and selected download. Shared time and layer controls also constrain
+mapped rows. Rows refused geographic display remain inspectable under the native
+selection, with that temporal-refusal policy declared in the export. Original CSV
+decimal text and missing values retain their source locators and units.
+
+The native view has an independent digest, avoiding a cycle with the enclosing
+report manifest. URLs bind that digest and a validated selection; stale or
+malformed selections visibly refuse export until corrected. Selected downloads
+declare their JSON serialization and hash the exact emitted UTF-8 bytes. Neither
+a matching digest nor an interactive report establishes ecological accuracy.

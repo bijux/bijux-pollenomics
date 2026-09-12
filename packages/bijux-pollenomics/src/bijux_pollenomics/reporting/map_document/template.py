@@ -19,5 +19,11 @@ def load_map_document_template() -> str:
 
 
 MAP_DOCUMENT_TEMPLATE: Final = load_map_document_template()
+NATIVE_LRA_CONTROLLER: Final = (
+    files(__package__)
+    .joinpath("assets")
+    .joinpath("native-lra.js")
+    .read_text(encoding="utf-8")
+)
 
 __all__ = ["MAP_DOCUMENT_TEMPLATE", "load_map_document_template"]
