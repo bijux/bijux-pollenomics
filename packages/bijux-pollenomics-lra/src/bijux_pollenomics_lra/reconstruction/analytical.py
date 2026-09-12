@@ -19,12 +19,21 @@ from bijux_pollenomics_lra.models.validation import (
     sample_counts,
     vector,
 )
-from bijux_pollenomics_lra.reconstruction.draws import multidraw, rnorm_reveals
+from bijux_pollenomics_lra.reconstruction.draws import (
+    multidraw,
+    rmultinom_reveals,
+    rnorm_reveals,
+)
 from bijux_pollenomics_lra.reconstruction.inputs import (
     _prepare_inputs,
     _regional_cover,
     _summary_frames,
 )
+from bijux_pollenomics_lra.reconstruction.preparation import (
+    PreparedAnalyticalInputs,
+    prepare_analytical_inputs,
+)
+from bijux_pollenomics_lra.reconstruction.regional import reveals_cover
 
 
 class AnalyticalOutput(TypedDict):
@@ -66,16 +75,40 @@ def lov(
     if stochastic is not None:
         use_error = use_error and bool(stochastic)
 
+    return _lov_arrays(
+        observed,
+        ppe_table["ppe"].to_numpy(dtype=float),
+        ppe_table["ppe.error"].to_numpy(dtype=float),
+        use_error,
+        sr,
+        generator,
+        alpha=alpha,
+        counts=counts,
+    )
+
+
+def _lov_arrays(
+    observed: np.ndarray,
+    means: np.ndarray,
+    errors: np.ndarray,
+    use_error: bool,
+    sr: object,
+    generator: np.random.Generator,
+    *,
+    alpha: object | None,
+    counts: object | None,
+) -> np.ndarray:
+    """Evaluate the existing local draw/equation path with prepared invariants."""
     if alpha is None:
         alpha_values = (
             rnorm_reveals(
-                len(ppe_table),
-                ppe_table["ppe"],
-                ppe_table["ppe.error"],
+                len(means),
+                means,
+                errors,
                 rng=generator,
             )
             if use_error
-            else ppe_table["ppe"].to_numpy(dtype=float)
+            else means
         )
     else:
         alpha_values = vector(alpha, "alpha", positive=True)
@@ -99,6 +132,32 @@ def lov(
         weighted = count_values / alpha_values
         relative = weighted / weighted.sum()
         return np.asarray(relative * (1 + regional_term.sum()) - regional_term)
+
+
+def _prepared_regional_cover(
+    prepared: PreparedAnalyticalInputs,
+    generator: np.random.Generator,
+    stochastic: bool,
+) -> np.ndarray:
+    """Preserve one REVEALS draw, percentage rounding, and fraction conversion."""
+    alpha = (
+        rnorm_reveals(
+            len(prepared.ppe_means),
+            prepared.ppe_means,
+            prepared.ppe_errors,
+            rng=generator,
+        )
+        if stochastic
+        else prepared.ppe_means
+    )
+    pollen = (
+        rmultinom_reveals(n=1, pollen=prepared.regional_counts, rng=generator).reshape(
+            -1
+        )
+        if stochastic
+        else prepared.regional_counts
+    )
+    return reveals_cover(pollen, alpha, prepared.regional_deposition) / 100
 
 
 def LOVEr(
@@ -183,15 +242,27 @@ def LOVEr(
         if supplied is not None and np.asarray(supplied).shape != samples.shape:
             raise ValidationError(f"{name} must have shape {samples.shape}")
 
+    prepared = prepare_analytical_inputs(
+        local,
+        regional,
+        ppe_table,
+        lParams,
+        stochastic=stochastic,
+        needs_regional_deposition=regional_cover_draws is None,
+    )
     for repeat_index in range(repeat_count):
-        regional_cover = _regional_cover(
-            regional,
-            ppe_table,
-            lParams,
-            generator,
-            stochastic,
-            regional_cover_draws,
-            repeat_index,
+        regional_cover = (
+            _prepared_regional_cover(prepared, generator, stochastic)
+            if regional_cover_draws is None
+            else _regional_cover(
+                regional,
+                ppe_table,
+                lParams,
+                generator,
+                stochastic,
+                regional_cover_draws,
+                repeat_index,
+            )
         )
         for ring_index in range(maximum_ring):
             if not valid_ring[ring_index]:
@@ -202,12 +273,13 @@ def LOVEr(
                     "LOVE regional correction denominator is zero or undefined"
                 )
             regional_correction = regional_cover * regional_k[ring_index] / denominator
-            samples[repeat_index, ring_index] = lov(
-                local,
+            samples[repeat_index, ring_index] = _lov_arrays(
+                prepared.local_counts,
+                prepared.ppe_means,
+                prepared.ppe_errors,
+                prepared.local_error,
                 regional_correction,
-                lParams,
-                rng=generator,
-                stochastic=stochastic,
+                generator,
                 alpha=(
                     None
                     if local_ppe_draws is None
