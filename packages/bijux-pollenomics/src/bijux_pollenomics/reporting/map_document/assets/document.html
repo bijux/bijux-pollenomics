@@ -1006,6 +1006,10 @@
         width: 100%;
         padding: 0 12px 12px;
       }
+      #lra-controls[hidden] { display: none; }
+      #lra-controls .search-input { min-width: 0; padding-right: 14px; }
+      #lra-controls .search-meta { margin: 0; overflow-wrap: anywhere; }
+      .lra-estimates-scroll { max-height: 240px; overflow: auto; }
       .dock-actions,
       .dock-presets,
       .dock-layer-grid {
@@ -2001,6 +2005,7 @@
               </div>
             </div>
             <div class="control-panel-body">
+              __NATIVE_LRA_CONTROLS__
               <details id="view-controls" class="control-group">
                 <summary class="control-group-head">
                   <div>
@@ -2281,7 +2286,6 @@ __CHRONOLOGY_PLAYBACK_ACTION__
               </details>
             </div>
           </div>
-          __NATIVE_LRA_CONTROLS__
         </aside>
         <section id="focus-card" class="focus-card" hidden aria-live="polite">
           <div class="focus-card-head">

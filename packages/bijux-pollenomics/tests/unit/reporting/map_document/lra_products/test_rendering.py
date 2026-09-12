@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from html.parser import HTMLParser
 import json
 from pathlib import Path
 import re
@@ -125,3 +126,49 @@ def test_view_and_actual_layer_cannot_disagree(case: str) -> None:
         layers[0]["features"][0]["age_type"] = "calibrated_bp"
     with pytest.raises(ValueError):
         validate_native_layers(view, layers)
+
+
+def test_native_controls_belong_to_the_scrollable_drawer() -> None:
+    class DrawerParser(HTMLParser):
+        def __init__(self) -> None:
+            super().__init__()
+            self.stack: list[tuple[str, dict[str, str | None]]] = []
+            self.elements: dict[str, tuple[dict[str, str | None], list[str]]] = {}
+
+        def handle_starttag(
+            self, tag: str, attrs: list[tuple[str, str | None]]
+        ) -> None:
+            attributes = dict(attrs)
+            identity = attributes.get("id")
+            if identity:
+                self.elements[identity] = (
+                    attributes,
+                    [item.get("class", "") or "" for _, item in self.stack],
+                )
+            if tag not in {"meta", "link", "input", "br", "hr", "img"}:
+                self.stack.append((tag, attributes))
+
+        def handle_endtag(self, tag: str) -> None:
+            for index in range(len(self.stack) - 1, -1, -1):
+                if self.stack[index][0] == tag:
+                    del self.stack[index:]
+                    break
+
+    parser = DrawerParser()
+    parser.feed(_render(view_fixture()))
+    for identity in (
+        "lra-controls",
+        "lra-role",
+        "lra-site",
+        "lra-taxon",
+        "lra-bin",
+        "lra-estimates",
+        "lra-download",
+    ):
+        assert "control-panel-body" in parser.elements[identity][1]
+    for identity in ("lra-role", "lra-site", "lra-taxon", "lra-bin"):
+        assert "search-input" in (parser.elements[identity][0]["class"] or "").split()
+    assert "lra-estimates-scroll" in " ".join(parser.elements["lra-estimates"][1])
+    assert (
+        "inline-button" in (parser.elements["lra-download"][0]["class"] or "").split()
+    )

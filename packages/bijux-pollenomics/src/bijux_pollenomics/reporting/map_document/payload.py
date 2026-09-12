@@ -81,22 +81,38 @@ def build_map_document_payload(
         if native_lra is not None
         else "",
         "__NATIVE_LRA_CONTROLS__": (
-            '<section id="lra-controls" hidden aria-label="Native exploratory LRA estimates">'
-            "<h2>Exploratory LRA estimates</h2><p>R: regional REVEALS percent; L: local LOVE fraction. "
+            '<details id="lra-controls" class="control-group" hidden open '
+            'aria-label="Native exploratory LRA estimates">'
+            '<summary class="control-group-head"><div>'
+            '<span class="control-group-label">Model estimates</span>'
+            "<h3>Exploratory LRA</h3></div></summary>"
+            '<div class="control-group-body">'
+            '<p class="search-meta">R: regional REVEALS percent; L: local LOVE fraction. '
             "Display anchors are synthetic, not estimate footprints. N/A remains missing. "
             "q10/q90 are method quantiles, not total uncertainty or prediction intervals.</p>"
-            "<p>Multiple selections are supported. An empty selection contains zero values.</p>"
-            '<label for="lra-role">Model role</label><select id="lra-role" multiple></select>'
-            '<label for="lra-site">Site</label><select id="lra-site" multiple></select>'
-            '<label for="lra-taxon">Taxon</label><select id="lra-taxon" multiple></select>'
-            '<label for="lra-bin">Declared time bin</label><select id="lra-bin" multiple></select>'
-            '<p id="lra-selection-status" role="status" aria-live="polite"></p>'
-            '<div style="overflow:auto;max-height:360px"><table id="lra-estimates"><thead><tr>'
+            '<p class="search-meta">Multiple selections are supported. '
+            "An empty selection contains zero values.</p>"
+            '<label class="field-label" for="lra-role">Model role</label>'
+            '<select id="lra-role" class="search-input" multiple size="2"></select>'
+            '<label class="field-label" for="lra-site">Site</label>'
+            '<select id="lra-site" class="search-input" multiple size="2"></select>'
+            '<label class="field-label" for="lra-taxon">Taxon</label>'
+            '<select id="lra-taxon" class="search-input" multiple size="3"></select>'
+            '<label class="field-label" for="lra-bin">Declared time bin</label>'
+            '<select id="lra-bin" class="search-input" multiple size="2"></select>'
+            '<p id="lra-selection-status" class="search-meta" '
+            'role="status" aria-live="polite"></p>'
+            '<div class="focus-detail-table-wrap lra-estimates-scroll" tabindex="0" '
+            'role="region" aria-label="Selected native model values">'
+            '<table id="lra-estimates" class="focus-detail-table"><thead><tr>'
             "<th>Role</th><th>Site</th><th>Taxon</th><th>Statistic</th><th>Value</th><th>Native unit</th>"
             "</tr></thead><tbody></tbody></table></div>"
-            '<button id="lra-download" type="button">Download selected estimates</button>'
-            '<p><a href="native-view.json">Complete bound model view</a> · '
-            '<a href="index.html">Complete report and original product downloads</a></p></section>'
+            '<div class="inline-actions"><button id="lra-download" '
+            'class="inline-button is-primary" type="button">'
+            "Download selected estimates</button></div>"
+            '<p class="search-meta"><a href="native-view.json">Complete bound model view</a> · '
+            '<a href="index.html">Complete report and original product downloads</a>'
+            "</p></div></details>"
             if native_lra is not None
             else ""
         ),
