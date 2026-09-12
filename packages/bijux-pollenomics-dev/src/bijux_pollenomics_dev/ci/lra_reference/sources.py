@@ -175,11 +175,13 @@ def _verify_dependency_closure(lock: ReferenceLock, paths: dict[str, Path]) -> N
 
 
 SOURCE_DIRECTORIES = (
+    "packages/bijux-pollenomics/src",
     "packages/bijux-pollenomics-lra/src",
     "packages/bijux-pollenomics-lra/tests/reference",
     "packages/bijux-pollenomics-dev/src",
 )
 SOURCE_METADATA = (
+    "packages/bijux-pollenomics/pyproject.toml",
     "uv.lock",
     "pyproject.toml",
     "packages/bijux-pollenomics-lra/pyproject.toml",
