@@ -227,6 +227,34 @@ with uncertainty, parameter selection and final evaluation left to separately
 governed experiment stages. The current baseline experiment runner does not
 silently substitute this fitted model for any named baseline.
 
+`analysis.lra_validation.evaluation.api` evaluates a complete, separately
+frozen observation ledger against an explicit v2 policy. The policy supplies
+reviewed reference identities, per-target thresholds, independent site/block
+minimums, permitted exclusions and predictive-coverage requirements. This API
+supplies no thresholds or scientific approval. Its receipt distinguishes passing
+engineering criteria from authenticating the declared review.
+
+Every baseline/model pair must share its observation, taxon denominator and
+geographic/temporal support. Errors are averaged equally within independent site
+groups and then across groups; failures and exclusions retain their requested
+denominators. Unrounded WGS84 separation accounts for footprint radii and
+coordinate uncertainty, including regional source support. Exact support
+matching includes coordinates and uncertainty, even when footprint hashes agree.
+
+The shared channel guard preserves the original outer fold. Local pollen requires
+explicitly pinned target pollen channels; held-out vegetation, other target
+pollen and actual dependencies on held-out record owners remain forbidden.
+Ownership metadata is distinct from a quantitative dependency edge. The host
+must verify the declared channel bytes; an identity catalogue alone is not source
+authentication.
+
+Conditional site/block bootstrap summaries require one fixed fitted model and a
+complete external evaluation cohort. They preserve paired comparisons and equal
+group weighting with unequal block sizes. They cannot treat overlapping
+cross-validation fits as independent models or replace predictive observation
+intervals. Synthetic policy examples demonstrate these controls without claiming
+reviewed vegetation references or empirical reconstruction accuracy.
+
 ## Saved-product reporting
 
 `bijux_pollenomics.reporting.lra_products.api` owns the bridge from verified saved

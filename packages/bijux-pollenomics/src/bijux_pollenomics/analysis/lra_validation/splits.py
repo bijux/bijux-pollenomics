@@ -152,6 +152,19 @@ def assert_allowed_inputs(
         )
     allowed = set(fold.train_record_ids) | set(identity_values(admitted_external_ids))
     forbidden = set(fold.test_record_ids)
+    return _input_closure(
+        inputs, dependency_graph, allowed=allowed, forbidden=forbidden
+    )
+
+
+def _input_closure(
+    inputs: tuple[str, ...],
+    dependency_graph: Mapping[str, Iterable[str]],
+    *,
+    allowed: set[str],
+    forbidden: set[str],
+) -> tuple[str, ...]:
+    """Walk original quantitative edges under an explicitly constructed admission."""
     graph = {
         required_identity(key): identity_values(values)
         for key, values in dependency_graph.items()
