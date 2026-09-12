@@ -152,3 +152,76 @@ def test_fit_identity_captures_dependency_edges_not_only_closure_nodes() -> None
     )
     assert first.fractions == second.fractions
     assert first.training_manifest_sha256 != second.training_manifest_sha256
+
+
+def test_inverse_distance_squared_has_hand_calculated_weights_and_bound_identity() -> (
+    None
+):
+    fold = Fold("fixed", ("a", "b"), ("c",), ("A", "B"), ("C",))
+    training = {"A": {"tree": 1.0, "grass": 0.0}, "B": {"tree": 0.0, "grass": 1.0}}
+    kwargs: dict[str, Any] = {
+        "method": "inverse_distance_squared",
+        "input_ids": fold.train_record_ids,
+        "dependency_graph": {"a": (), "b": ()},
+    }
+    first = predict_spatial_baseline(
+        fold, training, distances_km={"A": 1.0, "B": 2.0}, **kwargs
+    )
+    assert dict(first.fractions) == pytest.approx({"tree": 0.8, "grass": 0.2})
+    assert first.selected_group_ids == ("A", "B")
+    for scale in (1e-300, 1e300):
+        scaled = predict_spatial_baseline(
+            fold, training, distances_km={"A": scale, "B": 2 * scale}, **kwargs
+        )
+        assert scaled.fractions == first.fractions
+        assert scaled.training_manifest_sha256 != first.training_manifest_sha256
+    changed = predict_spatial_baseline(
+        fold, training, distances_km={"A": 1.0, "B": 3.0}, **kwargs
+    )
+    assert dict(changed.fractions) == pytest.approx({"tree": 0.9, "grass": 0.1})
+    assert changed.training_manifest_sha256 != first.training_manifest_sha256
+    with pytest.raises(ValidationRefusal, match="requires admitted site distances"):
+        predict_spatial_baseline(fold, training, **kwargs)
+
+
+def test_inverse_distance_squared_averages_only_exact_colocated_ties() -> None:
+    fold = Fold("fixed", ("a", "b", "c"), ("d",), ("A", "B", "C"), ("D",))
+    training = {
+        "A": {"tree": 1.0, "grass": 0.0},
+        "B": {"tree": 0.0, "grass": 1.0},
+        "C": {"tree": 0.9, "grass": 0.1},
+    }
+    kwargs: dict[str, Any] = {
+        "method": "inverse_distance_squared",
+        "input_ids": fold.train_record_ids,
+        "dependency_graph": dict.fromkeys(fold.train_record_ids, ()),
+        "distances_km": {"A": 0.0, "B": 0.0, "C": 1e-300},
+    }
+    first = predict_spatial_baseline(fold, training, **kwargs)
+    assert dict(first.fractions) == {"tree": 0.5, "grass": 0.5}
+    assert first.selected_group_ids == ("A", "B")
+    assert first.nearest_training_distance_km == 0
+    assert (
+        predict_spatial_baseline(
+            fold, dict(reversed(tuple(training.items()))), **kwargs
+        )
+        == first
+    )
+    kwargs["dependency_graph"]["a"] = ("d",)
+    with pytest.raises(ValidationRefusal) as error:
+        predict_spatial_baseline(fold, training, **kwargs)
+    assert error.value.reason_code == "withheld_input_leakage"
+
+
+@pytest.mark.parametrize("distance", [-1.0, float("inf"), float("nan"), True])
+def test_inverse_distance_squared_refuses_invalid_distance(distance: float) -> None:
+    fold = Fold("fixed", ("a",), ("b",), ("A",), ("B",))
+    with pytest.raises(ValidationRefusal):
+        predict_spatial_baseline(
+            fold,
+            {"A": {"tree": 1.0}},
+            method="inverse_distance_squared",
+            input_ids=("a",),
+            dependency_graph={"a": ()},
+            distances_km={"A": distance},
+        )

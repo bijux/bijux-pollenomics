@@ -32,21 +32,25 @@ def predict_spatial_baseline(
     fold: Fold,
     training_compositions: Mapping[str, Mapping[str, float]],
     *,
-    method: Literal["training_mean", "nearest_site"],
+    method: Literal["training_mean", "nearest_site", "inverse_distance_squared"],
     input_ids: Iterable[str],
     dependency_graph: Mapping[str, Iterable[str]],
     admitted_external_ids: Iterable[str] = (),
     distances_km: Mapping[str, float] | None = None,
 ) -> BaselinePrediction:
-    """Predict compatible cover using training-site mean or nearest-site mean.
+    """Predict compatible cover using explicitly named training-only baselines.
 
     Keys are Fold.train_group_ids, with exactly one governed composition per site
     group. The caller documents upstream aggregation, matching temporal/footprint
     support and supplies unrounded WGS84 distances after coordinate admission.
-    Equidistant nearest groups are averaged deterministically. This is a baseline,
+    Equidistant nearest groups are averaged deterministically. Inverse-distance-
+    squared weights use all groups unless exact zero-distance ties exist; those
+    colocated groups alone are averaged. Distances are not rounded or fitted here.
+    The fixed exponent is a declared engineering profile, not a tuned optimum.
+    Weights are scaled by the nearest positive distance to avoid overflow. This is a baseline,
     not LOVE at an unobserved site, and has no calibrated uncertainty promise.
     """
-    if method not in {"training_mean", "nearest_site"}:
+    if method not in {"training_mean", "nearest_site", "inverse_distance_squared"}:
         raise ValidationRefusal("unsupported_baseline", "Unknown baseline method")
     if set(training_compositions) != set(fold.train_group_ids):
         raise ValidationRefusal(
@@ -86,21 +90,34 @@ def predict_spatial_baseline(
         if any(value < 0 for value in distances.values()):
             raise ValidationRefusal("invalid_distance", "Distances cannot be negative")
         nearest = min(distances.values())
-    if method == "nearest_site" and distances is None:
+    if method != "training_mean" and distances is None:
         raise ValidationRefusal(
             "missing_prediction_geometry",
-            "Nearest-site prediction requires admitted site distances",
+            "Distance-based prediction requires admitted site distances",
         )
     selected = tuple(
         key
         for key in compositions
         if method == "training_mean"
+        or (method == "inverse_distance_squared" and nearest != 0)
         or (distances is not None and distances[key] == nearest)
     )
     values = tuple(
         (taxon, sum(compositions[key][taxon] for key in selected) / len(selected))
         for taxon in sorted(taxa)
     )
+    if method == "inverse_distance_squared" and nearest != 0:
+        assert distances is not None and nearest is not None
+        weights = {key: (nearest / distances[key]) ** 2 for key in selected}
+        total_weight = sum(weights.values())
+        values = tuple(
+            (
+                taxon,
+                sum(compositions[key][taxon] * weights[key] for key in selected)
+                / total_weight,
+            )
+            for taxon in sorted(taxa)
+        )
     digest = manifest_sha256(
         {
             "schema_version": "lra-spatial-baseline-inputs.v1",

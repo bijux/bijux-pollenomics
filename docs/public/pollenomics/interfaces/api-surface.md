@@ -222,3 +222,28 @@ Advanced numerical
 callers may use `bijux_pollenomics_lra.api`; doing so alone does not create an
 admitted host product. The request schema and unsupported assumptions are
 described in [LRA engine integration](../architecture/lra-engine.md).
+
+## Held-out prediction primitives
+
+`bijux_pollenomics.analysis.lra_validation` separates frozen prediction from
+vegetation and pollen scoring. `predict_spatial_baseline` requires exactly one
+admitted closed taxon composition per training-site group and verifies the
+complete dependency graph against the held-out fold. Its named methods are
+`training_mean`, `nearest_site`, and `inverse_distance_squared`.
+
+Distance methods require an unrounded admitted distance for every training
+group. Nearest-site ties are averaged. The fixed inverse-square method uses all
+training groups, except that exact zero-distance ties are averaged on their own.
+Its weights are scaled before normalization to avoid overflowing at small
+distances; distances and method remain part of the input identity. Neither the
+exponent nor the neighborhood is selected using held-out outcomes. These are
+deterministic baselines without predictive intervals or a fitted spatial model.
+
+`predict_withheld_site` passes the selected vegetation prediction and separately
+admitted regional, parameter, geometry and temporal inputs to the numerical
+forward callable. It accepts no held-out pollen count or count total. Its frozen
+result can subsequently be evaluated with `score_vegetation` and `score_pollen`;
+the latter conditions on the now-observed count total. Missing targets and
+incompatible taxon denominators remain explicit. These primitives do not
+materialize real source observations, choose a regional background, authenticate
+scientific review, or constitute a complete experiment runner.

@@ -131,7 +131,9 @@ def predict_withheld_site(
     context: ForwardInputs,
     forward_model: ForwardModel,
     *,
-    spatial_method: Literal["training_mean", "nearest_site"],
+    spatial_method: Literal[
+        "training_mean", "nearest_site", "inverse_distance_squared"
+    ],
     training_input_ids: Iterable[str],
     dependency_graph: Mapping[str, Iterable[str]],
     admitted_external_ids: Iterable[str],

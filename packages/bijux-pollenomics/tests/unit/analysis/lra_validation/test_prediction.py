@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass, replace
 import json
+from typing import Any
 
 import pytest
 
@@ -217,3 +218,44 @@ def test_ten_site_rotations_freeze_both_targets_before_observation_access() -> N
         assert prediction.prediction_manifest_sha256 == frozen
         assert vegetation.target == "vegetation_cover"
         assert pollen.target == "pollen_composition"
+
+
+def test_withheld_inverse_distance_predictions_remain_outcome_independent() -> None:
+    fold = Fold("fixed", ("a", "b"), ("test",), ("A", "B"), ("T",))
+    model = RecordingForward()
+    kwargs: dict[str, Any] = {
+        "training_input_ids": fold.train_record_ids,
+        "dependency_graph": graph_for(fold),
+        "admitted_external_ids": ("regional", "parameters", "geometry", "time-support"),
+        "distances_km": {"A": 1.0, "B": 2.0},
+    }
+    training = {"A": {"tree": 1.0, "grass": 0.0}, "B": {"tree": 0.0, "grass": 1.0}}
+    first = predict_withheld_site(
+        fold,
+        "T",
+        training,
+        context(),
+        model,
+        spatial_method="inverse_distance_squared",
+        **kwargs,
+    )
+    assert model.covers == [(0.8, 0.2)]
+    assert first.spatial_method == "inverse_distance_squared"
+    assert score_vegetation(
+        dict(first.vegetation_fraction), {"tree": 1.0, "grass": 0.0}
+    ) != score_vegetation(dict(first.vegetation_fraction), {"tree": 0.0, "grass": 1.0})
+    assert score_pollen(
+        dict(first.pollen_fraction), {"tree": 9, "grass": 1}
+    ) != score_pollen(dict(first.pollen_fraction), {"tree": 1, "grass": 9})
+    assert (
+        predict_withheld_site(
+            fold,
+            "T",
+            training,
+            context(),
+            model,
+            spatial_method="inverse_distance_squared",
+            **kwargs,
+        )
+        == first
+    )
