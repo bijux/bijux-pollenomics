@@ -15,21 +15,15 @@ from bijux_pollenomics.evidence.sources.neotoma.contract import COUNTRY_CODES
 
 from .models import AdmissionReport, canonical_bytes, producer_identity
 from .neotoma import MISSING_LRA_EVIDENCE, source_accounting
+from .paths import checked_output_directory
 from .reading import NeotomaEvidence, read_neotoma_evidence
 
 
 def output_destination(path: Path, evidence: NeotomaEvidence) -> Path:
     """Refuse unsafe or source-overlapping output before creating any files."""
-    absolute = path.absolute()
-    if any(parent.is_symlink() for parent in (absolute, *absolute.parents)):
-        raise ValueError("Admission output must not traverse symlinks")
-    destination = Path(os.path.abspath(absolute))
-    for root in (evidence.raw_root, evidence.normalized_root):
-        if destination.is_relative_to(root) or root.is_relative_to(destination):
-            raise ValueError("Admission output must not overlap a source authority")
-    if destination.exists():
-        raise FileExistsError(destination)
-    return destination
+    return checked_output_directory(
+        path, input_roots=(evidence.raw_root, evidence.normalized_root)
+    )
 
 
 def run_materialization(

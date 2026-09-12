@@ -55,13 +55,20 @@ def assess_count(row: Mapping[str, object]) -> CountAssessment:
         return CountAssessment("refused", "inconsistent_unit_family", None, status)
     if declared_unit != "count":
         return CountAssessment("refused", "source_unit_is_not_count", None, status)
-    value = row.get("source_value")
+    exact_count, reason = assess_nonnegative_integer(row.get("source_value"))
+    if reason is not None:
+        return CountAssessment("refused", reason, None, status)
+    return CountAssessment("count_candidate", None, exact_count, status)
+
+
+def assess_nonnegative_integer(value: object) -> tuple[int | None, str | None]:
+    """Check scalar compatibility only, without inferring units or pollen identity."""
     if isinstance(value, bool) or not isinstance(value, (int, float)):
-        return CountAssessment("refused", "count_is_not_numeric", None, status)
+        return None, "count_is_not_numeric"
     if isinstance(value, float) and (
         not math.isfinite(value) or not value.is_integer()
     ):
-        return CountAssessment("refused", "count_is_not_finite_integer", None, status)
+        return None, "count_is_not_finite_integer"
     if value < 0:
-        return CountAssessment("refused", "negative_count", None, status)
-    return CountAssessment("count_candidate", None, int(value), status)
+        return None, "negative_count"
+    return int(value), None

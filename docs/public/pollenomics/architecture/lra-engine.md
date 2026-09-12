@@ -145,6 +145,23 @@ conflicts and per-sample refusals. Necessary numeric count eligibility does not
 authorize taxon grouping, PPE, chronology or basin geometry. Source audits remain
 separate products until those scientific requirements have actual evidence.
 
+The SEAD source-admission audit is available through
+`analysis.lra.materialization.sead.audit_sead_lra_source`. It consumes caller-pinned
+full-evidence acquisition identities, the existing normalized bundle and its
+country-boundary authority. The source-owned normalizer is replayed against every
+logical document before audit rows are emitted. Observation records retain native
+values, units, source taxonomy, elements, dataset methods and dimensions; chronology
+claims remain unselected at their original analysis entity. Numeric integer
+compatibility, an explicit source absolute-element-count declaration and an observed
+Palynology method link are reported separately. None constitutes approved pollen
+grain counts. The output is a hash-bound audit with zero scientific admissions,
+without importing or running the numerical engine.
+`AdmissionReport.available_samples` and `selected_samples` count unique
+entity-linked physical samples in this all-source audit; the manifest separately
+accounts for analysis entities, observation-bearing entities, the complete raw
+physical-sample denominator and samples without analysis entities. All61source-table
+row counts remain explicit, including empty tables.
+
 The private `analysis.lra.materialization.requests` facade projects explicitly
 declared synthetic Neotoma fixtures into the existing `lra-request.v1` contract.
 It requires synthetic origin and country inputs bound in the raw receipts, replays

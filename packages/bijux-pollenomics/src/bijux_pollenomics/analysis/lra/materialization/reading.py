@@ -54,7 +54,8 @@ def checked_directory(path: Path) -> Path:
     return root
 
 
-def _files(root: Path) -> tuple[tuple[str, str], ...]:
+def evidence_inventory(root: Path) -> tuple[tuple[str, str], ...]:
+    """Bind every regular file under an already checked source directory."""
     records = []
     for path in sorted(root.rglob("*")):
         if path.is_symlink():
@@ -87,8 +88,8 @@ class NeotomaEvidence:
 
     def assert_unchanged(self) -> None:
         if (
-            _files(self.raw_root) != self.raw_files
-            or _files(self.normalized_root) != self.normalized_files
+            evidence_inventory(self.raw_root) != self.raw_files
+            or evidence_inventory(self.normalized_root) != self.normalized_files
         ):
             raise ValueError("Source authority changed during admission audit")
 
@@ -121,7 +122,10 @@ def read_neotoma_evidence(raw_root: Path, normalized_root: Path) -> NeotomaEvide
     normalized = checked_directory(normalized_root)
     if raw.is_relative_to(normalized) or normalized.is_relative_to(raw):
         raise ValueError("Raw and normalized authority roots must be disjoint")
-    raw_files, normalized_files = _files(raw), _files(normalized)
+    raw_files, normalized_files = (
+        evidence_inventory(raw),
+        evidence_inventory(normalized),
+    )
     manifest_bytes = (normalized / "manifest.json").read_bytes()
     manifest = json_object(manifest_bytes)
     validated = validate_neotoma_relational_materialization(normalized)

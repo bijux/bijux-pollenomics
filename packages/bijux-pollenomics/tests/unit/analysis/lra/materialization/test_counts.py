@@ -61,3 +61,12 @@ def test_normalized_scalar_type_must_match_its_source_payload() -> None:
     assert assess_count(row).reason == "inconsistent_source_projection"
     row["source_value"] = 1.0
     assert assess_count(row).reason == "inconsistent_source_projection"
+
+
+@pytest.mark.parametrize("value", (float("inf"), float("-inf"), float("nan")))
+def test_shared_scalar_check_refuses_nonfinite_values(value: float) -> None:
+    from bijux_pollenomics.analysis.lra.materialization.counts import (
+        assess_nonnegative_integer,
+    )
+
+    assert assess_nonnegative_integer(value) == (None, "count_is_not_finite_integer")
