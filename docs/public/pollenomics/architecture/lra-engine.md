@@ -214,6 +214,12 @@ bijux-pollenomics score-lra-experiment predictions \
   --output scores
 ```
 
+Preparation dispatches the explicit request `profile`: synthetic withheld-site
+baselines, fitted spatial prediction, or local-pollen assimilation. Local-pollen
+scoring accepts the separate vegetation-only outcome inventory; its pollen
+comparison remains an in-sample diagnostic. All profiles report the requested
+prediction count and retain their own target roles.
+
 The scoring command verifies the expected prediction identity before opening the
 outcome inventory. Both commands emit JSON identifying the saved product and its
 accounting. Preparation exits `0` when every requested prediction was generated,

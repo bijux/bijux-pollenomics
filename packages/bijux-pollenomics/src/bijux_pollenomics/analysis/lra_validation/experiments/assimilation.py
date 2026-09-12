@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
 import os
+from collections.abc import Mapping
 from pathlib import Path
 
 from ...lra.api import LRABatchItem, LRABatchLimits, LRARefusal, run_lra_batch
@@ -178,6 +178,7 @@ def prepare_local_pollen_predictions(
         "predictions": predictions,
         "failures": failures,
         "requested_folds": len(folds),
+        "requested_predictions": len(folds),
         "generated_predictions": len(predictions),
         "failed_folds": len(failures),
         "interrupted": interrupted,

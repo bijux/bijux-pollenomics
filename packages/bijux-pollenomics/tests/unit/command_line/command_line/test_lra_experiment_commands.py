@@ -9,12 +9,20 @@ from unittest.mock import patch
 import pytest
 
 from bijux_pollenomics.analysis.lra_validation import ValidationRefusal
+from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
+    FITTED_PROFILE,
+    LOCAL_PROFILE,
+    PROFILE,
+)
 from bijux_pollenomics.analysis.lra_validation.experiments.outputs import (
     ExperimentProduct,
 )
 from bijux_pollenomics.cli import main
 from bijux_pollenomics.command_line.runtime import lra_validation as runtime
 
+from ...analysis.lra_validation.experiments.test_assimilation import (
+    synthetic_local_product,
+)
 from ...analysis.lra_validation.experiments.test_scoring import prediction_product
 
 
@@ -63,6 +71,14 @@ def test_invalid_json_never_starts_numerical_work(
 
 
 @pytest.mark.parametrize(
+    "profile,entry",
+    [
+        (PROFILE, "prepare_experiment_predictions"),
+        (LOCAL_PROFILE, "prepare_local_pollen_predictions"),
+        (FITTED_PROFILE, "prepare_fitted_spatial_predictions"),
+    ],
+)
+@pytest.mark.parametrize(
     "interrupted,complete,expected",
     [(False, True, 0), (False, False, 2), (True, False, 130)],
 )
@@ -72,8 +88,10 @@ def test_prediction_cli_retains_complete_or_partial_accounting(
     interrupted: bool,
     complete: bool,
     expected: int,
+    profile: str,
+    entry: str,
 ) -> None:
-    (tmp_path / "request.json").write_text("{}")
+    (tmp_path / "request.json").write_text(json.dumps({"profile": profile}))
     product = ExperimentProduct(tmp_path / "output", "a" * 64, "b" * 64)
     scientific = {
         "requested_folds": 3,
@@ -84,9 +102,7 @@ def test_prediction_cli_retains_complete_or_partial_accounting(
         "all_predictions_generated": complete,
     }
     with (
-        patch.object(
-            runtime, "prepare_experiment_predictions", return_value=product
-        ) as run,
+        patch.object(runtime, entry, return_value=product) as run,
         patch.object(
             runtime,
             "read_experiment_product",
@@ -138,3 +154,39 @@ def test_actual_score_cli_separates_targets_and_preserves_missing_denominators(
     rows = json.loads((tmp_path / "scores/scores.json").read_text())
     assert {r["target"] for r in rows} == {"vegetation_cover", "pollen_composition"}
     assert result["requested_scores"] == len(rows)
+
+
+@pytest.mark.parametrize("profile", [None, "unknown", {}, False])
+def test_unknown_profile_refuses_before_source_or_numerical_access(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str], profile: object
+) -> None:
+    (tmp_path / "request.json").write_text(json.dumps({"profile": profile}))
+    with (
+        patch.object(runtime, "prepare_experiment_predictions") as baseline,
+        patch.object(runtime, "prepare_local_pollen_predictions") as local,
+        patch.object(runtime, "prepare_fitted_spatial_predictions") as fitted,
+    ):
+        assert main(prepare_args(tmp_path)) == 2
+    for operation in (baseline, local, fitted):
+        operation.assert_not_called()
+    assert (
+        json.loads(capsys.readouterr().out)["reason_code"]
+        == "unsupported_experiment_profile"
+    )
+
+
+def test_local_score_command_retains_diagnostic_and_heldout_roles(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    product, inventory = synthetic_local_product(tmp_path)
+    (tmp_path / "outcomes.json").write_text(json.dumps(inventory))
+    assert main(score_args(tmp_path, product)) == 0
+    summary = json.loads(capsys.readouterr().out)
+    assert summary["requested_scores"] == 8
+    rows = json.loads((tmp_path / "scores/scores.json").read_text())
+    for row in rows:
+        if row["target"] == "pollen_composition":
+            assert row["evaluation_role"] == "in_sample_diagnostic"
+            assert row["eligible_for_heldout_acceptance"] is False
+        else:
+            assert row["evaluation_role"] == "heldout_prediction"

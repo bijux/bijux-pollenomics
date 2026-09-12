@@ -5,25 +5,63 @@ from __future__ import annotations
 import argparse
 import json
 from collections import Counter
-from typing import Any
+from collections.abc import Mapping
+from pathlib import Path
+from typing import Any, Protocol
 
 from ...analysis.lra.api import LRARefusal
 from ...analysis.lra_validation import ValidationRefusal
 from ...analysis.lra_validation.experiments import (
     prepare_experiment_predictions,
+    prepare_fitted_spatial_predictions,
+    prepare_local_pollen_predictions,
     read_experiment_product,
     score_experiment_predictions,
 )
-from ...analysis.lra_validation.experiments.outputs import read_member
+from ...analysis.lra_validation.experiments.configuration import (
+    FITTED_PROFILE,
+    LOCAL_PROFILE,
+    PROFILE,
+)
+from ...analysis.lra_validation.experiments.outputs import (
+    ExperimentProduct,
+    read_member,
+)
 from .json_inputs import read_object
+
+
+class _PredictionOperation(Protocol):
+    def __call__(
+        self,
+        spec: Mapping[str, object],
+        *,
+        input_root: Path,
+        cache_root: Path,
+        destination: Path,
+        workers: int = 1,
+    ) -> ExperimentProduct: ...
 
 
 def run_lra_experiment_command(args: argparse.Namespace) -> int:
     """Return operational status independently of unevaluated scientific acceptance."""
     try:
         if args.command == "prepare-lra-experiment":
-            product = prepare_experiment_predictions(
-                read_object(args.request),
+            request = read_object(args.request)
+            profile = request.get("profile")
+            prepare: _PredictionOperation
+            if profile == PROFILE:
+                prepare = prepare_experiment_predictions
+            elif profile == LOCAL_PROFILE:
+                prepare = prepare_local_pollen_predictions
+            elif profile == FITTED_PROFILE:
+                prepare = prepare_fitted_spatial_predictions
+            else:
+                raise ValidationRefusal(
+                    "unsupported_experiment_profile",
+                    "Declare an implemented experiment profile",
+                )
+            product = prepare(
+                request,
                 input_root=args.input_root,
                 cache_root=args.cache_root,
                 destination=args.output,
