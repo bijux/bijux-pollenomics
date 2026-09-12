@@ -170,6 +170,27 @@ predictions have no predictive intervals, and overlapping-fold scores do not
 constitute independent fixed-model evaluation units. The first profile does not
 admit final evaluation or empirical source observations.
 
+The separate `analysis.lra_validation.spatial.fit_spatial_model` facade fits
+`clr-wgs84-rbf-ridge-v1`: centred log-ratio vegetation fractions regressed on
+radial basis features centred only at declared training sites. It reuses the
+host's unrounded WGS84 distances. Lengthscale, ridge penalty and matched-support
+identity are required declarations. All training fractions must be positive;
+zeros refuse without an invented replacement rule. The numerical least-squares
+backend is loaded only when fitting, through the optional NumPy dependency.
+
+The [CLR definition](https://scikit.bio/docs/latest/generated/skbio.stats.composition.clr.html)
+and [ridge objective](https://scikit-learn.org/1.8/modules/generated/sklearn.linear_model.Ridge.html)
+define its transformation and fitted objective. This is an exploratory geographic
+model choice, not evidence that the model is ecologically accurate. It has an
+unpenalized intercept, one equally weighted composition per predictor group,
+and explicit solver diagnostics. The basis features do not assume a geographic
+covariance kernel. Every fitted coefficient, centre, parameter and denominator
+is bound to the model digest. Target coordinates are supplied after fitting;
+target observations are not accepted. The profile produces point predictions,
+with uncertainty, parameter selection and final evaluation left to separately
+governed experiment stages. The current baseline experiment runner does not
+silently substitute this fitted model for any named baseline.
+
 ## Saved-product reporting
 
 `bijux_pollenomics.reporting.lra_products.api` owns the bridge from verified saved
