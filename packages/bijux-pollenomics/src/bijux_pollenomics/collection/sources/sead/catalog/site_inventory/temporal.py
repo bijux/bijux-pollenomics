@@ -114,6 +114,8 @@ def _interval_from_relative_age_label(label: str) -> tuple[int, int] | None:
     start_year = int(calendar_match.group("start"))
     end_text = calendar_match.group("end")
     end_year = int(end_text) if end_text is not None else start_year
+    if start_year == 0 or end_year == 0:
+        return None
     if calendar_match.group("open"):
         end_year = BP_REFERENCE_YEAR
     return normalize_bp_interval(
@@ -122,10 +124,10 @@ def _interval_from_relative_age_label(label: str) -> tuple[int, int] | None:
     )
 
 
-def _historical_year_to_bp(year: int, *, era: str) -> int:
+def _historical_year_to_bp(year: int, *, era: str) -> int | None:
     if era == "BC" or year < 0:
-        return _bce_year_to_bp(abs(year)) or 0
-    return _ce_year_to_bp(year) or 0
+        return _bce_year_to_bp(abs(year))
+    return _ce_year_to_bp(year)
 
 
 def _normalize_optional_interval(
@@ -147,6 +149,10 @@ def _calendar_year_interval_to_bp(
     *,
     treat_as_bce: bool,
 ) -> tuple[int, int] | None:
+    # A reported invalid year cannot become an absent endpoint and then inherit
+    # the other bound under the source point-date convention. BP zero is valid.
+    if start_year == 0 or end_year == 0:
+        return None
     if treat_as_bce:
         return _normalize_optional_interval(
             _bce_year_to_bp(start_year),
@@ -159,13 +165,13 @@ def _calendar_year_interval_to_bp(
 
 
 def _ce_year_to_bp(year_ce: int | None) -> int | None:
-    if year_ce is None:
+    if year_ce is None or year_ce == 0:
         return None
     return BP_REFERENCE_YEAR - year_ce
 
 
 def _bce_year_to_bp(year_bce: int | None) -> int | None:
-    if year_bce is None:
+    if year_bce is None or year_bce == 0:
         return None
     return year_bce + (BP_REFERENCE_YEAR - 1)
 

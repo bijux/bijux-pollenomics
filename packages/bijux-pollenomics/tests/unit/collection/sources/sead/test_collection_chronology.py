@@ -102,6 +102,64 @@ class SeadChronologyTests(unittest.TestCase):
         self.assertIsNone(rows[0]["time_start_bp"])
         self.assertIsNone(rows[0]["time_end_bp"])
 
+    def test_refresh_retains_reported_year_zero_without_admitting_an_interval(
+        self,
+    ) -> None:
+        for low, high in ((0, None), (0, 1950), (1950, "0"), (0.4, 1800)):
+            with self.subTest(low=low, high=high):
+                rows = [
+                    {
+                        "site_id": 3816,
+                        "relative_period_rows": [],
+                        "dating_range_rows": [
+                            {"low_value": low, "high_value": high, "age_type": "AD"}
+                        ],
+                        "analysis_entity_age_rows": [],
+                        "geochronology_rows": [],
+                        "dendro_date_rows": [],
+                        "bibliography_rows": [],
+                    }
+                ]
+                refresh_sead_repository_rows(rows)
+                retained = cast(list[dict[str, object]], rows[0]["dating_range_rows"])[
+                    0
+                ]
+                self.assertEqual(
+                    (retained["low_value"], retained["high_value"]), (low, high)
+                )
+                self.assertEqual(retained["age_type"], "AD")
+                self.assertIsNone(retained["time_start_bp"])
+                self.assertIsNone(retained["time_end_bp"])
+                self.assertIsNone(rows[0]["numeric_time_start_bp"])
+                self.assertIsNone(rows[0]["numeric_time_end_bp"])
+
+    def test_refresh_preserves_invalid_encoded_calendar_label_as_context(self) -> None:
+        rows = [
+            {
+                "site_id": 3816,
+                "relative_period_rows": [
+                    {
+                        "relative_age_label": "CAL_0_AD",
+                        "normalized_period_label": "unmapped_period_label",
+                        "time_start_bp": None,
+                        "time_end_bp": None,
+                    }
+                ],
+                "dating_range_rows": [],
+                "analysis_entity_age_rows": [],
+                "geochronology_rows": [],
+                "dendro_date_rows": [],
+                "bibliography_rows": [],
+            }
+        ]
+        refresh_sead_repository_rows(rows)
+        retained = cast(list[dict[str, object]], rows[0]["relative_period_rows"])[0]
+        self.assertEqual(retained["relative_age_label"], "CAL_0_AD")
+        self.assertIsNone(retained["time_start_bp"])
+        self.assertIsNone(retained["time_end_bp"])
+        self.assertIsNone(rows[0]["time_start_bp"])
+        self.assertIsNone(rows[0]["time_end_bp"])
+
     def test_fetch_sead_site_rows_preserves_common_era_point_dates(self) -> None:
         def fake_fetch_json(
             url: str, params: list[tuple[str, str]] | None = None, **_: object
