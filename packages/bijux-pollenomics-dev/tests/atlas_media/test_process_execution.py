@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import sys
 import time
+import venv
 
 import pytest
 
@@ -18,7 +19,7 @@ def test_bounded_argv_resolves_executable_and_captures_bytes(tmp_path: Path) -> 
         timeout_seconds=5,
     )
 
-    assert completed.command[0] == str(Path(sys.executable).resolve(strict=True))
+    assert completed.command[0] == os.path.abspath(sys.executable)
     assert completed.returncode == 0
     assert completed.stdout == b"bounded"
     assert completed.stderr == b""
@@ -68,7 +69,7 @@ def test_logged_command_timeout_is_bounded_and_receipted(tmp_path: Path) -> None
 
     receipt = json.loads((root / "bounded.execution.json").read_text(encoding="utf-8"))
     assert receipt["command"] == [
-        str(Path(sys.executable).resolve(strict=True)),
+        os.path.abspath(sys.executable),
         "-c",
         "import time; time.sleep(2)",
     ]
@@ -146,3 +147,76 @@ def test_timeout_kills_term_resistant_descendant_holding_output_pipes(
     pid = int(child_pid.read_text(encoding="utf-8"))
     with pytest.raises(ProcessLookupError):
         os.kill(pid, 0)
+
+
+@pytest.mark.skipif(os.name != "posix", reason="Actual symlinked virtualenv contract")
+def test_symlinked_python_preserves_virtualenv_and_its_dependency(
+    tmp_path: Path,
+) -> None:
+    environment = tmp_path / "isolated-venv"
+    venv.EnvBuilder(with_pip=False, symlinks=True).create(environment)
+    python = environment / "bin" / "python"
+    assert python.is_symlink()
+    inspected = process_execution.run_bounded_argv(
+        (
+            str(python),
+            "-I",
+            "-c",
+            "import json,sys,sysconfig;print(json.dumps({'prefix':sys.prefix,'purelib':sysconfig.get_path('purelib')}))",
+        ),
+        cwd=tmp_path,
+        timeout_seconds=10,
+    )
+    assert inspected.returncode == 0, inspected.stderr
+    location = json.loads(inspected.stdout)
+    assert Path(location["prefix"]) == environment
+    dependency = Path(location["purelib"]) / "venv_only_dependency.py"
+    dependency.write_text("VALUE = 'exclusive virtualenv dependency'\n")
+    completed = process_execution.run_bounded_argv(
+        (
+            str(python),
+            "-I",
+            "-c",
+            "import json,sys,venv_only_dependency as d;print(json.dumps({'prefix':sys.prefix,'dependency':d.__file__,'value':d.VALUE}))",
+        ),
+        cwd=tmp_path,
+        timeout_seconds=10,
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert completed.command[0] == str(python)
+    assert json.loads(completed.stdout) == {
+        "prefix": str(environment),
+        "dependency": str(dependency),
+        "value": "exclusive virtualenv dependency",
+    }
+
+
+def test_path_lookup_preserves_executable_symlink_spelling(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    executable = tmp_path / "selected-python"
+    executable.symlink_to(sys.executable)
+    monkeypatch.setenv("PATH", str(tmp_path))
+    completed = process_execution.run_bounded_argv(
+        ("selected-python", "-c", "print('selected')"), cwd=tmp_path, timeout_seconds=5
+    )
+    assert completed.command[0] == str(executable)
+    assert completed.returncode == 0 and completed.stdout == b"selected\n"
+
+
+@pytest.mark.parametrize("kind", ["broken", "directory", "nonexecutable"])
+def test_executable_link_target_must_still_be_available_regular_and_executable(
+    tmp_path: Path, kind: str
+) -> None:
+    target = tmp_path / "target"
+    if kind == "directory":
+        target.mkdir()
+    elif kind == "nonexecutable":
+        target.write_text("not executable")
+        target.chmod(0o600)
+    executable = tmp_path / "selected"
+    executable.symlink_to(target)
+    with pytest.raises(process_execution.BoundedProcessError):
+        process_execution.run_bounded_argv(
+            (str(executable),), cwd=tmp_path, timeout_seconds=5
+        )
