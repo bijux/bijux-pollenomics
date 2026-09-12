@@ -243,7 +243,7 @@ class BoundaryCountryReviewTests(unittest.TestCase):
 
 class GovernedBoundaryCountryReviewBundleTests(unittest.TestCase):
     def test_materializer_preserves_composite_animal_source_lineage(self) -> None:
-        with tempfile.TemporaryDirectory(dir="artifacts") as temporary_directory:
+        with tempfile.TemporaryDirectory() as temporary_directory:
             root = Path(temporary_directory)
             archive_path = root / "data/archive_metadata.html.gz"
             supplement_path = root / "data/supplement.xlsx"
