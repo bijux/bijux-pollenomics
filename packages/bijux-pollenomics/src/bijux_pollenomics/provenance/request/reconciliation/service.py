@@ -37,10 +37,29 @@ def derive_reconciliations(
         if propagation_manifest_path is not None
         else None
     )
+    classification_manifest_path = next(
+        (
+            artifact.path
+            for artifact in policy.required_artifacts
+            if artifact.identity == "classification"
+        ),
+        None,
+    )
+    classification_membership_path = (
+        str(
+            Path(classification_manifest_path).with_name("observation_memberships.json")
+        )
+        if classification_manifest_path is not None
+        else None
+    )
     for requirement in policy.required_reconciliations:
         stem = f"{requirement.source}.{requirement.entity}"
         if requirement.dimension == "country":
-            values = governed_country_values(root, requirement)
+            values = governed_country_values(
+                root,
+                requirement,
+                classification_membership_path=classification_membership_path,
+            )
             partitions: list[CountReconciliation] = []
             for country_code in sorted(_COUNTRIES):
                 if values is None:

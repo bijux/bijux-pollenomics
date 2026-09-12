@@ -12,11 +12,12 @@ from .model import DerivedCount
 
 
 def classification_country_values(
-    root: Path, metric: str
+    root: Path, metric: str, *, membership_path: str | None = None
 ) -> dict[str, DerivedCount] | None:
     """Derive distinct classification-concept posture for each country."""
-    bundle = "artifacts/execution-control/classification/neotoma-audit-5a932522"
-    document = optional_json_object(root, f"{bundle}/observation_memberships.json")
+    if membership_path is None:
+        return None
+    document = optional_json_object(root, membership_path)
     records = document.get("records") if document else None
     if not isinstance(records, list):
         return None

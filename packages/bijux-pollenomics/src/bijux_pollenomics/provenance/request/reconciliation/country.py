@@ -14,11 +14,18 @@ from .model import DerivedCount
 
 
 def governed_country_values(
-    root: Path, requirement: _RequiredReconciliation
+    root: Path,
+    requirement: _RequiredReconciliation,
+    *,
+    classification_membership_path: str | None = None,
 ) -> dict[str, DerivedCount] | None:
     """Dispatch a country reconciliation to its governed source adapter."""
     if requirement.derivation_adapter == "classification_observation_memberships":
-        return classification_country_values(root, requirement.derivation_metric)
+        return classification_country_values(
+            root,
+            requirement.derivation_metric,
+            membership_path=classification_membership_path,
+        )
     if requirement.derivation_adapter == "sead_chronology_claims":
         return sead_chronology_claim_values(root, requirement.derivation_metric)
     if requirement.derivation_adapter == "unavailable":

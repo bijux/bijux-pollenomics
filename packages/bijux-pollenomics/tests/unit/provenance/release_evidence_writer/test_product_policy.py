@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import replace
 import hashlib
+import json
 from pathlib import Path
 from typing import cast
 
@@ -23,6 +24,9 @@ from bijux_pollenomics.provenance.release_evidence import (
 from bijux_pollenomics.provenance.release_evidence import embedded as release_embedded
 from bijux_pollenomics.provenance.release_evidence import models as release_models
 from bijux_pollenomics.provenance.release_evidence import policy as release_policy
+from bijux_pollenomics.provenance.release_evidence import (
+    repository as release_repository,
+)
 from bijux_pollenomics.provenance.release_evidence import service as release_service
 from bijux_pollenomics.provenance.request import artifacts as request_artifacts
 from bijux_pollenomics.provenance.request import (
@@ -121,7 +125,7 @@ def test_product_request_policy_has_coherent_full_artifact_graph(
         for requirement in policy.required_artifacts
         if requirement.role == "validation_result"
     }
-    hash_repository_object = request_service._hash_repository_object
+    hash_repository_object = release_repository._hash_repository_object
 
     def hash_or_identify_pending_gate(
         repository_root: Path,
@@ -248,3 +252,71 @@ def test_country_adapter_rejects_dimension_substitution(tmp_path: Path) -> None:
     ledger.write_bytes(_canonical_json({"cells": cells}) + b"\n")
 
     assert request_reconciliation.governed_country_values(tmp_path, requirement) is None
+
+
+@pytest.mark.parametrize("bound_count", (1, 2))
+def test_classification_reconciliation_uses_the_loaded_policy_bundle(
+    tmp_path: Path,
+    bound_count: int,
+) -> None:
+    """A historical bundle must never supply counts for another bound manifest."""
+    policy_document = json.loads(
+        (REPOSITORY_ROOT / "configs/release_evidence_policy.json").read_bytes()
+    )
+    artifacts = policy_document["required_artifacts"]
+    classification = next(
+        row for row in artifacts if row["identity"] == "classification"
+    )
+    previous_path = classification["path"]
+    manifest_path = f"artifacts/execution-control/classification/selected-{bound_count}/manifest.json"
+    classification["path"] = manifest_path
+    for rule in policy_document["artifact_ownership"]:
+        if rule["artifact_path_prefix"] == previous_path:
+            rule["artifact_path_prefix"] = manifest_path
+    config = tmp_path / "configs/release_evidence_policy.json"
+    config.parent.mkdir()
+    config.write_bytes(_canonical_json(policy_document) + b"\n")
+    for directory, count in (
+        (Path(manifest_path).parent, bound_count),
+        (Path("artifacts/execution-control/classification/neotoma-audit-5a932522"), 3),
+    ):
+        path = tmp_path / directory / "observation_memberships.json"
+        path.parent.mkdir(parents=True)
+        path.write_bytes(
+            _canonical_json(
+                {
+                    "records": [
+                        {
+                            "governed_country_code": "SE",
+                            "classification_concept_id": f"synthetic-{index}",
+                            "mapping_status": "unmapped",
+                        }
+                        for index in range(count)
+                    ]
+                }
+            )
+            + b"\n"
+        )
+    policy = release_policy._load_release_evidence_policy(tmp_path)
+    rows = request_reconciliation.derive_reconciliations(tmp_path, policy)
+    by_identity = {row.identity: row for row in rows}
+    concepts = by_identity["classification.concepts.country.se"]
+    assert (concepts.candidate_count, concepts.unresolved_count) == (
+        bound_count,
+        bound_count,
+    )
+    assert concepts.accepted_count == 0
+    missing_binding = replace(
+        policy,
+        required_artifacts=tuple(
+            row for row in policy.required_artifacts if row.identity != "classification"
+        ),
+    )
+    missing_rows = request_reconciliation.derive_reconciliations(
+        tmp_path, missing_binding
+    )
+    assert all(
+        row.count_status == "unavailable"
+        for row in missing_rows
+        if row.source == "classification"
+    )
