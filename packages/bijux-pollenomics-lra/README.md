@@ -47,3 +47,5 @@ recompute REVEALS. This is a source wrapper shape limitation, not a claim that
 single-taxon reconstruction is mathematically undefined. LOVE requests with
 explicitly supplied regional-cover draws use a separately checked path and can
 retain a single taxon.
+
+For outcome-free target geometry, see [forward preparation](docs/reference/forward-preparation.md).

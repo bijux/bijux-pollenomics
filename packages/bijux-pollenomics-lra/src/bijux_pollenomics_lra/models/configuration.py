@@ -229,3 +229,47 @@ class LRAConfig:
             "seed": self.seed,
             "couple_regional_draws": self.couple_regional_draws,
         }
+
+
+@dataclass(frozen=True, slots=True)
+class ForwardConfig:
+    """Outcome-free circular ring preparation with explicitly dimensioned mass."""
+
+    local_ring_count: int
+    local_basin_diameter_m: float
+    distance_weighting: DistanceWeighting | str = DistanceWeighting.LSM_UNSTABLE
+    regional_cover_profile: str = "closed-fractions"
+    preparation_profile: str = "disqover-0.9.14-corrected-matrix-homogeneous-v1"
+
+    def __post_init__(self) -> None:
+        if isinstance(self.local_ring_count, (bool, np.bool_)) or not isinstance(
+            self.local_ring_count, (int, np.integer)
+        ):
+            raise ValidationError("local_ring_count must be an integer")
+        count = integer(self.local_ring_count, "local_ring_count")
+        if isinstance(self.local_basin_diameter_m, (bool, np.bool_)) or not isinstance(
+            self.local_basin_diameter_m, (int, float, np.integer, np.floating)
+        ):
+            raise ValidationError("local_basin_diameter_m must be numeric metres")
+        diameter = finite_number(
+            self.local_basin_diameter_m,
+            "local_basin_diameter_m",
+            minimum=0,
+            strict_minimum=True,
+        )
+        method = _enum_value(
+            self.distance_weighting, DistanceWeighting, "distance_weighting"
+        )
+        if self.regional_cover_profile not in {
+            "closed-fractions",
+            "disqover-rounded-fractions",
+        }:
+            raise ValidationError("Unknown regional_cover_profile")
+        if (
+            self.preparation_profile
+            != "disqover-0.9.14-corrected-matrix-homogeneous-v1"
+        ):
+            raise ValidationError("Unknown forward preparation_profile")
+        object.__setattr__(self, "local_ring_count", count)
+        object.__setattr__(self, "local_basin_diameter_m", diameter)
+        object.__setattr__(self, "distance_weighting", method)

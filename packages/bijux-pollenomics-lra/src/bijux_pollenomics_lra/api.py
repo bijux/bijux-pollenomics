@@ -7,6 +7,7 @@ from typing import Any
 from bijux_pollenomics_lra.models.configuration import (
     BasinType,
     DistanceWeighting,
+    ForwardConfig,
     LoveConfig,
     LoveMethod,
     LRAConfig,
@@ -22,9 +23,11 @@ from bijux_pollenomics_lra.models.results import (
     LoveResult,
     LRAResult,
     LRASeriesResult,
+    PreparedForwardInputs,
     RevealsResult,
 )
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
+from bijux_pollenomics_lra.workflows.forward import prepare_forward_inputs
 from bijux_pollenomics_lra.workflows.local import run_love
 from bijux_pollenomics_lra.workflows.paired import run_lra
 from bijux_pollenomics_lra.workflows.regional import run_reveals
@@ -51,6 +54,7 @@ def extension_descriptor() -> dict[str, Any]:
             "lra.love.optimized",
             "lra.series.exact-coordinate",
             "lra.forward.homogeneous-local",
+            "lra.forward.prepare-target-geometry",
         ],
         "extension_group": "bijux_pollenomics.extensions",
         "extension_name": "lra",
@@ -64,6 +68,9 @@ __all__ = [
     "LRAConfig",
     "LRAError",
     "ForwardResult",
+    "ForwardConfig",
+    "PreparedForwardInputs",
+    "prepare_forward_inputs",
     "forward_deposition",
     "ConvergenceError",
     "LRAResult",

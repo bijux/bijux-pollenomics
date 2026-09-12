@@ -91,3 +91,28 @@ class ForwardResult:
     regional_deposition: np.ndarray
     total_deposition: np.ndarray
     method_profile: str = "disqover-0.9.14-homogeneous-local-forward"
+
+
+@dataclass(frozen=True, slots=True)
+class PreparedForwardInputs:
+    """Independent read-only numerical inputs; no observed target outcomes."""
+
+    taxa: tuple[str, ...]
+    local_k: np.ndarray
+    terrestrial_fraction: np.ndarray
+    ppe: np.ndarray
+    regional_deposition: np.ndarray
+    regional_cover: np.ndarray
+    full_k: np.ndarray
+    full_terrestrial_fraction: np.ndarray
+    ring_bounds_m: np.ndarray
+    regional_cutoff_m: float
+    local_basin_diameter_m: float
+    distance_weighting: str
+    regional_cover_profile: str
+    preparation_profile: str
+    method_profile: str = "disqover-0.9.14-homogeneous-local-forward"
+    geometry_profile: str = "circular-shore-contiguous-v1"
+    kernel_basin_type: str = "peatland"
+    wind_speed_m_s: float = 3.0
+    deposition_units: str = "relative-kernel-mass"
