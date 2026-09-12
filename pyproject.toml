@@ -19,7 +19,8 @@ Security = "https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md"
 
 [dependency-groups]
 dev = [
-    "bijux-pollenomics[dev]",
+    "bijux-pollenomics[dev,lra]",
+    "bijux-pollenomics-lra[dev]",
     "pollenomics[dev]",
     "bijux-pollenomics-dev[dev]",
     "mkdocs-redirects>=1.2.1,<2.0",
@@ -43,12 +44,14 @@ packages = [
     "bijux-pollenomics",
     "pollenomics",
     "bijux-pollenomics-dev",
+    "bijux-pollenomics-lra",
 ]
 badge_packages = [
     "bijux-pollenomics",
     "pollenomics",
 ]
 docs_package = "bijux-pollenomics-dev"
+package_owned_legal_assets = ["bijux-pollenomics-lra"]
 config_dir = "configs"
 make_dir = "makes"
 
@@ -56,6 +59,7 @@ make_dir = "makes"
 bijux-pollenomics = { workspace = true }
 pollenomics = { workspace = true }
 bijux-pollenomics-dev = { workspace = true }
+bijux-pollenomics-lra = { workspace = true }
 
 [tool.uv.workspace]
 members = ["packages/*"]

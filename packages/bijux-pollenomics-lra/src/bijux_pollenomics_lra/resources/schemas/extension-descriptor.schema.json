@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bijux.io/schemas/pollenomics-lra/extension-descriptor/1.0.0",
+  "title": "Bijux Pollenomics optional extension descriptor",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "distribution",
+    "import_package",
+    "version",
+    "python",
+    "license",
+    "integration_mode",
+    "capabilities",
+    "numerical_backend",
+    "python_api",
+    "extension_group",
+    "extension_name",
+    "extension_target"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "distribution": {
+      "const": "bijux-pollenomics-lra"
+    },
+    "import_package": {
+      "const": "bijux_pollenomics_lra"
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "python": {
+      "type": "string",
+      "minLength": 1
+    },
+    "license": {
+      "const": "GPL-2.0-or-later"
+    },
+    "integration_mode": {
+      "const": "optional-separate-distribution"
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "numerical_backend": {
+      "const": "python-numpy-scipy"
+    },
+    "python_api": {
+      "const": "bijux_pollenomics_lra.api"
+    },
+    "extension_group": {
+      "const": "bijux_pollenomics.extensions"
+    },
+    "extension_name": {
+      "const": "lra"
+    },
+    "extension_target": {
+      "const": "bijux_pollenomics_lra.api:extension_descriptor"
+    }
+  },
+  "additionalProperties": false
+}

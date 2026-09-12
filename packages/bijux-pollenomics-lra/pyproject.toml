@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling>=1.27.0,<1.33", "hatch-vcs>=0.4.0,<1.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "bijux-pollenomics-lra"
+description = "Governed REVEALS and LOVE numerical engine for Bijux Pollenomics."
+readme = "README.md"
+requires-python = ">=3.11,<4"
+license = "GPL-2.0-or-later"
+license-files = ["LICENSE", "NOTICE"]
+dynamic = ["version"]
+authors = [{name = "Bijan Mousavi", email = "bijan@bijux.io"}]
+dependencies = ["numpy>=1.26,<3", "scipy>=1.12,<2", "pandas>=2.1,<3"]
+
+[project.optional-dependencies]
+excel = ["openpyxl>=3.1"]
+dev = ["pytest>=8,<10", "jsonschema>=4.24,<5", "openpyxl>=3.1", "build>=1.2.2", "ruff>=0.13,<1.0", "pandas-stubs>=2.1,<3", "scipy-stubs>=1.12,<2"]
+
+[project.entry-points."bijux_pollenomics.extensions"]
+lra = "bijux_pollenomics_lra.api:extension_descriptor"
+
+[project.urls]
+Repository = "https://github.com/bijux/bijux-pollenomics"
+
+[tool.hatch.version]
+source = "vcs"
+tag-pattern = "^v(?P<version>.*)$"
+fallback-version = "0.1.5"
+raw-options = { git_describe_command = "git describe --dirty --tags --long --match 'v*'", local_scheme = "dirty-tag", version_scheme = "guess-next-dev", root = "../..", search_parent_directories = true }
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/bijux_pollenomics_lra/_build_version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/bijux_pollenomics_lra"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/", "tests/", "docs/", "vendor/", "README.md", "CHANGELOG.md", "LICENSE", "NOTICE", "CITATION.cff"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --import-mode=importlib"
+markers = ["reference: stored R model comparison, not live oracle certification", "live_r: exact-source R runtime comparison", "slow: optimizer or larger integration test"]

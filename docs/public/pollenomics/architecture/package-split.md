@@ -4,15 +4,17 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-12
 ---
 
 # Package Split
 
-The repository contains three Python distributions but publishes two runtime
-products. `bijux-pollenomics` is the canonical release, `pollenomics` is its
+The repository contains four Python distributions. The current public release
+set contains two runtime products. `bijux-pollenomics` is the canonical release, `pollenomics` is its
 short-name compatibility release, and `bijux-pollenomics-dev` is a
-repository-only maintainer distribution. The split separates scientific
+repository-only maintainer distribution. `bijux-pollenomics-lra` is the optional
+GPL-derived numerical engine being integrated for v0.2.x; it is not yet admitted
+to the public release set. The split separates scientific
 behavior, compatibility, and repository maintenance without creating
 competing products.
 
@@ -22,6 +24,7 @@ competing products.
 | --- | --- | --- | --- |
 | `bijux-pollenomics` | `bijux_pollenomics`, `bijux-pollenomics` | canonical collection, evidence, review, analysis, and publication runtime | repository-only policy checks |
 | `pollenomics` | `pollenomics`, `pollenomics` | short-name compatibility facade over the canonical runtime | independent scientific or command behavior |
+| `bijux-pollenomics-lra` | `bijux_pollenomics_lra.api` | optional REVEALS/LOVE numerical calculations and diagnostics | collection admission, scientific review, CLI or host publication |
 | `bijux-pollenomics-dev` | `bijux_pollenomics_dev` | repository checks, documentation integrity, packaging, and release support | public release product, source semantics, evidence decisions, or publication rules |
 
 ```mermaid
@@ -31,6 +34,7 @@ flowchart LR
     Alias -. "delegates" .-> Canonical
     Maintainer["repository maintenance"] --> Toolkit["bijux-pollenomics-dev"]
     Toolkit -. "checks contracts" .-> Canonical
+    Canonical -. "optional numerical facade" .-> LRA["bijux-pollenomics-lra"]
     Canonical --> State["governed evidence and products"]
 ```
 
@@ -58,7 +62,9 @@ checks. Corrections belong in the canonical runtime or governed data surface.
 - use `pollenomics` when the shorter compatibility identity is required;
 - use `bijux-pollenomics-dev` only for repository maintenance workflows.
 
-Only the first two appear in the public package release set. The maintainer
+Only the canonical and compatibility distributions currently appear in the
+public package release set. See [LRA engine integration](lra-engine.md) for the
+optional numerical distribution and its release boundaries. The maintainer
 distribution can have its own package metadata and version inside the
 workspace without becoming a supported installation target for scientific
 users.
@@ -93,6 +99,7 @@ flowchart TB
     App["consumer application"] --> Runtime["bijux-pollenomics"]
     AliasConsumer["short-name consumer"] --> Alias["pollenomics"]
     Alias --> Runtime
+    Runtime -. "optional lra extra" .-> LRA["bijux-pollenomics-lra"]
     Maintainer["repository maintainer"] --> Dev["bijux-pollenomics-dev"]
     Dev -. "validates repository contracts" .-> Runtime
 ```
@@ -116,7 +123,7 @@ admission decisions through the alias has found a defect.
 - public exports are explicit at the canonical facade;
 - compatibility code carries no unique evidence or publication state.
 
-Versioning must preserve those invariants across all three workspace
+Versioning must preserve those invariants across all four workspace
 distributions. Public release identity is the compatible pair
 `bijux-pollenomics` and `pollenomics`; the maintainer distribution is recorded
 for repository reproducibility but is not a third public runtime release. A

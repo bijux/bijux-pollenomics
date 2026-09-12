@@ -3061,6 +3061,18 @@
               "dependencies",
               "python"
             ]
+          },
+          {
+            "package-ecosystem": "pip",
+            "directory": "/packages/bijux-pollenomics-lra",
+            "schedule": {
+              "interval": "weekly"
+            },
+            "open-pull-requests-limit": 10,
+            "labels": [
+              "dependencies",
+              "python"
+            ]
           }
         ]
       },
@@ -3450,6 +3462,13 @@
                       "package_dir": "packages/bijux-pollenomics-dev",
                       "artifacts_dir": "artifacts/bijux-pollenomics-dev",
                       "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]"
+                    },
+                    {
+                      "package_slug": "bijux-pollenomics-lra",
+                      "package_dir": "packages/bijux-pollenomics-lra",
+                      "artifacts_dir": "artifacts/bijux-pollenomics-lra",
+                      "check_targets": "[\"quality\", \"security\", \"build\", \"sbom\"]",
+                      "test_python_versions": "[\"3.11\", \"3.12\", \"3.13\"]"
                     }
                   ]
                 }

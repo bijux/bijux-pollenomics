@@ -35,7 +35,9 @@ Changelog = "https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux
 Security = "https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md"
 
 [project.optional-dependencies]
+lra = ["bijux-pollenomics-lra>=0.1.5,<0.3", "pandas>=2.1,<3"]
 dev = [
+    "types-jsonschema>=4.24,<5",
     "build>=1.2.2",
     "mkdocs>=1.6.1",
     "mkdocs-autorefs>=1.4.2",
