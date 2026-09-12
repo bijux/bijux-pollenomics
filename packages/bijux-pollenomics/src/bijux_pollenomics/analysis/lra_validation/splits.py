@@ -7,10 +7,12 @@ from collections.abc import Iterable, Mapping
 from .contracts import (
     Fold,
     SiteRecord,
+    TrainingAdmission,
     ValidationRefusal,
+    canonical_json,
     identity_values,
-    manifest_sha256,
     required_identity,
+    site_group_id,
 )
 
 
@@ -48,7 +50,7 @@ def _groups(records: Iterable[SiteRecord]) -> tuple[tuple[SiteRecord, ...], ...]
 
 
 def _group_id(group: tuple[SiteRecord, ...]) -> str:
-    return "site-group:" + manifest_sha256([row.record_id for row in group])
+    return site_group_id(row.record_id for row in group)
 
 
 def _folds(
@@ -157,12 +159,69 @@ def assert_allowed_inputs(
     )
 
 
+def admit_training_groups(
+    fold: Fold,
+    records: Iterable[SiteRecord],
+    admitted_group_ids: Iterable[str],
+    *,
+    criterion: Mapping[str, object],
+) -> TrainingAdmission:
+    """Derive exact physical-group ownership before recording training exclusions."""
+    groups = _groups(records)
+    ownership = tuple(
+        (row.record_id, _group_id(group)) for group in groups for row in group
+    )
+    return TrainingAdmission(
+        fold,
+        ownership,
+        identity_values(admitted_group_ids),
+        canonical_json(dict(criterion)),
+    )
+
+
+def assert_training_inputs(
+    fold: Fold,
+    input_ids: Iterable[str],
+    dependency_graph: Mapping[str, Iterable[str]],
+    *,
+    training_admission: TrainingAdmission | None = None,
+    admitted_external_ids: Iterable[str] = (),
+) -> tuple[str, ...]:
+    """Preserve outer test exclusion and refuse excluded training ancestry under admission."""
+    if training_admission is None:
+        return assert_allowed_inputs(
+            fold,
+            input_ids,
+            dependency_graph,
+            admitted_external_ids=admitted_external_ids,
+        )
+    if not isinstance(training_admission, TrainingAdmission):
+        raise ValidationRefusal(
+            "invalid_training_admission", "Require a typed admission"
+        )
+    training_admission.validate(fold)
+    inputs = tuple(sorted(set(identity_values(input_ids))))
+    if not inputs:
+        raise ValidationRefusal(
+            "missing_fit_inputs", "Fit input identities cannot be empty"
+        )
+    return _input_closure(
+        inputs,
+        dependency_graph,
+        allowed=set(training_admission.admitted_record_ids)
+        | set(identity_values(admitted_external_ids)),
+        forbidden=set(fold.test_record_ids),
+        excluded=set(training_admission.excluded_record_ids),
+    )
+
+
 def _input_closure(
     inputs: tuple[str, ...],
     dependency_graph: Mapping[str, Iterable[str]],
     *,
     allowed: set[str],
     forbidden: set[str],
+    excluded: set[str] | None = None,
 ) -> tuple[str, ...]:
     """Walk original quantitative edges under an explicitly constructed admission."""
     graph = {
@@ -179,6 +238,11 @@ def _input_closure(
             active.remove(node)
             visited.add(node)
             continue
+        if excluded is not None and node in excluded:
+            raise ValidationRefusal(
+                "excluded_training_input_leakage",
+                f"Excluded training record in fit-input closure: {node}",
+            )
         if node in forbidden:
             raise ValidationRefusal(
                 "withheld_input_leakage",

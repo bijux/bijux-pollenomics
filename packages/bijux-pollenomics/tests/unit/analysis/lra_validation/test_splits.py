@@ -160,3 +160,153 @@ def test_lineage_string_collections_are_refused(field: str) -> None:
     graph = {"train": "test" if field == "parents" else ()}
     with pytest.raises(ValidationRefusal, match="bare string"):
         assert_allowed_inputs(fold, inputs, graph, admitted_external_ids=externals)
+
+
+def test_training_admission_preserves_original_block_and_whole_alias_groups() -> None:
+    from bijux_pollenomics.analysis.lra_validation.splits import (
+        admit_training_groups,
+        assert_training_inputs,
+    )
+
+    records = (
+        SiteRecord("a", "lake-a", block_id="train"),
+        SiteRecord("a-alias", "lake-a", block_id="train"),
+        SiteRecord("b", "lake-b", block_id="train"),
+        SiteRecord("t1", "lake-t1", block_id="test"),
+        SiteRecord("t2", "lake-t2", block_id="test"),
+    )
+    fold = next(f for f in grouped_block_holdouts(records) if f.fold_id == "block:test")
+    groups = {
+        r: f.test_group_ids[0]
+        for f in grouped_leave_one_out(records)
+        for r in f.test_record_ids
+    }
+    admission = admit_training_groups(
+        fold,
+        records,
+        (groups["a"],),
+        criterion={"profile": "synthetic-buffer", "minimum_buffer_m": 1000},
+    )
+    assert admission.fold is fold
+    assert admission.admitted_record_ids == ("a", "a-alias")
+    assert admission.excluded_record_ids == ("b",)
+    assert fold.test_record_ids == ("t1", "t2")
+    assert admission.as_dict()["original_fold"] == fold.as_dict()
+    graph: dict[str, tuple[str, ...]] = dict.fromkeys(
+        ("a", "a-alias", "b", "t1", "t2"), ()
+    )
+    assert assert_training_inputs(
+        fold, admission.admitted_record_ids, graph, training_admission=admission
+    ) == ("a", "a-alias")
+    for forbidden in ("b", "t1", "t2"):
+        graph["derived"] = (forbidden,)
+        with pytest.raises(ValidationRefusal):
+            assert_training_inputs(
+                fold,
+                ("derived",),
+                graph,
+                training_admission=admission,
+                admitted_external_ids=("derived", forbidden),
+            )
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "unknown_group",
+        "test_group",
+        "duplicate_group",
+        "missing_owner",
+        "cross_partition_owner",
+        "different_fold",
+        "noncanonical_criterion",
+    ],
+)
+def test_malformed_training_admission_refused(mutation: str) -> None:
+    from dataclasses import replace
+
+    from bijux_pollenomics.analysis.lra_validation.contracts import (
+        TrainingAdmission,
+        canonical_json,
+        site_group_id,
+    )
+
+    fold = Fold(
+        "block",
+        ("a", "b"),
+        ("t",),
+        (site_group_id(("a",)), site_group_id(("b",))),
+        (site_group_id(("t",)),),
+    )
+    kwargs: dict[str, Any] = {
+        "fold": fold,
+        "record_groups": (
+            ("a", site_group_id(("a",))),
+            ("b", site_group_id(("b",))),
+            ("t", site_group_id(("t",))),
+        ),
+        "admitted_group_ids": (site_group_id(("a",)),),
+        "criterion_json": canonical_json({"profile": "synthetic"}),
+    }
+    if mutation == "unknown_group":
+        kwargs["admitted_group_ids"] = ("missing",)
+    elif mutation == "test_group":
+        kwargs["admitted_group_ids"] = (site_group_id(("t",)),)
+    elif mutation == "duplicate_group":
+        kwargs["admitted_group_ids"] = (site_group_id(("a",)), site_group_id(("a",)))
+    elif mutation == "missing_owner":
+        kwargs["record_groups"] = (
+            ("a", site_group_id(("a",))),
+            ("t", site_group_id(("t",))),
+        )
+    elif mutation == "cross_partition_owner":
+        kwargs["record_groups"] = (
+            ("a", site_group_id(("t",))),
+            ("b", site_group_id(("b",))),
+            ("t", site_group_id(("a",))),
+        )
+    elif mutation == "noncanonical_criterion":
+        kwargs["criterion_json"] = '{ "profile": "synthetic" }'
+    with pytest.raises(ValidationRefusal):
+        admission = TrainingAdmission(**kwargs)
+        if mutation == "different_fold":
+            admission.validate(replace(fold, fold_id="another"))
+
+
+def test_training_admission_default_retains_existing_closure_contract() -> None:
+    from bijux_pollenomics.analysis.lra_validation.splits import assert_training_inputs
+
+    fold = Fold("outer", ("a", "b"), ("t",), ("ga", "gb"), ("gt",))
+    graph = {"a": (), "b": ()}
+    assert assert_training_inputs(fold, ("a",), graph) == assert_allowed_inputs(
+        fold, ("a",), graph
+    )
+
+
+def test_reassigned_alias_cannot_enter_admitted_group() -> None:
+    from dataclasses import replace
+
+    from bijux_pollenomics.analysis.lra_validation.splits import admit_training_groups
+
+    records = (
+        SiteRecord("a", "alias-lake", block_id="train"),
+        SiteRecord("a2", "alias-lake", block_id="train"),
+        SiteRecord("b", "other-lake", block_id="train"),
+        SiteRecord("t", "test-lake", block_id="test"),
+    )
+    fold = next(f for f in grouped_block_holdouts(records) if f.fold_id == "block:test")
+    groups = {
+        r: f.test_group_ids[0]
+        for f in grouped_leave_one_out(records)
+        for r in f.test_record_ids
+    }
+    admission = admit_training_groups(
+        fold, records, (groups["b"],), criterion={"profile": "synthetic-buffer"}
+    )
+    assert admission.excluded_record_ids == ("a", "a2")
+    changed = tuple(
+        (record, groups["b"] if record == "a2" else group)
+        for record, group in admission.record_groups
+    )
+    with pytest.raises(ValidationRefusal, match="complete record membership"):
+        replace(admission, record_groups=changed)

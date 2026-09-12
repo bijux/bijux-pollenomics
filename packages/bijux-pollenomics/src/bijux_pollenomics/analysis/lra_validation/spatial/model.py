@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-import json
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
+import json
 from math import exp, fsum, isfinite
 
 from ..contracts import (
     Fold,
+    TrainingAdmission,
     ValidationRefusal,
     canonical_json,
     identity_values,
@@ -16,7 +17,7 @@ from ..contracts import (
     required_identity,
 )
 from ..metrics import closed_composition
-from ..splits import assert_allowed_inputs
+from ..splits import assert_training_inputs
 from .configuration import PROFILE, SiteCoordinate, SpatialConfig, distance_km
 
 
@@ -46,6 +47,7 @@ class FittedSpatialModel:
     coefficients: tuple[tuple[float, ...], ...]
     fit_manifest_json: str
     model_sha256: str
+    training_admission: TrainingAdmission | None = None
 
     def __post_init__(self) -> None:
         self._verify_identity()
@@ -67,11 +69,33 @@ class FittedSpatialModel:
                 "clr_mean": self.clr_mean,
                 "coefficients": self.coefficients,
             }
+            schema = "lra-fitted-spatial-model.v1"
+            if self.training_admission is not None:
+                if not isinstance(self.training_admission, TrainingAdmission):
+                    raise ValueError("Training admission must be typed")
+                self.training_admission.validate(self.fold)
+                state["training_admission"] = self.training_admission.as_dict()
+                schema = "lra-fitted-spatial-model.v2"
+                if not set(self.groups).issubset(
+                    self.training_admission.admitted_group_ids
+                ):
+                    raise ValueError("Predictors include excluded training groups")
+                closure = assert_training_inputs(
+                    self.fold,
+                    payload["allowed_input_closure"],
+                    payload["input_lineage"],
+                    training_admission=self.training_admission,
+                    admitted_external_ids=payload["admitted_external_ids"],
+                )
+                if not set(self.training_admission.admitted_record_ids).issubset(
+                    closure
+                ):
+                    raise ValueError("Incomplete admitted training ancestry")
             if (
                 manifest_sha256(payload) != self.model_sha256
                 or canonical_json({key: payload[key] for key in state})
                 != canonical_json(state)
-                or payload["schema_version"] != "lra-fitted-spatial-model.v1"
+                or payload["schema_version"] != schema
                 or payload["scientific_acceptance"] != "not_evaluated"
                 or payload["uncertainty_status"] != "point_fit_only"
             ):
@@ -149,6 +173,7 @@ def fit_spatial_model(
     dependency_graph: Mapping[str, Iterable[str]],
     admitted_external_ids: Iterable[str] = (),
     predictor_group_ids: Iterable[str] | None = None,
+    training_admission: TrainingAdmission | None = None,
 ) -> FittedSpatialModel:
     """Fit equally weighted CLR responses with unpenalized intercept and ridge.
 
@@ -157,13 +182,29 @@ def fit_spatial_model(
     are supplied declarations. Their scientific selection must be reviewed by
     the surrounding experiment policy. No zero replacement or tuning occurs.
     """
+    if training_admission is not None:
+        if not isinstance(training_admission, TrainingAdmission):
+            raise ValidationRefusal(
+                "invalid_training_admission", "Require a typed admission"
+            )
+        training_admission.validate(fold)
+    training_groups = (
+        fold.train_group_ids
+        if training_admission is None
+        else training_admission.admitted_group_ids
+    )
+    training_records = (
+        fold.train_record_ids
+        if training_admission is None
+        else training_admission.admitted_record_ids
+    )
     groups = identity_values(
-        fold.train_group_ids if predictor_group_ids is None else predictor_group_ids
+        training_groups if predictor_group_ids is None else predictor_group_ids
     )
     if (
         not 2 <= len(groups) <= 128
         or len(set(groups)) != len(groups)
-        or not set(groups).issubset(fold.train_group_ids)
+        or not set(groups).issubset(training_groups)
     ):
         raise ValidationRefusal(
             "spatial_group_mismatch", "Require 2–128 unique training predictor groups"
@@ -177,12 +218,20 @@ def fit_spatial_model(
             "Coordinates and compositions must match every declared predictor",
         )
     graph = {key: identity_values(values) for key, values in dependency_graph.items()}
-    closure = assert_allowed_inputs(
-        fold, input_ids, graph, admitted_external_ids=admitted_external_ids
+    external_ids = identity_values(admitted_external_ids)
+    closure = assert_training_inputs(
+        fold,
+        input_ids,
+        graph,
+        admitted_external_ids=external_ids,
+        training_admission=training_admission,
     )
-    if not set(fold.train_record_ids).issubset(closure):
+    if not set(training_records).issubset(closure):
         raise ValidationRefusal(
-            "incomplete_training_lineage", "Full outer training ancestry is required"
+            "incomplete_training_lineage",
+            "Full outer training ancestry is required"
+            if training_admission is None
+            else "Complete admitted training ancestry is required",
         )
     compositions = {
         group: closed_composition(training_compositions[group]) for group in groups
@@ -276,6 +325,10 @@ def fit_spatial_model(
         "uncertainty_status": "point_fit_only",
         "scientific_acceptance": "not_evaluated",
     }
+    if training_admission is not None:
+        payload["schema_version"] = "lra-fitted-spatial-model.v2"
+        payload["training_admission"] = training_admission.as_dict()
+        payload["admitted_external_ids"] = tuple(sorted(set(external_ids)))
     # The canonical payload owns fitted values and their complete input identity.
     encoded = canonical_json(payload)
     return FittedSpatialModel(
@@ -289,4 +342,5 @@ def fit_spatial_model(
         coefficient_rows,
         encoded,
         manifest_sha256(payload),
+        training_admission,
     )

@@ -259,6 +259,18 @@ with uncertainty, parameter selection and final evaluation left to separately
 governed experiment stages. The current baseline experiment runner does not
 silently substitute this fitted model for any named baseline.
 
+`TrainingAdmission` records an explicit whole-group subpartition of an original
+outer fold. It binds each physical group's complete record membership, admitted
+and excluded training records, and the declared selection criterion. Excluded
+training observations cannot re-enter through external dependencies; they do not
+become test observations. A fitted model with this admission uses a distinct v2
+manifest, while the default all-training model retains its existing identity.
+
+Shared support separation uses unrounded WGS84 distance minus both footprints
+and coordinate uncertainties. The same arithmetic serves experiment buffering
+and final evaluation. The declaration alone does not prove the criterion was
+applied; the experiment must retain and validate its actual selection evidence.
+
 `prepare_fitted_spatial_predictions` connects training-only regional REVEALS and
 local LOVE products to the explicit CLR spatial model, followed by target-specific
 forward pollen deposition. Its synthetic singleton folds withhold both target

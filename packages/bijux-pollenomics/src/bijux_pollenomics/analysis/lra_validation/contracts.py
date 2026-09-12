@@ -69,6 +69,16 @@ def manifest_sha256(payload: object) -> str:
     return hashlib.sha256(canonical_json(payload).encode("utf-8")).hexdigest()
 
 
+def site_group_id(record_ids: Iterable[str]) -> str:
+    """Bind a complete physical group's sorted member IDs to the split authority."""
+    members = identity_values(record_ids)
+    if not members or len(set(members)) != len(members):
+        raise ValidationRefusal(
+            "invalid_site_group", "Group members must be nonempty and unique"
+        )
+    return "site-group:" + manifest_sha256(sorted(members))
+
+
 @dataclass(frozen=True)
 class SiteRecord:
     """An outcome-free record identity; aliases must come from a reviewed crosswalk.
@@ -128,3 +138,132 @@ class Fold:
     def as_dict(self) -> dict[str, object]:
         """Return an outcome-free deterministic manifest row."""
         return {field: getattr(self, field) for field in self.__dataclass_fields__}
+
+
+@dataclass(frozen=True)
+class TrainingAdmission:
+    """Explicit whole-group training subpartition; the original outer Fold is retained.
+
+    Record/group ownership is outcome-free declared identity, not a quantitative
+    source edge. The criterion is a canonical, hash-bound receipt; the caller
+    must establish that its domain-specific decisions satisfy that criterion.
+    """
+
+    fold: Fold
+    record_groups: tuple[tuple[str, str], ...]
+    admitted_group_ids: tuple[str, ...]
+    criterion_json: str
+
+    def __post_init__(self) -> None:
+        self.validate(self.fold)
+        object.__setattr__(self, "record_groups", tuple(sorted(self.record_groups)))
+        object.__setattr__(
+            self, "admitted_group_ids", tuple(sorted(self.admitted_group_ids))
+        )
+
+    def validate(self, fold: Fold) -> None:
+        """Recheck exact ownership and whole-group partitions, including replaced state."""
+        if not isinstance(self.fold, Fold) or self.fold != fold:
+            raise ValidationRefusal(
+                "training_admission_fold_mismatch", "Original Fold differs"
+            )
+        if not isinstance(self.record_groups, tuple) or any(
+            not isinstance(pair, tuple) or len(pair) != 2 for pair in self.record_groups
+        ):
+            raise ValidationRefusal(
+                "invalid_training_admission", "Require explicit record/group pairs"
+            )
+        ownership = {
+            required_identity(record): required_identity(group)
+            for record, group in self.record_groups
+        }
+        if len(ownership) != len(self.record_groups) or set(ownership) != {
+            *fold.train_record_ids,
+            *fold.test_record_ids,
+        }:
+            raise ValidationRefusal(
+                "training_admission_membership_mismatch",
+                "Complete unique original record ownership is required",
+            )
+        if {ownership[key] for key in fold.train_record_ids} != set(
+            fold.train_group_ids
+        ) or {ownership[key] for key in fold.test_record_ids} != set(
+            fold.test_group_ids
+        ):
+            raise ValidationRefusal(
+                "training_admission_membership_mismatch",
+                "Original whole-group ownership differs",
+            )
+        for group in {*fold.train_group_ids, *fold.test_group_ids}:
+            members = tuple(
+                record for record, owner in ownership.items() if owner == group
+            )
+            if site_group_id(members) != group:
+                raise ValidationRefusal(
+                    "training_admission_membership_mismatch",
+                    "Original group identity does not match its complete record membership",
+                )
+        admitted = identity_values(self.admitted_group_ids)
+        if (
+            not admitted
+            or len(set(admitted)) != len(admitted)
+            or not set(admitted).issubset(fold.train_group_ids)
+        ):
+            raise ValidationRefusal(
+                "invalid_training_admission",
+                "Admit nonempty unique original training groups",
+            )
+        try:
+            criterion = json.loads(self.criterion_json)
+            if (
+                not isinstance(criterion, dict)
+                or canonical_json(criterion) != self.criterion_json
+            ):
+                raise ValueError("Criterion must be a canonical JSON object")
+            profile = criterion.get("profile")
+            if not isinstance(profile, str):
+                raise ValueError("Criterion profile must be an exact identity")
+            required_identity(profile)
+        except (ValueError, TypeError) as exc:
+            raise ValidationRefusal("invalid_training_criterion", str(exc)) from exc
+
+    @property
+    def admitted_record_ids(self) -> tuple[str, ...]:
+        """Every record in each admitted physical group, with no alias selection."""
+        return tuple(
+            sorted(
+                record
+                for record, group in self.record_groups
+                if group in self.admitted_group_ids
+            )
+        )
+
+    @property
+    def excluded_group_ids(self) -> tuple[str, ...]:
+        """Excluded training groups stay distinct from the original test partition."""
+        return tuple(
+            sorted(set(self.fold.train_group_ids) - set(self.admitted_group_ids))
+        )
+
+    @property
+    def excluded_record_ids(self) -> tuple[str, ...]:
+        return tuple(
+            sorted(set(self.fold.train_record_ids) - set(self.admitted_record_ids))
+        )
+
+    def as_dict(self) -> dict[str, object]:
+        """Bind the original Fold, all admitted/excluded ownership and the criterion."""
+        self.validate(self.fold)
+        criterion = json.loads(self.criterion_json)
+        return {
+            "schema_version": "lra-training-admission.v1",
+            "original_fold": self.fold.as_dict(),
+            "original_fold_sha256": manifest_sha256(self.fold.as_dict()),
+            "record_groups": dict(self.record_groups),
+            "admitted_training_group_ids": self.admitted_group_ids,
+            "admitted_training_record_ids": self.admitted_record_ids,
+            "excluded_training_group_ids": self.excluded_group_ids,
+            "excluded_training_record_ids": self.excluded_record_ids,
+            "criterion": criterion,
+            "criterion_sha256": manifest_sha256(criterion),
+        }

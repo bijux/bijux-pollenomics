@@ -426,3 +426,20 @@ def test_shared_footprint_hash_cannot_override_contradictory_support(
         row["status"] == "unsupported_observation_support"
         for row in result["row_statuses"]
     )
+
+
+def test_evaluator_uses_shared_geographic_support_arithmetic() -> None:
+    from bijux_pollenomics.analysis.lra_validation.evaluation.scoring import _distance
+    from bijux_pollenomics.analysis.lra_validation.spatial.support import (
+        support_separation,
+    )
+
+    scope = scope_fixture()
+    target, training = scope.sites[2].support, scope.sites[0].support
+    assert target is not None and training is not None
+    target = replace(target, radius_m=37, coordinate_uncertainty_m=11)
+    training = replace(training, radius_m=41, coordinate_uncertainty_m=13)
+    assert (
+        _distance(target, training)
+        == support_separation(target, training).lower_bound_m
+    )

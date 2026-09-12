@@ -2,14 +2,18 @@
 
 from __future__ import annotations
 
-import json
 from dataclasses import FrozenInstanceError, replace
+import json
 from math import exp, isclose, log, sqrt
 from typing import Any
 
 import pytest
 
-from bijux_pollenomics.analysis.lra_validation.contracts import Fold, ValidationRefusal
+from bijux_pollenomics.analysis.lra_validation.contracts import (
+    Fold,
+    ValidationRefusal,
+    site_group_id,
+)
 from bijux_pollenomics.analysis.lra_validation.spatial import (
     FittedSpatialModel,
     SiteCoordinate,
@@ -215,3 +219,119 @@ def test_predict_rechecks_identity_even_after_frozen_state_bypass() -> None:
     object.__setattr__(model, "model_sha256", "0" * 64)
     with pytest.raises(ValidationRefusal):
         prediction(model)
+
+
+def test_default_model_manifest_and_explicit_none_remain_exact_v1() -> None:
+    model = fit()
+    explicit = fit(training_admission=None)
+    assert model.fit_manifest_json == explicit.fit_manifest_json
+    assert model.model_sha256 == explicit.model_sha256
+    payload = json.loads(model.fit_manifest_json)
+    assert payload["schema_version"] == "lra-fitted-spatial-model.v1"
+    assert (
+        "training_admission" not in payload and "admitted_external_ids" not in payload
+    )
+
+
+def admitted_model(*, leak: str | None = None) -> FittedSpatialModel:
+    from bijux_pollenomics.analysis.lra_validation.contracts import (
+        TrainingAdmission,
+        canonical_json,
+        site_group_id,
+    )
+
+    fold = Fold(
+        "block",
+        ("r1", "r2", "anchor", "excluded"),
+        ("t1", "t2"),
+        (
+            site_group_id(("r1",)),
+            site_group_id(("r2",)),
+            site_group_id(("anchor",)),
+            site_group_id(("excluded",)),
+        ),
+        (site_group_id(("t1",)), site_group_id(("t2",))),
+    )
+    admission = TrainingAdmission(
+        fold,
+        (
+            ("r1", site_group_id(("r1",))),
+            ("r2", site_group_id(("r2",))),
+            ("anchor", site_group_id(("anchor",))),
+            ("excluded", site_group_id(("excluded",))),
+            ("t1", site_group_id(("t1",))),
+            ("t2", site_group_id(("t2",))),
+        ),
+        (site_group_id(("r1",)), site_group_id(("r2",)), site_group_id(("anchor",))),
+        canonical_json({"profile": "synthetic-buffer", "minimum_buffer_m": 1000}),
+    )
+    graph: dict[str, tuple[str, ...]] = dict.fromkeys(
+        (*fold.train_record_ids, *fold.test_record_ids), ()
+    )
+    graph["fit:r1"] = ("r1", "anchor") if leak is None else ("r1", leak)
+    inputs = ("r1", "r2", "anchor", "fit:r1") if leak != "omit_anchor" else ("r1", "r2")
+    if leak == "omit_anchor":
+        graph["fit:r1"] = ("r1",)
+    return fit_spatial_model(
+        fold,
+        {
+            site_group_id(("r1",)): {"a": 0.75, "b": 0.25},
+            site_group_id(("r2",)): {"a": 0.25, "b": 0.75},
+        },
+        {
+            site_group_id(("r1",)): SiteCoordinate(0, 0),
+            site_group_id(("r2",)): SiteCoordinate(0, 1),
+        },
+        config=SpatialConfig(100, 0.1, "support"),
+        input_ids=inputs,
+        dependency_graph=graph,
+        admitted_external_ids=("fit:r1", "excluded", "t1", "t2"),
+        predictor_group_ids=(site_group_id(("r1",)), site_group_id(("r2",))),
+        training_admission=admission,
+    )
+
+
+def test_admitted_model_keeps_multi_target_block_and_regional_ancestry() -> None:
+    model = admitted_model()
+    payload = json.loads(model.fit_manifest_json)
+    assert payload["schema_version"] == "lra-fitted-spatial-model.v2"
+    assert payload["fold"]["test_record_ids"] == ["t1", "t2"]
+    assert payload["training_admission"]["excluded_training_record_ids"] == ["excluded"]
+    assert (
+        "anchor" in payload["allowed_input_closure"]
+        and "excluded" not in payload["allowed_input_closure"]
+    )
+    assert site_group_id(("anchor",)) not in model.groups
+    left = model.predict(
+        target_group_id=site_group_id(("t1",)),
+        coordinate=SiteCoordinate(0, 0.2),
+        support_id="support",
+    )
+    right = model.predict(
+        target_group_id=site_group_id(("t2",)),
+        coordinate=SiteCoordinate(0, 0.8),
+        support_id="support",
+    )
+    assert left.model_sha256 == right.model_sha256 == model.model_sha256
+    assert left.fractions != right.fractions
+
+
+@pytest.mark.parametrize("leak", ["excluded", "t1", "t2", "omit_anchor"])
+def test_admitted_model_refuses_excluded_or_missing_regional_ancestry(
+    leak: str,
+) -> None:
+    with pytest.raises(ValidationRefusal):
+        admitted_model(leak=leak)
+
+
+def test_changed_training_admission_cannot_retain_fitted_identity() -> None:
+    model = admitted_model()
+    assert model.training_admission is not None
+    changed = replace(
+        model.training_admission,
+        admitted_group_ids=(site_group_id(("r1",)), site_group_id(("r2",))),
+    )
+    with pytest.raises(ValidationRefusal):
+        replace(model, training_admission=changed)
+    with pytest.raises(ValidationRefusal):
+        replace(model, training_admission=None)

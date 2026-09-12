@@ -9,8 +9,6 @@ import json
 from statistics import mean
 from typing import Any, cast
 
-from bijux_pollenomics.core.geospatial.distance import wgs84_inverse_geodesic
-
 from ..channels import assert_channel_inputs
 from ..contracts import (
     Fold,
@@ -27,6 +25,7 @@ from ..metrics import (
     score_pollen,
     score_vegetation,
 )
+from ..spatial.support import support_distance_lower_bound_m
 from ..splits import assert_allowed_inputs
 from .contracts import (
     AcceptanceCell,
@@ -69,20 +68,7 @@ def _support_matches(target: Support | None, observed: Support | None) -> bool:
 
 
 def _distance(target: Support, training: Support) -> float:
-    distance = wgs84_inverse_geodesic(
-        latitude_a=target.latitude,
-        longitude_a=target.longitude,
-        latitude_b=training.latitude,
-        longitude_b=training.longitude,
-    )
-    return max(
-        0.0,
-        distance.distance_km_unrounded * 1000
-        - target.radius_m
-        - training.radius_m
-        - target.coordinate_uncertainty_m
-        - training.coordinate_uncertainty_m,
-    )
+    return support_distance_lower_bound_m(target, training)
 
 
 def _fit_closure(
