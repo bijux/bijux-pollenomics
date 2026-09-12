@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-12
 ---
 
 # CLI Surface
@@ -31,6 +31,7 @@ flowchart LR
 | capability and ownership | `surface-map`, `product-scope`, `ownership-map`, `source-support` | read-only orientation |
 | animal evidence structure | `adna-layout`, `adna-runtime-manifest`, `adna-artifact-plan`, `adna-curation-manifest`, `adna-normalization-bundle` | read-only manifests and plans |
 | animal evidence review | `adna-archive-projects`, `adna-domestication-coverage`, `adna-species`, `adna-species-review`, `adna-release-bar`, `adna-release-readiness` | read-only coverage and release posture |
+| landscape reconstruction | `validate-lra-input`, `run-lra` | validates an explicit request or writes a new exploratory bundle; optional extension required |
 | validation | `validate-collection-summary` | validates an existing summary without recollection |
 | collection and contract refresh | `collect-data`, `refresh-aadr-source-accountability`, `refresh-data-contract-surfaces`, `refresh-animal-adna-foundation` | writes governed data and, for the animal refresh, related publication surfaces |
 | publication | `report-country`, `report-multi-country-map`, `publish-reports` | writes scoped report and atlas products |
@@ -39,6 +40,8 @@ flowchart LR
 
 | Form | Result |
 | --- | --- |
+| `validate-lra-input REQUEST --input-root ROOT` | schema, evidence-byte and installed-method configuration checks |
+| `run-lra REQUEST --input-root ROOT --output NEW_DIRECTORY` | one exploratory REVEALS, LOVE, paired or series bundle; existing destinations refused |
 | `collect-data <sources...>` | collect one or more source families, or `all` |
 | `adna-layout --species <name>` | canonical species evidence paths |
 | `adna-runtime-manifest --species <name>` | source bundles and analysis boundaries for one species |
@@ -178,3 +181,18 @@ operational documentation and system ownership use the canonical
 
 For Python imports, continue to the [API surface](api-surface.md). For safe
 operation sequences, continue to [operator workflows](operator-workflows.md).
+
+## Landscape reconstruction
+
+These two commands share `bijux_pollenomics.analysis.lra.api`. Requests declare
+counts, taxa and parameters, source identities, measured basin/ring geometry,
+typed age support, time-bin assumptions, a fixed random seed, exclusions and
+unpropagated uncertainties. A matching coordinate alone never supplies age
+support. The `lra-request.v1` schema is owned by the host input layer.
+
+Successful execution returns structured JSON and exit0. Missing/incompatible
+extensions, invalid inputs and numerical nonconvergence return exit2 with a
+stable reason and applicable diagnostics. Each output remains
+`generated_exploratory`; ecological accuracy and scientific admission are
+`not_evaluated`. See [LRA engine integration](../architecture/lra-engine.md)
+for numerical profiles, units, installation and publication boundaries.

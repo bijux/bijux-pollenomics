@@ -30,6 +30,7 @@ def build_surface_map() -> SurfaceMap:
             "atlas bundle publication",
             "country report publication",
             "candidate ranking artifacts (heuristic)",
+            "optional exploratory landscape reconstruction (LRA)",
         ),
         planned_engine_surfaces=(
             "multi-evidence harmonization runtime",

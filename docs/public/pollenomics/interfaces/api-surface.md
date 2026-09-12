@@ -4,7 +4,7 @@ audience: reader
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-12
 ---
 
 # API Surface
@@ -21,6 +21,7 @@ it does not imply that this repository operates a live HTTP service.
 | `bijux-pollenomics` | canonical command | inspection, collection, evidence review, and publication workflows | command help, exit status, and written contract surfaces |
 | `pollenomics` | compatibility command | the same workflows under the shorter distribution name | delegates to the canonical runtime |
 | `bijux_pollenomics` | Python facade | embedding collection, reporting, and product-scope operations | names exported by the package root and public API modules |
+| `bijux_pollenomics.analysis.lra.api` | optional exploratory reconstruction | validate explicit inputs or execute REVEALS/LOVE/paired/series requests | source-bound request and exploratory product manifest |
 | governed JSON, CSV, GeoJSON, Markdown, and HTML | persisted exchange and publication | inspection, reuse, review, and downstream analysis | the owning manifest or evidence contract |
 | OpenAPI v1 | future HTTP compatibility target | client design and schema review | pinned schema plus `schema.hash` |
 
@@ -175,3 +176,17 @@ A rename, removal, changed default scope, weakened refusal, or altered
 publication membership is not a cosmetic change. It requires an explicit
 compatibility decision and a migration path appropriate to the affected CLI,
 Python, file, or OpenAPI consumer.
+
+## Optional landscape reconstruction facade
+
+`validate_lra_inputs(payload, input_root=...)` returns an immutable
+`ValidatedRequest`. `run_lra_request(payload, input_root=..., destination=...)`
+returns an `LRAProduct` containing the new directory and byte/scientific content
+hashes. Both require the optional extension when checking numerical settings.
+`LRARefusal` carries a stable reason, detail and optional numerical diagnostics.
+Importing the host facade does not import the numerical extension.
+
+The host service owns inputs, decisions and publication. Advanced numerical
+callers may use `bijux_pollenomics_lra.api`; doing so alone does not create an
+admitted host product. The request schema and unsupported assumptions are
+described in [LRA engine integration](../architecture/lra-engine.md).

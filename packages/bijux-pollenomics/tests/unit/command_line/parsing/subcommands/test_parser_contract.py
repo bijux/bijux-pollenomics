@@ -61,6 +61,8 @@ _COMMAND_ACTIONS = {
         "context_root",
     ],
     "collect-data": ["help", "sources", "version", "output_root"],
+    "validate-lra-input": ["help", "request", "input_root"],
+    "run-lra": ["help", "request", "input_root", "output"],
     "refresh-aadr-source-accountability": ["help", "data_root", "version"],
     "refresh-data-contract-surfaces": ["help", "data_root", "version"],
     "surface-map": ["help", "json"],
@@ -97,8 +99,8 @@ def test_root_and_subcommand_help_text_is_frozen() -> None:
     subcommand_help = "".join(child.format_help() for child in action.choices.values())
     assert (
         root_digest
-        == "7546a0e1edb4f99dc02db4ea115e00768d61b07d0fcf69cff51c0cad7ebe61f7"
+        == "24dd07d2892a9600c7fdc8e981b36ad5b114686d482991d341a4456de7f22687"
     )
     assert hashlib.sha256(subcommand_help.encode()).hexdigest() == (
-        "070037efc50cf3fedcdce8eb20f4ae3a19bdd15ea919be69ed97a251748c5ab5"
+        "dc9c405a991c69c59a8469004ac8844aa555f2c1834d7bc01adb824ba84f6479"
     )

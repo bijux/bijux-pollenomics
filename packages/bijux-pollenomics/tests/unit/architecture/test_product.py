@@ -13,6 +13,14 @@ class ProductScopeUnitTests(unittest.TestCase):
         self.assertEqual(scope.current_product_mode, "atlas_builder")
         self.assertEqual(scope.roadmap_mode, "future_engine")
         self.assertIn(
+            "run exploratory REVEALS and LOVE with the optional LRA extension",
+            scope.current_capabilities,
+        )
+        self.assertIn(
+            "scientifically accepted LRA or independent vegetation prediction accuracy",
+            scope.not_yet_supported_claims,
+        )
+        self.assertIn(
             "full pollenomics scientific decision engine",
             scope.not_yet_supported_claims,
         )

@@ -61,3 +61,44 @@ kernel remains Python. This finding does not establish that every possible
 native optimization is unsuitable; further native adoption requires measured
 benefit, binding safety and platform evidence through the same Python facade.
 
+## Host boundary
+
+The host facade is `bijux_pollenomics.analysis.lra.api`; its `inputs`, `engine`,
+`execution` and `outputs` packages have distinct owners and mirrored unit tests.
+The CLI delegates to the same service. `validate-lra-input` verifies a declared
+request and installed configuration; `run-lra` executes it and publishes a new
+local exploratory bundle. Neither command grants source or scientific approval.
+
+The request records sample/site identities separately from exact numeric pairing
+coordinates. All source age intervals remain typed BP support. An explicit
+`declared_bin_stationarity` decision identifies common time bins containing the
+full support of every paired sample; matching a numeric key alone cannot
+establish chronological compatibility. This is a declared modeling assumption,
+not a chronology review verdict. Included/excluded sample identities must be
+disjoint and unique.
+
+Geometry records use metres and square metres, with explicit source references.
+The optimized profile consumes terrestrial-to-ring area ratios; it needs
+regional rings beyond the separately declared local `max_ring`. The analytical
+profile does not apply partial terrestrial masks and refuses them. Arithmetic
+checks do not independently verify source geometry. The optimized source
+objective uses nominal PPE; its nested method manifest retains that source
+limitation even when other stages draw PPE uncertainty.
+
+Products retain source-file hashes, explicit omissions, numerical units, actual
+installed engine identity, code/resource inventories, diagnostic files and
+separate operational/scientific hashes. Source and code changes during a run
+refuse publication. Before/after file inventories are mutation checks; they do
+not attest Python objects already loaded in a long-lived process. Certification
+uses fresh installed processes and pinned dependencies.
+
+Directory publication requires an atomic no-replace operation on the destination
+filesystem. The Linux and macOS paths use their native exclusive-rename
+primitives; Windows uses its nonreplacing rename behavior. Unsupported systems
+or filesystems refuse publication instead of falling back to a racy existence
+check. Failed staging directories remain available for diagnosis. Local macOS
+execution evidence does not certify the other operating systems.
+
+The primitive contracts are documented by the
+[Linux rename manual](https://www.man7.org/linux/man-pages/man2/renameat2.2.html)
+and [Apple's rename flag definitions](https://github.com/apple-oss-distributions/xnu/blob/main/bsd/sys/stdio.h).

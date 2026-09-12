@@ -1,0 +1,1 @@
+"""Host LRA outputs contracts."""

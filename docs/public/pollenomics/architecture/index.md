@@ -63,6 +63,7 @@ flowchart LR
 | `command_line/` | CLI parsing, subcommand registration, runtime dispatch | exit status and selected action |
 | `collection/` | source acquisition, staging swaps, normalization, hashes, provenance, and source-family contracts | raw and normalized source trees, `collection_summary.json` |
 | `adna/` | animal project intake, supplement recovery, sample identity, locality, chronology, coordinate provenance, species normalization, and integrity checks | project evidence surfaces and species records |
+| `analysis/lra/` | explicit reconstruction requests, optional engine discovery, execution and exploratory products | source-bound requests, numerical diagnostics and product manifests |
 | `analysis/review/fieldwork/` | candidate ranking, sensitivity analysis, and review-oriented comparisons | ranking and sensitivity records |
 | `evidence/` | atlas evidence rows and scientific review surfaces | evidence tables and fitness assessments |
 | `reporting/` | geography selection, bundle assembly, map documents, reports, and review publication | world, region, country, and lake outputs |
@@ -225,6 +226,7 @@ flowchart TB
   persistence, and error handling.
 - [Module map](module-map.md) maps scientific and publication questions to code
   ownership.
+- [LRA engine integration](lra-engine.md) describes numerical and host boundaries.
 - [Package split](package-split.md) distinguishes the canonical runtime,
   compatibility distribution, and repository tooling.
 - [Data architecture](../../pollenomics-data/overview/data-architecture-handbook.md)

@@ -18,6 +18,7 @@ class OwnershipMapUnitTests(unittest.TestCase):
             {
                 "source_data_logic",
                 "candidate_ranking_logic",
+                "landscape_reconstruction_logic",
                 "publication_logic",
             },
         )

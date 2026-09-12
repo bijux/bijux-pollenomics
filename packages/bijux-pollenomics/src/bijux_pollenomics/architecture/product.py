@@ -32,10 +32,12 @@ def build_product_scope() -> ProductScope:
             "collect and normalize Nordic context evidence",
             "publish country and atlas report bundles",
             "emit heuristic candidate ranking artifacts",
+            "run exploratory REVEALS and LOVE with the optional LRA extension",
         ),
         not_yet_supported_claims=(
             "full pollenomics scientific decision engine",
             "integrated aDNA, eDNA, pollen, and archaeology co-analysis runtime",
             "paper-grade inferential statistics workflows",
+            "scientifically accepted LRA or independent vegetation prediction accuracy",
         ),
     )
