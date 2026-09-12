@@ -52,6 +52,7 @@ def build_command_handlers(
         "validate-lra-input": run_lra_command,
         "run-lra": run_lra_command,
         "run-lra-batch": run_lra_command,
+        "render-lra-report": run_lra_command,
         "refresh-aadr-source-accountability": run_refresh_aadr_source_accountability,
         "refresh-data-contract-surfaces": run_refresh_data_contract_surfaces,
         "refresh-animal-adna-foundation": run_refresh_animal_adna_foundation,

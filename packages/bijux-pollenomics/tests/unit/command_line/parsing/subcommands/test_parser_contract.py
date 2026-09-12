@@ -72,6 +72,14 @@ _COMMAND_ACTIONS = {
         "max_workers",
         "max_items",
     ],
+    "render-lra-report": [
+        "help",
+        "product",
+        "expected_manifest_sha256",
+        "geometry",
+        "expected_geometry_sha256",
+        "output",
+    ],
     "refresh-aadr-source-accountability": ["help", "data_root", "version"],
     "refresh-data-contract-surfaces": ["help", "data_root", "version"],
     "surface-map": ["help", "json"],
@@ -108,8 +116,8 @@ def test_root_and_subcommand_help_text_is_frozen() -> None:
     subcommand_help = "".join(child.format_help() for child in action.choices.values())
     assert (
         root_digest
-        == "1d4b320bd7ad2c33adcbd9af286ea220205fd1ebecb87dad13503e91219acfa8"
+        == "ba9b540e3a212c42ab7fd16e7af06b98538620fe5773de07665f31a9b1917aa1"
     )
     assert hashlib.sha256(subcommand_help.encode()).hexdigest() == (
-        "850e9a1328fea5e778afb40db6493bff9e46bdcf1128e2058b6885ac5e182a90"
+        "1b53c4a995c941200d78cb3ba0ffeb8859d22c8244add61f344af962f93c1df4"
     )

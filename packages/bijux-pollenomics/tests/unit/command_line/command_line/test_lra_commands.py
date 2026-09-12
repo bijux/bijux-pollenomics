@@ -14,6 +14,73 @@ from bijux_pollenomics.cli import main
 from ...analysis.lra.support import request_fixture
 
 
+@pytest.mark.parametrize("refused", [False, True])
+def test_saved_report_command_pins_both_inputs_without_running_engine(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    refused: bool,
+) -> None:
+    from bijux_pollenomics.command_line.runtime import lra
+    from bijux_pollenomics.reporting.lra_products import api
+    from bijux_pollenomics.reporting.lra_products.api import (
+        LRAPresentation,
+        LRAPresentationRefusal,
+    )
+
+    product, geometry, destination = (
+        tmp_path / "product",
+        tmp_path / "geometry.json",
+        tmp_path / "report",
+    )
+    result = LRAPresentation(destination, "0" * 64, "1" * 64, "2" * 64, 1, 1)
+    with (
+        patch.object(
+            api,
+            "render_lra_report",
+            return_value=result,
+            side_effect=LRAPresentationRefusal(
+                "changed_presentation_input", "geometry.json"
+            )
+            if refused
+            else None,
+        ) as render,
+        patch.object(lra, "run_lra_request") as compute,
+    ):
+        code = main(
+            [
+                "render-lra-report",
+                str(product),
+                "--expected-manifest-sha256",
+                "1" * 64,
+                "--geometry",
+                str(geometry),
+                "--expected-geometry-sha256",
+                "2" * 64,
+                "--output",
+                str(destination),
+            ]
+        )
+    assert code == (2 if refused else 0)
+    assert not compute.called
+    render.assert_called_once_with(
+        product,
+        expected_manifest_sha256="1" * 64,
+        geometry_path=geometry,
+        expected_geometry_sha256="2" * 64,
+        destination=destination,
+    )
+    payload = json.loads(capsys.readouterr().out)
+    if refused:
+        assert payload["status"] == "refused"
+        assert payload["reason_code"] == "changed_presentation_input"
+    else:
+        assert payload["status"] == "generated_exploratory"
+        assert payload["product_manifest_sha256"] == "1" * 64
+        assert payload["geometry_sha256"] == "2" * 64
+        assert payload["mapped_site_count"] == payload["refused_site_count"] == 1
+        assert payload["scientific_acceptance"] == "not_evaluated"
+
+
 @pytest.mark.parametrize(
     "interrupted,completed,expected_code",
     [(False, True, 0), (False, False, 2), (True, False, 130)],

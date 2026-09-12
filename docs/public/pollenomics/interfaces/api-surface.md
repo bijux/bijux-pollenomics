@@ -207,6 +207,18 @@ Set the five numerical thread environment controls listed in the CLI contract to
 report directories.
 
 The host service owns inputs, decisions and publication. Advanced numerical
+callers and reporting clients have separate boundaries. Saved-product reporting
+uses `bijux_pollenomics.reporting.lra_products.api.render_lra_report(product_directory,
+expected_manifest_sha256=..., geometry_path=..., expected_geometry_sha256=...,
+destination=...)`. Both supplied files are content-bound; an existing destination
+is refused. This function preserves the original product, native numerical tables
+and source lineage without importing or running the optional numerical engine.
+The result is exploratory and records mapped and refused site counts. A map
+anchor needs an explicit geometry declaration; a numerical pairing coordinate
+does not locate a site. Source-geography and unsupported temporal profiles remain
+explicit map refusals with their original data retained in downloads.
+
+Advanced numerical
 callers may use `bijux_pollenomics_lra.api`; doing so alone does not create an
 admitted host product. The request schema and unsupported assumptions are
 described in [LRA engine integration](../architecture/lra-engine.md).

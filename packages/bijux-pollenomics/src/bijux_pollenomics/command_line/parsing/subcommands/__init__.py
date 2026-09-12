@@ -38,6 +38,7 @@ from .collection_contracts import (
     build_validate_collection_summary_parser,
 )
 from .lra import (
+    build_render_lra_report_parser,
     build_run_lra_batch_parser,
     build_run_lra_parser,
     build_validate_lra_input_parser,
@@ -75,6 +76,7 @@ __all__ = [
     "build_refresh_aadr_source_accountability_parser",
     "build_refresh_data_contract_surfaces_parser",
     "build_report_country_parser",
+    "build_render_lra_report_parser",
     "build_run_lra_parser",
     "build_run_lra_batch_parser",
     "build_source_support_parser",
@@ -108,6 +110,7 @@ def register_subcommands(
     build_validate_lra_input_parser(subparsers)
     build_run_lra_parser(subparsers)
     build_run_lra_batch_parser(subparsers)
+    build_render_lra_report_parser(subparsers)
     build_refresh_aadr_source_accountability_parser(subparsers)
     build_refresh_data_contract_surfaces_parser(subparsers)
     build_surface_map_parser(subparsers)

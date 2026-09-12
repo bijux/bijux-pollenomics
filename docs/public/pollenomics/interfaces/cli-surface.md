@@ -217,3 +217,14 @@ completed, exit 2 for refused or failed items, and exit 130 for cooperative
 interruption. These process outcomes do not confer scientific acceptance.
 Interruption stops submission and lets active work finish; it does not force-kill
 a numerical solver or delete a possibly active cache lock.
+
+`render-lra-report PRODUCT --expected-manifest-sha256 HASH --geometry GEOMETRY.json
+--expected-geometry-sha256 HASH --output NEW_REPORT` reopens a saved product and
+renders its native values and lineage without numerical execution or the LRA
+extra. Both hashes are required. Geometry declarations bind exact product and
+site identities; model pairing coordinates cannot supply map locations. The
+report contains original product downloads, estimate tables and explicit
+mapped/refused site accounting. Missing values stay missing and LOVE fractions
+remain distinct from REVEALS percentages. A successful report returns exit 0,
+including reports with declared map refusals; invalid inputs or an existing
+output return exit 2. Report generation does not confer scientific acceptance.

@@ -64,6 +64,40 @@ def build_run_lra_batch_parser(
     return parser
 
 
+def build_render_lra_report_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build saved-product reporting with explicitly pinned input identities."""
+    parser = subparsers.add_parser(
+        "render-lra-report",
+        help="Render a verified saved LRA product and declared display geometry.",
+    )
+    parser.add_argument("product", type=Path, help="Saved LRA product directory.")
+    parser.add_argument(
+        "--expected-manifest-sha256",
+        required=True,
+        help="Expected product manifest SHA-256.",
+    )
+    parser.add_argument(
+        "--geometry",
+        type=Path,
+        required=True,
+        help="Evidence-bound display geometry JSON.",
+    )
+    parser.add_argument(
+        "--expected-geometry-sha256",
+        required=True,
+        help="Expected geometry file SHA-256.",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        required=True,
+        help="New directory for the exploratory report.",
+    )
+    return parser
+
+
 def build_run_lra_parser(
     subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
 ) -> argparse.ArgumentParser:
