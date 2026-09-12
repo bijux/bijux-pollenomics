@@ -22,6 +22,12 @@ from ..contracts import (
 Baseline = Literal["training_mean", "nearest_site", "inverse_distance_squared"]
 BASELINES = ("training_mean", "nearest_site", "inverse_distance_squared")
 PROFILE = "synthetic-withheld-site-baselines-v1"
+FITTED_PROFILE = "synthetic-withheld-site-fitted-spatial-v1"
+FITTED_METHOD = "clr-wgs84-rbf-ridge-v1"
+FITTED_ROLES = {
+    "vegetation_cover": "heldout_prediction",
+    "pollen_composition": "heldout_prediction",
+}
 LOCAL_PROFILE = "synthetic-local-pollen-available-v1"
 LOCAL_METHOD = "analytical_love_local_pollen"
 LOCAL_EVALUATION_ROLES = {
@@ -305,3 +311,41 @@ class LocalPollenSpec(ExperimentScope):
             scope.canonical_template,
         )
         object.__setattr__(self, "method", LOCAL_METHOD)
+
+
+@dataclass(frozen=True, init=False)
+class FittedSpatialExperimentSpec(ExperimentScope):
+    """Fixed spatial parameters with both target observation channels withheld."""
+
+    length_scale_km: float
+    ridge_penalty: float
+
+    def __init__(self, payload: Mapping[str, object]) -> None:
+        scope = _scope(payload, profile=FITTED_PROFILE, selection_field="method")
+        method = object_mapping(payload["method"], "method")
+        if (
+            set(method) != {"profile", "length_scale_km", "ridge_penalty"}
+            or method["profile"] != FITTED_METHOD
+        ):
+            raise ValidationRefusal(
+                "unsupported_fitted_spatial_method",
+                "Declare the fixed CLR spatial model",
+            )
+        scale, penalty = (
+            finite_number(method["length_scale_km"]),
+            finite_number(method["ridge_penalty"]),
+        )
+        if scale <= 0 or penalty <= 0:
+            raise ValidationRefusal(
+                "invalid_spatial_configuration", "Parameters must be positive"
+            )
+        super().__init__(
+            scope.sites,
+            scope.regional_priority,
+            scope.local_ring_count,
+            scope.local_support_radius_m,
+            scope.support_profile,
+            scope.canonical_template,
+        )
+        object.__setattr__(self, "length_scale_km", scale)
+        object.__setattr__(self, "ridge_penalty", penalty)

@@ -5,9 +5,13 @@ from __future__ import annotations
 from collections.abc import Mapping
 from pathlib import Path
 
-from ..contracts import ValidationRefusal, finite_number, manifest_sha256
-from ..metrics import score_pollen, score_vegetation
+from ..contracts import Fold, ValidationRefusal, finite_number, manifest_sha256
+from ..metrics import closed_composition, score_pollen, score_vegetation
+from ..splits import assert_allowed_inputs
 from .configuration import (
+    FITTED_METHOD,
+    FITTED_PROFILE,
+    FITTED_ROLES,
     PROFILE,
     InputReference,
     identity,
@@ -49,13 +53,24 @@ def _predictions(
                 "invalid_prediction_inventory", "Invalid outer fold identities"
             )
         folds[key] = fold
+    fitted = manifest["profile"] == FITTED_PROFILE
+    method_field = "method" if fitted else "baseline"
+    method_list = "methods" if fitted else "baselines"
     methods = tuple(
-        identity(value) for value in object_list(scientific["baselines"], "baselines")
+        identity(value) for value in object_list(scientific[method_list], method_list)
     )
+    if fitted and (
+        methods != (FITTED_METHOD,)
+        or scientific.get("evaluation_roles") != FITTED_ROLES
+    ):
+        raise ValidationRefusal(
+            "invalid_fitted_prediction_product",
+            "Fitted methods and target roles differ",
+        )
     predictions = {}
     for value in object_list(rows, "predictions"):
         row = object_mapping(value, "prediction")
-        prediction_key = (identity(row["fold_id"]), identity(row["baseline"]))
+        prediction_key = (identity(row["fold_id"]), identity(row[method_field]))
         if (
             prediction_key in predictions
             or prediction_key[0] not in folds
@@ -71,6 +86,12 @@ def _predictions(
                 "invalid_prediction_inventory",
                 "Prediction target differs from the held-out record",
             )
+        if fitted:
+            from .fitted import validate_fitted_prediction
+
+            validate_fitted_prediction(row, folds[prediction_key[0]])
+        else:
+            _validate_baseline_prediction(row, folds[prediction_key[0]])
         predictions[prediction_key] = row
     failures = object_list(scientific["failures"], "failures")
     failed = {
@@ -97,6 +118,125 @@ def _predictions(
             "invalid_prediction_inventory", "Partial prediction folds are not admitted"
         )
     return folds, predictions, methods
+
+
+def _validate_baseline_prediction(
+    row: dict[str, object], outer: dict[str, object]
+) -> None:
+    inner = object_mapping(row["prediction_manifest"], "prediction_manifest")
+    if (
+        manifest_sha256(inner) != row["prediction_manifest_sha256"]
+        or inner["fold"] != outer
+        or inner["schema_version"] != "lra-heldout-prediction.v1"
+        or inner["experiment"] != "all_target_pollen_withheld"
+        or inner["spatial_method"] != row["baseline"]
+        or outer["test_group_ids"] != [inner["target_group_id"]]
+        or inner["vegetation_fraction"] != row["vegetation_fraction"]
+        or inner["pollen_fraction"] != row["pollen_fraction"]
+        or inner["scientific_acceptance"] != "not_evaluated_by_prediction"
+        or inner["uncertainty_status"]
+        != "deterministic_point_prediction_no_predictive_intervals"
+    ):
+        raise ValidationRefusal(
+            "baseline_prediction_identity_mismatch",
+            "Wrapper, inner prediction or withheld role differs",
+        )
+    predictors = object_list(
+        inner.get("predictor_group_ids", outer["train_group_ids"]),
+        "predictor_group_ids",
+    )
+    if (
+        not predictors
+        or len(set(predictors)) != len(predictors)
+        or not set(predictors).issubset(
+            object_list(outer["train_group_ids"], "train_group_ids")
+        )
+    ):
+        raise ValidationRefusal(
+            "baseline_predictor_group_mismatch",
+            "Predictors must be original training groups",
+        )
+    taxa = object_list(
+        object_mapping(inner["forward_inputs"], "forward_inputs")["taxa"], "taxa"
+    )
+    for field in ("vegetation_fraction", "pollen_fraction"):
+        values = object_mapping(row[field], field)
+        if set(values) != set(taxa):
+            raise ValidationRefusal("baseline_taxon_mismatch", field)
+        closed_composition({key: finite_number(value) for key, value in values.items()})
+    fold = Fold(
+        identity(outer["fold_id"]),
+        *(
+            tuple(identity(key) for key in object_list(outer[field], field))
+            for field in (
+                "train_record_ids",
+                "test_record_ids",
+                "train_group_ids",
+                "test_group_ids",
+            )
+        ),
+    )
+    graph = {
+        key: tuple(identity(parent) for parent in object_list(value, "parents"))
+        for key, value in object_mapping(
+            inner["input_lineage"], "input_lineage"
+        ).items()
+    }
+    context = object_mapping(inner["forward_inputs"], "forward_inputs")
+    external = tuple(
+        identity(key)
+        for field in ("regional_input_ids", "parameter_input_ids", "geometry_input_ids")
+        for key in object_list(context[field], field)
+    ) + (identity(context["temporal_support_id"]),)
+    closure = assert_allowed_inputs(
+        fold,
+        tuple(
+            identity(key)
+            for key in object_list(
+                inner["allowed_input_closure"], "allowed_input_closure"
+            )
+        ),
+        graph,
+        admitted_external_ids=external,
+    )
+    if list(closure) != inner["allowed_input_closure"] or not set(
+        fold.train_record_ids
+    ).issubset(closure):
+        raise ValidationRefusal(
+            "baseline_training_lineage_mismatch",
+            "Complete original training ancestry is required",
+        )
+
+
+def read_withheld_predictions(
+    directory: Path,
+    *,
+    expected_manifest_sha256: str,
+) -> tuple[
+    ExperimentProduct,
+    dict[str, object],
+    dict[str, dict[str, object]],
+    dict[tuple[str, str], dict[str, object]],
+    tuple[str, ...],
+]:
+    """Authenticate owned-copy withheld rows; scientific authorship stays unverified."""
+    product, manifest = read_experiment_product(
+        directory, expected_manifest_sha256=expected_manifest_sha256
+    )
+    if manifest["profile"] not in {PROFILE, FITTED_PROFILE}:
+        raise ValidationRefusal(
+            "experiment_outcome_profile_mismatch",
+            "Require an explicit all-target-pollen-withheld profile",
+        )
+    try:
+        folds, predictions, methods = _predictions(
+            manifest, read_member(product, "predictions.json")
+        )
+    except ValidationRefusal:
+        raise
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValidationRefusal("invalid_prediction_inventory", str(exc)) from exc
+    return product, manifest, folds, predictions, methods
 
 
 def _score(
@@ -187,16 +327,8 @@ def score_experiment_predictions(
         identity(key): InputReference.parse(value, key)
         for key, value in object_mapping(inventory["records"], "records").items()
     }
-    product, manifest = read_experiment_product(
+    product, manifest, folds, prediction_rows, methods = read_withheld_predictions(
         predictions, expected_manifest_sha256=expected_manifest_sha256
-    )
-    if manifest["profile"] != PROFILE:
-        raise ValidationRefusal(
-            "experiment_outcome_profile_mismatch",
-            "Local-pollen products require a vegetation-only outcome inventory",
-        )
-    folds, prediction_rows, methods = _predictions(
-        manifest, read_member(product, "predictions.json")
     )
     catalogue = {
         identity(record)
@@ -208,6 +340,8 @@ def score_experiment_predictions(
             "unknown_experiment_outcome",
             "Outcome references must name held-out catalogue records",
         )
+    profile = identity(manifest["profile"])
+    method_field = "method" if profile == FITTED_PROFILE else "baseline"
     targets = ("vegetation_cover", "pollen_composition")
     stage = stage_directory(destination)
     scores: list[dict[str, object]] = []
@@ -269,11 +403,16 @@ def score_experiment_predictions(
                     "group_id": group_id,
                     "record_id": record_id,
                     "record_ids": record_ids,
-                    "baseline": method,
+                    method_field: method,
                     "target": target,
                     "error_unit": "fraction",
                     "bin_id": None if prediction is None else prediction["bin_id"],
                 }
+                if profile == FITTED_PROFILE:
+                    row.update(
+                        method_kind="fitted_spatial",
+                        evaluation_role="heldout_prediction",
+                    )
                 if prediction is None:
                     row["score"] = {"status": "prediction_failed", "mae_fraction": None}
                 else:
@@ -310,7 +449,7 @@ def score_experiment_predictions(
             values = [
                 object_mapping(row["score"], "score")
                 for row in scores
-                if row["baseline"] == method and row["target"] == target
+                if row[method_field] == method and row["target"] == target
             ]
             statuses = sorted({identity(value["status"]) for value in values})
             finite_errors = [
@@ -320,7 +459,7 @@ def score_experiment_predictions(
             ]
             summaries.append(
                 {
-                    "baseline": method,
+                    method_field: method,
                     "target": target,
                     "scoring_unit": "outer_site_group",
                     "independence": "overlapping_training_cv_not_independent_fixed_model",
@@ -342,13 +481,13 @@ def score_experiment_predictions(
                 }
             )
     indexed = {
-        (str(row["fold_id"]), str(row["baseline"]), str(row["target"])): row
+        (str(row["fold_id"]), str(row[method_field]), str(row["target"])): row
         for row in scores
     }
     paired = []
     if "training_mean" in methods:
         for row in scores:
-            if row["baseline"] == "training_mean":
+            if row[method_field] == "training_mean":
                 continue
             reference = indexed[
                 (str(row["fold_id"]), "training_mean", str(row["target"]))
@@ -363,7 +502,7 @@ def score_experiment_predictions(
                         "fold_id": row["fold_id"],
                         "group_id": row["group_id"],
                         "record_id": row["record_id"],
-                        "baseline": row["baseline"],
+                        "baseline": row[method_field],
                         "reference_baseline": "training_mean",
                         "target": row["target"],
                         "mae_improvement_fraction": finite_number(
@@ -376,7 +515,7 @@ def score_experiment_predictions(
         predictions, expected_manifest_sha256=expected_manifest_sha256
     )
     scientific: dict[str, object] = {
-        "profile": "synthetic-withheld-site-baselines-v1",
+        "profile": profile,
         "prediction_manifest_sha256": product.manifest_sha256,
         "prediction_scientific_content_sha256": product.scientific_content_sha256,
         "outcome_inventory_sha256": manifest_sha256(inventory),
@@ -394,4 +533,6 @@ def score_experiment_predictions(
         ("outcome_access.json", accesses),
     ):
         write_json(stage, name, member)
-    return publish_phase(stage, destination, phase="scores", scientific=scientific)
+    return publish_phase(
+        stage, destination, phase="scores", scientific=scientific, profile=profile
+    )

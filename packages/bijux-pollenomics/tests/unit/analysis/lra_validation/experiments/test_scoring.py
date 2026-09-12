@@ -2,14 +2,14 @@
 
 import json
 from pathlib import Path
-from typing import Any
+from types import SimpleNamespace
+from typing import Any, Literal
 
 import pytest
 
 from bijux_pollenomics.analysis.lra_validation import (
     ValidationRefusal,
     grouped_leave_one_out,
-    manifest_sha256,
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
     ExperimentSpec,
@@ -21,6 +21,7 @@ from bijux_pollenomics.analysis.lra_validation.experiments.outputs import (
     write_json,
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.scoring import (
+    read_withheld_predictions,
     score_experiment_predictions,
 )
 
@@ -30,7 +31,10 @@ from .test_inputs import fixture_inputs, store
 def prediction_product(root: Path) -> tuple[ExperimentProduct, dict[str, Any]]:
     spec = ExperimentSpec(fixture_inputs(root / "inputs"))
     folds = grouped_leave_one_out([site.record for site in spec.sites])
-    methods = ["training_mean", "nearest_site"]
+    methods: list[Literal["training_mean", "nearest_site"]] = [
+        "training_mean",
+        "nearest_site",
+    ]
     rows = []
     outcomes = {}
     for fold in folds:
@@ -49,18 +53,68 @@ def prediction_product(root: Path) -> tuple[ExperimentProduct, dict[str, Any]]:
                 "pollen_count": {"Alnus": 6, "Betula": 4},
             },
         )
+        from bijux_pollenomics.analysis.lra_validation.prediction import (
+            ForwardInputs,
+            predict_withheld_site,
+        )
+
+        context = ForwardInputs(
+            ("Alnus", "Betula"),
+            (0.0, 0.0),
+            ((1.0, 1.0),),
+            (1.0,),
+            (1.0, 1.0),
+            ("regional",),
+            ("parameters",),
+            ("geometry",),
+            "time",
+            "synthetic-test-forward",
+            "test",
+        )
+
+        def forward(
+            local_cover: tuple[float, ...],
+            regional_deposition: tuple[float, ...],
+            local_k: tuple[tuple[float, ...], ...],
+            terrestrial_fraction: tuple[float, ...],
+            ppe: tuple[float, ...],
+        ) -> Any:
+            return SimpleNamespace(
+                pollen_fraction=(0.7, 0.3), method_profile="synthetic-test-forward"
+            )
+
         for method in methods:
+            predicted = predict_withheld_site(
+                fold,
+                fold.test_group_ids[0],
+                {
+                    group: {"Alnus": 0.6, "Betula": 0.4}
+                    for group in fold.train_group_ids
+                },
+                context,
+                forward,
+                spatial_method=method,
+                training_input_ids=fold.train_record_ids,
+                dependency_graph={
+                    **dict.fromkeys(fold.train_record_ids, ()),
+                    "regional": fold.train_record_ids,
+                    "parameters": (),
+                    "geometry": (),
+                    "time": (),
+                },
+                admitted_external_ids=("regional", "parameters", "geometry", "time"),
+                distances_km=dict.fromkeys(fold.train_group_ids, 1.0),
+            )
             rows.append(
                 {
                     "fold_id": fold.fold_id,
                     "record_id": record,
                     "bin_id": "test-bin",
                     "baseline": method,
-                    "vegetation_fraction": {"Alnus": 0.6, "Betula": 0.4},
-                    "pollen_fraction": {"Alnus": 0.7, "Betula": 0.3},
-                    "prediction_manifest_sha256": manifest_sha256(
-                        {"fold_id": fold.fold_id, "baseline": method}
-                    ),
+                    "vegetation_fraction": dict(predicted.vegetation_fraction),
+                    "pollen_fraction": dict(predicted.pollen_fraction),
+                    "prediction_manifest_sha256": predicted.prediction_manifest_sha256,
+                    "prediction_manifest": json.loads(predicted.input_manifest_json),
                 }
             )
     scientific: dict[str, object] = {
@@ -194,3 +248,33 @@ def test_prediction_failure_preserves_all_requested_target_denominators(
         and row["requested"] == 4
         for row in summaries
     )
+
+
+def test_shared_withheld_reader_returns_owned_copies_and_authenticates_parent(
+    tmp_path: Path,
+) -> None:
+    product, _ = prediction_product(tmp_path)
+    opened = read_withheld_predictions(
+        product.directory, expected_manifest_sha256=product.manifest_sha256
+    )
+    first = next(iter(opened[3]))
+    opened[3][first]["pollen_fraction"] = {"Alnus": 1, "Betula": 0}
+    assert (
+        read_withheld_predictions(
+            product.directory, expected_manifest_sha256=product.manifest_sha256
+        )[3][first]["pollen_fraction"]
+        != opened[3][first]["pollen_fraction"]
+    )
+    with pytest.raises(ValidationRefusal):
+        read_withheld_predictions(product.directory, expected_manifest_sha256="a" * 64)
+
+
+def test_shared_withheld_reader_refuses_observed_local_pollen(tmp_path: Path) -> None:
+    from .test_assimilation import synthetic_local_product
+
+    product, _ = synthetic_local_product(tmp_path)
+    with pytest.raises(ValidationRefusal) as error:
+        read_withheld_predictions(
+            product.directory, expected_manifest_sha256=product.manifest_sha256
+        )
+    assert error.value.reason_code == "experiment_outcome_profile_mismatch"

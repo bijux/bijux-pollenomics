@@ -23,8 +23,8 @@ from ..contracts import (
     manifest_sha256,
 )
 from ..metrics import closed_composition
-from .configuration import LOCAL_EVALUATION_ROLES as ROLES
 from .configuration import (
+    FITTED_PROFILE,
     LOCAL_METHOD,
     LOCAL_PROFILE,
     PROFILE,
@@ -32,6 +32,7 @@ from .configuration import (
     object_list,
     object_mapping,
 )
+from .configuration import LOCAL_EVALUATION_ROLES as ROLES
 from .inputs import _unique_pairs
 
 
@@ -85,7 +86,7 @@ def publish_phase(
     profile: str = PROFILE,
 ) -> ExperimentProduct:
     """Publish only an enumerated phase; failures must already be accounted for."""
-    if profile not in {PROFILE, LOCAL_PROFILE}:
+    if profile not in {PROFILE, LOCAL_PROFILE, FITTED_PROFILE}:
         raise ValidationRefusal("unsupported_experiment_profile", profile)
     scientific_digest = manifest_sha256(scientific)
     manifest = {
@@ -129,7 +130,7 @@ def read_experiment_product(
         canonical_json(manifest)
         if (
             manifest.get("schema_version") != "lra-experiment-product.v1"
-            or manifest.get("profile") not in {PROFILE, LOCAL_PROFILE}
+            or manifest.get("profile") not in {PROFILE, LOCAL_PROFILE, FITTED_PROFILE}
             or manifest.get("status") != "generated_exploratory"
             or manifest.get("scientific_acceptance") != "not_evaluated"
         ):
@@ -387,4 +388,102 @@ def _validate_channel_receipt(row: dict[str, object], catalogue: object) -> None
         raise ValidationRefusal(
             "local_channel_receipt_mismatch",
             "Channel evidence differs from actual sources and original Fold",
+        )
+
+
+def validate_fitted_preparation(row: dict[str, object], fit: dict[str, object]) -> None:
+    """Validate retained forward units, dimensions and declared support without a new solver."""
+    prepared = object_mapping(row["forward_preparation"], "forward_preparation")
+    support = object_mapping(row["support"], "support")
+    taxa = tuple(identity(value) for value in object_list(prepared["taxa"], "taxa"))
+    vegetation = object_mapping(row["vegetation_fraction"], "vegetation_fraction")
+    pollen = object_mapping(row["pollen_fraction"], "pollen_fraction")
+    if (
+        not taxa
+        or len(set(taxa)) != len(taxa)
+        or set(taxa) != set(vegetation)
+        or set(taxa) != set(pollen)
+        or list(taxa) != support["taxa"]
+        or set(taxa) != set(object_list(fit["taxa"], "taxa"))
+        or prepared["target_geometry_sha256"] != row["target_geometry_sha256"]
+        or prepared["deposition_units"] != "relative-kernel-mass"
+        or prepared["forward_method_profile"]
+        != "disqover-0.9.14-homogeneous-local-forward"
+        or prepared["preparation_profile"]
+        != "disqover-0.9.14-corrected-matrix-homogeneous-v1"
+        or prepared["geometry_profile"] != "circular-shore-contiguous-v1"
+    ):
+        raise ValidationRefusal(
+            "fitted_forward_contract_mismatch",
+            "Taxa, target identity or units/profile differ",
+        )
+    kernels = [
+        tuple(finite_number(value) for value in object_list(ring, "local_k"))
+        for ring in object_list(prepared["local_k"], "local_k")
+    ]
+    terrestrial = tuple(
+        finite_number(value)
+        for value in object_list(
+            prepared["terrestrial_fraction"], "terrestrial_fraction"
+        )
+    )
+    if (
+        not kernels
+        or len(kernels) != len(terrestrial)
+        or any(
+            len(ring) != len(taxa) or any(value < 0 for value in ring)
+            for ring in kernels
+        )
+        or any(not 0 <= value <= 1 for value in terrestrial)
+    ):
+        raise ValidationRefusal(
+            "fitted_forward_shape_mismatch",
+            "Require nonempty finite nonnegative ring/taxon support",
+        )
+    for field in ("ppe", "regional_deposition", "regional_cover"):
+        values = tuple(
+            finite_number(value) for value in object_list(prepared[field], field)
+        )
+        if len(values) != len(taxa) or any(
+            value <= 0 if field == "ppe" else value < 0 for value in values
+        ):
+            raise ValidationRefusal("fitted_forward_shape_mismatch", field)
+    bounds = [
+        tuple(finite_number(value) for value in object_list(ring, "ring_bounds_m"))
+        for ring in object_list(prepared["ring_bounds_m"], "ring_bounds_m")
+    ]
+    declared = [
+        object_mapping(ring, "forward_ring")
+        for ring in object_list(
+            prepared["declared_target_forward_rings"], "forward_rings"
+        )
+    ]
+    inversion = [
+        object_mapping(ring, "inversion_ring")
+        for ring in object_list(
+            prepared["declared_target_inversion_rings"], "inversion_rings"
+        )
+    ]
+    radius = finite_number(support["local_support_radius_m"])
+    if (
+        len(bounds) < len(kernels)
+        or len(bounds) != len(declared)
+        or not inversion
+        or any(len(ring) != 2 or not 0 <= ring[0] < ring[1] for ring in bounds)
+        or any(
+            left[1] != right[0]
+            for left, right in zip(bounds[:-1], bounds[1:], strict=True)
+        )
+        or bounds
+        != [
+            (finite_number(ring["inner_m"]), finite_number(ring["outer_m"]))
+            for ring in declared
+        ]
+        or bounds[len(kernels) - 1][1] != radius
+        or finite_number(inversion[-1]["outer_m"]) != radius
+        or finite_number(prepared["regional_cutoff_m"]) != bounds[-1][1]
+    ):
+        raise ValidationRefusal(
+            "fitted_forward_support_mismatch",
+            "Prepared rings differ from declared target support",
         )

@@ -231,7 +231,7 @@ opened only during the separate scoring phase. Its predicted pollen is an
 in-sample diagnostic against the assimilated counts and is explicitly ineligible
 for held-out pollen acceptance. This method is not a renamed spatial baseline.
 
-Both baseline and local-pollen preparation reverify their consumed pollen,
+Baseline, local-pollen and fitted preparation reverify their consumed pollen,
 geometry and template evidence immediately before publication. A changed source
 refuses publication; unused pollen and outcome files remain outside that check.
 Interrupted batches retain explicit incomplete rows and support cache-based
@@ -258,6 +258,20 @@ target observations are not accepted. The profile produces point predictions,
 with uncertainty, parameter selection and final evaluation left to separately
 governed experiment stages. The current baseline experiment runner does not
 silently substitute this fitted model for any named baseline.
+
+`prepare_fitted_spatial_predictions` connects training-only regional REVEALS and
+local LOVE products to the explicit CLR spatial model, followed by target-specific
+forward pollen deposition. Its synthetic singleton folds withhold both target
+observations. Prediction products retain training products, regional ancestry,
+geometry, fitted state and separate vegetation/pollen fractions. Spatial blocks
+and temporal generalization require their own evaluation profiles.
+
+`read_withheld_predictions` authenticates a caller-pinned saved baseline or fitted
+product before outcome access. It rechecks original folds, training lineage,
+forward dimensions and exploratory status, and returns independently owned data.
+Reading and scoring retained products work without installing the numerical
+engine. These consistency checks establish neither external authorship nor
+scientific acceptance; numerical reproduction is separate evidence.
 
 `bijux_pollenomics_lra.sample_pollen_observations` supplies a separate conditional
 observation model. It accepts predicted pollen fractions, declared counting

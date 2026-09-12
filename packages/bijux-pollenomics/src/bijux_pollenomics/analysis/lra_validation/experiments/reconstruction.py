@@ -13,7 +13,6 @@ from ..metrics import closed_composition
 from .configuration import (
     ExperimentScope,
     ExperimentSite,
-    ExperimentSpec,
     object_list,
     object_mapping,
 )
@@ -41,7 +40,7 @@ def _table(path: Path) -> list[dict[str, str]]:
 
 
 def reconstruct_fold(
-    spec: ExperimentSpec,
+    spec: ExperimentScope,
     fold: Fold,
     group_by_record: dict[str, str],
     *,
