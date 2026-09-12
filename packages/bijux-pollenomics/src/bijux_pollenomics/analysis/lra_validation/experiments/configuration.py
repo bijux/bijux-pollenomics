@@ -22,6 +22,12 @@ from ..contracts import (
 Baseline = Literal["training_mean", "nearest_site", "inverse_distance_squared"]
 BASELINES = ("training_mean", "nearest_site", "inverse_distance_squared")
 PROFILE = "synthetic-withheld-site-baselines-v1"
+LOCAL_PROFILE = "synthetic-local-pollen-available-v1"
+LOCAL_METHOD = "analytical_love_local_pollen"
+LOCAL_EVALUATION_ROLES = {
+    "vegetation_cover": "heldout_prediction",
+    "pollen_composition": "in_sample_diagnostic",
+}
 
 
 def identity(value: object) -> str:
@@ -81,95 +87,180 @@ class ExperimentSite:
     geometry: InputReference
 
 
-@dataclass(frozen=True, init=False)
-class ExperimentSpec:
-    """One explicit exploratory profile; it cannot authorize final-test access."""
+@dataclass(frozen=True)
+class ExperimentScope:
+    """Shared immutable input scope; observation-channel admission is separate."""
 
     sites: tuple[ExperimentSite, ...]
     regional_priority: tuple[str, ...]
-    baselines: tuple[Baseline, ...]
     local_ring_count: int
     local_support_radius_m: float
     support_profile: str
     canonical_template: str
 
-    def __init__(self, payload: Mapping[str, object]) -> None:
-        row = object_mapping(payload, "experiment")
-        if set(row) != {
-            "schema_version",
-            "profile",
-            "sites",
-            "regional_priority",
-            "baselines",
-            "local_ring_count",
-            "local_support_radius_m",
-            "support_profile",
-            "request_template",
+    def template(self) -> dict[str, object]:
+        """Return an independent template without target observations."""
+        return object_mapping(json.loads(self.canonical_template), "template")
+
+
+def _scope(
+    payload: Mapping[str, object], *, profile: str, selection_field: str
+) -> ExperimentScope:
+    row = object_mapping(payload, "experiment")
+    if set(row) != {
+        "schema_version",
+        "profile",
+        "sites",
+        "regional_priority",
+        selection_field,
+        "local_ring_count",
+        "local_support_radius_m",
+        "support_profile",
+        "request_template",
+    }:
+        raise ValidationRefusal(
+            "invalid_experiment", "Unexpected or missing experiment fields"
+        )
+    if row["schema_version"] != "lra-experiment.v1" or row["profile"] != profile:
+        raise ValidationRefusal(
+            "unsupported_experiment_profile",
+            "Only the explicit synthetic exploratory profile is implemented",
+        )
+    count = row["local_ring_count"]
+    if isinstance(count, bool) or not isinstance(count, int) or count < 1:
+        raise ValidationRefusal(
+            "invalid_experiment", "local_ring_count must be a positive integer"
+        )
+    support = finite_number(row["local_support_radius_m"])
+    if support <= 0 or row["support_profile"] != "same-outer-radius-homogeneous-v1":
+        raise ValidationRefusal(
+            "unsupported_experiment_support",
+            "Declare a positive common support radius and homogeneous profile",
+        )
+    sites = []
+    for value in object_list(row["sites"], "sites"):
+        site = object_mapping(value, "site")
+        if set(site) != {
+            "record_id",
+            "site_id",
+            "identity_keys",
+            "raw",
+            "geometry",
         }:
-            raise ValidationRefusal(
-                "invalid_experiment", "Unexpected or missing experiment fields"
+            raise ValidationRefusal("invalid_experiment", "Unexpected site fields")
+        keys = tuple(
+            identity(key) for key in object_list(site["identity_keys"], "identity_keys")
+        )
+        record = SiteRecord(
+            identity(site["record_id"]), identity(site["site_id"]), keys
+        )
+        sites.append(
+            ExperimentSite(
+                record,
+                InputReference.parse(site["raw"], "raw"),
+                InputReference.parse(site["geometry"], "geometry"),
             )
-        if row["schema_version"] != "lra-experiment.v1" or row["profile"] != PROFILE:
+        )
+    if not 3 <= len(sites) <= 128 or len(
+        {site.record.record_id for site in sites}
+    ) != len(sites):
+        raise ValidationRefusal(
+            "invalid_experiment", "Require 3–128 uniquely identified records"
+        )
+    priority = tuple(
+        identity(item)
+        for item in object_list(row["regional_priority"], "regional_priority")
+    )
+    record_ids = {site.record.record_id for site in sites}
+    if (
+        not priority
+        or len(set(priority)) != len(priority)
+        or not set(priority).issubset(record_ids)
+    ):
+        raise ValidationRefusal(
+            "invalid_experiment",
+            "Regional priority must name unique catalogued records",
+        )
+    template = object_mapping(row["request_template"], "request_template")
+    if (
+        template.get("data_kind") != "synthetic"
+        or template.get("purpose") != "exploratory"
+        or template.get("operation") != "lra"
+    ):
+        raise ValidationRefusal(
+            "unsupported_experiment_profile",
+            "Real/final experiments require a separately implemented reviewed policy",
+        )
+    if any(key in template for key in ("local", "regional", "rings")):
+        raise ValidationRefusal(
+            "invalid_experiment",
+            "Template cannot embed site observations or geometry",
+        )
+    required = {
+        "schema_version",
+        "operation",
+        "data_kind",
+        "purpose",
+        "method_profile",
+        "taxa",
+        "pollen_unit",
+        "configuration",
+        "parameters",
+        "evidence",
+        "exclusions",
+        "uncertainty_omissions",
+        "temporal_matching",
+        "versions",
+    }
+    if set(template) != required:
+        raise ValidationRefusal(
+            "invalid_experiment_template",
+            "Initial template requires the closed host request fields except site-specific inputs",
+        )
+    configuration = object_mapping(template.get("configuration"), "configuration")
+    for method in ("reveals", "love"):
+        config = object_mapping(configuration.get(method), method)
+        if config.get("stochastic") is not False:
             raise ValidationRefusal(
                 "unsupported_experiment_profile",
-                "Only the explicit synthetic exploratory profile is implemented",
+                "Initial profile uses deterministic source computations",
             )
-        count = row["local_ring_count"]
-        if isinstance(count, bool) or not isinstance(count, int) or count < 1:
-            raise ValidationRefusal(
-                "invalid_experiment", "local_ring_count must be a positive integer"
-            )
-        support = finite_number(row["local_support_radius_m"])
-        if support <= 0 or row["support_profile"] != "same-outer-radius-homogeneous-v1":
-            raise ValidationRefusal(
-                "unsupported_experiment_support",
-                "Declare a positive common support radius and homogeneous profile",
-            )
-        sites = []
-        for value in object_list(row["sites"], "sites"):
-            site = object_mapping(value, "site")
-            if set(site) != {
-                "record_id",
-                "site_id",
-                "identity_keys",
-                "raw",
-                "geometry",
-            }:
-                raise ValidationRefusal("invalid_experiment", "Unexpected site fields")
-            keys = tuple(
-                identity(key)
-                for key in object_list(site["identity_keys"], "identity_keys")
-            )
-            record = SiteRecord(
-                identity(site["record_id"]), identity(site["site_id"]), keys
-            )
-            sites.append(
-                ExperimentSite(
-                    record,
-                    InputReference.parse(site["raw"], "raw"),
-                    InputReference.parse(site["geometry"], "geometry"),
-                )
-            )
-        if not 3 <= len(sites) <= 128 or len(
-            {site.record.record_id for site in sites}
-        ) != len(sites):
-            raise ValidationRefusal(
-                "invalid_experiment", "Require 3–128 uniquely identified records"
-            )
-        priority = tuple(
-            identity(item)
-            for item in object_list(row["regional_priority"], "regional_priority")
+    if object_mapping(configuration["love"], "love").get("method") != "analytical":
+        raise ValidationRefusal(
+            "unsupported_experiment_profile",
+            "Initial extraction supports analytical LOVE",
         )
-        record_ids = {site.record.record_id for site in sites}
-        if (
-            not priority
-            or len(set(priority)) != len(priority)
-            or not set(priority).issubset(record_ids)
-        ):
+    for evidence in object_list(template.get("evidence"), "evidence"):
+        if object_mapping(evidence, "evidence").get("role") not in {
+            "chronology",
+            "taxa",
+            "parameters",
+            "dependency_lock",
+            "decision",
+        }:
             raise ValidationRefusal(
                 "invalid_experiment",
-                "Regional priority must name unique catalogued records",
+                "Site raw/geometry evidence must come from admitted per-fold inputs",
             )
+    return ExperimentScope(
+        tuple(sites),
+        priority,
+        count,
+        support,
+        "same-outer-radius-homogeneous-v1",
+        canonical_json(template),
+    )
+
+
+@dataclass(frozen=True, init=False)
+class ExperimentSpec(ExperimentScope):
+    """All target pollen withheld; explicit spatial baselines only."""
+
+    baselines: tuple[Baseline, ...]
+
+    def __init__(self, payload: Mapping[str, object]) -> None:
+        scope = _scope(payload, profile=PROFILE, selection_field="baselines")
+        row = object_mapping(payload, "experiment")
         methods = object_list(row["baselines"], "baselines")
         if (
             not methods
@@ -179,78 +270,38 @@ class ExperimentSpec:
             raise ValidationRefusal(
                 "invalid_experiment", "Baselines must be supported and unique"
             )
-        template = object_mapping(row["request_template"], "request_template")
-        if (
-            template.get("data_kind") != "synthetic"
-            or template.get("purpose") != "exploratory"
-            or template.get("operation") != "lra"
-        ):
-            raise ValidationRefusal(
-                "unsupported_experiment_profile",
-                "Real/final experiments require a separately implemented reviewed policy",
-            )
-        if any(key in template for key in ("local", "regional", "rings")):
-            raise ValidationRefusal(
-                "invalid_experiment",
-                "Template cannot embed site observations or geometry",
-            )
-        required = {
-            "schema_version",
-            "operation",
-            "data_kind",
-            "purpose",
-            "method_profile",
-            "taxa",
-            "pollen_unit",
-            "configuration",
-            "parameters",
-            "evidence",
-            "exclusions",
-            "uncertainty_omissions",
-            "temporal_matching",
-            "versions",
-        }
-        if set(template) != required:
-            raise ValidationRefusal(
-                "invalid_experiment_template",
-                "Initial template requires the closed host request fields except site-specific inputs",
-            )
-        configuration = object_mapping(template.get("configuration"), "configuration")
-        for method in ("reveals", "love"):
-            config = object_mapping(configuration.get(method), method)
-            if config.get("stochastic") is not False:
-                raise ValidationRefusal(
-                    "unsupported_experiment_profile",
-                    "Initial profile uses deterministic source computations",
-                )
-        if object_mapping(configuration["love"], "love").get("method") != "analytical":
-            raise ValidationRefusal(
-                "unsupported_experiment_profile",
-                "Initial extraction supports analytical LOVE",
-            )
-        for evidence in object_list(template.get("evidence"), "evidence"):
-            if object_mapping(evidence, "evidence").get("role") not in {
-                "chronology",
-                "taxa",
-                "parameters",
-                "dependency_lock",
-                "decision",
-            }:
-                raise ValidationRefusal(
-                    "invalid_experiment",
-                    "Site raw/geometry evidence must come from admitted per-fold inputs",
-                )
-        encoded = canonical_json(template)
-        object.__setattr__(self, "sites", tuple(sites))
-        object.__setattr__(self, "regional_priority", priority)
+        super().__init__(
+            scope.sites,
+            scope.regional_priority,
+            scope.local_ring_count,
+            scope.local_support_radius_m,
+            scope.support_profile,
+            scope.canonical_template,
+        )
         object.__setattr__(
             self, "baselines", cast(tuple[Baseline, ...], tuple(methods))
         )
-        object.__setattr__(self, "local_ring_count", count)
-        object.__setattr__(self, "local_support_radius_m", support)
-        object.__setattr__(self, "support_profile", "same-outer-radius-homogeneous-v1")
-        object.__setattr__(self, "canonical_template", encoded)
 
-    def template(self) -> dict[str, object]:
-        """Return an independent template without target observations."""
-        return object_mapping(json.loads(self.canonical_template), "template")
+
+@dataclass(frozen=True, init=False)
+class LocalPollenSpec(ExperimentScope):
+    """Observe target pollen explicitly; vegetation remains unopened."""
+
+    method: str
+
+    def __init__(self, payload: Mapping[str, object]) -> None:
+        scope = _scope(payload, profile=LOCAL_PROFILE, selection_field="method")
+        if payload["method"] != LOCAL_METHOD:
+            raise ValidationRefusal(
+                "unsupported_local_pollen_method",
+                "Explicit analytical local-pollen assimilation is required",
+            )
+        super().__init__(
+            scope.sites,
+            scope.regional_priority,
+            scope.local_ring_count,
+            scope.local_support_radius_m,
+            scope.support_profile,
+            scope.canonical_template,
+        )
+        object.__setattr__(self, "method", LOCAL_METHOD)

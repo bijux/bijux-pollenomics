@@ -202,3 +202,64 @@ def test_bad_json_refused_even_with_matching_hash(
         read_reference(
             tmp_path, InputReference("bad.json", hashlib.sha256(content).hexdigest())
         )
+
+
+@pytest.mark.parametrize("field", ["vegetation_fraction", "pollen_unit"])
+def test_observed_local_channel_refuses_smuggled_fields(
+    tmp_path: Path, field: str
+) -> None:
+    from bijux_pollenomics.analysis.lra_validation.experiments import LocalPollenSpec
+    from bijux_pollenomics.analysis.lra_validation.experiments.inputs import (
+        read_observed_local_pollen,
+    )
+
+    payload = fixture_inputs(tmp_path)
+    payload.pop("baselines")
+    payload.update(
+        profile="synthetic-local-pollen-available-v1",
+        method="analytical_love_local_pollen",
+    )
+    path = payload["sites"][0]["raw"]["path"]
+    data = json.loads((tmp_path / path).read_text())
+    data["sample"][field] = {"Alnus": 0.5, "Betula": 0.5}
+    payload["sites"][0]["raw"] = store(tmp_path, path, data)
+    spec = LocalPollenSpec(payload)
+    fold = next(
+        f
+        for f in grouped_leave_one_out([site.record for site in spec.sites])
+        if "p01" in f.test_record_ids
+    )
+    with pytest.raises(ValidationRefusal):
+        read_observed_local_pollen(tmp_path, spec.sites[0], fold, spec)
+
+
+def test_shared_channel_admission_preserves_fold_and_consumed_identity(
+    tmp_path: Path,
+) -> None:
+    from bijux_pollenomics.analysis.lra_validation import manifest_sha256
+    from bijux_pollenomics.analysis.lra_validation.experiments import LocalPollenSpec
+    from bijux_pollenomics.analysis.lra_validation.experiments.inputs import (
+        local_channel_evidence,
+    )
+
+    payload = fixture_inputs(tmp_path)
+    payload.pop("baselines")
+    payload.update(
+        profile="synthetic-local-pollen-available-v1",
+        method="analytical_love_local_pollen",
+    )
+    spec = LocalPollenSpec(payload)
+    fold = next(
+        f
+        for f in grouped_leave_one_out([site.record for site in spec.sites])
+        if "p01" in f.test_record_ids
+    )
+    evidence = local_channel_evidence(spec, fold, spec.sites[0], spec.sites[1])
+    assert evidence["original_fold_sha256"] == manifest_sha256(fold.as_dict())
+    assert evidence["pollen_channel_closure"] == ("raw:p01", "raw:p02")
+    payload["sites"][3]["raw"]["sha256"] = "c" * 64
+    changed = LocalPollenSpec(payload)
+    assert (
+        local_channel_evidence(changed, fold, changed.sites[0], changed.sites[1])
+        == evidence
+    )

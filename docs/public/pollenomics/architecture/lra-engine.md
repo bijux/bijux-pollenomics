@@ -206,6 +206,21 @@ exit reports operational success; `scientific_acceptance` remains
 `not_evaluated`. The original prediction and separate score products retain all
 requested denominators and target-specific results.
 
+`prepare_local_pollen_predictions` adds the distinct synthetic
+local-pollen-available profile. It runs actual paired regional REVEALS and target
+analytical LOVE, retaining the regional anchor and explicitly observed target
+pollen channel in their original outer fold. Independent vegetation outcomes are
+opened only during the separate scoring phase. Its predicted pollen is an
+in-sample diagnostic against the assimilated counts and is explicitly ineligible
+for held-out pollen acceptance. This method is not a renamed spatial baseline.
+
+Both baseline and local-pollen preparation reverify their consumed pollen,
+geometry and template evidence immediately before publication. A changed source
+refuses publication; unused pollen and outcome files remain outside that check.
+Interrupted batches retain explicit incomplete rows and support cache-based
+resume. The local profile currently produces point predictions, with uncertainty
+and empirical acceptance remaining separate requirements.
+
 The separate `analysis.lra_validation.spatial.fit_spatial_model` facade fits
 `clr-wgs84-rbf-ridge-v1`: centred log-ratio vegetation fractions regressed on
 radial basis features centred only at declared training sites. It reuses the

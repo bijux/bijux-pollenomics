@@ -9,8 +9,29 @@ from pathlib import Path
 import tempfile
 
 from ....core.owned_tree import publish_new_output_tree
-from ..contracts import ValidationRefusal, canonical_json, manifest_sha256
-from .configuration import object_mapping
+from ..channels import (
+    ObservationChannels,
+    ObservedPollenAdmission,
+    PollenChannel,
+    assert_channel_inputs,
+)
+from ..contracts import (
+    Fold,
+    ValidationRefusal,
+    canonical_json,
+    finite_number,
+    manifest_sha256,
+)
+from ..metrics import closed_composition
+from .configuration import LOCAL_EVALUATION_ROLES as ROLES
+from .configuration import (
+    LOCAL_METHOD,
+    LOCAL_PROFILE,
+    PROFILE,
+    identity,
+    object_list,
+    object_mapping,
+)
 from .inputs import _unique_pairs
 
 
@@ -56,13 +77,20 @@ def _inventory(directory: Path) -> dict[str, str]:
 
 
 def publish_phase(
-    stage: Path, destination: Path, *, phase: str, scientific: dict[str, object]
+    stage: Path,
+    destination: Path,
+    *,
+    phase: str,
+    scientific: dict[str, object],
+    profile: str = PROFILE,
 ) -> ExperimentProduct:
     """Publish only an enumerated phase; failures must already be accounted for."""
+    if profile not in {PROFILE, LOCAL_PROFILE}:
+        raise ValidationRefusal("unsupported_experiment_profile", profile)
     scientific_digest = manifest_sha256(scientific)
     manifest = {
         "schema_version": "lra-experiment-product.v1",
-        "profile": "synthetic-withheld-site-baselines-v1",
+        "profile": profile,
         "phase": phase,
         "status": "generated_exploratory",
         "scientific_acceptance": "not_evaluated",
@@ -101,7 +129,7 @@ def read_experiment_product(
         canonical_json(manifest)
         if (
             manifest.get("schema_version") != "lra-experiment-product.v1"
-            or manifest.get("profile") != "synthetic-withheld-site-baselines-v1"
+            or manifest.get("profile") not in {PROFILE, LOCAL_PROFILE}
             or manifest.get("status") != "generated_exploratory"
             or manifest.get("scientific_acceptance") != "not_evaluated"
         ):
@@ -134,3 +162,229 @@ def read_member(product: ExperimentProduct, name: str) -> object:
         product.directory, expected_manifest_sha256=product.manifest_sha256
     )
     return data
+
+
+def _local_prediction_rows(
+    manifest: dict[str, object], values: object, catalogue: object
+) -> tuple[dict[str, dict[str, object]], dict[str, dict[str, object]]]:
+    scientific = object_mapping(manifest["scientific_payload"], "scientific_payload")
+    if (
+        manifest["profile"] != LOCAL_PROFILE
+        or manifest["phase"] != "predictions"
+        or values != scientific["predictions"]
+        or scientific.get("evaluation_roles") != ROLES
+        or scientific.get("pollen_eligible_for_heldout_acceptance") is not False
+    ):
+        raise ValidationRefusal(
+            "local_prediction_role_mismatch",
+            "An explicit local-pollen profile and diagnostic role are required",
+        )
+    folds = {
+        identity(row["fold_id"]): row
+        for value in object_list(scientific["folds"], "folds")
+        if (row := object_mapping(value, "fold"))
+    }
+    if len(folds) != len(object_list(scientific["folds"], "folds")) or not folds:
+        raise ValidationRefusal(
+            "local_prediction_accounting_mismatch",
+            "Fold IDs must be nonempty and unique",
+        )
+    rows = {}
+    for value in object_list(values, "predictions"):
+        row = object_mapping(value, "prediction")
+        key = identity(row["fold_id"])
+        if (
+            key in rows
+            or key not in folds
+            or row.get("profile") != LOCAL_PROFILE
+            or row.get("method") != LOCAL_METHOD
+            or row.get("method_kind") != "local_pollen_assimilation"
+            or row.get("evaluation_roles") != ROLES
+            or row.get("pollen_eligible_for_heldout_acceptance") is not False
+            or row.get("outer_fold") != folds[key]
+            or folds[key]["test_record_ids"] != [row["record_id"]]
+            or manifest_sha256(
+                {k: v for k, v in row.items() if k != "prediction_manifest_sha256"}
+            )
+            != row["prediction_manifest_sha256"]
+        ):
+            raise ValidationRefusal("local_prediction_identity_mismatch", key)
+        local_source = object_mapping(
+            row["observed_local_pollen_source"], "local_pollen_source"
+        )
+        regional_source = object_mapping(
+            row["regional_pollen_source"], "regional_pollen_source"
+        )
+        if (
+            local_source["record_id"] != row["record_id"]
+            or local_source["role"] != "observed_local_pollen"
+            or folds[key]["test_group_ids"] != [row["group_id"]]
+            or local_source["group_id"] != row["group_id"]
+            or regional_source["record_id"]
+            not in object_list(folds[key]["train_record_ids"], "train_record_ids")
+            or regional_source["role"] != "training_regional_pollen"
+            or row["observed_pollen_unit"] != "count"
+        ):
+            raise ValidationRefusal("local_prediction_channel_mismatch", key)
+        vegetation = closed_composition(
+            {
+                taxon: finite_number(value)
+                for taxon, value in object_mapping(
+                    row["vegetation_fraction"], "vegetation_fraction"
+                ).items()
+            }
+        )
+        pollen = closed_composition(
+            {
+                taxon: finite_number(value)
+                for taxon, value in object_mapping(
+                    row["pollen_fraction"], "pollen_fraction"
+                ).items()
+            }
+        )
+        counts = object_mapping(row["observed_pollen_count"], "observed_pollen_count")
+        if (
+            set(vegetation) != set(pollen)
+            or set(pollen) != set(counts)
+            or any(
+                isinstance(value, bool) or not isinstance(value, int) or value < 0
+                for value in counts.values()
+            )
+        ):
+            raise ValidationRefusal("local_prediction_denominator_mismatch", key)
+        _validate_channel_receipt(row, catalogue)
+        rows[key] = row
+    failures = object_list(scientific["failures"], "failures")
+    failed = {
+        identity(object_mapping(value, "failure")["fold_id"]) for value in failures
+    }
+    if (
+        len(failed) != len(failures)
+        or failed & set(rows)
+        or failed | set(rows) != set(folds)
+    ):
+        raise ValidationRefusal(
+            "local_prediction_accounting_mismatch",
+            "Every fold must be predicted or refused exactly once",
+        )
+    return folds, rows
+
+
+def local_prediction_rows(
+    manifest: dict[str, object], values: object, catalogue: object
+) -> tuple[dict[str, dict[str, object]], dict[str, dict[str, object]]]:
+    """Refuse malformed channel/shape identities before any vegetation access."""
+    try:
+        return _local_prediction_rows(manifest, values, catalogue)
+    except ValidationRefusal:
+        raise
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValidationRefusal("invalid_local_prediction_product", str(exc)) from exc
+
+
+def _pollen_channels(values: object) -> tuple[PollenChannel, ...]:
+    rows = [
+        object_mapping(value, "pollen_channel")
+        for value in object_list(values, "pollen_channels")
+    ]
+    return tuple(
+        PollenChannel(identity(row["input_id"]), identity(row["source_sha256"]))
+        for row in rows
+    )
+
+
+def _validate_channel_receipt(row: dict[str, object], catalogue: object) -> None:
+    """Reconstitute the recorded original Fold and recheck shared channel admission."""
+    records = [
+        object_mapping(value, "channel_owner")
+        for value in object_list(catalogue, "observation_channels")
+    ]
+    channels = tuple(
+        ObservationChannels(
+            identity(value["record_id"]),
+            identity(value["group_id"]),
+            _pollen_channels(value["pollen_channels"]),
+            tuple(
+                identity(key)
+                for key in object_list(
+                    value["vegetation_input_ids"], "vegetation_input_ids"
+                )
+            ),
+        )
+        for value in records
+    )
+    outer = object_mapping(row["outer_fold"], "outer_fold")
+    fold = Fold(
+        identity(outer["fold_id"]),
+        tuple(
+            identity(key)
+            for key in object_list(outer["train_record_ids"], "train_record_ids")
+        ),
+        tuple(
+            identity(key)
+            for key in object_list(outer["test_record_ids"], "test_record_ids")
+        ),
+        tuple(
+            identity(key)
+            for key in object_list(outer["train_group_ids"], "train_group_ids")
+        ),
+        tuple(
+            identity(key)
+            for key in object_list(outer["test_group_ids"], "test_group_ids")
+        ),
+    )
+    evidence = object_mapping(row["channel_admission"], "channel_admission")
+    declared = object_mapping(evidence["observed_pollen"], "observed_pollen")
+    observed = ObservedPollenAdmission(
+        identity(declared["record_id"]),
+        identity(declared["group_id"]),
+        _pollen_channels(declared["pollen_channels"]),
+    )
+    graph = {
+        key: tuple(identity(value) for value in object_list(parents, "parents"))
+        for key, parents in object_mapping(
+            evidence["quantitative_lineage"], "quantitative_lineage"
+        ).items()
+    }
+    inputs = tuple(
+        identity(key)
+        for key in object_list(evidence["pollen_input_ids"], "pollen_input_ids")
+    )
+    closure = assert_channel_inputs(
+        fold, inputs, graph, channels=channels, observed_pollen=observed
+    )
+    local = object_mapping(row["observed_local_pollen_source"], "local_pollen_source")
+    regional = object_mapping(row["regional_pollen_source"], "regional_pollen_source")
+    expected = {
+        "raw:" + identity(local["record_id"]),
+        "raw:" + identity(regional["record_id"]),
+    }
+    consumed = [
+        {
+            "record_id": owner.record_id,
+            "group_id": owner.group_id,
+            "input_id": source.input_id,
+            "source_sha256": source.source_sha256,
+        }
+        for owner in channels
+        for source in owner.pollen_channels
+        if source.input_id in closure
+    ]
+    hashes = {value["input_id"]: value["source_sha256"] for value in consumed}
+    if (
+        evidence["schema_version"] != "lra-local-pollen-channel-admission.v1"
+        or set(inputs) != expected
+        or evidence["original_fold_sha256"] != manifest_sha256(fold.as_dict())
+        or list(closure) != evidence["pollen_channel_closure"]
+        or consumed != evidence["consumed_pollen_sources"]
+        or observed.record_id != row["record_id"]
+        or observed.group_id != row["group_id"]
+        or len(observed.pollen_channels) != 1
+        or observed.pollen_channels[0].input_id != "raw:" + identity(row["record_id"])
+        or hashes.get("raw:" + identity(local["record_id"])) != local["sha256"]
+        or hashes.get("raw:" + identity(regional["record_id"])) != regional["sha256"]
+    ):
+        raise ValidationRefusal(
+            "local_channel_receipt_mismatch",
+            "Channel evidence differs from actual sources and original Fold",
+        )

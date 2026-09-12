@@ -13,6 +13,7 @@ from ...lra.outputs.identity import capture_code_identity, verify_code_identity
 from ..contracts import ValidationRefusal, manifest_sha256
 from ..splits import grouped_leave_one_out
 from .configuration import PROFILE, ExperimentSpec
+from .inputs import verify_consumed_sources
 from .outputs import ExperimentProduct, publish_phase, stage_directory, write_json
 from .prediction import predict_fold
 from .reconstruction import reconstruct_fold
@@ -57,6 +58,8 @@ def prepare_experiment_predictions(
     preparations: list[dict[str, object]] = []
     operational: list[dict[str, object]] = []
     interrupted = False
+    consumed_pollen: set[str] = set()
+    consumed_geometry: set[str] = set()
     for index, fold in enumerate(folds):
         if interrupted:
             failures.append(
@@ -83,6 +86,8 @@ def prepare_experiment_predictions(
                 report_root=stage / "batches" / f"fold-{index:04}",
                 workers=workers,
             )
+            consumed_pollen.update(fold.train_record_ids)
+            consumed_geometry.update((*fold.train_record_ids, fold.test_record_ids[0]))
             rows, geometry = predict_fold(
                 spec,
                 fold,
@@ -190,4 +195,11 @@ def prepare_experiment_predictions(
     ):
         write_json(stage, name, value)
     scientific["split_manifest_sha256"] = manifest_sha256(fold_rows)
+    verify_consumed_sources(
+        spec,
+        input_root,
+        pollen_record_ids=consumed_pollen,
+        geometry_record_ids=consumed_geometry,
+        template_used=bool(consumed_pollen),
+    )
     return publish_phase(stage, destination, phase="predictions", scientific=scientific)

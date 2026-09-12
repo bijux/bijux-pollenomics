@@ -7,7 +7,13 @@ from pathlib import Path
 
 from ..contracts import ValidationRefusal, finite_number, manifest_sha256
 from ..metrics import score_pollen, score_vegetation
-from .configuration import InputReference, identity, object_list, object_mapping
+from .configuration import (
+    PROFILE,
+    InputReference,
+    identity,
+    object_list,
+    object_mapping,
+)
 from .inputs import read_reference
 from .outputs import (
     ExperimentProduct,
@@ -157,6 +163,17 @@ def score_experiment_predictions(
             "A qualified frozen policy/evaluator is required before final outcomes",
         )
     inventory = object_mapping(outcome_inventory, "outcome_inventory")
+    if inventory.get("schema_version") == "lra-local-pollen-outcomes.v1":
+        from .assimilation import _score_local_pollen_predictions
+
+        return _score_local_pollen_predictions(
+            predictions,
+            expected_manifest_sha256=expected_manifest_sha256,
+            outcome_root=outcome_root,
+            outcome_inventory=inventory,
+            destination=destination,
+        )
+
     if (
         set(inventory) != {"schema_version", "data_kind", "records"}
         or inventory["schema_version"] != "lra-experiment-outcomes.v1"
@@ -173,6 +190,11 @@ def score_experiment_predictions(
     product, manifest = read_experiment_product(
         predictions, expected_manifest_sha256=expected_manifest_sha256
     )
+    if manifest["profile"] != PROFILE:
+        raise ValidationRefusal(
+            "experiment_outcome_profile_mismatch",
+            "Local-pollen products require a vegetation-only outcome inventory",
+        )
     folds, prediction_rows, methods = _predictions(
         manifest, read_member(product, "predictions.json")
     )

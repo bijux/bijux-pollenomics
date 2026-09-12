@@ -5,12 +5,27 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from typing import cast
 
-from ..contracts import Fold, ValidationRefusal, canonical_json, finite_number
+from ..channels import (
+    ObservationChannels,
+    ObservedPollenAdmission,
+    PollenChannel,
+    assert_channel_inputs,
+)
+from ..contracts import (
+    Fold,
+    ValidationRefusal,
+    canonical_json,
+    finite_number,
+    manifest_sha256,
+)
+from ..splits import grouped_leave_one_out
 from .configuration import (
+    ExperimentScope,
     ExperimentSite,
-    ExperimentSpec,
     InputReference,
+    LocalPollenSpec,
     identity,
     object_list,
     object_mapping,
@@ -36,8 +51,8 @@ def _unique_pairs(pairs: list[tuple[str, object]]) -> dict[str, object]:
     return result
 
 
-def read_reference(root: Path, reference: InputReference) -> dict[str, object]:
-    """Verify finite JSON bytes inside a real, nonsymlink input root."""
+def _reference_bytes(root: Path, reference: InputReference) -> bytes:
+    """Verify exact bytes inside a real, nonsymlink input root."""
     root = root.absolute()
     target = root / reference.path
     try:
@@ -53,17 +68,57 @@ def read_reference(root: Path, reference: InputReference) -> dict[str, object]:
         content = target.read_bytes()
         if hashlib.sha256(content).hexdigest() != reference.sha256:
             raise ValueError("Input bytes differ from the frozen reference")
-        value = json.loads(content, object_pairs_hook=_unique_pairs)
-        canonical_json(value)
-        return object_mapping(value, reference.path)
+        return content
     except (OSError, ValueError, TypeError) as exc:
         raise ValidationRefusal(
             "invalid_experiment_input", f"{reference.path}: {exc}"
         ) from exc
 
 
+def read_reference(root: Path, reference: InputReference) -> dict[str, object]:
+    """Parse finite JSON from a verified raw or geometric source reference."""
+    content = _reference_bytes(root, reference)
+    try:
+        value = json.loads(content, object_pairs_hook=_unique_pairs)
+        canonical_json(value)
+        return object_mapping(value, reference.path)
+    except (ValueError, TypeError) as exc:
+        raise ValidationRefusal(
+            "invalid_experiment_input", f"{reference.path}: {exc}"
+        ) from exc
+
+
+def verify_consumed_sources(
+    spec: ExperimentScope,
+    root: Path,
+    *,
+    pollen_record_ids: set[str],
+    geometry_record_ids: set[str],
+    template_used: bool,
+) -> None:
+    """Recheck consumed bytes immediately before publication; never open outcomes."""
+    by_record = {site.record.record_id: site for site in spec.sites}
+    if not (pollen_record_ids | geometry_record_ids).issubset(by_record):
+        raise ValidationRefusal(
+            "unknown_consumed_source",
+            "Source ownership differs from the frozen catalogue",
+        )
+    references = [by_record[key].raw for key in sorted(pollen_record_ids)]
+    references.extend(by_record[key].geometry for key in sorted(geometry_record_ids))
+    if template_used:
+        for value in object_list(spec.template()["evidence"], "evidence"):
+            row = object_mapping(value, "evidence")
+            references.append(
+                InputReference.parse(
+                    {"path": row["path"], "sha256": row["sha256"]}, "evidence"
+                )
+            )
+    for reference in references:
+        _reference_bytes(root, reference)
+
+
 def read_geometry(
-    root: Path, site: ExperimentSite, spec: ExperimentSpec
+    root: Path, site: ExperimentSite, spec: ExperimentScope
 ) -> dict[str, object]:
     """Geometry has a closed metadata schema with no pollen fields."""
     data = read_reference(root, site.geometry)
@@ -156,7 +211,7 @@ def read_geometry(
 
 
 def read_training_observation(
-    root: Path, site: ExperimentSite, fold: Fold, spec: ExperimentSpec
+    root: Path, site: ExperimentSite, fold: Fold, spec: ExperimentScope
 ) -> dict[str, object]:
     """Reject withheld membership before opening or hashing observation bytes."""
     if (
@@ -164,6 +219,13 @@ def read_training_observation(
         or site.record.record_id in fold.test_record_ids
     ):
         raise ValidationRefusal("withheld_input_leakage", site.record.record_id)
+    return _read_observation(root, site, spec)
+
+
+def _read_observation(
+    root: Path, site: ExperimentSite, spec: ExperimentScope
+) -> dict[str, object]:
+    """Read an already admitted pollen channel with exact geometry/sample identity."""
     data = read_reference(root, site.raw)
     if set(data) != {"data_kind", "taxa", "sample"} or data["data_kind"] != "synthetic":
         raise ValidationRefusal(
@@ -195,17 +257,23 @@ def geometry_identity(site: ExperimentSite) -> str:
 
 
 def make_request(
-    spec: ExperimentSpec,
+    spec: ExperimentScope,
     local: ExperimentSite,
     anchor: ExperimentSite,
     fold: Fold,
     root: Path,
 ) -> dict[str, object]:
     """Materialize one actual local/regional observation pair, without pooling."""
+    if isinstance(spec, LocalPollenSpec):
+        local_channel_evidence(spec, fold, local, anchor)
     request = spec.template()
     evidence = object_list(request["evidence"], "evidence")
     for role, site in (("local", local), ("regional", anchor)):
-        sample = read_training_observation(root, site, fold, spec)
+        sample = (
+            read_observed_local_pollen(root, site, fold, spec)
+            if role == "local" and isinstance(spec, LocalPollenSpec)
+            else read_training_observation(root, site, fold, spec)
+        )
         geometry = read_geometry(root, site, spec)
         sample["raw_evidence_id"] = raw_identity(site)
         basin = object_mapping(geometry["basin"], "basin")
@@ -242,3 +310,131 @@ def make_request(
     configuration["love"] = love
     request["configuration"] = configuration
     return request
+
+
+def read_observed_local_pollen(
+    root: Path, site: ExperimentSite, fold: Fold, spec: LocalPollenSpec
+) -> dict[str, object]:
+    """Admit the actual held-out record's observed pollen channel, never its vegetation."""
+    if (
+        not isinstance(spec, LocalPollenSpec)
+        or site not in spec.sites
+        or fold.test_record_ids != (site.record.record_id,)
+        or site.record.record_id in fold.train_record_ids
+    ):
+        raise ValidationRefusal(
+            "unadmitted_local_pollen_channel", site.record.record_id
+        )
+    local_channel_evidence(spec, fold, site)
+    return _read_observation(root, site, spec)
+
+
+def admitted_pollen_counts(value: object, taxa: tuple[str, ...]) -> dict[str, int]:
+    counts = object_mapping(value, "observed_pollen_count")
+    if set(counts) != set(taxa) or any(
+        isinstance(n, bool) or not isinstance(n, int) or n < 0 for n in counts.values()
+    ):
+        raise ValidationRefusal(
+            "invalid_assimilated_counts",
+            "Require the admitted nonnegative integer pollen denominator",
+        )
+    return {taxon: cast(int, counts[taxon]) for taxon in taxa}
+
+
+def observation_channels(spec: LocalPollenSpec) -> tuple[ObservationChannels, ...]:
+    """Register ownership independently of direct quantitative raw-file leaves."""
+    folds = grouped_leave_one_out([site.record for site in spec.sites])
+    groups = {
+        record: fold.test_group_ids[0]
+        for fold in folds
+        for record in fold.test_record_ids
+    }
+    return tuple(
+        ObservationChannels(
+            site.record.record_id,
+            groups[site.record.record_id],
+            (PollenChannel(raw_identity(site), site.raw.sha256),),
+            ("vegetation:" + site.record.record_id,),
+        )
+        for site in spec.sites
+    )
+
+
+def channel_catalogue(spec: LocalPollenSpec) -> list[dict[str, object]]:
+    """Administrative ownership contains unused source hashes, separate from fit identity."""
+    return [
+        {
+            "record_id": row.record_id,
+            "group_id": row.group_id,
+            "pollen_channels": [
+                {"input_id": source.input_id, "source_sha256": source.source_sha256}
+                for source in row.pollen_channels
+            ],
+            "vegetation_input_ids": row.vegetation_input_ids,
+        }
+        for row in observation_channels(spec)
+    ]
+
+
+def local_channel_evidence(
+    spec: LocalPollenSpec,
+    fold: Fold,
+    target: ExperimentSite,
+    anchor: ExperimentSite | None = None,
+) -> dict[str, object]:
+    """Validate actual observed-pollen ownership before access; preserve the original Fold."""
+    if target not in spec.sites or fold.test_record_ids != (target.record.record_id,):
+        raise ValidationRefusal(
+            "unadmitted_local_pollen_channel", target.record.record_id
+        )
+    if anchor is not None and (
+        anchor not in spec.sites or anchor.record.record_id not in fold.train_record_ids
+    ):
+        raise ValidationRefusal(
+            "unadmitted_regional_pollen_channel", anchor.record.record_id
+        )
+    catalogue = observation_channels(spec)
+    target_owner = next(
+        row for row in catalogue if row.record_id == target.record.record_id
+    )
+    observed = ObservedPollenAdmission(
+        target.record.record_id, target_owner.group_id, target_owner.pollen_channels
+    )
+    inputs = (
+        (raw_identity(target),)
+        if anchor is None
+        else (raw_identity(target), raw_identity(anchor))
+    )
+    graph: dict[str, tuple[str, ...]] = {
+        source.input_id: () for row in catalogue for source in row.pollen_channels
+    }
+    closure = assert_channel_inputs(
+        fold, inputs, graph, channels=catalogue, observed_pollen=observed
+    )
+    consumed = [
+        {
+            "record_id": row.record_id,
+            "group_id": row.group_id,
+            "input_id": source.input_id,
+            "source_sha256": source.source_sha256,
+        }
+        for row in catalogue
+        for source in row.pollen_channels
+        if source.input_id in closure
+    ]
+    return {
+        "schema_version": "lra-local-pollen-channel-admission.v1",
+        "original_fold_sha256": manifest_sha256(fold.as_dict()),
+        "pollen_input_ids": inputs,
+        "pollen_channel_closure": closure,
+        "quantitative_lineage": {key: graph[key] for key in closure},
+        "consumed_pollen_sources": consumed,
+        "observed_pollen": {
+            "record_id": observed.record_id,
+            "group_id": observed.group_id,
+            "pollen_channels": [
+                {"input_id": source.input_id, "source_sha256": source.source_sha256}
+                for source in observed.pollen_channels
+            ],
+        },
+    }

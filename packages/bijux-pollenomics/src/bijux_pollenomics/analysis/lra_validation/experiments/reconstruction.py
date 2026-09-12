@@ -7,9 +7,16 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from ...lra.api import LRABatchItem, LRABatchLimits, read_lra_product, run_lra_batch
+from ...lra.outputs.publication import LRAProduct
 from ..contracts import Fold, ValidationRefusal, finite_number, manifest_sha256
 from ..metrics import closed_composition
-from .configuration import ExperimentSite, ExperimentSpec, object_list, object_mapping
+from .configuration import (
+    ExperimentScope,
+    ExperimentSite,
+    ExperimentSpec,
+    object_list,
+    object_mapping,
+)
 from .inputs import make_request
 
 
@@ -84,7 +91,6 @@ def reconstruct_fold(
     if not batch.all_items_completed:
         # Durable per-item diagnostics remain in the owned batch receipt.
         raise ValidationRefusal("training_reconstruction_incomplete", str(report_root))
-    taxa = tuple(str(value) for value in object_list(spec.template()["taxa"], "taxa"))
     compositions: dict[str, dict[str, float]] = {}
     identities = []
     common_regional: tuple[float, ...] | None = None
@@ -92,57 +98,23 @@ def reconstruct_fold(
         if item.product is None:
             raise ValidationRefusal("missing_training_product", item.item_id)
         product = item.product
-        verified = read_lra_product(
-            product.directory, expected_manifest_sha256=product.manifest_sha256
-        )
-        manifest = verified.manifest()
-        local_rows = _table(product.directory / "numerical/local_love/cover_mean.csv")
-        if len(local_rows) != spec.local_ring_count:
-            raise ValidationRefusal("reconstruction_radius_mismatch", item.item_id)
-        row = local_rows[spec.local_ring_count - 1]
         request = declared.payload()
-        ring = object_mapping(
-            object_list(request["rings"], "rings")[spec.local_ring_count - 1], "ring"
-        )
-        if set(row) != {"index", *taxa} or finite_number(
-            float(row["index"])
-        ) != finite_number(ring["mean_m"]):
-            raise ValidationRefusal("reconstruction_radius_mismatch", item.item_id)
-        composition = closed_composition(
-            {taxon: finite_number(float(row[taxon])) for taxon in taxa}
+        composition, regional, extracted = extract_reconstruction(
+            product, request, spec
         )
         compositions[group_by_record[item.item_id]] = composition
-        regional_rows = _table(
-            product.directory / "numerical/regional_reveals/reconstruction.csv"
-        )
-        if len(regional_rows) != 1:
-            raise ValidationRefusal("regional_reconstruction_shape", item.item_id)
-        regional = tuple(
-            finite_number(float(regional_rows[0][taxon + ".mean"])) / 100
-            for taxon in taxa
-        )
         if common_regional is not None and regional != common_regional:
             raise ValidationRefusal(
                 "inconsistent_regional_reconstruction",
                 "Deterministic shared anchor differs across fits",
             )
         common_regional = regional
-        read_lra_product(
-            product.directory, expected_manifest_sha256=product.manifest_sha256
-        )
         identities.append(
             {
                 "record_id": item.item_id,
                 "group_id": group_by_record[item.item_id],
                 "request_sha256": item.request_sha256,
-                "scientific_content_sha256": product.scientific_content_sha256,
-                "scientific_identity_sha256": manifest_sha256(
-                    manifest["scientific_identity"]
-                ),
-                "source_radius_label_m": float(row["index"]),
-                "local_support_radius_m": finite_number(ring["outer_m"]),
-                "support_profile": spec.support_profile,
-                "composition": composition,
+                **extracted,
             }
         )
     if common_regional is None:
@@ -155,3 +127,52 @@ def reconstruct_fold(
         tuple(identities),
         batch.as_dict(),
     )
+
+
+def extract_reconstruction(
+    product: LRAProduct, request: dict[str, object], spec: ExperimentScope
+) -> tuple[dict[str, float], tuple[float, ...], dict[str, object]]:
+    """Reopen and extract actual paired numerical output without clipping or normalization."""
+    verified = read_lra_product(
+        product.directory, expected_manifest_sha256=product.manifest_sha256
+    )
+    manifest = verified.manifest()
+    taxa = tuple(str(value) for value in object_list(spec.template()["taxa"], "taxa"))
+    local_rows = _table(product.directory / "numerical/local_love/cover_mean.csv")
+    if len(local_rows) != spec.local_ring_count:
+        raise ValidationRefusal(
+            "reconstruction_radius_mismatch", str(product.directory)
+        )
+    row = local_rows[spec.local_ring_count - 1]
+    ring = object_mapping(
+        object_list(request["rings"], "rings")[spec.local_ring_count - 1], "ring"
+    )
+    if set(row) != {"index", *taxa} or finite_number(
+        float(row["index"])
+    ) != finite_number(ring["mean_m"]):
+        raise ValidationRefusal(
+            "reconstruction_radius_mismatch", str(product.directory)
+        )
+    composition = closed_composition(
+        {taxon: finite_number(float(row[taxon])) for taxon in taxa}
+    )
+    regional_rows = _table(
+        product.directory / "numerical/regional_reveals/reconstruction.csv"
+    )
+    if len(regional_rows) != 1:
+        raise ValidationRefusal("regional_reconstruction_shape", str(product.directory))
+    regional = tuple(
+        finite_number(float(regional_rows[0][taxon + ".mean"])) / 100 for taxon in taxa
+    )
+    read_lra_product(
+        product.directory, expected_manifest_sha256=product.manifest_sha256
+    )
+    extracted: dict[str, object] = {
+        "scientific_content_sha256": product.scientific_content_sha256,
+        "scientific_identity_sha256": manifest_sha256(manifest["scientific_identity"]),
+        "source_radius_label_m": float(row["index"]),
+        "local_support_radius_m": finite_number(ring["outer_m"]),
+        "support_profile": spec.support_profile,
+        "composition": composition,
+    }
+    return composition, regional, extracted
