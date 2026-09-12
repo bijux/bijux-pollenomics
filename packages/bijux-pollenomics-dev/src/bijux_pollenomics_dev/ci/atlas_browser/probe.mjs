@@ -4,16 +4,18 @@ import { createWriteStream } from 'node:fs';
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { extname, join, normalize, relative, resolve } from 'node:path';
 import { finished } from 'node:stream/promises';
+import { assertArtifactCandidate, readArtifactMember } from './artifact-candidate.mjs';
+import { NATIVE_LRA_REQUIRED_ASSERTIONS, verifyNativeLraScope } from './native-lra.mjs';
 
 const plan = JSON.parse(await readFile(resolve(process.argv[2]), 'utf8'));
-if (plan.schema_version !== 'atlas-browser-verification-plan.v2') throw new Error('unsupported plan schema');
+if (!['atlas-browser-verification-plan.v2', 'atlas-browser-verification-plan.v3'].includes(plan.schema_version)) throw new Error('unsupported plan schema');
 const repositoryRoot = resolve(plan.repository_root);
 const artifactRoot = resolve(plan.artifact_root);
 const timeoutMs = Number(plan.timeout_seconds) * 1000;
 const candidate = plan.candidate;
 const scopes = plan.scopes;
 const verificationProfile = plan.verification_profile;
-if (!['nordic-source-chronology-v1', 'generic-time-aware-atlas-v1'].includes(verificationProfile)) {
+if (!['nordic-source-chronology-v1', 'generic-time-aware-atlas-v1', 'native-lra-exploratory-v1'].includes(verificationProfile)) {
   throw new Error('unsupported verification profile');
 }
 const providerHosts = ['tile.openstreetmap.org', 'tile.opentopomap.org'];
@@ -53,10 +55,15 @@ function parseSliderBounds(slider) {
 }
 
 const requests = [];
+const servedArtifactBytes = [];
+const refusedArtifactReads = [];
+const artifactMode = plan.schema_version === 'atlas-browser-verification-plan.v3';
+if (artifactMode !== (verificationProfile === 'native-lra-exploratory-v1')) throw new Error('candidate kind and profile differ');
 let activeScenario = 'server-startup';
 
 await mkdir(artifactRoot, { recursive: true });
-assertCandidate();
+const artifactAudit = artifactMode ? await assertArtifactCandidate(plan) : null;
+if (!artifactMode) assertCandidate();
 const server = createServer(async (request, response) => {
   const requestUrl = new URL(request.url, 'http://127.0.0.1');
   const pathname = decodeURIComponent(requestUrl.pathname);
@@ -69,7 +76,14 @@ const server = createServer(async (request, response) => {
     return;
   }
   try {
-    const payload = await readFile(requestedPath);
+    const served = artifactMode ? await readArtifactMember(plan, artifactAudit, requestedPath) : null;
+    if (artifactMode && served === null) {
+      receipt.status = 404;
+      response.writeHead(404).end('not an inventoried presentation member');
+      return;
+    }
+    const payload = artifactMode ? served.payload : await readFile(requestedPath);
+    if (served !== null) servedArtifactBytes.push(served.receipt);
     receipt.status = 200;
     receipt.byte_count = payload.length;
     response.writeHead(200, {
@@ -85,7 +99,8 @@ const server = createServer(async (request, response) => {
       }[extname(requestedPath)] || 'application/octet-stream',
     });
     response.end(payload);
-  } catch {
+  } catch (error) {
+    if (artifactMode) refusedArtifactReads.push({path:relative(repositoryRoot,requestedPath),error:error instanceof Error?error.message:String(error)});
     receipt.status = 404;
     response.writeHead(404).end('not found');
   }
@@ -137,17 +152,25 @@ try {
   for (const scope of scopes) {
     const scopeResult = verificationProfile === 'nordic-source-chronology-v1'
       ? await verifyNordicSourceChronologyScope(scope, debuggerOrigin.origin)
-      : await verifyGenericTimeAwareScope(scope, debuggerOrigin.origin);
+      : verificationProfile === 'native-lra-exploratory-v1'
+        ? await verifyNativeLraScope(scope, debuggerOrigin.origin, {
+          repositoryRoot, artifactRoot, candidate, openAtlas, closeAtlas, captureReady,
+          evaluate, screenshot, writeScenario, pageFacts, basemapDiscoverabilityFacts,
+          helpDialogFacts, helpDialogPasses, waitForProviderRefusal,
+        })
+        : await verifyGenericTimeAwareScope(scope, debuggerOrigin.origin);
     scenarios.push(...scopeResult.scenarios);
     receipts.push(...scopeResult.receipts);
   }
-  assertCandidate();
+  if (artifactMode) await assertArtifactCandidate(plan);
+  else assertCandidate();
   const assertionRows = scenarios.flatMap((scenario) => Object.entries(scenario.assertions || {}));
   const assertions = Object.fromEntries([...new Set(assertionRows.map(([name]) => name))].map((name) => [
     name,
     assertionRows.filter(([candidateName]) => candidateName === name).every(([, passed]) => passed === true),
   ]));
   const requiredAssertionsByProfile = {
+    'native-lra-exploratory-v1': NATIVE_LRA_REQUIRED_ASSERTIONS,
     'nordic-source-chronology-v1': [
       'capture_api_ready', 'candidate_identity', 'keyless_provider_policy',
       'default_sample_window', 'default_denominators', 'trsh_exact_state',
@@ -184,6 +207,7 @@ try {
     assertions: Object.fromEntries(required.map((name) => [name, assertions[name] === true])),
     scenarios,
     receipts: [...new Set(receipts)].sort(),
+    ...(artifactMode ? {served_artifact_bytes: servedArtifactBytes, refused_artifact_reads: refusedArtifactReads} : {}),
   };
   await writeFile(join(artifactRoot, 'server-requests.json'), `${JSON.stringify(requests, null, 2)}\n`);
   receipts.push('server-requests.json');
@@ -2084,6 +2108,8 @@ async function applyCurrentFrame(cdp, basemap) {
 }
 
 async function waitForProviderRefusal(cdp) {
+  // snapshot() reads Leaflet's view; wait until the first map render owns it.
+  await captureReady(cdp);
   return evaluate(cdp, `(() => new Promise((resolve, reject) => {
     let refusalObserved = false;
     const finish = () => {

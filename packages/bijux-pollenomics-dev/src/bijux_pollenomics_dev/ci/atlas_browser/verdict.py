@@ -6,9 +6,10 @@ from typing import cast
 
 from .contracts import (
     GENERIC_TIME_AWARE_PROFILE,
+    NATIVE_LRA_PROFILE,
     NORDIC_SOURCE_CHRONOLOGY_PROFILE,
     AtlasBrowserContractError,
-    AtlasCandidate,
+    BrowserCandidate,
     JsonObject,
 )
 
@@ -72,9 +73,40 @@ GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS = frozenset(
         "receipt_inventory_complete",
     }
 )
+NATIVE_LRA_REQUIRED_ASSERTIONS = frozenset(
+    {
+        "capture_api_ready",
+        "candidate_identity",
+        "keyless_provider_policy",
+        "native_view_identity",
+        "native_selection_agreement",
+        "native_empty_selection",
+        "native_unknown_selection_refused",
+        "native_url_roundtrip",
+        "native_native_units_and_missingness",
+        "native_model_cues",
+        "native_download_integrity",
+        "native_keyboard_controls",
+        "native_global_context",
+        "native_stale_url_refused",
+        "responsive_1440",
+        "responsive_1024",
+        "responsive_768",
+        "responsive_390",
+        "basemap_discoverability",
+        "help_dialog_accessible",
+        "reduced_motion_manual_navigation",
+        "no_basemap_zero_tile_requests",
+        "provider_failure_osm_terrain_none",
+        "provider_failure_evidence_unchanged",
+        "runtime_console_clean",
+        "receipt_inventory_complete",
+    }
+)
 PROFILE_REQUIRED_ASSERTIONS = {
     NORDIC_SOURCE_CHRONOLOGY_PROFILE: NORDIC_SOURCE_CHRONOLOGY_REQUIRED_ASSERTIONS,
     GENERIC_TIME_AWARE_PROFILE: GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS,
+    NATIVE_LRA_PROFILE: NATIVE_LRA_REQUIRED_ASSERTIONS,
 }
 REQUIRED_ASSERTIONS = NORDIC_SOURCE_CHRONOLOGY_REQUIRED_ASSERTIONS
 _BROWSER_IDENTITY_FIELDS = frozenset(
@@ -96,7 +128,7 @@ def _mapping(value: object, *, label: str) -> JsonObject:
 
 
 def evaluate_browser_report(
-    report: object, *, candidate: AtlasCandidate, verification_profile: str
+    report: object, *, candidate: BrowserCandidate, verification_profile: str
 ) -> JsonObject:
     """Return PASS only when the report has every exact, true assertion."""
     document = _mapping(report, label="browser report")
@@ -111,12 +143,12 @@ def evaluate_browser_report(
     if report_candidate != candidate.as_json():
         raise AtlasBrowserContractError("browser report candidate identity differs")
     browser = _mapping(document.get("browser"), label="report.browser")
-    if set(browser) != _BROWSER_IDENTITY_FIELDS or any(
+    if frozenset(browser) != _BROWSER_IDENTITY_FIELDS or any(
         not isinstance(value, str) or not value for value in browser.values()
     ):
         raise AtlasBrowserContractError("browser report identity is incomplete")
     assertions = _mapping(document.get("assertions"), label="report.assertions")
-    if set(assertions) != required_assertions:
+    if frozenset(assertions) != required_assertions:
         missing = sorted(required_assertions - set(assertions))
         additional = sorted(set(assertions) - required_assertions)
         raise AtlasBrowserContractError(

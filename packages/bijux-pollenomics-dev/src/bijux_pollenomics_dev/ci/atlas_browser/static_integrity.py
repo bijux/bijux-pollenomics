@@ -10,7 +10,12 @@ from pathlib import Path
 import re
 from typing import cast
 
-from .contracts import AtlasBrowserContractError, AtlasCandidate, AtlasScope, JsonObject
+from .contracts import (
+    AtlasBrowserContractError,
+    AtlasScope,
+    BrowserCandidate,
+    JsonObject,
+)
 
 _ASSET_FIELDS = (
     "domain",
@@ -285,7 +290,7 @@ def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
 def audit_static_atlas(
     repository_root: Path,
     scope: AtlasScope,
-    candidate: AtlasCandidate,
+    candidate: BrowserCandidate,
 ) -> JsonObject:
     """Verify every declared byte, manifest budget, identity, and keyless provider."""
     root = repository_root.resolve()

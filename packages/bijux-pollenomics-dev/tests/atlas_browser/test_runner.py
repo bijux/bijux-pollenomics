@@ -151,3 +151,50 @@ def test_browser_probe_refuses_a_timed_out_process(
         AtlasBrowserContractError, match="exceeded its bounded deadline"
     ):
         runner.run_browser_verification(plan)
+
+
+@pytest.mark.parametrize("mutation", [None, "output", "verifier", "refused_read"])
+def test_artifact_runner_binds_pre_post_and_actual_serving(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path, mutation: str | None
+) -> None:
+    from bijux_pollenomics_dev.ci.atlas_browser import artifact_candidate as audit
+
+    from .artifact_fixtures import artifact_plan
+
+    plan = artifact_plan(tmp_path, monkeypatch)
+    observed = audit.audit_artifact_candidate(plan)
+    verifier = {"probe.mjs": "frozen"}
+    monkeypatch.setattr(runner, "_verifier_files", lambda: dict(verifier))
+    monkeypatch.setattr(runner, "audit_static_atlas", lambda *_args: {"status": "PASS"})
+    monkeypatch.setattr(
+        runner, "evaluate_browser_report", lambda *_args, **_kwargs: {"status": "PASS"}
+    )
+
+    def run(command: tuple[str, ...], **_kwargs: object) -> CompletedCommand:
+        refused = []
+        if mutation == "output":
+            (tmp_path / plan.scopes[0].document).write_text("changed")
+        elif mutation == "verifier":
+            verifier["probe.mjs"] = "changed"
+        elif mutation == "refused_read":
+            refused = [
+                {"path": plan.scopes[0].document, "error": "altered and restored"}
+            ]
+        report = {
+            "served_artifact_bytes": observed["files"],
+            "refused_artifact_reads": refused,
+        }
+        (plan.artifact_root / "browser-runtime-report.json").write_text(
+            json.dumps(report)
+        )
+        return _completed(command)
+
+    monkeypatch.setattr(runner, "run_bounded_argv", run)
+    if mutation is None:
+        result = runner.run_browser_verification(plan)
+        assert result["served_artifact_bytes_verified"] is True
+        assert result["artifact_integrity_unchanged"] is True
+        assert result["verifier_integrity_unchanged"] is True
+    else:
+        with pytest.raises(AtlasBrowserContractError):
+            runner.run_browser_verification(plan)

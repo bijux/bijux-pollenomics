@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass, fields
 import json
 from pathlib import Path
 import re
@@ -14,8 +14,9 @@ _BUILD_ID = re.compile(r"atlas-[0-9a-f]{64}")
 _SAFE_NAME = re.compile(r"[a-z][a-z0-9-]*")
 NORDIC_SOURCE_CHRONOLOGY_PROFILE = "nordic-source-chronology-v1"
 GENERIC_TIME_AWARE_PROFILE = "generic-time-aware-atlas-v1"
+NATIVE_LRA_PROFILE = "native-lra-exploratory-v1"
 VERIFICATION_PROFILES = frozenset(
-    {NORDIC_SOURCE_CHRONOLOGY_PROFILE, GENERIC_TIME_AWARE_PROFILE}
+    {NORDIC_SOURCE_CHRONOLOGY_PROFILE, GENERIC_TIME_AWARE_PROFILE, NATIVE_LRA_PROFILE}
 )
 
 
@@ -71,6 +72,83 @@ class AtlasCandidate:
         }
 
 
+def safe_artifact_path(value: object) -> str:
+    """Require an unambiguous POSIX spelling before filesystem containment."""
+    if (
+        not isinstance(value, str)
+        or not value
+        or "\\" in value
+        or "\x00" in value
+        or any(part in {"", ".", ".."} for part in value.split("/"))
+    ):
+        raise AtlasBrowserContractError(
+            "artifact path must be a normalized relative path"
+        )
+    return value
+
+
+@dataclass(frozen=True)
+class AtlasArtifactCandidate:
+    """A generated local presentation with explicitly recorded source provenance."""
+
+    build_id: str
+    generator_repository_head: str
+    generator_repository_tree: str
+    generator_receipt: str
+    generator_receipt_sha256: str
+    presentation_root: str
+    presentation_manifest_sha256: str
+    presentation_inventory_sha256: str
+    product_manifest_sha256: str
+    display_geometry_sha256: str
+    kind: str = "local_lra_presentation"
+
+    def __post_init__(self) -> None:
+        if self.kind != "local_lra_presentation":
+            raise AtlasBrowserContractError("unsupported artifact candidate kind")
+        for key in ("generator_repository_head", "generator_repository_tree"):
+            _git_object_id(getattr(self, key), label=key)
+        if (
+            not isinstance(self.build_id, str)
+            or _BUILD_ID.fullmatch(self.build_id) is None
+        ):
+            raise AtlasBrowserContractError("invalid artifact build_id")
+        for field in fields(self):
+            if field.name.endswith("sha256") and (
+                not isinstance(getattr(self, field.name), str)
+                or re.fullmatch(r"[0-9a-f]{64}", getattr(self, field.name)) is None
+            ):
+                raise AtlasBrowserContractError(
+                    f"invalid artifact digest: {field.name}"
+                )
+        for key in ("generator_receipt", "presentation_root"):
+            value = safe_artifact_path(getattr(self, key))
+            if not value.startswith("artifacts/"):
+                raise AtlasBrowserContractError(f"{key} must be under artifacts/")
+        if not self.generator_receipt.endswith(".json"):
+            raise AtlasBrowserContractError("generator receipt must be JSON")
+        if Path(self.generator_receipt).is_relative_to(self.presentation_root):
+            raise AtlasBrowserContractError(
+                "generator receipt must be outside presentation"
+            )
+
+    def as_json(self) -> JsonObject:
+        return cast(JsonObject, asdict(self))
+
+    @classmethod
+    def from_json(cls, value: object) -> AtlasArtifactCandidate:
+        if not isinstance(value, dict) or set(value) != {
+            field.name for field in fields(cls)
+        }:
+            raise AtlasBrowserContractError("artifact candidate fields must be exact")
+        if any(not isinstance(item, str) for item in value.values()):
+            raise AtlasBrowserContractError("artifact candidate values must be strings")
+        return cls(**value)
+
+
+BrowserCandidate = AtlasCandidate | AtlasArtifactCandidate
+
+
 @dataclass(frozen=True)
 class AtlasScope:
     """One published atlas document and its content manifest."""
@@ -106,7 +184,7 @@ class BrowserVerificationPlan:
     repository_root: Path
     artifact_root: Path
     browser_binary: Path
-    candidate: AtlasCandidate
+    candidate: BrowserCandidate
     scopes: tuple[AtlasScope, ...]
     verification_profile: str = NORDIC_SOURCE_CHRONOLOGY_PROFILE
     timeout_seconds: int = 45
@@ -134,6 +212,44 @@ class BrowserVerificationPlan:
             raise AtlasBrowserContractError("scopes must be non-empty and unique")
         if self.verification_profile not in VERIFICATION_PROFILES:
             raise AtlasBrowserContractError("verification_profile is unsupported")
+        if isinstance(self.candidate, AtlasArtifactCandidate):
+            if self.verification_profile != NATIVE_LRA_PROFILE or len(self.scopes) != 1:
+                raise AtlasBrowserContractError(
+                    "artifact candidate requires one native LRA scope"
+                )
+            presentation = repository_root / self.candidate.presentation_root
+            receipt = repository_root / self.candidate.generator_receipt
+            if presentation.is_relative_to(
+                artifact_root
+            ) or artifact_root.is_relative_to(presentation):
+                raise AtlasBrowserContractError(
+                    "presentation and browser evidence must be disjoint"
+                )
+            if receipt.is_relative_to(artifact_root):
+                raise AtlasBrowserContractError(
+                    "generator receipt must be outside browser evidence"
+                )
+            for path in (
+                self.repository_root.absolute(),
+                self.artifact_root.absolute(),
+                presentation,
+                receipt,
+            ):
+                if any(parent.is_symlink() for parent in (path, *path.parents)):
+                    raise AtlasBrowserContractError(
+                        "artifact paths cannot contain symbolic links"
+                    )
+            for scope in self.scopes:
+                for member in (scope.document, scope.manifest):
+                    safe_artifact_path(member)
+                    if not (repository_root / member).is_relative_to(presentation):
+                        raise AtlasBrowserContractError(
+                            "artifact scope must belong to presentation"
+                        )
+        elif self.verification_profile == NATIVE_LRA_PROFILE:
+            raise AtlasBrowserContractError(
+                "native LRA profile requires an artifact candidate"
+            )
         scope_names = {scope.name for scope in self.scopes}
         if self.verification_profile == NORDIC_SOURCE_CHRONOLOGY_PROFILE and (
             len(self.scopes) != 1 or scope_names != {"nordic"}
@@ -163,7 +279,9 @@ class BrowserVerificationPlan:
     def as_json(self) -> JsonObject:
         """Return the stable subprocess contract without host-specific inference."""
         return {
-            "schema_version": "atlas-browser-verification-plan.v2",
+            "schema_version": "atlas-browser-verification-plan.v3"
+            if isinstance(self.candidate, AtlasArtifactCandidate)
+            else "atlas-browser-verification-plan.v2",
             "repository_root": str(self.repository_root.resolve()),
             "artifact_root": str(self.artifact_root.resolve()),
             "browser_binary": str(self.browser_binary.resolve()),
@@ -191,16 +309,40 @@ class BrowserVerificationPlan:
         }
         if set(raw) != required:
             raise AtlasBrowserContractError("plan fields must be exact")
-        if raw["schema_version"] != "atlas-browser-verification-plan.v2":
+        if not isinstance(raw["schema_version"], str) or raw["schema_version"] not in {
+            "atlas-browser-verification-plan.v2",
+            "atlas-browser-verification-plan.v3",
+        }:
             raise AtlasBrowserContractError("plan schema_version is unsupported")
         candidate = raw["candidate"]
-        if not isinstance(candidate, dict) or set(candidate) != {
+        artifact = raw["schema_version"] == "atlas-browser-verification-plan.v3"
+        if artifact:
+            parsed_candidate: BrowserCandidate = AtlasArtifactCandidate.from_json(
+                candidate
+            )
+        elif not isinstance(candidate, dict) or set(candidate) != {
             "repository_head",
             "repository_tree",
             "atlas_output_commit",
             "build_id",
         }:
             raise AtlasBrowserContractError("candidate fields must be exact")
+        else:
+            if not isinstance(candidate["build_id"], str):
+                raise AtlasBrowserContractError("candidate.build_id must be a string")
+            parsed_candidate = AtlasCandidate(
+                repository_head=_git_object_id(
+                    candidate["repository_head"], label="candidate.repository_head"
+                ),
+                repository_tree=_git_object_id(
+                    candidate["repository_tree"], label="candidate.repository_tree"
+                ),
+                atlas_output_commit=_git_object_id(
+                    candidate["atlas_output_commit"],
+                    label="candidate.atlas_output_commit",
+                ),
+                build_id=candidate["build_id"],
+            )
         raw_scopes = raw["scopes"]
         if not isinstance(raw_scopes, list):
             raise AtlasBrowserContractError("scopes must be an array")
@@ -233,25 +375,11 @@ class BrowserVerificationPlan:
             for field in ("repository_root", "artifact_root", "browser_binary")
         ):
             raise AtlasBrowserContractError("plan paths must be strings")
-        if not isinstance(candidate["build_id"], str):
-            raise AtlasBrowserContractError("candidate.build_id must be a string")
         return cls(
             repository_root=Path(cast(str, raw["repository_root"])),
             artifact_root=Path(cast(str, raw["artifact_root"])),
             browser_binary=Path(cast(str, raw["browser_binary"])),
-            candidate=AtlasCandidate(
-                repository_head=_git_object_id(
-                    candidate["repository_head"], label="candidate.repository_head"
-                ),
-                repository_tree=_git_object_id(
-                    candidate["repository_tree"], label="candidate.repository_tree"
-                ),
-                atlas_output_commit=_git_object_id(
-                    candidate["atlas_output_commit"],
-                    label="candidate.atlas_output_commit",
-                ),
-                build_id=candidate["build_id"],
-            ),
+            candidate=parsed_candidate,
             scopes=tuple(scopes),
             verification_profile=raw["verification_profile"],
             timeout_seconds=raw["timeout_seconds"],
@@ -261,7 +389,16 @@ class BrowserVerificationPlan:
 def load_plan(path: Path) -> BrowserVerificationPlan:
     """Load a UTF-8 plan without accepting JSON extensions or duplicate ambiguity."""
     try:
-        value = json.loads(path.read_text(encoding="utf-8"))
+
+        def unique(pairs: list[tuple[str, object]]) -> JsonObject:
+            result: JsonObject = {}
+            for key, item in pairs:
+                if key in result:
+                    raise AtlasBrowserContractError(f"duplicate plan key: {key}")
+                result[key] = item
+            return result
+
+        value = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique)
     except (OSError, UnicodeError, json.JSONDecodeError) as error:
         raise AtlasBrowserContractError(f"cannot load browser plan: {path}") from error
     return BrowserVerificationPlan.from_json(value)
