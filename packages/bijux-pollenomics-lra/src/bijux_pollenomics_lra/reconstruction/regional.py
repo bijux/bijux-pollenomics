@@ -201,6 +201,12 @@ def checkREVEALS(
     pollen_table = frame(pollen, "pollen")
     if pollen_table.shape[1] < 2:
         raise ValidationError("pollen requires a coordinate and at least one taxon")
+    if pollen_table.shape[1] == 2:
+        raise ValidationError(
+            "The DISQOVER 0.9.14 REVEALS source wrapper drops the single-taxon "
+            "result dimension; this profile requires at least two taxa",
+            reason_code="unsupported_source_taxon_dimensions",
+        )
     try:
         numeric = pollen_table.apply(pd.to_numeric, errors="raise").to_numpy(float)
     except (TypeError, ValueError) as exc:

@@ -22,6 +22,15 @@ results offer `.write(directory)` for their scientific tables and manifests.
 result when any optimization run fails to converge. Candidate replay checks
 objectives and wrappers; it does not establish optimizer convergence.
 
+The optimized source-compatible profile refuses multi-taxon requests when the
+first local ring contains terrestrial area, or when an evaluated final local
+prefix leaves one nonzero-terrestrial regional ring. DISQOVER 0.9.14 drops matrix
+dimensions and recycles taxon deposition in those cases; silently returning the
+Python matrix calculation would misstate source parity. The refusal code is
+`unsupported_source_ring_dimensions`. Zero-land local prefixes remain skipped;
+a zero-land regional remainder contributes zero. This limitation does not apply
+to analytical LOVE or the explicitly dimensioned forward-deposition equation.
+
 The package follows host Hatchling/hatch-vcs release tags. Installed metadata
 identifies the engine build; an unbuilt checkout reports `0+unknown`. See
 [architecture](docs/architecture.md), [scientific validation](docs/validation.md),
@@ -30,3 +39,11 @@ and the source [compatibility notes](docs/reference/source-compatibility.md).
 The original GPL source is retained under `vendor/`. `NOTICE` records authorship
 and distribution obligations. Optional loading alone does not establish legal
 compatibility of a combined redistribution.
+
+The same source wrapper cannot summarize a single taxon in REVEALS. This
+profile refuses that upstream computation with
+`unsupported_source_taxon_dimensions`, including LOVE requests that internally
+recompute REVEALS. This is a source wrapper shape limitation, not a claim that
+single-taxon reconstruction is mathematically undefined. LOVE requests with
+explicitly supplied regional-cover draws use a separately checked path and can
+retain a single taxon.

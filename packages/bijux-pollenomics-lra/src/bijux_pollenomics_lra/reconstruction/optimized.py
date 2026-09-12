@@ -195,10 +195,25 @@ def LOVEoptim(
             stacklevel=2,
         )
 
+    terrestrial_fraction = terrestrial_area / ring_area
+    if len(taxa) > 1 and (
+        terrestrial_fraction[0] > 0
+        or (
+            maximum_ring == len(radii) - 1
+            and terrestrial_fraction[-1] > 0
+            and np.any(terrestrial_fraction[:maximum_ring] > 0)
+        )
+    ):
+        raise ValidationError(
+            "DISQOVER 0.9.14 drops ring-matrix dimensions for evaluated "
+            "single-local or nonzero single-regional rings with multiple taxa; "
+            "this source-compatible profile refuses those requests",
+            reason_code="unsupported_source_ring_dimensions",
+        )
+
     local_params = dict(lParams)
     local_params["fallspeed"] = pd.DataFrame({"Taxon": taxa, "fallspeed": fall_speeds})
     k_matrix = calK(radii, local_params).to_numpy(dtype=float)
-    terrestrial_fraction = terrestrial_area / ring_area
     local_counts, _, _ = sample_counts(local, "pollenLoc")
     generator = rng_from(rng)
     nominal_ppe = ppe_table["ppe"].to_numpy(dtype=float)
