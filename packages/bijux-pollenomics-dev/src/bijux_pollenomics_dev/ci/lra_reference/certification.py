@@ -20,7 +20,13 @@ from .evidence import (
     validate_oracle,
 )
 from .paths import exclusive_outputs, local_path
-from .sources import SOURCE_STATUS_ARGUMENTS, sha256, source_inventory
+from .source_identity import inspect_source_identity, selected_engine_version
+from .sources import (
+    SOURCE_STATUS_ARGUMENTS,
+    SOURCE_TREE_ARGUMENTS,
+    sha256,
+    source_inventory,
+)
 
 
 def certify(
@@ -94,7 +100,12 @@ def certify(
             .decode()
             .strip()
         )
-        sources = source_inventory(repository)
+        identity = inspect_source_identity(
+            repository,
+            command("git-tree-files", ("git", *SOURCE_TREE_ARGUMENTS), repository),
+        )
+        sources = identity.tracked_files
+        engine_version_identity = selected_engine_version(identity)
         changed = (
             command(
                 "git-status",
@@ -210,7 +221,8 @@ def certify(
             output / "source-domains", lock.payload["reference"]["sha256"]
         )
         if (
-            sources != source_inventory(repository)
+            identity.executed_files != source_inventory(repository)
+            or selected_engine_version(identity) != engine_version_identity
             or before_library != file_inventory(library)
             or sha256(lock_path) != lock_hash
             or any(
@@ -249,6 +261,10 @@ def certify(
         bundle.mkdir()
         shutil.copytree(output / "oracle", bundle / "oracle")
         shutil.copytree(output / "source-domains", bundle / "source-domains")
+        for relative in identity.generated_files:
+            target = bundle / "generated-sources" / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(repository / relative, target)
         shutil.copy2(lock_path, bundle / "source-lock.json")
         shutil.copy2(provision_receipt, bundle / "provision.json")
         shutil.copy2(output / "commands.json", bundle / "commands.json")
@@ -258,6 +274,9 @@ def certify(
             source_tree=tree,
             committed_source=committed_source,
             source_files=sources,
+            tracked_git_blobs=identity.tracked_git_blobs,
+            generated_source_files=identity.generated_files,
+            engine_version_identity=engine_version_identity,
             source_unchanged=True,
             required_profiles={
                 "core_source_compatibility": 25,

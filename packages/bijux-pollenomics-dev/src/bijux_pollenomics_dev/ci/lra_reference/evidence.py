@@ -34,7 +34,7 @@ MODES = frozenset(
     }
 )
 CASE_IDS = frozenset(f"C{index:04d}" for index in range(25))
-SCHEMA = "lra-live-r-certification.v1"
+SCHEMA = "lra-live-r-certification.v2"
 
 
 def file_inventory(root: Path) -> dict[str, dict[str, Any]]:
@@ -151,6 +151,9 @@ def validate_bundle(
         inventory.pop("certificate.json", None)
         if inventory != certificate.get("files"):
             raise ReferenceRefusal("Certification bundle file inventory differs")
+        from .source_identity import validate_generated_evidence
+
+        validate_generated_evidence(root, certificate)
         lock_path = root / "source-lock.json"
         if hashlib.sha256(lock_path.read_bytes()).hexdigest() != expected_lock_sha256:
             raise ReferenceRefusal("Bundled source-lock bytes differ")

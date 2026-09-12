@@ -143,7 +143,7 @@ def bundle_fixture(root: Path) -> dict[str, Any]:
             "core_source_compatibility": 25,
             "source_domains_corrected_forward": 23,
         },
-        "schema_version": "lra-live-r-certification.v1",
+        "schema_version": "lra-live-r-certification.v2",
         "status": "passed",
         "fixture_only": True,
         "python_runtime": {
@@ -158,6 +158,12 @@ def bundle_fixture(root: Path) -> dict[str, Any]:
         "source_tree": "5" * 40,
         "source_unchanged": True,
         "source_files": {"synthetic.py": "6" * 64},
+        "tracked_git_blobs": {"synthetic.py": "7" * 40},
+        "generated_source_files": {},
+        "engine_version_identity": {
+            "origin": "source-only-unknown-fallback",
+            "version": "0+unknown",
+        },
         "committed_source": True,
         "lock_sha256": lock_sha,
         "profile_id": lock["profile_id"],

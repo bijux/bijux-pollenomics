@@ -198,6 +198,16 @@ SOURCE_STATUS_ARGUMENTS = (
     "configs/ci/lra-r-source-lock.v1.json",
 )
 
+SOURCE_TREE_ARGUMENTS = (
+    "ls-tree",
+    "-rz",
+    "--full-tree",
+    "HEAD",
+    "--",
+    *SOURCE_DIRECTORIES,
+    *SOURCE_METADATA,
+)
+
 
 def source_inventory(repository: Path) -> dict[str, str]:
     files: list[Path] = []
@@ -205,11 +215,11 @@ def source_inventory(repository: Path) -> dict[str, str]:
         directory = repository / relative
         if not directory.is_dir() or directory.is_symlink():
             raise ReferenceRefusal("Required source directory is absent or symbolic")
-        files.extend(
-            path
-            for path in directory.rglob("*")
-            if path.is_file() and "__pycache__" not in path.parts
-        )
+        for path in directory.rglob("*"):
+            if path.is_symlink():
+                raise ReferenceRefusal("Executable source closure contains symlinks")
+            if path.is_file() and "__pycache__" not in path.parts:
+                files.append(path)
     files.extend(repository / name for name in SOURCE_METADATA)
     if any(path.is_symlink() for path in files):
         raise ReferenceRefusal("Executable source closure contains symlinks")

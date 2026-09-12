@@ -17,7 +17,11 @@ import pytest
 
 from bijux_pollenomics_dev.ci.lra_reference import release_gate as gate
 from bijux_pollenomics_dev.ci.lra_reference.contracts import ReferenceRefusal
-from bijux_pollenomics_dev.ci.lra_reference.sources import SOURCE_STATUS_ARGUMENTS
+from bijux_pollenomics_dev.ci.lra_reference.source_identity import SourceIdentity
+from bijux_pollenomics_dev.ci.lra_reference.sources import (
+    SOURCE_STATUS_ARGUMENTS,
+    SOURCE_TREE_ARGUMENTS,
+)
 
 from .support import LOCK, REPOSITORY, SHA, bundle_fixture
 
@@ -160,6 +164,16 @@ def test_release_gate_fail_closed(
     monkeypatch.setattr(
         gate, "source_inventory", lambda _root: {"synthetic.py": "6" * 64}
     )
+    monkeypatch.setattr(
+        gate,
+        "inspect_source_identity",
+        lambda *_args: SourceIdentity(
+            {"synthetic.py": "6" * 64},
+            {"synthetic.py": "7" * 40},
+            {},
+            {"synthetic.py": "6" * 64},
+        ),
+    )
     reader = FakeReader(tmp_path, mutation)
     output = tmp_path / "output"
     if mutation is None:
@@ -274,3 +288,19 @@ def test_real_query_boundary_accepts_only_exact_status_scope(
     assert calls == [["git", *SOURCE_STATUS_ARGUMENTS]]
     with pytest.raises(ReferenceRefusal, match="Unsupported"):
         gate.git_bytes(tmp_path, "status", "--porcelain")
+
+
+def test_real_query_boundary_accepts_only_exact_tree_scope(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    calls = []
+
+    def run(*args: Any, **kwargs: Any) -> subprocess.CompletedProcess[bytes]:
+        calls.append(args[0])
+        return subprocess.CompletedProcess(args[0], 0)
+
+    monkeypatch.setattr(subprocess, "run", run)
+    gate.git_bytes(tmp_path, *SOURCE_TREE_ARGUMENTS)
+    assert calls == [["git", *SOURCE_TREE_ARGUMENTS]]
+    with pytest.raises(ReferenceRefusal, match="Unsupported"):
+        gate.git_bytes(tmp_path, "ls-tree", "-rz", "HEAD")

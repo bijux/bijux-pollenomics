@@ -17,7 +17,8 @@ import zipfile
 from .contracts import ReferenceRefusal, read_json
 from .evidence import validate_bundle
 from .remote import EvidenceReader, GitHubReader, collection
-from .sources import SOURCE_STATUS_ARGUMENTS, source_inventory
+from .source_identity import inspect_source_identity
+from .sources import SOURCE_STATUS_ARGUMENTS, SOURCE_TREE_ARGUMENTS, source_inventory
 
 LOCK_PATH = "configs/ci/lra-r-source-lock.v1.json"
 WORKFLOWS = frozenset(
@@ -32,7 +33,7 @@ def git_bytes(repository: Path, *arguments: str) -> bytes:
     """Only small source-identity reads; no generic process execution interface."""
     if not arguments or (
         arguments[0] not in {"rev-parse", "show"}
-        and arguments != SOURCE_STATUS_ARGUMENTS
+        and arguments not in {SOURCE_STATUS_ARGUMENTS, SOURCE_TREE_ARGUMENTS}
     ):
         raise ReferenceRefusal("Unsupported release source query")
     with tempfile.TemporaryFile() as stdout, tempfile.TemporaryFile() as stderr:
@@ -161,7 +162,10 @@ def verify_release(
         .strip()
     )
     require_clean_checkout(repository_root)
-    executed_sources = source_inventory(repository_root)
+    source_identity = inspect_source_identity(
+        repository_root, git_bytes(repository_root, *SOURCE_TREE_ARGUMENTS)
+    )
+    executed_sources = source_identity.tracked_files
     lock_bytes = git_bytes(repository_root, "show", f"{target_sha}:{LOCK_PATH}")
     lock_hash = hashlib.sha256(lock_bytes).hexdigest()
     prefix = f"/repos/{repository}/actions"
@@ -260,7 +264,7 @@ def verify_release(
     ):
         raise ReferenceRefusal("Release checkout/tag changed during evidence retrieval")
     require_clean_checkout(repository_root)
-    if source_inventory(repository_root) != executed_sources:
+    if source_inventory(repository_root) != source_identity.executed_files:
         raise ReferenceRefusal(
             "Release executable sources changed during evidence retrieval"
         )
