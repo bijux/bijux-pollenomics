@@ -14,8 +14,7 @@ authors = [{name = "Bijan Mousavi", email = "bijan@bijux.io"}]
 dependencies = ["numpy>=1.26,<3", "scipy>=1.12,<2", "pandas>=2.1,<3"]
 
 [project.optional-dependencies]
-excel = ["openpyxl>=3.1"]
-dev = ["pytest>=8,<10", "jsonschema>=4.24,<5", "openpyxl>=3.1", "build>=1.2.2", "ruff>=0.13,<1.0", "pandas-stubs>=2.1,<3", "scipy-stubs>=1.12,<2"]
+dev = ["pytest>=8,<10", "jsonschema>=4.24,<5", "build>=1.2.2", "ruff>=0.13,<1.0", "pandas-stubs>=2.1,<3", "scipy-stubs>=1.12,<2"]
 
 [project.entry-points."bijux_pollenomics.extensions"]
 lra = "bijux_pollenomics_lra.api:extension_descriptor"

@@ -74,9 +74,10 @@ def _eager_dependencies(
     )
     dependencies: set[str] = set()
     for node in _module_initialization_imports(syntax_tree):
-        for target in _import_targets(node, package_name=package_name):
-            dependency = _owned_module(target, module_names)
-            if dependency is not None and dependency != module_name:
+        for dependency in _import_targets(
+            node, package_name=package_name, module_names=module_names
+        ):
+            if dependency != module_name:
                 dependencies.add(dependency)
     return frozenset(dependencies)
 
@@ -132,9 +133,10 @@ def _import_targets(
     node: ast.Import | ast.ImportFrom,
     *,
     package_name: str,
+    module_names: frozenset[str],
 ) -> tuple[str, ...]:
     if isinstance(node, ast.Import):
-        return tuple(alias.name for alias in node.names)
+        return tuple(alias.name for alias in node.names if alias.name in module_names)
     if node.level:
         try:
             base = resolve_name("." * node.level + (node.module or ""), package_name)
@@ -142,18 +144,21 @@ def _import_targets(
             return ()
     else:
         base = node.module or ""
+    # An explicit module must exist as named. In particular, a missing
+    # optional generated module is not an attribute of its nearest package.
+    # Keep explicit-base dependencies even if an imported attribute shares
+    # its name with a child file: the package may already define that value.
     if node.module:
-        return (base,)
-    return tuple(f"{base}.{alias.name}" for alias in node.names if alias.name != "*")
-
-
-def _owned_module(target: str, module_names: frozenset[str]) -> str | None:
-    candidate = target
-    while candidate:
-        if candidate in module_names:
-            return candidate
-        candidate = candidate.rpartition(".")[0]
-    return None
+        return (base,) if base in module_names else ()
+    # In "from . import name", name may instead be a package attribute.
+    targets: set[str] = set()
+    for alias in node.names:
+        child = f"{base}.{alias.name}"
+        if alias.name != "*" and child in module_names:
+            targets.add(child)
+        elif base in module_names:
+            targets.add(base)
+    return tuple(sorted(targets))
 
 
 def _strongly_connected_components(
