@@ -2,10 +2,15 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterator
 import hashlib
+import importlib.util
 import json
 from pathlib import Path
+import shutil
+import sys
 import tempfile
+from types import ModuleType
 from typing import cast
 
 import pytest
@@ -21,7 +26,6 @@ from bijux_pollenomics.governance.country_coverage import (
 
 from .fixtures import (
     _CELL_SCHEMA_PATH,
-    _COUNTRY_COVERAGE_ARTIFACT_ROOT,
     _LEDGER_PATH,
     _READ_BYTES,
     _REPOSITORY_ROOT,
@@ -117,21 +121,24 @@ def test_substituted_schema_with_governed_identity_is_refused(tmp_path: Path) ->
         )
 
 
-def test_atomic_writer_refuses_symlinked_or_overlapping_output() -> None:
-    _COUNTRY_COVERAGE_ARTIFACT_ROOT.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(
-        dir=_COUNTRY_COVERAGE_ARTIFACT_ROOT
-    ) as temporary_directory:
+def test_atomic_writer_refuses_symlinked_or_overlapping_output(
+    publication_workspace: tuple[Path, ModuleType],
+) -> None:
+    root, coverage = publication_workspace
+    schema_path = root / "configs/scientific-contracts/country-coverage.schema.json"
+    artifact_root = root / "artifacts/execution-control/country-coverage"
+    artifact_root.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(dir=artifact_root) as temporary_directory:
         directory = Path(temporary_directory)
         schema_copy = directory / "country-coverage.schema.json"
-        schema_copy.write_bytes(_CELL_SCHEMA_PATH.read_bytes())
+        schema_copy.write_bytes(schema_path.read_bytes())
         target = directory / "target.json"
         target.write_text("preserve\n", encoding="utf-8")
         alias = directory / "alias.json"
         alias.symlink_to(target.name)
         with pytest.raises(ValueError, match="must not contain symlinks"):
-            write_country_dimension_coverage_ledger(
-                _REPOSITORY_ROOT,
+            coverage.write_country_dimension_coverage_ledger(
+                root,
                 cell_schema_path=schema_copy,
                 output_path=alias,
             )
@@ -141,15 +148,15 @@ def test_atomic_writer_refuses_symlinked_or_overlapping_output() -> None:
         parent_alias = directory / "parent-alias"
         parent_alias.symlink_to(real_parent.name, target_is_directory=True)
         with pytest.raises(ValueError, match="must not contain symlinks"):
-            write_country_dimension_coverage_ledger(
-                _REPOSITORY_ROOT,
+            coverage.write_country_dimension_coverage_ledger(
+                root,
                 cell_schema_path=schema_copy,
                 output_path=parent_alias / "ledger.json",
             )
 
         with pytest.raises(ValueError, match="overlaps a governed input"):
-            write_country_dimension_coverage_ledger(
-                _REPOSITORY_ROOT,
+            coverage.write_country_dimension_coverage_ledger(
+                root,
                 cell_schema_path=schema_copy,
                 output_path=schema_copy,
             )
@@ -157,31 +164,38 @@ def test_atomic_writer_refuses_symlinked_or_overlapping_output() -> None:
         hardlink = directory / "schema-hardlink.json"
         hardlink.hardlink_to(schema_copy)
         with pytest.raises(ValueError, match="overlaps a governed input"):
-            write_country_dimension_coverage_ledger(
-                _REPOSITORY_ROOT,
+            coverage.write_country_dimension_coverage_ledger(
+                root,
                 cell_schema_path=schema_copy,
                 output_path=hardlink,
             )
 
 
-def test_checked_ledger_and_atomic_writer_are_fixed_point() -> None:
-    first = _build()
-    second = _build()
+def test_checked_ledger_and_atomic_writer_are_fixed_point(
+    publication_workspace: tuple[Path, ModuleType],
+) -> None:
+    root, coverage = publication_workspace
+    schema_path = root / "configs/scientific-contracts/country-coverage.schema.json"
+    artifact_root = root / "artifacts/execution-control/country-coverage"
+    first = coverage.build_country_dimension_coverage_ledger(
+        root, cell_schema_path=schema_path
+    )
+    second = coverage.build_country_dimension_coverage_ledger(
+        root, cell_schema_path=schema_path
+    )
     assert first == second
 
-    _COUNTRY_COVERAGE_ARTIFACT_ROOT.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(
-        dir=_COUNTRY_COVERAGE_ARTIFACT_ROOT
-    ) as temporary_directory:
+    artifact_root.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(dir=artifact_root) as temporary_directory:
         output = Path(temporary_directory) / "country_dimension_coverage.json"
-        first_bytes = write_country_dimension_coverage_ledger(
-            _REPOSITORY_ROOT,
-            cell_schema_path=_CELL_SCHEMA_PATH,
+        first_bytes = coverage.write_country_dimension_coverage_ledger(
+            root,
+            cell_schema_path=schema_path,
             output_path=output,
         )
-        second_bytes = write_country_dimension_coverage_ledger(
-            _REPOSITORY_ROOT,
-            cell_schema_path=_CELL_SCHEMA_PATH,
+        second_bytes = coverage.write_country_dimension_coverage_ledger(
+            root,
+            cell_schema_path=schema_path,
             output_path=output,
         )
         assert first_bytes == second_bytes == output.read_bytes()
@@ -214,14 +228,16 @@ def test_atomic_writer_refuses_lexical_output_alias() -> None:
 
 def test_atomic_writer_refuses_intermediate_ancestor_symlink_swap(
     monkeypatch: pytest.MonkeyPatch,
+    publication_workspace: tuple[Path, ModuleType],
 ) -> None:
-    _COUNTRY_COVERAGE_ARTIFACT_ROOT.mkdir(parents=True, exist_ok=True)
-    outside_root = _REPOSITORY_ROOT / "artifacts"
+    root, coverage = publication_workspace
+    schema_path = root / "configs/scientific-contracts/country-coverage.schema.json"
+    artifact_root = root / "artifacts/execution-control/country-coverage"
+    artifact_root.mkdir(parents=True, exist_ok=True)
+    outside_root = root / "artifacts"
     outside_root.mkdir(exist_ok=True)
     with (
-        tempfile.TemporaryDirectory(
-            dir=_COUNTRY_COVERAGE_ARTIFACT_ROOT
-        ) as approved_directory,
+        tempfile.TemporaryDirectory(dir=artifact_root) as approved_directory,
         tempfile.TemporaryDirectory(dir=outside_root) as outside_directory,
     ):
         approved_root = Path(approved_directory)
@@ -234,22 +250,22 @@ def test_atomic_writer_refuses_intermediate_ancestor_symlink_swap(
         def swap_ancestor(
             repository_root: Path, *, cell_schema_path: Path
         ) -> dict[str, object]:
-            assert repository_root == _REPOSITORY_ROOT
-            assert cell_schema_path == _CELL_SCHEMA_PATH
+            assert repository_root == root
+            assert cell_schema_path == schema_path
             intermediate.rename(displaced)
             intermediate.symlink_to(outside, target_is_directory=True)
             return {"probe": "ancestor-swap"}
 
         monkeypatch.setattr(
-            country_coverage_service,
+            coverage.service,
             "build_country_dimension_coverage_ledger",
             swap_ancestor,
         )
         try:
             with pytest.raises(ValueError, match="must not contain symlinks"):
-                write_country_dimension_coverage_ledger(
-                    _REPOSITORY_ROOT,
-                    cell_schema_path=_CELL_SCHEMA_PATH,
+                coverage.write_country_dimension_coverage_ledger(
+                    root,
+                    cell_schema_path=schema_path,
                     output_path=destination,
                 )
             assert list(outside.iterdir()) == []
@@ -262,11 +278,13 @@ def test_atomic_writer_refuses_intermediate_ancestor_symlink_swap(
 
 def test_atomic_writer_creates_approved_nested_artifact_destination(
     monkeypatch: pytest.MonkeyPatch,
+    publication_workspace: tuple[Path, ModuleType],
 ) -> None:
-    _COUNTRY_COVERAGE_ARTIFACT_ROOT.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(
-        dir=_COUNTRY_COVERAGE_ARTIFACT_ROOT
-    ) as approved_directory:
+    root, coverage = publication_workspace
+    schema_path = root / "configs/scientific-contracts/country-coverage.schema.json"
+    artifact_root = root / "artifacts/execution-control/country-coverage"
+    artifact_root.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(dir=artifact_root) as approved_directory:
         destination = (
             Path(approved_directory) / "nested" / "evidence" / "country-coverage.json"
         )
@@ -274,18 +292,18 @@ def test_atomic_writer_creates_approved_nested_artifact_destination(
         def fixed_ledger(
             repository_root: Path, *, cell_schema_path: Path
         ) -> dict[str, object]:
-            assert repository_root == _REPOSITORY_ROOT
-            assert cell_schema_path == _CELL_SCHEMA_PATH
+            assert repository_root == root
+            assert cell_schema_path == schema_path
             return {"probe": "approved-nested-output"}
 
         monkeypatch.setattr(
-            country_coverage_service,
+            coverage.service,
             "build_country_dimension_coverage_ledger",
             fixed_ledger,
         )
-        payload = write_country_dimension_coverage_ledger(
-            _REPOSITORY_ROOT,
-            cell_schema_path=_CELL_SCHEMA_PATH,
+        payload = coverage.write_country_dimension_coverage_ledger(
+            root,
+            cell_schema_path=schema_path,
             output_path=destination,
         )
 
@@ -314,3 +332,45 @@ def test_atomic_writer_refuses_unapproved_repository_paths(
             cell_schema_path=_CELL_SCHEMA_PATH,
             output_path=_REPOSITORY_ROOT / relative_output,
         )
+
+
+@pytest.fixture(scope="module")
+def publication_workspace(
+    tmp_path_factory: pytest.TempPathFactory,
+) -> Iterator[tuple[Path, ModuleType]]:
+    """Execute real copied authority code against privately owned governed inputs."""
+    from bijux_pollenomics.evidence.sources.sead import governed_sead_evidence_root
+    from bijux_pollenomics.governance.country_coverage import INPUT_PATHS
+
+    root = tmp_path_factory.mktemp("country-publication-workspace")
+    for relative in (
+        *INPUT_PATHS,
+        "configs/scientific-contracts/country-coverage.schema.json",
+    ):
+        source = _REPOSITORY_ROOT / relative
+        destination = root / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, destination)
+    original_sead = governed_sead_evidence_root(_REPOSITORY_ROOT / "data")
+    shutil.copytree(
+        original_sead, governed_sead_evidence_root(root / "data"), dirs_exist_ok=True
+    )
+    source_package = Path(country_coverage_service.__file__).resolve().parent
+    package = root / source_package.relative_to(_REPOSITORY_ROOT)
+    shutil.copytree(
+        source_package, package, ignore=shutil.ignore_patterns("__pycache__")
+    )
+    name = "_isolated_country_coverage_publication"
+    specification = importlib.util.spec_from_file_location(
+        name, package / "__init__.py", submodule_search_locations=[str(package)]
+    )
+    assert specification is not None and specification.loader is not None
+    module = importlib.util.module_from_spec(specification)
+    sys.modules[name] = module
+    try:
+        specification.loader.exec_module(module)
+        yield root, module
+    finally:
+        for key in tuple(sys.modules):
+            if key == name or key.startswith(name + "."):
+                del sys.modules[key]
