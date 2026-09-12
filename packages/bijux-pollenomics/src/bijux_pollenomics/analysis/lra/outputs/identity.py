@@ -11,6 +11,7 @@ from pathlib import Path
 import platform
 from typing import cast
 
+from ....core import owned_tree
 from ..engine.discovery import EngineBinding
 from ..engine.errors import LRARefusal
 
@@ -44,6 +45,11 @@ def capture_code_identity(binding: EngineBinding) -> CodeIdentity:
     payload = {
         "engine_files": file_inventory(Path(filename).parent),
         "host_adapter_files": file_inventory(Path(__file__).parents[1]),
+        "host_publication_files": {
+            "core/owned_tree.py": hashlib.sha256(
+                Path(owned_tree.__file__).read_bytes()
+            ).hexdigest()
+        },
         "runtime_environment": {
             "python": platform.python_version(),
             "platform": platform.platform(),
