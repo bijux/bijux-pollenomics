@@ -1,5 +1,7 @@
 """Counterexamples for duplicate identities and hidden regional-input leakage."""
 
+from typing import Any
+
 import pytest
 
 from bijux_pollenomics.analysis.lra_validation import (
@@ -14,7 +16,7 @@ from bijux_pollenomics.analysis.lra_validation import (
 )
 
 
-def test_transitive_duplicate_core_and_source_aliases_are_one_site():
+def test_transitive_duplicate_core_and_source_aliases_are_one_site() -> None:
     rows = (
         SiteRecord("neotoma:1", "site:a", ("core:1",), "north"),
         SiteRecord("sead:2", "renamed:a", ("core:1", "raw:9"), "north"),
@@ -37,12 +39,14 @@ def test_transitive_duplicate_core_and_source_aliases_are_one_site():
     "rows",
     [(), (SiteRecord("r1", "s1"),), (SiteRecord("r1", "s1"), SiteRecord("r1", "s2"))],
 )
-def test_insufficient_or_duplicate_record_sets_refuse(rows):
+def test_insufficient_or_duplicate_record_sets_refuse(
+    rows: tuple[SiteRecord, ...],
+) -> None:
     with pytest.raises(ValidationRefusal):
         grouped_leave_one_out(rows)
 
 
-def test_block_assignment_cannot_split_aliases_or_assume_missing_block():
+def test_block_assignment_cannot_split_aliases_or_assume_missing_block() -> None:
     with pytest.raises(ValidationRefusal, match="same known block"):
         grouped_block_holdouts(
             [
@@ -57,7 +61,7 @@ def test_block_assignment_cannot_split_aliases_or_assume_missing_block():
         )
 
 
-def test_regional_dependency_closure_refuses_renamed_heldout_product():
+def test_regional_dependency_closure_refuses_renamed_heldout_product() -> None:
     fold = next(
         fold
         for fold in grouped_leave_one_out(
@@ -93,7 +97,9 @@ def test_regional_dependency_closure_refuses_renamed_heldout_product():
         ),
     ],
 )
-def test_lineage_gaps_and_cycles_fail_closed(graph, externals, reason):
+def test_lineage_gaps_and_cycles_fail_closed(
+    graph: dict[str, tuple[str, ...]], externals: tuple[str, ...], reason: str
+) -> None:
     fold = next(
         fold
         for fold in grouped_leave_one_out(
@@ -106,7 +112,7 @@ def test_lineage_gaps_and_cycles_fail_closed(graph, externals, reason):
     assert error.value.reason_code == reason
 
 
-def test_explicit_raw_leaf_and_independent_parameter_library_are_allowed():
+def test_explicit_raw_leaf_and_independent_parameter_library_are_allowed() -> None:
     fold = next(
         fold
         for fold in grouped_leave_one_out(
@@ -119,7 +125,7 @@ def test_explicit_raw_leaf_and_independent_parameter_library_are_allowed():
     ) == ("ppe", "train")
 
 
-def test_long_lineage_and_diamond_dependencies_do_not_recurse_or_false_cycle():
+def test_long_lineage_and_diamond_dependencies_do_not_recurse_or_false_cycle() -> None:
     fold = next(
         fold
         for fold in grouped_leave_one_out(
@@ -127,7 +133,9 @@ def test_long_lineage_and_diamond_dependencies_do_not_recurse_or_false_cycle():
         )
         if fold.test_record_ids == ("test",)
     )
-    graph = {f"node:{i}": (f"node:{i + 1}",) for i in range(2000)}
+    graph: dict[str, tuple[str, ...]] = {
+        f"node:{i}": (f"node:{i + 1}",) for i in range(2000)
+    }
     graph["node:2000"] = ()
     graph["train"] = ("left", "right")
     graph["left"] = ("node:0",)
@@ -136,15 +144,16 @@ def test_long_lineage_and_diamond_dependencies_do_not_recurse_or_false_cycle():
     assert len(closure) == 2004
 
 
-def test_identity_and_partition_strings_are_not_character_collections():
+def test_identity_and_partition_strings_are_not_character_collections() -> None:
+    malformed: Any = "core"
     with pytest.raises(ValidationRefusal, match="bare string"):
-        SiteRecord("record", "site", identity_keys="core")
+        SiteRecord("record", "site", identity_keys=malformed)
     with pytest.raises(ValidationRefusal, match="bare string"):
-        Fold("fold", "train", ("test",), ("train-group",), ("test-group",))
+        Fold("fold", malformed, ("test",), ("train-group",), ("test-group",))
 
 
 @pytest.mark.parametrize("field", ["input_ids", "admitted_external_ids", "parents"])
-def test_lineage_string_collections_are_refused(field):
+def test_lineage_string_collections_are_refused(field: str) -> None:
     fold = Fold("fold", ("train",), ("test",), ("train-group",), ("test-group",))
     inputs = "train" if field == "input_ids" else ["train"]
     externals = "external" if field == "admitted_external_ids" else []

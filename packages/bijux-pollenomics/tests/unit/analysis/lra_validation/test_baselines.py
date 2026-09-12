@@ -1,8 +1,11 @@
 """Synthetic ten-site checks prove isolation, not empirical LRA accuracy."""
 
+from typing import Any
+
 import pytest
 
 from bijux_pollenomics.analysis.lra_validation import (
+    Fold,
     SiteRecord,
     ValidationRefusal,
     grouped_leave_one_out,
@@ -12,12 +15,12 @@ from bijux_pollenomics.analysis.lra_validation import (
 )
 
 
-def ten_sites():
+def ten_sites() -> tuple[list[SiteRecord], tuple[Fold, ...]]:
     records = [SiteRecord(f"p{i}", f"site:{i}") for i in range(1, 11)]
     return records, grouped_leave_one_out(records)
 
 
-def inputs_for(fold, folds):
+def inputs_for(fold: Fold, folds: tuple[Fold, ...]) -> dict[str, dict[str, float]]:
     group_by_record = {
         other.test_record_ids[0]: other.test_group_ids[0] for other in folds
     }
@@ -30,7 +33,9 @@ def inputs_for(fold, folds):
     }
 
 
-def test_ten_site_outer_folds_exclude_target_from_fit_and_score_targets_separately():
+def test_ten_site_outer_folds_exclude_target_from_fit_and_score_targets_separately() -> (
+    None
+):
     records, folds = ten_sites()
     graph = {record.record_id: () for record in records}
     assert len(folds) == 10
@@ -68,11 +73,11 @@ def test_ten_site_outer_folds_exclude_target_from_fit_and_score_targets_separate
         assert first_scores[1].target == "pollen_composition"
 
 
-def test_nearest_baseline_ties_are_deterministic_and_missing_geometry_refuses():
+def test_nearest_baseline_ties_are_deterministic_and_missing_geometry_refuses() -> None:
     _, folds = ten_sites()
     fold = folds[0]
     training = inputs_for(fold, folds)
-    kwargs = {
+    kwargs: dict[str, Any] = {
         "input_ids": fold.train_record_ids,
         "dependency_graph": dict.fromkeys(fold.train_record_ids, ()),
     }
@@ -96,11 +101,11 @@ def test_nearest_baseline_ties_are_deterministic_and_missing_geometry_refuses():
     )
 
 
-def test_baseline_rejects_target_compositions_and_hidden_target_lineage():
+def test_baseline_rejects_target_compositions_and_hidden_target_lineage() -> None:
     _, folds = ten_sites()
     fold = folds[0]
     training = inputs_for(fold, folds)
-    graph = dict.fromkeys(fold.train_record_ids, ())
+    graph: dict[str, tuple[str, ...]] = dict.fromkeys(fold.train_record_ids, ())
     with pytest.raises(ValidationRefusal, match="one composition per training"):
         predict_spatial_baseline(
             fold,
@@ -121,11 +126,11 @@ def test_baseline_rejects_target_compositions_and_hidden_target_lineage():
     assert error.value.reason_code == "withheld_input_leakage"
 
 
-def test_fit_identity_captures_dependency_edges_not_only_closure_nodes():
+def test_fit_identity_captures_dependency_edges_not_only_closure_nodes() -> None:
     _, folds = ten_sites()
     fold = folds[0]
     training = inputs_for(fold, folds)
-    graph = dict.fromkeys(fold.train_record_ids, ())
+    graph: dict[str, tuple[str, ...]] = dict.fromkeys(fold.train_record_ids, ())
     graph["external"] = ()
     graph[fold.train_record_ids[0]] = ("external",)
     first = predict_spatial_baseline(

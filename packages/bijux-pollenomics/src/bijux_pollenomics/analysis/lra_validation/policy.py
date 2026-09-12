@@ -6,6 +6,7 @@ from collections.abc import Mapping
 from dataclasses import dataclass
 from datetime import UTC, datetime
 import re
+from typing import NoReturn
 
 from .contracts import ValidationRefusal, canonical_json, finite_number, manifest_sha256
 
@@ -18,7 +19,7 @@ class FrozenPolicy:
     policy_sha256: str
 
 
-def _refuse(field: str, detail: str) -> None:
+def _refuse(field: str, detail: str) -> NoReturn:
     raise ValidationRefusal("final_policy_not_frozen", f"{field}: {detail}")
 
 
@@ -104,10 +105,10 @@ def validate_final_policy(
         ("maximum_exclusion_fraction", 1),
     ):
         try:
-            value = finite_number(policy.get(name))
+            threshold = finite_number(policy.get(name))
         except ValidationRefusal:
             _refuse(name, "a reviewed non-null numeric threshold is required")
-        if not 0 <= value <= upper:
+        if not 0 <= threshold <= upper:
             _refuse(name, f"must be between 0 and {upper}")
     try:
         nominal = finite_number(policy.get("nominal_predictive_interval_coverage"))

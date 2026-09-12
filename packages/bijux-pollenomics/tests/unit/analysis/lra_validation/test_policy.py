@@ -1,16 +1,18 @@
 """Final-test policy admission does not invent missing scientific decisions."""
 
 from datetime import UTC, datetime
+from typing import Any
 
 import pytest
 
 from bijux_pollenomics.analysis.lra_validation import (
+    FrozenPolicy,
     ValidationRefusal,
     validate_final_policy,
 )
 
 
-def example_policy():
+def example_policy() -> dict[str, object]:
     """Synthetic policy for parser tests only; not a project scientific approval."""
     return {
         "schema_version": "pollenomics-benchmark-policy.v1",
@@ -46,13 +48,13 @@ def example_policy():
     }
 
 
-def validate(policy, **kwargs):
+def validate(policy: dict[str, object], **kwargs: Any) -> FrozenPolicy:
     return validate_final_policy(
         policy, scope_manifest_sha256="a" * 64, split_manifest_sha256="b" * 64, **kwargs
     )
 
 
-def test_valid_policy_receipt_is_immutable_and_deterministic():
+def test_valid_policy_receipt_is_immutable_and_deterministic() -> None:
     policy = example_policy()
     first = validate(policy)
     assert first == validate(dict(reversed(list(policy.items()))))
@@ -61,7 +63,7 @@ def test_valid_policy_receipt_is_immutable_and_deterministic():
 
 
 @pytest.mark.parametrize("field", list(example_policy()))
-def test_every_required_policy_field_refuses_null(field):
+def test_every_required_policy_field_refuses_null(field: str) -> None:
     policy = example_policy()
     policy[field] = None
     with pytest.raises(ValidationRefusal):
@@ -86,14 +88,16 @@ def test_every_required_policy_field_refuses_null(field):
         ("targets", ["vegetation_cover", "pollen_composition", "pollen_composition"]),
     ],
 )
-def test_unfrozen_invalid_or_incomplete_policy_refuses(field, value):
+def test_unfrozen_invalid_or_incomplete_policy_refuses(
+    field: str, value: object
+) -> None:
     policy = example_policy()
     policy[field] = value
     with pytest.raises(ValidationRefusal):
         validate(policy)
 
 
-def test_policy_cannot_be_frozen_after_first_test_access_or_for_other_split():
+def test_policy_cannot_be_frozen_after_first_test_access_or_for_other_split() -> None:
     policy = example_policy()
     with pytest.raises(ValidationRefusal):
         validate(policy, test_access_at=datetime(2019, 1, 1, tzinfo=UTC))

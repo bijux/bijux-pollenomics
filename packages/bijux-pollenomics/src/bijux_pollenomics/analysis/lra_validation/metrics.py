@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from math import isclose, log, sqrt
 
 from .contracts import ValidationRefusal, finite_number, required_identity
@@ -203,11 +203,9 @@ def score_pollen(
             ),
         )
     )
-    return CompositionScore(
-        **{
-            **score.as_dict(),
-            "count_conditioned_deviance": deviance,
-            "observed_total_count": total,
-            "zero_probability_positive_count": impossible,
-        }
+    return replace(
+        score,
+        count_conditioned_deviance=deviance,
+        observed_total_count=total,
+        zero_probability_positive_count=impossible,
     )
