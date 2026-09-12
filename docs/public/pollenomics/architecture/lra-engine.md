@@ -145,6 +145,18 @@ conflicts and per-sample refusals. Necessary numeric count eligibility does not
 authorize taxon grouping, PPE, chronology or basin geometry. Source audits remain
 separate products until those scientific requirements have actual evidence.
 
+The private `analysis.lra.materialization.requests` facade projects explicitly
+declared synthetic Neotoma fixtures into the existing `lra-request.v1` contract.
+It requires synthetic origin and country inputs bound in the raw receipts, replays
+the existing source normalizer across all normalized surfaces and reconciliation,
+and binds every selected count cell and chronology claim to its source records. It
+preserves zero, refuses missing or incompatible values and incomplete
+denominators, retains the original evidence, and publishes through the shared no-
+replace filesystem primitive. Request projection does not import the optional
+numerical engine. Real or unspecified source provenance is refused; this facility
+supplies no qualified taxonomy, chronology, PPE, geometry or empirical
+reconstruction approval.
+
 The shared `analysis.classification.events.assess_classification_eligibility`
 service checks reviewed source/taxon membership without requiring positive pollen
 detection. Zero, null and absent measurements remain distinct. This review
