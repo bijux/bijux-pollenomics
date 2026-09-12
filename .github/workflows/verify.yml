@@ -106,3 +106,8 @@ jobs:
       api_toolchain_targets: "${{ matrix.api_toolchain_targets || '[\"api\", \"openapi-drift\"]' }}"
       post_test_command: "${{ matrix.post_test_command || '' }}"
     if: "${{ github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]' }}"
+  lra-reference:
+    uses: ./.github/workflows/lra-reference.yml
+    permissions:
+      contents: read
+    if: "${{ github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]' }}"

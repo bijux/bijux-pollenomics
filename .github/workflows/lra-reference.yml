@@ -1,0 +1,68 @@
+# Authored repository workflow; generated verify wrapper calls this same revision.
+name: LRA source-locked R certification
+on:
+  workflow_call:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reference:
+    name: lra-live-r-certification
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+      MAKEFLAGS: "-j1"
+      TZ: UTC
+      LANG: C
+      LC_ALL: C
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - name: Install explicit system build prerequisites
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y build-essential gfortran pkg-config libreadline-dev zlib1g-dev libbz2-dev liblzma-dev libpcre2-dev libcurl4-openssl-dev libssl-dev libicu-dev
+          mkdir -p artifacts/bijux-pollenomics-lra/reference/system
+          dpkg-query -W > artifacts/bijux-pollenomics-lra/reference/system/dpkg-packages.txt
+          uname -a > artifacts/bijux-pollenomics-lra/reference/system/kernel.txt
+      - name: Install exact Python workspace lock
+        run: uv sync --frozen --all-packages --all-extras --python 3.11
+      - name: Acquire and verify exact R and package sources
+        run: make -C packages/bijux-pollenomics-lra -f ../../makes/packages/bijux-pollenomics-lra.mk ACT="$GITHUB_WORKSPACE/.venv/bin" reference-fetch
+      - name: Build R from its verified source with one worker
+        run: make -C packages/bijux-pollenomics-lra -f ../../makes/packages/bijux-pollenomics-lra.mk ACT="$GITHUB_WORKSPACE/.venv/bin" reference-build-r
+      - name: Install only verified local R package sources
+        run: make -C packages/bijux-pollenomics-lra -f ../../makes/packages/bijux-pollenomics-lra.mk ACT="$GITHUB_WORKSPACE/.venv/bin" reference-provision
+      - name: Certify actual shared-input R execution
+        run: make -C packages/bijux-pollenomics-lra -f ../../makes/packages/bijux-pollenomics-lra.mk ACT="$GITHUB_WORKSPACE/.venv/bin" test-live-r
+      - name: Upload the complete source-bound certificate bundle
+        if: success()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: lra-live-r-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: artifacts/bijux-pollenomics-lra/reference/receipts/certification/bundle/
+          if-no-files-found: error
+      - name: Retain diagnostic receipts even on failure
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: lra-live-r-debug-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: |
+            artifacts/bijux-pollenomics-lra/reference/receipts/
+            artifacts/bijux-pollenomics-lra/reference/system/
+          if-no-files-found: error

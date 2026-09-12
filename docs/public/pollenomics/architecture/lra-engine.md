@@ -49,11 +49,19 @@ model; LOVE itself needs local pollen. Grouped folds and dependency closure guar
 the training boundary. Synthetic recovery and R parity establish numerical
 behavior; they do not establish ecological accuracy or qualified review.
 
+`prepare_forward_inputs` constructs target-specific kernels and regional
+deposition through the engine facade, without target pollen or a target count
+total. Its corrected-matrix preparation profile is recorded separately from the
+forward observation profile. The host retains the parameter, geometry, time and
+training-source lineage; it never substitutes a training basin for target geometry.
+
 Hatch/VCS, the workspace lock, Make/tox, test discovery and CI govern the package.
 Its GPL license and source attribution are package-owned. Repository license
 synchronization must not replace them with the host's Apache license. The
-distribution is excluded from the public release matrix pending scientific,
-distribution and release acceptance. Local build evidence is not publication.
+release matrix builds the optional engine alongside the host. Publication checks
+bind staged distributions to the release revision and require a same-revision
+actual-R certificate. Matrix inclusion and local build evidence do not establish
+scientific acceptance or authorize publication.
 
 A bounded C++ objective experiment agreed numerically with Python and R but did
 not meet its predefined performance thresholds against prepared NumPy. That

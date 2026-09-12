@@ -139,10 +139,11 @@ jobs:
             done < <(find "$sbom_dir" -type f -print0 | sort -z)
           fi
 
-      - name: Verify release revision and artifact versions
+      - name: Verify release revision and repository artifact policy
         shell: bash
         env:
-          DIST_DIR: ${{ inputs.artifacts_dir }}/${{ inputs.dist_subdir }}
+          DIST_DIR: .github/tmp/${{ inputs.package_slug }}-dist
+          RELEASE_ASSET_DIR: .github/tmp/${{ inputs.package_slug }}-release
           PACKAGE_DIR: ${{ inputs.package_dir }}
           PACKAGE_SLUG: ${{ inputs.package_slug }}
           RELEASE_TAG: ${{ inputs.release_tag }}
@@ -167,24 +168,33 @@ jobs:
             exit 1
           fi
 
-          guard_python="${ARTIFACTS_DIR}/venv/bin/python"
-          if [[ ! -x "${guard_python}" ]]; then
-            echo "Package build environment is missing Python: ${guard_python}" >&2
-            exit 1
+          test -d "${DIST_DIR}"
+          test -d "${RELEASE_ASSET_DIR}"
+          found_distribution=0
+          for distribution in "${DIST_DIR}"/*.whl "${DIST_DIR}"/*.tar.gz; do
+            [[ -f "${distribution}" ]] || continue
+            cmp -- "${distribution}" "${RELEASE_ASSET_DIR}/${PACKAGE_SLUG}-dist-$(basename "${distribution}")"
+            found_distribution=1
+          done
+          test "${found_distribution}" = 1
+          for release_asset in "${RELEASE_ASSET_DIR}"/*.whl "${RELEASE_ASSET_DIR}"/*.tar.gz; do
+            [[ -f "${release_asset}" ]] || continue
+            asset_name="$(basename "${release_asset}")"
+            case "${asset_name}" in
+              "${PACKAGE_SLUG}-dist-"*) ;;
+              *) echo "Unexpected release distribution: ${asset_name}" >&2; exit 1 ;;
+            esac
+            cmp -- "${DIST_DIR}/${asset_name#"${PACKAGE_SLUG}-dist-"}" "${release_asset}"
+          done
+
+          if [[ -f .github/release.env ]]; then
+            set -a
+            source .github/release.env
+            set +a
           fi
-          resolved_version="$(
-            PYTHONPATH="${GITHUB_WORKSPACE}/packages/bijux-pollenomics-dev/src" \
-              "${guard_python}" -m bijux_pollenomics_dev.release.publication_guard \
-                --pyproject "${PACKAGE_DIR}/pyproject.toml" \
-                --package-name "${PACKAGE_SLUG}" \
-                --dist-dir "${DIST_DIR}"
-          )"
-          expected_version="${RELEASE_TAG#v}"
-          if [[ "${resolved_version}" != "${expected_version}" ]]; then
-            echo "Resolved package version does not match release tag." >&2
-            echo "release tag version: ${expected_version}" >&2
-            echo "resolved version: ${resolved_version}" >&2
-            exit 1
+          verification_command="${BIJUX_RELEASE_ARTIFACT_VERIFICATION_COMMAND:-}"
+          if [[ -n "${verification_command}" ]]; then
+            eval "${verification_command}"
           fi
 
       - name: Upload publish artifacts

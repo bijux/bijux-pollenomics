@@ -1,5 +1,6 @@
 """Keep artifact releases bound to their requested tag and package version."""
 
+import json
 from pathlib import Path
 from typing import Any, cast
 
@@ -42,7 +43,7 @@ def test_artifact_builder_guards_revision_and_versions_before_upload() -> None:
     }
 
     names = [step["name"] for step in steps]
-    guard_index = names.index("Verify release revision and artifact versions")
+    guard_index = names.index("Verify release revision and repository artifact policy")
     assert guard_index < names.index("Upload publish artifacts")
     assert guard_index < names.index("Upload release artifacts")
 
@@ -51,10 +52,26 @@ def test_artifact_builder_guards_revision_and_versions_before_upload() -> None:
     script = guard["run"]
     assert "refs/tags/${RELEASE_TAG}^{commit}" in script
     assert '"${head_commit}" != "${GITHUB_SHA}"' in script
-    assert "bijux_pollenomics_dev.release.publication_guard" in script
-    assert '--dist-dir "${DIST_DIR}"' in script
-    assert 'expected_version="${RELEASE_TAG#v}"' in script
-    assert '"${resolved_version}" != "${expected_version}"' in script
+    assert guard["env"]["DIST_DIR"] == ".github/tmp/${{ inputs.package_slug }}-dist"
+    assert (
+        guard["env"]["RELEASE_ASSET_DIR"]
+        == ".github/tmp/${{ inputs.package_slug }}-release"
+    )
+    assert 'eval "${verification_command}"' in script
+    assert 'cmp -- "${distribution}"' in script
+    manifest = json.loads(
+        (REPOSITORY / ".github/standards/repo-config.manifest.json").read_text()
+    )
+    repository = next(
+        item for item in manifest["repositories"] if item["name"] == "bijux-pollenomics"
+    )
+    settings = {item["key"]: item["value"] for item in repository["release_env"]}
+    command = settings["BIJUX_RELEASE_ARTIFACT_VERIFICATION_COMMAND"]
+    assert "bijux_pollenomics_dev.release.publication_guard" in command
+    assert '--dist-dir "${DIST_DIR}"' in command
+    assert 'test "${resolved_version}" = "${RELEASE_TAG#v}"' in command
+    assert "--allow-prerelease" not in command
+    assert "--allow-local-version" not in command
 
 
 @pytest.mark.parametrize("filename", RELEASE_CALLERS)

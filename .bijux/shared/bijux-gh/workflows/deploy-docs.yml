@@ -23,7 +23,7 @@ jobs:
   build:
     name: Build docs site
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 10
     outputs:
       site_available: ${{ steps.artifact.outputs.site_available }}
 
@@ -318,6 +318,7 @@ jobs:
     needs: build
     if: ${{ needs.build.outputs.site_available == 'true' && (github.event_name == 'workflow_call' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/v')) }}
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

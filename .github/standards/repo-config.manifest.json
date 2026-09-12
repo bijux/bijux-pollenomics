@@ -2954,6 +2954,12 @@
               "package_dir": "packages/pollenomics",
               "artifacts_dir": "artifacts/pollenomics",
               "build_targets": "build sbom"
+            },
+            {
+              "package_slug": "bijux-pollenomics-lra",
+              "package_dir": "packages/bijux-pollenomics-lra",
+              "artifacts_dir": "artifacts/bijux-pollenomics-lra",
+              "build_targets": "build sbom"
             }
           ]
         },
@@ -2971,6 +2977,9 @@
             },
             {
               "package_slug": "pollenomics"
+            },
+            {
+              "package_slug": "bijux-pollenomics-lra"
             }
           ]
         },
@@ -2985,6 +2994,16 @@
               "package_slug": "pollenomics"
             }
           ]
+        },
+        {
+          "key": "BIJUX_PYPI_VERIFICATION_COMMAND",
+          "type": "string",
+          "value": "PYTHONPATH=packages/bijux-pollenomics-dev/src python3 -m bijux_pollenomics_dev.ci.lra_reference.release_gate --target-sha \"$TARGET_SHA\" --release-tag \"$TARGET_REF_NAME\""
+        },
+        {
+          "key": "BIJUX_RELEASE_ARTIFACT_VERIFICATION_COMMAND",
+          "value": "test -n \"${RELEASE_TAG}\"; guard_python=\"${ARTIFACTS_DIR}/venv/bin/python\"; test -x \"${guard_python}\"; resolved_version=\"$(PYTHONPATH=\"${GITHUB_WORKSPACE}/packages/bijux-pollenomics-dev/src\" \"${guard_python}\" -m bijux_pollenomics_dev.release.publication_guard --pyproject \"${PACKAGE_DIR}/pyproject.toml\" --package-name \"${PACKAGE_SLUG}\" --dist-dir \"${DIST_DIR}\")\"; test \"${resolved_version}\" = \"${RELEASE_TAG#v}\"",
+          "type": "string"
         }
       ],
       "dependabot": {
@@ -3484,6 +3503,12 @@
                 "check_targets": "${{ matrix.check_targets || '[\"quality\", \"security\", \"docs\", \"api\", \"build\", \"sbom\"]' }}",
                 "api_toolchain_targets": "${{ matrix.api_toolchain_targets || '[\"api\", \"openapi-drift\"]' }}",
                 "post_test_command": "${{ matrix.post_test_command || '' }}"
+              }
+            },
+            "lra-reference": {
+              "uses": "./.github/workflows/lra-reference.yml",
+              "permissions": {
+                "contents": "read"
               }
             }
           }
