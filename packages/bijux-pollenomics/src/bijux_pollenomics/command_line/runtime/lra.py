@@ -14,15 +14,7 @@ from ...analysis.lra.api import (
     run_lra_request,
     validate_lra_inputs,
 )
-
-
-def _unique_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
-    result = {}
-    for key, value in pairs:
-        if key in result:
-            raise ValueError(f"Duplicate JSON key: {key}")
-        result[key] = value
-    return result
+from .json_inputs import unique_pairs as _unique_pairs
 
 
 def _run_batch(
@@ -62,6 +54,10 @@ def _run_batch(
 
 def run_lra_command(args: argparse.Namespace) -> int:
     """Execute one supported request without hiding input or engine failures."""
+    if args.command in {"prepare-lra-experiment", "score-lra-experiment"}:
+        from .lra_validation import run_lra_experiment_command
+
+        return run_lra_experiment_command(args)
     exit_code = 0
     try:
         if args.command == "render-lra-report":

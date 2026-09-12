@@ -17,6 +17,7 @@ def test_subcommand_package_is_grouped_by_durable_command_family() -> None:
         "animal_refresh.py",
         "collection_contracts.py",
         "lra.py",
+        "lra_validation.py",
         "orientation.py",
         "reporting.py",
     }

@@ -170,6 +170,30 @@ predictions have no predictive intervals, and overlapping-fold scores do not
 constitute independent fixed-model evaluation units. The first profile does not
 admit final evaluation or empirical source observations.
 
+The host CLI exposes the same two phases. Set the existing batch service's
+numerical thread controls, prepare the declared synthetic experiment, and retain
+its reported `manifest_sha256` before scoring:
+
+```bash
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+export NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+bijux-pollenomics prepare-lra-experiment experiment.json \
+  --input-root inputs --cache-root cache --output predictions --max-workers 1
+bijux-pollenomics score-lra-experiment predictions \
+  --expected-manifest-sha256 "$prediction_manifest_sha256" \
+  --outcome-root outcomes --outcome-inventory outcomes/inventory.json \
+  --output scores
+```
+
+The scoring command verifies the expected prediction identity before opening the
+outcome inventory. Both commands emit JSON identifying the saved product and its
+accounting. Preparation exits `0` when every requested prediction was generated,
+`2` for a refusal or partial result, and `130` for an accounted-for interruption.
+Scoring exits `2` if any requested score is missing, refused or excluded. A zero
+exit reports operational success; `scientific_acceptance` remains
+`not_evaluated`. The original prediction and separate score products retain all
+requested denominators and target-specific results.
+
 The separate `analysis.lra_validation.spatial.fit_spatial_model` facade fits
 `clr-wgs84-rbf-ridge-v1`: centred log-ratio vegetation fractions regressed on
 radial basis features centred only at declared training sites. It reuses the

@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import inspect
 from collections.abc import Callable
 from contextlib import ExitStack
-import inspect
 from typing import cast
 from unittest.mock import patch
 
@@ -33,6 +33,8 @@ _REGISTRATION_ORDER = [
     "build_run_lra_parser",
     "build_run_lra_batch_parser",
     "build_render_lra_report_parser",
+    "build_prepare_lra_experiment_parser",
+    "build_score_lra_experiment_parser",
     "build_refresh_aadr_source_accountability_parser",
     "build_refresh_data_contract_surfaces_parser",
     "build_surface_map_parser",
@@ -44,36 +46,40 @@ _REGISTRATION_ORDER = [
 
 
 def test_export_order_covers_every_supported_builder() -> None:
-    assert subcommands.__all__ == [
-        "build_adna_archive_projects_parser",
-        "build_adna_artifact_plan_parser",
-        "build_adna_curation_manifest_parser",
-        "build_adna_domestication_coverage_parser",
-        "build_adna_layout_parser",
-        "build_adna_normalization_bundle_parser",
-        "build_adna_release_bar_parser",
-        "build_adna_release_readiness_parser",
-        "build_adna_runtime_manifest_parser",
-        "build_adna_species_parser",
-        "build_adna_species_review_parser",
-        "build_collect_data_parser",
-        "build_multi_country_map_parser",
-        "build_ownership_map_parser",
-        "build_product_scope_parser",
-        "build_publish_reports_parser",
-        "build_refresh_animal_adna_foundation_parser",
-        "build_refresh_aadr_source_accountability_parser",
-        "build_refresh_data_contract_surfaces_parser",
-        "build_report_country_parser",
-        "build_render_lra_report_parser",
-        "build_run_lra_parser",
-        "build_run_lra_batch_parser",
-        "build_source_support_parser",
-        "build_surface_map_parser",
-        "build_validate_collection_summary_parser",
-        "build_validate_lra_input_parser",
-        "register_subcommands",
-    ]
+    assert subcommands.__all__ == sorted(
+        [
+            "build_adna_archive_projects_parser",
+            "build_adna_artifact_plan_parser",
+            "build_adna_curation_manifest_parser",
+            "build_adna_domestication_coverage_parser",
+            "build_adna_layout_parser",
+            "build_adna_normalization_bundle_parser",
+            "build_adna_release_bar_parser",
+            "build_adna_release_readiness_parser",
+            "build_adna_runtime_manifest_parser",
+            "build_adna_species_parser",
+            "build_adna_species_review_parser",
+            "build_collect_data_parser",
+            "build_multi_country_map_parser",
+            "build_ownership_map_parser",
+            "build_product_scope_parser",
+            "build_publish_reports_parser",
+            "build_refresh_animal_adna_foundation_parser",
+            "build_refresh_aadr_source_accountability_parser",
+            "build_refresh_data_contract_surfaces_parser",
+            "build_report_country_parser",
+            "build_render_lra_report_parser",
+            "build_prepare_lra_experiment_parser",
+            "build_score_lra_experiment_parser",
+            "build_run_lra_parser",
+            "build_run_lra_batch_parser",
+            "build_source_support_parser",
+            "build_surface_map_parser",
+            "build_validate_collection_summary_parser",
+            "build_validate_lra_input_parser",
+            "register_subcommands",
+        ]
+    )
 
 
 def test_builder_signatures_remain_uniform() -> None:
@@ -81,7 +87,7 @@ def test_builder_signatures_remain_uniform() -> None:
         "(subparsers: 'argparse._SubParsersAction[argparse.ArgumentParser]') "
         "-> 'argparse.ArgumentParser'"
     )
-    assert len(_BUILDERS) == 27
+    assert len(_BUILDERS) == 29
     assert all(
         str(inspect.signature(getattr(subcommands, name))) == expected
         for name in _BUILDERS

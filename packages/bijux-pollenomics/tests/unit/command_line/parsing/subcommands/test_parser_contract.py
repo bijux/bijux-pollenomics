@@ -80,6 +80,22 @@ _COMMAND_ACTIONS = {
         "expected_geometry_sha256",
         "output",
     ],
+    "prepare-lra-experiment": [
+        "help",
+        "request",
+        "input_root",
+        "cache_root",
+        "output",
+        "max_workers",
+    ],
+    "score-lra-experiment": [
+        "help",
+        "product",
+        "expected_manifest_sha256",
+        "outcome_root",
+        "outcome_inventory",
+        "output",
+    ],
     "refresh-aadr-source-accountability": ["help", "data_root", "version"],
     "refresh-data-contract-surfaces": ["help", "data_root", "version"],
     "surface-map": ["help", "json"],
@@ -116,8 +132,8 @@ def test_root_and_subcommand_help_text_is_frozen() -> None:
     subcommand_help = "".join(child.format_help() for child in action.choices.values())
     assert (
         root_digest
-        == "ba9b540e3a212c42ab7fd16e7af06b98538620fe5773de07665f31a9b1917aa1"
+        == "51c4949afd6faee095c35d1fcd698f36010d245b881771d31cf87f2f26f293ef"
     )
     assert hashlib.sha256(subcommand_help.encode()).hexdigest() == (
-        "1b53c4a995c941200d78cb3ba0ffeb8859d22c8244add61f344af962f93c1df4"
+        "7f23e3087ffd758a48f1f54f54f2778a45b53cdac96779ecbd078d42035920e7"
     )
