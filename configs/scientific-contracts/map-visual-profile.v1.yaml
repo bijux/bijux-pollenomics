@@ -1,0 +1,381 @@
+schema_version: "1.0.0"
+contract_id: "bijux-pollenomics.map-visual-profile"
+contract_version: "1.0.0"
+status: "normative"
+title: "Nordic map visual identity and accessible encoding registry"
+
+palette_id: "nordic-accessible-v1"
+palette_version: "1.0.0"
+
+authority:
+  machine_authority: "this file"
+  human_explanation: "specs/MAP-INTERACTION-AND-COLOR-SYSTEM.md"
+  exact_colors_may_be_duplicated_in_other_normative_files: false
+  unknown_palette_id_behavior: "fail_closed"
+  unknown_palette_version_behavior: "fail_closed"
+  unknown_anchor_behavior: "use_explicit_unmapped_style_and_emit_validation_error"
+
+semantic_channels:
+  signal_identity: "fill_or_stroke_hue"
+  evidence_kind: "glyph_shape"
+  certainty: "line_dash_opacity_and_arrowhead_treatment"
+  source_family: "node_outline_or_ring_pattern"
+  temporal_direction: "arrowhead_plus_older_younger_text"
+  selection: "focus_halo_and_width"
+  country: "filter_boundary_and_text_badge"
+  uncertainty: "interval_band_whisker_and_text"
+  rule: "one_visual_channel_must_not_encode_two_independent_meanings"
+
+normative_anchors:
+  "whole:pollen":
+    hex: "#6B6B6B"
+    label: "Whole pollen"
+  "group:forest_woodland":
+    hex: "#0072B2"
+    label: "Forest and woodland pollen"
+  "subgroup:coniferous_trees":
+    hex: "#004C6D"
+    label: "Coniferous trees"
+  "subgroup:broadleaved_deciduous_trees":
+    hex: "#56B4E9"
+    label: "Broadleaved deciduous trees"
+  "subgroup:broadleaved_evergreen_trees":
+    hex: "#332288"
+    label: "Broadleaved evergreen trees"
+  "subgroup:shrubs_and_dwarf_shrubs":
+    hex: "#44AA99"
+    label: "Shrubs and dwarf shrubs"
+  "subgroup:forest_understory":
+    hex: "#2C7FB8"
+    label: "Forest understory"
+  "group:open_ground":
+    hex: "#CC79A7"
+    label: "Open-ground pollen"
+  "subgroup:grassland_meadow":
+    hex: "#C51B8A"
+    label: "Grassland and meadow"
+  "subgroup:heathland":
+    hex: "#7A5195"
+    label: "Heathland"
+  "subgroup:ruderal_disturbance":
+    hex: "#D55E00"
+    label: "Ruderal and disturbance-associated"
+  "subgroup:pastoral_associated":
+    hex: "#AA4499"
+    label: "Pastoral-associated indicators"
+  "subgroup:open_ground_other":
+    hex: "#B07AA1"
+    label: "Other open-ground pollen"
+  "group:cultivated_plants":
+    hex: "#E69F00"
+    label: "Cultivated-plant pollen"
+  "subgroup:cereals":
+    hex: "#B56A00"
+    label: "Cereals"
+  "subgroup:pulses_legumes":
+    hex: "#C48A00"
+    label: "Pulses and cultivated legumes"
+  "subgroup:fibre_oil_crops":
+    hex: "#A96B24"
+    label: "Fibre and oil crops"
+  "subgroup:other_field_crops":
+    hex: "#D17C3F"
+    label: "Other field crops"
+  "subgroup:horticultural_orchard":
+    hex: "#E89B68"
+    label: "Horticultural and orchard crops"
+  "group:wetland_aquatic":
+    hex: "#009E73"
+    label: "Wetland and aquatic pollen"
+  "subgroup:emergent_wetland":
+    hex: "#00876C"
+    label: "Emergent wetland"
+  "subgroup:aquatic_submerged_floating":
+    hex: "#00A6A6"
+    label: "Submerged and floating aquatic"
+  "subgroup:shoreline_riparian":
+    hex: "#1B9E77"
+    label: "Shoreline and riparian"
+  "subgroup:wetland_aquatic_other":
+    hex: "#4EB3A2"
+    label: "Other wetland and aquatic"
+  "group:other_pollen":
+    hex: "#8A8A8A"
+    label: "Other or unresolved pollen"
+  "subgroup:ecology_unresolved":
+    hex: "#737373"
+    label: "Ecology unresolved"
+  "subgroup:taxon_unidentified":
+    hex: "#969696"
+    label: "Taxon unidentified"
+  "subgroup:mixed_pollen_aggregate":
+    hex: "#BDBDBD"
+    label: "Mixed pollen aggregate"
+  "group:non_pollen_evidence":
+    hex: "#767676"
+    label: "Non-pollen palynological evidence"
+  "subgroup:spores":
+    hex: "#6A3D9A"
+    label: "Spores"
+  "subgroup:fungal_remains":
+    hex: "#8C6BB1"
+    label: "Fungal remains"
+  "subgroup:algae_and_aquatic_npp":
+    hex: "#2B8CBE"
+    label: "Algae and aquatic non-pollen palynomorphs"
+  "subgroup:other_npp":
+    hex: "#7B6AA2"
+    label: "Other non-pollen palynomorphs"
+  "group:charcoal_combustion":
+    hex: "#222222"
+    label: "Charcoal and combustion evidence"
+  "subgroup:microcharcoal":
+    hex: "#000000"
+    label: "Microcharcoal"
+  "subgroup:macrocharcoal":
+    hex: "#3A3A3A"
+    label: "Macrocharcoal"
+  "subgroup:charcoal_unspecified":
+    hex: "#555555"
+    label: "Charcoal, unspecified"
+  "group:laboratory_or_excluded":
+    hex: "#A5A5A5"
+    label: "Laboratory, administrative, or excluded element"
+  "subgroup:laboratory_measurement":
+    hex: "#ADADAD"
+    label: "Laboratory measurement"
+  "subgroup:administrative_variable":
+    hex: "#C0C0C0"
+    label: "Administrative variable"
+  "subgroup:unusable_unknown":
+    hex: "#7F7F7F"
+    label: "Unknown and scientifically unusable"
+  "role:direct_crop_confirmed":
+    hex: "#E69F00"
+    label: "Direct crop evidence, confirmed"
+  "role:crop_type_qualified":
+    hex: "#B56A00"
+    label: "Crop-type evidence, qualified"
+  "role:anthropogenic_indicator":
+    hex: "#CC79A7"
+    label: "Anthropogenic indicator"
+  "role:pastoral_indicator":
+    hex: "#AA4499"
+    label: "Pastoral indicator"
+  "role:ruderal_disturbance_indicator":
+    hex: "#D55E00"
+    label: "Ruderal or disturbance indicator"
+  "role:arboreal":
+    hex: "#0072B2"
+    label: "Arboreal ecological role"
+  "role:non_arboreal":
+    hex: "#CC79A7"
+    label: "Non-arboreal ecological role"
+  "role:conifer":
+    hex: "#004C6D"
+    label: "Conifer ecological role"
+  "role:broadleaved_deciduous":
+    hex: "#56B4E9"
+    label: "Broadleaved deciduous ecological role"
+  "role:broadleaved_evergreen":
+    hex: "#332288"
+    label: "Broadleaved evergreen ecological role"
+  "role:shrub":
+    hex: "#44AA99"
+    label: "Shrub ecological role"
+  "role:open_ground":
+    hex: "#CC79A7"
+    label: "Open-ground ecological role"
+  "role:wetland":
+    hex: "#009E73"
+    label: "Wetland ecological role"
+  "role:aquatic":
+    hex: "#00A6A6"
+    label: "Aquatic ecological role"
+  "role:cultivated":
+    hex: "#E69F00"
+    label: "Cultivated ecological role"
+  "role:indicator_only":
+    hex: "#AA4499"
+    label: "Indicator-only ecological role"
+  "role:ecology_unresolved":
+    hex: "#737373"
+    label: "Ecology-unresolved role"
+  "role:unmapped_refused":
+    hex: "#8A8A8A"
+    label: "Unmapped or refused diagnostic"
+
+distinctions:
+  coniferous_is_synonymous_with_evergreen: false
+  required_distinct_keys:
+    - "subgroup:coniferous_trees"
+    - "subgroup:broadleaved_deciduous_trees"
+    - "subgroup:broadleaved_evergreen_trees"
+  note: "Leaf persistence and phylogenetic/structural group are not interchangeable; source classification governs membership."
+
+taxon_assignment:
+  algorithm_id: "sha256_indexed_variant"
+  required_identity_field: "accepted_taxon_concept_id"
+  unresolved_identity_behavior: "role:unmapped_refused"
+  hash_algorithm: "SHA-256"
+  hash_input_encoding: "UTF-8"
+  hash_input_unicode_normalization: "NFC"
+  hash_input_template: "{palette_id}|{palette_version}|{accepted_taxon_concept_id}"
+  forbidden_hashes:
+    - "language_native_hash"
+    - "process_salted_hash"
+    - "random_assignment"
+  candidate_slots:
+    - "#0072B2"
+    - "#D55E00"
+    - "#009E73"
+    - "#CC79A7"
+    - "#E69F00"
+    - "#56B4E9"
+    - "#332288"
+    - "#882255"
+    - "#117733"
+    - "#AA4499"
+    - "#44AA99"
+    - "#999933"
+  preferred_slot:
+    digest_slice: "first 4 digest bytes interpreted as unsigned big-endian integer"
+    formula: "integer modulo candidate_slot_count"
+  probe_stride:
+    digest_byte_index_zero_based: 4
+    allowed_strides_for_twelve_slots:
+      - 1
+      - 5
+      - 7
+      - 11
+    formula: "allowed_strides[digest_byte modulo 4]"
+  probe_formula: "(preferred_slot + attempt * probe_stride) modulo candidate_slot_count"
+  reproducibility_fixture:
+    requirement: "publisher and browser implementations must share checked-in accepted_taxon_concept_id-to-slot golden fixtures"
+    minimum_fixture_count: 20
+
+collision_policy:
+  active_set_order: "ascending UTF-8 byte order of NFC-normalized accepted_taxon_concept_id"
+  assignment: "for each taxon in active_set_order, choose the first probed compliant slot not already assigned"
+  same_active_set_same_assignment: true
+  preferred_color_is_stable_across_builds: true
+  displayed_color_may_move_only_to_resolve_an_active_set_collision: true
+  no_available_unique_slot:
+    action: "use preferred slot and set color_collision=true"
+    required_redundancy:
+      - "distinct glyph variant"
+      - "stable short code"
+      - "contrasting outline or pattern"
+      - "text legend entry"
+    forbidden_action: "generate an unreviewed color"
+  default_maximum_simultaneous_signals: 6
+
+contrast_policy:
+  graphic_object_minimum_contrast_ratio: 3.0
+  text_minimum_contrast_ratio_normal: 4.5
+  text_minimum_contrast_ratio_large: 3.0
+  comparison_basis: "WCAG relative luminance for UI/text; representative-render testing for geographic marks"
+  backgrounds_required:
+    - "primary light basemap"
+    - "terrain fallback basemap"
+    - "no-basemap light"
+    - "no-basemap dark when offered"
+  casing:
+    enabled: true
+    light_background_hex: "#FFFFFF"
+    dark_background_hex: "#111111"
+    minimum_outer_width_px: 2
+    selection_halo_is_not_semantic_color: true
+  failure_action: "apply compliant contrasting casing or switch to no-basemap/small-multiple representation; never silently change semantic identity"
+
+certainty_styles:
+  definite_candidate:
+    stroke: "solid"
+    opacity: 0.85
+    arrowhead: "filled"
+    directional: true
+  possible_candidate:
+    stroke: "long_dash"
+    opacity: 0.65
+    arrowhead: "open"
+    directional: true
+  indeterminate_order:
+    stroke: "dotted_neutral"
+    opacity: 0.45
+    arrowhead: "none"
+    directional: false
+  unresolved:
+    stroke: "dotted_neutral_or_hidden"
+    opacity: 0.30
+    arrowhead: "none"
+    directional: false
+  excluded_spatial:
+    geographic_edge: false
+    arrowhead: "none"
+  excluded_temporal_nonpositive:
+    geographic_edge: false
+    arrowhead: "none"
+  excluded_temporal_too_large:
+    geographic_edge: false
+    arrowhead: "none"
+  refused_before_candidate_emission:
+    geographic_edge: false
+    arrowhead: "none"
+    representation: "reconciled count and reason view only"
+
+glyphs:
+  pollen_observation: "circle"
+  modeled_land_cover: "square"
+  archaeological_context: "diamond"
+  other_biological_evidence: "triangle"
+  charcoal_or_fire_proxy: "hexagon"
+  unresolved_or_refused_diagnostic: "hollow_cross"
+
+non_color_requirements:
+  every_visible_signal:
+    - "text legend label"
+    - "stable feature key available on focus or inspection"
+    - "glyph or short-code distinction in multi-signal comparison"
+  every_directional_edge:
+    - "arrowhead"
+    - "older and younger endpoint text"
+  every_certainty_state:
+    - "line pattern or absence of edge"
+    - "text status"
+  every_country_relation:
+    - "country code or country-pair text"
+  grayscale_export:
+    - "glyph"
+    - "line dash or pattern"
+    - "text legend"
+  color_only_encoding_allowed: false
+
+fallback_policy:
+  unknown_group_or_subgroup:
+    anchor: "role:unmapped_refused"
+    glyph: "unresolved_or_refused_diagnostic"
+    public_propagation_allowed: false
+    emit_review_record: true
+  missing_accepted_taxon_concept_id:
+    anchor: "role:unmapped_refused"
+    glyph: "unresolved_or_refused_diagnostic"
+    cross_source_taxon_comparison_allowed: false
+    emit_review_record: true
+  palette_registry_load_failure:
+    action: "fail_closed_to_labeled_neutral_non_directional_diagnostic_view"
+    silent_default_palette_allowed: false
+
+validation:
+  required:
+    - "all normative hierarchy and ecological-role IDs used by the published map resolve to this registry or an explicit diagnostic fallback"
+    - "hex values match uppercase six-digit hexadecimal syntax"
+    - "coniferous, broadleaved deciduous, and broadleaved evergreen anchors are distinct"
+    - "publisher and browser SHA-256 golden fixtures agree"
+    - "taxon algorithm_id is sha256_indexed_variant"
+    - "same active taxon set produces the same assignments regardless of input order"
+    - "no more than six simultaneous signals are enabled by default"
+    - "contrast and color-vision-deficiency snapshots pass on every supported basemap and no-basemap mode"
+    - "indeterminate_order and unresolved never render an arrowhead"
+    - "excluded and refused pairs never render geographic pseudo-edges"
+    - "grayscale export remains interpretable from non-color channels"
+  release_on_validation_failure: false

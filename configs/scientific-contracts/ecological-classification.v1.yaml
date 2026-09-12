@@ -318,7 +318,7 @@ multi_membership:
 
 taxon_color_policy:
   group_and_subgroup_colors_are_normative_here: false
-  normative_visual_profile: "contracts/map-visual-profile.v1.yaml"
+  normative_visual_profile: "configs/scientific-contracts/map-visual-profile.v1.yaml"
   taxon_color_method: "sha256_indexed_variant from accepted_taxon_concept_id, palette_id, and palette_version"
   palette_id: "nordic-accessible-v1"
   palette_version: "1.0.0"
