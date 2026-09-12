@@ -4,8 +4,11 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import hashlib
+from importlib import metadata
 import json
+import os
 from pathlib import Path
+import platform
 from typing import cast
 
 from ..engine.discovery import EngineBinding
@@ -41,6 +44,24 @@ def capture_code_identity(binding: EngineBinding) -> CodeIdentity:
     payload = {
         "engine_files": file_inventory(Path(filename).parent),
         "host_adapter_files": file_inventory(Path(__file__).parents[1]),
+        "runtime_environment": {
+            "python": platform.python_version(),
+            "platform": platform.platform(),
+            **{
+                name: metadata.version(name)
+                for name in ("bijux-pollenomics", "numpy", "scipy", "pandas")
+            },
+            **{
+                name: os.environ.get(name, "unset")
+                for name in (
+                    "OMP_NUM_THREADS",
+                    "OPENBLAS_NUM_THREADS",
+                    "MKL_NUM_THREADS",
+                    "NUMEXPR_NUM_THREADS",
+                    "VECLIB_MAXIMUM_THREADS",
+                )
+            },
+        },
     }
     return CodeIdentity(json.dumps(payload, sort_keys=True, separators=(",", ":")))
 

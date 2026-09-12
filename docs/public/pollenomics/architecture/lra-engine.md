@@ -92,6 +92,32 @@ refuse publication. Before/after file inventories are mutation checks; they do
 not attest Python objects already loaded in a long-lived process. Certification
 uses fresh installed processes and pinned dependencies.
 
+Product reopening and cache reuse belong to the host's output and execution
+domains. `read_lra_product` checks the complete file inventory, request and
+scientific identity graph, rejecting incomplete bundles, symlinks, unexpected
+files and changed numerical bytes. An independently retained manifest digest
+can identify an expected bundle; internal consistency alone does not establish
+authorship or scientific approval.
+
+Saved primary tables must agree with the request's taxa, numeric coordinates,
+ring support, method and declared result units. Numeric fields reject malformed
+or nonfinite values; source-defined empty SD/local-statistic cells remain missing.
+Binary Monte Carlo arrays are byte-verified, without claiming a fresh numerical
+recomputation. A final inventory check detects changes during reopening; returned
+paths are not a promise that another process cannot subsequently change the files.
+
+`run_lra_cached` revalidates source evidence and numerical configuration on every
+call. The key includes the complete request, installed engine identity, host and
+engine code/resources, Python/platform and dependency versions, and declared
+numerical thread environment. Parameter, source-identity or implementation
+changes select a different entry. A cache hit verifies the saved product before
+returning it. Corrupt entries refuse without replacement; simultaneous writers
+receive `lra_cache_busy` without polling. Interrupted writers may leave a lock
+and staging directory for explicit recovery after checking that its owner has
+stopped. The cache does not automatically infer that a lock is stale. This is a
+local product cache; no distributed scheduling or measured batch throughput is
+implied by this interface.
+
 Directory publication requires an atomic no-replace operation on the destination
 filesystem. The Linux and macOS paths use their native exclusive-rename
 primitives; Windows uses its nonreplacing rename behavior. Unsupported systems

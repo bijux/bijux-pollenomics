@@ -33,5 +33,10 @@ def run_lra_request(
     validate_request(request.payload(), input_root=input_root)
     verify_code_identity(binding, identity)
     return publish_result(
-        result, binding, request, destination=destination, code_identity=identity
+        result,
+        binding,
+        request,
+        destination=destination,
+        input_root=input_root,
+        code_identity=identity,
     )

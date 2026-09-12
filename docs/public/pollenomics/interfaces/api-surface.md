@@ -186,6 +186,14 @@ hashes. Both require the optional extension when checking numerical settings.
 `LRARefusal` carries a stable reason, detail and optional numerical diagnostics.
 Importing the host facade does not import the numerical extension.
 
+`read_lra_product(directory, expected_manifest_sha256=...)` reopens a complete
+bundle as `VerifiedLRAProduct`, without requiring the numerical extra. The digest
+argument is optional; without an independently retained digest the check proves
+internal byte consistency, not authorship. `run_lra_cached(payload,
+input_root=..., cache_root=...)` returns `CachedLRAProduct` with the product,
+lookup key and explicit `cache_hit` flag. Every reuse verifies source evidence,
+implementation identity and saved outputs; busy or corrupt entries refuse.
+
 The host service owns inputs, decisions and publication. Advanced numerical
 callers may use `bijux_pollenomics_lra.api`; doing so alone does not create an
 admitted host product. The request schema and unsupported assumptions are

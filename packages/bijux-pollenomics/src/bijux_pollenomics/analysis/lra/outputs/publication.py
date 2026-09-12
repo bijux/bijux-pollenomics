@@ -13,8 +13,9 @@ from typing import Any
 
 from ..engine.discovery import EngineBinding
 from ..engine.errors import LRARefusal
-from ..inputs.validation import ValidatedRequest
+from ..inputs.validation import ValidatedRequest, validate_request
 from .atomic import publish_directory
+from .contracts import request_metadata, validate_numerical_tables
 from .identity import CodeIdentity, file_inventory, verify_code_identity
 
 
@@ -43,6 +44,7 @@ def publish_result(
     request: ValidatedRequest,
     *,
     destination: Path,
+    input_root: Path,
     code_identity: CodeIdentity,
 ) -> LRAProduct:
     """Preserve explicit units/lineage and publish through one exclusive writer.
@@ -94,37 +96,21 @@ def publish_result(
             "schema_version": "lra-product.v1",
             "status": "generated_exploratory",
             "scientific_acceptance": "not_evaluated",
-            "purpose": payload["purpose"],
-            "data_kind": payload["data_kind"],
-            "method_profile": payload["method_profile"],
-            "operation": payload["operation"],
+            **request_metadata(payload),
             "engine": binding.as_dict(),
             "host_version": metadata.version("bijux-pollenomics"),
             "request_sha256": request.sha256,
-            "evidence": payload["evidence"],
-            "versions": payload["versions"],
-            "temporal_matching": payload["temporal_matching"],
-            "retained_taxa": payload["taxa"],
-            "included_sample_count": sum(
-                len(payload[role]["samples"])
-                for role in ("regional", "local")
-                if role in payload
-            ),
-            "exclusions": payload["exclusions"],
-            "excluded_record_count": len(payload["exclusions"]),
-            "uncertainty_omissions": payload["uncertainty_omissions"],
-            "units": {
-                "regional_cover": "percent",
-                "local_cover": "fraction",
-                "distance": "metre",
-                "age_support": "typed BP intervals; present=1950 CE",
-            },
             "scientific_content_sha256": _digest(_canonical(identity)),
             "scientific_identity": identity,
             "files": file_inventory(stage),
         }
         encoded = _canonical(manifest)
         (stage / "manifest.json").write_bytes(encoded)
+        try:
+            validate_numerical_tables(stage, payload)
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            raise LRARefusal("invalid_lra_product", str(exc)) from exc
+        validate_request(request.payload(), input_root=input_root)
         verify_code_identity(binding, code_identity)
         publish_directory(stage, destination)
         return LRAProduct(

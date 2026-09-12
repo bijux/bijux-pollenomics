@@ -31,7 +31,22 @@ class Result:
 
     def write(self, root: Path) -> None:
         root.mkdir()
-        (root / "values.csv").write_text("taxon,cover\nAlnus,50\nBetula,50\n")
+        (root / "reconstruction.csv").write_text(
+            "Distance.weighting,Basin.type,coordinate,Alnus.mean,Betula.mean,"
+            "Alnus.median,Betula.median,Alnus.q90,Betula.q90,Alnus.q10,Betula.q10,Alnus.sd,Betula.sd\n"
+            "lsm unstable,lake,1,50,50,50,50,50,50,50,50,0,0\n"
+        )
+        (root / "deposition_factors.csv").write_text("index,K\nAlnus,1\nBetula,1\n")
+        (root / "result_contract.json").write_text(
+            json.dumps(
+                {
+                    "schema_version": "1.0.0",
+                    "result_type": "reveals",
+                    "primary_artifact": "reconstruction.csv",
+                    "units": {"cover": "percent", "distance": "metre"},
+                }
+            )
+        )
         self.during_write()
 
 
@@ -54,6 +69,7 @@ def test_publication_is_reproducible_and_explicitly_exploratory(tmp_path: Path) 
             engine,
             request,
             destination=tmp_path / name,
+            input_root=tmp_path,
             code_identity=identity,
         )
         for name in ("first", "second")
@@ -87,6 +103,7 @@ def test_competing_empty_destination_is_never_replaced(tmp_path: Path) -> None:
             engine,
             request,
             destination=destination,
+            input_root=tmp_path,
             code_identity=capture_code_identity(engine),
         )
     assert error.value.reason_code == "lra_output_exists"
@@ -110,6 +127,7 @@ def test_code_mutation_during_serialization_refuses_publication(tmp_path: Path) 
             engine,
             request,
             destination=destination,
+            input_root=tmp_path,
             code_identity=identity,
         )
     assert error.value.reason_code == "lra_code_changed_during_run"
