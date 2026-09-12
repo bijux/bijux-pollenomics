@@ -184,7 +184,7 @@ operation sequences, continue to [operator workflows](operator-workflows.md).
 
 ## Landscape reconstruction
 
-These two commands share `bijux_pollenomics.analysis.lra.api`. Requests declare
+`validate-lra-input` and `run-lra` share `bijux_pollenomics.analysis.lra.api`. Requests declare
 counts, taxa and parameters, source identities, measured basin/ring geometry,
 typed age support, time-bin assumptions, a fixed random seed, exclusions and
 unpropagated uncertainties. A matching coordinate alone never supplies age
@@ -196,3 +196,24 @@ stable reason and applicable diagnostics. Each output remains
 `generated_exploratory`; ecological accuracy and scientific admission are
 `not_evaluated`. See [LRA engine integration](../architecture/lra-engine.md)
 for numerical profiles, units, installation and publication boundaries.
+
+`run-lra-batch BATCH.json --input-root INPUTS --cache-root CACHE
+--report-root NEW_ATTEMPT --max-workers 2` runs independent requests with bounded
+spawned processes. `BATCH.json` is an object with `schema_version` equal to
+`lra-batch-request.v1` and an `items` array. Each item has a unique `item_id` and a
+`request` containing the complete existing `lra-request.v1` object. The default
+limit is 1,000 items and one worker; `--max-items` declares a different positive
+limit. All item evidence paths resolve under the same explicit input root.
+
+Before spawning, set `OMP_NUM_THREADS`, `OPENBLAS_NUM_THREADS`, `MKL_NUM_THREADS`,
+`NUMEXPR_NUM_THREADS` and `VECLIB_MAXIMUM_THREADS` to `1`. Missing or different
+settings produce a thread-budget refusal. Resume by supplying the same requests
+and cache root with a fresh report directory. Completed cache entries must pass
+current source, implementation and saved-product checks before reuse. Every
+attempt records all items, including failures and items never submitted.
+
+The batch command returns the structured batch result: exit 0 when every item
+completed, exit 2 for refused or failed items, and exit 130 for cooperative
+interruption. These process outcomes do not confer scientific acceptance.
+Interruption stops submission and lets active work finish; it does not force-kill
+a numerical solver or delete a possibly active cache lock.

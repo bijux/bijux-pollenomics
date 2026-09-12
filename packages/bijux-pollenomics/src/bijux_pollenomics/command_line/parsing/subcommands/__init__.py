@@ -37,7 +37,11 @@ from .collection_contracts import (
     build_refresh_data_contract_surfaces_parser,
     build_validate_collection_summary_parser,
 )
-from .lra import build_run_lra_parser, build_validate_lra_input_parser
+from .lra import (
+    build_run_lra_batch_parser,
+    build_run_lra_parser,
+    build_validate_lra_input_parser,
+)
 from .orientation import (
     build_ownership_map_parser,
     build_product_scope_parser,
@@ -72,6 +76,7 @@ __all__ = [
     "build_refresh_data_contract_surfaces_parser",
     "build_report_country_parser",
     "build_run_lra_parser",
+    "build_run_lra_batch_parser",
     "build_source_support_parser",
     "build_surface_map_parser",
     "build_validate_collection_summary_parser",
@@ -102,6 +107,7 @@ def register_subcommands(
     build_collect_data_parser(subparsers)
     build_validate_lra_input_parser(subparsers)
     build_run_lra_parser(subparsers)
+    build_run_lra_batch_parser(subparsers)
     build_refresh_aadr_source_accountability_parser(subparsers)
     build_refresh_data_contract_surfaces_parser(subparsers)
     build_surface_map_parser(subparsers)

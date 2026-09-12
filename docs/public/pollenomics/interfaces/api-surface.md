@@ -194,6 +194,18 @@ input_root=..., cache_root=...)` returns `CachedLRAProduct` with the product,
 lookup key and explicit `cache_hit` flag. Every reuse verifies source evidence,
 implementation identity and saved outputs; busy or corrupt entries refuse.
 
+For bounded execution, construct `LRABatchItem(item_id, payload)` values and call
+`run_lra_batch(items, input_root=..., cache_root=..., report_root=...,
+limits=LRABatchLimits(max_workers=2))`. Each attempt needs a new report directory.
+The returned `LRABatchResult` retains input order and separate completed, refused,
+failed, not-run and unobserved outcomes. Repeat the same items with the same cache
+and a fresh report directory to resume; prior attempt receipts do not authorize
+reuse. The callable `cancel_requested` option stops new submissions and drains
+bounded active work. It does not impose a deadline on individual calculations.
+Set the five numerical thread environment controls listed in the CLI contract to
+`1` before spawning. The numerical package owns neither batch scheduling nor
+report directories.
+
 The host service owns inputs, decisions and publication. Advanced numerical
 callers may use `bijux_pollenomics_lra.api`; doing so alone does not create an
 admitted host product. The request schema and unsupported assumptions are

@@ -6,7 +6,14 @@ import argparse
 import json
 from typing import Any
 
-from ...analysis.lra.api import LRARefusal, run_lra_request, validate_lra_inputs
+from ...analysis.lra.api import (
+    LRABatchItem,
+    LRABatchLimits,
+    LRARefusal,
+    run_lra_batch,
+    run_lra_request,
+    validate_lra_inputs,
+)
 
 
 def _unique_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
@@ -18,15 +25,53 @@ def _unique_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
     return result
 
 
+def _run_batch(
+    payload: dict[str, Any], args: argparse.Namespace
+) -> tuple[dict[str, object], int]:
+    if (
+        set(payload) != {"schema_version", "items"}
+        or payload["schema_version"] != "lra-batch-request.v1"
+        or not isinstance(payload["items"], list)
+    ):
+        raise LRARefusal(
+            "invalid_lra_batch_json",
+            "Expected lra-batch-request.v1 with an items array",
+        )
+    items = []
+    for item in payload["items"]:
+        if (
+            not isinstance(item, dict)
+            or set(item) != {"item_id", "request"}
+            or not isinstance(item["request"], dict)
+        ):
+            raise LRARefusal(
+                "invalid_lra_batch_json", "Each item needs item_id and a request object"
+            )
+        items.append(LRABatchItem(item["item_id"], item["request"]))
+    result = run_lra_batch(
+        items,
+        input_root=args.input_root,
+        cache_root=args.cache_root,
+        report_root=args.report_root,
+        limits=LRABatchLimits(max_workers=args.max_workers, max_items=args.max_items),
+    )
+    return result.as_dict(), 130 if result.interrupted else (
+        0 if result.all_items_completed else 2
+    )
+
+
 def run_lra_command(args: argparse.Namespace) -> int:
     """Execute one supported request without hiding input or engine failures."""
+    exit_code = 0
     try:
         payload = json.loads(
             args.request.read_text(encoding="utf-8"), object_pairs_hook=_unique_pairs
         )
         if not isinstance(payload, dict):
             raise LRARefusal("invalid_lra_json", "Request must be a JSON object")
-        if args.command == "validate-lra-input":
+        if args.command == "run-lra-batch":
+            result, exit_code = _run_batch(payload, args)
+        elif args.command == "validate-lra-input":
             accepted = validate_lra_inputs(payload, input_root=args.input_root)
             result = {
                 "status": "validated_exploratory_input",
@@ -59,4 +104,4 @@ def run_lra_command(args: argparse.Namespace) -> int:
         )
         return 2
     print(json.dumps(result, sort_keys=True))
-    return 0
+    return exit_code

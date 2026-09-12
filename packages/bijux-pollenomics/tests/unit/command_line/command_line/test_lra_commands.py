@@ -14,6 +14,101 @@ from bijux_pollenomics.cli import main
 from ...analysis.lra.support import request_fixture
 
 
+@pytest.mark.parametrize(
+    "interrupted,completed,expected_code",
+    [(False, True, 0), (False, False, 2), (True, False, 130)],
+)
+def test_batch_cli_preserves_item_outcomes_and_exit_status(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    interrupted: bool,
+    completed: bool,
+    expected_code: int,
+) -> None:
+    from bijux_pollenomics.analysis.lra.api import LRABatchItemResult, LRABatchResult
+    from bijux_pollenomics.command_line.runtime import lra
+
+    path = tmp_path / "batch.json"
+    request = request_fixture(tmp_path)
+    path.write_text(
+        json.dumps(
+            {
+                "schema_version": "lra-batch-request.v1",
+                "items": [{"item_id": "one", "request": request}],
+            }
+        )
+    )
+    result = LRABatchResult(
+        "0" * 64,
+        tmp_path / "attempt",
+        (
+            LRABatchItemResult(
+                0, "one", "1" * 64, "completed" if completed else "not_run"
+            ),
+        ),
+        interrupted,
+    )
+    with patch.object(lra, "run_lra_batch", return_value=result) as run:
+        code = main(
+            [
+                "run-lra-batch",
+                str(path),
+                "--input-root",
+                str(tmp_path),
+                "--cache-root",
+                str(tmp_path / "cache"),
+                "--report-root",
+                str(tmp_path / "attempt"),
+                "--max-workers",
+                "2",
+            ]
+        )
+    assert code == expected_code
+    output = json.loads(capsys.readouterr().out)
+    assert output == result.as_dict()
+    assert run.call_args.args[0][0].payload() == request
+    assert run.call_args.kwargs["limits"].max_workers == 2
+
+
+@pytest.mark.parametrize(
+    "payload",
+    [
+        {"schema_version": "lra-batch-request.v1", "items": "invalid"},
+        {
+            "schema_version": "lra-batch-request.v1",
+            "items": [{"item_id": "one", "request": None}],
+        },
+        {"schema_version": "unversioned", "items": []},
+    ],
+)
+def test_batch_cli_refuses_invalid_envelope_before_spawning(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    payload: object,
+) -> None:
+    from bijux_pollenomics.command_line.runtime import lra
+
+    path = tmp_path / "batch.json"
+    path.write_text(json.dumps(payload))
+    with patch.object(lra, "run_lra_batch") as run:
+        code = main(
+            [
+                "run-lra-batch",
+                str(path),
+                "--input-root",
+                str(tmp_path),
+                "--cache-root",
+                str(tmp_path / "cache"),
+                "--report-root",
+                str(tmp_path / "attempt"),
+            ]
+        )
+    assert code == 2 and not run.called
+    assert (
+        json.loads(capsys.readouterr().out)["reason_code"] == "invalid_lra_batch_json"
+    )
+
+
 def test_valid_request_reports_missing_extra_without_creating_output(
     tmp_path: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:
