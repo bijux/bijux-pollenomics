@@ -14,7 +14,7 @@ from .identity import (
     _required_text,
     _source_taxon_identity,
 )
-from .models import ClassificationEventContext
+from .models import ClassificationEventContext, ClassificationReviewContext
 from .vocabulary import _ACCEPTED_STATUSES
 
 
@@ -98,7 +98,8 @@ def _classification_authority_universe_reason(
 
 
 def _ambiguous_authorized_mapping_ids(
-    mappings: Sequence[Mapping[str, object]], context: ClassificationEventContext
+    mappings: Sequence[Mapping[str, object]],
+    context: ClassificationEventContext | ClassificationReviewContext,
 ) -> set[str]:
     """Return authority concepts that share one governed source identity."""
     concepts_by_source_identity: dict[str, set[str]] = defaultdict(set)
@@ -141,7 +142,8 @@ def _ambiguous_authorized_mapping_ids(
 
 
 def _mapping_is_authorized(
-    mapping: Mapping[str, object], context: ClassificationEventContext
+    mapping: Mapping[str, object],
+    context: ClassificationEventContext | ClassificationReviewContext,
 ) -> bool:
     authority = _CLASSIFICATION_AUTHORITY
     if not _valid_classification_authority_receipt(authority):

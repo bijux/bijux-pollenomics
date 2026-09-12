@@ -145,6 +145,13 @@ conflicts and per-sample refusals. Necessary numeric count eligibility does not
 authorize taxon grouping, PPE, chronology or basin geometry. Source audits remain
 separate products until those scientific requirements have actual evidence.
 
+The shared `analysis.classification.events.assess_classification_eligibility`
+service checks reviewed source/taxon membership without requiring positive pollen
+detection. Zero, null and absent measurements remain distinct. This review
+projection does not admit counts, chronology or an LRA run. Its current pinned
+authority is Neotoma-specific and contains zero accepted mappings; the API cannot
+create scientific approval or extend that authority to another source.
+
 `analysis.lra_validation.experiments` owns training-fold reconstruction and
 subsequent observation scoring. Its first profile is explicitly synthetic:
 `prepare_experiment_predictions` runs the existing batch/cache service, reopens

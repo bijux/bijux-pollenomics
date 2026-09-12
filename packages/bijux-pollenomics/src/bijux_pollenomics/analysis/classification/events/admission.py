@@ -19,7 +19,11 @@ from .identity import (
     _text_tuple,
     _valid_coordinate_pair,
 )
-from .models import ClassificationEventContext, _AdmittedObservation
+from .models import (
+    ClassificationEventContext,
+    ClassificationReviewContext,
+    _AdmittedObservation,
+)
 from .vocabulary import (
     _ACCEPTED_STATUSES,
     _AMBIGUOUS_STATUSES,
@@ -45,7 +49,7 @@ def _classification_refusal_reason(
     mapping_conflicts: set[str],
     authority_universe_reason: str | None,
     ambiguous_authorized_mapping_ids: set[str],
-    context: ClassificationEventContext,
+    context: ClassificationEventContext | ClassificationReviewContext,
 ) -> str | None:
     if authority_universe_reason == "invalid_classification_authority_receipt":
         return authority_universe_reason
@@ -196,16 +200,12 @@ def _roles_match_hierarchy(
     )
 
 
-def _source_refusal_reason(
-    membership: Mapping[str, object],
-    mapping: Mapping[str, object],
-    observation: Mapping[str, object],
-    site: Mapping[str, object],
-    chronology: Mapping[str, object],
-    context: ClassificationEventContext,
+def _source_identity_refusal_reason(
+    mapping: Mapping[str, object], observation: Mapping[str, object]
 ) -> str | None:
     if any(
-        observation.get(field_name) != mapping.get(field_name)
+        type(observation.get(field_name)) is not type(mapping.get(field_name))
+        or observation.get(field_name) != mapping.get(field_name)
         for field_name in (
             "source_variable_id",
             "source_taxon_id",
@@ -216,6 +216,20 @@ def _source_refusal_reason(
         return "classification_source_identity_mismatch"
     if _optional_text(observation.get("source_element_type")) != "pollen":
         return "non_pollen_observation"
+    return None
+
+
+def _source_refusal_reason(
+    membership: Mapping[str, object],
+    mapping: Mapping[str, object],
+    observation: Mapping[str, object],
+    site: Mapping[str, object],
+    chronology: Mapping[str, object],
+    context: ClassificationEventContext,
+) -> str | None:
+    identity_reason = _source_identity_refusal_reason(mapping, observation)
+    if identity_reason is not None:
+        return identity_reason
     if _optional_text(observation.get("detection_status")) != "reported_value":
         return "non_positive_observation"
     value = observation.get("source_value")
