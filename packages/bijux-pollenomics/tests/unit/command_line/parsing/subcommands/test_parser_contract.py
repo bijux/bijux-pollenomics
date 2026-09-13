@@ -96,6 +96,22 @@ _COMMAND_ACTIONS = {
         "outcome_inventory",
         "output",
     ],
+    "prepare-lra-observation-uncertainty": [
+        "help",
+        "predictions",
+        "plan",
+        "evidence_root",
+        "output",
+    ],
+    "score-lra-observation-coverage": [
+        "help",
+        "predictions",
+        "uncertainty",
+        "scores",
+        "expected_uncertainty_sha256",
+        "expected_scores_sha256",
+        "output",
+    ],
     "refresh-aadr-source-accountability": ["help", "data_root", "version"],
     "refresh-data-contract-surfaces": ["help", "data_root", "version"],
     "surface-map": ["help", "json"],
@@ -132,8 +148,8 @@ def test_root_and_subcommand_help_text_is_frozen() -> None:
     subcommand_help = "".join(child.format_help() for child in action.choices.values())
     assert (
         root_digest
-        == "51c4949afd6faee095c35d1fcd698f36010d245b881771d31cf87f2f26f293ef"
+        == "6ea7e3408ec1491cefbaeb9408971922df4d26d3a910344715f4accce22f33dd"
     )
     assert hashlib.sha256(subcommand_help.encode()).hexdigest() == (
-        "7f23e3087ffd758a48f1f54f54f2778a45b53cdac96779ecbd078d42035920e7"
+        "e667d62f10cc229c9936608ab1a103cd1a5b934cc9238b9ed4e7cb2d9984c4d1"
     )

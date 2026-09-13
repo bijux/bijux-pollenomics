@@ -54,7 +54,12 @@ def _run_batch(
 
 def run_lra_command(args: argparse.Namespace) -> int:
     """Execute one supported request without hiding input or engine failures."""
-    if args.command in {"prepare-lra-experiment", "score-lra-experiment"}:
+    if args.command in {
+        "prepare-lra-experiment",
+        "score-lra-experiment",
+        "prepare-lra-observation-uncertainty",
+        "score-lra-observation-coverage",
+    }:
         from .lra_validation import run_lra_experiment_command
 
         return run_lra_experiment_command(args)

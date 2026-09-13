@@ -45,7 +45,9 @@ from .lra import (
 )
 from .lra_validation import (
     build_prepare_lra_experiment_parser,
+    build_prepare_lra_observation_uncertainty_parser,
     build_score_lra_experiment_parser,
+    build_score_lra_observation_coverage_parser,
 )
 from .orientation import (
     build_ownership_map_parser,
@@ -75,6 +77,7 @@ __all__ = [
     "build_multi_country_map_parser",
     "build_ownership_map_parser",
     "build_prepare_lra_experiment_parser",
+    "build_prepare_lra_observation_uncertainty_parser",
     "build_product_scope_parser",
     "build_publish_reports_parser",
     "build_refresh_aadr_source_accountability_parser",
@@ -85,6 +88,7 @@ __all__ = [
     "build_run_lra_batch_parser",
     "build_run_lra_parser",
     "build_score_lra_experiment_parser",
+    "build_score_lra_observation_coverage_parser",
     "build_source_support_parser",
     "build_surface_map_parser",
     "build_validate_collection_summary_parser",
@@ -119,6 +123,8 @@ def register_subcommands(
     build_render_lra_report_parser(subparsers)
     build_prepare_lra_experiment_parser(subparsers)
     build_score_lra_experiment_parser(subparsers)
+    build_prepare_lra_observation_uncertainty_parser(subparsers)
+    build_score_lra_observation_coverage_parser(subparsers)
     build_refresh_aadr_source_accountability_parser(subparsers)
     build_refresh_data_contract_surfaces_parser(subparsers)
     build_surface_map_parser(subparsers)

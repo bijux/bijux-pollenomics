@@ -334,6 +334,26 @@ no new simulation is run during coverage scoring. Local-pollen diagnostics,
 latent vegetation intervals and scientific final-policy admission remain outside
 this profile.
 
+The CLI exposes conditional sampling and coverage as separate saved phases.
+Serialize the independently declared plan with `ObservationUncertaintyPlan.as_dict()`;
+its parent prediction and counting-design evidence hashes are required inputs.
+
+```bash
+bijux-pollenomics prepare-lra-observation-uncertainty predictions \
+  --plan counting-plan.json --evidence-root counting-designs --output uncertainty
+bijux-pollenomics score-lra-observation-coverage predictions \
+  --uncertainty uncertainty --scores scores \
+  --expected-uncertainty-sha256 "$uncertainty_manifest_sha256" \
+  --expected-scores-sha256 "$scores_manifest_sha256" --output coverage
+```
+
+Generation reports every requested unit and its status, returning `130` for an
+accounted-for interruption and `2` for refusals or partial results. Coverage
+returns `2` when any requested unit is refused, including counting-effort mismatch.
+Both commands emit exploratory JSON; successful execution grants no scientific
+acceptance. Base installations support help and input refusals, while actual
+sampling and retained-draw validation require the numerical extra.
+
 `analysis.lra_validation.evaluation.api` evaluates a complete, separately
 frozen observation ledger against an explicit v2 policy. The policy supplies
 reviewed reference identities, per-target thresholds, independent site/block

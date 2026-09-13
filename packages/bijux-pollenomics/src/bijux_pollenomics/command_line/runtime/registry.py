@@ -55,6 +55,8 @@ def build_command_handlers(
         "render-lra-report": run_lra_command,
         "prepare-lra-experiment": run_lra_command,
         "score-lra-experiment": run_lra_command,
+        "prepare-lra-observation-uncertainty": run_lra_command,
+        "score-lra-observation-coverage": run_lra_command,
         "refresh-aadr-source-accountability": run_refresh_aadr_source_accountability,
         "refresh-data-contract-surfaces": run_refresh_data_contract_surfaces,
         "refresh-animal-adna-foundation": run_refresh_animal_adna_foundation,

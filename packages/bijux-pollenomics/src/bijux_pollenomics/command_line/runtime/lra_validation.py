@@ -27,6 +27,11 @@ from ...analysis.lra_validation.experiments.outputs import (
     ExperimentProduct,
     read_member,
 )
+from ...analysis.lra_validation.observation_uncertainty import (
+    ObservationUncertaintyPlan,
+    generate_pollen_observation_uncertainty,
+    score_pollen_observation_coverage,
+)
 from .json_inputs import read_object
 
 
@@ -117,6 +122,62 @@ def run_lra_experiment_command(args: argparse.Namespace) -> int:
                 "score_status_counts": dict(sorted(counts.items())),
             }
             code = 0 if counts.get("scored", 0) == len(scores) else 2
+        elif args.command == "prepare-lra-observation-uncertainty":
+            plan = ObservationUncertaintyPlan.from_dict(read_object(args.plan))
+            product = generate_pollen_observation_uncertainty(
+                args.predictions,
+                plan,
+                evidence_root=args.evidence_root,
+                destination=args.output,
+            )
+            _, manifest = read_experiment_product(
+                product.directory, expected_manifest_sha256=product.manifest_sha256
+            )
+            scientific = manifest["scientific_payload"]
+            if not isinstance(scientific, dict):
+                raise ValidationRefusal(
+                    "invalid_experiment_product", "Missing uncertainty ledger"
+                )
+            counts = scientific["status_counts"]
+            accounting = {
+                "requested_units": scientific["requested_units"],
+                "status_counts": counts,
+            }
+            code = (
+                130
+                if counts.get("not_run", 0)
+                else (
+                    0
+                    if counts.get("generated", 0) == scientific["requested_units"]
+                    else 2
+                )
+            )
+        elif args.command == "score-lra-observation-coverage":
+            product = score_pollen_observation_coverage(
+                args.predictions,
+                args.uncertainty,
+                args.scores,
+                expected_uncertainty_sha256=args.expected_uncertainty_sha256,
+                expected_scores_sha256=args.expected_scores_sha256,
+                destination=args.output,
+            )
+            _, manifest = read_experiment_product(
+                product.directory, expected_manifest_sha256=product.manifest_sha256
+            )
+            scientific = manifest["scientific_payload"]
+            if not isinstance(scientific, dict):
+                raise ValidationRefusal(
+                    "invalid_experiment_product", "Missing coverage ledger"
+                )
+            accounting = {
+                key: scientific[key]
+                for key in (
+                    "requested_units",
+                    "coverage_scored_units",
+                    "coverage_refused_units",
+                )
+            }
+            code = 0 if scientific["coverage_refused_units"] == 0 else 2
         else:
             raise ValidationRefusal("unknown_experiment_command", str(args.command))
         result = {
