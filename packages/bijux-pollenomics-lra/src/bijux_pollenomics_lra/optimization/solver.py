@@ -154,6 +154,11 @@ def optimize_box(
     best_x: np.ndarray | None = None
     best_value = np.inf
     evaluations = 0
+    completed_generations = 0
+
+    def record_generation(_candidate: np.ndarray, _convergence: object) -> None:
+        nonlocal completed_generations
+        completed_generations += 1
 
     class EvaluationBudgetReached(Exception):
         pass
@@ -184,6 +189,7 @@ def optimize_box(
             updating="immediate",
             workers=1,
             disp=trace,
+            callback=record_generation,
         )
     except EvaluationBudgetReached:
         if best_x is None:
@@ -193,7 +199,7 @@ def optimize_box(
         return OptimizationResult(
             x=best_x,
             fun=float(best_value),
-            nit=0,
+            nit=completed_generations,
             nfev=evaluations,
             success=False,
             message="Evaluation budget reached",
