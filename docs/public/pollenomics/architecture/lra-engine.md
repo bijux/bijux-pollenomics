@@ -311,8 +311,8 @@ targets retain their requested denominators. Successfully consumed inputs remain
 subject to final hash checks even when later reconstruction fails; this lifecycle
 rule also applies to baseline, singleton fitted and local-pollen experiments.
 
-These are synthetic exploratory spatial experiments. Temporal prediction and
-joint model uncertainty require separate profiles and evidence.
+These spatial experiments remain synthetic and exploratory. Joint model
+uncertainty requires separate profiles and evidence.
 
 `read_withheld_predictions` authenticates a caller-pinned saved baseline or fitted
 product before outcome access. It rechecks original folds, training lineage,
@@ -425,9 +425,25 @@ Source hashes and PPE declarations must agree with consumed training requests
 and the target forward calculation. Changed metadata cannot acquire scientific
 authority merely by receiving a new file hash. Valid historical products retain
 their recorded fields; omitted historical declarations are not manufactured.
-The shared phase publisher also recognizes the synthetic forward-time persistence
-profile; its temporal admission and evaluation remain separate from same-time
-spatial prediction.
+The separate `analysis.lra_validation.temporal.persistence` API implements the
+synthetic forward-time persistence profile. It reconstructs admitted older
+training sites, fits their spatial model, and explicitly transports the predicted
+vegetation unchanged to one younger held-out target before forward pollen
+calculation. No target pollen or younger observations enter generation. This is
+a declared persistence assumption, not a fitted model of vegetation change.
+
+Temporal products retain full chronology/geometry admission, older fitted state,
+transport assumptions and original batch requests. Reading joins request bodies,
+source references, ordered items, batch summaries and fitted identities. Missing
+pre-attempt or interrupted receipts retain their actual failure state. A later
+post-batch interruption remains distinct from an interrupted numerical batch.
+
+Separate scoring checks the younger observation support and reports vegetation
+and pollen errors independently, including failed-target denominators. Constant
+synthetic vegetation is reproduced in the demonstrated profile; changed younger
+vegetation exposes the persistence assumption's error. These tests establish
+workflow behavior, not LANDCLIM/Neotoma accuracy, qualified scientific review,
+final acceptance thresholds or joint model/PPE/chronology uncertainty.
 
 ## Saved-product reporting
 
