@@ -73,6 +73,64 @@ source tree remains usable because the manifest stores relative source paths.
 A changed source requires a new custody product. Ancillary Finder metadata has
 its own denominator and does not change the separate dataset inventory hash.
 
+## Read a native source-index window
+
+After creating an inventory, select an exact archive occurrence from that
+inventory. For the inspected local delivery, this example retains four source
+cells from the year-2000 base cropland member:
+
+```python
+from bijux_pollenomics.collection.sources.hyde.ascii import (
+    AsciiWindowSelection,
+    prepare_hyde_ascii_window,
+    read_hyde_ascii_window,
+)
+
+selection = AsciiWindowSelection(
+    archive_path="original/gbc2025_7apr_base/zip/2000AD_lu.zip",
+    member_index=0,
+    expected_member_name="cropland2000AD.asc",
+    row_start=227,
+    row_stop=228,
+    column_start=2487,
+    column_stop=2491,
+)
+window = prepare_hyde_ascii_window(
+    destination,
+    expected_custody_manifest_sha256=product.manifest_sha256,
+    source_root=source,
+    selection=selection,
+    destination=Path("/path/to/external/prepared/cropland-window-001"),
+)
+retained_window = read_hyde_ascii_window(
+    window.directory, expected_manifest_sha256=window.manifest_sha256
+)
+print(retained_window.source_tokens)
+print(retained_window.missing_mask)
+```
+
+Rows and columns are zero-based source indices with exclusive stop bounds.
+The archive ordinal distinguishes repeated names. The producer verifies the
+selected archive hash and streams the complete selected member through EOF,
+checking its size and CRC while retaining its SHA and only the requested cells.
+It neither extracts archives nor rescans the full release for each window.
+Repeated windows in one member each incur that member verification cost.
+
+Two compact JSON files preserve the original six header lines, numeric tokens,
+missingness and source indices. Missing cells remain distinct from numeric zero.
+The native `0.0833333` step is retained literally. A source-index preview does
+not assign CRS, area, variable units or calendar meaning; a later geographical
+adapter must explicitly join those declarations to the existing grid contract.
+The retained reader authenticates pinned bytes and internal consistency, rather
+than re-executing the original source read.
+
+Installed-package checks cover seven identical windows in each of base, lower
+and upper cropland for 2000AD: 117 selected cells agree exactly with independent
+native reads, including edge orientation, missingness, zeros and member hashes.
+These scenarios are not pointwise bounds: the inspected lower scenario exceeds
+base at source row 230, column 2479. This preview evidence is distinct from
+scientific admission or a vegetation reconstruction test.
+
 ## Country accounting
 
 The country ledger includes all nine registered families across six partitions

@@ -10,11 +10,14 @@ import re
 import zipfile
 
 from ...quarantine import IntakeRefusal
-from .archives import safe_member_name
+from .contracts import (
+    ARCHIVE_FIELDS as _ARCHIVE_FIELDS,
+)
 from .contracts import (
     POSTURE,
     REVIEW_REQUIRED,
     SCHEMA,
+    BoundArchiveMember,
     LocalHydeInventory,
     LocalInventoryLimits,
     array,
@@ -27,6 +30,7 @@ from .contracts import (
     object_fields,
     relative_path,
     sha256,
+    validate_archive_occurrence,
 )
 from .inventory import (
     collect_sources,
@@ -37,33 +41,6 @@ from .inventory import (
 )
 
 _MEMBERS = {"files.json", "archives.json", "metadata.json"}
-_ARCHIVE_FIELDS = {
-    "archive_path",
-    "archive_sha256",
-    "member_index",
-    "name",
-    "decoded_filename",
-    "name_occurrence",
-    "name_occurrences",
-    "bytes",
-    "compressed_bytes",
-    "crc32",
-    "header_offset",
-    "compression",
-    "flags",
-    "date_time",
-    "create_system",
-    "create_version",
-    "extract_version",
-    "internal_attributes",
-    "external_attributes",
-    "comment_hex",
-    "extra_hex",
-    "directory",
-    "symlink",
-    "safe_relative_name",
-    "extraction_allowed",
-}
 
 
 def _owned_bytes(root: Path) -> dict[str, bytes]:
@@ -149,8 +126,6 @@ def _file_rows(value: object, limits: LocalInventoryLimits) -> list[dict[str, ob
 def _archive_rows(
     value: object, files: dict[str, dict[str, object]], limits: LocalInventoryLimits
 ) -> list[dict[str, object]]:
-    import stat
-
     rows = []
     groups: dict[str, list[dict[str, object]]] = {}
     for item in array(value, "archives"):
@@ -162,61 +137,9 @@ def _archive_rows(
             or row["archive_sha256"] != files[archive]["sha256"]
         ):
             raise IntakeRefusal("hyde_custody_archive_parent_invalid", archive)
-        if not isinstance(row["name"], str) or not isinstance(
-            row["decoded_filename"], str
-        ):
-            raise IntakeRefusal("hyde_custody_archive_name_invalid", archive)
-        name = row["name"]
-        for field in _ARCHIVE_FIELDS - {
-            "archive_path",
-            "archive_sha256",
-            "name",
-            "decoded_filename",
-            "comment_hex",
-            "extra_hex",
-            "date_time",
-            "directory",
-            "symlink",
-            "safe_relative_name",
-            "extraction_allowed",
-        }:
-            integer(row[field], field)
-        for field in ("comment_hex", "extra_hex"):
-            hexadecimal = row[field]
-            if (
-                not isinstance(hexadecimal, str)
-                or re.fullmatch(r"(?:[0-9a-f]{2})*", hexadecimal) is None
-            ):
-                raise IntakeRefusal("hyde_custody_archive_hex_invalid", field)
-        date = array(row["date_time"], "date_time")
-        if len(date) != 6:
-            raise IntakeRefusal("hyde_custody_archive_date_invalid", archive)
-        for component in date:
-            integer(component, "date_time")
-        for field in (
-            "directory",
-            "symlink",
-            "safe_relative_name",
-            "extraction_allowed",
-        ):
-            if type(row[field]) is not bool:
-                raise IntakeRefusal("hyde_custody_archive_flag_invalid", field)
-        safe = safe_member_name(name)
-        if (
-            row["decoded_filename"] != name.split("\x00", 1)[0]
-            or row["directory"] != str(row["decoded_filename"]).endswith("/")
-            or row["safe_relative_name"] != safe
-            or row["symlink"]
-            != stat.S_ISLNK(integer(row["external_attributes"], "attributes") >> 16)
-            or row["extraction_allowed"] is not False
-        ):
-            raise IntakeRefusal("hyde_custody_archive_semantics_invalid", archive)
-        if integer(row["crc32"], "crc32") > 0xFFFFFFFF or integer(
-            row["header_offset"], "offset"
-        ) + integer(row["compressed_bytes"], "compressed") > integer(
-            files[archive]["bytes"], "archive bytes"
-        ):
-            raise IntakeRefusal("hyde_custody_archive_bounds_invalid", archive)
+        row = validate_archive_occurrence(
+            row, integer(files[archive]["bytes"], "archive bytes")
+        )
         groups.setdefault(archive, []).append(row)
         rows.append(row)
     if len(rows) > limits.maximum_archive_members or [
@@ -472,3 +395,54 @@ def replay_local_hyde_inventory(product: LocalHydeInventory, source_root: Path) 
         if isinstance(exc, IntakeRefusal):
             raise
         raise IntakeRefusal("hyde_source_replay_failed", str(exc)) from exc
+
+
+def select_local_hyde_archive_member(
+    product: LocalHydeInventory,
+    *,
+    archive_path: str,
+    member_index: int,
+) -> BoundArchiveMember:
+    """Select by authenticated archive and occurrence ordinal; never by last name."""
+    try:
+        current, values, limits, _ = _admit(product.directory, product.manifest_sha256)
+        if current != product:
+            raise IntakeRefusal(
+                "hyde_custody_product_identity_mismatch", str(product.directory)
+            )
+        archive_path = relative_path(archive_path)
+        integer(member_index, "member_index")
+        files = _file_rows(values["files.json"], limits)
+        source = next((row for row in files if row["path"] == archive_path), None)
+        if source is None or source["archive_directory"] is None:
+            raise IntakeRefusal("hyde_custody_archive_selection_invalid", archive_path)
+        for value in array(values["archives.json"], "archives"):
+            row = object_fields(value, _ARCHIVE_FIELDS, "occurrence")
+            if (
+                row["archive_path"] == archive_path
+                and row["member_index"] == member_index
+            ):
+                return BoundArchiveMember(
+                    product.manifest_sha256,
+                    product.dataset_inventory_sha256,
+                    archive_path,
+                    digest(source["sha256"]),
+                    integer(source["bytes"], "archive bytes"),
+                    member_index,
+                    str(row["name"]),
+                    encode(row).decode("ascii"),
+                    encode(source["archive_directory"]).decode("ascii"),
+                )
+        raise IntakeRefusal("hyde_custody_archive_selection_invalid", str(member_index))
+    except (
+        OSError,
+        ValueError,
+        TypeError,
+        KeyError,
+        OverflowError,
+        RecursionError,
+        zipfile.BadZipFile,
+    ) as exc:
+        if isinstance(exc, IntakeRefusal):
+            raise
+        raise IntakeRefusal("hyde_custody_selection_failed", str(exc)) from exc

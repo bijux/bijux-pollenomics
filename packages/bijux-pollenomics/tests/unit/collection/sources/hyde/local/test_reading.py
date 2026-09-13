@@ -164,3 +164,32 @@ def test_retained_ancestor_swap_during_read_refuses(
         read_local_hyde_inventory(
             product.directory, expected_manifest_sha256=product.manifest_sha256
         )
+
+
+def test_typed_selector_preserves_duplicate_ordinals_and_historical_custody(
+    tmp_path: Path,
+) -> None:
+    from bijux_pollenomics.collection.sources.hyde.local import (
+        select_local_hyde_archive_member,
+    )
+
+    source = source_fixture(tmp_path / "raw")
+    product = prepare_local_hyde_inventory(source, tmp_path / "custody")
+    first = select_local_hyde_archive_member(
+        product, archive_path="native.zip", member_index=1
+    )
+    second = select_local_hyde_archive_member(
+        product, archive_path="native.zip", member_index=2
+    )
+    assert first.name == second.name and first.member_index != second.member_index
+    assert first.occurrence()["crc32"] != second.occurrence()["crc32"]
+    with pytest.raises(IntakeRefusal):
+        select_local_hyde_archive_member(
+            product, archive_path="native.zip", member_index=100
+        )
+    with pytest.raises(IntakeRefusal):
+        select_local_hyde_archive_member(
+            replace(product, archive_member_count=0),
+            archive_path="native.zip",
+            member_index=1,
+        )

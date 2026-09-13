@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from collections import Counter
-from pathlib import PurePosixPath, PureWindowsPath
 import stat
 import struct
 from typing import BinaryIO
@@ -11,6 +10,7 @@ import zipfile
 
 from ...quarantine import IntakeRefusal
 from .contracts import LocalInventoryLimits, encode
+from .contracts import safe_member_name as safe_member_name
 
 
 def _directory_bound(
@@ -174,14 +174,3 @@ def archive_records(
             rows.append(row)
     directory["comment_hex"] = archive.comment.hex()
     return rows, directory
-
-
-def safe_member_name(name: str) -> bool:
-    """A diagnostic only; no member is eligible for extraction through this API."""
-    return not (
-        PurePosixPath(name).is_absolute()
-        or PureWindowsPath(name).drive
-        or ".." in PurePosixPath(name).parts
-        or "\\" in name
-        or "\x00" in name
-    )

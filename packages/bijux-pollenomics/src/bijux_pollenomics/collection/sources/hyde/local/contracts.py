@@ -7,8 +7,9 @@ from dataclasses import dataclass
 import hashlib
 import json
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath, PureWindowsPath
 import re
+import stat
 
 from ...quarantine import IntakeRefusal
 
@@ -183,3 +184,181 @@ def implementation_identity() -> dict[str, str]:
         path.relative_to(package).as_posix(): sha256(path.read_bytes())
         for path in sorted(paths)
     }
+
+
+ARCHIVE_FIELDS = {
+    "archive_path",
+    "archive_sha256",
+    "member_index",
+    "name",
+    "decoded_filename",
+    "name_occurrence",
+    "name_occurrences",
+    "bytes",
+    "compressed_bytes",
+    "crc32",
+    "header_offset",
+    "compression",
+    "flags",
+    "date_time",
+    "create_system",
+    "create_version",
+    "extract_version",
+    "internal_attributes",
+    "external_attributes",
+    "comment_hex",
+    "extra_hex",
+    "directory",
+    "symlink",
+    "safe_relative_name",
+    "extraction_allowed",
+}
+
+
+def safe_member_name(name: str) -> bool:
+    """A diagnostic only; no member is eligible for extraction through this API."""
+    return not (
+        PurePosixPath(name).is_absolute()
+        or PureWindowsPath(name).drive
+        or ".." in PurePosixPath(name).parts
+        or "\\" in name
+        or "\x00" in name
+    )
+
+
+def validate_archive_occurrence(value: object, archive_bytes: int) -> dict[str, object]:
+    """Admit one native occurrence through the shared custody field/semantic rules."""
+    row = object_fields(value, ARCHIVE_FIELDS, "archive occurrence")
+    archive = relative_path(row["archive_path"])
+    digest(row["archive_sha256"])
+    integer(archive_bytes, "archive bytes")
+    if Path(archive).suffix.casefold() != ".zip":
+        raise IntakeRefusal("hyde_custody_archive_parent_invalid", archive)
+    if not isinstance(row["name"], str) or not isinstance(row["decoded_filename"], str):
+        raise IntakeRefusal("hyde_custody_archive_name_invalid", archive)
+    name = row["name"]
+    for field in ARCHIVE_FIELDS - {
+        "archive_path",
+        "archive_sha256",
+        "name",
+        "decoded_filename",
+        "comment_hex",
+        "extra_hex",
+        "date_time",
+        "directory",
+        "symlink",
+        "safe_relative_name",
+        "extraction_allowed",
+    }:
+        integer(row[field], field)
+    for field in ("comment_hex", "extra_hex"):
+        hexadecimal = row[field]
+        if (
+            not isinstance(hexadecimal, str)
+            or re.fullmatch(r"(?:[0-9a-f]{2})*", hexadecimal) is None
+        ):
+            raise IntakeRefusal("hyde_custody_archive_hex_invalid", field)
+    date = array(row["date_time"], "date_time")
+    if len(date) != 6:
+        raise IntakeRefusal("hyde_custody_archive_date_invalid", archive)
+    for component in date:
+        integer(component, "date_time")
+    for field in (
+        "directory",
+        "symlink",
+        "safe_relative_name",
+        "extraction_allowed",
+    ):
+        if type(row[field]) is not bool:
+            raise IntakeRefusal("hyde_custody_archive_flag_invalid", field)
+    safe = safe_member_name(name)
+    if (
+        row["decoded_filename"] != name.split("\x00", 1)[0]
+        or row["directory"] != str(row["decoded_filename"]).endswith("/")
+        or row["safe_relative_name"] != safe
+        or row["symlink"]
+        != stat.S_ISLNK(integer(row["external_attributes"], "attributes") >> 16)
+        or row["extraction_allowed"] is not False
+    ):
+        raise IntakeRefusal("hyde_custody_archive_semantics_invalid", archive)
+    if (
+        integer(row["crc32"], "crc32") > 0xFFFFFFFF
+        or integer(row["header_offset"], "offset")
+        + integer(row["compressed_bytes"], "compressed")
+        > archive_bytes
+    ):
+        raise IntakeRefusal("hyde_custody_archive_bounds_invalid", archive)
+    return row
+
+
+@dataclass(frozen=True)
+class BoundArchiveMember:
+    """One custody-authenticated ZIP occurrence, without native payload admission."""
+
+    custody_manifest_sha256: str
+    dataset_inventory_sha256: str
+    archive_path: str
+    archive_sha256: str
+    archive_bytes: int
+    member_index: int
+    name: str
+    occurrence_json: str
+    archive_directory_json: str
+
+    def __post_init__(self) -> None:
+        for value in (
+            self.custody_manifest_sha256,
+            self.dataset_inventory_sha256,
+            self.archive_sha256,
+        ):
+            digest(value)
+        relative_path(self.archive_path)
+        integer(self.archive_bytes, "archive bytes")
+        integer(self.member_index, "member index")
+        if not isinstance(self.name, str):
+            raise IntakeRefusal(
+                "hyde_custody_archive_name_invalid", "Native name must be text"
+            )
+        row = self.occurrence()
+        if (
+            row["archive_path"] != self.archive_path
+            or row["archive_sha256"] != self.archive_sha256
+            or row["member_index"] != self.member_index
+            or row["name"] != self.name
+        ):
+            raise IntakeRefusal("hyde_custody_bound_member_mismatch", self.archive_path)
+        directory = object_fields(
+            decode(self.archive_directory_json.encode("ascii")),
+            {
+                "profile",
+                "member_count",
+                "comment_hex",
+                "zip64",
+                "central_directory_bytes",
+                "central_directory_offset",
+            },
+            "bound archive directory",
+        )
+        if (
+            directory["profile"] != "zip-central-directory-v1"
+            or type(directory["zip64"]) is not bool
+            or integer(directory["member_count"], "member count") <= self.member_index
+        ):
+            raise IntakeRefusal("hyde_custody_bound_member_mismatch", self.archive_path)
+        if (
+            integer(directory["central_directory_bytes"], "directory bytes")
+            + integer(directory["central_directory_offset"], "directory offset")
+            > self.archive_bytes
+        ):
+            raise IntakeRefusal("hyde_custody_bound_member_mismatch", self.archive_path)
+
+    def occurrence(self) -> dict[str, object]:
+        """Return an owned occurrence admitted by the same rules as full custody."""
+        row = validate_archive_occurrence(
+            decode(self.occurrence_json.encode("ascii")), self.archive_bytes
+        )
+        if integer(row["name_occurrence"], "occurrence") >= integer(
+            row["name_occurrences"], "occurrences"
+        ):
+            raise IntakeRefusal("hyde_custody_bound_member_mismatch", self.archive_path)
+        return row
