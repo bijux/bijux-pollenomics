@@ -15,7 +15,7 @@ const timeoutMs = Number(plan.timeout_seconds) * 1000;
 const candidate = plan.candidate;
 const scopes = plan.scopes;
 const verificationProfile = plan.verification_profile;
-if (!['nordic-source-chronology-v1', 'generic-time-aware-atlas-v1', 'native-lra-exploratory-v1'].includes(verificationProfile)) {
+if (!['nordic-source-chronology-v1', 'generic-time-aware-atlas-v1', 'native-lra-exploratory-v1', 'native-lra-signed-calendar-v1'].includes(verificationProfile)) {
   throw new Error('unsupported verification profile');
 }
 const providerHosts = ['tile.openstreetmap.org', 'tile.opentopomap.org'];
@@ -58,7 +58,7 @@ const requests = [];
 const servedArtifactBytes = [];
 const refusedArtifactReads = [];
 const artifactMode = plan.schema_version === 'atlas-browser-verification-plan.v3';
-if (artifactMode !== (verificationProfile === 'native-lra-exploratory-v1')) throw new Error('candidate kind and profile differ');
+if (artifactMode !== ['native-lra-exploratory-v1', 'native-lra-signed-calendar-v1'].includes(verificationProfile)) throw new Error('candidate kind and profile differ');
 let activeScenario = 'server-startup';
 
 await mkdir(artifactRoot, { recursive: true });
