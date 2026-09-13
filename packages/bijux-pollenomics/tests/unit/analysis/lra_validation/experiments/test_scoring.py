@@ -2,6 +2,7 @@
 
 import json
 from pathlib import Path
+import shutil
 from types import SimpleNamespace
 from typing import Any, Literal
 
@@ -10,6 +11,7 @@ import pytest
 from bijux_pollenomics.analysis.lra_validation import (
     ValidationRefusal,
     grouped_leave_one_out,
+    manifest_sha256,
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
     ExperimentSpec,
@@ -25,6 +27,11 @@ from bijux_pollenomics.analysis.lra_validation.experiments.scoring import (
     score_experiment_predictions,
 )
 
+from .reading.test_provenance import (
+    fixture_identities,
+    retained_fold_evidence,
+    write_retained_evidence,
+)
 from .test_inputs import fixture_inputs, store
 
 
@@ -36,9 +43,20 @@ def prediction_product(root: Path) -> tuple[ExperimentProduct, dict[str, Any]]:
         "nearest_site",
     ]
     rows = []
+    training_rows = []
+    batches = []
     outcomes = {}
     for fold in folds:
         record = fold.test_record_ids[0]
+        training, batch = retained_fold_evidence(
+            spec, fold, root / "inputs", {"Alnus": 0.6, "Betula": 0.4}
+        )
+        training_rows.append(training)
+        batches.append(batch)
+        regional_id, parameter_id, geometry_id = fixture_identities(
+            spec, record, training
+        )
+        predictors = tuple(training["predictor_group_ids"])
         outcomes[record] = store(
             root / "inputs",
             record + "-outcome.json",
@@ -61,12 +79,12 @@ def prediction_product(root: Path) -> tuple[ExperimentProduct, dict[str, Any]]:
         context = ForwardInputs(
             ("Alnus", "Betula"),
             (0.0, 0.0),
-            ((1.0, 1.0),),
-            (1.0,),
+            ((1.0, 1.0), (1.0, 1.0)),
             (1.0, 1.0),
-            ("regional",),
-            ("parameters",),
-            ("geometry",),
+            (4.0, 3.0),
+            (regional_id,),
+            (parameter_id,),
+            (geometry_id,),
             "time",
             "synthetic-test-forward",
             "test",
@@ -87,23 +105,21 @@ def prediction_product(root: Path) -> tuple[ExperimentProduct, dict[str, Any]]:
             predicted = predict_withheld_site(
                 fold,
                 fold.test_group_ids[0],
-                {
-                    group: {"Alnus": 0.6, "Betula": 0.4}
-                    for group in fold.train_group_ids
-                },
+                {group: {"Alnus": 0.6, "Betula": 0.4} for group in predictors},
                 context,
                 forward,
                 spatial_method=method,
+                predictor_group_ids=predictors,
                 training_input_ids=fold.train_record_ids,
                 dependency_graph={
                     **dict.fromkeys(fold.train_record_ids, ()),
-                    "regional": fold.train_record_ids,
-                    "parameters": (),
-                    "geometry": (),
+                    regional_id: fold.train_record_ids,
+                    parameter_id: (),
+                    geometry_id: (),
                     "time": (),
                 },
-                admitted_external_ids=("regional", "parameters", "geometry", "time"),
-                distances_km=dict.fromkeys(fold.train_group_ids, 1.0),
+                admitted_external_ids=(regional_id, parameter_id, geometry_id, "time"),
+                distances_km=dict.fromkeys(predictors, 1.0),
             )
             rows.append(
                 {
@@ -118,6 +134,16 @@ def prediction_product(root: Path) -> tuple[ExperimentProduct, dict[str, Any]]:
                 }
             )
     scientific: dict[str, object] = {
+        "profile": "synthetic-withheld-site-baselines-v1",
+        "experiment": "all_target_pollen_withheld",
+        "uncertainty_status": "point_predictions_only_intervals_not_implemented",
+        "interrupted": False,
+        "requested_folds": len(folds),
+        "requested_predictions": len(folds) * len(methods),
+        "generated_predictions": len(rows),
+        "failed_folds": 0,
+        "all_predictions_generated": True,
+        "split_manifest_sha256": manifest_sha256([fold.as_dict() for fold in folds]),
         "folds": [fold.as_dict() for fold in folds],
         "predictions": rows,
         "baselines": methods,
@@ -126,6 +152,31 @@ def prediction_product(root: Path) -> tuple[ExperimentProduct, dict[str, Any]]:
     destination = root / "prediction"
     stage = stage_directory(destination)
     write_json(stage, "predictions.json", rows)
+    write_retained_evidence(stage, training_rows, batches)
+    write_json(
+        stage,
+        "experiment.json",
+        {
+            "profile": "synthetic-withheld-site-baselines-v1",
+            "request_template": spec.template(),
+            "regional_priority": spec.regional_priority,
+            "local_ring_count": spec.local_ring_count,
+            "support_profile": spec.support_profile,
+            "local_support_radius_m": spec.local_support_radius_m,
+            "source_catalogue": [
+                {
+                    "record_id": site.record.record_id,
+                    "site_id": site.record.site_id,
+                    "identity_keys": site.record.identity_keys,
+                    "raw_path": site.raw.path,
+                    "raw_sha256": site.raw.sha256,
+                    "geometry_path": site.geometry.path,
+                    "geometry_sha256": site.geometry.sha256,
+                }
+                for site in spec.sites
+            ],
+        },
+    )
     return publish_phase(
         stage, destination, phase="predictions", scientific=scientific
     ), {
@@ -228,10 +279,37 @@ def test_prediction_failure_preserves_all_requested_target_denominators(
     scientific["predictions"] = [
         row for row in scientific["predictions"] if row["fold_id"] != failed
     ]
-    scientific["failures"] = [{"fold_id": failed, "reason_code": "source_refused"}]
+    scientific["failures"] = [
+        {
+            "fold_id": failed,
+            "reason_code": "source_refused",
+            "status": "refused",
+            "record_ids": scientific["folds"][0]["test_record_ids"],
+        }
+    ]
+    scientific.update(
+        generated_predictions=len(scientific["predictions"]),
+        failed_folds=1,
+        all_predictions_generated=False,
+    )
     destination = tmp_path / "refused-prediction"
     stage = stage_directory(destination)
     write_json(stage, "predictions.json", scientific["predictions"])
+    write_json(
+        stage,
+        "experiment.json",
+        json.loads((product.directory / "experiment.json").read_text()),
+    )
+    shutil.copytree(product.directory / "batches", stage / "batches")
+    write_json(
+        stage,
+        "training.json",
+        [
+            row
+            for row in json.loads((product.directory / "training.json").read_text())
+            if row["fold_id"] != failed
+        ],
+    )
     product = publish_phase(
         stage, destination, phase="predictions", scientific=scientific
     )
@@ -286,7 +364,7 @@ def test_shared_withheld_reader_refuses_observed_local_pollen(tmp_path: Path) ->
 def test_invalid_baseline_inventory_refuses_even_when_all_folds_failed(
     tmp_path: Path, methods: list[str]
 ) -> None:
-    from bijux_pollenomics.analysis.lra_validation.experiments.reading import (
+    from bijux_pollenomics.analysis.lra_validation.experiments.reading.rows import (
         _predictions,
     )
 

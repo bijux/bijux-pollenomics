@@ -6,7 +6,13 @@ from pathlib import Path
 from types import SimpleNamespace
 from typing import Any
 
-from bijux_pollenomics.analysis.lra_validation.contracts import Fold, canonical_json
+from bijux_pollenomics.analysis.lra_validation.contracts import (
+    canonical_json,
+    manifest_sha256,
+)
+from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
+    ExperimentSpec,
+)
 from bijux_pollenomics.analysis.lra_validation.experiments.outputs import (
     ExperimentProduct,
     publish_phase,
@@ -21,6 +27,14 @@ from bijux_pollenomics.analysis.lra_validation.prediction import (
     ForwardInputs,
     predict_withheld_site,
 )
+from bijux_pollenomics.analysis.lra_validation.splits import grouped_leave_one_out
+
+from ..experiments.reading.test_provenance import (
+    fixture_identities,
+    retained_fold_evidence,
+    write_retained_evidence,
+)
+from ..experiments.test_inputs import fixture_inputs
 
 
 def store(root: Path, name: str, payload: object) -> dict[str, str]:
@@ -37,21 +51,53 @@ def fixture(
     counts: dict[str, int | None] | None = None,
     taxa: tuple[str, str] = ("a", "b"),
 ) -> tuple[ExperimentProduct, ObservationUncertaintyPlan, dict[str, Any]]:
-    folds = [
-        Fold(
-            "f" + str(i),
-            tuple("p" + str(j) for j in range(1, 4) if j != i),
-            ("p" + str(i),),
-            tuple("g" + str(j) for j in range(1, 4) if j != i),
-            ("g" + str(i),),
-        )
-        for i in range(1, 4)
+    declaration = fixture_inputs(root / "source", count=3)
+    declaration["baselines"] = ["training_mean", "nearest_site"]
+    template = declaration["request_template"]
+    template["taxa"] = list(taxa)
+    for parameter, taxon in zip(template["parameters"], taxa, strict=True):
+        parameter["taxon"] = taxon
+    template["temporal_matching"]["bins"] = [
+        {"bin_id": "bin", "younger_bp": 0, "older_bp": 100}
     ]
+    for index, site in enumerate(declaration["sites"], start=1):
+        name = "p" + str(index)
+        site.update(record_id=name, site_id=name)
+        for field in ("raw", "geometry"):
+            data = json.loads((root / "source" / site[field]["path"]).read_text())
+            sample = data["sample"] if field == "raw" else data["sample_metadata"]
+            sample.update(
+                site_id=name,
+                sample_id=name + "-sample",
+                bin_id="bin",
+                age_support_bp=[[0, 100]],
+            )
+            if field == "raw":
+                data["taxa"] = list(taxa)
+            site[field] = store(root / "source", site[field]["path"], data)
+    declaration["regional_priority"] = [
+        site["record_id"] for site in declaration["sites"]
+    ]
+    spec = ExperimentSpec(declaration)
+    folds = grouped_leave_one_out([site.record for site in spec.sites])
+    failed_fold = next(fold for fold in folds if fold.test_record_ids == ("p1",))
     rows = []
+    training_rows = []
+    batches = []
     entries: list[EffortDeclaration] = []
     outcomes = {}
     for fold in folds:
         record = fold.test_record_ids[0]
+        training, batch = retained_fold_evidence(
+            spec, fold, root / "source", dict(zip(taxa, (0.5, 0.5), strict=True))
+        )
+        batches.append(batch)
+        if not (failed and fold == failed_fold):
+            training_rows.append(training)
+        regional_id, parameter_id, geometry_id = fixture_identities(
+            spec, record, training
+        )
+        predictors = tuple(training["predictor_group_ids"])
         evidence = store(
             root / "effort",
             record + ".json",
@@ -96,19 +142,22 @@ def fixture(
                     evidence["sha256"],
                 )
             )
-            if failed and fold == folds[0]:
+            if failed and fold == failed_fold:
                 continue
-            external = ("region", "parameters", "geometry", "time")
-            graph = dict.fromkeys((*fold.train_record_ids, *external), ())
+            external = (regional_id, parameter_id, geometry_id, "time")
+            graph: dict[str, tuple[str, ...]] = dict.fromkeys(
+                (*fold.train_record_ids, *external), ()
+            )
+            graph[regional_id] = fold.train_record_ids
             context = ForwardInputs(
                 taxa,
                 (0.1, 0.1),
-                ((0.1, 0.1),),
-                (1.0,),
+                ((0.1, 0.1), (0.1, 0.1)),
                 (1.0, 1.0),
-                ("region",),
-                ("parameters",),
-                ("geometry",),
+                (4.0, 3.0),
+                (regional_id,),
+                (parameter_id,),
+                (geometry_id,),
                 "time",
                 "synthetic-forward-fixture",
                 "fixture-build",
@@ -129,19 +178,15 @@ def fixture(
             result = predict_withheld_site(
                 fold,
                 fold.test_group_ids[0],
-                {
-                    g: dict(zip(taxa, (0.5, 0.5), strict=True))
-                    for g in fold.train_group_ids
-                },
+                {g: dict(zip(taxa, (0.5, 0.5), strict=True)) for g in predictors},
                 context,
                 forward,
                 spatial_method=method,
+                predictor_group_ids=predictors,
                 training_input_ids=fold.train_record_ids,
                 dependency_graph=graph,
                 admitted_external_ids=external,
-                distances_km={
-                    g: float(i + 1) for i, g in enumerate(fold.train_group_ids)
-                },
+                distances_km={g: float(i + 1) for i, g in enumerate(predictors)},
             )
             rows.append(
                 {
@@ -156,26 +201,56 @@ def fixture(
                 }
             )
     scientific = {
+        "profile": "synthetic-withheld-site-baselines-v1",
+        "experiment": "all_target_pollen_withheld",
+        "uncertainty_status": "point_predictions_only_intervals_not_implemented",
+        "interrupted": False,
+        "requested_folds": len(folds),
+        "requested_predictions": len(folds) * 2,
+        "generated_predictions": len(rows),
+        "failed_folds": int(failed),
+        "all_predictions_generated": not failed,
+        "split_manifest_sha256": manifest_sha256([fold.as_dict() for fold in folds]),
         "folds": [f.as_dict() for f in folds],
         "predictions": rows,
         "baselines": ["training_mean", "nearest_site"],
-        "failures": [{"fold_id": folds[0].fold_id, "reason_code": "source_refused"}]
+        "failures": [
+            {
+                "fold_id": failed_fold.fold_id,
+                "record_ids": failed_fold.test_record_ids,
+                "status": "refused",
+                "reason_code": "source_refused",
+            }
+        ]
         if failed
         else [],
     }
     target = root / "predictions"
     stage = stage_directory(target)
     write_json(stage, "predictions.json", rows)
+    write_retained_evidence(stage, training_rows, batches)
     write_json(
         stage,
         "experiment.json",
         {
-            "request_template": {
-                "taxa": list(taxa),
-                "temporal_matching": {
-                    "bins": [{"bin_id": "bin", "younger_bp": 0, "older_bp": 100}]
-                },
-            }
+            "profile": "synthetic-withheld-site-baselines-v1",
+            "request_template": spec.template(),
+            "regional_priority": spec.regional_priority,
+            "local_ring_count": spec.local_ring_count,
+            "local_support_radius_m": spec.local_support_radius_m,
+            "support_profile": spec.support_profile,
+            "source_catalogue": [
+                {
+                    "record_id": site.record.record_id,
+                    "site_id": site.record.site_id,
+                    "identity_keys": site.record.identity_keys,
+                    "raw_path": site.raw.path,
+                    "raw_sha256": site.raw.sha256,
+                    "geometry_path": site.geometry.path,
+                    "geometry_sha256": site.geometry.sha256,
+                }
+                for site in spec.sites
+            ],
         },
     )
     product = publish_phase(stage, target, phase="predictions", scientific=scientific)

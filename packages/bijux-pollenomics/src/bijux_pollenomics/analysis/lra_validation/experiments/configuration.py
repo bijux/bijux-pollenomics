@@ -22,6 +22,7 @@ from ..contracts import (
 Baseline = Literal["training_mean", "nearest_site", "inverse_distance_squared"]
 BASELINES = ("training_mean", "nearest_site", "inverse_distance_squared")
 PROFILE = "synthetic-withheld-site-baselines-v1"
+TEMPORAL_PROFILE = "synthetic-forward-time-persistence-v1"
 FITTED_PROFILE = "synthetic-withheld-site-fitted-spatial-v1"
 BLOCK_PROFILE = "synthetic-spatial-block-fitted-v1"
 BLOCK_SPLIT = "grouped-spatial-block-support-buffer-v1"
@@ -189,7 +190,20 @@ def _scope(
             "invalid_experiment",
             "Regional priority must name unique catalogued records",
         )
-    template = object_mapping(row["request_template"], "request_template")
+    template = validate_template(row["request_template"])
+    return ExperimentScope(
+        tuple(sites),
+        priority,
+        count,
+        support,
+        "same-outer-radius-homogeneous-v1",
+        canonical_json(template),
+    )
+
+
+def validate_template(value: object) -> dict[str, object]:
+    """Admit the common synthetic template before execution or retained reopening."""
+    template = object_mapping(value, "request_template")
     if (
         template.get("data_kind") != "synthetic"
         or template.get("purpose") != "exploratory"
@@ -250,14 +264,8 @@ def _scope(
                 "invalid_experiment",
                 "Site raw/geometry evidence must come from admitted per-fold inputs",
             )
-    return ExperimentScope(
-        tuple(sites),
-        priority,
-        count,
-        support,
-        "same-outer-radius-homogeneous-v1",
-        canonical_json(template),
-    )
+    canonical_json(template)
+    return template
 
 
 @dataclass(frozen=True, init=False)

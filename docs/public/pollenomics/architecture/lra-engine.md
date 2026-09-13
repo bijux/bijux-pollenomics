@@ -419,6 +419,16 @@ accounting. `score-lra-experiment` verifies the saved prediction identity before
 opening outcome labels and reports vegetation and pollen as separate score rows.
 These synthetic experiments do not establish empirical accuracy.
 
+Saved baseline and fitted experiments are reopened against the complete declared
+site catalogue, original folds, template, and retained batch request bodies.
+Source hashes and PPE declarations must agree with consumed training requests
+and the target forward calculation. Changed metadata cannot acquire scientific
+authority merely by receiving a new file hash. Valid historical products retain
+their recorded fields; omitted historical declarations are not manufactured.
+The shared phase publisher also recognizes the synthetic forward-time persistence
+profile; its temporal admission and evaluation remain separate from same-time
+spatial prediction.
+
 ## Saved-product reporting
 
 `bijux_pollenomics.reporting.lra_products.api` owns the bridge from verified saved

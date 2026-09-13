@@ -29,6 +29,7 @@ from .configuration import (
     LOCAL_METHOD,
     LOCAL_PROFILE,
     PROFILE,
+    TEMPORAL_PROFILE,
     identity,
     object_list,
     object_mapping,
@@ -87,7 +88,13 @@ def publish_phase(
     profile: str = PROFILE,
 ) -> ExperimentProduct:
     """Publish only an enumerated phase; failures must already be accounted for."""
-    if profile not in {PROFILE, LOCAL_PROFILE, FITTED_PROFILE, BLOCK_PROFILE}:
+    if profile not in {
+        PROFILE,
+        LOCAL_PROFILE,
+        FITTED_PROFILE,
+        BLOCK_PROFILE,
+        TEMPORAL_PROFILE,
+    }:
         raise ValidationRefusal("unsupported_experiment_profile", profile)
     scientific_digest = manifest_sha256(scientific)
     manifest = {
@@ -132,7 +139,13 @@ def read_experiment_product(
         if (
             manifest.get("schema_version") != "lra-experiment-product.v1"
             or manifest.get("profile")
-            not in {PROFILE, LOCAL_PROFILE, FITTED_PROFILE, BLOCK_PROFILE}
+            not in {
+                PROFILE,
+                LOCAL_PROFILE,
+                FITTED_PROFILE,
+                BLOCK_PROFILE,
+                TEMPORAL_PROFILE,
+            }
             or manifest.get("status") != "generated_exploratory"
             or manifest.get("scientific_acceptance") != "not_evaluated"
         ):
@@ -152,15 +165,26 @@ def read_experiment_product(
 
 def read_member(product: ExperimentProduct, name: str) -> object:
     """Read one already inventoried JSON member and recheck complete ownership."""
-    read_experiment_product(
+    _, manifest = read_experiment_product(
         product.directory, expected_manifest_sha256=product.manifest_sha256
     )
-    if Path(name).name != name or not name.endswith(".json") or name == "manifest.json":
+    member = Path(name)
+    if (
+        member.is_absolute()
+        or member.as_posix() != name
+        or any(part in {"", ".", ".."} for part in name.split("/"))
+        or not name.endswith(".json")
+        or name == "manifest.json"
+        or name not in object_mapping(manifest["files"], "files")
+    ):
         raise ValidationRefusal("invalid_experiment_output_name", name)
-    data = json.loads(
-        (product.directory / name).read_bytes(), object_pairs_hook=_unique_pairs
-    )
-    canonical_json(data)
+    try:
+        data = json.loads(
+            (product.directory / name).read_bytes(), object_pairs_hook=_unique_pairs
+        )
+        canonical_json(data)
+    except (OSError, ValueError, TypeError) as exc:
+        raise ValidationRefusal("invalid_experiment_member", name) from exc
     read_experiment_product(
         product.directory, expected_manifest_sha256=product.manifest_sha256
     )

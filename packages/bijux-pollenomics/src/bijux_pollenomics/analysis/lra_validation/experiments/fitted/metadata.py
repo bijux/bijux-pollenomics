@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 import json
 
 from ...contracts import (
@@ -21,6 +22,7 @@ from ...splits import (
 )
 from ..configuration import (
     BLOCK_PROFILE,
+    FittedSpatialExperimentSpec,
     SpatialBlockExperimentSpec,
     identity,
     object_list,
@@ -106,7 +108,29 @@ def validate_block_metadata(
         if fold.fold_id not in retained:
             continue
         state = object_mapping(retained[fold.fold_id], "block_fit")
-        _validate_state(spec, fold, admission, state)
+        supports = object_mapping(
+            object_mapping(json.loads(admission.criterion_json), "criterion")[
+                "supports"
+            ],
+            "supports",
+        )
+        ownership = dict(admission.record_groups)
+        coordinates = {
+            ownership[record]: SiteCoordinate(
+                **{
+                    key: finite_number(value)
+                    for key, value in object_mapping(
+                        object_mapping(supports[record], "support")["source"], "source"
+                    ).items()
+                    if key in {"latitude", "longitude"}
+                }
+            )
+            for record in admission.admitted_record_ids
+            if record != state["regional_anchor_record_id"]
+        }
+        validate_training_state(
+            spec, fold, admission, state, expected_coordinates=coordinates
+        )
         _same(state["model_sha256"], hashes[fold.fold_id], "block model digest")
     for (fold_id, record, _), row in rows.items():
         state = object_mapping(retained[fold_id], "block_fit")
@@ -147,12 +171,42 @@ def _validate_support_catalogue(
             raise ValidationRefusal("incompatible_block_support", record)
 
 
-def _validate_state(
-    spec: SpatialBlockExperimentSpec,
+def validate_training_state(
+    spec: FittedSpatialExperimentSpec,
     fold: Fold,
     admission: TrainingAdmission,
     state: dict[str, object],
-) -> None:
+    *,
+    expected_coordinates: Mapping[str, SiteCoordinate],
+) -> FittedSpatialModel:
+    """Admit fitted source ancestry/state against caller-bound coordinates, without outcomes."""
+    try:
+        if not isinstance(spec, FittedSpatialExperimentSpec) or any(
+            not isinstance(coordinate, SiteCoordinate)
+            for coordinate in expected_coordinates.values()
+        ):
+            raise ValidationRefusal(
+                "invalid_training_state", "Typed scope and coordinate evidence required"
+            )
+        return _admit_training_state(
+            spec, fold, admission, state, expected_coordinates=expected_coordinates
+        )
+    except ValidationRefusal:
+        raise
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValidationRefusal("invalid_training_state", str(exc)) from exc
+
+
+def _admit_training_state(
+    spec: FittedSpatialExperimentSpec,
+    fold: Fold,
+    admission: TrainingAdmission,
+    state: dict[str, object],
+    *,
+    expected_coordinates: Mapping[str, SiteCoordinate],
+) -> FittedSpatialModel:
+    """Admit fitted source ancestry/state against caller-bound coordinates, without outcomes."""
+    admission.validate(fold)
     expected_fields = {
         "model_sha256",
         "fit_manifest",
@@ -293,19 +347,16 @@ def _validate_state(
     )
     config = SpatialConfig(spec.length_scale_km, spec.ridge_penalty, support_id)
     coordinates = object_mapping(fit["training_coordinates"], "training_coordinates")
-    supports = object_mapping(
-        object_mapping(json.loads(admission.criterion_json), "criterion")["supports"],
-        "supports",
+    if set(expected_coordinates) != set(groups):
+        raise ValidationRefusal("invalid_training_coordinate_inventory", fold.fold_id)
+    _same(
+        coordinates,
+        {
+            group: coordinate.as_dict()
+            for group, coordinate in expected_coordinates.items()
+        },
+        "fit coordinates",
     )
-    for record in local_records:
-        source = object_mapping(
-            object_mapping(supports[record], "support")["source"], "source"
-        )
-        _same(
-            coordinates[ownership[record]],
-            {key: source[key] for key in ("latitude", "longitude")},
-            "fit coordinates",
-        )
     taxa = tuple(identity(value) for value in object_list(fit["taxa"], "taxa"))
     if taxa != tuple(
         sorted(
@@ -344,7 +395,7 @@ def _validate_state(
         or any(len(row) != len(taxa) for row in coefficients)
     ):
         raise ValidationRefusal("invalid_block_model_shape", fold.fold_id)
-    FittedSpatialModel(
+    return FittedSpatialModel(
         fold,
         config,
         groups,

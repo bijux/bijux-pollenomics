@@ -6,7 +6,7 @@ from bijux_pollenomics.analysis.lra_validation.experiments import (
     read_withheld_predictions,
 )
 
-from .test_scoring import prediction_product
+from ..test_scoring import prediction_product
 
 
 def test_retained_reader_extraction_preserves_public_key_shape(tmp_path: Path) -> None:
