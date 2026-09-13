@@ -277,6 +277,20 @@ and coordinate uncertainties. The same arithmetic serves experiment buffering
 and final evaluation. The declaration alone does not prove the criterion was
 applied; the experiment must retain and validate its actual selection evidence.
 
+`analysis.lra_validation.temporal.admit_forward_time_training` evaluates explicitly
+declared synthetic calendar supports on the BP1950 axis. Every source/target
+interval-component pair must establish positive order, satisfy the declared
+embargo and stay within the maximum lead. Admission compares exact binary64
+endpoint ratios; rounded reported differences never decide a boundary.
+
+The temporal receipt preserves the original fold, whole physical-site groups,
+missing support and required regional-source exclusions. If any alias fails,
+its entire group is excluded. Missing required regional support leaves otherwise
+eligible groups visible but supplies no usable training admission. Consumers must
+still validate their quantitative dependency closure with `assert_training_inputs`.
+This component reads no pollen or vegetation outcomes and performs no prediction,
+chronology conversion, review authentication or uncertainty propagation.
+
 `prepare_fitted_spatial_predictions` connects training-only regional REVEALS and
 local LOVE products to the explicit CLR spatial model, followed by target-specific
 forward pollen deposition. Its synthetic singleton folds withhold both target
