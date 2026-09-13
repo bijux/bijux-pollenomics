@@ -15,10 +15,12 @@ from ...analysis.lra_validation.experiments import (
     prepare_experiment_predictions,
     prepare_fitted_spatial_predictions,
     prepare_local_pollen_predictions,
+    prepare_spatial_block_predictions,
     read_experiment_product,
     score_experiment_predictions,
 )
 from ...analysis.lra_validation.experiments.configuration import (
+    BLOCK_PROFILE,
     FITTED_PROFILE,
     LOCAL_PROFILE,
     PROFILE,
@@ -60,6 +62,8 @@ def run_lra_experiment_command(args: argparse.Namespace) -> int:
                 prepare = prepare_local_pollen_predictions
             elif profile == FITTED_PROFILE:
                 prepare = prepare_fitted_spatial_predictions
+            elif profile == BLOCK_PROFILE:
+                prepare = prepare_spatial_block_predictions
             else:
                 raise ValidationRefusal(
                     "unsupported_experiment_profile",

@@ -10,6 +10,7 @@ import pytest
 
 from bijux_pollenomics.analysis.lra_validation import ValidationRefusal
 from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
+    BLOCK_PROFILE,
     FITTED_PROFILE,
     LOCAL_PROFILE,
     PROFILE,
@@ -76,6 +77,7 @@ def test_invalid_json_never_starts_numerical_work(
         (PROFILE, "prepare_experiment_predictions"),
         (LOCAL_PROFILE, "prepare_local_pollen_predictions"),
         (FITTED_PROFILE, "prepare_fitted_spatial_predictions"),
+        (BLOCK_PROFILE, "prepare_spatial_block_predictions"),
     ],
 )
 @pytest.mark.parametrize(
@@ -165,9 +167,10 @@ def test_unknown_profile_refuses_before_source_or_numerical_access(
         patch.object(runtime, "prepare_experiment_predictions") as baseline,
         patch.object(runtime, "prepare_local_pollen_predictions") as local,
         patch.object(runtime, "prepare_fitted_spatial_predictions") as fitted,
+        patch.object(runtime, "prepare_spatial_block_predictions") as block,
     ):
         assert main(prepare_args(tmp_path)) == 2
-    for operation in (baseline, local, fitted):
+    for operation in (baseline, local, fitted, block):
         operation.assert_not_called()
     assert (
         json.loads(capsys.readouterr().out)["reason_code"]

@@ -412,6 +412,13 @@ cross-validation fits as independent models or replace predictive observation
 intervals. Synthetic policy examples demonstrate these controls without claiming
 reviewed vegetation references or empirical reconstruction accuracy.
 
+The `prepare-lra-experiment` command also dispatches the
+`synthetic-spatial-block-fitted-v1` profile through the same governed lifecycle.
+Its operational exit status preserves complete, partial and interrupted
+accounting. `score-lra-experiment` verifies the saved prediction identity before
+opening outcome labels and reports vegetation and pollen as separate score rows.
+These synthetic experiments do not establish empirical accuracy.
+
 ## Saved-product reporting
 
 `bijux_pollenomics.reporting.lra_products.api` owns the bridge from verified saved
