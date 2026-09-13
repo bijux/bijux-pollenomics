@@ -50,6 +50,28 @@ source-accountability review; normalized membership and qualified scientific
 review remain unavailable. Those limits are explicit capability boundaries,
 not stages inferred from a successful downstream build.
 
+### Native RAÄ Geometry Audit
+
+`bijux_pollenomics.collection.sources.raa.geometry` exposes
+`audit_raa_geometry` and `inspect_raa_geometry_audit`. The audit reads a pinned
+local GeoPackage and records every base-table geometry occurrence with its
+source identifiers and byte identity. It checks the supported two-dimensional
+binary structure, coordinate finiteness, ring closure, envelope agreement and
+declared EPSG:3006 definition. Null, empty, invalid and unsupported geometries
+retain separate counts. Joined views do not multiply the occurrence denominator.
+
+GeoPackage coordinates use x/easting and y/northing, independently of the axis
+order written in the CRS metadata. The audit preserves that transport convention
+and performs no coordinate transformation. These encoding rules follow the
+[OGC GeoPackage 1.4 specification](https://www.geopackage.org/spec140/index.html).
+
+The new private output is published without replacing an existing directory.
+Reopening requires its manifest digest and the original pinned database, then
+replays every occurrence against the retained audit. Structural agreement does
+not establish polygon topology, coordinate accuracy, country membership,
+historical applicability, rights or scientific density admission. The registered
+source-authority and review limitations above therefore remain in force.
+
 ### Database Preparation Is Executable Evidence Work
 
 Preparation is not a clerical prelude to analysis. It is where source-native
