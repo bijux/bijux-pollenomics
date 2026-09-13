@@ -35,6 +35,7 @@ Changelog = "https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux
 Security = "https://github.com/bijux/bijux-pollenomics/blob/main/SECURITY.md"
 
 [project.optional-dependencies]
+rootsi-review = ["xlrd==2.0.2"]
 lra = ["bijux-pollenomics-lra>=0.1.5,<0.3", "pandas>=2.1,<3"]
 dev = [
     "types-jsonschema>=4.24,<5",
