@@ -1,5 +1,7 @@
 """Typed final-scoring and conditional uncertainty boundary."""
 
+from ..experiments.reading.scores import read_scored_experiment_evidence
+from .adapter import EvaluationAdapterAudit, audit_scored_evaluation_readiness
 from .contracts import (
     AcceptanceCell,
     EvaluationPolicy,
@@ -17,6 +19,9 @@ from .resampling import resample_independent_units
 from .scoring import evaluate_final
 
 __all__ = [
+    "read_scored_experiment_evidence",
+    "EvaluationAdapterAudit",
+    "audit_scored_evaluation_readiness",
     "AcceptanceCell",
     "EvaluationPolicy",
     "EvaluationResult",

@@ -20,7 +20,7 @@ from ...experiments.outputs import (
     stage_directory,
     write_json,
 )
-from ...experiments.scoring import _score
+from ...experiments.score_values import score_observation as _score
 from ..admission import admit_forward_time_training
 from .configuration import METHOD, PROFILE, TemporalPersistenceSpec
 from .reading import read_temporal_persistence_predictions

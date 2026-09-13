@@ -450,6 +450,50 @@ vegetation exposes the persistence assumption's error. These tests establish
 workflow behavior, not LANDCLIM/Neotoma accuracy, qualified scientific review,
 final acceptance thresholds or joint model/PPE/chronology uncertainty.
 
+## Retained score review
+
+`analysis.lra_validation.evaluation.api` exports
+`read_scored_experiment_evidence` and `audit_scored_evaluation_readiness` for
+reopening saved synthetic baseline, fitted, local-pollen, spatial-block and
+forward-time experiments. Supply the independently retained manifest digests of
+both the prediction and score products:
+
+```python
+from pathlib import Path
+
+from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
+    audit_scored_evaluation_readiness,
+    read_scored_experiment_evidence,
+)
+
+evidence = read_scored_experiment_evidence(
+    Path("predictions"),
+    expected_prediction_manifest_sha256=prediction_manifest_sha256,
+    scores=Path("scores"),
+    expected_scores_manifest_sha256=scores_manifest_sha256,
+)
+audit = audit_scored_evaluation_readiness((evidence,))
+print(audit.canonical_audit_json)
+```
+
+This base-host path reads retained products without loading the numerical engine,
+rerunning a model or opening original outcome files. It reconciles descriptive
+metrics through the existing scoring functions and preserves every requested
+fold, method and target, including failed predictions and refused observations.
+Vegetation and pollen have separate accounting; local pollen remains an in-sample
+diagnostic. A retained source refusal without an observation body cannot be
+re-executed here and is labelled accordingly.
+
+The immutable evidence binds its projections to retained product identities.
+Caller-pinned product bytes establish retained consistency; they do not
+independently authenticate external raw observations. The readiness result always
+states `final_evaluation_performed=false` and
+`scientific_acceptance=not_evaluated`. Missing historical access timestamps,
+prospective evaluator binding, reviewed reference support, thresholds and
+predictive intervals remain explicit gaps. An optional future binding is an
+unverified declaration and cannot retroactively freeze an experiment. Overlapping
+cross-validation fits do not become an independent fixed-model bootstrap cohort.
+
 ## Saved-product reporting
 
 `bijux_pollenomics.reporting.lra_products.api` owns the bridge from verified saved
