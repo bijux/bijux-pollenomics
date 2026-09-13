@@ -315,6 +315,25 @@ spatial fitting, PPE, chronology, geometry, reconstruction and overdispersion
 uncertainty, and do not provide vegetation prediction intervals. The experiment
 runner still requires a separately governed integration of those uncertainties.
 
+`analysis.lra_validation.observation_uncertainty` attaches this conditional
+sampler to an authenticated synthetic singleton-fold baseline or fitted product.
+An immutable `ObservationUncertaintyPlan` pins the parent and declares effort,
+seed, taxa and counting-design evidence for every requested fold/method unit,
+including failed predictions. Generation accepts no outcome inventory. Joint draw
+cells are bounded globally, and source, parent and implementation identities are
+rechecked before publication.
+
+`score_pollen_observation_coverage` separately consumes the pinned prediction,
+uncertainty and existing score products. Observed counts must have the same taxa,
+bin and exact predeclared total; a mismatch is an explicit coverage refusal.
+Every requested unit remains counted. Results are per-taxon conditional marginal
+coverage, with neither simultaneous coverage nor independent-site sampling
+claimed. A supplied timing declaration cannot authenticate historical
+preregistration. The numerical engine is required to validate retained draws;
+no new simulation is run during coverage scoring. Local-pollen diagnostics,
+latent vegetation intervals and scientific final-policy admission remain outside
+this profile.
+
 `analysis.lra_validation.evaluation.api` evaluates a complete, separately
 frozen observation ledger against an explicit v2 policy. The policy supplies
 reviewed reference identities, per-target thresholds, independent site/block
