@@ -2,16 +2,20 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from hashlib import md5, sha256
 import json
 from pathlib import Path
 
 import pytest
 
+from bijux_pollenomics.adna.species.homo_sapiens.release_manifest import (
+    validate_release_manifest_identity,
+)
+from bijux_pollenomics.collection.sources.aadr.materialization import inputs
 from bijux_pollenomics.collection.sources.aadr.materialization.accountability import (
     AADR_SOURCE_ACCOUNTABILITY_SCHEMA_VERSION,
     materialize_aadr_source_accountability,
-    service,
 )
 
 from .support import HEADER
@@ -114,7 +118,9 @@ def test_service_validates_reconciles_and_publishes_only_compact_receipt(
         "sha256": sha256(manifest_bytes).hexdigest(),
         "byte_count": len(manifest_bytes),
     }
-    summary = first.receipt["accountability_projection"]["summary"]
+    projection = first.receipt["accountability_projection"]
+    assert isinstance(projection, dict)
+    summary = projection["summary"]
     assert [row["dataset_name"] for row in summary["source_files"]] == [
         "1240k",
         "ho",
@@ -132,7 +138,7 @@ def test_service_validates_reconciles_and_publishes_only_compact_receipt(
         "coordinate_evidence_group_count": 2,
         "chronology_evidence_group_count": 2,
     }
-    stream = first.receipt["accountability_projection"]["stream"]
+    stream = projection["stream"]
     assert stream["materialized"] is False
     assert stream["tracked"] is False
     assert not tuple(data_root.rglob("*.jsonl"))
@@ -208,15 +214,15 @@ def test_service_refuses_panel_mutation_between_manifest_validation_and_parse(
     data_root = tmp_path / "data"
     _write_release(data_root)
     panel = data_root / "aadr/v66/ho/v66.HO.aadr.PUB.anno"
-    validate_manifest = service.validate_release_manifest_identity
+    validate_manifest = validate_release_manifest_identity
 
-    def validate_then_mutate(payload: object, release_dir: Path) -> None:
+    def validate_then_mutate(payload: Mapping[str, object], release_dir: Path) -> None:
         validate_manifest(payload, release_dir)
         original = panel.read_bytes()
         panel.write_bytes(original.replace(b"ID-SE", b"ID-XX", 1))
 
     monkeypatch.setattr(
-        service,
+        inputs,
         "validate_release_manifest_identity",
         validate_then_mutate,
     )

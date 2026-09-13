@@ -193,6 +193,31 @@ deltas, projected product membership, projection refusals, or affected
 publications. Equal release row counts do not establish equal people, equal
 projections, or equal country products.
 
+## Persisted Source Evidence Members
+
+`collection.sources.aadr.materialization.members.materialize_aadr_evidence_members`
+builds a new private seven-file bundle from one exact release. It reuses the
+existing panel loader and reconciliation authority. The bundle separates source
+files, physical source rows, release-scoped Genetic-ID members, coordinate claims,
+chronology claims and explicitly unkeyed rows beneath a pinned manifest.
+
+Each raw row has exactly one owner. Coordinate and chronology alternatives each
+partition that owner's rows without selecting a preferred claim. Original token
+text, decimal representations, short rows and extra columns remain inspectable.
+Member identities bind the release manifest; they do not assert cross-release
+person identity. Missing Genetic IDs retain an explicit unkeyed disposition.
+
+`inspect_aadr_member_bundle` requires the manifest digest and original raw data
+root. It checks complete file and ownership inventories, then reproduces the
+table bytes from those raw panels. Rehashing an edited normalized claim cannot
+establish source equivalence. Its member lookup returns the linked raw rows and
+all coordinate and chronology claims after current file verification.
+
+This materialization leaves the existing compact receipt unchanged. Its manifest
+explicitly denies scientific admission, canonical chronology admission, country
+membership and genotype processing. It does not publish map features or resolve
+the independent review requirements above.
+
 ## Governing Surfaces
 
 - `data/aadr/v66/release_manifest.json` governs persistent identity, upstream
