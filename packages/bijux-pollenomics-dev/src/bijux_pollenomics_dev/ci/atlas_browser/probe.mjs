@@ -5,7 +5,7 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { extname, join, normalize, relative, resolve } from 'node:path';
 import { finished } from 'node:stream/promises';
 import { assertArtifactCandidate, readArtifactMember } from './artifact-candidate.mjs';
-import { NATIVE_LRA_REQUIRED_ASSERTIONS, verifyNativeLraScope } from './native-lra.mjs';
+import { NATIVE_LRA_REQUIRED_ASSERTIONS, SIGNED_NATIVE_LRA_REQUIRED_ASSERTIONS, verifyNativeLraScope } from './native-lra.mjs';
 
 const plan = JSON.parse(await readFile(resolve(process.argv[2]), 'utf8'));
 if (!['atlas-browser-verification-plan.v2', 'atlas-browser-verification-plan.v3'].includes(plan.schema_version)) throw new Error('unsupported plan schema');
@@ -152,9 +152,9 @@ try {
   for (const scope of scopes) {
     const scopeResult = verificationProfile === 'nordic-source-chronology-v1'
       ? await verifyNordicSourceChronologyScope(scope, debuggerOrigin.origin)
-      : verificationProfile === 'native-lra-exploratory-v1'
+      : ['native-lra-exploratory-v1', 'native-lra-signed-calendar-v1'].includes(verificationProfile)
         ? await verifyNativeLraScope(scope, debuggerOrigin.origin, {
-          repositoryRoot, artifactRoot, candidate, openAtlas, closeAtlas, captureReady,
+          repositoryRoot, artifactRoot, candidate, openAtlas, closeAtlas, captureReady, verificationProfile,
           evaluate, screenshot, writeScenario, pageFacts, basemapDiscoverabilityFacts,
           helpDialogFacts, helpDialogPasses, waitForProviderRefusal,
         })
@@ -171,6 +171,7 @@ try {
   ]));
   const requiredAssertionsByProfile = {
     'native-lra-exploratory-v1': NATIVE_LRA_REQUIRED_ASSERTIONS,
+    'native-lra-signed-calendar-v1': SIGNED_NATIVE_LRA_REQUIRED_ASSERTIONS,
     'nordic-source-chronology-v1': [
       'capture_api_ready', 'candidate_identity', 'keyless_provider_policy',
       'default_sample_window', 'default_denominators', 'trsh_exact_state',
@@ -1133,7 +1134,7 @@ async function captureReady(cdp) {
   return evaluate(cdp, `(() => new Promise((resolve, reject) => {
     const finish = () => {
       const api = globalThis.BijuxPollenomicsAtlasCapture;
-      if (!api || api.version !== 'atlas-capture.v1') return false;
+      if (!api || api.version !== ${JSON.stringify(verificationProfile === 'native-lra-signed-calendar-v1' ? 'atlas-capture.v2' : 'atlas-capture.v1')}) return false;
       observer.disconnect();
       clearTimeout(timeout);
       resolve(api.awaitReady());

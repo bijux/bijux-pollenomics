@@ -79,6 +79,7 @@ _COMMAND_ACTIONS = {
         "geometry",
         "expected_geometry_sha256",
         "output",
+        "temporal_profile",
     ],
     "prepare-lra-experiment": [
         "help",
@@ -151,5 +152,5 @@ def test_root_and_subcommand_help_text_is_frozen() -> None:
         == "6ea7e3408ec1491cefbaeb9408971922df4d26d3a910344715f4accce22f33dd"
     )
     assert hashlib.sha256(subcommand_help.encode()).hexdigest() == (
-        "e667d62f10cc229c9936608ab1a103cd1a5b934cc9238b9ed4e7cb2d9984c4d1"
+        "7ce659b1d282c81ed58337c4d4ffc83490d8f98b9b2f68b70ea4add19ae9c994"
     )

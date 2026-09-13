@@ -5,6 +5,7 @@ from collections.abc import Mapping, Sequence
 import hashlib
 import json
 
+from ..temporal_admission import feature_interval, read_calendar_profile
 from .asset_inventory import normalize_asset_inventory
 from .budgets import (
     ATLAS_BOOTSTRAP_MAX_BYTES,
@@ -16,7 +17,9 @@ from .budgets import (
     ATLAS_STATIC_ASSETS_MAX_FILES,
 )
 from .index_bundles import decode_index_bundle
+from .indexes import build_indexes
 from .models import StaticAtlasAssets
+from .nodes import node_asset_selection
 from .serialization import decode_chunk_script
 
 
@@ -27,9 +30,21 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
         raise ValueError("static atlas bootstrap exceeds its byte budget")
     if json.loads(manifest_bytes) != assets.manifest:
         raise ValueError("static atlas bootstrap bytes do not match the manifest")
+    temporal_profile = read_calendar_profile(assets.manifest)
     bootstrap_schema = assets.manifest.get("schema_version")
     inventory = assets.manifest.get("assets")
-    if bootstrap_schema == "atlas-static-bootstrap.v1":
+    if temporal_profile is not None:
+        view_sha = assets.manifest.get("native_view_sha256")
+        if (
+            bootstrap_schema != "atlas-static-bootstrap.v3"
+            or not isinstance(inventory, Mapping)
+            or read_calendar_profile(inventory) != temporal_profile
+            or not isinstance(view_sha, str)
+            or len(view_sha) != 64
+            or any(char not in "0123456789abcdef" for char in view_sha)
+        ):
+            raise ValueError("Signed static bootstrap binding is invalid")
+    elif bootstrap_schema == "atlas-static-bootstrap.v1":
         if not isinstance(inventory, list):
             raise ValueError("static atlas v1 asset inventory is invalid")
     elif bootstrap_schema == "atlas-static-bootstrap.v2":
@@ -50,10 +65,9 @@ def validate_static_atlas_assets(assets: StaticAtlasAssets) -> None:
     ):
         raise ValueError("static atlas build identity is invalid")
     compatibility = assets.manifest.get("compatibility")
-    requires_decoded_counts = (
-        isinstance(compatibility, Mapping)
-        and compatibility.get("index_schema") == "atlas-static-indexes.v3"
-    )
+    requires_decoded_counts = isinstance(compatibility, Mapping) and compatibility.get(
+        "index_schema"
+    ) in {"atlas-static-indexes.v3", "atlas-static-indexes.v4"}
     if assets.manifest.get("transport_integrity") != {
         "http_https": "subresource_integrity_plus_payload_sha256",
         "file": "payload_sha256_after_script_registration",
@@ -160,6 +174,12 @@ def _validate_static_payloads(
     compatibility = manifest.get("compatibility")
     if not isinstance(compatibility, Mapping):
         raise ValueError("static atlas compatibility declaration is missing")
+    profile = read_calendar_profile(manifest)
+    if profile is not None and (
+        compatibility.get("node_schema") != "atlas-node-chunk.v2"
+        or compatibility.get("index_schema") != "atlas-static-indexes.v4"
+    ):
+        raise ValueError("Signed static compatibility declaration disagrees")
     expected_schemas = {
         "provenance": compatibility.get("provenance_schema"),
         "nodes": compatibility.get("node_schema"),
@@ -182,6 +202,8 @@ def _validate_static_payloads(
         for field in ("build_id", "scope_slug", "version"):
             if payload.get(field) != manifest.get(field):
                 raise ValueError(f"static atlas {asset_key} {field} changed")
+        if read_calendar_profile(payload) != profile:
+            raise ValueError("Static payload temporal profile differs from bootstrap")
         if payload.get("asset_key") != asset_key:
             raise ValueError(f"static atlas {asset_key} payload identity changed")
         if payload.get("schema_version") != expected_schemas.get(domain):
@@ -212,6 +234,8 @@ def _validate_static_payloads(
         raise ValueError("static atlas detail records are not stably ordered")
     if index_payload is None:
         raise ValueError("static atlas index payload is missing")
+    if profile is not None:
+        _validate_signed_nodes(manifest, asset_rows, payloads, index_payload, profile)
     detail_index = index_payload.get("detail_record_asset_keys")
     if not isinstance(detail_index, Mapping) or any(
         not isinstance(key, str) or not isinstance(value, str)
@@ -228,6 +252,117 @@ def _validate_static_payloads(
         "record_count"
     ) != len(detail_record_assets):
         raise ValueError("static atlas detail domain count does not reconcile")
+
+
+def _validate_signed_nodes(
+    manifest: Mapping[str, object],
+    asset_rows: Sequence[Mapping[str, object]],
+    payloads: Mapping[str, Mapping[str, object]],
+    indexes: Mapping[str, object],
+    profile: str,
+) -> None:
+    """Reconcile signed payload/index extents against the complete native node set."""
+    if read_calendar_profile(indexes) != profile:
+        raise ValueError("Signed logical indexes lost their temporal profile")
+    metadata: dict[int, Mapping[str, object]] = {}
+    for payload in payloads.values():
+        if payload.get("schema_version") != "atlas-provenance-chunk.v3":
+            continue
+        layers = payload.get("layers")
+        if not isinstance(layers, list) or payload.get("scientific_signals") != []:
+            raise ValueError("Signed provenance cannot add source classification")
+        for item in layers:
+            if not isinstance(item, Mapping):
+                raise ValueError("Signed layer metadata is invalid")
+            layer_index, layer = item.get("layer_index"), item.get("layer")
+            if (
+                type(layer_index) is not int
+                or layer_index in metadata
+                or item.get("layer_kind") != "point"
+                or not isinstance(layer, Mapping)
+                or layer.get("semantic_role") != "exploratory_lra_model_anchor"
+            ):
+                raise ValueError("Signed transport cannot mix source layers")
+            metadata[layer_index] = item
+    if sorted(metadata) != list(range(len(metadata))):
+        raise ValueError("Signed layer metadata indexes are incomplete")
+    features_by_layer: dict[int, dict[int, dict[str, object]]] = {
+        key: {} for key in metadata
+    }
+    for row in asset_rows:
+        domain = row.get("domain")
+        if domain in {"edges", "sequences"}:
+            payload = payloads[str(row["asset_key"])]
+            if (
+                row.get("record_count") != 0
+                or payload.get("records") != []
+                or payload.get("status") != "unavailable"
+            ):
+                raise ValueError("Signed transport cannot mix edge or sequence data")
+        if domain != "nodes":
+            continue
+        payload = payloads[str(row["asset_key"])]
+        layer_index = payload.get("layer_index")
+        if (
+            type(layer_index) is not int
+            or layer_index not in metadata
+            or payload.get("layer_kind") != "point"
+        ):
+            raise ValueError("Signed node layer ownership is invalid")
+        layer = metadata[layer_index]["layer"]
+        if not isinstance(layer, Mapping) or payload.get("layer_key") != layer.get(
+            "key"
+        ):
+            raise ValueError("Signed node layer identity disagrees")
+        features, positions = payload.get("features"), payload.get("feature_indexes")
+        if (
+            not isinstance(features, list)
+            or not isinstance(positions, list)
+            or len(features) != len(positions)
+            or row.get("record_count") != len(features)
+        ):
+            raise ValueError("Signed node feature inventory is invalid")
+        for feature, position in zip(features, positions, strict=True):
+            if (
+                type(position) is not int
+                or position < 0
+                or position in features_by_layer[layer_index]
+                or not isinstance(feature, dict)
+                or feature_interval(feature, temporal_profile=profile) is None
+            ):
+                raise ValueError(
+                    "Signed node feature chronology or position is invalid"
+                )
+            features_by_layer[layer_index][position] = feature
+        selection = node_asset_selection(dict(payload))
+        if any(row.get(key) != value for key, value in selection.items()):
+            raise ValueError(
+                "Signed asset selection metadata differs from native nodes"
+            )
+    reconstructed = []
+    for layer_index, item in metadata.items():
+        rows = features_by_layer[layer_index]
+        layer = item["layer"]
+        if not isinstance(layer, Mapping):
+            raise AssertionError("Validated signed layer changed type")
+        if (
+            sorted(rows) != list(range(len(rows)))
+            or type(item.get("feature_count")) is not int
+            or item["feature_count"] != len(rows)
+        ):
+            raise ValueError("Signed native node membership is incomplete")
+        reconstructed.append(
+            {**layer, "features": [rows[index] for index in sorted(rows)]}
+        )
+    expected = build_indexes(reconstructed, temporal_profile=profile)
+    if any(indexes.get(key) != value for key, value in expected.items()):
+        raise ValueError("Signed index membership differs from actual native nodes")
+    domains = manifest.get("domains")
+    nodes = domains.get("nodes") if isinstance(domains, Mapping) else None
+    if not isinstance(nodes, Mapping) or nodes.get("record_count") != sum(
+        len(rows) for rows in features_by_layer.values()
+    ):
+        raise ValueError("Signed node denominator does not reconcile")
 
 
 __all__ = ["validate_static_atlas_assets", "validate_static_atlas_document"]

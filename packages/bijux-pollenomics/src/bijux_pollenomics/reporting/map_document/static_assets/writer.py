@@ -6,9 +6,12 @@ import base64
 from collections.abc import Sequence
 import hashlib
 from pathlib import Path
+from typing import Any
 
 from ....core.geospatial.geojson import JsonObject
 from ..evidence import normalize_atlas_evidence, validate_feature_signal_references
+from ..native_lra import bind_native_view, validate_native_layers
+from ..temporal_admission import calendar_profile_metadata, read_calendar_profile
 from .asset_inventory import encode_asset_inventory
 from .budgets import (
     ATLAS_BOOTSTRAP_MAX_BYTES,
@@ -23,7 +26,11 @@ from .budgets import (
     ATLAS_STATIC_ASSETS_MAX_BYTES,
     ATLAS_STATIC_ASSETS_MAX_FILES,
 )
-from .index_bundles import INDEX_BUNDLE_SCHEMA, build_index_bundle
+from .index_bundles import (
+    INDEX_BUNDLE_SCHEMA,
+    SIGNED_INDEX_BUNDLE_SCHEMA,
+    build_index_bundle,
+)
 from .indexes import build_indexes, index_reference_count
 from .models import StaticAtlasAssets, validate_atlas_release_id
 from .nodes import (
@@ -52,8 +59,27 @@ def write_static_atlas_assets(
     scientific_signals: Sequence[JsonObject] | None = None,
     edge_records: Sequence[JsonObject] | None = None,
     sequence_records: Sequence[JsonObject] | None = None,
+    temporal_profile: str | None = None,
+    native_lra: dict[str, Any] | None = None,
 ) -> StaticAtlasAssets:
     """Write deterministic hashed map chunks and their small bootstrap manifest."""
+    profile_fields = calendar_profile_metadata(temporal_profile)
+    view_binding: dict[str, str] = {}
+    if temporal_profile is not None:
+        if native_lra is None or read_calendar_profile(native_lra) != temporal_profile:
+            raise ValueError(
+                "Signed static transport requires the complete bound native view"
+            )
+        if polygon_layers or edge_records or sequence_records or scientific_signals:
+            raise ValueError(
+                "Signed static transport cannot mix other scientific domains"
+            )
+        validate_native_layers(native_lra, list(point_layers))
+        view_binding = {"native_view_sha256": bind_native_view(native_lra)["sha256"]}
+    elif native_lra is not None and read_calendar_profile(native_lra) is not None:
+        raise ValueError(
+            "Signed native view requires explicit static caller authorization"
+        )
     output_dir = Path(output_dir)
     if not output_dir.is_dir() or output_dir.is_symlink():
         raise ValueError("static atlas output directory must be an existing directory")
@@ -74,6 +100,7 @@ def write_static_atlas_assets(
         version=version,
         point_layers=point_layers,
         polygon_layers=polygon_layers,
+        temporal_profile=temporal_profile,
     )
     detail_partitions = partition_features(
         [dict(record) for record in evidence.detail_records],
@@ -85,7 +112,7 @@ def write_static_atlas_assets(
         for index in range(len(detail_partitions))
     ]
     indexes = {
-        **build_indexes(point_layers),
+        **build_indexes(point_layers, temporal_profile=temporal_profile),
         "detail_record_asset_keys": {
             str(record["record_id"]): asset_key
             for asset_key, partition in zip(
@@ -99,6 +126,8 @@ def write_static_atlas_assets(
         + hashlib.sha256(
             canonical_json(
                 {
+                    **profile_fields,
+                    **view_binding,
                     "scope_slug": slug,
                     "version": version,
                     "layer_metadata": layer_metadata,
@@ -211,7 +240,12 @@ def write_static_atlas_assets(
     asset_paths: list[Path] = []
     for sequence, (domain, record_count, source_payload) in enumerate(payloads):
         asset_key = f"{domain}:{sequence}"
-        payload = {**source_payload, "build_id": build_id, "asset_key": asset_key}
+        payload: dict[str, object] = {
+            **source_payload,
+            **profile_fields,
+            "build_id": build_id,
+            "asset_key": asset_key,
+        }
         payload_json = canonical_json(payload)
         validate_decoded_payload_size(payload_json, asset_key=asset_key)
         payload_sha256 = hashlib.sha256(payload_json.encode("utf-8")).hexdigest()
@@ -249,7 +283,11 @@ def write_static_atlas_assets(
         asset_paths.append(path)
 
     manifest: dict[str, object] = {
-        "schema_version": "atlas-static-bootstrap.v2",
+        "schema_version": "atlas-static-bootstrap.v3"
+        if temporal_profile is not None
+        else "atlas-static-bootstrap.v2",
+        **profile_fields,
+        **view_binding,
         "scope_slug": slug,
         "version": version,
         "build_id": build_id,
@@ -262,11 +300,15 @@ def write_static_atlas_assets(
         },
         "compatibility": {
             "provenance_schema": "atlas-provenance-chunk.v3",
-            "node_schema": "atlas-node-chunk.v1",
+            "node_schema": "atlas-node-chunk.v2"
+            if temporal_profile is not None
+            else "atlas-node-chunk.v1",
             "detail_schema": "atlas-details-chunk.v1",
             "edge_schema": "atlas-edges-chunk.v1",
             "sequence_schema": "atlas-sequences-chunk.v1",
-            "index_schema": INDEX_BUNDLE_SCHEMA,
+            "index_schema": SIGNED_INDEX_BUNDLE_SCHEMA
+            if temporal_profile is not None
+            else INDEX_BUNDLE_SCHEMA,
         },
         "budgets": {
             "bootstrap_max_bytes": ATLAS_BOOTSTRAP_MAX_BYTES,
@@ -347,7 +389,9 @@ def write_static_atlas_assets(
                 "record_count": index_reference_count(logical_indexes),
             },
         },
-        "assets": encode_asset_inventory(assets, scope_slug=slug),
+        "assets": encode_asset_inventory(
+            assets, scope_slug=slug, temporal_profile=temporal_profile
+        ),
     }
     manifest_bytes = (canonical_json(manifest) + "\n").encode("utf-8")
     if len(manifest_bytes) > ATLAS_BOOTSTRAP_MAX_BYTES:

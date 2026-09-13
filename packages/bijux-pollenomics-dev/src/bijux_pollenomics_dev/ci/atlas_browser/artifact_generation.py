@@ -11,6 +11,7 @@ from ..atlas_media.process_execution import BoundedProcessError, run_bounded_arg
 from .artifact_candidate import (
     ENTRY_POINT,
     GENERATOR_SCRIPT,
+    SIGNED_GENERATOR_SCRIPT,
     canonical_digest,
     committed_source,
     git_bytes,
@@ -20,7 +21,11 @@ from .artifact_candidate import (
     sha256,
     source_inventory,
 )
-from .contracts import AtlasArtifactCandidate, AtlasBrowserContractError
+from .contracts import (
+    SIGNED_CALENDAR_PROFILE,
+    AtlasArtifactCandidate,
+    AtlasBrowserContractError,
+)
 
 
 def _path(root: Path, value: Path) -> tuple[Path, str]:
@@ -47,6 +52,7 @@ def generate_artifact_candidate(
     destination: Path,
     receipt_path: Path,
     python_binary: Path | None = None,
+    temporal_profile: str | None = None,
 ) -> AtlasArtifactCandidate:
     """Generate from a new, byte-verified committed snapshot, never Git output commits.
 
@@ -54,6 +60,8 @@ def generate_artifact_candidate(
     no receipt is issued for a failed or changed generation. Invoke this producer
     through the repository's managed background-job workflow.
     """
+    if temporal_profile not in (None, SIGNED_CALENDAR_PROFILE):
+        raise AtlasBrowserContractError("unsupported generator temporal profile")
     root = repository_root.resolve()
     source, source_relative = _path(root, source_root)
     product, product_relative = _path(root, product_directory)
@@ -106,11 +114,11 @@ def generate_artifact_candidate(
         target.write_bytes(value)
     if source_inventory(source, objects) != source_files:
         raise AtlasBrowserContractError("captured generator source differs")
-    command = (
+    command: tuple[str, ...] = (
         str(python_binary or Path(sys.executable)),
         "-I",
         "-c",
-        GENERATOR_SCRIPT,
+        SIGNED_GENERATOR_SCRIPT if temporal_profile is not None else GENERATOR_SCRIPT,
         str(source / "packages/bijux-pollenomics/src"),
         str(product),
         expected_product_manifest_sha256,
@@ -118,6 +126,8 @@ def generate_artifact_candidate(
         expected_geometry_sha256,
         str(output),
     )
+    if temporal_profile is not None:
+        command += (temporal_profile,)
     try:
         completed = run_bounded_argv(command, cwd=source, timeout_seconds=120)
     except BoundedProcessError as error:
@@ -148,7 +158,9 @@ def generate_artifact_candidate(
         "build_id": manifest["map_build_id"],
     }
     payload = {
-        "schema_version": "atlas-artifact-generation.v1",
+        "schema_version": "atlas-artifact-generation.v2"
+        if temporal_profile is not None
+        else "atlas-artifact-generation.v1",
         "source_relation": "committed_tree",
         "generator_repository_head": head,
         "generator_repository_tree": tree,
@@ -167,6 +179,8 @@ def generate_artifact_candidate(
         },
         "output": output_identity,
     }
+    if temporal_profile is not None:
+        payload.update(temporal_profile=temporal_profile, temporal_axis="BP1950")
     encoded = (
         json.dumps(payload, sort_keys=True, separators=(",", ":"), allow_nan=False)
         + "\n"

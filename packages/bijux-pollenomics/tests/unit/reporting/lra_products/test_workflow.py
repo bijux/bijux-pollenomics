@@ -11,6 +11,7 @@ import pytest
 from bijux_pollenomics.reporting.lra_products.api import (
     LRAPresentation,
     LRAPresentationRefusal,
+    TemporalProfile,
     render_lra_report,
 )
 
@@ -18,7 +19,12 @@ from .support import encoded, geometry_fixture, product_fixture, rebind, sha
 
 
 def _render(
-    root: Path, product: Path, geometry: dict[str, object], name: str = "report"
+    root: Path,
+    product: Path,
+    geometry: dict[str, object],
+    name: str = "report",
+    *,
+    temporal_profile: TemporalProfile | None = None,
 ) -> LRAPresentation:
     path = root / f"{name}-geometry.json"
     path.write_bytes(encoded(geometry))
@@ -28,6 +34,7 @@ def _render(
         geometry_path=path,
         expected_geometry_sha256=sha(path.read_bytes()),
         destination=root / name,
+        temporal_profile=temporal_profile,
     )
 
 
@@ -90,6 +97,8 @@ def test_report_preserves_native_values_nulls_source_locators_and_archive(
     assert (
         html.startswith("<!doctype html>") and "not evaluated" in html and "N/A" in html
     )
+    assert "linked map offers native" in html
+    assert "are unavailable in this report profile" not in html
     again = _render(tmp_path, product, geometry_fixture(product, request), "again")
     assert again.manifest_sha256 == report.manifest_sha256
 
@@ -181,3 +190,154 @@ def test_existing_output_and_product_nested_destination_are_refused(
             expected_geometry_sha256=sha(encoded(geometry)),
             destination=product / "nested",
         )
+
+
+@pytest.mark.parametrize(
+    "case",
+    [
+        "calibrated",
+        "radiocarbon",
+        "source",
+        "multimodal",
+        "multiple_bins",
+        "outside",
+        "missing",
+        "unsafe_integer",
+    ],
+)
+def test_signed_opt_in_refuses_unsupported_chronology_before_staging(
+    tmp_path: Path, case: str
+) -> None:
+    product, request = product_fixture(tmp_path)
+    sample = request["local"]["samples"][0]
+    if case in ("calibrated", "radiocarbon"):
+        sample["age_type"] = case + "_bp"
+    elif case == "source":
+        request["data_kind"] = "source_observations"
+    elif case == "multimodal":
+        sample["age_support_bp"] = [[5400, 5450], [5500, 5550]]
+    elif case == "multiple_bins":
+        request["temporal_matching"]["bins"].append(
+            {"bin_id": "other", "younger_bp": 5000, "older_bp": 5300}
+        )
+    elif case == "outside":
+        sample["age_support_bp"] = [[0, 1]]
+    elif case == "missing":
+        sample["age_support_bp"] = [[None, None]]
+    elif case == "unsafe_integer":
+        sample["age_support_bp"] = [[2**53, 2**53]]
+    rebind(product, request)
+    with pytest.raises(LRAPresentationRefusal):
+        _render(
+            tmp_path,
+            product,
+            geometry_fixture(product, request),
+            temporal_profile="calendar-bp1950-signed.v1",
+        )
+    assert not (tmp_path / "report").exists()
+    assert not list(tmp_path.glob(".report.pending-*"))
+
+
+def test_signed_rows_preserve_fractional_source_and_separate_declared_support(
+    tmp_path: Path,
+) -> None:
+    from bijux_pollenomics.reporting.lra_products.contracts import calendar_supports
+    from bijux_pollenomics.reporting.lra_products.tables import (
+        model_rows,
+        numerical_tables,
+    )
+
+    product, request = product_fixture(tmp_path)
+    for role in ("regional", "local"):
+        request[role]["samples"][0]["age_support_bp"] = [[-50.5, -49.5]]
+    request["temporal_matching"]["bins"][0].update(younger_bp=-50.75, older_bp=-49.25)
+    files = {
+        p.relative_to(product).as_posix(): p.read_bytes()
+        for p in product.rglob("*")
+        if p.is_file()
+    }
+    tables = numerical_tables(files)
+    legacy = model_rows(tables, request, request_sha256="0" * 64)
+    rows = model_rows(
+        tables,
+        request,
+        request_sha256="0" * 64,
+        temporal_profile="calendar-bp1950-signed.v1",
+    )
+    assert len(rows) == len(legacy) == 18
+    for row, original in zip(rows, legacy, strict=True):
+        assert {
+            k: v
+            for k, v in row.items()
+            if k not in {"source_calendar_support", "declared_calendar_support"}
+        } == original
+        source, declared = calendar_supports(request)[row["role"]]
+        assert row["source_calendar_support"] == source
+        assert row["declared_calendar_support"] == declared
+        assert source["younger_bp"] == -50.5 and declared["younger_bp"] == -50.75
+        assert source["native_calendar_label"] is None
+        assert source["calibration_evidence"] is None
+
+
+@pytest.mark.parametrize("endpoints", [(-50.5, -49.5), (-0.5, 0.5), (0, 0)])
+def test_signed_report_uses_complete_static_transport_and_bound_support(
+    tmp_path: Path, endpoints: tuple[float, float]
+) -> None:
+    product, request = product_fixture(tmp_path)
+    for role in ("regional", "local"):
+        request[role]["samples"][0]["age_support_bp"] = [list(endpoints)]
+    request["temporal_matching"]["bins"][0].update(
+        younger_bp=endpoints[0], older_bp=endpoints[1]
+    )
+    rebind(product, request)
+    report = _render(
+        tmp_path,
+        product,
+        geometry_fixture(product, request),
+        temporal_profile="calendar-bp1950-signed.v1",
+    )
+    manifest = json.loads((report.directory / "manifest.json").read_bytes())
+    view = json.loads((report.directory / "native-view.json").read_bytes())
+    assert manifest["schema_version"] == "lra-presentation.v2"
+    assert view["schema_version"] == "lra-atlas-view.v2"
+    assert (
+        manifest["temporal_profile"]
+        == view["temporal_profile"]
+        == "calendar-bp1950-signed.v1"
+    )
+    assert view["temporal_axis"] == "BP1950"
+    assert report.mapped_site_count == 2
+    assert manifest["map_build_id"]
+    html = (report.directory / "map.html").read_text()
+    bootstrap = json.loads(
+        html.split('<script id="atlas-static-bootstrap" type="application/json">', 1)[
+            1
+        ].split("</script>", 1)[0]
+    )
+    assert bootstrap["schema_version"] == "atlas-static-bootstrap.v3"
+    assert bootstrap["load_strategy"] == "selection_aware_static_scripts"
+    assert bootstrap["assets"]["schema_version"] == "atlas-static-asset-table.v4"
+    assert bootstrap["native_view_sha256"] == manifest["native_view_sha256"]
+    assert all(
+        row["source_calendar_support"]["younger_bp"] == endpoints[0]
+        for row in view["rows"]
+    )
+    assert sum(row["native_value"] is None for row in view["rows"]) == 3
+
+
+@pytest.mark.parametrize("profile", [True, {}, [], 123, "unknown"])
+def test_unknown_profile_refuses_before_any_missing_input_read(
+    tmp_path: Path, profile: object
+) -> None:
+    from typing import cast
+
+    with pytest.raises(LRAPresentationRefusal, match="unsupported_temporal_profile"):
+        render_lra_report(
+            tmp_path / "missing-product",
+            expected_manifest_sha256="0" * 64,
+            geometry_path=tmp_path / "missing-geometry.json",
+            expected_geometry_sha256="0" * 64,
+            destination=tmp_path / "report",
+            temporal_profile=cast(TemporalProfile, profile),
+        )
+    assert not (tmp_path / "report").exists()

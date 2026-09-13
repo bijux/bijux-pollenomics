@@ -2429,11 +2429,11 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const staticAtlasInFlightAssets = new Map();
       const STATIC_ATLAS_SCHEMAS = {
         provenance: ['atlas-provenance-chunk.v2', 'atlas-provenance-chunk.v3'],
-        nodes: ['atlas-node-chunk.v1'],
+        nodes: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? ['atlas-node-chunk.v2'] : ['atlas-node-chunk.v1'],
         details: ['atlas-details-chunk.v1'],
         edges: ['atlas-edges-chunk.v1'],
         sequences: ['atlas-sequences-chunk.v1'],
-        indexes: ['atlas-static-indexes.v1', 'atlas-static-indexes.v2', 'atlas-static-indexes.v3'],
+        indexes: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? ['atlas-static-indexes.v4'] : ['atlas-static-indexes.v1', 'atlas-static-indexes.v2', 'atlas-static-indexes.v3'],
       };
       function staticAtlasFailure(message) {
         throw new Error(`Static atlas data cannot be loaded: ${message}. Reload the page; if the problem persists, redeploy the HTML and hashed assets from the same build.`);
@@ -2456,17 +2456,27 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         const bytes = String(digest).match(/.{2}/g).map((pair) => String.fromCharCode(Number.parseInt(pair, 16))).join('');
         return `sha256-${btoa(bytes)}`;
       }
+      function staticAtlasTemporalIdentity(payload, signed) {
+        if (!payload || typeof payload !== 'object' || (signed
+            ? payload.temporal_profile !== 'calendar-bp1950-signed.v1' || payload.temporal_axis !== 'BP1950'
+            : 'temporal_profile' in payload || 'temporal_axis' in payload)) staticAtlasFailure('static temporal profile identity differs');
+      }
       function normalizeStaticAtlasBootstrap(bootstrap) {
-        if (!bootstrap || typeof bootstrap !== 'object' || bootstrap.schema_version !== 'atlas-static-bootstrap.v2') return bootstrap;
+        if (!bootstrap || typeof bootstrap !== 'object' || !['atlas-static-bootstrap.v2','atlas-static-bootstrap.v3'].includes(bootstrap.schema_version)) return bootstrap;
+        const signed = bootstrap.schema_version === 'atlas-static-bootstrap.v3';
+        staticAtlasTemporalIdentity(bootstrap, signed);
+        if (signed && !/^[a-f0-9]{64}$/.test(bootstrap.native_view_sha256 || '')) staticAtlasFailure('signed native view identity is missing');
         const table = bootstrap.assets;
-        const compact = ['atlas-static-asset-table.v2', 'atlas-static-asset-table.v3'].includes(table?.schema_version);
+        const compact = ['atlas-static-asset-table.v2', 'atlas-static-asset-table.v3', 'atlas-static-asset-table.v4'].includes(table?.schema_version);
         const expectedTableKeys = compact
           ? ['fields', 'record_count', 'records', 'schema_version', 'scope_slug']
           : ['fields', 'record_count', 'records', 'schema_version'];
+        if (signed) expectedTableKeys.push('temporal_axis', 'temporal_profile');
         if (!table || typeof table !== 'object' || Object.keys(table).sort().join('|') !== expectedTableKeys.join('|')) staticAtlasFailure('asset table shape is invalid');
-        if (!['atlas-static-asset-table.v1', 'atlas-static-asset-table.v2', 'atlas-static-asset-table.v3'].includes(table.schema_version)) staticAtlasFailure('asset table schema is invalid');
+        if (!(signed ? ['atlas-static-asset-table.v4'] : ['atlas-static-asset-table.v1', 'atlas-static-asset-table.v2', 'atlas-static-asset-table.v3']).includes(table.schema_version)) staticAtlasFailure('asset table schema is invalid');
+        staticAtlasTemporalIdentity(table, signed);
         const splitFields = ['chronology_absent_record_count', 'refused_chronology_record_count', 'contextual_chronology_record_count'];
-        const storedFields = table.schema_version === 'atlas-static-asset-table.v3'
+        const storedFields = ['atlas-static-asset-table.v3','atlas-static-asset-table.v4'].includes(table.schema_version)
           ? STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS
           : table.schema_version === 'atlas-static-asset-table.v2'
             ? STATIC_ATLAS_ASSET_TABLE_STORED_FIELDS.filter((field) => !splitFields.includes(field))
@@ -2498,7 +2508,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
                 ...Object.fromEntries(STATIC_ATLAS_ASSET_TABLE_FIELDS.slice(STATIC_ATLAS_ASSET_CORE_FIELD_COUNT).map((field) => [field, stored[field]])),
               }
             : stored;
-          if (row.domain === 'nodes' && table.schema_version !== 'atlas-static-asset-table.v3') {
+          if (row.domain === 'nodes' && !['atlas-static-asset-table.v3','atlas-static-asset-table.v4'].includes(table.schema_version)) {
             row = {
               ...row,
               chronology_absent_record_count: null,
@@ -2523,7 +2533,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
             const chronologySplit = [row.chronology_absent_record_count, row.refused_chronology_record_count, row.contextual_chronology_record_count];
             const splitAvailable = chronologySplit.map((value) => value !== null && value !== undefined);
             if (splitAvailable.some(Boolean) && !splitAvailable.every(Boolean)) staticAtlasFailure(`asset table row ${recordIndex} chronology split is incomplete`);
-            if (table.schema_version === 'atlas-static-asset-table.v3' && !splitAvailable.every(Boolean)) staticAtlasFailure(`asset table row ${recordIndex} chronology split is required`);
+            if (['atlas-static-asset-table.v3','atlas-static-asset-table.v4'].includes(table.schema_version) && !splitAvailable.every(Boolean)) staticAtlasFailure(`asset table row ${recordIndex} chronology split is required`);
             if (splitAvailable.every(Boolean) && (chronologySplit.some((value) => !Number.isSafeInteger(value) || value < 0) || chronologySplit.reduce((total, value) => total + value, 0) !== row.untimed_record_count)) staticAtlasFailure(`asset table row ${recordIndex} chronology split is inconsistent`);
           } else {
             if (optionalFields.some((field) => row[field] !== null && row[field] !== undefined)) staticAtlasFailure(`asset table row ${recordIndex} non-node selection field is not null`);
@@ -2534,7 +2544,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         return { ...bootstrap, assets };
       }
       function validateStaticAtlasBootstrap() {
-        if (!['atlas-static-bootstrap.v1', 'atlas-static-bootstrap.v2'].includes(STATIC_ATLAS_BOOTSTRAP.schema_version)) staticAtlasFailure('bootstrap schema mismatch');
+        if (!['atlas-static-bootstrap.v1', 'atlas-static-bootstrap.v2', 'atlas-static-bootstrap.v3'].includes(STATIC_ATLAS_BOOTSTRAP.schema_version)) staticAtlasFailure('bootstrap schema mismatch');
+        staticAtlasTemporalIdentity(STATIC_ATLAS_BOOTSTRAP, STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3');
         if (STATIC_ATLAS_BOOTSTRAP.version !== __VERSION_JSON__) staticAtlasFailure('bootstrap version mismatch');
         if (!/^atlas-[a-f0-9]{64}$/.test(String(STATIC_ATLAS_BOOTSTRAP.build_id || ''))) staticAtlasFailure('bootstrap build identity is invalid');
         if (!Array.isArray(STATIC_ATLAS_BOOTSTRAP.assets)) staticAtlasFailure('bootstrap asset inventory is missing');
@@ -2552,7 +2563,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           const payloadEncoding = row.payload_encoding || 'json';
           if (!['json', 'gzip_base64'].includes(payloadEncoding)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} payload encoding is invalid`);
           if (payloadEncoding === 'gzip_base64' && !['provenance', 'nodes', 'details'].includes(row.domain)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} compressed payload domain is invalid`);
-          const requiresDecodedByteCount = STATIC_ATLAS_BOOTSTRAP.compatibility?.index_schema === 'atlas-static-indexes.v3' || (['provenance', 'nodes', 'details'].includes(row.domain) && payloadEncoding === 'gzip_base64');
+          const requiresDecodedByteCount = ['atlas-static-indexes.v3','atlas-static-indexes.v4'].includes(STATIC_ATLAS_BOOTSTRAP.compatibility?.index_schema) || (['provenance', 'nodes', 'details'].includes(row.domain) && payloadEncoding === 'gzip_base64');
           if (requiresDecodedByteCount && (!Number.isSafeInteger(row.decoded_byte_count) || row.decoded_byte_count <= 0)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} decoded byte count is invalid`);
           if (row.decoded_byte_count !== undefined && (!Number.isSafeInteger(row.decoded_byte_count) || row.decoded_byte_count <= 0 || row.decoded_byte_count > Number(STATIC_ATLAS_BOOTSTRAP.budgets?.chunk_max_bytes))) staticAtlasFailure(`${row.asset_key || 'unknown asset'} decoded byte count exceeds its byte budget`);
           const recordCount = staticAtlasNonnegativeInteger(row.record_count, `${row.asset_key || 'unknown asset'} record count`);
@@ -2571,8 +2582,10 @@ __STATIC_CHUNK_SCRIPT_TAGS__
               const splitTotal = chronologySplit.reduce((total, value, index) => total + staticAtlasNonnegativeInteger(value, `${row.asset_key || 'unknown asset'} chronology split ${index}`), 0);
               if (splitTotal !== untimedCount) staticAtlasFailure(`${row.asset_key || 'unknown asset'} chronology split is inconsistent`);
             }
-            const timeMinimum = staticAtlasNullableFiniteNumber(row.time_min_bp, `${row.asset_key || 'unknown asset'} minimum BP`, 0, Number.MAX_SAFE_INTEGER);
-            const timeMaximum = staticAtlasNullableFiniteNumber(row.time_max_bp, `${row.asset_key || 'unknown asset'} maximum BP`, 0, Number.MAX_SAFE_INTEGER);
+            const minimumAllowed = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? -Number.MAX_SAFE_INTEGER : 0;
+            if (STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' && [row.time_min_bp,row.time_max_bp].some(value => value !== null && !nativeCalendarNumber(value))) staticAtlasFailure('signed node time extent is invalid');
+            const timeMinimum = staticAtlasNullableFiniteNumber(row.time_min_bp, `${row.asset_key || 'unknown asset'} minimum BP`, minimumAllowed, Number.MAX_SAFE_INTEGER);
+            const timeMaximum = staticAtlasNullableFiniteNumber(row.time_max_bp, `${row.asset_key || 'unknown asset'} maximum BP`, minimumAllowed, Number.MAX_SAFE_INTEGER);
             if ((timeMinimum === null) !== (timeMaximum === null) || (timeMinimum !== null && timeMinimum > timeMaximum)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} BP interval is invalid`);
             if ((timeMinimum === null) !== (untimedCount === recordCount)) staticAtlasFailure(`${row.asset_key || 'unknown asset'} BP interval contradicts its untimed record count`);
             if (row.bounds !== null) {
@@ -2665,7 +2678,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         }
       }
       function staticAtlasIndexShardEnvelopes(row, payload) {
-        if (payload.shard_schema !== 'atlas-static-index-shard.v1' || !Array.isArray(payload.shards)) staticAtlasFailure(`${row.asset_key} index shard declaration is invalid`);
+        const signed = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3';
+        staticAtlasTemporalIdentity(payload, signed);
+        if (payload.shard_schema !== (signed ? 'atlas-static-index-shard.v2' : 'atlas-static-index-shard.v1') || !Array.isArray(payload.shards)) staticAtlasFailure(`${row.asset_key} index shard declaration is invalid`);
         if (!Number.isSafeInteger(payload.shard_count) || payload.shard_count <= 0) staticAtlasFailure(`${row.asset_key} shard count is invalid`);
         if (!Number.isSafeInteger(payload.reference_count) || payload.reference_count < 0) staticAtlasFailure(`${row.asset_key} reference count is invalid`);
         const shardCount = payload.shard_count;
@@ -2700,7 +2715,9 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         } catch (error) {
           staticAtlasFailure(`${label} payload JSON is invalid`);
         }
-        if (!decoded || decoded.schema_version !== 'atlas-static-index-shard.v1' || decoded.index_kind !== shard.index_kind || !Array.isArray(decoded.entries)) staticAtlasFailure(`${label} decoded contract is invalid`);
+        const signed = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3';
+        if (!decoded || decoded.schema_version !== (signed ? 'atlas-static-index-shard.v2' : 'atlas-static-index-shard.v1') || decoded.index_kind !== shard.index_kind || !Array.isArray(decoded.entries)) staticAtlasFailure(`${label} decoded contract is invalid`);
+        staticAtlasTemporalIdentity(decoded, signed);
         if (decoded.entries.length !== shard.record_count) staticAtlasFailure(`${label} record count mismatch`);
         return decoded;
       }
@@ -2727,7 +2744,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           decodedShards.push(await staticAtlasDecodeIndexShard(row, shard));
         }
         const merged = {
-          schema_version: 'atlas-static-indexes.v2',
+          schema_version: STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? 'atlas-static-signed-indexes.v1' : 'atlas-static-indexes.v2',
+          ...(STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3' ? {temporal_profile:payload.temporal_profile,temporal_axis:payload.temporal_axis} : {}),
           scope_slug: payload.scope_slug,
           version: payload.version,
           build_id: payload.build_id,
@@ -2768,7 +2786,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
               outer[entry[1]] = indexes;
               merged[kind][entry[0]] = outer;
             } else if (kind === 'time_interval_feature_indexes') {
-              if (entry.length !== 4 || !Number.isFinite(entry[0]) || entry[0] < 0 || !Number.isFinite(entry[1]) || entry[1] < entry[0] || typeof entry[2] !== 'string' || !entry[2] || !Number.isSafeInteger(entry[3]) || entry[3] < 0) staticAtlasFailure(`${label} is malformed`);
+              const signed = STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3';
+              if (entry.length !== 4 || (signed ? !nativeCalendarNumber(entry[0]) || !nativeCalendarNumber(entry[1]) : !Number.isFinite(entry[0]) || entry[0] < 0 || !Number.isFinite(entry[1])) || entry[1] < entry[0] || typeof entry[2] !== 'string' || !entry[2] || !Number.isSafeInteger(entry[3]) || entry[3] < 0) staticAtlasFailure(`${label} is malformed`);
               assertOrderedUnique(kind, entry, label);
               const reference = `${entry[2]}\u0000${entry[3]}`;
               if (featureReferences.get(kind).has(reference)) staticAtlasFailure(`${label} feature reference overlaps another shard`);
@@ -2796,6 +2815,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       }
       function validateStaticAtlasPayload(row, payload) {
         if (!payload || typeof payload !== 'object') staticAtlasFailure(`${row.asset_key} payload is invalid`);
+        staticAtlasTemporalIdentity(payload, STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3');
         if (payload.asset_key !== row.asset_key) staticAtlasFailure(`${row.asset_key} identity mismatch`);
         if (payload.build_id !== STATIC_ATLAS_BOOTSTRAP.build_id) staticAtlasFailure(`${row.asset_key} build mismatch`);
         if (payload.scope_slug !== STATIC_ATLAS_BOOTSTRAP.scope_slug) staticAtlasFailure(`${row.asset_key} scope mismatch`);
@@ -2808,7 +2828,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
         if ((row.domain === 'edges' || row.domain === 'sequences') && (!Array.isArray(payload.records) || payload.records.length !== row.record_count)) staticAtlasFailure(`${row.asset_key} record accounting mismatch`);
         if (row.domain === 'details' && (!Array.isArray(payload.records) || payload.records.length !== row.record_count || payload.records.some((record) => !record || typeof record.record_id !== 'string'))) staticAtlasFailure(`${row.asset_key} detail accounting mismatch`);
         if (row.domain === 'provenance' && (!Array.isArray(payload.layers) || !Array.isArray(payload.scientific_signals) || (payload.schema_version === 'atlas-provenance-chunk.v2' && !Array.isArray(payload.detail_records)))) staticAtlasFailure(`${row.asset_key} evidence accounting mismatch`);
-        if (row.domain === 'indexes' && payload.schema_version === 'atlas-static-indexes.v3') staticAtlasIndexShardEnvelopes(row, payload);
+        staticAtlasTemporalIdentity(payload, STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3');
+        if (row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4'].includes(payload.schema_version)) staticAtlasIndexShardEnvelopes(row, payload);
       }
       async function consumeStaticAtlasAsset(row) {
         if (staticAtlasLoadedAssets.has(row.asset_key)) return;
@@ -2839,7 +2860,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
           staticAtlasFailure(`${row.asset_key} payload JSON is invalid`);
         }
         validateStaticAtlasPayload(row, payload);
-        const acceptedPayload = row.domain === 'indexes' && payload.schema_version === 'atlas-static-indexes.v3'
+        const acceptedPayload = row.domain === 'indexes' && ['atlas-static-indexes.v3','atlas-static-indexes.v4'].includes(payload.schema_version)
           ? await staticAtlasMergeIndexShards(row, payload)
           : payload;
         if (row.domain === 'nodes') STATIC_ATLAS_CHUNKS.nodes.push(payload);
@@ -2907,6 +2928,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
 __NATIVE_LRA_CONTROLLER__
       const NATIVE_LRA_BINDING = __NATIVE_LRA_BINDING__;
       let nativeLraController = null;
+      let signedNativeTime = null;
+      let signedNativeTimeControls = null;
       const POINT_LAYERS = __POINT_LAYERS_JSON__;
       const POLYGON_LAYERS = __POLYGON_LAYERS_JSON__;
       const MODELED_CONTEXT = __MODELED_CONTEXT_JSON__;
@@ -3228,6 +3251,7 @@ __NATIVE_LRA_CONTROLLER__
         return Math.max(TIME_MIN_BP, Math.min(maxStart, Math.round(selected)));
       }
       function timeWindowEndBp() {
+        if (typeof signedNativeTime !== 'undefined' && signedNativeTime !== null) return signedNativeTime.window()[1];
         return Math.min(TIME_MAX_BP, timeStartBp + timeIntervalYears);
       }
       function timeFilterUsesFullExtent() {
@@ -3345,6 +3369,11 @@ __NATIVE_LRA_CONTROLLER__
         }
       }
       function refreshTimeControls() {
+        if (typeof signedNativeTime !== 'undefined' && signedNativeTime !== null) {
+          [timeStartBp] = signedNativeTime.window();
+          if (signedNativeTimeControls) signedNativeTimeControls.refresh();
+          return;
+        }
         if (!TIME_HAS_DATA) {
           timeStartSlider.disabled = true;
           timeIntervalSlider.disabled = true;
@@ -4445,6 +4474,15 @@ __NATIVE_LRA_CONTROLLER__
       let animalNordicOnly = initialState.animalNordic === 'only';
       let timeIntervalYears = TIME_HAS_DATA ? clampTimeInterval(initialState.timeInterval) : DEFAULT_TIME_INTERVAL_YEARS;
       let timeStartBp = TIME_HAS_DATA ? clampTimeStart(initialState.timeStart, timeIntervalYears) : DEFAULT_TIME_START_BP;
+      if (NATIVE_LRA_BINDING !== null && JSON.parse(NATIVE_LRA_BINDING.bytes).schema_version === 'lra-atlas-view.v2') {
+        if (STATIC_ATLAS_BOOTSTRAP.schema_version !== 'atlas-static-bootstrap.v3'
+            || STATIC_ATLAS_BOOTSTRAP.temporal_profile !== 'calendar-bp1950-signed.v1'
+            || STATIC_ATLAS_BOOTSTRAP.temporal_axis !== 'BP1950'
+            || STATIC_ATLAS_BOOTSTRAP.native_view_sha256 !== NATIVE_LRA_BINDING.sha256) throw Error('Signed native time requires its exact static/view identity.');
+        nativeSignedCalendarView(JSON.parse(NATIVE_LRA_BINDING.bytes));
+        signedNativeTime = createSignedNativeTimeState([TIME_MIN_BP, TIME_MAX_BP], NATIVE_LRA_BINDING.sha256);
+        timeStartBp = signedNativeTime.window()[0];
+      } else if (STATIC_ATLAS_BOOTSTRAP.schema_version === 'atlas-static-bootstrap.v3') throw Error('Signed static transport requires a signed native view.');
       const initialTimeWindowIsExplicit = initialState.timeStart !== null || initialState.timeInterval !== null;
       if (TIME_HAS_DATA && !initialTimeWindowIsExplicit) focusSourceChronologyNavigation();
       const initialModeledContextIndex = MODELED_CONTEXT_WINDOWS.findIndex(
@@ -4878,8 +4916,8 @@ __NATIVE_LRA_CONTROLLER__
           params.set('modeled_family', modeledContextFamilyKey);
           params.set('modeled_metric', modeledContextMetricKey);
         } else {
-          if (TIME_HAS_DATA && timeStartBp !== DEFAULT_TIME_START_BP) params.set('time_start', String(timeStartBp));
-          if (TIME_HAS_DATA && timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS) params.set('time_interval', String(timeIntervalYears));
+          if (!signedNativeTime && TIME_HAS_DATA && timeStartBp !== DEFAULT_TIME_START_BP) params.set('time_start', String(timeStartBp));
+          if (!signedNativeTime && TIME_HAS_DATA && timeIntervalYears !== DEFAULT_TIME_INTERVAL_YEARS) params.set('time_interval', String(timeIntervalYears));
         }
         if (Math.round(densityOpacity * 100) !== 60) params.set('density', String(Math.round(densityOpacity * 100)));
         if (currentBasemap !== DEFAULT_BASEMAP) params.set('basemap', currentBasemap);
@@ -5916,6 +5954,17 @@ __NATIVE_LRA_CONTROLLER__
         return count === null ? 'mapped count unavailable' : `${count} mapped point${count === 1 ? '' : 's'}`;
       }
       function featureTimeAdmission(feature) {
+        if (typeof signedNativeTime !== 'undefined' && signedNativeTime !== null) {
+          try {
+            if (Object.prototype.hasOwnProperty.call(feature,'temporal_semantics')) return {status:'refused',window:null};
+            const source = nativeCalendarSupport(feature.source_calendar_support, 'closed_age_support');
+            const window = nativeCalendarSupport(feature.declared_calendar_support, 'declared_stationarity_envelope');
+            if (feature.age_type !== 'calendar_bp' || feature.time_start_bp !== window[0] || feature.time_end_bp !== window[1]
+                || JSON.stringify(feature.source_age_support_bp) !== JSON.stringify([source])
+                || source[0] < window[0] || source[1] > window[1]) return {status:'refused',window:null};
+            return {status:'valid',window:{start:window[0],end:window[1]}};
+          } catch(error) {return {status:'refused',window:null};}
+        }
         const semantics = feature?.temporal_semantics;
         let posture = '';
         if (semantics && typeof semantics === 'object' && !Array.isArray(semantics)) {
@@ -6473,7 +6522,7 @@ __NATIVE_LRA_CONTROLLER__
           renderAtlasCaptureOverlay(atlasCaptureSnapshot());
         }
       }
-      const ATLAS_CAPTURE_API_VERSION = 'atlas-capture.v1';
+      const ATLAS_CAPTURE_API_VERSION = typeof signedNativeTime !== 'undefined' && signedNativeTime !== null ? 'atlas-capture.v2' : 'atlas-capture.v1';
       let atlasCapturePresentation = null;
       function captureFrameNumber(value, label) {
         if (typeof value !== 'number' || !Number.isFinite(value) || value < 0) throw new Error(`${label} must be a finite non-negative number`);
@@ -6502,6 +6551,7 @@ __NATIVE_LRA_CONTROLLER__
         return { latitude, longitude, zoom };
       }
       function normalizeAtlasCaptureFrame(frameSpec) {
+        if (typeof signedNativeTime !== 'undefined' && signedNativeTime !== null) throw Error('signed_native_media_capture_unsupported');
         if (!frameSpec || typeof frameSpec !== 'object' || Array.isArray(frameSpec)) throw new Error('capture frame must be an object');
         const storyKind = String(frameSpec.story_kind || '');
         if (storyKind === 'candidate_succession') throw new Error('candidate_succession_capture_not_releasable');
@@ -6627,6 +6677,7 @@ __NATIVE_LRA_CONTROLLER__
           && overlayBounds.bottom > mapBounds.top;
         return {
           capture_api_version: ATLAS_CAPTURE_API_VERSION,
+          ...(typeof signedNativeTime !== 'undefined' && signedNativeTime !== null ? {temporal_profile:'calendar-bp1950-signed.v1',temporal_axis:'BP1950',native_view_sha256:NATIVE_LRA_BINDING.sha256,native_lra:nativeLraController ? nativeLraController.snapshot() : null} : {}),
           build_id: STATIC_ATLAS_BOOTSTRAP.build_id,
           scope_slug: STATIC_ATLAS_BOOTSTRAP.scope_slug,
           version: STATIC_ATLAS_BOOTSTRAP.version,
@@ -6969,6 +7020,7 @@ __NATIVE_LRA_CONTROLLER__
         slider.value = __INITIAL_DIAMETER__;
         timeStartBp = DEFAULT_TIME_START_BP;
         timeIntervalYears = DEFAULT_TIME_INTERVAL_YEARS;
+        if (signedNativeTime) signedNativeTime.set(signedNativeTime.extent());
         focusSourceChronologyNavigation();
         densityOpacity = 0.6;
         densityOpacitySlider.value = '60';
@@ -7365,10 +7417,13 @@ __NATIVE_LRA_CONTROLLER__
         const nativeView = JSON.parse(NATIVE_LRA_BINDING.bytes);
         nativeLraController = createNativeLraController(nativeView, NATIVE_LRA_BINDING.sha256, {
           sha256: staticAtlasSha256,
-          globalContext: () => ({time_window_bp: [timeStartBp, timeWindowEndBp()], active_layer_keys: [...activeLayerKeys]}),
+          globalContext: () => ({time_window_bp: signedNativeTime ? signedNativeTime.window() : [timeStartBp, timeWindowEndBp()], active_layer_keys: [...activeLayerKeys], ...(signedNativeTime ? {temporal_profile:'calendar-bp1950-signed.v1',temporal_axis:'BP1950'} : {})}),
+          restoreTime: params => {signedNativeTime.restore(params);timeStartBp=signedNativeTime.window()[0];},
+          writeTime: params => signedNativeTime.write(params),
           changed: () => renderMapState(),
         });
         nativeLraController.restoreHash(new URLSearchParams(window.location.hash.slice(1)));
+        if (signedNativeTime) signedNativeTimeControls = mountSignedNativeTimeControls(signedNativeTime, () => {timeStartBp=signedNativeTime.window()[0];renderMapState();});
         nativeLraController.mount();
         window.__BIJUX_LRA_VIEW__ = Object.freeze({snapshot: nativeLraController.snapshot, setSelection: nativeLraController.setSelection, exportSelection: nativeLraController.exportSelection});
       }

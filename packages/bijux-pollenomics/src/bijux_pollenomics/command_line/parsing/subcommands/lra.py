@@ -95,6 +95,12 @@ def build_render_lra_report_parser(
         required=True,
         help="New directory for the exploratory report.",
     )
+    parser.add_argument(
+        "--temporal-profile",
+        choices=["calendar-bp1950-signed.v1"],
+        default=None,
+        help="Explicit signed calendar BP1950 representation for synthetic paired reports.",
+    )
     return parser
 
 

@@ -74,7 +74,7 @@ def test_selection_challenge_detects_consistent_but_wrong_presentation(
     script = """
 import {createHash} from 'node:crypto';
 import {selectionAgreement} from MODULE;
-const view={product_manifest_sha256:'a'.repeat(64),geometry_sha256:'b'.repeat(64),
+const view={schema_version:'lra-atlas-view.v1',product_manifest_sha256:'a'.repeat(64),geometry_sha256:'b'.repeat(64),
 request_sha256:'c'.repeat(64),scientific_content_sha256:'d'.repeat(64),data_kind:'synthetic',operation:'lra',
 method:{profile:'disqover-0.9.14'},uncertainty_omissions:['chronology'],exclusions:[],rows:[
   {row_id:'a',role:'regional',site_id:'one',taxon:'pine',bin_id:'old',native_unit:'percent',native_value:'0',declared_bin:{younger_bp:5,older_bp:10}},

@@ -12,11 +12,17 @@ import zipfile
 
 from ..atlas_media.process_execution import BoundedProcessError, run_bounded_argv
 from .contracts import (
+    SIGNED_CALENDAR_PROFILE,
     AtlasArtifactCandidate,
     AtlasBrowserContractError,
     BrowserVerificationPlan,
     JsonObject,
     safe_artifact_path,
+)
+from .temporal_contract import (
+    presentation_temporal_identity,
+    receipt_temporal_profile,
+    validate_invocation,
 )
 
 SOURCE_ROOTS = (
@@ -37,6 +43,12 @@ from bijux_pollenomics.reporting.lra_products.api import render_lra_report
 render_lra_report(Path(sys.argv[2]),expected_manifest_sha256=sys.argv[3],geometry_path=Path(sys.argv[4]),expected_geometry_sha256=sys.argv[5],destination=Path(sys.argv[6]))
 print(json.dumps({'python':platform.python_version(),'implementation':platform.python_implementation(),'executable':str(Path(sys.executable).resolve()),'executable_sha256':hashlib.sha256(Path(sys.executable).resolve().read_bytes()).hexdigest(),'distributions':sorted([{'name':d.metadata['Name'],'version':d.version} for d in metadata.distributions()],key=lambda d:(d['name'],d['version']))}))
 """
+
+# A distinct literal preserves historical v1 invocation receipts byte-for-byte.
+SIGNED_GENERATOR_SCRIPT = GENERATOR_SCRIPT.replace(
+    "destination=Path(sys.argv[6]))",
+    "destination=Path(sys.argv[6]),temporal_profile=sys.argv[7])",
+)
 
 
 def canonical_digest(value: object) -> str:
@@ -210,11 +222,10 @@ def _source_receipt(root: Path, candidate: AtlasArtifactCandidate) -> dict[str, 
         "inputs",
         "output",
     }
-    if (
-        set(receipt) != required
-        or receipt["schema_version"] != "atlas-artifact-generation.v1"
-        or receipt["source_relation"] != "committed_tree"
-    ):
+    signed = receipt_temporal_profile(receipt) is not None
+    if signed:
+        required |= {"temporal_profile", "temporal_axis"}
+    if set(receipt) != required or receipt["source_relation"] != "committed_tree":
         raise AtlasBrowserContractError(
             "unsupported generator receipt or source relation"
         )
@@ -305,28 +316,10 @@ def _source_receipt(root: Path, candidate: AtlasArtifactCandidate) -> dict[str, 
     ):
         raise AtlasBrowserContractError("generator distribution inventory is unordered")
     invocation = receipt["invocation"]
-    if not isinstance(invocation, dict) or set(invocation) != {
-        "argv",
-        "cwd",
-        "python_binary",
-    }:
-        raise AtlasBrowserContractError("generator invocation is incomplete")
-    argv = invocation["argv"]
-    if (
-        not isinstance(argv, list)
-        or len(argv) != 10
-        or any(not isinstance(v, str) for v in argv)
-        or not isinstance(invocation["python_binary"], str)
-        or not Path(invocation["python_binary"]).is_absolute()
-        or argv[0] != invocation["python_binary"]
-        or invocation["cwd"] != str(source)
-    ):
-        raise AtlasBrowserContractError("generator invocation identity differs")
     expected_arguments = [
-        argv[0],
         "-I",
         "-c",
-        GENERATOR_SCRIPT,
+        SIGNED_GENERATOR_SCRIPT if signed else GENERATOR_SCRIPT,
         str(source / "packages/bijux-pollenomics/src"),
         str(root / safe_artifact_path(receipt["inputs"]["product_directory"])),
         candidate.product_manifest_sha256,
@@ -334,8 +327,9 @@ def _source_receipt(root: Path, candidate: AtlasArtifactCandidate) -> dict[str, 
         candidate.display_geometry_sha256,
         str(presentation),
     ]
-    if argv != expected_arguments:
-        raise AtlasBrowserContractError("generator invocation arguments differ")
+    if signed:
+        expected_arguments.append(SIGNED_CALENDAR_PROFILE)
+    validate_invocation(invocation, expected_arguments, source=source)
     expected_output = {
         key: value
         for key, value in candidate.as_json().items()
@@ -400,8 +394,11 @@ def audit_artifact_candidate(plan: BrowserVerificationPlan) -> JsonObject:
         raise AtlasBrowserContractError(
             "presentation physical inventory differs from manifest"
         )
+    temporal_identity = presentation_temporal_identity(
+        receipt, plan.verification_profile
+    )
     expected = {
-        "schema_version": "lra-presentation.v1",
+        **temporal_identity,
         "status": "generated_exploratory",
         "scientific_acceptance": "not_evaluated",
         "publication_authorized": False,
@@ -409,6 +406,12 @@ def audit_artifact_candidate(plan: BrowserVerificationPlan) -> JsonObject:
         "product_manifest_sha256": candidate.product_manifest_sha256,
         "display_geometry_sha256": candidate.display_geometry_sha256,
     }
+    if "temporal_profile" not in temporal_identity and (
+        "temporal_profile" in manifest or "temporal_axis" in manifest
+    ):
+        raise AtlasBrowserContractError(
+            "legacy presentation cannot declare signed chronology"
+        )
     if any(manifest.get(key) != value for key, value in expected.items()):
         raise AtlasBrowserContractError(
             "presentation identity or acceptance posture differs"

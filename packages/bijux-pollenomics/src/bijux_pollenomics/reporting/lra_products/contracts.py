@@ -9,7 +9,11 @@ import os
 from pathlib import Path
 import re
 import stat
-from typing import Any
+from typing import Any, Literal
+
+from ...core.calendar_support import SignedCalendarSupport
+
+TemporalProfile = Literal["calendar-bp1950-signed.v1"]
 
 
 class LRAPresentationRefusal(ValueError):
@@ -86,4 +90,54 @@ def bound_bytes(path: Path, expected: str) -> bytes:
     return value
 
 
-__all__ = ["LRAPresentation", "LRAPresentationRefusal"]
+def validate_temporal_profile(value: object) -> None:
+    """Keep signed presentation opt-in explicit and legacy behavior unchanged."""
+    if value is not None and (
+        not isinstance(value, str) or value != "calendar-bp1950-signed.v1"
+    ):
+        raise LRAPresentationRefusal("unsupported_temporal_profile", str(value))
+
+
+def calendar_supports(
+    request: dict[str, Any],
+) -> dict[str, tuple[dict[str, object], dict[str, object]]]:
+    """Admit only declared synthetic calendar samples; never relabel chronology."""
+    try:
+        if request["data_kind"] != "synthetic" or request["operation"] != "lra":
+            raise ValueError("Signed presentation requires a synthetic paired product")
+        bins = request["temporal_matching"]["bins"]
+        if len(bins) != 1:
+            raise ValueError("Signed presentation requires one declared bin")
+        window = bins[0]
+        declared = SignedCalendarSupport(
+            window["younger_bp"],
+            window["older_bp"],
+            support_kind="declared_stationarity_envelope",
+        )
+        result = {}
+        for role in ("regional", "local"):
+            samples = request[role]["samples"]
+            if len(samples) != 1:
+                raise ValueError("Signed presentation requires one sample per role")
+            sample = samples[0]
+            if sample["age_type"] != "calendar_bp":
+                raise ValueError("Signed presentation requires explicit calendar_bp")
+            if len(sample["age_support_bp"]) != 1:
+                raise ValueError("Signed presentation requires one source component")
+            younger, older = sample["age_support_bp"][0]
+            source = SignedCalendarSupport(
+                younger, older, support_kind="closed_age_support"
+            )
+            if sample["bin_id"] != window["bin_id"] or not (
+                declared.contains(younger) and declared.contains(older)
+            ):
+                raise ValueError("Source calendar support is outside its declared bin")
+            result[role] = source.as_dict(), declared.as_dict()
+        return result
+    except (KeyError, TypeError, ValueError) as exc:
+        raise LRAPresentationRefusal(
+            "unsupported_signed_calendar_request", str(exc)
+        ) from exc
+
+
+__all__ = ["LRAPresentation", "LRAPresentationRefusal", "TemporalProfile"]

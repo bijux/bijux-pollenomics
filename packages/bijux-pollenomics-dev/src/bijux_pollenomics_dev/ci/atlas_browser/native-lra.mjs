@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
+import { signedViewAgreement, signedObservationAgreement, signedStaticAgreement, exerciseSignedCalendar, signedControlAgreement } from './signed-native-lra.mjs';
 
 export const NATIVE_LRA_REQUIRED_ASSERTIONS = Object.freeze([
   'capture_api_ready', 'candidate_identity', 'keyless_provider_policy',
@@ -16,6 +17,13 @@ export const NATIVE_LRA_REQUIRED_ASSERTIONS = Object.freeze([
   'runtime_console_clean', 'receipt_inventory_complete',
 ]);
 
+export const SIGNED_NATIVE_LRA_REQUIRED_ASSERTIONS = Object.freeze([
+  ...NATIVE_LRA_REQUIRED_ASSERTIONS,
+  'signed_calendar_profile_identity', 'signed_fractional_point_controls',
+  'signed_calendar_url_exact_roundtrip', 'signed_calendar_static_transport',
+  'signed_calendar_retained_capture', 'signed_calendar_legacy_media_refused',
+]);
+
 function digest(text) {
   return createHash('sha256').update(text).digest('hex');
 }
@@ -29,6 +37,9 @@ function ids(rows) {
 }
 
 export function selectionAgreement(view, observation, expectedViewSha256) {
+  const signed=view.schema_version==='lra-atlas-view.v2';
+  if (signed && !signedObservationAgreement(view,observation,expectedViewSha256)) return false;
+  if (!signed && view.schema_version!=='lra-atlas-view.v1') return false;
   const { snapshot, exported, dom } = observation;
   if (!snapshot || !exported || !dom || typeof exported.bytes !== 'string') return false;
   let decoded;
@@ -37,11 +48,12 @@ export function selectionAgreement(view, observation, expectedViewSha256) {
     || exported.bytes!==JSON.stringify(decoded)+'\n') return false;
   const stateFields=['view_sha256','product_manifest_sha256','geometry_sha256','selection','global_context',
     'selected_row_ids','mapped_anchor_ids','counts','rows','sites','refusal','temporal_refusal_policy'];
-  const metadata={schema_version:'lra-selected-estimates.v1',serialization:'ECMAScript JSON.stringify + LF; UTF-8',
+  const metadata={schema_version:signed?'lra-selected-estimates.v2':'lra-selected-estimates.v1',serialization:'ECMAScript JSON.stringify + LF; UTF-8',
     request_sha256:view.request_sha256,scientific_content_sha256:view.scientific_content_sha256,
     data_kind:view.data_kind,operation:view.operation,method:view.method,
     scientific_acceptance:'not_evaluated',publication_authorized:false,
-    uncertainty_omissions:view.uncertainty_omissions,exclusions:view.exclusions};
+    uncertainty_omissions:view.uncertainty_omissions,exclusions:view.exclusions,
+    ...(signed?{temporal_profile:view.temporal_profile,temporal_axis:view.temporal_axis}:{})};
   if(!same(Object.keys(snapshot).sort(),[...stateFields].sort())
     || !same(Object.keys(decoded).sort(),[...stateFields,...Object.keys(metadata)].sort())
     || stateFields.some(key=>!same(snapshot[key],decoded[key]))
@@ -59,9 +71,9 @@ export function selectionAgreement(view, observation, expectedViewSha256) {
       || selection[key].some(value=>typeof value!=='string' || !view.rows.some(row=>row[field]===value)))
     || !same(dom.selection,selection)) return false;
   const context = snapshot.global_context;
-  if (!context || !same(Object.keys(context).sort(),['active_layer_keys','time_window_bp'])
+  if (!context || !same(Object.keys(context).sort(),signed?['active_layer_keys','temporal_axis','temporal_profile','time_window_bp']:['active_layer_keys','time_window_bp'])
     || !Array.isArray(context.time_window_bp) || context.time_window_bp.length!==2
-    || context.time_window_bp.some(value=>typeof value!=='number' || !Number.isFinite(value) || value<0)
+    || context.time_window_bp.some(value=>typeof value!=='number' || !Number.isFinite(value) || (signed?Math.abs(value)>Number.MAX_SAFE_INTEGER:value<0))
     || context.time_window_bp[0]>context.time_window_bp[1]
     || !Array.isArray(context.active_layer_keys)
     || context.active_layer_keys.some(value=>typeof value!=='string')
@@ -180,6 +192,8 @@ export async function verifyNativeLraScope(scope, debuggerOrigin, service) {
   const folder = join(repositoryRoot, dirname(scope.document));
   const viewBytes = await readFile(join(folder, 'native-view.json'), 'utf8');
   const view = JSON.parse(viewBytes);
+  const signed=service.verificationProfile==='native-lra-signed-calendar-v1';
+  if(signed ? !signedViewAgreement(view) : view.schema_version!=='lra-atlas-view.v1') throw Error('Native view differs from requested browser profile');
   const presentation = JSON.parse(await readFile(join(folder, 'manifest.json'), 'utf8'));
   const agrees = observation => selectionAgreement(view,observation,presentation.native_view_sha256);
   const normal = await openAtlas(scope, debuggerOrigin, {name:'native-normal', hash:'#basemap=none'});
@@ -227,6 +241,11 @@ export async function verifyNativeLraScope(scope, debuggerOrigin, service) {
     [...document.querySelectorAll('.layer-checkbox')].find(node=>node.value===${JSON.stringify(layerKey)}).click();
     await globalThis.BijuxPollenomicsAtlasCapture.awaitReady();
   })()`);
+  let calendar=null, narrowedTime, restoredContext;
+  if(signed){
+    calendar=await exerciseSignedCalendar(normal.cdp,evaluate,observe,initial);
+    narrowedTime=calendar.narrowed;restoredContext=calendar.restored;
+  }else{
   await evaluate(normal.cdp, `(async () => {
     const interval=document.getElementById('time-interval-slider');
     interval.value='1'; interval.dispatchEvent(new Event('input',{bubbles:true}));
@@ -235,12 +254,13 @@ export async function verifyNativeLraScope(scope, debuggerOrigin, service) {
     start.value=start.max; start.dispatchEvent(new Event('input',{bubbles:true}));
     await globalThis.BijuxPollenomicsAtlasCapture.awaitReady();
   })()`);
-  const narrowedTime=await observe(normal.cdp,evaluate);
+  narrowedTime=await observe(normal.cdp,evaluate);
   await evaluate(normal.cdp, `(async () => {
     document.querySelector('[data-time-interval="full"]').click();
     await globalThis.BijuxPollenomicsAtlasCapture.awaitReady();
   })()`);
-  const restoredContext=await observe(normal.cdp,evaluate);
+  restoredContext=await observe(normal.cdp,evaluate);
+  }
   const downloaded = await evaluate(normal.cdp, `(async () => {
     const original=URL.createObjectURL;
     let timeout;
@@ -273,16 +293,16 @@ export async function verifyNativeLraScope(scope, debuggerOrigin, service) {
   const selected = selections.find(item => item.snapshot.selected_row_ids.length > 0
     && item.snapshot.selected_row_ids.length < initial.snapshot.selected_row_ids.length);
   if (!selected) throw new Error('Native browser fixture needs a nonempty proper subset');
-  const roundtripSource = await select(normal.cdp, selected.snapshot.selection, evaluate);
+  const roundtripSource = signed ? calendar.url : await select(normal.cdp, selected.snapshot.selection, evaluate);
   const restored = await openAtlas(scope,debuggerOrigin,{name:'native-url',hash:roundtripSource.hash});
   await captureReady(restored.cdp);
   const roundtrip = await observe(restored.cdp,evaluate);
   await closeAtlas(restored,debuggerOrigin);
   const result = {
-    scope:scope.name, name:'native-selection-and-responsive', initial,userSelection,selections,empty,invalid,layouts,roundtrip,hiddenLayer,narrowedTime,restoredContext,keyboard,
+    scope:scope.name, name:'native-selection-and-responsive', initial,userSelection,selections,empty,invalid,layouts,roundtrip,hiddenLayer,narrowedTime,restoredContext,keyboard,...(signed?{calendar}:{}),
     runtime_failures:normal.runtimeFailures,
     assertions:{
-      capture_api_ready:ready.ready===true && ready.capture_api_version==='atlas-capture.v1',
+      capture_api_ready:ready.ready===true && ready.capture_api_version===(signed?'atlas-capture.v2':'atlas-capture.v1'),
       candidate_identity:ready.build_id===candidate.build_id && ready.scope_slug===scope.name,
       keyless_provider_policy:page.api_key_sentinel_absent && page.carto_absent && page.osm_resource_present,
       native_view_identity:digest(viewBytes)===presentation.native_view_sha256
@@ -315,8 +335,8 @@ export async function verifyNativeLraScope(scope, debuggerOrigin, service) {
         && hiddenLayer.snapshot.selected_row_ids.length<initial.snapshot.selected_row_ids.length
         && hiddenLayer.capture.visible_point_count===hiddenLayer.snapshot.mapped_anchor_ids.length
         && agrees(narrowedTime)
-        && !same(narrowedTime.snapshot.global_context.time_window_bp,initial.snapshot.global_context.time_window_bp)
-        && narrowedTime.exported.sha256!==initial.exported.sha256
+        && (signed ? signedControlAgreement(calendar,initial) : !same(narrowedTime.snapshot.global_context.time_window_bp,initial.snapshot.global_context.time_window_bp)
+        && narrowedTime.exported.sha256!==initial.exported.sha256)
         && restoredContext.exported.sha256===initial.exported.sha256,
       responsive_1440:layoutPasses(layouts[1440]), responsive_1024:layoutPasses(layouts[1024]),
       responsive_768:layoutPasses(layouts[768]), responsive_390:layoutPasses(layouts[390]),
@@ -325,6 +345,16 @@ export async function verifyNativeLraScope(scope, debuggerOrigin, service) {
       help_dialog_accessible:[layouts[1440],layouts[390]].every(layout=>helpDialogPasses(layout.help)),
       no_basemap_zero_tile_requests:initial.capture.basemap==='none' && normal.providerRequests.length===0,
       runtime_console_clean:normal.runtimeFailures.length===0,
+      ...(signed?{
+        signed_calendar_profile_identity:signedViewAgreement(view) && presentation.schema_version==='lra-presentation.v2'
+          && presentation.temporal_profile===view.temporal_profile && presentation.temporal_axis===view.temporal_axis,
+        signed_fractional_point_controls:signedControlAgreement(calendar,initial) && [calendar.narrowed,calendar.point,calendar.restored].every(agrees),
+        signed_calendar_url_exact_roundtrip:same(roundtrip.snapshot.global_context,calendar.url.snapshot.global_context)
+          && roundtrip.exported.sha256===calendar.url.exported.sha256 && agrees(roundtrip),
+        signed_calendar_static_transport:signedStaticAgreement(JSON.parse(served[2]),presentation.native_view_sha256),
+        signed_calendar_retained_capture:[initial,calendar.narrowed,calendar.point,calendar.restored,roundtrip].every(item=>signedObservationAgreement(view,item,presentation.native_view_sha256)),
+        signed_calendar_legacy_media_refused:calendar.media.refused===true,
+      }:{}),
     },
   };
   await closeAtlas(normal,debuggerOrigin);

@@ -68,8 +68,10 @@ async function inventory(root, prefix = '') {
   }
   return rows.sort((a, b) => compare(a.path, b.path));
 }
-async function sourceClosure(repositoryRoot, candidate, receipt) {
-  if (receipt.schema_version !== 'atlas-artifact-generation.v1' || receipt.source_relation !== 'committed_tree'
+async function sourceClosure(repositoryRoot, candidate, receipt, signed) {
+  if (receipt.schema_version !== (signed ? 'atlas-artifact-generation.v2' : 'atlas-artifact-generation.v1')
+      || (signed ? receipt.temporal_profile !== 'calendar-bp1950-signed.v1' || receipt.temporal_axis !== 'BP1950' : 'temporal_profile' in receipt || 'temporal_axis' in receipt)
+      || receipt.source_relation !== 'committed_tree'
       || receipt.generator_repository_head !== candidate.generator_repository_head
       || receipt.generator_repository_tree !== candidate.generator_repository_tree
       || receipt.entry_point !== 'bijux_pollenomics.reporting.lra_products.api:render_lra_report') throw new Error('generator receipt identity differs');
@@ -116,20 +118,22 @@ async function sourceClosure(repositoryRoot, candidate, receipt) {
 
 export async function assertArtifactCandidate(plan) {
   const candidate = plan.candidate;
+  const signed = plan.verification_profile === 'native-lra-signed-calendar-v1';
   if (plan.schema_version !== 'atlas-browser-verification-plan.v3' || candidate.kind !== 'local_lra_presentation'
-      || plan.verification_profile !== 'native-lra-exploratory-v1') throw new Error('unsupported artifact candidate/profile');
+      || !['native-lra-exploratory-v1', 'native-lra-signed-calendar-v1'].includes(plan.verification_profile)) throw new Error('unsupported artifact candidate/profile');
   const repositoryRoot = resolve(plan.repository_root);
   const root = join(repositoryRoot, safe(candidate.presentation_root));
   if (!candidate.presentation_root.startsWith('artifacts/')) throw new Error('presentation is outside artifacts');
   const encodedReceipt = await bound(repositoryRoot, candidate.generator_receipt, candidate.generator_receipt_sha256);
   const receipt = JSON.parse(encodedReceipt.toString('utf8'));
-  await sourceClosure(repositoryRoot, candidate, receipt);
+  await sourceClosure(repositoryRoot, candidate, receipt, signed);
   const encoded = await bound(root, 'manifest.json', candidate.presentation_manifest_sha256);
   const manifest = JSON.parse(encoded.toString('utf8'));
   const files = await inventory(root);
   if (hash(Buffer.from(canonical(files))) !== candidate.presentation_inventory_sha256) throw new Error('presentation inventory differs');
   const hashes = Object.fromEntries(files.filter((row) => row.path !== 'manifest.json').map((row) => [row.path, row.sha256]));
-  if (canonical(hashes) !== canonical(manifest.files) || manifest.schema_version !== 'lra-presentation.v1'
+  if (canonical(hashes) !== canonical(manifest.files) || manifest.schema_version !== (signed ? 'lra-presentation.v2' : 'lra-presentation.v1')
+      || (signed ? manifest.temporal_profile !== 'calendar-bp1950-signed.v1' || manifest.temporal_axis !== 'BP1950' : 'temporal_profile' in manifest || 'temporal_axis' in manifest)
       || manifest.status !== 'generated_exploratory' || manifest.scientific_acceptance !== 'not_evaluated'
       || manifest.publication_authorized !== false || manifest.data_kind !== 'synthetic' || manifest.operation !== 'lra' || manifest.map_build_id !== candidate.build_id
       || manifest.product_manifest_sha256 !== candidate.product_manifest_sha256

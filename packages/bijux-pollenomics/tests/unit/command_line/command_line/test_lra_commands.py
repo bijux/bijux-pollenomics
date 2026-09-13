@@ -15,10 +15,12 @@ from ...analysis.lra.support import request_fixture
 
 
 @pytest.mark.parametrize("refused", [False, True])
+@pytest.mark.parametrize("profile", [None, "calendar-bp1950-signed.v1"])
 def test_saved_report_command_pins_both_inputs_without_running_engine(
     tmp_path: Path,
     capsys: pytest.CaptureFixture[str],
     refused: bool,
+    profile: str | None,
 ) -> None:
     from bijux_pollenomics.command_line.runtime import lra
     from bijux_pollenomics.reporting.lra_products import api
@@ -58,6 +60,7 @@ def test_saved_report_command_pins_both_inputs_without_running_engine(
                 "2" * 64,
                 "--output",
                 str(destination),
+                *([] if profile is None else ["--temporal-profile", profile]),
             ]
         )
     assert code == (2 if refused else 0)
@@ -68,6 +71,7 @@ def test_saved_report_command_pins_both_inputs_without_running_engine(
         geometry_path=geometry,
         expected_geometry_sha256="2" * 64,
         destination=destination,
+        temporal_profile=profile,
     )
     payload = json.loads(capsys.readouterr().out)
     if refused:

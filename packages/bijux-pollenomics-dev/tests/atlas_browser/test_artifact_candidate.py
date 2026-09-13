@@ -193,3 +193,83 @@ def test_v3_schema_cannot_be_downgraded_or_malformed(
     plan = artifact_plan(tmp_path, monkeypatch)
     with pytest.raises(AtlasBrowserContractError):
         BrowserVerificationPlan.from_json({**plan.as_json(), "schema_version": schema})
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        None,
+        "script",
+        "argument",
+        "missing_argument",
+        "receipt_profile",
+        "manifest_profile",
+        "wrong_browser",
+    ],
+)
+def test_signed_candidate_binds_generation_invocation_and_presentation(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, mutation: str | None
+) -> None:
+    from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
+        NATIVE_LRA_PROFILE,
+        SIGNED_NATIVE_LRA_PROFILE,
+    )
+
+    plan = artifact_plan(tmp_path, monkeypatch)
+    candidate = plan.candidate
+    assert isinstance(candidate, AtlasArtifactCandidate)
+    manifest_path = tmp_path / candidate.presentation_root / "manifest.json"
+    manifest = json.loads(manifest_path.read_bytes())
+    manifest.update(
+        schema_version="lra-presentation.v2",
+        temporal_profile="calendar-bp1950-signed.v1",
+        temporal_axis="BP1950",
+    )
+    if mutation == "manifest_profile":
+        manifest["temporal_axis"] = "radiocarbon"
+    manifest_path.write_bytes(encode(manifest))
+    candidate = replace(
+        candidate,
+        presentation_manifest_sha256=audit.sha256(manifest_path.read_bytes()),
+        presentation_inventory_sha256=audit.canonical_digest(
+            audit.inventory(manifest_path.parent)
+        ),
+    )
+    receipt_path = tmp_path / candidate.generator_receipt
+    receipt = json.loads(receipt_path.read_bytes())
+    receipt.update(
+        schema_version="atlas-artifact-generation.v2",
+        temporal_profile="calendar-bp1950-signed.v1",
+        temporal_axis="BP1950",
+    )
+    receipt["output"].update(
+        presentation_manifest_sha256=candidate.presentation_manifest_sha256,
+        presentation_inventory_sha256=candidate.presentation_inventory_sha256,
+    )
+    argv = receipt["invocation"]["argv"]
+    argv[3] = audit.SIGNED_GENERATOR_SCRIPT
+    argv.append("calendar-bp1950-signed.v1")
+    if mutation == "script":
+        argv[3] = audit.GENERATOR_SCRIPT
+    if mutation == "argument":
+        argv[-1] = "other"
+    if mutation == "missing_argument":
+        argv.pop()
+    if mutation == "receipt_profile":
+        receipt["temporal_profile"] = "other"
+    receipt_path.write_bytes(encode(receipt))
+    candidate = replace(
+        candidate, generator_receipt_sha256=audit.sha256(receipt_path.read_bytes())
+    )
+    plan = replace(
+        plan,
+        candidate=candidate,
+        verification_profile=NATIVE_LRA_PROFILE
+        if mutation == "wrong_browser"
+        else SIGNED_NATIVE_LRA_PROFILE,
+    )
+    if mutation:
+        with pytest.raises(AtlasBrowserContractError):
+            audit.audit_artifact_candidate(plan)
+    else:
+        audit.audit_artifact_candidate(plan)

@@ -7,7 +7,13 @@ import io
 from pathlib import PurePosixPath
 from typing import Any
 
-from .contracts import canonical, digest
+from .contracts import (
+    TemporalProfile,
+    calendar_supports,
+    canonical,
+    digest,
+    validate_temporal_profile,
+)
 
 
 def numerical_tables(files: dict[str, bytes]) -> list[dict[str, Any]]:
@@ -38,12 +44,15 @@ def model_rows(
     request: dict[str, Any],
     *,
     request_sha256: str,
+    temporal_profile: TemporalProfile | None = None,
 ) -> list[dict[str, Any]]:
     """Project paired estimates without rounding, imputing or converting units.
 
     Other operations retain complete numerical tables and the original product;
     their typed presentation and map profile have an explicit refusal.
     """
+    validate_temporal_profile(temporal_profile)
+    supports = calendar_supports(request) if temporal_profile is not None else {}
     if request["operation"] != "lra":
         return []
     bins = {row["bin_id"]: row for row in request["temporal_matching"]["bins"]}
@@ -119,6 +128,10 @@ def model_rows(
                         "chronology_evidence_id": sample["chronology_evidence_id"],
                         "spatial_support": support,
                     }
+                    if temporal_profile is not None:
+                        source, declared = supports[role]
+                        row["source_calendar_support"] = dict(source)
+                        row["declared_calendar_support"] = dict(declared)
                     projected.append(row)
     return sorted(projected, key=lambda row: row["row_id"])
 

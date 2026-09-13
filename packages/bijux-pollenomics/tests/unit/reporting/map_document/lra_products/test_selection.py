@@ -62,3 +62,58 @@ def test_unknown_selection_refuses_export_and_can_recover() -> None:
     assert observed["refused"]["selected_row_ids"] == []
     assert observed["exportRefused"] is True
     assert observed["recovered"]["counts"]["selected_rows"] == 3
+
+
+@pytest.mark.parametrize(
+    "bounds", [(-50.75, -49.25), (-0.75, 0.75), (0, 0), (49.25, 50.75)]
+)
+@pytest.mark.parametrize("empty", [False, True])
+def test_signed_python_and_browser_preserve_exact_selection_and_nulls(
+    bounds: tuple[float, float], empty: bool
+) -> None:
+    from .signed_support import signed_fixture
+
+    view, _ = signed_fixture(*bounds)
+    selection = selection_fixture(view)
+    if empty:
+        selection["roles"] = []
+    context = {
+        "time_window_bp": list(bounds),
+        "active_layer_keys": ["layer-r", "layer-l"],
+        "temporal_profile": "calendar-bp1950-signed.v1",
+        "temporal_axis": "BP1950",
+    }
+    expected = select_native_rows(view, selection, context)
+    observed = run_controller(
+        view,
+        f"controller.setSelection({json.dumps(selection)}); console.log(JSON.stringify(await controller.exportSelection()));",
+        context=context,
+    )
+    assert all(observed["payload"][key] == value for key, value in expected.items())
+    assert observed["payload"]["schema_version"] == "lra-selected-estimates.v2"
+    assert observed["payload"]["global_context"]["time_window_bp"] == list(bounds)
+    assert observed["payload"]["counts"]["missing_values"] == (0 if empty else 1)
+    assert observed["payload"]["publication_authorized"] is False
+
+
+@pytest.mark.parametrize("window", [[-60, -55], [-51, -50], [-50, -49], [False, -50]])
+def test_signed_python_and_browser_refuse_outside_or_malformed_windows(
+    window: list[Any],
+) -> None:
+    from .signed_support import signed_fixture
+
+    view, _ = signed_fixture()
+    context = {
+        "time_window_bp": window,
+        "active_layer_keys": ["layer-r", "layer-l"],
+        "temporal_profile": "calendar-bp1950-signed.v1",
+        "temporal_axis": "BP1950",
+    }
+    with pytest.raises(ValueError):
+        select_native_rows(view, selection_fixture(view), context)
+    observed = run_controller(
+        view,
+        "try {controller.snapshot(); console.log('false')} catch(error) {console.log('true')}",
+        context=context,
+    )
+    assert observed is True

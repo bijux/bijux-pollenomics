@@ -24,10 +24,13 @@ from ..scope_policy import MAP_SCOPE_POLICIES
 from .contracts import (
     LRAPresentation,
     LRAPresentationRefusal,
+    TemporalProfile,
     bound_bytes,
+    calendar_supports,
     canonical,
     digest,
     json_object,
+    validate_temporal_profile,
 )
 from .downloads import capture_product, write_downloads
 from .geometry import validate_geometry
@@ -104,9 +107,13 @@ def _report(
             else "<p>Map unavailable; all numerical values remain below and in downloads.</p>"
         )
         + (
-            "<p>Advanced model/taxon/site selections and selected-frame downloads "
-            "are unavailable in this report profile. Downloads retain all rows.</p>"
-            "<h2>Native estimates</h2><p>REVEALS cover: percent. LOVE cover: fraction. "
+            (
+                "<p>This overview retains all rows. The linked map offers native "
+                "model, taxon, site and bin selections with selected downloads.</p>"
+                if map_available
+                else "<p>This overview and its downloads retain all rows.</p>"
+            )
+            + "<h2>Native estimates</h2><p>REVEALS cover: percent. LOVE cover: fraction. "
             "Values retain original CSV decimal text; N/A remains missing. q10/q90 are method "
             "quantiles, not total uncertainty or held-out predictive intervals.</p>"
             "<table><thead><tr><th>Role</th><th>Site</th><th>Taxon</th><th>Statistic</th>"
@@ -129,16 +136,27 @@ def _report(
 
 
 def _map(
-    stage: Path, layers: list[dict[str, Any]], native_view: dict[str, Any]
+    stage: Path,
+    layers: list[dict[str, Any]],
+    native_view: dict[str, Any],
+    *,
+    temporal_profile: TemporalProfile | None = None,
 ) -> str | None:
     if not layers:
         return None
+    profile_options: dict[str, Any] = {}
+    if temporal_profile is not None:
+        profile_options = {
+            "temporal_profile": temporal_profile,
+            "native_lra": native_view,
+        }
     assets = write_static_atlas_assets(
         stage,
         slug="lra-exploratory",
-        version="presentation-v1",
+        version="presentation-v1" if temporal_profile is None else "presentation-v2",
         point_layers=layers,
         polygon_layers=[],
+        **profile_options,
     )
     policy = replace(
         MAP_SCOPE_POLICIES["custom"],
@@ -150,7 +168,7 @@ def _map(
     render_layers: list[JsonObject] = [dict(layer) for layer in layers]
     document = render_multi_country_map_html(
         title="Exploratory synthetic LRA anchors",
-        version="presentation-v1",
+        version="presentation-v1" if temporal_profile is None else "presentation-v2",
         generated_on="Source identities in the accompanying report",
         countries=(),
         policy=policy,
@@ -171,13 +189,17 @@ def render_lra_report(
     geometry_path: Path,
     expected_geometry_sha256: str,
     destination: Path,
+    temporal_profile: TemporalProfile | None = None,
 ) -> LRAPresentation:
     """Render verified saved bytes without loading or running the numerical engine.
 
-    Only synthetic paired/single nonnegative-bin geometry is mapped. Other cases
-    retain original values/downloads and explicit site refusals. Existing outputs
+    Legacy mapping requires a synthetic paired nonnegative bin. Explicit signed
+    opt-in requires calendar_bp with one sample/bin/component; unsupported source
+    declarations refuse before staging. Geometry refusals retain valid chronology.
+    Legacy unsupported cases retain original values/downloads. Existing outputs
     are never replaced; failed staging directories remain available for diagnosis.
     """
+    validate_temporal_profile(temporal_profile)
     destination = destination.absolute()
     product_directory = product_directory.absolute()
     geometry_path = geometry_path.absolute()
@@ -200,6 +222,8 @@ def render_lra_report(
         geometry_bytes = bound_bytes(geometry_path, expected_geometry_sha256)
         request = json_object(product["request.json"])
         Draft202012Validator(REQUEST_SCHEMA).validate(request)
+        if temporal_profile is not None:
+            calendar_supports(request)
         geometry = validate_geometry(
             json_object(geometry_bytes),
             manifest,
@@ -207,7 +231,12 @@ def render_lra_report(
             product_manifest_sha256=expected_manifest_sha256,
         )
         tables = numerical_tables(product)
-        rows = model_rows(tables, request, request_sha256=manifest["request_sha256"])
+        rows = model_rows(
+            tables,
+            request,
+            request_sha256=manifest["request_sha256"],
+            temporal_profile=temporal_profile,
+        )
         observations = input_rows(request)
         layers, sites = project_sites(
             request,
@@ -216,6 +245,7 @@ def render_lra_report(
             geometry,
             product_sha256=expected_manifest_sha256,
             geometry_sha256=expected_geometry_sha256,
+            temporal_profile=temporal_profile,
         )
         destination.parent.mkdir(parents=True, exist_ok=True)
         if destination.exists() or destination.is_symlink():
@@ -275,11 +305,19 @@ def render_lra_report(
                 for site in sites
             ],
         }
+        if temporal_profile is not None:
+            native_view.update(
+                schema_version="lra-atlas-view.v2",
+                temporal_profile=temporal_profile,
+                temporal_axis="BP1950",
+            )
         native_binding = bind_native_view(native_view)
         (stage / "native-view.json").write_text(
             native_binding["bytes"], encoding="ascii"
         )
-        map_build_id = _map(stage, layers, native_view)
+        map_build_id = _map(
+            stage, layers, native_view, temporal_profile=temporal_profile
+        )
         (stage / "index.html").write_text(
             _report(manifest, request, rows, tables, sites, map_available=bool(layers))
         )
@@ -336,6 +374,12 @@ def render_lra_report(
                 if path.is_file()
             },
         }
+        if temporal_profile is not None:
+            payload.update(
+                schema_version="lra-presentation.v2",
+                temporal_profile=temporal_profile,
+                temporal_axis="BP1950",
+            )
         encoded = canonical(payload)
         (stage / "manifest.json").write_bytes(encoded)
         # Check input closure after all projections; a concurrent edit cannot be

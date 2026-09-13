@@ -8,6 +8,7 @@ from .contracts import (
     GENERIC_TIME_AWARE_PROFILE,
     NATIVE_LRA_PROFILE,
     NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+    SIGNED_NATIVE_LRA_PROFILE,
     AtlasBrowserContractError,
     BrowserCandidate,
     JsonObject,
@@ -103,10 +104,21 @@ NATIVE_LRA_REQUIRED_ASSERTIONS = frozenset(
         "receipt_inventory_complete",
     }
 )
+SIGNED_NATIVE_LRA_REQUIRED_ASSERTIONS = NATIVE_LRA_REQUIRED_ASSERTIONS | frozenset(
+    {
+        "signed_calendar_profile_identity",
+        "signed_fractional_point_controls",
+        "signed_calendar_url_exact_roundtrip",
+        "signed_calendar_static_transport",
+        "signed_calendar_retained_capture",
+        "signed_calendar_legacy_media_refused",
+    }
+)
 PROFILE_REQUIRED_ASSERTIONS = {
     NORDIC_SOURCE_CHRONOLOGY_PROFILE: NORDIC_SOURCE_CHRONOLOGY_REQUIRED_ASSERTIONS,
     GENERIC_TIME_AWARE_PROFILE: GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS,
     NATIVE_LRA_PROFILE: NATIVE_LRA_REQUIRED_ASSERTIONS,
+    SIGNED_NATIVE_LRA_PROFILE: SIGNED_NATIVE_LRA_REQUIRED_ASSERTIONS,
 }
 REQUIRED_ASSERTIONS = NORDIC_SOURCE_CHRONOLOGY_REQUIRED_ASSERTIONS
 _BROWSER_IDENTITY_FIELDS = frozenset(

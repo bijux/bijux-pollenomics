@@ -13,6 +13,7 @@ from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
     GENERIC_TIME_AWARE_PROFILE,
     NATIVE_LRA_PROFILE,
     NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+    SIGNED_NATIVE_LRA_PROFILE,
 )
 from bijux_pollenomics_dev.ci.atlas_browser.verdict import PROFILE_REQUIRED_ASSERTIONS
 
@@ -661,7 +662,7 @@ def test_probe_emits_the_exact_profile_assertion_inventories() -> None:
     for profile, required in PROFILE_REQUIRED_ASSERTIONS.items():
         if profile == NATIVE_LRA_PROFILE:
             assert (
-                "import { NATIVE_LRA_REQUIRED_ASSERTIONS, verifyNativeLraScope } from './native-lra.mjs';"
+                "import { NATIVE_LRA_REQUIRED_ASSERTIONS, SIGNED_NATIVE_LRA_REQUIRED_ASSERTIONS, verifyNativeLraScope } from './native-lra.mjs';"
                 in probe
             )
             assert f"'{profile}': NATIVE_LRA_REQUIRED_ASSERTIONS" in probe
@@ -677,6 +678,24 @@ def test_probe_emits_the_exact_profile_assertion_inventories() -> None:
             )
             assert match is not None
             assert frozenset(re.findall(r"'([^']+)'", match.group("body"))) == required
+            continue
+        if profile == SIGNED_NATIVE_LRA_PROFILE:
+            assert f"'{profile}': SIGNED_NATIVE_LRA_REQUIRED_ASSERTIONS" in probe
+            module = Path(atlas_browser.__file__).with_name("native-lra.mjs").as_uri()
+            result = subprocess.run(
+                [
+                    "node",
+                    "--input-type=module",
+                    "--eval",
+                    f"import {{SIGNED_NATIVE_LRA_REQUIRED_ASSERTIONS as names}} from {json.dumps(module)}; console.log(JSON.stringify(names));",
+                ],
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+            names = json.loads(result.stdout)
+            assert len(names) == len(set(names))
+            assert frozenset(names) == required
             continue
         match = re.search(
             rf"'{re.escape(profile)}': \[(?P<body>.*?)\n    \]",

@@ -4,6 +4,7 @@ from collections.abc import Sequence
 
 from ....core.geospatial.geojson import JsonObject
 from ..coordinates import finite_coordinate, point_coordinate_pair
+from ..temporal_admission import calendar_profile_metadata, read_calendar_profile
 from .budgets import (
     ATLAS_CHUNK_MAX_BYTES,
     ATLAS_CHUNK_TARGET_BYTES,
@@ -19,8 +20,10 @@ def build_node_payloads(
     version: str,
     point_layers: Sequence[JsonObject],
     polygon_layers: Sequence[JsonObject],
+    temporal_profile: str | None = None,
 ) -> tuple[list[dict[str, object]], list[dict[str, object]]]:
     """Project layers into compact metadata and country-partitioned node payloads."""
+    profile_fields = calendar_profile_metadata(temporal_profile)
     metadata: list[dict[str, object]] = []
     payloads: list[dict[str, object]] = []
     indexed_layers = [
@@ -64,7 +67,10 @@ def build_node_payloads(
                 part_features = [feature for _index, feature in part]
                 payloads.append(
                     {
-                        "schema_version": "atlas-node-chunk.v1",
+                        "schema_version": "atlas-node-chunk.v2"
+                        if temporal_profile is not None
+                        else "atlas-node-chunk.v1",
+                        **profile_fields,
                         "scope_slug": slug,
                         "version": version,
                         "layer_index": layer_index,
@@ -121,9 +127,12 @@ def node_asset_selection(payload: dict[str, object]) -> dict[str, object]:
     features = payload.get("features")
     if not isinstance(features, list):
         raise TypeError("static atlas node chunk has no feature records")
+    profile = read_calendar_profile(payload)
     safe_features = [feature for feature in features if isinstance(feature, dict)]
     admissions = [
-        _node_feature_temporal_admission(str(payload["layer_kind"]), feature)
+        _node_feature_temporal_admission(
+            str(payload["layer_kind"]), feature, temporal_profile=profile
+        )
         for feature in safe_features
     ]
     intervals = [
@@ -208,16 +217,16 @@ def _layer_facets(
 
 
 def _node_feature_temporal_admission(
-    layer_kind: str, feature: dict[str, object]
+    layer_kind: str, feature: dict[str, object], *, temporal_profile: str | None = None
 ) -> tuple[str, tuple[float, float] | None]:
     if layer_kind == "polygon":
         properties = feature.get("properties")
         return (
-            feature_temporal_admission(properties)
+            feature_temporal_admission(properties, temporal_profile=temporal_profile)
             if isinstance(properties, dict)
             else ("absent", None)
         )
-    return feature_temporal_admission(feature)
+    return feature_temporal_admission(feature, temporal_profile=temporal_profile)
 
 
 def _node_feature_bounds(

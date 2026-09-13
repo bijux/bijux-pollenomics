@@ -12,11 +12,12 @@ from .native_lra import bind_native_view, validate_native_layers
 from .state import build_map_document_state
 from .static_assets.budgets import ATLAS_FILTER_MAIN_THREAD_MAX_MS
 from .template import NATIVE_LRA_CONTROLLER
+from .temporal_admission import read_calendar_profile
 
 if TYPE_CHECKING:
     from .static_assets import StaticAtlasAssets
 
-from .static_assets import validate_atlas_release_id
+from .static_assets import validate_atlas_release_id, validate_static_atlas_assets
 
 
 def serialize_json_for_script(value: object) -> str:
@@ -47,12 +48,28 @@ def build_map_document_payload(
 ) -> dict[str, str]:
     """Build placeholder replacements for the standalone map document template."""
     validate_atlas_release_id(version)
+    temporal_profile = (
+        read_calendar_profile(native_lra) if native_lra is not None else None
+    )
     if native_lra is not None:
         validate_native_layers(native_lra, point_layers)
+    if temporal_profile is not None:
+        if native_lra is None or static_assets is None or polygon_layers:
+            raise ValueError(
+                "Signed native presentation requires complete static point transport"
+            )
+        if (
+            read_calendar_profile(static_assets.manifest) != temporal_profile
+            or static_assets.manifest.get("native_view_sha256")
+            != bind_native_view(native_lra)["sha256"]
+        ):
+            raise ValueError("Signed static transport belongs to another native view")
+        validate_static_atlas_assets(static_assets)
     state = build_map_document_state(
         policy=policy,
         point_layers=point_layers,
         polygon_layers=polygon_layers,
+        temporal_profile=temporal_profile,
     )
     publication_polygon_layers = project_modeled_context_layers(polygon_layers)
     if static_assets is None:

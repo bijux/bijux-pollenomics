@@ -20,12 +20,13 @@ from bijux_pollenomics_dev.ci.atlas_media.process_execution import CompletedComm
 from .artifact_fixtures import artifact_plan
 
 
+@pytest.mark.parametrize("signed", [False, True])
 @pytest.mark.parametrize(
     "failure",
     [None, "dirty_source", "input_mutation", "process_failure", "receipt_in_input"],
 )
 def test_generator_records_only_successful_frozen_launch(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, failure: str | None
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, failure: str | None, signed: bool
 ) -> None:
     plan = artifact_plan(tmp_path, monkeypatch)
     candidate = plan.candidate
@@ -50,8 +51,25 @@ def test_generator_records_only_successful_frozen_launch(
         called.append(command)
         assert timeout_seconds == 120
         assert cwd == tmp_path / "artifacts/captured-source"
-        assert command[1:4] == ("-I", "-c", audit.GENERATOR_SCRIPT)
-        shutil.copytree(tmp_path / candidate.presentation_root, Path(command[-1]))
+        assert command[1:4] == (
+            "-I",
+            "-c",
+            audit.SIGNED_GENERATOR_SCRIPT if signed else audit.GENERATOR_SCRIPT,
+        )
+        assert len(command) == (11 if signed else 10)
+        if signed:
+            assert command[-1] == "calendar-bp1950-signed.v1"
+        destination = Path(command[-2] if signed else command[-1])
+        shutil.copytree(tmp_path / candidate.presentation_root, destination)
+        if signed:
+            manifest_path = destination / "manifest.json"
+            manifest = json.loads(manifest_path.read_bytes())
+            manifest.update(
+                schema_version="lra-presentation.v2",
+                temporal_profile="calendar-bp1950-signed.v1",
+                temporal_axis="BP1950",
+            )
+            manifest_path.write_text(json.dumps(manifest))
         if failure == "input_mutation":
             (tmp_path / "artifacts/input/extra").write_text("mutated")
         return CompletedCommand(
@@ -83,6 +101,8 @@ def test_generator_records_only_successful_frozen_launch(
         "receipt_path": receipt,
         "python_binary": Path("/python"),
     }
+    if signed:
+        arguments["temporal_profile"] = "calendar-bp1950-signed.v1"
     if failure:
         with pytest.raises(AtlasBrowserContractError):
             generation.generate_artifact_candidate(**arguments)
@@ -94,6 +114,14 @@ def test_generator_records_only_successful_frozen_launch(
         generated = generation.generate_artifact_candidate(**arguments)
         payload = json.loads(receipt.read_bytes())
         assert generated.generator_receipt_sha256 == audit.sha256(receipt.read_bytes())
+        assert payload["schema_version"] == (
+            "atlas-artifact-generation.v2" if signed else "atlas-artifact-generation.v1"
+        )
+        if signed:
+            assert payload["temporal_profile"] == "calendar-bp1950-signed.v1"
+            assert payload["temporal_axis"] == "BP1950"
+        else:
+            assert "temporal_profile" not in payload and "temporal_axis" not in payload
         assert payload["runtime"] == old_receipt["runtime"]
         assert payload["invocation"] == {
             "argv": list(called[0]),

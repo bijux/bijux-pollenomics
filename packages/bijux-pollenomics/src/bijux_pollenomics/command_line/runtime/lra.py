@@ -120,6 +120,7 @@ def _render_report(args: argparse.Namespace) -> int:
             geometry_path=args.geometry,
             expected_geometry_sha256=args.expected_geometry_sha256,
             destination=args.output,
+            temporal_profile=args.temporal_profile,
         )
     except LRAPresentationRefusal as exc:
         print(

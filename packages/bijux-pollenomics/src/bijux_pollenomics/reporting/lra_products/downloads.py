@@ -60,7 +60,7 @@ def write_downloads(
         ("input-pollen.json", observations),
     ):
         (stage / filename).write_bytes(canonical(payload))
-    fields = (
+    fields: tuple[str, ...] = (
         "row_id",
         "role",
         "site_id",
@@ -78,6 +78,8 @@ def write_downloads(
         "declared_bin",
         "spatial_support",
     )
+    if rows and "source_calendar_support" in rows[0]:
+        fields += ("source_calendar_support", "declared_calendar_support")
     csv_stream = io.StringIO(newline="")
     writer = csv.writer(csv_stream, lineterminator="\n")
     writer.writerow(fields)

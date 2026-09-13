@@ -4,7 +4,13 @@ from __future__ import annotations
 
 from typing import Any
 
-from .contracts import canonical, digest
+from .contracts import (
+    TemporalProfile,
+    calendar_supports,
+    canonical,
+    digest,
+    validate_temporal_profile,
+)
 
 
 def project_sites(
@@ -15,7 +21,10 @@ def project_sites(
     *,
     product_sha256: str,
     geometry_sha256: str,
+    temporal_profile: TemporalProfile | None = None,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    validate_temporal_profile(temporal_profile)
+    supports = calendar_supports(request) if temporal_profile is not None else {}
     layers: list[dict[str, Any]] = []
     accounting: list[dict[str, Any]] = []
     bins = request["temporal_matching"]["bins"]
@@ -51,12 +60,15 @@ def project_sites(
                 for sample in included
             ):
                 reasons.append("unsupported_map_age_type")
-            if any(
-                boundary < 0
-                for sample in included
-                for interval in sample["age_support_bp"]
-                for boundary in interval
-            ) or any(row["younger_bp"] < 0 or row["older_bp"] < 0 for row in bins):
+            if temporal_profile is None and (
+                any(
+                    boundary < 0
+                    for sample in included
+                    for interval in sample["age_support_bp"]
+                    for boundary in interval
+                )
+                or any(row["younger_bp"] < 0 or row["older_bp"] < 0 for row in bins)
+            ):
                 reasons.append("unsupported_signed_bp_map_chronology")
             if any(
                 interval[0] > interval[1]
@@ -150,6 +162,10 @@ def project_sites(
                     {"label": "Product SHA-256", "value": product_sha256},
                 ],
             }
+            if temporal_profile is not None:
+                source, declared = supports[role]
+                feature["source_calendar_support"] = dict(source)
+                feature["declared_calendar_support"] = dict(declared)
             for row in values:
                 if row["statistic"] != "mean":
                     continue

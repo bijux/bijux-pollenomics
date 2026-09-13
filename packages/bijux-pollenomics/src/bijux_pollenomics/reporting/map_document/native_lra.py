@@ -8,13 +8,28 @@ import json
 import math
 from typing import Any
 
+from ...core.calendar_support import SignedCalendarSupport
 from .coordinates import point_coordinate_pair
-from .temporal_admission import feature_interval
+from .temporal_admission import (
+    calendar_profile_metadata,
+    feature_interval,
+    read_calendar_profile,
+    signed_support_pair,
+    support_matches,
+)
 
 
 def native_view_bytes(view: dict[str, Any]) -> bytes:
     """Return the governed view bytes after checking row/site closure."""
-    if view.get("schema_version") != "lra-atlas-view.v1":
+    profile = read_calendar_profile(view)
+    expected_schema = (
+        "lra-atlas-view.v2" if profile is not None else "lra-atlas-view.v1"
+    )
+    if profile is not None and (
+        view.get("data_kind") != "synthetic" or view.get("operation") != "lra"
+    ):
+        raise ValueError("Signed native view requires synthetic paired LRA")
+    if view.get("schema_version") != expected_schema:
         raise ValueError("Unsupported native LRA view")
     for key in (
         "product_manifest_sha256",
@@ -131,7 +146,18 @@ def native_view_bytes(view: dict[str, Any]) -> bytes:
             for value in bounds
         ):
             raise ValueError("Native bin bounds require finite numbers")
-        if row["row_id"] in admitted_row_ids:
+        if profile is not None:
+            source, declared = signed_support_pair(row)
+            support = row.get("age_support_bp")
+            if (
+                row.get("age_type") != "calendar_bp"
+                or not isinstance(support, list)
+                or len(support) != 1
+                or not support_matches(source, support[0])
+                or not support_matches(declared, bounds)
+            ):
+                raise ValueError("Signed native row chronology contradicts its support")
+        elif row["row_id"] in admitted_row_ids:
             if (
                 bounds[0] < 0
                 or bounds[0] > bounds[1]
@@ -168,7 +194,13 @@ def native_view_bytes(view: dict[str, Any]) -> bytes:
                 raise ValueError(
                     "Native estimate text must represent a decimal"
                 ) from error
-    admitted = [row for row in rows if row["row_id"] in admitted_row_ids]
+    if profile is not None:
+        _validate_signed_row_domain(rows, sites)
+    admitted = (
+        rows
+        if profile is not None
+        else [row for row in rows if row["row_id"] in admitted_row_ids]
+    )
     if (
         len({row["bin_id"] for row in admitted}) > 1
         or len({row["age_type"] for row in admitted}) > 1
@@ -198,6 +230,8 @@ def select_native_rows(
     view: dict[str, Any], selection: dict[str, Any], global_context: dict[str, Any]
 ) -> dict[str, Any]:
     """Select rows and anchors with separately counted geometry refusals."""
+    native_view_bytes(view)
+    profile = read_calendar_profile(view)
     fields = {
         "roles": "role",
         "site_ids": "site_id",
@@ -219,7 +253,12 @@ def select_native_rows(
         ):
             raise ValueError(f"Unknown or duplicate native selection: {name}")
         normalized[name] = sorted(values)
-    if set(global_context) != {"time_window_bp", "active_layer_keys"}:
+    profile_fields = calendar_profile_metadata(profile)
+    if set(global_context) != {
+        "time_window_bp",
+        "active_layer_keys",
+        *profile_fields,
+    } or any(global_context[key] != value for key, value in profile_fields.items()):
         raise ValueError("Native global context is incomplete")
     interval, layers = (
         global_context["time_window_bp"],
@@ -231,13 +270,22 @@ def select_native_rows(
         or any(
             isinstance(value, bool)
             or not isinstance(value, (int, float))
-            or not math.isfinite(value)
-            or value < 0
+            or (profile is None and not math.isfinite(value))
+            or (profile is None and value < 0)
             for value in interval
         )
         or interval[0] > interval[1]
     ):
         raise ValueError("Invalid native global time window")
+    if profile is not None:
+        SignedCalendarSupport(
+            interval[0], interval[1], support_kind="declared_stationarity_envelope"
+        )
+        declared = SignedCalendarSupport.from_dict(
+            view["rows"][0]["declared_calendar_support"]
+        )
+        if not declared.contains(interval[0]) or not declared.contains(interval[1]):
+            raise ValueError("Signed native time window is outside its declared extent")
     if (
         not isinstance(layers, list)
         or any(not isinstance(value, str) for value in layers)
@@ -273,6 +321,7 @@ def select_native_rows(
     return {
         "selection": normalized,
         "global_context": {
+            **profile_fields,
             "time_window_bp": interval,
             "active_layer_keys": sorted(layers),
         },
@@ -294,6 +343,8 @@ def select_native_rows(
 
 def validate_native_layers(view: dict[str, Any], layers: list[Any]) -> None:
     """Reconcile admitted row/anchor identities to the actual shared map payload."""
+    native_view_bytes(view)
+    profile = read_calendar_profile(view)
     expected = {
         site["anchor_id"]: site
         for site in view["sites"]
@@ -302,6 +353,8 @@ def validate_native_layers(view: dict[str, Any], layers: list[Any]) -> None:
     observed = {}
     for layer in layers:
         if layer.get("semantic_role") != "exploratory_lra_model_anchor":
+            if profile is not None:
+                raise ValueError("Signed native view cannot mix source layers")
             continue
         for feature in layer["features"]:
             anchor_id = feature["record_id"]
@@ -317,7 +370,7 @@ def validate_native_layers(view: dict[str, Any], layers: list[Any]) -> None:
                 or feature["geometry_sha256"] != view["geometry_sha256"]
             ):
                 raise ValueError("Native map anchor belongs to different evidence")
-            interval = feature_interval(feature)
+            interval = feature_interval(feature, temporal_profile=profile)
             if interval is None or point_coordinate_pair(feature) is None:
                 raise ValueError("Native anchor fails shared coordinate/time admission")
             rows = [
@@ -330,6 +383,59 @@ def validate_native_layers(view: dict[str, Any], layers: list[Any]) -> None:
                 for row in rows
             ):
                 raise ValueError("Native anchor time differs from bound model bin")
+            if profile is not None and any(
+                feature.get(key) != row.get(key)
+                for row in rows
+                for key in ("source_calendar_support", "declared_calendar_support")
+            ):
+                raise ValueError("Signed anchor supports differ from bound model rows")
             observed[anchor_id] = feature
     if set(observed) != set(expected):
         raise ValueError("Native view has no corresponding shared map anchor")
+
+
+def _validate_signed_row_domain(
+    rows: list[dict[str, Any]], sites: list[dict[str, Any]]
+) -> None:
+    """Retain the admitted one-sample-per-role and complete shared-bin contract."""
+    if {row["role"] for row in rows} != {"regional", "local"} or len(sites) != 2:
+        raise ValueError("Signed native view requires exactly two role-owned sites")
+    for row in rows:
+        window = row["declared_bin"]
+        if (
+            set(window) != {"bin_id", "younger_bp", "older_bp"}
+            or window["bin_id"] != row["bin_id"]
+        ):
+            raise ValueError(
+                "Signed native declared bin differs from its saved identity"
+            )
+    shared_bins = {
+        (
+            row["bin_id"],
+            SignedCalendarSupport.from_dict(row["declared_calendar_support"]),
+        )
+        for row in rows
+    }
+    if len(shared_bins) != 1:
+        raise ValueError("Signed native rows require one complete declared bin")
+    for role in ("regional", "local"):
+        selected = [row for row in rows if row["role"] == role]
+        if any(
+            not isinstance(row.get("sample_id"), str) or not row["sample_id"].strip()
+            for row in selected
+        ):
+            raise ValueError("Signed native rows require explicit sample identity")
+        identities = {(row["site_id"], row["sample_id"]) for row in selected}
+        if len(identities) != 1:
+            raise ValueError("Signed native role contains multiple sites or samples")
+        role_sites = [site for site in sites if site["role"] == role]
+        if len(role_sites) != 1 or role_sites[0]["site_id"] != selected[0]["site_id"]:
+            raise ValueError("Signed native role accounting differs from its sample")
+        supports = {
+            SignedCalendarSupport.from_dict(row["source_calendar_support"])
+            for row in selected
+        }
+        if len(supports) != 1:
+            raise ValueError(
+                "Signed rows disagree on their sample-owned source support"
+            )

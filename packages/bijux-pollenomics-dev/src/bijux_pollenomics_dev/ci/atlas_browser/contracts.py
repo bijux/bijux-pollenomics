@@ -15,8 +15,15 @@ _SAFE_NAME = re.compile(r"[a-z][a-z0-9-]*")
 NORDIC_SOURCE_CHRONOLOGY_PROFILE = "nordic-source-chronology-v1"
 GENERIC_TIME_AWARE_PROFILE = "generic-time-aware-atlas-v1"
 NATIVE_LRA_PROFILE = "native-lra-exploratory-v1"
+SIGNED_NATIVE_LRA_PROFILE = "native-lra-signed-calendar-v1"
+SIGNED_CALENDAR_PROFILE = "calendar-bp1950-signed.v1"
 VERIFICATION_PROFILES = frozenset(
-    {NORDIC_SOURCE_CHRONOLOGY_PROFILE, GENERIC_TIME_AWARE_PROFILE, NATIVE_LRA_PROFILE}
+    {
+        NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+        GENERIC_TIME_AWARE_PROFILE,
+        NATIVE_LRA_PROFILE,
+        SIGNED_NATIVE_LRA_PROFILE,
+    }
 )
 
 
@@ -213,7 +220,11 @@ class BrowserVerificationPlan:
         if self.verification_profile not in VERIFICATION_PROFILES:
             raise AtlasBrowserContractError("verification_profile is unsupported")
         if isinstance(self.candidate, AtlasArtifactCandidate):
-            if self.verification_profile != NATIVE_LRA_PROFILE or len(self.scopes) != 1:
+            if (
+                self.verification_profile
+                not in {NATIVE_LRA_PROFILE, SIGNED_NATIVE_LRA_PROFILE}
+                or len(self.scopes) != 1
+            ):
                 raise AtlasBrowserContractError(
                     "artifact candidate requires one native LRA scope"
                 )
@@ -246,7 +257,10 @@ class BrowserVerificationPlan:
                         raise AtlasBrowserContractError(
                             "artifact scope must belong to presentation"
                         )
-        elif self.verification_profile == NATIVE_LRA_PROFILE:
+        elif self.verification_profile in {
+            NATIVE_LRA_PROFILE,
+            SIGNED_NATIVE_LRA_PROFILE,
+        }:
             raise AtlasBrowserContractError(
                 "native LRA profile requires an artifact candidate"
             )

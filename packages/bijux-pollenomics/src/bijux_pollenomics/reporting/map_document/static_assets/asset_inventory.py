@@ -6,7 +6,11 @@ import base64
 from collections.abc import Mapping, Sequence
 import math
 
+from ....core.calendar_support import SignedCalendarSupport
+from ..temporal_admission import calendar_profile_metadata, read_calendar_profile
+
 ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v3"
+SIGNED_ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v4"
 PREVIOUS_ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v2"
 LEGACY_ASSET_TABLE_SCHEMA = "atlas-static-asset-table.v1"
 _LEGACY_ASSET_TABLE_FIELDS = (
@@ -82,11 +86,16 @@ def encode_asset_inventory(
     rows: Sequence[Mapping[str, object]],
     *,
     scope_slug: str,
+    temporal_profile: str | None = None,
 ) -> dict[str, object]:
     """Encode exact rows while deriving redundant identity and transport fields."""
+    profile_fields = calendar_profile_metadata(temporal_profile)
     _validate_scope_slug(scope_slug)
     normalized = _validate_rows(
-        rows, require_decoded_counts=True, require_temporal_split=True
+        rows,
+        require_decoded_counts=True,
+        require_temporal_split=True,
+        temporal_profile=temporal_profile,
     )
     for sequence, row in enumerate(normalized):
         _validate_derived_fields(row, scope_slug=scope_slug, sequence=sequence)
@@ -94,7 +103,10 @@ def encode_asset_inventory(
         [row.get(field) for field in ASSET_TABLE_STORED_FIELDS] for row in normalized
     ]
     return {
-        "schema_version": ASSET_TABLE_SCHEMA,
+        "schema_version": SIGNED_ASSET_TABLE_SCHEMA
+        if temporal_profile is not None
+        else ASSET_TABLE_SCHEMA,
+        **profile_fields,
         "scope_slug": scope_slug,
         "fields": list(ASSET_TABLE_STORED_FIELDS),
         "record_count": len(records),
@@ -110,6 +122,18 @@ def normalize_asset_inventory(value: object) -> list[dict[str, object]]:
     if not isinstance(value, Mapping):
         raise ValueError(  # noqa: TRY004 - malformed serialized contract
             "static atlas asset table shape is invalid"
+        )
+    profile = read_calendar_profile(value)
+    if profile is not None:
+        if value.get("schema_version") != SIGNED_ASSET_TABLE_SCHEMA or set(
+            value
+        ) != _TABLE_KEYS | {"temporal_profile", "temporal_axis"}:
+            raise ValueError("Signed static atlas asset table shape is invalid")
+        return _normalize_compact_table(
+            value,
+            stored_fields=ASSET_TABLE_STORED_FIELDS,
+            temporal_split_available=True,
+            temporal_profile=profile,
         )
     schema = value.get("schema_version")
     if schema == LEGACY_ASSET_TABLE_SCHEMA:
@@ -134,6 +158,7 @@ def _normalize_compact_table(
     *,
     stored_fields: tuple[str, ...],
     temporal_split_available: bool,
+    temporal_profile: str | None = None,
 ) -> list[dict[str, object]]:
     scope_slug = value.get("scope_slug")
     if not isinstance(scope_slug, str):
@@ -189,6 +214,7 @@ def _normalize_compact_table(
         rows,
         require_decoded_counts=True,
         require_temporal_split=temporal_split_available,
+        temporal_profile=temporal_profile,
     )
 
 
@@ -295,6 +321,7 @@ def _validate_rows(
     *,
     require_decoded_counts: bool,
     require_temporal_split: bool = False,
+    temporal_profile: str | None = None,
 ) -> list[dict[str, object]]:
     normalized: list[dict[str, object]] = []
     identities: set[str] = set()
@@ -320,7 +347,11 @@ def _validate_rows(
                 expected_node_fields.remove("decoded_byte_count")
             if set(row) != expected_node_fields:
                 raise ValueError("static atlas node selection metadata is incomplete")
-        _validate_row_types(row, require_decoded_counts=require_decoded_counts)
+        _validate_row_types(
+            row,
+            require_decoded_counts=require_decoded_counts,
+            temporal_profile=temporal_profile,
+        )
         if (
             require_temporal_split
             and row.get("domain") == "nodes"
@@ -353,7 +384,10 @@ def _validate_rows(
 
 
 def _validate_row_types(
-    row: Mapping[str, object], *, require_decoded_counts: bool
+    row: Mapping[str, object],
+    *,
+    require_decoded_counts: bool,
+    temporal_profile: str | None = None,
 ) -> None:
     for field in (
         "asset_key",
@@ -388,10 +422,12 @@ def _validate_row_types(
             "static atlas asset initial_load is invalid"
         )
     if row.get("domain") == "nodes":
-        _validate_node_fields(row)
+        _validate_node_fields(row, temporal_profile=temporal_profile)
 
 
-def _validate_node_fields(row: Mapping[str, object]) -> None:
+def _validate_node_fields(
+    row: Mapping[str, object], *, temporal_profile: str | None = None
+) -> None:
     for field in ("layer_index", "untimed_record_count"):
         value = row.get(field)
         if isinstance(value, bool) or not isinstance(value, int) or value < 0:
@@ -424,15 +460,20 @@ def _validate_node_fields(row: Mapping[str, object]) -> None:
     if minimum is not None and (
         isinstance(minimum, bool)
         or not isinstance(minimum, (int, float))
-        or not math.isfinite(minimum)
+        or (temporal_profile is None and not math.isfinite(minimum))
         or isinstance(maximum, bool)
         or not isinstance(maximum, (int, float))
-        or not math.isfinite(maximum)
-        or minimum < 0
-        or maximum < 0
+        or (temporal_profile is None and not math.isfinite(maximum))
+        or (temporal_profile is None and (minimum < 0 or maximum < 0))
         or minimum > maximum
     ):
         raise ValueError("static atlas node BP bounds are invalid")
+    if temporal_profile is not None and minimum is not None:
+        if not isinstance(maximum, (int, float)):
+            raise ValueError("Signed node older endpoint is invalid")
+        SignedCalendarSupport(
+            minimum, maximum, support_kind="declared_stationarity_envelope"
+        )
     untimed_record_count = row["untimed_record_count"]
     record_count = row["record_count"]
     if not isinstance(untimed_record_count, int) or not isinstance(record_count, int):

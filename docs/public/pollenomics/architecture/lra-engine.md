@@ -459,11 +459,42 @@ numerical engine. Display geometry is a separate, hash-pinned input bound to the
 product and site identities; reconstruction ring coordinates do not become map
 locations or geographic footprints.
 
-The first mapped profile admits synthetic paired reconstructions with one
+The default mapped profile admits synthetic paired reconstructions with one
 nonnegative, typed BP bin and explicit point anchors. Unsupported geography,
 profiles or temporal support remain in the tables and refusal accounting.
 Regional and local model anchors carry textual R/L cues. These are model context,
 not measured vegetation, propagation edges or accepted scientific reconstructions.
+
+For a synthetic paired request whose samples explicitly declare `calendar_bp`,
+set `temporal_profile="calendar-bp1950-signed.v1"` in `render_lra_report`, or use
+the corresponding report command option:
+
+```bash
+bijux-pollenomics render-lra-report product \
+  --expected-manifest-sha256 "$product_manifest_sha256" \
+  --geometry display-geometry.json \
+  --expected-geometry-sha256 "$geometry_sha256" \
+  --temporal-profile calendar-bp1950-signed.v1 \
+  --output signed-report
+```
+
+This opt-in preserves negative and fractional calendar BP values, with 1950 as
+zero. It requires one sample per role, one shared bin and one contained source
+support component per sample. The closed source-age support and closed declared
+stationarity envelope remain separate in the map and downloads. Their endpoints
+are finite numbers within `[-(2**53-1), 2**53-1]`; Boolean values, numeric strings,
+partial missing intervals and unsupported chronology refuse. The total display
+span must also fit within `2**53-1` years. BP 0 is an instant,
+not a substitute for a missing age. The underlying numerical product is retained
+unchanged. If both sites lack admissible display geometry, the report retains
+their rows and refusal accounting and produces no map.
+
+Signed reports use explicit younger/older endpoint controls. Fractional and point
+selections retain the same endpoints through filtering, URL restoration, download
+and native browser capture. This profile does not interpret HYDE calendar labels,
+convert native CE/BCE or radiocarbon ages, or admit calibrated chronology. Legacy
+source propagation and chronology-media profiles retain their existing scope;
+signed native captures cannot be used as legacy media evidence.
 
 One native selection controls roles, sites, taxa and bins across the table,
 anchors, URL and selected download. Shared time and layer controls also constrain

@@ -11,6 +11,7 @@ from bijux_pollenomics.core.owned_tree import publish_new_output_tree
 from bijux_pollenomics.reporting.lra_products import workflow
 from bijux_pollenomics.reporting.lra_products.api import (
     LRAPresentationRefusal,
+    TemporalProfile,
     render_lra_report,
 )
 
@@ -56,6 +57,7 @@ def test_changed_or_ambiguous_inputs_cannot_publish(
     geometry = tmp_path / "geometry.json"
     geometry.write_bytes(encoded(geometry_fixture(product, request)))
     expected = sha(geometry.read_bytes())
+    mutation_executed = False
     if change == "duplicate_geometry":
         geometry.write_bytes(
             geometry.read_bytes().rstrip()[:-1] + b',"crs":"OGC:CRS84"}\n'
@@ -67,9 +69,17 @@ def test_changed_or_ambiguous_inputs_cannot_publish(
         original = workflow._map
 
         def mutate(
-            stage: Path, layers: list[dict[str, object]], native_view: dict[str, object]
+            stage: Path,
+            layers: list[dict[str, object]],
+            native_view: dict[str, object],
+            *,
+            temporal_profile: TemporalProfile | None = None,
         ) -> str | None:
-            result = original(stage, layers, native_view)
+            nonlocal mutation_executed
+            result = original(
+                stage, layers, native_view, temporal_profile=temporal_profile
+            )
+            mutation_executed = True
             if change == "geometry":
                 geometry.write_bytes(geometry.read_bytes() + b" ")
             else:
@@ -88,6 +98,8 @@ def test_changed_or_ambiguous_inputs_cannot_publish(
             destination=tmp_path / "report",
         )
     assert not (tmp_path / "report").exists()
+    if change in {"geometry", "product"}:
+        assert mutation_executed
 
 
 def test_download_and_html_keep_source_text_without_script_execution(
@@ -192,3 +204,51 @@ def test_dot_segments_cannot_contaminate_product(tmp_path: Path, alias: bool) ->
     }
     assert before == after
     assert not list(product.glob(".*pending*"))
+
+
+def test_signed_csv_preserves_support_objects_and_legacy_columns(
+    tmp_path: Path,
+) -> None:
+    import csv
+
+    from bijux_pollenomics.reporting.lra_products.downloads import write_downloads
+    from bijux_pollenomics.reporting.lra_products.tables import (
+        model_rows,
+        numerical_tables,
+    )
+
+    product, request = product_fixture(tmp_path)
+    for role in ("regional", "local"):
+        request[role]["samples"][0]["age_support_bp"] = [[-0.5, 0.5]]
+    request["temporal_matching"]["bins"][0].update(younger_bp=-1, older_bp=1)
+    files = {
+        p.relative_to(product).as_posix(): p.read_bytes()
+        for p in product.rglob("*")
+        if p.is_file()
+    }
+    tables = numerical_tables(files)
+    legacy_rows = model_rows(tables, request, request_sha256="0" * 64)
+    signed_rows = model_rows(
+        tables,
+        request,
+        request_sha256="0" * 64,
+        temporal_profile="calendar-bp1950-signed.v1",
+    )
+    for name, rows in (
+        ("legacy-download", legacy_rows),
+        ("signed-download", signed_rows),
+    ):
+        stage = tmp_path / name
+        stage.mkdir()
+        write_downloads(stage, files, rows, tables, [])
+    with (tmp_path / "legacy-download/model-estimates.csv").open(newline="") as stream:
+        legacy = list(csv.DictReader(stream))
+    with (tmp_path / "signed-download/model-estimates.csv").open(newline="") as stream:
+        signed = list(csv.DictReader(stream))
+    for original, extended in zip(legacy, signed, strict=True):
+        assert {k: v for k, v in extended.items() if k in original} == original
+        source = json.loads(extended["source_calendar_support"])
+        declared = json.loads(extended["declared_calendar_support"])
+        assert source["younger_bp"] == -0.5 and declared["younger_bp"] == -1
+        assert source["profile"] == declared["profile"] == "calendar-bp1950-signed.v1"
+        assert source["axis"] == declared["axis"] == "BP1950"
