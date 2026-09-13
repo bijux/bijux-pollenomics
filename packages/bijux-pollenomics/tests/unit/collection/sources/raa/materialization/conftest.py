@@ -1,13 +1,12 @@
 """Actual inspected source schema with explicitly synthetic small source rows."""
 
-from hashlib import sha256
 from pathlib import Path
 import sqlite3
-import struct
 
 import pytest
 
-A = "00000000-0000-0000-0000-000000000001"
+from .support import A, blob
+
 B = "00000000-0000-0000-0000-000000000002"
 C = "00000000-0000-0000-0000-000000000003"
 Z = "00000000-0000-0000-0000-000000000099"
@@ -23,10 +22,6 @@ SOURCE_SCHEMA = (
     'CREATE TABLE "point" ( "fid" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "geometri" POINT NOT NULL, "lamning_uuid" TEXT, "geometrinummer" TEXT)',
     'CREATE TABLE "polygon" ( "fid" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "geometri" POLYGON NOT NULL, "lamning_uuid" TEXT, "geometrinummer" TEXT)',
 )
-
-
-def blob(srs: int = 3006) -> bytes:
-    return b"GP\x00\x01" + struct.pack("<i", srs) + struct.pack("<BIdd", 1, 1, 0.0, 0.0)
 
 
 @pytest.fixture
@@ -107,8 +102,3 @@ def database(tmp_path: Path) -> Path:
                 (fid, fid, parent, child, value),
             )
     return path
-
-
-def identity(path: Path) -> tuple[str, int]:
-    content = path.read_bytes()
-    return sha256(content).hexdigest(), len(content)

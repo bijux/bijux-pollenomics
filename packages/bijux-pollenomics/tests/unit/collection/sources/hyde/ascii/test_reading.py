@@ -125,9 +125,10 @@ def test_wrong_manifest_refuses_before_window_read(
         opened.append(path.name)
         return original(path, "rb")
 
-    monkeypatch.setattr(Path, "open", tracked)
-    with pytest.raises(IntakeRefusal, match="manifest_digest_mismatch"):
-        read_hyde_ascii_window(product.directory, expected_manifest_sha256="0" * 64)
+    with monkeypatch.context() as patch:
+        patch.setattr(Path, "open", tracked)
+        with pytest.raises(IntakeRefusal, match="manifest_digest_mismatch"):
+            read_hyde_ascii_window(product.directory, expected_manifest_sha256="0" * 64)
     assert opened == ["manifest.json"]
 
 

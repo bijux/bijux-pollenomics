@@ -15,7 +15,7 @@ from bijux_pollenomics.collection.sources.raa.materialization.reading import (
     read_only_database,
 )
 
-from .conftest import A, blob, identity
+from .support import A, blob, identity
 
 
 def test_complete_source_domains_preserve_missing_zero_and_nested(

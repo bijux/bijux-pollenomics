@@ -16,7 +16,7 @@ from bijux_pollenomics.collection.sources.raa.materialization.ownership import (
 )
 from bijux_pollenomics.core.owned_tree import publish_new_output_tree
 
-from .conftest import A, identity
+from .support import A, identity
 
 
 def test_actual_files_repeat_replay_and_selected_nested_lineage(
