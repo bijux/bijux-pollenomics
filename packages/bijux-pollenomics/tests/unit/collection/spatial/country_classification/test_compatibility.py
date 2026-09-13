@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import inspect
 import pickle
+from typing import Literal, get_args, get_origin
 
 from bijux_pollenomics.collection.spatial import country_classification
 
@@ -49,5 +50,26 @@ def test_facade_preserves_exports_constants_and_signatures() -> None:
 def test_public_callables_keep_pickle_import_identity() -> None:
     for name in EXPECTED_EXPORTS:
         value = getattr(country_classification, name)
-        if callable(value):
+        if callable(value) and get_origin(value) is None:
             assert pickle.loads(pickle.dumps(value, protocol=5)) is value
+
+
+def test_public_literal_aliases_keep_pickle_semantics_after_cache_eviction() -> None:
+    aliases = [
+        getattr(country_classification, name)
+        for name in (
+            "CountryDecisionMethod",
+            "CountryDecisionStatus",
+            "RawCountryComparison",
+        )
+    ]
+    # CPython type factories cache only a bounded number of constructed aliases.
+    # Serializing a type annotation preserves its meaning, not cache object identity.
+    for index in range(256):
+        Literal["country-pickle-cache-probe", index]
+    for value in aliases:
+        restored = pickle.loads(pickle.dumps(value, protocol=5))
+        assert get_origin(value) is Literal
+        assert get_origin(restored) is Literal
+        assert restored == value
+        assert get_args(restored) == get_args(value)
