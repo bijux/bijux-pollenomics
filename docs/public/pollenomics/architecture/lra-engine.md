@@ -551,3 +551,44 @@ report manifest. URLs bind that digest and a validated selection; stale or
 malformed selections visibly refuse export until corrected. Selected downloads
 declare their JSON serialization and hash the exact emitted UTF-8 bytes. Neither
 a matching digest nor an interactive report establishes ecological accuracy.
+
+## Supplied joint realizations
+
+`analysis.lra.api` exports `JointLRAPlan`, `run_joint_lra_ensemble` and
+`read_joint_lra_ensemble`. The `synthetic-explicit-joint-analytical-v1` profile
+computes a finite law supplied by the caller. It does not estimate a prior,
+posterior or chronology distribution from source intervals.
+
+```bash
+bijux-pollenomics run-joint-lra joint-plan.json \
+  --input-root inputs --output joint-ensemble --cache-root child-cache
+```
+
+The `lra-joint-realizations.v1` plan pins an admitted synthetic LRA/series request
+and a declaration of the joint law. Every atom supplies a positive rational mass,
+one shared PPE vector, integer counts for every original sample with its original
+total, and a complete calendar BP age realization. Atom masses must sum exactly
+to one. Component identities bind their values; the workflow never independently
+redraws components or creates their Cartesian product.
+
+Explicit nonoverlapping bins allocate modeled points using
+`younger_bp <= age_bp < older_bp`. Each point must also lie in its original closed
+source support, including any disjoint components. Original evidence, counts and
+age supports remain separate from the modeled transformations. Every draw/bin
+requires exactly one regional and one local sample; missing or ambiguous pairs
+remain refused. The first profile admits synthetic `calendar_bp` only.
+
+Each eligible pair uses the existing deterministic analytical workflow with the
+same realized PPE in both stages and a coupled regional result. Source rounding
+and signed analytical LOVE estimates remain visible. Complete bins expose finite
+mass-weighted population summaries and regional/local covariance. These are not
+Monte Carlo standard errors, posterior intervals or measured ecological accuracy.
+Any failed mass prevents a complete summary; failed atoms are never removed and
+renormalized. Predictive pollen observations require their own forward/count layer.
+
+The bundle retains every requested draw/bin and all child products. Reopening
+requires the retained manifest digest and checks the parent-to-child request and
+byte inventories without running the engine. CLI exit codes are zero for complete
+computation, two for incomplete/refused work and 130 for interruption. None grants
+scientific acceptance. Geometry, fall speed, taxonomy, parameter-domain selection,
+spatial fitting and source/calibration authenticity remain outside this profile.

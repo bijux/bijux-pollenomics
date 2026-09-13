@@ -63,6 +63,7 @@ _COMMAND_ACTIONS = {
     "collect-data": ["help", "sources", "version", "output_root"],
     "validate-lra-input": ["help", "request", "input_root"],
     "run-lra": ["help", "request", "input_root", "output"],
+    "run-joint-lra": ["help", "request", "input_root", "output", "cache_root"],
     "run-lra-batch": [
         "help",
         "request",
@@ -149,8 +150,8 @@ def test_root_and_subcommand_help_text_is_frozen() -> None:
     subcommand_help = "".join(child.format_help() for child in action.choices.values())
     assert (
         root_digest
-        == "6ea7e3408ec1491cefbaeb9408971922df4d26d3a910344715f4accce22f33dd"
+        == "e89502483371136a0a938ca63679b259f653962209f83f95fa343f0ced4c3522"
     )
     assert hashlib.sha256(subcommand_help.encode()).hexdigest() == (
-        "7ce659b1d282c81ed58337c4d4ffc83490d8f98b9b2f68b70ea4add19ae9c994"
+        "1e6ca36ccc2a97ecaa2ff69f93ce948b9eaf3a24877bec5a297b941eeda0bd57"
     )

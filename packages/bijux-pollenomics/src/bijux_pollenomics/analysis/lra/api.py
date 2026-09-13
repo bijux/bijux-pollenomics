@@ -13,9 +13,17 @@ from .execution.service import run_lra_request, validate_lra_inputs
 from .inputs.validation import ValidatedRequest
 from .outputs.publication import LRAProduct
 from .outputs.reading import VerifiedLRAProduct, read_lra_product
+from .uncertainty.api import (
+    JointLRAPlan,
+    JointLRAProduct,
+    read_joint_lra_ensemble,
+    run_joint_lra_ensemble,
+)
 
 __all__ = [
     "CachedLRAProduct",
+    "JointLRAPlan",
+    "JointLRAProduct",
     "LRABatchItem",
     "LRABatchItemResult",
     "LRABatchLimits",
@@ -24,7 +32,9 @@ __all__ = [
     "LRARefusal",
     "ValidatedRequest",
     "VerifiedLRAProduct",
+    "read_joint_lra_ensemble",
     "read_lra_product",
+    "run_joint_lra_ensemble",
     "run_lra_batch",
     "run_lra_cached",
     "run_lra_request",

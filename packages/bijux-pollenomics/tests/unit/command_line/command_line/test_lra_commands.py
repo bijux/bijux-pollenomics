@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 from importlib import metadata
 import json
 from pathlib import Path
@@ -258,3 +259,103 @@ def test_optimizer_diagnostics_survive_command_boundary(
     assert code == 2
     assert envelope["reason_code"] == "optimizer_nonconvergence"
     assert envelope["diagnostics"] == diagnostics
+
+
+@pytest.mark.parametrize(
+    ("status", "interrupted", "expected_code"),
+    [("complete", False, 0), ("incomplete", False, 2), ("incomplete", True, 130)],
+)
+def test_joint_command_preserves_computation_status_and_denominators(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    status: str,
+    interrupted: bool,
+    expected_code: int,
+) -> None:
+    from bijux_pollenomics.analysis.lra.uncertainty import api
+
+    path = tmp_path / "joint.json"
+    payload = {"test_input": "routing only"}
+    path.write_text(json.dumps(payload))
+    target, cache = tmp_path / "ensemble", tmp_path / "cache"
+    denominators = {
+        "requested_draw_bins": 4,
+        "successful_draw_bins": 4 if status == "complete" else 3,
+        "refused_draw_bins": int(status != "complete" and not interrupted),
+        "not_run_draw_bins": int(interrupted),
+    }
+    manifest = {
+        "status": status,
+        "interrupted": interrupted,
+        "denominators": denominators,
+    }
+    encoded = json.dumps(manifest)
+    checksum = hashlib.sha256(encoded.encode()).hexdigest()
+    product = api.JointLRAProduct(target, checksum, encoded)
+    sentinel = object()
+    with (
+        patch.object(api.JointLRAPlan, "from_dict", return_value=sentinel) as parse,
+        patch.object(api, "run_joint_lra_ensemble", return_value=product) as run,
+    ):
+        code = main(
+            [
+                "run-joint-lra",
+                str(path),
+                "--input-root",
+                str(tmp_path),
+                "--output",
+                str(target),
+                "--cache-root",
+                str(cache),
+            ]
+        )
+    assert code == expected_code
+    parse.assert_called_once_with(payload)
+    run.assert_called_once_with(
+        sentinel,
+        input_root=tmp_path,
+        destination=target,
+        cache_directory=cache,
+    )
+    output = json.loads(capsys.readouterr().out)
+    assert output == {
+        "status": "generated_exploratory",
+        "scientific_acceptance": "not_evaluated",
+        "computation_status": status,
+        "interrupted": interrupted,
+        "denominators": denominators,
+        "directory": str(target),
+        "manifest_sha256": checksum,
+    }
+
+
+@pytest.mark.parametrize("encoded", ["{}", '{"bins":[],"bins":[]}', "[]"])
+def test_joint_command_refuses_malformed_plan_before_execution(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    encoded: str,
+) -> None:
+    from bijux_pollenomics.analysis.lra.uncertainty import api
+
+    path = tmp_path / "joint.json"
+    path.write_text(encoded)
+    target = tmp_path / "ensemble"
+    with patch.object(api, "run_joint_lra_ensemble") as run:
+        code = main(
+            [
+                "run-joint-lra",
+                str(path),
+                "--input-root",
+                str(tmp_path),
+                "--output",
+                str(target),
+            ]
+        )
+    assert code == 2 and not run.called and not target.exists()
+    output = json.loads(capsys.readouterr().out)
+    assert output["status"] == "refused"
+    assert output["reason_code"] in {
+        "invalid_joint_plan",
+        "invalid_lra_json",
+        "lra_request_io_or_encoding",
+    }

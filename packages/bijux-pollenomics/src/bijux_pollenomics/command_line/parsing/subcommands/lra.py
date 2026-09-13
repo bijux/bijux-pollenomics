@@ -119,3 +119,35 @@ def build_run_lra_parser(
         help="New local product directory; existing outputs are never overwritten.",
     )
     return parser
+
+
+def build_run_joint_lra_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build supplied synthetic joint realizations with complete failure accounting."""
+    parser = subparsers.add_parser(
+        "run-joint-lra",
+        help="Run a synthetic supplied joint-realization analytical LRA ensemble.",
+    )
+    parser.add_argument(
+        "request", type=Path, help="lra-joint-realizations.v1 JSON plan."
+    )
+    parser.add_argument(
+        "--input-root",
+        type=Path,
+        required=True,
+        help="Root for the plan's pinned base request and evidence paths.",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        required=True,
+        help="New directory for all draw/bin outcomes and complete-law summaries.",
+    )
+    parser.add_argument(
+        "--cache-root",
+        type=Path,
+        default=None,
+        help="Optional local directory for verified reusable child LRA products.",
+    )
+    return parser

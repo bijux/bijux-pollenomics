@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import argparse
-import inspect
 from collections.abc import Callable
 from contextlib import ExitStack
+import inspect
 from typing import cast
 from unittest.mock import patch
 
@@ -31,6 +31,7 @@ _REGISTRATION_ORDER = [
     "build_collect_data_parser",
     "build_validate_lra_input_parser",
     "build_run_lra_parser",
+    "build_run_joint_lra_parser",
     "build_run_lra_batch_parser",
     "build_render_lra_report_parser",
     "build_prepare_lra_experiment_parser",
@@ -75,6 +76,7 @@ def test_export_order_covers_every_supported_builder() -> None:
             "build_score_lra_experiment_parser",
             "build_prepare_lra_observation_uncertainty_parser",
             "build_score_lra_observation_coverage_parser",
+            "build_run_joint_lra_parser",
             "build_run_lra_parser",
             "build_run_lra_batch_parser",
             "build_source_support_parser",
@@ -91,7 +93,7 @@ def test_builder_signatures_remain_uniform() -> None:
         "(subparsers: 'argparse._SubParsersAction[argparse.ArgumentParser]') "
         "-> 'argparse.ArgumentParser'"
     )
-    assert len(_BUILDERS) == 31
+    assert len(_BUILDERS) == 32
     assert all(
         str(inspect.signature(getattr(subcommands, name))) == expected
         for name in _BUILDERS

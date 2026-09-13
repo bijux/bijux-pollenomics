@@ -72,7 +72,9 @@ def run_lra_command(args: argparse.Namespace) -> int:
         )
         if not isinstance(payload, dict):
             raise LRARefusal("invalid_lra_json", "Request must be a JSON object")
-        if args.command == "run-lra-batch":
+        if args.command == "run-joint-lra":
+            result, exit_code = _run_joint(payload, args)
+        elif args.command == "run-lra-batch":
             result, exit_code = _run_batch(payload, args)
         elif args.command == "validate-lra-input":
             accepted = validate_lra_inputs(payload, input_root=args.input_root)
@@ -108,6 +110,32 @@ def run_lra_command(args: argparse.Namespace) -> int:
         return 2
     print(json.dumps(result, sort_keys=True))
     return exit_code
+
+
+def _run_joint(
+    payload: dict[str, Any], args: argparse.Namespace
+) -> tuple[dict[str, object], int]:
+    from ...analysis.lra.uncertainty.api import JointLRAPlan, run_joint_lra_ensemble
+
+    product = run_joint_lra_ensemble(
+        JointLRAPlan.from_dict(payload),
+        input_root=args.input_root,
+        destination=args.output,
+        cache_directory=args.cache_root,
+    )
+    manifest = product.manifest()
+    result = {
+        "status": "generated_exploratory",
+        "scientific_acceptance": "not_evaluated",
+        "computation_status": manifest["status"],
+        "interrupted": manifest["interrupted"],
+        "denominators": manifest["denominators"],
+        "directory": str(product.directory),
+        "manifest_sha256": product.manifest_sha256,
+    }
+    return result, 130 if manifest["interrupted"] else (
+        0 if manifest["status"] == "complete" else 2
+    )
 
 
 def _render_report(args: argparse.Namespace) -> int:

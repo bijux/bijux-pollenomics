@@ -51,6 +51,7 @@ def build_command_handlers(
         "collect-data": run_collect_data,
         "validate-lra-input": run_lra_command,
         "run-lra": run_lra_command,
+        "run-joint-lra": run_lra_command,
         "run-lra-batch": run_lra_command,
         "render-lra-report": run_lra_command,
         "prepare-lra-experiment": run_lra_command,
