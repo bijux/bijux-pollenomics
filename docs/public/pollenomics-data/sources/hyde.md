@@ -73,6 +73,16 @@ source tree remains usable because the manifest stores relative source paths.
 A changed source requires a new custody product. Ancillary Finder metadata has
 its own denominator and does not change the separate dataset inventory hash.
 
+## Country accounting
+
+The country ledger includes all nine registered families across six partitions
+(Sweden, Denmark, Norway, Finland, unassigned and outside) and three distinct
+dimensions: source-reported, governed assignment and publication. Its 18 HYDE
+cells retain null quantities and blocked/refused status because no governed
+native country projection has been admitted. The recorded assignment policy is
+explicitly not applied; no country snapshot or boundary digest is invented.
+External archive custody remains available independently of that refusal.
+
 ## Inspected local release
 
 The September 2026 local inventory contains 1,574 dataset files totaling

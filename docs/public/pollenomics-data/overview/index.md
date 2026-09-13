@@ -4,14 +4,14 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-08-01
+last_reviewed: 2026-09-13
 ---
 
 # Data System
 
 Pollenomics is a multi-domain evidence system with a single publication
 lineage. Pollen, archaeology, hydrography, boundaries, human ancient DNA,
-animal ancient DNA, and field observations retain separate scientific roles
+animal ancient DNA, modeled land use, and field observations retain separate scientific roles
 while contributing to governed geographic publications.
 
 ## Evidence Lifecycle
@@ -35,7 +35,9 @@ The checked-in `v66` collection summary identifies seven collector-managed
 families: AADR, boundaries, LandClim, Neotoma, RAÄ, SEAD, and SVAR. Animal
 ancient DNA is the eighth contracted family, but it follows a literature,
 archive-project, supplement, and sample curation path rather than the uniform
-collector path.
+collector path. [HYDE](../sources/hyde.md) is the ninth contracted family; its
+native release stays in external storage with compact, hash-bound preparation
+products. Registration does not admit its quantities into Nordic publications.
 
 The Nordic publication illustrates why these counts must remain separate:
 

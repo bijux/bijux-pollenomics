@@ -29,6 +29,7 @@ SOURCE_FAMILIES: Final = (
     "svar",
     "aadr",
     "animal_adna",
+    "hyde",
 )
 
 
@@ -44,6 +45,9 @@ CELL_SCHEMA_ID: Final = "https://bijux.io/schemas/pollenomics/country-coverage.v
 CELL_SCHEMA_SHA256: Final = (
     "9e1763379825d3868c743d19e54ec0cac8d8b15cc5e9d335872f4f346e7259bf"
 )
+
+
+HYDE_ASSIGNMENT_NOT_APPLIED: Final = "hyde-native-country-projection-not-applied.v1"
 
 
 BOUNDARY_METHOD: Final = "natural-earth-5.1.1-strict-containment-with-review.v1"
