@@ -101,9 +101,12 @@ def test_wrong_parent_is_refused_before_member_payload_access(
         opened.append(path.name)
         return original(path, "rb")
 
-    monkeypatch.setattr(Path, "open", tracked)
-    with pytest.raises(IntakeRefusal, match="manifest_digest_mismatch"):
-        read_local_hyde_inventory(product.directory, expected_manifest_sha256="0" * 64)
+    with monkeypatch.context() as patch:
+        patch.setattr(Path, "open", tracked)
+        with pytest.raises(IntakeRefusal, match="manifest_digest_mismatch"):
+            read_local_hyde_inventory(
+                product.directory, expected_manifest_sha256="0" * 64
+            )
     assert opened == ["manifest.json"]
 
 
