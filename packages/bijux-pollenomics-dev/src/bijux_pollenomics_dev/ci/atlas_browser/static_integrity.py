@@ -10,7 +10,7 @@ from pathlib import Path
 import re
 from typing import cast
 
-from .artifact_candidate import regular_bytes
+from .candidate_files import regular_bytes
 from .contracts import (
     SIGNED_CALENDAR_PROFILE,
     SIGNED_NATIVE_LRA_PROFILE,

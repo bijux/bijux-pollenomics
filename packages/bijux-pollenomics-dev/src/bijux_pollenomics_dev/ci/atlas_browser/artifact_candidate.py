@@ -4,13 +4,12 @@ from __future__ import annotations
 
 import hashlib
 import json
-import os
 from pathlib import Path
-import stat
 from typing import Any
 import zipfile
 
 from ..atlas_media.process_execution import BoundedProcessError, run_bounded_argv
+from .candidate_files import regular_bytes as regular_bytes
 from .contracts import (
     SIGNED_CALENDAR_PROFILE,
     AtlasArtifactCandidate,
@@ -62,23 +61,6 @@ def canonical_digest(value: object) -> str:
 
 def sha256(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
-
-
-def regular_bytes(path: Path) -> bytes:
-    if any(parent.is_symlink() for parent in (path, *path.parents)):
-        raise AtlasBrowserContractError(f"symbolic link in candidate: {path}")
-    try:
-        descriptor = os.open(
-            path, os.O_RDONLY | os.O_NONBLOCK | getattr(os, "O_NOFOLLOW", 0)
-        )
-        with os.fdopen(descriptor, "rb") as stream:
-            if not stat.S_ISREG(os.fstat(stream.fileno()).st_mode):
-                raise AtlasBrowserContractError(f"nonregular candidate member: {path}")
-            return stream.read()
-    except OSError as error:
-        raise AtlasBrowserContractError(
-            f"cannot read candidate member: {path}"
-        ) from error
 
 
 def json_bytes(value: bytes) -> dict[str, Any]:
