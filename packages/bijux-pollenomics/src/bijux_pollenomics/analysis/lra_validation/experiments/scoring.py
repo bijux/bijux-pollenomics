@@ -9,6 +9,7 @@ from ..contracts import Fold, ValidationRefusal, finite_number, manifest_sha256
 from ..metrics import closed_composition, score_pollen, score_vegetation
 from ..splits import assert_allowed_inputs
 from .configuration import (
+    BASELINES,
     FITTED_METHOD,
     FITTED_PROFILE,
     FITTED_ROLES,
@@ -59,13 +60,14 @@ def _predictions(
     methods = tuple(
         identity(value) for value in object_list(scientific[method_list], method_list)
     )
-    if fitted and (
-        methods != (FITTED_METHOD,)
-        or scientific.get("evaluation_roles") != FITTED_ROLES
+    if (
+        not methods
+        or len(set(methods)) != len(methods)
+        or not set(methods).issubset((FITTED_METHOD,) if fitted else BASELINES)
+        or (fitted and scientific.get("evaluation_roles") != FITTED_ROLES)
     ):
         raise ValidationRefusal(
-            "invalid_fitted_prediction_product",
-            "Fitted methods and target roles differ",
+            "invalid_prediction_methods", "Invalid methods or roles"
         )
     predictions = {}
     for value in object_list(rows, "predictions"):

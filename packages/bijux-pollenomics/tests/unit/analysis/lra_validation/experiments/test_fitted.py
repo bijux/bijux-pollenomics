@@ -240,3 +240,25 @@ def test_zero_training_fraction_is_refused_without_replacement(
             groups,
             input_root=tmp_path,
         )
+
+
+def test_rehashed_negative_vegetation_refused_before_outcome_access(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    spec, fold, fits, groups = fitted_fixture(tmp_path, monkeypatch)
+    row, _ = predict_fitted_fold(
+        spec, fold, spec.sites[-1], fits, groups, input_root=tmp_path
+    )
+    value = json.loads(json.dumps(row))
+    value["vegetation_fraction"] = {"Alnus": -0.1, "Betula": 1.1}
+    value["spatial_prediction_manifest"]["vegetation_fraction"] = value[
+        "vegetation_fraction"
+    ]
+    value["spatial_prediction_sha256"] = manifest_sha256(
+        value["spatial_prediction_manifest"]
+    )
+    value["prediction_manifest_sha256"] = manifest_sha256(
+        {k: v for k, v in value.items() if k != "prediction_manifest_sha256"}
+    )
+    with pytest.raises(ValidationRefusal):
+        validate_fitted_prediction(value, json.loads(json.dumps(fold.as_dict())))

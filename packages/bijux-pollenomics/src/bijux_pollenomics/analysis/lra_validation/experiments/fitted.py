@@ -471,14 +471,13 @@ def validate_fitted_prediction(
             node = "experiment-fit:" + manifest_sha256(value)
             if graph[node] != (value["record_id"], row["regional_anchor_record_id"]):
                 raise ValidationRefusal("fitted_training_identity_mismatch", node)
-        closed_composition(
-            {
-                key: finite_number(value)
-                for key, value in object_mapping(
-                    row["pollen_fraction"], "pollen_fraction"
-                ).items()
-            }
-        )
+        for field in ("vegetation_fraction", "pollen_fraction"):
+            closed_composition(
+                {
+                    key: finite_number(value)
+                    for key, value in object_mapping(row[field], field).items()
+                }
+            )
         if (
             not set(fold.train_record_ids).issubset(closure)
             or row["regional_anchor_record_id"] not in fold.train_record_ids

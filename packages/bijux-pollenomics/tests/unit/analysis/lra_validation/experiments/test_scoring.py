@@ -278,3 +278,26 @@ def test_shared_withheld_reader_refuses_observed_local_pollen(tmp_path: Path) ->
             product.directory, expected_manifest_sha256=product.manifest_sha256
         )
     assert error.value.reason_code == "experiment_outcome_profile_mismatch"
+
+
+@pytest.mark.parametrize(
+    "methods", [["training_mean", "training_mean"], ["invented_method"], []]
+)
+def test_invalid_baseline_inventory_refuses_even_when_all_folds_failed(
+    tmp_path: Path, methods: list[str]
+) -> None:
+    from bijux_pollenomics.analysis.lra_validation.experiments.scoring import (
+        _predictions,
+    )
+
+    product, _ = prediction_product(tmp_path)
+    manifest = json.loads((product.directory / "manifest.json").read_text())
+    scientific = manifest["scientific_payload"]
+    scientific["baselines"] = methods
+    scientific["predictions"] = []
+    scientific["failures"] = [
+        {"fold_id": fold["fold_id"]} for fold in scientific["folds"]
+    ]
+    with pytest.raises(ValidationRefusal) as error:
+        _predictions(manifest, [])
+    assert error.value.reason_code == "invalid_prediction_methods"
