@@ -263,3 +263,62 @@ def test_shared_channel_admission_preserves_fold_and_consumed_identity(
         local_channel_evidence(changed, fold, changed.sites[0], changed.sites[1])
         == evidence
     )
+
+
+def test_consumed_sources_survive_later_missing_anchor(tmp_path: Path) -> None:
+    spec = ExperimentSpec(fixture_inputs(tmp_path))
+    fold = next(
+        f
+        for f in grouped_leave_one_out([s.record for s in spec.sites])
+        if "p04" in f.test_record_ids
+    )
+    pollen: set[str] = set()
+    geometry: set[str] = set()
+    (tmp_path / spec.sites[1].raw.path).unlink()
+    with pytest.raises(ValidationRefusal):
+        make_request(
+            spec,
+            spec.sites[0],
+            spec.sites[1],
+            fold,
+            tmp_path,
+            consumed_pollen=pollen,
+            consumed_geometry=geometry,
+        )
+    assert pollen == {"p01"}
+    assert geometry == {"p01"}
+    from bijux_pollenomics.analysis.lra_validation.experiments.inputs import (
+        verify_consumed_sources,
+    )
+
+    verify_consumed_sources(
+        spec,
+        tmp_path,
+        pollen_record_ids=pollen,
+        geometry_record_ids=geometry,
+        template_used=True,
+    )
+    with (tmp_path / spec.sites[0].raw.path).open("ab") as stream:
+        stream.write(b"\n")
+    with pytest.raises(ValidationRefusal, match="frozen reference"):
+        verify_consumed_sources(
+            spec,
+            tmp_path,
+            pollen_record_ids=pollen,
+            geometry_record_ids=geometry,
+            template_used=True,
+        )
+
+
+def test_geometry_tracker_records_only_successful_admission(tmp_path: Path) -> None:
+    payload = fixture_inputs(tmp_path)
+    path = payload["sites"][1]["geometry"]["path"]
+    data = json.loads((tmp_path / path).read_text())
+    data["counts"] = [1, 2]
+    payload["sites"][1]["geometry"] = store(tmp_path, path, data)
+    spec = ExperimentSpec(payload)
+    consumed: set[str] = set()
+    read_geometry(tmp_path, spec.sites[0], spec, consumed_geometry=consumed)
+    with pytest.raises(ValidationRefusal):
+        read_geometry(tmp_path, spec.sites[1], spec, consumed_geometry=consumed)
+    assert consumed == {"p01"}

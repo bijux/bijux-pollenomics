@@ -24,6 +24,7 @@ from ..contracts import (
 )
 from ..metrics import closed_composition
 from .configuration import (
+    BLOCK_PROFILE,
     FITTED_PROFILE,
     LOCAL_METHOD,
     LOCAL_PROFILE,
@@ -86,7 +87,7 @@ def publish_phase(
     profile: str = PROFILE,
 ) -> ExperimentProduct:
     """Publish only an enumerated phase; failures must already be accounted for."""
-    if profile not in {PROFILE, LOCAL_PROFILE, FITTED_PROFILE}:
+    if profile not in {PROFILE, LOCAL_PROFILE, FITTED_PROFILE, BLOCK_PROFILE}:
         raise ValidationRefusal("unsupported_experiment_profile", profile)
     scientific_digest = manifest_sha256(scientific)
     manifest = {
@@ -130,7 +131,8 @@ def read_experiment_product(
         canonical_json(manifest)
         if (
             manifest.get("schema_version") != "lra-experiment-product.v1"
-            or manifest.get("profile") not in {PROFILE, LOCAL_PROFILE, FITTED_PROFILE}
+            or manifest.get("profile")
+            not in {PROFILE, LOCAL_PROFILE, FITTED_PROFILE, BLOCK_PROFILE}
             or manifest.get("status") != "generated_exploratory"
             or manifest.get("scientific_acceptance") != "not_evaluated"
         ):

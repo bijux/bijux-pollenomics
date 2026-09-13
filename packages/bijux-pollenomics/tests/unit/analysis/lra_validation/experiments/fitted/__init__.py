@@ -1,0 +1,1 @@
+"""Fitted spatial experiment tests."""

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import json
 from pathlib import PurePosixPath
 import re
@@ -23,6 +23,8 @@ Baseline = Literal["training_mean", "nearest_site", "inverse_distance_squared"]
 BASELINES = ("training_mean", "nearest_site", "inverse_distance_squared")
 PROFILE = "synthetic-withheld-site-baselines-v1"
 FITTED_PROFILE = "synthetic-withheld-site-fitted-spatial-v1"
+BLOCK_PROFILE = "synthetic-spatial-block-fitted-v1"
+BLOCK_SPLIT = "grouped-spatial-block-support-buffer-v1"
 FITTED_METHOD = "clr-wgs84-rbf-ridge-v1"
 FITTED_ROLES = {
     "vegetation_cover": "heldout_prediction",
@@ -349,3 +351,109 @@ class FittedSpatialExperimentSpec(ExperimentScope):
         )
         object.__setattr__(self, "length_scale_km", scale)
         object.__setattr__(self, "ridge_penalty", penalty)
+
+
+@dataclass(frozen=True, init=False)
+class SpatialBlockExperimentSpec(FittedSpatialExperimentSpec):
+    """Original geographic blocks with explicit outcome-free support declarations."""
+
+    minimum_buffer_m: float
+    support_references: tuple[tuple[str, InputReference], ...]
+
+    def __init__(self, payload: Mapping[str, object]) -> None:
+        original = object_mapping(payload, "block_experiment")
+        if original.get("profile") != BLOCK_PROFILE:
+            raise ValidationRefusal(
+                "unsupported_experiment_profile", "Declare spatial-block profile"
+            )
+        split = object_mapping(original.pop("split", None), "split")
+        if (
+            set(split) != {"profile", "minimum_buffer_m"}
+            or split["profile"] != BLOCK_SPLIT
+        ):
+            raise ValidationRefusal(
+                "invalid_block_split", "Declare the exact support-buffer scenario"
+            )
+        minimum = finite_number(split["minimum_buffer_m"])
+        if minimum < 0:
+            raise ValidationRefusal(
+                "invalid_block_split", "Buffer is nonnegative metres"
+            )
+        sites, blocks, references = [], {}, []
+        for value in object_list(original["sites"], "sites"):
+            row = object_mapping(value, "site")
+            record = identity(row["record_id"])
+            blocks[record] = identity(row.pop("block_id", None))
+            references.append(
+                (record, InputReference.parse(row.pop("support", None), "support"))
+            )
+            sites.append(row)
+        original.update(profile=FITTED_PROFILE, sites=sites)
+        super().__init__(original)
+        object.__setattr__(
+            self,
+            "sites",
+            tuple(
+                replace(
+                    site,
+                    record=replace(site.record, block_id=blocks[site.record.record_id]),
+                )
+                for site in self.sites
+            ),
+        )
+        object.__setattr__(self, "minimum_buffer_m", minimum)
+        object.__setattr__(self, "support_references", tuple(sorted(references)))
+        reveals = object_mapping(
+            object_mapping(self.template()["configuration"], "configuration")[
+                "reveals"
+            ],
+            "reveals",
+        )
+        if (
+            "region_cutoff_m" not in reveals
+            or finite_number(reveals["region_cutoff_m"]) <= 0
+        ):
+            raise ValidationRefusal(
+                "missing_block_source_support",
+                "Explicit regional integration cutoff is required",
+            )
+
+    def request(self) -> dict[str, object]:
+        """Serialize the complete normalized declaration without reading observation files."""
+        references = dict(self.support_references)
+        return {
+            "schema_version": "lra-experiment.v1",
+            "profile": BLOCK_PROFILE,
+            "sites": [
+                {
+                    "record_id": site.record.record_id,
+                    "site_id": site.record.site_id,
+                    "identity_keys": list(site.record.identity_keys),
+                    "block_id": site.record.block_id,
+                    "raw": {"path": site.raw.path, "sha256": site.raw.sha256},
+                    "geometry": {
+                        "path": site.geometry.path,
+                        "sha256": site.geometry.sha256,
+                    },
+                    "support": {
+                        "path": references[site.record.record_id].path,
+                        "sha256": references[site.record.record_id].sha256,
+                    },
+                }
+                for site in self.sites
+            ],
+            "regional_priority": list(self.regional_priority),
+            "local_ring_count": self.local_ring_count,
+            "local_support_radius_m": self.local_support_radius_m,
+            "support_profile": self.support_profile,
+            "request_template": self.template(),
+            "method": {
+                "profile": FITTED_METHOD,
+                "length_scale_km": self.length_scale_km,
+                "ridge_penalty": self.ridge_penalty,
+            },
+            "split": {
+                "profile": BLOCK_SPLIT,
+                "minimum_buffer_m": self.minimum_buffer_m,
+            },
+        }

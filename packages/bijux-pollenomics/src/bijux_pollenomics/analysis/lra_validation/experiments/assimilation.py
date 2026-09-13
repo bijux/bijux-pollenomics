@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import os
 from collections.abc import Mapping
+import os
 from pathlib import Path
 
 from ...lra.api import LRABatchItem, LRABatchLimits, LRARefusal, run_lra_batch
@@ -70,6 +70,8 @@ def prepare_local_pollen_predictions(
     items = []
     failures: list[dict[str, object]] = []
     interrupted = False
+    consumed_pollen: set[str] = set()
+    consumed_geometry: set[str] = set()
     for fold in folds:
         if interrupted:
             failures.append(_not_run(fold))
@@ -90,7 +92,15 @@ def prepare_local_pollen_predictions(
             if not eligible:
                 raise ValidationRefusal("missing_regional_anchor", fold.fold_id)
             target, anchor = by_record[fold.test_record_ids[0]], by_record[eligible[0]]
-            request = make_request(spec, target, anchor, fold, input_root)
+            request = make_request(
+                spec,
+                target,
+                anchor,
+                fold,
+                input_root,
+                consumed_pollen=consumed_pollen,
+                consumed_geometry=consumed_geometry,
+            )
             admitted[target.record.record_id] = (fold, target, anchor, request)
             items.append(LRABatchItem(target.record.record_id, request))
         except KeyboardInterrupt:
@@ -147,6 +157,7 @@ def prepare_local_pollen_predictions(
                         item.product,
                         request,
                         input_root=input_root,
+                        consumed_geometry=consumed_geometry,
                     )
                 )
             except KeyboardInterrupt:
@@ -220,17 +231,12 @@ def prepare_local_pollen_predictions(
             ],
         },
     )
-    consumed = {
-        site.record.record_id
-        for _, target, anchor, _ in admitted.values()
-        for site in (target, anchor)
-    }
     verify_consumed_sources(
         spec,
         input_root,
-        pollen_record_ids=consumed,
-        geometry_record_ids=consumed,
-        template_used=bool(operations),
+        pollen_record_ids=consumed_pollen,
+        geometry_record_ids=consumed_geometry,
+        template_used=bool(consumed_pollen),
     )
     return publish_phase(
         stage,

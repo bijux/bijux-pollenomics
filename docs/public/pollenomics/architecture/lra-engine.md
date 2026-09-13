@@ -295,8 +295,24 @@ chronology conversion, review authentication or uncertainty propagation.
 local LOVE products to the explicit CLR spatial model, followed by target-specific
 forward pollen deposition. Its synthetic singleton folds withhold both target
 observations. Prediction products retain training products, regional ancestry,
-geometry, fitted state and separate vegetation/pollen fractions. Spatial blocks
-and temporal generalization require their own evaluation profiles.
+geometry, fitted state and separate vegetation/pollen fractions.
+
+`prepare_spatial_block_predictions` uses a separate declared spatial-block profile.
+It preserves the original physical-site groups, excludes training groups using
+unrounded footprint separation, selects an admitted regional anchor and fits one
+model for each held-out block. Each target then receives its own spatial prediction
+and forward pollen calculation. All target pollen remains withheld.
+
+Saved block products retain the complete experiment catalogue, admission
+decisions and per-block fitted state, including models whose target projections
+all refuse. The reader regenerates the declared folds and verifies source,
+support, model and target identities before scoring. Interrupted and refused
+targets retain their requested denominators. Successfully consumed inputs remain
+subject to final hash checks even when later reconstruction fails; this lifecycle
+rule also applies to baseline, singleton fitted and local-pollen experiments.
+
+These are synthetic exploratory spatial experiments. Temporal prediction and
+joint model uncertainty require separate profiles and evidence.
 
 `read_withheld_predictions` authenticates a caller-pinned saved baseline or fitted
 product before outcome access. It rechecks original folds, training lineage,

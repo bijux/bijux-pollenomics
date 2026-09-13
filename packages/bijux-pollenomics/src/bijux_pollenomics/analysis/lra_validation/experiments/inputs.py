@@ -118,7 +118,11 @@ def verify_consumed_sources(
 
 
 def read_geometry(
-    root: Path, site: ExperimentSite, spec: ExperimentScope
+    root: Path,
+    site: ExperimentSite,
+    spec: ExperimentScope,
+    *,
+    consumed_geometry: set[str] | None = None,
 ) -> dict[str, object]:
     """Geometry has a closed metadata schema with no pollen fields."""
     data = read_reference(root, site.geometry)
@@ -207,11 +211,18 @@ def read_geometry(
         raise ValidationRefusal(
             "invalid_target_geometry", "Coordinates must be WGS84 degrees"
         )
+    if consumed_geometry is not None:
+        consumed_geometry.add(site.record.record_id)
     return data
 
 
 def read_training_observation(
-    root: Path, site: ExperimentSite, fold: Fold, spec: ExperimentScope
+    root: Path,
+    site: ExperimentSite,
+    fold: Fold,
+    spec: ExperimentScope,
+    *,
+    consumed_geometry: set[str] | None = None,
 ) -> dict[str, object]:
     """Reject withheld membership before opening or hashing observation bytes."""
     if (
@@ -219,11 +230,15 @@ def read_training_observation(
         or site.record.record_id in fold.test_record_ids
     ):
         raise ValidationRefusal("withheld_input_leakage", site.record.record_id)
-    return _read_observation(root, site, spec)
+    return _read_observation(root, site, spec, consumed_geometry=consumed_geometry)
 
 
 def _read_observation(
-    root: Path, site: ExperimentSite, spec: ExperimentScope
+    root: Path,
+    site: ExperimentSite,
+    spec: ExperimentScope,
+    *,
+    consumed_geometry: set[str] | None = None,
 ) -> dict[str, object]:
     """Read an already admitted pollen channel with exact geometry/sample identity."""
     data = read_reference(root, site.raw)
@@ -238,7 +253,7 @@ def _read_observation(
             "Observation taxon order differs from the template",
         )
     sample = object_mapping(data["sample"], "sample")
-    geometry = read_geometry(root, site, spec)
+    geometry = read_geometry(root, site, spec, consumed_geometry=consumed_geometry)
     if (
         set(sample) != SAMPLE_FIELDS | {"counts"}
         or {key: sample[key] for key in SAMPLE_FIELDS} != geometry["sample_metadata"]
@@ -262,6 +277,9 @@ def make_request(
     anchor: ExperimentSite,
     fold: Fold,
     root: Path,
+    *,
+    consumed_pollen: set[str] | None = None,
+    consumed_geometry: set[str] | None = None,
 ) -> dict[str, object]:
     """Materialize one actual local/regional observation pair, without pooling."""
     if isinstance(spec, LocalPollenSpec):
@@ -270,11 +288,17 @@ def make_request(
     evidence = object_list(request["evidence"], "evidence")
     for role, site in (("local", local), ("regional", anchor)):
         sample = (
-            read_observed_local_pollen(root, site, fold, spec)
+            read_observed_local_pollen(
+                root, site, fold, spec, consumed_geometry=consumed_geometry
+            )
             if role == "local" and isinstance(spec, LocalPollenSpec)
-            else read_training_observation(root, site, fold, spec)
+            else read_training_observation(
+                root, site, fold, spec, consumed_geometry=consumed_geometry
+            )
         )
-        geometry = read_geometry(root, site, spec)
+        if consumed_pollen is not None:
+            consumed_pollen.add(site.record.record_id)
+        geometry = read_geometry(root, site, spec, consumed_geometry=consumed_geometry)
         sample["raw_evidence_id"] = raw_identity(site)
         basin = object_mapping(geometry["basin"], "basin")
         basin["geometry_evidence_id"] = geometry_identity(site)
@@ -313,7 +337,12 @@ def make_request(
 
 
 def read_observed_local_pollen(
-    root: Path, site: ExperimentSite, fold: Fold, spec: LocalPollenSpec
+    root: Path,
+    site: ExperimentSite,
+    fold: Fold,
+    spec: LocalPollenSpec,
+    *,
+    consumed_geometry: set[str] | None = None,
 ) -> dict[str, object]:
     """Admit the actual held-out record's observed pollen channel, never its vegetation."""
     if (
@@ -326,7 +355,7 @@ def read_observed_local_pollen(
             "unadmitted_local_pollen_channel", site.record.record_id
         )
     local_channel_evidence(spec, fold, site)
-    return _read_observation(root, site, spec)
+    return _read_observation(root, site, spec, consumed_geometry=consumed_geometry)
 
 
 def admitted_pollen_counts(value: object, taxa: tuple[str, ...]) -> dict[str, int]:

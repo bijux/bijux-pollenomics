@@ -85,9 +85,9 @@ def prepare_experiment_predictions(
                 cache_root=cache_root,
                 report_root=stage / "batches" / f"fold-{index:04}",
                 workers=workers,
+                consumed_pollen=consumed_pollen,
+                consumed_geometry=consumed_geometry,
             )
-            consumed_pollen.update(fold.train_record_ids)
-            consumed_geometry.update((*fold.train_record_ids, fold.test_record_ids[0]))
             rows, geometry = predict_fold(
                 spec,
                 fold,
@@ -95,6 +95,7 @@ def prepare_experiment_predictions(
                 fits,
                 group_by_record,
                 input_root=input_root,
+                consumed_geometry=consumed_geometry,
             )
             predictions.extend(rows)
             fit_rows.append(

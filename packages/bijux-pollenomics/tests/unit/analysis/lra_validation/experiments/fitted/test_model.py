@@ -30,7 +30,7 @@ from bijux_pollenomics.analysis.lra_validation.experiments.reconstruction import
     FoldFits,
 )
 
-from .test_inputs import fixture_inputs
+from ..test_inputs import fixture_inputs
 
 
 def payload(root: Path) -> dict[str, Any]:
@@ -126,7 +126,7 @@ def fitted_fixture(
         return binding, prepared, geometry, "test-bin"
 
     monkeypatch.setattr(
-        "bijux_pollenomics.analysis.lra_validation.experiments.fitted.prepare_target_forward",
+        "bijux_pollenomics.analysis.lra_validation.experiments.fitted.model.prepare_target_forward",
         prepare,
     )
     return spec, fold, fits, groups

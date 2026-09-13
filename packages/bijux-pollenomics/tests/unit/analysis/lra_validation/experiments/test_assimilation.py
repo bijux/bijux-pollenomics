@@ -281,3 +281,25 @@ def test_final_local_scoring_refuses_before_any_file_access(tmp_path: Path) -> N
         )
     assert error.value.reason_code == "final_experiment_not_implemented"
     assert list(tmp_path.iterdir()) == []
+
+
+def test_failed_local_request_rechecks_sources(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from .test_inputs import fixture_inputs
+    from .test_workflow import check_failed_source_revalidation
+
+    request = fixture_inputs(tmp_path / "inputs")
+    request.pop("baselines")
+    request.update(
+        profile="synthetic-local-pollen-available-v1",
+        method="analytical_love_local_pollen",
+    )
+    check_failed_source_revalidation(
+        tmp_path,
+        monkeypatch,
+        "bijux_pollenomics.analysis.lra_validation.experiments.assimilation",
+        "prepare_local_pollen_predictions",
+        request,
+        local=True,
+    )

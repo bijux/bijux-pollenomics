@@ -286,7 +286,7 @@ def test_shared_withheld_reader_refuses_observed_local_pollen(tmp_path: Path) ->
 def test_invalid_baseline_inventory_refuses_even_when_all_folds_failed(
     tmp_path: Path, methods: list[str]
 ) -> None:
-    from bijux_pollenomics.analysis.lra_validation.experiments.scoring import (
+    from bijux_pollenomics.analysis.lra_validation.experiments.reading import (
         _predictions,
     )
 

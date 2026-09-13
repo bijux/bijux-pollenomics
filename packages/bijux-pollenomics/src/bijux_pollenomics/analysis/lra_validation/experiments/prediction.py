@@ -108,10 +108,16 @@ def predict_fold(
     group_by_record: dict[str, str],
     *,
     input_root: Path,
+    consumed_geometry: set[str] | None = None,
 ) -> tuple[list[dict[str, object]], dict[str, object]]:
     """Use existing baseline and forward APIs; target pollen is never opened."""
     binding, prepared, geometry, bin_id = prepare_target_forward(
-        spec, target, fits.anchor, fits.regional_cover, input_root=input_root
+        spec,
+        target,
+        fits.anchor,
+        fits.regional_cover,
+        input_root=input_root,
+        consumed_geometry=consumed_geometry,
     )
     taxa = prepared.taxa
     template = spec.template()
@@ -120,7 +126,9 @@ def predict_fold(
     )
     distances = {}
     for site in fits.predictors:
-        other = read_geometry(input_root, site, spec)
+        other = read_geometry(
+            input_root, site, spec, consumed_geometry=consumed_geometry
+        )
         distance = wgs84_inverse_geodesic(
             longitude_a=finite_number(geometry["longitude"]),
             latitude_a=finite_number(geometry["latitude"]),
@@ -230,14 +238,39 @@ def prepare_target_forward(
     regional_cover: tuple[float, ...],
     *,
     input_root: Path,
+    consumed_geometry: set[str] | None = None,
 ) -> tuple[EngineBinding, PreparedGeometry, dict[str, object], str]:
     """Share the outcome-free target preparation boundary across explicit experiment profiles."""
+    geometry = read_geometry(
+        input_root, target, spec, consumed_geometry=consumed_geometry
+    )
+    anchor_geometry = read_geometry(
+        input_root, anchor, spec, consumed_geometry=consumed_geometry
+    )
+    bin_id = _support(spec, geometry, anchor_geometry)
+    binding, prepared = prepare_forward_geometry(
+        spec.template(),
+        geometry,
+        regional_cover,
+        local_ring_count=spec.local_ring_count,
+    )
+    return binding, prepared, geometry, bin_id
+
+
+def prepare_forward_geometry(
+    template: dict[str, object],
+    geometry: dict[str, object],
+    regional_cover: tuple[float, ...],
+    *,
+    local_ring_count: int,
+) -> tuple[EngineBinding, PreparedGeometry]:
+    """Map admitted host geometry and parameters into the existing engine API.
+
+    This mechanical adapter establishes no temporal or source-lineage admission.
+    Each caller must apply its own supported scientific profile before delegation.
+    """
     import pandas as pd
 
-    geometry = read_geometry(input_root, target, spec)
-    anchor_geometry = read_geometry(input_root, anchor, spec)
-    bin_id = _support(spec, geometry, anchor_geometry)
-    template = spec.template()
     parameters = [
         object_mapping(row, "parameter")
         for row in object_list(template["parameters"], "parameters")
@@ -280,7 +313,7 @@ def prepare_target_forward(
         if not callable(getattr(binding.api, name, None)):
             raise ValidationRefusal("forward_preparation_unavailable", name)
     config = binding.api.ForwardConfig(
-        local_ring_count=spec.local_ring_count,
+        local_ring_count=local_ring_count,
         local_basin_diameter_m=basin["diameter_m"],
         distance_weighting=love.get("distance_weighting", "lsm unstable"),
         regional_cover_profile="disqover-rounded-fractions",
@@ -295,7 +328,7 @@ def prepare_target_forward(
             "taxon_denominator_mismatch",
             "Prepared target and reconstruction order differ",
         )
-    return binding, prepared, geometry, bin_id
+    return binding, prepared
 
 
 def predict_assimilated_local(
@@ -307,10 +340,16 @@ def predict_assimilated_local(
     request: dict[str, object],
     *,
     input_root: Path,
+    consumed_geometry: set[str] | None = None,
 ) -> dict[str, object]:
     composition, regional, extracted = extract_reconstruction(product, request, spec)
     binding, prepared, geometry, bin_id = prepare_target_forward(
-        spec, target, anchor, regional, input_root=input_root
+        spec,
+        target,
+        anchor,
+        regional,
+        input_root=input_root,
+        consumed_geometry=consumed_geometry,
     )
     output = cast(ForwardModel, binding.api.forward_deposition)(
         tuple(composition[taxon] for taxon in prepared.taxa),

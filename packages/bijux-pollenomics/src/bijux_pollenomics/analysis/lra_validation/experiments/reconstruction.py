@@ -8,7 +8,13 @@ from pathlib import Path
 
 from ...lra.api import LRABatchItem, LRABatchLimits, read_lra_product, run_lra_batch
 from ...lra.outputs.publication import LRAProduct
-from ..contracts import Fold, ValidationRefusal, finite_number, manifest_sha256
+from ..contracts import (
+    Fold,
+    TrainingAdmission,
+    ValidationRefusal,
+    finite_number,
+    manifest_sha256,
+)
 from ..metrics import closed_composition
 from .configuration import (
     ExperimentScope,
@@ -48,11 +54,26 @@ def reconstruct_fold(
     cache_root: Path,
     report_root: Path,
     workers: int,
+    training_admission: TrainingAdmission | None = None,
+    consumed_pollen: set[str] | None = None,
+    consumed_geometry: set[str] | None = None,
 ) -> FoldFits:
     """Use one declared eligible physical basin, never pooled counts/mean geometry."""
+    if training_admission is not None:
+        training_admission.validate(fold)
+        if group_by_record != dict(training_admission.record_groups):
+            raise ValidationRefusal(
+                "training_identity_mismatch",
+                "Group ownership differs from admitted original Fold",
+            )
+    training_records = (
+        fold.train_record_ids
+        if training_admission is None
+        else training_admission.admitted_record_ids
+    )
     by_record = {site.record.record_id: site for site in spec.sites}
     eligible = [
-        record for record in spec.regional_priority if record in fold.train_record_ids
+        record for record in spec.regional_priority if record in training_records
     ]
     if not eligible:
         raise ValidationRefusal("missing_regional_anchor", fold.fold_id)
@@ -60,13 +81,13 @@ def reconstruct_fold(
     anchor_group = group_by_record[anchor.record.record_id]
     predictors = tuple(
         by_record[record]
-        for record in fold.train_record_ids
+        for record in training_records
         if group_by_record[record] != anchor_group
     )
-    if not predictors:
+    if not predictors or (training_admission is not None and len(predictors) < 2):
         raise ValidationRefusal("missing_local_predictors", fold.fold_id)
-    if len({group_by_record[record] for record in fold.train_record_ids}) != len(
-        fold.train_record_ids
+    if len({group_by_record[record] for record in training_records}) != len(
+        training_records
     ):
         raise ValidationRefusal(
             "unsupported_multi_record_group",
@@ -74,7 +95,16 @@ def reconstruct_fold(
         )
     items = [
         LRABatchItem(
-            site.record.record_id, make_request(spec, site, anchor, fold, input_root)
+            site.record.record_id,
+            make_request(
+                spec,
+                site,
+                anchor,
+                fold,
+                input_root,
+                consumed_pollen=consumed_pollen,
+                consumed_geometry=consumed_geometry,
+            ),
         )
         for site in predictors
     ]
@@ -108,6 +138,21 @@ def reconstruct_fold(
                 "Deterministic shared anchor differs across fits",
             )
         common_regional = regional
+        if training_admission is not None:
+            site = by_record[item.item_id]
+            extracted["request_template_sha256"] = manifest_sha256(spec.template())
+            extracted["source_references"] = {
+                "local_raw": {"path": site.raw.path, "sha256": site.raw.sha256},
+                "local_geometry": {
+                    "path": site.geometry.path,
+                    "sha256": site.geometry.sha256,
+                },
+                "regional_raw": {"path": anchor.raw.path, "sha256": anchor.raw.sha256},
+                "regional_geometry": {
+                    "path": anchor.geometry.path,
+                    "sha256": anchor.geometry.sha256,
+                },
+            }
         identities.append(
             {
                 "record_id": item.item_id,
