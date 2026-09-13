@@ -123,7 +123,12 @@ def run_browser_verification(plan: BrowserVerificationPlan) -> JsonObject:
     verifier_before = _verifier_files() if artifact_before is not None else None
     artifact_root.mkdir(parents=True, exist_ok=True)
     static_before = [
-        audit_static_atlas(plan.repository_root, scope, plan.candidate)
+        audit_static_atlas(
+            plan.repository_root,
+            scope,
+            plan.candidate,
+            verification_profile=plan.verification_profile,
+        )
         for scope in plan.scopes
     ]
     _write_json(artifact_root / "plan.json", plan.as_json())
@@ -175,7 +180,12 @@ def run_browser_verification(plan: BrowserVerificationPlan) -> JsonObject:
             )
         _write_json(artifact_root / "artifact-integrity-after.json", artifact_after)
     static_after = [
-        audit_static_atlas(plan.repository_root, scope, plan.candidate)
+        audit_static_atlas(
+            plan.repository_root,
+            scope,
+            plan.candidate,
+            verification_profile=plan.verification_profile,
+        )
         for scope in plan.scopes
     ]
     if _stable_digest(static_before) != _stable_digest(static_after):

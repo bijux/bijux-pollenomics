@@ -321,3 +321,126 @@ def test_static_atlas_rejects_invalid_time_bounds(
 
     with pytest.raises(AtlasBrowserContractError, match=message):
         audit_static_atlas(tmp_path, scope, candidate())
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        None,
+        "default_profile",
+        "wrong_profile",
+        "git_candidate",
+        "bootstrap_axis",
+        "view_profile",
+        "invalid_json",
+        "view_hash",
+        "table_schema",
+        "table_axis",
+        "table_extra",
+        "node_schema",
+        "count_bool",
+        "unsafe_extent",
+        "overflow_integer",
+    ],
+)
+def test_signed_static_requires_explicit_content_bound_profile(
+    tmp_path: Path, mutation: str | None
+) -> None:
+    from dataclasses import replace
+    import hashlib
+
+    from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
+        SIGNED_NATIVE_LRA_PROFILE,
+        AtlasArtifactCandidate,
+    )
+
+    original_scope = write_static_atlas(tmp_path / "artifacts")
+    scope = replace(
+        original_scope,
+        document="artifacts/" + original_scope.document,
+        manifest="artifacts/" + original_scope.manifest,
+    )
+    folder = (tmp_path / scope.document).parent
+    manifest_path = tmp_path / scope.manifest
+    manifest = json.loads(manifest_path.read_bytes())
+    temporal = {
+        "temporal_profile": "calendar-bp1950-signed.v1",
+        "temporal_axis": "BP1950",
+    }
+    view = {"schema_version": "lra-atlas-view.v2", **temporal}
+    if mutation == "view_profile":
+        view["temporal_profile"] = "radiocarbon"
+    view_bytes = b"{" if mutation == "invalid_json" else json.dumps(view).encode()
+    (folder / "native-view.json").write_bytes(view_bytes)
+    view_sha = hashlib.sha256(view_bytes).hexdigest()
+    presentation = {
+        "schema_version": "lra-presentation.v2",
+        **temporal,
+        "native_view_sha256": view_sha,
+        "files": {"native-view.json": view_sha},
+    }
+    presentation_bytes = json.dumps(presentation).encode()
+    (folder / "manifest.json").write_bytes(presentation_bytes)
+    manifest.update(
+        schema_version="atlas-static-bootstrap.v3",
+        native_view_sha256=view_sha,
+        **temporal,
+    )
+    manifest["compatibility"] = {
+        "node_schema": "atlas-node-chunk.v2",
+        "index_schema": "atlas-static-indexes.v4",
+    }
+    table = manifest["assets"]
+    table.update(schema_version="atlas-static-asset-table.v4", **temporal)
+    if mutation == "bootstrap_axis":
+        manifest["temporal_axis"] = "CE"
+    if mutation == "view_hash":
+        manifest["native_view_sha256"] = "0" * 64
+    if mutation == "table_schema":
+        table["schema_version"] = "atlas-static-asset-table.v3"
+    if mutation == "table_axis":
+        table["temporal_axis"] = "CE"
+    if mutation == "table_extra":
+        table["unbound"] = True
+    if mutation == "node_schema":
+        manifest["compatibility"]["node_schema"] = "atlas-node-chunk.v1"
+    if mutation == "count_bool":
+        table["records"][0][table["fields"].index("record_count")] = True
+    if mutation in {"unsafe_extent", "overflow_integer"}:
+        value = -(10**1000) if mutation == "overflow_integer" else -(2**53)
+        table["records"][0][table["fields"].index("time_min_bp")] = value
+        table["records"][0][table["fields"].index("time_max_bp")] = value
+    manifest_path.write_text(json.dumps(manifest))
+    artifact = AtlasArtifactCandidate(
+        build_id=candidate().build_id,
+        generator_repository_head="a" * 40,
+        generator_repository_tree="b" * 40,
+        generator_receipt="artifacts/receipt.json",
+        generator_receipt_sha256="c" * 64,
+        presentation_root=folder.relative_to(tmp_path).as_posix(),
+        presentation_manifest_sha256=hashlib.sha256(presentation_bytes).hexdigest(),
+        presentation_inventory_sha256="d" * 64,
+        product_manifest_sha256="e" * 64,
+        display_geometry_sha256="f" * 64,
+    )
+    profile = (
+        None
+        if mutation == "default_profile"
+        else "unknown"
+        if mutation == "wrong_profile"
+        else SIGNED_NATIVE_LRA_PROFILE
+    )
+    if mutation:
+        with pytest.raises(AtlasBrowserContractError):
+            audit_static_atlas(
+                tmp_path,
+                scope,
+                candidate() if mutation == "git_candidate" else artifact,
+                verification_profile=profile,
+            )
+    else:
+        report = audit_static_atlas(
+            tmp_path, scope, artifact, verification_profile=profile
+        )
+        assert report["status"] == "PASS"
+        assert report["asset_count"] == 1

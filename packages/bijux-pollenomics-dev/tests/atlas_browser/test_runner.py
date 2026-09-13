@@ -74,6 +74,13 @@ def test_browser_probe_uses_a_bounded_deadline(
         scopes=(scope,),
     )
     observed: dict[str, object] = {}
+    audited_profiles: list[str | None] = []
+
+    def audit(
+        *_arguments: object, verification_profile: str | None = None
+    ) -> dict[str, object]:
+        audited_profiles.append(verification_profile)
+        return {"status": "PASS"}
 
     def run(
         command: tuple[str, ...],
@@ -93,9 +100,7 @@ def test_browser_probe_uses_a_bounded_deadline(
         return _completed(command)
 
     monkeypatch.setattr(runner, "_require_candidate", lambda _plan: None)
-    monkeypatch.setattr(
-        runner, "audit_static_atlas", lambda *_arguments: {"status": "PASS"}
-    )
+    monkeypatch.setattr(runner, "audit_static_atlas", audit)
     monkeypatch.setattr(
         runner,
         "evaluate_browser_report",
@@ -106,6 +111,7 @@ def test_browser_probe_uses_a_bounded_deadline(
     result = runner.run_browser_verification(plan)
 
     assert result["status"] == "PASS"
+    assert audited_profiles == [plan.verification_profile, plan.verification_profile]
     assert observed["command"] == (
         "node",
         str(Path(runner.__file__).with_name("probe.mjs")),
@@ -143,7 +149,9 @@ def test_browser_probe_refuses_a_timed_out_process(
 
     monkeypatch.setattr(runner, "_require_candidate", lambda _plan: None)
     monkeypatch.setattr(
-        runner, "audit_static_atlas", lambda *_arguments: {"status": "PASS"}
+        runner,
+        "audit_static_atlas",
+        lambda *_arguments, **_keywords: {"status": "PASS"},
     )
     monkeypatch.setattr(runner, "run_bounded_argv", run)
 
@@ -165,7 +173,9 @@ def test_artifact_runner_binds_pre_post_and_actual_serving(
     observed = audit.audit_artifact_candidate(plan)
     verifier = {"probe.mjs": "frozen"}
     monkeypatch.setattr(runner, "_verifier_files", lambda: dict(verifier))
-    monkeypatch.setattr(runner, "audit_static_atlas", lambda *_args: {"status": "PASS"})
+    monkeypatch.setattr(
+        runner, "audit_static_atlas", lambda *_args, **_keywords: {"status": "PASS"}
+    )
     monkeypatch.setattr(
         runner, "evaluate_browser_report", lambda *_args, **_kwargs: {"status": "PASS"}
     )

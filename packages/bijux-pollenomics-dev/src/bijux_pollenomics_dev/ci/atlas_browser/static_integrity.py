@@ -10,7 +10,12 @@ from pathlib import Path
 import re
 from typing import cast
 
+from .artifact_candidate import regular_bytes
 from .contracts import (
+    SIGNED_CALENDAR_PROFILE,
+    SIGNED_NATIVE_LRA_PROFILE,
+    VERIFICATION_PROFILES,
+    AtlasArtifactCandidate,
     AtlasBrowserContractError,
     AtlasScope,
     BrowserCandidate,
@@ -98,9 +103,9 @@ def _finite_number(value: object, *, label: str) -> float:
     if (
         not isinstance(value, (int, float))
         or isinstance(value, bool)
-        or not math.isfinite(value)
         or value < -_MAX_SAFE_INTEGER
         or value > _MAX_SAFE_INTEGER
+        or not math.isfinite(value)
     ):
         raise AtlasBrowserContractError(f"{label} must be a finite safe number")
     return float(value)
@@ -111,6 +116,7 @@ def _validate_asset_counts_and_time(
     *,
     sequence: int,
     require_chronology_split: bool,
+    signed: bool = False,
 ) -> None:
     record_count = _nonnegative_integer(
         asset["record_count"], label=f"manifest asset row {sequence} record_count"
@@ -172,7 +178,11 @@ def _validate_asset_counts_and_time(
         older = _finite_number(
             maximum, label=f"manifest asset row {sequence} time_max_bp"
         )
-        if younger < 0 or older < 0 or younger > older:
+        if (
+            younger > older
+            or (not signed and (younger < 0 or older < 0))
+            or (signed and older - younger > _MAX_SAFE_INTEGER)
+        ):
             raise AtlasBrowserContractError(
                 f"manifest asset row {sequence} BP bounds are negative or reversed"
             )
@@ -235,11 +245,34 @@ def _validate_asset_selection(asset: JsonObject, *, sequence: int) -> None:
         raise AtlasBrowserContractError(f"{label} bounds are invalid")
 
 
-def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
+def _assets(manifest: JsonObject, *, signed: bool = False) -> tuple[JsonObject, ...]:
     table = _mapping(manifest.get("assets"), label="manifest.assets")
     table_schema = table.get("schema_version")
     stored_fields: tuple[str, ...]
-    if table_schema == "atlas-static-asset-table.v3":
+    if signed:
+        if (
+            table_schema != "atlas-static-asset-table.v4"
+            or table.get("temporal_profile") != SIGNED_CALENDAR_PROFILE
+            or table.get("temporal_axis") != "BP1950"
+        ):
+            raise AtlasBrowserContractError(
+                "signed asset table temporal identity differs"
+            )
+        if set(table) != {
+            "schema_version",
+            "scope_slug",
+            "fields",
+            "records",
+            "record_count",
+            "temporal_profile",
+            "temporal_axis",
+        }:
+            raise AtlasBrowserContractError("signed asset table fields differ")
+        stored_fields = _ASSET_FIELDS
+        require_chronology_split = True
+    elif "temporal_profile" in table or "temporal_axis" in table:
+        raise AtlasBrowserContractError("legacy asset table declares a signed profile")
+    elif table_schema == "atlas-static-asset-table.v3":
         stored_fields = _ASSET_FIELDS
         require_chronology_split = True
     elif table_schema == "atlas-static-asset-table.v2":
@@ -278,6 +311,7 @@ def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
             asset,
             sequence=sequence,
             require_chronology_split=require_chronology_split,
+            signed=signed,
         )
         _validate_asset_selection(asset, sequence=sequence)
         asset["path"] = (
@@ -287,10 +321,91 @@ def _assets(manifest: JsonObject) -> tuple[JsonObject, ...]:
     return tuple(assets)
 
 
+def _decoded_mapping(payload: bytes, *, label: str) -> JsonObject:
+    try:
+        return _mapping(json.loads(payload), label=label)
+    except (ValueError, UnicodeError) as error:
+        raise AtlasBrowserContractError(f"{label} is unreadable") from error
+
+
+def _signed_identity(
+    root: Path,
+    scope: AtlasScope,
+    candidate: BrowserCandidate,
+    manifest: JsonObject,
+    profile: str | None,
+) -> bool:
+    if profile is not None and profile not in VERIFICATION_PROFILES:
+        raise AtlasBrowserContractError("unsupported static verification profile")
+    signed = profile == SIGNED_NATIVE_LRA_PROFILE
+    if not signed:
+        if (
+            manifest.get("schema_version") != "atlas-static-bootstrap.v2"
+            or "temporal_profile" in manifest
+            or "temporal_axis" in manifest
+        ):
+            raise AtlasBrowserContractError("manifest schema_version is unsupported")
+        return False
+    if not isinstance(candidate, AtlasArtifactCandidate):
+        raise AtlasBrowserContractError(
+            "signed static scope requires an artifact candidate"
+        )
+    folder = root / candidate.presentation_root
+    if (root / scope.document).parent != folder or (
+        root / scope.manifest
+    ).parent != folder:
+        raise AtlasBrowserContractError(
+            "signed static scope is outside the pinned presentation"
+        )
+    if (
+        manifest.get("schema_version") != "atlas-static-bootstrap.v3"
+        or manifest.get("temporal_profile") != SIGNED_CALENDAR_PROFILE
+        or manifest.get("temporal_axis") != "BP1950"
+    ):
+        raise AtlasBrowserContractError("signed bootstrap temporal identity differs")
+    presentation_bytes = regular_bytes(folder / "manifest.json")
+    if _sha256(presentation_bytes) != candidate.presentation_manifest_sha256:
+        raise AtlasBrowserContractError("signed presentation digest differs")
+    presentation = _decoded_mapping(presentation_bytes, label="signed presentation")
+    view_bytes = regular_bytes(folder / "native-view.json")
+    view_digest = _sha256(view_bytes)
+    view = _decoded_mapping(view_bytes, label="signed native view")
+    if (
+        presentation.get("schema_version") != "lra-presentation.v2"
+        or view.get("schema_version") != "lra-atlas-view.v2"
+        or any(
+            value.get("temporal_profile") != SIGNED_CALENDAR_PROFILE
+            or value.get("temporal_axis") != "BP1950"
+            for value in (presentation, view)
+        )
+    ):
+        raise AtlasBrowserContractError("signed presentation/view profile differs")
+    if (
+        manifest.get("native_view_sha256") != view_digest
+        or presentation.get("native_view_sha256") != view_digest
+        or _mapping(presentation.get("files"), label="presentation files").get(
+            "native-view.json"
+        )
+        != view_digest
+    ):
+        raise AtlasBrowserContractError("signed native view digest differs")
+    compatibility = _mapping(
+        manifest.get("compatibility"), label="signed compatibility"
+    )
+    if (
+        compatibility.get("node_schema") != "atlas-node-chunk.v2"
+        or compatibility.get("index_schema") != "atlas-static-indexes.v4"
+    ):
+        raise AtlasBrowserContractError("signed transport schemas differ")
+    return True
+
+
 def audit_static_atlas(
     repository_root: Path,
     scope: AtlasScope,
     candidate: BrowserCandidate,
+    *,
+    verification_profile: str | None = None,
 ) -> JsonObject:
     """Verify every declared byte, manifest budget, identity, and keyless provider."""
     root = repository_root.resolve()
@@ -306,8 +421,7 @@ def audit_static_atlas(
         raise AtlasBrowserContractError(
             f"cannot load static atlas scope: {scope.name}"
         ) from error
-    if manifest.get("schema_version") != "atlas-static-bootstrap.v2":
-        raise AtlasBrowserContractError("manifest schema_version is unsupported")
+    signed = _signed_identity(root, scope, candidate, manifest, verification_profile)
     if manifest.get("scope_slug") != scope.name:
         raise AtlasBrowserContractError("manifest scope_slug does not match the plan")
     if manifest.get("build_id") != candidate.build_id:
@@ -332,7 +446,7 @@ def audit_static_atlas(
         raise AtlasBrowserContractError(
             "document does not use the keyless OSM endpoint"
         )
-    assets = _assets(manifest)
+    assets = _assets(manifest, signed=signed)
     output_dir = document_path.parent
     inventory: list[JsonObject] = []
     total_bytes = 0
