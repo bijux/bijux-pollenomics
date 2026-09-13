@@ -32,6 +32,47 @@ spatiotemporal registries expose HYDE's pending admission. Unknown native cell
 and country totals remain null; placing JSON files at expected paths cannot
 turn them into accepted source evidence.
 
+## Prepare and verify an external inventory
+
+Use the installed host package to prepare a new compact inventory directory:
+
+```python
+from pathlib import Path
+
+from bijux_pollenomics.collection.sources.hyde.local import (
+    prepare_local_hyde_inventory,
+    read_local_hyde_inventory,
+    replay_local_hyde_inventory,
+)
+
+source = Path("/path/to/external/HYDE-3.5")
+destination = Path("/path/to/external/manifests/hyde-custody-001")
+product = prepare_local_hyde_inventory(source, destination)
+print(product.manifest_sha256)
+print(product.dataset_file_count, product.dataset_byte_count)
+
+retained = read_local_hyde_inventory(
+    destination, expected_manifest_sha256=product.manifest_sha256
+)
+replay_local_hyde_inventory(retained, source)
+```
+
+The destination must be new and separate from the source tree. Preparation
+streams file hashes and inventories ZIP/ZIP64 central directories without
+extracting grids. It writes four JSON files containing file identities, archive
+occurrences, bounded original metadata bytes and a manifest. It imports no
+NetCDF decoder and gives opaque `.nc` files no scientific interpretation.
+
+Save the returned manifest SHA separately as the expected identity for later
+inspection. Retained inspection authenticates the compact files; full replay
+also requires the recorded producer source version, rereads the external dataset,
+and compares its bytes and archive metadata. Retained inspection can read a
+historical producer receipt; it does not attest to code already loaded into a
+long-lived process. Replay therefore performs another full source read. A relocated identical
+source tree remains usable because the manifest stores relative source paths.
+A changed source requires a new custody product. Ancillary Finder metadata has
+its own denominator and does not change the separate dataset inventory hash.
+
 ## Inspected local release
 
 The September 2026 local inventory contains 1,574 dataset files totaling
