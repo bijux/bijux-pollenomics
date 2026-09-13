@@ -4,8 +4,15 @@ from dataclasses import dataclass
 import json
 from pathlib import Path
 
-from ....core.geospatial.geojson import as_mapping, feature_list
+from ....core.geospatial.geojson import as_mapping
 from ....core.text import clean_optional_text
+from .inventory import (
+    declared_population,
+    decode_source_object,
+    non_negative_count,
+    source_features,
+    validate_inventory,
+)
 
 __all__ = ["RaaDensityAuthorityDecision", "assess_raa_density_authority"]
 
@@ -69,7 +76,19 @@ def assess_raa_density_authority(context_root: Path) -> RaaDensityAuthorityDecis
             reviewer_id=None,
         )
 
-    raw_features = feature_list(raw)
+    try:
+        raw_features = validate_inventory(raw)
+        density_features = source_features(density)
+    except ValueError:
+        return RaaDensityAuthorityDecision(
+            admitted=False,
+            reason_codes=("invalid_authority_inventory",),
+            archived_feature_count=None,
+            heritage_site_count=None,
+            density_site_count=None,
+            density_feature_count=None,
+            reviewer_id=None,
+        )
     heritage_site_count = sum(
         1
         for feature in raw_features
@@ -78,31 +97,64 @@ def assess_raa_density_authority(context_root: Path) -> RaaDensityAuthorityDecis
         and clean_optional_text(properties.get("antikvariskbedomningtyp_namn"))
         == "Fornlämning"
     )
-    density_features = feature_list(density)
-    density_site_count = sum(
-        _non_negative_int(properties.get("count")) or 0
+    density_counts = [
+        non_negative_count(properties.get("count")) if properties is not None else None
         for feature in density_features
         for properties in (as_mapping(feature.get("properties")),)
-        if properties is not None
+    ]
+    density_site_count = (
+        sum(count for count in density_counts if count is not None)
+        if all(count is not None for count in density_counts)
+        else None
     )
+    if density_site_count is None:
+        reasons.append("invalid_density_cell_count")
     archived_feature_count = len(raw_features)
     metadata_counts = as_mapping(metadata.get("counts")) or {}
+    possible_site_count = sum(
+        1
+        for feature in raw_features
+        for properties in (as_mapping(feature.get("properties")),)
+        if properties is not None
+        and clean_optional_text(properties.get("antikvariskbedomningtyp_namn"))
+        in {"Fornlämning", "Möjlig fornlämning"}
+    )
     expected_values = {
+        "summary_population_mismatch": (
+            non_negative_count(summary.get("number_matched")),
+            declared_population(raw),
+        ),
+        "summary_identified_count_mismatch": (
+            non_negative_count(summary.get("identified_feature_count")),
+            archived_feature_count,
+        ),
+        "metadata_archived_count_mismatch": (
+            non_negative_count(metadata_counts.get("all_published_sites")),
+            archived_feature_count,
+        ),
+        "summary_possible_heritage_count_mismatch": (
+            non_negative_count(summary.get("heritage_or_possible_site_count")),
+            possible_site_count,
+        ),
+        "metadata_possible_heritage_count_mismatch": (
+            non_negative_count(metadata_counts.get("fornlamning_or_possible")),
+            possible_site_count,
+        ),
         "summary_archived_count_mismatch": (
-            _non_negative_int(summary.get("archived_feature_count")),
+            non_negative_count(summary.get("archived_feature_count")),
             archived_feature_count,
         ),
         "summary_heritage_count_mismatch": (
-            _non_negative_int(summary.get("heritage_site_count")),
+            non_negative_count(summary.get("heritage_site_count")),
             heritage_site_count,
         ),
         "metadata_heritage_count_mismatch": (
-            _non_negative_int(metadata_counts.get("fornlamning")),
+            non_negative_count(metadata_counts.get("fornlamning")),
             heritage_site_count,
         ),
         "density_site_count_mismatch": (density_site_count, heritage_site_count),
         "density_feature_count_mismatch": (
-            _non_negative_int(metadata.get("density_feature_count")),
+            non_negative_count(metadata.get("density_feature_count")),
             len(density_features),
         ),
     }
@@ -126,13 +178,4 @@ def assess_raa_density_authority(context_root: Path) -> RaaDensityAuthorityDecis
 
 
 def _load_object(path: Path) -> dict[str, object]:
-    value = json.loads(path.read_text(encoding="utf-8"))
-    if not isinstance(value, dict):
-        raise ValueError(f"RAÄ authority artifact must be an object: {path}")
-    return value
-
-
-def _non_negative_int(value: object) -> int | None:
-    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
-        return None
-    return value
+    return decode_source_object(path.read_text(encoding="utf-8"))

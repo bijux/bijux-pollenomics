@@ -7,6 +7,8 @@ from typing import cast
 import unittest
 from unittest.mock import patch
 
+import pytest
+
 from bijux_pollenomics.collection.sources.raa.collection import (
     build_raa_density_geojson,
     collect_raa_data,
@@ -96,13 +98,13 @@ class RaaDataTests(unittest.TestCase):
 
     def test_fetch_raa_feature_page_uses_explicit_sort_key(self) -> None:
         with patch(
-            "bijux_pollenomics.collection.sources.raa.collection.fetch_json",
-            return_value={"type": "FeatureCollection", "features": []},
-        ) as fetch_json:
+            "bijux_pollenomics.collection.sources.raa.collection.fetch_text",
+            return_value=json.dumps({"type": "FeatureCollection", "features": []}),
+        ) as fetch_text:
             fetch_raa_feature_page(start_index=0)
 
         self.assertEqual(
-            fetch_json.call_args.kwargs["params"]["sortBy"], "lamningsnummer"
+            fetch_text.call_args.kwargs["params"]["sortBy"], "lamningsnummer"
         )
 
     def test_fetch_raa_feature_inventory_paginates_all_features(self) -> None:
@@ -245,3 +247,77 @@ class RaaDataTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+@pytest.mark.parametrize("later_population", [1, 3, None, True, 2.0])
+def test_paging_refuses_population_drift_or_malformed_declaration(
+    later_population: object,
+) -> None:
+    pages = [
+        {
+            "type": "FeatureCollection",
+            "features": [{"type": "Feature", "properties": {"lamningsnummer": "A"}}],
+            "numberMatched": 2,
+        },
+        {
+            "type": "FeatureCollection",
+            "features": [{"type": "Feature", "properties": {"lamningsnummer": "B"}}],
+            "numberMatched": later_population,
+        },
+    ]
+    with (
+        patch(
+            "bijux_pollenomics.collection.sources.raa.collection.fetch_raa_feature_page",
+            side_effect=pages,
+        ),
+        pytest.raises(ValueError, match="population"),
+    ):
+        fetch_raa_feature_inventory()
+
+
+def test_empty_capture_requires_declared_zero_and_preserves_it() -> None:
+    page = {"type": "FeatureCollection", "features": [], "numberMatched": 0}
+    with patch(
+        "bijux_pollenomics.collection.sources.raa.collection.fetch_raa_feature_page",
+        return_value=page,
+    ) as fetch:
+        inventory = fetch_raa_feature_inventory()
+    assert inventory["numberMatched"] == 0
+    assert inventory["features"] == []
+    fetch.assert_called_once()
+
+
+def test_capture_does_not_replace_declared_zero_with_nonempty_observed_rows() -> None:
+    page = {
+        "type": "FeatureCollection",
+        "features": [{"type": "Feature", "properties": {"lamningsnummer": "A"}}],
+        "numberMatched": 0,
+    }
+    with (
+        patch(
+            "bijux_pollenomics.collection.sources.raa.collection.fetch_raa_feature_page",
+            return_value=page,
+        ),
+        pytest.raises(ValueError, match="count mismatch"),
+    ):
+        fetch_raa_feature_inventory()
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        '{"type":"FeatureCollection","features":[],"numberMatched":999,"numberMatched":0}',
+        '{"type":"FeatureCollection","features":[{"type":"Feature","properties":{"lamningsnummer":"A","lamningsnummer":"B"}}],"numberMatched":1}',
+        '{"type":"FeatureCollection","features":[],"numberMatched":NaN}',
+        '{"type":"FeatureCollection","features":[],"numberMatched":1e400}',
+    ],
+)
+def test_wfs_text_is_validated_before_claims_are_collapsed(text: str) -> None:
+    with (
+        patch(
+            "bijux_pollenomics.collection.sources.raa.collection.fetch_text",
+            return_value=text,
+        ),
+        pytest.raises(ValueError),
+    ):
+        fetch_raa_feature_page(start_index=0)
