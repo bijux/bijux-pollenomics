@@ -7,11 +7,14 @@ from bijux_pollenomics.collection.contracts.families.archaeology_contracts impor
 from bijux_pollenomics.collection.contracts.families.boundary_contracts import (
     build_boundary_source_family_contracts,
 )
+from bijux_pollenomics.collection.contracts.families.context.hydrography import (
+    build_hydrography_source_family_contracts,
+)
+from bijux_pollenomics.collection.contracts.families.context.land_use import (
+    build_hyde_source_family_contract,
+)
 from bijux_pollenomics.collection.contracts.families.dna_contracts import (
     build_dna_source_family_contracts,
-)
-from bijux_pollenomics.collection.contracts.families.hydrography_contracts import (
-    build_hydrography_source_family_contracts,
 )
 from bijux_pollenomics.collection.contracts.families.pollen_contracts import (
     build_pollen_source_family_contracts,
@@ -61,6 +64,7 @@ def test_contract_definitions_are_owned_by_durable_source_domains() -> None:
         tuple(row.source_key for row in build_boundary_source_family_contracts()),
         tuple(row.source_key for row in build_hydrography_source_family_contracts()),
         tuple(row.source_key for row in build_dna_source_family_contracts()),
+        (build_hyde_source_family_contract().source_key,),
     )
     assert grouped_source_keys == (
         ("landclim", "neotoma"),
@@ -68,6 +72,7 @@ def test_contract_definitions_are_owned_by_durable_source_domains() -> None:
         ("boundaries",),
         ("svar",),
         ("aadr", "animal_adna"),
+        ("hyde",),
     )
     assert tuple(
         source_key for group in grouped_source_keys for source_key in group

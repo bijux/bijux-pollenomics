@@ -1,6 +1,9 @@
 {
   "schema_version": "source-family-contracts.v1",
-  "row_count": 8,
+  "row_count": 9,
+  "source_release_by_key": {
+    "hyde": "3.5"
+  },
   "rows": [
     {
       "source_key": "landclim",
@@ -704,12 +707,97 @@
           ]
         }
       }
+    },
+    {
+      "source_key": "hyde",
+      "display_name": "HYDE 3.5 modeled land-use context",
+      "domain_group": "modelled_land_use_context",
+      "evidence_role": "external_model_comparison",
+      "primary_question": "How do separately admitted HYDE 3.5 modeled quantities compare at matched spatial and temporal support, with independent inputs audited?",
+      "raw_layer": {
+        "layer_key": "raw",
+        "repository_path": "data/hyde/3.5/raw",
+        "required": true,
+        "purpose": "native release inventory, exact captured files and release-specific rights",
+        "example_artifacts": [
+          "data/hyde/3.5/raw/source_manifest.json"
+        ]
+      },
+      "normalized_layer": {
+        "layer_key": "normalized",
+        "repository_path": "data/hyde/3.5/normalized",
+        "required": true,
+        "purpose": "admitted native grid/time/variable/scenario products preserving units and missingness",
+        "example_artifacts": [
+          "data/hyde/3.5/normalized/manifest.json"
+        ]
+      },
+      "reviewed_layer": {
+        "layer_key": "reviewed",
+        "repository_path": "data/hyde/3.5/review",
+        "required": true,
+        "purpose": "qualified source semantics, country inclusion and shared-input comparison review",
+        "example_artifacts": [
+          "data/hyde/3.5/review/source_review.json"
+        ]
+      },
+      "published_layer": {
+        "layer_key": "published",
+        "repository_path": "docs/report/regions/nordic/hyde/3.5",
+        "required": true,
+        "purpose": "matched modeled-context comparisons with denominators and limitations",
+        "example_artifacts": [
+          "docs/report/regions/nordic/hyde/3.5/manifest.json"
+        ]
+      },
+      "coverage_metric_keys": [
+        "hyde_admitted_cell_count",
+        "hyde_admitted_country_count"
+      ],
+      "layer_contracts": {
+        "raw": {
+          "layer_key": "raw",
+          "repository_path": "data/hyde/3.5/raw",
+          "required": true,
+          "purpose": "native release inventory, exact captured files and release-specific rights",
+          "example_artifacts": [
+            "data/hyde/3.5/raw/source_manifest.json"
+          ]
+        },
+        "normalized": {
+          "layer_key": "normalized",
+          "repository_path": "data/hyde/3.5/normalized",
+          "required": true,
+          "purpose": "admitted native grid/time/variable/scenario products preserving units and missingness",
+          "example_artifacts": [
+            "data/hyde/3.5/normalized/manifest.json"
+          ]
+        },
+        "reviewed": {
+          "layer_key": "reviewed",
+          "repository_path": "data/hyde/3.5/review",
+          "required": true,
+          "purpose": "qualified source semantics, country inclusion and shared-input comparison review",
+          "example_artifacts": [
+            "data/hyde/3.5/review/source_review.json"
+          ]
+        },
+        "published": {
+          "layer_key": "published",
+          "repository_path": "docs/report/regions/nordic/hyde/3.5",
+          "required": true,
+          "purpose": "matched modeled-context comparisons with denominators and limitations",
+          "example_artifacts": [
+            "docs/report/regions/nordic/hyde/3.5/manifest.json"
+          ]
+        }
+      }
     }
   ],
   "capability_contract": {
     "schema_version": "source-capability-contract.v1",
     "dimension_count": 17,
-    "source_count": 8,
+    "source_count": 9,
     "normative_contract": {
       "contract_id": "bijux-pollenomics-source-capability-matrix",
       "schema_version": "1.0.0",
@@ -725,8 +813,15 @@
       ]
     },
     "extension_sources": [
-      "aadr"
+      "aadr",
+      "hyde"
     ],
+    "source_release_by_key": {
+      "hyde": "3.5"
+    },
+    "source_admission_by_key": {
+      "hyde": "native_release_unverified"
+    },
     "dimensions": [
       "site_identity",
       "coordinates",
@@ -747,6 +842,71 @@
       "non_pollen_context"
     ],
     "sources": [
+      {
+        "source_key": "hyde",
+        "evidence_class": "modelled_land_use_context",
+        "allowed_role": "external modeled context after native HYDE 3.5 admission",
+        "prohibited_claims": [
+          "HYDE modeled land use is independently measured vegetation truth",
+          "cropland is cereal pollen or non-agricultural area is forest",
+          "scenario bounds are statistical confidence intervals",
+          "declared interchange fixtures establish native HYDE 3.5 admission"
+        ],
+        "support_by_dimension": {
+          "site_identity": "unsupported",
+          "coordinates": "partial",
+          "four_country_coverage": "partial",
+          "within_site_hierarchy": "unsupported",
+          "numeric_chronology": "partial",
+          "chronology_uncertainty": "unsupported",
+          "relative_chronology": "unsupported",
+          "taxon_identity": "unsupported",
+          "native_ecological_class": "unsupported",
+          "derived_pollen_group": "unsupported",
+          "derived_ecological_role": "unsupported",
+          "crop_cereal_resolution": "unsupported",
+          "quantitative_observation": "partial",
+          "observation_unit": "partial",
+          "dataset_provenance": "partial",
+          "pollen_propagation_event": "unsupported",
+          "non_pollen_context": "partial"
+        },
+        "evidence_paths_by_dimension": {
+          "site_identity": [],
+          "coordinates": [
+            "data/hyde/3.5/normalized/manifest.json"
+          ],
+          "four_country_coverage": [
+            "data/hyde/3.5/review/country_coverage.json"
+          ],
+          "within_site_hierarchy": [],
+          "numeric_chronology": [
+            "data/hyde/3.5/review/time_support.json"
+          ],
+          "chronology_uncertainty": [],
+          "relative_chronology": [],
+          "taxon_identity": [],
+          "native_ecological_class": [],
+          "derived_pollen_group": [],
+          "derived_ecological_role": [],
+          "crop_cereal_resolution": [],
+          "quantitative_observation": [
+            "data/hyde/3.5/normalized/manifest.json"
+          ],
+          "observation_unit": [
+            "data/hyde/3.5/raw/variable_inventory.json"
+          ],
+          "dataset_provenance": [
+            "data/hyde/3.5/raw/source_manifest.json"
+          ],
+          "pollen_propagation_event": [],
+          "non_pollen_context": [
+            "data/hyde/3.5/review/comparison_contract.json"
+          ]
+        },
+        "human_review_required": true,
+        "human_review_reason": "qualified_hyde_35_source_review_missing"
+      },
       {
         "source_key": "landclim",
         "evidence_class": "modelled_vegetation_or_land_cover",

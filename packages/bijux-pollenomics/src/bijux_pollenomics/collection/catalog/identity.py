@@ -29,6 +29,11 @@ SOURCE_IDENTITIES: dict[str, SourceIdentity] = {
         display_name="Nordic Boundaries",
         evidence_family="geospatial_boundary_context",
     ),
+    "hyde": SourceIdentity(
+        key="hyde",
+        display_name="HYDE 3.5",
+        evidence_family="modelled_land_use_context",
+    ),
     "landclim": SourceIdentity(
         key="landclim",
         display_name="LandClim",

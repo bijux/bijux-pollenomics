@@ -25,6 +25,10 @@ def _resolve_path(output_root: Path, repository_path: str) -> Path:
 
 def _path_has_content(path: Path, repository_path: str) -> bool:
     """Accept only structurally governed evidence at the exact declared path."""
+    if repository_path.startswith("data/hyde/3.5/"):
+        # No native release verifier is shipped yet. Do not let the generic
+        # versioned-JSON shape check promote fixtures to materialized evidence.
+        return False
     try:
         file_stat = path.lstat()
     except OSError:

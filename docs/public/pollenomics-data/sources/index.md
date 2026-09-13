@@ -9,16 +9,16 @@ last_reviewed: 2026-07-22
 
 # Source Families
 
-Pollenomics combines eight contracted source families. Their records can share
+Pollenomics combines nine contracted source families. Their records can share
 a publication, but the source contract preserves what each family measures,
 where it applies, how it was acquired, and which claims it can support.
 
 The portfolio and the collection command have deliberately different
 boundaries. Seven families have collectors and appear in `source-support`:
 AADR, boundaries, LandClim, Neotoma, RAÄ, SEAD, and SVAR. Animal ancient-DNA
-evidence is the eighth contracted family, but it enters through a
-literature-and-archive intake workflow because there is no single upstream
-release to collect. A support-matrix row therefore means that a collection
+evidence enters through a literature-and-archive intake workflow because
+there is no single upstream release to collect. HYDE is registered as external
+modeled land-use context, with locally supplied native files awaiting admission. A support-matrix row therefore means that a collection
 adapter exists; it does not mean that a capture is present, complete, current,
 or admitted to a product.
 
@@ -27,6 +27,7 @@ or admitted to a product.
 | Family | Evidence role | Suitable questions | Principal limit |
 | --- | --- | --- | --- |
 | [LandClim](landclim.md) | primary pollen context | pollen sequences and modelled vegetation context | model grids and observed sites have different semantics |
+| [HYDE 3.5](hyde.md) | external modeled land-use context | comparisons at matched spatial and temporal support | local native files require release, rights, and semantic review; modeled quantities are not independent vegetation truth |
 | [Neotoma](neotoma.md) | primary pollen context | palaeoecological site and pollen comparison | temporal coverage and resolution vary by site |
 | [SEAD](sead.md) | environmental archaeology context | archaeological and environmental context | access, normalization, and chronology require explicit review |
 | [RAÄ](raa.md) | Swedish archaeology context | heritage and archaeological context in Sweden | national coverage cannot be generalized beyond Sweden |
@@ -266,7 +267,7 @@ look unchanged.
 
 ### Portfolio Breadth Is Not Claim Coverage
 
-Eight contracted families do not imply eight independent witnesses for every
+Nine contracted families do not imply nine independent witnesses for every
 question. Coverage is evaluated per claim dimension and observation unit:
 
 | Proposed claim | Families that may contribute | Families that cannot fill the decisive gap |

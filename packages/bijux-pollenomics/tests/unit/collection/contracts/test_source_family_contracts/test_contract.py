@@ -8,6 +8,8 @@ from bijux_pollenomics.collection.contracts.families import (
     build_source_family_contract_payload,
 )
 
+from .support import _object, _rows
+
 
 def test_capability_contract_covers_every_source_and_dimension_exactly() -> None:
     payload = build_source_capability_contract_payload()
@@ -15,11 +17,12 @@ def test_capability_contract_covers_every_source_and_dimension_exactly() -> None
     assert payload["schema_version"] == "source-capability-contract.v1"
     assert payload["dimension_count"] == 17
     assert payload["dimensions"] == list(CAPABILITY_DIMENSIONS)
-    assert payload["source_count"] == 8
-    sources = payload["sources"]
+    assert payload["source_count"] == 9
+    sources = _rows(payload["sources"])
     assert isinstance(sources, list)
     assert {source["source_key"] for source in sources} == {
         "aadr",
+        "hyde",
         "animal_adna",
         "boundaries",
         "landclim",
@@ -40,7 +43,7 @@ def test_capability_contract_covers_every_source_and_dimension_exactly() -> None
 
 def test_normative_support_map_and_repository_extension_are_explicit() -> None:
     payload = build_source_capability_contract_payload()
-    sources = {source["source_key"]: source for source in payload["sources"]}
+    sources = {source["source_key"]: source for source in _rows(payload["sources"])}
     partial = {
         "neotoma": {
             "four_country_coverage",
@@ -151,7 +154,7 @@ def test_normative_support_map_and_repository_extension_are_explicit() -> None:
         "source_count": 7,
         "source_keys": sorted(partial),
     }
-    assert payload["extension_sources"] == ["aadr"]
+    assert payload["extension_sources"] == ["aadr", "hyde"]
     assert sources["neotoma"]["evidence_class"] == "observed_paleoecological"
     assert (
         sources["animal_adna"]["evidence_class"]
@@ -161,7 +164,7 @@ def test_normative_support_map_and_repository_extension_are_explicit() -> None:
 
 def test_contract_registry_keeps_capability_separate_from_materialization() -> None:
     payload = build_source_family_contract_payload()
-    capability = payload["capability_contract"]
+    capability = _object(payload["capability_contract"])
 
     assert capability["schema_version"] == "source-capability-contract.v1"
     assert all("materialization" not in source for source in capability["sources"])

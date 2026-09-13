@@ -6,8 +6,9 @@ from ....config import DEFAULT_AADR_VERSION
 from ..capabilities import build_source_capability_contract_payload
 from .archaeology_contracts import build_archaeology_source_family_contracts
 from .boundary_contracts import build_boundary_source_family_contracts
+from .context.hydrography import build_hydrography_source_family_contracts
+from .context.land_use import build_hyde_source_family_contract
 from .dna_contracts import build_dna_source_family_contracts
-from .hydrography_contracts import build_hydrography_source_family_contracts
 from .models import SourceFamilyContract
 from .pollen_contracts import build_pollen_source_family_contracts
 
@@ -22,6 +23,7 @@ def build_source_family_contracts(
         *build_boundary_source_family_contracts(),
         *build_hydrography_source_family_contracts(),
         *build_dna_source_family_contracts(version),
+        build_hyde_source_family_contract(),
     )
 
 
@@ -42,6 +44,7 @@ def build_source_family_contract_payload(
     return {
         "schema_version": "source-family-contracts.v1",
         "row_count": len(rows),
+        "source_release_by_key": {"hyde": "3.5"},
         "rows": rows,
         "capability_contract": build_source_capability_contract_payload(),
     }

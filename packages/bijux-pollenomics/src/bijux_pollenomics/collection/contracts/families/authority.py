@@ -15,6 +15,18 @@ def _source_authority_state(
     *,
     version: str = DEFAULT_AADR_VERSION,
 ) -> _SourceAuthorityState:
+    if source_key == "hyde":
+        # Native 3.5 admission is deliberately unavailable in this adapter release.
+        # File presence, interchange fixtures and self-asserted reviews cannot
+        # establish release identity, redistribution rights or scientific fitness.
+        return _SourceAuthorityState(
+            status="refused",
+            reason_codes=("hyde_35_native_release_admission_unimplemented",),
+            governed_metrics={
+                "hyde_admitted_cell_count": None,
+                "hyde_admitted_country_count": None,
+            },
+        )
     if source_key == "raa":
         from ...sources.raa.authority import assess_raa_density_authority
 

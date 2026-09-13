@@ -21,7 +21,7 @@ from bijux_pollenomics.collection.contracts.families import (
     build_source_family_state_matrix_payload,
 )
 
-from .support import REPO_ROOT
+from .support import REPO_ROOT, _object, _rows
 
 
 def test_relative_and_absolute_data_roots_produce_identical_capability_audits(
@@ -36,7 +36,7 @@ def test_relative_and_absolute_data_roots_produce_identical_capability_audits(
     )
 
     assert relative == absolute
-    for row in relative["rows"]:
+    for row in _rows(relative["rows"]):
         if (
             row["source_key"] == "sead"
             and SEAD_NORMALIZED_EVIDENCE_MANIFEST in row["evidence_paths"]
@@ -46,7 +46,7 @@ def test_relative_and_absolute_data_roots_produce_identical_capability_audits(
 
 def test_sead_provenance_binds_admitted_acquisition_not_legacy_inventory() -> None:
     payload = build_source_capability_contract_payload()
-    sources = {source["source_key"]: source for source in payload["sources"]}
+    sources = {source["source_key"]: source for source in _rows(payload["sources"])}
     provenance_paths = sources["sead"]["evidence_paths_by_dimension"][
         "dataset_provenance"
     ]
@@ -65,7 +65,7 @@ def test_sead_provenance_binds_admitted_acquisition_not_legacy_inventory() -> No
     )
     row = next(
         row
-        for row in audit["rows"]
+        for row in _rows(audit["rows"])
         if row["source_key"] == "sead" and row["dimension"] == "dataset_provenance"
     )
     assert row["present_evidence_paths"] == provenance_paths
@@ -124,7 +124,7 @@ def test_sead_provenance_refuses_unbound_admission_bytes() -> None:
 
     row = next(
         row
-        for row in audit["rows"]
+        for row in _rows(audit["rows"])
         if row["source_key"] == "sead" and row["dimension"] == "dataset_provenance"
     )
     assert row["present_evidence_paths"] == ()
@@ -133,7 +133,7 @@ def test_sead_provenance_refuses_unbound_admission_bytes() -> None:
 
 def test_sead_observation_dimensions_bind_the_full_graph_and_review_refusals() -> None:
     contract = build_source_capability_contract_payload()
-    sources = {source["source_key"]: source for source in contract["sources"]}
+    sources = {source["source_key"]: source for source in _rows(contract["sources"])}
     evidence = sources["sead"]["evidence_paths_by_dimension"]
 
     assert any(
@@ -172,7 +172,7 @@ def test_sead_observation_dimensions_bind_the_full_graph_and_review_refusals() -
         coverage_metrics_by_source={},
         source_blockers={},
     )
-    rows = {(row["source_key"], row["dimension"]): row for row in audit["rows"]}
+    rows = {(row["source_key"], row["dimension"]): row for row in _rows(audit["rows"])}
     for dimension in (
         "taxon_identity",
         "native_ecological_class",
@@ -199,7 +199,7 @@ def test_relative_chronology_and_taxon_evidence_require_explicit_surfaces() -> N
         coverage_metrics_by_source={},
         source_blockers={},
     )
-    rows = {(row["source_key"], row["dimension"]): row for row in audit["rows"]}
+    rows = {(row["source_key"], row["dimension"]): row for row in _rows(audit["rows"])}
 
     assert rows[("neotoma", "relative_chronology")]["materialization"] == "missing"
     assert rows[("aadr", "relative_chronology")]["materialization"] == "missing"
@@ -220,8 +220,10 @@ def test_empty_repository_audit_is_fail_closed_without_changing_support() -> Non
             source_blockers={},
         )
 
-    assert payload["row_count"] == 8 * 17
-    rows = {(row["source_key"], row["dimension"]): row for row in payload["rows"]}
+    assert payload["row_count"] == 9 * 17
+    rows = {
+        (row["source_key"], row["dimension"]): row for row in _rows(payload["rows"])
+    }
     assert rows[("neotoma", "site_identity")]["support"] == "supported"
     assert rows[("neotoma", "site_identity")]["materialization"] == "missing"
     assert rows[("boundaries", "numeric_chronology")]["support"] == "unsupported"
@@ -251,8 +253,8 @@ def test_repository_audit_records_paths_counts_and_unclosed_human_review() -> No
             "svar_lake_count": 0,
         },
     )
-    audit = payload["capability_materialization_audit"]
-    rows = {(row["source_key"], row["dimension"]): row for row in audit["rows"]}
+    audit = _object(payload["capability_materialization_audit"])
+    rows = {(row["source_key"], row["dimension"]): row for row in _rows(audit["rows"])}
 
     landclim = rows[("landclim", "numeric_chronology")]
     assert landclim["support"] == "supported"
@@ -265,7 +267,9 @@ def test_repository_audit_records_paths_counts_and_unclosed_human_review() -> No
     }
     assert "qualified_model_semantics_review_missing" in landclim["reason_codes"]
 
-    animal = next(row for row in payload["rows"] if row["source_key"] == "animal_adna")
+    animal = next(
+        row for row in _rows(payload["rows"]) if row["source_key"] == "animal_adna"
+    )
     assert animal["authority_status"] == "review_required"
     assert "animal_source_recovery_guard_failed" not in animal["blocking_reasons"]
     assert (
@@ -297,7 +301,9 @@ def test_dimension_evidence_does_not_reuse_unrelated_generic_files() -> None:
             source_blockers={},
         )
 
-    rows = {(row["source_key"], row["dimension"]): row for row in payload["rows"]}
+    rows = {
+        (row["source_key"], row["dimension"]): row for row in _rows(payload["rows"])
+    }
     assert rows[("landclim", "site_identity")]["materialization"] == "complete"
     assert rows[("landclim", "derived_pollen_group")]["materialization"] == "missing"
     assert rows[("landclim", "derived_ecological_role")]["materialization"] == "missing"
@@ -330,7 +336,9 @@ def test_ignored_release_bundles_do_not_overstate_clean_root_materialization() -
             source_blockers={},
         )
 
-    rows = {(row["source_key"], row["dimension"]): row for row in payload["rows"]}
+    rows = {
+        (row["source_key"], row["dimension"]): row for row in _rows(payload["rows"])
+    }
     for dimension in (
         "native_ecological_class",
         "derived_pollen_group",
@@ -372,7 +380,9 @@ def test_exact_filenames_require_governed_structure_and_lineage() -> None:
             source_blockers={},
         )
 
-    rows = {(row["source_key"], row["dimension"]): row for row in payload["rows"]}
+    rows = {
+        (row["source_key"], row["dimension"]): row for row in _rows(payload["rows"])
+    }
     assert rows[("landclim", "site_identity")]["materialization"] == "missing"
     assert rows[("animal_adna", "taxon_identity")]["materialization"] == "missing"
     assert rows[("neotoma", "site_identity")]["materialization"] == "missing"
@@ -404,7 +414,7 @@ def test_materialization_is_partial_only_when_an_exact_inventory_is_incomplete()
 
     row = next(
         row
-        for row in payload["rows"]
+        for row in _rows(payload["rows"])
         if row["source_key"] == "landclim" and row["dimension"] == "numeric_chronology"
     )
     assert row["materialization"] == "partial"
@@ -419,7 +429,7 @@ def test_state_matrix_embeds_exact_capability_audit_cardinality() -> None:
             counts={},
         )
 
-    audit = payload["capability_materialization_audit"]
-    assert audit["source_count"] == payload["row_count"] == 8
+    audit = _object(payload["capability_materialization_audit"])
+    assert audit["source_count"] == payload["row_count"] == 9
     assert audit["dimension_count"] == 17
-    assert audit["row_count"] == 136
+    assert audit["row_count"] == 153

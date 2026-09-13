@@ -26,6 +26,7 @@ def test_posture_modules_are_owned_by_source_responsibility() -> None:
     } == {
         "archaeology_sources",
         "model",
+        "land_use_sources",
         "pollen_sources",
         "records",
         "reference_sources",

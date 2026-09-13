@@ -21,6 +21,15 @@ def _source_evidence_paths(source_key: str) -> dict[str, tuple[str, ...]]:
         for index in range(1, 9)
     )
     evidence: dict[str, dict[str, tuple[str, ...]]] = {
+        "hyde": {
+            "coordinates": ("data/hyde/3.5/normalized/manifest.json",),
+            "four_country_coverage": ("data/hyde/3.5/review/country_coverage.json",),
+            "numeric_chronology": ("data/hyde/3.5/review/time_support.json",),
+            "quantitative_observation": ("data/hyde/3.5/normalized/manifest.json",),
+            "observation_unit": ("data/hyde/3.5/raw/variable_inventory.json",),
+            "dataset_provenance": ("data/hyde/3.5/raw/source_manifest.json",),
+            "non_pollen_context": ("data/hyde/3.5/review/comparison_contract.json",),
+        },
         "landclim": {
             "site_identity": (
                 "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
