@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import argparse
-import json
 from collections import Counter
 from collections.abc import Mapping
+import json
 from pathlib import Path
 from typing import Any, Protocol
 
@@ -24,6 +24,7 @@ from ...analysis.lra_validation.experiments.configuration import (
     FITTED_PROFILE,
     LOCAL_PROFILE,
     PROFILE,
+    TEMPORAL_PROFILE,
 )
 from ...analysis.lra_validation.experiments.outputs import (
     ExperimentProduct,
@@ -33,6 +34,11 @@ from ...analysis.lra_validation.observation_uncertainty import (
     ObservationUncertaintyPlan,
     generate_pollen_observation_uncertainty,
     score_pollen_observation_coverage,
+)
+from ...analysis.lra_validation.temporal.persistence import (
+    prepare_temporal_persistence_predictions,
+    read_temporal_persistence_predictions,
+    score_temporal_persistence_predictions,
 )
 from .json_inputs import read_object
 
@@ -64,6 +70,8 @@ def run_lra_experiment_command(args: argparse.Namespace) -> int:
                 prepare = prepare_fitted_spatial_predictions
             elif profile == BLOCK_PROFILE:
                 prepare = prepare_spatial_block_predictions
+            elif profile == TEMPORAL_PROFILE:
+                prepare = prepare_temporal_persistence_predictions
             else:
                 raise ValidationRefusal(
                     "unsupported_experiment_profile",
@@ -102,10 +110,21 @@ def run_lra_experiment_command(args: argparse.Namespace) -> int:
             )
         elif args.command == "score-lra-experiment":
             # Authenticate prediction identity before opening any outcome inventory.
-            read_experiment_product(
+            _, prediction_manifest = read_experiment_product(
                 args.product, expected_manifest_sha256=args.expected_manifest_sha256
             )
-            product = score_experiment_predictions(
+            temporal = prediction_manifest.get("profile") == TEMPORAL_PROFILE
+            if temporal:
+                read_temporal_persistence_predictions(
+                    args.product,
+                    expected_manifest_sha256=args.expected_manifest_sha256,
+                )
+            score = (
+                score_temporal_persistence_predictions
+                if temporal
+                else score_experiment_predictions
+            )
+            product = score(
                 args.product,
                 expected_manifest_sha256=args.expected_manifest_sha256,
                 outcome_root=args.outcome_root,
@@ -113,14 +132,15 @@ def run_lra_experiment_command(args: argparse.Namespace) -> int:
                 destination=args.output,
             )
             scores = read_member(product, "scores.json")
+            metric_field = "metrics" if temporal else "score"
             if not isinstance(scores, list) or any(
-                not isinstance(row, dict) or not isinstance(row.get("score"), dict)
+                not isinstance(row, dict) or not isinstance(row.get(metric_field), dict)
                 for row in scores
             ):
                 raise ValidationRefusal(
                     "invalid_experiment_product", "Missing score ledger"
                 )
-            counts = Counter(str(row["score"]["status"]) for row in scores)
+            counts = Counter(str(row[metric_field]["status"]) for row in scores)
             accounting = {
                 "requested_scores": len(scores),
                 "score_status_counts": dict(sorted(counts.items())),

@@ -14,6 +14,7 @@ from bijux_pollenomics.analysis.lra_validation.experiments.configuration import 
     FITTED_PROFILE,
     LOCAL_PROFILE,
     PROFILE,
+    TEMPORAL_PROFILE,
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.outputs import (
     ExperimentProduct,
@@ -78,6 +79,7 @@ def test_invalid_json_never_starts_numerical_work(
         (LOCAL_PROFILE, "prepare_local_pollen_predictions"),
         (FITTED_PROFILE, "prepare_fitted_spatial_predictions"),
         (BLOCK_PROFILE, "prepare_spatial_block_predictions"),
+        (TEMPORAL_PROFILE, "prepare_temporal_persistence_predictions"),
     ],
 )
 @pytest.mark.parametrize(
@@ -139,6 +141,65 @@ def test_changed_prediction_refuses_before_outcome_inventory_access(
         json.loads(capsys.readouterr().out)["reason_code"]
         == "invalid_experiment_product"
     )
+
+
+def test_temporal_semantics_refuse_before_outcome_inventory_access(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    product = ExperimentProduct(tmp_path / "unknown", "a" * 64, "b" * 64)
+    with (
+        patch.object(
+            runtime,
+            "read_experiment_product",
+            return_value=(product, {"profile": TEMPORAL_PROFILE}),
+        ),
+        patch.object(
+            runtime,
+            "read_temporal_persistence_predictions",
+            side_effect=ValidationRefusal(
+                "temporal_request_provenance_mismatch", "changed"
+            ),
+        ),
+        patch.object(runtime, "read_object") as outcomes,
+        patch.object(runtime, "score_temporal_persistence_predictions") as score,
+    ):
+        assert main(score_args(tmp_path, product)) == 2
+    outcomes.assert_not_called()
+    score.assert_not_called()
+    assert (
+        json.loads(capsys.readouterr().out)["reason_code"]
+        == "temporal_request_provenance_mismatch"
+    )
+
+
+def test_temporal_cli_keeps_both_failed_target_denominators(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    from ...analysis.lra_validation.temporal.persistence.support import refused_product
+
+    product, spec = refused_product(tmp_path / "generation")
+    assert isinstance(product, ExperimentProduct)
+    (tmp_path / "outcomes.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "lra-temporal-outcomes.v1",
+                "data_kind": "synthetic",
+                "purpose": "exploratory",
+                "predictions_manifest_sha256": product.manifest_sha256,
+                "records": [
+                    {
+                        "record_id": spec.temporal_plan.fold.test_record_ids[0],
+                        "observation": {"path": "absent.json", "sha256": "c" * 64},
+                    }
+                ],
+            }
+        )
+    )
+    assert main(score_args(tmp_path, product)) == 2
+    result = json.loads(capsys.readouterr().out)
+    assert result["requested_scores"] == 2
+    assert result["score_status_counts"] == {"failed_prediction": 2}
+    assert json.loads((tmp_path / "scores/outcome_access.json").read_text()) == []
 
 
 @pytest.mark.parametrize("missing", [False, True])

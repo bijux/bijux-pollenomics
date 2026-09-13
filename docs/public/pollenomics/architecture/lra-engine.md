@@ -432,6 +432,11 @@ vegetation unchanged to one younger held-out target before forward pollen
 calculation. No target pollen or younger observations enter generation. This is
 a declared persistence assumption, not a fitted model of vegetation change.
 
+The existing `prepare-lra-experiment` command dispatches the temporal profile,
+and `score-lra-experiment` authenticates its retained prediction semantics before
+opening the outcome inventory. Exit codes preserve complete, refused and
+interrupted accounting; temporal scores keep both target denominators.
+
 Temporal products retain full chronology/geometry admission, older fitted state,
 transport assumptions and original batch requests. Reading joins request bodies,
 source references, ordered items, batch summaries and fitted identities. Missing
