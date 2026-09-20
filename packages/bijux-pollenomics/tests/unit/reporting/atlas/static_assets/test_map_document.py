@@ -86,6 +86,12 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
     assert "compatibility declaration mismatch" in html
     assert "path is invalid" in html
     assert "aria-busy" in html
+    assert ".density-ramp[hidden] { display: none; }" in html
+    assert '<div id="density-ramp" class="density-ramp" hidden>' in html
+    assert (
+        "densityRamp.hidden = !visiblePolygonFeatureEntries.some(({ layer }) => "
+        "layer.key === 'raa-archaeology');"
+    ) in html
 
 
 def test_scientific_atlas_document_exposes_comparison_relations_and_detail_drawer(

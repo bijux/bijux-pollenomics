@@ -1230,6 +1230,7 @@
         line-height: 1.5;
       }
       .density-ramp { display: grid; gap: 8px; }
+      .density-ramp[hidden] { display: none; }
       .density-bar {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
@@ -1985,7 +1986,7 @@
           </div>
           <div id="legend-body" class="legend-body is-collapsed">
             <div id="legend-items" class="legend-list"></div>
-            <div id="density-ramp" class="density-ramp">
+            <div id="density-ramp" class="density-ramp" hidden>
               <div class="legend-item"><span class="legend-swatch" style="background: rgba(239, 68, 68, 0.22); border-color: #7f1d1d;"></span><span>RAÄ archaeology density shows Swedish `Fornlämning` counts in 1° grid cells.</span></div>
               <div class="density-bar"><span></span><span></span><span></span><span></span><span></span><span></span></div>
               <div class="density-labels"><span>Lower density</span><span>Higher density</span></div>

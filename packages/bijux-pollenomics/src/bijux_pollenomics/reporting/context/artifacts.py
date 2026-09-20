@@ -17,9 +17,14 @@ from ...collection.contracts.artifacts import (
     SEAD_ARCHAEOLOGY_DISCOVERY_JSON,
     SEAD_ARCHAEOLOGY_DISCOVERY_MARKDOWN,
 )
-from ...collection.sources.raa import assess_raa_density_authority
+from ...core.files import write_json
 from ...core.geospatial.geojson import as_mapping
 from ..map_publication import map_allows_context_layer
+from .raa import (
+    RAA_ATLAS_INPUT_STATUS_FILENAME,
+    RAA_ATLAS_INPUT_STATUS_LABEL,
+    build_raa_atlas_input_status,
+)
 
 __all__ = ["stage_context_point_layers", "stage_context_polygon_layers"]
 
@@ -138,11 +143,16 @@ def stage_context_polygon_layers(
         extra_artifacts.append((RAA_LAYER_METADATA.label, destination_path.name))
 
     archaeology_density_path = RAA_DENSITY_GEOJSON.path_under(context_root)
-    raa_authority = assess_raa_density_authority(context_root)
-    if raa_authority.admitted and map_allows_context_layer(
+    raa_allowed = map_allows_context_layer(
         scope_key=scope_key,
         layer_key="raa-archaeology",
-    ):
+    )
+    raa_status = build_raa_atlas_input_status(context_root) if raa_allowed else None
+    if raa_allowed:
+        raa_status_path = output_dir / RAA_ATLAS_INPUT_STATUS_FILENAME
+        write_json(raa_status_path, raa_status)
+        extra_artifacts.append((RAA_ATLAS_INPUT_STATUS_LABEL, raa_status_path.name))
+    if raa_status is not None and raa_status["atlas_input_status"] == "admitted":
         destination_path = stage_context_artifact(
             source_path=archaeology_density_path, output_dir=output_dir
         )
