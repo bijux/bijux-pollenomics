@@ -22,6 +22,7 @@ from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     EvaluationScope,
     EvaluationSite,
     FinalEvaluationProtocol,
+    FinalEvaluationReleaseAdmission,
     admit_final_evaluation_release,
     validate_evaluation_policy,
 )
@@ -195,3 +196,19 @@ def test_spatial_protocol_refuses_train_test_members_of_one_block() -> None:
     )
     with pytest.raises(ValidationRefusal, match="block-exclusive"):
         admit_final_evaluation_release((grouped, changed))
+
+
+def test_recomputed_receipt_cannot_add_claims_or_replace_protocols() -> None:
+    admission = admit_final_evaluation_release(_protocols())
+    original = json.loads(admission.canonical_admission_json)
+    for mutation in ("reviewer", "outcome", "protocols"):
+        payload = json.loads(json.dumps(original))
+        if mutation == "reviewer":
+            payload["reviewer_approved"] = True
+        elif mutation == "outcome":
+            payload["empirical_accuracy"] = 1.0
+        else:
+            payload["protocols"] = []
+        canonical = canonical_json(payload)
+        with pytest.raises(ValidationRefusal, match="receipt|protocol"):
+            FinalEvaluationReleaseAdmission(canonical, manifest_sha256(payload))

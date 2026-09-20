@@ -29,6 +29,116 @@ _REQUIRED_CELLS = frozenset(
 )
 _SPLIT_MANIFEST_KEYS = frozenset({"schema_version", "split_kind", "records", "folds"})
 _SPLIT_RECORD_KEYS = frozenset({"record_id", "site_id", "identity_keys", "block_id"})
+_RELEASE_KEYS = frozenset(
+    {
+        "profile",
+        "engineering_admission",
+        "empirical_evaluation_performed",
+        "scientific_acceptance",
+        "scope_sha256",
+        "required_matrix",
+        "protocols",
+    }
+)
+_PROTOCOL_KEYS = frozenset(
+    {
+        "protocol_id",
+        "split_kind",
+        "scope_sha256",
+        "scope_split_sha256",
+        "split_manifest_sha256",
+        "policy_sha256",
+        "cells",
+    }
+)
+_CELL_KEYS = frozenset(
+    {
+        "cell_id",
+        "experiment",
+        "target",
+        "model_id",
+        "baseline_id",
+        "subgroup",
+        "maximum_mae_pp",
+        "minimum_baseline_improvement_pp",
+        "minimum_sites",
+        "minimum_blocks",
+        "maximum_prediction_failure_fraction",
+        "maximum_exclusion_fraction",
+        "nominal_predictive_coverage",
+        "coverage_tolerance",
+        "interval_profile_id",
+    }
+)
+_RELEASE_FACTORY_TOKEN = object()
+
+
+def _required_matrix() -> list[dict[str, str]]:
+    return [
+        {"experiment": experiment, "target": target}
+        for experiment, target in sorted(_REQUIRED_CELLS)
+    ]
+
+
+def _validate_receipt_payload(payload: dict[str, object]) -> None:
+    if frozenset(payload) != _RELEASE_KEYS:
+        refuse("Release admission receipt fields differ from the exact schema")
+    if (
+        payload.get("profile") != FINAL_EVALUATION_RELEASE_PROFILE
+        or payload.get("engineering_admission") != "admitted"
+        or payload.get("empirical_evaluation_performed") is not False
+        or payload.get("scientific_acceptance") != "not_evaluated"
+        or canonical_json(payload.get("required_matrix"))
+        != canonical_json(_required_matrix())
+    ):
+        refuse("Release admission receipt claim boundary or matrix differs")
+    scope_sha256 = payload.get("scope_sha256")
+    if not isinstance(scope_sha256, str):
+        refuse("Release admission receipt scope identity is missing")
+    digest(scope_sha256)
+    protocols = payload.get("protocols")
+    if not isinstance(protocols, list) or len(protocols) != len(_PROTOCOL_SPLIT_KINDS):
+        refuse("Release admission receipt protocols are incomplete")
+    for index, (protocol_id, split_kind) in enumerate(_PROTOCOL_SPLIT_KINDS.items()):
+        protocol = protocols[index]
+        if not isinstance(protocol, dict) or frozenset(protocol) != _PROTOCOL_KEYS:
+            refuse("Release admission protocol fields differ from the exact schema")
+        if (
+            protocol.get("protocol_id") != protocol_id
+            or protocol.get("split_kind") != split_kind
+            or protocol.get("scope_sha256") != scope_sha256
+        ):
+            refuse("Release admission protocol identity or scope differs")
+        for key in (
+            "scope_split_sha256",
+            "split_manifest_sha256",
+            "policy_sha256",
+        ):
+            value = protocol.get(key)
+            if not isinstance(value, str):
+                refuse("Release admission protocol digest is missing")
+            digest(value)
+        cells = protocol.get("cells")
+        if not isinstance(cells, list) or len(cells) != len(_REQUIRED_CELLS):
+            refuse("Release admission protocol cell matrix is incomplete")
+        combinations: set[tuple[object, object]] = set()
+        identities: set[object] = set()
+        for cell in cells:
+            if not isinstance(cell, dict) or frozenset(cell) != _CELL_KEYS:
+                refuse("Release admission cell fields differ from the exact schema")
+            for key in (
+                "cell_id",
+                "model_id",
+                "baseline_id",
+                "subgroup",
+                "interval_profile_id",
+            ):
+                if not isinstance(cell.get(key), str) or not cell[key]:
+                    refuse("Release admission cell identity is malformed")
+            combinations.add((cell.get("experiment"), cell.get("target")))
+            identities.add(cell.get("cell_id"))
+        if combinations != _REQUIRED_CELLS or len(identities) != len(cells):
+            refuse("Release admission cell identities or combinations differ")
 
 
 @dataclass(frozen=True)
@@ -42,12 +152,25 @@ class FinalEvaluationProtocol:
     split_manifest_sha256: str
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, init=False)
 class FinalEvaluationReleaseAdmission:
     """Engineering admission receipt; never an empirical or scientific decision."""
 
     canonical_admission_json: str
     admission_sha256: str
+
+    def __init__(
+        self,
+        canonical_admission_json: str,
+        admission_sha256: str,
+        *,
+        _factory_token: object | None = None,
+    ) -> None:
+        if _factory_token is not _RELEASE_FACTORY_TOKEN:
+            refuse("Release admission receipts must come from the governed factory")
+        object.__setattr__(self, "canonical_admission_json", canonical_admission_json)
+        object.__setattr__(self, "admission_sha256", admission_sha256)
+        self.__post_init__()
 
     def __post_init__(self) -> None:
         try:
@@ -58,12 +181,9 @@ class FinalEvaluationReleaseAdmission:
             not isinstance(payload, dict)
             or canonical_json(payload) != self.canonical_admission_json
             or manifest_sha256(payload) != digest(self.admission_sha256)
-            or payload.get("profile") != FINAL_EVALUATION_RELEASE_PROFILE
-            or payload.get("engineering_admission") != "admitted"
-            or payload.get("empirical_evaluation_performed") is not False
-            or payload.get("scientific_acceptance") != "not_evaluated"
         ):
-            refuse("Release admission receipt identity or claim boundary differs")
+            refuse("Release admission receipt identity differs")
+        _validate_receipt_payload(cast(dict[str, object], payload))
 
 
 def _policy_cells(
@@ -231,14 +351,12 @@ def admit_final_evaluation_release(
         "empirical_evaluation_performed": False,
         "scientific_acceptance": "not_evaluated",
         "scope_sha256": next(iter(scope_hashes)),
-        "required_matrix": [
-            {
-                "experiment": experiment,
-                "target": target,
-            }
-            for experiment, target in sorted(_REQUIRED_CELLS)
-        ],
+        "required_matrix": _required_matrix(),
         "protocols": admitted,
     }
     canonical = canonical_json(payload)
-    return FinalEvaluationReleaseAdmission(canonical, manifest_sha256(payload))
+    return FinalEvaluationReleaseAdmission(
+        canonical,
+        manifest_sha256(payload),
+        _factory_token=_RELEASE_FACTORY_TOKEN,
+    )
