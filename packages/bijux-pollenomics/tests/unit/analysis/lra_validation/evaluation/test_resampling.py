@@ -7,13 +7,41 @@ import json
 
 import pytest
 
-from bijux_pollenomics.analysis.lra_validation.contracts import ValidationRefusal
+from bijux_pollenomics.analysis.lra_validation.contracts import (
+    ValidationRefusal,
+    canonical_json,
+    manifest_sha256,
+)
 from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     evaluate_final,
     resample_independent_units,
 )
+from bijux_pollenomics.analysis.lra_validation.evaluation.contracts import (
+    EvaluationResult,
+)
 
 from .support import bind_prediction, policy_fixture, rows_fixture, scope_fixture
+
+
+def _generic_result(result: EvaluationResult) -> EvaluationResult:
+    payload = json.loads(result.canonical_result_json)
+    payload["schema_version"] = "pollenomics-final-evaluation-result.v3"
+    for row in payload["paired_evidence"]:
+        row["model_source"] = {
+            "kind": "fitted_spatial",
+            "sha256": row.pop("model_fit_sha256"),
+        }
+        row["baseline_source"] = {
+            "kind": "admitted_reconstruction_training_mean",
+            "sha256": row.pop("baseline_fit_sha256"),
+        }
+        row["model_input_ids"] = row.pop("model_fit_input_ids")
+        row["baseline_input_ids"] = row.pop("baseline_fit_input_ids")
+    return replace(
+        result,
+        canonical_result_json=canonical_json(payload),
+        result_sha256=manifest_sha256(payload),
+    )
 
 
 def test_fixed_external_cohort_keeps_shared_deterministic_draws() -> None:
@@ -44,6 +72,63 @@ def test_fixed_external_cohort_keeps_shared_deterministic_draws() -> None:
     assert first["population_coverage_verified"] is False
     assert isinstance(first["draws"], tuple)
     assert len(first["draws"]) == 100
+
+
+def test_generic_v3_result_resamples_without_fitted_baseline_aliases() -> None:
+    scope = scope_fixture()
+    legacy = evaluate_final(
+        policy_fixture(scope), scope=scope, rows=rows_fixture(scope)
+    )
+    result = _generic_result(legacy)
+    receipt = resample_independent_units(
+        result,
+        scope=scope,
+        cell_id="vegetation_cover",
+        unit="site",
+        resamples=10,
+        seed=17,
+        confidence_level=0.8,
+    )
+    assert receipt["result_sha256"] == result.result_sha256
+    payload = json.loads(result.canonical_result_json)
+    assert not any(
+        "fit_sha256" in key for row in payload["paired_evidence"] for key in row
+    )
+
+
+@pytest.mark.parametrize(
+    "mutation", ["legacy_alias", "wrong_kind", "changed_source", "outcome_field"]
+)
+def test_generic_v3_source_identity_mutations_refuse(mutation: str) -> None:
+    scope = scope_fixture()
+    result = _generic_result(
+        evaluate_final(policy_fixture(scope), scope=scope, rows=rows_fixture(scope))
+    )
+    payload = json.loads(result.canonical_result_json)
+    row = payload["paired_evidence"][0]
+    if mutation == "legacy_alias":
+        row["baseline_fit_sha256"] = "b" * 64
+    elif mutation == "wrong_kind":
+        row["baseline_source"]["kind"] = "fitted_spatial"
+    elif mutation == "changed_source":
+        row["model_source"]["sha256"] = "c" * 64
+    else:
+        row["observed_pollen_channel"] = {"a": 6, "b": 4}
+    changed = replace(
+        result,
+        canonical_result_json=canonical_json(payload),
+        result_sha256=manifest_sha256(payload),
+    )
+    with pytest.raises(ValidationRefusal):
+        resample_independent_units(
+            changed,
+            scope=scope,
+            cell_id="vegetation_cover",
+            unit="site",
+            resamples=10,
+            seed=17,
+            confidence_level=0.8,
+        )
 
 
 def test_taxa_and_repeated_samples_do_not_inflate_units() -> None:

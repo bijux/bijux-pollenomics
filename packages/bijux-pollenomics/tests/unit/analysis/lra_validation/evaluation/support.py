@@ -20,6 +20,13 @@ from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     Support,
     validate_evaluation_policy,
 )
+from bijux_pollenomics.analysis.lra_validation.evaluation.contracts import (
+    _authenticated_source_model,
+    prediction_payload,
+)
+from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
+    FITTED_METHOD,
+)
 
 ACCESS = datetime(2020, 2, 1, tzinfo=UTC)
 FROZEN = datetime(2020, 1, 15, tzinfo=UTC)
@@ -182,4 +189,41 @@ def rows_fixture(scope: EvaluationScope) -> tuple[EvaluationRow, ...]:
                     interval=interval,
                 )
                 result.append(bind_prediction(row))
+    return tuple(result)
+
+
+def typed_policy_fixture(scope: EvaluationScope) -> EvaluationPolicy:
+    declaration = policy_payload(scope)
+    for cell in declaration["cells"]:
+        cell["model_id"] = FITTED_METHOD
+        cell["baseline_id"] = "training_mean"
+    return validate_evaluation_policy(
+        declaration, scope=scope, first_test_access_at=ACCESS
+    )
+
+
+def typed_rows_fixture(scope: EvaluationScope) -> tuple[EvaluationRow, ...]:
+    result = []
+    for original in rows_fixture(scope):
+        fitted = original.model_id == "model"
+        assert original.fitted_model_sha256 is not None
+        row = replace(
+            original,
+            model_id=FITTED_METHOD if fitted else "training_mean",
+            prediction_sha256=None,
+            prediction_manifest_json=None,
+            fitted_model_sha256=original.fitted_model_sha256 if fitted else None,
+            source_model=_authenticated_source_model(
+                "fitted_spatial" if fitted else "admitted_reconstruction_training_mean",
+                original.fitted_model_sha256,
+            ),
+        )
+        envelope = prediction_payload(row)
+        result.append(
+            replace(
+                row,
+                prediction_manifest_json=canonical_json(envelope),
+                prediction_sha256=manifest_sha256(envelope),
+            )
+        )
     return tuple(result)

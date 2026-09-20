@@ -29,6 +29,13 @@ def _scored_payload(result: EvaluationResult, scope: EvaluationScope) -> dict[st
         refuse("Malformed retained scored evidence")
     if not isinstance(payload, dict):
         refuse("Scored evidence must be an object")
+    version = payload.get("schema_version")
+    if version not in {
+        "pollenomics-final-evaluation-result.v2",
+        "pollenomics-final-evaluation-result.v3",
+    }:
+        refuse("Unsupported retained final-evaluation result version")
+    generic = version == "pollenomics-final-evaluation-result.v3"
     cells = payload.get("cells")
     records = payload.get("paired_evidence")
     if (
@@ -60,17 +67,32 @@ def _scored_payload(result: EvaluationResult, scope: EvaluationScope) -> dict[st
         required = {
             "cell_id",
             "record_id",
+            "fold_id",
             "group_id",
             "block_id",
-            "model_fit_sha256",
-            "baseline_fit_sha256",
-            "model_fit_input_ids",
-            "baseline_fit_input_ids",
             "model_mae_pp",
+            "baseline_mae_pp",
             "improvement_pp",
+            "coverage",
+            "width_fraction",
         }
-        if not required <= set(row):
-            refuse("Incomplete paired scored record")
+        required.update(
+            {
+                "model_source",
+                "baseline_source",
+                "model_input_ids",
+                "baseline_input_ids",
+            }
+            if generic
+            else {
+                "model_fit_sha256",
+                "baseline_fit_sha256",
+                "model_fit_input_ids",
+                "baseline_fit_input_ids",
+            }
+        )
+        if set(row) != required:
+            refuse("Paired scored record fields differ from the exact schema")
         if any(
             not isinstance(row[key], str)
             for key in ("cell_id", "record_id", "group_id", "block_id")
@@ -78,11 +100,45 @@ def _scored_payload(result: EvaluationResult, scope: EvaluationScope) -> dict[st
             refuse("Malformed paired scored identity")
         if row["cell_id"] not in cell_ids or row["record_id"] not in sites:
             refuse("Paired score names an unknown cell or record")
-        for key in ("model_fit_sha256", "baseline_fit_sha256"):
-            digest(row[key])
-        for key in ("model_fit_input_ids", "baseline_fit_input_ids"):
-            if not identity_values(row[key]):
-                refuse("Paired scored training identities cannot be empty")
+        if generic:
+            if {
+                "model_fit_sha256",
+                "baseline_fit_sha256",
+                "model_fit_input_ids",
+                "baseline_fit_input_ids",
+            } & set(row):
+                refuse("Generic scored evidence cannot expose fitted-only aliases")
+            for key, kind in (
+                ("model_source", "fitted_spatial"),
+                ("baseline_source", "admitted_reconstruction_training_mean"),
+            ):
+                source = row[key]
+                if (
+                    not isinstance(source, dict)
+                    or set(source) != {"kind", "sha256"}
+                    or source.get("kind") != kind
+                ):
+                    refuse("Malformed generic source-model identity")
+                source_sha256 = source.get("sha256")
+                if not isinstance(source_sha256, str):
+                    refuse("Malformed generic source-model identity")
+                digest(source_sha256)
+            input_fields = ("model_input_ids", "baseline_input_ids")
+        else:
+            if {
+                "model_source",
+                "baseline_source",
+                "model_input_ids",
+                "baseline_input_ids",
+            } & set(row):
+                refuse("Historical v2 evidence cannot contain v3 source fields")
+            for key in ("model_fit_sha256", "baseline_fit_sha256"):
+                digest(row[key])
+            input_fields = ("model_fit_input_ids", "baseline_fit_input_ids")
+        for key in input_fields:
+            values = identity_values(row[key])
+            if not values or (generic and len(values) != len(set(values))):
+                refuse("Paired scored training identities cannot be empty or duplicate")
         if (
             not 0 <= finite_number(row["model_mae_pp"]) <= 100
             or not -100 <= finite_number(row["improvement_pp"]) <= 100
@@ -115,7 +171,11 @@ def resample_independent_units(
     payload = _scored_payload(result, scope)
     if (
         result.canonical_result_json != canonical_json(payload)
-        or payload.get("schema_version") != "pollenomics-final-evaluation-result.v2"
+        or payload.get("schema_version")
+        not in {
+            "pollenomics-final-evaluation-result.v2",
+            "pollenomics-final-evaluation-result.v3",
+        }
         or payload.get("status") != result.status
         or manifest_sha256(payload) != result.result_sha256
         or payload.get("scope_sha256") != scope.scope_sha256
@@ -144,10 +204,21 @@ def resample_independent_units(
         or len(records) != cells[0]["requested_records"]
     ):
         refuse("Conditional resampling requires the complete unique scored cohort")
-    for field in ("model_fit_sha256", "baseline_fit_sha256"):
-        if len({x[field] for x in records}) != 1:
-            refuse("All cohort predictions must use the same fixed fitted model")
-    for field in ("model_fit_input_ids", "baseline_fit_input_ids"):
+    generic = payload["schema_version"] == "pollenomics-final-evaluation-result.v3"
+    source_fields = (
+        ("model_source", "baseline_source")
+        if generic
+        else ("model_fit_sha256", "baseline_fit_sha256")
+    )
+    input_fields = (
+        ("model_input_ids", "baseline_input_ids")
+        if generic
+        else ("model_fit_input_ids", "baseline_fit_input_ids")
+    )
+    for field in source_fields:
+        if len({canonical_json(x[field]) for x in records}) != 1:
+            refuse("All cohort predictions must use the same fixed source model")
+    for field in input_fields:
         if len({tuple(x[field]) for x in records}) != 1:
             refuse("All cohort predictions must use the same frozen training inputs")
     fold = scope.folds[0]
@@ -157,7 +228,7 @@ def resample_independent_units(
         if site.record_id in fold.test_record_ids
         for key in (site.vegetation_observation_id, site.pollen_observation_id)
     }
-    for field in ("model_fit_input_ids", "baseline_fit_input_ids"):
+    for field in input_fields:
         if scope.observation_channels:
             closure = assert_channel_inputs(
                 fold,

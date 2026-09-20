@@ -26,6 +26,8 @@ from .support import (
     policy_payload,
     rows_fixture,
     scope_fixture,
+    typed_policy_fixture,
+    typed_rows_fixture,
 )
 
 
@@ -41,6 +43,38 @@ def test_separate_target_success_keeps_independent_denominators() -> None:
     }
     assert all(cell["paired_scored_groups"] == 6 for cell in payload["cells"])
     assert payload["scientific_approval_granted"] is False
+    assert payload["schema_version"] == "pollenomics-final-evaluation-result.v2"
+    assert all("model_fit_sha256" in row for row in payload["paired_evidence"])
+
+
+def test_typed_sources_emit_v3_without_fitted_baseline_aliases() -> None:
+    scope = scope_fixture()
+    policy, rows = typed_policy_fixture(scope), typed_rows_fixture(scope)
+    result = evaluate_final(policy, scope=scope, rows=rows)
+    payload = json.loads(result.canonical_result_json)
+    assert payload["schema_version"] == "pollenomics-final-evaluation-result.v3"
+    for row in payload["paired_evidence"]:
+        assert row["model_source"]["kind"] == "fitted_spatial"
+        assert row["baseline_source"]["kind"] == (
+            "admitted_reconstruction_training_mean"
+        )
+        assert not any("fit_sha256" in key for key in row)
+        assert {"model_input_ids", "baseline_input_ids"} <= set(row)
+
+
+def test_typed_and_legacy_prediction_rows_cannot_share_one_result() -> None:
+    scope = scope_fixture()
+    policy, rows = typed_policy_fixture(scope), typed_rows_fixture(scope)
+    legacy = bind_prediction(
+        replace(
+            rows[0],
+            prediction_sha256=None,
+            prediction_manifest_json=None,
+            source_model=None,
+        )
+    )
+    with pytest.raises(ValidationRefusal, match="cannot mix"):
+        evaluate_final(policy, scope=scope, rows=(legacy, *rows[1:]))
 
 
 def test_outcome_perturbation_changes_only_scores_and_not_frozen_predictions() -> None:

@@ -37,14 +37,31 @@ from .contracts import (
     PredictiveInterval,
     Support,
     digest,
-    prediction_payload,
     refuse,
+    validate_frozen_prediction,
 )
 from .policy import validate_evaluation_policy
 
 
 def _key(row: EvaluationRow) -> tuple[str, str, str, str, str]:
     return row.fold_id, row.record_id, row.experiment, row.target, row.model_id
+
+
+def _source(row: EvaluationRow, kind: str) -> dict[str, str]:
+    value = row.source_model
+    if value is None or value.kind != kind:
+        refuse("Paired evaluation source-model kind differs")
+    return {"kind": value.kind, "sha256": value.sha256}
+
+
+def _evidence_row(row: EvaluationRow, generic: bool) -> dict[str, Any]:
+    value = asdict(row)
+    if not generic:
+        value.pop("source_model")
+    value["prediction_frozen_at"] = (
+        row.prediction_frozen_at.isoformat() if row.prediction_frozen_at else None
+    )
+    return value
 
 
 def _composition(values: object) -> dict[str, Any]:
@@ -197,14 +214,15 @@ def _score_row(
                 "Failed/excluded predictions need a reason and no invented composition"
             )
         return None, row.status
-    if (
-        row.prediction is None
-        or row.prediction_sha256 is None
-        or row.fitted_model_sha256 is None
-    ):
-        refuse("Predictions require values and immutable prediction/fit identities")
+    if row.prediction is None or row.prediction_sha256 is None:
+        refuse("Predictions require values and an immutable prediction identity")
     digest(row.prediction_sha256)
-    digest(row.fitted_model_sha256)
+    if row.source_model is None:
+        if row.fitted_model_sha256 is None:
+            refuse("Historical predictions require an immutable fitted identity")
+        digest(row.fitted_model_sha256)
+    else:
+        digest(row.source_model.sha256)
     if (
         not isinstance(row.prediction_frozen_at, datetime)
         or row.prediction_frozen_at.utcoffset() is None
@@ -213,21 +231,12 @@ def _score_row(
         refuse("Prediction freeze must precede first test access")
     if row.interval is not None and not isinstance(row.interval, PredictiveInterval):
         refuse("Predictive intervals must be typed")
-    if not isinstance(row.prediction_manifest_json, str):
-        refuse("Frozen prediction envelope bytes must accompany their identity")
-    try:
-        envelope = json.loads(row.prediction_manifest_json)
-    except (ValueError, TypeError):
-        refuse("Malformed prediction envelope")
-    expected_envelope = prediction_payload(row)
+    version = validate_frozen_prediction(row)
     if (
-        row.prediction_manifest_json != canonical_json(envelope)
-        or canonical_json(envelope) != canonical_json(expected_envelope)
-        or manifest_sha256(envelope) != row.prediction_sha256
+        row.source_model is not None
+        and version != "pollenomics-evaluation-prediction.v2"
     ):
-        refuse(
-            "Frozen prediction bytes differ from supplied values, fit inputs or interval"
-        )
+        refuse("Typed source-model scoring requires a v2 prediction envelope")
     closure = _fit_closure(row, site, scope, fold)
     if row.observation is None:
         return None, "missing_observation"
@@ -331,6 +340,11 @@ def evaluate_final(
     ledger = {_key(row): row for row in rows}
     if len(ledger) != len(rows) or set(ledger) != expected:
         refuse("Requested evidence universe has omitted, duplicate or unexpected rows")
+    predicted = [row for row in rows if row.status == "predicted"]
+    typed = [row.source_model is not None for row in predicted]
+    generic = bool(typed) and all(typed)
+    if any(typed) and not generic:
+        refuse("A result cannot mix legacy and typed source-model predictions")
     scored = {
         key: _score_row(row, sites[row.record_id], scope, folds[row.fold_id], policy)
         for key, row in ledger.items()
@@ -394,11 +408,23 @@ def evaluate_final(
                 "improvement_pp": (base_score.mae_fraction - score.mae_fraction) * 100,
                 "coverage": interval[0] if interval else None,
                 "width_fraction": interval[1] if interval else None,
-                "model_fit_sha256": model.fitted_model_sha256,
-                "baseline_fit_sha256": baseline.fitted_model_sha256,
-                "model_fit_input_ids": model.fit_input_ids,
-                "baseline_fit_input_ids": baseline.fit_input_ids,
             }
+            if generic:
+                item.update(
+                    model_source=_source(model, "fitted_spatial"),
+                    baseline_source=_source(
+                        baseline, "admitted_reconstruction_training_mean"
+                    ),
+                    model_input_ids=model.fit_input_ids,
+                    baseline_input_ids=baseline.fit_input_ids,
+                )
+            else:
+                item.update(
+                    model_fit_sha256=model.fitted_model_sha256,
+                    baseline_fit_sha256=baseline.fitted_model_sha256,
+                    model_fit_input_ids=model.fit_input_ids,
+                    baseline_fit_input_ids=baseline.fit_input_ids,
+                )
             groups[site.group_id].append(item)
             paired_evidence.append(item)
         count = len(requested_groups)
@@ -475,22 +501,18 @@ def evaluate_final(
         else "passed"
     )
     result = {
-        "schema_version": "pollenomics-final-evaluation-result.v2",
+        "schema_version": (
+            "pollenomics-final-evaluation-result.v3"
+            if generic
+            else "pollenomics-final-evaluation-result.v2"
+        ),
         "status": status,
         "policy_sha256": policy.policy_sha256,
         "first_test_access_at": policy.first_test_access_at.isoformat(),
         "scope_sha256": scope.scope_sha256,
         "split_sha256": scope.split_sha256,
         "evidence_sha256": manifest_sha256(
-            [
-                {
-                    **asdict(row),
-                    "prediction_frozen_at": row.prediction_frozen_at.isoformat()
-                    if row.prediction_frozen_at
-                    else None,
-                }
-                for row in rows
-            ]
+            [_evidence_row(row, generic) for row in rows]
         ),
         "cells": cells,
         "paired_evidence": paired_evidence,
