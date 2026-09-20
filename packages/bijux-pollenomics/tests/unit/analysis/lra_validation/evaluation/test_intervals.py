@@ -210,6 +210,26 @@ def test_rehashed_nonconditional_draw_product_refuses(
         _freeze(products, uncertainty=changed)
 
 
+def test_rehashed_timing_authority_claim_refuses(
+    tmp_path: Path,
+    products: tuple[ExperimentProduct, ExperimentProduct, EvaluationRow],
+) -> None:
+    original = products[1]
+    target = tmp_path / "changed-timing-posture"
+    shutil.copytree(original.directory, target)
+    copied = ExperimentProduct(
+        target, original.manifest_sha256, original.scientific_content_sha256
+    )
+    changed = rewrite(
+        copied,
+        payload_change=lambda payload: payload.update(
+            declaration_timing_authenticated=True
+        ),
+    )
+    with pytest.raises(ValidationRefusal):
+        _freeze(products, uncertainty=changed)
+
+
 def test_wrong_independently_retained_product_hash_refuses(
     products: tuple[ExperimentProduct, ExperimentProduct, EvaluationRow],
 ) -> None:

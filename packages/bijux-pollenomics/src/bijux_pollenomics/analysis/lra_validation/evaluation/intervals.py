@@ -77,6 +77,7 @@ def _authenticated_draws(
         or payload.get("outcome_accesses") != []
         or payload.get("scientific_acceptance") != "not_evaluated"
         or payload.get("final_policy_approval") is not False
+        or payload.get("declaration_timing_authenticated") is not False
         or rows != payload.get("rows")
         or evidence != payload.get("effort_evidence")
         or manifest_sha256(read_member(product, "plan.json")) != plan.sha256
