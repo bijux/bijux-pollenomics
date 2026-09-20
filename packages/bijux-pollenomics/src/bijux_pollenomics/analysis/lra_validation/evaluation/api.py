@@ -2,6 +2,10 @@
 
 from ..experiments.reading.scores import read_scored_experiment_evidence
 from .adapter import EvaluationAdapterAudit, audit_scored_evaluation_readiness
+from .block_intervals import (
+    AUTHENTICATED_BLOCK_CONDITIONAL_INTERVAL_PROFILE,
+    freeze_authenticated_block_pollen_interval,
+)
 from .contracts import (
     AcceptanceCell,
     EvaluationPolicy,
@@ -47,6 +51,8 @@ __all__ = [
     "validate_evaluation_policy",
     "AUTHENTICATED_CONDITIONAL_INTERVAL_PROFILE",
     "freeze_authenticated_pollen_interval",
+    "AUTHENTICATED_BLOCK_CONDITIONAL_INTERVAL_PROFILE",
+    "freeze_authenticated_block_pollen_interval",
     "FINAL_EVALUATION_RELEASE_PROFILE",
     "FinalEvaluationProtocol",
     "FinalEvaluationReleaseAdmission",
