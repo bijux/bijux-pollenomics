@@ -59,6 +59,8 @@ def _candidate(
     encrypted: bool = False,
     high_ratio: bool = False,
     symlink: bool = False,
+    actual_r_parity_executed: bool = False,
+    original_1128_raw_records_collected: bool = False,
 ) -> None:
     members = {
         "docs/SCIENTIFIC_AUDIT.md": b"The paper/Table 1 uses 12 PFTs. The PANGAEA description states 11.\n",
@@ -66,8 +68,10 @@ def _candidate(
         "verification/delivery-scope.json": _json(
             {
                 "offline_tests": {"passed": 87, "skipped": 1},
-                "actual_R_parity_executed": False,
-                "original_1128_raw_records_collected": False,
+                "actual_R_parity_executed": actual_r_parity_executed,
+                "original_1128_raw_records_collected": (
+                    original_1128_raw_records_collected
+                ),
             }
         ),
         "verification/environment.json": _json(
@@ -125,7 +129,12 @@ def _candidate(
         path.write_bytes(archive_content)
 
 
-def _repository(root: Path, *, trailing_header: str | None = None) -> None:
+def _repository(
+    root: Path,
+    *,
+    trailing_header: str | None = None,
+    vegetation_accuracy: str = "not_evaluated",
+) -> None:
     comparison = root / "artifacts/v2/engine/publication-check-004/comparison"
     comparison.mkdir(parents=True)
     (comparison / "report.json").write_text(
@@ -133,7 +142,7 @@ def _repository(root: Path, *, trailing_header: str | None = None) -> None:
             {
                 "profile": "landclimii-2016-release-source-v1",
                 "coverage": "two_author_example_grids_only_not_full_1128_record_study",
-                "independent_measured_vegetation_accuracy": "not_evaluated",
+                "independent_measured_vegetation_accuracy": vegetation_accuracy,
                 "grids": [
                     {
                         "grid_id": grid_id,
@@ -433,4 +442,38 @@ def test_unknown_trailing_published_header_is_not_classified_as_pft(
     _repository(repository, trailing_header="UNKNOWN_GROUP")
 
     with pytest.raises(ValueError, match="unknown trailing grouped headers"):
+        build_reconciliation(candidate, repository)
+
+
+def test_unsupported_candidate_completion_claim_is_rejected(
+    tmp_path: Path,
+) -> None:
+    for name, actual_r, original_records in (
+        ("actual-r", True, False),
+        ("original-records", False, True),
+    ):
+        case = tmp_path / name
+        candidate = case / "candidate.zip"
+        repository = case / "repository"
+        case.mkdir()
+        _candidate(
+            candidate,
+            actual_r_parity_executed=actual_r,
+            original_1128_raw_records_collected=original_records,
+        )
+        _repository(repository)
+
+        with pytest.raises(ValueError, match="lacks independently pinned evidence"):
+            build_reconciliation(candidate, repository)
+
+
+def test_independent_vegetation_accuracy_overclaim_is_rejected(
+    tmp_path: Path,
+) -> None:
+    candidate = tmp_path / "candidate.zip"
+    repository = tmp_path / "repository"
+    _candidate(candidate)
+    _repository(repository, vegetation_accuracy="passed")
+
+    with pytest.raises(ValueError, match="must not claim independent measured"):
         build_reconciliation(candidate, repository)

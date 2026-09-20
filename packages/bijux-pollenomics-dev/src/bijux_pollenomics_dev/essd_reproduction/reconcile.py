@@ -309,6 +309,15 @@ def _test_inventory(members: dict[str, bytes], receipt: JsonObject) -> JsonObjec
         members[required["verification/delivery-scope.json"]],
         "verification/delivery-scope.json",
     )
+    for unsupported_claim in (
+        "actual_R_parity_executed",
+        "original_1128_raw_records_collected",
+    ):
+        if delivery.get(unsupported_claim) is not False:
+            raise ValueError(
+                "Candidate delivery claim lacks independently pinned evidence in "
+                f"this reconciliation closure: {unsupported_claim}"
+            )
     environment = _object(
         members[required["verification/environment.json"]],
         "verification/environment.json",
@@ -434,6 +443,10 @@ def _repository_evidence(repository: Path) -> JsonObject:
         != "two_author_example_grids_only_not_full_1128_record_study"
     ):
         raise ValueError("Host comparison no longer declares its bounded coverage")
+    if comparison.get("independent_measured_vegetation_accuracy") != "not_evaluated":
+        raise ValueError(
+            "Host comparison must not claim independent measured vegetation accuracy"
+        )
     grids_by_id = {str(grid.get("grid_id")): grid for grid in grids}
     if len(grids_by_id) != 2 or set(grids_by_id) != set(_EXPECTED_EXAMPLE_SITES):
         raise ValueError(
