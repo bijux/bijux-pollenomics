@@ -79,6 +79,7 @@ def _parent(method: str) -> dict[str, object]:
         "bin_id": "bin",
         "outer_fold": fold.as_dict(),
         "vegetation_fraction": {"Alnus": 0.6, "Betula": 0.4},
+        "pollen_fraction": {"Alnus": 0.6, "Betula": 0.4},
         "training_admission": _admission(fold),
         "target_geometry_sha256": "5" * 64,
         "support": {"local_support_radius_m": 1000},
@@ -190,6 +191,42 @@ def test_parent_refusal_preserves_denominator_without_values(
     assert baseline.reason == "parent_not_run:experiment_interrupted"
     assert baseline.prediction is baseline.source_model is None
     assert model.status == "predicted"
+
+
+def test_pollen_factory_delegates_complete_unfrozen_ledger_to_interval_authenticator(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    _install(monkeypatch)
+    captured: dict[str, object] = {}
+
+    def freeze(rows: object, **kwargs: object) -> object:
+        captured.update(rows=rows, kwargs=kwargs)
+        return rows
+
+    monkeypatch.setattr(block_rows, "freeze_authenticated_block_pollen_rows", freeze)
+    result = block_rows.adapt_authenticated_spatial_block_withheld_pollen_rows(
+        tmp_path / "product",
+        expected_prediction_manifest_sha256="a" * 64,
+        uncertainty=tmp_path / "uncertainty",
+        expected_uncertainty_manifest_sha256="b" * 64,
+        scope=_scope(),
+    )
+    assert captured["rows"] == result
+    assert len(result) == 2
+    assert all(
+        row.target == "pollen_composition"
+        and row.prediction == (("Alnus", 0.6), ("Betula", 0.4))
+        and row.source_model is None
+        and row.prediction_sha256 is None
+        for row in result
+    )
+    assert {row.model_id for row in result} == set(BLOCK_METHODS)
+    assert captured["kwargs"] == {
+        "predictions": tmp_path / "product",
+        "expected_prediction_manifest_sha256": "a" * 64,
+        "uncertainty": tmp_path / "uncertainty",
+        "expected_uncertainty_manifest_sha256": "b" * 64,
+    }
 
 
 @pytest.mark.parametrize(

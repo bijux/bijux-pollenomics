@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from pathlib import Path
-from typing import cast
+from typing import Literal, cast
 
 from ...contracts import canonical_json, finite_number
 from ...experiments.configuration import (
@@ -16,6 +17,7 @@ from ...experiments.configuration import (
 )
 from ...experiments.reading.products import read_spatial_block_predictions
 from ...splits import assert_allowed_inputs
+from ..block_intervals import freeze_authenticated_block_pollen_rows
 from ..contracts import (
     EvaluationRow,
     EvaluationScope,
@@ -42,14 +44,18 @@ def _failures(
     return result
 
 
-def _failed_row(parent: dict[str, object]) -> EvaluationRow:
+def _failed_row(
+    parent: dict[str, object],
+    *,
+    target: Literal["vegetation_cover", "pollen_composition"],
+) -> EvaluationRow:
     status = identity(parent["status"])
     reason = identity(parent["reason_code"])
     return EvaluationRow(
         fold_id=identity(parent["fold_id"]),
         record_id=identity(parent["record_id"]),
         model_id=identity(parent["method"]),
-        target="vegetation_cover",
+        target=target,
         experiment="all_target_pollen_withheld",
         status="prediction_failed",
         prediction=None,
@@ -66,13 +72,11 @@ def _failed_row(parent: dict[str, object]) -> EvaluationRow:
     )
 
 
-def _prediction(row: dict[str, object]) -> tuple[tuple[str, float], ...]:
+def _prediction(row: dict[str, object], *, field: str) -> tuple[tuple[str, float], ...]:
     return tuple(
         sorted(
             (identity(taxon), finite_number(value))
-            for taxon, value in object_mapping(
-                row["vegetation_fraction"], "vegetation_fraction"
-            ).items()
+            for taxon, value in object_mapping(row[field], field).items()
         )
     )
 
@@ -145,69 +149,66 @@ def _authenticate_scope_lineage(
     return inputs
 
 
-def _fitted_row(
-    parent: dict[str, object], *, fit_input_ids: tuple[str, ...]
+def _point_row(
+    parent: dict[str, object],
+    *,
+    method: str,
+    target: Literal["vegetation_cover", "pollen_composition"],
+    fit_input_ids: tuple[str, ...],
 ) -> EvaluationRow:
-    source_sha256 = digest(cast(str, parent["model_sha256"]))
-    return freeze_evaluation_prediction(
-        EvaluationRow(
-            fold_id=identity(parent["fold_id"]),
-            record_id=identity(parent["record_id"]),
-            model_id=FITTED_METHOD,
-            target="vegetation_cover",
-            experiment="all_target_pollen_withheld",
-            status="predicted",
-            prediction=_prediction(parent),
-            observation=None,
-            observation_reference_id=None,
-            observation_kind=None,
-            observation_support=None,
-            prediction_sha256=None,
-            prediction_manifest_json=None,
-            fitted_model_sha256=source_sha256,
-            prediction_frozen_at=None,
-            fit_input_ids=fit_input_ids,
-            source_model=_authenticated_source_model("fitted_spatial", source_sha256),
+    fitted = method == FITTED_METHOD
+    source_sha256 = digest(
+        cast(
+            str,
+            parent["model_sha256"] if fitted else parent["baseline_model_sha256"],
         )
     )
-
-
-def _baseline_row(
-    parent: dict[str, object], *, fit_input_ids: tuple[str, ...]
-) -> EvaluationRow:
-    source_sha256 = digest(cast(str, parent["baseline_model_sha256"]))
-    return freeze_evaluation_prediction(
-        EvaluationRow(
-            fold_id=identity(parent["fold_id"]),
-            record_id=identity(parent["record_id"]),
-            model_id=BLOCK_BASELINE_METHOD,
-            target="vegetation_cover",
-            experiment="all_target_pollen_withheld",
-            status="predicted",
-            prediction=_prediction(parent),
-            observation=None,
-            observation_reference_id=None,
-            observation_kind=None,
-            observation_support=None,
-            prediction_sha256=None,
-            prediction_manifest_json=None,
-            fitted_model_sha256=None,
-            prediction_frozen_at=None,
-            fit_input_ids=fit_input_ids,
-            source_model=_authenticated_source_model(
-                "admitted_reconstruction_training_mean", source_sha256
+    row = EvaluationRow(
+        fold_id=identity(parent["fold_id"]),
+        record_id=identity(parent["record_id"]),
+        model_id=method,
+        target=target,
+        experiment="all_target_pollen_withheld",
+        status="predicted",
+        prediction=_prediction(
+            parent,
+            field=(
+                "vegetation_fraction"
+                if target == "vegetation_cover"
+                else "pollen_fraction"
             ),
+        ),
+        observation=None,
+        observation_reference_id=None,
+        observation_kind=None,
+        observation_support=None,
+        prediction_sha256=None,
+        prediction_manifest_json=None,
+        fitted_model_sha256=source_sha256 if fitted else None,
+        prediction_frozen_at=None,
+        fit_input_ids=fit_input_ids,
+    )
+    if target == "pollen_composition":
+        return row
+    source_kind = (
+        "fitted_spatial" if fitted else "admitted_reconstruction_training_mean"
+    )
+    return freeze_evaluation_prediction(
+        replace(
+            row,
+            source_model=_authenticated_source_model(source_kind, source_sha256),
         )
     )
 
 
-def adapt_authenticated_spatial_block_withheld_vegetation_rows(
+def _adapt_authenticated_spatial_block_withheld_rows(
     predictions: Path,
     *,
     expected_manifest_sha256: str,
     scope: EvaluationScope,
+    target: Literal["vegetation_cover", "pollen_composition"],
 ) -> tuple[EvaluationRow, ...]:
-    """Freeze the complete paired block vegetation row universe without outcomes."""
+    """Authenticate the paired block point-row universe without outcomes."""
     if not isinstance(scope, EvaluationScope):
         refuse("A typed frozen evaluation scope is required")
     _, manifest, folds, parents, methods = read_spatial_block_predictions(
@@ -253,14 +254,23 @@ def adapt_authenticated_spatial_block_withheld_vegetation_rows(
             refuse("Spatial-block product names a target outside the frozen scope")
         parent = parents.get(key)
         if parent is None:
-            result.append(_failed_row(failures[key]))
+            result.append(_failed_row(failures[key], target=target))
             continue
         if (
             parent.get("group_id") != site.group_id
             or parent.get("bin_id") != site.bin_id
             or canonical_json(parent.get("outer_fold"))
             != canonical_json(expected_folds[fold_id])
-            or set(object_mapping(parent["vegetation_fraction"], "vegetation"))
+            or set(
+                object_mapping(
+                    parent[
+                        "vegetation_fraction"
+                        if target == "vegetation_cover"
+                        else "pollen_fraction"
+                    ],
+                    target,
+                )
+            )
             != set(scope.taxa)
         ):
             refuse("Block target ownership, fold, bin or taxa differ from scope")
@@ -275,8 +285,50 @@ def adapt_authenticated_spatial_block_withheld_vegetation_rows(
             parent, method=method, scope=scope, fold_id=fold_id
         )
         result.append(
-            _fitted_row(parent, fit_input_ids=inputs)
-            if method == FITTED_METHOD
-            else _baseline_row(parent, fit_input_ids=inputs)
+            _point_row(
+                parent,
+                method=method,
+                target=target,
+                fit_input_ids=inputs,
+            )
         )
     return tuple(result)
+
+
+def adapt_authenticated_spatial_block_withheld_vegetation_rows(
+    predictions: Path,
+    *,
+    expected_manifest_sha256: str,
+    scope: EvaluationScope,
+) -> tuple[EvaluationRow, ...]:
+    """Freeze the complete paired block vegetation row universe without outcomes."""
+    return _adapt_authenticated_spatial_block_withheld_rows(
+        predictions,
+        expected_manifest_sha256=expected_manifest_sha256,
+        scope=scope,
+        target="vegetation_cover",
+    )
+
+
+def adapt_authenticated_spatial_block_withheld_pollen_rows(
+    predictions: Path,
+    *,
+    expected_prediction_manifest_sha256: str,
+    uncertainty: Path,
+    expected_uncertainty_manifest_sha256: str,
+    scope: EvaluationScope,
+) -> tuple[EvaluationRow, ...]:
+    """Freeze the complete paired block pollen ledger with conditional intervals."""
+    rows = _adapt_authenticated_spatial_block_withheld_rows(
+        predictions,
+        expected_manifest_sha256=expected_prediction_manifest_sha256,
+        scope=scope,
+        target="pollen_composition",
+    )
+    return freeze_authenticated_block_pollen_rows(
+        rows,
+        predictions=predictions,
+        expected_prediction_manifest_sha256=expected_prediction_manifest_sha256,
+        uncertainty=uncertainty,
+        expected_uncertainty_manifest_sha256=expected_uncertainty_manifest_sha256,
+    )

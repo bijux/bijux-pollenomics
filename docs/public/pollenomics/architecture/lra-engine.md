@@ -351,6 +351,16 @@ free of target pollen and vegetation outcomes. No governed vegetation predictive
 interval exists, so this adapter also cannot establish empirical coverage or
 release acceptance.
 
+`adapt_authenticated_spatial_block_withheld_pollen_rows` builds the matching
+complete pollen point-row universe and sends it through one batch authentication
+of the caller-pinned conditional-observation product. Both the fitted method and
+training-mean baseline receive producer-authenticated v2 source identities and
+predictive-observation intervals. Parent prediction refusals remain value-free
+failures. A successfully predicted parent without a generated interval refuses
+the whole ledger rather than silently shrinking its uncertainty denominator.
+These conditional intervals propagate declared counting uncertainty only;
+empirical coverage, first-access timing and scientific acceptance remain false.
+
 These spatial experiments remain synthetic and exploratory. Joint model
 uncertainty requires separate profiles and evidence.
 

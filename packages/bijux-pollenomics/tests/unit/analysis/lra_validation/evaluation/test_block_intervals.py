@@ -209,3 +209,124 @@ def test_parent_method_kind_or_training_inputs_cannot_be_relabelled(
             uncertainty=tmp_path / "uncertainty",
             expected_uncertainty_manifest_sha256="c" * 64,
         )
+
+
+@pytest.mark.parametrize("method", [FITTED_METHOD, BLOCK_BASELINE_METHOD])
+def test_batch_authenticates_denominator_once_and_freezes_each_method(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, method: str
+) -> None:
+    _install_parent(monkeypatch, method)
+    frozen = block_intervals.freeze_authenticated_block_pollen_rows(
+        (_row(method),),
+        predictions=tmp_path / "predictions",
+        expected_prediction_manifest_sha256="a" * 64,
+        uncertainty=tmp_path / "uncertainty",
+        expected_uncertainty_manifest_sha256="c" * 64,
+    )
+    assert len(frozen) == 1
+    assert frozen[0].interval is not None
+    assert validate_frozen_prediction(frozen[0]) == (
+        "pollenomics-evaluation-prediction.v2"
+    )
+
+
+def test_batch_refuses_predicted_parent_without_generated_interval(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    method = FITTED_METHOD
+    entry = _entry(method)
+    plan = BlockObservationUncertaintyPlan("a" * 64, (entry,), 10, 0.9)
+    monkeypatch.setattr(
+        block_intervals,
+        "_authenticated_block_draws",
+        lambda *args, **kwargs: (
+            plan,
+            {entry.key: _parent(method)},
+            {entry.key: {"status": "effort_refused"}},
+        ),
+    )
+    with pytest.raises(ValidationRefusal, match="requires a generated interval"):
+        block_intervals.freeze_authenticated_block_pollen_rows(
+            (_row(method),),
+            predictions=tmp_path / "predictions",
+            expected_prediction_manifest_sha256="a" * 64,
+            uncertainty=tmp_path / "uncertainty",
+            expected_uncertainty_manifest_sha256="c" * 64,
+        )
+
+
+def test_batch_preserves_parent_failure_without_invented_state(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    method = FITTED_METHOD
+    entry = _entry(method)
+    plan = BlockObservationUncertaintyPlan("a" * 64, (entry,), 10, 0.9)
+    monkeypatch.setattr(
+        block_intervals,
+        "_authenticated_block_draws",
+        lambda *args, **kwargs: (
+            plan,
+            {},
+            {entry.key: {"status": "parent_refused"}},
+        ),
+    )
+    failed = replace(
+        _row(method),
+        status="prediction_failed",
+        prediction=None,
+        fitted_model_sha256=None,
+        fit_input_ids=(),
+        reason="parent_refused:no_admitted_training",
+    )
+    assert block_intervals.freeze_authenticated_block_pollen_rows(
+        (failed,),
+        predictions=tmp_path / "predictions",
+        expected_prediction_manifest_sha256="a" * 64,
+        uncertainty=tmp_path / "uncertainty",
+        expected_uncertainty_manifest_sha256="c" * 64,
+    ) == (failed,)
+
+
+@pytest.mark.parametrize(
+    ("mutation", "value"),
+    [
+        ("reason", "unrelated_failure"),
+        ("observation", (("Alnus", 1.0),)),
+        ("observation_reference_id", "opened-outcome"),
+        ("prediction_sha256", "d" * 64),
+    ],
+)
+def test_batch_refuses_forged_state_on_parent_failure(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    mutation: str,
+    value: object,
+) -> None:
+    method = FITTED_METHOD
+    entry = _entry(method)
+    plan = BlockObservationUncertaintyPlan("a" * 64, (entry,), 10, 0.9)
+    monkeypatch.setattr(
+        block_intervals,
+        "_authenticated_block_draws",
+        lambda *args, **kwargs: (
+            plan,
+            {},
+            {entry.key: {"status": "parent_refused"}},
+        ),
+    )
+    failed = replace(
+        _row(method),
+        status="prediction_failed",
+        prediction=None,
+        fitted_model_sha256=None,
+        fit_input_ids=(),
+        reason="parent_refused:no_admitted_training",
+    )
+    with pytest.raises(ValidationRefusal, match="differs from its uncertainty"):
+        block_intervals.freeze_authenticated_block_pollen_rows(
+            (replace(failed, **{mutation: value}),),
+            predictions=tmp_path / "predictions",
+            expected_prediction_manifest_sha256="a" * 64,
+            uncertainty=tmp_path / "uncertainty",
+            expected_uncertainty_manifest_sha256="c" * 64,
+        )

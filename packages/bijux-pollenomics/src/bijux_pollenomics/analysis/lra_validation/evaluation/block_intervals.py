@@ -270,19 +270,7 @@ def _authenticated_block_draws(
     return plan, parent_rows, retained
 
 
-def freeze_authenticated_block_pollen_interval(
-    row: EvaluationRow,
-    *,
-    predictions: Path,
-    expected_prediction_manifest_sha256: str,
-    uncertainty: Path,
-    expected_uncertainty_manifest_sha256: str,
-) -> EvaluationRow:
-    """Attach an authenticated block interval without making acceptance claims.
-
-    The adapter mints the generic source identity only after reopening the exact
-    caller-pinned block parent. A training-mean baseline remains non-fitted.
-    """
+def _require_unfrozen_block_pollen_row(row: EvaluationRow) -> None:
     if not isinstance(row, EvaluationRow):
         refuse("A typed evaluation row is required")
     if (
@@ -309,12 +297,45 @@ def freeze_authenticated_block_pollen_interval(
         )
     ):
         refuse("Require an outcome-free unfrozen typed spatial-block pollen row")
+
+
+def freeze_authenticated_block_pollen_interval(
+    row: EvaluationRow,
+    *,
+    predictions: Path,
+    expected_prediction_manifest_sha256: str,
+    uncertainty: Path,
+    expected_uncertainty_manifest_sha256: str,
+) -> EvaluationRow:
+    """Attach an authenticated block interval without making acceptance claims.
+
+    The adapter mints the generic source identity only after reopening the exact
+    caller-pinned block parent. A training-mean baseline remains non-fitted.
+    """
+    _require_unfrozen_block_pollen_row(row)
     plan, parent_rows, retained = _authenticated_block_draws(
         predictions,
         expected_prediction_manifest_sha256=expected_prediction_manifest_sha256,
         uncertainty=uncertainty,
         expected_uncertainty_manifest_sha256=expected_uncertainty_manifest_sha256,
     )
+    return _freeze_block_pollen_interval(
+        row,
+        plan=plan,
+        parent_rows=parent_rows,
+        retained=retained,
+        expected_uncertainty_manifest_sha256=expected_uncertainty_manifest_sha256,
+    )
+
+
+def _freeze_block_pollen_interval(
+    row: EvaluationRow,
+    *,
+    plan: BlockObservationUncertaintyPlan,
+    parent_rows: dict[tuple[str, str, str], dict[str, object]],
+    retained: dict[tuple[str, str, str], dict[str, object]],
+    expected_uncertainty_manifest_sha256: str,
+) -> EvaluationRow:
     key = row.fold_id, row.record_id, row.model_id
     parent = parent_rows.get(key)
     source = retained.get(key)
@@ -352,6 +373,8 @@ def freeze_authenticated_block_pollen_interval(
         )
     if model_input_ids != row.fit_input_ids:
         refuse("Evaluation model inputs differ from the authenticated block parent")
+    if row.prediction is None:
+        refuse("A generated conditional interval requires a point prediction")
     prediction = dict(row.prediction)
     pollen = object_mapping(parent["pollen_fraction"], "pollen_fraction")
     if len(prediction) != len(row.prediction) or prediction != pollen:
@@ -393,3 +416,80 @@ def freeze_authenticated_block_pollen_interval(
     return freeze_evaluation_prediction(
         replace(row, interval=interval, source_model=source_model)
     )
+
+
+def freeze_authenticated_block_pollen_rows(
+    rows: tuple[EvaluationRow, ...],
+    *,
+    predictions: Path,
+    expected_prediction_manifest_sha256: str,
+    uncertainty: Path,
+    expected_uncertainty_manifest_sha256: str,
+) -> tuple[EvaluationRow, ...]:
+    """Bind a complete point-row ledger to one authenticated uncertainty product."""
+    if not isinstance(rows, tuple) or not rows:
+        refuse("A nonempty typed block pollen row ledger is required")
+    keyed = {(row.fold_id, row.record_id, row.model_id): row for row in rows}
+    if len(keyed) != len(rows) or any(
+        not isinstance(row, EvaluationRow)
+        or row.target != "pollen_composition"
+        or row.experiment != "all_target_pollen_withheld"
+        or row.model_id not in {FITTED_METHOD, BLOCK_BASELINE_METHOD}
+        for row in rows
+    ):
+        refuse("Block pollen row ledger identity or denominator is invalid")
+    plan, parent_rows, retained = _authenticated_block_draws(
+        predictions,
+        expected_prediction_manifest_sha256=expected_prediction_manifest_sha256,
+        uncertainty=uncertainty,
+        expected_uncertainty_manifest_sha256=expected_uncertainty_manifest_sha256,
+    )
+    if set(keyed) != set(retained):
+        refuse("Block pollen row ledger differs from the uncertainty denominator")
+    result: list[EvaluationRow] = []
+    for key, row in keyed.items():
+        source_status = retained[key].get("status")
+        if row.status == "predicted":
+            if source_status != "generated":
+                refuse("Every predicted pollen row requires a generated interval")
+            _require_unfrozen_block_pollen_row(row)
+            result.append(
+                _freeze_block_pollen_interval(
+                    row,
+                    plan=plan,
+                    parent_rows=parent_rows,
+                    retained=retained,
+                    expected_uncertainty_manifest_sha256=(
+                        expected_uncertainty_manifest_sha256
+                    ),
+                )
+            )
+            continue
+        reason_prefix = (
+            "parent_not_run:"
+            if source_status == "parent_not_run"
+            else "parent_refused:"
+        )
+        if (
+            row.status != "prediction_failed"
+            or source_status not in {"parent_refused", "parent_not_run"}
+            or not isinstance(row.reason, str)
+            or not row.reason.startswith(reason_prefix)
+            or row.reason == reason_prefix
+            or row.prediction is not None
+            or row.observation is not None
+            or row.observation_reference_id is not None
+            or row.observation_kind is not None
+            or row.observation_support is not None
+            or row.observed_pollen is not None
+            or row.source_model is not None
+            or row.interval is not None
+            or row.prediction_sha256 is not None
+            or row.prediction_manifest_json is not None
+            or row.prediction_frozen_at is not None
+            or row.fitted_model_sha256 is not None
+            or row.fit_input_ids
+        ):
+            refuse("Failed pollen row differs from its uncertainty parent status")
+        result.append(row)
+    return tuple(result)
