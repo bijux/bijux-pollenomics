@@ -158,6 +158,19 @@ the supplied 3.5 release. Coverage prose also differs between 2023, 2024 and
 No distribution permission or release equivalence is inferred from the most
 favorable declaration.
 
+The host can now reconstruct a refusal-only declaration inventory from four
+pinned compact parents: the 1,574-file custody inventory and report, the 48-file
+NetCDF header inventory, and the conflict report. It requires the exact 16
+variables in each of the base, lower and upper scenarios and retains raw axes,
+spacing, orientation, dimensions, units, fill values, time/calendar labels,
+source hashes and provider claims. It does not open native value arrays. The
+inventory is reconstructed from those authenticated parents rather than trusted
+through a detached canonical-product authority. Its typed reopen reconstructs
+the inventory from the same four parents and accepts only byte-exact canonical
+output from that reconstruction. Native admission, rights, CRS, canonical BP
+conversion, confidence-bound semantics, publication, independent vegetation
+truth and scientific acceptance all remain false or unevaluated.
+
 A local comparison of year-2000 cropland in all three scenarios finds equal
 ASCII/NetCDF missing masks and identical values after conversion to the source
 NetCDF float32 representation. This is evidence for those three slices only.
