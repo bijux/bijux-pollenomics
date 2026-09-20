@@ -168,6 +168,18 @@ Its midpoint is useful for navigation, but the polygon remains modeled areal
 context—not a pollen observation at the center and not a continuous value
 between published windows.
 
+The retained LandClim II archive has 25 mean and 25 standard-error members,
+with 10,500 rows in each result family. Ingestion validates all 10,500 row
+pairs before spatial filtering. Exactly 150 pairs—six published grid IDs in
+all 25 windows—carry the provider's paired `#N/A` longitude and latitude and
+are accounted as nonspatial exclusions; their values are not converted to
+zero. Three finite mean tokens in two otherwise spatial rows are slightly
+negative (`-0.0117533696932253` twice and `-0.000677087305195939` percentage
+points). They remain exact source values, while standard errors must remain
+finite and nonnegative. The atlas treats estimates outside the display domain
+as unavailable instead of clipping them. These rules establish source fidelity
+and exclusion accounting, not ecological accuracy or raw-input reproduction.
+
 ```mermaid
 flowchart LR
     Aal["Aal Præstesø sequence"] --> SiteInterval["100–350 BP site context"]
