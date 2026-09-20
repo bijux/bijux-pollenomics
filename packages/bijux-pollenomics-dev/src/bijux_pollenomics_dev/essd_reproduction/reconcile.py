@@ -11,20 +11,49 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import shutil
+import stat
 import tempfile
 import tomllib
 from typing import cast
-from zipfile import ZipFile
+from zipfile import ZIP_DEFLATED, ZIP_STORED, ZipFile
 
 JsonObject = dict[str, object]
 
-_COMPARISON = Path(
-    "artifacts/v2/engine/publication-check-004/comparison/report.json"
-)
+_COMPARISON = Path("artifacts/v2/engine/publication-check-004/comparison/report.json")
 _DESIGN = Path("artifacts/v2/engine/multisite-audit/IMPLEMENTATION-DESIGN.md")
 _RIGHTS = Path("artifacts/v2/engine/publication-license-audit/DISPOSITION.md")
 _TAXONOMY = Path("data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv")
 _PUBLISHED = Path("data/landclim/raw/landclim_ii_reveals_results.zip")
+
+_MAX_ARCHIVE_BYTES = 8 * 1024 * 1024
+_MAX_MEMBER_COUNT = 512
+_MAX_MEMBER_BYTES = 2 * 1024 * 1024
+_MAX_EXPANDED_BYTES = 32 * 1024 * 1024
+_MAX_COMPRESSION_RATIO = 100.0
+_ALLOWED_COMPRESSION = {ZIP_STORED, ZIP_DEFLATED}
+_EXPECTED_EXAMPLE_SITES = {
+    "512": (
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "HARESDOWN",
+        "LOBBSBOG",
+        "WHH05",
+        "WHH11",
+        "WINDMILL",
+        "WINNEYS",
+    ),
+    "562": (
+        "BECKHAM",
+        "COMERSLA",
+        "EXEBRID",
+        "GOURTEMIRES",
+        "LARKBARR",
+        "LONGBREACH",
+        "MOLECHAM",
+        "NTWITCHEN",
+    ),
+}
 
 
 def _sha256(content: bytes) -> str:
@@ -62,7 +91,9 @@ def _evidence_receipt(repository: Path, relative: Path) -> JsonObject:
 def _member_name(names: list[str], suffix: str) -> str:
     matches = [name for name in names if name.endswith(suffix)]
     if len(matches) != 1:
-        raise ValueError(f"Expected one archive member ending {suffix!r}, got {matches}")
+        raise ValueError(
+            f"Expected one archive member ending {suffix!r}, got {matches}"
+        )
     return matches[0]
 
 
@@ -89,16 +120,76 @@ def _validate_member_names(names: list[str]) -> str:
     if unsafe:
         raise ValueError(f"Candidate archive has unsafe member names: {unsafe}")
     if len(roots) != 1:
-        raise ValueError(f"Candidate archive must have one relative root: {sorted(roots)}")
+        raise ValueError(
+            f"Candidate archive must have one relative root: {sorted(roots)}"
+        )
     return next(iter(roots))
 
 
 def _validate_archive(archive_path: Path) -> tuple[JsonObject, dict[str, bytes]]:
+    archive_size = archive_path.stat().st_size
+    if archive_size > _MAX_ARCHIVE_BYTES:
+        raise ValueError(
+            "Candidate archive exceeds archive byte limit: "
+            f"{archive_size} > {_MAX_ARCHIVE_BYTES}"
+        )
     archive_bytes = archive_path.read_bytes()
+    if len(archive_bytes) > _MAX_ARCHIVE_BYTES:
+        raise ValueError(
+            "Candidate archive exceeds archive byte limit after read: "
+            f"{len(archive_bytes)} > {_MAX_ARCHIVE_BYTES}"
+        )
     with ZipFile(io.BytesIO(archive_bytes)) as archive:
         infos = archive.infolist()
+        if len(infos) > _MAX_MEMBER_COUNT:
+            raise ValueError(
+                "Candidate archive exceeds member count limit: "
+                f"{len(infos)} > {_MAX_MEMBER_COUNT}"
+            )
         _validate_member_names([info.filename for info in infos])
-        names = [info.filename for info in infos if not info.is_dir()]
+        rejected_members = []
+        total_expanded_bytes = 0
+        maximum_member_bytes = 0
+        maximum_compression_ratio = 0.0
+        for info in infos:
+            unix_mode = info.external_attr >> 16
+            file_type = stat.S_IFMT(unix_mode)
+            reasons = []
+            if info.is_dir() or file_type != stat.S_IFREG:
+                reasons.append("not_regular_file")
+            if info.flag_bits & 0x1:
+                reasons.append("encrypted")
+            if info.compress_type not in _ALLOWED_COMPRESSION:
+                reasons.append(f"unsupported_compression_{info.compress_type}")
+            if reasons:
+                rejected_members.append(
+                    {"name": info.filename, "reasons": sorted(reasons)}
+                )
+                continue
+            if info.file_size > _MAX_MEMBER_BYTES:
+                raise ValueError(
+                    "Candidate archive member exceeds byte limit: "
+                    f"{info.filename} has {info.file_size} > {_MAX_MEMBER_BYTES}"
+                )
+            ratio = info.file_size / max(info.compress_size, 1)
+            if ratio > _MAX_COMPRESSION_RATIO:
+                raise ValueError(
+                    "Candidate archive member exceeds compression ratio limit: "
+                    f"{info.filename} has {ratio:.3f} > {_MAX_COMPRESSION_RATIO:.3f}"
+                )
+            total_expanded_bytes += info.file_size
+            maximum_member_bytes = max(maximum_member_bytes, info.file_size)
+            maximum_compression_ratio = max(maximum_compression_ratio, ratio)
+        if rejected_members:
+            raise ValueError(
+                f"Candidate archive has rejected member envelope: {rejected_members}"
+            )
+        if total_expanded_bytes > _MAX_EXPANDED_BYTES:
+            raise ValueError(
+                "Candidate archive exceeds total expanded byte limit: "
+                f"{total_expanded_bytes} > {_MAX_EXPANDED_BYTES}"
+            )
+        names = [info.filename for info in infos]
         checksum_name = _member_name(names, "/SHA256SUMS")
         members = {name: archive.read(name) for name in names}
     prefix = checksum_name.removesuffix("SHA256SUMS")
@@ -158,6 +249,19 @@ def _validate_archive(archive_path: Path) -> tuple[JsonObject, dict[str, bytes]]
         "internal_checksum_manifest": checksum_name,
         "internal_checksum_entry_count": len(checksums),
         "internal_checksums_match": True,
+        "archive_envelope": {
+            "allowed_compression_methods": sorted(_ALLOWED_COMPRESSION),
+            "archive_byte_limit": _MAX_ARCHIVE_BYTES,
+            "expanded_byte_limit": _MAX_EXPANDED_BYTES,
+            "member_byte_limit": _MAX_MEMBER_BYTES,
+            "member_count_limit": _MAX_MEMBER_COUNT,
+            "compression_ratio_limit": _MAX_COMPRESSION_RATIO,
+            "observed_expanded_bytes": total_expanded_bytes,
+            "observed_maximum_member_bytes": maximum_member_bytes,
+            "observed_maximum_compression_ratio": maximum_compression_ratio,
+            "regular_file_members_only": True,
+            "encrypted_members_allowed": False,
+        },
         "required_members": required,
         "intake_disposition": "read_only_candidate_not_adopted_or_shipped",
     }
@@ -184,12 +288,14 @@ def _test_inventory(members: dict[str, bytes], receipt: JsonObject) -> JsonObjec
             continue
         tree = ast.parse(members[name], filename=name)
         for node in tree.body:
-            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name.startswith(
-                "test_"
-            ):
+            if isinstance(
+                node, (ast.FunctionDef, ast.AsyncFunctionDef)
+            ) and node.name.startswith("test_"):
                 decorators = [
                     decorator
-                    for decorator in (_decorator_name(item) for item in node.decorator_list)
+                    for decorator in (
+                        _decorator_name(item) for item in node.decorator_list
+                    )
                     if decorator
                 ]
                 tests.append(
@@ -211,7 +317,9 @@ def _test_inventory(members: dict[str, bytes], receipt: JsonObject) -> JsonObjec
     optional = cast(dict[str, list[str]], project["project"]["optional-dependencies"])
     packages = cast(dict[str, str], environment["packages"])
     offline = cast(JsonObject, delivery["offline_tests"])
-    actual_r = next(item for item in tests if item["name"] == "test_actual_R_parity_optional")
+    actual_r = next(
+        item for item in tests if item["name"] == "test_actual_R_parity_optional"
+    )
     return {
         "schema_version": "essd-candidate-test-inventory.v1",
         "candidate_archive_sha256": receipt["sha256"],
@@ -274,7 +382,31 @@ def _published_pft_evidence(repository: Path) -> JsonObject:
     header = next(iter(header_sets))
     first_group = min(header.index(code) for code in taxonomy_pfts if code in header)
     grouped_headers = list(header[first_group:])
-    output_pfts = [code for code in grouped_headers if code not in lct_codes]
+    if len(header[:first_group]) != 34:
+        raise ValueError(
+            "Published result header does not contain three identity columns and 31 taxa"
+        )
+    if len(grouped_headers) != len(set(grouped_headers)):
+        raise ValueError("Published result grouped headers contain duplicates")
+    allowed_unmatched_pfts = {"ISTS"}
+    allowed_grouped_headers = set(taxonomy_pfts) | allowed_unmatched_pfts | lct_codes
+    unknown_grouped_headers = sorted(set(grouped_headers) - allowed_grouped_headers)
+    if unknown_grouped_headers:
+        raise ValueError(
+            "Published result has unknown trailing grouped headers: "
+            f"{unknown_grouped_headers}"
+        )
+    missing_grouped_headers = sorted(allowed_grouped_headers - set(grouped_headers))
+    if missing_grouped_headers:
+        raise ValueError(
+            "Published result is missing required grouped headers: "
+            f"{missing_grouped_headers}"
+        )
+    output_pfts = [
+        code
+        for code in grouped_headers
+        if code in set(taxonomy_pfts) | allowed_unmatched_pfts
+    ]
     return {
         "taxonomy_pft_count": len(taxonomy_pfts),
         "taxonomy_pfts": taxonomy_pfts,
@@ -291,24 +423,77 @@ def _repository_evidence(repository: Path) -> JsonObject:
     comparison = _object(_read(repository, _COMPARISON), _COMPARISON.as_posix())
     design = _read(repository, _DESIGN).decode()
     rights = _read(repository, _RIGHTS).decode()
-    grids = cast(list[JsonObject], comparison["grids"])
-    if comparison.get("coverage") != "two_author_example_grids_only_not_full_1128_record_study":
+    raw_grids = comparison.get("grids")
+    if not isinstance(raw_grids, list) or len(raw_grids) != 2:
+        raise ValueError("Host comparison must contain exactly two grid objects")
+    grids = cast(list[JsonObject], raw_grids)
+    if comparison.get("profile") != "landclimii-2016-release-source-v1":
+        raise ValueError("Host comparison profile identity is not the author example")
+    if (
+        comparison.get("coverage")
+        != "two_author_example_grids_only_not_full_1128_record_study"
+    ):
         raise ValueError("Host comparison no longer declares its bounded coverage")
-    if {str(grid["grid_id"]) for grid in grids} != {"512", "562"}:
-        raise ValueError("Host comparison does not contain the two expected example grids")
+    grids_by_id = {str(grid.get("grid_id")): grid for grid in grids}
+    if len(grids_by_id) != 2 or set(grids_by_id) != set(_EXPECTED_EXAMPLE_SITES):
+        raise ValueError(
+            "Host comparison does not contain the two expected example grids"
+        )
+    for grid_id, expected_sites in _EXPECTED_EXAMPLE_SITES.items():
+        grid = grids_by_id[grid_id]
+        if grid.get("sites") != len(expected_sites):
+            raise ValueError(f"Host comparison grid {grid_id} has wrong site count")
+        if grid.get("bins") != 25 or grid.get("taxa") != 31:
+            raise ValueError(f"Host comparison grid {grid_id} has wrong dimensions")
+        if grid.get("passed") is not True:
+            raise ValueError(f"Host comparison grid {grid_id} did not pass")
+        checks = grid.get("checks")
+        if not isinstance(checks, dict) or checks.get("site_counts_equal") is not True:
+            raise ValueError(f"Host comparison grid {grid_id} site counts differ")
+        for check_name in ("regional_cover", "regional_se"):
+            check = checks.get(check_name)
+            if not isinstance(check, dict) or check.get("passed") is not True:
+                raise ValueError(
+                    f"Host comparison grid {grid_id} {check_name} did not pass"
+                )
+        site_checks = checks.get("sites")
+        if not isinstance(site_checks, list):
+            raise ValueError(f"Host comparison grid {grid_id} has no site checks")
+        site_ids = tuple(
+            str(site.get("site_id")) for site in site_checks if isinstance(site, dict)
+        )
+        if site_ids != expected_sites:
+            raise ValueError(f"Host comparison grid {grid_id} site identity differs")
+        for site in site_checks:
+            site_object = cast(JsonObject, site)
+            for check_name in ("cover", "se"):
+                check = site_object.get(check_name)
+                if not isinstance(check, dict) or check.get("passed") is not True:
+                    raise ValueError(
+                        "Host comparison site check did not pass: "
+                        f"{grid_id}/{site_object.get('site_id')}/{check_name}"
+                    )
     if "reports 1128 pollen records, 31 taxa, 12 PFTs" not in design:
         raise ValueError("ESSD paper scope is absent from the implementation design")
     if "host redistribution are **not cleared**" not in rights:
         raise ValueError("Rights disposition no longer preserves the release blocker")
     return {
         "comparison": comparison,
-        "example_site_count": sum(int(cast(int, grid["sites"])) for grid in grids),
+        "example_site_count": sum(
+            len(sites) for sites in _EXPECTED_EXAMPLE_SITES.values()
+        ),
         "pft": _published_pft_evidence(repository),
         "evidence_receipts": [
             _evidence_receipt(repository, path)
             for path in (_COMPARISON, _DESIGN, _RIGHTS, _TAXONOMY, _PUBLISHED)
         ],
-        "rights_status": "release_and_host_redistribution_not_cleared",
+        "rights_status": {
+            "published_product_rights": "not_evaluated_by_pinned_local_disposition",
+            "author_example_source_rights": "no_clear_redistribution_grant",
+            "original_input_rights": "not_evaluated_without_full_input_closure",
+            "gpl_derived_host_integration": "compatibility_and_distribution_unresolved",
+            "overall_host_release": "not_cleared",
+        },
     }
 
 
@@ -318,16 +503,22 @@ def _pft_discrepancy(
     required = cast(dict[str, str], archive["required_members"])
     audit = members[required["docs/SCIENTIFIC_AUDIT.md"]].decode()
     if "paper/Table 1 uses 12 PFTs" not in audit:
-        raise ValueError("Candidate audit does not preserve the paper's 12-PFT statement")
+        raise ValueError(
+            "Candidate audit does not preserve the paper's 12-PFT statement"
+        )
     if "PANGAEA description states 11" not in audit:
-        raise ValueError("Candidate audit does not preserve the description's 11-PFT statement")
+        raise ValueError(
+            "Candidate audit does not preserve the description's 11-PFT statement"
+        )
     pft = cast(JsonObject, repository["pft"])
     if pft["taxonomy_pft_count"] != 12:
         raise ValueError("Repository taxonomy table no longer has 12 PFT definitions")
     if pft["published_output_pft_header_count"] != 13:
         raise ValueError("Repository published outputs no longer have 13 PFT headers")
     if pft["unmatched_output_pft_headers"] != ["ISTS"]:
-        raise ValueError("The unmatched published output header is no longer exactly ISTS")
+        raise ValueError(
+            "The unmatched published output header is no longer exactly ISTS"
+        )
     return {
         "schema_version": "essd-pft-discrepancy.v1",
         "resolution_status": "unresolved_requires_author_and_qualified_taxonomy_review",
@@ -337,11 +528,13 @@ def _pft_discrepancy(
                 "evidence_role": "paper_table_1",
                 "pft_count": 12,
                 "source": "candidate:docs/SCIENTIFIC_AUDIT.md",
+                "source_status": "candidate_prose_not_pinned_primary_source",
             },
             {
                 "evidence_role": "pangaea_description",
                 "pft_count": 11,
                 "source": "candidate:docs/SCIENTIFIC_AUDIT.md",
+                "source_status": "candidate_prose_not_pinned_primary_source",
             },
             {
                 "evidence_role": "repository_parameter_table",
@@ -371,22 +564,147 @@ def _pft_discrepancy(
 def _availability_csv(repository: JsonObject) -> bytes:
     comparison = cast(JsonObject, repository["comparison"])
     rows = [
-        ("candidate_archive", "software_candidate", "present", "1 archive", "intake_only", "Archive bytes and internal checksums verified"),
-        ("author_example_sequences", "source_profile_input", "present", f"{repository['example_site_count']} sequences / 2 grids", "bounded_replay_only", "Host comparison grids 512 and 562"),
-        ("published_reconstructions", "processed_model_output", "present", "25 windows", "comparison_target_not_raw_truth", "PANGAEA reconstructed means and standard errors"),
-        ("original_1128_pollen_records", "primary_pollen_input", "missing", "0 / 1128 records", "blocks_whole_paper_reproduction", "No original full-study raw record closure"),
-        ("selected_calibrated_ages", "chronology_input", "missing", "0 / 1128 record crosswalk", "blocks_whole_paper_reproduction", "Historical selected ages and age-model choices unavailable"),
-        ("full_taxon_harmonization_ledger", "taxonomy_input", "missing", "paper-wide ledger unavailable", "blocks_whole_paper_reproduction", "Example taxonomy does not establish full historical selection"),
-        ("historical_resampling_state", "uncertainty_input", "missing", "seed/draws unavailable", "blocks_stochastic_identity", "Shared-index algorithm tests do not recover the publication run"),
-        ("actual_R_parity", "algorithm_parity", "missing", "not executed", "blocks_R_certification", "Candidate recorded one skipped integration test"),
-        ("independent_measured_vegetation", "validation_target", "missing", "not evaluated", "blocks_ecological_accuracy", str(comparison["independent_measured_vegetation_accuracy"])),
-        ("original_grouped_uncertainty", "PFT_LCT_uncertainty", "missing", "covariance/workflow unavailable", "blocks_grouped_SE_reproduction", "Marginal taxon SE cannot recover group covariance"),
-        ("original_cartographic_inputs", "figure_input", "missing", "GIS/projection layers unavailable", "blocks_original_figure_reproduction", "Candidate scope record says original figures were not regenerated"),
-        ("source_and_data_rights", "distribution_authority", "unresolved", "no clear author-source grant", "blocks_host_redistribution", str(repository["rights_status"])),
+        (
+            "candidate_archive",
+            "software_candidate",
+            "present",
+            "1 archive",
+            "intake_only",
+            "Archive bytes and internal checksums verified",
+        ),
+        (
+            "author_example_sequences",
+            "source_profile_input",
+            "present",
+            f"{repository['example_site_count']} sequences / 2 grids",
+            "bounded_replay_only",
+            "Host comparison grids 512 and 562",
+        ),
+        (
+            "published_reconstructions",
+            "processed_model_output",
+            "present",
+            "25 windows",
+            "comparison_target_not_raw_truth",
+            "PANGAEA reconstructed means and standard errors",
+        ),
+        (
+            "original_1128_pollen_records",
+            "primary_pollen_input",
+            "missing",
+            "0 present in declared closure / 1128 study records",
+            "blocks_whole_paper_reproduction",
+            "No original full-study raw record closure; not an exhaustive repository-wide absence proof",
+        ),
+        (
+            "selected_calibrated_ages",
+            "chronology_input",
+            "missing",
+            "0 present in declared closure / 1128-record crosswalk",
+            "blocks_whole_paper_reproduction",
+            "Historical selected ages and age-model choices are absent from the declared closure",
+        ),
+        (
+            "full_taxon_harmonization_ledger",
+            "taxonomy_input",
+            "missing",
+            "paper-wide ledger unavailable",
+            "blocks_whole_paper_reproduction",
+            "Example taxonomy does not establish full historical selection",
+        ),
+        (
+            "historical_resampling_state",
+            "uncertainty_input",
+            "missing",
+            "seed/draws unavailable",
+            "blocks_stochastic_identity",
+            "Shared-index algorithm tests do not recover the publication run",
+        ),
+        (
+            "actual_R_parity",
+            "algorithm_parity",
+            "missing",
+            "not executed",
+            "blocks_R_certification",
+            "Candidate recorded one skipped integration test",
+        ),
+        (
+            "independent_measured_vegetation",
+            "validation_target",
+            "missing",
+            "not evaluated",
+            "blocks_ecological_accuracy",
+            str(comparison["independent_measured_vegetation_accuracy"]),
+        ),
+        (
+            "original_grouped_uncertainty",
+            "PFT_LCT_uncertainty",
+            "missing",
+            "covariance/workflow unavailable",
+            "blocks_grouped_SE_reproduction",
+            "Marginal taxon SE cannot recover group covariance",
+        ),
+        (
+            "original_cartographic_inputs",
+            "figure_input",
+            "missing",
+            "GIS/projection layers unavailable",
+            "blocks_original_figure_reproduction",
+            "Candidate scope record says original figures were not regenerated",
+        ),
+        (
+            "published_product_rights",
+            "distribution_authority",
+            "not_evaluated",
+            "component-specific grant not pinned here",
+            "requires_component_receipt",
+            "Do not infer published-product rights from author-source or host-integration status",
+        ),
+        (
+            "author_example_source_rights",
+            "distribution_authority",
+            "unresolved",
+            "no clear author-source grant",
+            "blocks_author_source_redistribution",
+            str(
+                cast(JsonObject, repository["rights_status"])[
+                    "author_example_source_rights"
+                ]
+            ),
+        ),
+        (
+            "original_input_rights",
+            "distribution_authority",
+            "not_evaluated",
+            "full input closure unavailable",
+            "blocks_original_input_redistribution",
+            str(cast(JsonObject, repository["rights_status"])["original_input_rights"]),
+        ),
+        (
+            "gpl_derived_host_integration",
+            "distribution_authority",
+            "unresolved",
+            "compatibility and distribution unresolved",
+            "blocks_host_release",
+            str(
+                cast(JsonObject, repository["rights_status"])[
+                    "gpl_derived_host_integration"
+                ]
+            ),
+        ),
     ]
     stream = io.StringIO(newline="")
     writer = csv.writer(stream, lineterminator="\n")
-    writer.writerow(("input_id", "evidence_role", "availability", "observed_quantity", "acceptance_effect", "evidence_note"))
+    writer.writerow(
+        (
+            "input_id",
+            "evidence_role",
+            "availability",
+            "observed_quantity",
+            "acceptance_effect",
+            "evidence_note",
+        )
+    )
     writer.writerows(rows)
     return stream.getvalue().encode()
 
@@ -410,6 +728,7 @@ def _profile_crosswalk(
                 "records": 1128,
                 "taxa": 31,
                 "pfts": 12,
+                "source_status": "candidate_prose_not_pinned_primary_source",
                 "time_support": "coring-year present,100,350,700,1200,...,11700 BP",
                 "status": "blocked_missing_original_inputs",
             },
@@ -417,6 +736,7 @@ def _profile_crosswalk(
                 "profile_id": "pangaea-937075-published-products",
                 "evidence_role": "processed_reconstruction_comparison_target",
                 "description_pfts": 11,
+                "source_status": "candidate_prose_not_pinned_primary_source",
                 "observed_output_pft_headers": 13,
                 "time_windows": 25,
                 "status": "available_not_primary_pollen_or_independent_vegetation",
@@ -435,8 +755,12 @@ def _profile_crosswalk(
             {
                 "profile_id": "bijux-landclim-reproduce-0.1.0-candidate",
                 "evidence_role": "unadopted_research_candidate",
-                "offline_tests_passed": cast(JsonObject, delivery["offline_tests"])["passed"],
-                "offline_tests_skipped": cast(JsonObject, delivery["offline_tests"])["skipped"],
+                "offline_tests_passed": cast(JsonObject, delivery["offline_tests"])[
+                    "passed"
+                ],
+                "offline_tests_skipped": cast(JsonObject, delivery["offline_tests"])[
+                    "skipped"
+                ],
                 "actual_R_parity_executed": delivery["actual_R_parity_executed"],
                 "original_1128_raw_records_collected": delivery[
                     "original_1128_raw_records_collected"
@@ -486,15 +810,15 @@ def _scope_report(
         "",
         "## PFT discrepancy",
         "",
-        "The paper/Table 1 reports **12 PFTs**, the PANGAEA description reports **11**, and the archived result tables expose **13 PFT headers**. `ISTS` has no matching definition in the repository parameter table. It is retained as unmatched; it is not dropped, guessed, or admitted. Resolution requires author/deposit evidence and qualified row-level review.",
+        "Candidate prose records **12 PFTs** for the paper/Table 1 and **11** for the PANGAEA description; those primary-source bytes are not pinned in this reconciliation closure. The archived result tables expose **13 PFT-position headers**. `ISTS` has no matching definition in the repository parameter table. It is retained as unmatched; it is not dropped, guessed, or admitted. Resolution requires pinned author/deposit evidence and qualified row-level review.",
         "",
         "## Missing closure",
         "",
-        "- The original 1,128 pollen records, selected calibrated ages, historical preparation recipe, and full taxon crosswalk are unavailable.",
+        "- No original 1,128 pollen records, selected calibrated ages, historical preparation recipe, or full taxon crosswalk are present in the declared reconciliation closure; this is not an exhaustive repository-wide absence proof.",
         "- Historical resampling draws, original grouped PFT/LCT uncertainty workflow, and original GIS inputs are unavailable.",
         "- Actual publication-specific R parity has not run; a skipped test or synthetic oracle is not parity evidence.",
         "- Published reconstruction products are comparison targets, not raw pollen observations or independent measured vegetation truth.",
-        "- Author-source and data redistribution rights remain unresolved; release and host redistribution are not cleared.",
+        "- Rights remain component-specific: published-product rights are not evaluated by the pinned local disposition; author-example source redistribution has no clear grant; original-input rights lack a full input closure; and GPL-derived host integration remains unresolved. Overall host release is not cleared.",
         "",
         "## Profile separation",
         "",

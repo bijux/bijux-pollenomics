@@ -7,7 +7,8 @@ import hashlib
 import io
 import json
 from pathlib import Path
-from zipfile import ZIP_DEFLATED, ZipFile
+import stat
+from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 import pytest
 
@@ -15,6 +16,33 @@ from bijux_pollenomics_dev.essd_reproduction import (
     build_reconciliation,
     publish_reconciliation,
 )
+from bijux_pollenomics_dev.essd_reproduction import (
+    reconcile as reconciliation,
+)
+
+_EXAMPLE_SITES = {
+    "512": (
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "HARESDOWN",
+        "LOBBSBOG",
+        "WHH05",
+        "WHH11",
+        "WINDMILL",
+        "WINNEYS",
+    ),
+    "562": (
+        "BECKHAM",
+        "COMERSLA",
+        "EXEBRID",
+        "GOURTEMIRES",
+        "LARKBARR",
+        "LONGBREACH",
+        "MOLECHAM",
+        "NTWITCHEN",
+    ),
+}
 
 
 def _json(value: object) -> bytes:
@@ -28,6 +56,9 @@ def _candidate(
     unlisted: bool = False,
     unsafe: bool = False,
     duplicate: bool = False,
+    encrypted: bool = False,
+    high_ratio: bool = False,
+    symlink: bool = False,
 ) -> None:
     members = {
         "docs/SCIENTIFIC_AUDIT.md": b"The paper/Table 1 uses 12 PFTs. The PANGAEA description states 11.\n",
@@ -50,6 +81,10 @@ def _candidate(
             b"def test_published_25_windows(): pass\n"
         ),
     }
+    if high_ratio:
+        members["payload/high-ratio.txt"] = b"x" * 100_000
+    if symlink:
+        members["payload/link"] = b"../../outside"
     if unsafe:
         members["../outside.txt"] = b"unsafe\n"
     sums = "".join(
@@ -61,14 +96,36 @@ def _candidate(
         members["tests/test_science.py"] += b"# changed after manifest\n"
     with ZipFile(path, "w", ZIP_DEFLATED) as archive:
         for name, content in members.items():
-            archive.writestr(f"candidate/{name}", content)
+            info = ZipInfo(f"candidate/{name}")
+            info.compress_type = ZIP_DEFLATED
+            info.create_system = 3
+            file_type = stat.S_IFLNK if name == "payload/link" else stat.S_IFREG
+            info.external_attr = (file_type | 0o600) << 16
+            archive.writestr(info, content)
         if unlisted:
-            archive.writestr("candidate/unlisted.txt", b"not in SHA256SUMS\n")
+            info = ZipInfo("candidate/unlisted.txt")
+            info.compress_type = ZIP_DEFLATED
+            info.create_system = 3
+            info.external_attr = (stat.S_IFREG | 0o600) << 16
+            archive.writestr(info, b"not in SHA256SUMS\n")
         if duplicate:
-            archive.writestr("candidate/tests/test_science.py", b"duplicate\n")
+            info = ZipInfo("candidate/tests/test_science.py")
+            info.compress_type = ZIP_DEFLATED
+            info.create_system = 3
+            info.external_attr = (stat.S_IFREG | 0o600) << 16
+            archive.writestr(info, b"duplicate\n")
+    if encrypted:
+        archive_content = bytearray(path.read_bytes())
+        for signature, flag_offset in ((b"PK\x03\x04", 6), (b"PK\x01\x02", 8)):
+            offset = archive_content.find(signature)
+            assert offset >= 0
+            start = offset + flag_offset
+            flags = int.from_bytes(archive_content[start : start + 2], "little") | 0x1
+            archive_content[start : start + 2] = flags.to_bytes(2, "little")
+        path.write_bytes(archive_content)
 
 
-def _repository(root: Path) -> None:
+def _repository(root: Path, *, trailing_header: str | None = None) -> None:
     comparison = root / "artifacts/v2/engine/publication-check-004/comparison"
     comparison.mkdir(parents=True)
     (comparison / "report.json").write_text(
@@ -78,8 +135,27 @@ def _repository(root: Path) -> None:
                 "coverage": "two_author_example_grids_only_not_full_1128_record_study",
                 "independent_measured_vegetation_accuracy": "not_evaluated",
                 "grids": [
-                    {"grid_id": "512", "sites": 9},
-                    {"grid_id": "562", "sites": 8},
+                    {
+                        "grid_id": grid_id,
+                        "sites": len(site_ids),
+                        "bins": 25,
+                        "taxa": 31,
+                        "passed": True,
+                        "checks": {
+                            "regional_cover": {"passed": True},
+                            "regional_se": {"passed": True},
+                            "site_counts_equal": True,
+                            "sites": [
+                                {
+                                    "site_id": site_id,
+                                    "cover": {"passed": True},
+                                    "se": {"passed": True},
+                                }
+                                for site_id in site_ids
+                            ],
+                        },
+                    }
+                    for grid_id, site_ids in _EXAMPLE_SITES.items()
                 ],
             }
         )
@@ -125,19 +201,31 @@ def _repository(root: Path) -> None:
         lineterminator="\n",
     )
     writer.writeheader()
-    for index, pft in enumerate(taxonomy_pfts):
+    taxa = [f"taxon_{index:02d}" for index in range(31)]
+    for index, taxon in enumerate(taxa):
+        pft = taxonomy_pfts[index % len(taxonomy_pfts)]
         writer.writerow(
             {
                 "Land-cover types (LCTs)": "Evergreen trees (ET)" if index == 0 else "",
                 "PFT": pft,
                 "PFT definition": f"definition {pft}",
-                "Plant taxa/Pollen-morphological types": f"taxon {pft}",
+                "Plant taxa/Pollen-morphological types": taxon,
                 "FSP (m/s)": "0.1",
                 "PPE (SD)": "1 (0.1)",
             }
         )
     (raw / "landclim_ii_taxa_pft_ppe_fsp_values.csv").write_text(stream.getvalue())
-    output_header = ["LCGRID_ID", "lonDD", "latDD", *taxonomy_pfts, "ISTS", "ET"]
+    output_header = [
+        "LCGRID_ID",
+        "lonDD",
+        "latDD",
+        *taxa,
+        *taxonomy_pfts,
+        "ISTS",
+        "ET",
+    ]
+    if trailing_header is not None:
+        output_header.append(trailing_header)
     with ZipFile(raw / "landclim_ii_reveals_results.zip", "w") as archive:
         for name in ("means/TW1.csv", "standarderrors/TW1.csv"):
             archive.writestr(name, ",".join(output_header) + "\n")
@@ -154,12 +242,22 @@ def test_reconciliation_preserves_bounded_truth(tmp_path: Path) -> None:
     receipt = products["archive-receipt.json"]
     assert isinstance(receipt, dict)
     assert receipt["internal_checksums_match"] is True
+    envelope = receipt["archive_envelope"]
+    assert isinstance(envelope, dict)
+    assert envelope["regular_file_members_only"] is True
+    assert envelope["encrypted_members_allowed"] is False
     discrepancy = products["pft-discrepancy.json"]
     assert isinstance(discrepancy, dict)
     assert discrepancy["resolution_status"].startswith("unresolved_")
     observations = discrepancy["observations"]
     assert isinstance(observations, list)
     assert [row["pft_count"] for row in observations] == [12, 11, 12, 13]
+    assert (
+        observations[0]["source_status"] == "candidate_prose_not_pinned_primary_source"
+    )
+    assert (
+        observations[1]["source_status"] == "candidate_prose_not_pinned_primary_source"
+    )
     assert observations[-1]["unmatched_headers"] == ["ISTS"]
     profiles = products["publication-profile-crosswalk.json"]
     assert isinstance(profiles, dict)
@@ -167,8 +265,9 @@ def test_reconciliation_preserves_bounded_truth(tmp_path: Path) -> None:
     report = products["scientific-scope-report.md"]
     assert isinstance(report, bytes)
     assert b"original 1,128 pollen records" in report
+    assert b"not an exhaustive repository-wide absence proof" in report
     assert b"actual-R parity was not executed" in report
-    assert b"redistribution rights remain unresolved" in report
+    assert b"Rights remain component-specific" in report
 
 
 def test_publication_is_deterministic_and_refuses_replacement(tmp_path: Path) -> None:
@@ -190,9 +289,9 @@ def test_publication_is_deterministic_and_refuses_replacement(tmp_path: Path) ->
         "publication-profile-crosswalk.json",
         "scientific-scope-report.md",
     ]
-    assert {
-        path.name: path.read_bytes() for path in first.iterdir()
-    } == {path.name: path.read_bytes() for path in second.iterdir()}
+    assert {path.name: path.read_bytes() for path in first.iterdir()} == {
+        path.name: path.read_bytes() for path in second.iterdir()
+    }
     with pytest.raises(FileExistsError, match="Refusing to replace"):
         publish_reconciliation(candidate, repository, first)
 
@@ -230,3 +329,108 @@ def test_unsafe_and_duplicate_candidate_members_are_rejected(tmp_path: Path) -> 
         _candidate(duplicate, duplicate=True)
     with pytest.raises(ValueError, match="duplicate member names"):
         build_reconciliation(duplicate, repository)
+
+
+def test_candidate_archive_bounds_are_enforced(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    candidate = tmp_path / "candidate.zip"
+    repository = tmp_path / "repository"
+    _candidate(candidate)
+    _repository(repository)
+    limits = [
+        ("_MAX_ARCHIVE_BYTES", "archive byte limit"),
+        ("_MAX_MEMBER_COUNT", "member count limit"),
+        ("_MAX_MEMBER_BYTES", "member exceeds byte limit"),
+        ("_MAX_EXPANDED_BYTES", "total expanded byte limit"),
+    ]
+    for limit_name, message in limits:
+        with monkeypatch.context() as patch:
+            patch.setattr(reconciliation, limit_name, 1)
+            with pytest.raises(ValueError, match=message):
+                build_reconciliation(candidate, repository)
+
+
+def test_high_ratio_encrypted_and_nonregular_members_are_rejected(
+    tmp_path: Path,
+) -> None:
+    repository = tmp_path / "repository"
+    _repository(repository)
+
+    high_ratio = tmp_path / "high-ratio.zip"
+    _candidate(high_ratio, high_ratio=True)
+    with pytest.raises(ValueError, match="compression ratio limit"):
+        build_reconciliation(high_ratio, repository)
+
+    encrypted = tmp_path / "encrypted.zip"
+    _candidate(encrypted, encrypted=True)
+    with pytest.raises(ValueError, match="encrypted"):
+        build_reconciliation(encrypted, repository)
+
+    symlink = tmp_path / "symlink.zip"
+    _candidate(symlink, symlink=True)
+    with pytest.raises(ValueError, match="not_regular_file"):
+        build_reconciliation(symlink, repository)
+
+
+def test_example_grid_scope_is_fail_closed(
+    tmp_path: Path,
+) -> None:
+    mutations = [
+        ("extra_grid", "exactly two grid objects"),
+        ("wrong_count", "wrong site count"),
+        ("wrong_dimensions", "wrong dimensions"),
+        ("grid_failed", "did not pass"),
+        ("counts_differ", "site counts differ"),
+        ("wrong_identity", "site identity differs"),
+        ("regional_failed", "regional_cover did not pass"),
+        ("site_failed", "site check did not pass"),
+    ]
+    for mutation, message in mutations:
+        case = tmp_path / mutation
+        candidate = case / "candidate.zip"
+        repository = case / "repository"
+        case.mkdir()
+        _candidate(candidate)
+        _repository(repository)
+        report_path = (
+            repository
+            / "artifacts/v2/engine/publication-check-004/comparison/report.json"
+        )
+        report = json.loads(report_path.read_text())
+        first = report["grids"][0]
+        if mutation == "extra_grid":
+            report["grids"].append(dict(first))
+        elif mutation == "wrong_count":
+            first["sites"] = 10
+        elif mutation == "wrong_dimensions":
+            first["bins"] = 24
+        elif mutation == "grid_failed":
+            first["passed"] = False
+        elif mutation == "counts_differ":
+            first["checks"]["site_counts_equal"] = False
+        elif mutation == "wrong_identity":
+            first["checks"]["sites"][0]["site_id"] = "NOT_BROADOWN"
+        elif mutation == "regional_failed":
+            first["checks"]["regional_cover"]["passed"] = False
+        elif mutation == "site_failed":
+            first["checks"]["sites"][0]["cover"]["passed"] = False
+        else:
+            raise AssertionError(f"Unhandled mutation: {mutation}")
+        report_path.write_text(json.dumps(report))
+
+        with pytest.raises(ValueError, match=message):
+            build_reconciliation(candidate, repository)
+
+
+def test_unknown_trailing_published_header_is_not_classified_as_pft(
+    tmp_path: Path,
+) -> None:
+    candidate = tmp_path / "candidate.zip"
+    repository = tmp_path / "repository"
+    _candidate(candidate)
+    _repository(repository, trailing_header="UNKNOWN_GROUP")
+
+    with pytest.raises(ValueError, match="unknown trailing grouped headers"):
+        build_reconciliation(candidate, repository)

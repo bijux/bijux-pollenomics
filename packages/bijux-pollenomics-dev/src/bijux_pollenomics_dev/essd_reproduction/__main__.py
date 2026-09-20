@@ -22,9 +22,7 @@ def main() -> int:
             {
                 "archive_sha256": result["archive-receipt.json"]["sha256"],
                 "output": str(args.output),
-                "pft_resolution": result["pft-discrepancy.json"][
-                    "resolution_status"
-                ],
+                "pft_resolution": result["pft-discrepancy.json"]["resolution_status"],
                 "whole_paper_reproduction_certified": result[
                     "publication-profile-crosswalk.json"
                 ]["whole_paper_reproduction_certified"],
