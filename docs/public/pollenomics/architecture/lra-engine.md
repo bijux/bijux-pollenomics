@@ -484,15 +484,25 @@ Vegetation and pollen have separate accounting; local pollen remains an in-sampl
 diagnostic. A retained source refusal without an observation body cannot be
 re-executed here and is labelled accordingly.
 
+`admit_final_evaluation_release` is the prospective engineering boundary for a
+final benchmark. It requires the local-pollen-available vegetation cell and both
+all-target-pollen-withheld vegetation and pollen cells under each of grouped outer
+folds and predefined spatial blocks. Each protocol binds the complete canonical
+split manifest, its split kind and digest. Both protocols must use the same frozen
+site and alias universe, and a spatial fold cannot place one block in both training
+and test. The returned receipt records that no empirical evaluation was performed
+and that scientific acceptance was not evaluated.
+
 The immutable evidence binds its projections to retained product identities.
 Caller-pinned product bytes establish retained consistency; they do not
 independently authenticate external raw observations. The readiness result always
 states `final_evaluation_performed=false` and
 `scientific_acceptance=not_evaluated`. Missing historical access timestamps,
-prospective evaluator binding, reviewed reference support, thresholds and
-predictive intervals remain explicit gaps. An optional future binding is an
-unverified declaration and cannot retroactively freeze an experiment. Overlapping
-cross-validation fits do not become an independent fixed-model bootstrap cohort.
+an authenticated prospective prediction-product adapter, reviewed reference
+support, thresholds and predictive intervals remain explicit gaps. A release-
+matrix receipt alone cannot retroactively freeze an experiment or authenticate
+its source observations. Overlapping cross-validation fits do not become an
+independent fixed-model bootstrap cohort.
 
 ## Saved-product reporting
 
