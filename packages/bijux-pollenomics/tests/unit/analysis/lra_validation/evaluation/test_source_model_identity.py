@@ -19,6 +19,7 @@ from bijux_pollenomics.analysis.lra_validation.evaluation.contracts import (
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
     FITTED_METHOD,
+    LOCAL_METHOD,
 )
 
 _FROZEN = datetime(2020, 1, 1, tzinfo=UTC)
@@ -140,3 +141,23 @@ def test_v1_cannot_be_relabelled_with_a_v2_source() -> None:
     )
     with pytest.raises(ValidationRefusal, match="Historical v1"):
         validate_frozen_prediction(relabelled)
+
+
+def test_local_source_requires_local_vegetation_and_no_fitted_alias() -> None:
+    source = _authenticated_source_model("local_pollen_assimilation", "c" * 64)
+    row = replace(
+        _row(),
+        model_id=LOCAL_METHOD,
+        target="vegetation_cover",
+        experiment="local_pollen_available",
+        fitted_model_sha256=None,
+        source_model=source,
+    )
+    assert prediction_payload(row)["source_model"] == {
+        "kind": "local_pollen_assimilation",
+        "sha256": "c" * 64,
+    }
+    with pytest.raises(ValidationRefusal, match="local vegetation"):
+        prediction_payload(replace(row, target="pollen_composition"))
+    with pytest.raises(ValidationRefusal, match="cannot populate"):
+        prediction_payload(replace(row, fitted_model_sha256="c" * 64))

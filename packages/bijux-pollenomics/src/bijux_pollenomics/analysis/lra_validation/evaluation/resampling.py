@@ -63,6 +63,7 @@ def _scored_payload(result: EvaluationResult, scope: EvaluationScope) -> dict[st
     if len(cell_ids) != len(set(cell_ids)):
         refuse("Duplicate scored cell identity")
     sites = {site.record_id: site for site in scope.sites}
+    experiments = {cell["cell_id"]: cell.get("experiment") for cell in payload["cells"]}
     for row in records:
         required = {
             "cell_id",
@@ -108,8 +109,13 @@ def _scored_payload(result: EvaluationResult, scope: EvaluationScope) -> dict[st
                 "baseline_fit_input_ids",
             } & set(row):
                 refuse("Generic scored evidence cannot expose fitted-only aliases")
+            model_kind = (
+                "local_pollen_assimilation"
+                if experiments.get(row["cell_id"]) == "local_pollen_available"
+                else "fitted_spatial"
+            )
             for key, kind in (
-                ("model_source", "fitted_spatial"),
+                ("model_source", model_kind),
                 ("baseline_source", "admitted_reconstruction_training_mean"),
             ):
                 source = row[key]
@@ -205,6 +211,11 @@ def resample_independent_units(
     ):
         refuse("Conditional resampling requires the complete unique scored cohort")
     generic = payload["schema_version"] == "pollenomics-final-evaluation-result.v3"
+    if generic and any(
+        row["model_source"].get("kind") == "local_pollen_assimilation"
+        for row in records
+    ):
+        refuse("Record-specific local-pollen assimilation is not a fixed-model cohort")
     source_fields = (
         ("model_source", "baseline_source")
         if generic

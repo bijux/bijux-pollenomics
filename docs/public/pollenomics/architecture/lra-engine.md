@@ -323,6 +323,24 @@ caller-pinned product manifest rather than replaying a potentially different
 optional engine after publication. This boundary does not supply uncertainty,
 empirical accuracy or scientific acceptance.
 
+`adapt_authenticated_spatial_block_local_vegetation_rows` joins the strict
+spatial-block local-pollen reader to that paired training-mean product before any
+vegetation outcome is accepted. It requires the same complete fold universe,
+block admissions, target group/bin/taxon denominator, geometry and per-target
+training admission. The analytical LOVE row receives its own target-specific
+`local_pollen_assimilation` source identity and explicit observed-pollen channel;
+it is never relabelled as a fitted spatial model. Its training-mean comparator is
+authenticated from the separate block product and cannot carry target pollen or a
+fitted-model alias. Predicted rows are frozen with the generic v2 envelope, while
+parent refusals/not-run states remain failures without invented values.
+
+This adapter supplies only the outcome-free spatial-block
+`local_pollen_available` vegetation pair. No governed predictive-observation
+interval for local vegetation exists, so the cell remains ineligible for final
+coverage acceptance. The adapter does not bind a release receipt, open vegetation
+truth, establish first-access timing, approve a threshold or grant scientific
+review. Grouped-outer and all-target-withheld product joins remain separate work.
+
 These spatial experiments remain synthetic and exploratory. Joint model
 uncertainty requires separate profiles and evidence.
 
@@ -521,11 +539,12 @@ Caller-pinned product bytes establish retained consistency; they do not
 independently authenticate external raw observations. The readiness result always
 states `final_evaluation_performed=false` and
 `scientific_acceptance=not_evaluated`. Missing historical access timestamps,
-an authenticated prospective prediction-product adapter, reviewed reference
-support, thresholds and complete interval-bearing benchmark products remain
-explicit gaps. A release-matrix receipt alone cannot retroactively freeze an
-experiment or authenticate its source observations. Overlapping cross-validation
-fits do not become an independent fixed-model bootstrap cohort.
+the remaining prospective product/release joins, reviewed reference support,
+thresholds and complete interval-bearing benchmark products remain explicit gaps.
+A release-matrix receipt alone cannot retroactively freeze an experiment or
+authenticate its source observations. Record-specific local-pollen sources and
+overlapping cross-validation fits do not become an independent fixed-model
+bootstrap cohort.
 
 ## Saved-product reporting
 

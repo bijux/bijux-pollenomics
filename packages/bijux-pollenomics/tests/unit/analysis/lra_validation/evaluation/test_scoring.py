@@ -1,5 +1,3 @@
-"""Synthetic success/failure, target separation and attempted scoring leakage."""
-
 from __future__ import annotations
 
 from dataclasses import replace
@@ -18,7 +16,6 @@ from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     evaluate_final,
     validate_evaluation_policy,
 )
-
 from .support import (
     ACCESS,
     bind_prediction,

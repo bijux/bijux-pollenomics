@@ -102,8 +102,11 @@ def _fit_closure(
         if item.record_id in fold.test_record_ids
         for key in (item.vegetation_observation_id, item.pollen_observation_id)
     }
-    local = row.experiment == "local_pollen_available"
-    if local:
+    local_experiment = row.experiment == "local_pollen_available"
+    local_model = local_experiment and (
+        row.source_model is None or row.source_model.kind == "local_pollen_assimilation"
+    )
+    if local_model:
         if row.target != "vegetation_cover" or row.observed_pollen is None:
             refuse(
                 "Local pollen mode requires explicit observed pollen and independent vegetation"
@@ -114,8 +117,8 @@ def _fit_closure(
         ):
             refuse("Observed pollen admission differs from scored target ownership")
     elif row.observed_pollen is not None:
-        refuse("All-target-pollen-withheld mode cannot admit target pollen")
-    if local or scope.observation_channels:
+        refuse("Only a local-pollen assimilation may admit target pollen")
+    if local_experiment or scope.observation_channels:
         channels = {item.record_id: item for item in scope.observation_channels}
         sites = {item.record_id: item for item in scope.sites}
         if set(channels) != set(sites) or any(
@@ -411,7 +414,12 @@ def evaluate_final(
             }
             if generic:
                 item.update(
-                    model_source=_source(model, "fitted_spatial"),
+                    model_source=_source(
+                        model,
+                        "local_pollen_assimilation"
+                        if cell.experiment == "local_pollen_available"
+                        else "fitted_spatial",
+                    ),
                     baseline_source=_source(
                         baseline, "admitted_reconstruction_training_mean"
                     ),

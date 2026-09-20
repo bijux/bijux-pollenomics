@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, replace
 from datetime import UTC, datetime
 import json
+import re
 from typing import Literal, NoReturn, cast
 
 from ..channels import ObservationChannels, ObservedPollenAdmission
@@ -20,7 +21,11 @@ from ..contracts import (
 
 Target = Literal["vegetation_cover", "pollen_composition"]
 Experiment = Literal["local_pollen_available", "all_target_pollen_withheld"]
-SourceModelKind = Literal["fitted_spatial", "admitted_reconstruction_training_mean"]
+SourceModelKind = Literal[
+    "fitted_spatial",
+    "admitted_reconstruction_training_mean",
+    "local_pollen_assimilation",
+]
 EnvelopeVersion = Literal[
     "pollenomics-evaluation-prediction.v1",
     "pollenomics-evaluation-prediction.v2",
@@ -32,8 +37,6 @@ def refuse(message: str) -> NoReturn:
 
 
 def digest(value: str) -> str:
-    import re
-
     if not isinstance(value, str) or re.fullmatch(r"[0-9a-f]{64}", value) is None:
         refuse("A canonical SHA-256 identity is required")
     return value
@@ -309,6 +312,7 @@ class SourceModelIdentity:
         if kind not in {
             "fitted_spatial",
             "admitted_reconstruction_training_mean",
+            "local_pollen_assimilation",
         }:
             refuse("Unsupported source-model kind")
         object.__setattr__(self, "kind", kind)
@@ -319,10 +323,10 @@ def _authenticated_source_model(
     kind: str,
     sha256: str,
 ) -> SourceModelIdentity:
-    """Mint an identity only after a governed adapter authenticates its parent."""
     if kind not in {
         "fitted_spatial",
         "admitted_reconstruction_training_mean",
+        "local_pollen_assimilation",
     }:
         refuse("Unsupported authenticated source-model kind")
     return SourceModelIdentity(
@@ -434,11 +438,20 @@ def _validated_source_model(row: EvaluationRow) -> SourceModelIdentity:
             refuse("Fitted spatial source requires the governed model method")
         if row.fitted_model_sha256 != source.sha256:
             refuse("Fitted source and legacy fitted-model identities differ")
-    else:
+    elif source.kind == "admitted_reconstruction_training_mean":
         if row.model_id != "training_mean":
             refuse("Training-mean source requires the governed baseline method")
         if row.fitted_model_sha256 is not None:
             refuse("A training-mean baseline cannot populate fitted_model_sha256")
+    else:
+        if (
+            row.model_id != "analytical_love_local_pollen"
+            or row.experiment != "local_pollen_available"
+            or row.target != "vegetation_cover"
+        ):
+            refuse("Local-pollen source requires the governed local vegetation method")
+        if row.fitted_model_sha256 is not None:
+            refuse("A local-pollen assimilation cannot populate fitted_model_sha256")
     return source
 
 

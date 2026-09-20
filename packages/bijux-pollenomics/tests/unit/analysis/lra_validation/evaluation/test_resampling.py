@@ -96,6 +96,35 @@ def test_generic_v3_result_resamples_without_fitted_baseline_aliases() -> None:
     )
 
 
+def test_record_specific_local_source_is_not_a_fixed_model_cohort() -> None:
+    scope = scope_fixture()
+    generic = _generic_result(
+        evaluate_final(policy_fixture(scope), scope=scope, rows=rows_fixture(scope))
+    )
+    payload = json.loads(generic.canonical_result_json)
+    for cell in payload["cells"]:
+        if cell["cell_id"] == "vegetation_cover":
+            cell["experiment"] = "local_pollen_available"
+    for row in payload["paired_evidence"]:
+        if row["cell_id"] == "vegetation_cover":
+            row["model_source"]["kind"] = "local_pollen_assimilation"
+    local = replace(
+        generic,
+        canonical_result_json=canonical_json(payload),
+        result_sha256=manifest_sha256(payload),
+    )
+    with pytest.raises(ValidationRefusal, match="not a fixed-model cohort"):
+        resample_independent_units(
+            local,
+            scope=scope,
+            cell_id="vegetation_cover",
+            unit="site",
+            resamples=10,
+            seed=1,
+            confidence_level=0.8,
+        )
+
+
 @pytest.mark.parametrize(
     "mutation", ["legacy_alias", "wrong_kind", "changed_source", "outcome_field"]
 )
