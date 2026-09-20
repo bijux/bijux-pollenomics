@@ -86,6 +86,83 @@ def test_saved_report_command_pins_both_inputs_without_running_engine(
         assert payload["scientific_acceptance"] == "not_evaluated"
 
 
+@pytest.mark.parametrize("refused", [False, True])
+def test_joint_report_command_preserves_denominators_without_running_engine(
+    tmp_path: Path,
+    capsys: pytest.CaptureFixture[str],
+    refused: bool,
+) -> None:
+    from bijux_pollenomics.command_line.runtime import lra
+    from bijux_pollenomics.reporting.lra_products import api
+    from bijux_pollenomics.reporting.lra_products.api import (
+        JointLRAPresentation,
+        LRAPresentationRefusal,
+    )
+
+    product = tmp_path / "joint-product"
+    destination = tmp_path / "joint-report"
+    result = JointLRAPresentation(
+        destination,
+        "0" * 64,
+        "1" * 64,
+        "2" * 64,
+        "3" * 64,
+        "incomplete",
+        True,
+        2,
+        8,
+        3,
+        1,
+        4,
+    )
+    with (
+        patch.object(
+            api,
+            "render_joint_lra_report",
+            return_value=result,
+            side_effect=LRAPresentationRefusal(
+                "changed_presentation_input", "manifest.json"
+            )
+            if refused
+            else None,
+        ) as render,
+        patch.object(lra, "run_lra_request") as compute,
+    ):
+        code = main(
+            [
+                "render-joint-lra-report",
+                str(product),
+                "--expected-manifest-sha256",
+                "1" * 64,
+                "--output",
+                str(destination),
+            ]
+        )
+    assert code == (2 if refused else 0)
+    assert not compute.called
+    render.assert_called_once_with(
+        product,
+        expected_manifest_sha256="1" * 64,
+        destination=destination,
+    )
+    payload = json.loads(capsys.readouterr().out)
+    if refused:
+        assert payload["status"] == "refused"
+        assert payload["reason_code"] == "changed_presentation_input"
+    else:
+        assert payload["status"] == "generated_exploratory"
+        assert payload["publication_authorized"] is False
+        assert payload["product_status"] == "incomplete"
+        assert payload["interrupted"] is True
+        assert payload["denominators"] == {
+            "bins": 2,
+            "requested_draw_bins": 8,
+            "successful_draw_bins": 3,
+            "refused_draw_bins": 1,
+            "not_run_draw_bins": 4,
+        }
+
+
 @pytest.mark.parametrize(
     "interrupted,completed,expected_code",
     [(False, True, 0), (False, False, 2), (True, False, 130)],

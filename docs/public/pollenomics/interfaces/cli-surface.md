@@ -228,3 +228,13 @@ mapped/refused site accounting. Missing values stay missing and LOVE fractions
 remain distinct from REVEALS percentages. A successful report returns exit 0,
 including reports with declared map refusals; invalid inputs or an existing
 output return exit 2. Report generation does not confer scientific acceptance.
+
+`render-joint-lra-report PRODUCT --expected-manifest-sha256 HASH --output
+NEW_REPORT` reopens a retained joint-realization product without running the
+numerical engine. The report copies every verified product byte, exposes every
+draw/bin outcome, exact rational requested/success/refused/not-run mass, and the
+full ordered population covariance. Incomplete or interrupted products remain
+renderable with null moments and visible denominators; successful subsets are not
+renormalized. No geometry is accepted by this command, and a successful render is
+neither scientific acceptance nor publication authorization. Invalid or changed
+inputs and existing outputs return exit 2.

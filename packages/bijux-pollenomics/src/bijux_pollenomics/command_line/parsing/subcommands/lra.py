@@ -104,6 +104,29 @@ def build_render_lra_report_parser(
     return parser
 
 
+def build_render_joint_lra_report_parser(
+    subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> argparse.ArgumentParser:
+    """Build lossless reporting for one externally pinned joint product."""
+    parser = subparsers.add_parser(
+        "render-joint-lra-report",
+        help="Render a verified retained joint LRA product without recomputation.",
+    )
+    parser.add_argument("product", type=Path, help="Saved joint LRA product directory.")
+    parser.add_argument(
+        "--expected-manifest-sha256",
+        required=True,
+        help="Expected joint-product manifest SHA-256.",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        required=True,
+        help="New directory for the exploratory retained-law report.",
+    )
+    return parser
+
+
 def build_run_lra_parser(
     subparsers: argparse._SubParsersAction[argparse.ArgumentParser],
 ) -> argparse.ArgumentParser:

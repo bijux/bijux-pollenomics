@@ -67,6 +67,8 @@ def run_lra_command(args: argparse.Namespace) -> int:
     try:
         if args.command == "render-lra-report":
             return _render_report(args)
+        if args.command == "render-joint-lra-report":
+            return _render_joint_report(args)
         payload = json.loads(
             args.request.read_text(encoding="utf-8"), object_pairs_hook=_unique_pairs
         )
@@ -173,6 +175,57 @@ def _render_report(args: argparse.Namespace) -> int:
                 "geometry_sha256": report.geometry_sha256,
                 "mapped_site_count": report.mapped_site_count,
                 "refused_site_count": report.refused_site_count,
+            },
+            sort_keys=True,
+        )
+    )
+    return 0
+
+
+def _render_joint_report(args: argparse.Namespace) -> int:
+    from ...reporting.lra_products.api import (
+        LRAPresentationRefusal,
+        render_joint_lra_report,
+    )
+
+    try:
+        report = render_joint_lra_report(
+            args.product,
+            expected_manifest_sha256=args.expected_manifest_sha256,
+            destination=args.output,
+        )
+    except LRAPresentationRefusal as exc:
+        print(
+            json.dumps(
+                {
+                    "status": "refused",
+                    "reason_code": exc.reason_code,
+                    "detail": str(exc),
+                },
+                sort_keys=True,
+            )
+        )
+        return 2
+    print(
+        json.dumps(
+            {
+                "status": "generated_exploratory",
+                "scientific_acceptance": "not_evaluated",
+                "publication_authorized": False,
+                "directory": str(report.directory),
+                "manifest_sha256": report.manifest_sha256,
+                "product_manifest_sha256": report.product_manifest_sha256,
+                "scientific_content_sha256": report.scientific_content_sha256,
+                "plan_sha256": report.plan_sha256,
+                "product_status": report.product_status,
+                "interrupted": report.interrupted,
+                "denominators": {
+                    "bins": report.bin_count,
+                    "requested_draw_bins": report.requested_draw_bins,
+                    "successful_draw_bins": report.successful_draw_bins,
+                    "refused_draw_bins": report.refused_draw_bins,
+                    "not_run_draw_bins": report.not_run_draw_bins,
+                },
             },
             sort_keys=True,
         )

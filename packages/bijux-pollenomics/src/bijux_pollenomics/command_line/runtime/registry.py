@@ -54,6 +54,7 @@ def build_command_handlers(
         "run-joint-lra": run_lra_command,
         "run-lra-batch": run_lra_command,
         "render-lra-report": run_lra_command,
+        "render-joint-lra-report": run_lra_command,
         "prepare-lra-experiment": run_lra_command,
         "score-lra-experiment": run_lra_command,
         "prepare-lra-observation-uncertainty": run_lra_command,

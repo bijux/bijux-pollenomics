@@ -82,6 +82,12 @@ _COMMAND_ACTIONS = {
         "output",
         "temporal_profile",
     ],
+    "render-joint-lra-report": [
+        "help",
+        "product",
+        "expected_manifest_sha256",
+        "output",
+    ],
     "prepare-lra-experiment": [
         "help",
         "request",
@@ -150,8 +156,8 @@ def test_root_and_subcommand_help_text_is_frozen() -> None:
     subcommand_help = "".join(child.format_help() for child in action.choices.values())
     assert (
         root_digest
-        == "e89502483371136a0a938ca63679b259f653962209f83f95fa343f0ced4c3522"
+        == "ba52238e35a66f78de08203114c25c596b971c3c81adc51131ab1546208955e2"
     )
     assert hashlib.sha256(subcommand_help.encode()).hexdigest() == (
-        "1e6ca36ccc2a97ecaa2ff69f93ce948b9eaf3a24877bec5a297b941eeda0bd57"
+        "9d583f73d007da5722aced886bd990991b8d38a39c238597284b48cd5b4f2804"
     )

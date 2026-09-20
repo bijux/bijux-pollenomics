@@ -533,6 +533,22 @@ not a substitute for a missing age. The underlying numerical product is retained
 unchanged. If both sites lack admissible display geometry, the report retains
 their rows and refusal accounting and produces no map.
 
+Retained joint-realization products use a separate lossless presentation facade,
+`render_joint_lra_report`, and installed command:
+
+```bash
+bijux-pollenomics render-joint-lra-report joint-product \
+  --expected-manifest-sha256 "$joint_manifest_sha256" \
+  --output joint-report
+```
+
+This path performs no numerical recomputation and accepts no display geometry. It
+copies the externally pinned product, preserves exact rational law mass and all
+draw/bin outcomes, and emits complete-bin means plus the full ordered covariance.
+Incomplete and interrupted bins retain null moments and refused/not-run mass. The
+result is exploratory, has no calibrated-interval or empirical-coverage claim, and
+is not publication authorization or scientific acceptance.
+
 Signed reports use explicit younger/older endpoint controls. Fractional and point
 selections retain the same endpoints through filtering, URL restoration, download
 and native browser capture. This profile does not interpret HYDE calendar labels,
