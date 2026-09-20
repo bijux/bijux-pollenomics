@@ -15,6 +15,12 @@ from .contracts import (
     freeze_evaluation_prediction,
 )
 from .policy import validate_evaluation_policy
+from .release import (
+    FINAL_EVALUATION_RELEASE_PROFILE,
+    FinalEvaluationProtocol,
+    FinalEvaluationReleaseAdmission,
+    admit_final_evaluation_release,
+)
 from .resampling import resample_independent_units
 from .scoring import evaluate_final
 
@@ -35,4 +41,8 @@ __all__ = [
     "freeze_evaluation_prediction",
     "resample_independent_units",
     "validate_evaluation_policy",
+    "FINAL_EVALUATION_RELEASE_PROFILE",
+    "FinalEvaluationProtocol",
+    "FinalEvaluationReleaseAdmission",
+    "admit_final_evaluation_release",
 ]
