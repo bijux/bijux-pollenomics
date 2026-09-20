@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from dataclasses import asdict, dataclass, replace
 from datetime import UTC, datetime
-from typing import Literal, NoReturn
+import json
+from typing import Literal, NoReturn, cast
 
 from ..channels import ObservationChannels, ObservedPollenAdmission
 from ..contracts import (
@@ -19,6 +20,11 @@ from ..contracts import (
 
 Target = Literal["vegetation_cover", "pollen_composition"]
 Experiment = Literal["local_pollen_available", "all_target_pollen_withheld"]
+SourceModelKind = Literal["fitted_spatial", "admitted_reconstruction_training_mean"]
+EnvelopeVersion = Literal[
+    "pollenomics-evaluation-prediction.v1",
+    "pollenomics-evaluation-prediction.v2",
+]
 
 
 def refuse(message: str) -> NoReturn:
@@ -281,6 +287,51 @@ class PredictiveInterval:
     limits: tuple[tuple[str, float, float], ...]
 
 
+_SOURCE_MODEL_FACTORY_TOKEN = object()
+
+
+@dataclass(frozen=True, init=False)
+class SourceModelIdentity:
+    """A typed producer-authenticated model identity, never a caller assertion."""
+
+    kind: SourceModelKind
+    sha256: str
+
+    def __init__(
+        self,
+        kind: SourceModelKind,
+        sha256: str,
+        *,
+        _factory_token: object | None = None,
+    ) -> None:
+        if _factory_token is not _SOURCE_MODEL_FACTORY_TOKEN:
+            refuse("Source-model identities require an authenticated producer")
+        if kind not in {
+            "fitted_spatial",
+            "admitted_reconstruction_training_mean",
+        }:
+            refuse("Unsupported source-model kind")
+        object.__setattr__(self, "kind", kind)
+        object.__setattr__(self, "sha256", digest(sha256))
+
+
+def _authenticated_source_model(
+    kind: str,
+    sha256: str,
+) -> SourceModelIdentity:
+    """Mint an identity only after a governed adapter authenticates its parent."""
+    if kind not in {
+        "fitted_spatial",
+        "admitted_reconstruction_training_mean",
+    }:
+        refuse("Unsupported authenticated source-model kind")
+    return SourceModelIdentity(
+        cast(SourceModelKind, kind),
+        sha256,
+        _factory_token=_SOURCE_MODEL_FACTORY_TOKEN,
+    )
+
+
 @dataclass(frozen=True)
 class EvaluationRow:
     """One requested model/site/bin/target outcome; absent outputs are explicit."""
@@ -304,6 +355,7 @@ class EvaluationRow:
     interval: PredictiveInterval | None = None
     reason: str | None = None
     observed_pollen: ObservedPollenAdmission | None = None
+    source_model: SourceModelIdentity | None = None
 
 
 @dataclass(frozen=True)
@@ -346,7 +398,8 @@ class EvaluationResult:
     status: Literal["passed", "failed", "ineligible"]
 
 
-def prediction_payload(row: EvaluationRow) -> dict[str, object]:
+def _prediction_payload_v1(row: EvaluationRow) -> dict[str, object]:
+    """Preserve the historical wire byte-for-byte; never add v2 fields here."""
     return {
         "schema_version": "pollenomics-evaluation-prediction.v1",
         "fold_id": row.fold_id,
@@ -363,6 +416,87 @@ def prediction_payload(row: EvaluationRow) -> dict[str, object]:
         "interval": asdict(row.interval) if row.interval else None,
         "observed_pollen": asdict(row.observed_pollen) if row.observed_pollen else None,
     }
+
+
+def _validated_source_model(row: EvaluationRow) -> SourceModelIdentity:
+    source = row.source_model
+    if not isinstance(source, SourceModelIdentity):
+        refuse("A typed authenticated source-model identity is required")
+    values = identity_values(row.fit_input_ids)
+    if (
+        not isinstance(row.fit_input_ids, tuple)
+        or not values
+        or len(values) != len(set(values))
+    ):
+        refuse("Source-model input identities must be a nonempty unique tuple")
+    if source.kind == "fitted_spatial":
+        if row.model_id != "clr-wgs84-rbf-ridge-v1":
+            refuse("Fitted spatial source requires the governed model method")
+        if row.fitted_model_sha256 != source.sha256:
+            refuse("Fitted source and legacy fitted-model identities differ")
+    else:
+        if row.model_id != "training_mean":
+            refuse("Training-mean source requires the governed baseline method")
+        if row.fitted_model_sha256 is not None:
+            refuse("A training-mean baseline cannot populate fitted_model_sha256")
+    return source
+
+
+def _prediction_payload_v2(row: EvaluationRow) -> dict[str, object]:
+    source = _validated_source_model(row)
+    return {
+        "schema_version": "pollenomics-evaluation-prediction.v2",
+        "fold_id": row.fold_id,
+        "record_id": row.record_id,
+        "model_id": row.model_id,
+        "target": row.target,
+        "experiment": row.experiment,
+        "prediction": row.prediction,
+        "source_model": asdict(source),
+        "model_input_ids": row.fit_input_ids,
+        "frozen_at": row.prediction_frozen_at.isoformat()
+        if row.prediction_frozen_at
+        else None,
+        "interval": asdict(row.interval) if row.interval else None,
+        "observed_pollen": asdict(row.observed_pollen) if row.observed_pollen else None,
+    }
+
+
+def prediction_payload(row: EvaluationRow) -> dict[str, object]:
+    """Return the exact v1 wire or the additive typed v2 wire."""
+    if row.source_model is None:
+        return _prediction_payload_v1(row)
+    return _prediction_payload_v2(row)
+
+
+def validate_frozen_prediction(row: EvaluationRow) -> EnvelopeVersion:
+    """Reopen exact v1/v2 bytes without upgrading or relabelling either schema."""
+    if not isinstance(row.prediction_manifest_json, str):
+        refuse("Frozen prediction envelope bytes are required")
+    if not isinstance(row.prediction_sha256, str):
+        refuse("Frozen prediction envelope identity is required")
+    try:
+        loaded = json.loads(row.prediction_manifest_json)
+    except (json.JSONDecodeError, TypeError) as exc:
+        refuse(f"Malformed frozen prediction envelope: {exc}")
+    if not isinstance(loaded, dict):
+        refuse("Frozen prediction envelope must be an object")
+    version = loaded.get("schema_version")
+    if version == "pollenomics-evaluation-prediction.v1":
+        if row.source_model is not None:
+            refuse("Historical v1 cannot carry a v2 source-model identity")
+        expected = _prediction_payload_v1(row)
+    elif version == "pollenomics-evaluation-prediction.v2":
+        expected = _prediction_payload_v2(row)
+    else:
+        refuse("Unsupported frozen prediction envelope version")
+    if (
+        row.prediction_manifest_json != canonical_json(loaded)
+        or canonical_json(loaded) != canonical_json(expected)
+        or manifest_sha256(loaded) != digest(row.prediction_sha256)
+    ):
+        refuse("Frozen prediction bytes differ from the typed evaluation row")
+    return cast(EnvelopeVersion, version)
 
 
 def freeze_evaluation_prediction(row: EvaluationRow) -> EvaluationRow:

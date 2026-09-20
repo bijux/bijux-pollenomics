@@ -15,8 +15,10 @@ from .contracts import (
     EvaluationSite,
     ExternalInput,
     PredictiveInterval,
+    SourceModelIdentity,
     Support,
     freeze_evaluation_prediction,
+    validate_frozen_prediction,
 )
 from .intervals import (
     AUTHENTICATED_CONDITIONAL_INTERVAL_PROFILE,
@@ -44,9 +46,11 @@ __all__ = [
     "EvaluationSite",
     "ExternalInput",
     "PredictiveInterval",
+    "SourceModelIdentity",
     "Support",
     "evaluate_final",
     "freeze_evaluation_prediction",
+    "validate_frozen_prediction",
     "resample_independent_units",
     "validate_evaluation_policy",
     "AUTHENTICATED_CONDITIONAL_INTERVAL_PROFILE",

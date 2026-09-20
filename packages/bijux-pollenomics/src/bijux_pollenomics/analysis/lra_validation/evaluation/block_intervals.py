@@ -30,6 +30,7 @@ from ..observation_uncertainty.workflow import implementation_identity
 from .contracts import (
     EvaluationRow,
     PredictiveInterval,
+    _authenticated_source_model,
     digest,
     freeze_evaluation_prediction,
     refuse,
@@ -279,19 +280,13 @@ def freeze_authenticated_block_pollen_interval(
 ) -> EvaluationRow:
     """Attach an authenticated block interval without making acceptance claims.
 
-    The current EvaluationRow has only a fitted-model identity field. Baseline
-    rows are therefore refused until the generic evaluation envelope gains a
-    non-fitted source-model identity; the baseline is never relabelled as fitted.
+    The adapter mints the generic source identity only after reopening the exact
+    caller-pinned block parent. A training-mean baseline remains non-fitted.
     """
     if not isinstance(row, EvaluationRow):
         refuse("A typed evaluation row is required")
-    if row.model_id == BLOCK_BASELINE_METHOD:
-        refuse(
-            "Spatial-block baseline intervals require a generic source-model "
-            "identity in EvaluationRow"
-        )
     if (
-        row.model_id != FITTED_METHOD
+        row.model_id not in {FITTED_METHOD, BLOCK_BASELINE_METHOD}
         or row.experiment != "all_target_pollen_withheld"
         or row.target != "pollen_composition"
         or row.status != "predicted"
@@ -306,9 +301,14 @@ def freeze_authenticated_block_pollen_interval(
         or row.prediction_frozen_at is not None
         or row.observed_pollen is not None
         or row.reason is not None
-        or row.fitted_model_sha256 is None
+        or row.source_model is not None
+        or (row.model_id == FITTED_METHOD and row.fitted_model_sha256 is None)
+        or (
+            row.model_id == BLOCK_BASELINE_METHOD
+            and row.fitted_model_sha256 is not None
+        )
     ):
-        refuse("Require an outcome-free unfrozen fitted spatial-block pollen row")
+        refuse("Require an outcome-free unfrozen typed spatial-block pollen row")
     plan, parent_rows, retained = _authenticated_block_draws(
         predictions,
         expected_prediction_manifest_sha256=expected_prediction_manifest_sha256,
@@ -323,19 +323,35 @@ def freeze_authenticated_block_pollen_interval(
     entry = next((entry for entry in plan.entries if entry.key == key), None)
     if entry is None:
         refuse("Evaluation unit differs from the frozen block uncertainty plan")
-    if (
-        parent.get("method") != row.model_id
-        or parent.get("record_id") != row.record_id
-        or parent.get("model_sha256") != row.fitted_model_sha256
-        or tuple(
+    if parent.get("method") != row.model_id or parent.get("record_id") != row.record_id:
+        refuse("Evaluation row differs from the authenticated block parent")
+    if row.model_id == FITTED_METHOD:
+        source_kind = "fitted_spatial"
+        source_sha256 = digest(cast(str, parent.get("model_sha256")))
+        model_input_ids = tuple(
             identity(value)
             for value in object_list(
                 parent.get("training_input_ids"), "training_input_ids"
             )
         )
-        != row.fit_input_ids
-    ):
-        refuse("Evaluation row differs from the authenticated fitted block parent")
+        if row.fitted_model_sha256 != source_sha256:
+            refuse("Evaluation fitted identity differs from the block parent")
+    else:
+        source_kind = "admitted_reconstruction_training_mean"
+        if parent.get("method_kind") != source_kind:
+            refuse("Baseline block method kind differs from its governed producer")
+        source_sha256 = digest(cast(str, parent.get("baseline_model_sha256")))
+        baseline = object_mapping(
+            parent.get("baseline_model_manifest"), "baseline_model_manifest"
+        )
+        model_input_ids = tuple(
+            identity(value)
+            for value in object_list(
+                baseline.get("training_input_ids"), "training_input_ids"
+            )
+        )
+    if model_input_ids != row.fit_input_ids:
+        refuse("Evaluation model inputs differ from the authenticated block parent")
     prediction = dict(row.prediction)
     pollen = object_mapping(parent["pollen_fraction"], "pollen_fraction")
     if len(prediction) != len(row.prediction) or prediction != pollen:
@@ -373,4 +389,7 @@ def freeze_authenticated_block_pollen_interval(
         uncertainty_kind="predictive_observation",
         limits=tuple(limits),
     )
-    return freeze_evaluation_prediction(replace(row, interval=interval))
+    source_model = _authenticated_source_model(source_kind, source_sha256)
+    return freeze_evaluation_prediction(
+        replace(row, interval=interval, source_model=source_model)
+    )
