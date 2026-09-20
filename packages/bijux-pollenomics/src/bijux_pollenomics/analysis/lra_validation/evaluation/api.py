@@ -26,9 +26,14 @@ from .contracts import (
     freeze_evaluation_prediction,
     validate_frozen_prediction,
 )
+from .grouped_products import (
+    adapt_authenticated_grouped_withheld_pollen_rows,
+    adapt_authenticated_grouped_withheld_vegetation_rows,
+)
 from .intervals import (
     AUTHENTICATED_CONDITIONAL_INTERVAL_PROFILE,
     freeze_authenticated_pollen_interval,
+    freeze_authenticated_pollen_rows,
 )
 from .policy import validate_evaluation_policy
 from .release import (
@@ -61,12 +66,15 @@ __all__ = [
     "validate_evaluation_policy",
     "AUTHENTICATED_CONDITIONAL_INTERVAL_PROFILE",
     "freeze_authenticated_pollen_interval",
+    "freeze_authenticated_pollen_rows",
     "AUTHENTICATED_BLOCK_CONDITIONAL_INTERVAL_PROFILE",
     "freeze_authenticated_block_pollen_interval",
     "freeze_authenticated_block_pollen_rows",
     "adapt_authenticated_spatial_block_local_vegetation_rows",
     "adapt_authenticated_spatial_block_withheld_pollen_rows",
     "adapt_authenticated_spatial_block_withheld_vegetation_rows",
+    "adapt_authenticated_grouped_withheld_pollen_rows",
+    "adapt_authenticated_grouped_withheld_vegetation_rows",
     "FINAL_EVALUATION_RELEASE_PROFILE",
     "FinalEvaluationProtocol",
     "FinalEvaluationReleaseAdmission",

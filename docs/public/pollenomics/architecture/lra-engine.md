@@ -350,7 +350,8 @@ This adapter supplies only the outcome-free spatial-block
 interval for local vegetation exists, so the cell remains ineligible for final
 coverage acceptance. The adapter does not bind a release receipt, open vegetation
 truth, establish first-access timing, approve a threshold or grant scientific
-review. Grouped-outer and remaining release/product joins remain separate work.
+review. The grouped-local vegetation adapter and remaining release joins remain
+separate work.
 
 `adapt_authenticated_spatial_block_withheld_vegetation_rows` performs the paired
 point-row projection for the spatial-block all-target-withheld vegetation cell.
@@ -382,6 +383,30 @@ forward dimensions and exploratory status, and returns independently owned data.
 Reading and scoring retained products work without installing the numerical
 engine. These consistency checks establish neither external authorship nor
 scientific acceptance; numerical reproduction is separate evidence.
+
+`adapt_authenticated_grouped_withheld_vegetation_rows` joins the paired
+grouped-outer product to the exact frozen evaluation scope. It authenticates the
+two-method terminal denominator, singleton target ownership, support, taxa and
+the complete training/external dependency closure. Successful fitted and
+training-mean rows receive distinct source identities; refused and interrupted
+parents remain value-free. This is an outcome-free point ledger and supplies no
+vegetation uncertainty or accuracy claim.
+
+`adapt_authenticated_grouped_withheld_pollen_rows` builds the corresponding
+pollen point ledger and authenticates the complete conditional-observation
+denominator once. Every successful parent must have its generated interval;
+authenticated parent failures remain value-free and cannot shrink the ledger.
+The intervals propagate only the declared pollen counting process and do not
+establish empirical coverage, preregistration timing or scientific acceptance.
+
+`read_local_pollen_predictions`, exported from both experiment facades,
+authenticates grouped-local request bytes, raw batch operations, numerical
+products and exact fold terminals. Operational failures and unobserved items are
+published as scientific refusals unless a genuine interruption starts the
+deterministic `not_run` suffix. Raw status and error evidence remain bound to each
+attempted failure; a post-completion projection refusal is recorded separately
+from the completed numerical batch item. This reader still does not supply the
+missing grouped-local vegetation evaluation adapter.
 
 `bijux_pollenomics_lra.sample_pollen_observations` supplies a separate conditional
 observation model. It accepts predicted pollen fractions, declared counting
@@ -555,16 +580,17 @@ site and alias universe, and a spatial fold cannot place one block in both train
 and test. The returned receipt records that no empirical evaluation was performed
 and that scientific acceptance was not evaluated.
 
-For a fitted all-target-withheld pollen prediction,
-`freeze_authenticated_pollen_interval` can attach a governed conditional
-observation interval before outcomes are available. It reopens caller-pinned
-prediction and uncertainty products, checks every planned uncertainty unit and
-effort declaration, and requires observation-process-only propagation with the
-exact taxa, nominal level, model and training-input identities. The frozen
-prediction binds both the uncertainty-product manifest and the governed draw.
-This verifies product lineage and conditional interval semantics; it does not
-authenticate historical preregistration timing, establish empirical coverage or
-grant scientific acceptance.
+For one fitted or training-mean all-target-withheld pollen prediction,
+`freeze_authenticated_pollen_interval` attaches a governed conditional
+observation interval before outcomes are available. The batch
+`freeze_authenticated_pollen_rows` boundary instead requires the complete
+grouped method/fold ledger. Both reopen caller-pinned prediction and uncertainty
+products, check planned uncertainty units and effort declarations, and require
+observation-process-only propagation with exact taxa, model and training-input
+identities. The frozen prediction binds the uncertainty-product manifest and
+governed draw. This verifies lineage and conditional interval semantics; it does
+not authenticate historical preregistration timing, establish empirical coverage
+or grant scientific acceptance.
 
 The immutable evidence binds its projections to retained product identities.
 Caller-pinned product bytes establish retained consistency; they do not

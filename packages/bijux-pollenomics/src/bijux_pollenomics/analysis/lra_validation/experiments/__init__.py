@@ -15,6 +15,7 @@ from .fitted import (
 )
 from .outputs import ExperimentProduct, read_experiment_product
 from .reading import (
+    read_local_pollen_predictions,
     read_spatial_block_local_pollen_predictions,
     read_spatial_block_predictions,
     read_withheld_predictions,
@@ -28,6 +29,7 @@ __all__ = [
     "SpatialBlockLocalPollenSpec",
     "prepare_spatial_block_local_pollen_predictions",
     "read_spatial_block_local_pollen_predictions",
+    "read_local_pollen_predictions",
     "prepare_spatial_block_predictions",
     "read_spatial_block_predictions",
     "prepare_fitted_spatial_predictions",

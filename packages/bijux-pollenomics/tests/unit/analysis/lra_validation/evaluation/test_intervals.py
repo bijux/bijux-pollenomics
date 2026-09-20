@@ -19,7 +19,9 @@ from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     AUTHENTICATED_CONDITIONAL_INTERVAL_PROFILE,
     EvaluationRow,
     freeze_authenticated_pollen_interval,
+    freeze_authenticated_pollen_rows,
 )
+from bijux_pollenomics.analysis.lra_validation.evaluation import intervals
 from bijux_pollenomics.analysis.lra_validation.experiments import (
     ExperimentProduct,
     prepare_fitted_spatial_predictions,
@@ -287,3 +289,125 @@ def test_wrong_independently_retained_product_hash_refuses(
             uncertainty=uncertainty.directory,
             expected_uncertainty_manifest_sha256="0" * 64,
         )
+
+
+def _complete_rows(predictions: ExperimentProduct) -> tuple[EvaluationRow, ...]:
+    _, _, _, retained, _ = read_withheld_predictions(
+        predictions.directory,
+        expected_manifest_sha256=predictions.manifest_sha256,
+    )
+    return tuple(
+        _evaluation_row(source, method)
+        for (_, method), source in sorted(retained.items())
+    )
+
+
+def test_batch_freezes_complete_paired_denominator_once(
+    products: tuple[ExperimentProduct, ExperimentProduct, EvaluationRow],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    predictions, uncertainty, _ = products
+    rows = _complete_rows(predictions)
+    original = intervals._authenticated_draws
+    calls = 0
+
+    def authenticate(*args: object, **kwargs: object) -> object:
+        nonlocal calls
+        calls += 1
+        return original(*args, **kwargs)
+
+    monkeypatch.setattr(intervals, "_authenticated_draws", authenticate)
+    frozen = freeze_authenticated_pollen_rows(
+        rows,
+        predictions=predictions.directory,
+        expected_prediction_manifest_sha256=predictions.manifest_sha256,
+        uncertainty=uncertainty.directory,
+        expected_uncertainty_manifest_sha256=uncertainty.manifest_sha256,
+    )
+    assert calls == 1
+    assert len(frozen) == len(rows)
+    assert all(
+        row.interval is not None and row.source_model is not None for row in frozen
+    )
+    assert {
+        row.source_model.kind for row in frozen if row.source_model is not None
+    } == {
+        "fitted_spatial",
+        "admitted_reconstruction_training_mean",
+    }
+
+
+def test_batch_refuses_incomplete_or_parent_mismatched_ledger(
+    products: tuple[ExperimentProduct, ExperimentProduct, EvaluationRow],
+) -> None:
+    predictions, uncertainty, _ = products
+    rows = _complete_rows(predictions)
+    common = {
+        "predictions": predictions.directory,
+        "expected_prediction_manifest_sha256": predictions.manifest_sha256,
+        "uncertainty": uncertainty.directory,
+        "expected_uncertainty_manifest_sha256": uncertainty.manifest_sha256,
+    }
+    with pytest.raises(ValidationRefusal, match="uncertainty denominator"):
+        freeze_authenticated_pollen_rows(rows[:-1], **common)
+    failed = replace(
+        rows[0],
+        status="prediction_failed",
+        prediction=None,
+        fitted_model_sha256=None,
+        fit_input_ids=(),
+        reason="parent_refused:synthetic",
+    )
+    with pytest.raises(ValidationRefusal, match="differs from its parent terminal"):
+        freeze_authenticated_pollen_rows((failed, *rows[1:]), **common)
+
+
+def test_batch_preserves_authenticated_parent_failure_without_values(
+    products: tuple[ExperimentProduct, ExperimentProduct, EvaluationRow],
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    predictions, uncertainty, _ = products
+    rows = _complete_rows(predictions)
+    plan, parents, retained, statuses = intervals._authenticated_draws(
+        predictions.directory,
+        expected_prediction_manifest_sha256=predictions.manifest_sha256,
+        uncertainty=uncertainty.directory,
+        expected_uncertainty_manifest_sha256=uncertainty.manifest_sha256,
+    )
+    key = rows[0].fold_id, rows[0].model_id
+    parents = dict(parents)
+    parents.pop(key)
+    retained = {**retained, key: {"status": "prediction_refused"}}
+    statuses = {**statuses, key: ("refused", "synthetic_refusal")}
+    monkeypatch.setattr(
+        intervals,
+        "_authenticated_draws",
+        lambda *args, **kwargs: (plan, parents, retained, statuses),
+    )
+    failure = replace(
+        rows[0],
+        status="prediction_failed",
+        prediction=None,
+        fitted_model_sha256=None,
+        fit_input_ids=(),
+        reason="parent_refused:wrong_refusal",
+    )
+    with pytest.raises(ValidationRefusal, match="differs from its parent terminal"):
+        freeze_authenticated_pollen_rows(
+            (failure, *rows[1:]),
+            predictions=predictions.directory,
+            expected_prediction_manifest_sha256=predictions.manifest_sha256,
+            uncertainty=uncertainty.directory,
+            expected_uncertainty_manifest_sha256=uncertainty.manifest_sha256,
+        )
+    failure = replace(failure, reason="parent_refused:synthetic_refusal")
+    frozen = freeze_authenticated_pollen_rows(
+        (failure, *rows[1:]),
+        predictions=predictions.directory,
+        expected_prediction_manifest_sha256=predictions.manifest_sha256,
+        uncertainty=uncertainty.directory,
+        expected_uncertainty_manifest_sha256=uncertainty.manifest_sha256,
+    )
+    assert frozen[0] == failure
+    assert frozen[0].prediction is frozen[0].source_model is None
+    assert all(row.interval is not None for row in frozen[1:])

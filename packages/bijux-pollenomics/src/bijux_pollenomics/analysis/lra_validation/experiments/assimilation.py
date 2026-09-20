@@ -6,7 +6,12 @@ from collections.abc import Mapping
 import os
 from pathlib import Path
 
-from ...lra.api import LRABatchItem, LRABatchLimits, LRARefusal, run_lra_batch
+from ...lra.api import (
+    LRABatchItem,
+    LRABatchLimits,
+    LRARefusal,
+    run_lra_batch,
+)
 from ...lra.engine.discovery import load_engine
 from ...lra.outputs.identity import capture_code_identity, verify_code_identity
 from ..contracts import Fold, ValidationRefusal, finite_number, manifest_sha256
@@ -29,6 +34,12 @@ from .inputs import (
     make_request,
     read_reference,
     verify_consumed_sources,
+)
+from .local_batch.terminals import (
+    batch_refusal,
+    not_run,
+    projection_refusal,
+    validate_terminals,
 )
 from .outputs import (
     ExperimentProduct,
@@ -74,7 +85,7 @@ def prepare_local_pollen_predictions(
     consumed_geometry: set[str] = set()
     for fold in folds:
         if interrupted:
-            failures.append(_not_run(fold))
+            failures.append(not_run(fold))
             continue
         try:
             if len(fold.test_record_ids) != 1 or len(fold.train_group_ids) != len(
@@ -105,7 +116,7 @@ def prepare_local_pollen_predictions(
             items.append(LRABatchItem(target.record.record_id, request))
         except KeyboardInterrupt:
             interrupted = True
-            failures.append(_not_run(fold))
+            failures.append(not_run(fold))
         except (ValidationRefusal, LRARefusal) as exc:
             failures.append(
                 {
@@ -119,7 +130,7 @@ def prepare_local_pollen_predictions(
     predictions = []
     operations: dict[str, object] = {}
     if interrupted:
-        failures.extend(_not_run(fold) for fold, _, _, _ in admitted.values())
+        failures.extend(not_run(fold) for fold, _, _, _ in admitted.values())
     if items and not interrupted:
         batch = run_lra_batch(
             items,
@@ -129,23 +140,19 @@ def prepare_local_pollen_predictions(
             limits=limits,
         )
         operations = batch.as_dict()
-        interrupted = batch.interrupted
-        projection_interrupted = False
+        terminal_interrupted = False
         for item in batch.items:
             fold, target, anchor, request = admitted[item.item_id]
-            if projection_interrupted:
-                failures.append(_not_run(fold))
+            raw_interruption = batch.interrupted and item.item_status in {
+                "not_run",
+                "unobserved",
+            }
+            if terminal_interrupted or raw_interruption:
+                terminal_interrupted = True
+                failures.append(not_run(fold, item=item))
                 continue
-            if item.product is None:
-                failures.append(
-                    {
-                        "fold_id": fold.fold_id,
-                        "record_ids": fold.test_record_ids,
-                        "status": item.item_status,
-                        "reason_code": "local_reconstruction_incomplete",
-                        "batch_item_id": item.item_id,
-                    }
-                )
+            if item.item_status != "completed" or item.product is None:
+                failures.append(batch_refusal(fold, item))
                 continue
             try:
                 predictions.append(
@@ -161,21 +168,14 @@ def prepare_local_pollen_predictions(
                     )
                 )
             except KeyboardInterrupt:
-                projection_interrupted = True
-                interrupted = True
-                failures.append(_not_run(fold))
+                terminal_interrupted = True
+                failures.append(not_run(fold, item=item, projection=True))
             except (ValidationRefusal, LRARefusal, ValueError) as exc:
-                failures.append(
-                    {
-                        "fold_id": fold.fold_id,
-                        "record_ids": fold.test_record_ids,
-                        "status": "refused",
-                        "reason_code": getattr(
-                            exc, "reason_code", "local_prediction_refused"
-                        ),
-                        "detail": str(exc),
-                    }
-                )
+                failures.append(projection_refusal(fold, item, exc))
+    fold_order = {fold.fold_id: index for index, fold in enumerate(folds)}
+    predictions.sort(key=lambda row: fold_order[identity(row["fold_id"])])
+    failures.sort(key=lambda row: fold_order[identity(row["fold_id"])])
+    interrupted = validate_terminals(folds, predictions, failures)
     if _implementation() != implementation:
         raise ValidationRefusal("experiment_implementation_changed", str(stage))
     verify_code_identity(binding, code)
@@ -467,12 +467,3 @@ def _score_local_pollen_predictions(
     return publish_phase(
         stage, destination, phase="scores", scientific=scientific, profile=LOCAL_PROFILE
     )
-
-
-def _not_run(fold: Fold) -> dict[str, object]:
-    return {
-        "fold_id": fold.fold_id,
-        "record_ids": fold.test_record_ids,
-        "status": "not_run",
-        "reason_code": "experiment_interrupted",
-    }

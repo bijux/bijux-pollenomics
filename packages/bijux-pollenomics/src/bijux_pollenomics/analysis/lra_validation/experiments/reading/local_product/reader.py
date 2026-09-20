@@ -21,7 +21,7 @@ from ...outputs import (
     read_experiment_product,
     read_member,
 )
-from .batch import batch_evidence
+from .batch import batch_evidence, validate_failure_batch_evidence
 from .evidence import specification, validate_prediction_evidence
 
 _SCIENTIFIC_FIELDS = set(
@@ -167,6 +167,9 @@ def read_local_pollen_predictions(
             raise ValidationRefusal(
                 "invalid_local_batch_evidence", "Batch target universe differs"
             )
+        validate_failure_batch_evidence(
+            scientific["failures"], folds, requests, results
+        )
         for fold_id, row in predictions.items():
             fold = folds[fold_id]
             record = identity(row["record_id"])

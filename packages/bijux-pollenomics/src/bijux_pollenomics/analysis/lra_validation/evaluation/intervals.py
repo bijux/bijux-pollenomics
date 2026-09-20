@@ -50,6 +50,7 @@ def _authenticated_draws(
     ObservationUncertaintyPlan,
     dict[tuple[str, str], dict[str, object]],
     dict[tuple[str, str], dict[str, object]],
+    dict[tuple[str, str], tuple[str, str | None]],
 ]:
     """Reopen every retained unit and preserve the complete requested denominator."""
     expected_parent = digest(expected_prediction_manifest_sha256)
@@ -177,23 +178,35 @@ def _authenticated_draws(
         refuse(
             "Uncertainty status counts differ from the complete retained denominator"
         )
-    return plan, parent_rows, retained
+    scientific = object_mapping(
+        parent_manifest["scientific_payload"], "parent_scientific_payload"
+    )
+    methods_value = scientific.get("methods", scientific.get("baselines"))
+    methods = tuple(
+        identity(value) for value in object_list(methods_value, "parent_methods")
+    )
+    parent_statuses: dict[tuple[str, str], tuple[str, str | None]] = {
+        key: ("predicted", None) for key in parent_rows
+    }
+    for value in object_list(scientific["failures"], "parent_failures"):
+        failure = object_mapping(value, "parent_failure")
+        fold_id = identity(failure["fold_id"])
+        status = identity(failure["status"])
+        reason = identity(failure["reason_code"])
+        failure_methods = (
+            (identity(failure["method"]),) if "method" in failure else methods
+        )
+        for method in failure_methods:
+            key = fold_id, method
+            if key in parent_statuses or status not in {"refused", "not_run"}:
+                refuse("Parent prediction terminal accounting is contradictory")
+            parent_statuses[key] = status, reason
+    if set(parent_statuses) != {entry.key for entry in plan.entries}:
+        refuse("Parent prediction terminals differ from the uncertainty plan")
+    return plan, parent_rows, retained, parent_statuses
 
 
-def freeze_authenticated_pollen_interval(
-    row: EvaluationRow,
-    *,
-    predictions: Path,
-    expected_prediction_manifest_sha256: str,
-    uncertainty: Path,
-    expected_uncertainty_manifest_sha256: str,
-) -> EvaluationRow:
-    """Attach one authenticated conditional pollen interval and freeze outcome-free bytes.
-
-    The source remains conditional on fixed predicted pollen probabilities and a
-    predeclared effort. This adapter does not authenticate review/timing, evaluate
-    coverage or promote the exploratory source product to scientific acceptance.
-    """
+def _require_unfrozen_pollen_row(row: EvaluationRow) -> None:
     if not isinstance(row, EvaluationRow):
         refuse("A typed evaluation row is required")
     if (
@@ -213,14 +226,52 @@ def freeze_authenticated_pollen_interval(
         or row.source_model is not None
         or row.reason is not None
         or row.model_id not in {FITTED_METHOD, TRAINING_MEAN_METHOD}
+        or (row.model_id == FITTED_METHOD and row.fitted_model_sha256 is None)
+        or (
+            row.model_id == TRAINING_MEAN_METHOD and row.fitted_model_sha256 is not None
+        )
     ):
         refuse("Require an outcome-free, unfrozen, all-target-withheld pollen row")
-    plan, parent_rows, retained = _authenticated_draws(
+
+
+def freeze_authenticated_pollen_interval(
+    row: EvaluationRow,
+    *,
+    predictions: Path,
+    expected_prediction_manifest_sha256: str,
+    uncertainty: Path,
+    expected_uncertainty_manifest_sha256: str,
+) -> EvaluationRow:
+    """Attach one authenticated conditional pollen interval and freeze outcome-free bytes.
+
+    The source remains conditional on fixed predicted pollen probabilities and a
+    predeclared effort. This adapter does not authenticate review/timing, evaluate
+    coverage or promote the exploratory source product to scientific acceptance.
+    """
+    _require_unfrozen_pollen_row(row)
+    plan, parent_rows, retained, _ = _authenticated_draws(
         predictions,
         expected_prediction_manifest_sha256=expected_prediction_manifest_sha256,
         uncertainty=uncertainty,
         expected_uncertainty_manifest_sha256=expected_uncertainty_manifest_sha256,
     )
+    return _freeze_authenticated_pollen_interval(
+        row,
+        plan=plan,
+        parent_rows=parent_rows,
+        retained=retained,
+        expected_uncertainty_manifest_sha256=expected_uncertainty_manifest_sha256,
+    )
+
+
+def _freeze_authenticated_pollen_interval(
+    row: EvaluationRow,
+    *,
+    plan: ObservationUncertaintyPlan,
+    parent_rows: dict[tuple[str, str], dict[str, object]],
+    retained: dict[tuple[str, str], dict[str, object]],
+    expected_uncertainty_manifest_sha256: str,
+) -> EvaluationRow:
     key = row.fold_id, row.model_id
     parent = parent_rows.get(key)
     source = retained.get(key)
@@ -260,6 +311,8 @@ def freeze_authenticated_pollen_interval(
         )
     ):
         refuse("Only an authenticated governed prediction can receive an interval")
+    if row.prediction is None:
+        refuse("Only a predicted grouped pollen row can receive an interval")
     prediction = dict(row.prediction)
     pollen = object_mapping(parent["pollen_fraction"], "pollen_fraction")
     if len(prediction) != len(row.prediction) or prediction != pollen:
@@ -304,3 +357,77 @@ def freeze_authenticated_pollen_interval(
     return freeze_evaluation_prediction(
         replace(row, interval=interval, source_model=source_model)
     )
+
+
+def freeze_authenticated_pollen_rows(
+    rows: tuple[EvaluationRow, ...],
+    *,
+    predictions: Path,
+    expected_prediction_manifest_sha256: str,
+    uncertainty: Path,
+    expected_uncertainty_manifest_sha256: str,
+) -> tuple[EvaluationRow, ...]:
+    """Bind a complete grouped point ledger to one uncertainty denominator."""
+    if not isinstance(rows, tuple) or not rows:
+        refuse("A nonempty typed grouped pollen row ledger is required")
+    keyed = {(row.fold_id, row.model_id): row for row in rows}
+    if len(keyed) != len(rows) or any(
+        not isinstance(row, EvaluationRow)
+        or row.target != "pollen_composition"
+        or row.experiment != "all_target_pollen_withheld"
+        or row.model_id not in {FITTED_METHOD, TRAINING_MEAN_METHOD}
+        for row in rows
+    ):
+        refuse("Grouped pollen row ledger identity or denominator is invalid")
+    plan, parent_rows, retained, parent_statuses = _authenticated_draws(
+        predictions,
+        expected_prediction_manifest_sha256=expected_prediction_manifest_sha256,
+        uncertainty=uncertainty,
+        expected_uncertainty_manifest_sha256=expected_uncertainty_manifest_sha256,
+    )
+    if set(keyed) != set(retained) or set(keyed) != set(parent_statuses):
+        refuse("Grouped pollen row ledger differs from the uncertainty denominator")
+    result: list[EvaluationRow] = []
+    for key, row in keyed.items():
+        source_status = retained[key].get("status")
+        parent_status, parent_reason = parent_statuses[key]
+        if row.status == "predicted":
+            if parent_status != "predicted" or source_status != "generated":
+                refuse("Every predicted grouped pollen row requires an interval")
+            _require_unfrozen_pollen_row(row)
+            result.append(
+                _freeze_authenticated_pollen_interval(
+                    row,
+                    plan=plan,
+                    parent_rows=parent_rows,
+                    retained=retained,
+                    expected_uncertainty_manifest_sha256=(
+                        expected_uncertainty_manifest_sha256
+                    ),
+                )
+            )
+            continue
+        expected_reason = f"parent_{parent_status}:{parent_reason}"
+        if (
+            row.status != "prediction_failed"
+            or parent_status not in {"refused", "not_run"}
+            or source_status not in {"prediction_refused", "not_run"}
+            or not isinstance(row.reason, str)
+            or row.reason != expected_reason
+            or row.prediction is not None
+            or row.observation is not None
+            or row.observation_reference_id is not None
+            or row.observation_kind is not None
+            or row.observation_support is not None
+            or row.observed_pollen is not None
+            or row.source_model is not None
+            or row.interval is not None
+            or row.prediction_sha256 is not None
+            or row.prediction_manifest_json is not None
+            or row.prediction_frozen_at is not None
+            or row.fitted_model_sha256 is not None
+            or row.fit_input_ids
+        ):
+            refuse("Failed grouped pollen row differs from its parent terminal")
+        result.append(row)
+    return tuple(result)
