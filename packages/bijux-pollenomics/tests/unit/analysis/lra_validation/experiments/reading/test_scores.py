@@ -20,6 +20,8 @@ from bijux_pollenomics.analysis.lra_validation.experiments.scoring import (
     score_experiment_predictions,
 )
 
+from ..fitted.test_reading import publish as publish_block
+from ..fitted.test_reading import refusal_inventory
 from ..test_scoring import prediction_product
 
 
@@ -177,3 +179,41 @@ def test_wrong_score_parent_digest_refuses_before_member_decoding(
                 scores=score.directory,
                 expected_scores_manifest_sha256="0" * 64,
             )
+
+
+def test_block_score_method_kinds_are_retained_and_authenticated(
+    tmp_path: Path,
+) -> None:
+    scientific = refusal_inventory(tmp_path / "inputs")
+    prediction = publish_block(tmp_path / "prediction", scientific)
+    inventory = {
+        "schema_version": "lra-experiment-outcomes.v1",
+        "data_kind": "synthetic",
+        "records": {},
+    }
+    score = score_experiment_predictions(
+        prediction.directory,
+        expected_manifest_sha256=prediction.manifest_sha256,
+        outcome_root=tmp_path / "inputs",
+        outcome_inventory=inventory,
+        destination=tmp_path / "scores",
+    )
+    evidence = evidence_for(prediction, score)
+    assert len(evidence["units"]) == 36
+    assert {
+        (row["method_id"], row["source_row"]["method_kind"])
+        for row in evidence["units"]
+    } == {
+        ("clr-wgs84-rbf-ridge-v1", "fitted_spatial"),
+        ("training_mean", "admitted_reconstruction_training_mean"),
+    }
+
+    def change_kind(rows: list[dict[str, Any]], manifest: dict[str, Any]) -> None:
+        del manifest
+        rows[0]["method_kind"] = "fitted_spatial"
+        if rows[0]["method"] != "training_mean":
+            rows[0]["method_kind"] = "admitted_reconstruction_training_mean"
+
+    changed = rewrite_scores(score, change_kind)
+    with pytest.raises(ValidationRefusal):
+        evidence_for(prediction, changed)

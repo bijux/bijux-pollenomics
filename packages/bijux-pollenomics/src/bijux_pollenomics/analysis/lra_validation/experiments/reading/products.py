@@ -6,7 +6,7 @@ from pathlib import Path
 
 from ...contracts import ValidationRefusal
 from ..configuration import (
-    FITTED_METHOD,
+    BLOCK_METHODS,
     FITTED_PROFILE,
     PROFILE,
     identity,
@@ -103,7 +103,7 @@ def read_spatial_block_predictions(
         raise
     except (KeyError, TypeError, ValueError, OSError) as exc:
         raise ValidationRefusal("invalid_block_prediction_inventory", str(exc)) from exc
-    return product, manifest, folds, rows, (FITTED_METHOD,)
+    return product, manifest, folds, rows, BLOCK_METHODS
 
 
 def read_scoring_predictions(

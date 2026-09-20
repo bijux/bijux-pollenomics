@@ -23,6 +23,7 @@ from bijux_pollenomics.analysis.lra_validation.experiments.outputs import (
     write_json,
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.scoring import (
+    _paired_baseline_differences,
     read_withheld_predictions,
     score_experiment_predictions,
 )
@@ -228,6 +229,34 @@ def test_target_scores_keep_denominators_and_raw_recomputation_inputs(
     )
     assert len(paired) == 6
     assert all(row["mae_improvement_fraction"] == 0 for row in paired)
+
+
+def test_paired_baseline_is_record_specific_within_spatial_block() -> None:
+    rows: list[dict[str, object]] = []
+    for record, group, baseline_error, fitted_error in (
+        ("target-a", "group-a", 0.4, 0.1),
+        ("target-b", "group-b", 0.2, 0.15),
+    ):
+        for method, error in (
+            ("training_mean", baseline_error),
+            ("clr-wgs84-rbf-ridge-v1", fitted_error),
+        ):
+            rows.append(
+                {
+                    "fold_id": "block:shared",
+                    "record_id": record,
+                    "group_id": group,
+                    "method": method,
+                    "target": "vegetation_cover",
+                    "score": {"status": "scored", "mae_fraction": error},
+                }
+            )
+    paired = _paired_baseline_differences(
+        rows, "method", ("clr-wgs84-rbf-ridge-v1", "training_mean")
+    )
+    assert {
+        row["record_id"]: row["mae_improvement_fraction"] for row in paired
+    } == pytest.approx({"target-a": 0.3, "target-b": 0.05})
 
 
 def test_tampered_prediction_refused_before_missing_outcome_read(

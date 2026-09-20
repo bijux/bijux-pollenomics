@@ -7,6 +7,7 @@ from pathlib import Path
 
 from ..contracts import ValidationRefusal, finite_number, manifest_sha256
 from .configuration import (
+    BLOCK_BASELINE_METHOD,
     BLOCK_PROFILE,
     FITTED_PROFILE,
     InputReference,
@@ -157,8 +158,13 @@ def score_experiment_predictions(
                     "bin_id": None if prediction is None else prediction["bin_id"],
                 }
                 if profile in {FITTED_PROFILE, BLOCK_PROFILE}:
+                    method_kind = (
+                        "admitted_reconstruction_training_mean"
+                        if profile == BLOCK_PROFILE and method == BLOCK_BASELINE_METHOD
+                        else "fitted_spatial"
+                    )
                     row.update(
-                        method_kind="fitted_spatial",
+                        method_kind=method_kind,
                         evaluation_role="heldout_prediction",
                     )
                 if prediction is None:
@@ -232,37 +238,7 @@ def score_experiment_predictions(
                     "uncertainty_status": "intervals_not_implemented",
                 }
             )
-    indexed = {
-        (str(row["fold_id"]), str(row[method_field]), str(row["target"])): row
-        for row in scores
-    }
-    paired = []
-    if "training_mean" in methods:
-        for row in scores:
-            if row[method_field] == "training_mean":
-                continue
-            reference = indexed[
-                (str(row["fold_id"]), "training_mean", str(row["target"]))
-            ]
-            actual_score, base_score = (
-                object_mapping(row["score"], "score"),
-                object_mapping(reference["score"], "score"),
-            )
-            if actual_score["status"] == base_score["status"] == "scored":
-                paired.append(
-                    {
-                        "fold_id": row["fold_id"],
-                        "group_id": row["group_id"],
-                        "record_id": row["record_id"],
-                        "baseline": row[method_field],
-                        "reference_baseline": "training_mean",
-                        "target": row["target"],
-                        "mae_improvement_fraction": finite_number(
-                            base_score["mae_fraction"]
-                        )
-                        - finite_number(actual_score["mae_fraction"]),
-                    }
-                )
+    paired = _paired_baseline_differences(scores, method_field, methods)
     read_experiment_product(
         predictions, expected_manifest_sha256=expected_manifest_sha256
     )
@@ -288,3 +264,50 @@ def score_experiment_predictions(
     return publish_phase(
         stage, destination, phase="scores", scientific=scientific, profile=profile
     )
+
+
+def _paired_baseline_differences(
+    scores: list[dict[str, object]], method_field: str, methods: tuple[str, ...]
+) -> list[dict[str, object]]:
+    """Compare each prediction only with its own record's training-mean row."""
+    if "training_mean" not in methods:
+        return []
+    indexed = {
+        (
+            str(row["fold_id"]),
+            str(row["record_id"]),
+            str(row[method_field]),
+            str(row["target"]),
+        ): row
+        for row in scores
+    }
+    paired = []
+    for row in scores:
+        if row[method_field] == "training_mean":
+            continue
+        reference = indexed[
+            (
+                str(row["fold_id"]),
+                str(row["record_id"]),
+                "training_mean",
+                str(row["target"]),
+            )
+        ]
+        actual_score = object_mapping(row["score"], "score")
+        baseline_score = object_mapping(reference["score"], "score")
+        if actual_score["status"] == baseline_score["status"] == "scored":
+            paired.append(
+                {
+                    "fold_id": row["fold_id"],
+                    "group_id": row["group_id"],
+                    "record_id": row["record_id"],
+                    "baseline": row[method_field],
+                    "reference_baseline": "training_mean",
+                    "target": row["target"],
+                    "mae_improvement_fraction": finite_number(
+                        baseline_score["mae_fraction"]
+                    )
+                    - finite_number(actual_score["mae_fraction"]),
+                }
+            )
+    return paired

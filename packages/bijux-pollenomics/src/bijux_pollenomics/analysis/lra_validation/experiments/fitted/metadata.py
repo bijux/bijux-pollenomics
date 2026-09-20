@@ -21,7 +21,9 @@ from ...splits import (
     grouped_leave_one_out,
 )
 from ..configuration import (
+    BLOCK_BASELINE_METHOD,
     BLOCK_PROFILE,
+    FITTED_METHOD,
     FittedSpatialExperimentSpec,
     SpatialBlockExperimentSpec,
     identity,
@@ -132,9 +134,21 @@ def validate_block_metadata(
             spec, fold, admission, state, expected_coordinates=coordinates
         )
         _same(state["model_sha256"], hashes[fold.fold_id], "block model digest")
-    for (fold_id, record, _), row in rows.items():
-        state = object_mapping(retained[fold_id], "block_fit")
-        _same({key: row[key] for key in state}, state, "target shares actual block fit")
+    for (fold_id, record, method), row in rows.items():
+        if method == FITTED_METHOD:
+            if fold_id not in retained:
+                raise ValidationRefusal(
+                    "invalid_block_model_inventory",
+                    "Fitted row requires retained state",
+                )
+            state = object_mapping(retained[fold_id], "block_fit")
+            _same(
+                {key: row[key] for key in state},
+                state,
+                "target shares actual block fit",
+            )
+        elif method != BLOCK_BASELINE_METHOD:
+            raise ValidationRefusal("invalid_block_model_inventory", method)
         site = next(site for site in spec.sites if site.record.record_id == record)
         _same(
             row["target_geometry_sha256"],

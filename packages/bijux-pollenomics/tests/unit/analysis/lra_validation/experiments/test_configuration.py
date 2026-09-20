@@ -7,10 +7,18 @@ import pytest
 from bijux_pollenomics.analysis.lra_validation import ValidationRefusal
 from bijux_pollenomics.analysis.lra_validation.experiments import ExperimentSpec
 from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
+    BLOCK_BASELINE_METHOD,
+    BLOCK_METHODS,
+    FITTED_METHOD,
     InputReference,
 )
 
 from .test_inputs import fixture_inputs
+
+
+def test_spatial_block_methods_have_one_ordered_fitted_baseline_pair() -> None:
+    assert BLOCK_BASELINE_METHOD == "training_mean"
+    assert BLOCK_METHODS == (FITTED_METHOD, BLOCK_BASELINE_METHOD)
 
 
 @pytest.mark.parametrize(

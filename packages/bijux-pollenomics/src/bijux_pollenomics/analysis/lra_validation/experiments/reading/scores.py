@@ -12,6 +12,7 @@ from ...contracts import (
 from ...temporal.persistence.configuration import METHOD as TEMPORAL_METHOD
 from ...temporal.persistence.reading import read_temporal_persistence_predictions
 from ..configuration import (
+    BLOCK_BASELINE_METHOD,
     BLOCK_PROFILE,
     FITTED_PROFILE,
     LOCAL_EVALUATION_ROLES,
@@ -209,7 +210,12 @@ def _row(
         _equal(row.get("evaluation_role"), role, "temporal target role")
     elif profile in {FITTED_PROFILE, BLOCK_PROFILE}:
         _equal(row.get("evaluation_role"), role, "fitted role")
-        _equal(row.get("method_kind"), "fitted_spatial", "method kind")
+        method_kind = (
+            "admitted_reconstruction_training_mean"
+            if profile == BLOCK_PROFILE and method == BLOCK_BASELINE_METHOD
+            else "fitted_spatial"
+        )
+        _equal(row.get("method_kind"), method_kind, "method kind")
     if not temporal:
         _equal(row.get("error_unit"), "fraction", "error unit")
     verification = "existing_metric_recomputed"
