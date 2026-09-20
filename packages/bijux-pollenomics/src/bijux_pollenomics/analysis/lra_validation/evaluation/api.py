@@ -14,6 +14,10 @@ from .contracts import (
     Support,
     freeze_evaluation_prediction,
 )
+from .intervals import (
+    AUTHENTICATED_CONDITIONAL_INTERVAL_PROFILE,
+    freeze_authenticated_pollen_interval,
+)
 from .policy import validate_evaluation_policy
 from .release import (
     FINAL_EVALUATION_RELEASE_PROFILE,
@@ -41,6 +45,8 @@ __all__ = [
     "freeze_evaluation_prediction",
     "resample_independent_units",
     "validate_evaluation_policy",
+    "AUTHENTICATED_CONDITIONAL_INTERVAL_PROFILE",
+    "freeze_authenticated_pollen_interval",
     "FINAL_EVALUATION_RELEASE_PROFILE",
     "FinalEvaluationProtocol",
     "FinalEvaluationReleaseAdmission",
