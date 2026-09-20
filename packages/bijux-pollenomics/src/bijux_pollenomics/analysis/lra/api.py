@@ -13,6 +13,12 @@ from .execution.service import run_lra_request, validate_lra_inputs
 from .inputs.validation import ValidatedRequest
 from .outputs.publication import LRAProduct
 from .outputs.reading import VerifiedLRAProduct, read_lra_product
+from .regional_components import (
+    RegionalComponentPlan,
+    RegionalComponentSet,
+    bind_regional_component_set,
+    read_regional_component_set,
+)
 from .uncertainty.api import (
     JointLRAPlan,
     JointLRAProduct,
@@ -30,10 +36,14 @@ __all__ = [
     "LRABatchResult",
     "LRAProduct",
     "LRARefusal",
+    "RegionalComponentPlan",
+    "RegionalComponentSet",
     "ValidatedRequest",
     "VerifiedLRAProduct",
+    "bind_regional_component_set",
     "read_joint_lra_ensemble",
     "read_lra_product",
+    "read_regional_component_set",
     "run_joint_lra_ensemble",
     "run_lra_batch",
     "run_lra_cached",
