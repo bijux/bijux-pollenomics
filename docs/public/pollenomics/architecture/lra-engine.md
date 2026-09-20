@@ -442,6 +442,23 @@ a separate governed producer, and caller-built row tuples remain outside this
 release-product boundary. The receipt explicitly records that empirical
 evaluation and scientific acceptance were not performed.
 
+`build_observation_access_plan` derives the next, still value-free boundary from
+that complete prediction product. It removes the model dimension so each
+protocol/cell/fold/record outcome will later be shared identically by the model
+and its baseline, binds separate typed locators for independent measured
+vegetation and held-out pollen counts, and records only mismatch guards and
+reader/reference identities. Building the plan never opens, stats or hashes an
+outcome path.
+
+`start_outcome_access` reopens the plan, revalidates both policies at its
+internally captured UTC instant and requires every successful prediction to have
+frozen strictly earlier. It then exclusively publishes and fsyncs a canonical
+start receipt before returning. That receipt contains no outcome reads or
+values, refuses overwrite, and explicitly says it authenticates this process
+ordering—not historical human non-access. HYDE, ESSD and reconstruction output
+remain ineligible as independent measured vegetation; actual source products,
+observation joins, scoring and qualified review are separate downstream gates.
+
 `bijux_pollenomics_lra.sample_pollen_observations` supplies a separate conditional
 observation model. It accepts predicted pollen fractions, declared counting
 effort, seed, nominal coverage and the host's prediction/effort evidence hashes.
