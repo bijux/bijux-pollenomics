@@ -79,8 +79,6 @@ def _composition(values: object) -> dict[str, Any]:
 
 
 def _support_matches(target: Support | None, observed: Support | None) -> bool:
-    # A shared footprint hash cannot override contradictory declared geometry,
-    # uncertainty, coordinate/age type or temporal support metadata.
     return target is not None and observed is not None and target == observed
 
 
@@ -311,7 +309,6 @@ def evaluate_final(
     policy: EvaluationPolicy, *, scope: EvaluationScope, rows: tuple[EvaluationRow, ...]
 ) -> EvaluationResult:
     """Evaluate supplied held-out evidence; no engineering receipt authenticates review."""
-    # Public dataclasses can be manually instantiated: revalidate their declaration.
     checked = validate_evaluation_policy(
         json.loads(policy.canonical_policy_json),
         scope=scope,
@@ -323,6 +320,12 @@ def evaluate_final(
         not isinstance(row, EvaluationRow) for row in rows
     ):
         refuse("Evaluation requires a complete typed immutable row ledger")
+    return _evaluate_final_ledger(policy, scope=scope, rows=rows)
+
+
+def _evaluate_final_ledger(
+    policy: EvaluationPolicy, *, scope: EvaluationScope, rows: tuple[EvaluationRow, ...]
+) -> EvaluationResult:
     sites = {site.record_id: site for site in scope.sites}
     folds = {fold.fold_id: fold for fold in scope.folds}
     expected: set[tuple[str, str, str, str, str]] = set()

@@ -16,6 +16,7 @@ from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     evaluate_final,
     validate_evaluation_policy,
 )
+from bijux_pollenomics.analysis.lra_validation.evaluation import scoring
 from .support import (
     ACCESS,
     bind_prediction,
@@ -31,7 +32,9 @@ from .support import (
 def test_separate_target_success_keeps_independent_denominators() -> None:
     scope = scope_fixture()
     rows = rows_fixture(scope)
-    result = evaluate_final(policy_fixture(scope), scope=scope, rows=rows)
+    policy = policy_fixture(scope)
+    result = evaluate_final(policy, scope=scope, rows=rows)
+    assert scoring._evaluate_final_ledger(policy, scope=scope, rows=rows) == result
     payload = json.loads(result.canonical_result_json)
     assert result.status == "passed"
     assert {cell["target"] for cell in payload["cells"]} == {
